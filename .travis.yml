@@ -13,4 +13,4 @@ script:
   - git checkout master
   - mailman-fetch -v https://mail.python.org/pipermail/python-committers/ ./
   - git add *.txt
-  - '[ -n "$(git diff --cached --name-only)" ] && git commit -m "update" && git push git@github.com:JulienPalard/python-committers-archives.git'
+  - '[ -n "$(git diff --cached --name-only)" ] && git commit -m "update" && git push git@github.com:JulienPalard/python-committers-archives.git' || :

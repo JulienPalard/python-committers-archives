@@ -1,0 +1,1522 @@
+From brett at python.org  Thu Jun  2 14:26:34 2016
+From: brett at python.org (Brett Cannon)
+Date: Thu, 02 Jun 2016 18:26:34 +0000
+Subject: [python-committers] Promote Xavier de Gaye as a core developer
+In-Reply-To: <CAMpsgwbDpPBvLc-PC8TCKpb8PD+mAbHJEuk8q_Q3=XtQLPfr2Q@mail.gmail.com>
+References: <CAMpsgwY4hsnRB27wBWwucnCSUvT=R6tQcO0KUT8Q6fUqFaG=gQ@mail.gmail.com>
+ <loom.20160522T114020-65@post.gmane.org>
+ <CAMpsgwZP7AD=+cfgph1NxUtSpnSKJLHqE7oETX8QHj0mg+Ui0A@mail.gmail.com>
+ <CAMpsgwbDpPBvLc-PC8TCKpb8PD+mAbHJEuk8q_Q3=XtQLPfr2Q@mail.gmail.com>
+Message-ID: <CAP1=2W5UE7+5-Pxz=-3BPKUGfzyAi2mTmiHpMa7nWV1ES3gjGw@mail.gmail.com>
+
+On Tue, 31 May 2016 at 05:47 Victor Stinner <victor.stinner at gmail.com>
+wrote:
+
+> 2016-05-22 14:23 GMT+02:00 Victor Stinner <victor.stinner at gmail.com>:
+> > Cool, already three +1 (ignoring my own +1). I will wait until friday
+> > to give time to other to give their opinion on Xavier's promotion.
+>
+> I counted 5 positive votes:
+>
+> * Victor Stinner
+> * Zachary Ware
+> * Georg Brandl
+> * Stefan Krah
+> * R. David Murray
+>
+> and no negative votes, so I consider that the result is that we all
+> want Xavier! ;-)
+>
+> > I'm now also reading https://docs.python.org/devguide/coredev.html to
+> > see the next steps ;-)
+>
+> I will send an email to Xavier to ask him for his SSH key and I will
+> see how to subscribe him to this mailing list.
+
+
+   1. Have him send me his preferred email address for python-committers
+   2. Make sure he has his github username listed on bugs.python.org
+   3. Email hgaccounts at python.org with his SSH keys and his bugs.python.org
+   username
+   4. Commit stuff! :)
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20160602/4093d897/attachment.html>
+
+From antoine at python.org  Thu Jun  2 14:32:17 2016
+From: antoine at python.org (Antoine Pitrou)
+Date: Thu, 2 Jun 2016 20:32:17 +0200
+Subject: [python-committers] Promote Xavier de Gaye as a core developer
+In-Reply-To: <CAP1=2W5UE7+5-Pxz=-3BPKUGfzyAi2mTmiHpMa7nWV1ES3gjGw@mail.gmail.com>
+References: <CAMpsgwY4hsnRB27wBWwucnCSUvT=R6tQcO0KUT8Q6fUqFaG=gQ@mail.gmail.com>
+ <loom.20160522T114020-65@post.gmane.org>
+ <CAMpsgwZP7AD=+cfgph1NxUtSpnSKJLHqE7oETX8QHj0mg+Ui0A@mail.gmail.com>
+ <CAMpsgwbDpPBvLc-PC8TCKpb8PD+mAbHJEuk8q_Q3=XtQLPfr2Q@mail.gmail.com>
+ <CAP1=2W5UE7+5-Pxz=-3BPKUGfzyAi2mTmiHpMa7nWV1ES3gjGw@mail.gmail.com>
+Message-ID: <57507BB1.7080701@python.org>
+
+
+Le 02/06/2016 20:26, Brett Cannon a ?crit :
+> 
+>  1. Have him send me his preferred email address for python-committers
+>  2. Make sure he has his github username listed on bugs.python.org
+>     <http://bugs.python.org>
+>  3. Email hgaccounts at python.org <mailto:hgaccounts at python.org> with his
+>     SSH keys and his bugs.python.org <http://bugs.python.org> username
+>  4. Commit stuff! :)
+
+You forgot:
+
+  5. Try to deal with the buildbot breakage ensuing the commits
+
+though that's perhaps better left as a delicious surprise for the
+fledgling committer ;-)
+
+Regards
+
+Antoine.
+
+From victor.stinner at gmail.com  Fri Jun  3 03:16:57 2016
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Fri, 3 Jun 2016 09:16:57 +0200
+Subject: [python-committers] Promote Xavier de Gaye as a core developer
+In-Reply-To: <57507BB1.7080701@python.org>
+References: <CAMpsgwY4hsnRB27wBWwucnCSUvT=R6tQcO0KUT8Q6fUqFaG=gQ@mail.gmail.com>
+ <loom.20160522T114020-65@post.gmane.org>
+ <CAMpsgwZP7AD=+cfgph1NxUtSpnSKJLHqE7oETX8QHj0mg+Ui0A@mail.gmail.com>
+ <CAMpsgwbDpPBvLc-PC8TCKpb8PD+mAbHJEuk8q_Q3=XtQLPfr2Q@mail.gmail.com>
+ <CAP1=2W5UE7+5-Pxz=-3BPKUGfzyAi2mTmiHpMa7nWV1ES3gjGw@mail.gmail.com>
+ <57507BB1.7080701@python.org>
+Message-ID: <CAMpsgwbpjypibqN-E=YXURmG2qNzA2iYDWess8WFKF7YNoCHPQ@mail.gmail.com>
+
+Le 2 juin 2016 20:32, "Antoine Pitrou" <antoine at python.org> a ?crit :
+>
+>
+> Le 02/06/2016 20:26, Brett Cannon a ?crit :
+> >
+> >  1. Have him send me his preferred email address for python-committers
+> >  2. Make sure he has his github username listed on bugs.python.org
+> >     <http://bugs.python.org>
+> >  3. Email hgaccounts at python.org <mailto:hgaccounts at python.org> with his
+> >     SSH keys and his bugs.python.org <http://bugs.python.org> username
+> >  4. Commit stuff! :)
+>
+> You forgot:
+>
+>   5. Try to deal with the buildbot breakage ensuing the commits
+>
+> though that's perhaps better left as a delicious surprise for the
+> fledgling committer ;-)
+
+I will help Xavier for his first contributions. As I wrote, I proposed to
+be his mentor at the beginning.
+
+Victor
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20160603/cc825bfe/attachment.html>
+
+From rdmurray at bitdance.com  Fri Jun  3 17:50:29 2016
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Fri, 03 Jun 2016 17:50:29 -0400
+Subject: [python-committers] I broke the 3.5 branch, apparently
+Message-ID: <20160603215031.E2C37B14024@webabinitio.net>
+
+I don't understand how it happened, but apparently I got a merge commit
+backward and merged 3.6 into 3.5 and pushed it without realizing what
+had happened.  If anyone has any clue how to reverse this cleanly,
+please let me know.  (There are a couple people at the sprints looking
+in to it, but the mercurial guys aren't here so we are short on experts).
+
+My apologies for the mess :(
+
+--David
+
+From jcea at jcea.es  Fri Jun  3 22:32:37 2016
+From: jcea at jcea.es (Jesus Cea)
+Date: Sat, 4 Jun 2016 04:32:37 +0200
+Subject: [python-committers] I broke the 3.5 branch, apparently
+In-Reply-To: <20160603215031.E2C37B14024@webabinitio.net>
+References: <20160603215031.E2C37B14024@webabinitio.net>
+Message-ID: <e3af6085-7b74-3277-e2a4-1b39e14c09e6@jcea.es>
+
+On 03/06/16 23:50, R. David Murray wrote:
+> I don't understand how it happened, but apparently I got a merge commit
+> backward and merged 3.6 into 3.5 and pushed it without realizing what
+> had happened.  If anyone has any clue how to reverse this cleanly,
+> please let me know.  (There are a couple people at the sprints looking
+> in to it, but the mercurial guys aren't here so we are short on experts).
+
+Bed time in Spain (hours ago, actually), but I think you could just
+"rollback" the merge commit with a regular "hg help revert" or "hg help
+backout".
+
+
+-- 
+Jes?s Cea Avi?n                         _/_/      _/_/_/        _/_/_/
+jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+Twitter: @jcea                        _/_/    _/_/          _/_/_/_/_/
+jabber / xmpp:jcea at jabber.org  _/_/  _/_/    _/_/          _/_/  _/_/
+"Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+"My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+"El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 473 bytes
+Desc: OpenPGP digital signature
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20160604/1dd0afa6/attachment.sig>
+
+From guido at python.org  Fri Jun  3 23:39:55 2016
+From: guido at python.org (Guido van Rossum)
+Date: Fri, 3 Jun 2016 20:39:55 -0700
+Subject: [python-committers] I broke the 3.5 branch, apparently
+In-Reply-To: <e3af6085-7b74-3277-e2a4-1b39e14c09e6@jcea.es>
+References: <20160603215031.E2C37B14024@webabinitio.net>
+ <e3af6085-7b74-3277-e2a4-1b39e14c09e6@jcea.es>
+Message-ID: <CAP7+vJLRFOe7OSYeeVytX+tYoUa_kKEt2JQvTb+h-Yi0UEmhXg@mail.gmail.com>
+
+According to the logs it's been fixed.
+
+On Fri, Jun 3, 2016 at 7:32 PM, Jesus Cea <jcea at jcea.es> wrote:
+> On 03/06/16 23:50, R. David Murray wrote:
+>> I don't understand how it happened, but apparently I got a merge commit
+>> backward and merged 3.6 into 3.5 and pushed it without realizing what
+>> had happened.  If anyone has any clue how to reverse this cleanly,
+>> please let me know.  (There are a couple people at the sprints looking
+>> in to it, but the mercurial guys aren't here so we are short on experts).
+>
+> Bed time in Spain (hours ago, actually), but I think you could just
+> "rollback" the merge commit with a regular "hg help revert" or "hg help
+> backout".
+>
+>
+> --
+> Jes?s Cea Avi?n                         _/_/      _/_/_/        _/_/_/
+> jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+> Twitter: @jcea                        _/_/    _/_/          _/_/_/_/_/
+> jabber / xmpp:jcea at jabber.org  _/_/  _/_/    _/_/          _/_/  _/_/
+> "Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+> "My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+> "El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+>
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+
+
+
+-- 
+--Guido van Rossum (python.org/~guido)
+
+From larry at hastings.org  Sat Jun  4 17:13:37 2016
+From: larry at hastings.org (Larry Hastings)
+Date: Sat, 4 Jun 2016 14:13:37 -0700
+Subject: [python-committers] I broke the 3.5 branch, apparently
+In-Reply-To: <20160603215031.E2C37B14024@webabinitio.net>
+References: <20160603215031.E2C37B14024@webabinitio.net>
+Message-ID: <57534481.20701@hastings.org>
+
+
+
+On 06/03/2016 02:50 PM, R. David Murray wrote:
+> (There are a couple people at the sprints looking
+> in to it, but the mercurial guys aren't here so we are short on experts).
+
+For future reference: #mercurial on freenode IRC.  There's always 
+someone in there and they're glad to help out with stuff like this.
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20160604/b0c2c643/attachment.html>
+
+From ethan at stoneleaf.us  Mon Jun  6 12:41:03 2016
+From: ethan at stoneleaf.us (Ethan Furman)
+Date: Mon, 06 Jun 2016 09:41:03 -0700
+Subject: [python-committers] bugs.python.org, job status,
+ and contributors (aka not core devs)
+Message-ID: <5755A79F.9030500@stoneleaf.us>
+
+Question:  I noticed a couple issues on b.p.o that were being closed by 
+contributors (not core-devs, not their own issues).
+
+Should non-core-devs be closing issues that do not belong to them?
+
+--
+~Ethan~
+
+From brett at python.org  Mon Jun  6 13:17:09 2016
+From: brett at python.org (Brett Cannon)
+Date: Mon, 06 Jun 2016 17:17:09 +0000
+Subject: [python-committers] bugs.python.org, job status,
+ and contributors (aka not core devs)
+In-Reply-To: <5755A79F.9030500@stoneleaf.us>
+References: <5755A79F.9030500@stoneleaf.us>
+Message-ID: <CAP1=2W4Gn-E2PRY-_2RPiPBB52aHB_ujr14t-q6M=Zsm7-aqiQ@mail.gmail.com>
+
+Some non-core devs have elevated privileges on the tracker to help with
+issue triage.
+
+On Mon, Jun 6, 2016, 09:40 Ethan Furman <ethan at stoneleaf.us> wrote:
+
+> Question:  I noticed a couple issues on b.p.o that were being closed by
+> contributors (not core-devs, not their own issues).
+>
+> Should non-core-devs be closing issues that do not belong to them?
+>
+> --
+> ~Ethan~
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20160606/98292891/attachment.html>
+
+From berker.peksag at gmail.com  Mon Jun  6 13:25:22 2016
+From: berker.peksag at gmail.com (=?UTF-8?Q?Berker_Peksa=C4=9F?=)
+Date: Mon, 6 Jun 2016 20:25:22 +0300
+Subject: [python-committers] bugs.python.org, job status,
+ and contributors (aka not core devs)
+In-Reply-To: <5755A79F.9030500@stoneleaf.us>
+References: <5755A79F.9030500@stoneleaf.us>
+Message-ID: <CAF4280Kb==hia+Nzgemqk8rWfC_+CX7keN0Hh4stygpnukez3A@mail.gmail.com>
+
+On Mon, Jun 6, 2016 at 7:41 PM, Ethan Furman <ethan at stoneleaf.us> wrote:
+> Question:  I noticed a couple issues on b.p.o that were being closed by
+> contributors (not core-devs, not their own issues).
+>
+> Should non-core-devs be closing issues that do not belong to them?
+
+Yes, but they should provide enough information (commit hash, issue
+number etc.) about their reasons to close those issues.
+
+Also slightly off-topic, but we should be more transparent about
+giving people triage rights on the tracker. I'm seeing some unknown
+people (at least they are unknown to me) who assign issues to
+themselves without knowing what the field is about.
+
+--Berker
+
+From ethan at stoneleaf.us  Mon Jun  6 13:28:04 2016
+From: ethan at stoneleaf.us (Ethan Furman)
+Date: Mon, 06 Jun 2016 10:28:04 -0700
+Subject: [python-committers] bugs.python.org, job status,
+ and contributors (aka not core devs)
+In-Reply-To: <CAP1=2W4Gn-E2PRY-_2RPiPBB52aHB_ujr14t-q6M=Zsm7-aqiQ@mail.gmail.com>
+References: <5755A79F.9030500@stoneleaf.us>
+ <CAP1=2W4Gn-E2PRY-_2RPiPBB52aHB_ujr14t-q6M=Zsm7-aqiQ@mail.gmail.com>
+Message-ID: <5755B2A4.3080804@stoneleaf.us>
+
+On 06/06/2016 10:17 AM, Brett Cannon wrote:
+
+> Some non-core devs have elevated privileges on the tracker to help with
+> issue triage.
+
+So if they can, they've been granted the privilege?  Cool.
+
+--
+~Ethan~
+
+
+From tjreedy at udel.edu  Mon Jun  6 13:56:25 2016
+From: tjreedy at udel.edu (Terry Reedy)
+Date: Mon, 06 Jun 2016 13:56:25 -0400
+Subject: [python-committers] bugs.python.org, job status,
+ and contributors (aka not core devs)
+In-Reply-To: <CAP1=2W4Gn-E2PRY-_2RPiPBB52aHB_ujr14t-q6M=Zsm7-aqiQ@mail.gmail.com>
+References: <5755A79F.9030500@stoneleaf.us>
+ <CAP1=2W4Gn-E2PRY-_2RPiPBB52aHB_ujr14t-q6M=Zsm7-aqiQ@mail.gmail.com>
+Message-ID: <293dcf25-4a69-04e0-a070-75f8bbcd3666@udel.edu>
+
+ > On Mon, Jun 6, 2016, 09:40 Ethan Furman <ethan at stoneleaf.us
+ > <mailto:ethan at stoneleaf.us>> wrote:
+ >
+ >>  Question:  I noticed a couple issues on b.p.o that were being
+ >> closed by contributors (not core-devs, not their own issues).
+
+ >> Should non-core-devs be closing issues that do not belong to them?
+
+On 6/6/2016 1:17 PM, Brett Cannon wrote:
+> Some non-core devs have elevated privileges on the tracker to help with
+> issue triage.
+
+I believe that only originators, coredevs, and triagers can close, but 
+not random others.  I was a triager before being promoted.
+
+I have wondered whether triagers should have a symbol after their name 
+-- perhaps &.
+
+tjr
+
+
+From rdmurray at bitdance.com  Mon Jun  6 15:00:39 2016
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Mon, 06 Jun 2016 15:00:39 -0400
+Subject: [python-committers] bugs.python.org, job status,
+ and contributors (aka not core devs)
+In-Reply-To: <CAF4280Kb==hia+Nzgemqk8rWfC_+CX7keN0Hh4stygpnukez3A@mail.gmail.com>
+References: <5755A79F.9030500@stoneleaf.us>
+ <CAF4280Kb==hia+Nzgemqk8rWfC_+CX7keN0Hh4stygpnukez3A@mail.gmail.com>
+Message-ID: <20160606190040.BE5E9B14027@webabinitio.net>
+
+On Mon, 06 Jun 2016 20:25:22 +0300, =?UTF-8?Q?Berker_Peksa=C4=9F?= <berker.peksag at gmail.com> wrote:
+> On Mon, Jun 6, 2016 at 7:41 PM, Ethan Furman <ethan at stoneleaf.us> wrote:
+> > Question:  I noticed a couple issues on b.p.o that were being closed by
+> > contributors (not core-devs, not their own issues).
+> >
+> > Should non-core-devs be closing issues that do not belong to them?
+> 
+> Yes, but they should provide enough information (commit hash, issue
+> number etc.) about their reasons to close those issues.
+
+Right.  In general though when one is closing an issue there isn't a
+commit hash to note unless that has already been noted by the commit
+bot, in which case it is likely to be a core dev doing the close since
+they did the commit.  An issue number would be cited in the case of
+a duplicate, yes.  There are other reasons to do a close, and those
+reasons should be stated clearly in an accompanying comment.  That
+goes for core devs as well as triage people, obviously :)
+
+I'm assuming here that you are amplifying that non-committers can close,
+not that you are saying that there are some who are not commenting on
+why they are doing the close.
+
+> Also slightly off-topic, but we should be more transparent about
+> giving people triage rights on the tracker. I'm seeing some unknown
+> people (at least they are unknown to me) who assign issues to
+> themselves without knowing what the field is about.
+
+Some while back we made the decision to be fairly liberal in handing out
+tracker privs for triage.  If there are people who are not following the
+devguide with regards to triage, let us know here and we can discuss it
+and mentor them.  Triage privs can only be given out by some core devs,
+so you can find out who and why by posting here.  Well, unless it is
+someone from long enough ago that we've all forgotten about them :)
+
+We've talked about having a 'triage capable' symbol to go with our
+core dev and contributer agreement symbols, but no one has implemented
+it yet.
+
+--David
+
+From ncoghlan at gmail.com  Tue Jun  7 14:47:38 2016
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Tue, 7 Jun 2016 11:47:38 -0700
+Subject: [python-committers] bugs.python.org, job status,
+ and contributors (aka not core devs)
+In-Reply-To: <20160606190040.BE5E9B14027@webabinitio.net>
+References: <5755A79F.9030500@stoneleaf.us>
+ <CAF4280Kb==hia+Nzgemqk8rWfC_+CX7keN0Hh4stygpnukez3A@mail.gmail.com>
+ <20160606190040.BE5E9B14027@webabinitio.net>
+Message-ID: <CADiSq7fCHL4YoPgbmA2txU0nSs0yMzhQHReVxYN8_o9Jxx_4TQ@mail.gmail.com>
+
+On 6 June 2016 at 12:00, R. David Murray <rdmurray at bitdance.com> wrote:
+> On Mon, 06 Jun 2016 20:25:22 +0300, =?UTF-8?Q?Berker_Peksa=C4=9F?= <berker.peksag at gmail.com> wrote:
+>> Also slightly off-topic, but we should be more transparent about
+>> giving people triage rights on the tracker. I'm seeing some unknown
+>> people (at least they are unknown to me) who assign issues to
+>> themselves without knowing what the field is about.
+>
+> Some while back we made the decision to be fairly liberal in handing out
+> tracker privs for triage.  If there are people who are not following the
+> devguide with regards to triage, let us know here and we can discuss it
+> and mentor them.  Triage privs can only be given out by some core devs,
+> so you can find out who and why by posting here.  Well, unless it is
+> someone from long enough ago that we've all forgotten about them :)
+
+In the early days of the developer log, elevated issue tracker
+permissions were recorded in addition to CVS commit access:
+https://docs.python.org/devguide/developers.html
+
+Perhaps it would make sense to start doing that again, including
+backfilling the list of current triagers? (even if we don't have
+precise dates)
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+
+From berker.peksag at gmail.com  Thu Jun  9 01:49:45 2016
+From: berker.peksag at gmail.com (=?UTF-8?Q?Berker_Peksa=C4=9F?=)
+Date: Thu, 9 Jun 2016 08:49:45 +0300
+Subject: [python-committers] bugs.python.org, job status,
+ and contributors (aka not core devs)
+In-Reply-To: <20160606190040.BE5E9B14027@webabinitio.net>
+References: <5755A79F.9030500@stoneleaf.us>
+ <CAF4280Kb==hia+Nzgemqk8rWfC_+CX7keN0Hh4stygpnukez3A@mail.gmail.com>
+ <20160606190040.BE5E9B14027@webabinitio.net>
+Message-ID: <CAF4280LCm82MsGk5h9z6i4GiPZE08tOd0b8Q5WJnJ8od+3SzUA@mail.gmail.com>
+
+On Mon, Jun 6, 2016 at 10:00 PM, R. David Murray <rdmurray at bitdance.com> wrote:
+> We've talked about having a 'triage capable' symbol to go with our
+> core dev and contributer agreement symbols, but no one has implemented
+> it yet.
+
+I'm a complete Roundup newbie but I have attached a patch at
+http://psf.upfronthosting.co.za/roundup/meta/issue593 :)
+
+--Berker
+
+From nad at python.org  Fri Jun 10 18:23:36 2016
+From: nad at python.org (Ned Deily)
+Date: Fri, 10 Jun 2016 18:23:36 -0400
+Subject: [python-committers] Reminder: 3.6.0a2 snapshot 2016-06-13 12:00 UTC
+Message-ID: <23B6CAA5-6E07-4F2B-898F-B9EABF8E9BD0@python.org>
+
+Just a quick reminder that the next alpha snapshot for the 3.6 release cycle is coming up in a couple of days.  This is the second of four alphas we have planned.  Alpha 2 follows the development sprints at the PyCon US 2016 in Portland.  Thanks to all of you who were able to be there and contribute!  And to all of you who continue to contribue from afar.  While there are still plenty of proposed patches awaiting review, nearly 300 commits have been pushed to the default branch (for 3.6.0) in the four weeks since alpha 1. 
+
+As a reminder, alpha releases are intended to make it easier for the wider community to test the current state of new features and bug fixes for an upcoming Python release as a whole and for us to test the release process.  During the alpha phase, features may be added, modified, or deleted up until the start of the beta phase.  Alpha users beware!
+
+Also note that Larry has announced plans to do a 3.5.2 release candidate sometime this weekend and Benjamin plans to do a 2.7.12 release candidate.  So get important maintenance release fixes in ASAP.
+
+Looking ahead, the next alpha release, 3.6.0a3, will follow in about a month on 2016-07-11.
+
+2016-06-13 ~12:00 UTC: code snapshot for 3.6.0 alpha 1
+
+now to 2016-09-07: Alpha phase (unrestricted feature development)
+
+2016-09-07: 3.6.0 feature code freeze, 3.7.0 feature development begins
+
+2016-09-07 to 2016-12-04: 3.6.0 beta phase (bug and regression fixes, no new features)
+
+2016-12-04 3.6.0 release candidate 1 (3.6.0 code freeze)
+
+2016-12-16 3.6.0 release (3.6.0rc1 plus, if necessary, any dire emergency fixes)
+
+--Ned
+
+P.S. Just to be clear, this upcoming alpha snapshot will *not* contain a resolution for 3.6.0 of the current on-going discussions about the behavior of os.urandom(), the secrets module, and friends (Issue26839, Issue27288, et al).  I think the focus should be on getting 3.5.2 settled and then we can decide on and implement any changes for 3.6.0 in an upcoming alpha prior to beta 1.
+
+https://www.python.org/dev/peps/pep-0494/
+
+--
+  Ned Deily
+  nad at python.org -- []
+
+
+From larry at hastings.org  Sun Jun 12 20:24:22 2016
+From: larry at hastings.org (Larry Hastings)
+Date: Sun, 12 Jun 2016 17:24:22 -0700
+Subject: [python-committers] bugs.python.org, job status,
+ and contributors (aka not core devs)
+In-Reply-To: <293dcf25-4a69-04e0-a070-75f8bbcd3666@udel.edu>
+References: <5755A79F.9030500@stoneleaf.us>
+ <CAP1=2W4Gn-E2PRY-_2RPiPBB52aHB_ujr14t-q6M=Zsm7-aqiQ@mail.gmail.com>
+ <293dcf25-4a69-04e0-a070-75f8bbcd3666@udel.edu>
+Message-ID: <575DFD36.1050506@hastings.org>
+
+On 06/06/2016 10:56 AM, Terry Reedy wrote:
+> I have wondered whether triagers should have a symbol after their name 
+> -- perhaps &.
+
+I smell an assumption of ASCII, when presumably all of Unicode lay open 
+at our feet.
+
+Let the bikeshedding begin!,
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20160612/9caef1e8/attachment.html>
+
+From tjreedy at udel.edu  Sun Jun 12 23:14:57 2016
+From: tjreedy at udel.edu (Terry Reedy)
+Date: Sun, 12 Jun 2016 23:14:57 -0400
+Subject: [python-committers] bugs.python.org, job status,
+ and contributors (aka not core devs)
+In-Reply-To: <575DFD36.1050506@hastings.org>
+References: <5755A79F.9030500@stoneleaf.us>
+ <CAP1=2W4Gn-E2PRY-_2RPiPBB52aHB_ujr14t-q6M=Zsm7-aqiQ@mail.gmail.com>
+ <293dcf25-4a69-04e0-a070-75f8bbcd3666@udel.edu>
+ <575DFD36.1050506@hastings.org>
+Message-ID: <07c8d2b7-3067-dd74-1801-7fc001ef3867@udel.edu>
+
+On 6/12/2016 8:24 PM, Larry Hastings wrote:
+> On 06/06/2016 10:56 AM, Terry Reedy wrote:
+>> I have wondered whether triagers should have a symbol after their name
+>> -- perhaps &.
+>
+> I smell an assumption of ASCII,
+
+Unconscious, but yes.
+
+> when presumably all of Unicode lay open at our feet.
+
+Agree. There is a green snake.  Not sure if all the main browsers can 
+display it, but easy enough to check.  The bugs maintainers can decide.
+
+tjr
+
+
+
+From larry at hastings.org  Sun Jun 12 23:16:12 2016
+From: larry at hastings.org (Larry Hastings)
+Date: Sun, 12 Jun 2016 20:16:12 -0700
+Subject: [python-committers] [RELEASED] Python 3.4.5rc1 and Python 3.5.2rc1
+ are now available
+Message-ID: <575E257C.5020808@hastings.org>
+
+
+On behalf of the Python development community and the Python 3.4 and 
+Python 3.5 release teams, I'm pleased to announce the availability of 
+Python 3.4.5rc1 and Python 3.5.2rc1.
+
+Python 3.4 is now in "security fixes only" mode.  This is the final 
+stage of support for Python 3.4.  All changes made to Python 3.4 since 
+Python 3.4.4 should be security fixes only; conventional bug fixes are 
+not accepted.  Also, Python 3.4.5rc1 and all future releases of Python 
+3.4 will only be released as source code--no official binary installers 
+will be produced.
+
+Python 3.5 is still in active "bug fix" mode.  Python 3.5.2rc1 contains 
+many incremental improvements over Python 3.5.1.
+
+Both these releases are "release candidates".  They should not be 
+considered the final releases, although the final releases should 
+contain only minor differences.  Python users are encouraged to test 
+with these releases and report any problems they encounter.
+
+
+You can find Python 3.4.5rc1 here:
+
+    https://www.python.org/downloads/release/python-345rc1/
+
+And you can find Python 3.5.2rc1 here:
+
+    https://www.python.org/downloads/release/python-352rc1/ 
+
+
+
+Python 3.4.5 final and Python 3.5.2 final are both scheduled for release 
+on June 26th, 2016.
+
+Happy Pythoneering,
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20160612/6c12fdb5/attachment.html>
+
+From nad at python.org  Mon Jun 13 12:43:02 2016
+From: nad at python.org (Ned Deily)
+Date: Mon, 13 Jun 2016 12:43:02 -0400
+Subject: [python-committers] Hold off on 3.5 pushes for the moment
+Message-ID: <16655CFC-C1D9-4B04-A2F4-634AE4A79503@python.org>
+
+It looks like there's a little bit of merging cleanup that needs to be done following the 3.4.0rc1 and 3.5.0rc1 tagging and releasing.  Until Larry has a chance to take care of it, it would be best to hold off pushing things to the 3.5 (or 3.4 security) branches.
+
+Thanks!
+--Ned
+
+--
+  Ned Deily
+  nad at python.org -- []
+
+
+From nad at python.org  Mon Jun 13 17:33:09 2016
+From: nad at python.org (Ned Deily)
+Date: Mon, 13 Jun 2016 17:33:09 -0400
+Subject: [python-committers] Hold off on 3.5 pushes for the moment
+In-Reply-To: <16655CFC-C1D9-4B04-A2F4-634AE4A79503@python.org>
+References: <16655CFC-C1D9-4B04-A2F4-634AE4A79503@python.org>
+Message-ID: <38174495-2686-47AC-9EFE-4D0632847B31@python.org>
+
+On Jun 13, 2016, at 12:43, Ned Deily <nad at python.org> wrote:
+> It looks like there's a little bit of merging cleanup that needs to be done following the 3.4.0rc1 and 3.5.0rc1 tagging and releasing.
+
+All fixed up: merge away!
+
+P.S. 3.6.0a2 should be appearing real soon now.
+
+--
+  Ned Deily
+  nad at python.org -- []
+
+
+From nad at python.org  Mon Jun 13 23:57:02 2016
+From: nad at python.org (Ned Deily)
+Date: Mon, 13 Jun 2016 23:57:02 -0400
+Subject: [python-committers] Python 3.6.0a2 is now available
+Message-ID: <D8EAD32E-506D-4594-8831-A693EC048CE7@python.org>
+
+On behalf of the Python development community and the Python 3.6 release
+team, I'm happy to announce the availability of Python 3.6.0a2.
+3.6.0a2 is the first of four planned alpha releases of Python 3.6,
+the next major release of Python.  During the alpha phase, Python 3.6
+remains under heavy development: additional features will be added
+and existing features may be modified or deleted.  Please keep in mind
+that this is a preview release and its use is not recommended for
+production environments.
+
+You can find Python 3.6.0a2 here:
+
+https://www.python.org/downloads/release/python-360a2/ 
+
+The next release of Python 3.6 will be 3.6.0a3, currently scheduled for
+2016-07-11.
+
+Enjoy!
+
+--Ned
+
+--
+  Ned Deily
+  nad at python.org -- []
+
+
+From brett at python.org  Wed Jun 15 16:42:19 2016
+From: brett at python.org (Brett Cannon)
+Date: Wed, 15 Jun 2016 20:42:19 +0000
+Subject: [python-committers] Please do not commit to the peps repo
+Message-ID: <CAP1=2W7o8GTqBfRs=-8mXJ=xBMSQZzcg4ZQHp93xg2AoE6MjeQ@mail.gmail.com>
+
+We will begin the migration process in about an hour. Once it's over and
+everything is set I'll email again and give the all clear to start using
+https://github.com/python/peps instead of hg.python.org/peps.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20160615/1c82ab0f/attachment.html>
+
+From brett at python.org  Wed Jun 15 18:42:53 2016
+From: brett at python.org (Brett Cannon)
+Date: Wed, 15 Jun 2016 22:42:53 +0000
+Subject: [python-committers] The peps repo is now on GitHub!
+Message-ID: <CAP1=2W4jj5dJeuEfgpfrLypjJG2qc4-MFp93zuJNt4CQc+Q5NQ@mail.gmail.com>
+
+I don't think anything has fallen over, so I'm calling this a successful
+migration! The peps repo is now https://github.com/python/peps .
+
+I have given the Python core team on GitHub write access to the repository
+so people can add/update their own PEPs. There is also an issue tracker
+there, seeded with some enhancements we could make to have the PEPs be
+nicer to work with.
+
+I should also mention that the CLA bot is turned on for this repo as per
+our lawyer's advice, so people will need to have signed the CLA and have
+their GitHub username associated with their bugs.python.org account to have
+their pull request cleared for acceptance.
+
+And can someone delete hg.python.org/peps?
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20160615/ecf38747/attachment.html>
+
+From mal at egenix.com  Wed Jun 15 18:48:59 2016
+From: mal at egenix.com (M.-A. Lemburg)
+Date: Thu, 16 Jun 2016 00:48:59 +0200
+Subject: [python-committers] The peps repo is now on GitHub!
+In-Reply-To: <CAP1=2W4jj5dJeuEfgpfrLypjJG2qc4-MFp93zuJNt4CQc+Q5NQ@mail.gmail.com>
+References: <CAP1=2W4jj5dJeuEfgpfrLypjJG2qc4-MFp93zuJNt4CQc+Q5NQ@mail.gmail.com>
+Message-ID: <5761DB5B.7010505@egenix.com>
+
+On 16.06.2016 00:42, Brett Cannon wrote:
+> I don't think anything has fallen over, so I'm calling this a successful
+> migration! The peps repo is now https://github.com/python/peps .
+
+Thanks for putting so much hard work into this !
+
+> I have given the Python core team on GitHub write access to the repository
+> so people can add/update their own PEPs. There is also an issue tracker
+> there, seeded with some enhancements we could make to have the PEPs be
+> nicer to work with.
+> 
+> I should also mention that the CLA bot is turned on for this repo as per
+> our lawyer's advice, so people will need to have signed the CLA and have
+> their GitHub username associated with their bugs.python.org account to have
+> their pull request cleared for acceptance.
+
+This part is a bit weird: Most PEPs are in the public domain,
+so why should we need a CLA for contributing to PEPs ?
+
+> And can someone delete hg.python.org/peps?
+
+Hmm, isn't it better to make this read-only to avoid breaking links
+to it ?
+
+-- 
+Marc-Andre Lemburg
+eGenix.com
+
+Professional Python Services directly from the Experts (#1, Jun 16 2016)
+>>> Python Projects, Coaching and Consulting ...  http://www.egenix.com/
+>>> Python Database Interfaces ...           http://products.egenix.com/
+>>> Plone/Zope Database Interfaces ...           http://zope.egenix.com/
+________________________________________________________________________
+
+::: We implement business ideas - efficiently in both time and costs :::
+
+   eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+    D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+           Registered at Amtsgericht Duesseldorf: HRB 46611
+               http://www.egenix.com/company/contact/
+                      http://www.malemburg.com/
+
+
+From brett at python.org  Wed Jun 15 18:54:57 2016
+From: brett at python.org (Brett Cannon)
+Date: Wed, 15 Jun 2016 22:54:57 +0000
+Subject: [python-committers] The peps repo is now on GitHub!
+In-Reply-To: <5761DB5B.7010505@egenix.com>
+References: <CAP1=2W4jj5dJeuEfgpfrLypjJG2qc4-MFp93zuJNt4CQc+Q5NQ@mail.gmail.com>
+ <5761DB5B.7010505@egenix.com>
+Message-ID: <CAP1=2W61yMFmsJyu6ekDA2DtonuA7t5ocS0Z65X9j2E+Z-hfnw@mail.gmail.com>
+
+On Wed, 15 Jun 2016 at 15:49 M.-A. Lemburg <mal at egenix.com> wrote:
+
+> On 16.06.2016 00:42, Brett Cannon wrote:
+> > I don't think anything has fallen over, so I'm calling this a successful
+> > migration! The peps repo is now https://github.com/python/peps .
+>
+> Thanks for putting so much hard work into this !
+>
+
+Welcome!
+
+
+>
+> > I have given the Python core team on GitHub write access to the
+> repository
+> > so people can add/update their own PEPs. There is also an issue tracker
+> > there, seeded with some enhancements we could make to have the PEPs be
+> > nicer to work with.
+> >
+> > I should also mention that the CLA bot is turned on for this repo as per
+> > our lawyer's advice, so people will need to have signed the CLA and have
+> > their GitHub username associated with their bugs.python.org account to
+> have
+> > their pull request cleared for acceptance.
+>
+> This part is a bit weird: Most PEPs are in the public domain,
+> so why should we need a CLA for contributing to PEPs ?
+>
+
+Van explicitly told me that contributions to PEPs should be covered by the
+CLA. IANAL so I'm not going to guess as to why we need to do this.
+
+
+>
+> > And can someone delete hg.python.org/peps?
+>
+> Hmm, isn't it better to make this read-only to avoid breaking links
+> to it ?
+>
+
+If you want. My only worry is people forgoing GitHub and sending us
+outdated patches. But if people want it left up for now we can (I can't
+guarantee we will keep hg.python.org around forever, though). As long as
+people can't commit to the peps repo that's the most critical thing in the
+short-term.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20160615/9468c65b/attachment.html>
+
+From mal at egenix.com  Wed Jun 15 18:55:29 2016
+From: mal at egenix.com (M.-A. Lemburg)
+Date: Thu, 16 Jun 2016 00:55:29 +0200
+Subject: [python-committers] The peps repo is now on GitHub!
+In-Reply-To: <5761DB5B.7010505@egenix.com>
+References: <CAP1=2W4jj5dJeuEfgpfrLypjJG2qc4-MFp93zuJNt4CQc+Q5NQ@mail.gmail.com>
+ <5761DB5B.7010505@egenix.com>
+Message-ID: <5761DCE1.70602@egenix.com>
+
+On 16.06.2016 00:48, M.-A. Lemburg wrote:
+> On 16.06.2016 00:42, Brett Cannon wrote:
+>> I don't think anything has fallen over, so I'm calling this a successful
+>> migration! The peps repo is now https://github.com/python/peps .
+> 
+> Thanks for putting so much hard work into this !
+
+BTW: Is it ok to push directly into the PEP repo or should we
+(as PEP authors) always go through PRs which we then merge into
+the repo ?
+
+-- 
+Marc-Andre Lemburg
+eGenix.com
+
+Professional Python Services directly from the Experts (#1, Jun 16 2016)
+>>> Python Projects, Coaching and Consulting ...  http://www.egenix.com/
+>>> Python Database Interfaces ...           http://products.egenix.com/
+>>> Plone/Zope Database Interfaces ...           http://zope.egenix.com/
+________________________________________________________________________
+
+::: We implement business ideas - efficiently in both time and costs :::
+
+   eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+    D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+           Registered at Amtsgericht Duesseldorf: HRB 46611
+               http://www.egenix.com/company/contact/
+                      http://www.malemburg.com/
+
+
+From donald at stufft.io  Wed Jun 15 18:59:33 2016
+From: donald at stufft.io (Donald Stufft)
+Date: Wed, 15 Jun 2016 18:59:33 -0400
+Subject: [python-committers] The peps repo is now on GitHub!
+In-Reply-To: <5761DCE1.70602@egenix.com>
+References: <CAP1=2W4jj5dJeuEfgpfrLypjJG2qc4-MFp93zuJNt4CQc+Q5NQ@mail.gmail.com>
+ <5761DB5B.7010505@egenix.com> <5761DCE1.70602@egenix.com>
+Message-ID: <06490A26-8647-4D84-9FB0-76768C44F4F7@stufft.io>
+
+
+> On Jun 15, 2016, at 6:55 PM, M.-A. Lemburg <mal at egenix.com> wrote:
+> 
+> On 16.06.2016 00:48, M.-A. Lemburg wrote:
+>> On 16.06.2016 00:42, Brett Cannon wrote:
+>>> I don't think anything has fallen over, so I'm calling this a successful
+>>> migration! The peps repo is now https://github.com/python/peps .
+>> 
+>> Thanks for putting so much hard work into this !
+> 
+> BTW: Is it ok to push directly into the PEP repo or should we
+> (as PEP authors) always go through PRs which we then merge into
+> the repo ?
+> 
+
+
+Currently there?s nothing preventing people from pushing directly to the PEP repository, in https://github.com/python/peps/issues/5 there?s talk of setting up Travis to ensure the PEPs are always building and if the flag is set to require a +1 from Travis, then all changes will need to go through PRs.
+
+?
+Donald Stufft
+
+
+
+
+From ncoghlan at gmail.com  Thu Jun 16 01:16:52 2016
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Wed, 15 Jun 2016 22:16:52 -0700
+Subject: [python-committers] The peps repo is now on GitHub!
+In-Reply-To: <CAP1=2W61yMFmsJyu6ekDA2DtonuA7t5ocS0Z65X9j2E+Z-hfnw@mail.gmail.com>
+References: <CAP1=2W4jj5dJeuEfgpfrLypjJG2qc4-MFp93zuJNt4CQc+Q5NQ@mail.gmail.com>
+ <5761DB5B.7010505@egenix.com>
+ <CAP1=2W61yMFmsJyu6ekDA2DtonuA7t5ocS0Z65X9j2E+Z-hfnw@mail.gmail.com>
+Message-ID: <CADiSq7eOTkXmFCq-fkv9mCMrgOuis3fak_UsB801pJhz5Um-wQ@mail.gmail.com>
+
+On 15 June 2016 at 15:54, Brett Cannon <brett at python.org> wrote:
+> On Wed, 15 Jun 2016 at 15:49 M.-A. Lemburg <mal at egenix.com> wrote:
+>> Hmm, isn't it better to make this read-only to avoid breaking links
+>> to it ?
+>
+> If you want. My only worry is people forgoing GitHub and sending us outdated
+> patches. But if people want it left up for now we can (I can't guarantee we
+> will keep hg.python.org around forever, though). As long as people can't
+> commit to the peps repo that's the most critical thing in the short-term.
+
+We should keep hg.python.org around, just as we kept svn.python.org.
+
+We may want to add banners to point people at the GitHub repos for the
+latest versions, though.
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+
+From barry at python.org  Thu Jun 16 01:28:51 2016
+From: barry at python.org (Barry Warsaw)
+Date: Thu, 16 Jun 2016 08:28:51 +0300
+Subject: [python-committers] The peps repo is now on GitHub!
+In-Reply-To: <CAP1=2W4jj5dJeuEfgpfrLypjJG2qc4-MFp93zuJNt4CQc+Q5NQ@mail.gmail.com>
+References: <CAP1=2W4jj5dJeuEfgpfrLypjJG2qc4-MFp93zuJNt4CQc+Q5NQ@mail.gmail.com>
+Message-ID: <20160616082851.33761038.barry@wooz.org>
+
+On Jun 15, 2016, at 10:42 PM, Brett Cannon wrote:
+
+>I don't think anything has fallen over, so I'm calling this a successful
+>migration! The peps repo is now https://github.com/python/peps .
+
+Really great work Brett, thanks!
+
+-Barry
+
+From barry at python.org  Thu Jun 16 01:38:50 2016
+From: barry at python.org (Barry Warsaw)
+Date: Thu, 16 Jun 2016 08:38:50 +0300
+Subject: [python-committers] The peps repo is now on GitHub!
+In-Reply-To: <06490A26-8647-4D84-9FB0-76768C44F4F7@stufft.io>
+References: <CAP1=2W4jj5dJeuEfgpfrLypjJG2qc4-MFp93zuJNt4CQc+Q5NQ@mail.gmail.com>
+ <5761DB5B.7010505@egenix.com> <5761DCE1.70602@egenix.com>
+ <06490A26-8647-4D84-9FB0-76768C44F4F7@stufft.io>
+Message-ID: <20160616083850.7826e2c3.barry@wooz.org>
+
+On Jun 15, 2016, at 06:59 PM, Donald Stufft wrote:
+
+>Currently there?s nothing preventing people from pushing directly to
+>the PEP repository, in https://github.com/python/peps/issues/5 there?s
+>talk of setting up Travis to ensure the PEPs are always building and
+>if the flag is set to require a +1 from Travis, then all changes will
+>need to go through PRs.
+
+Yes, I agree that's where we want to end up.  It might make sense to
+allow PEP editors to push directly for $reasons, but I don't know if
+that's possible.
+
+-Barry
+
+From donald at stufft.io  Thu Jun 16 06:08:49 2016
+From: donald at stufft.io (Donald Stufft)
+Date: Thu, 16 Jun 2016 06:08:49 -0400
+Subject: [python-committers] The peps repo is now on GitHub!
+In-Reply-To: <20160616083850.7826e2c3.barry@wooz.org>
+References: <CAP1=2W4jj5dJeuEfgpfrLypjJG2qc4-MFp93zuJNt4CQc+Q5NQ@mail.gmail.com>
+ <5761DB5B.7010505@egenix.com> <5761DCE1.70602@egenix.com>
+ <06490A26-8647-4D84-9FB0-76768C44F4F7@stufft.io>
+ <20160616083850.7826e2c3.barry@wooz.org>
+Message-ID: <27FDC3A5-3BA6-41F9-AD86-1749E1A467CC@stufft.io>
+
+
+> On Jun 16, 2016, at 1:38 AM, Barry Warsaw <barry at python.org> wrote:
+> 
+> On Jun 15, 2016, at 06:59 PM, Donald Stufft wrote:
+> 
+>> Currently there?s nothing preventing people from pushing directly to
+>> the PEP repository, in https://github.com/python/peps/issues/5 there?s
+>> talk of setting up Travis to ensure the PEPs are always building and
+>> if the flag is set to require a +1 from Travis, then all changes will
+>> need to go through PRs.
+> 
+> Yes, I agree that's where we want to end up.  It might make sense to
+> allow PEP editors to push directly for $reasons, but I don't know if
+> that's possible.
+
+If we want to give a group of people the ability to override the status check
+we just need to give that group of people Administrator access to the repository
+so we could add a ?PEP Editors? group if we didn?t want to give the entire
+Python Core team such permission.
+
+I?m unsure if that means that they can push directly or not, or if that
+only means they can merge a PR that doesn?t have the requisite passing status
+checks.
+
+?
+Donald Stufft
+
+
+
+
+From robertc at robertcollins.net  Thu Jun 16 07:34:28 2016
+From: robertc at robertcollins.net (Robert Collins)
+Date: Thu, 16 Jun 2016 23:34:28 +1200
+Subject: [python-committers] The peps repo is now on GitHub!
+In-Reply-To: <27FDC3A5-3BA6-41F9-AD86-1749E1A467CC@stufft.io>
+References: <CAP1=2W4jj5dJeuEfgpfrLypjJG2qc4-MFp93zuJNt4CQc+Q5NQ@mail.gmail.com>
+ <5761DB5B.7010505@egenix.com> <5761DCE1.70602@egenix.com>
+ <06490A26-8647-4D84-9FB0-76768C44F4F7@stufft.io>
+ <20160616083850.7826e2c3.barry@wooz.org>
+ <27FDC3A5-3BA6-41F9-AD86-1749E1A467CC@stufft.io>
+Message-ID: <CAJ3HoZ21agyjL+f0nE2u2Nu5rXbwJoLDvyVCX1BWcKEi=Rb5yg@mail.gmail.com>
+
+Folk can't argue with robots: I think its useful to have an escape
+valve for dealing with spurious failures - the Python Core team is
+pretty responsible, and I think we should permit bypassing robots, at
+least until we have lots of run-time to learn about any flakiness
+present.
+
+-Rob
+
+On 16 June 2016 at 22:08, Donald Stufft <donald at stufft.io> wrote:
+>
+>> On Jun 16, 2016, at 1:38 AM, Barry Warsaw <barry at python.org> wrote:
+>>
+>> On Jun 15, 2016, at 06:59 PM, Donald Stufft wrote:
+>>
+>>> Currently there?s nothing preventing people from pushing directly to
+>>> the PEP repository, in https://github.com/python/peps/issues/5 there?s
+>>> talk of setting up Travis to ensure the PEPs are always building and
+>>> if the flag is set to require a +1 from Travis, then all changes will
+>>> need to go through PRs.
+>>
+>> Yes, I agree that's where we want to end up.  It might make sense to
+>> allow PEP editors to push directly for $reasons, but I don't know if
+>> that's possible.
+>
+> If we want to give a group of people the ability to override the status check
+> we just need to give that group of people Administrator access to the repository
+> so we could add a ?PEP Editors? group if we didn?t want to give the entire
+> Python Core team such permission.
+>
+> I?m unsure if that means that they can push directly or not, or if that
+> only means they can merge a PR that doesn?t have the requisite passing status
+> checks.
+>
+> ?
+> Donald Stufft
+>
+>
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+
+From larry at hastings.org  Fri Jun 24 05:14:12 2016
+From: larry at hastings.org (Larry Hastings)
+Date: Fri, 24 Jun 2016 02:14:12 -0700
+Subject: [python-committers] Here's what's going into 3.5.2 final and 3.4.5
+ final
+Message-ID: <576CF9E4.60104@hastings.org>
+
+
+
+Heads up!  This is a courtesy reminder from your friendly 3.4 and 3.5 
+release manager.  Here's a list of all the changes since 3.5.2rc1 that 
+are currently going into 3.5.2 final:
+
+  * 155e665428c6 - Zachary: OpenSSL 1.0.2h build changes for Windows
+  * cae0b7ffeb9f - Benjamin: fix % in Doc/whatsnew/3.5.rst that confuses
+    latex
+  * 783dfd77e4c1 - Terry Reed: allow non-ascii in idlelib/NEWS.txt
+  * <new revision> - Matthias: fix for test_ssl test_options on Ubuntu
+
+
+3.4.5 final only has one change from 3.4.5rc1: the test_ssl test_options 
+fix from Matthias.
+
+
+If there's something else that needs to go into one of these releases, 
+and it's not on the list above, speak up now.  I may actually tag these 
+late Friday as I'm traveling Saturday.  So you have approximately, let's 
+say 20 hours from when I post this.
+
+
+Thanks,
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20160624/371c4031/attachment.html>
+
+From doko at ubuntu.com  Fri Jun 24 05:29:54 2016
+From: doko at ubuntu.com (Matthias Klose)
+Date: Fri, 24 Jun 2016 11:29:54 +0200
+Subject: [python-committers] Here's what's going into 3.5.2 final and
+ 3.4.5 final
+In-Reply-To: <576CF9E4.60104@hastings.org>
+References: <576CF9E4.60104@hastings.org>
+Message-ID: <576CFD92.30303@ubuntu.com>
+
+On 24.06.2016 11:14, Larry Hastings wrote:
+> 
+> 
+> Heads up!  This is a courtesy reminder from your friendly 3.4 and 3.5 release
+> manager.  Here's a list of all the changes since 3.5.2rc1 that are currently
+> going into 3.5.2 final:
+> 
+>  * 155e665428c6 - Zachary: OpenSSL 1.0.2h build changes for Windows
+>  * cae0b7ffeb9f - Benjamin: fix % in Doc/whatsnew/3.5.rst that confuses
+>    latex
+>  * 783dfd77e4c1 - Terry Reed: allow non-ascii in idlelib/NEWS.txt
+>  * <new revision> - Matthias: fix for test_ssl test_options on Ubuntu
+> 
+> 
+> 3.4.5 final only has one change from 3.4.5rc1: the test_ssl test_options fix
+> from Matthias.
+
+won't this break on other platforms where SSL2 is still enabled?
+
+
+From vadmium+py at gmail.com  Fri Jun 24 06:27:45 2016
+From: vadmium+py at gmail.com (Martin Panter)
+Date: Fri, 24 Jun 2016 10:27:45 +0000
+Subject: [python-committers] Here's what's going into 3.5.2 final and
+ 3.4.5 final
+In-Reply-To: <576CFD92.30303@ubuntu.com>
+References: <576CF9E4.60104@hastings.org> <576CFD92.30303@ubuntu.com>
+Message-ID: <CA+eR4cHruaU-bJTXOsKjyfY5HSjQOQjRoPuW-hGxXOozVHMZZw@mail.gmail.com>
+
+On 24 June 2016 at 09:29, Matthias Klose <doko at ubuntu.com> wrote:
+> On 24.06.2016 11:14, Larry Hastings wrote:
+>> Heads up!  This is a courtesy reminder from your friendly 3.4 and 3.5 release
+>> manager.  Here's a list of all the changes since 3.5.2rc1 that are currently
+>> going into 3.5.2 final:
+>>
+>>  * 155e665428c6 - Zachary: OpenSSL 1.0.2h build changes for Windows
+>>  * cae0b7ffeb9f - Benjamin: fix % in Doc/whatsnew/3.5.rst that confuses
+>>    latex
+>>  * 783dfd77e4c1 - Terry Reed: allow non-ascii in idlelib/NEWS.txt
+>>  * <new revision> - Matthias: fix for test_ssl test_options on Ubuntu
+>>
+>>
+>> 3.4.5 final only has one change from 3.4.5rc1: the test_ssl test_options fix
+>> from Matthias.
+
+I presume we are talking about the patch pasted at
+<https://bugs.python.org/issue26867#msg268425>.
+
+>From what I can tell, it will make the test a bit less strict on all
+platforms, by not checking that OP_NO_SSLv3 can be cleared. There is
+another flag for SSLv2, but I don?t think that is relevant. And I
+don?t think it will break the test on other platforms that can enable
+SSLv3; it just winds the scope of the test back a little bit.
+
+From antoine at python.org  Fri Jun 24 07:11:09 2016
+From: antoine at python.org (Antoine Pitrou)
+Date: Fri, 24 Jun 2016 13:11:09 +0200
+Subject: [python-committers] Here's what's going into 3.5.2 final and
+ 3.4.5 final
+In-Reply-To: <CA+eR4cHruaU-bJTXOsKjyfY5HSjQOQjRoPuW-hGxXOozVHMZZw@mail.gmail.com>
+References: <576CF9E4.60104@hastings.org> <576CFD92.30303@ubuntu.com>
+ <CA+eR4cHruaU-bJTXOsKjyfY5HSjQOQjRoPuW-hGxXOozVHMZZw@mail.gmail.com>
+Message-ID: <576D154D.9020506@python.org>
+
+
+Le 24/06/2016 12:27, Martin Panter a ?crit :
+>>>
+>>> 3.4.5 final only has one change from 3.4.5rc1: the test_ssl test_options fix
+>>> from Matthias.
+> 
+> I presume we are talking about the patch pasted at
+> <https://bugs.python.org/issue26867#msg268425>.
+> 
+> From what I can tell, it will make the test a bit less strict on all
+> platforms, by not checking that OP_NO_SSLv3 can be cleared. There is
+> another flag for SSLv2, but I don?t think that is relevant. And I
+> don?t think it will break the test on other platforms that can enable
+> SSLv3; it just winds the scope of the test back a little bit.
+
+Besides, I am not sure there are still platforms leaving SSLv2 enabled,
+except old unsupported distros perhaps.
+
+Regards
+
+Antoine.
+
+From larry at hastings.org  Fri Jun 24 19:06:12 2016
+From: larry at hastings.org (Larry Hastings)
+Date: Fri, 24 Jun 2016 16:06:12 -0700
+Subject: [python-committers] Here's what's going into 3.5.2 final and
+ 3.4.5 final
+In-Reply-To: <576CFD92.30303@ubuntu.com>
+References: <576CF9E4.60104@hastings.org> <576CFD92.30303@ubuntu.com>
+Message-ID: <CAOBd=7mMmN2pGA_2i7__NrvK8LUpvhqYnv8FJ5UHrgcycBng1A@mail.gmail.com>
+
+I did ask for a better fix on the bug tracker, about two weeks ago:
+
+    http://bugs.python.org/issue26867
+
+But no better fix seems forthcoming.  So I'll ship that.
+
+
+*/arry*
+
+On Fri, Jun 24, 2016 at 2:29 AM, Matthias Klose <doko at ubuntu.com> wrote:
+
+> On 24.06.2016 11:14, Larry Hastings wrote:
+> >
+> >
+> > Heads up!  This is a courtesy reminder from your friendly 3.4 and 3.5
+> release
+> > manager.  Here's a list of all the changes since 3.5.2rc1 that are
+> currently
+> > going into 3.5.2 final:
+> >
+> >  * 155e665428c6 - Zachary: OpenSSL 1.0.2h build changes for Windows
+> >  * cae0b7ffeb9f - Benjamin: fix % in Doc/whatsnew/3.5.rst that confuses
+> >    latex
+> >  * 783dfd77e4c1 - Terry Reed: allow non-ascii in idlelib/NEWS.txt
+> >  * <new revision> - Matthias: fix for test_ssl test_options on Ubuntu
+> >
+> >
+> > 3.4.5 final only has one change from 3.4.5rc1: the test_ssl test_options
+> fix
+> > from Matthias.
+>
+> won't this break on other platforms where SSL2 is still enabled?
+>
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20160624/edc5e667/attachment.html>
+
+From larry at hastings.org  Sun Jun 26 22:32:12 2016
+From: larry at hastings.org (Larry Hastings)
+Date: Sun, 26 Jun 2016 19:32:12 -0700
+Subject: [python-committers] [RELEASED] Python 3.4.5 and Python 3.5.2 are
+ now available
+Message-ID: <5770902C.4010809@hastings.org>
+
+
+
+On behalf of the Python development community and the Python 3.4 and 
+Python 3.5 release teams, I'm thrilled to announce the availability of 
+Python 3.4.5 and Python 3.5.2.
+
+Python 3.4 is now in "security fixes only" mode.  This is the final 
+stage of support for Python 3.4.  All changes made to Python 3.4 since 
+Python 3.4.4 should be security fixes only; conventional bug fixes are 
+not accepted.  Also, Python 3.4.5 and all future releases of Python 3.4 
+will only be released as source code--no official binary installers will 
+be produced.
+
+Python 3.5 is still in active "bug fix" mode.  Python 3.5.2 contains 
+many incremental improvements and bug fixes over Python 3.5.1.
+
+
+You can find Python 3.4.5 here:
+
+     https://www.python.org/downloads/release/python-345/
+
+And you can find Python 3.5.2 here:
+
+     https://www.python.org/downloads/release/python-352/
+
+
+Releasing software from 30,000 feet,
+
+
+//arry
+
+/p.s. There appears to be a small oops with the Windows installers for 
+3.5.2--uploaded to the wrong directory or something. They'll be 
+available soon, honest!
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20160626/a0b1ab63/attachment.html>
+
+From steve.dower at python.org  Mon Jun 27 11:25:40 2016
+From: steve.dower at python.org (Steve Dower)
+Date: Mon, 27 Jun 2016 08:25:40 -0700
+Subject: [python-committers] [Python-Dev] [RELEASED] Python 3.4.5 and
+ Python 3.5.2 are now available
+In-Reply-To: <5770902C.4010809@hastings.org>
+References: <5770902C.4010809@hastings.org>
+Message-ID: <794952a4-f50e-00f1-cad8-b424f8d1e945@python.org>
+
+On 26Jun2016 1932, Larry Hastings wrote:
+> https://www.python.org/downloads/release/python-352/
+> ...
+> /p.s. There appears to be a small oops with the Windows installers for
+> 3.5.2--uploaded to the wrong directory or something.  They'll be
+> available soon, honest!
+
+That oops is now fixed, but I wanted to mention one other thing.
+
+Microsoft Security Essentials, now a very common antivirus/antimalware 
+scanner on Windows, is incorrectly detecting 
+Lib/distutils/command/wininst-14.0.exe as malware (originally reported 
+at http://bugs.python.org/issue27383).
+
+My assumption is that someone distributed malware using a bdist_exe 
+package, and our stub executable got picked up in the signature. I 
+rebuilt the executable on my own machine from early source code and it 
+still triggered the scan, so there does not appear to have been any 
+change to the behaviour of the executable.
+
+I've already submitted a false positive report, so I expect an update to 
+correct it at some point in the future, but please do not be alarmed to 
+see this warning when installing Python 3.5.2, or when scanning any 
+earlier version of 3.5.
+
+Feel free to contact me off-list or steve.dower at microsoft.com if you 
+have concerns.
+
+Cheers,
+Steve
+
+From rdmurray at bitdance.com  Mon Jun 27 14:24:40 2016
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Mon, 27 Jun 2016 14:24:40 -0400
+Subject: [python-committers] [Python-Dev] [RELEASED] Python 3.4.5 and
+ Python 3.5.2 are now available
+In-Reply-To: <794952a4-f50e-00f1-cad8-b424f8d1e945@python.org>
+References: <5770902C.4010809@hastings.org>
+ <794952a4-f50e-00f1-cad8-b424f8d1e945@python.org>
+Message-ID: <20160627182441.4B819B14157@webabinitio.net>
+
+On Mon, 27 Jun 2016 08:25:40 -0700, Steve Dower <steve.dower at python.org> wrote:
+> On 26Jun2016 1932, Larry Hastings wrote:
+> > https://www.python.org/downloads/release/python-352/
+> > ...
+> > /p.s. There appears to be a small oops with the Windows installers for
+> > 3.5.2--uploaded to the wrong directory or something.  They'll be
+> > available soon, honest!
+> 
+> I've already submitted a false positive report, so I expect an update to 
+> correct it at some point in the future, but please do not be alarmed to 
+> see this warning when installing Python 3.5.2, or when scanning any 
+> earlier version of 3.5.
+> 
+> Feel free to contact me off-list or steve.dower at microsoft.com if you 
+> have concerns.
+
+Should there be a note about this on the download page(s)?
+
+--David
+
+From steve.dower at python.org  Mon Jun 27 15:51:07 2016
+From: steve.dower at python.org (Steve Dower)
+Date: Mon, 27 Jun 2016 12:51:07 -0700
+Subject: [python-committers] [Python-Dev] [RELEASED] Python 3.4.5
+ andPython 3.5.2 are now available
+In-Reply-To: <20160627182441.4B819B14157@webabinitio.net>
+References: <5770902C.4010809@hastings.org>
+ <794952a4-f50e-00f1-cad8-b424f8d1e945@python.org>
+ <20160627182441.4B819B14157@webabinitio.net>
+Message-ID: <E1bHcZF-00073h-J7@se2-syd.hostedmail.net.au>
+
+Larry is welcome to add one, but I hope it won't be an issue for long. It's not actually directly related to 3.5.2 as the file in question hasn't changed (not even rebuilt).
+
+I hoped by informing the lists we'll be able to address concerns as they come up, but I'd rather not have a semi-permanent instruction to ignore a virus scanner :)
+
+Cheers,
+Steve
+
+Top-posted from my Windows Phone
+
+-----Original Message-----
+From: "R. David Murray" <rdmurray at bitdance.com>
+Sent: ?6/?27/?2016 11:25
+To: "python-committers" <python-committers at python.org>
+Subject: Re: [python-committers] [Python-Dev] [RELEASED] Python 3.4.5 andPython 3.5.2 are now available
+
+On Mon, 27 Jun 2016 08:25:40 -0700, Steve Dower <steve.dower at python.org> wrote:
+> On 26Jun2016 1932, Larry Hastings wrote:
+> > https://www.python.org/downloads/release/python-352/
+> > ...
+> > /p.s. There appears to be a small oops with the Windows installers for
+> > 3.5.2--uploaded to the wrong directory or something.  They'll be
+> > available soon, honest!
+> 
+> I've already submitted a false positive report, so I expect an update to 
+> correct it at some point in the future, but please do not be alarmed to 
+> see this warning when installing Python 3.5.2, or when scanning any 
+> earlier version of 3.5.
+> 
+> Feel free to contact me off-list or steve.dower at microsoft.com if you 
+> have concerns.
+
+Should there be a note about this on the download page(s)?
+
+--David
+_______________________________________________
+python-committers mailing list
+python-committers at python.org
+https://mail.python.org/mailman/listinfo/python-committers
+Code of Conduct: https://www.python.org/psf/codeofconduct/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20160627/4c738a6d/attachment.html>
+
+From larry at hastings.org  Mon Jun 27 19:16:59 2016
+From: larry at hastings.org (Larry Hastings)
+Date: Mon, 27 Jun 2016 16:16:59 -0700
+Subject: [python-committers] [Python-Dev] [RELEASED] Python 3.4.5 and
+ Python 3.5.2 are now available
+In-Reply-To: <20160627182441.4B819B14157@webabinitio.net>
+References: <5770902C.4010809@hastings.org>
+ <794952a4-f50e-00f1-cad8-b424f8d1e945@python.org>
+ <20160627182441.4B819B14157@webabinitio.net>
+Message-ID: <5771B3EB.9070600@hastings.org>
+
+On 06/27/2016 11:24 AM, R. David Murray wrote:
+> On Mon, 27 Jun 2016 08:25:40 -0700, Steve Dower <steve.dower at python.org> wrote:
+>> On 26Jun2016 1932, Larry Hastings wrote:
+>>> https://www.python.org/downloads/release/python-352/
+>>> ...
+>>> /p.s. There appears to be a small oops with the Windows installers for
+>>> 3.5.2--uploaded to the wrong directory or something.  They'll be
+>>> available soon, honest!
+>> I've already submitted a false positive report, so I expect an update to
+>> correct it at some point in the future, but please do not be alarmed to
+>> see this warning when installing Python 3.5.2, or when scanning any
+>> earlier version of 3.5.
+> Should there be a note about this on the download page(s)?
+
+I've added a note.
+
+    * Windows users: Some virus scanners (most notably "Microsoft
+    Security Essentials") are flagging
+    "Lib/distutils/command/wininst-14.0.exe" as malware. This is a
+    "false positive": the file does not contain any malware. We build it
+    ourselves, from source, on a known-clean system. We've asked that
+    this false positive report be removed, and expect action soon. In
+    the meantime, please don't be alarmed to see this warning when
+    installing Python 3.5.2, or when scanning any earlier version of 3.5.
+
+    https://www.python.org/downloads/release/python-352/
+
+
+
+//arry/
+
+p.s. the "oops" was about missing files, not about the false positive 
+for malware.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20160627/87bdf095/attachment.html>
+
+From rdmurray at bitdance.com  Tue Jun 28 12:50:14 2016
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Tue, 28 Jun 2016 12:50:14 -0400
+Subject: [python-committers] [Python-Dev] [RELEASED] Python 3.4.5
+ andPython 3.5.2 are now available
+In-Reply-To: <E1bHcZG-00073g-3C@se2-syd.hostedmail.net.au>
+References: <5770902C.4010809@hastings.org>
+ <794952a4-f50e-00f1-cad8-b424f8d1e945@python.org>
+ <20160627182441.4B819B14157@webabinitio.net>
+ <E1bHcZG-00073g-3C@se2-syd.hostedmail.net.au>
+Message-ID: <20160628165017.CBAE7B1415A@webabinitio.net>
+
+On Mon, 27 Jun 2016 12:51:07 -0700, Steve Dower <steve.dower at python.org> wrote:
+> I hoped by informing the lists we'll be able to address concerns as
+> they come up, but I'd rather not have a semi-permanent instruction to
+> ignore a virus scanner :)
+
+Good point.  I actually thought about that a few hours after I sent
+the email :)
+
+--David
+
+From steve.dower at python.org  Tue Jun 28 14:34:12 2016
+From: steve.dower at python.org (Steve Dower)
+Date: Tue, 28 Jun 2016 11:34:12 -0700
+Subject: [python-committers] [Python-Dev] [RELEASED] Python 3.4.5 and
+ Python 3.5.2 are now available
+In-Reply-To: <5771B3EB.9070600@hastings.org>
+References: <5770902C.4010809@hastings.org>
+ <794952a4-f50e-00f1-cad8-b424f8d1e945@python.org>
+ <20160627182441.4B819B14157@webabinitio.net> <5771B3EB.9070600@hastings.org>
+Message-ID: <6c9f549f-ebb2-15d8-dcad-11e0dde3701a@python.org>
+
+On 27Jun2016 1616, Larry Hastings wrote:
+> I've added a note.
+>
+>     * Windows users: Some virus scanners (most notably "Microsoft
+>     Security Essentials") are flagging
+>     "Lib/distutils/command/wininst-14.0.exe" as malware. This is a
+>     "false positive": the file does not contain any malware. We build it
+>     ourselves, from source, on a known-clean system. We've asked that
+>     this false positive report be removed, and expect action soon. In
+>     the meantime, please don't be alarmed to see this warning when
+>     installing Python 3.5.2, or when scanning any earlier version of 3.5.
+>
+>     https://www.python.org/downloads/release/python-352/
+
+FWIW, it looks like today's definition update for Security Essentials 
+has fixed the false positive (I would've liked an acknowledgement from 
+the submission email, but I'll settle for a fix :) ).
+
+Given basically everyone will get the definition update fairly quickly, 
+I don't think this is an issue any more.
+
+Cheers,
+Steve
+

@@ -1,0 +1,1592 @@
+From larry at hastings.org  Thu Aug  1 03:33:17 2013
+From: larry at hastings.org (Larry Hastings)
+Date: Wed, 31 Jul 2013 18:33:17 -0700
+Subject: [python-committers] Reminder: Python 3.4 alpha 1 release is
+ Saturday August 3
+In-Reply-To: <51F81B8B.8060409@stoneleaf.us>
+References: <51F1859F.1000608@hastings.org> <51F81B8B.8060409@stoneleaf.us>
+Message-ID: <51F9BADD.2000506@hastings.org>
+
+On 07/30/2013 01:01 PM, Ethan Furman wrote:
+> Do modifications to _json to support Enum count as major?  If they 
+> don't make it in to the first alpha, can I put them in the second?
+
+You can put them in either.
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20130731/e06f21bf/attachment.html>
+
+From brian at python.org  Thu Aug  1 22:02:44 2013
+From: brian at python.org (Brian Curtin)
+Date: Thu, 1 Aug 2013 15:02:44 -0500
+Subject: [python-committers] MSDN Subscriptions/Renewals
+Message-ID: <CAD+XWwrHC1bmdZ0pAKHEZQUZMBwbXvO_HEUYP+DC2zoLQObYCg@mail.gmail.com>
+
+Hi all,
+
+Since I've gotten a handful of requests lately, I wanted to put out a
+call to try and handle them in a batch. That'll make it easier for the
+people at Microsoft who run their Open Source program.
+
+If you're using your MSDN subscription and it will be expiring in the
+next couple of months, go to
+https://msdn.microsoft.com/subscriptions/manage/ and send me the email
+address associated with the account, and the Subscriber ID.
+
+If you don't have an MSDN subscription but you would like a
+complimentary one, which gives you access to Windows ISOs/licenses,
+Visual Studio licenses, etc., please send me your preferred email,
+your mailing address, and a phone number. They don't mail you or call
+you, but those are required fields in their signup.
+
+I'm going to wait a few days, then send everything to Microsoft. After
+that, it usually takes a day or so for them to get to it and push our
+applications through. Once it's processed, you'll receive emails a few
+days later from msdntnorders at arvatousa.com saying the account is
+created and will soon be active, and then one from
+Msubserv at microsoft.com with a link to activate it. Some people have
+had these go into spam folders, so keep an eye out for them.
+
+Thanks,
+
+Brian
+
+From victor.stinner at gmail.com  Fri Aug  2 01:10:08 2013
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Fri, 2 Aug 2013 01:10:08 +0200
+Subject: [python-committers] Reminder: Python 3.4 alpha 1 release is
+ Saturday August 3
+In-Reply-To: <51F1859F.1000608@hastings.org>
+References: <51F1859F.1000608@hastings.org>
+Message-ID: <CAMpsgwbwNMDnnCw6NStmabAQOzAXSrzH52-YiMGXFymictipZg@mail.gmail.com>
+
+2013/7/25 Larry Hastings <larry at hastings.org>:
+> It's about nine days from now.  I expect to tag the release late next week.
+> So if you're doing any major brain surgery, please finish it up in the next
+> week or so.
+
+I hope that I would have enough free time before the alp?a2 to:
+
+* find a consensus on the file descriptor inheritance (!), finish
+"the" PEP and the implementation
+* write a new module (!) using the PEP 445 (malloc hooks) to inject
+memory allocation failures and track memory allocations
+
+(It is maybe already too late !)
+
+I also hope that the assertions that I added in the issue #18408 would
+not break too much applications (when using Python 3.4 compiled in
+debug mode) :-) I added assertions to ensure that a Python function is
+not called when an exception is set. The problem is that a Python
+function can clear or replace the current exception. For example,
+hasattr(obj, name) replaces the current exception, and later clears
+the new exceptions, if the attribute does not exist. It doesn't care
+if it was called with an exception already set (PyErr_Occurred() is
+not NULL).
+
+I fixed all issues related to these assertions in the Python stdlib,
+but I don't know if it breaks third party code. In my opinion, if
+these assertions fail, there is a bug that must be fixed.
+
+Tell me if it's better to discuss these points on python-dev ;-)
+
+Victor
+
+From victor.stinner at gmail.com  Fri Aug  2 01:14:49 2013
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Fri, 2 Aug 2013 01:14:49 +0200
+Subject: [python-committers] Reminder: Python 3.4 alpha 1 release is
+ Saturday August 3
+In-Reply-To: <CAMpsgwbwNMDnnCw6NStmabAQOzAXSrzH52-YiMGXFymictipZg@mail.gmail.com>
+References: <51F1859F.1000608@hastings.org>
+	<CAMpsgwbwNMDnnCw6NStmabAQOzAXSrzH52-YiMGXFymictipZg@mail.gmail.com>
+Message-ID: <CAMpsgwZofPwGyvLdp3YZAJ3jhGsk+B70dMXmGCM8c9FYfK5TPQ@mail.gmail.com>
+
+2013/8/2 Victor Stinner <victor.stinner at gmail.com>:
+> 2013/7/25 Larry Hastings <larry at hastings.org>:
+>> It's about nine days from now.  I expect to tag the release late next week.
+>> So if you're doing any major brain surgery, please finish it up in the next
+>> week or so.
+>
+> I hope that I would have enough free time before the alp?a2 to:
+>
+> * find a consensus on the file descriptor inheritance (!), finish
+> "the" PEP and the implementation
+> * write a new module (!) using the PEP 445 (malloc hooks) to inject
+> memory allocation failures and track memory allocations
+>
+> (It is maybe already too late !)
+
+Oops, I mean before the first beta. I didn't see that there are 4
+alpha versions scheduled.
+
+Is it ok to do such changes between the alpha4 and beta1?
+
+Victor
+
+From larry at hastings.org  Fri Aug  2 21:43:21 2013
+From: larry at hastings.org (Larry Hastings)
+Date: Fri, 02 Aug 2013 12:43:21 -0700
+Subject: [python-committers] Reminder: Python 3.4 alpha 1 release is
+ Saturday August 3
+In-Reply-To: <CAMpsgwZofPwGyvLdp3YZAJ3jhGsk+B70dMXmGCM8c9FYfK5TPQ@mail.gmail.com>
+References: <51F1859F.1000608@hastings.org>
+	<CAMpsgwbwNMDnnCw6NStmabAQOzAXSrzH52-YiMGXFymictipZg@mail.gmail.com>
+	<CAMpsgwZofPwGyvLdp3YZAJ3jhGsk+B70dMXmGCM8c9FYfK5TPQ@mail.gmail.com>
+Message-ID: <51FC0BD9.1000404@hastings.org>
+
+On 08/01/2013 04:14 PM, Victor Stinner wrote:
+> Is it ok to do such changes between the alpha4 and beta1?
+
+
+Yes.  We don't hit feature-freeze until beta 1.
+
+But it's best to get your changes in earlier, so they can be in one (or 
+more) alphas.  And in case you discover something wrong with your 
+approach and you need to make breaking changes, those should definitely 
+be in the alphas.  And bigger changes should be earlier than smaller 
+changes, if you can approach the problem that way.
+
+But you've got time.
+
+
+By the way, it looks like 3.4a1 will be basically on time.  I've triaged 
+all the extant release blockers, so I don't have any right now.  (Mostly 
+just marking them as "deferred blocker"...)  I plan to tag today for a 
+release tomorrow.
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20130802/c13aeee7/attachment.html>
+
+From nad at acm.org  Fri Aug  2 22:00:36 2013
+From: nad at acm.org (Ned Deily)
+Date: Fri, 02 Aug 2013 13:00:36 -0700
+Subject: [python-committers] Reminder: Python 3.4 alpha 1 release is
+	Saturday August 3
+References: <51F1859F.1000608@hastings.org>
+	<CAMpsgwbwNMDnnCw6NStmabAQOzAXSrzH52-YiMGXFymictipZg@mail.gmail.com>
+	<CAMpsgwZofPwGyvLdp3YZAJ3jhGsk+B70dMXmGCM8c9FYfK5TPQ@mail.gmail.com>
+	<51FC0BD9.1000404@hastings.org>
+Message-ID: <nad-6CC3D2.13003602082013@news.gmane.org>
+
+In article <51FC0BD9.1000404 at hastings.org>,
+ Larry Hastings <larry at hastings.org> wrote:
+> By the way, it looks like 3.4a1 will be basically on time.  I've triaged 
+> all the extant release blockers, so I don't have any right now.  (Mostly 
+> just marking them as "deferred blocker"...)  I plan to tag today for a 
+> release tomorrow.
+
+Hmm.  I understand this is an alpha but I was hoping to get a few more 
+fixes in today.   Perhaps, in the future, we can be more clear about 
+exactly when the code freeze time (tag time) is vs a release time.  From 
+a developer point of view, the former is important, the latter much less 
+so.  From a release team point of view, both are.
+
+-- 
+ Ned Deily,
+ nad at acm.org
+
+
+From larry at hastings.org  Fri Aug  2 22:25:38 2013
+From: larry at hastings.org (Larry Hastings)
+Date: Fri, 02 Aug 2013 13:25:38 -0700
+Subject: [python-committers] Reminder: Python 3.4 alpha 1 release is
+ Saturday August 3
+In-Reply-To: <nad-6CC3D2.13003602082013@news.gmane.org>
+References: <51F1859F.1000608@hastings.org>
+	<CAMpsgwbwNMDnnCw6NStmabAQOzAXSrzH52-YiMGXFymictipZg@mail.gmail.com>
+	<CAMpsgwZofPwGyvLdp3YZAJ3jhGsk+B70dMXmGCM8c9FYfK5TPQ@mail.gmail.com>
+	<51FC0BD9.1000404@hastings.org>
+	<nad-6CC3D2.13003602082013@news.gmane.org>
+Message-ID: <51FC15C2.9040708@hastings.org>
+
+
+
+On 08/02/2013 01:00 PM, Ned Deily wrote:
+> Hmm. I understand this is an alpha but I was hoping to get a few more 
+> fixes in today. Perhaps, in the future, we can be more clear about 
+> exactly when the code freeze time (tag time) is vs a release time. 
+> From a developer point of view, the former is important, the latter 
+> much less so. From a release team point of view, both are. 
+
+
+ From PEP 101, "Doing Python Releases 101":
+> IT IS HIGHLY RECOMMENDED THAT YOU AT LEAST TAG THE TREE 24 HOURS
+> BEFORE A FINAL RELEASE.  This will give the Experts enough time to
+> do their bits before the announcement goes out.
+The schedule calls for the Alpha 1 release tomorrow.  Ergo, tag today.
+
+Should I add "expected tag dates" to the schedule?
+
+
+I can immediately grant you a small delay if that's all you need; how 
+about I try to tag around midnight (PST).  If you need longer than that 
+let's discuss it in public here.
+
+
+By the way, folks, I'm delaying Alpha 2 on behalf of Martin (who will be 
+on vacation on the old date).  The new release date for Alpha 2 will be 
+Sunday September 8, therefore tagging on Saturday September 7.  I don't 
+currently plan on slipping Alpha 3 or any subsequent releases as a 
+result.  I'll update the release schedule PEP once Alpha 1 is out.
+
+But speaking of adjusting the schedule, I'm also considering changing 
+bumping all the remaining release dates forward by a day. Currently all 
+the releases are on Saturdays, which means we always tag on Friday.  Ned 
+Deily suggests instead we tag on Saturdays and release on Sundays.  His 
+reasoning: people with last-minute changes they're trying to get in are 
+more likely to have time for Python core hacking on a Saturday than a 
+Friday.  Any opinions?
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20130802/7abefd9a/attachment.html>
+
+From ethan at stoneleaf.us  Fri Aug  2 22:30:45 2013
+From: ethan at stoneleaf.us (Ethan Furman)
+Date: Fri, 02 Aug 2013 13:30:45 -0700
+Subject: [python-committers] Reminder: Python 3.4 alpha 1 release is
+ Saturday August 3
+In-Reply-To: <51FC15C2.9040708@hastings.org>
+References: <51F1859F.1000608@hastings.org>
+	<CAMpsgwbwNMDnnCw6NStmabAQOzAXSrzH52-YiMGXFymictipZg@mail.gmail.com>
+	<CAMpsgwZofPwGyvLdp3YZAJ3jhGsk+B70dMXmGCM8c9FYfK5TPQ@mail.gmail.com>
+	<51FC0BD9.1000404@hastings.org>
+	<nad-6CC3D2.13003602082013@news.gmane.org>
+	<51FC15C2.9040708@hastings.org>
+Message-ID: <51FC16F5.6060009@stoneleaf.us>
+
+On 08/02/2013 01:25 PM, Larry Hastings wrote:
+>
+> But speaking of adjusting the schedule, I'm also considering changing bumping all the remaining release dates forward by
+> a day. Currently all the releases are on Saturdays, which means we always tag on Friday.  Ned Deily suggests instead we
+> tag on Saturdays and release on Sundays.  His reasoning: people with last-minute changes they're trying to get in are
+> more likely to have time for Python core hacking on a Saturday than a Friday.  Any opinions?
+
+Late Saturday tagging sounds good to me.  :)
+
+--
+~Ethan~
+
+From fred at fdrake.net  Fri Aug  2 22:51:59 2013
+From: fred at fdrake.net (Fred Drake)
+Date: Fri, 2 Aug 2013 16:51:59 -0400
+Subject: [python-committers] Reminder: Python 3.4 alpha 1 release is
+ Saturday August 3
+In-Reply-To: <51FC15C2.9040708@hastings.org>
+References: <51F1859F.1000608@hastings.org>
+	<CAMpsgwbwNMDnnCw6NStmabAQOzAXSrzH52-YiMGXFymictipZg@mail.gmail.com>
+	<CAMpsgwZofPwGyvLdp3YZAJ3jhGsk+B70dMXmGCM8c9FYfK5TPQ@mail.gmail.com>
+	<51FC0BD9.1000404@hastings.org>
+	<nad-6CC3D2.13003602082013@news.gmane.org>
+	<51FC15C2.9040708@hastings.org>
+Message-ID: <CAFT4OTF=UA_cmOVAkBEvKuFLEiuDy6q7aU02XPjpWeZB+oMChw@mail.gmail.com>
+
+On Fri, Aug 2, 2013 at 4:25 PM, Larry Hastings <larry at hastings.org> wrote:
+> From PEP 101, "Doing Python Releases 101":
+>
+> IT IS HIGHLY RECOMMENDED THAT YOU AT LEAST TAG THE TREE 24 HOURS
+> BEFORE A FINAL RELEASE.  This will give the Experts enough time to
+> do their bits before the announcement goes out.
+>
+> The schedule calls for the Alpha 1 release tomorrow.  Ergo, tag today.
+
+When I read this, I expect it to only apply to X.Y.Z releases, not alphas
+and betas.
+
+Which doesn't mean there should be an interval between the tagging and
+the release.  (I expect a period this size for the first beta is just
+as valuable, since that's the API freeze.)
+
+For anything else, I think it's up to the release manager.
+
+> Should I add "expected tag dates" to the schedule?
+
+That, or some text explaining what to expect, would be good to have.
+
+
+  -Fred
+
+-- 
+Fred L. Drake, Jr.    <fred at fdrake.net>
+"A storm broke loose in my mind."  --Albert Einstein
+
+From nad at acm.org  Fri Aug  2 22:52:24 2013
+From: nad at acm.org (Ned Deily)
+Date: Fri, 02 Aug 2013 13:52:24 -0700
+Subject: [python-committers] Reminder: Python 3.4 alpha 1 release is
+	Saturday August 3
+References: <51F1859F.1000608@hastings.org>
+	<CAMpsgwbwNMDnnCw6NStmabAQOzAXSrzH52-YiMGXFymictipZg@mail.gmail.com>
+	<CAMpsgwZofPwGyvLdp3YZAJ3jhGsk+B70dMXmGCM8c9FYfK5TPQ@mail.gmail.com>
+	<51FC0BD9.1000404@hastings.org>
+	<nad-6CC3D2.13003602082013@news.gmane.org>
+	<51FC15C2.9040708@hastings.org>
+Message-ID: <nad-AE43D4.13522402082013@news.gmane.org>
+
+In article <51FC15C2.9040708 at hastings.org>,
+ Larry Hastings <larry at hastings.org> wrote:
+>  From PEP 101, "Doing Python Releases 101":
+> > IT IS HIGHLY RECOMMENDED THAT YOU AT LEAST TAG THE TREE 24 HOURS
+> > BEFORE A FINAL RELEASE.  This will give the Experts enough time to
+> > do their bits before the announcement goes out.
+> The schedule calls for the Alpha 1 release tomorrow.  Ergo, tag today.
+> 
+> Should I add "expected tag dates" to the schedule?
+
++1, or at least an approximate delta for developers
+
+> I can immediately grant you a small delay if that's all you need; how 
+> about I try to tag around midnight (PST).  If you need longer than that 
+> let's discuss it in public here.
+
+That would be nice, thanks.  At this point, I'm running another set of 
+builds and installs to double-check what's in now.  That's a bit more 
+important since we're down to only one OS X buildbot at the moment and 
+that one runs an old version of OS X (10.4 Tiger) that we don't produce 
+installers for anymore for 3.3+.  While it is possible to patch the 
+installer builds, I really really try to avoid that.
+
+> But speaking of adjusting the schedule, I'm also considering changing 
+> bumping all the remaining release dates forward by a day. Currently all 
+> the releases are on Saturdays, which means we always tag on Friday.  Ned 
+> Deily suggests instead we tag on Saturdays and release on Sundays.  His 
+> reasoning: people with last-minute changes they're trying to get in are 
+> more likely to have time for Python core hacking on a Saturday than a 
+> Friday.  Any opinions?
+
+Looking back over the past few years, I believe most releases have been 
+tagged sometime on Saturday, generally late on Saturday.  Whatever time 
+is decided on by the release manager, I think it would be useful to make 
+developers aware of that ahead of time.  Perhaps Benjamin or Georg have 
+opinions from recent previous releases.
+
+Thanks for being our release manager, Larry!
+
+-- 
+ Ned Deily,
+ nad at acm.org
+
+
+From solipsis at pitrou.net  Fri Aug  2 23:00:44 2013
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Fri, 02 Aug 2013 23:00:44 +0200
+Subject: [python-committers] Reminder: Python 3.4 alpha 1 release is
+ Saturday August 3
+In-Reply-To: <51FC15C2.9040708@hastings.org>
+References: <51F1859F.1000608@hastings.org>
+	<CAMpsgwbwNMDnnCw6NStmabAQOzAXSrzH52-YiMGXFymictipZg@mail.gmail.com>
+	<CAMpsgwZofPwGyvLdp3YZAJ3jhGsk+B70dMXmGCM8c9FYfK5TPQ@mail.gmail.com>
+	<51FC0BD9.1000404@hastings.org>
+	<nad-6CC3D2.13003602082013@news.gmane.org>
+	<51FC15C2.9040708@hastings.org>
+Message-ID: <1375477244.2527.6.camel@fsol>
+
+Le vendredi 02 ao?t 2013 ? 13:25 -0700, Larry Hastings a ?crit :
+> From PEP 101, "Doing Python Releases 101": 
+> > IT IS HIGHLY RECOMMENDED THAT YOU AT LEAST TAG THE TREE 24 HOURS
+> > BEFORE A FINAL RELEASE.  This will give the Experts enough time to
+> > do their bits before the announcement goes out.
+> The schedule calls for the Alpha 1 release tomorrow.  Ergo, tag today.
+> 
+> Should I add "expected tag dates" to the schedule?
+
+No need to IMO, but you mention it when sending your reminder message.
+(most core developers certainly spare themselves the hassle of reading
+PEP 101 - or, once they've read it, they forget it as quickly as
+possible :-))
+
+> But speaking of adjusting the schedule, I'm also considering changing
+> bumping all the remaining release dates forward by a day.
+
+"Forward" means what? Earlier or later?
+(intuitively, I'd say "earlier", but that doesn't seem very consistent
+with your explanations)
+
+Regards
+
+Antoine.
+
+
+
+From barry at python.org  Fri Aug  2 23:04:49 2013
+From: barry at python.org (Barry Warsaw)
+Date: Fri, 2 Aug 2013 17:04:49 -0400
+Subject: [python-committers] python-list moderation flag
+In-Reply-To: <F00BE3FA-EF89-4CE8-9CE6-5E528D7FB6F0@shub-internet.org>
+References: <51E8F00A.4010608@acm.org> <20130726154631.109a5af0@anarchist>
+	<51F4C99E.1060006@acm.org> <20130729175539.40751a71@anarchist>
+	<F00BE3FA-EF89-4CE8-9CE6-5E528D7FB6F0@shub-internet.org>
+Message-ID: <20130802170449.68b9c848@anarchist>
+
+On Jul 29, 2013, at 11:25 PM, Brad Knowles wrote:
+
+>The postmaster/listmaster folks could potentially act as "emergency backup"
+>moderators, much like we do for the mailman-* lists, if there was a need for
+>additional people to help out.  However, I suspect this additional work would
+>need to remain on an "emergency backup" sort of basis.
+
+Tim Golden and Terry Reedy have volunteered, so they're both now added.
+
+(It's an interesting side discussion about Mailman 3 allowing an ultimate
+backup for list ownership.)
+
+>However, taking off my Postmaster Emeritus hat and speaking only for myself,
+>after all these years I must confess to you that I'm not actually a Python
+>programmer, and I do not have the technical qualifications necessary to serve
+>in the role as one of the primary moderators.
+
+No worries!  Your help and feedback as always is appreciated.
+
+-Barry
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 836 bytes
+Desc: not available
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20130802/aacdf1b5/attachment.pgp>
+
+From barry at python.org  Fri Aug  2 23:10:25 2013
+From: barry at python.org (Barry Warsaw)
+Date: Fri, 2 Aug 2013 17:10:25 -0400
+Subject: [python-committers] Reminder: Python 3.4 alpha 1 release is
+ Saturday August 3
+In-Reply-To: <1375477244.2527.6.camel@fsol>
+References: <51F1859F.1000608@hastings.org>
+	<CAMpsgwbwNMDnnCw6NStmabAQOzAXSrzH52-YiMGXFymictipZg@mail.gmail.com>
+	<CAMpsgwZofPwGyvLdp3YZAJ3jhGsk+B70dMXmGCM8c9FYfK5TPQ@mail.gmail.com>
+	<51FC0BD9.1000404@hastings.org>
+	<nad-6CC3D2.13003602082013@news.gmane.org>
+	<51FC15C2.9040708@hastings.org> <1375477244.2527.6.camel@fsol>
+Message-ID: <20130802171025.7ad95e87@anarchist>
+
+On Aug 02, 2013, at 11:00 PM, Antoine Pitrou wrote:
+
+>No need to IMO, but you mention it when sending your reminder message.
+>(most core developers certainly spare themselves the hassle of reading
+>PEP 101 - or, once they've read it, they forget it as quickly as
+>possible :-))
+
+FWIW, I've always considered PEP 101 a checklist of things the RM has to do
+when making a release.  That's the way I originally wrote and used it, and for
+me, with just one more release ahead of me (and a source-only one at that) for
+the foreseeable future, it's worked moderately well.
+
+So IMHO, now that Larry is taking over, my suggestion is for him to view PEP
+101 as the collective "wisdom" of those RMs who have gone before him.  But he
+should feel free to make the document more useful for him, of course in
+consultation with the other active RMs.  I certainly have no problem with each
+RM putting their stamp on the document, including adding their names to the
+Author field.
+
+(Same general principle as with the release.py script too.)
+
+-Barry
+
+From larry at hastings.org  Sat Aug  3 02:22:16 2013
+From: larry at hastings.org (Larry Hastings)
+Date: Fri, 02 Aug 2013 17:22:16 -0700
+Subject: [python-committers] Reminder: Python 3.4 alpha 1 release is
+ Saturday August 3
+In-Reply-To: <1375477244.2527.6.camel@fsol>
+References: <51F1859F.1000608@hastings.org>
+	<CAMpsgwbwNMDnnCw6NStmabAQOzAXSrzH52-YiMGXFymictipZg@mail.gmail.com>
+	<CAMpsgwZofPwGyvLdp3YZAJ3jhGsk+B70dMXmGCM8c9FYfK5TPQ@mail.gmail.com>
+	<51FC0BD9.1000404@hastings.org>
+	<nad-6CC3D2.13003602082013@news.gmane.org>
+	<51FC15C2.9040708@hastings.org> <1375477244.2527.6.camel@fsol>
+Message-ID: <51FC4D38.7040109@hastings.org>
+
+On 08/02/2013 02:00 PM, Antoine Pitrou wrote:
+> "Forward" means what? Earlier or later?
+> (intuitively, I'd say "earlier", but that doesn't seem very consistent
+> with your explanations)
+
+Your intuition is the opposite of mine.  When I move dates "forward", I 
+increase the date / number / etc.  So I would move forward from Saturday 
+to the next day, Sunday.
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20130802/5659a503/attachment.html>
+
+From ncoghlan at gmail.com  Sat Aug  3 05:13:25 2013
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Sat, 3 Aug 2013 13:13:25 +1000
+Subject: [python-committers] Reminder: Python 3.4 alpha 1 release is
+ Saturday August 3
+In-Reply-To: <51FC4D38.7040109@hastings.org>
+References: <51F1859F.1000608@hastings.org>
+	<CAMpsgwbwNMDnnCw6NStmabAQOzAXSrzH52-YiMGXFymictipZg@mail.gmail.com>
+	<CAMpsgwZofPwGyvLdp3YZAJ3jhGsk+B70dMXmGCM8c9FYfK5TPQ@mail.gmail.com>
+	<51FC0BD9.1000404@hastings.org>
+	<nad-6CC3D2.13003602082013@news.gmane.org>
+	<51FC15C2.9040708@hastings.org> <1375477244.2527.6.camel@fsol>
+	<51FC4D38.7040109@hastings.org>
+Message-ID: <CADiSq7de1+3iB9u1nt6L_SjM9Ds2x5UXGRr3pztuoPemY_1QzA@mail.gmail.com>
+
+On 3 Aug 2013 10:25, "Larry Hastings" <larry at hastings.org> wrote:
+>
+> On 08/02/2013 02:00 PM, Antoine Pitrou wrote:
+>>
+>> "Forward" means what? Earlier or later?
+>> (intuitively, I'd say "earlier", but that doesn't seem very consistent
+>> with your explanations)
+>
+>
+> Your intuition is the opposite of mine.  When I move dates "forward", I
+increase the date / number / etc.  So I would move forward from Saturday to
+the next day, Sunday.
+
+Heh, I'm with Antoine in using "forward/backward" in the sense of "bring
+closer/move further away", and hence "earlier/later", when it comes to
+dates in the future.
+
+Yay, English! How on Earth do we ever get anything done in this ridiculous
+language? :)
+
+Cheers,
+Nick.
+
+>
+>
+> /arry
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20130803/c99f05bc/attachment-0001.html>
+
+From eliben at gmail.com  Sat Aug  3 05:50:31 2013
+From: eliben at gmail.com (Eli Bendersky)
+Date: Fri, 2 Aug 2013 20:50:31 -0700
+Subject: [python-committers] Reminder: Python 3.4 alpha 1 release is
+ Saturday August 3
+In-Reply-To: <CADiSq7de1+3iB9u1nt6L_SjM9Ds2x5UXGRr3pztuoPemY_1QzA@mail.gmail.com>
+References: <51F1859F.1000608@hastings.org>
+	<CAMpsgwbwNMDnnCw6NStmabAQOzAXSrzH52-YiMGXFymictipZg@mail.gmail.com>
+	<CAMpsgwZofPwGyvLdp3YZAJ3jhGsk+B70dMXmGCM8c9FYfK5TPQ@mail.gmail.com>
+	<51FC0BD9.1000404@hastings.org>
+	<nad-6CC3D2.13003602082013@news.gmane.org>
+	<51FC15C2.9040708@hastings.org> <1375477244.2527.6.camel@fsol>
+	<51FC4D38.7040109@hastings.org>
+	<CADiSq7de1+3iB9u1nt6L_SjM9Ds2x5UXGRr3pztuoPemY_1QzA@mail.gmail.com>
+Message-ID: <CAF-Rda_H06qdC=r7v8ijgdJyogBiiqhKHBCA+SAQ+EDnS-VU3A@mail.gmail.com>
+
+On Fri, Aug 2, 2013 at 8:13 PM, Nick Coghlan <ncoghlan at gmail.com> wrote:
+>
+>
+> On 3 Aug 2013 10:25, "Larry Hastings" <larry at hastings.org> wrote:
+> >
+> > On 08/02/2013 02:00 PM, Antoine Pitrou wrote:
+> >>
+> >> "Forward" means what? Earlier or later?
+> >> (intuitively, I'd say "earlier", but that doesn't seem very consistent
+> >> with your explanations)
+> >
+> >
+> > Your intuition is the opposite of mine.  When I move dates "forward", I increase the date / number / etc.  So I would move forward from Saturday to the next day, Sunday.
+>
+> Heh, I'm with Antoine in using "forward/backward" in the sense of "bring closer/move further away", and hence "earlier/later", when it comes to dates in the future.
+>
+> Yay, English! How on Earth do we ever get anything done in this ridiculous language? :)
+
+Moving, or "pushing" dates back definitely means "later", at least in
+my head. Some formal sources agree. For example,
+http://www.macmillandictionary.com/us/dictionary/american/push-back:
+
+push back: to arrange a later time for something
+
+Eli
+
+From larry at hastings.org  Sat Aug  3 11:08:32 2013
+From: larry at hastings.org (Larry Hastings)
+Date: Sat, 03 Aug 2013 02:08:32 -0700
+Subject: [python-committers] Tagging 3.4a1 with an unhappy AMD64 Win7 SP1
+	buildbot?
+Message-ID: <51FCC890.2@hastings.org>
+
+
+
+I'm considering  for Python 3.4.0a1.  The buildbots are all happy, 
+except for AMD64 Win7 SP1:
+
+    http://buildbot.python.org/all/waterfall?category=3.x.stable
+
+The two failures are zipimport and signal.  zipimport is sporadic, and 
+looks like some sort of heisenissue.  signal is much more consistently 
+broken, and has been broken for a while.  (Not that Windows support for 
+signal has ever been that great.  But presumably the regression test is 
+supposed to light up green, even on Windows.)
+
+
+Can we, uh, live with that, for alpha 1?
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20130803/6e1cb3dd/attachment.html>
+
+From larry at hastings.org  Sat Aug  3 11:45:30 2013
+From: larry at hastings.org (Larry Hastings)
+Date: Sat, 03 Aug 2013 02:45:30 -0700
+Subject: [python-committers] Tagging 3.4a1 with an unhappy AMD64 Win7
+	SP1 buildbot?
+In-Reply-To: <51FCC890.2@hastings.org>
+References: <51FCC890.2@hastings.org>
+Message-ID: <51FCD13A.5060406@hastings.org>
+
+On 08/03/2013 02:08 AM, Larry Hastings wrote:
+> Can we, uh, live with that, for alpha 1?
+
+Ned pointed out, signal and zipimport worked on the retry.  So it's 
+sporadic, whatever it is.  I think we can live with that.
+
+I've got some documentation warnings I can't quash, so I'm not tagging yet.
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20130803/55db96ff/attachment.html>
+
+From eliben at gmail.com  Sat Aug  3 14:43:55 2013
+From: eliben at gmail.com (Eli Bendersky)
+Date: Sat, 3 Aug 2013 05:43:55 -0700
+Subject: [python-committers] Tagging 3.4a1 with an unhappy AMD64 Win7
+	SP1 buildbot?
+In-Reply-To: <51FCD13A.5060406@hastings.org>
+References: <51FCC890.2@hastings.org> <51FCD13A.5060406@hastings.org>
+Message-ID: <CAF-Rda-xULP5+_q+V_DiMS9Z9T5Wb8KXoJ4_Djsv=b79zWYuGA@mail.gmail.com>
+
+On Sat, Aug 3, 2013 at 2:45 AM, Larry Hastings <larry at hastings.org> wrote:
+> On 08/03/2013 02:08 AM, Larry Hastings wrote:
+>
+> Can we, uh, live with that, for alpha 1?
+>
+>
+> Ned pointed out, signal and zipimport worked on the retry.  So it's
+> sporadic, whatever it is.  I think we can live with that.
+>
+
+This is confusing. Why do we need an alpha release in the first place?
+Is it more important to make it on the exact day than to have a more
+functional release? Assuming that 64-bit Windows 7 is the most popular
+(or close to it) Windows out there today, that sounds like an annoying
+flaw.
+
+The above is genuine will to understand the release process rather
+than questioning your reasoning :-)
+
+Eli
+
+From ncoghlan at gmail.com  Sat Aug  3 15:09:12 2013
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Sat, 3 Aug 2013 23:09:12 +1000
+Subject: [python-committers] Tagging 3.4a1 with an unhappy AMD64 Win7
+	SP1 buildbot?
+In-Reply-To: <51FCC890.2@hastings.org>
+References: <51FCC890.2@hastings.org>
+Message-ID: <CADiSq7d4+0jrep00EhEtgaCuitfr1YbPzTf8CCG8-NOnHJBiAg@mail.gmail.com>
+
+On 3 August 2013 19:08, Larry Hastings <larry at hastings.org> wrote:
+>
+>
+> I'm considering  for Python 3.4.0a1.  The buildbots are all happy, except
+> for AMD64 Win7 SP1:
+>
+> http://buildbot.python.org/all/waterfall?category=3.x.stable
+>
+> The two failures are zipimport and signal.  zipimport is sporadic, and looks
+> like some sort of heisenissue.  signal is much more consistently broken, and
+> has been broken for a while.  (Not that Windows support for signal has ever
+> been that great.  But presumably the regression test is supposed to light up
+> green, even on Windows.)
+
+The test_signal problem should be fixed now given my last push. On a
+second review, I actually understood the rationale behind Jeremy's
+proposed test patch in http://bugs.python.org/issue18396 and accepted
+it.
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+
+From ncoghlan at gmail.com  Sat Aug  3 15:15:04 2013
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Sat, 3 Aug 2013 23:15:04 +1000
+Subject: [python-committers] Tagging 3.4a1 with an unhappy AMD64 Win7
+	SP1 buildbot?
+In-Reply-To: <CAF-Rda-xULP5+_q+V_DiMS9Z9T5Wb8KXoJ4_Djsv=b79zWYuGA@mail.gmail.com>
+References: <51FCC890.2@hastings.org> <51FCD13A.5060406@hastings.org>
+	<CAF-Rda-xULP5+_q+V_DiMS9Z9T5Wb8KXoJ4_Djsv=b79zWYuGA@mail.gmail.com>
+Message-ID: <CADiSq7c2m1TyC7NuWgz2qSO6kxQZWZbDRxbS3ZtZP0ofOSXT8Q@mail.gmail.com>
+
+On 3 August 2013 22:43, Eli Bendersky <eliben at gmail.com> wrote:
+> On Sat, Aug 3, 2013 at 2:45 AM, Larry Hastings <larry at hastings.org> wrote:
+>> On 08/03/2013 02:08 AM, Larry Hastings wrote:
+>>
+>> Can we, uh, live with that, for alpha 1?
+>>
+>>
+>> Ned pointed out, signal and zipimport worked on the retry.  So it's
+>> sporadic, whatever it is.  I think we can live with that.
+>>
+>
+> This is confusing. Why do we need an alpha release in the first place?
+> Is it more important to make it on the exact day than to have a more
+> functional release? Assuming that 64-bit Windows 7 is the most popular
+> (or close to it) Windows out there today, that sounds like an annoying
+> flaw.
+
+The test_signal problem was just a conflict between the details of the
+test and having faulthandler enabled. Nothing wrong with the signal
+handling itself.
+
+> The above is genuine will to understand the release process rather
+> than questioning your reasoning :-)
+
+Alpha deadlines are the ones with the *least* excuses for delays. It's
+better to expose the 99.9% that is working for broader feedback rather
+than holding that side of the process up for a couple of minor flaws.
+
+The trade-offs change as you move closer to a final release, but this
+early in the cycle erring on the side of "just ship it" is a good way
+to go.
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+
+From martin at v.loewis.de  Sat Aug  3 17:31:35 2013
+From: martin at v.loewis.de (martin at v.loewis.de)
+Date: Sat, 03 Aug 2013 17:31:35 +0200
+Subject: [python-committers] Reminder: Python 3.4 alpha 1 release is
+ Saturday August 3
+In-Reply-To: <CAFT4OTF=UA_cmOVAkBEvKuFLEiuDy6q7aU02XPjpWeZB+oMChw@mail.gmail.com>
+References: <51F1859F.1000608@hastings.org>
+	<CAMpsgwbwNMDnnCw6NStmabAQOzAXSrzH52-YiMGXFymictipZg@mail.gmail.com>
+	<CAMpsgwZofPwGyvLdp3YZAJ3jhGsk+B70dMXmGCM8c9FYfK5TPQ@mail.gmail.com>
+	<51FC0BD9.1000404@hastings.org>
+	<nad-6CC3D2.13003602082013@news.gmane.org>
+	<51FC15C2.9040708@hastings.org>
+	<CAFT4OTF=UA_cmOVAkBEvKuFLEiuDy6q7aU02XPjpWeZB+oMChw@mail.gmail.com>
+Message-ID: <20130803173135.Horde.OIFykl_dPeJajDctTSljnQ1@webmail.df.eu>
+
+
+Quoting Fred Drake <fred at fdrake.net>:
+
+>> IT IS HIGHLY RECOMMENDED THAT YOU AT LEAST TAG THE TREE 24 HOURS
+>> BEFORE A FINAL RELEASE.  This will give the Experts enough time to
+>> do their bits before the announcement goes out.
+>>
+>> The schedule calls for the Alpha 1 release tomorrow.  Ergo, tag today.
+>
+> When I read this, I expect it to only apply to X.Y.Z releases, not alphas
+> and betas.
+
+No, it actually should apply to all releases (alpha and beta as well).
+
+The 24h delay comes from the desire to release binaries. Due to time zones
+and work distribution across people, several hours can easily pass, and 24h
+is not at all unrealistic.
+
+> That, or some text explaining what to expect, would be good to have.
+
+It's easy enough: the tag is likely to occur 24h before the scheduled release.
+
+Regards,
+Martin
+
+
+
+From martin at v.loewis.de  Sat Aug  3 17:42:48 2013
+From: martin at v.loewis.de (martin at v.loewis.de)
+Date: Sat, 03 Aug 2013 17:42:48 +0200
+Subject: [python-committers] Tagging 3.4a1 with an unhappy AMD64 Win7
+ SP1 buildbot?
+In-Reply-To: <CAF-Rda-xULP5+_q+V_DiMS9Z9T5Wb8KXoJ4_Djsv=b79zWYuGA@mail.gmail.com>
+References: <51FCC890.2@hastings.org> <51FCD13A.5060406@hastings.org>
+	<CAF-Rda-xULP5+_q+V_DiMS9Z9T5Wb8KXoJ4_Djsv=b79zWYuGA@mail.gmail.com>
+Message-ID: <20130803174248.Horde.3VtTwdC4yb6up6jvTTyBeA8@webmail.df.eu>
+
+
+Quoting Eli Bendersky <eliben at gmail.com>:
+
+> On Sat, Aug 3, 2013 at 2:45 AM, Larry Hastings <larry at hastings.org> wrote:
+>> On 08/03/2013 02:08 AM, Larry Hastings wrote:
+>>
+>> Can we, uh, live with that, for alpha 1?
+>>
+>>
+>> Ned pointed out, signal and zipimport worked on the retry.  So it's
+>> sporadic, whatever it is.  I think we can live with that.
+>>
+>
+> This is confusing. Why do we need an alpha release in the first place?
+> Is it more important to make it on the exact day than to have a more
+> functional release? Assuming that 64-bit Windows 7 is the most popular
+> (or close to it) Windows out there today, that sounds like an annoying
+> flaw.
+>
+> The above is genuine will to understand the release process rather
+> than questioning your reasoning :-)
+
+In case it hasn't been answered: the point of alpha1 really is to make
+a release, and run through the release process. It will likely turn
+out that the release process fails in some way, and it may take all
+the alphas to get the issues resolved - so it is *expected* that the
+release is done despite known issues.
+
+FWIW, I don't consider the failure of the zipimport and signal tests
+that relevant, even on Windows. It doesn't mean that the release is
+completely useless for users (it could even be that the modules actually
+work, just the test runner is flawed).
+
+We hope that end users (and in particular library developers) test the
+release, to find out what got broken since 3.3. Again, for that, it isn't
+critical that all tests pass, since those users are expected to have
+different test cases, anyway.
+
+Regards,
+Martin
+
+
+
+From larry at hastings.org  Sun Aug  4 04:26:04 2013
+From: larry at hastings.org (Larry Hastings)
+Date: Sat, 03 Aug 2013 19:26:04 -0700
+Subject: [python-committers] Can I get the keys to the website please?
+Message-ID: <51FDBBBC.5050407@hastings.org>
+
+
+
+PEP 101 tells me that in order to release Python 3.4.0a1 I must massage 
+the website.  I foolishly left this to the last minute.  Can anybody 
+give me access to the repo and shove me towards the README? Pretty 
+please?  I already have access to dinsdale and am in the "webmaster" 
+group on there.
+
+By the way: unless something explodes last-minute, Python 3.4.0a1 will 
+be based on d86aec3f61b0.
+
+Fingers crossed,
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20130803/cd682f74/attachment-0001.html>
+
+From nad at acm.org  Sun Aug  4 04:51:19 2013
+From: nad at acm.org (Ned Deily)
+Date: Sat, 03 Aug 2013 19:51:19 -0700
+Subject: [python-committers] Can I get the keys to the website please?
+References: <51FDBBBC.5050407@hastings.org>
+Message-ID: <nad-46DDE7.19511803082013@news.gmane.org>
+
+In article <51FDBBBC.5050407 at hastings.org>,
+ Larry Hastings <larry at hastings.org> wrote:
+> PEP 101 tells me that in order to release Python 3.4.0a1 I must massage 
+> the website.  I foolishly left this to the last minute.  Can anybody 
+> give me access to the repo and shove me towards the README?
+
+Shove - website maintenance is documented here:
+
+http://www.python.org/dev/pydotorg/website/
+
+We'll get you going.
+
+-- 
+ Ned Deily,
+ nad at acm.org
+
+
+From benjamin at python.org  Sun Aug  4 07:42:48 2013
+From: benjamin at python.org (Benjamin Peterson)
+Date: Sat, 3 Aug 2013 22:42:48 -0700
+Subject: [python-committers] Can I get the keys to the website please?
+In-Reply-To: <51FDBBBC.5050407@hastings.org>
+References: <51FDBBBC.5050407@hastings.org>
+Message-ID: <CAPZV6o8R+KNqn-D=yXRDZ1XFSUxfW--LUneNS=bz97iUh8BVMg@mail.gmail.com>
+
+You should already have access to the website repo.
+
+2013/8/3 Larry Hastings <larry at hastings.org>:
+>
+>
+> PEP 101 tells me that in order to release Python 3.4.0a1 I must massage the
+> website.  I foolishly left this to the last minute.  Can anybody give me
+> access to the repo and shove me towards the README?  Pretty please?  I
+> already have access to dinsdale and am in the "webmaster" group on there.
+>
+> By the way: unless something explodes last-minute, Python 3.4.0a1 will be
+> based on d86aec3f61b0.
+>
+> Fingers crossed,
+>
+>
+> /arry
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+>
+
+
+
+-- 
+Regards,
+Benjamin
+
+From larry at hastings.org  Sun Aug  4 08:22:14 2013
+From: larry at hastings.org (Larry Hastings)
+Date: Sat, 03 Aug 2013 23:22:14 -0700
+Subject: [python-committers] [RELEASED] Python 3.4.0a1
+Message-ID: <51FDF316.4020107@hastings.org>
+
+
+
+On behalf of the Python development team, I'm pleased to announce the
+first alpha release of Python 3.4.
+
+This is a preview release, and its use is not recommended for
+production settings.
+
+Python 3.4 includes a range of improvements of the 3.x series, including
+hundreds of small improvements and bug fixes.  Major new features and
+changes in the 3.4 release series so far include:
+
+* PEP 435, a standardized "enum" module
+* PEP 442, improved semantics for object finalization
+* PEP 443, adding single-dispatch generic functions to the standard library
+* PEP 445, a new C API for implementing custom memory allocators
+
+
+To download Python 3.4.0a1 visit:
+
+     http://www.python.org/download/releases/3.4.0/
+
+
+Please consider trying Python 3.4.0a1 with your code and reporting any
+issues you notice to:
+
+      http://bugs.python.org/
+
+
+Enjoy!
+
+--
+Larry Hastings, Release Manager
+larry at hastings.org
+(on behalf of the entire python-dev team and 3.4's contributors)
+
+From larry at hastings.org  Sun Aug  4 08:31:40 2013
+From: larry at hastings.org (Larry Hastings)
+Date: Sat, 03 Aug 2013 23:31:40 -0700
+Subject: [python-committers] Trunk is ready for 3.4.0a2 work
+Message-ID: <51FDF54C.3050903@hastings.org>
+
+
+
+All the release engineering work for 3.4.0a1 has been merged.  Cry 
+havoc, and let slip the checkins of war!
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20130803/299b73c9/attachment.html>
+
+From anthonybaxter at gmail.com  Sun Aug  4 08:36:42 2013
+From: anthonybaxter at gmail.com (Anthony Baxter)
+Date: Sun, 4 Aug 2013 16:36:42 +1000
+Subject: [python-committers] Trunk is ready for 3.4.0a2 work
+In-Reply-To: <51FDF54C.3050903@hastings.org>
+References: <51FDF54C.3050903@hastings.org>
+Message-ID: <CANxH2eTFB3HCbJKZ=SMkjVK1y5CcuuE3YVBA5vHV=HinsT0PrQ@mail.gmail.com>
+
+http://www.voodoochilli.net/artwork/illustration/chickens-of-war/
+On Aug 4, 2013 4:34 PM, "Larry Hastings" <larry at hastings.org> wrote:
+
+>
+>
+> All the release engineering work for 3.4.0a1 has been merged.  Cry havoc,
+> and let slip the checkins of war!
+>
+>
+> */arry*
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+>
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20130804/6ab358b7/attachment.html>
+
+From larry at hastings.org  Sun Aug  4 08:48:26 2013
+From: larry at hastings.org (Larry Hastings)
+Date: Sat, 03 Aug 2013 23:48:26 -0700
+Subject: [python-committers] [RELEASED] Python 3.4.0a1
+In-Reply-To: <51FDF316.4020107@hastings.org>
+References: <51FDF316.4020107@hastings.org>
+Message-ID: <51FDF93A.9090009@hastings.org>
+
+On 08/03/2013 11:22 PM, Larry Hastings wrote:
+> * PEP 435, a standardized "enum" module
+> * PEP 442, improved semantics for object finalization
+> * PEP 443, adding single-dispatch generic functions to the standard 
+> library
+> * PEP 445, a new C API for implementing custom memory allocators
+
+Whoops, looks like I missed a couple here.  I was in a hurry and just 
+went off what I could find in Misc/NEWS.  I'll have a more complete list 
+in the release schedule PEP in a minute, and in the announcements for 
+alpha 2.
+
+If you want to make sure your PEP is mentioned next time, by all means 
+email me and rattle my cage.
+
+My apologies to those I overlooked,
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20130803/76971605/attachment.html>
+
+From eliben at gmail.com  Sun Aug  4 16:01:49 2013
+From: eliben at gmail.com (Eli Bendersky)
+Date: Sun, 4 Aug 2013 07:01:49 -0700
+Subject: [python-committers] [Python-Dev] [RELEASED] Python 3.4.0a1
+In-Reply-To: <51FDF93A.9090009@hastings.org>
+References: <51FDF316.4020107@hastings.org> <51FDF93A.9090009@hastings.org>
+Message-ID: <CAF-Rda-hjuHT=iB+MyJZACnniVcHJ3tSgydKzSPQ1VkpVG4QHA@mail.gmail.com>
+
+On Sat, Aug 3, 2013 at 11:48 PM, Larry Hastings <larry at hastings.org> wrote:
+> On 08/03/2013 11:22 PM, Larry Hastings wrote:
+>
+> * PEP 435, a standardized "enum" module
+> * PEP 442, improved semantics for object finalization
+> * PEP 443, adding single-dispatch generic functions to the standard library
+> * PEP 445, a new C API for implementing custom memory allocators
+>
+>
+> Whoops, looks like I missed a couple here.  I was in a hurry and just went
+> off what I could find in Misc/NEWS.  I'll have a more complete list in the
+> release schedule PEP in a minute, and in the announcements for alpha 2.
+>
+> If you want to make sure your PEP is mentioned next time, by all means email
+> me and rattle my cage.
+>
+
+Larry, if there are other things you're going to add, update the web
+page http://www.python.org/download/releases/3.4.0/ as well - it's the
+one being linked in the inter-webs now.
+
+Eli
+
+From larry at hastings.org  Sun Aug  4 20:38:32 2013
+From: larry at hastings.org (Larry Hastings)
+Date: Sun, 04 Aug 2013 11:38:32 -0700
+Subject: [python-committers] [Python-Dev] [RELEASED] Python 3.4.0a1
+In-Reply-To: <CAF-Rda-hjuHT=iB+MyJZACnniVcHJ3tSgydKzSPQ1VkpVG4QHA@mail.gmail.com>
+References: <51FDF316.4020107@hastings.org> <51FDF93A.9090009@hastings.org>
+	<CAF-Rda-hjuHT=iB+MyJZACnniVcHJ3tSgydKzSPQ1VkpVG4QHA@mail.gmail.com>
+Message-ID: <51FE9FA8.3020503@hastings.org>
+
+On 08/04/2013 07:01 AM, Eli Bendersky wrote:
+> Larry, if there are other things you're going to add, update the web
+> page http://www.python.org/download/releases/3.4.0/ as well - it's the
+> one being linked in the inter-webs now.
+
+Good thinking!  I'll do that today.
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20130804/05b990e1/attachment.html>
+
+From jcea at jcea.es  Tue Aug 13 19:05:04 2013
+From: jcea at jcea.es (Jesus Cea)
+Date: Tue, 13 Aug 2013 19:05:04 +0200
+Subject: [python-committers] SSH key changed
+Message-ID: <520A6740.6010400@jcea.es>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+I would like to replace my 1024 bit SSH key with a brand new 2048 bit
+key. What would be the procedure?
+
+I am talking about "hg.python.org". I don't think I have any other SSH
+access under python.org. Please, confirm.
+
+Thanks!.
+
+- -- 
+Jes?s Cea Avi?n                         _/_/      _/_/_/        _/_/_/
+jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+Twitter: @jcea                        _/_/    _/_/          _/_/_/_/_/
+jabber / xmpp:jcea at jabber.org  _/_/  _/_/    _/_/          _/_/  _/_/
+"Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+"My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+"El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.10 (GNU/Linux)
+Comment: Using GnuPG with Thunderbird - http://www.enigmail.net/
+
+iQCVAwUBUgpnQJlgi5GaxT1NAQLA9QP+MxaXs4xtdCrtUFVkCAMLzk3pToPQBdTU
+u0daC0SonpczWhWrKYmTLxuQR5gptzCYV2kdsNCRhw1DtUj5aq/uG7YZyBQ3rpev
+z/NeAbBsBE3jT7viMzndlJhymR91YBXFz6CTxklDFC7vkVnKUK1W7F/7YYq1r9mv
+S2u/RVFQMNc=
+=qNOs
+-----END PGP SIGNATURE-----
+
+From solipsis at pitrou.net  Tue Aug 13 20:19:39 2013
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Tue, 13 Aug 2013 20:19:39 +0200
+Subject: [python-committers] SSH key changed
+In-Reply-To: <520A6740.6010400@jcea.es>
+References: <520A6740.6010400@jcea.es>
+Message-ID: <1376417979.2590.1.camel@fsol>
+
+Le mardi 13 ao?t 2013 ? 19:05 +0200, Jesus Cea a ?crit :
+> I would like to replace my 1024 bit SSH key with a brand new 2048 bit
+> key. What would be the procedure?
+
+You can just email it to hgaccounts at python.org.
+
+Regards
+
+Antoine.
+
+
+
+From jcea at jcea.es  Wed Aug 14 16:30:09 2013
+From: jcea at jcea.es (Jesus Cea)
+Date: Wed, 14 Aug 2013 16:30:09 +0200
+Subject: [python-committers] SSH key changed
+In-Reply-To: <1376417979.2590.1.camel@fsol>
+References: <520A6740.6010400@jcea.es> <1376417979.2590.1.camel@fsol>
+Message-ID: <520B9471.4000907@jcea.es>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On 13/08/13 20:19, Antoine Pitrou wrote:
+> Le mardi 13 ao?t 2013 ? 19:05 +0200, Jesus Cea a ?crit :
+>> I would like to replace my 1024 bit SSH key with a brand new 2048
+>> bit key. What would be the procedure?
+> 
+> You can just email it to hgaccounts at python.org.
+
+Thanks.
+
+How is identity verified?. Anybody could send a SSH key there using my
+address as (a fake) "From".
+
+I am PGP signing this message as identity proof. Hope somebody is
+verifying it.
+
+$ jcea at ubuntu:~$ ssh-keygen -l -f ~/.ssh/id_rsa
+2048 15:d0:7e:8e:5b:ca:15:07:cf:02:ed:1f:84:7d:5d:67
+/home/jcea/.ssh/id_rsa.pub (RSA)
+
+Please, confirm the SSH key change. Thanks.
+
+PS: A PGP signing session would be nice (pycon, etc).
+
+- -- 
+Jes?s Cea Avi?n                         _/_/      _/_/_/        _/_/_/
+jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+Twitter: @jcea                        _/_/    _/_/          _/_/_/_/_/
+jabber / xmpp:jcea at jabber.org  _/_/  _/_/    _/_/          _/_/  _/_/
+"Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+"My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+"El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.10 (GNU/Linux)
+Comment: Using GnuPG with Thunderbird - http://www.enigmail.net/
+
+iQCVAwUBUguUcZlgi5GaxT1NAQIEvAP9F3QE51lxCUErog6qnjzIkVDMtc1uRJ6Z
+jm8pGIHO13qBUEaX08oKc2kNCNHVfItxgqVxklg3P2oWxCFX2RBozqUgoz9rnQEI
+w5MBqlH5y9DQ/jEu59xtfcT425bUoCxjIhhWIXJbWpki4qz1S84v7dzREGXjrnQ5
+E1wdNbO26m0=
+=/TCF
+-----END PGP SIGNATURE-----
+-------------- next part --------------
+ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEA5SLbU+XgHO6xe+meQdi/yx1wWoOG3a9JjDGmvtQWSIYKWFsTGgdSEHMxoLc4eISfytP+bL9SFQzMrmaaB0E63KmQpLFSXt/YBt5tYpXZqrieu3XMGSTg09uhTo/qQRRmqK1rkjpMEKUinXRYPcFJ0AYnU5jCiaFdPWUALVCDgAevisnlVj7Hwkwj3g/pKmCbS8WVMszuduL1Ir6k6iH79GbQa+HTwytwJpx0KIUSd1wsSORXdKRayYuGhHTMFUcCNXMV4GyTCL4PtiGzAKrroMTSjdGwOzY6O8S4D9uX0kyKSb2rV5PEC8JBzsVVZPis0Bb/ytOHMTYYt59GHGRj0w== jcea at portatil
+
+From ncoghlan at gmail.com  Wed Aug 14 18:49:17 2013
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Wed, 14 Aug 2013 12:49:17 -0400
+Subject: [python-committers] PEP commit privilieges for Donald Stufft?
+Message-ID: <CADiSq7e=4jOLdxDJUL5UKCsB0zYrKRtj2V+yMBnh3GoppJff9g@mail.gmail.com>
+
+Donald is the current main developer for PyPI and is doing a lot of
+work on PyPI related PEPs this days - it would reduce the
+administrative overhead if he could update the related PEPs directly.
+
+Any objections to my getting him to send his public SSH key to
+hgaccounts for inclusion?
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+
+From alex.gaynor at gmail.com  Wed Aug 14 18:50:30 2013
+From: alex.gaynor at gmail.com (Alex Gaynor)
+Date: Wed, 14 Aug 2013 09:50:30 -0700
+Subject: [python-committers] PEP commit privilieges for Donald Stufft?
+In-Reply-To: <CADiSq7e=4jOLdxDJUL5UKCsB0zYrKRtj2V+yMBnh3GoppJff9g@mail.gmail.com>
+References: <CADiSq7e=4jOLdxDJUL5UKCsB0zYrKRtj2V+yMBnh3GoppJff9g@mail.gmail.com>
+Message-ID: <CAFRnB2XmKKJg6p+ojaEmBEfO2D9GEU=rTv1APW-Uhx=RcZk8-w@mail.gmail.com>
+
++1 from me, Donald is doing awesome work in this area.
+
+Alex
+
+
+On Wed, Aug 14, 2013 at 9:49 AM, Nick Coghlan <ncoghlan at gmail.com> wrote:
+
+> Donald is the current main developer for PyPI and is doing a lot of
+> work on PyPI related PEPs this days - it would reduce the
+> administrative overhead if he could update the related PEPs directly.
+>
+> Any objections to my getting him to send his public SSH key to
+> hgaccounts for inclusion?
+>
+> Cheers,
+> Nick.
+>
+> --
+> Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+>
+
+
+
+-- 
+"I disapprove of what you say, but I will defend to the death your right to
+say it." -- Evelyn Beatrice Hall (summarizing Voltaire)
+"The people's good is the highest law." -- Cicero
+GPG Key fingerprint: 125F 5C67 DFE9 4084
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20130814/4ce75f90/attachment.html>
+
+From christian at python.org  Wed Aug 14 18:53:20 2013
+From: christian at python.org (Christian Heimes)
+Date: Wed, 14 Aug 2013 18:53:20 +0200
+Subject: [python-committers] PEP commit privilieges for Donald Stufft?
+In-Reply-To: <CADiSq7e=4jOLdxDJUL5UKCsB0zYrKRtj2V+yMBnh3GoppJff9g@mail.gmail.com>
+References: <CADiSq7e=4jOLdxDJUL5UKCsB0zYrKRtj2V+yMBnh3GoppJff9g@mail.gmail.com>
+Message-ID: <520BB600.10904@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Am 14.08.2013 18:49, schrieb Nick Coghlan:
+> Donald is the current main developer for PyPI and is doing a lot
+> of work on PyPI related PEPs this days - it would reduce the 
+> administrative overhead if he could update the related PEPs
+> directly.
+> 
+> Any objections to my getting him to send his public SSH key to 
+> hgaccounts for inclusion?
+
++1
+
+He'll do great!
+
+Christian
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.12 (GNU/Linux)
+Comment: Using GnuPG with undefined - http://www.enigmail.net/
+
+iQIcBAEBCgAGBQJSC7X7AAoJEMeIxMHUVQ1FUykP/2X7lWQ7LhI3r/6Sa94xmXeH
+JgstvKviMA40+DGLGoVBBr38D2oi8uqtSRv0WzDEQf207ilq0NGDZHxcUgMUgwPU
+lqzhA0UTK70kN0HrrhLQgaf7HUt5N3G5LlIAoW2SYuW+EXTSycclRG2A3leX53Ce
+f9iXkklOdS5kuc6a3+BGu45+/izpDWJwa7EVAjDDh+qXwl26/zZBukj9iGfXYZWf
+JO6JTqCLaUZXYPBrC9RDAEwq6La6WoWN883+FNUVfnjcdGI+e9hRfsP6jRsuHU9y
+l+1DtGMziZe0w+pVEuqe/iQuPI3Hj+mfMsyhXTLXFxQggfs9UykVQ+b+l4o7MOFJ
+ryGfR/LgAtLzT4R9jia+PfiGFlsZCcgPeuSp6zYaeIKOau7jaPJK/prJLJOMrayU
+5RBsdNBxszVycVmaFEjtzlkzmX4plrNTU1xoOrHAQVIsmiseeemH0PmGal4EpWHq
+Q3y4xF5nT1OKL3AAshO/wwuxEG6i9D7UES00IsvCSNTYAE4T/BdPZn3gKg8/Rnup
+Ge5iuE/+BDpG2kNAeqQdAJ6BOq17ZGyA5MSGrleGQlhrZzJboDpU0SQu3eJhC76E
+m/AYpyOg8CzYkM+YSc0z4N9j1OHQh1ckTH1hZe3i37MA82PJEOvIEpAAmzXUDaP5
+bTbPlbhklJiOWQzybSVW
+=6Fz7
+-----END PGP SIGNATURE-----
+
+From solipsis at pitrou.net  Wed Aug 14 19:12:34 2013
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Wed, 14 Aug 2013 19:12:34 +0200
+Subject: [python-committers] PEP commit privilieges for Donald Stufft?
+In-Reply-To: <CADiSq7e=4jOLdxDJUL5UKCsB0zYrKRtj2V+yMBnh3GoppJff9g@mail.gmail.com>
+References: <CADiSq7e=4jOLdxDJUL5UKCsB0zYrKRtj2V+yMBnh3GoppJff9g@mail.gmail.com>
+Message-ID: <1376500354.2718.0.camel@fsol>
+
+Le mercredi 14 ao?t 2013 ? 12:49 -0400, Nick Coghlan a ?crit :
+> Donald is the current main developer for PyPI and is doing a lot of
+> work on PyPI related PEPs this days - it would reduce the
+> administrative overhead if he could update the related PEPs directly.
+
+Ok for PEP commit privileges.
+
+Regards
+
+Antoine.
+
+
+
+From barry at python.org  Wed Aug 14 19:43:25 2013
+From: barry at python.org (Barry Warsaw)
+Date: Wed, 14 Aug 2013 13:43:25 -0400
+Subject: [python-committers] PEP commit privilieges for Donald Stufft?
+In-Reply-To: <CADiSq7e=4jOLdxDJUL5UKCsB0zYrKRtj2V+yMBnh3GoppJff9g@mail.gmail.com>
+References: <CADiSq7e=4jOLdxDJUL5UKCsB0zYrKRtj2V+yMBnh3GoppJff9g@mail.gmail.com>
+Message-ID: <20130814134325.4b6c5410@anarchist>
+
+On Aug 14, 2013, at 12:49 PM, Nick Coghlan wrote:
+
+>Any objections to my getting him to send his public SSH key to
+>hgaccounts for inclusion?
+
+No objections.
+
+-Barry
+
+From brett at python.org  Wed Aug 14 20:51:03 2013
+From: brett at python.org (Brett Cannon)
+Date: Wed, 14 Aug 2013 14:51:03 -0400
+Subject: [python-committers] PEP commit privilieges for Donald Stufft?
+In-Reply-To: <CADiSq7e=4jOLdxDJUL5UKCsB0zYrKRtj2V+yMBnh3GoppJff9g@mail.gmail.com>
+References: <CADiSq7e=4jOLdxDJUL5UKCsB0zYrKRtj2V+yMBnh3GoppJff9g@mail.gmail.com>
+Message-ID: <CAP1=2W5GMaFa_uL3kWxJF6L0vB2H5PaHVw4d8Ph_sxrQejOvzA@mail.gmail.com>
+
+It's been granted.
+
+
+On Wed, Aug 14, 2013 at 12:49 PM, Nick Coghlan <ncoghlan at gmail.com> wrote:
+
+> Donald is the current main developer for PyPI and is doing a lot of
+> work on PyPI related PEPs this days - it would reduce the
+> administrative overhead if he could update the related PEPs directly.
+>
+> Any objections to my getting him to send his public SSH key to
+> hgaccounts for inclusion?
+>
+> Cheers,
+> Nick.
+>
+> --
+> Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20130814/1049c74f/attachment-0001.html>
+
+From jcea at jcea.es  Fri Aug 16 17:03:16 2013
+From: jcea at jcea.es (Jesus Cea)
+Date: Fri, 16 Aug 2013 17:03:16 +0200
+Subject: [python-committers] Timeframe for 2.7.6
+Message-ID: <520E3F34.9070506@jcea.es>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Is there any release date/estimation for 2.7.6?.
+
+- -- 
+Jes?s Cea Avi?n                         _/_/      _/_/_/        _/_/_/
+jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+Twitter: @jcea                        _/_/    _/_/          _/_/_/_/_/
+jabber / xmpp:jcea at jabber.org  _/_/  _/_/    _/_/          _/_/  _/_/
+"Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+"My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+"El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.10 (GNU/Linux)
+Comment: Using GnuPG with Thunderbird - http://www.enigmail.net/
+
+iQCVAwUBUg4/M5lgi5GaxT1NAQIhhQP/YzvPcA9KWNYD8k5S1vNFVi3Qv3STS0UA
+1ROP7cD7WIAWalGdRF7TrYVifHFNqfdNR84QYGU6oHGOkGBZMwlUFu9mxbrbsllh
+GrfmrTQih41xxAqUf1rkqoCmW36YO0TsCw7nNzAIJ0foveEWRPRsti8Z1/0U4Zn6
+HWeZF57rCBM=
+=oRD8
+-----END PGP SIGNATURE-----
+
+From benjamin at python.org  Fri Aug 16 17:51:35 2013
+From: benjamin at python.org (Benjamin Peterson)
+Date: Fri, 16 Aug 2013 08:51:35 -0700
+Subject: [python-committers] Timeframe for 2.7.6
+In-Reply-To: <520E3F34.9070506@jcea.es>
+References: <520E3F34.9070506@jcea.es>
+Message-ID: <CAPZV6o9td4_wHed3HWdogO-=xY+Zj8inHm_TUZrTRN6Ay9=8wA@mail.gmail.com>
+
+Fall 2013.
+
+2013/8/16 Jesus Cea <jcea at jcea.es>:
+> -----BEGIN PGP SIGNED MESSAGE-----
+> Hash: SHA1
+>
+> Is there any release date/estimation for 2.7.6?.
+>
+> - --
+> Jes?s Cea Avi?n                         _/_/      _/_/_/        _/_/_/
+> jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+> Twitter: @jcea                        _/_/    _/_/          _/_/_/_/_/
+> jabber / xmpp:jcea at jabber.org  _/_/  _/_/    _/_/          _/_/  _/_/
+> "Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+> "My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+> "El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+> -----BEGIN PGP SIGNATURE-----
+> Version: GnuPG v1.4.10 (GNU/Linux)
+> Comment: Using GnuPG with Thunderbird - http://www.enigmail.net/
+>
+> iQCVAwUBUg4/M5lgi5GaxT1NAQIhhQP/YzvPcA9KWNYD8k5S1vNFVi3Qv3STS0UA
+> 1ROP7cD7WIAWalGdRF7TrYVifHFNqfdNR84QYGU6oHGOkGBZMwlUFu9mxbrbsllh
+> GrfmrTQih41xxAqUf1rkqoCmW36YO0TsCw7nNzAIJ0foveEWRPRsti8Z1/0U4Zn6
+> HWeZF57rCBM=
+> =oRD8
+> -----END PGP SIGNATURE-----
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+
+
+
+-- 
+Regards,
+Benjamin
+
+From barry at python.org  Mon Aug 19 02:44:59 2013
+From: barry at python.org (Barry Warsaw)
+Date: Sun, 18 Aug 2013 20:44:59 -0400
+Subject: [python-committers] Timeframe for 2.7.6
+In-Reply-To: <CAPZV6o9td4_wHed3HWdogO-=xY+Zj8inHm_TUZrTRN6Ay9=8wA@mail.gmail.com>
+References: <520E3F34.9070506@jcea.es>
+ <CAPZV6o9td4_wHed3HWdogO-=xY+Zj8inHm_TUZrTRN6Ay9=8wA@mail.gmail.com>
+Message-ID: <20130818204459.3869d78b@anarchist>
+
+On Aug 16, 2013, at 08:51 AM, Benjamin Peterson wrote:
+
+>Fall 2013.
+
+Please note too that I am planning the final 2.6 release (2.6.9) for
+October 2013.
+
+-Barry
+
+
+From jcea at jcea.es  Mon Aug 19 08:03:47 2013
+From: jcea at jcea.es (Jesus Cea)
+Date: Mon, 19 Aug 2013 08:03:47 +0200
+Subject: [python-committers] Inconsistency in Mercurial repository
+Message-ID: <5211B543.401@jcea.es>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Pristine clone from http://hg.python.org/cpython/
+
+"""
+[jcea at babylon5 cpython]$ hg verify
+checking changesets
+checking manifests
+crosschecking files in changesets and manifests
+checking files
+9928 files, 85259 changesets, 188148 total revisions
+
+[jcea at babylon5 cpython]$ hg verify -v
+repository uses revlog format 1
+checking changesets
+checking manifests
+crosschecking files in changesets and manifests
+checking files
+warning: copy source of 'Modules/_threadmodule.c' not in parents of
+60ad83716733
+warning: copy source of 'Objects/bytesobject.c' not in parents of
+64bb1d258322
+warning: copy source of 'Objects/stringobject.c' not in parents of
+357e268e7c5f
+9928 files, 85259 changesets, 188148 total revisions
+3 warnings encountered!
+"""
+
+- -- 
+Jes?s Cea Avi?n                         _/_/      _/_/_/        _/_/_/
+jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+Twitter: @jcea                        _/_/    _/_/          _/_/_/_/_/
+jabber / xmpp:jcea at jabber.org  _/_/  _/_/    _/_/          _/_/  _/_/
+"Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+"My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+"El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.10 (GNU/Linux)
+Comment: Using GnuPG with Thunderbird - http://www.enigmail.net/
+
+iQCVAwUBUhG1Q5lgi5GaxT1NAQJ7jgP/TjsodjuTeOTYsUf8gCKC95yeBsgEI6Wi
+JEANLfwXjxQgaDyD5Mx/v6cmwJU0YJvNu4LwCHOuD+tK7E75XVAw9DIwXiiRQpAO
+tuMkSb9g78BMVxMxZRhcwKVH+y7DRKK9ADtUPPSBW7FuI9I+TH7vIdD4GpI9VFv/
+o55FfgPRUBw=
+=1CMi
+-----END PGP SIGNATURE-----
+
+From solipsis at pitrou.net  Mon Aug 19 11:00:11 2013
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Mon, 19 Aug 2013 11:00:11 +0200
+Subject: [python-committers] Inconsistency in Mercurial repository
+In-Reply-To: <5211B543.401@jcea.es>
+References: <5211B543.401@jcea.es>
+Message-ID: <e6cad9840c8d9c5d39c174b3a6728b49@ssl.pitrou.net>
+
+On 2013-08-19 08:03, Jesus Cea wrote:
+> -----BEGIN PGP SIGNED MESSAGE-----
+> Hash: SHA1
+> 
+> Pristine clone from http://hg.python.org/cpython/
+
+http://mail.python.org/pipermail/python-dev/2012-August/121384.html
+
+
+

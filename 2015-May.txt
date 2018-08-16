@@ -1,0 +1,1910 @@
+From amk at amk.ca  Wed May  6 05:09:35 2015
+From: amk at amk.ca (A.M. Kuchling)
+Date: Tue, 5 May 2015 23:09:35 -0400
+Subject: [python-committers] Alternative to SSH port 22?
+Message-ID: <20150506030935.GB5886@datlandrewk.home>
+
+I'm working on a DC-area python-dev meetup.  One location has been
+reported to intermittently have trouble connecting to the SSH port
+(port 22) externally, which would clearly make it impossible to commit
+to hg.python.org.
+
+Does hg.python.org support SSH on any alternative ports, like 2222?
+Otherwise I guess we could run an SSH tunnel on some alternate server,
+going from a port number >1024 to hg.python.org:22.
+
+--amk
+
+From donald at stufft.io  Wed May  6 14:59:58 2015
+From: donald at stufft.io (Donald Stufft)
+Date: Wed, 6 May 2015 08:59:58 -0400
+Subject: [python-committers] Alternative to SSH port 22?
+In-Reply-To: <20150506030935.GB5886@datlandrewk.home>
+References: <20150506030935.GB5886@datlandrewk.home>
+Message-ID: <CC47AB73-201E-45F8-B155-BF83B7FF9461@stufft.io>
+
+
+> On May 5, 2015, at 11:09 PM, A.M. Kuchling <amk at amk.ca> wrote:
+> 
+> I'm working on a DC-area python-dev meetup.  One location has been
+> reported to intermittently have trouble connecting to the SSH port
+> (port 22) externally, which would clearly make it impossible to commit
+> to hg.python.org.
+> 
+> Does hg.python.org support SSH on any alternative ports, like 2222?
+> Otherwise I guess we could run an SSH tunnel on some alternate server,
+> going from a port number >1024 to hg.python.org:22.
+> 
+> --amk
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+
+It doesn?t currently have another port number available but we could
+easily add one, we?ll just need to set it up the LBs.
+
+---
+Donald Stufft
+PGP: 7C6B 7C5D 5E2B 6356 A926 F04F 6E3C BCE9 3372 DCFA
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 801 bytes
+Desc: Message signed with OpenPGP using GPGMail
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150506/56cef1ab/attachment.sig>
+
+From larry at hastings.org  Tue May 12 19:04:39 2015
+From: larry at hastings.org (Larry Hastings)
+Date: Tue, 12 May 2015 10:04:39 -0700
+Subject: [python-committers] How shall we conduct the Python 3.5 beta and rc
+ periods? (Please vote!)
+Message-ID: <555232A7.7060002@hastings.org>
+
+
+
+Python 3.5 beta 1 is coming up soon.  After beta is rc; after rc is 
+3.5.0 final.  During the beta and rc periods the Python developer 
+workflow changes a little--what sorts of checkins are permissible, and 
+how to get something accepted and merged generally becomes more complicated.
+
+I was the release manager for Python 3.4, and the way I ran the rc 
+period for 3.4 was miserable.  Everyone hated it--and that includes me.  
+I'm absolutely not doing it that way for 3.5.  But that leads one to the 
+question: okay, how *am* I going to run it?  I have three ideas for 
+workflows for the beta and rc periods for 3.5, below.  But first let's 
+talk about what I/we hope to achieve.
+
+Traditionally during the beta and rc periods, development of new 
+features stops completely.   Obviously, after feature freeze no new 
+features can go into the beta / rc releases.  But why can't people 
+develop new features for the *next* release?  The reason given is that 
+we're trying to guide the core dev community in the right 
+direction--they should concentrate on fixing bugs in the new release.  I 
+suspect the real reason for this is that back in the bad old days of 
+Subversion (and CVS!) branching and merging were painful.  This social 
+engineering policy is a justification after-the-fact.
+
+But Mercurial makes branching and merging nearly effortless. Mercurial 
+also makes it painless to develop new features in private.  So consider: 
+anyone who wants to work on new features during beta and rc can easily 
+do so.  All our "no new features during beta and rc" policy really does 
+is drive such development away out of public view.
+
+I think it's time we experimented with lifting that policy.  The trick 
+is finding a good place for us to check in the work.  You see, during 
+the 3.5 rc period, we arguably want to accept checkins for *three* 
+different revisions:
+
+    3.5.0
+    3.5.1
+    3.6
+
+3.5.1?  Yep.  During the rc period for 3.4--and particularly after the 
+last rc was tagged--there were a lot of minor fixes that were desirable, 
+but I didn't want to accept into 3.4 just to avoid destabilizing the 
+release.  I still wanted those checkins, I just didn't want them in 
+3.4.0.  So the way it worked was, developers would check those bugfixes 
+in to trunk, then I'd cherry-pick the revisions I wanted into the rc 
+branch.  In other words, during the rc period for 3.4, trunk effectively 
+represented 3.4.1.  This was valuable and I absolutely want to do it again.
+
+
+So here are the workflows.  Workflow 0 most resembles what we've done in 
+the past.  Workflow 1 is my favorite and the most ambitious.  All three 
+give us a public place to put revisions for 3.5.0 and 3.5.1; Workflow 1 
+also gives us a place to check in work for 3.6 during the beta and rc 
+periods for 3.5.  Workflow 2 is a less ambitious compromise.
+
+
+Workflow 0
+==========
+
+When I ship beta 1, trunk remains 3.5.
+
+When I ship rc 1, trunk becomes 3.5.1.  I create a publically visible 
+read-only repo that represents 3.5.0, and any checkins that I want to 
+accept into 3.5.0 I must manually cherry-pick from trunk.
+
+When I ship Python 3.5.0 final, we branch 3.5, and trunk becomes 3.6.
+
+Workflow 1
+==========
+
+When I ship beta 1, we create the 3.5 branch.  trunk become 3.6.
+
+When I ship rc 1, the 3.5 branch becomes 3.5.1.  I maintain a publically 
+visible repo /on bitbucket/ for 3.5.0, and we use bitbucket "pull 
+requests" for cherry-picks from 3.5.1 into 3.5.0.
+
+This gives us a pilot project to try out a web GUI for merging.  It 
+makes my workflow easier, as I can push a button to accept 
+cherry-picks.  (If they don't apply cleanly I can tell the author to go 
+fix the conflict and resubmit it.)  The downside: it requires core devs 
+to have and use bitbucket accounts.
+
+Workflow 2
+==========
+
+When I ship beta 1, trunk remains 3.5.
+
+When I ship rc 1, we create the 3.5 branch.  The 3.5 branch is 3.5.0 and 
+trunk is 3.5.1.  Only blessed stuff gets cherry-picked from 3.5.1 back 
+into 3.5.0.
+
+
+What do you think?  My votes are as follows:
+
+    Workflow 0: -0.5
+    Workflow 1: +1
+    Workflow 2: +0.5
+
+
+Please cast your votes,
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150512/20cab77b/attachment.html>
+
+From nad at acm.org  Tue May 12 19:23:47 2015
+From: nad at acm.org (Ned Deily)
+Date: Tue, 12 May 2015 10:23:47 -0700
+Subject: [python-committers] How shall we conduct the Python 3.5 beta
+	and rc periods? (Please vote!)
+In-Reply-To: <555232A7.7060002@hastings.org>
+References: <555232A7.7060002@hastings.org>
+Message-ID: <B378A343-D109-460D-8EC7-C2CAFF8C6B96@acm.org>
+
+On May 12, 2015, at 10:04, Larry Hastings <larry at hastings.org> wrote:
+
+> Workflow 1
+> ==========
+> 
+> When I ship beta 1, we create the 3.5 branch.  trunk become 3.6.
+> 
+> When I ship rc 1, the 3.5 branch becomes 3.5.1.  I maintain a publically visible repo on bitbucket for 3.5.0, and we use bitbucket "pull requests" for cherry-picks from 3.5.1 into 3.5.0.
+> 
+> This gives us a pilot project to try out a web GUI for merging.  It makes my workflow easier, as I can push a button to accept cherry-picks.  (If they don't apply cleanly I can tell the author to go fix the conflict and resubmit it.)  The downside: it requires core devs to have and use bitbucket accounts.
+
+One possible issue with Workflow 1 is that there would need to be an additional set of buildbots (for 3.5, in addition to the existing 3.x (AKA "trunk"), 3.4, and 2.7 ones) for the period from beta 1 until at least 3.5.0 is released and, ideally, until 3.4 support ends, which following recent past practice, would be relatively soon after 3.5.0.
+
+> Workflow 2
+> ==========
+> 
+> When I ship beta 1, trunk remains 3.5.
+> 
+> When I ship rc 1, we create the 3.5 branch.  The 3.5 branch is 3.5.0 and trunk is 3.5.1.  Only blessed stuff gets cherry-picked from 3.5.1 back into 3.5.0.
+
+Where does 3.6.x fit into Workflow 2?
+
+--
+  Ned Deily
+  nad at acm.org -- []
+
+
+
+From larry at hastings.org  Tue May 12 19:38:23 2015
+From: larry at hastings.org (Larry Hastings)
+Date: Tue, 12 May 2015 10:38:23 -0700
+Subject: [python-committers] How shall we conduct the Python 3.5 beta
+ and rc periods? (Please vote!)
+In-Reply-To: <B378A343-D109-460D-8EC7-C2CAFF8C6B96@acm.org>
+References: <555232A7.7060002@hastings.org>
+ <B378A343-D109-460D-8EC7-C2CAFF8C6B96@acm.org>
+Message-ID: <55523A8F.60509@hastings.org>
+
+On 05/12/2015 10:23 AM, Ned Deily wrote:
+> One possible issue with Workflow 1 is that there would need to be an additional set of buildbots (for 3.5, in addition to the existing 3.x (AKA "trunk"), 3.4, and 2.7 ones) for the period from beta 1 until at least 3.5.0 is released and, ideally, until 3.4 support ends, which following recent past practice, would be relatively soon after 3.5.0.
+
+Good point.  Though I could concievably push the 3.5.0 rc repo up to an 
+hg.python.org "server-side clone" and kick off the buildbots from there.
+> Where does 3.6.x fit into Workflow 2?
+
+It doesn't.  Workflows 0 and 2 mean no public development of 3.6 until 
+after 3.5.0 final ships, as per tradition.
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150512/5a0dc756/attachment.html>
+
+From brett at python.org  Tue May 12 19:20:21 2015
+From: brett at python.org (Brett Cannon)
+Date: Tue, 12 May 2015 17:20:21 +0000
+Subject: [python-committers] How shall we conduct the Python 3.5 beta
+ and rc periods? (Please vote!)
+In-Reply-To: <555232A7.7060002@hastings.org>
+References: <555232A7.7060002@hastings.org>
+Message-ID: <CAP1=2W7PGFVKmPXSMhy_YbqQC-zqxpFm+xYkU2drxnNZ2LsAxw@mail.gmail.com>
+
+On Tue, May 12, 2015 at 1:05 PM Larry Hastings <larry at hastings.org> wrote:
+
+> [SNIP]
+>
+> What do you think?  My votes are as follows:
+>
+> Workflow 0: -0.5
+> Workflow 1: +1
+> Workflow 2: +0.5
+>
+>
+> Please cast your votes,
+>
+
+Workflow 0: -0
+Workflow 1: +1
+Workflow 2:  +0
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150512/56101f5f/attachment-0001.html>
+
+From yselivanov.ml at gmail.com  Tue May 12 19:53:19 2015
+From: yselivanov.ml at gmail.com (Yury Selivanov)
+Date: Tue, 12 May 2015 13:53:19 -0400
+Subject: [python-committers] How shall we conduct the Python 3.5 beta
+ and rc periods? (Please vote!)
+In-Reply-To: <555232A7.7060002@hastings.org>
+References: <555232A7.7060002@hastings.org>
+Message-ID: <55523E0F.8000805@gmail.com>
+
+Larry,
+
+On 2015-05-12 1:04 PM, Larry Hastings wrote:
+> Workflow 1
+> ==========
+>
+> When I ship beta 1, we create the 3.5 branch.  trunk become 3.6.
+>
+> When I ship rc 1, the 3.5 branch becomes 3.5.1.  I maintain a 
+> publically visible repo /on bitbucket/ for 3.5.0, and we use bitbucket 
+> "pull requests" for cherry-picks from 3.5.1 into 3.5.0.
+>
+> This gives us a pilot project to try out a web GUI for merging. It 
+> makes my workflow easier, as I can push a button to accept 
+> cherry-picks.  (If they don't apply cleanly I can tell the author to 
+> go fix the conflict and resubmit it.)  The downside: it requires core 
+> devs to have and use bitbucket accounts.
+
+
+This makes a lot of sense. +1.
+
+Yury
+
+From nad at acm.org  Tue May 12 20:21:43 2015
+From: nad at acm.org (Ned Deily)
+Date: Tue, 12 May 2015 11:21:43 -0700
+Subject: [python-committers] How shall we conduct the Python 3.5 beta
+	and rc periods? (Please vote!)
+In-Reply-To: <55523A8F.60509@hastings.org>
+References: <555232A7.7060002@hastings.org>
+ <B378A343-D109-460D-8EC7-C2CAFF8C6B96@acm.org> <55523A8F.60509@hastings.org>
+Message-ID: <0C1213E6-B7CD-4ED7-82ED-0278C8C55EA2@acm.org>
+
+On May 12, 2015, at 10:38, Larry Hastings <larry at hastings.org> wrote:
+> On 05/12/2015 10:23 AM, Ned Deily wrote:
+>> One possible issue with Workflow 1 is that there would need to be an additional set of buildbots (for 3.5, in addition to the existing 3.x (AKA "trunk"), 3.4, and 2.7 ones) for the period from beta 1 until at least 3.5.0 is released and, ideally, until 3.4 support ends, which following recent past practice, would be relatively soon after 3.5.0.
+> Good point.  Though I could concievably push the 3.5.0 rc repo up to an hg.python.org "server-side clone" and kick off the buildbots from there.
+
+I wasn't worrying about the 3.5.0rc "branch", but, yeah, we could probably improvise ones for that as you suggest. So, buildbots would be: 3.5 branch (->3.5.1 as of beta1), 3.5rc (as needed from rc1 to final), along with the current 3.x (->3.5.0 today, -> 3.6.0, as of beta1), 3.4, and 2.7 buildbots.
+
+I like the idea of experimentally trying the push workflow but, if we are all doing our jobs right, there should be very few changes going in after rc1 so most committers won't need to push anything to the 3.5.0rc repo and, if for some reason they aren't able to use Bitbucket, someone could do it for them.  In other words, while nice, the use of Bitbucket is not a critical feature of Workflow 1.  I think 1 is the best choice with or without the use of Bitbucket.  But we should also recognize that adopting it can make more work for committers fixing bugs over the next few months (between beta1 and final), as we need to consider testing and pushing each fix to default (for 3.6.0), 3.5 (for 3.5.0 until rc1, then for 3.5.1), 3.4 (for 3.4.4), and/or 2.7 (for 2.7.11).  That's the tradeoff for allowing feature work to be committed, integrated, and tested during the beta and rc periods.
+
+>> Where does 3.6.x fit into Workflow 2?
+> It doesn't.  Workflows 0 and 2 mean no public development of 3.6 until after 3.5.0 final ships, as per tradition.
+
+Workflow 0 = -1
+Workflow 1 = +1
+Workflow 2 = -0.5
+
+--
+  Ned Deily
+  nad at acm.org -- []
+
+
+
+From jcea at jcea.es  Tue May 12 20:18:26 2015
+From: jcea at jcea.es (Jesus Cea)
+Date: Tue, 12 May 2015 20:18:26 +0200
+Subject: [python-committers] How shall we conduct the Python 3.5 beta
+ and rc periods? (Please vote!)
+In-Reply-To: <555232A7.7060002@hastings.org>
+References: <555232A7.7060002@hastings.org>
+Message-ID: <555243F2.802@jcea.es>
+
+Larry, could you comment about the impact in the buildbots?. I suppose
+option #1 could allows us to test both 3.5 and 3.6 changes. Would you
+confirm this?
+
+My votes:
+
+Workflow #0: -0
+Workflow #1: +1
+Workflow #2: +0
+
+Would be great if we could host the branch for 3.5 ourselves instead of
+using BitBucket but, at least, it is NOT github :). Competition is good.
+
+-- 
+Jes?s Cea Avi?n                         _/_/      _/_/_/        _/_/_/
+jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+Twitter: @jcea                        _/_/    _/_/          _/_/_/_/_/
+jabber / xmpp:jcea at jabber.org  _/_/  _/_/    _/_/          _/_/  _/_/
+"Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+"My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+"El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 473 bytes
+Desc: OpenPGP digital signature
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150512/0586ae8c/attachment.sig>
+
+From barry at python.org  Tue May 12 21:03:26 2015
+From: barry at python.org (Barry Warsaw)
+Date: Tue, 12 May 2015 15:03:26 -0400
+Subject: [python-committers] How shall we conduct the Python 3.5 beta
+ and rc periods? (Please vote!)
+In-Reply-To: <55523A8F.60509@hastings.org>
+References: <555232A7.7060002@hastings.org>
+ <B378A343-D109-460D-8EC7-C2CAFF8C6B96@acm.org>
+ <55523A8F.60509@hastings.org>
+Message-ID: <20150512150326.5f5f0d25@anarchist.wooz.org>
+
+On May 12, 2015, at 10:38 AM, Larry Hastings wrote:
+
+>It doesn't.  Workflows 0 and 2 mean no public development of 3.6 until after
+>3.5.0 final ships, as per tradition.
+
+I still think it's a good idea to focus primarily on 3.5 while it's in the
+beta/rc period, but if you want to allow for landings on what will be 3.6,
+then going with workflow 1 will be an interesting social experiment.
+
+I'm fine with any of them as long as the workflow is *well documented*,
+preferably in the devguide.
+
+Cheers,
+-Barry
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 819 bytes
+Desc: OpenPGP digital signature
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150512/4f5e2aad/attachment.sig>
+
+From larry at hastings.org  Wed May 13 01:36:22 2015
+From: larry at hastings.org (Larry Hastings)
+Date: Tue, 12 May 2015 16:36:22 -0700
+Subject: [python-committers] How shall we conduct the Python 3.5 beta
+ and rc periods? (Please vote!)
+In-Reply-To: <0C1213E6-B7CD-4ED7-82ED-0278C8C55EA2@acm.org>
+References: <555232A7.7060002@hastings.org>
+ <B378A343-D109-460D-8EC7-C2CAFF8C6B96@acm.org> <55523A8F.60509@hastings.org>
+ <0C1213E6-B7CD-4ED7-82ED-0278C8C55EA2@acm.org>
+Message-ID: <55528E76.4090505@hastings.org>
+
+On 05/12/2015 11:21 AM, Ned Deily wrote:
+> I like the idea of experimentally trying the push workflow but, if we are all doing our jobs right, there should be very few changes going in after rc1 so most committers won't need to push anything to the 3.5.0rc repo and, if for some reason they aren't able to use Bitbucket, someone could do it for them.
+
+For 3.4, I had an amazing number of cherry-picked revisions.  By the end 
+it was... 72? over 100?  I'm no longer even sure.
+
+Granted, 3.4 had the new module asyncio, and I got a deluge of 
+cherry-pick requests just for that one module.  I permitted 'em because 
+a) they wanted it to be ready for prime time when 3.4 shipped, b) there 
+was no installed base, and c) a healthy percentage of those changes were 
+doc-only.  (But if Victor tries that again during the 3.5 betas, he may 
+have another thing coming!)
+
+BTW, this workload was exacerbated by my foolish desire to keep the 
+revision DAG nice and clean.  So I was actually starting over from 
+scratch and redoing all the cherry-picking every couple of days, just so 
+I could get all the cherry-picked revisions in strict chronological 
+order.  By the end I had evolved a pretty elaborate guided-process 
+automation script to do all the cherry-picking, which you can see here 
+if you're curious:
+
+    https://hg.python.org/release/file/b7529318e7cc/3.4/threefourtool.py
+
+I have since given up this foolish desire.  I'll be happy to have a nice 
+grubby revision DAG if it means I can spend more time on the internet 
+cruising for funny cat videos.
+
+
+In short, as release manager, I'm pretty stoked by the idea of pressing 
+a big shiny button on a website exactly once when I accept a cherry-pick 
+request.
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150512/b63379df/attachment-0001.html>
+
+From dirkjan at ochtman.nl  Wed May 13 02:11:44 2015
+From: dirkjan at ochtman.nl (Dirkjan Ochtman)
+Date: Tue, 12 May 2015 17:11:44 -0700
+Subject: [python-committers] How shall we conduct the Python 3.5 beta
+ and rc periods? (Please vote!)
+In-Reply-To: <55528E76.4090505@hastings.org>
+References: <555232A7.7060002@hastings.org>
+ <B378A343-D109-460D-8EC7-C2CAFF8C6B96@acm.org>
+ <55523A8F.60509@hastings.org> <0C1213E6-B7CD-4ED7-82ED-0278C8C55EA2@acm.org>
+ <55528E76.4090505@hastings.org>
+Message-ID: <CAKmKYaA=bLLcaejRVpszGpWvLSY_vKvdERNHNDCWV0wNukQ07A@mail.gmail.com>
+
+On Tue, May 12, 2015 at 4:36 PM, Larry Hastings <larry at hastings.org> wrote:
+> BTW, this workload was exacerbated by my foolish desire to keep the revision
+> DAG nice and clean.  So I was actually starting over from scratch and
+> redoing all the cherry-picking every couple of days, just so I could get all
+> the cherry-picked revisions in strict chronological order.  By the end I had
+> evolved a pretty elaborate guided-process automation script to do all the
+> cherry-picking, which you can see here if you're curious:
+
+Couldn't you just keep this as a branch that you then keep rebasing
+(without unlinking the original branch)? It doesn't seem like
+something that needs a one-off script, to me.
+
+Cheers,
+
+Dirkjan
+
+From ncoghlan at gmail.com  Wed May 13 02:19:56 2015
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Wed, 13 May 2015 10:19:56 +1000
+Subject: [python-committers] How shall we conduct the Python 3.5 beta
+ and rc periods? (Please vote!)
+In-Reply-To: <CAP1=2W7PGFVKmPXSMhy_YbqQC-zqxpFm+xYkU2drxnNZ2LsAxw@mail.gmail.com>
+References: <555232A7.7060002@hastings.org>
+ <CAP1=2W7PGFVKmPXSMhy_YbqQC-zqxpFm+xYkU2drxnNZ2LsAxw@mail.gmail.com>
+Message-ID: <CADiSq7c0AYZOWRaawwAR6Vrzd75vXXfKz7H8Z8x8kXRz9UrTmQ@mail.gmail.com>
+
+On 13 May 2015 03:47, "Brett Cannon" <brett at python.org> wrote:
+>
+>
+>
+> On Tue, May 12, 2015 at 1:05 PM Larry Hastings <larry at hastings.org> wrote:
+>>
+>> [SNIP]
+>>
+>>
+>> What do you think?  My votes are as follows:
+>>>
+>>> Workflow 0: -0.5
+>>> Workflow 1: +1
+>>> Workflow 2: +0.5
+>>
+>>
+>> Please cast your votes,
+>
+>
+> Workflow 0: -0
+> Workflow 1: +1
+> Workflow 2:  +0
+
+Workflow 0: -0
+Workflow 1: +1
+Workflow 2:  +0
+
+That's taking into account the clarification that the buildbots will be set
+up to track the 3.5.x branch after the beta is forked, and that Larry will
+also push the 3.5rcX repo to hg.python.org for branch testing.
+
+(Possible alternative plan for the latter: rc1 isn't until August, and I
+could aim to have a pilot Kallithea instance set up by then that uses
+bugs.python.org credentials to log in. If we didn't get that up and running
+for some reason, BitBucket could still be a fallback plan)
+
+Cheers,
+Nick.
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150513/d91ad087/attachment.html>
+
+From larry at hastings.org  Wed May 13 02:15:19 2015
+From: larry at hastings.org (Larry Hastings)
+Date: Tue, 12 May 2015 17:15:19 -0700
+Subject: [python-committers] How shall we conduct the Python 3.5 beta
+ and rc periods? (Please vote!)
+In-Reply-To: <CAKmKYaA=bLLcaejRVpszGpWvLSY_vKvdERNHNDCWV0wNukQ07A@mail.gmail.com>
+References: <555232A7.7060002@hastings.org>
+ <B378A343-D109-460D-8EC7-C2CAFF8C6B96@acm.org> <55523A8F.60509@hastings.org>
+ <0C1213E6-B7CD-4ED7-82ED-0278C8C55EA2@acm.org>
+ <55528E76.4090505@hastings.org>
+ <CAKmKYaA=bLLcaejRVpszGpWvLSY_vKvdERNHNDCWV0wNukQ07A@mail.gmail.com>
+Message-ID: <55529797.3070804@hastings.org>
+
+On 05/12/2015 05:11 PM, Dirkjan Ochtman wrote:
+> Couldn't you just keep this as a branch that you then keep rebasing
+> (without unlinking the original branch)? It doesn't seem like
+> something that needs a one-off script, to me.
+
+Probably.  It's water under the bridge now--that all happened last 
+February and I'm not doing it that way again.
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150512/9d59fd8f/attachment.html>
+
+From larry at hastings.org  Wed May 13 02:29:59 2015
+From: larry at hastings.org (Larry Hastings)
+Date: Tue, 12 May 2015 17:29:59 -0700
+Subject: [python-committers] How shall we conduct the Python 3.5 beta
+ and rc periods? (Please vote!)
+In-Reply-To: <555243F2.802@jcea.es>
+References: <555232A7.7060002@hastings.org> <555243F2.802@jcea.es>
+Message-ID: <55529B07.70805@hastings.org>
+
+On 05/12/2015 11:18 AM, Jesus Cea wrote:
+> Larry, could you comment about the impact in the buildbots?. I suppose
+> option #1 could allows us to test both 3.5 and 3.6 changes. Would you
+> confirm this?
+
+Workflow #1 gets us automatic buildbot testing for the 3.5 branch (betas 
+and 3.5.1) and trunk (3.6).  It doesn't get us testing of the 3.5.0 
+release candidates automatically, because those would be hosted at 
+bitbucket.  However: hg.python.org allows creating "server-side clones" 
+which can manually run tests against the buildbots.  So if I create a 
+server-side clone, then push the release candidate branch there, I can 
+kick off buildbot tests.  Who knows, maybe I'd even automate that process.
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150512/20642648/attachment.html>
+
+From berker.peksag at gmail.com  Wed May 13 08:57:15 2015
+From: berker.peksag at gmail.com (=?UTF-8?Q?Berker_Peksa=C4=9F?=)
+Date: Wed, 13 May 2015 09:57:15 +0300
+Subject: [python-committers] How shall we conduct the Python 3.5 beta
+ and rc periods? (Please vote!)
+In-Reply-To: <555232A7.7060002@hastings.org>
+References: <555232A7.7060002@hastings.org>
+Message-ID: <CAF4280+GF0HJV87BYY9_nJsiROn8yMOQJLzMwycPG4sY9B6-Rg@mail.gmail.com>
+
+On Tue, May 12, 2015 at 8:04 PM, Larry Hastings <larry at hastings.org> wrote:
+> What do you think?  My votes are as follows:
+>
+> Workflow 0: -0.5
+> Workflow 1: +1
+> Workflow 2: +0.5
+>
+>
+> Please cast your votes,
+
+Workflow 0: -0
+Workflow 1: +1
+Workflow 2: +0
+
+--Berker
+
+From larry at hastings.org  Wed May 13 09:59:44 2015
+From: larry at hastings.org (Larry Hastings)
+Date: Wed, 13 May 2015 00:59:44 -0700
+Subject: [python-committers] How shall we conduct the Python 3.5 beta
+ and rc periods? (Please vote!)
+In-Reply-To: <CADiSq7c0AYZOWRaawwAR6Vrzd75vXXfKz7H8Z8x8kXRz9UrTmQ@mail.gmail.com>
+References: <555232A7.7060002@hastings.org>	<CAP1=2W7PGFVKmPXSMhy_YbqQC-zqxpFm+xYkU2drxnNZ2LsAxw@mail.gmail.com>
+ <CADiSq7c0AYZOWRaawwAR6Vrzd75vXXfKz7H8Z8x8kXRz9UrTmQ@mail.gmail.com>
+Message-ID: <55530470.3010705@hastings.org>
+
+On 05/12/2015 05:19 PM, Nick Coghlan wrote:
+>
+> Workflow 0: -0
+> Workflow 1: +1
+> Workflow 2:  +0
+>
+> That's taking into account the clarification that the buildbots will 
+> be set up to track the 3.5.x branch after the beta is forked, and that 
+> Larry will also push the 3.5rcX repo to hg.python.org 
+> <http://hg.python.org> for branch testing.
+>
+
+I sort of assumed the buildbots would start building the 3.5 branch once 
+it was created, yes.  (Are there any branches in the cpython repo that 
+they ignore?)
+
+When you say "branch testing", you mean "running the buildbots against 
+it"?  Right now the UI for doing that is pretty clunky. Kicking off a 
+build against a server-side clone (iirc) requires clicking through a 
+couple web pages, filling out a form, and clicking on a teeny-tiny 
+button.  It would help *tremendously* here if I could get this 
+automated, so I could run a script locally that made everything happen.
+
+Is there a remote API for starting builds?  Or existing automation of 
+any kind?  Who should I talk to about this stuff?
+
+
+> (Possible alternative plan for the latter: rc1 isn't until August, and 
+> I could aim to have a pilot Kallithea instance set up by then that 
+> uses bugs.python.org <http://bugs.python.org> credentials to log in. 
+> If we didn't get that up and running for some reason, BitBucket could 
+> still be a fallback plan)
+>
+
+I'm happy to consider it.  My proposed workflow is only using a very 
+small set of features, and I gather Kallithea already has those 
+features.  Bolting on authentication from bugs.python.org would make it 
+*less* friction than using Bitbucket.
+
+But I couldn't say for sure until I got to try it.  So get cracking, Nick!
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150513/45e66295/attachment-0001.html>
+
+From yselivanov.ml at gmail.com  Wed May 13 21:43:17 2015
+From: yselivanov.ml at gmail.com (Yury Selivanov)
+Date: Wed, 13 May 2015 15:43:17 -0400
+Subject: [python-committers] Code review tool 500 error
+Message-ID: <5553A955.7070407@gmail.com>
+
+Hi,
+
+I can't post messages to the code review tool -- it shows
+me 500 error page.
+
+I'm not sure if I'm the only one who is experiencing this.
+
+I tried different browsers, cleaning cookies/local storage
+etc.
+
+I can change my password and give my login credentials for
+someone to debug/test.
+
+Yury
+
+From rdmurray at bitdance.com  Wed May 13 23:01:36 2015
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Wed, 13 May 2015 17:01:36 -0400
+Subject: [python-committers] Code review tool 500 error
+In-Reply-To: <5553A955.7070407@gmail.com>
+References: <5553A955.7070407@gmail.com>
+Message-ID: <20150513210136.C0615B90092@webabinitio.net>
+
+On Wed, 13 May 2015 15:43:17 -0400, Yury Selivanov <yselivanov.ml at gmail.com> wrote:
+> I can't post messages to the code review tool -- it shows
+> me 500 error page.
+
+Are you doing it from the front page?  I think that doesn't work.
+In-line comments plus "publish comments" does work.
+
+--David
+
+From larry at hastings.org  Thu May 14 16:15:34 2015
+From: larry at hastings.org (Larry Hastings)
+Date: Thu, 14 May 2015 07:15:34 -0700
+Subject: [python-committers] How shall we conduct the Python 3.5 beta
+ and rc periods? (Please vote!)
+In-Reply-To: <555232A7.7060002@hastings.org>
+References: <555232A7.7060002@hastings.org>
+Message-ID: <5554AE06.8030108@hastings.org>
+
+
+On 05/12/2015 10:04 AM, Larry Hastings wrote:
+> What do you think?  [...] Please cast your votes
+
+workflow           0    1    2
+
+Larry Hastings    -0.5  1    0.5
+Brett Cannon       0    1    0
+Nick Coghlan       0    1    0
+Chris Angelico     0    0    0    ?in favor of [Workflow 1]?
+Ned Deily         -1    1   -0.5
+Barry Warsaw       0    0    0    ?I'm fine with any of them as long as 
+the workflow is well documented?
+Antoine Pitrou    -0.5  1    0.5
+Ethan Furman       0    1    0    didn't cast explicit votes for 
+anything but workflow 1
+Berker Peksag      0    1    0
+Yuri Selivanov     0    1    0    didn't cast explicit votes for 
+anything but workflow 1
+Jesus Cea          0    1    0
+
+total             -2    9    0.5
+
+
+I'm calling it--the winner by a landslide is the ambitious Workflow 1.  
+Barry and Chris A didn't cast any explicit votes, but both approved of 
+Workflow 1.   Every other voter was +1 on Workflow 1 and uninterested or 
+negative on the others.
+
+I'll start experimenting with the workflow(s) and will add documentation 
+to the Dev Guide.
+
+The fun starts next weekend,
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150514/469c8437/attachment.html>
+
+From rdmurray at bitdance.com  Thu May 14 17:14:54 2015
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Thu, 14 May 2015 11:14:54 -0400
+Subject: [python-committers] How shall we conduct the Python 3.5 beta
+	and rc periods? (Please vote!)
+In-Reply-To: <5554AE06.8030108@hastings.org>
+References: <555232A7.7060002@hastings.org> <5554AE06.8030108@hastings.org>
+Message-ID: <20150514151455.62139B1408D@webabinitio.net>
+
+On Thu, 14 May 2015 07:15:34 -0700, Larry Hastings <larry at hastings.org> wrote:
+> I'll start experimenting with the workflow(s) and will add documentation 
+> to the Dev Guide.
+> 
+> The fun starts next weekend,
+
+By "next weekend" you mean "the weekend after this coming weekend",
+right?  (These calendar idioms always confuse me.)
+
+--David
+
+From larry at hastings.org  Thu May 14 18:13:12 2015
+From: larry at hastings.org (Larry Hastings)
+Date: Thu, 14 May 2015 09:13:12 -0700
+Subject: [python-committers] How shall we conduct the Python 3.5 beta
+ and rc periods? (Please vote!)
+In-Reply-To: <20150514151455.62139B1408D@webabinitio.net>
+References: <555232A7.7060002@hastings.org> <5554AE06.8030108@hastings.org>
+ <20150514151455.62139B1408D@webabinitio.net>
+Message-ID: <5554C998.7020903@hastings.org>
+
+On 05/14/2015 08:14 AM, R. David Murray wrote:
+> On Thu, 14 May 2015 07:15:34 -0700, Larry Hastings <larry at hastings.org> wrote:
+>> I'll start experimenting with the workflow(s) and will add documentation
+>> to the Dev Guide.
+>>
+>> The fun starts next weekend,
+> By "next weekend" you mean "the weekend after this coming weekend",
+> right?  (These calendar idioms always confuse me.)
+
+Yes.  Python 3.5 beta 1 will be tagged Saturday May 23, for release 
+Sunday May 24.
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150514/8e004c67/attachment.html>
+
+From larry at hastings.org  Fri May 22 21:53:34 2015
+From: larry at hastings.org (Larry Hastings)
+Date: Fri, 22 May 2015 12:53:34 -0700
+Subject: [python-committers] Reminder: Python 3.5 beta 1 will be tagged
+	tomorrow
+Message-ID: <555F893E.6080806@hastings.org>
+
+
+
+Howdy howdy.  It's-a me, Larry, your friendly neighborhood Python 3.5 
+Release Manager.
+
+Somewhere around 2 or 3pm tomorrow I expect to tag Python 3.5 beta 1.  
+We'll actually release beta 1 on Sunday, once the binary installers are 
+all built.
+
+Beta 1 is also feature-freeze, meaning no new features may be added to 
+3.5 without my permission.  Since it seems useful to have a specific 
+cutoff time, please stop adding features at ** 8pm Saturday UTC **.  
+(That's 1pm Pacific Daylight Time.  It's also almost exactly 24 hours 
+from... now.)
+
+I remind you that this time we're trying something new: we're going to 
+create the 3.5 branch when we release beta 1, allowing feature 
+development (for 3.6) to continue in trunk.  At the point that I check 
+in and push beta 1, I'll also merge all checkins from trunk back into 
+the 3.5 branch.  After that it'll be responsibility of the person 
+checking in to check their bug fixes in to the appropriate place.  So 
+please keep in mind: once the 3.5 branch becomes generally available on 
+Sunday, the usual rules for a release branch will apply: bug fixes for 
+3.5 should be checked in to the 3.5 branch and get merged forward into 
+trunk.
+
+If you have new features you want to ship with Python 3.5, please check 
+them in as soon as possible!
+
+
+Thank you for helping to make Python better,
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150522/7bd4cb7c/attachment.html>
+
+From martin at v.loewis.de  Fri May 22 22:00:54 2015
+From: martin at v.loewis.de (=?windows-1252?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Fri, 22 May 2015 22:00:54 +0200
+Subject: [python-committers] [Python-Dev] How shall we conduct the
+ Python 3.5 beta and rc periods? (Please vote!)
+In-Reply-To: <55530470.3010705@hastings.org>
+References: <555232A7.7060002@hastings.org>	<CAP1=2W7PGFVKmPXSMhy_YbqQC-zqxpFm+xYkU2drxnNZ2LsAxw@mail.gmail.com>
+ <CADiSq7c0AYZOWRaawwAR6Vrzd75vXXfKz7H8Z8x8kXRz9UrTmQ@mail.gmail.com>
+ <55530470.3010705@hastings.org>
+Message-ID: <555F8AF6.9000909@v.loewis.de>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Am 13.05.15 um 09:59 schrieb Larry Hastings:
+> When you say "branch testing", you mean "running the buildbots
+> against it"?  Right now the UI for doing that is pretty clunky.
+> Kicking off a build against a server-side clone (iirc) requires
+> clicking through a couple web pages, filling out a form, and
+> clicking on a teeny-tiny button.  It would help *tremendously* here
+> if I could get this automated, so I could run a script locally that
+> made everything happen.
+> 
+> Is there a remote API for starting builds?  Or existing automation
+> of any kind?  Who should I talk to about this stuff?
+
+Antoine, or me. For branch builds, it would be better to configure
+them into the buildbot configuration, instead of trying to force them
+from the outside.
+
+To make this happen, you need to add a repository URL and branch name
+into the buildbot configuration, and a post-push hook on the repository
+to trigger the build. It's actually possible to configure a bitbucket
+POST hook to trigger a buildbot build, but we haven't yet integrated
+that into the buildbot master.
+
+Regards,
+Martin
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG/MacGPG2 v2.0.22 (Darwin)
+Comment: GPGTools - http://gpgtools.org
+
+iEYEARECAAYFAlVfivYACgkQavBT8H2dyNIzCACdG3yHShN/ZEc1sIiOVYj0lcg0
+K9IAnjqLCFN+EewBPLfh651wQUq64nun
+=0j5m
+-----END PGP SIGNATURE-----
+
+From larry at hastings.org  Fri May 22 23:33:45 2015
+From: larry at hastings.org (Larry Hastings)
+Date: Fri, 22 May 2015 14:33:45 -0700
+Subject: [python-committers] [Python-Dev] Reminder: Python 3.5 beta 1
+	will be tagged tomorrow
+In-Reply-To: <CALGmxEJmVrCYqyLXZZhvvwfTRAHTMioiCNHuURk4ayzWpJAeBA@mail.gmail.com>
+References: <CALGmxEJmVrCYqyLXZZhvvwfTRAHTMioiCNHuURk4ayzWpJAeBA@mail.gmail.com>
+Message-ID: <555FA0B9.2010209@hastings.org>
+
+On 05/22/2015 02:29 PM, Chris Barker wrote:
+> Is it too late to get the isclose() code (PEP 485) into 3.5?
+>
+> I posted the code here, and got a tiny bit of review, but have not yet 
+> merged it into the source tree -- and don't know the process for 
+> getting it committed to the official source.
+>
+> So -- too late, or should I try to get that merge done soon -- if so, how?
+
+Posting your plea here is a good start.  Hopefully you can find a core 
+dev familiar enough with the issues involved that they can (quickly!) 
+guide it through the process of getting it checked in.
+
+Given that this is a new feature I can live with it being checked in at 
+the last minute, as it shouldn't destabilize the build.  Still, I would 
+prefer that it was checked in far enough in advance that you can watch 
+the buildbots ( 
+http://buildbot.python.org/all/waterfall?category=3.x.stable ) and maybe 
+even iterate if the checkin causes problems.
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150522/661bd1e2/attachment.html>
+
+From larry at hastings.org  Fri May 22 23:44:10 2015
+From: larry at hastings.org (Larry Hastings)
+Date: Fri, 22 May 2015 14:44:10 -0700
+Subject: [python-committers] Can we clean up the buildbots please?
+Message-ID: <555FA32A.3030907@hastings.org>
+
+
+
+Right now we have eight online buildbots for Python trunk.  Of those, 
+currently *six* are reporting errors in either the compile or test phases.
+
+    http://buildbot.python.org/all/waterfall?category=3.x.stable
+
+There's one platform ("AMD64 Snow Leop") where the failures are sporadic 
+"stack overflow" errors encountered during the test suite. But the other 
+five platforms have consistent failures, build after build.  Those 
+platforms:
+
+    AMD64 OpenIndiana
+    AMD64 Windows7 SP1
+    x86 Windows Server 2003 [SB]
+    x86 Windows7
+    x86 XP-4
+
+That includes *all* of the Windows buildbots.
+
+Gosh, it sure would be nice if Beta 1 didn't fail on Windows, wouldn't 
+it?  Could some Windows core devs take a look at the failures and see 
+about cleaning them up?
+
+Naturally the OpenIndiana and OS X devs are invited to fix the errors on 
+those platforms too,
+
+
+//arry/
+
+p.s. My apologies for not bringing attention to this sooner.  But, well, 
+we still have a day left, right?
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150522/79c7d365/attachment.html>
+
+From Steve.Dower at microsoft.com  Sat May 23 00:06:48 2015
+From: Steve.Dower at microsoft.com (Steve Dower)
+Date: Fri, 22 May 2015 22:06:48 +0000
+Subject: [python-committers] Can we clean up the buildbots please?
+In-Reply-To: <555FA32A.3030907@hastings.org>
+References: <555FA32A.3030907@hastings.org>
+Message-ID: <BY1PR03MB14664E2808229B57A040E23CF5C00@BY1PR03MB1466.namprd03.prod.outlook.com>
+
+The Windows 7 buildbots are failing on test_asdl_parser, but I have no idea why ? the test works for me just fine. Yury and Benjamin made the most recent changes to Python.asdl, but I have no idea what effect they would have here, or why it?s Windows only.
+
+The WS2K3 machine needs a reboot ? I pinged Trent about that months ago ? and the XP one isn?t supported for 3.5.
+
+Pending the test_asdl_parser fix, I?d also like to see AMD64 Windows 8 (http://buildbot.python.org/all/builders/AMD64%20Windows8%203.x) be promoted to stable, as it?s one of only two currently using the right compiler.
+
+Cheers,
+Steve
+
+Coming to PyData Seattle 2015<http://conf.pydata.org/seattle2015/>? Hosted by Microsoft on our Redmond campus, July 24-26
+
+From: python-committers [mailto:python-committers-bounces+steve.dower=microsoft.com at python.org] On Behalf Of Larry Hastings
+Sent: Friday, May 22, 2015 1444
+To: Python Dev; python-committers
+Subject: [python-committers] Can we clean up the buildbots please?
+
+
+
+Right now we have eight online buildbots for Python trunk.  Of those, currently *six* are reporting errors in either the compile or test phases.
+http://buildbot.python.org/all/waterfall?category=3.x.stable
+There's one platform ("AMD64 Snow Leop") where the failures are sporadic "stack overflow" errors encountered during the test suite.  But the other five platforms have consistent failures, build after build.  Those platforms:
+AMD64 OpenIndiana
+AMD64 Windows7 SP1
+x86 Windows Server 2003 [SB]
+x86 Windows7
+x86 XP-4
+That includes *all* of the Windows buildbots.
+
+Gosh, it sure would be nice if Beta 1 didn't fail on Windows, wouldn't it?  Could some Windows core devs take a look at the failures and see about cleaning them up?
+
+Naturally the OpenIndiana and OS X devs are invited to fix the errors on those platforms too,
+
+
+/arry
+
+p.s. My apologies for not bringing attention to this sooner.  But, well, we still have a day left, right?
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150522/afc20cfd/attachment-0001.html>
+
+From larry at hastings.org  Sat May 23 00:29:33 2015
+From: larry at hastings.org (Larry Hastings)
+Date: Fri, 22 May 2015 15:29:33 -0700
+Subject: [python-committers] Can we clean up the buildbots please?
+In-Reply-To: <BY1PR03MB14664E2808229B57A040E23CF5C00@BY1PR03MB1466.namprd03.prod.outlook.com>
+References: <555FA32A.3030907@hastings.org>
+ <BY1PR03MB14664E2808229B57A040E23CF5C00@BY1PR03MB1466.namprd03.prod.outlook.com>
+Message-ID: <555FADCD.8@hastings.org>
+
+On 05/22/2015 03:06 PM, Steve Dower wrote:
+>
+> The Windows 7 buildbots are failing on test_asdl_parser, but I have no 
+> idea why ? the test works for me just fine. Yury and Benjamin made the 
+> most recent changes to Python.asdl, but I have no idea what effect 
+> they would have here, or why it?s Windows only.
+>
+> The WS2K3 machine needs a reboot ? I pinged Trent about that months 
+> ago ? and the XP one isn?t supported for 3.5.
+>
+> Pending the test_asdl_parser fix, I?d also like to see AMD64 Windows 8 
+> (http://buildbot.python.org/all/builders/AMD64%20Windows8%203.x) be 
+> promoted to stable, as it?s one of only two currently using the right 
+> compiler.
+>
+
+So what you seem to be saying is, the Windows buildbots provide no 
+useful signal and should be ignored?
+
+Is MSVS 2015 the only supported compiler for Python 3.5 on Windows? 
+What's the other buildbot using MSVS 2015?
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150522/0ce009ab/attachment.html>
+
+From berker.peksag at gmail.com  Sat May 23 00:34:50 2015
+From: berker.peksag at gmail.com (=?UTF-8?Q?Berker_Peksa=C4=9F?=)
+Date: Sat, 23 May 2015 01:34:50 +0300
+Subject: [python-committers] [Python-Dev] Reminder: Python 3.5 beta 1
+	will be tagged tomorrow
+In-Reply-To: <CALGmxEJwA3GkGGAGqaqm8q6ZSCv9QoOSvcfSjH+UtmLB1Apecw@mail.gmail.com>
+References: <CALGmxEJmVrCYqyLXZZhvvwfTRAHTMioiCNHuURk4ayzWpJAeBA@mail.gmail.com>
+ <555FA0B9.2010209@hastings.org>
+ <CALGmxEJwA3GkGGAGqaqm8q6ZSCv9QoOSvcfSjH+UtmLB1Apecw@mail.gmail.com>
+Message-ID: <CAF4280LfAGEyen+7bBFraRw73zNAbjtnzbjhLY760XxnnLrA2g@mail.gmail.com>
+
+On Sat, May 23, 2015 at 12:53 AM, Chris Barker <chris.barker at noaa.gov> wrote:
+> On Fri, May 22, 2015 at 2:33 PM, Larry Hastings <larry at hastings.org> wrote:
+>>
+>> On 05/22/2015 02:29 PM, Chris Barker wrote:
+>>
+>> Is it too late to get the isclose() code (PEP 485) into 3.5?
+>
+> ...
+>>
+>>   Hopefully you can find a core dev familiar enough with the issues
+>> involved that they can (quickly!) guide it through the process of getting it
+>> checked in.
+>
+> Ping!  Anyone willing to sponsor this?
+
+Hi Chris,
+
+Thanks for the PEP and the implementation!
+
+You'll get more attention If you open an issue with a patch at
+bugs.python.org. Having a GitHub repository is good, but the isclose()
+code(with tests and documentation) needs to be integrated into the
+CPython code base:
+
+* The C implementation should be in Modules/mathmodule.c
+* Tests should be in Lib/test/test_math.py
+* Documentation should be in Doc/library/math.rst
+* Add an entry to Doc/whatsnew/3.5.rst
+* If I remember correctly, we don't need the Python implementation and its tests
+
+--Berker
+
+From Steve.Dower at microsoft.com  Sat May 23 00:47:11 2015
+From: Steve.Dower at microsoft.com (Steve Dower)
+Date: Fri, 22 May 2015 22:47:11 +0000
+Subject: [python-committers] Can we clean up the buildbots please?
+In-Reply-To: <555FADCD.8@hastings.org>
+References: <555FA32A.3030907@hastings.org>
+ <BY1PR03MB14664E2808229B57A040E23CF5C00@BY1PR03MB1466.namprd03.prod.outlook.com>
+ <555FADCD.8@hastings.org>
+Message-ID: <BY1PR03MB1466BA4F6ED1CA349E7080D8F5C00@BY1PR03MB1466.namprd03.prod.outlook.com>
+
+Two of them are useless (x86 Windows Server 2003 [SB] and x86 XP-4, to be precise), but the fact that everything other than test_asdl_parser passes is a very valuable signal. AMD64 Windows 7 SP1 is also using the correct compiler.
+
+Since some of our core developers are yet to upgrade, I?m not against keeping the one VS 2010 buildbot around for now. When MSFT comes up with a better way of getting the compiler than installing 8GB+ of interactive environment, then I?ll be more forceful about it (and yes, I?m helping encourage the relevant teams).
+
+Cheers,
+Steve
+
+Coming to PyData Seattle 2015<http://conf.pydata.org/seattle2015/>? Hosted by Microsoft on our Redmond campus, July 24-26
+
+From: Larry Hastings [mailto:larry at midwinter.com] On Behalf Of Larry Hastings
+Sent: Friday, May 22, 2015 1530
+To: Steve Dower; Python Dev; python-committers
+Cc: Yury Selivanov; Benjamin Peterson
+Subject: Re: [python-committers] Can we clean up the buildbots please?
+
+On 05/22/2015 03:06 PM, Steve Dower wrote:
+The Windows 7 buildbots are failing on test_asdl_parser, but I have no idea why ? the test works for me just fine. Yury and Benjamin made the most recent changes to Python.asdl, but I have no idea what effect they would have here, or why it?s Windows only.
+
+The WS2K3 machine needs a reboot ? I pinged Trent about that months ago ? and the XP one isn?t supported for 3.5.
+
+Pending the test_asdl_parser fix, I?d also like to see AMD64 Windows 8 (http://buildbot.python.org/all/builders/AMD64%20Windows8%203.x) be promoted to stable, as it?s one of only two currently using the right compiler.
+
+So what you seem to be saying is, the Windows buildbots provide no useful signal and should be ignored?
+
+Is MSVS 2015 the only supported compiler for Python 3.5 on Windows?  What's the other buildbot using MSVS 2015?
+
+
+/arry
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150522/cf5ab997/attachment-0001.html>
+
+From larry at hastings.org  Sat May 23 00:53:13 2015
+From: larry at hastings.org (Larry Hastings)
+Date: Fri, 22 May 2015 15:53:13 -0700
+Subject: [python-committers] Can we clean up the buildbots please?
+In-Reply-To: <BY1PR03MB1466BA4F6ED1CA349E7080D8F5C00@BY1PR03MB1466.namprd03.prod.outlook.com>
+References: <555FA32A.3030907@hastings.org>
+ <BY1PR03MB14664E2808229B57A040E23CF5C00@BY1PR03MB1466.namprd03.prod.outlook.com>
+ <555FADCD.8@hastings.org>
+ <BY1PR03MB1466BA4F6ED1CA349E7080D8F5C00@BY1PR03MB1466.namprd03.prod.outlook.com>
+Message-ID: <555FB359.5080307@hastings.org>
+
+
+> *From:*Larry Hastings [mailto:larry at midwinter.com] *On Behalf Of 
+> *Larry Hastings
+> *Sent:* Friday, May 22, 2015 1530
+> *To:* Steve Dower; Python Dev; python-committers
+> *Cc:* Yury Selivanov; Benjamin Peterson
+> *Subject:* Re: [python-committers] Can we clean up the buildbots please?
+>
+> Is MSVS 2015 the only supported compiler for Python 3.5 on Windows?  
+> What's the other buildbot using MSVS 2015?
+
+I'll answer my own question here.  According to PCbuild/readme.txt:
+
+    This script will use the env.bat script to detect one of Visual
+    Studio 2015, 2013, 2012, or 2010, any of which may be used to build
+    Python, though only Visual Studio 2015 is officially supported.
+
+
+I'll admit I'm puzzled by the wisdom of using unsupported compilers on 
+buildbots.  I guess it's a historical thing.  But I gently suggest that 
+we should either upgrade those buildbots to a supported compiler or 
+remove them entirely.  Definitely we should remove unsupported the two 
+unsupported platforms from the buildbots--that's just crazy.
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150522/c3dd16ae/attachment.html>
+
+From trent at snakebite.org  Sat May 23 02:11:39 2015
+From: trent at snakebite.org (Trent Nelson)
+Date: Fri, 22 May 2015 20:11:39 -0400
+Subject: [python-committers] Can we clean up the buildbots please?
+In-Reply-To: <BY1PR03MB14664E2808229B57A040E23CF5C00@BY1PR03MB1466.namprd03.prod.outlook.com>
+References: <555FA32A.3030907@hastings.org>
+ <BY1PR03MB14664E2808229B57A040E23CF5C00@BY1PR03MB1466.namprd03.prod.outlook.com>
+Message-ID: <20150523000714.GA7927@snakebite.org>
+
+On Fri, May 22, 2015 at 10:06:48PM +0000, Steve Dower wrote:
+> The Windows 7 buildbots are failing on test_asdl_parser, but I have no
+> idea why ? the test works for me just fine. Yury and Benjamin made the
+> most recent changes to Python.asdl, but I have no idea what effect
+> they would have here, or why it?s Windows only.
+> 
+> The WS2K3 machine needs a reboot ? I pinged Trent about that months
+> ago ? and the XP one isn?t supported for 3.5.
+
+    Gave it a little bit of love just then (haven't been able to access
+    it for months as the main switch needed a reboot).  There were like,
+    155 cl.exe processes wedged and a bunch of error reporting dialogs.
+
+    Do we still support WS2K3?  (Can I even install VS 2015 on that?  I
+    would have thought not.)
+
+        Trent.
+
+From larry at hastings.org  Sat May 23 02:24:53 2015
+From: larry at hastings.org (Larry Hastings)
+Date: Fri, 22 May 2015 17:24:53 -0700
+Subject: [python-committers] Can we clean up the buildbots please?
+In-Reply-To: <20150523000714.GA7927@snakebite.org>
+References: <555FA32A.3030907@hastings.org>
+ <BY1PR03MB14664E2808229B57A040E23CF5C00@BY1PR03MB1466.namprd03.prod.outlook.com>
+ <20150523000714.GA7927@snakebite.org>
+Message-ID: <555FC8D5.6090401@hastings.org>
+
+On 05/22/2015 05:11 PM, Trent Nelson wrote:
+> Do we still support WS2K3? (Can I even install VS 2015 on that? I 
+> would have thought not.) 
+
+According to PCbuild/readme.txt, no.  It says:
+
+    This directory is used to build CPython for Microsoft Windows NT
+    version 6.0 or higher (Windows Vista, Windows Server 2008, or later)
+    on 32 and 64 bit platforms.
+
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150522/93e44537/attachment.html>
+
+From trent at snakebite.org  Sat May 23 02:31:05 2015
+From: trent at snakebite.org (Trent Nelson)
+Date: Fri, 22 May 2015 20:31:05 -0400
+Subject: [python-committers] Can we clean up the buildbots please?
+In-Reply-To: <555FC8D5.6090401@hastings.org>
+References: <555FA32A.3030907@hastings.org>
+ <BY1PR03MB14664E2808229B57A040E23CF5C00@BY1PR03MB1466.namprd03.prod.outlook.com>
+ <20150523000714.GA7927@snakebite.org>
+ <555FC8D5.6090401@hastings.org>
+Message-ID: <20150523003052.GB7927@snakebite.org>
+
+On Fri, May 22, 2015 at 05:24:53PM -0700, Larry Hastings wrote:
+> On 05/22/2015 05:11 PM, Trent Nelson wrote:
+> >Do we still support WS2K3? (Can I even install VS 2015 on that? I would
+> >have thought not.)
+> 
+> According to PCbuild/readme.txt, no.  It says:
+> 
+>    This directory is used to build CPython for Microsoft Windows NT
+>    version 6.0 or higher (Windows Vista, Windows Server 2008, or later)
+>    on 32 and 64 bit platforms.
+
+    Ah, yeah, thought so.  Pity, that box is probably the only one that
+    hasn't had any form of hardware failure during its tenure ;-)
+
+    Tried to get the W2K8 one back up on Monday when I had some remote
+    hands but alas, no luck.  Think it has balked HDDs or something.
+
+    The Solaris 11 AMD64 one Solaris 10 SPARC ones are back up now
+    though and I just cleared out their 700+ build backlogs, FWIW.
+
+        Trent.
+
+From tjreedy at udel.edu  Sat May 23 03:35:41 2015
+From: tjreedy at udel.edu (Terry Reedy)
+Date: Fri, 22 May 2015 21:35:41 -0400
+Subject: [python-committers] Can we clean up the buildbots please?
+In-Reply-To: <555FB359.5080307@hastings.org>
+References: <555FA32A.3030907@hastings.org>
+ <BY1PR03MB14664E2808229B57A040E23CF5C00@BY1PR03MB1466.namprd03.prod.outlook.com>
+ <555FADCD.8@hastings.org>
+ <BY1PR03MB1466BA4F6ED1CA349E7080D8F5C00@BY1PR03MB1466.namprd03.prod.outlook.com>
+ <555FB359.5080307@hastings.org>
+Message-ID: <555FD96D.7080605@udel.edu>
+
+On 5/22/2015 6:53 PM, Larry Hastings wrote:
+
+> I'll answer my own question here.  According to PCbuild/readme.txt:
+>
+>     This script will use the env.bat script to detect one of Visual
+>     Studio 2015, 2013, 2012, or 2010, any of which may be used to build
+>     Python, though only Visual Studio 2015 is officially supported.
+
+Not supporting 2010 should be contingent on the availability of just the 
+2015 compiler -- as is possible for the 2010 compiler -- without several 
+gigabytes of extra fluff.  This is still in the future.
+
+> I'll admit I'm puzzled by the wisdom of using unsupported compilers on
+> buildbots.
+
+Until the expected future arrives, I think we should keep the 2010 buildbot.
+
+tjr
+
+
+From larry at hastings.org  Sat May 23 07:45:15 2015
+From: larry at hastings.org (Larry Hastings)
+Date: Fri, 22 May 2015 22:45:15 -0700
+Subject: [python-committers] Can we clean up the buildbots please?
+In-Reply-To: <555FD96D.7080605@udel.edu>
+References: <555FA32A.3030907@hastings.org>
+ <BY1PR03MB14664E2808229B57A040E23CF5C00@BY1PR03MB1466.namprd03.prod.outlook.com>
+ <555FADCD.8@hastings.org>
+ <BY1PR03MB1466BA4F6ED1CA349E7080D8F5C00@BY1PR03MB1466.namprd03.prod.outlook.com>
+ <555FB359.5080307@hastings.org> <555FD96D.7080605@udel.edu>
+Message-ID: <556013EB.7040206@hastings.org>
+
+On 05/22/2015 06:35 PM, Terry Reedy wrote:
+> Not supporting 2010 should be contingent on the availability of just 
+> the 2015 compiler -- as is possible for the 2010 compiler -- without 
+> several gigabytes of extra fluff.  This is still in the future.
+
+Perhaps, but that's not what it says in the source code.  If this is 
+true, the source code should reflect this.
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150522/ef2081c7/attachment-0001.html>
+
+From taleinat at gmail.com  Sat May 23 11:29:02 2015
+From: taleinat at gmail.com (Tal Einat)
+Date: Sat, 23 May 2015 12:29:02 +0300
+Subject: [python-committers] [Python-Dev] Reminder: Python 3.5 beta 1
+ will be tagged tomorrow
+In-Reply-To: <CAF4280LfAGEyen+7bBFraRw73zNAbjtnzbjhLY760XxnnLrA2g@mail.gmail.com>
+References: <CALGmxEJmVrCYqyLXZZhvvwfTRAHTMioiCNHuURk4ayzWpJAeBA@mail.gmail.com>
+ <555FA0B9.2010209@hastings.org>
+ <CALGmxEJwA3GkGGAGqaqm8q6ZSCv9QoOSvcfSjH+UtmLB1Apecw@mail.gmail.com>
+ <CAF4280LfAGEyen+7bBFraRw73zNAbjtnzbjhLY760XxnnLrA2g@mail.gmail.com>
+Message-ID: <CALWZvp6Xi7s3MzoLDMt7vmPtL8jDMv8nAi6U21-d1DUuZ5p=gg@mail.gmail.com>
+
+On Sat, May 23, 2015 at 1:34 AM, Berker Peksa? <berker.peksag at gmail.com> wrote:
+>
+> On Sat, May 23, 2015 at 12:53 AM, Chris Barker <chris.barker at noaa.gov> wrote:
+> > On Fri, May 22, 2015 at 2:33 PM, Larry Hastings <larry at hastings.org> wrote:
+> >>
+> >> On 05/22/2015 02:29 PM, Chris Barker wrote:
+> >>
+> >> Is it too late to get the isclose() code (PEP 485) into 3.5?
+> >
+> > ...
+> >>
+> >>   Hopefully you can find a core dev familiar enough with the issues
+> >> involved that they can (quickly!) guide it through the process of getting it
+> >> checked in.
+> >
+> > Ping!  Anyone willing to sponsor this?
+>
+> ...
+>
+> * The C implementation should be in Modules/mathmodule.c
+> * Tests should be in Lib/test/test_math.py
+> * Documentation should be in Doc/library/math.rst
+> * Add an entry to Doc/whatsnew/3.5.rst
+> * If I remember correctly, we don't need the Python implementation and its tests
+
+I'll happily review the patch once it's on the bug tracker as Berker described.
+
+- Tal Einat
+
+From ncoghlan at gmail.com  Sat May 23 15:25:19 2015
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Sat, 23 May 2015 23:25:19 +1000
+Subject: [python-committers] [Python-Dev] Reminder: Python 3.5 beta 1
+ will be tagged tomorrow
+In-Reply-To: <CALWZvp6Xi7s3MzoLDMt7vmPtL8jDMv8nAi6U21-d1DUuZ5p=gg@mail.gmail.com>
+References: <CALGmxEJmVrCYqyLXZZhvvwfTRAHTMioiCNHuURk4ayzWpJAeBA@mail.gmail.com>
+ <555FA0B9.2010209@hastings.org>
+ <CALGmxEJwA3GkGGAGqaqm8q6ZSCv9QoOSvcfSjH+UtmLB1Apecw@mail.gmail.com>
+ <CAF4280LfAGEyen+7bBFraRw73zNAbjtnzbjhLY760XxnnLrA2g@mail.gmail.com>
+ <CALWZvp6Xi7s3MzoLDMt7vmPtL8jDMv8nAi6U21-d1DUuZ5p=gg@mail.gmail.com>
+Message-ID: <CADiSq7c8LeiWUW2x8vGeU3QmsXz-WqWGZz=KFHmPj0wcDxFHhg@mail.gmail.com>
+
+On 23 May 2015 at 19:29, Tal Einat <taleinat at gmail.com> wrote:
+> On Sat, May 23, 2015 at 1:34 AM, Berker Peksa? <berker.peksag at gmail.com> wrote:
+>>
+>> On Sat, May 23, 2015 at 12:53 AM, Chris Barker <chris.barker at noaa.gov> wrote:
+>> > On Fri, May 22, 2015 at 2:33 PM, Larry Hastings <larry at hastings.org> wrote:
+>> >>
+>> >> On 05/22/2015 02:29 PM, Chris Barker wrote:
+>> >>
+>> >> Is it too late to get the isclose() code (PEP 485) into 3.5?
+>> >
+>> > ...
+>> >>
+>> >>   Hopefully you can find a core dev familiar enough with the issues
+>> >> involved that they can (quickly!) guide it through the process of getting it
+>> >> checked in.
+>> >
+>> > Ping!  Anyone willing to sponsor this?
+>>
+>> ...
+>>
+>> * The C implementation should be in Modules/mathmodule.c
+>> * Tests should be in Lib/test/test_math.py
+>> * Documentation should be in Doc/library/math.rst
+>> * Add an entry to Doc/whatsnew/3.5.rst
+>> * If I remember correctly, we don't need the Python implementation and its tests
+>
+> I'll happily review the patch once it's on the bug tracker as Berker described.
+
+I filed http://bugs.python.org/issue24270 to track this, but there's a
+fair bit of work to be done to integrate the changes into the existing
+math module's code, tests and documentation.
+
+And correct, there's no need for a pure Python implementation - Guido
+rejected the idea of a pure Python fallback for the math module a
+while back (http://bugs.python.org/issue23595)
+
+Regards,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+
+From larry at hastings.org  Sat May 23 21:23:09 2015
+From: larry at hastings.org (Larry Hastings)
+Date: Sat, 23 May 2015 12:23:09 -0700
+Subject: [python-committers] [Python-Dev] Reminder: Python 3.5 beta 1
+ will be tagged tomorrow
+In-Reply-To: <CADiSq7c8LeiWUW2x8vGeU3QmsXz-WqWGZz=KFHmPj0wcDxFHhg@mail.gmail.com>
+References: <CALGmxEJmVrCYqyLXZZhvvwfTRAHTMioiCNHuURk4ayzWpJAeBA@mail.gmail.com>
+ <555FA0B9.2010209@hastings.org>
+ <CALGmxEJwA3GkGGAGqaqm8q6ZSCv9QoOSvcfSjH+UtmLB1Apecw@mail.gmail.com>
+ <CAF4280LfAGEyen+7bBFraRw73zNAbjtnzbjhLY760XxnnLrA2g@mail.gmail.com>
+ <CALWZvp6Xi7s3MzoLDMt7vmPtL8jDMv8nAi6U21-d1DUuZ5p=gg@mail.gmail.com>
+ <CADiSq7c8LeiWUW2x8vGeU3QmsXz-WqWGZz=KFHmPj0wcDxFHhg@mail.gmail.com>
+Message-ID: <5560D39D.1070603@hastings.org>
+
+On 05/23/2015 06:25 AM, Nick Coghlan wrote:
+> I filed http://bugs.python.org/issue24270 to track this, but there's a
+> fair bit of work to be done to integrate the changes into the existing
+> math module's code, tests and documentation.
+
+I'm willing to consider a feature freeze exception for this, as long as
+
+  * it doesn't make invasive changes (it looks like it will literally
+    add one new entry point, which is acceptable)
+  * it's cleaned up in the way the core devs are proposing (integrate it
+    into the math module, including tests and documentation)
+  * it's done before beta 2
+
+Somebody, please take that as an encouragement to get this cleaned up 
+and ready for checkin.
+
+
+//arry/
+
+p.s. Would it make sense to add a form of isclose to unittest?
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150523/d072901e/attachment.html>
+
+From taleinat at gmail.com  Sun May 24 13:40:12 2015
+From: taleinat at gmail.com (Tal Einat)
+Date: Sun, 24 May 2015 14:40:12 +0300
+Subject: [python-committers] [Python-Dev] Reminder: Python 3.5 beta 1
+ will be tagged tomorrow
+In-Reply-To: <CADiSq7c8LeiWUW2x8vGeU3QmsXz-WqWGZz=KFHmPj0wcDxFHhg@mail.gmail.com>
+References: <CALGmxEJmVrCYqyLXZZhvvwfTRAHTMioiCNHuURk4ayzWpJAeBA@mail.gmail.com>
+ <555FA0B9.2010209@hastings.org>
+ <CALGmxEJwA3GkGGAGqaqm8q6ZSCv9QoOSvcfSjH+UtmLB1Apecw@mail.gmail.com>
+ <CAF4280LfAGEyen+7bBFraRw73zNAbjtnzbjhLY760XxnnLrA2g@mail.gmail.com>
+ <CALWZvp6Xi7s3MzoLDMt7vmPtL8jDMv8nAi6U21-d1DUuZ5p=gg@mail.gmail.com>
+ <CADiSq7c8LeiWUW2x8vGeU3QmsXz-WqWGZz=KFHmPj0wcDxFHhg@mail.gmail.com>
+Message-ID: <CALWZvp5YWGV-kdb1ijjTwNg-+xOrkup7ZZTyz1SNS0kwVLDUtQ@mail.gmail.com>
+
+On Sat, May 23, 2015 at 4:25 PM, Nick Coghlan <ncoghlan at gmail.com> wrote:
+> On 23 May 2015 at 19:29, Tal Einat <taleinat at gmail.com> wrote:
+>> On Sat, May 23, 2015 at 1:34 AM, Berker Peksa? <berker.peksag at gmail.com> wrote:
+>>>
+>>> * The C implementation should be in Modules/mathmodule.c
+>>> * Tests should be in Lib/test/test_math.py
+>>> * Documentation should be in Doc/library/math.rst
+>>> * Add an entry to Doc/whatsnew/3.5.rst
+>>> * If I remember correctly, we don't need the Python implementation and its tests
+>>
+>> I'll happily review the patch once it's on the bug tracker as Berker described.
+>
+> I filed http://bugs.python.org/issue24270 to track this, but there's a
+> fair bit of work to be done to integrate the changes into the existing
+> math module's code, tests and documentation.
+
+Done. Patch attached to the issue. Awaiting review!
+
+- Tal Einat
+
+From larry at hastings.org  Mon May 25 01:39:00 2015
+From: larry at hastings.org (Larry Hastings)
+Date: Sun, 24 May 2015 16:39:00 -0700
+Subject: [python-committers] [RELEASED] Python 3.5.0b1 is now available
+Message-ID: <55626114.6070003@hastings.org>
+
+
+
+On behalf of the Python development community and the Python 3.5 release 
+team, I'm pleased to announce the availability of Python 3.5.0b1.  
+Python 3.5 has now entered "feature freeze". By default new features may 
+no longer be added to Python 3.5. (However, there are a handful of 
+features that weren't quite ready for Python 3.5.0 beta 1; these were 
+granted exceptions to the freeze, and are scheduled to be added before 
+beta 2.)
+
+This is a preview release, and its use is not recommended for production 
+settings.
+
+Three important notes for Windows users about Python 3.5.0b1:
+
+  * If you have previously installed Python 3.5.0a1, you may need to
+    manually uninstall it before installing Python 3.5.0b1 (issue23612).
+  * If installing Python 3.5.0b1 as a non-privileged user, you may need
+    to escalate to administrator privileges to install an update to your
+    C runtime libraries.
+  * There is now a third type of Windows build for Python 3.5.  In
+    addition to the conventional installer and the web-based installer,
+    Python 3.5 now has an embeddable release designed to be deployed as
+    part of a larger application's installer for apps using or extending
+    Python.  During the 3.5 alpha releases, this was an executable
+    installer; as of 3.5.0 beta 1 the embeddable build of Python is now
+    shipped in a zip file.
+
+
+You can find Python 3.5.0b1 here:
+
+    https://www.python.org/downloads/release/python-350b1/
+
+Happy hacking,
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150524/f9a13047/attachment.html>
+
+From larry at hastings.org  Mon May 25 01:49:17 2015
+From: larry at hastings.org (Larry Hastings)
+Date: Sun, 24 May 2015 16:49:17 -0700
+Subject: [python-committers] Reminder: 3.5 now has its own branch! "default"
+	branch is now 3.6!
+Message-ID: <5562637D.8070809@hastings.org>
+
+
+
+I've now pushed the 3.5.0 beta 1 release-engineering checkins to 
+hg.python.org.  At the same time I did this, I also created the 3.5 branch.
+
+Quick FAQ:
+
+Q: Where should I check in bugfixes for 3.5?
+A: In the "3.5" branch.  You should also merge them forward into "default".
+
+Q: Where should I check in new features for 3.5?
+A: You sillyhead!  New features aren't allowed for 3.5 anymore, it's in 
+feature freeze.
+
+Q: What is "default" now?
+A: "default" is now 3.6.  Meaning, you can now start on new features for 
+3.6!  You don't have to wait until 3.5 final is released, like how we 
+used to do it.
+
+Q: What's all this about bitbucket and push requests?
+A: We don't start doing that until 3.5.0 release candidate 1.  Don't 
+worry about it for now.  When the time comes, I'll post instructions 
+here and to the devguide.
+
+
+A new day is dawning,
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150524/b0e9e31a/attachment.html>
+
+From larry at hastings.org  Mon May 25 03:18:42 2015
+From: larry at hastings.org (Larry Hastings)
+Date: Sun, 24 May 2015 18:18:42 -0700
+Subject: [python-committers] [Python-Dev] Reminder: 3.5 now has its own
+ branch! "default" branch is now 3.6!
+In-Reply-To: <CAPTjJmorO0n7CG8h+72Xi_ukgBeSscb8SWMTL6+iROWogMtFgA@mail.gmail.com>
+References: <5562637D.8070809@hastings.org>
+ <CAPTjJmorO0n7CG8h+72Xi_ukgBeSscb8SWMTL6+iROWogMtFgA@mail.gmail.com>
+Message-ID: <55627872.6090604@hastings.org>
+
+
+
+On 05/24/2015 06:01 PM, Chris Angelico wrote:
+> Additional Q. What does this mean for buildbots? Will they immediately
+> pick up the new branch?
+
+I don't know about "immediately", but yes the buildbots should get 
+configured to point at the 3.5 branch, preferably soon.
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150524/f340cfb7/attachment.html>
+
+From storchaka at gmail.com  Mon May 25 11:03:11 2015
+From: storchaka at gmail.com (Serhiy Storchaka)
+Date: Mon, 25 May 2015 12:03:11 +0300
+Subject: [python-committers] Reminder: 3.5 now has its own branch!
+ "default" branch is now 3.6!
+In-Reply-To: <5562637D.8070809@hastings.org>
+References: <5562637D.8070809@hastings.org>
+Message-ID: <mjuogm$d12$1@ger.gmane.org>
+
+On 25.05.15 02:49, Larry Hastings wrote:
+> I've now pushed the 3.5.0 beta 1 release-engineering checkins to
+> hg.python.org.  At the same time I did this, I also created the 3.5 branch.
+>
+> Quick FAQ:
+>
+> Q: Where should I check in bugfixes for 3.5?
+> A: In the "3.5" branch.  You should also merge them forward into "default".
+>
+> Q: Where should I check in new features for 3.5?
+> A: You sillyhead!  New features aren't allowed for 3.5 anymore, it's in
+> feature freeze.
+>
+> Q: What is "default" now?
+> A: "default" is now 3.6.  Meaning, you can now start on new features for
+> 3.6!  You don't have to wait until 3.5 final is released, like how we
+> used to do it.
+
+Perhaps needed version bump in the default branch? I think now Misc/NEWS 
+will have two modifiable sections - for 3.5 (bugfixes) and for 3.6 (new 
+features).
+
+
+
+From larry at hastings.org  Mon May 25 22:10:31 2015
+From: larry at hastings.org (Larry Hastings)
+Date: Mon, 25 May 2015 13:10:31 -0700
+Subject: [python-committers] Reminder: 3.5 now has its own branch!
+ "default" branch is now 3.6!
+In-Reply-To: <mjuogm$d12$1@ger.gmane.org>
+References: <5562637D.8070809@hastings.org> <mjuogm$d12$1@ger.gmane.org>
+Message-ID: <556381B7.6080107@hastings.org>
+
+
+On 05/25/2015 02:03 AM, Serhiy Storchaka wrote:
+> Perhaps needed version bump in the default branch? I think now 
+> Misc/NEWS will have two modifiable sections - for 3.5 (bugfixes) and 
+> for 3.6 (new features).
+
+That's a good point!  I've added a "3.6.0 alpha 1" section as you suggest.
+
+That suggests more FAQs:
+
+Q: When I check in just to the default branch (3.6), where should I put 
+my news items in Misc/NEWS?
+A: There's a section for "3.6.0 alpha 1", put them there.
+
+Q: When I check in to 3.5 and merge into to the default branch, where 
+should I put my news items in Misc/NEWS?
+A: It should go in the same section (3.5.0 beta 1, beta 2, rc 1, etc).
+
+I suspect I'll still have to do some cleanup in Misc/NEWS when we ship 
+3.5.0 final.  Isn't it always the way!
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150525/7ef555f3/attachment.html>
+
+From zachary.ware+pycommit at gmail.com  Mon May 25 22:37:20 2015
+From: zachary.ware+pycommit at gmail.com (Zachary Ware)
+Date: Mon, 25 May 2015 15:37:20 -0500
+Subject: [python-committers] Reminder: 3.5 now has its own branch!
+ "default" branch is now 3.6!
+In-Reply-To: <556381B7.6080107@hastings.org>
+References: <5562637D.8070809@hastings.org> <mjuogm$d12$1@ger.gmane.org>
+ <556381B7.6080107@hastings.org>
+Message-ID: <CAKJDb-NAcCvvcsv+CDD2RCdO6X8eyxAPQ_NTaZ=bXa9K=+9AyA@mail.gmail.com>
+
+On Mon, May 25, 2015 at 3:10 PM, Larry Hastings <larry at hastings.org> wrote:
+>
+> On 05/25/2015 02:03 AM, Serhiy Storchaka wrote:
+>
+> Perhaps needed version bump in the default branch? I think now Misc/NEWS
+> will have two modifiable sections - for 3.5 (bugfixes) and for 3.6 (new
+> features).
+>
+>
+> That's a good point!  I've added a "3.6.0 alpha 1" section as you suggest.
+
+Should probably also actually bump the version (default still says
+it's 3.5.0b1: "Python 3.5.0b1+ (default:cf7e905ef5dd+, May 25 2015,
+15:34:05)").
+
+--
+Zach
+
+From larry at hastings.org  Tue May 26 02:30:02 2015
+From: larry at hastings.org (Larry Hastings)
+Date: Mon, 25 May 2015 17:30:02 -0700
+Subject: [python-committers] [Python-Dev] Preserving the definition
+	order of class namespaces.
+In-Reply-To: <CALFfu7DZvqTgNYHGu+0zOXJ1xAOhN7ne7_JrmJnL330g4FcBGQ@mail.gmail.com>
+References: <CALFfu7CdzTFsZcOENZwCCGYxdXZtLpG5vx6iQvPig_89Y23xhg@mail.gmail.com>
+ <CADiSq7co3YUt8RgAGBcSow+Zxo3-dsRC7EvUpqWiZtYXDKFEHQ@mail.gmail.com>
+ <CADiSq7dw8LYkDNbmXDrno9DUm0AstNbZnkbV+ZW8aGXY-K-vfw@mail.gmail.com>
+ <55614230.5010904@hastings.org> <20150525093314.3ce18048@fsol>
+ <CALFfu7CfLb4C5HvDnG7qqZufDh6W5u7ws3r-por+xwtQFgC63A@mail.gmail.com>
+ <mk01cd$lp1$1@ger.gmane.org>
+ <CALFfu7DZvqTgNYHGu+0zOXJ1xAOhN7ne7_JrmJnL330g4FcBGQ@mail.gmail.com>
+Message-ID: <5563BE8A.9070406@hastings.org>
+
+
+
+On 05/25/2015 03:22 PM, Eric Snow wrote:
+> On Mon, May 25, 2015 at 2:40 PM, Terry Reedy <tjreedy at udel.edu> wrote:
+>> On 5/25/2015 3:40 PM, Eric Snow wrote:
+>>> Since Larry already gave an exception,
+>> Conditional on 'general approval of the community'.
+> Unless I misunderstood him, Larry gave me an unconditional exception
+> for OrderedDict itself (as long as it is in before beta 2.)
+
+For the record I've granted three exceptions to the beta 1 feature 
+freeze (so far):
+
+  * Raymond asked for one (a couple weeks ago!) for adding slice support
+    to collections.deque.  He knew he wouldn't have time to finish it
+    before beta 1.
+  * Serhiy asked for one very-last-minute for a C reimplementation of
+    lru_cache.  He checked it in about a half-hour before feature freeze
+    and it made all the buildbots fail. (The ones that weren't already
+    failing, that is.)
+  * Eric asked for one for this C reimplementation of OrderedDict; the
+    coding was done, the debugging wasn't.
+
+And yes, as Eric said, I made separate pronouncements.  I said 
+COrderedDict could go in as long as it was in before beta 2; "the other 
+work" of __definition_order__ and switching type_prepare and 
+__build_class__ to using ordered dicts I made conditional on "general 
+approval of the community."  The latter has already been tabled for now.
+
+
+So, in all three cases it's work that's been under development for a 
+while.  These people did this work out of the kindness of their hearts, 
+to make Python better.  As a community we want to encourage that and 
+make sure these developers know we appreciate their efforts.  These 
+people would be happier if the work shipped in 3.5 as opposed to 3.6 so 
+it got into user's hands sooner.
+
+Also, in Serhiy and Eric's cases, these are reimplementations of 
+existing Python libraries in C.  On the one hand, that means we should 
+have good regression test coverage in the library--which it seems like 
+we do, as both of them are debugging problems uncovered by the 
+regression tests.  This gives us a little more confidence that the work 
+is good.  On the other hand, it does mean there's a higher chance of 
+destabilization, as there's already an installed base using these 
+libraries.  (As opposed to something new like math.isclose which has no 
+installed base.)  So yes this could introduce bugs that will impact 
+existing users.
+
+
+Bottom line: while an important part job of my job is saying "no", I 
+also feel like an important part of my job is saying "yes".  On balance, 
+what will be best for Python?  In these cases, I think "yes" is better.  
+My feeling is, let's check it in (before beta 2), and if it causes 
+problems during the betas / rcs we can back them out.
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150525/b101f8fd/attachment.html>
+
+From larry at hastings.org  Tue May 26 02:34:25 2015
+From: larry at hastings.org (Larry Hastings)
+Date: Mon, 25 May 2015 17:34:25 -0700
+Subject: [python-committers] Reminder: 3.5 now has its own branch!
+ "default" branch is now 3.6!
+In-Reply-To: <CAKJDb-NAcCvvcsv+CDD2RCdO6X8eyxAPQ_NTaZ=bXa9K=+9AyA@mail.gmail.com>
+References: <5562637D.8070809@hastings.org> <mjuogm$d12$1@ger.gmane.org>
+ <556381B7.6080107@hastings.org>
+ <CAKJDb-NAcCvvcsv+CDD2RCdO6X8eyxAPQ_NTaZ=bXa9K=+9AyA@mail.gmail.com>
+Message-ID: <5563BF91.9010106@hastings.org>
+
+On 05/25/2015 01:37 PM, Zachary Ware wrote:
+> Should probably also actually bump the version (default still says 
+> it's 3.5.0b1: "Python 3.5.0b1+ (default:cf7e905ef5dd+, May 25 2015, 
+> 15:34:05)"). -- Zach 
+
+Another good point!  I checked with Benjamin and set it to the proper 
+value ("Python 3.6.0a0").
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150525/053f0776/attachment.html>
+
+From storchaka at gmail.com  Tue May 26 04:31:39 2015
+From: storchaka at gmail.com (Serhiy Storchaka)
+Date: Tue, 26 May 2015 05:31:39 +0300
+Subject: [python-committers] [Python-Dev] Preserving the definition
+	order of class namespaces.
+In-Reply-To: <5563BE8A.9070406@hastings.org>
+References: <CALFfu7CdzTFsZcOENZwCCGYxdXZtLpG5vx6iQvPig_89Y23xhg@mail.gmail.com>
+ <CALFfu7DZvqTgNYHGu+0zOXJ1xAOhN7ne7_JrmJnL330g4FcBGQ@mail.gmail.com>
+ <5563BE8A.9070406@hastings.org>
+Message-ID: <8738635.WrZ0eUQ2Oe@raxxla>
+
+?????????, 25-???-2015 17:30:02 Larry Hastings ????????:
+> For the record I've granted three exceptions to the beta 1 feature
+> freeze (so far):
+
+>   * Serhiy asked for one very-last-minute for a C reimplementation of
+>     lru_cache.  He checked it in about a half-hour before feature freeze
+>     and it made all the buildbots fail. (The ones that weren't already
+>     failing, that is.)
+
+This took a time, but was finished before beta 1.
+
+
+From yselivanov.ml at gmail.com  Thu May 28 00:23:02 2015
+From: yselivanov.ml at gmail.com (Yury Selivanov)
+Date: Wed, 27 May 2015 18:23:02 -0400
+Subject: [python-committers] docs.python.org broken for 3.5
+Message-ID: <556643C6.1010606@gmail.com>
+
+Hi,
+
+docs.python.org is kind of broken for 3.5.  For instance, "what's new in 
+3.5" link points now to a missing whatsnew for 3.6 (which gives us 404 
+error).  Version switcher extension should also be updated in 2.7, 3.4, 
+3.5, and 3.6 branches.  I think I could fix that all myself, but I don't 
+have access to the docs server.
+
+Yury
+
+From yselivanov.ml at gmail.com  Thu May 28 04:19:17 2015
+From: yselivanov.ml at gmail.com (Yury Selivanov)
+Date: Wed, 27 May 2015 22:19:17 -0400
+Subject: [python-committers] docs.python.org broken for 3.5
+In-Reply-To: <556643C6.1010606@gmail.com>
+References: <556643C6.1010606@gmail.com>
+Message-ID: <55667B25.5020703@gmail.com>
+
+Benjamin's commits to fix version switcher helped a little bit, but docs 
+for 3.5 are still broken (and 3.6 FWIW).
+
+Yury
+
+On 2015-05-27 6:23 PM, Yury Selivanov wrote:
+> Hi,
+>
+> docs.python.org is kind of broken for 3.5.  For instance, "what's new 
+> in 3.5" link points now to a missing whatsnew for 3.6 (which gives us 
+> 404 error).  Version switcher extension should also be updated in 2.7, 
+> 3.4, 3.5, and 3.6 branches.  I think I could fix that all myself, but 
+> I don't have access to the docs server.
+>
+> Yury
+
+
+From larry at hastings.org  Fri May 29 08:20:18 2015
+From: larry at hastings.org (Larry Hastings)
+Date: Thu, 28 May 2015 23:20:18 -0700
+Subject: [python-committers] Python 3.5 schedule addendum adding a new
+ Python 3.5.0 beta, this weekend
+Message-ID: <55680522.5010307@hastings.org>
+
+
+
+On behalf of the Python 3.5 release team:
+
+Due to a particularly bad bug ( http://bugs.python.org/issue24285 ), 
+we're going to issue a new beta of Python 3.5 this weekend.  This will 
+not change the rest of the schedule; it'll just bump the remaining beta 
+numbers up by 1.  Thus the schedule is now as follows:
+
+    - 3.5.0 beta 1: May 24, 2015
+    - 3.5.0 beta 2: May 31, 2015
+    - 3.5.0 beta 3: July 5, 2015
+    - 3.5.0 beta 4: July 26, 2015
+    - 3.5.0 candidate 1: August 9, 2015
+    - 3.5.0 candidate 2: August 23, 2015
+    - 3.5.0 candidate 3: September 6, 2015
+    - 3.5.0 final: September 13, 2015
+
+
+May you live in interesting times,
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150528/ed2ceecc/attachment.html>
+

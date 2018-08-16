@@ -1,0 +1,1399 @@
+From georg at python.org  Mon Mar  3 10:51:38 2014
+From: georg at python.org (Georg Brandl)
+Date: Mon, 03 Mar 2014 10:51:38 +0100
+Subject: [python-committers] [RELEASED] Python 3.3.5 release candidate 2
+Message-ID: <531450AA.3030005@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On behalf of the Python development team, I'm happy to announce
+the release of Python 3.3.5, release candidate 2.
+
+Python 3.3.5 includes a fix for a regression in zipimport in 3.3.4
+(see http://bugs.python.org/issue20621) and a few other bugs.
+
+Python 3.3 includes a range of improvements of the 3.x series, as well
+as easier porting between 2.x and 3.x.  In total, almost 500 API items
+are new or improved in Python 3.3.  For a more extensive list of
+changes in the 3.3 series, see
+
+    http://docs.python.org/3.3/whatsnew/3.3.html
+
+To download Python 3.3.5 visit:
+
+    http://www.python.org/download/releases/3.3.5/
+
+
+This is a preview release, please report any bugs to
+
+     http://bugs.python.org/
+
+The final release is scheduled one week from now.
+
+
+Enjoy!
+
+- -- 
+Georg Brandl, Release Manager
+georg at python.org
+(on behalf of the entire python-dev team and 3.3's contributors)
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v2.0.22 (GNU/Linux)
+
+iEYEARECAAYFAlMUUKoACgkQN9GcIYhpnLD5OACfTpRkcM9aXUx2XbiXoZtIgSE7
+BqwAnjwpAuqc9lKJ0O3XOw5qDvDPYsNb
+=EGuB
+-----END PGP SIGNATURE-----
+
+From georg at python.org  Sun Mar  9 11:39:14 2014
+From: georg at python.org (Georg Brandl)
+Date: Sun, 09 Mar 2014 11:39:14 +0100
+Subject: [python-committers] [RELEASED] Python 3.3.5
+Message-ID: <531C44D2.9070501@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On behalf of the Python development team, I'm very happy to announce
+the release of Python 3.3.5.
+
+Python 3.3.5 includes fixes for these important issues:
+
+* a 3.3.4 regression in zipimport (see http://bugs.python.org/issue20621)
+* a 3.3.4 regression executing scripts with a coding declared and Windows
+  newlines (see http://bugs.python.org/issue20731)
+* potential DOS using compression codecs in bytes.decode() (see
+  http://bugs.python.org/issue19619 and http://bugs.python.org/issue20404)
+
+and also fixes quite a few other bugs.
+
+Python 3.3 includes a range of improvements of the 3.x series, as well
+as easier porting between 2.x and 3.x.  In total, almost 500 API items
+are new or improved in Python 3.3.  For a more extensive list of
+changes in the 3.3 series, see
+
+    http://docs.python.org/3.3/whatsnew/3.3.html
+
+To download Python 3.3.5 visit:
+
+    http://www.python.org/downloads/release/python-335/
+
+
+This is a production release, please report any bugs to
+
+     http://bugs.python.org/
+
+The final release is scheduled one week from now.
+
+
+Enjoy!
+
+- -- 
+Georg Brandl, Release Manager
+georg at python.org
+(on behalf of the entire python-dev team and 3.3's contributors)
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v2.0.22 (GNU/Linux)
+
+iEYEARECAAYFAlMcRNEACgkQN9GcIYhpnLAVqACeMoOOuuNX5iP6at9zbIZDnkqK
+idwAoKb2FxAJlirhs2BmdESEaQiqBDJd
+=smeC
+-----END PGP SIGNATURE-----
+
+From larry at hastings.org  Mon Mar 10 08:47:05 2014
+From: larry at hastings.org (Larry Hastings)
+Date: Mon, 10 Mar 2014 00:47:05 -0700
+Subject: [python-committers] [RELEASED] Python 3.4.0 release candidate 3
+Message-ID: <531D6DF9.1020305@hastings.org>
+
+
+
+On behalf of the Python development team, I'm pleased to announce
+the third and final** release candidate of Python 3.4.
+
+This is a preview release, and its use is not recommended for
+production settings.
+
+Python 3.4 includes a range of improvements of the 3.x series, including
+hundreds of small improvements and bug fixes.  Major new features and
+changes in the 3.4 release series include:
+
+* PEP 428, a "pathlib" module providing object-oriented filesystem paths
+* PEP 435, a standardized "enum" module
+* PEP 436, a build enhancement that will help generate introspection
+            information for builtins
+* PEP 442, improved semantics for object finalization
+* PEP 443, adding single-dispatch generic functions to the standard library
+* PEP 445, a new C API for implementing custom memory allocators
+* PEP 446, changing file descriptors to not be inherited by default
+            in subprocesses
+* PEP 450, a new "statistics" module
+* PEP 451, standardizing module metadata for Python's module import system
+* PEP 453, a bundled installer for the *pip* package manager
+* PEP 454, a new "tracemalloc" module for tracing Python memory allocations
+* PEP 456, a new hash algorithm for Python strings and binary data
+* PEP 3154, a new and improved protocol for pickled objects
+* PEP 3156, a new "asyncio" module, a new framework for asynchronous I/O
+
+Python 3.4 is now in "feature freeze", meaning that no new features will be
+added.  The final release is projected for March 16, 2014.
+
+
+To download Python 3.4.0rc3 visit:
+
+     http://www.python.org/download/releases/3.4.0/
+
+
+Please consider trying Python 3.4.0rc3 with your code and reporting any
+new issues you notice to:
+
+      http://bugs.python.org/
+
+
+Enjoy!
+
+
+** This time we really mean it!  No foolin'!
+
+--
+Larry Hastings, Release Manager
+larry at hastings.org
+(on behalf of the entire python-dev team and 3.4's contributors)
+
+From alex.gaynor at gmail.com  Tue Mar 11 00:02:35 2014
+From: alex.gaynor at gmail.com (Alex Gaynor)
+Date: Mon, 10 Mar 2014 16:02:35 -0700
+Subject: [python-committers] Brian Kearns for commit
+Message-ID: <CAFRnB2XoavoNkULnhcWW=FAfsniULv0+4UY+OG5o0eGgd2tUQw@mail.gmail.com>
+
+Hi all,
+
+I'd like to propose Brian Kearns for commit. He's been a committer on PyPy
+for about a year and a half now, and in particular he's done a bunch of
+"Python version" works: things like upgrading us from the 2.7.3 stdlib to
+the 2.7.6 stdlib, and py3k work. He's interested in having commit for the
+purposes of doing interop work on the stdlib tests: things like making sure
+tests aren't reliant on refcounting, correctly marking tests as impl
+details, etc.
+
+Thanks,
+Alex
+
+-- 
+"I disapprove of what you say, but I will defend to the death your right to
+say it." -- Evelyn Beatrice Hall (summarizing Voltaire)
+"The people's good is the highest law." -- Cicero
+GPG Key fingerprint: 125F 5C67 DFE9 4084
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20140310/7f856573/attachment.html>
+
+From antoine at python.org  Tue Mar 11 00:09:19 2014
+From: antoine at python.org (Antoine Pitrou)
+Date: Tue, 11 Mar 2014 00:09:19 +0100
+Subject: [python-committers] Brian Kearns for commit
+In-Reply-To: <CAFRnB2XoavoNkULnhcWW=FAfsniULv0+4UY+OG5o0eGgd2tUQw@mail.gmail.com>
+References: <CAFRnB2XoavoNkULnhcWW=FAfsniULv0+4UY+OG5o0eGgd2tUQw@mail.gmail.com>
+Message-ID: <1394492959.2296.4.camel@fsol>
+
+On lun., 2014-03-10 at 16:02 -0700, Alex Gaynor wrote:
+> Hi all,
+> 
+> 
+> I'd like to propose Brian Kearns for commit. He's been a committer on
+> PyPy for about a year and a half now, and in particular he's done a
+> bunch of "Python version" works: things like upgrading us from the
+> 2.7.3 stdlib to the 2.7.6 stdlib, and py3k work. He's interested in
+> having commit for the purposes of doing interop work on the stdlib
+> tests: things like making sure tests aren't reliant on refcounting,
+> correctly marking tests as impl details, etc.
+
+I'd really prefer someone to have experience in contributing to CPython
+before they get commit rights. I might mistaken, but I can't find any
+contribution bearing Brain's name.
+
+Furthermore, giving arbitrary commit rights to core devs of third-party
+projects (such as PyPy and Twisted) doesn't seem to have produced any
+significant CPython contributions from them, IIRC.
+
+Regards
+
+Antoine.
+
+
+
+
+From guido at python.org  Tue Mar 11 00:10:04 2014
+From: guido at python.org (Guido van Rossum)
+Date: Mon, 10 Mar 2014 16:10:04 -0700
+Subject: [python-committers] Brian Kearns for commit
+In-Reply-To: <CAFRnB2XoavoNkULnhcWW=FAfsniULv0+4UY+OG5o0eGgd2tUQw@mail.gmail.com>
+References: <CAFRnB2XoavoNkULnhcWW=FAfsniULv0+4UY+OG5o0eGgd2tUQw@mail.gmail.com>
+Message-ID: <CAP7+vJJ7pTAp5zyPiLe5SLMo9H+zJ1QcxJV_PdVFvb3Mf6voqw@mail.gmail.com>
+
+I have nothing against Brian personally, but I have a process question: Has
+he previously gotten patches accepted to the stdlib, or is this a
+preemptive request? I think the usual route is to grant commit access after
+the stream of patches from a contributor has taken the form of a steady
+stream (or at least trickle)
+of high-quality patches, and the core committers are tired of committing on
+that person's behalf and confident that the contributor will seek review
+when appropriate.
+
+
+On Mon, Mar 10, 2014 at 4:02 PM, Alex Gaynor <alex.gaynor at gmail.com> wrote:
+
+> Hi all,
+>
+> I'd like to propose Brian Kearns for commit. He's been a committer on PyPy
+> for about a year and a half now, and in particular he's done a bunch of
+> "Python version" works: things like upgrading us from the 2.7.3 stdlib to
+> the 2.7.6 stdlib, and py3k work. He's interested in having commit for the
+> purposes of doing interop work on the stdlib tests: things like making sure
+> tests aren't reliant on refcounting, correctly marking tests as impl
+> details, etc.
+>
+> Thanks,
+> Alex
+>
+> --
+> "I disapprove of what you say, but I will defend to the death your right
+> to say it." -- Evelyn Beatrice Hall (summarizing Voltaire)
+> "The people's good is the highest law." -- Cicero
+> GPG Key fingerprint: 125F 5C67 DFE9 4084
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+>
+>
+
+
+-- 
+--Guido van Rossum (python.org/~guido)
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20140310/dc970da4/attachment.html>
+
+From antoine at python.org  Tue Mar 11 00:21:53 2014
+From: antoine at python.org (Antoine Pitrou)
+Date: Tue, 11 Mar 2014 00:21:53 +0100
+Subject: [python-committers] Brian Kearns for commit
+In-Reply-To: <1394492959.2296.4.camel@fsol>
+References: <CAFRnB2XoavoNkULnhcWW=FAfsniULv0+4UY+OG5o0eGgd2tUQw@mail.gmail.com>
+ <1394492959.2296.4.camel@fsol>
+Message-ID: <1394493713.2296.5.camel@fsol>
+
+On mar., 2014-03-11 at 00:09 +0100, Antoine Pitrou wrote:
+> On lun., 2014-03-10 at 16:02 -0700, Alex Gaynor wrote:
+> > Hi all,
+> > 
+> > 
+> > I'd like to propose Brian Kearns for commit. He's been a committer on
+> > PyPy for about a year and a half now, and in particular he's done a
+> > bunch of "Python version" works: things like upgrading us from the
+> > 2.7.3 stdlib to the 2.7.6 stdlib, and py3k work. He's interested in
+> > having commit for the purposes of doing interop work on the stdlib
+> > tests: things like making sure tests aren't reliant on refcounting,
+> > correctly marking tests as impl details, etc.
+> 
+> I'd really prefer someone to have experience in contributing to CPython
+> before they get commit rights. I might mistaken, but I can't find any
+> contribution bearing Brain's name.
+
+(oops, sorry about the typo in "Brian")
+
+Regards
+
+Antoine.
+
+
+
+From ncoghlan at gmail.com  Tue Mar 11 09:36:14 2014
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Tue, 11 Mar 2014 18:36:14 +1000
+Subject: [python-committers] Brian Kearns for commit
+In-Reply-To: <1394492959.2296.4.camel@fsol>
+References: <CAFRnB2XoavoNkULnhcWW=FAfsniULv0+4UY+OG5o0eGgd2tUQw@mail.gmail.com>
+ <1394492959.2296.4.camel@fsol>
+Message-ID: <CADiSq7cPQdbk3_+Wv3dtjw-y1T4R2_Pv2E7_kdzqxMxQ3qzkig@mail.gmail.com>
+
+On 11 Mar 2014 09:10, "Antoine Pitrou" <antoine at python.org> wrote:
+>
+> On lun., 2014-03-10 at 16:02 -0700, Alex Gaynor wrote:
+> > Hi all,
+> >
+> >
+> > I'd like to propose Brian Kearns for commit. He's been a committer on
+> > PyPy for about a year and a half now, and in particular he's done a
+> > bunch of "Python version" works: things like upgrading us from the
+> > 2.7.3 stdlib to the 2.7.6 stdlib, and py3k work. He's interested in
+> > having commit for the purposes of doing interop work on the stdlib
+> > tests: things like making sure tests aren't reliant on refcounting,
+> > correctly marking tests as impl details, etc.
+>
+> I'd really prefer someone to have experience in contributing to CPython
+> before they get commit rights. I might mistaken, but I can't find any
+> contribution bearing Brain's name.
+>
+> Furthermore, giving arbitrary commit rights to core devs of third-party
+> projects (such as PyPy and Twisted) doesn't seem to have produced any
+> significant CPython contributions from them, IIRC.
+
+Aye, our processes are currently arcane enough that posting a patch to the
+tracker is *less* work than doing the commit yourself (on the other hand,
+it depends on another human to get it committed).
+
+On the other hand, if Brian has read PEP 462 and *still* wants to commit
+patches directly, then I wouldn't be opposed (given Alex's recommendation).
+Call it +0.
+
+Cheers,
+Nick.
+
+>
+> Regards
+>
+> Antoine.
+>
+>
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20140311/c5f7e797/attachment-0001.html>
+
+From brett at python.org  Tue Mar 11 15:58:56 2014
+From: brett at python.org (Brett Cannon)
+Date: Tue, 11 Mar 2014 10:58:56 -0400
+Subject: [python-committers] Brian Kearns for commit
+In-Reply-To: <CADiSq7cPQdbk3_+Wv3dtjw-y1T4R2_Pv2E7_kdzqxMxQ3qzkig@mail.gmail.com>
+References: <CAFRnB2XoavoNkULnhcWW=FAfsniULv0+4UY+OG5o0eGgd2tUQw@mail.gmail.com>
+ <1394492959.2296.4.camel@fsol>
+ <CADiSq7cPQdbk3_+Wv3dtjw-y1T4R2_Pv2E7_kdzqxMxQ3qzkig@mail.gmail.com>
+Message-ID: <CAP1=2W6Av=atZrWBknX4QDh9F-oWN4CrzHQnL5=e6Hvbf=krxQ@mail.gmail.com>
+
+On Tue, Mar 11, 2014 at 4:36 AM, Nick Coghlan <ncoghlan at gmail.com> wrote:
+
+>
+> On 11 Mar 2014 09:10, "Antoine Pitrou" <antoine at python.org> wrote:
+> >
+> > On lun., 2014-03-10 at 16:02 -0700, Alex Gaynor wrote:
+> > > Hi all,
+> > >
+> > >
+> > > I'd like to propose Brian Kearns for commit. He's been a committer on
+> > > PyPy for about a year and a half now, and in particular he's done a
+> > > bunch of "Python version" works: things like upgrading us from the
+> > > 2.7.3 stdlib to the 2.7.6 stdlib, and py3k work. He's interested in
+> > > having commit for the purposes of doing interop work on the stdlib
+> > > tests: things like making sure tests aren't reliant on refcounting,
+> > > correctly marking tests as impl details, etc.
+> >
+> > I'd really prefer someone to have experience in contributing to CPython
+> > before they get commit rights. I might mistaken, but I can't find any
+> > contribution bearing Brain's name.
+> >
+> > Furthermore, giving arbitrary commit rights to core devs of third-party
+> > projects (such as PyPy and Twisted) doesn't seem to have produced any
+> > significant CPython contributions from them, IIRC.
+>
+> Aye, our processes are currently arcane enough that posting a patch to the
+> tracker is *less* work than doing the commit yourself (on the other hand,
+> it depends on another human to get it committed).
+>
+> On the other hand, if Brian has read PEP 462 and *still* wants to commit
+> patches directly, then I wouldn't be opposed (given Alex's recommendation).
+> Call it +0.
+>
+
+There's also precedent as Antoine alluded to; we previously gave two people
+on each major interpreter implementation commit rights to work on
+compatibility issues (Alex and Maciej represent PyPy directly, although
+obviously people like Armin had commit rights predating PyPy). But as
+Antoine also pointed out, the experiment never really went anywhere.
+
+I still think it's a good idea, though, to get the other interpreters
+involved with helping with compatibility issues. I would be fine if Brian
+started out restricted to Lib/test to fix tests that weren't properly
+marked as implementation details, and if that went well then allowed to
+branch out to actually fixing compatibility bugs. If people are
+uncomfortable with even that restriction of abilities then we can do this
+the old fashioned way of Brian submitting patches through
+bugs.python.orgbefore requesting commit privileges again.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20140311/4cd05c12/attachment.html>
+
+From jbaker at zyasoft.com  Tue Mar 11 17:23:06 2014
+From: jbaker at zyasoft.com (Jim Baker)
+Date: Tue, 11 Mar 2014 10:23:06 -0600
+Subject: [python-committers] Brian Kearns for commit
+In-Reply-To: <CAP1=2W6Av=atZrWBknX4QDh9F-oWN4CrzHQnL5=e6Hvbf=krxQ@mail.gmail.com>
+References: <CAFRnB2XoavoNkULnhcWW=FAfsniULv0+4UY+OG5o0eGgd2tUQw@mail.gmail.com>
+ <1394492959.2296.4.camel@fsol>
+ <CADiSq7cPQdbk3_+Wv3dtjw-y1T4R2_Pv2E7_kdzqxMxQ3qzkig@mail.gmail.com>
+ <CAP1=2W6Av=atZrWBknX4QDh9F-oWN4CrzHQnL5=e6Hvbf=krxQ@mail.gmail.com>
+Message-ID: <CAL9RhrUAS=U5PWkGp1yn47GA3HFZDJrqVJANBN74=Dc=kOsr=Q@mail.gmail.com>
+
+Sadly Jython is really in catch up mode right now. So we can discuss our
+involvement when we actually start supporting 3.x ;). Having said that, I
+expect any work that PyPy does will be extremely helpful advance prep for
+our future work.
+
+Not that it's so far off. It is possible that work on Jython 3.x could be
+seen in 2015, especially if we can continue to see committer support. (I
+should certainly thank Rackspace for making my time available.) For those
+who are interested, Jython 2.7 is currently somewhat stalled on
+socket/select/ssl support, but this work is finally coming together with
+the socket-reboot project which allows us to completely(*) support Python's
+C-oriented API on top of underlying Java support. I will have a complete
+status update prepared for the summit.
+
+- Jim
+
+*OK, "completely" does not mean functionality that assumes sockets are
+files, or a forking model of the world. Still pretty good, especially since
+this is close to the Windows model.
+
+
+On Tue, Mar 11, 2014 at 8:58 AM, Brett Cannon <brett at python.org> wrote:
+
+>
+>
+> On Tue, Mar 11, 2014 at 4:36 AM, Nick Coghlan <ncoghlan at gmail.com> wrote:
+>
+>>
+>> On 11 Mar 2014 09:10, "Antoine Pitrou" <antoine at python.org> wrote:
+>> >
+>> > On lun., 2014-03-10 at 16:02 -0700, Alex Gaynor wrote:
+>> > > Hi all,
+>> > >
+>> > >
+>> > > I'd like to propose Brian Kearns for commit. He's been a committer on
+>> > > PyPy for about a year and a half now, and in particular he's done a
+>> > > bunch of "Python version" works: things like upgrading us from the
+>> > > 2.7.3 stdlib to the 2.7.6 stdlib, and py3k work. He's interested in
+>> > > having commit for the purposes of doing interop work on the stdlib
+>> > > tests: things like making sure tests aren't reliant on refcounting,
+>> > > correctly marking tests as impl details, etc.
+>> >
+>> > I'd really prefer someone to have experience in contributing to CPython
+>> > before they get commit rights. I might mistaken, but I can't find any
+>> > contribution bearing Brain's name.
+>> >
+>> > Furthermore, giving arbitrary commit rights to core devs of third-party
+>> > projects (such as PyPy and Twisted) doesn't seem to have produced any
+>> > significant CPython contributions from them, IIRC.
+>>
+>> Aye, our processes are currently arcane enough that posting a patch to
+>> the tracker is *less* work than doing the commit yourself (on the other
+>> hand, it depends on another human to get it committed).
+>>
+>> On the other hand, if Brian has read PEP 462 and *still* wants to commit
+>> patches directly, then I wouldn't be opposed (given Alex's recommendation).
+>> Call it +0.
+>>
+>
+> There's also precedent as Antoine alluded to; we previously gave two
+> people on each major interpreter implementation commit rights to work on
+> compatibility issues (Alex and Maciej represent PyPy directly, although
+> obviously people like Armin had commit rights predating PyPy). But as
+> Antoine also pointed out, the experiment never really went anywhere.
+>
+> I still think it's a good idea, though, to get the other interpreters
+> involved with helping with compatibility issues. I would be fine if Brian
+> started out restricted to Lib/test to fix tests that weren't properly
+> marked as implementation details, and if that went well then allowed to
+> branch out to actually fixing compatibility bugs. If people are
+> uncomfortable with even that restriction of abilities then we can do this
+> the old fashioned way of Brian submitting patches through bugs.python.orgbefore requesting commit privileges again.
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+>
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20140311/d1ca5482/attachment.html>
+
+From larry at hastings.org  Mon Mar 17 07:29:55 2014
+From: larry at hastings.org (Larry Hastings)
+Date: Sun, 16 Mar 2014 23:29:55 -0700
+Subject: [python-committers] [RELEASED] Python 3.4.0
+Message-ID: <53269663.9050408@hastings.org>
+
+
+On behalf of the Python development team, I'm thrilled to announce
+the official release of Python 3.4.
+
+
+Python 3.4 includes a range of improvements of the 3.x series, including
+hundreds of small improvements and bug fixes.  Major new features and
+changes in the 3.4 release series include:
+
+* PEP 428, a "pathlib" module providing object-oriented filesystem paths
+* PEP 435, a standardized "enum" module
+* PEP 436, a build enhancement that will help generate introspection
+            information for builtins
+* PEP 442, improved semantics for object finalization
+* PEP 443, adding single-dispatch generic functions to the standard library
+* PEP 445, a new C API for implementing custom memory allocators
+* PEP 446, changing file descriptors to not be inherited by default
+            in subprocesses
+* PEP 450, a new "statistics" module
+* PEP 451, standardizing module metadata for Python's module import system
+* PEP 453, a bundled installer for the *pip* package manager
+* PEP 454, a new "tracemalloc" module for tracing Python memory allocations
+* PEP 456, a new hash algorithm for Python strings and binary data
+* PEP 3154, a new and improved protocol for pickled objects
+* PEP 3156, a new "asyncio" module, a new framework for asynchronous I/O
+
+
+To download Python 3.4.0 visit:
+
+     http://www.python.org/download/releases/3.4.0/
+
+
+This is a production release.  Please report any issues you notice to:
+
+      http://bugs.python.org/
+
+
+Enjoy!
+
+
+--
+Larry Hastings, Release Manager
+larry at hastings.org
+(on behalf of the entire python-dev team and 3.4's contributors)
+
+From larry at hastings.org  Mon Mar 17 07:38:05 2014
+From: larry at hastings.org (Larry Hastings)
+Date: Sun, 16 Mar 2014 23:38:05 -0700
+Subject: [python-committers] default hg.python.org/cpython is now 3.5
+Message-ID: <5326984D.1060508@hastings.org>
+
+
+
+The "3.4" branch is now checked in.  It contains all the 3.4 releases 
+since 3.4.0rc1.  Its current state is effectively 3.4.1.
+
+The "default" branch is now 3.5.
+
+Cry havoc, and let slip the dogs of war,
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20140316/87ecb25b/attachment.html>
+
+From victor.stinner at gmail.com  Mon Mar 17 09:51:01 2014
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Mon, 17 Mar 2014 09:51:01 +0100
+Subject: [python-committers] default hg.python.org/cpython is now 3.5
+In-Reply-To: <5326984D.1060508@hastings.org>
+References: <5326984D.1060508@hastings.org>
+Message-ID: <CAMpsgwYRti7ZA8kZTu8i=1AzFrkOjQbpowxfDCtO-=t92jBe9w@mail.gmail.com>
+
+Until when should we fix bugs in the branch 3.3? Branches 3.1 and 3.2 only
+accept security fixes, right?
+
+Victor
+Le 17 mars 2014 07:48, "Larry Hastings" <larry at hastings.org> a ?crit :
+
+>
+>
+> The "3.4" branch is now checked in.  It contains all the 3.4 releases
+> since 3.4.0rc1.  Its current state is effectively 3.4.1.
+>
+> The "default" branch is now 3.5.
+>
+> Cry havoc, and let slip the dogs of war,
+>
+>
+> */arry*
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+>
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20140317/b950016a/attachment.html>
+
+From jcea at jcea.es  Mon Mar 17 14:52:43 2014
+From: jcea at jcea.es (Jesus Cea)
+Date: Mon, 17 Mar 2014 14:52:43 +0100
+Subject: [python-committers] 3.4 buildbots??
+Message-ID: <5326FE2B.4010003@jcea.es>
+
+Do I need to do anything to create the 3.4 branch in the buildbots?.
+
+-- 
+Jes?s Cea Avi?n                         _/_/      _/_/_/        _/_/_/
+jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+Twitter: @jcea                        _/_/    _/_/          _/_/_/_/_/
+jabber / xmpp:jcea at jabber.org  _/_/  _/_/    _/_/          _/_/  _/_/
+"Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+"My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+"El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 538 bytes
+Desc: OpenPGP digital signature
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20140317/ab9f4c30/attachment.sig>
+
+From brett at python.org  Mon Mar 17 15:10:18 2014
+From: brett at python.org (Brett Cannon)
+Date: Mon, 17 Mar 2014 10:10:18 -0400
+Subject: [python-committers] default hg.python.org/cpython is now 3.5
+In-Reply-To: <CAMpsgwYRti7ZA8kZTu8i=1AzFrkOjQbpowxfDCtO-=t92jBe9w@mail.gmail.com>
+References: <5326984D.1060508@hastings.org>
+ <CAMpsgwYRti7ZA8kZTu8i=1AzFrkOjQbpowxfDCtO-=t92jBe9w@mail.gmail.com>
+Message-ID: <CAP1=2W6Mfrjkjt5VhxuM8Y6BshwLP=N_BLCpyyuh_FApW9h-eA@mail.gmail.com>
+
+On Mon, Mar 17, 2014 at 4:51 AM, Victor Stinner <victor.stinner at gmail.com>wrote:
+
+> Until when should we fix bugs in the branch 3.3? Branches 3.1 and 3.2 only
+> accept security fixes, right?
+>
+
+Typically we do one last release before shutting the last bugfix branch
+down, but that's Georg's call since 3.3.5 was released so recently.
+
+-Brett
+
+
+> Victor
+> Le 17 mars 2014 07:48, "Larry Hastings" <larry at hastings.org> a ?crit :
+>
+>>
+>>
+>> The "3.4" branch is now checked in.  It contains all the 3.4 releases
+>> since 3.4.0rc1.  Its current state is effectively 3.4.1.
+>>
+>> The "default" branch is now 3.5.
+>>
+>> Cry havoc, and let slip the dogs of war,
+>>
+>>
+>> */arry*
+>>
+>> _______________________________________________
+>> python-committers mailing list
+>> python-committers at python.org
+>> https://mail.python.org/mailman/listinfo/python-committers
+>>
+>>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+>
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20140317/3c74b797/attachment.html>
+
+From martin at v.loewis.de  Mon Mar 17 15:16:09 2014
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Mon, 17 Mar 2014 15:16:09 +0100
+Subject: [python-committers] 3.4 buildbots??
+In-Reply-To: <5326FE2B.4010003@jcea.es>
+References: <5326FE2B.4010003@jcea.es>
+Message-ID: <532703A9.8040402@v.loewis.de>
+
+Am 17.03.14 14:52, schrieb Jesus Cea:
+> Do I need to do anything to create the 3.4 branch in the buildbots?.
+
+As a slave operator, you don't need to do anything. As the master
+operator, you would have to edit the configuration file to add the
+branch.
+
+However, I would advise against doing so now, and delay the addition
+of the 3.4 branch until 3.3 is retired from bug fixing, and then
+repurpose all 3.3 configuration for 3.4. Otherwise, some slaves might
+run out of disk space.
+
+As the master operator, it would also be nice to slave operators if
+the 3.3 build directories get cleaned up, by targeting them to
+
+http://hg.python.org/buildbot/empty/
+
+once, and triggering a rebuild.
+
+Regards,
+Martin
+
+
+From zachary.ware+pycommit at gmail.com  Mon Mar 17 15:37:06 2014
+From: zachary.ware+pycommit at gmail.com (Zachary Ware)
+Date: Mon, 17 Mar 2014 09:37:06 -0500
+Subject: [python-committers] 3.4 buildbots??
+In-Reply-To: <532703A9.8040402@v.loewis.de>
+References: <5326FE2B.4010003@jcea.es> <532703A9.8040402@v.loewis.de>
+Message-ID: <CAKJDb-MA3ZHcnLC2e17jU9dEaURqk_T6EKX_THE8T2SBNMsPYw@mail.gmail.com>
+
+On Mon, Mar 17, 2014 at 9:16 AM, "Martin v. L?wis" <martin at v.loewis.de> wrote:
+> Am 17.03.14 14:52, schrieb Jesus Cea:
+>> Do I need to do anything to create the 3.4 branch in the buildbots?.
+>
+> As a slave operator, you don't need to do anything. As the master
+> operator, you would have to edit the configuration file to add the
+> branch.
+>
+> However, I would advise against doing so now, and delay the addition
+> of the 3.4 branch until 3.3 is retired from bug fixing, and then
+> repurpose all 3.3 configuration for 3.4. Otherwise, some slaves might
+> run out of disk space.
+
+Since we still have a 3.2 configuration (for which most of the UNIX
+bots are broken), perhaps we should repurpose that configuration
+instead of 3.3.
+
+> As the master operator, it would also be nice to slave operators if
+> the 3.3 build directories get cleaned up, by targeting them to
+>
+> http://hg.python.org/buildbot/empty/
+>
+> once, and triggering a rebuild.
+
+It would also be good to clear out the external library sources for
+the Windows buildbots to allow a fresh start there.
+
+--
+Zach
+
+From benjamin at python.org  Mon Mar 17 16:18:56 2014
+From: benjamin at python.org (Benjamin Peterson)
+Date: Mon, 17 Mar 2014 08:18:56 -0700
+Subject: [python-committers] default hg.python.org/cpython is now 3.5
+In-Reply-To: <CAP1=2W6Mfrjkjt5VhxuM8Y6BshwLP=N_BLCpyyuh_FApW9h-eA@mail.gmail.com>
+References: <5326984D.1060508@hastings.org>
+ <CAMpsgwYRti7ZA8kZTu8i=1AzFrkOjQbpowxfDCtO-=t92jBe9w@mail.gmail.com>
+ <CAP1=2W6Mfrjkjt5VhxuM8Y6BshwLP=N_BLCpyyuh_FApW9h-eA@mail.gmail.com>
+Message-ID: <1395069536.415.95475857.4A1672A8@webmail.messagingengine.com>
+
+
+
+On Mon, Mar 17, 2014, at 7:10, Brett Cannon wrote:
+> On Mon, Mar 17, 2014 at 4:51 AM, Victor Stinner
+> <victor.stinner at gmail.com>wrote:
+> 
+> > Until when should we fix bugs in the branch 3.3? Branches 3.1 and 3.2 only
+> > accept security fixes, right?
+> >
+> 
+> Typically we do one last release before shutting the last bugfix branch
+> down, but that's Georg's call since 3.3.5 was released so recently.
+
+Given that, I propose 3.3 goes into security fix mode immediately.
+
+From jcea at jcea.es  Mon Mar 17 16:42:20 2014
+From: jcea at jcea.es (Jesus Cea)
+Date: Mon, 17 Mar 2014 16:42:20 +0100
+Subject: [python-committers] default hg.python.org/cpython is now 3.5
+In-Reply-To: <CAMpsgwYRti7ZA8kZTu8i=1AzFrkOjQbpowxfDCtO-=t92jBe9w@mail.gmail.com>
+References: <5326984D.1060508@hastings.org>
+ <CAMpsgwYRti7ZA8kZTu8i=1AzFrkOjQbpowxfDCtO-=t92jBe9w@mail.gmail.com>
+Message-ID: <532717DC.5020109@jcea.es>
+
+On 17/03/14 09:51, Victor Stinner wrote:
+> Until when should we fix bugs in the branch 3.3? Branches 3.1 and 3.2
+> only accept security fixes, right?
+
+Tradition says that until release *.1 is published. That is, 3.4.1 in
+this case.
+
+But release manager will tell.
+
+-- 
+Jes?s Cea Avi?n                         _/_/      _/_/_/        _/_/_/
+jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+Twitter: @jcea                        _/_/    _/_/          _/_/_/_/_/
+jabber / xmpp:jcea at jabber.org  _/_/  _/_/    _/_/          _/_/  _/_/
+"Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+"My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+"El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 538 bytes
+Desc: OpenPGP digital signature
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20140317/26ddaca4/attachment.sig>
+
+From antoine at python.org  Mon Mar 17 16:57:49 2014
+From: antoine at python.org (Antoine Pitrou)
+Date: Mon, 17 Mar 2014 16:57:49 +0100
+Subject: [python-committers] 3.4 buildbots??
+In-Reply-To: <CAKJDb-MA3ZHcnLC2e17jU9dEaURqk_T6EKX_THE8T2SBNMsPYw@mail.gmail.com>
+References: <5326FE2B.4010003@jcea.es> <532703A9.8040402@v.loewis.de>
+ <CAKJDb-MA3ZHcnLC2e17jU9dEaURqk_T6EKX_THE8T2SBNMsPYw@mail.gmail.com>
+Message-ID: <1395071869.2365.2.camel@fsol>
+
+On lun., 2014-03-17 at 09:37 -0500, Zachary Ware wrote:
+> On Mon, Mar 17, 2014 at 9:16 AM, "Martin v. L?wis" <martin at v.loewis.de> wrote:
+> > Am 17.03.14 14:52, schrieb Jesus Cea:
+> >> Do I need to do anything to create the 3.4 branch in the buildbots?.
+> >
+> > As a slave operator, you don't need to do anything. As the master
+> > operator, you would have to edit the configuration file to add the
+> > branch.
+> >
+> > However, I would advise against doing so now, and delay the addition
+> > of the 3.4 branch until 3.3 is retired from bug fixing, and then
+> > repurpose all 3.3 configuration for 3.4. Otherwise, some slaves might
+> > run out of disk space.
+> 
+> Since we still have a 3.2 configuration (for which most of the UNIX
+> bots are broken), perhaps we should repurpose that configuration
+> instead of 3.3.
+
+That would be Georg's call, since he's the RM for both branches (AFAIR).
+
+Regards
+
+Antoine.
+
+
+
+From jcea at jcea.es  Mon Mar 17 16:58:04 2014
+From: jcea at jcea.es (Jesus Cea)
+Date: Mon, 17 Mar 2014 16:58:04 +0100
+Subject: [python-committers] 3.4 buildbots??
+In-Reply-To: <532703A9.8040402@v.loewis.de>
+References: <5326FE2B.4010003@jcea.es> <532703A9.8040402@v.loewis.de>
+Message-ID: <53271B8C.1030409@jcea.es>
+
+On 17/03/14 15:16, "Martin v. L?wis" wrote:
+> However, I would advise against doing so now, and delay the addition
+> of the 3.4 branch until 3.3 is retired from bug fixing, and then
+> repurpose all 3.3 configuration for 3.4. Otherwise, some slaves might
+> run out of disk space.
+
+Are you actually talking about 3.2?. I am surprised that you propose to
+delay 3.4 buildbots now that it is the "current" release. Doesn't make
+sense to me.
+
+Why not drop 3.2 and do only 2.7, 3.3, 3.4 and default (future 3.5)?.
+
+-- 
+Jes?s Cea Avi?n                         _/_/      _/_/_/        _/_/_/
+jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+Twitter: @jcea                        _/_/    _/_/          _/_/_/_/_/
+jabber / xmpp:jcea at jabber.org  _/_/  _/_/    _/_/          _/_/  _/_/
+"Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+"My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+"El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 538 bytes
+Desc: OpenPGP digital signature
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20140317/acfd9d0a/attachment.sig>
+
+From martin at v.loewis.de  Mon Mar 17 17:37:32 2014
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Mon, 17 Mar 2014 17:37:32 +0100
+Subject: [python-committers] default hg.python.org/cpython is now 3.5
+In-Reply-To: <1395069536.415.95475857.4A1672A8@webmail.messagingengine.com>
+References: <5326984D.1060508@hastings.org>
+ <CAMpsgwYRti7ZA8kZTu8i=1AzFrkOjQbpowxfDCtO-=t92jBe9w@mail.gmail.com>
+ <CAP1=2W6Mfrjkjt5VhxuM8Y6BshwLP=N_BLCpyyuh_FApW9h-eA@mail.gmail.com>
+ <1395069536.415.95475857.4A1672A8@webmail.messagingengine.com>
+Message-ID: <532724CC.9000502@v.loewis.de>
+
+Am 17.03.14 16:18, schrieb Benjamin Peterson:
+> 
+> 
+> On Mon, Mar 17, 2014, at 7:10, Brett Cannon wrote:
+>> On Mon, Mar 17, 2014 at 4:51 AM, Victor Stinner
+>> <victor.stinner at gmail.com>wrote:
+>>
+>>> Until when should we fix bugs in the branch 3.3? Branches 3.1 and 3.2 only
+>>> accept security fixes, right?
+>>>
+>>
+>> Typically we do one last release before shutting the last bugfix branch
+>> down, but that's Georg's call since 3.3.5 was released so recently.
+> 
+> Given that, I propose 3.3 goes into security fix mode immediately.
+
++1
+
+Martin
+
+
+
+From g.rodola at gmail.com  Mon Mar 17 18:11:39 2014
+From: g.rodola at gmail.com (Giampaolo Rodola')
+Date: Mon, 17 Mar 2014 18:11:39 +0100
+Subject: [python-committers] [Python-Dev] [RELEASED] Python 3.4.0
+In-Reply-To: <CAO41-mPV0GcV9EEPjv_DDJAOWL3O7Q6QV1ET5EN=wp-64Rwqrg@mail.gmail.com>
+References: <53269663.9050408@hastings.org>
+ <CAO41-mPV0GcV9EEPjv_DDJAOWL3O7Q6QV1ET5EN=wp-64Rwqrg@mail.gmail.com>
+Message-ID: <CAFYqXL-t7VurJgC8qBo0gKj0QeygNNf4NVVk2O1y3uoX7cxFbA@mail.gmail.com>
+
+The what's new looks truly amazing, with pathlib and asyncio being my
+favourite additions.
+Thanks for all the hard work.
+
+
+On Mon, Mar 17, 2014 at 5:57 PM, Ryan Gonzalez <rymg19 at gmail.com> wrote:
+
+> YES!!! +1 to the authors of the statistics and pathlib modules.
+>
+>
+> On Mon, Mar 17, 2014 at 1:29 AM, Larry Hastings <larry at hastings.org>wrote:
+>
+>>
+>> On behalf of the Python development team, I'm thrilled to announce
+>> the official release of Python 3.4.
+>>
+>>
+>> Python 3.4 includes a range of improvements of the 3.x series, including
+>> hundreds of small improvements and bug fixes.  Major new features and
+>> changes in the 3.4 release series include:
+>>
+>> * PEP 428, a "pathlib" module providing object-oriented filesystem paths
+>> * PEP 435, a standardized "enum" module
+>> * PEP 436, a build enhancement that will help generate introspection
+>>            information for builtins
+>> * PEP 442, improved semantics for object finalization
+>> * PEP 443, adding single-dispatch generic functions to the standard
+>> library
+>> * PEP 445, a new C API for implementing custom memory allocators
+>> * PEP 446, changing file descriptors to not be inherited by default
+>>            in subprocesses
+>> * PEP 450, a new "statistics" module
+>> * PEP 451, standardizing module metadata for Python's module import system
+>> * PEP 453, a bundled installer for the *pip* package manager
+>> * PEP 454, a new "tracemalloc" module for tracing Python memory
+>> allocations
+>> * PEP 456, a new hash algorithm for Python strings and binary data
+>> * PEP 3154, a new and improved protocol for pickled objects
+>> * PEP 3156, a new "asyncio" module, a new framework for asynchronous I/O
+>>
+>>
+>> To download Python 3.4.0 visit:
+>>
+>>     http://www.python.org/download/releases/3.4.0/
+>>
+>>
+>> This is a production release.  Please report any issues you notice to:
+>>
+>>      http://bugs.python.org/
+>>
+>>
+>> Enjoy!
+>>
+>>
+>> --
+>> Larry Hastings, Release Manager
+>> larry at hastings.org
+>> (on behalf of the entire python-dev team and 3.4's contributors)
+>> _______________________________________________
+>> Python-Dev mailing list
+>> Python-Dev at python.org
+>> https://mail.python.org/mailman/listinfo/python-dev
+>> Unsubscribe: https://mail.python.org/mailman/options/python-dev/
+>> rymg19%40gmail.com
+>>
+>
+>
+>
+> --
+> Ryan
+> If anybody ever asks me why I prefer C++ to C, my answer will be simple:
+> "It's becauseslejfp23(@#Q*(E*EIdc-SEGFAULT. Wait, I don't think that was
+> nul-terminated."
+>
+>
+> --
+> https://mail.python.org/mailman/listinfo/python-list
+>
+>
+
+
+-- 
+Giampaolo - http://grodola.blogspot.com
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20140317/84a15bc4/attachment.html>
+
+From g.brandl at gmx.net  Mon Mar 17 19:19:44 2014
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Mon, 17 Mar 2014 19:19:44 +0100
+Subject: [python-committers] default hg.python.org/cpython is now 3.5
+In-Reply-To: <532724CC.9000502@v.loewis.de>
+References: <5326984D.1060508@hastings.org>
+ <CAMpsgwYRti7ZA8kZTu8i=1AzFrkOjQbpowxfDCtO-=t92jBe9w@mail.gmail.com>
+ <CAP1=2W6Mfrjkjt5VhxuM8Y6BshwLP=N_BLCpyyuh_FApW9h-eA@mail.gmail.com>
+ <1395069536.415.95475857.4A1672A8@webmail.messagingengine.com>
+ <532724CC.9000502@v.loewis.de>
+Message-ID: <lg7ebi$3hk$1@ger.gmane.org>
+
+Am 17.03.2014 17:37, schrieb "Martin v. L?wis":
+> Am 17.03.14 16:18, schrieb Benjamin Peterson:
+>> 
+>> 
+>> On Mon, Mar 17, 2014, at 7:10, Brett Cannon wrote:
+>>> On Mon, Mar 17, 2014 at 4:51 AM, Victor Stinner
+>>> <victor.stinner at gmail.com>wrote:
+>>>
+>>>> Until when should we fix bugs in the branch 3.3? Branches 3.1 and 3.2 only
+>>>> accept security fixes, right?
+>>>>
+>>>
+>>> Typically we do one last release before shutting the last bugfix branch
+>>> down, but that's Georg's call since 3.3.5 was released so recently.
+>> 
+>> Given that, I propose 3.3 goes into security fix mode immediately.
+> 
+> +1
+
+I agree.  I would have released 3.3.5 after 3.4.0, but since 3.3.5 came along
+*and* took a second rc, it fills the function nicely.
+
+I will make an exception if a regression in 3.3.5 is discovered soon-ish.
+
+Georg
+
+
+From martin at v.loewis.de  Mon Mar 17 19:18:50 2014
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Mon, 17 Mar 2014 19:18:50 +0100
+Subject: [python-committers] 3.4 buildbots??
+In-Reply-To: <53271B8C.1030409@jcea.es>
+References: <5326FE2B.4010003@jcea.es> <532703A9.8040402@v.loewis.de>
+ <53271B8C.1030409@jcea.es>
+Message-ID: <53273C8A.7080107@v.loewis.de>
+
+Am 17.03.14 16:58, schrieb Jesus Cea:
+> On 17/03/14 15:16, "Martin v. L?wis" wrote:
+>> However, I would advise against doing so now, and delay the addition
+>> of the 3.4 branch until 3.3 is retired from bug fixing, and then
+>> repurpose all 3.3 configuration for 3.4. Otherwise, some slaves might
+>> run out of disk space.
+> 
+> Are you actually talking about 3.2?. I am surprised that you propose to
+> delay 3.4 buildbots now that it is the "current" release. Doesn't make
+> sense to me.
+
+No - the "current" branch is 3.5. The rationale for not creating
+buildbots for them right away is that 3.4 just had a release, and
+the next release might be a few month ahead, so enabling buildbots
+four weeks from now might still be early enough.
+
+> Why not drop 3.2 and do only 2.7, 3.3, 3.4 and default (future 3.5)?.
+
+I was actually unaware that there is a 3.2 configuration still;
+repurposing that is then fine with me. However, it might be a little
+bit more complicated, since the 3.2 configuration is not listed in
+
+https://www.python.org/dev/buildbot/
+
+so you'll have to create a bunch of proxy, alias, redirect and whatnot
+configurations if you want to expose a fourth branch.
+
+Regards,
+Martin
+
+
+From g.brandl at gmx.net  Mon Mar 17 19:23:56 2014
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Mon, 17 Mar 2014 19:23:56 +0100
+Subject: [python-committers] 3.3 branch is now in security fix mode
+Message-ID: <lg7ejd$3hk$2@ger.gmane.org>
+
+Hi all,
+
+since 3.3.5 and 3.4.0 practically coincided, it is a good point to end the
+bugfix maintenance of the 3.3 branch.
+
+Please only commit security-related fixes to 3.3 from now -- like for 3.2 --
+and as always, please set tracker issues that relate to security fixes to
+"release blocker" priority.
+
+Georg
+
+
+From tjreedy at udel.edu  Mon Mar 17 20:23:53 2014
+From: tjreedy at udel.edu (Terry Reedy)
+Date: Mon, 17 Mar 2014 15:23:53 -0400
+Subject: [python-committers] default hg.python.org/cpython is now 3.5
+In-Reply-To: <1395069536.415.95475857.4A1672A8@webmail.messagingengine.com>
+References: <5326984D.1060508@hastings.org>
+ <CAMpsgwYRti7ZA8kZTu8i=1AzFrkOjQbpowxfDCtO-=t92jBe9w@mail.gmail.com>
+ <CAP1=2W6Mfrjkjt5VhxuM8Y6BshwLP=N_BLCpyyuh_FApW9h-eA@mail.gmail.com>
+ <1395069536.415.95475857.4A1672A8@webmail.messagingengine.com>
+Message-ID: <53274BC9.7090107@udel.edu>
+
+On 3/17/2014 11:18 AM, Benjamin Peterson wrote:
+>
+>
+> On Mon, Mar 17, 2014, at 7:10, Brett Cannon wrote:
+>> On Mon, Mar 17, 2014 at 4:51 AM, Victor Stinner
+>> <victor.stinner at gmail.com>wrote:
+>>
+>>> Until when should we fix bugs in the branch 3.3? Branches 3.1 and 3.2 only
+>>> accept security fixes, right?
+>>>
+>>
+>> Typically we do one last release before shutting the last bugfix branch
+>> down, but that's Georg's call since 3.3.5 was released so recently.
+>
+> Given that, I propose 3.3 goes into security fix mode immediately.
+
+Traditionally, the final maintenance release has been either 
+simultaneous or a week after the next version. Having 3 active 3.x 
+branches on top of 2.x is a burden. I also think a week before is fine.
+
+Terry
+
+
+From tjreedy at udel.edu  Mon Mar 17 20:31:30 2014
+From: tjreedy at udel.edu (Terry Reedy)
+Date: Mon, 17 Mar 2014 15:31:30 -0400
+Subject: [python-committers] default hg.python.org/cpython is now 3.5
+In-Reply-To: <532717DC.5020109@jcea.es>
+References: <5326984D.1060508@hastings.org>
+ <CAMpsgwYRti7ZA8kZTu8i=1AzFrkOjQbpowxfDCtO-=t92jBe9w@mail.gmail.com>
+ <532717DC.5020109@jcea.es>
+Message-ID: <53274D92.2070607@udel.edu>
+
+On 3/17/2014 11:42 AM, Jesus Cea wrote:
+> On 17/03/14 09:51, Victor Stinner wrote:
+>> Until when should we fix bugs in the branch 3.3? Branches 3.1 and 3.2
+>> only accept security fixes, right?
+>
+> Tradition says that until release *.1 is published. That is, 3.4.1 in
+> this case.
+
+According to my memory, bug fixing traditionally stopped with the next 
+x.y.0 release (but which was not called .0)
+
+> But release manager will tell.
+
+Having multiple branches under maintenance severely affect all committers.
+
+Terry
+
+
+
+From victor.stinner at gmail.com  Mon Mar 17 22:36:46 2014
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Mon, 17 Mar 2014 22:36:46 +0100
+Subject: [python-committers] default hg.python.org/cpython is now 3.5
+In-Reply-To: <5326984D.1060508@hastings.org>
+References: <5326984D.1060508@hastings.org>
+Message-ID: <CAMpsgwYu5f7efojSF3pi3ignaMRn9AR8XWXZ_H-BJNpE-CDmqA@mail.gmail.com>
+
+Hi,
+
+I modified the Misc/NEWS file:
+
+* I moved 3.3 sections to Misc/HISTORY: items were already present,
+but the format in Misc/NEWS was improved (changeset 6ba468d4fa96)
+* I removed 3.4.1 section: changes of 3.4 after 3.4.0 must already be
+present in the 3.4 branch (changeset cb161cd94e6e)
+
+Is that correct?
+
+Victor
+
+2014-03-17 7:38 GMT+01:00 Larry Hastings <larry at hastings.org>:
+>
+>
+> The "3.4" branch is now checked in.  It contains all the 3.4 releases since
+> 3.4.0rc1.  Its current state is effectively 3.4.1.
+>
+> The "default" branch is now 3.5.
+>
+> Cry havoc, and let slip the dogs of war,
+>
+>
+> /arry
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+>
+
+From ncoghlan at gmail.com  Tue Mar 18 00:23:02 2014
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Tue, 18 Mar 2014 09:23:02 +1000
+Subject: [python-committers] default hg.python.org/cpython is now 3.5
+In-Reply-To: <CAMpsgwYu5f7efojSF3pi3ignaMRn9AR8XWXZ_H-BJNpE-CDmqA@mail.gmail.com>
+References: <5326984D.1060508@hastings.org>
+ <CAMpsgwYu5f7efojSF3pi3ignaMRn9AR8XWXZ_H-BJNpE-CDmqA@mail.gmail.com>
+Message-ID: <CADiSq7cr8GLjzUJCiy65GZ3P-6yp0Tih6MGzcNr1ykz6BE5LSQ@mail.gmail.com>
+
+On 18 Mar 2014 07:37, "Victor Stinner" <victor.stinner at gmail.com> wrote:
+>
+> Hi,
+>
+> I modified the Misc/NEWS file:
+>
+> * I moved 3.3 sections to Misc/HISTORY: items were already present,
+> but the format in Misc/NEWS was improved (changeset 6ba468d4fa96)
+> * I removed 3.4.1 section: changes of 3.4 after 3.4.0 must already be
+> present in the 3.4 branch (changeset cb161cd94e6e)
+>
+> Is that correct?
+
+Not everything was cherry picked, so we'll need to review that to move the
+3.4.1 fixes back to the appropriate section.
+
+Cheers,
+Nick.
+
+>
+> Victor
+>
+> 2014-03-17 7:38 GMT+01:00 Larry Hastings <larry at hastings.org>:
+> >
+> >
+> > The "3.4" branch is now checked in.  It contains all the 3.4 releases
+since
+> > 3.4.0rc1.  Its current state is effectively 3.4.1.
+> >
+> > The "default" branch is now 3.5.
+> >
+> > Cry havoc, and let slip the dogs of war,
+> >
+> >
+> > /arry
+> >
+> > _______________________________________________
+> > python-committers mailing list
+> > python-committers at python.org
+> > https://mail.python.org/mailman/listinfo/python-committers
+> >
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20140318/4e5f2cd7/attachment.html>
+
+From larry at hastings.org  Tue Mar 18 00:35:17 2014
+From: larry at hastings.org (Larry Hastings)
+Date: Mon, 17 Mar 2014 16:35:17 -0700
+Subject: [python-committers] default hg.python.org/cpython is now 3.5
+In-Reply-To: <CADiSq7cr8GLjzUJCiy65GZ3P-6yp0Tih6MGzcNr1ykz6BE5LSQ@mail.gmail.com>
+References: <5326984D.1060508@hastings.org>	<CAMpsgwYu5f7efojSF3pi3ignaMRn9AR8XWXZ_H-BJNpE-CDmqA@mail.gmail.com>
+ <CADiSq7cr8GLjzUJCiy65GZ3P-6yp0Tih6MGzcNr1ykz6BE5LSQ@mail.gmail.com>
+Message-ID: <532786B5.6080109@hastings.org>
+
+On 03/17/2014 04:23 PM, Nick Coghlan wrote:
+>
+>
+> On 18 Mar 2014 07:37, "Victor Stinner" <victor.stinner at gmail.com 
+> <mailto:victor.stinner at gmail.com>> wrote:
+> >
+> > Hi,
+> >
+> > I modified the Misc/NEWS file:
+> >
+> > * I moved 3.3 sections to Misc/HISTORY: items were already present,
+> > but the format in Misc/NEWS was improved (changeset 6ba468d4fa96)
+> > * I removed 3.4.1 section: changes of 3.4 after 3.4.0 must already be
+> > present in the 3.4 branch (changeset cb161cd94e6e)
+> >
+> > Is that correct?
+>
+> Not everything was cherry picked, so we'll need to review that to move 
+> the 3.4.1 fixes back to the appropriate section.
+>
+
+I merged "default" into "3.4" (3a3a83195159), so every change that was 
+in "default" last night will automatically go into 3.4.1.  Stuff that 
+got cherry-picked back for 3.4.0 should already be in their correct 
+sections.
+
+I worked pretty hard to get that right, so while I'd be interested to 
+hear if I got it wrong, my assumption (my hope) for now is that 
+Misc/NEWS is basically correct in both "3.4" and "default".
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20140317/9e4aa68e/attachment-0001.html>
+
+From g.brandl at gmx.net  Tue Mar 18 07:19:56 2014
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Tue, 18 Mar 2014 07:19:56 +0100
+Subject: [python-committers] default hg.python.org/cpython is now 3.5
+In-Reply-To: <CAMpsgwYu5f7efojSF3pi3ignaMRn9AR8XWXZ_H-BJNpE-CDmqA@mail.gmail.com>
+References: <5326984D.1060508@hastings.org>
+ <CAMpsgwYu5f7efojSF3pi3ignaMRn9AR8XWXZ_H-BJNpE-CDmqA@mail.gmail.com>
+Message-ID: <lg8oht$dt$1@ger.gmane.org>
+
+Am 17.03.2014 22:36, schrieb Victor Stinner:
+> Hi,
+> 
+> I modified the Misc/NEWS file:
+> 
+> * I moved 3.3 sections to Misc/HISTORY: items were already present,
+> but the format in Misc/NEWS was improved (changeset 6ba468d4fa96)
+> * I removed 3.4.1 section: changes of 3.4 after 3.4.0 must already be
+> present in the 3.4 branch (changeset cb161cd94e6e)
+> 
+> Is that correct?
+
+The changes not merged in 3.4.0 will all be in 3.5.0; please reinstate the
+NEWS entries under the 3.5 heading.
+
+Georg
+
+
+From victor.stinner at gmail.com  Tue Mar 18 09:00:44 2014
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Tue, 18 Mar 2014 09:00:44 +0100
+Subject: [python-committers] default hg.python.org/cpython is now 3.5
+In-Reply-To: <lg8oht$dt$1@ger.gmane.org>
+References: <5326984D.1060508@hastings.org>
+ <CAMpsgwYu5f7efojSF3pi3ignaMRn9AR8XWXZ_H-BJNpE-CDmqA@mail.gmail.com>
+ <lg8oht$dt$1@ger.gmane.org>
+Message-ID: <CAMpsgwY1RoHWNcHjAF4bOyT2=hB5hEc_nkNO=1Aw=4P_LBm7WA@mail.gmail.com>
+
+Hi,
+
+2014-03-18 7:19 GMT+01:00 Georg Brandl <g.brandl at gmx.net>:
+> Am 17.03.2014 22:36, schrieb Victor Stinner:
+>> I modified the Misc/NEWS file: (...) Is that correct?
+>
+> The changes not merged in 3.4.0 will all be in 3.5.0; please reinstate the
+> NEWS entries under the 3.5 heading.
+
+Oh ok, I didn't notice that 3.4.1rc1 items were all missing from 3.5.
+Does it look better with the following changeset?
+http://hg.python.org/cpython/rev/b7f2b1bd49f3
+
+I compared Misc/NEWS with Misc/NEWS of 3.4 branch: the only change is
+the 2 new changes specific to 3.5.
+
+Victor
+

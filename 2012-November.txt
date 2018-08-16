@@ -1,0 +1,1438 @@
+From michael at voidspace.org.uk  Thu Nov  1 13:28:45 2012
+From: michael at voidspace.org.uk (Michael Foord)
+Date: Thu, 1 Nov 2012 12:28:45 +0000
+Subject: [python-committers] Python Language Summit at PyCon 2013 (Wed 13th)
+Message-ID: <AB8FEFB9-8A94-4FBF-BF36-CE29F04ED442@voidspace.org.uk>
+
+Hey all,
+
+PyCon 2013 is in Santa Clara, March 13-21st 2013. As in previous years we will be having a Python language summit, open to all CPython committers and invited individuals from the other implementations of Python and the Python community.
+
+The purpose of the summit will be to discuss language development, co-operation between the different implementations, and anything else that seems relevant.
+
+Not all the details of the summit are settled (the room hasn't been fixed yet) but I will post updates as they come in.
+
+What we do know:
+
+	* The summit will be on Wednesday 13th March
+	* The summit will be from 10:30am to 4pm
+
+There will be breaks, including lunch provided, and hopefully we will have wifi and a projector in the room.
+
+If you are able to come please reply to me (off list) so I can keep a track of numbers.
+
+If you have any topics you would like to discuss at the summit then let me know and I can add them to the agenda.
+
+All the best,
+
+Michael Foord
+
+--
+http://www.voidspace.org.uk/
+
+
+May you do good and not evil
+May you find forgiveness for yourself and forgive others
+May you share freely, never taking more than you give.
+-- the sqlite blessing 
+http://www.sqlite.org/different.html
+
+
+
+
+
+
+From lukasz at langa.pl  Wed Nov  7 09:45:57 2012
+From: lukasz at langa.pl (=?iso-8859-2?Q?=A3ukasz_Langa?=)
+Date: Wed, 7 Nov 2012 09:45:57 +0100
+Subject: [python-committers] Anatoly Techtonik's contribution
+Message-ID: <F99F24B4-5F76-4338-907D-FFDDBB94222E@langa.pl>
+
+I'd like to raise a concern that Anatoly's actions are disruptive and largely unhelpful. His passive-agressive writing style is well known but it seems this no longer satisfies him. Today, without consulting anyone he edited our Wiki guidelines and removed the "Do not remove guidelines you do not agree with!" note (yes, really):
+
+http://wiki.python.org/moin/WikiGuidelines?action=diff&rev1=35&rev2=36
+
+Should we react in any way? How do you perceive his contributions in general? 
+
+-- 
+Best regards,
+?ukasz Langa
+Senior Systems Architecture Engineer
+
+IT Infrastructure Department
+Grupa Allegro Sp. z o.o.
+
+http://lukasz.langa.pl/
++48 791 080 144
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20121107/91a5f36e/attachment.html>
+
+From mal at egenix.com  Wed Nov  7 10:25:11 2012
+From: mal at egenix.com (M.-A. Lemburg)
+Date: Wed, 07 Nov 2012 10:25:11 +0100
+Subject: [python-committers] Anatoly Techtonik's contribution
+In-Reply-To: <F99F24B4-5F76-4338-907D-FFDDBB94222E@langa.pl>
+References: <F99F24B4-5F76-4338-907D-FFDDBB94222E@langa.pl>
+Message-ID: <509A28F7.2030500@egenix.com>
+
+On 07.11.2012 09:45, ?ukasz Langa wrote:
+> I'd like to raise a concern that Anatoly's actions are disruptive and largely unhelpful. His passive-agressive writing style is well known but it seems this no longer satisfies him. Today, without consulting anyone he edited our Wiki guidelines and removed the "Do not remove guidelines you do not agree with!" note (yes, really):
+> 
+> http://wiki.python.org/moin/WikiGuidelines?action=diff&rev1=35&rev2=36
+> 
+> Should we react in any way? How do you perceive his contributions in general? 
+
+I've reverted his changes. The wiki guidelines are much too important
+to have them changed significantly without any discussion on
+pydotorg-www (or wherever such things are discussed :-)).
+
+-- 
+Marc-Andre Lemburg
+eGenix.com
+
+Professional Python Services directly from the Source  (#1, Nov 07 2012)
+>>> Python Projects, Consulting and Support ...   http://www.egenix.com/
+>>> mxODBC.Zope/Plone.Database.Adapter ...       http://zope.egenix.com/
+>>> mxODBC, mxDateTime, mxTextTools ...        http://python.egenix.com/
+________________________________________________________________________
+
+::: Try our new mxODBC.Connect Python Database Interface for free ! ::::
+
+   eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+    D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+           Registered at Amtsgericht Duesseldorf: HRB 46611
+               http://www.egenix.com/company/contact/
+
+From ncoghlan at gmail.com  Wed Nov  7 10:46:59 2012
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Wed, 7 Nov 2012 19:46:59 +1000
+Subject: [python-committers] Anatoly Techtonik's contribution
+In-Reply-To: <F99F24B4-5F76-4338-907D-FFDDBB94222E@langa.pl>
+References: <F99F24B4-5F76-4338-907D-FFDDBB94222E@langa.pl>
+Message-ID: <CADiSq7cke6j-QAizU=y_-NPisPJucOqUc5bSWDDEUkK1X9xYFw@mail.gmail.com>
+
+On Wed, Nov 7, 2012 at 6:45 PM, ?ukasz Langa <lukasz at langa.pl> wrote:
+> I'd like to raise a concern that Anatoly's actions are disruptive and
+> largely unhelpful. His passive-agressive writing style is well known but it
+> seems this no longer satisfies him. Today, without consulting anyone he
+> edited our Wiki guidelines and removed the "Do not remove guidelines you do
+> not agree with!" note (yes, really):
+>
+> http://wiki.python.org/moin/WikiGuidelines?action=diff&rev1=35&rev2=36
+>
+> Should we react in any way? How do you perceive his contributions in
+> general?
+
+As far as I know, most of the core committers that follow python-ideas
+at all already have him killfiled so we don't see his messages, only
+replies to him. I believe I was one of the last holdouts, but relented
+after losing my temper with him a few times earlier this year and
+realising I no longer had any patience for him, after spending a lot
+of time trying to help channel his passion in more productive
+directions.
+
+That's always been the problem - his passion for Python is clear, but
+he's completely clueless when it comes to dealing with people, so it
+ultimately just isn't worth the hassle of trying to engage. It's
+starting to sound like we may need to do something more drastic than
+just ignoring him, though - the occasional good idea he's come up with
+may not be worth the cost it is having in terms of annoying other
+community members :(
+
+Sadly,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+
+From ronaldoussoren at mac.com  Wed Nov  7 10:53:04 2012
+From: ronaldoussoren at mac.com (Ronald Oussoren)
+Date: Wed, 07 Nov 2012 10:53:04 +0100
+Subject: [python-committers] Anatoly Techtonik's contribution
+In-Reply-To: <F99F24B4-5F76-4338-907D-FFDDBB94222E@langa.pl>
+References: <F99F24B4-5F76-4338-907D-FFDDBB94222E@langa.pl>
+Message-ID: <FA35C1F6-680C-448F-8976-F3E6804FF8D2@mac.com>
+
+
+On 7 Nov, 2012, at 9:45, ?ukasz Langa <lukasz at langa.pl> wrote:
+
+> I'd like to raise a concern that Anatoly's actions are disruptive and largely unhelpful. His passive-agressive writing style is well known but it seems this no longer satisfies him. Today, without consulting anyone he edited our Wiki guidelines and removed the "Do not remove guidelines you do not agree with!" note (yes, really):
+> 
+> http://wiki.python.org/moin/WikiGuidelines?action=diff&rev1=35&rev2=36
+> 
+> Should we react in any way? How do you perceive his contributions in general? 
+
+I don't think it is worthwhile to react beyond the revert that Marc Andre did.  He appears to mean well, but has trouble communicating clearly.  I've noticed that while I still read his e-mails to python-ideas I do give them ever less attention because he appears to just drop of half-baked ideas without any intention of following up on them.
+
+That said, I have received a number of useful contributions from him for other projects.
+
+Ronald
+
+> 
+> -- 
+> Best regards,
+> ?ukasz Langa
+> Senior Systems Architecture Engineer
+> 
+> IT Infrastructure Department
+> Grupa Allegro Sp. z o.o.
+> 
+> http://lukasz.langa.pl/
+> +48 791 080 144
+> 
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20121107/c1619b3b/attachment.html>
+
+From martin at v.loewis.de  Wed Nov  7 13:06:09 2012
+From: martin at v.loewis.de (=?UTF-8?B?Ik1hcnRpbiB2LiBMw7Z3aXMi?=)
+Date: Wed, 07 Nov 2012 13:06:09 +0100
+Subject: [python-committers] Anatoly Techtonik's contribution
+In-Reply-To: <F99F24B4-5F76-4338-907D-FFDDBB94222E@langa.pl>
+References: <F99F24B4-5F76-4338-907D-FFDDBB94222E@langa.pl>
+Message-ID: <509A4EB1.2070506@v.loewis.de>
+
+Am 07.11.12 09:45, schrieb ?ukasz Langa:
+> I'd like to raise a concern that Anatoly's actions are disruptive and
+> largely unhelpful. His passive-agressive writing style is well known but
+> it seems this no longer satisfies him. Today, without consulting anyone
+> he edited our Wiki guidelines and removed the "Do not remove guidelines
+> you do not agree with!" note (yes, really):
+>
+> http://wiki.python.org/moin/WikiGuidelines?action=diff&rev1=35&rev2=36
+>
+> Should we react in any way? How do you perceive his contributions in
+> general?
+
+I (am known to) perceive his contributions in the most negative way.
+For several times, I was close to banning him from certain systems I
+care about, but rather chose to ignore him instead.
+
+If the wiki maintainers want to ban him from modifying the wiki, they
+have my support.
+
+Regards,
+Martin
+
+
+
+From lukasz at langa.pl  Wed Nov  7 14:26:15 2012
+From: lukasz at langa.pl (=?iso-8859-2?Q?=A3ukasz_Langa?=)
+Date: Wed, 7 Nov 2012 14:26:15 +0100
+Subject: [python-committers] Anatoly Techtonik's contribution
+In-Reply-To: <509A4EB1.2070506@v.loewis.de>
+References: <F99F24B4-5F76-4338-907D-FFDDBB94222E@langa.pl>
+	<509A4EB1.2070506@v.loewis.de>
+Message-ID: <08E61C8D-F36E-4AB0-8BE0-E3C57746D030@langa.pl>
+
+Wiadomo?? napisana przez Martin v. L?wis <martin at v.loewis.de> w dniu 7 lis 2012, o godz. 13:06:
+
+> Am 07.11.12 09:45, schrieb ?ukasz Langa:
+>> I'd like to raise a concern that Anatoly's actions are disruptive and
+>> largely unhelpful. His passive-agressive writing style is well known but
+>> it seems this no longer satisfies him. Today, without consulting anyone
+>> he edited our Wiki guidelines and removed the "Do not remove guidelines
+>> you do not agree with!" note (yes, really):
+>> 
+>> http://wiki.python.org/moin/WikiGuidelines?action=diff&rev1=35&rev2=36
+>> 
+>> Should we react in any way? How do you perceive his contributions in
+>> general?
+> 
+> I (am known to) perceive his contributions in the most negative way.
+> For several times, I was close to banning him from certain systems I
+> care about, but rather chose to ignore him instead.
+
+I have been doing the same thing for quite some time, too. Lately though I gave some thought into this and I think maintaining the status quo is harmful to us as a community. I'd like us to react somehow.
+
+I agree with Jacob Kaplan-Moss when he says [1]: "I will call out antisocial behavior, enforce professionalism in the communities where I have the power to do, and leave the communities that cannot at least offer civility."
+
+More generally, Eliezer Yudkowsky's opinion [2] resonates with me: "good online communities die primarily by refusing to defend themselves". While this sounds overly dramatic, it describes the gist of the problem: quality goes down to the point where helpful members stop caring.
+
+What can we do? Apart from the obligatory joke of nudging him gently towards Ruby, I think calling his behavior out is a good idea. Cory Doctorow also thinks that "many trolls are perfectly nice in real life -- sometimes, just calling them on the phone and confronting them with the human being at the other end of their attacks is enough to sober them up" [3]. If that fails, banning him would show that we care about the quality of communication and technical prowess is no excuse for abusive behavior.
+
+All in all, is anyone of the opinion that losing him as a community member is worse than keeping him around?
+
+[1] http://jacobian.org/writing/assholes/
+[2] http://lesswrong.com/lw/c1/wellkept_gardens_die_by_pacifism/
+[3] http://www.informationweek.com/how-to-keep-hostile-jerks-from-taking-ov/199600005
+
+-- 
+Best regards,
+?ukasz Langa
+Senior Systems Architecture Engineer
+
+IT Infrastructure Department
+Grupa Allegro Sp. z o.o.
+
+http://lukasz.langa.pl/
++48 791 080 144
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20121107/3e4a7c6f/attachment.html>
+
+From brett at python.org  Wed Nov  7 14:54:23 2012
+From: brett at python.org (Brett Cannon)
+Date: Wed, 7 Nov 2012 08:54:23 -0500
+Subject: [python-committers] Anatoly Techtonik's contribution
+In-Reply-To: <08E61C8D-F36E-4AB0-8BE0-E3C57746D030@langa.pl>
+References: <F99F24B4-5F76-4338-907D-FFDDBB94222E@langa.pl>
+	<509A4EB1.2070506@v.loewis.de>
+	<08E61C8D-F36E-4AB0-8BE0-E3C57746D030@langa.pl>
+Message-ID: <CAP1=2W6MuxM=g65KNz34ZREvO7N_XgTS0E5kCwGRHZtaWJVTXA@mail.gmail.com>
+
+On Wed, Nov 7, 2012 at 8:26 AM, ?ukasz Langa <lukasz at langa.pl> wrote:
+
+> Wiadomo?? napisana przez Martin v. L?wis <martin at v.loewis.de> w dniu 7
+> lis 2012, o godz. 13:06:
+>
+> Am 07.11.12 09:45, schrieb ?ukasz Langa:
+>
+> I'd like to raise a concern that Anatoly's actions are disruptive and
+> largely unhelpful. His passive-agressive writing style is well known but
+> it seems this no longer satisfies him. Today, without consulting anyone
+> he edited our Wiki guidelines and removed the "Do not remove guidelines
+> you do not agree with!" note (yes, really):
+>
+> http://wiki.python.org/moin/WikiGuidelines?action=diff&rev1=35&rev2=36
+>
+> Should we react in any way? How do you perceive his contributions in
+> general?
+>
+>
+I perceive his contributions as worthless. He points out real issues and
+then blows way past reasonableness with how to resolve them, being rude in
+the process.
+
+
+>
+> I (am known to) perceive his contributions in the most negative way.
+> For several times, I was close to banning him from certain systems I
+> care about, but rather chose to ignore him instead.
+>
+>
+> I have been doing the same thing for quite some time, too. Lately though I
+> gave some thought into this and I think maintaining the status quo is
+> harmful to us as a community. I'd like us to react somehow.
+>
+> I agree with Jacob Kaplan-Moss when he says [1]: "I will call out
+> antisocial behavior, enforce professionalism in the communities where I
+> have the power to do, and leave the communities that cannot at least
+> offer civility."
+>
+> More generally, Eliezer Yudkowsky's opinion [2] resonates with me: "good
+> online communities die primarily by refusing to defend themselves". While
+> this sounds overly dramatic, it describes the gist of the problem: quality
+> goes down to the point where helpful members stop caring.
+>
+> What can we do? Apart from the obligatory joke of nudging him gently
+> towards Ruby, I think calling his behavior out is a good idea.
+>
+
+So before I started to send his emails into a blackhole, I called him out
+multiple times, to the point of basically yelling at him over email for
+being a jerk (this was when he called for the dissolving of the PSF board
+because he thought they were doing a bad job). He has been told multiple
+times he needs to change his attitude and he has yet to do so.
+
+
+> Cory Doctorow also thinks that "many trolls are perfectly nice in real
+> life -- sometimes, just calling them on the phone and confronting them with
+> the human being at the other end of their attacks is enough to sober them
+> up" [3].
+>
+
+He actually cornered me at PyCon in 2011 and he is pushy in person. He
+wasn't rude, but trying to explain to him that his view isn't reasonable
+doesn't not get through in-person either. I actually had to just walk away
+from the conversation to stop myself from yelling at him (he thought the
+state of the web-related libraries, e.g. urllib, were not great so to
+resolve it all the core developers should participate in rewriting
+python.org from scratch in order to suffer and thus be motivated to fix the
+libraries).
+
+
+>  If that fails, banning him would show that we care about the quality of
+> communication and technical prowess is no excuse for abusive behavior.
+>
+>
+The problem is how do we do that? Do the owners of various systems take it
+upon themselves or do we take on some concerted effort across the whole
+community? I mean I'm a moderator on python-ideas, but no one has directly
+complained to python-ideas-owner@ yet (although I guess I indirectly
+complained to myself when I started to auto-delete his emails and some
+people have personally vented to me as a friend) and I can't make him never
+appear on the issue tracker again (at least I don't think only Martin can).
+Does the PSF need to get involved somehow if we try to do a community-wide
+thing instead of a per-system thing where it's more at the discretion of
+the maintainers?
+
+
+> All in all, is anyone of the opinion that losing him as a community member
+> is worse than keeping him around?
+>
+
+No.
+
+-Brett
+
+
+
+>
+> [1] http://jacobian.org/writing/assholes/
+> [2] http://lesswrong.com/lw/c1/wellkept_gardens_die_by_pacifism/
+> [3]
+> http://www.informationweek.com/how-to-keep-hostile-jerks-from-taking-ov/199600005
+>
+>   --
+> Best regards,
+> ?ukasz Langa
+> Senior Systems Architecture Engineer
+>
+> IT Infrastructure Department
+> Grupa Allegro Sp. z o.o.
+>
+> http://lukasz.langa.pl/
+> +48 791 080 144
+>
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+>
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20121107/fb2ff7f6/attachment-0001.html>
+
+From mal at egenix.com  Wed Nov  7 15:00:48 2012
+From: mal at egenix.com (M.-A. Lemburg)
+Date: Wed, 07 Nov 2012 15:00:48 +0100
+Subject: [python-committers] Anatoly Techtonik's contribution
+In-Reply-To: <08E61C8D-F36E-4AB0-8BE0-E3C57746D030@langa.pl>
+References: <F99F24B4-5F76-4338-907D-FFDDBB94222E@langa.pl>
+	<509A4EB1.2070506@v.loewis.de>
+	<08E61C8D-F36E-4AB0-8BE0-E3C57746D030@langa.pl>
+Message-ID: <509A6990.5040706@egenix.com>
+
+On 07.11.2012 14:26, ?ukasz Langa wrote:
+> What can we do? Apart from the obligatory joke of nudging him gently towards Ruby, I think calling his behavior out is a good idea. Cory Doctorow also thinks that "many trolls are perfectly nice in real life -- sometimes, just calling them on the phone and confronting them with the human being at the other end of their attacks is enough to sober them up" [3]. If that fails, banning him would show that we care about the quality of communication and technical prowess is no excuse for abusive behavior.
+
+Cory's point is a good one and, at least in my experience, often works
+wonders.
+
+Call him on the phone or invite him to a conference. He's based
+in Minsk, Belarus, AFAIK.
+
+-- 
+Marc-Andre Lemburg
+eGenix.com
+
+Professional Python Services directly from the Source  (#1, Nov 07 2012)
+>>> Python Projects, Consulting and Support ...   http://www.egenix.com/
+>>> mxODBC.Zope/Plone.Database.Adapter ...       http://zope.egenix.com/
+>>> mxODBC, mxDateTime, mxTextTools ...        http://python.egenix.com/
+________________________________________________________________________
+
+::: Try our new mxODBC.Connect Python Database Interface for free ! ::::
+
+   eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+    D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+           Registered at Amtsgericht Duesseldorf: HRB 46611
+               http://www.egenix.com/company/contact/
+
+From dirkjan at ochtman.nl  Wed Nov  7 15:05:03 2012
+From: dirkjan at ochtman.nl (Dirkjan Ochtman)
+Date: Wed, 7 Nov 2012 15:05:03 +0100
+Subject: [python-committers] Anatoly Techtonik's contribution
+In-Reply-To: <CAP1=2W6MuxM=g65KNz34ZREvO7N_XgTS0E5kCwGRHZtaWJVTXA@mail.gmail.com>
+References: <F99F24B4-5F76-4338-907D-FFDDBB94222E@langa.pl>
+	<509A4EB1.2070506@v.loewis.de>
+	<08E61C8D-F36E-4AB0-8BE0-E3C57746D030@langa.pl>
+	<CAP1=2W6MuxM=g65KNz34ZREvO7N_XgTS0E5kCwGRHZtaWJVTXA@mail.gmail.com>
+Message-ID: <CAKmKYaD4-kSwmcgYT0t=b2EZFtG5G-bjeZWpGLjJr0xGa3AtUA@mail.gmail.com>
+
+On Wed, Nov 7, 2012 at 2:54 PM, Brett Cannon <brett at python.org> wrote:
+>>  If that fails, banning him would show that we care about the quality of
+>> communication and technical prowess is no excuse for abusive behavior.
+>
+> The problem is how do we do that? Do the owners of various systems take it
+> upon themselves or do we take on some concerted effort across the whole
+> community? I mean I'm a moderator on python-ideas, but no one has directly
+> complained to python-ideas-owner@ yet (although I guess I indirectly
+> complained to myself when I started to auto-delete his emails and some
+> people have personally vented to me as a friend) and I can't make him never
+> appear on the issue tracker again (at least I don't think only Martin can).
+> Does the PSF need to get involved somehow if we try to do a community-wide
+> thing instead of a per-system thing where it's more at the discretion of the
+> maintainers?
+
+If nothing else, it seems like the time has come to get the ball
+rolling on this, so we at least have a plan for how to do this kind of
+thing?
+
+I would definitely agree that his contributions here (and elsewhere,
+BTW) are negative enough that banning is warranted.
+
+Cheers,
+
+Dirkjan
+
+From rdmurray at bitdance.com  Wed Nov  7 15:08:33 2012
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Wed, 07 Nov 2012 09:08:33 -0500
+Subject: [python-committers] Anatoly Techtonik's contribution
+In-Reply-To: <08E61C8D-F36E-4AB0-8BE0-E3C57746D030@langa.pl>
+References: <F99F24B4-5F76-4338-907D-FFDDBB94222E@langa.pl>
+	<509A4EB1.2070506@v.loewis.de>
+	<08E61C8D-F36E-4AB0-8BE0-E3C57746D030@langa.pl>
+Message-ID: <20121107140834.2266F25006F@webabinitio.net>
+
+On Wed, 07 Nov 2012 14:26:15 +0100, <lukasz at langa.pl> wrote:
+> What can we do? Apart from the obligatory joke of nudging him gently
+> towards Ruby, I think calling his behavior out is a good idea. Cory
+> Doctorow also thinks that "many trolls are perfectly nice in real life
+> -- sometimes, just calling them on the phone and confronting them with
+> the human being at the other end of their attacks is enough to sober
+> them up" [3]. If that fails, banning him would show that we care about
+> the quality of communication and technical prowess is no excuse for
+> abusive behavior.
+
+As Brett pointed out, calling him on his behavior seems to meet with
+pretty much zero success as far as modifying his future behavior goes.
+The problem with banning him in general is that that has its own
+consequences (and as Brett pointed out, how exactly do we do that?).
+Banning him for specific actions (such as editing the Guidelines)
+seems sensible.  We basically booted him off the infrastructure mailing
+list (I don't remember if it was a formal ban or not) when he was being
+off-topic and annoying there.
+
+> All in all, is anyone of the opinion that losing him as a community
+> member is worse than keeping him around?
+
+If losing him was the only consequence this would be pretty much a
+no-brainer.  However, it is likely the consequences of a general ban
+would be more widespread than that (negative publicity, etc).
+
+--David
+
+From guido at python.org  Wed Nov  7 16:11:59 2012
+From: guido at python.org (Guido van Rossum)
+Date: Wed, 7 Nov 2012 07:11:59 -0800
+Subject: [python-committers] Anatoly Techtonik's contribution
+In-Reply-To: <20121107140834.2266F25006F@webabinitio.net>
+References: <F99F24B4-5F76-4338-907D-FFDDBB94222E@langa.pl>
+	<509A4EB1.2070506@v.loewis.de>
+	<08E61C8D-F36E-4AB0-8BE0-E3C57746D030@langa.pl>
+	<20121107140834.2266F25006F@webabinitio.net>
+Message-ID: <CAP7+vJ+eOuJk0ZxXLZobrU3mjqr_iSfHxnVb+t_KLJ99AVNcfA@mail.gmail.com>
+
+I sent Anatoly a note and suggested that we talk on Skype. We'll see what
+happens.
+
+
+On Wed, Nov 7, 2012 at 6:08 AM, R. David Murray <rdmurray at bitdance.com>wrote:
+
+> On Wed, 07 Nov 2012 14:26:15 +0100, <lukasz at langa.pl> wrote:
+> > What can we do? Apart from the obligatory joke of nudging him gently
+> > towards Ruby, I think calling his behavior out is a good idea. Cory
+> > Doctorow also thinks that "many trolls are perfectly nice in real life
+> > -- sometimes, just calling them on the phone and confronting them with
+> > the human being at the other end of their attacks is enough to sober
+> > them up" [3]. If that fails, banning him would show that we care about
+> > the quality of communication and technical prowess is no excuse for
+> > abusive behavior.
+>
+> As Brett pointed out, calling him on his behavior seems to meet with
+> pretty much zero success as far as modifying his future behavior goes.
+> The problem with banning him in general is that that has its own
+> consequences (and as Brett pointed out, how exactly do we do that?).
+> Banning him for specific actions (such as editing the Guidelines)
+> seems sensible.  We basically booted him off the infrastructure mailing
+> list (I don't remember if it was a formal ban or not) when he was being
+> off-topic and annoying there.
+>
+> > All in all, is anyone of the opinion that losing him as a community
+> > member is worse than keeping him around?
+>
+> If losing him was the only consequence this would be pretty much a
+> no-brainer.  However, it is likely the consequences of a general ban
+> would be more widespread than that (negative publicity, etc).
+>
+> --David
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+>
+
+
+
+-- 
+--Guido van Rossum (python.org/~guido)
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20121107/d0f02745/attachment.html>
+
+From ncoghlan at gmail.com  Wed Nov  7 17:26:54 2012
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Thu, 8 Nov 2012 02:26:54 +1000
+Subject: [python-committers] Anatoly Techtonik's contribution
+In-Reply-To: <20121107140834.2266F25006F@webabinitio.net>
+References: <F99F24B4-5F76-4338-907D-FFDDBB94222E@langa.pl>
+	<509A4EB1.2070506@v.loewis.de>
+	<08E61C8D-F36E-4AB0-8BE0-E3C57746D030@langa.pl>
+	<20121107140834.2266F25006F@webabinitio.net>
+Message-ID: <CADiSq7eunhgrt_jtuuWTVX3DrED_X1Yt0iAkyaaGKse0ZoGq1A@mail.gmail.com>
+
+On Thu, Nov 8, 2012 at 12:08 AM, R. David Murray <rdmurray at bitdance.com> wrote:
+> On Wed, 07 Nov 2012 14:26:15 +0100, <lukasz at langa.pl> wrote:
+>> All in all, is anyone of the opinion that losing him as a community
+>> member is worse than keeping him around?
+>
+> If losing him was the only consequence this would be pretty much a
+> no-brainer.  However, it is likely the consequences of a general ban
+> would be more widespread than that (negative publicity, etc).
+
+Right, it isn't banning Anatoly in particular that's likely to be
+controversial, it's making it completely clear that "yes, if you
+successfully piss off all the people that hold the keys to the
+python.org infrastructure, you can and will be banned from
+participating in any of the communication forums provided by that
+infrastructure, specifically the mailing lists, the issue tracker and
+the wiki (and the source code repo, if you previously had commit
+privileges)".
+
+The mail archives will show that Brett's not the only one that has
+tried to channel Anatoly's energy more productively (and the creation
+of python-ideas did keep him from bothering python-dev too much for
+quite a long time), but every time we think there are signs of
+progress, some other new issue comes up and the pattern is always
+basically the same:
+- "X sucks"
+- "Yes, it's a hard problem, and not very exciting, so volunteers
+aren't inclined to work on it"
+- "but X sucks, so we should do Y"
+- "but Y is hugely inconvenient for everyone, so it will never happen.
+Besides, even if it did happen, it won't help fix X"
+- "we should totally do Y, you're all idiots for not seeing that"
+- ...
+
+Although substitute alternate explanations at step 2 like "it's a rare
+problem" or "it's not a problem for the core team to deal with", or
+"it's not a significant problem for anyone else" or "yes, efforts are
+in process to deal with that, but its a long slow effort to build
+community consensus" etc, etc.
+
+Regards,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+
+From chris.jerdonek at gmail.com  Wed Nov  7 17:38:50 2012
+From: chris.jerdonek at gmail.com (Chris Jerdonek)
+Date: Wed, 7 Nov 2012 08:38:50 -0800
+Subject: [python-committers] Anatoly Techtonik's contribution
+In-Reply-To: <20121107140834.2266F25006F@webabinitio.net>
+References: <F99F24B4-5F76-4338-907D-FFDDBB94222E@langa.pl>
+	<509A4EB1.2070506@v.loewis.de>
+	<08E61C8D-F36E-4AB0-8BE0-E3C57746D030@langa.pl>
+	<20121107140834.2266F25006F@webabinitio.net>
+Message-ID: <CAOTb1wdVs2FMrXEyqBFDuWJ3CofcALDQBK==TW-bUnhCb6596g@mail.gmail.com>
+
+On Wed, Nov 7, 2012 at 6:08 AM, R. David Murray <rdmurray at bitdance.com> wrote:
+> On Wed, 07 Nov 2012 14:26:15 +0100, <lukasz at langa.pl> wrote:
+>> What can we do? Apart from the obligatory joke of nudging him gently
+>> towards Ruby, I think calling his behavior out is a good idea. Cory
+>> Doctorow also thinks that "many trolls are perfectly nice in real life
+>> -- sometimes, just calling them on the phone and confronting them with
+>> the human being at the other end of their attacks is enough to sober
+>> them up" [3]. If that fails, banning him would show that we care about
+>> the quality of communication and technical prowess is no excuse for
+>> abusive behavior.
+>
+> As Brett pointed out, calling him on his behavior seems to meet with
+> pretty much zero success as far as modifying his future behavior goes.
+
+Aside from calling him out on his behavior and trying to change it,
+has anyone additionally made it clear to him that "if you continue
+this behavior, you will be banned from [insert as appropriate]"?  Or
+is an explicit warning not needed?
+
+--Chris
+
+From brian at python.org  Wed Nov  7 17:53:28 2012
+From: brian at python.org (Brian Curtin)
+Date: Wed, 7 Nov 2012 10:53:28 -0600
+Subject: [python-committers] Anatoly Techtonik's contribution
+In-Reply-To: <CAOTb1wdVs2FMrXEyqBFDuWJ3CofcALDQBK==TW-bUnhCb6596g@mail.gmail.com>
+References: <F99F24B4-5F76-4338-907D-FFDDBB94222E@langa.pl>
+	<509A4EB1.2070506@v.loewis.de>
+	<08E61C8D-F36E-4AB0-8BE0-E3C57746D030@langa.pl>
+	<20121107140834.2266F25006F@webabinitio.net>
+	<CAOTb1wdVs2FMrXEyqBFDuWJ3CofcALDQBK==TW-bUnhCb6596g@mail.gmail.com>
+Message-ID: <CAD+XWwpZODLhppTSZnQ803ha+WXNDmTJn4XJioFzTfR3a=aJXQ@mail.gmail.com>
+
+On Wed, Nov 7, 2012 at 10:38 AM, Chris Jerdonek
+<chris.jerdonek at gmail.com> wrote:
+> On Wed, Nov 7, 2012 at 6:08 AM, R. David Murray <rdmurray at bitdance.com> wrote:
+>> On Wed, 07 Nov 2012 14:26:15 +0100, <lukasz at langa.pl> wrote:
+>>> What can we do? Apart from the obligatory joke of nudging him gently
+>>> towards Ruby, I think calling his behavior out is a good idea. Cory
+>>> Doctorow also thinks that "many trolls are perfectly nice in real life
+>>> -- sometimes, just calling them on the phone and confronting them with
+>>> the human being at the other end of their attacks is enough to sober
+>>> them up" [3]. If that fails, banning him would show that we care about
+>>> the quality of communication and technical prowess is no excuse for
+>>> abusive behavior.
+>>
+>> As Brett pointed out, calling him on his behavior seems to meet with
+>> pretty much zero success as far as modifying his future behavior goes.
+>
+> Aside from calling him out on his behavior and trying to change it,
+> has anyone additionally made it clear to him that "if you continue
+> this behavior, you will be banned from [insert as appropriate]"?  Or
+> is an explicit warning not needed?
+
+We could probably give him the explicit warning, and I suspect that
+may come out of the skype call that was mentioned, but I think he has
+to know by now that he's been toeing the line for probably 2 years. I
+used to try to work with him, then switched to trying to talk sense
+into him, then switched to defending why we do things, and then ended
+up filtering his emails. I've seen others lead down the same path.
+
+If he's actually reading what we're writing, it's never going in a
+positive direction with him.
+
+From solipsis at pitrou.net  Wed Nov  7 17:55:25 2012
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Wed, 7 Nov 2012 17:55:25 +0100 (CET)
+Subject: [python-committers] Anatoly Techtonik's contribution
+In-Reply-To: <08E61C8D-F36E-4AB0-8BE0-E3C57746D030@langa.pl>
+References: <F99F24B4-5F76-4338-907D-FFDDBB94222E@langa.pl>
+	<509A4EB1.2070506@v.loewis.de>
+	<08E61C8D-F36E-4AB0-8BE0-E3C57746D030@langa.pl>
+Message-ID: <75b44c1a96f6a4f04db5c2e6afc43d11.squirrel@webmail.nerim.net>
+
+[...]
+>
+> All in all, is anyone of the opinion that losing him as a community member
+> is worse than keeping him around?
+
+No.
+
+Regards
+
+Antoine.
+
+
+
+From guido at python.org  Wed Nov  7 18:01:50 2012
+From: guido at python.org (Guido van Rossum)
+Date: Wed, 7 Nov 2012 09:01:50 -0800
+Subject: [python-committers] Anatoly Techtonik's contribution
+In-Reply-To: <75b44c1a96f6a4f04db5c2e6afc43d11.squirrel@webmail.nerim.net>
+References: <F99F24B4-5F76-4338-907D-FFDDBB94222E@langa.pl>
+	<509A4EB1.2070506@v.loewis.de>
+	<08E61C8D-F36E-4AB0-8BE0-E3C57746D030@langa.pl>
+	<75b44c1a96f6a4f04db5c2e6afc43d11.squirrel@webmail.nerim.net>
+Message-ID: <CAP7+vJ+L6CYrYzyU0Gj75Ujogv1YQtkqsX5F593Lh6i42FHjwg@mail.gmail.com>
+
+On Wed, Nov 7, 2012 at 8:55 AM, Antoine Pitrou <solipsis at pitrou.net> wrote:
+
+> [...]
+> >
+> > All in all, is anyone of the opinion that losing him as a community
+> member
+> > is worse than keeping him around?
+>
+> No.
+>
+
+It's pretty clear that he's not a net value to Python development. But
+perhaps his attempts at contributing (no matter how clumsy) have value for
+him? I imagine it must be pretty lonely being the only geek with deep
+Python knowledge and interest in Minsk. I realize he's making it hard to be
+compassionate. But I still think what sets him apart from the typical troll
+is that he doesn't do it because he likes disagreement. He just lacks
+social skills (English not being his first language may contribute here).
+And yes, he doesn't seem to be learning from the feedback he gets.
+
+-- 
+--Guido van Rossum (python.org/~guido)
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20121107/338065b6/attachment.html>
+
+From chris.jerdonek at gmail.com  Wed Nov  7 18:15:49 2012
+From: chris.jerdonek at gmail.com (Chris Jerdonek)
+Date: Wed, 7 Nov 2012 09:15:49 -0800
+Subject: [python-committers] Anatoly Techtonik's contribution
+In-Reply-To: <CAP7+vJ+L6CYrYzyU0Gj75Ujogv1YQtkqsX5F593Lh6i42FHjwg@mail.gmail.com>
+References: <F99F24B4-5F76-4338-907D-FFDDBB94222E@langa.pl>
+	<509A4EB1.2070506@v.loewis.de>
+	<08E61C8D-F36E-4AB0-8BE0-E3C57746D030@langa.pl>
+	<75b44c1a96f6a4f04db5c2e6afc43d11.squirrel@webmail.nerim.net>
+	<CAP7+vJ+L6CYrYzyU0Gj75Ujogv1YQtkqsX5F593Lh6i42FHjwg@mail.gmail.com>
+Message-ID: <CAOTb1wdXxX9pz1g3pH_eqZMZZT6i+fWiqJQfiYMc6MbMnrhoeQ@mail.gmail.com>
+
+On Wed, Nov 7, 2012 at 9:01 AM, Guido van Rossum <guido at python.org> wrote:
+> On Wed, Nov 7, 2012 at 8:55 AM, Antoine Pitrou <solipsis at pitrou.net> wrote:
+>>
+>> [...]
+>> >
+>> > All in all, is anyone of the opinion that losing him as a community
+>> > member
+>> > is worse than keeping him around?
+>>
+>> No.
+>
+>
+> It's pretty clear that he's not a net value to Python development. But
+> perhaps his attempts at contributing (no matter how clumsy) have value for
+> him? I imagine it must be pretty lonely being the only geek with deep Python
+> knowledge and interest in Minsk. I realize he's making it hard to be
+> compassionate. But I still think what sets him apart from the typical troll
+> is that he doesn't do it because he likes disagreement. He just lacks social
+> skills (English not being his first language may contribute here). And yes,
+> he doesn't seem to be learning from the feedback he gets.
+
+That's why I think an explicit warning might be good in this case (if
+it hasn't already been given).  He obviously(?) cares about Python, so
+the threat of banning might be what it takes to get him to give pause
+before posting.  The lack of social skills can go both ways (i.e. both
+writing and interpreting), in which case he might not have picked up
+on any implicit threat of banning.  But I know very little about the
+situation, so feel free to disregard my suggestion.
+
+--Chris
+
+From solipsis at pitrou.net  Wed Nov  7 18:18:41 2012
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Wed, 7 Nov 2012 18:18:41 +0100 (CET)
+Subject: [python-committers] Anatoly Techtonik's contribution
+In-Reply-To: <CAP7+vJ+L6CYrYzyU0Gj75Ujogv1YQtkqsX5F593Lh6i42FHjwg@mail.gmail.com>
+References: <F99F24B4-5F76-4338-907D-FFDDBB94222E@langa.pl>
+	<509A4EB1.2070506@v.loewis.de>
+	<08E61C8D-F36E-4AB0-8BE0-E3C57746D030@langa.pl>
+	<75b44c1a96f6a4f04db5c2e6afc43d11.squirrel@webmail.nerim.net>
+	<CAP7+vJ+L6CYrYzyU0Gj75Ujogv1YQtkqsX5F593Lh6i42FHjwg@mail.gmail.com>
+Message-ID: <2522cf0dbea0a676ece0e9b5693adb4e.squirrel@webmail.nerim.net>
+
+> It's pretty clear that he's not a net value to Python development. But
+> perhaps his attempts at contributing (no matter how clumsy) have value for
+> him? I imagine it must be pretty lonely being the only geek with deep
+> Python knowledge and interest in Minsk. I realize he's making it hard to
+> be
+> compassionate. But I still think what sets him apart from the typical
+> troll
+> is that he doesn't do it because he likes disagreement. He just lacks
+> social skills (English not being his first language may contribute here).
+> And yes, he doesn't seem to be learning from the feedback he gets.
+
+Well, is he even interested in learning? He sticks to his preconceived
+notions about
+basically everything, including how a community should function.
+
+The only saving grace in his behaviour, IMO, is that he doesn't try to
+annoy non-core developers.
+
+Regards
+
+Antoine.
+
+
+
+From barry at python.org  Wed Nov  7 18:21:53 2012
+From: barry at python.org (Barry Warsaw)
+Date: Wed, 7 Nov 2012 12:21:53 -0500
+Subject: [python-committers] Anatoly Techtonik's contribution
+In-Reply-To: <CAKmKYaD4-kSwmcgYT0t=b2EZFtG5G-bjeZWpGLjJr0xGa3AtUA@mail.gmail.com>
+References: <F99F24B4-5F76-4338-907D-FFDDBB94222E@langa.pl>
+	<509A4EB1.2070506@v.loewis.de>
+	<08E61C8D-F36E-4AB0-8BE0-E3C57746D030@langa.pl>
+	<CAP1=2W6MuxM=g65KNz34ZREvO7N_XgTS0E5kCwGRHZtaWJVTXA@mail.gmail.com>
+	<CAKmKYaD4-kSwmcgYT0t=b2EZFtG5G-bjeZWpGLjJr0xGa3AtUA@mail.gmail.com>
+Message-ID: <20121107122153.796bbf60@resist.wooz.org>
+
+On Nov 07, 2012, at 03:05 PM, Dirkjan Ochtman wrote:
+
+>If nothing else, it seems like the time has come to get the ball
+>rolling on this, so we at least have a plan for how to do this kind of
+>thing?
+
+I don't think the issue has really ever come to such a head before.  Let's get
+postmaster@ involved, in case we want a blanket ban on either all @python.org
+addresses or mailing lists (not that such thing can't be wormed around for the
+really persistent).
+
+-Barry
+
+From dirkjan at ochtman.nl  Wed Nov  7 18:26:51 2012
+From: dirkjan at ochtman.nl (Dirkjan Ochtman)
+Date: Wed, 7 Nov 2012 18:26:51 +0100
+Subject: [python-committers] Anatoly Techtonik's contribution
+In-Reply-To: <CAP7+vJ+L6CYrYzyU0Gj75Ujogv1YQtkqsX5F593Lh6i42FHjwg@mail.gmail.com>
+References: <F99F24B4-5F76-4338-907D-FFDDBB94222E@langa.pl>
+	<509A4EB1.2070506@v.loewis.de>
+	<08E61C8D-F36E-4AB0-8BE0-E3C57746D030@langa.pl>
+	<75b44c1a96f6a4f04db5c2e6afc43d11.squirrel@webmail.nerim.net>
+	<CAP7+vJ+L6CYrYzyU0Gj75Ujogv1YQtkqsX5F593Lh6i42FHjwg@mail.gmail.com>
+Message-ID: <CAKmKYaB70=UkWD3-P47dCEZ2PHTZeyDZKDD8KkswmSOHW1oK5w@mail.gmail.com>
+
+On Wed, Nov 7, 2012 at 6:01 PM, Guido van Rossum <guido at python.org> wrote:
+> imagine it must be pretty lonely being the only geek with deep Python
+> knowledge and interest in Minsk.
+
+I don't want to distract from your point, but I'm not sure the
+underlying assumption is warranted here. I happen to have met a few
+pretty good Python programmers from the Baltic states, one of whom
+told me about user groups he went to.
+
+Cheers,
+
+Dirkjan
+
+From dirkjan at ochtman.nl  Wed Nov  7 18:31:50 2012
+From: dirkjan at ochtman.nl (Dirkjan Ochtman)
+Date: Wed, 7 Nov 2012 18:31:50 +0100
+Subject: [python-committers] Anatoly Techtonik's contribution
+In-Reply-To: <20121107140834.2266F25006F@webabinitio.net>
+References: <F99F24B4-5F76-4338-907D-FFDDBB94222E@langa.pl>
+	<509A4EB1.2070506@v.loewis.de>
+	<08E61C8D-F36E-4AB0-8BE0-E3C57746D030@langa.pl>
+	<20121107140834.2266F25006F@webabinitio.net>
+Message-ID: <CAKmKYaDHRwuXY68u=KKTNWLSDi=AUWokJZMHi4fh2tuROwUDfg@mail.gmail.com>
+
+On Wed, Nov 7, 2012 at 3:08 PM, R. David Murray <rdmurray at bitdance.com> wrote:
+> If losing him was the only consequence this would be pretty much a
+> no-brainer.  However, it is likely the consequences of a general ban
+> would be more widespread than that (negative publicity, etc).
+
+Not sure I agree with that. As a participator in open source
+communities, I would rather appreciate a community taking action to
+protect itself from negative contributors.
+
+This might be a good reference:
+
+http://www.youtube.com/watch?v=ZSFDm3UYkeE
+
+As is this:
+
+http://producingoss.com/
+
+For those who aren't aware of these resources already.
+
+Cheers,
+
+Dirkjan
+
+From andrew.svetlov at gmail.com  Wed Nov  7 18:33:57 2012
+From: andrew.svetlov at gmail.com (Andrew Svetlov)
+Date: Wed, 7 Nov 2012 19:33:57 +0200
+Subject: [python-committers] Anatoly Techtonik's contribution
+In-Reply-To: <CAKmKYaB70=UkWD3-P47dCEZ2PHTZeyDZKDD8KkswmSOHW1oK5w@mail.gmail.com>
+References: <F99F24B4-5F76-4338-907D-FFDDBB94222E@langa.pl>
+	<509A4EB1.2070506@v.loewis.de>
+	<08E61C8D-F36E-4AB0-8BE0-E3C57746D030@langa.pl>
+	<75b44c1a96f6a4f04db5c2e6afc43d11.squirrel@webmail.nerim.net>
+	<CAP7+vJ+L6CYrYzyU0Gj75Ujogv1YQtkqsX5F593Lh6i42FHjwg@mail.gmail.com>
+	<CAKmKYaB70=UkWD3-P47dCEZ2PHTZeyDZKDD8KkswmSOHW1oK5w@mail.gmail.com>
+Message-ID: <CAL3CFcXmLy3AR+fhAFfcEWj4XKK=9bsRhnmaNW9LPAevT1vfXw@mail.gmail.com>
+
+I'm with Dirkjan. Personally I know several pythonistas living in Minsk.
+Not so many Python Developers as Kiev has, but Minsk is not black
+hole, trust me.
+
+On Wed, Nov 7, 2012 at 7:26 PM, Dirkjan Ochtman <dirkjan at ochtman.nl> wrote:
+> On Wed, Nov 7, 2012 at 6:01 PM, Guido van Rossum <guido at python.org> wrote:
+>> imagine it must be pretty lonely being the only geek with deep Python
+>> knowledge and interest in Minsk.
+>
+> I don't want to distract from your point, but I'm not sure the
+> underlying assumption is warranted here. I happen to have met a few
+> pretty good Python programmers from the Baltic states, one of whom
+> told me about user groups he went to.
+>
+> Cheers,
+>
+> Dirkjan
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+
+
+
+-- 
+Thanks,
+Andrew Svetlov
+
+From eliben at gmail.com  Wed Nov  7 19:32:50 2012
+From: eliben at gmail.com (Eli Bendersky)
+Date: Wed, 7 Nov 2012 10:32:50 -0800
+Subject: [python-committers] Anatoly Techtonik's contribution
+In-Reply-To: <CAKmKYaB70=UkWD3-P47dCEZ2PHTZeyDZKDD8KkswmSOHW1oK5w@mail.gmail.com>
+References: <F99F24B4-5F76-4338-907D-FFDDBB94222E@langa.pl>
+	<509A4EB1.2070506@v.loewis.de>
+	<08E61C8D-F36E-4AB0-8BE0-E3C57746D030@langa.pl>
+	<75b44c1a96f6a4f04db5c2e6afc43d11.squirrel@webmail.nerim.net>
+	<CAP7+vJ+L6CYrYzyU0Gj75Ujogv1YQtkqsX5F593Lh6i42FHjwg@mail.gmail.com>
+	<CAKmKYaB70=UkWD3-P47dCEZ2PHTZeyDZKDD8KkswmSOHW1oK5w@mail.gmail.com>
+Message-ID: <CAF-Rda8g5-g2rNXmxOTmMj=Su9NA_yhFjcWp90E7G4QwcsU3YA@mail.gmail.com>
+
+On Wed, Nov 7, 2012 at 9:26 AM, Dirkjan Ochtman <dirkjan at ochtman.nl> wrote:
+
+> On Wed, Nov 7, 2012 at 6:01 PM, Guido van Rossum <guido at python.org> wrote:
+> > imagine it must be pretty lonely being the only geek with deep Python
+> > knowledge and interest in Minsk.
+>
+> I don't want to distract from your point, but I'm not sure the
+> underlying assumption is warranted here. I happen to have met a few
+> pretty good Python programmers from the Baltic states, one of whom
+> told me about user groups he went to.
+>
+
+Dirkjan, Belarus is not a Baltic state ;-)
+That said, I agree with Andrew that Anatoly is probably not the only
+experienced Python programmer in that country.
+
+Eli
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20121107/53393fbe/attachment.html>
+
+From andrew.svetlov at gmail.com  Wed Nov  7 21:39:36 2012
+From: andrew.svetlov at gmail.com (Andrew Svetlov)
+Date: Wed, 7 Nov 2012 22:39:36 +0200
+Subject: [python-committers] Anatoly Techtonik's contribution
+In-Reply-To: <CAF-Rda8g5-g2rNXmxOTmMj=Su9NA_yhFjcWp90E7G4QwcsU3YA@mail.gmail.com>
+References: <F99F24B4-5F76-4338-907D-FFDDBB94222E@langa.pl>
+	<509A4EB1.2070506@v.loewis.de>
+	<08E61C8D-F36E-4AB0-8BE0-E3C57746D030@langa.pl>
+	<75b44c1a96f6a4f04db5c2e6afc43d11.squirrel@webmail.nerim.net>
+	<CAP7+vJ+L6CYrYzyU0Gj75Ujogv1YQtkqsX5F593Lh6i42FHjwg@mail.gmail.com>
+	<CAKmKYaB70=UkWD3-P47dCEZ2PHTZeyDZKDD8KkswmSOHW1oK5w@mail.gmail.com>
+	<CAF-Rda8g5-g2rNXmxOTmMj=Su9NA_yhFjcWp90E7G4QwcsU3YA@mail.gmail.com>
+Message-ID: <CAL3CFcXmGOgWbWuxpPhBNXFYPhoq76aadWjtHyZwxbKygE0X2A@mail.gmail.com>
+
+I've sent email to Anatoly in Russian describing current situation.
+CC'ed Eli Bendersky and ?ukasz Langa as humans who understand Russian
+well enough to be witness for my words.
+
+I've call Anatoly to stop disruptive activities and concentrate on
+productive ones.
+
+I hope I has been benevolent enough as well as strong enough to send
+him the current state.
+
+
+
+On Wed, Nov 7, 2012 at 8:32 PM, Eli Bendersky <eliben at gmail.com> wrote:
+> On Wed, Nov 7, 2012 at 9:26 AM, Dirkjan Ochtman <dirkjan at ochtman.nl> wrote:
+>>
+>> On Wed, Nov 7, 2012 at 6:01 PM, Guido van Rossum <guido at python.org> wrote:
+>> > imagine it must be pretty lonely being the only geek with deep Python
+>> > knowledge and interest in Minsk.
+>>
+>> I don't want to distract from your point, but I'm not sure the
+>> underlying assumption is warranted here. I happen to have met a few
+>> pretty good Python programmers from the Baltic states, one of whom
+>> told me about user groups he went to.
+>
+>
+> Dirkjan, Belarus is not a Baltic state ;-)
+> That said, I agree with Andrew that Anatoly is probably not the only
+> experienced Python programmer in that country.
+>
+> Eli
+>
+>
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+>
+
+
+
+-- 
+Thanks,
+Andrew Svetlov
+
+From andrew.svetlov at gmail.com  Wed Nov  7 22:10:17 2012
+From: andrew.svetlov at gmail.com (Andrew Svetlov)
+Date: Wed, 7 Nov 2012 23:10:17 +0200
+Subject: [python-committers] Anatoly Techtonik's contribution
+In-Reply-To: <CAP7+vJK4Np4R8a+TNDd3B7nVVZeE6h0yirnaOOmjgp2DcFksaQ@mail.gmail.com>
+References: <F99F24B4-5F76-4338-907D-FFDDBB94222E@langa.pl>
+	<509A4EB1.2070506@v.loewis.de>
+	<08E61C8D-F36E-4AB0-8BE0-E3C57746D030@langa.pl>
+	<75b44c1a96f6a4f04db5c2e6afc43d11.squirrel@webmail.nerim.net>
+	<CAP7+vJ+L6CYrYzyU0Gj75Ujogv1YQtkqsX5F593Lh6i42FHjwg@mail.gmail.com>
+	<CAKmKYaB70=UkWD3-P47dCEZ2PHTZeyDZKDD8KkswmSOHW1oK5w@mail.gmail.com>
+	<CAF-Rda8g5-g2rNXmxOTmMj=Su9NA_yhFjcWp90E7G4QwcsU3YA@mail.gmail.com>
+	<CAL3CFcXmGOgWbWuxpPhBNXFYPhoq76aadWjtHyZwxbKygE0X2A@mail.gmail.com>
+	<CAP7+vJK4Np4R8a+TNDd3B7nVVZeE6h0yirnaOOmjgp2DcFksaQ@mail.gmail.com>
+Message-ID: <CAL3CFcXPmU50OFKzQh-dm8K=g4nCyWwsbtXP2XHv17VLrq2DqQ@mail.gmail.com>
+
+Let's wait a bit.
+
+On Wed, Nov 7, 2012 at 11:04 PM, Guido van Rossum <guido at python.org> wrote:
+> From his response to me he seems to be unaware that there is a problem...
+>
+>
+> On Wed, Nov 7, 2012 at 12:39 PM, Andrew Svetlov <andrew.svetlov at gmail.com>
+> wrote:
+>>
+>> I've sent email to Anatoly in Russian describing current situation.
+>> CC'ed Eli Bendersky and ?ukasz Langa as humans who understand Russian
+>> well enough to be witness for my words.
+>>
+>> I've call Anatoly to stop disruptive activities and concentrate on
+>> productive ones.
+>>
+>> I hope I has been benevolent enough as well as strong enough to send
+>> him the current state.
+>>
+>>
+>>
+>> On Wed, Nov 7, 2012 at 8:32 PM, Eli Bendersky <eliben at gmail.com> wrote:
+>> > On Wed, Nov 7, 2012 at 9:26 AM, Dirkjan Ochtman <dirkjan at ochtman.nl>
+>> > wrote:
+>> >>
+>> >> On Wed, Nov 7, 2012 at 6:01 PM, Guido van Rossum <guido at python.org>
+>> >> wrote:
+>> >> > imagine it must be pretty lonely being the only geek with deep Python
+>> >> > knowledge and interest in Minsk.
+>> >>
+>> >> I don't want to distract from your point, but I'm not sure the
+>> >> underlying assumption is warranted here. I happen to have met a few
+>> >> pretty good Python programmers from the Baltic states, one of whom
+>> >> told me about user groups he went to.
+>> >
+>> >
+>> > Dirkjan, Belarus is not a Baltic state ;-)
+>> > That said, I agree with Andrew that Anatoly is probably not the only
+>> > experienced Python programmer in that country.
+>> >
+>> > Eli
+>> >
+>> >
+>> >
+>> > _______________________________________________
+>> > python-committers mailing list
+>> > python-committers at python.org
+>> > http://mail.python.org/mailman/listinfo/python-committers
+>> >
+>>
+>>
+>>
+>> --
+>> Thanks,
+>> Andrew Svetlov
+>> _______________________________________________
+>> python-committers mailing list
+>> python-committers at python.org
+>> http://mail.python.org/mailman/listinfo/python-committers
+>
+>
+>
+>
+> --
+> --Guido van Rossum (python.org/~guido)
+
+
+
+-- 
+Thanks,
+Andrew Svetlov
+
+From guido at python.org  Wed Nov  7 22:04:13 2012
+From: guido at python.org (Guido van Rossum)
+Date: Wed, 7 Nov 2012 13:04:13 -0800
+Subject: [python-committers] Anatoly Techtonik's contribution
+In-Reply-To: <CAL3CFcXmGOgWbWuxpPhBNXFYPhoq76aadWjtHyZwxbKygE0X2A@mail.gmail.com>
+References: <F99F24B4-5F76-4338-907D-FFDDBB94222E@langa.pl>
+	<509A4EB1.2070506@v.loewis.de>
+	<08E61C8D-F36E-4AB0-8BE0-E3C57746D030@langa.pl>
+	<75b44c1a96f6a4f04db5c2e6afc43d11.squirrel@webmail.nerim.net>
+	<CAP7+vJ+L6CYrYzyU0Gj75Ujogv1YQtkqsX5F593Lh6i42FHjwg@mail.gmail.com>
+	<CAKmKYaB70=UkWD3-P47dCEZ2PHTZeyDZKDD8KkswmSOHW1oK5w@mail.gmail.com>
+	<CAF-Rda8g5-g2rNXmxOTmMj=Su9NA_yhFjcWp90E7G4QwcsU3YA@mail.gmail.com>
+	<CAL3CFcXmGOgWbWuxpPhBNXFYPhoq76aadWjtHyZwxbKygE0X2A@mail.gmail.com>
+Message-ID: <CAP7+vJK4Np4R8a+TNDd3B7nVVZeE6h0yirnaOOmjgp2DcFksaQ@mail.gmail.com>
+
+>From his response to me he seems to be unaware that there is a problem...
+
+
+On Wed, Nov 7, 2012 at 12:39 PM, Andrew Svetlov <andrew.svetlov at gmail.com>wrote:
+
+> I've sent email to Anatoly in Russian describing current situation.
+> CC'ed Eli Bendersky and ?ukasz Langa as humans who understand Russian
+> well enough to be witness for my words.
+>
+> I've call Anatoly to stop disruptive activities and concentrate on
+> productive ones.
+>
+> I hope I has been benevolent enough as well as strong enough to send
+> him the current state.
+>
+>
+>
+> On Wed, Nov 7, 2012 at 8:32 PM, Eli Bendersky <eliben at gmail.com> wrote:
+> > On Wed, Nov 7, 2012 at 9:26 AM, Dirkjan Ochtman <dirkjan at ochtman.nl>
+> wrote:
+> >>
+> >> On Wed, Nov 7, 2012 at 6:01 PM, Guido van Rossum <guido at python.org>
+> wrote:
+> >> > imagine it must be pretty lonely being the only geek with deep Python
+> >> > knowledge and interest in Minsk.
+> >>
+> >> I don't want to distract from your point, but I'm not sure the
+> >> underlying assumption is warranted here. I happen to have met a few
+> >> pretty good Python programmers from the Baltic states, one of whom
+> >> told me about user groups he went to.
+> >
+> >
+> > Dirkjan, Belarus is not a Baltic state ;-)
+> > That said, I agree with Andrew that Anatoly is probably not the only
+> > experienced Python programmer in that country.
+> >
+> > Eli
+> >
+> >
+> >
+> > _______________________________________________
+> > python-committers mailing list
+> > python-committers at python.org
+> > http://mail.python.org/mailman/listinfo/python-committers
+> >
+>
+>
+>
+> --
+> Thanks,
+> Andrew Svetlov
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+>
+
+
+
+-- 
+--Guido van Rossum (python.org/~guido)
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20121107/159d571e/attachment.html>
+
+From martin at v.loewis.de  Wed Nov  7 23:09:11 2012
+From: martin at v.loewis.de (martin at v.loewis.de)
+Date: Wed, 07 Nov 2012 23:09:11 +0100
+Subject: [python-committers] Anatoly Techtonik's contribution
+In-Reply-To: <509A6990.5040706@egenix.com>
+References: <F99F24B4-5F76-4338-907D-FFDDBB94222E@langa.pl>
+	<509A4EB1.2070506@v.loewis.de>
+	<08E61C8D-F36E-4AB0-8BE0-E3C57746D030@langa.pl>
+	<509A6990.5040706@egenix.com>
+Message-ID: <20121107230911.Horde.nKgIDtjz9kRQmtwHz8S0FbA@webmail.df.eu>
+
+
+Zitat von "M.-A. Lemburg" <mal at egenix.com>:
+
+> Cory's point is a good one and, at least in my experience, often works
+> wonders.
+>
+> Call him on the phone or invite him to a conference. He's based
+> in Minsk, Belarus, AFAIK.
+
+Guido tried to arrange a peace treaty between him and me at some pycon,
+and I really tried for a few days. Eventually, I gave up. Unlike Brett,
+I actually shouted.
+
+He cites his lack of mastery of English as his main problem, but I do
+think there is much more.
+
+So I think that path has already been investigated sufficiently.
+
+Regards,
+Martin
+
+
+
+From victor.stinner at gmail.com  Thu Nov  8 00:49:36 2012
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Thu, 8 Nov 2012 00:49:36 +0100
+Subject: [python-committers] Anatoly Techtonik's contribution
+In-Reply-To: <F99F24B4-5F76-4338-907D-FFDDBB94222E@langa.pl>
+References: <F99F24B4-5F76-4338-907D-FFDDBB94222E@langa.pl>
+Message-ID: <CAMpsgwY1eXT1jpDV6+m7aeY8DtutjLVS-qh5cekesYf2XKpbiQ@mail.gmail.com>
+
+> How do you perceive his contributions in general?
+
+He is really annoying. He is flooding python-ideas and python-dev lists
+with emails without trying to understand answers. He didn't understand that
+the Python community is not working for him.
+
+IMO he has a negative effect on the Python community. When he asks a
+question, he doesn't try to understand how Python is designed and let
+people think that the Python design just sucks (which is wrong, Python
+design is great! Python is the best language!).
+
+I'm skipping most Anatoly's messages for all these reasons.
+
+Victor
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20121108/13a8ab20/attachment.html>
+
+From mrjbq7 at gmail.com  Thu Nov  8 01:21:22 2012
+From: mrjbq7 at gmail.com (John Benediktsson)
+Date: Wed, 7 Nov 2012 16:21:22 -0800
+Subject: [python-committers] Anatoly Techtonik's contribution
+In-Reply-To: <CAMpsgwY1eXT1jpDV6+m7aeY8DtutjLVS-qh5cekesYf2XKpbiQ@mail.gmail.com>
+References: <F99F24B4-5F76-4338-907D-FFDDBB94222E@langa.pl>
+	<CAMpsgwY1eXT1jpDV6+m7aeY8DtutjLVS-qh5cekesYf2XKpbiQ@mail.gmail.com>
+Message-ID: <CAKkuUiZjcLk+qae+t1FARCiW14HC2bT=e6pNd6PhAf8eUnjdSg@mail.gmail.com>
+
+>
+> IMO he has a negative effect on the Python community. When he asks a
+> question, he doesn't try to understand how Python is designed and let
+> people think that the Python design just sucks (which is wrong, Python
+> design is great! Python is the best language!).
+>
+
+Out of curiousity, I googled Anatoly and python-ideas and this thread[1]
+seems a useful example.  His suggestions seem intended to help, he provided
+some code examples, and made only a handful of posts in support of his idea
+(receiving a few negative responses).  At times his English was rough, but
+without going into the merits of his ideas - would an approach where you
+encourage him to publish his ideas on PyPI or Github give him an outlet for
+his energy?
+
+It seems to me his philosophy clashes with that of python-dev, perhaps his
+batteries are a different size than those included in Python, but I'd like
+to see this community be inclusive rather than exclusive, even at the
+expense of a few added mail filters by the core team.
+
+My-two-cents'ly,
+
+John.
+
+[1] http://code.activestate.com/lists/python-ideas/15529/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20121107/7452a1f1/attachment.html>
+
+From brian at python.org  Thu Nov  8 01:52:17 2012
+From: brian at python.org (Brian Curtin)
+Date: Wed, 7 Nov 2012 18:52:17 -0600
+Subject: [python-committers] Anatoly Techtonik's contribution
+In-Reply-To: <CAKkuUiZjcLk+qae+t1FARCiW14HC2bT=e6pNd6PhAf8eUnjdSg@mail.gmail.com>
+References: <F99F24B4-5F76-4338-907D-FFDDBB94222E@langa.pl>
+	<CAMpsgwY1eXT1jpDV6+m7aeY8DtutjLVS-qh5cekesYf2XKpbiQ@mail.gmail.com>
+	<CAKkuUiZjcLk+qae+t1FARCiW14HC2bT=e6pNd6PhAf8eUnjdSg@mail.gmail.com>
+Message-ID: <CAD+XWwriDO=HESOQPGgZUBM=SH1qVQvz2OjQxrRWaEsEhAPHug@mail.gmail.com>
+
+On Wed, Nov 7, 2012 at 6:21 PM, John Benediktsson <mrjbq7 at gmail.com> wrote:
+>> IMO he has a negative effect on the Python community. When he asks a
+>> question, he doesn't try to understand how Python is designed and let people
+>> think that the Python design just sucks (which is wrong, Python design is
+>> great! Python is the best language!).
+>
+>
+> Out of curiousity, I googled Anatoly and python-ideas and this thread[1]
+> seems a useful example.  His suggestions seem intended to help, he provided
+> some code examples, and made only a handful of posts in support of his idea
+> (receiving a few negative responses).  At times his English was rough, but
+> without going into the merits of his ideas - would an approach where you
+> encourage him to publish his ideas on PyPI or Github give him an outlet for
+> his energy?
+
+He's actually fairly active in Python-related open source as far as
+I've seen. I've come across his name as a contributor to several
+projects, so I don't think we need to offer him any outlets.
+
+> It seems to me his philosophy clashes with that of python-dev, perhaps his
+> batteries are a different size than those included in Python, but I'd like
+> to see this community be inclusive rather than exclusive, even at the
+> expense of a few added mail filters by the core team.
+
+It would be great to include him or leave him included, but I have the
+feeling that we're beyond this. I don't buy it that the problem is his
+English knowledge or that he doesn't know that there was a problem.
+Sure, he trips up on some English language skills, but those of us who
+have talked back to him have done so in what are pretty clear negative
+tones. He has reacted to said negativity with snark, so he gets it.
+
+His philosophy, back when I still read his emails, was that he is
+correct and to think otherwise is foolish (see his repeated attempts
+to get us to restructure the entire development process for him). We
+can ban him, we can keep him - whatever. My email filters will remain.
+
+From ncoghlan at gmail.com  Thu Nov  8 03:29:32 2012
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Thu, 8 Nov 2012 12:29:32 +1000
+Subject: [python-committers] Anatoly Techtonik's contribution
+In-Reply-To: <CAKkuUiZjcLk+qae+t1FARCiW14HC2bT=e6pNd6PhAf8eUnjdSg@mail.gmail.com>
+References: <F99F24B4-5F76-4338-907D-FFDDBB94222E@langa.pl>
+	<CAMpsgwY1eXT1jpDV6+m7aeY8DtutjLVS-qh5cekesYf2XKpbiQ@mail.gmail.com>
+	<CAKkuUiZjcLk+qae+t1FARCiW14HC2bT=e6pNd6PhAf8eUnjdSg@mail.gmail.com>
+Message-ID: <CADiSq7cSUg3kd5irVkhQv44E5m-P5mfBdngjUSCy-NTR4-xk6w@mail.gmail.com>
+
+On Thu, Nov 8, 2012 at 10:21 AM, John Benediktsson <mrjbq7 at gmail.com> wrote:
+> Out of curiousity, I googled Anatoly and python-ideas and this thread[1]
+> seems a useful example.  His suggestions seem intended to help, he provided
+> some code examples, and made only a handful of posts in support of his idea
+> (receiving a few negative responses).
+
+The problem isn't that he's always wrong, the problem is that the
+signal to noise ratio is awful and attempting to filter the good ideas
+from the bad wastes a whole lot of time for a whole lot of people. For
+more typical illustrations of our past interactions with him, look up
+his attempts to get us to migrate from mailing lists to Google Wave
+(what a great idea that would have been), his comments on MoinMoin as
+a wiki technology, his comments on the Roundup installation, and his
+comments on the PyPI packaging ecosystem.
+
+The entire problem is summed up in the first two paragraphs of this
+post: http://mail.python.org/pipermail/python-ideas/2012-June/015304.html
+(my quoted comment and Anatoly's reply). His proudly declared attitude
+of "I can't be assed doing any research into what's already happening
+in this area or why things are the way they are, and I won't listen
+when anyone tries to inform me of those things, so I'm going to make
+everyone waste their time reading my uninformed BS opinions" does not
+a net-positive community member make. Yes, that was one of the threads
+that finally made me pull the trigger on routing his emails to
+/dev/null
+
+It stands in stark contrast to the approach of someone like Daniel
+Holth, who saw some similar problems with PyPI, researched the current
+state of the art within the community, and then went ahead and created
+something (the wheel archive format) that's going to go a long way
+towards addressing many of them.
+
+There comes a time when even an inclusive community has to ask itself
+"Is trying to include *this particular* person alienating current or
+potential community members that refuse to spend their time in an
+environment that tolerates these kinds of antics?".
+
+Regards,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+

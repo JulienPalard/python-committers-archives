@@ -1,0 +1,736 @@
+From martin at v.loewis.de  Sun Mar  1 00:11:02 2009
+From: martin at v.loewis.de (=?UTF-8?B?Ik1hcnRpbiB2LiBMw7Z3aXMi?=)
+Date: Sun, 01 Mar 2009 00:11:02 +0100
+Subject: [python-committers] Survey about DVCSs compared to svn
+In-Reply-To: <gocb3s$tj7$1@ger.gmane.org>
+References: <bbaeab100902251431q5f1d8a35pfe40e515e682a1a5@mail.gmail.com>	<49A5D0C1.3040404@egenix.com>	<00df01c997a1$b5191ae0$1f4b50a0$@com.au>	<F519D8D6-842D-458E-8DA7-0B09DF95C33B@python.org>	<49A64ABD.1030108@v.loewis.de>	<85AC071A-78DE-4FAC-ADE7-FA78BB737B48@python.org>	<49A6A6BD.4010308@egenix.com>	<1235659804.7109.34.camel@fsol>	<49A6B100.40304@egenix.com>	<1235662601.7109.48.camel@fsol>	<49A6BEF8.4030201@egenix.com>	<1235668878.7109.82.camel@fsol>
+	<gocb3s$tj7$1@ger.gmane.org>
+Message-ID: <49A9C486.3060400@v.loewis.de>
+
+> Frankly, there are very few people who routinely (like Benjamin) or even only
+> sometimes (like me) merge larger amounts of stuff between our four branches.
+> While that's no surprise, given how clumsy svnmerge makes it, others shouldn't
+> just dismiss the merging problem with "we have svnmerge".
+
+That's why I keep arguing that the committers making the original
+commits should also merge their changes, individually, into the
+respective branches. That way
+- commits become separate, and reverting them becomes possible
+- the load is shared across all committers
+
+Regards,
+Martin
+
+From solipsis at pitrou.net  Sun Mar  1 00:18:59 2009
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Sun, 01 Mar 2009 00:18:59 +0100
+Subject: [python-committers] Survey about DVCSs compared to svn
+In-Reply-To: <49A9C486.3060400@v.loewis.de>
+References: <bbaeab100902251431q5f1d8a35pfe40e515e682a1a5@mail.gmail.com>
+	<49A5D0C1.3040404@egenix.com>	<00df01c997a1$b5191ae0$1f4b50a0$@com.au>
+	<F519D8D6-842D-458E-8DA7-0B09DF95C33B@python.org>
+	<49A64ABD.1030108@v.loewis.de>
+	<85AC071A-78DE-4FAC-ADE7-FA78BB737B48@python.org>
+	<49A6A6BD.4010308@egenix.com>	<1235659804.7109.34.camel@fsol>
+	<49A6B100.40304@egenix.com>	<1235662601.7109.48.camel@fsol>
+	<49A6BEF8.4030201@egenix.com>	<1235668878.7109.82.camel@fsol>
+	<gocb3s$tj7$1@ger.gmane.org>  <49A9C486.3060400@v.loewis.de>
+Message-ID: <1235863139.6644.23.camel@fsol>
+
+Le dimanche 01 mars 2009 ? 00:11 +0100, "Martin v. L?wis" a ?crit :
+> That's why I keep arguing that the committers making the original
+> commits should also merge their changes, individually, into the
+> respective branches. That way
+> - commits become separate, and reverting them becomes possible
+> - the load is shared across all committers
+
+It doesn't really make svnmerge less annoying, though.
+
+
+
+From martin at v.loewis.de  Sun Mar  1 00:22:45 2009
+From: martin at v.loewis.de (=?UTF-8?B?Ik1hcnRpbiB2LiBMw7Z3aXMi?=)
+Date: Sun, 01 Mar 2009 00:22:45 +0100
+Subject: [python-committers] Survey about DVCSs compared to svn
+In-Reply-To: <1235863139.6644.23.camel@fsol>
+References: <bbaeab100902251431q5f1d8a35pfe40e515e682a1a5@mail.gmail.com>	<49A5D0C1.3040404@egenix.com>	<00df01c997a1$b5191ae0$1f4b50a0$@com.au>	<F519D8D6-842D-458E-8DA7-0B09DF95C33B@python.org>	<49A64ABD.1030108@v.loewis.de>	<85AC071A-78DE-4FAC-ADE7-FA78BB737B48@python.org>	<49A6A6BD.4010308@egenix.com>	<1235659804.7109.34.camel@fsol>	<49A6B100.40304@egenix.com>	<1235662601.7109.48.camel@fsol>	<49A6BEF8.4030201@egenix.com>	<1235668878.7109.82.camel@fsol>	<gocb3s$tj7$1@ger.gmane.org>
+	<49A9C486.3060400@v.loewis.de> <1235863139.6644.23.camel@fsol>
+Message-ID: <49A9C745.3070004@v.loewis.de>
+
+Antoine Pitrou wrote:
+> Le dimanche 01 mars 2009 ? 00:11 +0100, "Martin v. L?wis" a ?crit :
+>> That's why I keep arguing that the committers making the original
+>> commits should also merge their changes, individually, into the
+>> respective branches. That way
+>> - commits become separate, and reverting them becomes possible
+>> - the load is shared across all committers
+> 
+> It doesn't really make svnmerge less annoying, though.
+
+Depends on what you are annoyed by. If it is that you get tons
+of conflicts when you run it, and that it takes forever, and that
+it combines many small changes into a single one - those will be
+gone with that change in policy.
+
+Regards,
+Martin
+
+From lists at cheimes.de  Sun Mar  1 01:14:29 2009
+From: lists at cheimes.de (Christian Heimes)
+Date: Sun, 01 Mar 2009 01:14:29 +0100
+Subject: [python-committers] Survey about DVCSs compared to svn
+In-Reply-To: <49A9BDFD.5070607@gmail.com>
+References: <bbaeab100902251431q5f1d8a35pfe40e515e682a1a5@mail.gmail.com>	<49A5D0C1.3040404@egenix.com>	<00df01c997a1$b5191ae0$1f4b50a0$@com.au>	<F519D8D6-842D-458E-8DA7-0B09DF95C33B@python.org>	<49A64ABD.1030108@v.loewis.de>	<85AC071A-78DE-4FAC-ADE7-FA78BB737B48@python.org>	<49A6A6BD.4010308@egenix.com>	<1235659804.7109.34.camel@fsol>	<49A6B100.40304@egenix.com>	<1235662601.7109.48.camel@fsol>	<49A6BEF8.4030201@egenix.com>	<1235668878.7109.82.camel@fsol>	<gocb3s$tj7$1@ger.gmane.org>
+	<49A9BDFD.5070607@gmail.com>
+Message-ID: <49A9D365.6060107@cheimes.de>
+
+Nick Coghlan schrieb:
+> Georg Brandl wrote:
+>> It doesn't only *feel* slow, it *is* slow.  And not only compared to merging
+>> with a DVCS, which doesn't need network.  Half a minute to merge a three-line
+>> change is not productive.
+> 
+> Don't forget that *blocking* a revision with svnmerge seems to take
+> nearly as long as actually merging it does (the only part that seems to
+> save time is the fact that you don't need to build and/or run the test
+> suite afterwards).
+
+Even worse, svnmerge makes concurrent merging impossible. You get a
+conflict every time two people are merging the same time. In the Python
+project we don't see the issue often but at work I could hear a
+frustrated scream at least once a day. We've started a "manual merge
+lock" by yelling "merge" from one developer room to the other.
+
+Totally annoying, though.
+
+Christian
+
+From ncoghlan at gmail.com  Sun Mar  1 13:15:21 2009
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Sun, 01 Mar 2009 22:15:21 +1000
+Subject: [python-committers] Survey about DVCSs compared to svn
+In-Reply-To: <49A9C745.3070004@v.loewis.de>
+References: <bbaeab100902251431q5f1d8a35pfe40e515e682a1a5@mail.gmail.com>	<49A5D0C1.3040404@egenix.com>	<00df01c997a1$b5191ae0$1f4b50a0$@com.au>	<F519D8D6-842D-458E-8DA7-0B09DF95C33B@python.org>	<49A64ABD.1030108@v.loewis.de>	<85AC071A-78DE-4FAC-ADE7-FA78BB737B48@python.org>	<49A6A6BD.4010308@egenix.com>	<1235659804.7109.34.camel@fsol>	<49A6B100.40304@egenix.com>	<1235662601.7109.48.camel@fsol>	<49A6BEF8.4030201@egenix.com>	<1235668878.7109.82.camel@fsol>	<gocb3s$tj7$1@ger.gmane.org>	<49A9C486.3060400@v.loewis.de>
+	<1235863139.6644.23.camel@fsol> <49A9C745.3070004@v.loewis.de>
+Message-ID: <49AA7C59.80906@gmail.com>
+
+Martin v. L?wis wrote:
+> and that it takes forever
+
+Not sure about that - I *do* port my own changes, and while the merges
+are quicker than a full recompile or running the test suite, they're
+still far, far, slower than applying an equivalent patch or doing an svn
+update.
+
+Given that "svnmerge block" is pretty slow as well, my suspicion is that
+the property calculations and the auto-generation of the commit message
+are less than lightning fast. (I don't how much that could be improved
+by speeding up the underlying svn metadata retrieval - wasn't the server
+updated to svn 1.5 fairly recently?)
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+---------------------------------------------------------------
+
+From benjamin at python.org  Sun Mar  1 15:50:31 2009
+From: benjamin at python.org (Benjamin Peterson)
+Date: Sun, 1 Mar 2009 08:50:31 -0600
+Subject: [python-committers] Survey about DVCSs compared to svn
+In-Reply-To: <49AA7C59.80906@gmail.com>
+References: <bbaeab100902251431q5f1d8a35pfe40e515e682a1a5@mail.gmail.com>
+	<49A6B100.40304@egenix.com> <1235662601.7109.48.camel@fsol>
+	<49A6BEF8.4030201@egenix.com> <1235668878.7109.82.camel@fsol>
+	<gocb3s$tj7$1@ger.gmane.org> <49A9C486.3060400@v.loewis.de>
+	<1235863139.6644.23.camel@fsol> <49A9C745.3070004@v.loewis.de>
+	<49AA7C59.80906@gmail.com>
+Message-ID: <1afaf6160903010650taaa5e1ayd3545929cd86cbf0@mail.gmail.com>
+
+2009/3/1 Nick Coghlan <ncoghlan at gmail.com>:
+> Martin v. L?wis wrote:
+>> and that it takes forever
+>
+> Not sure about that - I *do* port my own changes, and while the merges
+> are quicker than a full recompile or running the test suite, they're
+> still far, far, slower than applying an equivalent patch or doing an svn
+> update.
+>
+> Given that "svnmerge block" is pretty slow as well, my suspicion is that
+> the property calculations and the auto-generation of the commit message
+> are less than lightning fast. (I don't how much that could be improved
+> by speeding up the underlying svn metadata retrieval - wasn't the server
+> updated to svn 1.5 fairly recently?)
+
+It seems to me most of the time is spent in fetching the log for the
+commit message, and that's something Subversion is notoriously slow
+at. (You can see what commands svnmerge.py is using with the "-s"
+flag.)
+
+
+
+-- 
+Regards,
+Benjamin
+
+From barry at python.org  Sun Mar  1 18:32:40 2009
+From: barry at python.org (Barry Warsaw)
+Date: Sun, 1 Mar 2009 12:32:40 -0500
+Subject: [python-committers] Survey about DVCSs compared to svn
+In-Reply-To: <ca471dc20902271606tc150e0dh7658f544ffaf3f29@mail.gmail.com>
+References: <bbaeab100902251431q5f1d8a35pfe40e515e682a1a5@mail.gmail.com>
+	<1235662601.7109.48.camel@fsol> <49A6BEF8.4030201@egenix.com>
+	<bbaeab100902261921h2012f40fy3a735fce5e22f3a1@mail.gmail.com>
+	<368a5cd50902270259o14dfe257hf595a2860020e674@mail.gmail.com>
+	<bbaeab100902271223u427c65b8we08c9abf32684e8e@mail.gmail.com>
+	<015d01c99926$62b229a0$28167ce0$@com.au>
+	<49A8657E.2050308@v.loewis.de>
+	<bbaeab100902271417i76f01558i2919bdeb6b587d0@mail.gmail.com>
+	<49A87A29.7050109@tummy.com>
+	<ca471dc20902271606tc150e0dh7658f544ffaf3f29@mail.gmail.com>
+Message-ID: <D9BB0A15-060E-4C37-9350-777603D8E137@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On Feb 27, 2009, at 7:06 PM, Guido van Rossum wrote:
+
+> - Mercurial: IMO we can't go wrong with this. I've tried it a bit for
+> small projects, and it's very easy to learn for a SVN user. I've
+> talked to Bryan O'Sullivan, and I'm impressed by the customer list,
+> which includes Mozilla and Sun.
+
+Except of course for MySQL (own by Sun), which uses Bazaar. :)
+
+> -  Bazaar: Probably okay, but I'm lukewarm about it. It is also
+> apparently still slower than Hg. It is married to Launchpad whose UI
+> continues to confuse and frustrate me (e.g. why is the "report a bug"
+> link so much more prominent on the overview page than the "download"
+> link?).
+
+Bazaar isn't really dependent on Launchpad at all, although Launchpad  
+is dependent on Bazaar.  Two very different things.  Although I'd love  
+to explore your frustrations with LP at another time, I do think it's  
+important to keep the two separate.  Python won't be using any  
+Launchpad services, so Launchpad's usability doesn't really matter.   
+Bazaar has plugins to e.g. expose an lp: url scheme for branches and -- 
+fixes, but I'm sure the same could be done for a py: scheme integrated  
+with code.python.org and Roundup.
+
+> I also am a little worried that Canonical is a little too
+> eager to get us as a "high profile customer".
+
+I'm not quite sure where that's coming from.  Canonical loves Python,  
+uses it everywhere.  We'd like to give back to Python, and would  
+devote resources to making sure Bazaar meets the Python community's  
+needs.
+
+> The good news is that
+> Bzr and Hg are so compatible that Bzr fans will be able to use Bzr
+> even if the master repository (probably on Benjamin's hard drive :-)
+> uses Hg.
+
+Hmm, I'm not sure what this is referring to.
+
+Barry
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQCVAwUBSarGuHEjvBPtnXfVAQKyZAP/d7YCFW1BfrWWMcImMSmI1UFZATe8RqNY
+GfRMjdK6cq0++unYDg7rKEfyuqcoisJxFbDAyFrCsEtKjBhGXJzXlmPPUZcs9EwO
+iq7q7kaBcnbkXyRs1xuuSYHimiDa0FQRRcpCsVCPoHEasS9YbAzFJr46VxrnoeR0
+RtTax/litNs=
+=6Tk2
+-----END PGP SIGNATURE-----
+
+From martin at v.loewis.de  Sun Mar  1 21:08:07 2009
+From: martin at v.loewis.de (=?UTF-8?B?Ik1hcnRpbiB2LiBMw7Z3aXMi?=)
+Date: Sun, 01 Mar 2009 21:08:07 +0100
+Subject: [python-committers] Survey about DVCSs compared to svn
+In-Reply-To: <49AA7C59.80906@gmail.com>
+References: <bbaeab100902251431q5f1d8a35pfe40e515e682a1a5@mail.gmail.com>	<49A5D0C1.3040404@egenix.com>	<00df01c997a1$b5191ae0$1f4b50a0$@com.au>	<F519D8D6-842D-458E-8DA7-0B09DF95C33B@python.org>	<49A64ABD.1030108@v.loewis.de>	<85AC071A-78DE-4FAC-ADE7-FA78BB737B48@python.org>	<49A6A6BD.4010308@egenix.com>	<1235659804.7109.34.camel@fsol>	<49A6B100.40304@egenix.com>	<1235662601.7109.48.camel@fsol>	<49A6BEF8.4030201@egenix.com>	<1235668878.7109.82.camel@fsol>	<gocb3s$tj7$1@ger.gmane.org>	<49A9C486.3060400@v.loewis.de>
+	<1235863139.6644.23.camel@fsol> <49A9C745.3070004@v.loewis.de>
+	<49AA7C59.80906@gmail.com>
+Message-ID: <49AAEB27.6000002@v.loewis.de>
+
+> Martin v. L?wis wrote:
+>> and that it takes forever
+> 
+> Not sure about that - I *do* port my own changes, and while the merges
+> are quicker than a full recompile or running the test suite, they're
+> still far, far, slower than applying an equivalent patch or doing an svn
+> update.
+
+I meant that as a relative qualification indeed (merging a single
+revision specified on the command line as opposed to merging all
+available versions).
+
+I just measured merging r70081, and it took 42s.
+
+> Given that "svnmerge block" is pretty slow as well, my suspicion is that
+> the property calculations and the auto-generation of the commit message
+> are less than lightning fast. (I don't how much that could be improved
+> by speeding up the underlying svn metadata retrieval - wasn't the server
+> updated to svn 1.5 fairly recently?)
+
+Indeed. However, I had not upgraded the repository itself. I did now
+"svnadmin upgrade", and "svn-populate-node-origins-index" on the
+projects repository. Unfortunately, the same merge operation now takes
+2m42. So I reverted the format upgrade (I had made a tar file before).
+
+If anybody wants to experiment with that: help would be appreciated.
+
+Regards,
+Martin
+
+From solipsis at pitrou.net  Wed Mar  4 12:22:49 2009
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Wed, 04 Mar 2009 12:22:49 +0100
+Subject: [python-committers] svnmerge
+In-Reply-To: <49AAEB27.6000002@v.loewis.de>
+References: <bbaeab100902251431q5f1d8a35pfe40e515e682a1a5@mail.gmail.com>
+	<49A5D0C1.3040404@egenix.com>	<00df01c997a1$b5191ae0$1f4b50a0$@com.au>
+	<F519D8D6-842D-458E-8DA7-0B09DF95C33B@python.org>
+	<49A64ABD.1030108@v.loewis.de>
+	<85AC071A-78DE-4FAC-ADE7-FA78BB737B48@python.org>
+	<49A6A6BD.4010308@egenix.com>	<1235659804.7109.34.camel@fsol>
+	<49A6B100.40304@egenix.com>	<1235662601.7109.48.camel@fsol>
+	<49A6BEF8.4030201@egenix.com>	<1235668878.7109.82.camel@fsol>
+	<gocb3s$tj7$1@ger.gmane.org>	<49A9C486.3060400@v.loewis.de>
+	<1235863139.6644.23.camel@fsol> <49A9C745.3070004@v.loewis.de>
+	<49AA7C59.80906@gmail.com>  <49AAEB27.6000002@v.loewis.de>
+Message-ID: <1236165769.7938.2.camel@fsol>
+
+Le dimanche 01 mars 2009 ? 21:08 +0100, "Martin v. L?wis" a ?crit :
+> I meant that as a relative qualification indeed (merging a single
+> revision specified on the command line as opposed to merging all
+> available versions).
+> 
+> I just measured merging r70081, and it took 42s.
+
+After the merge from io-c to py3k, where svnmerge seems to have
+"forgotten" a couple of changes which I have had to fix manually, I want
+to say that svnmerge has more than simply performance issues... ;-)
+
+Regards
+
+Antoine.
+
+
+
+From lists at cheimes.de  Wed Mar  4 12:27:53 2009
+From: lists at cheimes.de (Christian Heimes)
+Date: Wed, 04 Mar 2009 12:27:53 +0100
+Subject: [python-committers] svnmerge
+In-Reply-To: <1236165769.7938.2.camel@fsol>
+References: <bbaeab100902251431q5f1d8a35pfe40e515e682a1a5@mail.gmail.com>	<49A5D0C1.3040404@egenix.com>	<00df01c997a1$b5191ae0$1f4b50a0$@com.au>	<F519D8D6-842D-458E-8DA7-0B09DF95C33B@python.org>	<49A64ABD.1030108@v.loewis.de>	<85AC071A-78DE-4FAC-ADE7-FA78BB737B48@python.org>	<49A6A6BD.4010308@egenix.com>	<1235659804.7109.34.camel@fsol>	<49A6B100.40304@egenix.com>	<1235662601.7109.48.camel@fsol>	<49A6BEF8.4030201@egenix.com>	<1235668878.7109.82.camel@fsol>	<gocb3s$tj7$1@ger.gmane.org>	<49A9C486.3060400@v.loewis.de>	<1235863139.6644.23.camel@fsol>
+	<49A9C745.3070004@v.loewis.de>	<49AA7C59.80906@gmail.com>
+	<49AAEB27.6000002@v.loewis.de> <1236165769.7938.2.camel@fsol>
+Message-ID: <49AE65B9.1010106@cheimes.de>
+
+Antoine Pitrou schrieb:
+> Le dimanche 01 mars 2009 ? 21:08 +0100, "Martin v. L?wis" a ?crit :
+>> I meant that as a relative qualification indeed (merging a single
+>> revision specified on the command line as opposed to merging all
+>> available versions).
+>>
+>> I just measured merging r70081, and it took 42s.
+> 
+> After the merge from io-c to py3k, where svnmerge seems to have
+> "forgotten" a couple of changes which I have had to fix manually, I want
+> to say that svnmerge has more than simply performance issues... ;-)
+
+I ran into similar trouble during the merge of the long running math
+branch. After two failed attempts I decided to merge the changes
+manually. I couldn't figure out why svnmerge was failing because I
+hadn't had enough spare time.
+
+Christian
+
+From benjamin at python.org  Sat Mar  7 17:13:40 2009
+From: benjamin at python.org (Benjamin Peterson)
+Date: Sat, 7 Mar 2009 10:13:40 -0600
+Subject: [python-committers] doing 3.1a1; py3k frozen
+Message-ID: <1afaf6160903070813s1865a31bxf8fdd5e2c54db80e@mail.gmail.com>
+
+Please no checkins in branches/py3k until I give the word. Thanks.
+
+-- 
+Regards,
+Benjamin
+
+From benjamin at python.org  Sat Mar  7 19:54:18 2009
+From: benjamin at python.org (Benjamin Peterson)
+Date: Sat, 7 Mar 2009 12:54:18 -0600
+Subject: [python-committers] py3k unfrozen
+Message-ID: <1afaf6160903071054oda99631p90df6599ba198378@mail.gmail.com>
+
+branches/py3k is now open for work on the second 3.1 alpha.
+
+-- 
+Regards,
+Benjamin
+
+From jcea at jcea.es  Tue Mar 10 15:16:17 2009
+From: jcea at jcea.es (Jesus Cea)
+Date: Tue, 10 Mar 2009 15:16:17 +0100
+Subject: [python-committers] Survey about DVCSs compared to svn
+In-Reply-To: <49A91176.6020106@gmail.com>
+References: <368a5cd50902271604u769083a7na8dc562ecb62025@mail.gmail.com>	<00163630ee1dee73860463ef6d4d@google.com>	<368a5cd50902272345y74fb1711g626ad471161bf10b@mail.gmail.com>	<368a5cd50902272351l5293b4bck68151f0357ba9fdf@mail.gmail.com>	<368a5cd50902280112n1b8a886bie0a9bf9744fb48ea@mail.gmail.com>	<368a5cd50902280116u7052c604r2c007bc90c86d7ef@mail.gmail.com>	<6a36e7290902280218k4e762439sdad31c4557aa788d@mail.gmail.com>
+	<49A91176.6020106@gmail.com>
+Message-ID: <49B67631.4070701@jcea.es>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Nick Coghlan wrote:
+> We have a few of those (svn:externals) as well... Brett, another
+> question for your DVCS champions!
+
+Sun uses a Mercurial extension, Forest, to manage JDK.
+
+Mercurial forest:
+http://www.selenic.com/mercurial/wiki/index.cgi/ForestExtension
+
+And a proposal for the core Mercurial:
+http://www.selenic.com/mercurial/wiki/index.cgi/NestedRepositories
+
+- --
+Jesus Cea Avion                         _/_/      _/_/_/        _/_/_/
+jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+jabber / xmpp:jcea at jabber.org         _/_/    _/_/          _/_/_/_/_/
+.                              _/_/  _/_/    _/_/          _/_/  _/_/
+"Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+"My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+"El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.8 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - http://enigmail.mozdev.org
+
+iQCVAwUBSbZ2LJlgi5GaxT1NAQL0hQP/YE2zvORq+b7320CoSWmnHqolGE/zWtcC
+jGfqcaSq9J1FwCeDSCjbYDAZTxuAescyCB2IZJEZtHTRgsgNnKkyk0YUGN/wf+//
+hWUR/QXpU68K54PAXkX8oA8RkYmFtI0rFBxOTnYbPcIauSik87ImWesLPzyMFxc4
+TEpENXfYqzg=
+=evgj
+-----END PGP SIGNATURE-----
+
+From jcea at jcea.es  Tue Mar 10 15:59:27 2009
+From: jcea at jcea.es (Jesus Cea)
+Date: Tue, 10 Mar 2009 15:59:27 +0100
+Subject: [python-committers] help with svnmerge
+Message-ID: <49B6804F.4040602@jcea.es>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+I committed r70197 to trunk a few days ago. Today I copied "svnmerge.py"
+in my 2.6 branch, and did an "init" and a "merge"... like it is said in
+the developer FAQ. I got a lot of conflicts and "old patches" merged.
+Overhelming.
+
+So...
+
+Can anybody please merge r70197 to 2.6 branch?
+
+Can somebody explain how to do a correct svnmerge and, possibly, update
+http://www.python.org/dev/faq/#how-do-i-merge-between-branches ?
+
+Sorry for this inconvenience. I promise to learn the lessons you teach me.
+
+PS: I know how to merge using pure SVN and Mercurial... O:-)
+
+- --
+Jesus Cea Avion                         _/_/      _/_/_/        _/_/_/
+jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+jabber / xmpp:jcea at jabber.org         _/_/    _/_/          _/_/_/_/_/
+.                              _/_/  _/_/    _/_/          _/_/  _/_/
+"Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+"My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+"El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.8 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - http://enigmail.mozdev.org
+
+iQCVAwUBSbaAR5lgi5GaxT1NAQKE1gP9E0b2e8lRwBouayLHuk9cDTrVOJo12Mad
+mZ/dDAzPo4I6dHXkns4PEt8/m2NhCvOFW0abt51bFLVoKUSomuPyxvT9hie/z2wq
+Ra/+czIRjdbwFrk6WeZW7kURIgBDA5OG35p/34LsnhVi/+3JNW42uQRRjusRYO3m
+iUtCCpOdDnw=
+=UpbJ
+-----END PGP SIGNATURE-----
+
+From greg at krypto.org  Tue Mar 10 17:51:53 2009
+From: greg at krypto.org (Gregory P. Smith)
+Date: Tue, 10 Mar 2009 09:51:53 -0700
+Subject: [python-committers] help with svnmerge
+In-Reply-To: <49B6804F.4040602@jcea.es>
+References: <49B6804F.4040602@jcea.es>
+Message-ID: <52dc1c820903100951i25abb9d3ua48d7723a8d16988@mail.gmail.com>
+
+I think those instructions are for merging lots of things at once.
+
+What I've used when I'm merging a single revision is this:
+
+greg at pts/6.dealer/9:46AM% svn up
+~/sandbox/python/release26-maint
+At revision 70301.
+greg at pts/6.dealer/9:47AM% python ../svnmerge.py merge -r70197
+property 'svnmerge-integrated' deleted from '.'.
+
+property 'svnmerge-blocked' deleted from '.'.
+
+--- Merging r70197 into '.':
+U    Doc/library/bsddb.rst
+
+property 'svnmerge-integrated' set on '.'
+
+property 'svnmerge-blocked' set on '.'
+
+greg at pts/6.dealer/9:49AM% ls *.txt
+~/sandbox/python/release26-maint
+svnmerge-commit-message.txt
+
+
+Anyways, I just committed the above merge as r70302.
+
+
+On Tue, Mar 10, 2009 at 7:59 AM, Jesus Cea <jcea at jcea.es> wrote:
+
+> -----BEGIN PGP SIGNED MESSAGE-----
+> Hash: SHA1
+>
+> I committed r70197 to trunk a few days ago. Today I copied "svnmerge.py"
+> in my 2.6 branch, and did an "init" and a "merge"... like it is said in
+> the developer FAQ. I got a lot of conflicts and "old patches" merged.
+> Overhelming.
+>
+> So...
+>
+> Can anybody please merge r70197 to 2.6 branch?
+>
+> Can somebody explain how to do a correct svnmerge and, possibly, update
+> http://www.python.org/dev/faq/#how-do-i-merge-between-branches ?
+>
+> Sorry for this inconvenience. I promise to learn the lessons you teach me.
+>
+> PS: I know how to merge using pure SVN and Mercurial... O:-)
+>
+> - --
+> Jesus Cea Avion                         _/_/      _/_/_/        _/_/_/
+> jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+> jabber / xmpp:jcea at jabber.org <xmpp%3Ajcea at jabber.org>         _/_/
+>  _/_/          _/_/_/_/_/
+> .                              _/_/  _/_/    _/_/          _/_/  _/_/
+> "Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+> "My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+> "El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+> -----BEGIN PGP SIGNATURE-----
+> Version: GnuPG v1.4.8 (GNU/Linux)
+> Comment: Using GnuPG with Mozilla - http://enigmail.mozdev.org
+>
+> iQCVAwUBSbaAR5lgi5GaxT1NAQKE1gP9E0b2e8lRwBouayLHuk9cDTrVOJo12Mad
+> mZ/dDAzPo4I6dHXkns4PEt8/m2NhCvOFW0abt51bFLVoKUSomuPyxvT9hie/z2wq
+> Ra/+czIRjdbwFrk6WeZW7kURIgBDA5OG35p/34LsnhVi/+3JNW42uQRRjusRYO3m
+> iUtCCpOdDnw=
+> =UpbJ
+> -----END PGP SIGNATURE-----
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20090310/2502320a/attachment.htm>
+
+From ncoghlan at gmail.com  Tue Mar 10 23:22:03 2009
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Wed, 11 Mar 2009 08:22:03 +1000
+Subject: [python-committers] help with svnmerge
+In-Reply-To: <52dc1c820903100951i25abb9d3ua48d7723a8d16988@mail.gmail.com>
+References: <49B6804F.4040602@jcea.es>
+	<52dc1c820903100951i25abb9d3ua48d7723a8d16988@mail.gmail.com>
+Message-ID: <49B6E80B.5080401@gmail.com>
+
+Gregory P. Smith wrote:
+> I think those instructions are for merging lots of things at once.
+
+That FAQ question is actually 3 questions in one:
+
+1. How do I set up merge tracking for a new branch? (A: Use "svnmerge
+init") Since this has already been done for the maintenance branches, no
+need for anyone to do it again.
+
+2. How do I merge all unmerged revisions from the base branch to the
+current branch? (A: Use "svnmerge merge"). Only a few developers will
+want to do this.
+
+3. How do I merge a specific revision (or set of revisions) from the
+base branch to the current branch? (A: Use "svnmerge merge -r <revision
+#>"). This is what most developers will use when porting a single change
+between branches.
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+---------------------------------------------------------------
+
+From eric at trueblade.com  Tue Mar 10 23:54:02 2009
+From: eric at trueblade.com (Eric Smith)
+Date: Tue, 10 Mar 2009 18:54:02 -0400
+Subject: [python-committers] help with svnmerge
+In-Reply-To: <52dc1c820903100951i25abb9d3ua48d7723a8d16988@mail.gmail.com>
+References: <49B6804F.4040602@jcea.es>
+	<52dc1c820903100951i25abb9d3ua48d7723a8d16988@mail.gmail.com>
+Message-ID: <49B6EF8A.4030703@trueblade.com>
+
+Gregory P. Smith wrote:
+> What I've used when I'm merging a single revision is this:
+
+<details deleted>
+
+I think the more pressing question that needs documenting is: "Given 
+that there are 4 active branches, in which order do I check things in 
+and merge them?"
+
+Martin gave an answer to this on December 22, and I refer to it often. It's:
+
+--------8<----------------
+Instead, you should commit it into trunk, and then run svnmerge.py three
+times, namely:
+
+- in a release26-maint checkout, run
+
+     svnmerge.py -r<yourrev>
+     svn commit -F svnmerge-commit-something-press-tab
+
+- in a py3k checkout, run
+
+     svnmerge.py -r<yourrev>
+     svn commit -F svnmerge-commit-something-press-tab
+
+- in a release30-maint check, then run
+
+    svnmerge.py -r<revfrom3k>
+    svn revert .
+    svn commit -F svnmerge-commit-something-press-tab
+
+--------8<----------------
+
+I think it was later corrected that the "svn revert" should be "svn 
+resolved", if it's needed at all. But I'm not sure about that. As I 
+recall, I've never needed that step.
+
+Eric.
+
+From martin at v.loewis.de  Wed Mar 11 00:13:51 2009
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Wed, 11 Mar 2009 00:13:51 +0100
+Subject: [python-committers] help with svnmerge
+In-Reply-To: <49B6EF8A.4030703@trueblade.com>
+References: <49B6804F.4040602@jcea.es>	<52dc1c820903100951i25abb9d3ua48d7723a8d16988@mail.gmail.com>
+	<49B6EF8A.4030703@trueblade.com>
+Message-ID: <49B6F42F.70703@v.loewis.de>
+
+>    svnmerge.py -r<revfrom3k>
+>    svn revert .
+>    svn commit -F svnmerge-commit-something-press-tab
+> 
+> --------8<----------------
+> 
+> I think it was later corrected that the "svn revert" should be "svn
+> resolved", if it's needed at all. But I'm not sure about that. As I
+> recall, I've never needed that step.
+
+It should be needed every time you merge into the 3.0 branch, and
+yes, it should be "resolved", not "revert".
+
+Regards,
+Martin
+
+From brett at python.org  Wed Mar 11 00:35:10 2009
+From: brett at python.org (Brett Cannon)
+Date: Tue, 10 Mar 2009 16:35:10 -0700
+Subject: [python-committers] help with svnmerge
+In-Reply-To: <49B6F42F.70703@v.loewis.de>
+References: <49B6804F.4040602@jcea.es>
+	<52dc1c820903100951i25abb9d3ua48d7723a8d16988@mail.gmail.com>
+	<49B6EF8A.4030703@trueblade.com> <49B6F42F.70703@v.loewis.de>
+Message-ID: <bbaeab100903101635g48b60699m31a27a84cb9ce1aa@mail.gmail.com>
+
+On Tue, Mar 10, 2009 at 16:13, "Martin v. L?wis" <martin at v.loewis.de> wrote:
+
+> >    svnmerge.py -r<revfrom3k>
+> >    svn revert .
+> >    svn commit -F svnmerge-commit-something-press-tab
+> >
+> > --------8<----------------
+> >
+> > I think it was later corrected that the "svn revert" should be "svn
+> > resolved", if it's needed at all. But I'm not sure about that. As I
+> > recall, I've never needed that step.
+>
+> It should be needed every time you merge into the 3.0 branch, and
+> yes, it should be "resolved", not "revert".
+
+
+I will add it to the FAQ right now.
+
+-Brett
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20090310/24509390/attachment.htm>
+
+From solipsis at pitrou.net  Fri Mar 13 20:28:51 2009
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Fri, 13 Mar 2009 20:28:51 +0100
+Subject: [python-committers] Backporting to 3.0
+Message-ID: <1236972531.6758.4.camel@fsol>
+
+
+Hello all,
+
+What is the expected future of the 3.0 branch? Will a 3.0.2 release be
+done one day? Is there any point in backporting bug fixes there?
+
+Regards
+
+Antoine.
+
+
+
+From barry at python.org  Fri Mar 13 20:30:32 2009
+From: barry at python.org (Barry Warsaw)
+Date: Fri, 13 Mar 2009 15:30:32 -0400
+Subject: [python-committers] Backporting to 3.0
+In-Reply-To: <1236972531.6758.4.camel@fsol>
+References: <1236972531.6758.4.camel@fsol>
+Message-ID: <750FB319-E3F8-4E15-8443-8FA46ABE5AEA@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On Mar 13, 2009, at 3:28 PM, Antoine Pitrou wrote:
+
+> What is the expected future of the 3.0 branch? Will a 3.0.2 release be
+> done one day? Is there any point in backporting bug fixes there?
+
+I plan to stick with the policy and release a last 3.0.x after 3.1 is  
+released.  If there's need for a 3.0.2 in the meantime, then I can do  
+that too.  So I do think relevant bug fixes should be back ported.
+
+Barry
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQCVAwUBSbq0WHEjvBPtnXfVAQLCGQP9E7TkTF4bGf94j/cGCi6tddaboU+qzFyx
+ERaLi2J1Qal8PFk27W3Z9OQ3YdIUlJ6T7HoDRhypiQ8cOYfeua4iPaSo2PFVTVuK
+c4M1apVEDad1tmT3UmD1CRLaESSo1WW8hBq4iT+wIe3iWR0pt3QfBW8SRxNUXou3
+1wiijobAoWY=
+=SNFt
+-----END PGP SIGNATURE-----
+

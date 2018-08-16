@@ -1,0 +1,2357 @@
+From nad at python.org  Tue Nov  1 00:55:41 2016
+From: nad at python.org (Ned Deily)
+Date: Tue, 1 Nov 2016 00:55:41 -0400
+Subject: [python-committers] [RELEASE] Python 3.6.0b3 is now available
+Message-ID: <A534CD7D-C35F-4A2D-B491-A51431174746@python.org>
+
+On behalf of the Python development community and the Python 3.6 release
+team, I'm pleased to announce the availability of Python 3.6.0b3. 3.6.0b3
+is the third of four planned beta releases of Python 3.6, the next major
+release of Python.
+
+Among the new major new features in Python 3.6 are:
+
+* PEP 468 - Preserving the order of **kwargs in a function
+* PEP 487 - Simpler customization of class creation
+* PEP 495 - Local Time Disambiguation
+* PEP 498 - Literal String Formatting
+* PEP 506 - Adding A Secrets Module To The Standard Library
+* PEP 509 - Add a private version to dict
+* PEP 515 - Underscores in Numeric Literals
+* PEP 519 - Adding a file system path protocol
+* PEP 520 - Preserving Class Attribute Definition Order
+* PEP 523 - Adding a frame evaluation API to CPython
+* PEP 524 - Make os.urandom() blocking on Linux (during system startup)
+* PEP 525 - Asynchronous Generators (provisional)
+* PEP 526 - Syntax for Variable Annotations (provisional)
+* PEP 528 - Change Windows console encoding to UTF-8 (provisional)
+* PEP 529 - Change Windows filesystem encoding to UTF-8 (provisional)
+* PEP 530 - Asynchronous Comprehensions
+
+Please see "What?s New In Python 3.6" for more information:
+
+https://docs.python.org/3.6/whatsnew/3.6.html
+
+You can find Python 3.6.0b3 here:
+
+https://www.python.org/downloads/release/python-360b3/
+
+Beta releases are intended to give the wider community the opportunity
+to test new features and bug fixes and to prepare their projects to
+support the new feature release. We strongly encourage maintainers of
+third-party Python projects to test with 3.6 during the beta phase and
+report issues found to bugs.python.org as soon as possible. While the
+release is feature complete entering the beta phase, it is possible that
+features may be modified or, in rare cases, deleted up until the start
+of the release candidate phase (2016-12-05). Our goal is have no changes
+after rc1. To achieve that, it will be extremely important to get as
+much exposure for 3.6 as possible during the beta phase. Please keep in
+mind that this is a preview release and its use is not recommended for
+production environments
+
+The next pre-release of Python 3.6 will be 3.6.0b4, currently
+scheduled for 2016-11-21. More information about the release schedule
+can be found here:
+
+https://www.python.org/dev/peps/pep-0494/
+
+--
+  Ned Deily
+  nad at python.org -- []
+
+
+From yselivanov.ml at gmail.com  Tue Nov  8 19:24:45 2016
+From: yselivanov.ml at gmail.com (Yury Selivanov)
+Date: Tue, 8 Nov 2016 19:24:45 -0500
+Subject: [python-committers] daily reference leaks
+Message-ID: <f5bcf85a-155e-c1f7-aba4-61a27f0b78c7@gmail.com>
+
+Does anyone know where's "daily reference leaks"?  Last email was sent 
+on Sun Jul 10 05:57:30 EDT 2016.  Just today I found two memory leaks in 
+3.6, it might be many more that we don't know about.
+
+
+Yury
+
+
+From antoine at python.org  Tue Nov  8 19:36:15 2016
+From: antoine at python.org (Antoine Pitrou)
+Date: Wed, 9 Nov 2016 01:36:15 +0100
+Subject: [python-committers] daily reference leaks
+In-Reply-To: <f5bcf85a-155e-c1f7-aba4-61a27f0b78c7@gmail.com>
+References: <f5bcf85a-155e-c1f7-aba4-61a27f0b78c7@gmail.com>
+Message-ID: <f58661df-c420-71fb-f73d-126e8314e16a@python.org>
+
+
+Le 09/11/2016 ? 01:24, Yury Selivanov a ?crit :
+> Does anyone know where's "daily reference leaks"?  Last email was sent 
+> on Sun Jul 10 05:57:30 EDT 2016.  Just today I found two memory leaks in 
+> 3.6, it might be many more that we don't know about.
+
+It runs under my account on hg.python.org.  The script is
+/home/psf-users/antoine/refleaks/runleaks.py
+
+The hg clone was corrupted for some reason, I repaired it, this should
+make things better.
+
+Regards
+
+Antoine.
+
+From yselivanov.ml at gmail.com  Tue Nov  8 20:08:38 2016
+From: yselivanov.ml at gmail.com (Yury Selivanov)
+Date: Tue, 8 Nov 2016 20:08:38 -0500
+Subject: [python-committers] daily reference leaks
+In-Reply-To: <f58661df-c420-71fb-f73d-126e8314e16a@python.org>
+References: <f5bcf85a-155e-c1f7-aba4-61a27f0b78c7@gmail.com>
+ <f58661df-c420-71fb-f73d-126e8314e16a@python.org>
+Message-ID: <48e66654-2650-3a40-eaa5-23d95220af7d@gmail.com>
+
+
+
+On 2016-11-08 7:36 PM, Antoine Pitrou wrote:
+> Le 09/11/2016 ? 01:24, Yury Selivanov a ?crit :
+>> Does anyone know where's "daily reference leaks"?  Last email was sent
+>> on Sun Jul 10 05:57:30 EDT 2016.  Just today I found two memory leaks in
+>> 3.6, it might be many more that we don't know about.
+> It runs under my account on hg.python.org.  The script is
+> /home/psf-users/antoine/refleaks/runleaks.py
+>
+> The hg clone was corrupted for some reason, I repaired it, this should
+> make things better.
+
+Thank you, Antoine!
+
+Yury
+
+
+From amk at amk.ca  Sat Nov 12 17:04:35 2016
+From: amk at amk.ca (A.M. Kuchling)
+Date: Sat, 12 Nov 2016 17:04:35 -0500
+Subject: [python-committers] Temporary moderator needed for Distutils SIG
+Message-ID: <20161112220435.GA12885@gazelle>
+
+I'm going on vacation starting this Tuesday November 15th, and won't
+have much Internet access, and perhaps none at all, until I get back
+on November 30th.  Could someone please take over moderating the
+Distutils-SIG mailing list?  There's enough moderated traffic (list
+messages, spam, misdirected help requests) that it can't be left
+
+If you want to volunteer, please send me your e-mail address and then
+I'll e-mail you an admin password privately.  You can either stay on
+as a moderator once I get back, or I can remove you.
+
+I'm also moderator for a few other lists that are largely inactive
+such as medusa-dev and psf-redesign; the only mail that arrives is
+spam, and spam can just sit for two weeks until I delete it, so we
+don't need to bother about them.
+
+(I couldn't think of a better place to ask for help; the Meta-SIG
+seems largely inactive, so I ruled it out.)
+
+--amk
+
+From donald at stufft.io  Sat Nov 12 17:30:14 2016
+From: donald at stufft.io (Donald Stufft)
+Date: Sat, 12 Nov 2016 17:30:14 -0500
+Subject: [python-committers] Temporary moderator needed for Distutils SIG
+In-Reply-To: <20161112220435.GA12885@gazelle>
+References: <20161112220435.GA12885@gazelle>
+Message-ID: <39FB6003-BC16-42C6-86C6-E4232451849F@stufft.io>
+
+I can do this. 
+
+Sent from my iPhone
+
+> On Nov 12, 2016, at 5:04 PM, A.M. Kuchling <amk at amk.ca> wrote:
+> 
+> I'm going on vacation starting this Tuesday November 15th, and won't
+> have much Internet access, and perhaps none at all, until I get back
+> on November 30th.  Could someone please take over moderating the
+> Distutils-SIG mailing list?  There's enough moderated traffic (list
+> messages, spam, misdirected help requests) that it can't be left
+> 
+> If you want to volunteer, please send me your e-mail address and then
+> I'll e-mail you an admin password privately.  You can either stay on
+> as a moderator once I get back, or I can remove you.
+> 
+> I'm also moderator for a few other lists that are largely inactive
+> such as medusa-dev and psf-redesign; the only mail that arrives is
+> spam, and spam can just sit for two weeks until I delete it, so we
+> don't need to bother about them.
+> 
+> (I couldn't think of a better place to ask for help; the Meta-SIG
+> seems largely inactive, so I ruled it out.)
+> 
+> --amk
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+
+From amk at amk.ca  Sat Nov 12 19:22:51 2016
+From: amk at amk.ca (A.M. Kuchling)
+Date: Sat, 12 Nov 2016 19:22:51 -0500
+Subject: [python-committers] Temporary moderator needed for Distutils SIG
+In-Reply-To: <39FB6003-BC16-42C6-86C6-E4232451849F@stufft.io>
+References: <20161112220435.GA12885@gazelle>
+ <39FB6003-BC16-42C6-86C6-E4232451849F@stufft.io>
+Message-ID: <20161113002251.GB15027@gazelle>
+
+On Sat, Nov 12, 2016 at 05:30:14PM -0500, Donald Stufft wrote:
+> I can do this.
+
+Thanks!
+
+Donald Stufft and Tim Golden have been added as moderators for the list.
+
+--amk
+
+From victor.stinner at gmail.com  Mon Nov 14 07:09:35 2016
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Mon, 14 Nov 2016 13:09:35 +0100
+Subject: [python-committers] Promote Xiang Zhang as a core developer
+Message-ID: <CAMpsgwZNMe1w-37LnG0GPvT-wM01wAAVuZeFivHPgJ8tFW=LSw@mail.gmail.com>
+
+Hi,
+
+Last months, I noticed that Xiang Zhang is very active on the bug
+tracker and propose many enhancements and bug fixes. He contributes to
+Python code, but also to the C code (a rare skill nowadays). Slowly,
+he understood how to produce "good" patches, the CPython workflow,
+etc. I think that his contributions are now good enough to give him
+the commit bit.
+
+As I did previously (for Xavier), I also propose to be his mentor the
+first month: request him to ask me before pushing anything, help him
+with Mercurial, branches, etc. So I can help to avoid simple mistakes
+and to not break the buildbot too often :-)
+
+Maybe Serhiy Storchaka and/or Yury Selivanov may want to co-mentor
+Xiang? Serhiy reviewed many of Xiang's patches recently.
+
+Victor
+
+From songofacandy at gmail.com  Mon Nov 14 07:21:05 2016
+From: songofacandy at gmail.com (INADA Naoki)
+Date: Mon, 14 Nov 2016 21:21:05 +0900
+Subject: [python-committers] Promote Xiang Zhang as a core developer
+In-Reply-To: <CAMpsgwZNMe1w-37LnG0GPvT-wM01wAAVuZeFivHPgJ8tFW=LSw@mail.gmail.com>
+References: <CAMpsgwZNMe1w-37LnG0GPvT-wM01wAAVuZeFivHPgJ8tFW=LSw@mail.gmail.com>
+Message-ID: <CAEfz+Tyq3_txoUi=GmbuQ-3EKLhiEM-0CzK+-O9Y64i1A2+Hpw@mail.gmail.com>
+
++1, if I can vote.
+
+He helped me a lot by reviewing my patch, and fixing issues relating to dict.
+
+Regards,
+-- 
+INADA Naoki  <songofacandy at gmail.com>
+
+From ncoghlan at gmail.com  Mon Nov 14 08:01:48 2016
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Mon, 14 Nov 2016 23:01:48 +1000
+Subject: [python-committers] Promote Xiang Zhang as a core developer
+In-Reply-To: <CAMpsgwZNMe1w-37LnG0GPvT-wM01wAAVuZeFivHPgJ8tFW=LSw@mail.gmail.com>
+References: <CAMpsgwZNMe1w-37LnG0GPvT-wM01wAAVuZeFivHPgJ8tFW=LSw@mail.gmail.com>
+Message-ID: <CADiSq7d5hFHLnkHujFmhnrqNaOQBaGcpGj4-iYiGXXtWgOP_RQ@mail.gmail.com>
+
+On 14 November 2016 at 22:09, Victor Stinner <victor.stinner at gmail.com> wrote:
+> Hi,
+>
+> Last months, I noticed that Xiang Zhang is very active on the bug
+> tracker and propose many enhancements and bug fixes. He contributes to
+> Python code, but also to the C code (a rare skill nowadays). Slowly,
+> he understood how to produce "good" patches, the CPython workflow,
+> etc. I think that his contributions are now good enough to give him
+> the commit bit.
+
+I haven't been doing a lot of general patch triage lately, but Xiang's
+issue report where he found and fixed an obscure problem in the new
+multi-phase extension module import system [1] was a genuinely
+enjoyable experience for me as a patch reviewer (and the patch itself
+was complete and correct, so the only thing I needed to add was a NEWS
+entry).
+
+Cheers,
+Nick.
+
+[1] http://bugs.python.org/issue27782
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+
+From brett at python.org  Mon Nov 14 17:38:41 2016
+From: brett at python.org (Brett Cannon)
+Date: Mon, 14 Nov 2016 22:38:41 +0000
+Subject: [python-committers] Promote Xiang Zhang as a core developer
+In-Reply-To: <CAMpsgwZNMe1w-37LnG0GPvT-wM01wAAVuZeFivHPgJ8tFW=LSw@mail.gmail.com>
+References: <CAMpsgwZNMe1w-37LnG0GPvT-wM01wAAVuZeFivHPgJ8tFW=LSw@mail.gmail.com>
+Message-ID: <CAP1=2W6bJzk_WoX478EZc0sgaZp-FXmWLMC=ExZgdKZJqOq+Ew@mail.gmail.com>
+
+I thought someone asked Xiang if he wanted to be a core dev during the core
+sprints in September and he turned down the offer?
+
+On Mon, 14 Nov 2016 at 04:10 Victor Stinner <victor.stinner at gmail.com>
+wrote:
+
+> Hi,
+>
+> Last months, I noticed that Xiang Zhang is very active on the bug
+> tracker and propose many enhancements and bug fixes. He contributes to
+> Python code, but also to the C code (a rare skill nowadays). Slowly,
+> he understood how to produce "good" patches, the CPython workflow,
+> etc. I think that his contributions are now good enough to give him
+> the commit bit.
+>
+> As I did previously (for Xavier), I also propose to be his mentor the
+> first month: request him to ask me before pushing anything, help him
+> with Mercurial, branches, etc. So I can help to avoid simple mistakes
+> and to not break the buildbot too often :-)
+>
+> Maybe Serhiy Storchaka and/or Yury Selivanov may want to co-mentor
+> Xiang? Serhiy reviewed many of Xiang's patches recently.
+>
+> Victor
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20161114/7eeeb904/attachment.html>
+
+From berker.peksag at gmail.com  Mon Nov 14 19:10:52 2016
+From: berker.peksag at gmail.com (=?UTF-8?Q?Berker_Peksa=C4=9F?=)
+Date: Tue, 15 Nov 2016 03:10:52 +0300
+Subject: [python-committers] Promote Xiang Zhang as a core developer
+In-Reply-To: <CAMpsgwZNMe1w-37LnG0GPvT-wM01wAAVuZeFivHPgJ8tFW=LSw@mail.gmail.com>
+References: <CAMpsgwZNMe1w-37LnG0GPvT-wM01wAAVuZeFivHPgJ8tFW=LSw@mail.gmail.com>
+Message-ID: <CAF4280JKLxChWK-A5CnixJ8t2QD7ErYYJ57+RgNXyM4zuE+M_Q@mail.gmail.com>
+
+On Mon, Nov 14, 2016 at 3:09 PM, Victor Stinner
+<victor.stinner at gmail.com> wrote:
+> Hi,
+>
+> Last months, I noticed that Xiang Zhang is very active on the bug
+> tracker and propose many enhancements and bug fixes. He contributes to
+> Python code, but also to the C code (a rare skill nowadays). Slowly,
+> he understood how to produce "good" patches, the CPython workflow,
+> etc. I think that his contributions are now good enough to give him
+> the commit bit.
+>
+> As I did previously (for Xavier), I also propose to be his mentor the
+> first month: request him to ask me before pushing anything, help him
+> with Mercurial, branches, etc. So I can help to avoid simple mistakes
+> and to not break the buildbot too often :-)
+>
+> Maybe Serhiy Storchaka and/or Yury Selivanov may want to co-mentor
+> Xiang? Serhiy reviewed many of Xiang's patches recently.
+
+I also reviewed and pushed Xiang's patches. Xiang tends to fix things
+that are not broken, and when you point out that the thing they are
+trying to fix is not broken, they try to start an endless discussion.
+I also saw a couple of instances where they refused to address code
+review comments from experienced core developers (which is a red flag
+for me)
+
+--Berker
+
+From victor.stinner at gmail.com  Tue Nov 15 03:17:52 2016
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Tue, 15 Nov 2016 09:17:52 +0100
+Subject: [python-committers] Promote Xiang Zhang as a core developer
+In-Reply-To: <CAF4280JKLxChWK-A5CnixJ8t2QD7ErYYJ57+RgNXyM4zuE+M_Q@mail.gmail.com>
+References: <CAMpsgwZNMe1w-37LnG0GPvT-wM01wAAVuZeFivHPgJ8tFW=LSw@mail.gmail.com>
+ <CAF4280JKLxChWK-A5CnixJ8t2QD7ErYYJ57+RgNXyM4zuE+M_Q@mail.gmail.com>
+Message-ID: <CAMpsgwbn3AUUCRj9BFHc7suQV=s=k4Jz_qpitW2ADq5Lp7P6=w@mail.gmail.com>
+
+Hi,
+
+2016-11-15 1:10 GMT+01:00 Berker Peksa? <berker.peksag at gmail.com>:
+> Xiang tends to fix things that are not broken,
+
+This sentence sounds strange. What do you mean? :-)
+
+> (...)  and when you point out that the thing they are
+> trying to fix is not broken, they try to start an endless discussion.
+> I also saw a couple of instances where they refused to address code
+> review comments from experienced core developers (which is a red flag
+> for me)
+
+I guess that "they" means "he", so Xiang, right?
+
+Do you have some examples of such discussions? I'm not aware of such issue.
+
+Victor
+
+From victor.stinner at gmail.com  Tue Nov 15 03:26:30 2016
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Tue, 15 Nov 2016 09:26:30 +0100
+Subject: [python-committers] Promote Xiang Zhang as a core developer
+In-Reply-To: <CAP1=2W6bJzk_WoX478EZc0sgaZp-FXmWLMC=ExZgdKZJqOq+Ew@mail.gmail.com>
+References: <CAMpsgwZNMe1w-37LnG0GPvT-wM01wAAVuZeFivHPgJ8tFW=LSw@mail.gmail.com>
+ <CAP1=2W6bJzk_WoX478EZc0sgaZp-FXmWLMC=ExZgdKZJqOq+Ew@mail.gmail.com>
+Message-ID: <CAMpsgwYyH--WB-kBnfW6ZOqXTX8CWDHYzKFdm0jGxg24xOX8Eg@mail.gmail.com>
+
+Hi,
+
+2016-11-14 23:38 GMT+01:00 Brett Cannon <brett at python.org>:
+> I thought someone asked Xiang if he wanted to be a core dev during the core
+> sprints in September and he turned down the offer?
+
+I asked Xiang once on IRC if he would be interested to become a core,
+and yes, he is interested.
+
+During the sprint, we discussed potential new core developers. Xiang
+was proposed, but one or two people said that he doesn't know well
+enough the workflow, or something like that. So I waited for 2 months.
+If you look at the Mercurial history, many Xiang's patches were merged
+recently: Nov 6, Nov 4, Oct 30, Oct 25, Oct 23, Oct 22, Oct 17, Oct
+16, Oct 13, Oct 9, Oct 8, Oct 2, Oct 1, Sept 27, etc.
+
+Maybe Xiang needs a longer mentoring period than 1 month, but I want
+to keep him motivated. Active contributors (even inside core
+developers) are rare, so we always need fresh blood :-)
+
+Statistics on commits on the last 12 months:
+https://github.com/python/cpython/graphs/contributors?from=2015-11-15&to=2016-11-15&type=c
+
+Victor
+
+From senthil at uthcode.com  Tue Nov 15 10:46:03 2016
+From: senthil at uthcode.com (Senthil Kumaran)
+Date: Tue, 15 Nov 2016 07:46:03 -0800
+Subject: [python-committers] Promote Xiang Zhang as a core developer
+In-Reply-To: <CAMpsgwYyH--WB-kBnfW6ZOqXTX8CWDHYzKFdm0jGxg24xOX8Eg@mail.gmail.com>
+References: <CAMpsgwZNMe1w-37LnG0GPvT-wM01wAAVuZeFivHPgJ8tFW=LSw@mail.gmail.com>
+ <CAP1=2W6bJzk_WoX478EZc0sgaZp-FXmWLMC=ExZgdKZJqOq+Ew@mail.gmail.com>
+ <CAMpsgwYyH--WB-kBnfW6ZOqXTX8CWDHYzKFdm0jGxg24xOX8Eg@mail.gmail.com>
+Message-ID: <CAPOVWOT-Sz+gdPKSrZdUBpbHu4c2czmNWKusS+U64wWqPR6AmQ@mail.gmail.com>
+
+On Tue, Nov 15, 2016 at 12:26 AM, Victor Stinner <victor.stinner at gmail.com>
+wrote:
+
+> Maybe Xiang needs a longer mentoring period than 1 month, but I want
+> to keep him motivated. Active contributors (even inside core
+> developers) are rare, so we always need fresh blood :-)
+>
+
+I agree with this statement. I did a review of his contributions and many
+seem worthy.
+I am +1 to support commit privileges for Xiang.
+
+Thanks,
+Senthil
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20161115/28a0bbfd/attachment-0001.html>
+
+From storchaka at gmail.com  Tue Nov 15 13:32:43 2016
+From: storchaka at gmail.com (storchaka at gmail.com)
+Date: Tue, 15 Nov 2016 20:32:43 +0200
+Subject: [python-committers] Promote Xiang Zhang as a core developer
+In-Reply-To: <CAMpsgwZNMe1w-37LnG0GPvT-wM01wAAVuZeFivHPgJ8tFW=LSw@mail.gmail.com>
+References: <CAMpsgwZNMe1w-37LnG0GPvT-wM01wAAVuZeFivHPgJ8tFW=LSw@mail.gmail.com>
+Message-ID: <6542820.YVMVNctWdU@xarax>
+
+?????????, 14 ????????? 2016 ?. 13:09:35 EET Victor Stinner ????????:
+> Last months, I noticed that Xiang Zhang is very active on the bug
+> tracker and propose many enhancements and bug fixes. He contributes to
+> Python code, but also to the C code (a rare skill nowadays). Slowly,
+> he understood how to produce "good" patches, the CPython workflow,
+> etc. I think that his contributions are now good enough to give him
+> the commit bit.
+> 
+> As I did previously (for Xavier), I also propose to be his mentor the
+> first month: request him to ask me before pushing anything, help him
+> with Mercurial, branches, etc. So I can help to avoid simple mistakes
+> and to not break the buildbot too often :-)
+> 
+> Maybe Serhiy Storchaka and/or Yury Selivanov may want to co-mentor
+> Xiang? Serhiy reviewed many of Xiang's patches recently.
+
+Since the first commit 8 months ago I counted about 50 Xiang's committed 
+patches, and most of them were committed by me (other 10 core developers 
+committed form 1 to 4 Xiang's patches). He helped with reviewing  patches and 
+discussing issues. His C skills was good 8 months ago, and now he is known 
+with CPython style and workflow. He sees beneath the surface and understands 
+that he need to consider edge cases and side effects.
+
+From technical point there is no need to grant him commit rights, because I 
+and other core developers commit his patches. Almost all his patches are 
+commited (there are few issues in progress and there are few documentation 
+issues). But for motivating purpose I support this proposition.
+
+Unfortunately there is truth in Berker's words. Yes, Xiang tends to fix things
+that don't look obviously broken (for example see issue28398 [1] and 
+issue28531 [2]). This may have been partially my fault, because I committed 
+his patches that would not dare to offer himself. He is inclined not to accept 
+comments obediently, but start a discussion. Not sure this is certainly bad.
+
+But I think he will be more cautious having commit rights.
+
+[1] https://bugs.python.org/issue28398
+[2] https://bugs.python.org/issue28531
+
+
+From victor.stinner at gmail.com  Fri Nov 18 11:16:42 2016
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Fri, 18 Nov 2016 17:16:42 +0100
+Subject: [python-committers] Promote Xiang Zhang as a core developer
+In-Reply-To: <CAPOVWOT-Sz+gdPKSrZdUBpbHu4c2czmNWKusS+U64wWqPR6AmQ@mail.gmail.com>
+References: <CAMpsgwZNMe1w-37LnG0GPvT-wM01wAAVuZeFivHPgJ8tFW=LSw@mail.gmail.com>
+ <CAP1=2W6bJzk_WoX478EZc0sgaZp-FXmWLMC=ExZgdKZJqOq+Ew@mail.gmail.com>
+ <CAMpsgwYyH--WB-kBnfW6ZOqXTX8CWDHYzKFdm0jGxg24xOX8Eg@mail.gmail.com>
+ <CAPOVWOT-Sz+gdPKSrZdUBpbHu4c2czmNWKusS+U64wWqPR6AmQ@mail.gmail.com>
+Message-ID: <CAMpsgwYhehtHNzF6z8y8MS_KwsrJ=t6vviPv6AKHiFQ5HmKCMQ@mail.gmail.com>
+
+2016-11-15 16:46 GMT+01:00 Senthil Kumaran <senthil at uthcode.com>:
+>> Maybe Xiang needs a longer mentoring period than 1 month, but I want
+>> to keep him motivated. Active contributors (even inside core
+>> developers) are rare, so we always need fresh blood :-)
+>
+> I agree with this statement. I did a review of his contributions and many
+> seem worthy.
+> I am +1 to support commit privileges for Xiang.
+
+Ok, I will wait until Sunday evening to make sure that everybody has
+the opportonity to vote.
+
+Even if Berker and Serhiy have legit concerns, I'm still in favor of
+giving the commit bit to Xiang right now.
+
+Berker, Serhiy: Do you prefer that I mentor Xiang first during one
+month, then give him the commit bit, but continue to mentor him? Or
+are you ok to give him the commit bit right now, and as I wrote,
+request him to ask me before pushing anything?
+
+Victor
+
+From victor.stinner at gmail.com  Fri Nov 18 11:21:07 2016
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Fri, 18 Nov 2016 17:21:07 +0100
+Subject: [python-committers] Promote Xiang Zhang as a core developer
+In-Reply-To: <6542820.YVMVNctWdU@xarax>
+References: <CAMpsgwZNMe1w-37LnG0GPvT-wM01wAAVuZeFivHPgJ8tFW=LSw@mail.gmail.com>
+ <6542820.YVMVNctWdU@xarax>
+Message-ID: <CAMpsgwae=MAEWXnTcXgFWJ8QwSC0V8PdFCEZHXaA7inxhPPHPQ@mail.gmail.com>
+
+2016-11-15 19:32 GMT+01:00  <storchaka at gmail.com>:
+> Since the first commit 8 months ago I counted about 50 Xiang's committed
+> patches, and most of them were committed by me (other 10 core developers
+> committed form 1 to 4 Xiang's patches). He helped with reviewing  patches and
+> discussing issues. His C skills was good 8 months ago, and now he is known
+> with CPython style and workflow. He sees beneath the surface and understands
+> that he need to consider edge cases and side effects.
+
+Cool :-)
+
+
+> From technical point there is no need to grant him commit rights, because I
+> and other core developers commit his patches. Almost all his patches are
+> commited (there are few issues in progress and there are few documentation
+> issues). But for motivating purpose I support this proposition.
+
+For me, the main reason to give the commit bit is to motivate
+contributors :-) I know that many people are proud to be core
+developers (but don't say it loudly ;-)) and it keeps them motivated.
+
+
+> Unfortunately there is truth in Berker's words. Yes, Xiang tends to fix things
+> that don't look obviously broken (for example see issue28398 [1] and
+> issue28531 [2]). This may have been partially my fault, because I committed
+> his patches that would not dare to offer himself. He is inclined not to accept
+> comments obediently, but start a discussion. Not sure this is certainly bad.
+
+I look at these two patches and the patch looks good to me, but it's
+also right that they don't fix any bug. I will make sure that Xiang
+understands well that changes in CPython must be carefully reviewed by
+others, and that sometimes it's just fine to abandon patches.
+
+Victor
+
+From storchaka at gmail.com  Fri Nov 18 16:30:43 2016
+From: storchaka at gmail.com (Serhiy Storchaka)
+Date: Fri, 18 Nov 2016 23:30:43 +0200
+Subject: [python-committers] Promote Xiang Zhang as a core developer
+In-Reply-To: <CAMpsgwYhehtHNzF6z8y8MS_KwsrJ=t6vviPv6AKHiFQ5HmKCMQ@mail.gmail.com>
+References: <CAMpsgwZNMe1w-37LnG0GPvT-wM01wAAVuZeFivHPgJ8tFW=LSw@mail.gmail.com>
+ <CAP1=2W6bJzk_WoX478EZc0sgaZp-FXmWLMC=ExZgdKZJqOq+Ew@mail.gmail.com>
+ <CAMpsgwYyH--WB-kBnfW6ZOqXTX8CWDHYzKFdm0jGxg24xOX8Eg@mail.gmail.com>
+ <CAPOVWOT-Sz+gdPKSrZdUBpbHu4c2czmNWKusS+U64wWqPR6AmQ@mail.gmail.com>
+ <CAMpsgwYhehtHNzF6z8y8MS_KwsrJ=t6vviPv6AKHiFQ5HmKCMQ@mail.gmail.com>
+Message-ID: <CAAuNNr5OnDrW_kKJS4=Tp8sQfKhaSpZ_Fc9UEdTLc+wnnx56Zw@mail.gmail.com>
+
+2016-11-18 18:16 GMT+02:00 Victor Stinner <victor.stinner at gmail.com>:
+> Berker, Serhiy: Do you prefer that I mentor Xiang first during one
+> month, then give him the commit bit, but continue to mentor him? Or
+> are you ok to give him the commit bit right now, and as I wrote,
+> request him to ask me before pushing anything?
+
+I'm for giving him the commit bit right now.
+
+From berker.peksag at gmail.com  Fri Nov 18 22:07:37 2016
+From: berker.peksag at gmail.com (=?UTF-8?Q?Berker_Peksa=C4=9F?=)
+Date: Sat, 19 Nov 2016 06:07:37 +0300
+Subject: [python-committers] Promote Xiang Zhang as a core developer
+In-Reply-To: <CAMpsgwbn3AUUCRj9BFHc7suQV=s=k4Jz_qpitW2ADq5Lp7P6=w@mail.gmail.com>
+References: <CAMpsgwZNMe1w-37LnG0GPvT-wM01wAAVuZeFivHPgJ8tFW=LSw@mail.gmail.com>
+ <CAF4280JKLxChWK-A5CnixJ8t2QD7ErYYJ57+RgNXyM4zuE+M_Q@mail.gmail.com>
+ <CAMpsgwbn3AUUCRj9BFHc7suQV=s=k4Jz_qpitW2ADq5Lp7P6=w@mail.gmail.com>
+Message-ID: <CAF4280Kuf2YaSO04_HNvhEikWHUW1CwqQ7tkfVriLoBis5LrXg@mail.gmail.com>
+
+On Tue, Nov 15, 2016 at 11:17 AM, Victor Stinner
+<victor.stinner at gmail.com> wrote:
+> Hi,
+>
+> 2016-11-15 1:10 GMT+01:00 Berker Peksa? <berker.peksag at gmail.com>:
+>> Xiang tends to fix things that are not broken,
+>
+> This sentence sounds strange. What do you mean? :-)
+>
+>> (...)  and when you point out that the thing they are
+>> trying to fix is not broken, they try to start an endless discussion.
+>> I also saw a couple of instances where they refused to address code
+>> review comments from experienced core developers (which is a red flag
+>> for me)
+>
+> I guess that "they" means "he", so Xiang, right?
+
+Correct, sorry for being unclear.
+https://en.wikipedia.org/wiki/Singular_they can probably do a better
+job on explaining my usage of it :)
+
+> Do you have some examples of such discussions? I'm not aware of such issue.
+
+* http://bugs.python.org/review/27861/ (you can start reading from my
+first comment)
+* http://bugs.python.org/issue27740
+* http://bugs.python.org/issue27414
+
+There are more examples where Xiang refused to address reviews
+comments by saying "do what you want", but I don't really have time to
+dig bugs.p.o mails now (one of them was in response to Serhiy's
+comments) Committing a patch takes a lot of time and I think
+respecting a core developer's time is a good trait to look for (of
+course I'm not saying that all review comments are correct and should
+be addressed without any discussion)
+
+I agree that we should look for people who wrote high quality patches,
+but I think we also should look for people who help other members of
+the community by doing *boring* tasks (e.g. review patches submitted
+by other contributors, triage old issues on the tracker, update an
+outdated patch by addressing review comments)
+
+--Berker
+
+From ncoghlan at gmail.com  Fri Nov 18 22:33:15 2016
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Sat, 19 Nov 2016 13:33:15 +1000
+Subject: [python-committers] Promote Xiang Zhang as a core developer
+In-Reply-To: <CAF4280Kuf2YaSO04_HNvhEikWHUW1CwqQ7tkfVriLoBis5LrXg@mail.gmail.com>
+References: <CAMpsgwZNMe1w-37LnG0GPvT-wM01wAAVuZeFivHPgJ8tFW=LSw@mail.gmail.com>
+ <CAF4280JKLxChWK-A5CnixJ8t2QD7ErYYJ57+RgNXyM4zuE+M_Q@mail.gmail.com>
+ <CAMpsgwbn3AUUCRj9BFHc7suQV=s=k4Jz_qpitW2ADq5Lp7P6=w@mail.gmail.com>
+ <CAF4280Kuf2YaSO04_HNvhEikWHUW1CwqQ7tkfVriLoBis5LrXg@mail.gmail.com>
+Message-ID: <CADiSq7dzRKJYYn_w4z0_MNJotT1RvyFaDqE7tDxfERfUWdCrzQ@mail.gmail.com>
+
+On 19 November 2016 at 13:07, Berker Peksa? <berker.peksag at gmail.com> wrote:
+> I agree that we should look for people who wrote high quality patches,
+> but I think we also should look for people who help other members of
+> the community by doing *boring* tasks (e.g. review patches submitted
+> by other contributors, triage old issues on the tracker, update an
+> outdated patch by addressing review comments)
+
+While I agree with this, I don't think it's an either/or situation - I
+know when I've recommended folks for commit rights in the past, it's
+been because the situation changed from "discussing their patches with
+me before I commit them is leading to important changes prior to
+merging" to "I'm mostly just rubberstamping their patches, and I trust
+them to ask me or another core dev for our perspective when they're
+unsure, and to take it with good grace if someone asks for a change
+they made to be reverted for further discussion". One of the luxuries
+of version control is that only released changes are hard to undo :)
+
+One specific technique that has worked well in some cases is to
+explicitly scope a new committer's responsibilities (i.e. the "to work
+on X, Y, Z" comments in the developer log), rather than saying "feel
+free to approve changes anywhere in the code base". Branching out from
+that initial base (if they choose to do so) can then happen over time
+as they gain familiarity and confidence in more areas.
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+
+From nad at python.org  Mon Nov 21 05:35:42 2016
+From: nad at python.org (Ned Deily)
+Date: Mon, 21 Nov 2016 05:35:42 -0500
+Subject: [python-committers] IMPORTANT: 3.6.0b4 snapshot today,
+ workflow changes for the final weeks of 3.6.0
+Message-ID: <541563DC-61B5-4DE8-91DA-11DC68B667B8@python.org>
+
+The final beta snapshot planned for the 3.6 release cycle is scheduled to be tagged today within the next 12 hours.  We then begin the Release Candidate stage, the final days leading up to 3.6.0, with the release candidate scheduled to be tagged in about 2 weeks.  As I have noted previously, with the tagging today and release of beta 4, *all* non-critical bug fixes for 3.6.0 should now have been checked in.  From the b4 tag on, *only* release critical and doc fixes should be pushed for the release candidate.  A reminder from the Developer's Guide regarding the Release Candidate stage of the release cycle:
+
+"A branch preparing for an RC release can only have bugfixes applied that have been reviewed by other core developers. Generally, these issues must be severe enough (e.g. crashes) that they deserve fixing before the final release. All other issues should be deferred to the next development cycle, since stability is the strongest concern at this point.  You cannot skip the peer review during an RC, no matter how small! Even if it is a simple copy-and-paste change, everything requires peer review from a core developer."
+
+A goal for this release has been to have no changes between the release candidate and the final release other than the tag itself.  Remember that every time we make a change at this point, it puts a burden on and adds risk to our testing efforts and, more importantly, the efforts of our third-party package developers, downstream distributors, and end users helping us ensure that 3.6.0 will be a high-quality release.  I think everyone has been doing a great job so far in exercising good judgement about what is appropriate at each stage of our release cycle.  Thank you!  Now, after b4, unless a code change addresses a truly release critical issue, please target bug fixes for 3.6.1 and, of course, continue to target new features for 3.7.
+
+This raises the issue of what process to follow for changes to the 3.6 branch following the b4 tag and up to the final 3.6.0 release.  During the last feature release cycle (3.5.0), we tried something a little bit different: having a 3.5 branch open during the beta phase and then using a special Bitbucket repo with pull requests for changes in the release candidate phase.  This was intended to ease the burden on us release managers trying to cherry pick a set of fixes into the RC and/or final releases while allowing the 3.5 branch to remain open to everyone for 3.5.1 changes.  My sense is that, while we all appreciated keeping the branch open for bug fixes, many of us were new to the Bitbucket PR process and found it more confusing than expected.  So for 3.6.0, I am trying to avoid going down that route.  But I do need your help.  First, throughout the release cycle I have tried to set expectations that the release candidate will be exactly what it says, a candidate for final release, and thus there should be at most a *very* small number of release critical fixes and final doc updates going in after b4 and with the goal of no changes after rc1.  Second, by keeping the rc phase changes to a minimum, I have also tried to keep the release candidate phase shorter so that we all can move on to focus on the next feature release and on  maintenance releases for 3.6 (schedules for both will be proposed soon).  Also, 3.6.0 is the last feature release cycle using our current development workflow.  Sometime after the 3.6.0 release, we will be phasing in our revised development workflow (thanks to Brett and crew!) and with it will come the opportunity for greater flexibility throughout the release cycle, with new tools like pull requests workflows and continuous integration testing.  So I don't think it makes sense to spend a lot of time tweaking our current process just for the final weeks of one release.
+
+Therefore, what I am planning to do and asking you to do is:
+
+1. Sometime after 1800 UTC today when we are ready to start the 3.6.0b4 tagging and release manufacturing process, I will send an email announcement.
+
+2. Following that b4 tag notification and until rc1 is tagged on 2016-12-05 (in about two weeks), the 3.6 branch will *temporarily* be open only for fixes appropriate for 3.6.0, e.g. reviewed release critical items and final doc changes.  Don't forget to mark such items as "release blocker" in the bug tracker.
+
+3. Hold off pushing changes that are not 3.6.0 release critical until after rc1 is tagged.  You can continue to push bug fixes as appropriate to other open branches if you are willing to back port them to the 3.6 branch, as necessary, after rc1 is tagged.  Or, if you prefer to follow the normal development flow, take a bugfix holiday for the next two weeks and just hold off pushing any changes that affect 3.6.1 until after rc1 is tagged.  With those (hopefully) small inconveniences to you, we won't have to go through a special Bitbucket PR process and it will ensure that our 3.6 buildbots continue to test what's going into 3.6.0.
+
+4. Once rc1 is tagged, the 3.6 branch will again be open for the usual maintenance-release-appropriate changes destined for 3.6.1.  Any emergency fixes that might arise after rc1 and prior to 3.6.0 will be approved and merged from the 3.6 branch into the 3.6.0 release by me.  I'm really hoping we won't have to do that!
+
+I hope that you find the process for the few remaining weeks leading up to the 3.6.0 release to not be too burdensome.  Please contact me if you have any questions about the 3.6.0 schedule or about whether a change is appropriate at this point in the 3.6.0 cycle.
+
+To recap, the remaining milestones for 3.6.0:
+
+2016-11-21, ~1800 UTC: 3.6.0 beta 4 (important bug fixes and doc fixes)
+
+2016-11-21 to 2016-12-05: 3.6 branch open *only* for 3.6.0 release critical and doc fixes
+
+2016-12-05 (2 weeks from now) 3.6.0 release candidate 1 (3.6.0 code freeze, release critical bug fixes, doc fixes; 3.6 branch reopens for 3.6.1)
+
+2016-12-16 3.6.0 release (3.6.0rc1 plus any necessary emergency fixes)
+
+Thank you all again for your efforts so far on 3.6.  Beethoven and I are looking forward to celebrating 3.6.0 on 12-16!
+
+--Ned
+
+http://cpython-devguide.readthedocs.io/en/latest/devcycle.html#release-candidate-rc
+
+https://www.python.org/dev/peps/pep-0494/
+
+--
+Ned Deily
+nad at python.org -- []
+
+
+From brett at python.org  Mon Nov 21 15:53:14 2016
+From: brett at python.org (Brett Cannon)
+Date: Mon, 21 Nov 2016 20:53:14 +0000
+Subject: [python-committers] Promote Xiang Zhang as a core developer
+In-Reply-To: <CAMpsgwZNMe1w-37LnG0GPvT-wM01wAAVuZeFivHPgJ8tFW=LSw@mail.gmail.com>
+References: <CAMpsgwZNMe1w-37LnG0GPvT-wM01wAAVuZeFivHPgJ8tFW=LSw@mail.gmail.com>
+Message-ID: <CAP1=2W4XDVHNwYRfQcHSM0bieq9rNqhZ_=fPk37==g+8v+jjFQ@mail.gmail.com>
+
+We received an email from Xiang with his SSH keys and GitHub username
+(although no subscription request for python-committers). Was he finally
+approved for receiving commit privileges?
+
+On Mon, 14 Nov 2016 at 04:10 Victor Stinner <victor.stinner at gmail.com>
+wrote:
+
+> Hi,
+>
+> Last months, I noticed that Xiang Zhang is very active on the bug
+> tracker and propose many enhancements and bug fixes. He contributes to
+> Python code, but also to the C code (a rare skill nowadays). Slowly,
+> he understood how to produce "good" patches, the CPython workflow,
+> etc. I think that his contributions are now good enough to give him
+> the commit bit.
+>
+> As I did previously (for Xavier), I also propose to be his mentor the
+> first month: request him to ask me before pushing anything, help him
+> with Mercurial, branches, etc. So I can help to avoid simple mistakes
+> and to not break the buildbot too often :-)
+>
+> Maybe Serhiy Storchaka and/or Yury Selivanov may want to co-mentor
+> Xiang? Serhiy reviewed many of Xiang's patches recently.
+>
+> Victor
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20161121/b7039fdf/attachment.html>
+
+From victor.stinner at gmail.com  Mon Nov 21 17:13:32 2016
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Mon, 21 Nov 2016 23:13:32 +0100
+Subject: [python-committers] Promote Xiang Zhang as a core developer
+In-Reply-To: <CAP1=2W4XDVHNwYRfQcHSM0bieq9rNqhZ_=fPk37==g+8v+jjFQ@mail.gmail.com>
+References: <CAMpsgwZNMe1w-37LnG0GPvT-wM01wAAVuZeFivHPgJ8tFW=LSw@mail.gmail.com>
+ <CAP1=2W4XDVHNwYRfQcHSM0bieq9rNqhZ_=fPk37==g+8v+jjFQ@mail.gmail.com>
+Message-ID: <CAMpsgwYxqJx=ou_beJ2MsTP90Dti2hY_JhFooECrmpj3FSX3Aw@mail.gmail.com>
+
+Hi,
+
+2016-11-21 21:53 GMT+01:00 Brett Cannon <brett at python.org>:
+> We received an email from Xiang with his SSH keys and GitHub username
+> (although no subscription request for python-committers). Was he finally
+> approved for receiving commit privileges?
+
+(Oh, I forgot to send an email to python-committers.)
+
+Berker Peksa? reported issues on reviews. I proposed to handle these
+issues with mentoring. I asked Xiang to ask me before pushing anything
+during one month. After this period, we can discuss again to continue
+mentoring with the same rule, or maybe change rules or even stop
+mentoring. In short, I commit my responsibility with taking Xiang
+onboard :-)
+
+I counted five positive votes (including myself):
+
+* INADA Naoki
+* Nick Coghlan
+* Senthil Kumaran
+* Serhiy Storchaka
+* Victor Stinner
+
+So, yes, I suggest to take him onboard :-)
+
+Victor
+
+From greg at krypto.org  Mon Nov 21 17:38:24 2016
+From: greg at krypto.org (Gregory P. Smith)
+Date: Mon, 21 Nov 2016 22:38:24 +0000
+Subject: [python-committers] Promote Xiang Zhang as a core developer
+In-Reply-To: <CAMpsgwYxqJx=ou_beJ2MsTP90Dti2hY_JhFooECrmpj3FSX3Aw@mail.gmail.com>
+References: <CAMpsgwZNMe1w-37LnG0GPvT-wM01wAAVuZeFivHPgJ8tFW=LSw@mail.gmail.com>
+ <CAP1=2W4XDVHNwYRfQcHSM0bieq9rNqhZ_=fPk37==g+8v+jjFQ@mail.gmail.com>
+ <CAMpsgwYxqJx=ou_beJ2MsTP90Dti2hY_JhFooECrmpj3FSX3Aw@mail.gmail.com>
+Message-ID: <CAGE7PN+oZiV6VHBt5HrqNQ=yeqLJtH-yJN8KcT9wRADQP1z6_A@mail.gmail.com>
+
++1 thanks for mentoring.
+
+On Mon, Nov 21, 2016, 2:14 PM Victor Stinner <victor.stinner at gmail.com>
+wrote:
+
+> Hi,
+>
+> 2016-11-21 21:53 GMT+01:00 Brett Cannon <brett at python.org>:
+> > We received an email from Xiang with his SSH keys and GitHub username
+> > (although no subscription request for python-committers). Was he finally
+> > approved for receiving commit privileges?
+>
+> (Oh, I forgot to send an email to python-committers.)
+>
+> Berker Peksa? reported issues on reviews. I proposed to handle these
+> issues with mentoring. I asked Xiang to ask me before pushing anything
+> during one month. After this period, we can discuss again to continue
+> mentoring with the same rule, or maybe change rules or even stop
+> mentoring. In short, I commit my responsibility with taking Xiang
+> onboard :-)
+>
+> I counted five positive votes (including myself):
+>
+> * INADA Naoki
+> * Nick Coghlan
+> * Senthil Kumaran
+> * Serhiy Storchaka
+> * Victor Stinner
+>
+> So, yes, I suggest to take him onboard :-)
+>
+> Victor
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20161121/31e36961/attachment.html>
+
+From nad at python.org  Mon Nov 21 23:06:24 2016
+From: nad at python.org (Ned Deily)
+Date: Mon, 21 Nov 2016 23:06:24 -0500
+Subject: [python-committers] IMPORTANT: 3.6 branch in Release Candidate
+ stage, check-ins restricted!
+In-Reply-To: <541563DC-61B5-4DE8-91DA-11DC68B667B8@python.org>
+References: <541563DC-61B5-4DE8-91DA-11DC68B667B8@python.org>
+Message-ID: <EB41601A-BBF2-4018-B20F-84AF4F20BE46@python.org>
+
+The tagging and manufacturing of 3.6.0 beta 4 is now underway and we are entering the Release Candidate stage.  From now until further notice, you should only push changes to 3.6 that meet the 3.6.0 release critical or final doc changes criteria described below.  All code changes pushed to 3.6 during this release candidate stage must be reviewed.  The restriction to only release-critical fixes will be lifted after the tagging of 3.6.0rc1 which is expected in about 2 weeks.  As usual, the actual v3.6.0b4 tag and other release-related updates will be pushed to the cpython repo once the release build process has been completed and tested.  This will be signaled by the 3.6.0b4 release availability email.
+
+By the way: I have just noticed that I made an error in the cleanup steps following the previous beta, 3.6.0b3.  The patch level for post-b3 development builds was mistakenly set to 3.6.0b4+ instead of 3.6.0b3+.  (The release tarballs and installers are not affected.)  So don't be surprised when the patch level for post-b4 development builds remains 3.6.0b4+.  As far as I can anticipate that should not cause any problems.  My apologies!
+
+--Ned
+
+On Nov 21, 2016, at 05:35, Ned Deily <nad at python.org> wrote:
+> The final beta snapshot planned for the 3.6 release cycle is scheduled to be tagged today within the next 12 hours.  We then begin the Release Candidate stage, the final days leading up to 3.6.0, with the release candidate scheduled to be tagged in about 2 weeks.  As I have noted previously, with the tagging today and release of beta 4, *all* non-critical bug fixes for 3.6.0 should now have been checked in.  From the b4 tag on, *only* release critical and doc fixes should be pushed for the release candidate.  A reminder from the Developer's Guide regarding the Release Candidate stage of the release cycle:
+> 
+> "A branch preparing for an RC release can only have bugfixes applied that have been reviewed by other core developers. Generally, these issues must be severe enough (e.g. crashes) that they deserve fixing before the final release. All other issues should be deferred to the next development cycle, since stability is the strongest concern at this point.  You cannot skip the peer review during an RC, no matter how small! Even if it is a simple copy-and-paste change, everything requires peer review from a core developer."
+> 
+> A goal for this release has been to have no changes between the release candidate and the final release other than the tag itself.  Remember that every time we make a change at this point, it puts a burden on and adds risk to our testing efforts and, more importantly, the efforts of our third-party package developers, downstream distributors, and end users helping us ensure that 3.6.0 will be a high-quality release.  I think everyone has been doing a great job so far in exercising good judgement about what is appropriate at each stage of our release cycle.  Thank you!  Now, after b4, unless a code change addresses a truly release critical issue, please target bug fixes for 3.6.1 and, of course, continue to target new features for 3.7.
+> 
+> This raises the issue of what process to follow for changes to the 3.6 branch following the b4 tag and up to the final 3.6.0 release.  During the last feature release cycle (3.5.0), we tried something a little bit different: having a 3.5 branch open during the beta phase and then using a special Bitbucket repo with pull requests for changes in the release candidate phase.  This was intended to ease the burden on us release managers trying to cherry pick a set of fixes into the RC and/or final releases while allowing the 3.5 branch to remain open to everyone for 3.5.1 changes.  My sense is that, while we all appreciated keeping the branch open for bug fixes, many of us were new to the Bitbucket PR process and found it more confusing than expected.  So for 3.6.0, I am trying to avoid going down that route.  But I do need your help.  First, throughout the release cycle I have tried to set expectations that the release candidate will be exactly what it says, a candidate for final release, and thus there should be at most a *very* small number of release critical fixes and final doc updates going in after b4 and with the goal of no changes after rc1.  Second, by keeping the rc phase changes to a minimum, I have also tried to keep the release candidate phase shorter so that we all can move on to focus on the next feature release and on  maintenance releases for 3.6 (schedules for both will be proposed soon).  Also, 3.6.0 is the last feature release cycle using our current development workflow.  Sometime after the 3.6.0 release, we will be phasing in our revised development workflow (thanks to Brett and crew!) and with it will come the opportunity for greater flexibility throughout the release cycle, with new tools like pull requests workflows and continuous integration testing.  So I don't think it makes sense to spend a lot of time tweaking our current process just for the final weeks of one release.
+> 
+> Therefore, what I am planning to do and asking you to do is:
+> 
+> 1. Sometime after 1800 UTC today when we are ready to start the 3.6.0b4 tagging and release manufacturing process, I will send an email announcement.
+> 
+> 2. Following that b4 tag notification and until rc1 is tagged on 2016-12-05 (in about two weeks), the 3.6 branch will *temporarily* be open only for fixes appropriate for 3.6.0, e.g. reviewed release critical items and final doc changes.  Don't forget to mark such items as "release blocker" in the bug tracker.
+> 
+> 3. Hold off pushing changes that are not 3.6.0 release critical until after rc1 is tagged.  You can continue to push bug fixes as appropriate to other open branches if you are willing to back port them to the 3.6 branch, as necessary, after rc1 is tagged.  Or, if you prefer to follow the normal development flow, take a bugfix holiday for the next two weeks and just hold off pushing any changes that affect 3.6.1 until after rc1 is tagged.  With those (hopefully) small inconveniences to you, we won't have to go through a special Bitbucket PR process and it will ensure that our 3.6 buildbots continue to test what's going into 3.6.0.
+> 
+> 4. Once rc1 is tagged, the 3.6 branch will again be open for the usual maintenance-release-appropriate changes destined for 3.6.1.  Any emergency fixes that might arise after rc1 and prior to 3.6.0 will be approved and merged from the 3.6 branch into the 3.6.0 release by me.  I'm really hoping we won't have to do that!
+> 
+> I hope that you find the process for the few remaining weeks leading up to the 3.6.0 release to not be too burdensome.  Please contact me if you have any questions about the 3.6.0 schedule or about whether a change is appropriate at this point in the 3.6.0 cycle.
+> 
+> To recap, the remaining milestones for 3.6.0:
+> 
+> 2016-11-21, ~1800 UTC: 3.6.0 beta 4 (important bug fixes and doc fixes)
+> 
+> 2016-11-21 to 2016-12-05: 3.6 branch open *only* for 3.6.0 release critical and doc fixes
+> 
+> 2016-12-05 (2 weeks from now) 3.6.0 release candidate 1 (3.6.0 code freeze, release critical bug fixes, doc fixes; 3.6 branch reopens for 3.6.1)
+> 
+> 2016-12-16 3.6.0 release (3.6.0rc1 plus any necessary emergency fixes)
+> 
+> Thank you all again for your efforts so far on 3.6.  Beethoven and I are looking forward to celebrating 3.6.0 on 12-16!
+> 
+> --Ned
+> 
+> http://cpython-devguide.readthedocs.io/en/latest/devcycle.html#release-candidate-rc
+> 
+> https://www.python.org/dev/peps/pep-0494/
+
+--
+  Ned Deily
+  nad at python.org -- []
+
+
+From nad at python.org  Tue Nov 22 02:02:51 2016
+From: nad at python.org (Ned Deily)
+Date: Tue, 22 Nov 2016 02:02:51 -0500
+Subject: [python-committers] [RELEASE] Python 3.6.0b4 is now available
+Message-ID: <FA2D757B-85AE-4208-ADD2-41AF790C6032@python.org>
+
+On behalf of the Python development community and the Python 3.6 release
+team, I'm pleased to announce the availability of Python 3.6.0b4. 3.6.0b4
+is the last planned beta release of Python 3.6, the next major release of
+Python.
+
+Among the new major new features in Python 3.6 are:
+
+* PEP 468 - Preserving the order of **kwargs in a function
+* PEP 487 - Simpler customization of class creation
+* PEP 495 - Local Time Disambiguation
+* PEP 498 - Literal String Formatting
+* PEP 506 - Adding A Secrets Module To The Standard Library
+* PEP 509 - Add a private version to dict
+* PEP 515 - Underscores in Numeric Literals
+* PEP 519 - Adding a file system path protocol
+* PEP 520 - Preserving Class Attribute Definition Order
+* PEP 523 - Adding a frame evaluation API to CPython
+* PEP 524 - Make os.urandom() blocking on Linux (during system startup)
+* PEP 525 - Asynchronous Generators (provisional)
+* PEP 526 - Syntax for Variable Annotations (provisional)
+* PEP 528 - Change Windows console encoding to UTF-8
+* PEP 529 - Change Windows filesystem encoding to UTF-8
+* PEP 530 - Asynchronous Comprehensions
+
+Please see "What?s New In Python 3.6" for more information:
+
+https://docs.python.org/3.6/whatsnew/3.6.html
+
+You can find Python 3.6.0b4 here:
+
+https://www.python.org/downloads/release/python-360b4/
+
+Beta releases are intended to give the wider community the opportunity
+to test new features and bug fixes and to prepare their projects to
+support the new feature release. We strongly encourage maintainers of
+third-party Python projects to test with 3.6 during the beta phase and
+report issues found to bugs.python.org as soon as possible. While the
+release is feature complete entering the beta phase, it is possible that
+features may be modified or, in rare cases, deleted up until the start
+of the release candidate phase (2016-12-05). Our goal is have no changes
+after rc1. To achieve that, it will be extremely important to get as
+much exposure for 3.6 as possible during the beta phase. Please keep in
+mind that this is a preview release and its use is not recommended for
+production environments
+
+The next pre-release of Python 3.6 will be 3.6.0rc1, the release candidate,
+currently scheduled for 2016-12-05. The official release of Python 3.6.0
+is currently scheduled for 2016-12-16.  More information about the release
+schedule can be found here:
+
+https://www.python.org/dev/peps/pep-0494/
+
+--
+  Ned Deily
+  nad at python.org -- []
+
+
+From nad at python.org  Tue Nov 22 02:24:37 2016
+From: nad at python.org (Ned Deily)
+Date: Tue, 22 Nov 2016 02:24:37 -0500
+Subject: [python-committers] 3.6 branch now open only for 3.6.0 release
+ critical fixes and doc updates!
+In-Reply-To: <FA2D757B-85AE-4208-ADD2-41AF790C6032@python.org>
+References: <FA2D757B-85AE-4208-ADD2-41AF790C6032@python.org>
+Message-ID: <9BB9B066-3FE6-4546-9ED9-770DBA691513@python.org>
+
+On Nov 22, 2016, at 02:02, Ned Deily <nad at python.org> wrote:
+> On behalf of the Python development community and the Python 3.6 release
+> team, I'm pleased to announce the availability of Python 3.6.0b4. 3.6.0b4
+> is the last planned beta release of Python 3.6, the next major release of
+> Python. [...]
+
+OK, all of the release engineering for 3.6.0b4 is complete.  The 3.6 branch in the cpython repo is now available again but, as noted, *only* for reviewed release critical fixes appropriate for the 3.6.0 final and for final 3.6.0 doc updates!
+
+Again, until 3.6.0rc1 is tagged, scheduled to happen in two weeks on 2016-12-05, please do *not* push non release-critical code of any kind to the 3.6 branch; after rc1 is tagged, the 3.6 branch will be open for 3.6.1 changes.  Please use these two weeks to thoroughly review and, as necessary, update the What's New In Python 3.6 document (thanks, Elvis and Yuri, for editing it once again!) and all other release documentation.
+
+Any additional testing you can do and/or encourage others to do of the new and old components of 3.6 and with with third-party packages will be appreciated.  Please document anything you think *might* be a release critical problem in the bug tracker marking them as "release blocker".  Assuming no unresolved release critical problems arise, the final two steps will be the release candidate in 2 weeks and then, again assuming no release critical problems are identified in it, the final release on 12-16.
+
+Please contact me if you have any questions about what may or may not be appropriate to push during these final days before the release.
+
+So close!
+
+--Ned
+
+--
+  Ned Deily
+  nad at python.org -- []
+
+
+From victor.stinner at gmail.com  Tue Nov 22 09:21:43 2016
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Tue, 22 Nov 2016 15:21:43 +0100
+Subject: [python-committers] New core developer: Xiang Zhang
+Message-ID: <CAMpsgwaVyLPAS+vwZVBCBJfFK5s5-sezCfGAWqn_qKOVMcfchw@mail.gmail.com>
+
+Hi,
+
+We have a new core developer today, Xiang Zhang! He comes from China
+and is already very active in various area of the CPython soure code.
+He just got his commit bit.
+
+* commit bit: Brett added Xiang's key. Xiang already pushed a test
+commit, https://hg.python.org/test/rev/530f0afa8072
+
+* python-committers: he subscribed to python-committers. Can someone
+check if you got it (and approve it)? His email adddress is
+angwerzx at 126.com
+
+* devguide: I just added him,
+https://github.com/python/devguide/commit/15eca42e59e132094f34dad58f778bb48adde4f7
+
+I will mentor Xiang for one month. I asked him to send me an email
+before pushing anything. After the first month, we will if it's worth
+it to continue mentoring or not.
+
+Welcome aboard Xiang!
+
+Victor
+
+From victor.stinner at gmail.com  Tue Nov 22 09:57:26 2016
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Tue, 22 Nov 2016 15:57:26 +0100
+Subject: [python-committers] 3.6 branch now open only for 3.6.0 release
+ critical fixes and doc updates!
+In-Reply-To: <9BB9B066-3FE6-4546-9ED9-770DBA691513@python.org>
+References: <FA2D757B-85AE-4208-ADD2-41AF790C6032@python.org>
+ <9BB9B066-3FE6-4546-9ED9-770DBA691513@python.org>
+Message-ID: <CAMpsgwbKPyudKYReMskNXQC4GMyP1dN8YwkdGoMCT69qE-ZubA@mail.gmail.com>
+
+Hi,
+
+2016-11-22 8:24 GMT+01:00 Ned Deily <nad at python.org>:
+> OK, all of the release engineering for 3.6.0b4 is complete.  The 3.6 branch in the cpython repo is now available again but, as noted, *only* for reviewed release critical fixes appropriate for the 3.6.0 final and for final 3.6.0 doc updates!
+
+Sorry, I pushed changes before reading your email(s). I expected that
+release critical changes would have to be pushed to a different
+repository using cherry-pick or something else.
+
+To be clear: Python 3.5 will be frozen as well? Pushing to 3.5
+requires to merge into 3.6 (and then merge into default).
+
+
+Four changes have been pushed after the tag:
+
+(*) https://hg.python.org/cpython/rev/4f6fb9e47f6b
+Issue #28023: Fix python-gdb.py didn't support new dict implementation [#28023]
+
+I reviewed Naoki's patch and it LGTM. python-gdb.py was simply 100%
+broken without this fix, and I consider that this tool is important
+for Python (but I didn't understood correctly the RC rules, sorry)! By
+the way, I also broke python-gdb.py with fast calls! I started to work
+on a fix, http://bugs.python.org/issue28770
+
+
+(*) https://hg.python.org/cpython/rev/9b974f988c95
+Issue #28023: Fix python-gdb.py on old GDB versions
+
+... My fix for the previous commit. Sadly, it's hard to test on all
+GDB versions, but buildbots are here for that :-)
+
+
+
+(*) https://hg.python.org/cpython/rev/6b43d15fd2d7
+Issue #28727: Fix typo in pattern_richcompare()
+
+Obvious bugfix spotted by Serhiy.
+
+
+(*) https://hg.python.org/cpython/rev/c2cb70c97163
+Issue #28727: Optimize pattern_richcompare() for a==a
+
+This one is a minor optimization suggested by Serhiy.
+
+
+Should I revert these changes? Or can someone please review them one more time?
+
+Victor
+
+From eric at trueblade.com  Tue Nov 22 10:01:52 2016
+From: eric at trueblade.com (Eric V. Smith)
+Date: Tue, 22 Nov 2016 10:01:52 -0500
+Subject: [python-committers] New core developer: Xiang Zhang
+In-Reply-To: <CAMpsgwaVyLPAS+vwZVBCBJfFK5s5-sezCfGAWqn_qKOVMcfchw@mail.gmail.com>
+References: <CAMpsgwaVyLPAS+vwZVBCBJfFK5s5-sezCfGAWqn_qKOVMcfchw@mail.gmail.com>
+Message-ID: <a5b66ce6-c2bf-28c5-c614-68f8313ce0ca@trueblade.com>
+
+On 11/22/16 9:21 AM, Victor Stinner wrote:
+> * python-committers: he subscribed to python-committers. Can someone
+> check if you got it (and approve it)? His email adddress is
+> angwerzx at 126.com
+
+I didn't see a request, so I just subscribed him.
+
+> Welcome aboard Xiang!
+
+Yes, welcome!
+
+Eric.
+
+
+From rdmurray at bitdance.com  Tue Nov 22 10:20:27 2016
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Tue, 22 Nov 2016 10:20:27 -0500
+Subject: [python-committers] 3.6 branch now open only for 3.6.0 release
+ critical fixes and doc updates!
+In-Reply-To: <9BB9B066-3FE6-4546-9ED9-770DBA691513@python.org>
+References: <FA2D757B-85AE-4208-ADD2-41AF790C6032@python.org>
+ <9BB9B066-3FE6-4546-9ED9-770DBA691513@python.org>
+Message-ID: <20161122152027.933D11310017@webabinitio.net>
+
+On Tue, 22 Nov 2016 02:24:37 -0500, Ned Deily <nad at python.org> wrote:
+> On Nov 22, 2016, at 02:02, Ned Deily <nad at python.org> wrote:
+> > On behalf of the Python development community and the Python 3.6 release
+> > team, I'm pleased to announce the availability of Python 3.6.0b4. 3.6.0b4
+> > is the last planned beta release of Python 3.6, the next major release of
+> > Python. [...]
+> 
+> OK, all of the release engineering for 3.6.0b4 is complete.  The 3.6
+> branch in the cpython repo is now available again but, as noted,
+> *only* for reviewed release critical fixes appropriate for the 3.6.0
+> final and for final 3.6.0 doc updates!
+> 
+> Again, until 3.6.0rc1 is tagged, scheduled to happen in two weeks on
+> 2016-12-05, please do *not* push non release-critical code of any kind
+> to the 3.6 branch; after rc1 is tagged, the 3.6 branch will be open
+> for 3.6.1 changes.  Please use these two weeks to thoroughly review
+> and, as necessary, update the What's New In Python 3.6 document
+> (thanks, Elvis and Yuri, for editing it once again!) and all other
+> release documentation.
+> 
+> Any additional testing you can do and/or encourage others to do of the
+> new and old components of 3.6 and with with third-party packages will
+> be appreciated.  Please document anything you think *might* be a
+> release critical problem in the bug tracker marking them as "release
+> blocker".  Assuming no unresolved release critical problems arise, the
+> final two steps will be the release candidate in 2 weeks and then,
+> again assuming no release critical problems are identified in it, the
+> final release on 12-16.
+> 
+> Please contact me if you have any questions about what may or may not
+> be appropriate to push during these final days before the release.
+
+
+I'm sorry, but I find this confusing. It wasn't what I understood
+your previous email to mean, which means I didn't read it carefully
+enough and saw it through a filter of my preconceptions.
+
+Essentially, you are making B4 act like RC1 except that you are expecting
+there to be fixes, and making RC1 act like RC2 with hopes that it really
+is final.  That's fine, but we really ought to have named them RC1 and
+RC2 in that case.
+
+I'm not suggesting you change your plan now, except that you should *not*
+open the 3.6 branch for commits until after *final* is released, in case
+another RC is required.  Unless you plan to branch and cherry pick for an
+"RC2" if it is needed, which would be fine, but you should say that :)
+
+If we in fact miss something in this really-an-RC phase (RC0?) that
+is revealed by the testing of RC1, then I strongly recommend against
+making changes to RC1 and then releasing the result as final without
+external testing.  We've had a brown bag release in the past by doing
+that, for what we thought were "safe" fixes.  Any "extra" RC period can
+be really short, though.
+
+--David
+
+From p.f.moore at gmail.com  Tue Nov 22 10:24:09 2016
+From: p.f.moore at gmail.com (Paul Moore)
+Date: Tue, 22 Nov 2016 15:24:09 +0000
+Subject: [python-committers] New core developer: Xiang Zhang
+In-Reply-To: <a5b66ce6-c2bf-28c5-c614-68f8313ce0ca@trueblade.com>
+References: <CAMpsgwaVyLPAS+vwZVBCBJfFK5s5-sezCfGAWqn_qKOVMcfchw@mail.gmail.com>
+ <a5b66ce6-c2bf-28c5-c614-68f8313ce0ca@trueblade.com>
+Message-ID: <CACac1F8vSDQ0_+GFA7esd4DT59bUnKcEcHRHd6J=gPQsUVL7QQ@mail.gmail.com>
+
+On 22 November 2016 at 15:01, Eric V. Smith <eric at trueblade.com> wrote:
+> On 11/22/16 9:21 AM, Victor Stinner wrote:
+>>
+>> * python-committers: he subscribed to python-committers. Can someone
+>> check if you got it (and approve it)? His email adddress is
+>> angwerzx at 126.com
+>
+>
+> I didn't see a request, so I just subscribed him.
+>
+>> Welcome aboard Xiang!
+>
+>
+> Yes, welcome!
+
+Congratulations, Xiang, and welcome!
+
+Paul
+
+From angwerzx at 126.com  Tue Nov 22 10:45:34 2016
+From: angwerzx at 126.com (Xiang Zhang)
+Date: Tue, 22 Nov 2016 23:45:34 +0800 (CST)
+Subject: [python-committers] New core developer: Xiang Zhang
+In-Reply-To: <a5b66ce6-c2bf-28c5-c614-68f8313ce0ca@trueblade.com>
+References: <CAMpsgwaVyLPAS+vwZVBCBJfFK5s5-sezCfGAWqn_qKOVMcfchw@mail.gmail.com>
+ <a5b66ce6-c2bf-28c5-c614-68f8313ce0ca@trueblade.com>
+Message-ID: <3ef1b57a.c716.1588cb6b5ce.Coremail.angwerzx@126.com>
+
+Hi all,
+
+
+
+I am very glad and honored to join this community.
+
+Thanks everyone, especially Victor for his willingness to mentor me
+
+and Serhiy, always gives me a quick and thoughtful reply.
+
+Also apologize to those noised by me due to my poor skills and English.
+
+
+
+Best Regards
+
+Xiang Zhang
+
+
+
+
+
+
+
+
+
+At 2016-11-22 23:01:52, "Eric V. Smith" <eric at trueblade.com> wrote:
+>On 11/22/16 9:21 AM, Victor Stinner wrote:
+>> * python-committers: he subscribed to python-committers. Can someone
+>> check if you got it (and approve it)? His email adddress is
+>> angwerzx at 126.com
+>
+>I didn't see a request, so I just subscribed him.
+>
+>> Welcome aboard Xiang!
+>
+>Yes, welcome!
+>
+>Eric.
+>
+>_______________________________________________
+>python-committers mailing list
+>python-committers at python.org
+>https://mail.python.org/mailman/listinfo/python-committers
+>Code of Conduct: https://www.python.org/psf/codeofconduct/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20161122/447594a5/attachment.html>
+
+From xdegaye at gmail.com  Tue Nov 22 11:06:28 2016
+From: xdegaye at gmail.com (Xavier de Gaye)
+Date: Tue, 22 Nov 2016 17:06:28 +0100
+Subject: [python-committers] autoconf 2.70
+In-Reply-To: <CAMpsgwZyEe8dQmy10dj1QeKr82w4hXdfr3Pox+XLMo9WZo86_Q@mail.gmail.com>
+References: <c6c53b39-05b7-c4b2-2551-f5f5146e01f4@gmail.com>
+ <CAP1=2W4rCnuZj6MhVCjcv=AhSrwkh+y8iEm=HCKF_oMgzxrS2w@mail.gmail.com>
+ <09c2750f-22b5-9b00-3486-3d139d087375@gmail.com>
+ <1473661634.352642.722719041.12B70326@webmail.messagingengine.com>
+ <CAMpsgwZyEe8dQmy10dj1QeKr82w4hXdfr3Pox+XLMo9WZo86_Q@mail.gmail.com>
+Message-ID: <c1ec42e2-27b7-ebe4-7417-3b52adeb3838@gmail.com>
+
+The configure file on the default and 3.6 branches have been generated
+with autoconf 2.70 once again. This is annoying when you have to
+maintain patches to this configure file in order to build on a non
+supported platform.
+
+Xavier
+
+From nad at python.org  Tue Nov 22 12:45:39 2016
+From: nad at python.org (Ned Deily)
+Date: Tue, 22 Nov 2016 12:45:39 -0500
+Subject: [python-committers] 3.6 branch now open only for 3.6.0 release
+ critical fixes and doc updates!
+In-Reply-To: <20161122152027.933D11310017@webabinitio.net>
+References: <FA2D757B-85AE-4208-ADD2-41AF790C6032@python.org>
+ <9BB9B066-3FE6-4546-9ED9-770DBA691513@python.org>
+ <20161122152027.933D11310017@webabinitio.net>
+Message-ID: <FE05C9CC-3F0C-4746-927F-C6A8C93217E7@python.org>
+
+On Nov 22, 2016, at 10:20, R. David Murray <rdmurray at bitdance.com> wrote:
+> I'm sorry, but I find this confusing. It wasn't what I understood
+> your previous email to mean, which means I didn't read it carefully
+> enough and saw it through a filter of my preconceptions.
+
+No problem!  We are doing things a bit differently this time, for several reasons as I've mentioned in previous emails.
+
+> Essentially, you are making B4 act like RC1 except that you are expecting
+> there to be fixes, and making RC1 act like RC2 with hopes that it really
+> is final.  That's fine, but we really ought to have named them RC1 and
+> RC2 in that case.
+
+I think we just have a difference in terminology here and, yes, the terminology may differ somewhat from some previous releases.  Beta 4 is the end of the beta stage; it is *not* a candidate to be released.  There are still missing documentation changes and it contains previously unreleased and untested code.  After b4, the final doc changes and a small number (we hope) of release critical code changes will go in for rc1.  This is where we are right now.  The goal is for rc1 to be able to be released as is, with zero changes other than the version tag.  To me, that's a release candidate.
+
+> I'm not suggesting you change your plan now, except that you should *not*
+> open the 3.6 branch for commits until after *final* is released, in case
+> another RC is required.  Unless you plan to branch and cherry pick for an
+> "RC2" if it is needed, which would be fine, but you should say that :)
+> If we in fact miss something in this really-an-RC phase (RC0?) that
+> is revealed by the testing of RC1, then I strongly recommend against
+> making changes to RC1 and then releasing the result as final without
+> external testing.  We've had a brown bag release in the past by doing
+> that, for what we thought were "safe" fixes.  Any "extra" RC period can
+> be really short, though.
+
+Yes, I think we are in agreement here.  In the most recent email, I did not repeat everything from my earlier email in which I stated:
+
+"4. Once rc1 is tagged, the 3.6 branch will again be open for the usual maintenance-release-appropriate changes destined for 3.6.1.  Any emergency fixes that might arise after rc1 and prior to 3.6.0 will be approved and merged from the 3.6 branch into the 3.6.0 release by me.  I'm really hoping we won't have to do that!"
+
+I did not explicitly talk about an rc2 but it is in the PEP as an option.  The goal as I see it is for rc1 to be the same as the final release other than the version info (v3.6.0rc1 vs v3.6.0 final).  So option 0 is:
+
+0. We find no release critical problems with rc1 and we retag, rebuild, and release it as 3.6.0 final.
+
+If we do find problems with rc1, I see three additional options:
+
+1. If the problem(s) are truly trivial and we agree that the risk is truly minimal (release manager gut feel, hand wave, group consultation), we can release rc1 with the trivial fix as the final without another round of testing.
+
+2. If a very small number of problems are found with rc1 that are more than trivial but still "manageable" (another release manager gut feel call), we can produce an rc2 and another round of testing and then retag, rebuild, and release as 3.6.0 final.
+
+3. If multiple significant problems arise, we can go back to the beta stage and do additional beta releases until we think we are ready for a new release candidate.
+
+
+I am hoping for option 0, obviously.  Between the time rc1 is released and up to the scheduled final release date, we will evaluate any release critical problems that arise and choose one of the other options.  I share your concern about the risks of releasing untested code resulting in brown bag followups so option 1 would not be taken lightly.
+
+The major point I want to stress is that we are going to very carefully manage what goes into 3.6.0 from now until the end of the release.  I think we have had some strain on the release process in the past when we've allowed ourselves to put too many changes in the final stages of a release and I want to avoid doing that for 3.6.0.  I am also counting on all of you to help by following the Release Candidate stage criteria for 3.6 changes.
+
+Between now (the end of b4) and rc1, I am asking all of us to only push things to the 3.6 branch that should go into 3.6.0 rc1 and final, that is, reviewed release critical code fixes and final doc changes.  I've opted to do this rather than totally lock down the 3.6 branch and/or accumulate changes for rc1 elsewhere because:
+
+- the period is relatively short
+- we're expecting a small number of code changes going into rc1
+- so that we won't introduce further confusions with external repos et al
+- so we have the benefit of our standard buildbot testing.
+
+If you are not sure whether something is appropriate for the 3.6 branch, please ask before pushing.
+
+Once we reach rc1, by the criteria above, there will be zero to a very very small number of changes approved post-rc1 and those will be cherry-picked and managed separately and the 3.6 branch will open again for 3.6.1 changes unless, perish the thought, we need to go back and do more betas (option 3 above).
+
+I hope this all sounds reasonable and makes things clearer.  Let me know if you have any further questions.
+
+Thanks everyone!
+
+--Ned
+
+--
+  Ned Deily
+  nad at python.org -- []
+
+
+From brett at python.org  Tue Nov 22 12:59:00 2016
+From: brett at python.org (Brett Cannon)
+Date: Tue, 22 Nov 2016 17:59:00 +0000
+Subject: [python-committers] 3.6 branch now open only for 3.6.0 release
+ critical fixes and doc updates!
+In-Reply-To: <FE05C9CC-3F0C-4746-927F-C6A8C93217E7@python.org>
+References: <FA2D757B-85AE-4208-ADD2-41AF790C6032@python.org>
+ <9BB9B066-3FE6-4546-9ED9-770DBA691513@python.org>
+ <20161122152027.933D11310017@webabinitio.net>
+ <FE05C9CC-3F0C-4746-927F-C6A8C93217E7@python.org>
+Message-ID: <CAP1=2W7ZV8YGioB1eO4XZChmkEgkhgmeTe+fyPgj5FFL91Qp4A@mail.gmail.com>
+
+On Tue, 22 Nov 2016 at 09:45 Ned Deily <nad at python.org> wrote:
+
+> On Nov 22, 2016, at 10:20, R. David Murray <rdmurray at bitdance.com> wrote:
+> > I'm sorry, but I find this confusing. It wasn't what I understood
+> > your previous email to mean, which means I didn't read it carefully
+> > enough and saw it through a filter of my preconceptions.
+>
+> No problem!  We are doing things a bit differently this time, for several
+> reasons as I've mentioned in previous emails.
+>
+> > Essentially, you are making B4 act like RC1 except that you are expecting
+> > there to be fixes, and making RC1 act like RC2 with hopes that it really
+> > is final.  That's fine, but we really ought to have named them RC1 and
+> > RC2 in that case.
+>
+> I think we just have a difference in terminology here and, yes, the
+> terminology may differ somewhat from some previous releases.  Beta 4 is the
+> end of the beta stage; it is *not* a candidate to be released.  There are
+> still missing documentation changes and it contains previously unreleased
+> and untested code.  After b4, the final doc changes and a small number (we
+> hope) of release critical code changes will go in for rc1.  This is where
+> we are right now.  The goal is for rc1 to be able to be released as is,
+> with zero changes other than the version tag.  To me, that's a release
+> candidate.
+>
+
+I think for me what made everything click was realizing that we used to say
+"until rc1 is cut, treat it as the beta phase", while Ned is saying "since
+b4 is the last beta, we are now working towards the RC". I actually think
+Ned's approach is mentally more consistent as we are always working towards
+the next release which should specify the commit rules, while historically
+we have worked as if the *last* release dictated the commit rules *unless*
+it was for the final release.
+
+-Brett
+
+
+>
+> > I'm not suggesting you change your plan now, except that you should *not*
+> > open the 3.6 branch for commits until after *final* is released, in case
+> > another RC is required.  Unless you plan to branch and cherry pick for an
+> > "RC2" if it is needed, which would be fine, but you should say that :)
+> > If we in fact miss something in this really-an-RC phase (RC0?) that
+> > is revealed by the testing of RC1, then I strongly recommend against
+> > making changes to RC1 and then releasing the result as final without
+> > external testing.  We've had a brown bag release in the past by doing
+> > that, for what we thought were "safe" fixes.  Any "extra" RC period can
+> > be really short, though.
+>
+> Yes, I think we are in agreement here.  In the most recent email, I did
+> not repeat everything from my earlier email in which I stated:
+>
+> "4. Once rc1 is tagged, the 3.6 branch will again be open for the usual
+> maintenance-release-appropriate changes destined for 3.6.1.  Any emergency
+> fixes that might arise after rc1 and prior to 3.6.0 will be approved and
+> merged from the 3.6 branch into the 3.6.0 release by me.  I'm really hoping
+> we won't have to do that!"
+>
+> I did not explicitly talk about an rc2 but it is in the PEP as an option.
+> The goal as I see it is for rc1 to be the same as the final release other
+> than the version info (v3.6.0rc1 vs v3.6.0 final).  So option 0 is:
+>
+> 0. We find no release critical problems with rc1 and we retag, rebuild,
+> and release it as 3.6.0 final.
+>
+> If we do find problems with rc1, I see three additional options:
+>
+> 1. If the problem(s) are truly trivial and we agree that the risk is truly
+> minimal (release manager gut feel, hand wave, group consultation), we can
+> release rc1 with the trivial fix as the final without another round of
+> testing.
+>
+> 2. If a very small number of problems are found with rc1 that are more
+> than trivial but still "manageable" (another release manager gut feel
+> call), we can produce an rc2 and another round of testing and then retag,
+> rebuild, and release as 3.6.0 final.
+>
+> 3. If multiple significant problems arise, we can go back to the beta
+> stage and do additional beta releases until we think we are ready for a new
+> release candidate.
+>
+>
+> I am hoping for option 0, obviously.  Between the time rc1 is released and
+> up to the scheduled final release date, we will evaluate any release
+> critical problems that arise and choose one of the other options.  I share
+> your concern about the risks of releasing untested code resulting in brown
+> bag followups so option 1 would not be taken lightly.
+>
+> The major point I want to stress is that we are going to very carefully
+> manage what goes into 3.6.0 from now until the end of the release.  I think
+> we have had some strain on the release process in the past when we've
+> allowed ourselves to put too many changes in the final stages of a release
+> and I want to avoid doing that for 3.6.0.  I am also counting on all of you
+> to help by following the Release Candidate stage criteria for 3.6 changes.
+>
+> Between now (the end of b4) and rc1, I am asking all of us to only push
+> things to the 3.6 branch that should go into 3.6.0 rc1 and final, that is,
+> reviewed release critical code fixes and final doc changes.  I've opted to
+> do this rather than totally lock down the 3.6 branch and/or accumulate
+> changes for rc1 elsewhere because:
+>
+> - the period is relatively short
+> - we're expecting a small number of code changes going into rc1
+> - so that we won't introduce further confusions with external repos et al
+> - so we have the benefit of our standard buildbot testing.
+>
+> If you are not sure whether something is appropriate for the 3.6 branch,
+> please ask before pushing.
+>
+> Once we reach rc1, by the criteria above, there will be zero to a very
+> very small number of changes approved post-rc1 and those will be
+> cherry-picked and managed separately and the 3.6 branch will open again for
+> 3.6.1 changes unless, perish the thought, we need to go back and do more
+> betas (option 3 above).
+>
+> I hope this all sounds reasonable and makes things clearer.  Let me know
+> if you have any further questions.
+>
+> Thanks everyone!
+>
+> --Ned
+>
+> --
+>   Ned Deily
+>   nad at python.org -- []
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20161122/00af3dc2/attachment-0001.html>
+
+From nad at python.org  Tue Nov 22 13:21:31 2016
+From: nad at python.org (Ned Deily)
+Date: Tue, 22 Nov 2016 13:21:31 -0500
+Subject: [python-committers] 3.6 branch now open only for 3.6.0 release
+ critical fixes and doc updates!
+In-Reply-To: <CAMpsgwbKPyudKYReMskNXQC4GMyP1dN8YwkdGoMCT69qE-ZubA@mail.gmail.com>
+References: <FA2D757B-85AE-4208-ADD2-41AF790C6032@python.org>
+ <9BB9B066-3FE6-4546-9ED9-770DBA691513@python.org>
+ <CAMpsgwbKPyudKYReMskNXQC4GMyP1dN8YwkdGoMCT69qE-ZubA@mail.gmail.com>
+Message-ID: <C780D6B9-1D04-47D6-A4FD-B48409402728@python.org>
+
+On Nov 22, 2016, at 09:57, Victor Stinner <victor.stinner at gmail.com> wrote:
+> 2016-11-22 8:24 GMT+01:00 Ned Deily <nad at python.org>:
+>> OK, all of the release engineering for 3.6.0b4 is complete.  The 3.6 branch in the cpython repo is now available again but, as noted, *only* for reviewed release critical fixes appropriate for the 3.6.0 final and for final 3.6.0 doc updates!
+> 
+> Sorry, I pushed changes before reading your email(s). I expected that
+> release critical changes would have to be pushed to a different
+> repository using cherry-pick or something else.
+> 
+> To be clear: Python 3.5 will be frozen as well? Pushing to 3.5
+> requires to merge into 3.6 (and then merge into default).
+
+No, 3.5 is not necessarily frozen.  As I noted in yesterday's first email, you have two options:
+
+"3. Hold off pushing changes that are not 3.6.0 release critical until after rc1 is tagged.  You can continue to push bug fixes as appropriate to other open branches if you are willing to back port them to the 3.6 branch, as necessary, after rc1 is tagged.  Or, if you prefer to follow the normal development flow, take a bugfix holiday for the next two weeks and just hold off pushing any changes that affect 3.6.1 until after rc1 is tagged.  With those (hopefully) small inconveniences to you, we won't have to go through a special Bitbucket PR process and it will ensure that our 3.6 buildbots continue to test what's going into 3.6.0."
+
+In other words, if you as a committer feel comfortable with following a non-standard workflow during the current release candidate stage, you can certainly do so, i.e. pushing to 3.5 then merging to default and then, after the 3.6 branch is free again for 3.6.1, going back and backporting to 3.6.  Or, easier, just push to default for now and then backport to the 3.5 and 3.6 branches (and null merge to default) once 3.6 is free for 3.6.1 after rc1.  But, it probably is just easiest for most people to hold off pushing multiple branch changes until rc1 which should happen in two weeks.
+
+Does that make sense?
+
+> Four changes have been pushed after the tag:
+> 
+> (*) https://hg.python.org/cpython/rev/4f6fb9e47f6b
+> Issue #28023: Fix python-gdb.py didn't support new dict implementation [#28023]
+> 
+> I reviewed Naoki's patch and it LGTM. python-gdb.py was simply 100%
+> broken without this fix, and I consider that this tool is important
+> for Python (but I didn't understood correctly the RC rules, sorry)! By
+> the way, I also broke python-gdb.py with fast calls! I started to work
+> on a fix, http://bugs.python.org/issue28770
+> 
+> 
+> (*) https://hg.python.org/cpython/rev/9b974f988c95
+> Issue #28023: Fix python-gdb.py on old GDB versions
+> 
+> ... My fix for the previous commit. Sadly, it's hard to test on all
+> GDB versions, but buildbots are here for that :-)
+
+I agree with Naoki and you that fixing python-gdb.py qualifies as release critical; it's also self-contained and thus low-risk.  Thanks for pushing and fixing that!
+
+> (*) https://hg.python.org/cpython/rev/6b43d15fd2d7
+> Issue #28727: Fix typo in pattern_richcompare()
+> 
+> Obvious bugfix spotted by Serhiy.
+
+OK
+
+> (*) https://hg.python.org/cpython/rev/c2cb70c97163de.
+> Issue #28727: Optimize pattern_richcompare() for a==a
+> 
+> This one is a minor optimization suggested by Serhiy.
+
+My feeling is that this change does not meet the Release Candidate criteria and I would not have pushed it myself.  But, now that it is there, I will leave it up to you and Serhiy to decide whether to revert it or not.  As long as it doesn't break anything, I'll be OK with either outcome.
+
+Thanks for your help!
+
+--Ned
+
+--
+  Ned Deily
+  nad at python.org -- []
+
+
+From nad at python.org  Tue Nov 22 13:47:35 2016
+From: nad at python.org (Ned Deily)
+Date: Tue, 22 Nov 2016 13:47:35 -0500
+Subject: [python-committers] 3.6 branch now open only for 3.6.0 release
+ critical fixes and doc updates!
+In-Reply-To: <CAP1=2W7ZV8YGioB1eO4XZChmkEgkhgmeTe+fyPgj5FFL91Qp4A@mail.gmail.com>
+References: <FA2D757B-85AE-4208-ADD2-41AF790C6032@python.org>
+ <9BB9B066-3FE6-4546-9ED9-770DBA691513@python.org>
+ <20161122152027.933D11310017@webabinitio.net>
+ <FE05C9CC-3F0C-4746-927F-C6A8C93217E7@python.org>
+ <CAP1=2W7ZV8YGioB1eO4XZChmkEgkhgmeTe+fyPgj5FFL91Qp4A@mail.gmail.com>
+Message-ID: <45E2B5DD-8D77-4469-868D-95214EE0088D@python.org>
+
+On Nov 22, 2016, at 12:59, Brett Cannon <brett at python.org> wrote:
+> I think for me what made everything click was realizing that we used to say "until rc1 is cut, treat it as the beta phase", while Ned is saying "since b4 is the last beta, we are now working towards the RC". I actually think Ned's approach is mentally more consistent as we are always working towards the next release which should specify the commit rules, while historically we have worked as if the *last* release dictated the commit rules *unless* it was for the final release.
+
+Yes, thanks, Brett!  That is indeed my way of thinking about the release and I think it is also consistent with how we describe the Release Candidate stage in the Developer's Guide.
+
+"A branch preparing for an RC release can only have bugfixes applied that have been reviewed by other core developers. Generally, these issues must be severe enough (e.g. crashes) that they deserve fixing before the final release. All other issues should be deferred to the next development cycle, since stability is the strongest concern at this point."
+
+https://docs.python.org/devguide/devcycle.html#release-candidate-rc
+
+But, as you hint at, that is not really the case for the Beta stage which is described thusly:
+
+"After a first beta release is published, no new features are accepted. Only bug fixes can now be committed. This is when core developers should concentrate on the task of fixing regressions and other new issues filed by users who have downloaded the alpha and beta releases"
+
+https://docs.python.org/devguide/devcycle.html#release-candidate-rc
+
+Up until you pointed this out, I hadn't noticed the discrepancy between those two transitions, Alpha -> Beta and Beta -> RC.  I guess for me the name "Release Candidate" makes the "working towards the RC" approach very natural.  But it also seems natural to me to think of the first Beta release as the feature code cutoff (as we currently do) rather the last Alpha being the feature code cutoff and working towards the first Beta.  Perhaps we can live with that bit of inconsistency?  :=)  We certainly could change that if enough of us find it too confusing.
+
+The good news is that we'll have another chance to tweak things for the 3.7 release when, with the new development workflow, we should have more sophisticated tools available to manage the release endgame.  I'm hopeful we'll be able to make it easier for all of us.
+
+--
+  Ned Deily
+  nad at python.org -- []
+
+
+From nad at python.org  Tue Nov 22 14:16:08 2016
+From: nad at python.org (Ned Deily)
+Date: Tue, 22 Nov 2016 14:16:08 -0500
+Subject: [python-committers] autoconf 2.70
+In-Reply-To: <c1ec42e2-27b7-ebe4-7417-3b52adeb3838@gmail.com>
+References: <c6c53b39-05b7-c4b2-2551-f5f5146e01f4@gmail.com>
+ <CAP1=2W4rCnuZj6MhVCjcv=AhSrwkh+y8iEm=HCKF_oMgzxrS2w@mail.gmail.com>
+ <09c2750f-22b5-9b00-3486-3d139d087375@gmail.com>
+ <1473661634.352642.722719041.12B70326@webmail.messagingengine.com>
+ <CAMpsgwZyEe8dQmy10dj1QeKr82w4hXdfr3Pox+XLMo9WZo86_Q@mail.gmail.com>
+ <c1ec42e2-27b7-ebe4-7417-3b52adeb3838@gmail.com>
+Message-ID: <E12CB7EE-129B-4C0A-AD13-E13550FF3241@python.org>
+
+On Nov 22, 2016, at 11:06, Xavier de Gaye <xdegaye at gmail.com> wrote:
+> The configure file on the default and 3.6 branches have been generated
+> with autoconf 2.70 once again. This is annoying when you have to
+> maintain patches to this configure file in order to build on a non
+> supported platform.
+
+I'm sorry about that.  I did promise to rerun with autoconf 2.69 before tagging the release so committers didn't have to worry about it but I didn't notice my note to do so until after 3.6.0b4 had already been tagged.  I'll try to do better for rc1.
+
+Perhaps another solution to the problem might be to not include the autoconf-generated changes in the patches and just always run autoconf before doing a build?  That's what we suggest for patches submitted to the tracker.
+
+And this might also be a candidate for handling in our upcoming new development workflow, i.e. something like having autoconf automatically be run as part of checkins.  If it hasn't already been discussed there, it might be worth bringing up on the core-workflow mailing list.
+
+--
+  Ned Deily
+  nad at python.org -- []
+
+
+From rdmurray at bitdance.com  Tue Nov 22 14:50:02 2016
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Tue, 22 Nov 2016 14:50:02 -0500
+Subject: [python-committers] 3.6 branch now open only for 3.6.0 release
+ critical fixes and doc updates!
+In-Reply-To: <45E2B5DD-8D77-4469-868D-95214EE0088D@python.org>
+References: <FA2D757B-85AE-4208-ADD2-41AF790C6032@python.org>
+ <9BB9B066-3FE6-4546-9ED9-770DBA691513@python.org>
+ <20161122152027.933D11310017@webabinitio.net>
+ <FE05C9CC-3F0C-4746-927F-C6A8C93217E7@python.org>
+ <CAP1=2W7ZV8YGioB1eO4XZChmkEgkhgmeTe+fyPgj5FFL91Qp4A@mail.gmail.com>
+ <45E2B5DD-8D77-4469-868D-95214EE0088D@python.org>
+Message-ID: <20161122195003.65DC61B10005@webabinitio.net>
+
+On Tue, 22 Nov 2016 13:47:35 -0500, Ned Deily <nad at python.org> wrote:
+> On Nov 22, 2016, at 12:59, Brett Cannon <brett at python.org> wrote:
+> > I think for me what made everything click was realizing that we used
+> > to say "until rc1 is cut, treat it as the beta phase", while Ned is
+> > saying "since b4 is the last beta, we are now working towards the
+> > RC". I actually think Ned's approach is mentally more consistent as
+> > we are always working towards the next release which should specify
+> > the commit rules, while historically we have worked as if the *last*
+> > release dictated the commit rules *unless* it was for the final
+> > release.
+> 
+> Yes, thanks, Brett!  That is indeed my way of thinking about the
+> release and I think it is also consistent with how we describe the
+> Release Candidate stage in the Developer's Guide.
+
+OK, fair enough.  It's a change in our development style, but a
+reasonable one.  I (and Victor I presume) were fooled by the fact that
+it is a change, but it wasn't obvious that it was.
+
+If we wish to use this going forward (and I think that would be
+reasonable), then we should document it.
+
+Being who we are (precisionist programmers), the inconsistency between
+"beta release cuts off features" and "last beta before RC cuts off
+non-release-critical fixes" does produce some cognitive dissonance.
+I've seen the RC described as "the first beta that might be turned into
+the production release", and if you think of it that way it makes it
+easier to remember that we're restricting commits in order to produce that
+"special beta".  That is probably better, conceptually, than producing
+an RC that we fully expect will require release-critical bug fixes because
+we just committed a bunch of non-release-critical bug fixes, just
+so cutoff-when-the-name-changes stays consistent.
+
+--David
+
+From steve.dower at python.org  Tue Nov 22 15:40:06 2016
+From: steve.dower at python.org (Steve Dower)
+Date: Tue, 22 Nov 2016 12:40:06 -0800
+Subject: [python-committers] 3.6 branch now open only for 3.6.0 release
+ critical fixes and doc updates!
+In-Reply-To: <20161122195003.65DC61B10005@webabinitio.net>
+References: <FA2D757B-85AE-4208-ADD2-41AF790C6032@python.org>
+ <9BB9B066-3FE6-4546-9ED9-770DBA691513@python.org>
+ <20161122152027.933D11310017@webabinitio.net>
+ <FE05C9CC-3F0C-4746-927F-C6A8C93217E7@python.org>
+ <CAP1=2W7ZV8YGioB1eO4XZChmkEgkhgmeTe+fyPgj5FFL91Qp4A@mail.gmail.com>
+ <45E2B5DD-8D77-4469-868D-95214EE0088D@python.org>
+ <20161122195003.65DC61B10005@webabinitio.net>
+Message-ID: <aa95346e-e131-4229-4505-2c0c06439bdc@python.org>
+
+On 22Nov2016 1150, R. David Murray wrote:
+> Being who we are (precisionist programmers), the inconsistency between
+> "beta release cuts off features" and "last beta before RC cuts off
+> non-release-critical fixes" does produce some cognitive dissonance.
+> I've seen the RC described as "the first beta that might be turned into
+> the production release", and if you think of it that way it makes it
+> easier to remember that we're restricting commits in order to produce that
+> "special beta".  That is probably better, conceptually, than producing
+> an RC that we fully expect will require release-critical bug fixes because
+> we just committed a bunch of non-release-critical bug fixes, just
+> so cutoff-when-the-name-changes stays consistent.
+
+It might also help if the version info was updated to (for example) 
+"3.6.0rc1-" rather than "3.6.0b4+", to emphasize that any work going on 
+in that branch is work against RC and not against a beta.
+
+I'm not sure that a trailing '-' is the right way to mark this. Maybe 
+"rc1+dev" or similar?
+
+Cheers,
+Steve
+
+From donald at stufft.io  Tue Nov 22 15:42:26 2016
+From: donald at stufft.io (Donald Stufft)
+Date: Tue, 22 Nov 2016 15:42:26 -0500
+Subject: [python-committers] 3.6 branch now open only for 3.6.0 release
+ critical fixes and doc updates!
+In-Reply-To: <aa95346e-e131-4229-4505-2c0c06439bdc@python.org>
+References: <FA2D757B-85AE-4208-ADD2-41AF790C6032@python.org>
+ <9BB9B066-3FE6-4546-9ED9-770DBA691513@python.org>
+ <20161122152027.933D11310017@webabinitio.net>
+ <FE05C9CC-3F0C-4746-927F-C6A8C93217E7@python.org>
+ <CAP1=2W7ZV8YGioB1eO4XZChmkEgkhgmeTe+fyPgj5FFL91Qp4A@mail.gmail.com>
+ <45E2B5DD-8D77-4469-868D-95214EE0088D@python.org>
+ <20161122195003.65DC61B10005@webabinitio.net>
+ <aa95346e-e131-4229-4505-2c0c06439bdc@python.org>
+Message-ID: <7CDC8900-29BD-45DD-8D0F-30735755DC1F@stufft.io>
+
+If we want the version to be PEP 440 compliant it'd be like 3.6rc1.dev0 or so if I remember correctly. 
+
+Sent from my iPhone
+
+> On Nov 22, 2016, at 3:40 PM, Steve Dower <steve.dower at python.org> wrote:
+> 
+>> On 22Nov2016 1150, R. David Murray wrote:
+>> Being who we are (precisionist programmers), the inconsistency between
+>> "beta release cuts off features" and "last beta before RC cuts off
+>> non-release-critical fixes" does produce some cognitive dissonance.
+>> I've seen the RC described as "the first beta that might be turned into
+>> the production release", and if you think of it that way it makes it
+>> easier to remember that we're restricting commits in order to produce that
+>> "special beta".  That is probably better, conceptually, than producing
+>> an RC that we fully expect will require release-critical bug fixes because
+>> we just committed a bunch of non-release-critical bug fixes, just
+>> so cutoff-when-the-name-changes stays consistent.
+> 
+> It might also help if the version info was updated to (for example) "3.6.0rc1-" rather than "3.6.0b4+", to emphasize that any work going on in that branch is work against RC and not against a beta.
+> 
+> I'm not sure that a trailing '-' is the right way to mark this. Maybe "rc1+dev" or similar?
+> 
+> Cheers,
+> Steve
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+
+
+From raymond.hettinger at gmail.com  Tue Nov 22 23:25:50 2016
+From: raymond.hettinger at gmail.com (Raymond Hettinger)
+Date: Tue, 22 Nov 2016 20:25:50 -0800
+Subject: [python-committers] 3.6 branch now open only for 3.6.0 release
+ critical fixes and doc updates!
+In-Reply-To: <CAMpsgwbKPyudKYReMskNXQC4GMyP1dN8YwkdGoMCT69qE-ZubA@mail.gmail.com>
+References: <FA2D757B-85AE-4208-ADD2-41AF790C6032@python.org>
+ <9BB9B066-3FE6-4546-9ED9-770DBA691513@python.org>
+ <CAMpsgwbKPyudKYReMskNXQC4GMyP1dN8YwkdGoMCT69qE-ZubA@mail.gmail.com>
+Message-ID: <8AF4D9BD-1FA9-43A6-92C4-987B9748F6EE@gmail.com>
+
+
+> On Nov 22, 2016, at 6:57 AM, Victor Stinner <victor.stinner at gmail.com> wrote:
+> 
+> Should I revert these changes? 
+
+I don't think reverting any of these would improve the release.
+I vote for them to stay.
+
+
+Raymond
+
+
+
+
+
+
+From ncoghlan at gmail.com  Wed Nov 23 01:19:34 2016
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Wed, 23 Nov 2016 16:19:34 +1000
+Subject: [python-committers] 3.6 branch now open only for 3.6.0 release
+ critical fixes and doc updates!
+In-Reply-To: <aa95346e-e131-4229-4505-2c0c06439bdc@python.org>
+References: <FA2D757B-85AE-4208-ADD2-41AF790C6032@python.org>
+ <9BB9B066-3FE6-4546-9ED9-770DBA691513@python.org>
+ <20161122152027.933D11310017@webabinitio.net>
+ <FE05C9CC-3F0C-4746-927F-C6A8C93217E7@python.org>
+ <CAP1=2W7ZV8YGioB1eO4XZChmkEgkhgmeTe+fyPgj5FFL91Qp4A@mail.gmail.com>
+ <45E2B5DD-8D77-4469-868D-95214EE0088D@python.org>
+ <20161122195003.65DC61B10005@webabinitio.net>
+ <aa95346e-e131-4229-4505-2c0c06439bdc@python.org>
+Message-ID: <CADiSq7f+PrkPtOmWtmb9yViiJv3yCiv0C76Rq7mhLAmf7Nk8ew@mail.gmail.com>
+
+On 23 November 2016 at 06:40, Steve Dower <steve.dower at python.org> wrote:
+> On 22Nov2016 1150, R. David Murray wrote:
+>>
+>> Being who we are (precisionist programmers), the inconsistency between
+>> "beta release cuts off features" and "last beta before RC cuts off
+>> non-release-critical fixes" does produce some cognitive dissonance.
+>> I've seen the RC described as "the first beta that might be turned into
+>> the production release", and if you think of it that way it makes it
+>> easier to remember that we're restricting commits in order to produce that
+>> "special beta".  That is probably better, conceptually, than producing
+>> an RC that we fully expect will require release-critical bug fixes because
+>> we just committed a bunch of non-release-critical bug fixes, just
+>> so cutoff-when-the-name-changes stays consistent.
+>
+>
+> It might also help if the version info was updated to (for example)
+> "3.6.0rc1-" rather than "3.6.0b4+", to emphasize that any work going on in
+> that branch is work against RC and not against a beta.
+>
+> I'm not sure that a trailing '-' is the right way to mark this. Maybe
+> "rc1+dev" or similar?
+
+The "3.6.0rc0+" notation would reflect that it's not a beta any more,
+but still comes before rc1.
+
+(While Donald's right that PEP 440 recommends a ".dev0" suffix for
+this use case, we don't allow for that in the interpreter level
+version reporting APIs, while an "rc0" suffix should work fine)
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+
+From victor.stinner at gmail.com  Wed Nov 23 01:43:36 2016
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Wed, 23 Nov 2016 07:43:36 +0100
+Subject: [python-committers] 3.6 branch now open only for 3.6.0 release
+ critical fixes and doc updates!
+In-Reply-To: <8AF4D9BD-1FA9-43A6-92C4-987B9748F6EE@gmail.com>
+References: <FA2D757B-85AE-4208-ADD2-41AF790C6032@python.org>
+ <9BB9B066-3FE6-4546-9ED9-770DBA691513@python.org>
+ <CAMpsgwbKPyudKYReMskNXQC4GMyP1dN8YwkdGoMCT69qE-ZubA@mail.gmail.com>
+ <8AF4D9BD-1FA9-43A6-92C4-987B9748F6EE@gmail.com>
+Message-ID: <CAMpsgwZU+_Q1QUQPFGE__E127FkvPs0o53FqWigOH2xRGBbibg@mail.gmail.com>
+
+Ok, thank you Raymond for checking.
+
+Victor
+
+Le 23 nov. 2016 05:25, "Raymond Hettinger" <raymond.hettinger at gmail.com> a
+?crit :
+
+>
+> > On Nov 22, 2016, at 6:57 AM, Victor Stinner <victor.stinner at gmail.com>
+> wrote:
+> >
+> > Should I revert these changes?
+>
+> I don't think reverting any of these would improve the release.
+> I vote for them to stay.
+>
+>
+> Raymond
+>
+>
+>
+>
+>
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20161123/5da814a2/attachment.html>
+
+From xdegaye at gmail.com  Wed Nov 23 02:38:40 2016
+From: xdegaye at gmail.com (Xavier de Gaye)
+Date: Wed, 23 Nov 2016 08:38:40 +0100
+Subject: [python-committers] autoconf 2.70
+In-Reply-To: <E12CB7EE-129B-4C0A-AD13-E13550FF3241@python.org>
+References: <c6c53b39-05b7-c4b2-2551-f5f5146e01f4@gmail.com>
+ <CAP1=2W4rCnuZj6MhVCjcv=AhSrwkh+y8iEm=HCKF_oMgzxrS2w@mail.gmail.com>
+ <09c2750f-22b5-9b00-3486-3d139d087375@gmail.com>
+ <1473661634.352642.722719041.12B70326@webmail.messagingengine.com>
+ <CAMpsgwZyEe8dQmy10dj1QeKr82w4hXdfr3Pox+XLMo9WZo86_Q@mail.gmail.com>
+ <c1ec42e2-27b7-ebe4-7417-3b52adeb3838@gmail.com>
+ <E12CB7EE-129B-4C0A-AD13-E13550FF3241@python.org>
+Message-ID: <d2806789-1a38-cafe-6c6f-465beb03c54e@gmail.com>
+
+On 11/22/2016 08:16 PM, Ned Deily wrote:
+ > On Nov 22, 2016, at 11:06, Xavier de Gaye <xdegaye at gmail.com> wrote:
+ >> The configure file on the default and 3.6 branches have been generated
+ >> with autoconf 2.70 once again. This is annoying when you have to
+ >> maintain patches to this configure file in order to build on a non
+ >> supported platform.
+ >
+ > I'm sorry about that.  I did promise to rerun with autoconf 2.69 before tagging the release so committers didn't have to worry about it but I didn't notice my note to do so until after 3.6.0b4 had 
+already been tagged.  I'll try to do better for rc1.
+ >
+ > Perhaps another solution to the problem might be to not include the autoconf-generated changes in the patches and just always run autoconf before doing a build?  That's what we suggest for patches 
+submitted to the tracker.
+ >
+ > And this might also be a candidate for handling in our upcoming new development workflow, i.e. something like having autoconf automatically be run as part of checkins.  If it hasn't already been 
+discussed there, it might be worth bringing up on the core-workflow mailing list.
+ >
+ > --
+ >   Ned Deily
+ >   nad at python.org -- []
+ >
+
+ From the configure logs since last july, it seems that Benjamin and Serhiy are
+the only one using autoconf 2.70:
+
+     changeset 102530:b04560c3ce69 - author Benjamin Peterson
+     changeset 103648:816ae3abd928 - author Serhiy Storchaka
+
+If it is not too difficult to build autoconf 2.69 from source, then the
+solution could be that they switch to autoconf 2.69.
+
+Xavier
+
+From greg at krypto.org  Wed Nov 23 17:49:47 2016
+From: greg at krypto.org (Gregory P. Smith)
+Date: Wed, 23 Nov 2016 22:49:47 +0000
+Subject: [python-committers] autoconf 2.70
+In-Reply-To: <d2806789-1a38-cafe-6c6f-465beb03c54e@gmail.com>
+References: <c6c53b39-05b7-c4b2-2551-f5f5146e01f4@gmail.com>
+ <CAP1=2W4rCnuZj6MhVCjcv=AhSrwkh+y8iEm=HCKF_oMgzxrS2w@mail.gmail.com>
+ <09c2750f-22b5-9b00-3486-3d139d087375@gmail.com>
+ <1473661634.352642.722719041.12B70326@webmail.messagingengine.com>
+ <CAMpsgwZyEe8dQmy10dj1QeKr82w4hXdfr3Pox+XLMo9WZo86_Q@mail.gmail.com>
+ <c1ec42e2-27b7-ebe4-7417-3b52adeb3838@gmail.com>
+ <E12CB7EE-129B-4C0A-AD13-E13550FF3241@python.org>
+ <d2806789-1a38-cafe-6c6f-465beb03c54e@gmail.com>
+Message-ID: <CAGE7PNL8x3OqKKy8XowCJk90+qip7QEE5rQgjDjCXW=otWsdJQ@mail.gmail.com>
+
+I do not think we should require individual developers committing changes
+to configure.ac to use a particular version of autoconf when regenerating
+configure. That is a burden.
+
+The solution to your problem is to maintain your patches _only_ against
+configure.ac and rerun autoconf using whatever version you need yourself.
+
+If a release manager decides they want configure generated with a specific
+version of autoconf at release time, they should rerun that specific
+version of autoconf and commit the result _for the release_.
+
+otherwise the checked in configure script exists entirely as a convenience.
+ configure.ac is always the source of truth.
+
+-gps
+
+On Tue, Nov 22, 2016 at 11:38 PM Xavier de Gaye <xdegaye at gmail.com> wrote:
+
+> On 11/22/2016 08:16 PM, Ned Deily wrote:
+>  > On Nov 22, 2016, at 11:06, Xavier de Gaye <xdegaye at gmail.com> wrote:
+>  >> The configure file on the default and 3.6 branches have been generated
+>  >> with autoconf 2.70 once again. This is annoying when you have to
+>  >> maintain patches to this configure file in order to build on a non
+>  >> supported platform.
+>  >
+>  > I'm sorry about that.  I did promise to rerun with autoconf 2.69 before
+> tagging the release so committers didn't have to worry about it but I
+> didn't notice my note to do so until after 3.6.0b4 had
+> already been tagged.  I'll try to do better for rc1.
+>  >
+>  > Perhaps another solution to the problem might be to not include the
+> autoconf-generated changes in the patches and just always run autoconf
+> before doing a build?  That's what we suggest for patches
+> submitted to the tracker.
+>  >
+>  > And this might also be a candidate for handling in our upcoming new
+> development workflow, i.e. something like having autoconf automatically be
+> run as part of checkins.  If it hasn't already been
+> discussed there, it might be worth bringing up on the core-workflow
+> mailing list.
+>  >
+>  > --
+>  >   Ned Deily
+>  >   nad at python.org -- []
+>  >
+>
+>  From the configure logs since last july, it seems that Benjamin and
+> Serhiy are
+> the only one using autoconf 2.70:
+>
+>      changeset 102530:b04560c3ce69 - author Benjamin Peterson
+>      changeset 103648:816ae3abd928 - author Serhiy Storchaka
+>
+> If it is not too difficult to build autoconf 2.69 from source, then the
+> solution could be that they switch to autoconf 2.69.
+>
+> Xavier
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20161123/6ab79541/attachment.html>
+
+From victor.stinner at gmail.com  Wed Nov 23 19:05:19 2016
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Thu, 24 Nov 2016 01:05:19 +0100
+Subject: [python-committers] autoconf 2.70
+In-Reply-To: <CAGE7PNL8x3OqKKy8XowCJk90+qip7QEE5rQgjDjCXW=otWsdJQ@mail.gmail.com>
+References: <c6c53b39-05b7-c4b2-2551-f5f5146e01f4@gmail.com>
+ <CAP1=2W4rCnuZj6MhVCjcv=AhSrwkh+y8iEm=HCKF_oMgzxrS2w@mail.gmail.com>
+ <09c2750f-22b5-9b00-3486-3d139d087375@gmail.com>
+ <1473661634.352642.722719041.12B70326@webmail.messagingengine.com>
+ <CAMpsgwZyEe8dQmy10dj1QeKr82w4hXdfr3Pox+XLMo9WZo86_Q@mail.gmail.com>
+ <c1ec42e2-27b7-ebe4-7417-3b52adeb3838@gmail.com>
+ <E12CB7EE-129B-4C0A-AD13-E13550FF3241@python.org>
+ <d2806789-1a38-cafe-6c6f-465beb03c54e@gmail.com>
+ <CAGE7PNL8x3OqKKy8XowCJk90+qip7QEE5rQgjDjCXW=otWsdJQ@mail.gmail.com>
+Message-ID: <CAMpsgwas=b=Sz_LtYpEzPirev4WTLwiQ9DqovQoSQ6K34BM8Rg@mail.gmail.com>
+
+2016-11-23 23:49 GMT+01:00 Gregory P. Smith <greg at krypto.org>:
+> The solution to your problem is to maintain your patches _only_ against
+> configure.ac and rerun autoconf using whatever version you need yourself.
+
+I agree :-)
+
+Victor
+
+From vadmium+py at gmail.com  Wed Nov 23 20:51:49 2016
+From: vadmium+py at gmail.com (Martin Panter)
+Date: Thu, 24 Nov 2016 01:51:49 +0000
+Subject: [python-committers] autoconf 2.70
+In-Reply-To: <CAGE7PNL8x3OqKKy8XowCJk90+qip7QEE5rQgjDjCXW=otWsdJQ@mail.gmail.com>
+References: <c6c53b39-05b7-c4b2-2551-f5f5146e01f4@gmail.com>
+ <CAP1=2W4rCnuZj6MhVCjcv=AhSrwkh+y8iEm=HCKF_oMgzxrS2w@mail.gmail.com>
+ <09c2750f-22b5-9b00-3486-3d139d087375@gmail.com>
+ <1473661634.352642.722719041.12B70326@webmail.messagingengine.com>
+ <CAMpsgwZyEe8dQmy10dj1QeKr82w4hXdfr3Pox+XLMo9WZo86_Q@mail.gmail.com>
+ <c1ec42e2-27b7-ebe4-7417-3b52adeb3838@gmail.com>
+ <E12CB7EE-129B-4C0A-AD13-E13550FF3241@python.org>
+ <d2806789-1a38-cafe-6c6f-465beb03c54e@gmail.com>
+ <CAGE7PNL8x3OqKKy8XowCJk90+qip7QEE5rQgjDjCXW=otWsdJQ@mail.gmail.com>
+Message-ID: <CA+eR4cE9DJBTTfFfnJ8XOjqBkjCXDSkOzD8=gpaw4_brzDspdQ@mail.gmail.com>
+
+>> On 11/22/2016 08:16 PM, Ned Deily wrote:
+>>  > On Nov 22, 2016, at 11:06, Xavier de Gaye <xdegaye at gmail.com> wrote:
+>>  >> The configure file on the default and 3.6 branches have been generated
+>>  >> with autoconf 2.70 once again. This is annoying when you have to
+>>  >> maintain patches to this configure file in order to build on a non
+>>  >> supported platform.
+>>  >
+>>  > Perhaps another solution to the problem might be to not include the
+>> autoconf-generated changes in the patches and just always run autoconf
+>> before doing a build?  That's what we suggest for patches
+>> submitted to the tracker.
+
+On 23 November 2016 at 22:49, Gregory P. Smith <greg at krypto.org> wrote:
+> The solution to your problem is to maintain your patches _only_ against
+> configure.ac and rerun autoconf using whatever version you need yourself.
+
+Would this solution (forget about regerating the files until build
+time) be enough Xavier?
+
+FWIW I make heavy use of the Mercurial interactive patch mode. I use
+it to filter out any unnecessary generated changes, while selecting
+other generated changes relevant to a patch. I.e.
+
+hg commit --interactive
+hg qrefresh --interactive
+
+From xdegaye at gmail.com  Thu Nov 24 02:51:27 2016
+From: xdegaye at gmail.com (Xavier de Gaye)
+Date: Thu, 24 Nov 2016 08:51:27 +0100
+Subject: [python-committers] autoconf 2.70
+In-Reply-To: <CAGE7PNL8x3OqKKy8XowCJk90+qip7QEE5rQgjDjCXW=otWsdJQ@mail.gmail.com>
+References: <c6c53b39-05b7-c4b2-2551-f5f5146e01f4@gmail.com>
+ <CAP1=2W4rCnuZj6MhVCjcv=AhSrwkh+y8iEm=HCKF_oMgzxrS2w@mail.gmail.com>
+ <09c2750f-22b5-9b00-3486-3d139d087375@gmail.com>
+ <1473661634.352642.722719041.12B70326@webmail.messagingengine.com>
+ <CAMpsgwZyEe8dQmy10dj1QeKr82w4hXdfr3Pox+XLMo9WZo86_Q@mail.gmail.com>
+ <c1ec42e2-27b7-ebe4-7417-3b52adeb3838@gmail.com>
+ <E12CB7EE-129B-4C0A-AD13-E13550FF3241@python.org>
+ <d2806789-1a38-cafe-6c6f-465beb03c54e@gmail.com>
+ <CAGE7PNL8x3OqKKy8XowCJk90+qip7QEE5rQgjDjCXW=otWsdJQ@mail.gmail.com>
+Message-ID: <15d08012-3f31-3125-b3f6-f0d96ab690b8@gmail.com>
+
+On 11/23/2016 11:49 PM, Gregory P. Smith wrote:
+ > I do not think we should require individual developers committing changes to configure.ac <http://configure.ac> to use a particular version of autoconf when regenerating configure. That is a burden.
+
+I do not agree, configure is a file tracked in the mercurial repository and commit changes to this file must be correct and done with the right tool. If this is a burden for developers to use a 
+particular version of autoconf, then a solution to our problem might be to stop tracking configure in the repository and update the Makefile to run autoconf whenever configure.ac is modified.
+
+From storchaka at gmail.com  Thu Nov 24 03:07:00 2016
+From: storchaka at gmail.com (Serhiy Storchaka)
+Date: Thu, 24 Nov 2016 10:07:00 +0200
+Subject: [python-committers] autoconf 2.70
+In-Reply-To: <d2806789-1a38-cafe-6c6f-465beb03c54e@gmail.com>
+References: <c6c53b39-05b7-c4b2-2551-f5f5146e01f4@gmail.com>
+ <E12CB7EE-129B-4C0A-AD13-E13550FF3241@python.org>
+ <d2806789-1a38-cafe-6c6f-465beb03c54e@gmail.com>
+Message-ID: <14677539.7yTkDoFtdP@xarax>
+
+??????, 23 ????????? 2016 ?. 08:38:40 EET Xavier de Gaye ????????:
+>  From the configure logs since last july, it seems that Benjamin and Serhiy
+> are the only one using autoconf 2.70:
+> 
+>      changeset 102530:b04560c3ce69 - author Benjamin Peterson
+>      changeset 103648:816ae3abd928 - author Serhiy Storchaka
+> 
+> If it is not too difficult to build autoconf 2.69 from source, then the
+> solution could be that they switch to autoconf 2.69.
+
+I don't know how this was happen. For now autoconf 2.69 is installed on all my 
+computers.
+
+
+From xdegaye at gmail.com  Thu Nov 24 03:23:03 2016
+From: xdegaye at gmail.com (Xavier de Gaye)
+Date: Thu, 24 Nov 2016 09:23:03 +0100
+Subject: [python-committers] autoconf 2.70
+In-Reply-To: <CA+eR4cE9DJBTTfFfnJ8XOjqBkjCXDSkOzD8=gpaw4_brzDspdQ@mail.gmail.com>
+References: <c6c53b39-05b7-c4b2-2551-f5f5146e01f4@gmail.com>
+ <CAP1=2W4rCnuZj6MhVCjcv=AhSrwkh+y8iEm=HCKF_oMgzxrS2w@mail.gmail.com>
+ <09c2750f-22b5-9b00-3486-3d139d087375@gmail.com>
+ <1473661634.352642.722719041.12B70326@webmail.messagingengine.com>
+ <CAMpsgwZyEe8dQmy10dj1QeKr82w4hXdfr3Pox+XLMo9WZo86_Q@mail.gmail.com>
+ <c1ec42e2-27b7-ebe4-7417-3b52adeb3838@gmail.com>
+ <E12CB7EE-129B-4C0A-AD13-E13550FF3241@python.org>
+ <d2806789-1a38-cafe-6c6f-465beb03c54e@gmail.com>
+ <CAGE7PNL8x3OqKKy8XowCJk90+qip7QEE5rQgjDjCXW=otWsdJQ@mail.gmail.com>
+ <CA+eR4cE9DJBTTfFfnJ8XOjqBkjCXDSkOzD8=gpaw4_brzDspdQ@mail.gmail.com>
+Message-ID: <75547bf0-646a-b1af-2ed0-7d41fbcd4ada@gmail.com>
+
+On 11/24/2016 02:51 AM, Martin Panter wrote:
+ > FWIW I make heavy use of the Mercurial interactive patch mode. I use
+ > it to filter out any unnecessary generated changes, while selecting
+ > other generated changes relevant to a patch. I.e.
+
+I did not know the hg interactive mode, thanks for the tip Martin.
+The point I am raising is not a problem I am supposed to have with
+configure (just a frustrating experience) but that configure is not
+correctly updated in the repository.
+
+Xavier
+
+From victor.stinner at gmail.com  Thu Nov 24 06:22:00 2016
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Thu, 24 Nov 2016 12:22:00 +0100
+Subject: [python-committers] autoconf 2.70
+In-Reply-To: <15d08012-3f31-3125-b3f6-f0d96ab690b8@gmail.com>
+References: <c6c53b39-05b7-c4b2-2551-f5f5146e01f4@gmail.com>
+ <CAP1=2W4rCnuZj6MhVCjcv=AhSrwkh+y8iEm=HCKF_oMgzxrS2w@mail.gmail.com>
+ <09c2750f-22b5-9b00-3486-3d139d087375@gmail.com>
+ <1473661634.352642.722719041.12B70326@webmail.messagingengine.com>
+ <CAMpsgwZyEe8dQmy10dj1QeKr82w4hXdfr3Pox+XLMo9WZo86_Q@mail.gmail.com>
+ <c1ec42e2-27b7-ebe4-7417-3b52adeb3838@gmail.com>
+ <E12CB7EE-129B-4C0A-AD13-E13550FF3241@python.org>
+ <d2806789-1a38-cafe-6c6f-465beb03c54e@gmail.com>
+ <CAGE7PNL8x3OqKKy8XowCJk90+qip7QEE5rQgjDjCXW=otWsdJQ@mail.gmail.com>
+ <15d08012-3f31-3125-b3f6-f0d96ab690b8@gmail.com>
+Message-ID: <CAMpsgwb8-ZHuy=YvEy6nBiGRpjMYV2-T7meGUjyDdWY1S4VLMQ@mail.gmail.com>
+
+ I know that tracking generated files is not pure, but it's very
+convenient, so please keep them: configure, Python/importlib.h,
+Python/importlib_external.h, etc.!
+
+When testing Python on some "custom" operating systems, I already had
+enough issues to compile Python :-) For example, on OpenIndiana,
+Python wanted to rebuild the grammar but the system Python was 2.6
+which didn't work (I don't recall the details). Moreover, the "make
+touch" command didn't work neither :-)
+
+Victor
+
+2016-11-24 8:51 GMT+01:00 Xavier de Gaye <xdegaye at gmail.com>:
+> On 11/23/2016 11:49 PM, Gregory P. Smith wrote:
+>> I do not think we should require individual developers committing changes
+>> to configure.ac <http://configure.ac> to use a particular version of
+>> autoconf when regenerating configure. That is a burden.
+>
+> I do not agree, configure is a file tracked in the mercurial repository and
+> commit changes to this file must be correct and done with the right tool. If
+> this is a burden for developers to use a particular version of autoconf,
+> then a solution to our problem might be to stop tracking configure in the
+> repository and update the Makefile to run autoconf whenever configure.ac is
+> modified.
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+
+From rdmurray at bitdance.com  Thu Nov 24 10:00:19 2016
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Thu, 24 Nov 2016 10:00:19 -0500
+Subject: [python-committers] autoconf 2.70
+In-Reply-To: <CAMpsgwb8-ZHuy=YvEy6nBiGRpjMYV2-T7meGUjyDdWY1S4VLMQ@mail.gmail.com>
+References: <c6c53b39-05b7-c4b2-2551-f5f5146e01f4@gmail.com>
+ <CAP1=2W4rCnuZj6MhVCjcv=AhSrwkh+y8iEm=HCKF_oMgzxrS2w@mail.gmail.com>
+ <09c2750f-22b5-9b00-3486-3d139d087375@gmail.com>
+ <1473661634.352642.722719041.12B70326@webmail.messagingengine.com>
+ <CAMpsgwZyEe8dQmy10dj1QeKr82w4hXdfr3Pox+XLMo9WZo86_Q@mail.gmail.com>
+ <c1ec42e2-27b7-ebe4-7417-3b52adeb3838@gmail.com>
+ <E12CB7EE-129B-4C0A-AD13-E13550FF3241@python.org>
+ <d2806789-1a38-cafe-6c6f-465beb03c54e@gmail.com>
+ <CAGE7PNL8x3OqKKy8XowCJk90+qip7QEE5rQgjDjCXW=otWsdJQ@mail.gmail.com>
+ <15d08012-3f31-3125-b3f6-f0d96ab690b8@gmail.com>
+ <CAMpsgwb8-ZHuy=YvEy6nBiGRpjMYV2-T7meGUjyDdWY1S4VLMQ@mail.gmail.com>
+Message-ID: <20161124150019.78F8B1B10001@webabinitio.net>
+
+On Thu, 24 Nov 2016 12:22:00 +0100, Victor Stinner <victor.stinner at gmail.com> wrote:
+>  I know that tracking generated files is not pure, but it's very
+> convenient, so please keep them: configure, Python/importlib.h,
+> Python/importlib_external.h, etc.!
+> 
+> When testing Python on some "custom" operating systems, I already had
+> enough issues to compile Python :-) For example, on OpenIndiana,
+> Python wanted to rebuild the grammar but the system Python was 2.6
+> which didn't work (I don't recall the details). Moreover, the "make
+> touch" command didn't work neither :-)
+
+Right, tracking those artifacts is a long standing policy and exists
+for good reasons.  Our policy is that the committed changes should
+be done with the "right" version of the tool to minimize churn, and
+I think we should maintain that policy even if we sometimes screw up.
+
+(I thought we had actually introduced a check for it in the Makefile, but
+I guess not...that would make it inconvenient for someone to intentionally
+use a different version for a custom build.)
+
+--David
+
+From eric at trueblade.com  Thu Nov 24 10:05:49 2016
+From: eric at trueblade.com (Eric V. Smith)
+Date: Thu, 24 Nov 2016 10:05:49 -0500
+Subject: [python-committers] autoconf 2.70
+In-Reply-To: <20161124150019.78F8B1B10001@webabinitio.net>
+References: <c6c53b39-05b7-c4b2-2551-f5f5146e01f4@gmail.com>
+ <CAP1=2W4rCnuZj6MhVCjcv=AhSrwkh+y8iEm=HCKF_oMgzxrS2w@mail.gmail.com>
+ <09c2750f-22b5-9b00-3486-3d139d087375@gmail.com>
+ <1473661634.352642.722719041.12B70326@webmail.messagingengine.com>
+ <CAMpsgwZyEe8dQmy10dj1QeKr82w4hXdfr3Pox+XLMo9WZo86_Q@mail.gmail.com>
+ <c1ec42e2-27b7-ebe4-7417-3b52adeb3838@gmail.com>
+ <E12CB7EE-129B-4C0A-AD13-E13550FF3241@python.org>
+ <d2806789-1a38-cafe-6c6f-465beb03c54e@gmail.com>
+ <CAGE7PNL8x3OqKKy8XowCJk90+qip7QEE5rQgjDjCXW=otWsdJQ@mail.gmail.com>
+ <15d08012-3f31-3125-b3f6-f0d96ab690b8@gmail.com>
+ <CAMpsgwb8-ZHuy=YvEy6nBiGRpjMYV2-T7meGUjyDdWY1S4VLMQ@mail.gmail.com>
+ <20161124150019.78F8B1B10001@webabinitio.net>
+Message-ID: <144C4E43-E40B-469E-98E1-2076D504825B@trueblade.com>
+
+
+> On Nov 24, 2016, at 10:00 AM, R. David Murray <rdmurray at bitdance.com> wrote:
+
+> Right, tracking those artifacts is a long standing policy and exists
+> for good reasons.  Our policy is that the committed changes should
+> be done with the "right" version of the tool to minimize churn, and
+> I think we should maintain that policy even if we sometimes screw up.
+
+Agreed. 
+
+> (I thought we had actually introduced a check for it in the Makefile, but
+> I guess not...that would make it inconvenient for someone to intentionally
+> use a different version for a custom build.)
+
+Would it be possible to add a commit hook? It seems like that would be the correct place to catch it. 
+
+Eric. 
+
+From nad at python.org  Thu Nov 24 11:21:01 2016
+From: nad at python.org (Ned Deily)
+Date: Thu, 24 Nov 2016 11:21:01 -0500
+Subject: [python-committers] autoconf 2.70
+In-Reply-To: <144C4E43-E40B-469E-98E1-2076D504825B@trueblade.com>
+References: <c6c53b39-05b7-c4b2-2551-f5f5146e01f4@gmail.com>
+ <CAP1=2W4rCnuZj6MhVCjcv=AhSrwkh+y8iEm=HCKF_oMgzxrS2w@mail.gmail.com>
+ <09c2750f-22b5-9b00-3486-3d139d087375@gmail.com>
+ <1473661634.352642.722719041.12B70326@webmail.messagingengine.com>
+ <CAMpsgwZyEe8dQmy10dj1QeKr82w4hXdfr3Pox+XLMo9WZo86_Q@mail.gmail.com>
+ <c1ec42e2-27b7-ebe4-7417-3b52adeb3838@gmail.com>
+ <E12CB7EE-129B-4C0A-AD13-E13550FF3241@python.org>
+ <d2806789-1a38-cafe-6c6f-465beb03c54e@gmail.com>
+ <CAGE7PNL8x3OqKKy8XowCJk90+qip7QEE5rQgjDjCXW=otWsdJQ@mail.gmail.com>
+ <15d08012-3f31-3125-b3f6-f0d96ab690b8@gmail.com>
+ <CAMpsgwb8-ZHuy=YvEy6nBiGRpjMYV2-T7meGUjyDdWY1S4VLMQ@mail.gmail.com>
+ <20161124150019.78F8B1B10001@webabinitio.net>
+ <144C4E43-E40B-469E-98E1-2076D504825B@trueblade.com>
+Message-ID: <332EA5AD-9B01-4547-88DF-FD7693246BAC@python.org>
+
+On Nov 24, 2016, at 10:05, Eric V. Smith <eric at trueblade.com> wrote:
+> On Nov 24, 2016, at 10:00 AM, R. David Murray <rdmurray at bitdance.com> wrote:
+>> (I thought we had actually introduced a check for it in the Makefile, but
+>> I guess not...that would make it inconvenient for someone to intentionally
+>> use a different version for a custom build.)
+
+I'm quite sure we did have such a check back some years ago back when there were less compatible versions of autoconf in wide use.  It could be restored if someone wants to write a patch.
+
+> Would it be possible to add a commit hook? It seems like that would be the correct place to catch it. 
+
+It could but I'm sure you'd agree this is not something we need to be spending time on with our soon-to-be-retired hg-based workflow.  As I suggested earlier in this thread, if there is interest in doing something, it should be considered for the new git-based workflow and, "if it hasn't already been discussed there, it might be worth bringing up on the core-workflow mailing list".
+
+--
+  Ned Deily
+  nad at python.org -- []
+
+

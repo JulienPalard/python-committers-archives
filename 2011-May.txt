@@ -1,0 +1,2315 @@
+From raymond.hettinger at gmail.com  Sun May  1 20:22:02 2011
+From: raymond.hettinger at gmail.com (Raymond Hettinger)
+Date: Sun, 1 May 2011 11:22:02 -0700
+Subject: [python-committers] [Python-Dev] Python 3.2.1
+In-Reply-To: <ipk6v4$h54$1@dough.gmane.org>
+References: <ipk6v4$h54$1@dough.gmane.org>
+Message-ID: <5D8F6095-D052-47F6-A65B-D578A4460F20@gmail.com>
+
+
+On May 1, 2011, at 10:57 AM, Georg Brandl wrote:
+
+> I'd like to release Python 3.2.1 on May 21, with a release candidate
+> on May 14.  Please bring any issues you think need to be fixed in it
+> to my attention by assigning "release blocker" status in the tracker.
+
+
+Thanks to http://www.python.org/dev/daily-dmg/ , I've been able
+to work off of the head every day.  Python 3.2.1 is in pretty good shape :-)
+
+
+Raymond
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20110501/f34277de/attachment.html>
+
+From barry at python.org  Tue May  3 00:35:20 2011
+From: barry at python.org (Barry Warsaw)
+Date: Mon, 2 May 2011 18:35:20 -0400
+Subject: [python-committers] Python 2.6.7 schedule
+Message-ID: <20110502183520.1c9efdc0@neurotica.wooz.org>
+
+I'd like to make a Python 2.6.7 release candidate this Friday, May 6, with a
+final release scheduled for May 20.  I've put these dates on the Python
+Release Schedule calendar.
+
+This will be a source-only security release.  I see no release blockers for
+Python 2.6, so if you know of anything that must go into 2.6.7, please be sure
+there is a tracker issue for it, that 2.6 is marked as being affected, and
+with a release blocker priority.
+
+Cheers,
+-Barry
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 836 bytes
+Desc: not available
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20110502/c5d1d695/attachment.pgp>
+
+From g.brandl at gmx.net  Tue May  3 20:27:12 2011
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Tue, 03 May 2011 20:27:12 +0200
+Subject: [python-committers] Python 3.2.1 schedule amendment
+Message-ID: <ipphe5$iui$1@dough.gmane.org>
+
+Service announcement from your friendly release manager:
+
+Since 3.2.1 is the first release from Mercurial, I'm likely going to need
+extra time figure out the best process, and to go through PEP 101 and fix
+it (XXX what do we do with the SVN instructions, which are still valid
+for 2.6?).
+
+Therefore, I've decided to go through the process this weekend already,
+in order not to screw up the only rc for 3.2.1 (planned for next weekend).
+And while I'm at it, I figure I can make the result public in any case, so
+there will be a 3.2.1 beta 1.
+
+Since I'm going to work in a separate release branch (clone), there won't
+be freezes anymore and the additional release won't disturb development
+during the weekend.
+
+Martin, Ned: I would say it's not mandatory for the beta release to have
+binaries, but you might want to test out your toolchains against the new
+process too.
+
+Georg
+
+
+From martin at v.loewis.de  Tue May  3 23:52:06 2011
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Tue, 03 May 2011 23:52:06 +0200
+Subject: [python-committers] Python 3.2.1 schedule amendment
+In-Reply-To: <ipphe5$iui$1@dough.gmane.org>
+References: <ipphe5$iui$1@dough.gmane.org>
+Message-ID: <4DC07906.9020103@v.loewis.de>
+
+> Martin, Ned: I would say it's not mandatory for the beta release to have
+> binaries, but you might want to test out your toolchains against the new
+> process too.
+
+Indeed. I'd prefer if the release clone is public somewhere, so that I
+can point my local clones to it.
+
+Regards,
+Martin
+
+From ncoghlan at gmail.com  Wed May  4 13:50:41 2011
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Wed, 4 May 2011 21:50:41 +1000
+Subject: [python-committers] Python 3.2.1 schedule amendment
+In-Reply-To: <ipphe5$iui$1@dough.gmane.org>
+References: <ipphe5$iui$1@dough.gmane.org>
+Message-ID: <BANLkTi=t5XUi+ZQ-F528JwoDuhe768-Sww@mail.gmail.com>
+
+On Wed, May 4, 2011 at 4:27 AM, Georg Brandl <g.brandl at gmx.net> wrote:
+> Since 3.2.1 is the first release from Mercurial, I'm likely going to need
+> extra time figure out the best process, and to go through PEP 101 and fix
+> it (XXX what do we do with the SVN instructions, which are still valid
+> for 2.6?).
+
+I would say drop them, and add a reference to the source of the last
+revision that included them for Barry's benefit (although I believe
+he's doing source-only security releases now, so he'll be skipping
+most of them).
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan?? |?? ncoghlan at gmail.com?? |?? Brisbane, Australia
+
+From barry at python.org  Wed May  4 16:02:28 2011
+From: barry at python.org (Barry Warsaw)
+Date: Wed, 4 May 2011 10:02:28 -0400
+Subject: [python-committers] Python 3.2.1 schedule amendment
+In-Reply-To: <BANLkTi=t5XUi+ZQ-F528JwoDuhe768-Sww@mail.gmail.com>
+References: <ipphe5$iui$1@dough.gmane.org>
+	<BANLkTi=t5XUi+ZQ-F528JwoDuhe768-Sww@mail.gmail.com>
+Message-ID: <20110504100228.1208b903@neurotica.wooz.org>
+
+On May 04, 2011, at 09:50 PM, Nick Coghlan wrote:
+
+>On Wed, May 4, 2011 at 4:27 AM, Georg Brandl <g.brandl at gmx.net> wrote:
+>> Since 3.2.1 is the first release from Mercurial, I'm likely going to need
+>> extra time figure out the best process, and to go through PEP 101 and fix
+>> it (XXX what do we do with the SVN instructions, which are still valid
+>> for 2.6?).
+>
+>I would say drop them, and add a reference to the source of the last
+>revision that included them for Barry's benefit (although I believe
+>he's doing source-only security releases now, so he'll be skipping
+>most of them).
+
+It's fine.  When I do the source release, I can just pull up an older rev of
+PEP 101.
+
+BTW, I think last time we decided to do the source releases for 2.5 and 2.6
+from SVN, but to also commit the changes to the hg branch.  Martin is that
+what you did for 2.5?
+
+-Barry
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 836 bytes
+Desc: not available
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20110504/e73ac3c1/attachment.pgp>
+
+From barry at python.org  Sat May  7 01:24:09 2011
+From: barry at python.org (Barry Warsaw)
+Date: Fri, 6 May 2011 19:24:09 -0400
+Subject: [python-committers] Python 2.6.7rc1
+Message-ID: <20110506192409.4edc9c98@neurotica.wooz.org>
+
+I actually made the 2.6.7rc1 release and pushed it out to dinsdale, but Martin
+tells me that the hg and svn branches for 2.6 are not synchronized.  Dang, I
+should have checked that first.
+
+I'm going to hold off announcing the availability of 2.6.7rc1 until I have
+some time to synchronize the branches, and possibly decide whether to do the
+actual release from hg or svn.  Issue 12024 is the release blocker for this.
+
+It might mean doing an rc2, but I probably won't get to that for another
+week.  Which I think is okay, because this is basically a self-imposed
+deadline.
+
+Cheers,
+-Barry
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 836 bytes
+Desc: not available
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20110506/8c7cfe31/attachment.pgp>
+
+From steve at holdenweb.com  Sat May  7 01:44:00 2011
+From: steve at holdenweb.com (Steve Holden)
+Date: Fri, 6 May 2011 19:44:00 -0400
+Subject: [python-committers] Python 2.6.7rc1
+In-Reply-To: <20110506192409.4edc9c98@neurotica.wooz.org>
+References: <20110506192409.4edc9c98@neurotica.wooz.org>
+Message-ID: <621931F3-D3D6-46B5-9475-592B5620BE0A@holdenweb.com>
+
+Yeah, haven't heard anyone screaming "When's 2.6.7 going to be production-ready" yet. But the work release managers put in to maintaining prior releases is, I know, much appreciated by many users of such releases.
+
+regards
+ Steve
+
+On May 6, 2011, at 7:24 PM, Barry Warsaw wrote:
+
+> I actually made the 2.6.7rc1 release and pushed it out to dinsdale, but Martin
+> tells me that the hg and svn branches for 2.6 are not synchronized.  Dang, I
+> should have checked that first.
+> 
+> I'm going to hold off announcing the availability of 2.6.7rc1 until I have
+> some time to synchronize the branches, and possibly decide whether to do the
+> actual release from hg or svn.  Issue 12024 is the release blocker for this.
+> 
+> It might mean doing an rc2, but I probably won't get to that for another
+> week.  Which I think is okay, because this is basically a self-imposed
+> deadline.
+> 
+> Cheers,
+> -Barry
+> 
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+
+-- 
+Steve Holden
+steve at holdenweb.com
+
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20110506/12a28a51/attachment.html>
+
+From dickinsm at gmail.com  Fri May 13 10:14:12 2011
+From: dickinsm at gmail.com (Mark Dickinson)
+Date: Fri, 13 May 2011 09:14:12 +0100
+Subject: [python-committers] Python Language Summit at EuroPython: 19th
+	June
+In-Reply-To: <4DA9ACB5.6030505@python.org>
+References: <4DA9ACB5.6030505@python.org>
+Message-ID: <BANLkTinAHe9kAumvJFqqJ6sbtHpW9KJdmg@mail.gmail.com>
+
+Hi Michael,
+
+Sorry for the late reply;  it's been kinda busy around here.
+
+If there are places left, I'll definitely be there at the summit.
+
+Congratulations on your impending doom!  (And sorry to hear that you
+might not be there in Florence.)
+
+Mark
+
+
+On Sat, Apr 16, 2011 at 3:50 PM, Michael Foord <michael at python.org> wrote:
+> Hello all,
+>
+> This is an invite to all core-python developers, and developers of
+> alternative implementations, to attend the Python Language Summit at
+> EuroPython. The summit will be on June 19th and EuroPython this year will be
+> held at the beautiful city of Florence in Italy.
+>
+> ? ?http://ep2011.europython.eu/
+>
+> If you are not a core-Python developer but would like to attend then please
+> email me privately and I will let you know if spaces are available. If you
+> are a core developer, or you have received a direct invitation, then please
+> respond by private email to let me know if you are able to attend. A maybe
+> is fine, you can always change your mind later. Attending for only part of
+> the day is fine.
+>
+> We expect the summit to run from 10am - 4pm with appropriate breaks.
+>
+> Like previous language summits it is an opportunity to discuss topics like,
+> Python 3 adoption, PEPs and changes for Python 3.3, the future of Python
+> 2.7, documentation, package index, web site, etc.
+>
+> If you have topics you'd like to discuss at the language summit please let
+> me know.
+>
+> Volunteers for taking notes at the language summit, for posting to
+> Python-dev and the Python Insiders blog after the event, would be much
+> appreciated.
+>
+> All the best,
+>
+> Michael Foord
+>
+> N.B. Due to my impending doom (oops, I mean impending fatherhood) I am not
+> yet 100% certain I will be able to attend. If I can't I will arrange for
+> someone else to chair.
+>
+> --
+> http://www.voidspace.org.uk/
+>
+> May you do good and not evil
+> May you find forgiveness for yourself and forgive others
+> May you share freely, never taking more than you give.
+> -- the sqlite blessing http://www.sqlite.org/different.html
+>
+>
+
+From victor.stinner at haypocalc.com  Sun May 15 10:31:37 2011
+From: victor.stinner at haypocalc.com (Victor Stinner)
+Date: Sun, 15 May 2011 10:31:37 +0200
+Subject: [python-committers] =?iso-8859-1?q?Charles-Fran=E7ois_Natali_=28n?=
+	=?iso-8859-1?q?eologix=29?=
+Message-ID: <1305448297.23358.2.camel@marge>
+
+Hi,
+
+This guy rocks! He understood and fixed many subtle bugs like race
+conditions recently. Example from the NEWS of Python 3.3:
+
+- Issue #12060: Use sig_atomic_t type and volatile keyword in the signal
+  module. Patch written by Charles-Fran?ois Natali.
+
+- Issue #11849: Make it more likely for the system allocator to release
+  free()d memory arenas on glibc-based systems.  Patch by
+Charles-Fran?ois
+  Natali.
+
+- Issue #10517: After fork(), reinitialize the TLS used by the
+PyGILState_*
+  APIs, to avoid a crash with the pthread implementation in RHEL 5.
+Patch
+  by Charles-Fran?ois Natali.
+
+- Issue #11650: PyOS_StdioReadline() retries fgets() if it was
+interrupted
+  (EINTR), for example if the program is stopped with CTRL+z on Mac OS
+X. Patch
+  written by Charles-Francois Natali.
+
+- Issue #11811: ssl.get_server_certificate() is now IPv6-compatible.
+Patch
+  by Charles-Fran?ois Natali.	
+
+- Issue #8428: Fix a race condition in multiprocessing.Pool when
+terminating
+  worker processes: new processes would be spawned while the pool is
+being
+  shut down.  Patch by Charles-Fran?ois Natali.
+
+- Issue #11757: select.select() now raises ValueError when a negative
+timeout
+  is passed (previously, a select.error with EINVAL would be raised).
+Patch
+  by Charles-Fran?ois Natali.
+
+etc.
+
+I would to propose him to commit grant. What do you think?
+
+Victor
+
+
+From g.brandl at gmx.net  Sun May 15 17:30:47 2011
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Sun, 15 May 2011 17:30:47 +0200
+Subject: [python-committers] 3.2.1 rc
+Message-ID: <iqorj9$g1b$1@dough.gmane.org>
+
+I'm now going to start working on 3.2.1 rc now.  There is no checkin freeze,
+I'll work in <http://hg.python.org/releasing/3.2.1>.
+
+As my goal is to have no commits between rc and final, I'll keep this clone
+for the final and will *not* merge from the main repo inbetween, except if
+serious issues or regressions surface.
+
+Georg
+
+
+From brian.curtin at gmail.com  Sun May 15 18:07:36 2011
+From: brian.curtin at gmail.com (Brian Curtin)
+Date: Sun, 15 May 2011 11:07:36 -0500
+Subject: [python-committers]
+	=?iso-8859-1?q?Charles-Fran=E7ois_Natali_=28n?=
+	=?iso-8859-1?q?eologix=29?=
+In-Reply-To: <1305448297.23358.2.camel@marge>
+References: <1305448297.23358.2.camel@marge>
+Message-ID: <BANLkTinTaod7Brrip=iz8carkwv_ROiDEA@mail.gmail.com>
+
+On Sun, May 15, 2011 at 03:31, Victor Stinner
+<victor.stinner at haypocalc.com>wrote:
+
+> Hi,
+>
+> This guy rocks! He understood and fixed many subtle bugs like race
+> conditions recently. Example from the NEWS of Python 3.3:
+>
+> - Issue #12060: Use sig_atomic_t type and volatile keyword in the signal
+>  module. Patch written by Charles-Fran?ois Natali.
+>
+> - Issue #11849: Make it more likely for the system allocator to release
+>  free()d memory arenas on glibc-based systems.  Patch by
+> Charles-Fran?ois
+>  Natali.
+>
+> - Issue #10517: After fork(), reinitialize the TLS used by the
+> PyGILState_*
+>  APIs, to avoid a crash with the pthread implementation in RHEL 5.
+> Patch
+>  by Charles-Fran?ois Natali.
+>
+> - Issue #11650: PyOS_StdioReadline() retries fgets() if it was
+> interrupted
+>  (EINTR), for example if the program is stopped with CTRL+z on Mac OS
+> X. Patch
+>  written by Charles-Francois Natali.
+>
+> - Issue #11811: ssl.get_server_certificate() is now IPv6-compatible.
+> Patch
+>  by Charles-Fran?ois Natali.
+>
+> - Issue #8428: Fix a race condition in multiprocessing.Pool when
+> terminating
+>  worker processes: new processes would be spawned while the pool is
+> being
+>  shut down.  Patch by Charles-Fran?ois Natali.
+>
+> - Issue #11757: select.select() now raises ValueError when a negative
+> timeout
+>  is passed (previously, a select.error with EINVAL would be raised).
+> Patch
+>  by Charles-Fran?ois Natali.
+>
+> etc.
+>
+> I would to propose him to commit grant. What do you think?
+>
+> Victor
+
+
++1, he's been involved in some tougher issues and has been active for a
+while now. I haven't looked at many of his patches but he has written
+several, and his comments on issues have been pretty thorough.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20110515/8b6387a2/attachment.html>
+
+From jnoller at gmail.com  Sun May 15 18:26:27 2011
+From: jnoller at gmail.com (Jesse Noller)
+Date: Sun, 15 May 2011 12:26:27 -0400
+Subject: [python-committers]
+	=?iso-8859-1?q?Charles-Fran=E7ois_Natali_=28n?=
+	=?iso-8859-1?q?eologix=29?=
+In-Reply-To: <BANLkTinTaod7Brrip=iz8carkwv_ROiDEA@mail.gmail.com>
+References: <1305448297.23358.2.camel@marge>
+	<BANLkTinTaod7Brrip=iz8carkwv_ROiDEA@mail.gmail.com>
+Message-ID: <BANLkTim1QiY+DtHWRSyvy7Og6ETZ2fWwHw@mail.gmail.com>
+
+On Sun, May 15, 2011 at 12:07 PM, Brian Curtin <brian.curtin at gmail.com> wrote:
+> On Sun, May 15, 2011 at 03:31, Victor Stinner <victor.stinner at haypocalc.com>
+> wrote:
+>>
+>> Hi,
+>>
+>> This guy rocks! He understood and fixed many subtle bugs like race
+>> conditions recently. Example from the NEWS of Python 3.3:
+>>
+>> - Issue #12060: Use sig_atomic_t type and volatile keyword in the signal
+>> ?module. Patch written by Charles-Fran?ois Natali.
+>>
+>> - Issue #11849: Make it more likely for the system allocator to release
+>> ?free()d memory arenas on glibc-based systems. ?Patch by
+>> Charles-Fran?ois
+>> ?Natali.
+>>
+>> - Issue #10517: After fork(), reinitialize the TLS used by the
+>> PyGILState_*
+>> ?APIs, to avoid a crash with the pthread implementation in RHEL 5.
+>> Patch
+>> ?by Charles-Fran?ois Natali.
+>>
+>> - Issue #11650: PyOS_StdioReadline() retries fgets() if it was
+>> interrupted
+>> ?(EINTR), for example if the program is stopped with CTRL+z on Mac OS
+>> X. Patch
+>> ?written by Charles-Francois Natali.
+>>
+>> - Issue #11811: ssl.get_server_certificate() is now IPv6-compatible.
+>> Patch
+>> ?by Charles-Fran?ois Natali.
+>>
+>> - Issue #8428: Fix a race condition in multiprocessing.Pool when
+>> terminating
+>> ?worker processes: new processes would be spawned while the pool is
+>> being
+>> ?shut down. ?Patch by Charles-Fran?ois Natali.
+>>
+>> - Issue #11757: select.select() now raises ValueError when a negative
+>> timeout
+>> ?is passed (previously, a select.error with EINVAL would be raised).
+>> Patch
+>> ?by Charles-Fran?ois Natali.
+>>
+>> etc.
+>>
+>> I would to propose him to commit grant. What do you think?
+>>
+>> Victor
+>
+> +1, he's been involved in some tougher issues and has been active for a
+> while now. I haven't looked at many of his patches but he has written
+> several, and his comments on issues have been pretty thorough.
+
+Agreed
+
+From victor.stinner at haypocalc.com  Sun May 15 18:44:57 2011
+From: victor.stinner at haypocalc.com (Victor Stinner)
+Date: Sun, 15 May 2011 18:44:57 +0200
+Subject: [python-committers]
+ =?iso-8859-1?q?Charles-Fran=E7ois_Natali_=28n?=
+ =?iso-8859-1?q?eologix=29?=
+In-Reply-To: <1305448297.23358.2.camel@marge>
+References: <1305448297.23358.2.camel@marge>
+Message-ID: <1305477897.25074.1.camel@marge>
+
+Le dimanche 15 mai 2011 ? 10:31 +0200, Victor Stinner a ?crit :
+> I would to propose him to commit grant.
+
+But I also propose to be his mentor: review all of his patches before
+commit.
+
+Victor
+
+
+From greg at krypto.org  Sun May 15 22:47:00 2011
+From: greg at krypto.org (Gregory P. Smith)
+Date: Sun, 15 May 2011 13:47:00 -0700
+Subject: [python-committers]
+	=?iso-8859-1?q?Charles-Fran=E7ois_Natali_=28n?=
+	=?iso-8859-1?q?eologix=29?=
+In-Reply-To: <1305448297.23358.2.camel@marge>
+References: <1305448297.23358.2.camel@marge>
+Message-ID: <BANLkTimf0VQQP0vzF8j+eTVRj6S55RCG3g@mail.gmail.com>
+
++1
+
+From solipsis at pitrou.net  Mon May 16 15:29:47 2011
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Mon, 16 May 2011 15:29:47 +0200
+Subject: [python-committers]
+ =?iso-8859-1?q?Charles-Fran=E7ois_Natali_=28n?=
+ =?iso-8859-1?q?eologix=29?=
+In-Reply-To: <1305448297.23358.2.camel@marge>
+References: <1305448297.23358.2.camel@marge>
+Message-ID: <1305552587.3623.5.camel@localhost.localdomain>
+
+
+> I would to propose him to commit grant. What do you think?
+
++1 from me.
+
+Regards
+
+Antoine.
+
+
+
+From georg at python.org  Tue May 17 20:50:37 2011
+From: georg at python.org (Georg Brandl)
+Date: Tue, 17 May 2011 20:50:37 +0200
+Subject: [python-committers] [RELEASED] Python 3.2.1 rc 1
+Message-ID: <4DD2C37D.7000008@python.org>
+
+On behalf of the Python development team, I am pleased to announce the
+first release candidate of Python 3.2.1.
+
+Python 3.2.1 will the first bugfix release for Python 3.2, fixing over 120
+bugs and regressions in Python 3.2.
+
+For an extensive list of changes and features in the 3.2 line, see
+
+    http://docs.python.org/3.2/whatsnew/3.2.html
+
+To download Python 3.2.1 visit:
+
+    http://www.python.org/download/releases/3.2.1/
+
+This is a testing release: Please consider trying Python 3.2.1 with your code
+and reporting any bugs you may notice to:
+
+    http://bugs.python.org/
+
+
+Enjoy!
+
+-- 
+Georg Brandl, Release Manager
+georg at python.org
+(on behalf of the entire python-dev team and 3.2's contributors)
+
+From victor.stinner at haypocalc.com  Wed May 18 22:53:08 2011
+From: victor.stinner at haypocalc.com (Victor Stinner)
+Date: Wed, 18 May 2011 22:53:08 +0200
+Subject: [python-committers]
+ =?iso-8859-1?q?Charles-Fran=E7ois_Natali_=28n?=
+ =?iso-8859-1?q?eologix=29?=
+In-Reply-To: <1305448297.23358.2.camel@marge>
+References: <1305448297.23358.2.camel@marge>
+Message-ID: <1305751988.27389.3.camel@marge>
+
+Le dimanche 15 mai 2011 ? 10:31 +0200, Victor Stinner a ?crit :
+> I would to propose him to commit grant. What do you think?
+
+Including me, we have 4 votes for, none against.
+
+I asked him and he would like to become a Python developer.
+
+I will ask him for his SSH public key. Should he sign the contributor
+agreement before his first commit? I commited into Python one year
+without signing this paper! I will also ask him to sign the paper.
+
+Victor
+
+
+From jnoller at gmail.com  Wed May 18 23:09:00 2011
+From: jnoller at gmail.com (Jesse Noller)
+Date: Wed, 18 May 2011 17:09:00 -0400
+Subject: [python-committers]
+	=?iso-8859-1?q?Charles-Fran=E7ois_Natali_=28n?=
+	=?iso-8859-1?q?eologix=29?=
+In-Reply-To: <1305751988.27389.3.camel@marge>
+References: <1305448297.23358.2.camel@marge> <1305751988.27389.3.camel@marge>
+Message-ID: <BANLkTi=J1=UOFbVN7mm=QsF6dhFUDJTBiQ@mail.gmail.com>
+
+On Wed, May 18, 2011 at 4:53 PM, Victor Stinner
+<victor.stinner at haypocalc.com> wrote:
+> Le dimanche 15 mai 2011 ? 10:31 +0200, Victor Stinner a ?crit :
+>> I would to propose him to commit grant. What do you think?
+>
+> Including me, we have 4 votes for, none against.
+>
+> I asked him and he would like to become a Python developer.
+>
+> I will ask him for his SSH public key. Should he sign the contributor
+> agreement before his first commit? I commited into Python one year
+> without signing this paper! I will also ask him to sign the paper.
+>
+> Victor
+
+Yes; please have him sign and send in the contributor agreement, please.
+
+From g.brandl at gmx.net  Thu May 19 20:33:17 2011
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Thu, 19 May 2011 20:33:17 +0200
+Subject: [python-committers] 3.2.1 rc 2
+Message-ID: <ir3np6$v2b$1@dough.gmane.org>
+
+As I've already said in another thread, I plan for 3.2.1 r2 as soon as
+http://bugs.python.org/issue12084 is fixed.  This is hopefully this
+weekend, but may be next.  Final is, as always, one week later.
+
+Georg
+
+
+From solipsis at pitrou.net  Fri May 20 13:07:40 2011
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Fri, 20 May 2011 13:07:40 +0200
+Subject: [python-committers]
+ =?iso-8859-1?q?Charles-Fran=E7ois_Natali_=28n?=
+ =?iso-8859-1?q?eologix=29?=
+In-Reply-To: <1305751988.27389.3.camel@marge>
+References: <1305448297.23358.2.camel@marge> <1305751988.27389.3.camel@marge>
+Message-ID: <1305889660.3589.2.camel@localhost.localdomain>
+
+
+For the record, and since the devguide commit
+(http://hg.python.org/devguide/rev/0e8e3057d7bc) didn't make it to
+python-checkins (because of
+http://hg.python.org/hooks/rev/aebbd6f606f3), I have made
+Charles-Fran?ois a committer after he sent his SSH key.
+
+Regards
+
+Antoine.
+
+
+Le mercredi 18 mai 2011 ? 22:53 +0200, Victor Stinner a ?crit :
+> Le dimanche 15 mai 2011 ? 10:31 +0200, Victor Stinner a ?crit :
+> > I would to propose him to commit grant. What do you think?
+> 
+> Including me, we have 4 votes for, none against.
+> 
+> I asked him and he would like to become a Python developer.
+> 
+> I will ask him for his SSH public key. Should he sign the contributor
+> agreement before his first commit? I commited into Python one year
+> without signing this paper! I will also ask him to sign the paper.
+> 
+> Victor
+> 
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+
+
+
+From jnoller at gmail.com  Fri May 20 15:18:00 2011
+From: jnoller at gmail.com (Jesse Noller)
+Date: Fri, 20 May 2011 09:18:00 -0400
+Subject: [python-committers]
+	=?iso-8859-1?q?Charles-Fran=E7ois_Natali_=28n?=
+	=?iso-8859-1?q?eologix=29?=
+In-Reply-To: <1305889660.3589.2.camel@localhost.localdomain>
+References: <1305448297.23358.2.camel@marge> <1305751988.27389.3.camel@marge>
+	<1305889660.3589.2.camel@localhost.localdomain>
+Message-ID: <BANLkTi=LgF_kRjQ5=CDUh3UEQmHyRLEdPA@mail.gmail.com>
+
+Please make sure he sends in a contributor agreement
+
+On Fri, May 20, 2011 at 7:07 AM, Antoine Pitrou <solipsis at pitrou.net> wrote:
+>
+> For the record, and since the devguide commit
+> (http://hg.python.org/devguide/rev/0e8e3057d7bc) didn't make it to
+> python-checkins (because of
+> http://hg.python.org/hooks/rev/aebbd6f606f3), I have made
+> Charles-Fran?ois a committer after he sent his SSH key.
+>
+> Regards
+>
+> Antoine.
+>
+>
+> Le mercredi 18 mai 2011 ? 22:53 +0200, Victor Stinner a ?crit :
+>> Le dimanche 15 mai 2011 ? 10:31 +0200, Victor Stinner a ?crit :
+>> > I would to propose him to commit grant. What do you think?
+>>
+>> Including me, we have 4 votes for, none against.
+>>
+>> I asked him and he would like to become a Python developer.
+>>
+>> I will ask him for his SSH public key. Should he sign the contributor
+>> agreement before his first commit? I commited into Python one year
+>> without signing this paper! I will also ask him to sign the paper.
+>>
+>> Victor
+>>
+>> _______________________________________________
+>> python-committers mailing list
+>> python-committers at python.org
+>> http://mail.python.org/mailman/listinfo/python-committers
+>
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+>
+
+From victor.stinner at haypocalc.com  Fri May 20 15:42:20 2011
+From: victor.stinner at haypocalc.com (Victor Stinner)
+Date: Fri, 20 May 2011 15:42:20 +0200
+Subject: [python-committers]
+ =?iso-8859-1?q?Charles-Fran=E7ois_Natali_=28n?=
+ =?iso-8859-1?q?eologix=29?=
+In-Reply-To: <BANLkTi=LgF_kRjQ5=CDUh3UEQmHyRLEdPA@mail.gmail.com>
+References: <1305448297.23358.2.camel@marge> <1305751988.27389.3.camel@marge>
+	<1305889660.3589.2.camel@localhost.localdomain>
+	<BANLkTi=LgF_kRjQ5=CDUh3UEQmHyRLEdPA@mail.gmail.com>
+Message-ID: <1305898940.6368.3.camel@marge>
+
+Le vendredi 20 mai 2011 ? 09:18 -0400, Jesse Noller a ?crit :
+> Please make sure he sends in a contributor agreement
+
+I am in contact with Charles-Fran?ois. I asked me to sign the
+contributor agreement. I told him that it is possible to scan it and
+send the image to the PSF, but he answered that it's not written in the
+contributor agreement or in the dev guide. So I don't know if he will
+scan it and/or send the papier version.
+
+Victor
+
+
+From jnoller at gmail.com  Fri May 20 16:07:35 2011
+From: jnoller at gmail.com (Jesse Noller)
+Date: Fri, 20 May 2011 10:07:35 -0400
+Subject: [python-committers]
+	=?iso-8859-1?q?Charles-Fran=E7ois_Natali_=28n?=
+	=?iso-8859-1?q?eologix=29?=
+In-Reply-To: <1305898940.6368.3.camel@marge>
+References: <1305448297.23358.2.camel@marge> <1305751988.27389.3.camel@marge>
+	<1305889660.3589.2.camel@localhost.localdomain>
+	<BANLkTi=LgF_kRjQ5=CDUh3UEQmHyRLEdPA@mail.gmail.com>
+	<1305898940.6368.3.camel@marge>
+Message-ID: <BANLkTim3gVMeAnTgT2m8KKOgOUY7zzk6dQ@mail.gmail.com>
+
+On Fri, May 20, 2011 at 9:42 AM, Victor Stinner
+<victor.stinner at haypocalc.com> wrote:
+> Le vendredi 20 mai 2011 ? 09:18 -0400, Jesse Noller a ?crit :
+>> Please make sure he sends in a contributor agreement
+>
+> I am in contact with Charles-Fran?ois. I asked me to sign the
+> contributor agreement. I told him that it is possible to scan it and
+> send the image to the PSF, but he answered that it's not written in the
+> contributor agreement or in the dev guide. So I don't know if he will
+> scan it and/or send the papier version.
+>
+> Victor
+>
+>
+
+He can scan it, or take a photo and send it to us. Tell him to contact
+me if he has issues.
+
+From eric at trueblade.com  Fri May 20 16:02:33 2011
+From: eric at trueblade.com (Eric Smith)
+Date: Fri, 20 May 2011 10:02:33 -0400
+Subject: [python-committers]
+	=?iso-8859-1?q?Charles-Fran=E7ois_Natali_=28n?=
+	=?iso-8859-1?q?eologix=29?=
+In-Reply-To: <1305898940.6368.3.camel@marge>
+References: <1305448297.23358.2.camel@marge> <1305751988.27389.3.camel@marge>
+	<1305889660.3589.2.camel@localhost.localdomain>
+	<BANLkTi=LgF_kRjQ5=CDUh3UEQmHyRLEdPA@mail.gmail.com>
+	<1305898940.6368.3.camel@marge>
+Message-ID: <195cc178-161b-4b67-a4d4-62516604fca8@email.android.com>
+
+(Not sure if this was sent on the first attempt)
+
+Also please have him subscribe to python-committers. 
+-- 
+Eric. 
+
+Victor Stinner <victor.stinner at haypocalc.com> wrote:
+
+Le vendredi 20 mai 2011 ? 09:18 -0400, Jesse Noller a ?crit : > Please make sure he sends in a contributor agreement I am in contact with Charles-Fran?ois. I asked me to sign the contributor agreement. I told him that it is possible to scan it and send the image to the PSF, but he answered that it's not written in the contributor agreement or in the dev guide. So I don't know if he will scan it and/or send the papier version. Victor_____________________________________________
+python-committers mailing list python-committers at python.org http://mail.python.org/mailman/listinfo/python-committers 
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20110520/32c56947/attachment.html>
+
+From ncoghlan at gmail.com  Fri May 20 17:47:18 2011
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Sat, 21 May 2011 01:47:18 +1000
+Subject: [python-committers]
+	=?iso-8859-1?q?Charles-Fran=E7ois_Natali_=28n?=
+	=?iso-8859-1?q?eologix=29?=
+In-Reply-To: <BANLkTim3gVMeAnTgT2m8KKOgOUY7zzk6dQ@mail.gmail.com>
+References: <1305448297.23358.2.camel@marge> <1305751988.27389.3.camel@marge>
+	<1305889660.3589.2.camel@localhost.localdomain>
+	<BANLkTi=LgF_kRjQ5=CDUh3UEQmHyRLEdPA@mail.gmail.com>
+	<1305898940.6368.3.camel@marge>
+	<BANLkTim3gVMeAnTgT2m8KKOgOUY7zzk6dQ@mail.gmail.com>
+Message-ID: <BANLkTi=d1+oDxd8=W8Djx2sG8_-ESBo6vA@mail.gmail.com>
+
+On Sat, May 21, 2011 at 12:07 AM, Jesse Noller <jnoller at gmail.com> wrote:
+> He can scan it, or take a photo and send it to us. Tell him to contact
+> me if he has issues.
+
+This comes up every time, so if we can't get the main pydotorg page
+fixed, we *really* should mention these two alternatives in the
+devguide.
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan?? |?? ncoghlan at gmail.com?? |?? Brisbane, Australia
+
+From mfoord at python.org  Fri May 20 18:15:44 2011
+From: mfoord at python.org (Michael Foord)
+Date: Fri, 20 May 2011 17:15:44 +0100
+Subject: [python-committers]
+ =?iso-8859-1?q?Charles-Fran=E7ois_Natali_=28n?=
+ =?iso-8859-1?q?eologix=29?=
+In-Reply-To: <BANLkTi=d1+oDxd8=W8Djx2sG8_-ESBo6vA@mail.gmail.com>
+References: <1305448297.23358.2.camel@marge>
+	<1305751988.27389.3.camel@marge>	<1305889660.3589.2.camel@localhost.localdomain>	<BANLkTi=LgF_kRjQ5=CDUh3UEQmHyRLEdPA@mail.gmail.com>	<1305898940.6368.3.camel@marge>	<BANLkTim3gVMeAnTgT2m8KKOgOUY7zzk6dQ@mail.gmail.com>
+	<BANLkTi=d1+oDxd8=W8Djx2sG8_-ESBo6vA@mail.gmail.com>
+Message-ID: <4DD693B0.4070704@python.org>
+
+On 20/05/2011 16:47, Nick Coghlan wrote:
+> On Sat, May 21, 2011 at 12:07 AM, Jesse Noller<jnoller at gmail.com>  wrote:
+>> He can scan it, or take a photo and send it to us. Tell him to contact
+>> me if he has issues.
+> This comes up every time, so if we can't get the main pydotorg page
+> fixed, we *really* should mention these two alternatives in the
+> devguide.
+
+If you want a page on pydotorg fixed you can either get checkin rights 
+for the website and "just do it", or email the pydotorg-www mailing list 
+with the page you want changed and the amendment you want.
+
+     http://mail.python.org/mailman/listinfo/pydotorg-www
+
+All the best,
+
+Michael Foord
+> Cheers,
+> Nick.
+>
+
+
+-- 
+http://www.voidspace.org.uk/
+
+May you do good and not evil
+May you find forgiveness for yourself and forgive others
+May you share freely, never taking more than you give.
+-- the sqlite blessing http://www.sqlite.org/different.html
+
+
+From barry at python.org  Fri May 20 23:37:18 2011
+From: barry at python.org (Barry Warsaw)
+Date: Fri, 20 May 2011 17:37:18 -0400
+Subject: [python-committers] Python 2.6.7rc2
+Message-ID: <20110520173718.5a9e5f79@neurotica.wooz.org>
+
+I believe I've reconciled the Python 2.6 hg and svn branches.  I've committed
+the changes to 2.6svn and working on the null merges for the 2.6hg branch.
+I'll push the latter at some point soonish.  Anyway, this means that I will
+cut 2.6.7rc2 today -- and actually announce it!
+
+In the future, if you are going to apply patches to Python 2.6, please do so
+in both the hg and svn branches, since all 2.6 releases will be done from
+svn.  If you're unsure or don't feel comfortable about doing that, please send
+me the diff and I'll apply it to 2.6svn.  Or create/mark a bug as release
+blocker on 2.6 and attach the patch.
+
+Thanks.  I probably don't need to say, no commits to the 2.6svn branch for now
+please.
+
+-Barry
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 836 bytes
+Desc: not available
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20110520/e912d6ff/attachment.pgp>
+
+From guido at python.org  Sat May 21 00:12:51 2011
+From: guido at python.org (Guido van Rossum)
+Date: Fri, 20 May 2011 15:12:51 -0700
+Subject: [python-committers] Python 2.6.7rc2
+In-Reply-To: <20110520173718.5a9e5f79@neurotica.wooz.org>
+References: <20110520173718.5a9e5f79@neurotica.wooz.org>
+Message-ID: <BANLkTinCGFyykSVmpqtaQF5=jDj09+mHUA@mail.gmail.com>
+
+On Fri, May 20, 2011 at 2:37 PM, Barry Warsaw <barry at python.org> wrote:
+> I believe I've reconciled the Python 2.6 hg and svn branches. ?I've committed
+> the changes to 2.6svn and working on the null merges for the 2.6hg branch.
+> I'll push the latter at some point soonish. ?Anyway, this means that I will
+> cut 2.6.7rc2 today -- and actually announce it!
+
+I hope you did copy the SimpleHTTPServer.py security fix that I just
+commented on in the tracker.
+
+> In the future, if you are going to apply patches to Python 2.6, please do so
+> in both the hg and svn branches, since all 2.6 releases will be done from
+> svn. ?If you're unsure or don't feel comfortable about doing that, please send
+> me the diff and I'll apply it to 2.6svn. ?Or create/mark a bug as release
+> blocker on 2.6 and attach the patch.
+
+I'm not very happy with this requirement to do parallel checkins in hg
+and svn. IMO everyone except for the release managers should be able
+to live in the happy illusion that we've migrated to hg completely.
+
+Of course I'm fine with having very restrictive policies about
+checkins to hg branches for old versions where the releases are done
+from svn. The more restricted the better. But requiring individual
+developers to maintain parallel svn and hg trees is going too far.
+
+> Thanks. ?I probably don't need to say, no commits to the 2.6svn branch for now
+> please.
+
+Happy releasing!
+
+-- 
+--Guido van Rossum (python.org/~guido)
+
+From martin at v.loewis.de  Sat May 21 00:19:36 2011
+From: martin at v.loewis.de (=?ISO-8859-15?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Sat, 21 May 2011 00:19:36 +0200
+Subject: [python-committers] Python 2.6.7rc2
+In-Reply-To: <20110520173718.5a9e5f79@neurotica.wooz.org>
+References: <20110520173718.5a9e5f79@neurotica.wooz.org>
+Message-ID: <4DD6E8F8.60303@v.loewis.de>
+
+Am 20.05.2011 23:37, schrieb Barry Warsaw:
+> I believe I've reconciled the Python 2.6 hg and svn branches.  I've committed
+> the changes to 2.6svn and working on the null merges for the 2.6hg branch.
+> I'll push the latter at some point soonish.  Anyway, this means that I will
+> cut 2.6.7rc2 today -- and actually announce it!
+> 
+> In the future, if you are going to apply patches to Python 2.6, please do so
+> in both the hg and svn branches, since all 2.6 releases will be done from
+> svn. 
+
+At the moment, this wouldn't be possible, since the svn is blocked from
+accepting commit unless they come from you or me.
+
+It would be better, IMO, if there was a single developer who would
+migrate changes to svn, or to have some semi-automatic procedure for
+that.
+
+Regards,
+Martin
+
+From barry at python.org  Sat May 21 00:32:29 2011
+From: barry at python.org (Barry Warsaw)
+Date: Fri, 20 May 2011 18:32:29 -0400
+Subject: [python-committers] Python 2.6.7rc2
+In-Reply-To: <BANLkTinCGFyykSVmpqtaQF5=jDj09+mHUA@mail.gmail.com>
+References: <20110520173718.5a9e5f79@neurotica.wooz.org>
+	<BANLkTinCGFyykSVmpqtaQF5=jDj09+mHUA@mail.gmail.com>
+Message-ID: <20110520183229.4a96dc74@neurotica.wooz.org>
+
+On May 20, 2011, at 03:12 PM, Guido van Rossum wrote:
+
+>On Fri, May 20, 2011 at 2:37 PM, Barry Warsaw <barry at python.org> wrote:
+>> I believe I've reconciled the Python 2.6 hg and svn branches. ?I've committed
+>> the changes to 2.6svn and working on the null merges for the 2.6hg branch.
+>> I'll push the latter at some point soonish. ?Anyway, this means that I will
+>> cut 2.6.7rc2 today -- and actually announce it!
+>
+>I hope you did copy the SimpleHTTPServer.py security fix that I just
+>commented on in the tracker.
+
+I did.  Right now I'm blocked on a test failure for test_urllib2, but it's
+failing in both the hg and svn branches, so at least it wasn't a result of a
+bogus merge by me. ;)
+
+(I also have a problem with the line-ending changes to various .bat files that
+where only committed to hg26 but not svn26.  I need to resolve those before I
+can push the reconciliation changes in Mercurial.)
+
+>> In the future, if you are going to apply patches to Python 2.6, please do so
+>> in both the hg and svn branches, since all 2.6 releases will be done from
+>> svn. ?If you're unsure or don't feel comfortable about doing that, please send
+>> me the diff and I'll apply it to 2.6svn. ?Or create/mark a bug as release
+>> blocker on 2.6 and attach the patch.
+>
+>I'm not very happy with this requirement to do parallel checkins in hg
+>and svn. IMO everyone except for the release managers should be able
+>to live in the happy illusion that we've migrated to hg completely.
+>
+>Of course I'm fine with having very restrictive policies about
+>checkins to hg branches for old versions where the releases are done
+>from svn. The more restricted the better. But requiring individual
+>developers to maintain parallel svn and hg trees is going too far.
+
+I'm actually okay with that too, as long as the issue that precipitated the
+commit isn't closed until it's been merged to 2.6svn.  Maybe that's the right
+way to handle this then -- when you commit a fix to 2.6hg, be sure there's an
+open release blocker issue on 2.6 with either a changeset or diff so that I
+can do the cross-port.
+
+And yes, we should still be very conservative about what lands in 2.5 and 2.6.
+
+>> Thanks. ?I probably don't need to say, no commits to the 2.6svn branch for
+>> now please.
+>
+>Happy releasing!
+
+Thanks!
+-Barry
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 836 bytes
+Desc: not available
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20110520/1a284cdc/attachment.pgp>
+
+From barry at python.org  Sat May 21 00:34:10 2011
+From: barry at python.org (Barry Warsaw)
+Date: Fri, 20 May 2011 18:34:10 -0400
+Subject: [python-committers] Python 2.6.7rc2
+In-Reply-To: <4DD6E8F8.60303@v.loewis.de>
+References: <20110520173718.5a9e5f79@neurotica.wooz.org>
+	<4DD6E8F8.60303@v.loewis.de>
+Message-ID: <20110520183410.7a785c6e@neurotica.wooz.org>
+
+On May 21, 2011, at 12:19 AM, Martin v. L?wis wrote:
+
+>Am 20.05.2011 23:37, schrieb Barry Warsaw:
+>> I believe I've reconciled the Python 2.6 hg and svn branches.  I've committed
+>> the changes to 2.6svn and working on the null merges for the 2.6hg branch.
+>> I'll push the latter at some point soonish.  Anyway, this means that I will
+>> cut 2.6.7rc2 today -- and actually announce it!
+>> 
+>> In the future, if you are going to apply patches to Python 2.6, please do so
+>> in both the hg and svn branches, since all 2.6 releases will be done from
+>> svn. 
+>
+>At the moment, this wouldn't be possible, since the svn is blocked from
+>accepting commit unless they come from you or me.
+>
+>It would be better, IMO, if there was a single developer who would
+>migrate changes to svn, or to have some semi-automatic procedure for
+>that.
+
+Yep.  It's rather a pain to determine what those changes are though if the
+best you can do is a recursive diff on the two trees.
+
+What do you think about my response to Guido, specifically: if you commit a
+change to 2.6hg, be sure there's a release blocker issue open on 2.6 so that I
+can easily find what needs to be cross-ported.
+
+-Barry
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 836 bytes
+Desc: not available
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20110520/5ff5c2fe/attachment.pgp>
+
+From guido at python.org  Sat May 21 02:11:33 2011
+From: guido at python.org (Guido van Rossum)
+Date: Fri, 20 May 2011 17:11:33 -0700
+Subject: [python-committers] Python 2.6.7rc2
+In-Reply-To: <20110520183410.7a785c6e@neurotica.wooz.org>
+References: <20110520173718.5a9e5f79@neurotica.wooz.org>
+	<4DD6E8F8.60303@v.loewis.de>
+	<20110520183410.7a785c6e@neurotica.wooz.org>
+Message-ID: <BANLkTimimYa9YYH0o3h17Oxy-jyeLeQX7Q@mail.gmail.com>
+
+On Fri, May 20, 2011 at 3:34 PM, Barry Warsaw <barry at python.org> wrote:
+> On May 21, 2011, at 12:19 AM, Martin v. L?wis wrote:
+>
+>>Am 20.05.2011 23:37, schrieb Barry Warsaw:
+>>> I believe I've reconciled the Python 2.6 hg and svn branches. ?I've committed
+>>> the changes to 2.6svn and working on the null merges for the 2.6hg branch.
+>>> I'll push the latter at some point soonish. ?Anyway, this means that I will
+>>> cut 2.6.7rc2 today -- and actually announce it!
+>>>
+>>> In the future, if you are going to apply patches to Python 2.6, please do so
+>>> in both the hg and svn branches, since all 2.6 releases will be done from
+>>> svn.
+>>
+>>At the moment, this wouldn't be possible, since the svn is blocked from
+>>accepting commit unless they come from you or me.
+>>
+>>It would be better, IMO, if there was a single developer who would
+>>migrate changes to svn, or to have some semi-automatic procedure for
+>>that.
+>
+> Yep. ?It's rather a pain to determine what those changes are though if the
+> best you can do is a recursive diff on the two trees.
+>
+> What do you think about my response to Guido, specifically: if you commit a
+> change to 2.6hg, be sure there's a release blocker issue open on 2.6 so that I
+> can easily find what needs to be cross-ported.
+
+That still requires developers to remember.
+
+Isn't there some invocation of hg log --branch that would give you a
+list of changes on the branch?
+
+-- 
+--Guido van Rossum (python.org/~guido)
+
+From nad at acm.org  Sat May 21 02:41:38 2011
+From: nad at acm.org (Ned Deily)
+Date: Fri, 20 May 2011 17:41:38 -0700
+Subject: [python-committers] Charles-Francois Natali (neologix)
+References: <1305448297.23358.2.camel@marge> <1305751988.27389.3.camel@marge>
+	<1305889660.3589.2.camel@localhost.localdomain>
+	<BANLkTi=LgF_kRjQ5=CDUh3UEQmHyRLEdPA@mail.gmail.com>
+	<1305898940.6368.3.camel@marge>
+	<BANLkTim3gVMeAnTgT2m8KKOgOUY7zzk6dQ@mail.gmail.com>
+	<BANLkTi=d1+oDxd8=W8Djx2sG8_-ESBo6vA@mail.gmail.com>
+	<4DD693B0.4070704@python.org>
+Message-ID: <nad-032591.17413820052011@news.gmane.org>
+
+In article <4DD693B0.4070704 at python.org>,
+ Michael Foord <mfoord at python.org> wrote:
+> On 20/05/2011 16:47, Nick Coghlan wrote:
+> > On Sat, May 21, 2011 at 12:07 AM, Jesse Noller<jnoller at gmail.com>  wrote:
+> >> He can scan it, or take a photo and send it to us. Tell him to contact
+> >> me if he has issues.
+> > This comes up every time, so if we can't get the main pydotorg page
+> > fixed, we *really* should mention these two alternatives in the
+> > devguide.
+> 
+> If you want a page on pydotorg fixed you can either get checkin rights 
+> for the website and "just do it" [...]
+
+Done.  Let me know if the wording should be changed.
+
+http://www.python.org/psf/contrib/
+
+--- data/psf/contrib/content.ht  (revision 13781)
++++ data/psf/contrib/content.ht  (working copy)
+@@ -47,9 +47,9 @@
+ PSF Licensing FAQ</a>.
+ 
+ <h2>Submission instructions</h2>
+-We currently accept contributor forms either through postal mail,
+-or through fax. Please print a copy of the form, fill out your
+-name, address, and initial license, sign it, and send postal
++We currently accept contributor forms through postal mail, fax,
++or by email. Please print a copy of the form, fill out your
++name, address, and initial license, sign it, and either send via postal
+ mail to
+ 
+ <blockquote>Python Software Foundation<br>
+@@ -61,6 +61,9 @@
+ 
+ or send it by fax to +1 858 712 8966
+ 
++<p>or scan or take a photo of the signed form and email it to
++<a href="mailto:psf at python.org">psf at python.org</a>.
++
+ <p>As the form is designed for future contributions, we ask
+ past contributors to state that their past contributions are
+ also covered under the form; we have one such form for past
+
+-- 
+ Ned Deily,
+ nad at acm.org
+
+
+From barry at python.org  Sat May 21 03:09:02 2011
+From: barry at python.org (Barry Warsaw)
+Date: Fri, 20 May 2011 21:09:02 -0400
+Subject: [python-committers] Cannot push after 2.6svn merge
+Message-ID: <20110520210902.02d8f0d1@limelight.wooz.org>
+
+Okay all you Mercurial experts, I need some help!
+
+One of the differences between the Mercurial and Subversion 2.6 branches were
+the line endings for various Windows files.  This change is not appropriate
+for 2.6, which is in security-fix only mode.  I reverted these changes in the
+Mercurial 2.6 branch, but now I can't push it.
+
+I asked around on #python-dev and it was suggested that I add some entries
+into .hgeol, which I've done:
+
+Doc/make.bat = CRLF
+Tools/buildbot/*.bat = CRLF
+Tools/msi/merge.py = CRLF
+PC/VS7.1/*.bat = CRLF
+PC/VS8.0/*.bat = CRLF
+
+Yet the push still fails with the errors below.  I don't know how to deal with
+the pretxnchangegroup.eol hook.  Any and all assistance will be greatly
+appreciated.
+
+Cheers,
+-Barry
+
+% hg push
+pushing to ssh://hg at hg.python.org/cpython
+searching for changes
+remote: adding changesets
+remote: adding manifests
+remote: adding file changes
+remote: added 5 changesets with 70 changes to 38 files
+remote: error: pretxnchangegroup.eol hook failed: Doc/make.bat in 03e488b5c009 should not have CRLF line endings
+remote: PC/VS7.1/build_ssl.bat in 03e488b5c009 should not have CRLF line endings
+remote: PC/VS8.0/build.bat in 03e488b5c009 should not have CRLF line endings
+remote: PC/VS8.0/build_env.bat in 03e488b5c009 should not have CRLF line endings
+remote: PC/VS8.0/build_pgo.bat in 03e488b5c009 should not have CRLF line endings
+remote: PC/VS8.0/build_ssl.bat in 03e488b5c009 should not have CRLF line endings
+remote: PC/VS8.0/env.bat in 03e488b5c009 should not have CRLF line endings
+remote: PC/VS8.0/idle.bat in 03e488b5c009 should not have CRLF line endings
+remote: PC/VS8.0/rt.bat in 03e488b5c009 should not have CRLF line endings
+remote: Tools/buildbot/build-amd64.bat in 03e488b5c009 should not have CRLF line endings
+remote: Tools/buildbot/build.bat in 03e488b5c009 should not have CRLF line endings
+remote: Tools/buildbot/buildmsi.bat in 03e488b5c009 should not have CRLF line endings
+remote: Tools/buildbot/clean-amd64.bat in 03e488b5c009 should not have CRLF line endings
+remote: Tools/buildbot/clean.bat in 03e488b5c009 should not have CRLF line endings
+remote: Tools/buildbot/external-amd64.bat in 03e488b5c009 should not have CRLF line endings
+remote: Tools/buildbot/external-common.bat in 03e488b5c009 should not have CRLF line endings
+remote: Tools/buildbot/external.bat in 03e488b5c009 should not have CRLF line endings
+remote: Tools/buildbot/test-amd64.bat in 03e488b5c009 should not have CRLF line endings
+remote: Tools/buildbot/test.bat in 03e488b5c009 should not have CRLF line endings
+remote: Tools/msi/merge.py in 03e488b5c009 should not have CRLF line endings
+remote: transaction abort!
+remote: rollback completed
+remote: abort: Doc/make.bat in 03e488b5c009 should not have CRLF line endings
+remote: PC/VS7.1/build_ssl.bat in 03e488b5c009 should not have CRLF line endings
+remote: PC/VS8.0/build.bat in 03e488b5c009 should not have CRLF line endings
+remote: PC/VS8.0/build_env.bat in 03e488b5c009 should not have CRLF line endings
+remote: PC/VS8.0/build_pgo.bat in 03e488b5c009 should not have CRLF line endings
+remote: PC/VS8.0/build_ssl.bat in 03e488b5c009 should not have CRLF line endings
+remote: PC/VS8.0/env.bat in 03e488b5c009 should not have CRLF line endings
+remote: PC/VS8.0/idle.bat in 03e488b5c009 should not have CRLF line endings
+remote: PC/VS8.0/rt.bat in 03e488b5c009 should not have CRLF line endings
+remote: Tools/buildbot/build-amd64.bat in 03e488b5c009 should not have CRLF line endings
+remote: Tools/buildbot/build.bat in 03e488b5c009 should not have CRLF line endings
+remote: Tools/buildbot/buildmsi.bat in 03e488b5c009 should not have CRLF line endings
+remote: Tools/buildbot/clean-amd64.bat in 03e488b5c009 should not have CRLF line endings
+remote: Tools/buildbot/clean.bat in 03e488b5c009 should not have CRLF line endings
+remote: Tools/buildbot/external-amd64.bat in 03e488b5c009 should not have CRLF line endings
+remote: Tools/buildbot/external-common.bat in 03e488b5c009 should not have CRLF line endings
+remote: Tools/buildbot/external.bat in 03e488b5c009 should not have CRLF line endings
+remote: Tools/buildbot/test-amd64.bat in 03e488b5c009 should not have CRLF line endings
+remote: Tools/buildbot/test.bat in 03e488b5c009 should not have CRLF line endings
+remote: Tools/msi/merge.py in 03e488b5c009 should not have CRLF line endings
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 836 bytes
+Desc: not available
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20110520/af30551b/attachment.pgp>
+
+From rdmurray at bitdance.com  Sat May 21 03:22:21 2011
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Fri, 20 May 2011 21:22:21 -0400
+Subject: [python-committers] Cannot push after 2.6svn merge
+In-Reply-To: <20110520210902.02d8f0d1@limelight.wooz.org>
+References: <20110520210902.02d8f0d1@limelight.wooz.org>
+Message-ID: <20110521012222.3CF3F250051@webabinitio.net>
+
+On Fri, 20 May 2011 21:09:02 -0400, Barry Warsaw <barry at python.org> wrote:
+> I asked around on #python-dev and it was suggested that I add some entries
+> into .hgeol, which I've done:
+> 
+> Doc/make.bat = CRLF
+> Tools/buildbot/*.bat = CRLF
+> Tools/msi/merge.py = CRLF
+> PC/VS7.1/*.bat = CRLF
+> PC/VS8.0/*.bat = CRLF
+> 
+> Yet the push still fails with the errors below.  I don't know how to deal w=
+
+Did you push the .hgeol change first?  That seemed to be
+necessary when I ran into something like this.  (But I'm
+no hg expert, so I could be all wet on this.)
+
+--David
+
+From martin at v.loewis.de  Sat May 21 08:02:44 2011
+From: martin at v.loewis.de (=?UTF-8?B?Ik1hcnRpbiB2LiBMw7Z3aXMi?=)
+Date: Sat, 21 May 2011 08:02:44 +0200
+Subject: [python-committers] Python 2.6.7rc2
+In-Reply-To: <20110520183410.7a785c6e@neurotica.wooz.org>
+References: <20110520173718.5a9e5f79@neurotica.wooz.org>	<4DD6E8F8.60303@v.loewis.de>
+	<20110520183410.7a785c6e@neurotica.wooz.org>
+Message-ID: <4DD75584.6030001@v.loewis.de>
+
+>> It would be better, IMO, if there was a single developer who would
+>> migrate changes to svn, or to have some semi-automatic procedure for
+>> that.
+> 
+> Yep.  It's rather a pain to determine what those changes are though if the
+> best you can do is a recursive diff on the two trees.
+
+You can do better than that. If the hg and svn changes are in the same
+order, and have the same commit messages (as they should), you can look
+at the log of the hg branch to find out what the youngest change is that
+has been copied; all changes that are more recent then still have to be
+applied.
+
+Regards,
+Martin
+
+From martin at v.loewis.de  Sat May 21 08:11:44 2011
+From: martin at v.loewis.de (=?ISO-8859-15?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Sat, 21 May 2011 08:11:44 +0200
+Subject: [python-committers] Cannot push after 2.6svn merge
+In-Reply-To: <20110520210902.02d8f0d1@limelight.wooz.org>
+References: <20110520210902.02d8f0d1@limelight.wooz.org>
+Message-ID: <4DD757A0.5050904@v.loewis.de>
+
+> One of the differences between the Mercurial and Subversion 2.6 branches were
+> the line endings for various Windows files.  This change is not appropriate
+> for 2.6, which is in security-fix only mode.  I reverted these changes in the
+> Mercurial 2.6 branch, but now I can't push it.
+
+For the 2.5 branch, I just accepted that hg and svn will differ in the
+EOL representation of some files. So when comparing trees, use diff -w
+or -b.
+
+Regards,
+Martin
+
+From martin at v.loewis.de  Sat May 21 08:07:27 2011
+From: martin at v.loewis.de (=?ISO-8859-15?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Sat, 21 May 2011 08:07:27 +0200
+Subject: [python-committers] Python 2.6.7rc2
+In-Reply-To: <20110520183229.4a96dc74@neurotica.wooz.org>
+References: <20110520173718.5a9e5f79@neurotica.wooz.org>	<BANLkTinCGFyykSVmpqtaQF5=jDj09+mHUA@mail.gmail.com>
+	<20110520183229.4a96dc74@neurotica.wooz.org>
+Message-ID: <4DD7569F.4030900@v.loewis.de>
+
+> I'm actually okay with that too, as long as the issue that precipitated the
+> commit isn't closed until it's been merged to 2.6svn.  Maybe that's the right
+> way to handle this then -- when you commit a fix to 2.6hg, be sure there's an
+> open release blocker issue on 2.6 with either a changeset or diff so that I
+> can do the cross-port.
+
+I still think this is asking too much. You can replay all changes to hg
+by looking at the hg log, and applying them change-for-change.
+
+For verification, it might be sufficient to just look at the NEWS
+entries. Every change to that branch must have a NEWS entry (which
+is not a new requirement), so after synching, NEWS should be identical
+in svn and hg.
+
+Regards,
+Martin
+
+From senthil at uthcode.com  Sat May 21 10:43:01 2011
+From: senthil at uthcode.com (Senthil Kumaran)
+Date: Sat, 21 May 2011 16:43:01 +0800
+Subject: [python-committers] Python 2.6.7rc2
+Message-ID: <20110521084300.GC14958@kevin>
+
+Hi Barry,
+
+On Fri, May 20, 2011 at 06:32:29PM -0400, Barry Warsaw wrote:
+> I did.  Right now I'm blocked on a test failure for test_urllib2, but it's
+> failing in both the hg and svn branches, so at least it wasn't a result of a
+
+I assume, you managed to resolve it as I saw the release mail from
+you. Is this in the svn codeline for 2.6.x?
+
+Thank you,
+Senthil
+
+From victor.stinner at haypocalc.com  Sun May 22 16:11:10 2011
+From: victor.stinner at haypocalc.com (Victor Stinner)
+Date: Sun, 22 May 2011 16:11:10 +0200
+Subject: [python-committers] 3.2.1 rc 2
+In-Reply-To: <ir3np6$v2b$1@dough.gmane.org>
+References: <ir3np6$v2b$1@dough.gmane.org>
+Message-ID: <1306073470.3057.2.camel@marge>
+
+Le jeudi 19 mai 2011 ? 20:33 +0200, Georg Brandl a ?crit :
+> As I've already said in another thread, I plan for 3.2.1 r2 as soon as
+> http://bugs.python.org/issue12084 is fixed.  This is hopefully this
+> weekend, but may be next.  Final is, as always, one week later.
+
+If I would like to touch Python 3.2, but the change doesn't need to be
+included into Python 3.2.1, can I push directly into the "3.2" branch?
+
+Georg: do you work directly on the 3.2 branch, or do you have another
+repository?
+
+A problem is that Misc/NEWS refers to Python 3.2.1 and not yet to 3.2.2.
+
+Victor
+
+
+From g.brandl at gmx.net  Sun May 22 18:34:56 2011
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Sun, 22 May 2011 18:34:56 +0200
+Subject: [python-committers] 3.2.1 rc 2
+In-Reply-To: <1306073470.3057.2.camel@marge>
+References: <ir3np6$v2b$1@dough.gmane.org> <1306073470.3057.2.camel@marge>
+Message-ID: <irbdvf$aep$1@dough.gmane.org>
+
+On 05/22/11 16:11, Victor Stinner wrote:
+> Le jeudi 19 mai 2011 ? 20:33 +0200, Georg Brandl a ?crit :
+>> As I've already said in another thread, I plan for 3.2.1 r2 as soon as
+>> http://bugs.python.org/issue12084 is fixed.  This is hopefully this
+>> weekend, but may be next.  Final is, as always, one week later.
+> 
+> If I would like to touch Python 3.2, but the change doesn't need to be
+> included into Python 3.2.1, can I push directly into the "3.2" branch?
+
+I will split the 3.2.1rc2 release branch from the main branch next week,
+so commits done to 3.2 now go into 3.2.1.
+
+But it seems your change isn't fit for any 3.2 anyway.
+
+> Georg: do you work directly on the 3.2 branch, or do you have another
+> repository?
+
+Once rc2 is split, I'll work in the same release clone I used for rc1.
+
+> A problem is that Misc/NEWS refers to Python 3.2.1 and not yet to 3.2.2.
+
+That's just fine as it is.
+
+Georg
+
+
+From jcea at jcea.es  Mon May 23 03:09:18 2011
+From: jcea at jcea.es (Jesus Cea)
+Date: Mon, 23 May 2011 03:09:18 +0200
+Subject: [python-committers] 3.2.1 rc 2
+In-Reply-To: <ir3np6$v2b$1@dough.gmane.org>
+References: <ir3np6$v2b$1@dough.gmane.org>
+Message-ID: <4DD9B3BE.1090102@jcea.es>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On 19/05/11 20:33, Georg Brandl wrote:
+> As I've already said in another thread, I plan for 3.2.1 r2 as soon as
+> http://bugs.python.org/issue12084 is fixed.  This is hopefully this
+> weekend, but may be next.  Final is, as always, one week later.
+
+Would you comment about the push policy to 3.2 branch?.
+
+Are you doing the release work in a separate clone?. Can we push to 3.2
+with no restrictions?. That would be a very nice side effect of
+mercurial migration.
+
+- -- 
+Jesus Cea Avion                         _/_/      _/_/_/        _/_/_/
+jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+jabber / xmpp:jcea at jabber.org         _/_/    _/_/          _/_/_/_/_/
+.                              _/_/  _/_/    _/_/          _/_/  _/_/
+"Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+"My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+"El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.10 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - http://enigmail.mozdev.org/
+
+iQCVAwUBTdmzvplgi5GaxT1NAQInFQP8CCrC34ShasTq1OeyCnlZynOib4mGmpxK
+27/wDnasq4amVmJNoXaxWmuiRHVzfXPtcph/lYb1kySpKBUaWotmznJBGPdTi4MO
+52Za2+qhLWT3L2Dbm3g8Rg+jTinqzSiERMy998jSvK8Wwa1VIpiBgL08EKOiS4Qj
+5CYYtT7owjc=
+=bnvI
+-----END PGP SIGNATURE-----
+
+From barry at python.org  Mon May 23 03:24:20 2011
+From: barry at python.org (Barry Warsaw)
+Date: Sun, 22 May 2011 21:24:20 -0400
+Subject: [python-committers] Cannot push after 2.6svn merge
+In-Reply-To: <20110521012222.3CF3F250051@webabinitio.net>
+References: <20110520210902.02d8f0d1@limelight.wooz.org>
+	<20110521012222.3CF3F250051@webabinitio.net>
+Message-ID: <20110522212420.1a3ed7b3@limelight.wooz.org>
+
+On May 20, 2011, at 09:22 PM, R. David Murray wrote:
+
+>On Fri, 20 May 2011 21:09:02 -0400, Barry Warsaw <barry at python.org> wrote:
+>> I asked around on #python-dev and it was suggested that I add some entries
+>> into .hgeol, which I've done:
+>> 
+>> Doc/make.bat = CRLF
+>> Tools/buildbot/*.bat = CRLF
+>> Tools/msi/merge.py = CRLF
+>> PC/VS7.1/*.bat = CRLF
+>> PC/VS8.0/*.bat = CRLF
+>> 
+>> Yet the push still fails with the errors below.  I don't know how to deal w=
+>
+>Did you push the .hgeol change first?
+
+I just did.
+
+>That seemed to be necessary when I ran into something like this.  (But I'm no
+>hg expert, so I could be all wet on this.)
+
+Splish splash! :)   I'm still getting the same failures, even after pushing
+the .hgeol change only (in 2.6), then merging that back to my cpython clone.
+Anybody have any other ideas?
+
+I'd like to do this right, but if it can't be done, I'll live with the line
+ending changes in the hg repo.
+
+-Barry
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 836 bytes
+Desc: not available
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20110522/c7356f98/attachment.pgp>
+
+From ncoghlan at gmail.com  Mon May 23 08:26:20 2011
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Mon, 23 May 2011 16:26:20 +1000
+Subject: [python-committers] Charles-Francois Natali (neologix)
+In-Reply-To: <nad-032591.17413820052011@news.gmane.org>
+References: <1305448297.23358.2.camel@marge> <1305751988.27389.3.camel@marge>
+	<1305889660.3589.2.camel@localhost.localdomain>
+	<BANLkTi=LgF_kRjQ5=CDUh3UEQmHyRLEdPA@mail.gmail.com>
+	<1305898940.6368.3.camel@marge>
+	<BANLkTim3gVMeAnTgT2m8KKOgOUY7zzk6dQ@mail.gmail.com>
+	<BANLkTi=d1+oDxd8=W8Djx2sG8_-ESBo6vA@mail.gmail.com>
+	<4DD693B0.4070704@python.org>
+	<nad-032591.17413820052011@news.gmane.org>
+Message-ID: <BANLkTi=cu2HpsgVaamuo2+04Q6NNQMNFRQ@mail.gmail.com>
+
+On Sat, May 21, 2011 at 10:41 AM, Ned Deily <nad at acm.org> wrote:
+> In article <4DD693B0.4070704 at python.org>,
+> ?Michael Foord <mfoord at python.org> wrote:
+>> On 20/05/2011 16:47, Nick Coghlan wrote:
+>> > On Sat, May 21, 2011 at 12:07 AM, Jesse Noller<jnoller at gmail.com> ?wrote:
+>> >> He can scan it, or take a photo and send it to us. Tell him to contact
+>> >> me if he has issues.
+>> > This comes up every time, so if we can't get the main pydotorg page
+>> > fixed, we *really* should mention these two alternatives in the
+>> > devguide.
+>>
+>> If you want a page on pydotorg fixed you can either get checkin rights
+>> for the website and "just do it" [...]
+>
+> Done. ?Let me know if the wording should be changed.
+
+Looks good to me - thanks!
+
+It was one of those things where "must ask pydotorg to fix that"
+somehow never translated into actually *asking* pydotorg to fix it :)
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan?? |?? ncoghlan at gmail.com?? |?? Brisbane, Australia
+
+From g.brandl at gmx.net  Mon May 23 19:35:15 2011
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Mon, 23 May 2011 19:35:15 +0200
+Subject: [python-committers] 3.2.1 rc 2
+In-Reply-To: <4DD9B3BE.1090102@jcea.es>
+References: <ir3np6$v2b$1@dough.gmane.org> <4DD9B3BE.1090102@jcea.es>
+Message-ID: <ire5s7$kri$1@dough.gmane.org>
+
+On 23.05.2011 03:09, Jesus Cea wrote:
+> -----BEGIN PGP SIGNED MESSAGE-----
+> Hash: SHA1
+> 
+> On 19/05/11 20:33, Georg Brandl wrote:
+>> As I've already said in another thread, I plan for 3.2.1 r2 as soon as
+>> http://bugs.python.org/issue12084 is fixed.  This is hopefully this
+>> weekend, but may be next.  Final is, as always, one week later.
+> 
+> Would you comment about the push policy to 3.2 branch?.
+> 
+> Are you doing the release work in a separate clone?. Can we push to 3.2
+> with no restrictions?. That would be a very nice side effect of
+> mercurial migration.
+
+I've already said that: yes, there is no restriction.
+
+I will take all changes into rc2.  It will take the role of rc1, hopefully
+without blockers this time.
+
+Georg
+
+
+From barry at python.org  Mon May 23 20:32:47 2011
+From: barry at python.org (Barry Warsaw)
+Date: Mon, 23 May 2011 14:32:47 -0400
+Subject: [python-committers] Python 2.6.7rc2
+In-Reply-To: <20110521084300.GC14958@kevin>
+References: <20110521084300.GC14958@kevin>
+Message-ID: <20110523143247.05dad3f2@neurotica.wooz.org>
+
+On May 21, 2011, at 04:43 PM, Senthil Kumaran wrote:
+
+>I assume, you managed to resolve it as I saw the release mail from
+>you. Is this in the svn codeline for 2.6.x?
+
+Yes.  I just added req.timeout call that I saw in several other tests, which
+made it pass.
+
+Cheers,
+-Barry
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 836 bytes
+Desc: not available
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20110523/41b707dd/attachment.pgp>
+
+From barry at python.org  Mon May 23 21:39:12 2011
+From: barry at python.org (Barry Warsaw)
+Date: Mon, 23 May 2011 15:39:12 -0400
+Subject: [python-committers] Cannot push after 2.6svn merge
+In-Reply-To: <4DD757A0.5050904@v.loewis.de>
+References: <20110520210902.02d8f0d1@limelight.wooz.org>
+	<4DD757A0.5050904@v.loewis.de>
+Message-ID: <20110523153912.1eadbee2@neurotica.wooz.org>
+
+On May 21, 2011, at 08:11 AM, Martin v. L?wis wrote:
+
+>> One of the differences between the Mercurial and Subversion 2.6 branches
+>> were the line endings for various Windows files.  This change is not
+>> appropriate for 2.6, which is in security-fix only mode.  I reverted these
+>> changes in the Mercurial 2.6 branch, but now I can't push it.
+>
+>For the 2.5 branch, I just accepted that hg and svn will differ in the
+>EOL representation of some files. So when comparing trees, use diff -w
+>or -b.
+
+Yeah, after my latest hg debacle, this is the only sane way to go.  Just in
+case it isn't obvious, the eol hook prevents pushing any changeset where the
+files have CRLF.  It doesn't have to be on tip.
+
+This means if you commit a change w/CRLF and then in a later changeset revert
+it, you will still not be able to push.  Yeah, I found out the hard way. ;)
+
+Here's what the devguide has to say about this:
+
+"Under Windows, you should also enable the eol extension, which will fix any
+Windows-specific line endings your text editor might insert when you create or
+modify versioned files. The public repository has a hook which will reject all
+changesets having the wrong line endings, so enabling this extension on your
+local computer is in your best interest."
+
+Note: this doesn't necessary pertain just to Windows developers.  Also, the
+description of this hook should include more details, such as the above
+restriction on *any* changeset, and perhaps instructions on how to install the
+hook locally so you can't paint yourself into a corner like I did.
+
+Many thanks to Ezio, Georg, and RDM on #python-dev for helping me unfubar
+myself.  It required multiple 'hg export|hg import' with some manual trimming
+of diffs to replay the relevant changes into a fresh repo.
+
+Fun time had by all!
+-Barry
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 836 bytes
+Desc: not available
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20110523/4b0a67cc/attachment.pgp>
+
+From nad at acm.org  Sun May 29 12:00:03 2011
+From: nad at acm.org (Ned Deily)
+Date: Sun, 29 May 2011 03:00:03 -0700
+Subject: [python-committers] Merge cleanup reminder
+Message-ID: <nad-EEFA66.03000329052011@news.gmane.org>
+
+Just a reminder and an FYI: the repo was left yesterday with an unmerged 
+change leaving the 3.2 branch open.  When you're finished pushing 
+changes, it's always a good head idea to do an "hg branches" and make 
+sure that only the default (py3k) and 2.7 branches are open:
+
+$ hg branches
+default                    70473:e8e8a9dbc3c0
+2.7                        70470:8349094d1fe8
+3.2                        70472:791c64fdc405 (inactive)
+3.1                        70471:bd49031b9488 (inactive)
+2.6                        70460:23340842e920 (inactive)
+2.5                        70459:0072a98566c7 (inactive)
+
+Since I needed to push some test failure fixes (Issue12205) before the 
+2.7.2/3.1.4 cutoffs today, I took the liberty of doing a null merge to 
+record.  Greg, you might want to double-check that all is as you 
+intended. 
+
+changeset:   70469:ad3c204cc397
+parent:      70468:c5bd972391cd
+parent:      70465:4f248dd34dd9
+user:        Ned Deily <nad at acm.org>
+date:        Sun May 29 02:16:36 2011 -0700
+files:       Lib/test/test_subprocess.py
+description:
+Null merge to record previous incorrecly merged changeset from 3.2 
+branch:
+changeset:   70465:4f248dd34dd9
+branch:      3.2
+parent:      70463:7f2e3c466d57
+user:        Gregory P. Smith <greg at krypto.org>
+date:        Sat May 28 09:06:02 2011 -0700
+files:       Lib/test/test_subprocess.py
+description:
+Fix ProcessTestCasePOSIXPurePython to test the module from import when
+
+changeset:   70466:2c91045d16a6
+parent:      70464:2936e8f12e4f
+user:        Gregory P. Smith <greg at krypto.org>
+date:        Sat May 28 09:06:02 2011 -0700
+files:       Lib/test/test_subprocess.py
+description:
+Fix ProcessTestCasePOSIXPurePython to test the module from import when
+
+-- 
+ Ned Deily,
+ nad at acm.org
+
+
+From greg at krypto.org  Sun May 29 12:14:14 2011
+From: greg at krypto.org (Gregory P. Smith)
+Date: Sun, 29 May 2011 03:14:14 -0700
+Subject: [python-committers] Merge cleanup reminder
+In-Reply-To: <nad-EEFA66.03000329052011@news.gmane.org>
+References: <nad-EEFA66.03000329052011@news.gmane.org>
+Message-ID: <BANLkTikJ714j6nDeUanw4+8wtD_z+C-NtA@mail.gmail.com>
+
+On Sun, May 29, 2011 at 3:00 AM, Ned Deily <nad at acm.org> wrote:
+
+> Just a reminder and an FYI: the repo was left yesterday with an unmerged
+> change leaving the 3.2 branch open.  When you're finished pushing
+> changes, it's always a good head idea to do an "hg branches" and make
+> sure that only the default (py3k) and 2.7 branches are open:
+>
+> $ hg branches
+> default                    70473:e8e8a9dbc3c0
+> 2.7                        70470:8349094d1fe8
+> 3.2                        70472:791c64fdc405 (inactive)
+> 3.1                        70471:bd49031b9488 (inactive)
+> 2.6                        70460:23340842e920 (inactive)
+> 2.5                        70459:0072a98566c7 (inactive)
+>
+> Since I needed to push some test failure fixes (Issue12205) before the
+> 2.7.2/3.1.4 cutoffs today, I took the liberty of doing a null merge to
+> record.  Greg, you might want to double-check that all is as you
+> intended.
+>
+> changeset:   70469:ad3c204cc397
+> parent:      70468:c5bd972391cd
+> parent:      70465:4f248dd34dd9
+> user:        Ned Deily <nad at acm.org>
+> date:        Sun May 29 02:16:36 2011 -0700
+> files:       Lib/test/test_subprocess.py
+> description:
+> Null merge to record previous incorrecly merged changeset from 3.2
+>
+
+Thanks.  It looks like I did my merge incorrectly, I'll revisit my hg
+procedures.
+
+*flogs self*
+-gps
+
+
+
+> branch:
+> changeset:   70465:4f248dd34dd9
+> branch:      3.2
+> parent:      70463:7f2e3c466d57
+> user:        Gregory P. Smith <greg at krypto.org>
+> date:        Sat May 28 09:06:02 2011 -0700
+> files:       Lib/test/test_subprocess.py
+> description:
+> Fix ProcessTestCasePOSIXPurePython to test the module from import when
+>
+> changeset:   70466:2c91045d16a6
+> parent:      70464:2936e8f12e4f
+> user:        Gregory P. Smith <greg at krypto.org>
+> date:        Sat May 28 09:06:02 2011 -0700
+> files:       Lib/test/test_subprocess.py
+> description:
+> Fix ProcessTestCasePOSIXPurePython to test the module from import when
+>
+> --
+>  Ned Deily,
+>  nad at acm.org
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20110529/26adc3f8/attachment.html>
+
+From nad at acm.org  Sun May 29 12:53:19 2011
+From: nad at acm.org (Ned Deily)
+Date: Sun, 29 May 2011 03:53:19 -0700
+Subject: [python-committers] Merge cleanup reminder
+References: <nad-EEFA66.03000329052011@news.gmane.org>
+	<BANLkTikJ714j6nDeUanw4+8wtD_z+C-NtA@mail.gmail.com>
+Message-ID: <nad-6F9F02.03531929052011@news.gmane.org>
+
+In article <BANLkTikJ714j6nDeUanw4+8wtD_z+C-NtA at mail.gmail.com>,
+ "Gregory P. Smith" <greg at krypto.org> wrote:
+> Thanks.  It looks like I did my merge incorrectly, I'll revisit my hg
+> procedures.
+> 
+> *flogs self*
+
+Thanks!
+
+P.S. I have no idea what "a good head idea" is supposed to be.
+> On Sun, May 29, 2011 at 3:00 AM, Ned Deily <nad at acm.org> wrote:
+>>When you're finished pushing
+>>changes, it's always a good head idea [..]
+
+-- 
+ Ned Deily,
+ nad at acm.org
+
+
+From merwok at netwok.org  Sun May 29 18:38:25 2011
+From: merwok at netwok.org (=?UTF-8?B?w4lyaWMgQXJhdWpv?=)
+Date: Sun, 29 May 2011 18:38:25 +0200
+Subject: [python-committers] Merge cleanup reminder
+In-Reply-To: <nad-EEFA66.03000329052011@news.gmane.org>
+References: <nad-EEFA66.03000329052011@news.gmane.org>
+Message-ID: <4DE27681.7080102@netwok.org>
+
+Hi,
+
+Le 29/05/2011 12:00, Ned Deily a ?crit :
+> Just a reminder and an FYI: the repo was left yesterday with an unmerged 
+> change leaving the 3.2 branch open.  When you're finished pushing 
+> changes, it's always a good head idea to do an "hg branches" and make 
+> sure that only the default (py3k) and 2.7 branches are open:
+
+These nifty options will help you see only the relevant heads:
+
+$ hg heads --topo  # will show e.g. an unmerged 3.1 head in the 3.2 repo
+$ hg heads .       # shows only heads on this named branch
+
+Regards
+
+From benjamin at python.org  Sun May 29 22:55:17 2011
+From: benjamin at python.org (Benjamin Peterson)
+Date: Sun, 29 May 2011 15:55:17 -0500
+Subject: [python-committers] 2.7.2 and 3.1.4 rc now
+Message-ID: <BANLkTimufuA9f32U0uGxYj79So2Q6kq0uQ@mail.gmail.com>
+
+Hi,
+I'm going to start spinning those releases now. I'll make a branch for
+2.7.2 but not for 3.1.4. Please stop committing to 3.1; it's going
+into security only mode.
+
+-- 
+Regards,
+Benjamin
+
+From victor.stinner at haypocalc.com  Mon May 30 00:44:03 2011
+From: victor.stinner at haypocalc.com (Victor Stinner)
+Date: Mon, 30 May 2011 00:44:03 +0200
+Subject: [python-committers] 2.7.2 and 3.1.4 rc now
+In-Reply-To: <BANLkTimufuA9f32U0uGxYj79So2Q6kq0uQ@mail.gmail.com>
+References: <BANLkTimufuA9f32U0uGxYj79So2Q6kq0uQ@mail.gmail.com>
+Message-ID: <201105300044.04221.victor.stinner@haypocalc.com>
+
+Le dimanche 29 mai 2011 22:55:17, Benjamin Peterson a ?crit :
+> Hi,
+> I'm going to start spinning those releases now. I'll make a branch for
+> 2.7.2 but not for 3.1.4. Please stop committing to 3.1; it's going
+> into security only mode.
+
+Just to be sure, you mean the 3.1.4 will be the last bugfix release? 3.1.5 will 
+be security fix only? So for example, as Python 2.6, doc updates are no more 
+accepted in 3.1?
+
+Victor
+
+From benjamin at python.org  Mon May 30 00:45:49 2011
+From: benjamin at python.org (Benjamin Peterson)
+Date: Sun, 29 May 2011 17:45:49 -0500
+Subject: [python-committers] 2.7.2 and 3.1.4 rc now
+In-Reply-To: <201105300044.04221.victor.stinner@haypocalc.com>
+References: <BANLkTimufuA9f32U0uGxYj79So2Q6kq0uQ@mail.gmail.com>
+	<201105300044.04221.victor.stinner@haypocalc.com>
+Message-ID: <BANLkTi=B_Phon5+WVZTSLGH6YEFb1BKkNg@mail.gmail.com>
+
+2011/5/29 Victor Stinner <victor.stinner at haypocalc.com>:
+> Le dimanche 29 mai 2011 22:55:17, Benjamin Peterson a ?crit :
+>> Hi,
+>> I'm going to start spinning those releases now. I'll make a branch for
+>> 2.7.2 but not for 3.1.4. Please stop committing to 3.1; it's going
+>> into security only mode.
+>
+> Just to be sure, you mean the 3.1.4 will be the last bugfix release? 3.1.5 will
+> be security fix only? So for example, as Python 2.6, doc updates are no more
+> accepted in 3.1?
+
+Correct.
+
+
+
+-- 
+Regards,
+Benjamin
+
+From eliben at gmail.com  Mon May 30 08:18:10 2011
+From: eliben at gmail.com (Eli Bendersky)
+Date: Mon, 30 May 2011 09:18:10 +0300
+Subject: [python-committers] 2.7.2 and 3.1.4 rc now
+In-Reply-To: <BANLkTi=B_Phon5+WVZTSLGH6YEFb1BKkNg@mail.gmail.com>
+References: <BANLkTimufuA9f32U0uGxYj79So2Q6kq0uQ@mail.gmail.com>
+	<201105300044.04221.victor.stinner@haypocalc.com>
+	<BANLkTi=B_Phon5+WVZTSLGH6YEFb1BKkNg@mail.gmail.com>
+Message-ID: <BANLkTi=vYoS4WGZ-cqkVwzFXn9U0kNg1KQ@mail.gmail.com>
+
+>> Just to be sure, you mean the 3.1.4 will be the last bugfix release? 3.1.5 will
+>> be security fix only? So for example, as Python 2.6, doc updates are no more
+>> accepted in 3.1?
+>
+> Correct.
+>
+
+That's great. Shorter pull dances for all :)
+
+Eli
+
+From victor.stinner at haypocalc.com  Mon May 30 23:32:51 2011
+From: victor.stinner at haypocalc.com (Victor Stinner)
+Date: Mon, 30 May 2011 23:32:51 +0200
+Subject: [python-committers] 2.7.2 and 3.1.4 rc now
+In-Reply-To: <BANLkTimufuA9f32U0uGxYj79So2Q6kq0uQ@mail.gmail.com>
+References: <BANLkTimufuA9f32U0uGxYj79So2Q6kq0uQ@mail.gmail.com>
+Message-ID: <201105302332.51473.victor.stinner@haypocalc.com>
+
+Le dimanche 29 mai 2011 22:55:17, Benjamin Peterson a ?crit :
+> Hi,
+> I'm going to start spinning those releases now. I'll make a branch for
+> 2.7.2 but not for 3.1.4. Please stop committing to 3.1; it's going
+> into security only mode.
+
+I would like to commit something into the 2.7 branch. The NEWS file starts 
+with:
+
+What's New in Python 2.7.2?
+===========================
+
+*Release date: 2011-05-29*
+
+Python 2.7.2 was released yesterday, or was it the RC1?
+
+I don't care if my commit (better fix for #1195) doesn't go into Python 2.7.2, 
+so should I start an empty "Python 2.7.3" section?
+
+Victor
+
+From benjamin at python.org  Mon May 30 23:36:03 2011
+From: benjamin at python.org (Benjamin Peterson)
+Date: Mon, 30 May 2011 16:36:03 -0500
+Subject: [python-committers] 2.7.2 and 3.1.4 rc now
+In-Reply-To: <201105302332.51473.victor.stinner@haypocalc.com>
+References: <BANLkTimufuA9f32U0uGxYj79So2Q6kq0uQ@mail.gmail.com>
+	<201105302332.51473.victor.stinner@haypocalc.com>
+Message-ID: <BANLkTinGuapRnhCaw+8=5i4mEAn5ZncUrA@mail.gmail.com>
+
+2011/5/30 Victor Stinner <victor.stinner at haypocalc.com>:
+> Le dimanche 29 mai 2011 22:55:17, Benjamin Peterson a ?crit :
+>> Hi,
+>> I'm going to start spinning those releases now. I'll make a branch for
+>> 2.7.2 but not for 3.1.4. Please stop committing to 3.1; it's going
+>> into security only mode.
+>
+> I would like to commit something into the 2.7 branch. The NEWS file starts
+> with:
+>
+> What's New in Python 2.7.2?
+> ===========================
+>
+> *Release date: 2011-05-29*
+>
+> Python 2.7.2 was released yesterday, or was it the RC1?
+>
+> I don't care if my commit (better fix for #1195) doesn't go into Python 2.7.2,
+> so should I start an empty "Python 2.7.3" section?
+
+Yes, go ahead.
+
+
+-- 
+Regards,
+Benjamin
+
+From martin at v.loewis.de  Tue May 31 07:19:54 2011
+From: martin at v.loewis.de (=?UTF-8?B?Ik1hcnRpbiB2LiBMw7Z3aXMi?=)
+Date: Tue, 31 May 2011 07:19:54 +0200
+Subject: [python-committers] 2.7.2 and 3.1.4 rc now
+In-Reply-To: <BANLkTinGuapRnhCaw+8=5i4mEAn5ZncUrA@mail.gmail.com>
+References: <BANLkTimufuA9f32U0uGxYj79So2Q6kq0uQ@mail.gmail.com>	<201105302332.51473.victor.stinner@haypocalc.com>
+	<BANLkTinGuapRnhCaw+8=5i4mEAn5ZncUrA@mail.gmail.com>
+Message-ID: <4DE47A7A.1060105@v.loewis.de>
+
+Am 30.05.2011 23:36, schrieb Benjamin Peterson:
+> 2011/5/30 Victor Stinner <victor.stinner at haypocalc.com>:
+>> Le dimanche 29 mai 2011 22:55:17, Benjamin Peterson a ?crit :
+>>> Hi,
+>>> I'm going to start spinning those releases now. I'll make a branch for
+>>> 2.7.2 but not for 3.1.4. Please stop committing to 3.1; it's going
+>>> into security only mode.
+>>
+>> I would like to commit something into the 2.7 branch. The NEWS file starts
+>> with:
+>>
+>> What's New in Python 2.7.2?
+>> ===========================
+>>
+>> *Release date: 2011-05-29*
+>>
+>> Python 2.7.2 was released yesterday, or was it the RC1?
+>>
+>> I don't care if my commit (better fix for #1195) doesn't go into Python 2.7.2,
+>> so should I start an empty "Python 2.7.3" section?
+> 
+> Yes, go ahead.
+
+Really??? I have some changes that I need to commit to 2.7 that do need
+to go into 2.7.2. So how are you going to manage these?
+
+I rather recommend that the 2.7 branch is frozen until the final
+release, and any changes are only merged afterwards.
+
+This is a mess.
+
+Regards,
+Martin
+
+From nad at acm.org  Tue May 31 07:59:44 2011
+From: nad at acm.org (Ned Deily)
+Date: Mon, 30 May 2011 22:59:44 -0700
+Subject: [python-committers] 2.7.2 and 3.1.4 rc now
+References: <BANLkTimufuA9f32U0uGxYj79So2Q6kq0uQ@mail.gmail.com>
+	<201105302332.51473.victor.stinner@haypocalc.com>
+	<BANLkTinGuapRnhCaw+8=5i4mEAn5ZncUrA@mail.gmail.com>
+	<4DE47A7A.1060105@v.loewis.de>
+Message-ID: <nad-D4C06B.22594330052011@dough.gmane.org>
+
+In article <4DE47A7A.1060105 at v.loewis.de>,
+ "Martin v. L?wis" <martin at v.loewis.de> wrote:
+> Am 30.05.2011 23:36, schrieb Benjamin Peterson:
+> > 2011/5/30 Victor Stinner <victor.stinner at haypocalc.com>:
+> >> Le dimanche 29 mai 2011 22:55:17, Benjamin Peterson a ?crit :
+> >>> Hi,
+> >>> I'm going to start spinning those releases now. I'll make a branch for
+> >>> 2.7.2 but not for 3.1.4. Please stop committing to 3.1; it's going
+> >>> into security only mode.
+> >>
+> >> I would like to commit something into the 2.7 branch. The NEWS file starts
+> >> with:
+> >>
+> >> What's New in Python 2.7.2?
+> >> ===========================
+> >>
+> >> *Release date: 2011-05-29*
+> >>
+> >> Python 2.7.2 was released yesterday, or was it the RC1?
+> >>
+> >> I don't care if my commit (better fix for #1195) doesn't go into Python 
+> >> 2.7.2,
+> >> so should I start an empty "Python 2.7.3" section?
+> > 
+> > Yes, go ahead.
+> 
+> Really??? I have some changes that I need to commit to 2.7 that do need
+> to go into 2.7.2. So how are you going to manage these?
+> 
+> I rather recommend that the 2.7 branch is frozen until the final
+> release, and any changes are only merged afterwards.
+
+I would think the easiest approach is to have a 2.7.2 releasing branch 
+where changes for 2.7.2 are applied and immediately merged into the main 
+2.7 branch.  It's trivial to create such a branch off of the 2.7.2rc1 
+tag but (I think) you wouldn't be able to push the resulting repo into 
+the main repo because it creates a new head. and there's a hook to 
+prevent that.  Someone would have to create it specially.
+
+-- 
+ Ned Deily,
+ nad at acm.org
+
+
+From victor.stinner at haypocalc.com  Tue May 31 10:58:03 2011
+From: victor.stinner at haypocalc.com (Victor Stinner)
+Date: Tue, 31 May 2011 10:58:03 +0200
+Subject: [python-committers] 2.7.2 and 3.1.4 rc now
+In-Reply-To: <4DE47A7A.1060105@v.loewis.de>
+References: <BANLkTimufuA9f32U0uGxYj79So2Q6kq0uQ@mail.gmail.com>
+	<BANLkTinGuapRnhCaw+8=5i4mEAn5ZncUrA@mail.gmail.com>
+	<4DE47A7A.1060105@v.loewis.de>
+Message-ID: <201105311058.03235.victor.stinner@haypocalc.com>
+
+Le mardi 31 mai 2011 07:19:54, Martin v. L?wis a ?crit :
+> >> What's New in Python 2.7.2?
+> >> ===========================
+> >> 
+> >> *Release date: 2011-05-29*
+> >> 
+> >> Python 2.7.2 was released yesterday, or was it the RC1?
+> >> 
+> >> I don't care if my commit (better fix for #1195) doesn't go into Python
+> >> 2.7.2, so should I start an empty "Python 2.7.3" section?
+> > 
+> > Yes, go ahead.
+> 
+> Really??? I have some changes that I need to commit to 2.7 that do need
+> to go into 2.7.2. So how are you going to manage these?
+> 
+> I rather recommend that the 2.7 branch is frozen until the final
+> release, and any changes are only merged afterwards.
+> 
+> This is a mess.
+
+I did 3 commits in the 2.7 branch. There are all bugfixes, so you can add them 
+to 2.7.2, but I proposed to skip them to not add too much new code between 
+2.7.2 RC/final versions.
+
+I don't know how the release managers work, but if it's possible, I would 
+prefer to be able to continue to commit any change to all branches during the 
+release process. I mean that we should create a branch for each x.y.z version, 
+and only port critical bugfixes to these branches between the RC and the final 
+versions.
+
+
+http://hg.python.org/cpython/rev/3b1b06570cf9
+changeset:   70534:3b1b06570cf9
+branch:      2.7
+parent:      70509:439396b06416
+user:        Victor Stinner <victor.stinner at haypocalc.com>
+date:        Mon May 30 23:44:13 2011 +0200
+summary:
+  Issue #12016: my_fgets() now always clears errors before calling fgets(). 
+Fix
+the following case: sys.stdin.read() stopped with CTRL+d (end of file),
+raw_input() interrupted by CTRL+c.
+
+
+http://hg.python.org/cpython/rev/b40dac6390a9
+changeset:   70537:b40dac6390a9
+branch:      2.7
+parent:      70534:3b1b06570cf9
+user:        Victor Stinner <victor.stinner at haypocalc.com>
+date:        Mon May 30 23:49:13 2011 +0200
+summary:
+  Issue #1195: fix the issue number of the NEWS entry
+
+
+http://hg.python.org/cpython/rev/6c6923a406df
+changeset:   70540:6c6923a406df
+branch:      2.7
+parent:      70537:b40dac6390a9
+user:        Victor Stinner <victor.stinner at haypocalc.com>
+date:        Mon May 30 23:58:21 2011 +0200
+summary:
+  Issue #12057: Add tests for ISO 2022 codecs
+
+iso2022_jp, iso2022_jp_2 and iso2022_kr
+
+
+Victor
+
+From doko at debian.org  Tue May 31 11:21:56 2011
+From: doko at debian.org (Matthias Klose)
+Date: Tue, 31 May 2011 11:21:56 +0200
+Subject: [python-committers] 2.7.2 and 3.1.4 rc now
+In-Reply-To: <4DE47A7A.1060105@v.loewis.de>
+References: <BANLkTimufuA9f32U0uGxYj79So2Q6kq0uQ@mail.gmail.com>	<201105302332.51473.victor.stinner@haypocalc.com>	<BANLkTinGuapRnhCaw+8=5i4mEAn5ZncUrA@mail.gmail.com>
+	<4DE47A7A.1060105@v.loewis.de>
+Message-ID: <4DE4B334.2030708@debian.org>
+
+On 05/31/2011 07:19 AM, "Martin v. L?wis" wrote:
+ > Really??? I have some changes that I need to commit to 2.7 that do need
+ > to go into 2.7.2. So how are you going to manage these?
+ >
+ > I rather recommend that the 2.7 branch is frozen until the final
+ > release, and any changes are only merged afterwards.
+ >
+ > This is a mess.
+
+two more questions:
+
+  - How do I follow the "what will become the release" branch?
+    In the past, you could just do an svn update on the branch
+    at any time, but now this is different for development and
+    freeze mode.
+
+  - What do the buildd's test in freeze mode?  It would be bad
+    to only test the branch, which doesn't see any changes.
+
+Thanks, Matthias
+
+From benjamin at python.org  Tue May 31 15:18:14 2011
+From: benjamin at python.org (Benjamin Peterson)
+Date: Tue, 31 May 2011 08:18:14 -0500
+Subject: [python-committers] 2.7.2 and 3.1.4 rc now
+In-Reply-To: <4DE47A7A.1060105@v.loewis.de>
+References: <BANLkTimufuA9f32U0uGxYj79So2Q6kq0uQ@mail.gmail.com>
+	<201105302332.51473.victor.stinner@haypocalc.com>
+	<BANLkTinGuapRnhCaw+8=5i4mEAn5ZncUrA@mail.gmail.com>
+	<4DE47A7A.1060105@v.loewis.de>
+Message-ID: <BANLkTikurTn54_qqRVJ6c9DBUE8EYHpfgw@mail.gmail.com>
+
+2011/5/31 "Martin v. L?wis" <martin at v.loewis.de>:
+> Am 30.05.2011 23:36, schrieb Benjamin Peterson:
+>> 2011/5/30 Victor Stinner <victor.stinner at haypocalc.com>:
+>>> Le dimanche 29 mai 2011 22:55:17, Benjamin Peterson a ?crit :
+>>>> Hi,
+>>>> I'm going to start spinning those releases now. I'll make a branch for
+>>>> 2.7.2 but not for 3.1.4. Please stop committing to 3.1; it's going
+>>>> into security only mode.
+>>>
+>>> I would like to commit something into the 2.7 branch. The NEWS file starts
+>>> with:
+>>>
+>>> What's New in Python 2.7.2?
+>>> ===========================
+>>>
+>>> *Release date: 2011-05-29*
+>>>
+>>> Python 2.7.2 was released yesterday, or was it the RC1?
+>>>
+>>> I don't care if my commit (better fix for #1195) doesn't go into Python 2.7.2,
+>>> so should I start an empty "Python 2.7.3" section?
+>>
+>> Yes, go ahead.
+>
+> Really??? I have some changes that I need to commit to 2.7 that do need
+> to go into 2.7.2. So how are you going to manage these?
+
+I have a release branch from the 2.7.2rc1. It's currently, local, but
+I will push it (when I get to a computer with my .ssh keys), so you
+can apply any changes you need to it. Then after 2.7.2, I will merge
+it to the 2.7 branch.
+
+>
+> I rather recommend that the 2.7 branch is frozen until the final
+> release, and any changes are only merged afterwards.
+
+
+
+
+-- 
+Regards,
+Benjamin
+

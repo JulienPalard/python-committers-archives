@@ -1,0 +1,683 @@
+From barry at python.org  Wed Nov  5 23:44:46 2008
+From: barry at python.org (Barry Warsaw)
+Date: Wed, 5 Nov 2008 17:44:46 -0500
+Subject: [python-committers] 3.0 branch freeze - 0200 UTC 06 Nov
+Message-ID: <1F6EAAA1-22E9-4DE8-8399-28B224EADCA6@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+I'm planning on cutting 3.0rc2 tonight.  I think the blockers are down  
+to a manageable level, and I want to thank everyone for their hard work!
+
+4211 has been pronounced by Guido and will get committed
+3799 has been making no progress and will get deferred
+4326 I believe is waiting for MvL
+3775 is mine
+
+I have a PTA meeting tonight so I plan on freezing the 3.0 branch at  
+9pm US/Eastern or 0200 UTC 06 Nov.  You can commit fixes for the open  
+blocker issues until then.  As usual, I'll send a message out when the  
+branch is open again.
+
+Cheers,
+- -Barry
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQCVAwUBSRIh3nEjvBPtnXfVAQIatgP/T3e95wZBTN9zxycuTiolelbtgkKVjTkq
+B95vuLzP0kZLIpsNIdj72tjhC4FCgWLf9EqluTXA1ZpIF0JRDkngeW38GkJ6TV4a
+X6WowsqxQQW4sqlVc9lzJCebIt0Q6c7ONpfYSr6UhziiF5/XnykWJa/n1nbkk+/T
+uhcP/LKCmh8=
+=5kYE
+-----END PGP SIGNATURE-----
+
+From barry at python.org  Thu Nov  6 05:18:19 2008
+From: barry at python.org (Barry Warsaw)
+Date: Wed, 5 Nov 2008 23:18:19 -0500
+Subject: [python-committers] No 3.0rc2 tonight
+Message-ID: <848C34C1-6FD6-4BE8-A134-48766BDCC073@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+There appears to be a bug in the documentation for 3.0.  See issue 4266.
+
+http://bugs.python.org/issue4266
+
+I'm sorry that I'm too tired to figure out what the basic problem is.   
+I've made the issue a release blocker (the only one left for 3.0rc2),  
+and we'll try again tomorrow.
+
+The branch is unfrozen.
+- -Barry
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQCVAwUBSRJwC3EjvBPtnXfVAQLBewP7BRzkxHdOdVyG2sqxcOAI5aTlGleDIQqd
+rCBZ0xv6roig5ZiVtFBJ2cK5+2NqfKpaE79VTketReMKTl0bQZhf1NuCunHr0h+B
+x+1eW/OqD2Ff0l8bfdtry9MUuc8PBLGVJ4w9xeKW9nEDpZe1eG9YN6+fNqUh81Pc
+VMifCwV8OXk=
+=AuEq
+-----END PGP SIGNATURE-----
+
+From barry at python.org  Fri Nov  7 02:27:44 2008
+From: barry at python.org (Barry Warsaw)
+Date: Thu, 6 Nov 2008 20:27:44 -0500
+Subject: [python-committers] trying again...
+Message-ID: <29246CC8-2ED3-4CF3-A97A-76FADB49BDF9@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+3.0 branch frozen.  Ping me on irc if you need to make commits.
+
+- -B
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQCVAwUBSROZkXEjvBPtnXfVAQJMAgP/Wj/LsNX2gVN//OmxszKJUf8IsbZzhm0C
+ltpX+2fkCE0EcIlxLJVBf6NRHq0iApiyqgQOVdj4j9lz9jJr0QT8mU2Ey2MY2Joz
+zBKNZNAs/+KyPfdcMzmduDE0YuQzT4MN5G6NREqqqf7jcQEtYXXUoFFhQugGaYH7
+vjOQWf8PhOE=
+=ij2k
+-----END PGP SIGNATURE-----
+
+From barry at python.org  Fri Nov  7 03:10:16 2008
+From: barry at python.org (Barry Warsaw)
+Date: Thu, 6 Nov 2008 21:10:16 -0500
+Subject: [python-committers] trying again...
+In-Reply-To: <29246CC8-2ED3-4CF3-A97A-76FADB49BDF9@python.org>
+References: <29246CC8-2ED3-4CF3-A97A-76FADB49BDF9@python.org>
+Message-ID: <CF7CEE2E-0FC3-446C-91E1-3BD669E2377A@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On Nov 6, 2008, at 8:27 PM, Barry Warsaw wrote:
+
+> 3.0 branch frozen.  Ping me on irc if you need to make commits.
+
+No go, the docs are still broken.  I've re-opened issue 4266 and will  
+try to ping Georg in my tomorrow morning.
+
+- -Barry
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQCVAwUBSROjiHEjvBPtnXfVAQLGrQP+IKd4RKetIzYWmf2NMUdiEteLRJ305uVs
+yVSrf6IswUZADqKEJxp+qaP936K+723TnWvZOwdIruA4iXEcmsGow+Kw2zKBHXFJ
+WC70Z+UyqBYKXSCzwxDicQUfgTEeULkKP6cyUR8QdOcYyUzvbC+sUySsqqf9X17b
+I24B+STKtCc=
+=sH/D
+-----END PGP SIGNATURE-----
+
+From lists at cheimes.de  Fri Nov  7 03:18:51 2008
+From: lists at cheimes.de (Christian Heimes)
+Date: Fri, 07 Nov 2008 03:18:51 +0100
+Subject: [python-committers] trying again...
+In-Reply-To: <CF7CEE2E-0FC3-446C-91E1-3BD669E2377A@python.org>
+References: <29246CC8-2ED3-4CF3-A97A-76FADB49BDF9@python.org>
+	<CF7CEE2E-0FC3-446C-91E1-3BD669E2377A@python.org>
+Message-ID: <4913A58B.4060901@cheimes.de>
+
+Barry Warsaw wrote:
+> -----BEGIN PGP SIGNED MESSAGE-----
+> Hash: SHA1
+> 
+> On Nov 6, 2008, at 8:27 PM, Barry Warsaw wrote:
+> 
+>> 3.0 branch frozen.  Ping me on irc if you need to make commits.
+> 
+> No go, the docs are still broken.  I've re-opened issue 4266 and will 
+> try to ping Georg in my tomorrow morning.
+
+I've a workaround for the problem. It removes the seealso tag that is 
+responsible for the error.
+
+svn diff
+Index: Doc/using/cmdline.rst
+===================================================================
+--- Doc/using/cmdline.rst       (Revision 67134)
++++ Doc/using/cmdline.rst       (Arbeitskopie)
+@@ -135,10 +135,7 @@
+  an empty string (``""``) and the current directory will be added to the
+  start of :data:`sys.path`.
+
+-   .. seealso::
+-      :ref:`tut-invoking`
+
+-
+  Generic options
+  ~~~~~~~~~~~~~~~
+
+
+From barry at python.org  Fri Nov  7 03:30:06 2008
+From: barry at python.org (Barry Warsaw)
+Date: Thu, 6 Nov 2008 21:30:06 -0500
+Subject: [python-committers] trying again...
+In-Reply-To: <4913A58B.4060901@cheimes.de>
+References: <29246CC8-2ED3-4CF3-A97A-76FADB49BDF9@python.org>
+	<CF7CEE2E-0FC3-446C-91E1-3BD669E2377A@python.org>
+	<4913A58B.4060901@cheimes.de>
+Message-ID: <6625092B-35DD-42AD-91D4-77AE22D9FA22@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On Nov 6, 2008, at 9:18 PM, Christian Heimes wrote:
+
+> Barry Warsaw wrote:
+>> -----BEGIN PGP SIGNED MESSAGE-----
+>> Hash: SHA1
+>> On Nov 6, 2008, at 8:27 PM, Barry Warsaw wrote:
+>>> 3.0 branch frozen.  Ping me on irc if you need to make commits.
+>> No go, the docs are still broken.  I've re-opened issue 4266 and  
+>> will try to ping Georg in my tomorrow morning.
+>
+> I've a workaround for the problem. It removes the seealso tag that  
+> is responsible for the error.
+>
+> svn diff
+> Index: Doc/using/cmdline.rst
+> ===================================================================
+> --- Doc/using/cmdline.rst       (Revision 67134)
+> +++ Doc/using/cmdline.rst       (Arbeitskopie)
+> @@ -135,10 +135,7 @@
+> an empty string (``""``) and the current directory will be added to  
+> the
+> start of :data:`sys.path`.
+>
+> -   .. seealso::
+> -      :ref:`tut-invoking`
+>
+> -
+> Generic options
+> ~~~~~~~~~~~~~~~
+
+This doesn't fix it for me on OS X.  Trying Ubuntu Intrepid.
+
+- -Barry
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQCVAwUBSROoLnEjvBPtnXfVAQKZ8wP/UgdvFZgJB+DJX9kEpPuPrMtekRruY1xW
+EGQCWxustwhYF1pB7DCTlrmtHW+PQaqWvfyTUH16CQXCQ2xDTghHQCFpeIsxGJLi
+ZI5EFvSxScFBMHN0O15zchiPleZ0p1WueBaOPYaKfI4EXtjX3cWujmoIL0k+s+yt
+eUVrsUaCqfw=
+=AjYU
+-----END PGP SIGNATURE-----
+
+From ncoghlan at gmail.com  Fri Nov  7 04:10:47 2008
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Fri, 07 Nov 2008 13:10:47 +1000
+Subject: [python-committers] trying again...
+In-Reply-To: <6625092B-35DD-42AD-91D4-77AE22D9FA22@python.org>
+References: <29246CC8-2ED3-4CF3-A97A-76FADB49BDF9@python.org>	<CF7CEE2E-0FC3-446C-91E1-3BD669E2377A@python.org>	<4913A58B.4060901@cheimes.de>
+	<6625092B-35DD-42AD-91D4-77AE22D9FA22@python.org>
+Message-ID: <4913B1B7.9070206@gmail.com>
+
+Barry Warsaw wrote:
+> This doesn't fix it for me on OS X.  Trying Ubuntu Intrepid.
+
+Barry,
+
+If you haven't already, you may want to try clobbering your Doc/tools
+directory on the OS X machine. I've had the Doc build die on me a few
+times in the past and it was due to things being moved around in there.
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+---------------------------------------------------------------
+
+From barry at python.org  Fri Nov  7 04:16:19 2008
+From: barry at python.org (Barry Warsaw)
+Date: Thu, 6 Nov 2008 22:16:19 -0500
+Subject: [python-committers] trying again...
+In-Reply-To: <4913B1B7.9070206@gmail.com>
+References: <29246CC8-2ED3-4CF3-A97A-76FADB49BDF9@python.org>	<CF7CEE2E-0FC3-446C-91E1-3BD669E2377A@python.org>	<4913A58B.4060901@cheimes.de>
+	<6625092B-35DD-42AD-91D4-77AE22D9FA22@python.org>
+	<4913B1B7.9070206@gmail.com>
+Message-ID: <A6E79450-1B90-4DFA-A78D-D00FAC6681D6@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On Nov 6, 2008, at 10:10 PM, Nick Coghlan wrote:
+
+> Barry Warsaw wrote:
+>> This doesn't fix it for me on OS X.  Trying Ubuntu Intrepid.
+>
+> If you haven't already, you may want to try clobbering your Doc/tools
+> directory on the OS X machine. I've had the Doc build die on me a few
+> times in the past and it was due to things being moved around in  
+> there.
+
+Thanks Nick.  I've figured out the problem and got it working now (I  
+think -- it's still running).  So I'm again trying again. ;)
+
+- -Barry
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQCVAwUBSROzA3EjvBPtnXfVAQJ3xgP7BOQjUn8nC3tqBpWxTH/m6rMsPCkRLsCd
+r5SMCWmY8NHF0dFH0Tn40jW87lsKDdqvdxvuyZX8Hr5x68p7d5EgNDEo5F0JwB0k
+HPqCj+RqQmRJGdi+QkfaBWiDFbRvuRD33YvBpOkCeO+2zGkLLmpXzfZZTHrAyOAD
+68GBKIkGXhQ=
+=+gQK
+-----END PGP SIGNATURE-----
+
+From barry at python.org  Fri Nov  7 04:48:15 2008
+From: barry at python.org (Barry Warsaw)
+Date: Thu, 6 Nov 2008 22:48:15 -0500
+Subject: [python-committers] 3.0 branch is unfrozen
+Message-ID: <8E2D771F-CB12-4E1B-A529-D24961001FD5@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+The release is done, so the branch is thawed.  Now to make the  
+announcement...
+
+- -Barry
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQCVAwUBSRO6f3EjvBPtnXfVAQKTlAP8CSM8VsnnePnKiGMHq15+99ijrqShxQVb
+/H4cgMBowCN8OdRiCc2MgbXqyMdw9NIMOXKoo8neRIoWQfXWtd0cZVqvd1pyzRRm
+f4Z+QfT93Lb1VhfhQrFcvwitRJwdH8H8c4EFPBURe/Je6vVuvTntCvc0JPDdlf9C
+14OZ1eeYn6k=
+=TBOf
+-----END PGP SIGNATURE-----
+
+From steve at holdenweb.com  Fri Nov  7 04:53:34 2008
+From: steve at holdenweb.com (Steve Holden)
+Date: Thu, 06 Nov 2008 22:53:34 -0500
+Subject: [python-committers] 3.0 branch is unfrozen
+In-Reply-To: <8E2D771F-CB12-4E1B-A529-D24961001FD5@python.org>
+References: <8E2D771F-CB12-4E1B-A529-D24961001FD5@python.org>
+Message-ID: <4913BBBE.8050609@holdenweb.com>
+
+Barry Warsaw wrote:
+> The release is done, so the branch is thawed.  Now to make the
+> announcement...
+> 
+> -Barry
+> 
+Barry:
+
+Please do what you can to persuade people *not* to use this as a
+production release. Early signs are there may be a substantial "I'm
+going to download the latest version available" contingent.
+
+I know the testing will be good for 3.0, but we should remind people
+this is still early days for 3.0.
+
+Which reminds me, now 3.0 is final does this mean the Grand Library
+Reorganization has to wait until 4.0?
+
+regards
+ Steve
+-- 
+Steve Holden        +1 571 484 6266   +1 800 494 3119
+Holden Web LLC              http://www.holdenweb.com/
+
+
+From barry at python.org  Fri Nov  7 04:56:23 2008
+From: barry at python.org (Barry Warsaw)
+Date: Thu, 6 Nov 2008 22:56:23 -0500
+Subject: [python-committers] 3.0 branch is unfrozen
+In-Reply-To: <4913BBBE.8050609@holdenweb.com>
+References: <8E2D771F-CB12-4E1B-A529-D24961001FD5@python.org>
+	<4913BBBE.8050609@holdenweb.com>
+Message-ID: <DB4DC8DE-E850-4EA5-B739-1555A09EC11A@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On Nov 6, 2008, at 10:53 PM, Steve Holden wrote:
+
+> Barry Warsaw wrote:
+>> The release is done, so the branch is thawed.  Now to make the
+>> announcement...
+>>
+>> -Barry
+>>
+> Barry:
+>
+> Please do what you can to persuade people *not* to use this as a
+> production release. Early signs are there may be a substantial "I'm
+> going to download the latest version available" contingent.
+
+This is just a release candidate, but you have a good point.  We  
+should think about what we really want to say in the final  
+announcement.  If you're good at writing these things (and I clearly  
+suck at it :), let me know and we'll try to coordinate.
+
+> I know the testing will be good for 3.0, but we should remind people
+> this is still early days for 3.0.
+>
+> Which reminds me, now 3.0 is final does this mean the Grand Library
+> Reorganization has to wait until 4.0?
+
+I overheard Guido say there will never be a Python 4.0 :)
+
+- -Barry
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQCVAwUBSRO8Z3EjvBPtnXfVAQJRpgQAkqFNgpa5keuHCFoWVv7lABVGtPgjb48t
+3So9I1AFOdY6Lccq/7DL7a200uWkwgw4gp9y+CDHFIj4lVrbZAffomHjcNKWhnWR
+7/DIBs9ceQuFquXqwQm+yU5ntv33yqv0nFm3kh6aGAMAixeBH20GGc72+Y8osyM0
+xOxscb4cxcc=
+=5I2I
+-----END PGP SIGNATURE-----
+
+From musiccomposition at gmail.com  Fri Nov  7 04:57:21 2008
+From: musiccomposition at gmail.com (Benjamin Peterson)
+Date: Thu, 6 Nov 2008 21:57:21 -0600
+Subject: [python-committers] 3.0 branch is unfrozen
+In-Reply-To: <4913BBBE.8050609@holdenweb.com>
+References: <8E2D771F-CB12-4E1B-A529-D24961001FD5@python.org>
+	<4913BBBE.8050609@holdenweb.com>
+Message-ID: <1afaf6160811061957x212b3ff4gcf8f4b8a456180c1@mail.gmail.com>
+
+On Thu, Nov 6, 2008 at 9:53 PM, Steve Holden <steve at holdenweb.com> wrote:
+>
+> Which reminds me, now 3.0 is final does this mean the Grand Library
+> Reorganization has to wait until 4.0?
+
+PEP 3118 has been implemented.
+
+
+
+
+-- 
+Cheers,
+Benjamin Peterson
+"There's nothing quite as beautiful as an oboe... except a chicken
+stuck in a vacuum cleaner."
+
+From steve at holdenweb.com  Fri Nov  7 20:06:25 2008
+From: steve at holdenweb.com (Steve Holden)
+Date: Fri, 07 Nov 2008 14:06:25 -0500
+Subject: [python-committers] 3.0 branch is unfrozen
+In-Reply-To: <DB4DC8DE-E850-4EA5-B739-1555A09EC11A@python.org>
+References: <8E2D771F-CB12-4E1B-A529-D24961001FD5@python.org>
+	<4913BBBE.8050609@holdenweb.com>
+	<DB4DC8DE-E850-4EA5-B739-1555A09EC11A@python.org>
+Message-ID: <491491B1.4040002@holdenweb.com>
+
+Barry Warsaw wrote:
+> On Nov 6, 2008, at 10:53 PM, Steve Holden wrote:
+> 
+>> Barry Warsaw wrote:
+>>> The release is done, so the branch is thawed.  Now to make the
+>>> announcement...
+>>>
+>>> -Barry
+>>>
+>> Barry:
+> 
+>> Please do what you can to persuade people *not* to use this as a
+>> production release. Early signs are there may be a substantial "I'm
+>> going to download the latest version available" contingent.
+> 
+> This is just a release candidate, but you have a good point.  We should
+> think about what we really want to say in the final announcement.  If
+> you're good at writing these things (and I clearly suck at it :), let me
+> know and we'll try to coordinate.
+> 
+Yeah, mate, I'm fricking brilliant. Modest, too. Let me know when you
+need it and I'll try and have it *On Your Desktop* no later than a year
+after that (geddit?)
+
+Seriously, try this (possibly beginning with "READERS SHOULD NOTE"):
+
+"""
+Readers should note that while every care has been taken in the
+production of the Python 3.0 release, this release has significant
+backwards with the 2.X series. These incompatibilities have been
+introduced by design, with the goal of improving the language in the
+long term.
+
+Furthermore it is likely that there will be a considerable delay before
+some authors of Python packages and extension modules start to provide
+3.0-compatible releases. Particularly for extension module authors there
+are significant hurdles to be overcome.
+
+For these reasons you are NOT recommended to rely on Python 3.0 as your
+main production Python implementation. Though the release team feels
+that the system is of a quality comparable with the recently-released
+Python 2.6, the latter system is currently the recommended version for
+production use.
+"""
+
+Followed by some blether about who to contact or what to do about
+migration issues. Up to you. Please feel free to run this by anyone else
+you choose, run it up the flagpole and see if anyone salutes, etc., etc.
+
+And now back to my scheduled class ... good luck with the final release.
+
+regards
+ Steve
+-- 
+Steve Holden        +1 571 484 6266   +1 800 494 3119
+Holden Web LLC              http://www.holdenweb.com/
+
+
+From g.brandl at gmx.net  Sat Nov  8 12:52:42 2008
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Sat, 08 Nov 2008 12:52:42 +0100
+Subject: [python-committers] trying again...
+In-Reply-To: <4913A58B.4060901@cheimes.de>
+References: <29246CC8-2ED3-4CF3-A97A-76FADB49BDF9@python.org>	<CF7CEE2E-0FC3-446C-91E1-3BD669E2377A@python.org>
+	<4913A58B.4060901@cheimes.de>
+Message-ID: <gf3uia$1ht$1@ger.gmane.org>
+
+Christian Heimes schrieb:
+> Barry Warsaw wrote:
+>> -----BEGIN PGP SIGNED MESSAGE-----
+>> Hash: SHA1
+>> 
+>> On Nov 6, 2008, at 8:27 PM, Barry Warsaw wrote:
+>> 
+>>> 3.0 branch frozen.  Ping me on irc if you need to make commits.
+>> 
+>> No go, the docs are still broken.  I've re-opened issue 4266 and will 
+>> try to ping Georg in my tomorrow morning.
+> 
+> I've a workaround for the problem. It removes the seealso tag that is 
+> responsible for the error.
+
+BTW, allow me a partial rehabilitation by saying that this seealso tag
+was invalid syntax. That this wasn't indicated clearly is my fault however.
+
+I'm sorry that I couldn't help at the time these issues came up, but it
+was both times around 3 AM for my timezone. It may be normal working
+time for Christian ;) but not for me...
+
+cheers,
+Georg
+
+-- 
+Thus spake the Lord: Thou shalt indent with four spaces. No more, no less.
+Four shall be the number of spaces thou shalt indent, and the number of thy
+indenting shall be four. Eight shalt thou not indent, nor either indent thou
+two, excepting that thou then proceed to four. Tabs are right out.
+
+
+From barry at python.org  Sat Nov  8 13:43:10 2008
+From: barry at python.org (Barry Warsaw)
+Date: Sat, 8 Nov 2008 07:43:10 -0500
+Subject: [python-committers] trying again...
+In-Reply-To: <gf3uia$1ht$1@ger.gmane.org>
+References: <29246CC8-2ED3-4CF3-A97A-76FADB49BDF9@python.org>	<CF7CEE2E-0FC3-446C-91E1-3BD669E2377A@python.org>
+	<4913A58B.4060901@cheimes.de> <gf3uia$1ht$1@ger.gmane.org>
+Message-ID: <58F00E54-E5B9-4C0F-936B-9C97C7A189C0@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On Nov 8, 2008, at 6:52 AM, Georg Brandl wrote:
+
+> BTW, allow me a partial rehabilitation by saying that this seealso tag
+> was invalid syntax. That this wasn't indicated clearly is my fault  
+> however.
+>
+> I'm sorry that I couldn't help at the time these issues came up, but  
+> it
+> was both times around 3 AM for my timezone. It may be normal working
+> time for Christian ;) but not for me...
+
+Thanks Georg.  I realize (pretty late in the game I know ;) that I  
+should be spinning the releases in my morning, not in my evening,  
+which would mean a better time for Europeans.  My mornings are usually  
+pretty busy, but I'll see what I can do for the upcoming releases.
+
+- -Barry
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQCVAwUBSRWJX3EjvBPtnXfVAQKtBgP/WCF+TNbakRN1gVl4UOKPNwXbR3RJMoEa
+jrck9VzqdJQAZOWaw6ctP5yTtvzSnHEZ+/rX1U8flcUu1H1Y7eaH8KLibdn5hRqE
+bNGI3J9IFO3FGooOGS7AtTkxX3EI24yZ9d3MnMO0FuyH8tp7xhOahhPVH1zg1Bjz
+anyz4DSFvmE=
+=re0Z
+-----END PGP SIGNATURE-----
+
+From barry at python.org  Fri Nov 21 01:16:38 2008
+From: barry at python.org (Barry Warsaw)
+Date: Thu, 20 Nov 2008 19:16:38 -0500
+Subject: [python-committers] 3.0rc3 tonight
+Message-ID: <16300CE8-F552-46B2-B85E-01F14EEB5D0F@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Thanks everyone on #python-dev, it looks good to release 3.0rc3  
+tonight.  Benjamin and Brett have two last things to commit and that  
+should close out the showstoppers for this release, assuming the  
+buildbots are happy.
+
+I will be afk for about the next 30-40 minutes and then I will make  
+the release.  Please consider the 3.0 branch frozen until further  
+notice.  Ping me in irc if you need something urgent and I'll return  
+when I get back from dinner.
+
+- -Barry
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQCVAwUBSSX95nEjvBPtnXfVAQIIRwP/XwiSN61YQWi24MHPeKBvx/POVNf6qKvk
+UCeGe7+KhEGxPDkM6Ikjf+TtSh6fUKeMXICZ7gzvQWSxuBsBSwCXH+BOvcH/HONZ
+n3FcAt1LODJrAg+g8KfeSh8Oq/m7bEBa/+NasRzJsWb/+UgjeEq4getwPSnQjzj2
+LuR0jlwWBk4=
+=OwAw
+-----END PGP SIGNATURE-----
+
+From barry at python.org  Fri Nov 21 02:23:11 2008
+From: barry at python.org (Barry Warsaw)
+Date: Thu, 20 Nov 2008 20:23:11 -0500
+Subject: [python-committers] Fwd: [Python-checkins] r67313 -
+	python/tags/r30rc3
+References: <20081121012230.531011E4002@bag.python.org>
+Message-ID: <54846CB9-5CED-402B-9472-393D7EF4A41A@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Martin, the tag is ready for the Windows builds (barring any  
+unforeseen snafus).
+
+- -Barry
+
+Begin forwarded message:
+
+> From: barry.warsaw <python-checkins at python.org>
+> Date: November 20, 2008 8:22:30 PM EST
+> To: python-checkins at python.org
+> Subject: [Python-checkins] r67313 - python/tags/r30rc3
+> Message-Id: <20081121012230.531011E4002 at bag.python.org>
+>
+> Author: barry.warsaw
+> Date: Fri Nov 21 02:22:30 2008
+> New Revision: 67313
+>
+> Log:
+> Tagging 3.0rc3.
+>
+>
+> Added:
+>   python/tags/r30rc3/
+>      - copied from r67312, /python/branches/py3k/
+> _______________________________________________
+> Python-checkins mailing list
+> Python-checkins at python.org
+> http://mail.python.org/mailman/listinfo/python-checkins
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQCVAwUBSSYNgHEjvBPtnXfVAQLDyAP7Bl1MMVcJM9DhP21U4tYni5S6UOXi7HIb
+dbZV1C8c+bzCVp3IcKEVpPFM9OwtTHmfZYj3FR0RYreoQ5ynbGRMMacs0M8N2po4
+BHW85bWTWgq7/H3hAOvx6wsHA5S0afx6zL604N29Iz6slhlFPZnP16/jPaMob6y/
+RMF6sSb68sQ=
+=l+fj
+-----END PGP SIGNATURE-----
+
+From barry at python.org  Fri Nov 21 16:14:01 2008
+From: barry at python.org (Barry Warsaw)
+Date: Fri, 21 Nov 2008 10:14:01 -0500
+Subject: [python-committers] 3.0 branch unfrozen
+Message-ID: <EB6892AA-1B3C-4810-8981-73CA2B92272F@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+3.0rc3 is out, so the branch is unfrozen.
+
+Remember, December 3rd is the planned release date for Python 3.0  
+final!  I'll be spending time between now and then coordinating the  
+release with various folks.
+
+Please!  If you have something that absolutely must get into 3.0  
+final, make sure there is a release blocker issue covering it.  This  
+includes everything and anything (website updates, announcement  
+coordination, etc.) not just code.  If there's no release blocker  
+issue for it, I am not responsible for my brain's lack of short and  
+long term memory :).
+
+Please!  Do not wait until the last day to get your stuff in or ping  
+me or Guido for a decision.  I am on #python-dev every day, so ping my  
+nick 'barry' if you need something.  I am planning on freezing the  
+branch several days before the 3rd so that we can make sure all the  
+binaries and anything else we need to release is ready before the 3rd.
+
+Thanks, and be proud of this big accomplishment!
+
+- -Barry
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQCVAwUBSSbQOnEjvBPtnXfVAQLlxQP/WYft40sbHxAFYPTqyv2gihCulNeuW/jM
+KNBbJb4Yzbp0FYA45qLfCLx3v/emssCeKYav8AcgvYQnS34N2Wx1MNTKUfMObbdX
+aLXbQUoahN0498/73ofiBZg22canLPIB7YBA7d+skLR56Zaenqyg9T5M2KJl/gJX
+GAMUBbcRE3M=
+=3UGG
+-----END PGP SIGNATURE-----
+

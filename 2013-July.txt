@@ -1,0 +1,1642 @@
+From rdmurray at bitdance.com  Mon Jul 15 14:08:54 2013
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Mon, 15 Jul 2013 08:08:54 -0400
+Subject: [python-committers] [Infrastructure] [Pydotorg] XSS security
+	issue
+In-Reply-To: <3238CCFF-25D9-4C57-9727-3669E01BDD9B@voidspace.org.uk>
+References: <CAMzhwY0v8KTw0cN5BX642WupOPxK1v7rqMuOqEi59aNwMnK=Gg@mail.gmail.com>
+	<51E3ACB7.7060305@egenix.com> <51E3AD45.8000507@python.org>
+	<3238CCFF-25D9-4C57-9727-3669E01BDD9B@voidspace.org.uk>
+Message-ID: <20130715120854.D203725014C@webabinitio.net>
+
+On Mon, 15 Jul 2013 11:09:08 +0300, Michael Foord <michael at voidspace.org.uk> wrote:
+> 
+> On 15 Jul 2013, at 11:05, "M.-A. Lemburg" <mal at python.org> wrote:
+> 
+> > Who would be the one to contact for issues like these ?
+> > 
+> > The case is rather urgent, since the XSS can be used for stealing
+> > session cookies on *.python.org.
+> > 
+> > The sorting by password issue is a more obscure one. Just removing
+> > the "feature" to sort by password should be enough to solve it.
+> 
+> Technically it's an infrastructure issue (cc'd), but fixing the code of roundup is hardly their domain.
+> 
+> Ezio Melotti (cc'd) did a lot of work on the Python installation of roundup, so he may have a better idea.
+> 
+> We have a security mailing list but that is mainly intended for security issues in the language:
+> 
+> 	security at python.org <security at python.org>
+
+The OP also emailed security (which I heard about via IRC, I'm not
+on that list).
+
+Ezio is a Roundup developer, so he is indeed the best person to look
+at the XSS issue, since it is a Roundup problem and not specific to
+the Tracker.  I can take a look too but he is more knowledgeable
+than I about roundup itself.
+
+There is another problem which is specific to our tracker and which is the
+bigger issue right at the moment.  We have a 'nobody' user with a blank
+password and Developer privileges.
+
+I'm about to go out, so I don't want to make a change that might break
+something right this moment, but anyone with the Coordinator role
+could take this on if they want to do it right now:  remove either the
+Developer role, or both roles, from that user and see what happens.
+I suspect that user should not exist at all, but I don't know for sure.
+
+--David
+
+From brett at python.org  Mon Jul 15 15:33:24 2013
+From: brett at python.org (Brett Cannon)
+Date: Mon, 15 Jul 2013 09:33:24 -0400
+Subject: [python-committers] [Infrastructure] [Pydotorg] XSS security
+	issue
+In-Reply-To: <20130715120854.D203725014C@webabinitio.net>
+References: <CAMzhwY0v8KTw0cN5BX642WupOPxK1v7rqMuOqEi59aNwMnK=Gg@mail.gmail.com>
+	<51E3ACB7.7060305@egenix.com> <51E3AD45.8000507@python.org>
+	<3238CCFF-25D9-4C57-9727-3669E01BDD9B@voidspace.org.uk>
+	<20130715120854.D203725014C@webabinitio.net>
+Message-ID: <CAP1=2W6pxVwZ_9WnqXy99PvTEnSRLWuSsZCrdBeKm3D52qGRXg@mail.gmail.com>
+
+On Mon, Jul 15, 2013 at 8:08 AM, R. David Murray <rdmurray at bitdance.com>wrote:
+
+> On Mon, 15 Jul 2013 11:09:08 +0300, Michael Foord <
+> michael at voidspace.org.uk> wrote:
+> >
+> > On 15 Jul 2013, at 11:05, "M.-A. Lemburg" <mal at python.org> wrote:
+> >
+> > > Who would be the one to contact for issues like these ?
+> > >
+> > > The case is rather urgent, since the XSS can be used for stealing
+> > > session cookies on *.python.org.
+> > >
+> > > The sorting by password issue is a more obscure one. Just removing
+> > > the "feature" to sort by password should be enough to solve it.
+> >
+> > Technically it's an infrastructure issue (cc'd), but fixing the code of
+> roundup is hardly their domain.
+> >
+> > Ezio Melotti (cc'd) did a lot of work on the Python installation of
+> roundup, so he may have a better idea.
+> >
+> > We have a security mailing list but that is mainly intended for security
+> issues in the language:
+> >
+> >       security at python.org <security at python.org>
+>
+> The OP also emailed security (which I heard about via IRC, I'm not
+> on that list).
+>
+> Ezio is a Roundup developer, so he is indeed the best person to look
+> at the XSS issue, since it is a Roundup problem and not specific to
+> the Tracker.  I can take a look too but he is more knowledgeable
+> than I about roundup itself.
+>
+> There is another problem which is specific to our tracker and which is the
+> bigger issue right at the moment.  We have a 'nobody' user with a blank
+> password and Developer privileges.
+>
+> I'm about to go out, so I don't want to make a change that might break
+> something right this moment, but anyone with the Coordinator role
+> could take this on if they want to do it right now:  remove either the
+> Developer role, or both roles, from that user and see what happens.
+> I suspect that user should not exist at all, but I don't know for sure.
+>
+
+That user is owned by Donald Stufft (cc'ed). I actually can't log in as
+that user, though, so I think it might be a special user that you can't
+gain access to.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20130715/0b9545bc/attachment.html>
+
+From brett at python.org  Mon Jul 15 15:40:45 2013
+From: brett at python.org (Brett Cannon)
+Date: Mon, 15 Jul 2013 09:40:45 -0400
+Subject: [python-committers] [Infrastructure] [Pydotorg] XSS security
+	issue
+In-Reply-To: <CAP1=2W6pxVwZ_9WnqXy99PvTEnSRLWuSsZCrdBeKm3D52qGRXg@mail.gmail.com>
+References: <CAMzhwY0v8KTw0cN5BX642WupOPxK1v7rqMuOqEi59aNwMnK=Gg@mail.gmail.com>
+	<51E3ACB7.7060305@egenix.com> <51E3AD45.8000507@python.org>
+	<3238CCFF-25D9-4C57-9727-3669E01BDD9B@voidspace.org.uk>
+	<20130715120854.D203725014C@webabinitio.net>
+	<CAP1=2W6pxVwZ_9WnqXy99PvTEnSRLWuSsZCrdBeKm3D52qGRXg@mail.gmail.com>
+Message-ID: <CAP1=2W7wSv80VQDqLbBrOYQb0=FPv=2rN=E2nqLb7J0z+CkziA@mail.gmail.com>
+
+On Mon, Jul 15, 2013 at 9:33 AM, Brett Cannon <brett at python.org> wrote:
+
+>
+>
+>
+> On Mon, Jul 15, 2013 at 8:08 AM, R. David Murray <rdmurray at bitdance.com>wrote:
+>
+>> On Mon, 15 Jul 2013 11:09:08 +0300, Michael Foord <
+>> michael at voidspace.org.uk> wrote:
+>> >
+>> > On 15 Jul 2013, at 11:05, "M.-A. Lemburg" <mal at python.org> wrote:
+>> >
+>> > > Who would be the one to contact for issues like these ?
+>> > >
+>> > > The case is rather urgent, since the XSS can be used for stealing
+>> > > session cookies on *.python.org.
+>> > >
+>> > > The sorting by password issue is a more obscure one. Just removing
+>> > > the "feature" to sort by password should be enough to solve it.
+>> >
+>> > Technically it's an infrastructure issue (cc'd), but fixing the code of
+>> roundup is hardly their domain.
+>> >
+>> > Ezio Melotti (cc'd) did a lot of work on the Python installation of
+>> roundup, so he may have a better idea.
+>> >
+>> > We have a security mailing list but that is mainly intended for
+>> security issues in the language:
+>> >
+>> >       security at python.org <security at python.org>
+>>
+>> The OP also emailed security (which I heard about via IRC, I'm not
+>> on that list).
+>>
+>> Ezio is a Roundup developer, so he is indeed the best person to look
+>> at the XSS issue, since it is a Roundup problem and not specific to
+>> the Tracker.  I can take a look too but he is more knowledgeable
+>> than I about roundup itself.
+>>
+>> There is another problem which is specific to our tracker and which is the
+>> bigger issue right at the moment.  We have a 'nobody' user with a blank
+>> password and Developer privileges.
+>>
+>> I'm about to go out, so I don't want to make a change that might break
+>> something right this moment, but anyone with the Coordinator role
+>> could take this on if they want to do it right now:  remove either the
+>> Developer role, or both roles, from that user and see what happens.
+>> I suspect that user should not exist at all, but I don't know for sure.
+>>
+>
+> That user is owned by Donald Stufft (cc'ed). I actually can't log in as
+> that user, though, so I think it might be a special user that you can't
+> gain access to.
+>
+
+
+Donald's reply (since his email is in the committers review queue):
+----------------------------------------
+
+I can't comment on python-commuters so my message didn't get through there
+(But did on Infrastructure).
+
+My Message:
+
+So I was able to log in to the "nobody" account without a password (Why is
+this even possible?). It gave me powers to edit users and some other shit.
+I added a password to the nobody account since these lists are publicly
+available and if I can get into that user so can others.
+
+I will make the password available to whoever is in charge, (Or they can
+just change the password themselves I don't care).
+
+--------
+
+If you want to pass this through to python-comitters or something that's ok
+with me.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20130715/6b07efb8/attachment.html>
+
+From rdmurray at bitdance.com  Mon Jul 15 17:16:32 2013
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Mon, 15 Jul 2013 11:16:32 -0400
+Subject: [python-committers] [Infrastructure] [Pydotorg] XSS security
+	issue
+In-Reply-To: <85CE45E9-E204-46D2-BBD1-641AF591C589@stufft.io>
+References: <CAMzhwY0v8KTw0cN5BX642WupOPxK1v7rqMuOqEi59aNwMnK=Gg@mail.gmail.com>
+	<51E3ACB7.7060305@egenix.com> <51E3AD45.8000507@python.org>
+	<3238CCFF-25D9-4C57-9727-3669E01BDD9B@voidspace.org.uk>
+	<20130715120854.D203725014C@webabinitio.net>
+	<85CE45E9-E204-46D2-BBD1-641AF591C589@stufft.io>
+Message-ID: <20130715151632.6919025014C@webabinitio.net>
+
+On Mon, 15 Jul 2013 08:22:40 -0400, Donald Stufft <donald at stufft.io> wrote:
+> So I was able to log in to the "nobody" account without a password
+> (Why is this even possible?). It gave me powers to edit users and some
+> other shit. I added a password to the nobody account since these lists
+> are publicly available and if I can get into that user so can others.
+
+Ah, I didn't realize you could edit users (I thought that was
+Coordinator role) or I would have changed the password myself.
+
+> I will make the password available to whoever is in charge, (Or they
+> can just change the password themselves I don't care).
+
+I think the user should just be retired.  My guess is that it dates from
+a time when we were less worried about bad actors coming in and trashing
+things just for the fun of it.  What I don't know is if there is some
+script somewhere depending on it being a valid user.  For now, I've
+removed its access roles, and we'll see if anything breaks.
+
+--David
+
+From solipsis at pitrou.net  Mon Jul 15 18:02:35 2013
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Mon, 15 Jul 2013 18:02:35 +0200
+Subject: [python-committers] [Infrastructure] [Pydotorg] XSS security
+ issue
+In-Reply-To: <20130715151632.6919025014C@webabinitio.net>
+References: <CAMzhwY0v8KTw0cN5BX642WupOPxK1v7rqMuOqEi59aNwMnK=Gg@mail.gmail.com>
+	<51E3ACB7.7060305@egenix.com> <51E3AD45.8000507@python.org>
+	<3238CCFF-25D9-4C57-9727-3669E01BDD9B@voidspace.org.uk>
+	<20130715120854.D203725014C@webabinitio.net>
+	<85CE45E9-E204-46D2-BBD1-641AF591C589@stufft.io>
+	<20130715151632.6919025014C@webabinitio.net>
+Message-ID: <4175a8a3c78d1735d76128848e436a73@ssl.pitrou.net>
+
+On 2013-07-15 17:16, R. David Murray wrote:
+> 
+>> I will make the password available to whoever is in charge, (Or they
+>> can just change the password themselves I don't care).
+> 
+> I think the user should just be retired.  My guess is that it dates 
+> from
+> a time when we were less worried about bad actors coming in and 
+> trashing
+> things just for the fun of it.  What I don't know is if there is some
+> script somewhere depending on it being a valid user.  For now, I've
+> removed its access roles, and we'll see if anything breaks.
+
+Isn't it the user for automatic Roundup updates from hg pushes?
+
+Regards
+
+Antoine.
+
+
+From ronaldoussoren at mac.com  Mon Jul 15 18:33:20 2013
+From: ronaldoussoren at mac.com (Ronald Oussoren)
+Date: Mon, 15 Jul 2013 18:33:20 +0200
+Subject: [python-committers] [Infrastructure] [Pydotorg] XSS security
+	issue
+In-Reply-To: <4175a8a3c78d1735d76128848e436a73@ssl.pitrou.net>
+References: <CAMzhwY0v8KTw0cN5BX642WupOPxK1v7rqMuOqEi59aNwMnK=Gg@mail.gmail.com>
+	<51E3ACB7.7060305@egenix.com> <51E3AD45.8000507@python.org>
+	<3238CCFF-25D9-4C57-9727-3669E01BDD9B@voidspace.org.uk>
+	<20130715120854.D203725014C@webabinitio.net>
+	<85CE45E9-E204-46D2-BBD1-641AF591C589@stufft.io>
+	<20130715151632.6919025014C@webabinitio.net>
+	<4175a8a3c78d1735d76128848e436a73@ssl.pitrou.net>
+Message-ID: <2FEC6B6B-3594-44C3-8985-552417E80E0E@mac.com>
+
+
+On 15 Jul, 2013, at 18:02, Antoine Pitrou <solipsis at pitrou.net> wrote:
+
+> On 2013-07-15 17:16, R. David Murray wrote:
+>>> I will make the password available to whoever is in charge, (Or they
+>>> can just change the password themselves I don't care).
+>> I think the user should just be retired.  My guess is that it dates from
+>> a time when we were less worried about bad actors coming in and trashing
+>> things just for the fun of it.  What I don't know is if there is some
+>> script somewhere depending on it being a valid user.  For now, I've
+>> removed its access roles, and we'll see if anything breaks.
+> 
+> Isn't it the user for automatic Roundup updates from hg pushes?
+
+I've checked in a change just now and that message still ends up on the tracker.
+
+Ronald
+
+
+From rdmurray at bitdance.com  Mon Jul 15 18:45:18 2013
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Mon, 15 Jul 2013 12:45:18 -0400
+Subject: [python-committers] [Infrastructure] [Pydotorg] XSS security
+	issue
+In-Reply-To: <4175a8a3c78d1735d76128848e436a73@ssl.pitrou.net>
+References: <CAMzhwY0v8KTw0cN5BX642WupOPxK1v7rqMuOqEi59aNwMnK=Gg@mail.gmail.com>
+	<51E3ACB7.7060305@egenix.com> <51E3AD45.8000507@python.org>
+	<3238CCFF-25D9-4C57-9727-3669E01BDD9B@voidspace.org.uk>
+	<20130715120854.D203725014C@webabinitio.net>
+	<85CE45E9-E204-46D2-BBD1-641AF591C589@stufft.io>
+	<20130715151632.6919025014C@webabinitio.net>
+	<4175a8a3c78d1735d76128848e436a73@ssl.pitrou.net>
+Message-ID: <20130715164518.DAC0525014C@webabinitio.net>
+
+On Mon, 15 Jul 2013 18:02:35 +0200, Antoine Pitrou <solipsis at pitrou.net> wrote:
+> On 2013-07-15 17:16, R. David Murray wrote:
+> > 
+> >> I will make the password available to whoever is in charge, (Or they
+> >> can just change the password themselves I don't care).
+> > 
+> > I think the user should just be retired.  My guess is that it dates 
+> > from
+> > a time when we were less worried about bad actors coming in and 
+> > trashing
+> > things just for the fun of it.  What I don't know is if there is some
+> > script somewhere depending on it being a valid user.  For now, I've
+> > removed its access roles, and we'll see if anything breaks.
+> 
+> Isn't it the user for automatic Roundup updates from hg pushes?
+
+No, that one is python-dev.  Push updates are still working.
+
+--David
+
+From benjamin at python.org  Tue Jul 16 05:07:58 2013
+From: benjamin at python.org (Benjamin Peterson)
+Date: Mon, 15 Jul 2013 20:07:58 -0700
+Subject: [python-committers] I would suggest not pushing or pulling from the
+	repo
+Message-ID: <CAPZV6o9As5zNDxV4DROmtKZ+H9aG=xskL8qE_Bpp9BeixqyrMA@mail.gmail.com>
+
+I accidently pushed a merge from 3.3 to default in the "3.3" branch. I
+think I'm going to have to strip it.
+
+--
+Regards,
+Benjamin
+
+From jaraco at jaraco.com  Tue Jul 16 05:10:18 2013
+From: jaraco at jaraco.com (Jason R. Coombs)
+Date: Tue, 16 Jul 2013 03:10:18 +0000
+Subject: [python-committers] I would suggest not pushing or pulling from
+ the	repo
+In-Reply-To: <CAPZV6o9As5zNDxV4DROmtKZ+H9aG=xskL8qE_Bpp9BeixqyrMA@mail.gmail.com>
+References: <CAPZV6o9As5zNDxV4DROmtKZ+H9aG=xskL8qE_Bpp9BeixqyrMA@mail.gmail.com>
+Message-ID: <48c81bd8a16b4836889c31d9ce7ef0a0@BLUPR06MB003.namprd06.prod.outlook.com>
+
+The other option is you could 'close' the unwanted head and create a new
+head at the point before the unwanted merge.
+
+> -----Original Message-----
+> From: python-committers [mailto:python-committers-
+> bounces+jaraco=jaraco.com at python.org] On Behalf Of Benjamin Peterson
+> Sent: Monday, 15 July, 2013 23:08
+> To: python-committers
+> Subject: [python-committers] I would suggest not pushing or pulling from
+> the repo
+> 
+> I accidently pushed a merge from 3.3 to default in the "3.3" branch. I
+think I'm
+> going to have to strip it.
+> 
+> --
+> Regards,
+> Benjamin
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: smime.p7s
+Type: application/pkcs7-signature
+Size: 6572 bytes
+Desc: not available
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20130716/5a919c6f/attachment.bin>
+
+From benjamin at python.org  Tue Jul 16 05:43:01 2013
+From: benjamin at python.org (Benjamin Peterson)
+Date: Mon, 15 Jul 2013 20:43:01 -0700
+Subject: [python-committers] I would suggest not pushing or pulling from
+ the repo
+In-Reply-To: <48c81bd8a16b4836889c31d9ce7ef0a0@BLUPR06MB003.namprd06.prod.outlook.com>
+References: <CAPZV6o9As5zNDxV4DROmtKZ+H9aG=xskL8qE_Bpp9BeixqyrMA@mail.gmail.com>
+	<48c81bd8a16b4836889c31d9ce7ef0a0@BLUPR06MB003.namprd06.prod.outlook.com>
+Message-ID: <CAPZV6o8tFv6ixphx5Coh4vkpicALEAuKLqptSKGNX3UZuhWwow@mail.gmail.com>
+
+There's no unwanted head to close. It's all on the 3.3 branch.
+
+2013/7/15 Jason R. Coombs <jaraco at jaraco.com>:
+> The other option is you could 'close' the unwanted head and create a new
+> head at the point before the unwanted merge.
+>
+>> -----Original Message-----
+>> From: python-committers [mailto:python-committers-
+>> bounces+jaraco=jaraco.com at python.org] On Behalf Of Benjamin Peterson
+>> Sent: Monday, 15 July, 2013 23:08
+>> To: python-committers
+>> Subject: [python-committers] I would suggest not pushing or pulling from
+>> the repo
+>>
+>> I accidently pushed a merge from 3.3 to default in the "3.3" branch. I
+> think I'm
+>> going to have to strip it.
+>>
+>> --
+>> Regards,
+>> Benjamin
+>> _______________________________________________
+>> python-committers mailing list
+>> python-committers at python.org
+>> http://mail.python.org/mailman/listinfo/python-committers
+
+
+
+-- 
+Regards,
+Benjamin
+
+From benjamin at python.org  Tue Jul 16 05:46:15 2013
+From: benjamin at python.org (Benjamin Peterson)
+Date: Mon, 15 Jul 2013 20:46:15 -0700
+Subject: [python-committers] IMPORTANT: Strip your repos if you pulled
+	recently
+Message-ID: <CAPZV6o_m+Yog9vr49qahJtbo3Cay30VWx6t-LnS0xiocmhW6-A@mail.gmail.com>
+
+If you have c3a510b22218 in your repo, you will need to strip it like this
+
+$ hg strip c3a510b22218
+
+(make sure to have the mq extension enabled)
+
+Sorry for the trouble.
+
+
+
+--
+Regards,
+Benjamin
+
+From benjamin at python.org  Tue Jul 16 05:49:12 2013
+From: benjamin at python.org (Benjamin Peterson)
+Date: Mon, 15 Jul 2013 20:49:12 -0700
+Subject: [python-committers] I would suggest not pushing or pulling from
+	the repo
+In-Reply-To: <CAPZV6o9As5zNDxV4DROmtKZ+H9aG=xskL8qE_Bpp9BeixqyrMA@mail.gmail.com>
+References: <CAPZV6o9As5zNDxV4DROmtKZ+H9aG=xskL8qE_Bpp9BeixqyrMA@mail.gmail.com>
+Message-ID: <CAPZV6o-CmRwUW2K_5VGwMVv72=8vQp=D_ft1c_gWRNQHLdx7rQ@mail.gmail.com>
+
+Okay, I fixed the repo. You may need to strip your repo per my last mail.
+
+2013/7/15 Benjamin Peterson <benjamin at python.org>:
+> I accidently pushed a merge from 3.3 to default in the "3.3" branch. I
+> think I'm going to have to strip it.
+>
+> --
+> Regards,
+> Benjamin
+
+
+
+-- 
+Regards,
+Benjamin
+
+From solipsis at pitrou.net  Tue Jul 16 07:50:01 2013
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Tue, 16 Jul 2013 07:50:01 +0200
+Subject: [python-committers] I would suggest not pushing or pulling from
+ the repo
+In-Reply-To: <CAPZV6o-CmRwUW2K_5VGwMVv72=8vQp=D_ft1c_gWRNQHLdx7rQ@mail.gmail.com>
+References: <CAPZV6o9As5zNDxV4DROmtKZ+H9aG=xskL8qE_Bpp9BeixqyrMA@mail.gmail.com>
+	<CAPZV6o-CmRwUW2K_5VGwMVv72=8vQp=D_ft1c_gWRNQHLdx7rQ@mail.gmail.com>
+Message-ID: <1373953801.2650.0.camel@fsol>
+
+Le lundi 15 juillet 2013 ? 20:49 -0700, Benjamin Peterson a ?crit :
+> Okay, I fixed the repo. You may need to strip your repo per my last mail.
+
+I'm a bit wary of what might happen on automated stuff (i.e. buildbots).
+
+Regards
+
+Antoine.
+
+
+
+From tjreedy at udel.edu  Tue Jul 16 09:25:12 2013
+From: tjreedy at udel.edu (Terry Reedy)
+Date: Tue, 16 Jul 2013 03:25:12 -0400
+Subject: [python-committers] IMPORTANT: Strip your repos if you pulled
+ recently
+In-Reply-To: <CAPZV6o_m+Yog9vr49qahJtbo3Cay30VWx6t-LnS0xiocmhW6-A@mail.gmail.com>
+References: <CAPZV6o_m+Yog9vr49qahJtbo3Cay30VWx6t-LnS0xiocmhW6-A@mail.gmail.com>
+Message-ID: <51E4F558.2000609@udel.edu>
+
+
+
+On 7/15/2013 11:46 PM, Benjamin Peterson wrote:
+> If you have c3a510b22218 in your repo, you will need to strip it like this
+>
+> $ hg strip c3a510b22218
+>
+> (make sure to have the mq extension enabled)
+
+Does the subject mean that if I have not pulled recently (a day, at 
+least), it will not get pulled? (because of having been stripped from 
+the repo)?
+
+
+From ronaldoussoren at mac.com  Tue Jul 16 10:43:32 2013
+From: ronaldoussoren at mac.com (Ronald Oussoren)
+Date: Tue, 16 Jul 2013 10:43:32 +0200
+Subject: [python-committers] IMPORTANT: Strip your repos if you
+	pulled	recently
+In-Reply-To: <CAPZV6o_m+Yog9vr49qahJtbo3Cay30VWx6t-LnS0xiocmhW6-A@mail.gmail.com>
+References: <CAPZV6o_m+Yog9vr49qahJtbo3Cay30VWx6t-LnS0xiocmhW6-A@mail.gmail.com>
+Message-ID: <B446F0D3-AA4A-46AF-9D58-74CF4EA9AE26@mac.com>
+
+
+On 16 Jul, 2013, at 5:46, Benjamin Peterson <benjamin at python.org> wrote:
+
+> If you have c3a510b22218 in your repo, you will need to strip it like this
+> 
+> $ hg strip c3a510b22218
+> 
+> (make sure to have the mq extension enabled)
+> 
+> Sorry for the trouble.
+
+If I do that and run "hg incoming" I get a number of incoming changes (see below). 
+I did do some work before seeing your message, does that mean I've accidently 
+reverted your fix to the repository?
+
+Ronald
+
+
+ronald at gondolin[0]$ hg pull -u
+pulling from ssh://hg at hg.python.org/cpython
+searching for changes
+adding changesets
+adding manifests
+adding file changes
+added 5 changesets with 4 changes to 1 files
+1 files updated, 0 files merged, 0 files removed, 0 files unresolved
+
+[~/Projects/python/rw/default]
+ronald at gondolin[0]$ hg strip c3a510b22218
+1 files updated, 0 files merged, 0 files removed, 0 files unresolved
+saved backup bundle to /Users/ronald/Projects/python/rw/default/.hg/strip-backup/c3a510b22218-backup.hg
+
+[~/Projects/python/rw/default]
+ronald at gondolin[0]$ hg incoming
+comparing with ssh://hg at hg.python.org/cpython
+searching for changes
+changeset:   84653:c3a510b22218
+branch:      3.3
+parent:      84651:e22dd5fda5a8
+user:        Benjamin Peterson <benjamin at python.org>
+date:        Mon Jul 15 19:15:34 2013 -0700
+summary:     check the return value of new_string() (closes #18470)
+
+changeset:   84654:2650127ce034
+parent:      84652:8a078bf3cf14
+parent:      84653:c3a510b22218
+user:        Benjamin Peterson <benjamin at python.org>
+date:        Mon Jul 15 20:47:47 2013 -0700
+summary:     merge 3.3 (closes #18470)
+
+changeset:   84655:72312ff5f712
+branch:      3.3
+parent:      84653:c3a510b22218
+user:        Benjamin Peterson <benjamin at python.org>
+date:        Mon Jul 15 20:50:22 2013 -0700
+summary:     move declaration to top of block
+
+changeset:   84656:daf9ea42b610
+parent:      84654:2650127ce034
+parent:      84655:72312ff5f712
+user:        Benjamin Peterson <benjamin at python.org>
+date:        Mon Jul 15 20:50:25 2013 -0700
+summary:     merge 3.3
+
+changeset:   84657:7272ef213b7c
+tag:         tip
+user:        Ronald Oussoren <ronaldoussoren at mac.com>
+date:        Tue Jul 16 08:32:05 2013 +0200
+summary:     Also remove a (broken) leaker test for the code removed in issue #18393.
+
+
+
+From benjamin at python.org  Tue Jul 16 18:02:43 2013
+From: benjamin at python.org (Benjamin Peterson)
+Date: Tue, 16 Jul 2013 09:02:43 -0700
+Subject: [python-committers] IMPORTANT: Strip your repos if you pulled
+	recently
+In-Reply-To: <51E4F558.2000609@udel.edu>
+References: <CAPZV6o_m+Yog9vr49qahJtbo3Cay30VWx6t-LnS0xiocmhW6-A@mail.gmail.com>
+	<51E4F558.2000609@udel.edu>
+Message-ID: <CAPZV6o8BLpuMzpi=bjGAf5pR047aROz=6n_n=kpBSawz5iKxKQ@mail.gmail.com>
+
+You should be completely safe if you didn't pull at all yesterday.
+
+2013/7/16 Terry Reedy <tjreedy at udel.edu>:
+>
+>
+> On 7/15/2013 11:46 PM, Benjamin Peterson wrote:
+>>
+>> If you have c3a510b22218 in your repo, you will need to strip it like this
+>>
+>> $ hg strip c3a510b22218
+>>
+>> (make sure to have the mq extension enabled)
+>
+>
+> Does the subject mean that if I have not pulled recently (a day, at least),
+> it will not get pulled? (because of having been stripped from the repo)?
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+
+
+
+-- 
+Regards,
+Benjamin
+
+From benjamin at python.org  Tue Jul 16 18:03:23 2013
+From: benjamin at python.org (Benjamin Peterson)
+Date: Tue, 16 Jul 2013 09:03:23 -0700
+Subject: [python-committers] IMPORTANT: Strip your repos if you pulled
+	recently
+In-Reply-To: <B446F0D3-AA4A-46AF-9D58-74CF4EA9AE26@mac.com>
+References: <CAPZV6o_m+Yog9vr49qahJtbo3Cay30VWx6t-LnS0xiocmhW6-A@mail.gmail.com>
+	<B446F0D3-AA4A-46AF-9D58-74CF4EA9AE26@mac.com>
+Message-ID: <CAPZV6o9dYPQ=YQXDWCrFqQwtbY6MNioYc3gvm6ST4viq_T0Nig@mail.gmail.com>
+
+It should be safe to continue pulling. Those revisions you see below
+are ones committed after I stripped the repo.
+
+2013/7/16 Ronald Oussoren <ronaldoussoren at mac.com>:
+>
+> On 16 Jul, 2013, at 5:46, Benjamin Peterson <benjamin at python.org> wrote:
+>
+>> If you have c3a510b22218 in your repo, you will need to strip it like this
+>>
+>> $ hg strip c3a510b22218
+>>
+>> (make sure to have the mq extension enabled)
+>>
+>> Sorry for the trouble.
+>
+> If I do that and run "hg incoming" I get a number of incoming changes (see below).
+> I did do some work before seeing your message, does that mean I've accidently
+> reverted your fix to the repository?
+>
+> Ronald
+>
+>
+> ronald at gondolin[0]$ hg pull -u
+> pulling from ssh://hg at hg.python.org/cpython
+> searching for changes
+> adding changesets
+> adding manifests
+> adding file changes
+> added 5 changesets with 4 changes to 1 files
+> 1 files updated, 0 files merged, 0 files removed, 0 files unresolved
+>
+> [~/Projects/python/rw/default]
+> ronald at gondolin[0]$ hg strip c3a510b22218
+> 1 files updated, 0 files merged, 0 files removed, 0 files unresolved
+> saved backup bundle to /Users/ronald/Projects/python/rw/default/.hg/strip-backup/c3a510b22218-backup.hg
+>
+> [~/Projects/python/rw/default]
+> ronald at gondolin[0]$ hg incoming
+> comparing with ssh://hg at hg.python.org/cpython
+> searching for changes
+> changeset:   84653:c3a510b22218
+> branch:      3.3
+> parent:      84651:e22dd5fda5a8
+> user:        Benjamin Peterson <benjamin at python.org>
+> date:        Mon Jul 15 19:15:34 2013 -0700
+> summary:     check the return value of new_string() (closes #18470)
+>
+> changeset:   84654:2650127ce034
+> parent:      84652:8a078bf3cf14
+> parent:      84653:c3a510b22218
+> user:        Benjamin Peterson <benjamin at python.org>
+> date:        Mon Jul 15 20:47:47 2013 -0700
+> summary:     merge 3.3 (closes #18470)
+>
+> changeset:   84655:72312ff5f712
+> branch:      3.3
+> parent:      84653:c3a510b22218
+> user:        Benjamin Peterson <benjamin at python.org>
+> date:        Mon Jul 15 20:50:22 2013 -0700
+> summary:     move declaration to top of block
+>
+> changeset:   84656:daf9ea42b610
+> parent:      84654:2650127ce034
+> parent:      84655:72312ff5f712
+> user:        Benjamin Peterson <benjamin at python.org>
+> date:        Mon Jul 15 20:50:25 2013 -0700
+> summary:     merge 3.3
+>
+> changeset:   84657:7272ef213b7c
+> tag:         tip
+> user:        Ronald Oussoren <ronaldoussoren at mac.com>
+> date:        Tue Jul 16 08:32:05 2013 +0200
+> summary:     Also remove a (broken) leaker test for the code removed in issue #18393.
+>
+>
+
+
+
+-- 
+Regards,
+Benjamin
+
+From ronaldoussoren at mac.com  Tue Jul 16 18:24:18 2013
+From: ronaldoussoren at mac.com (Ronald Oussoren)
+Date: Tue, 16 Jul 2013 18:24:18 +0200
+Subject: [python-committers] IMPORTANT: Strip your repos if you pulled
+	recently
+In-Reply-To: <CAPZV6o9dYPQ=YQXDWCrFqQwtbY6MNioYc3gvm6ST4viq_T0Nig@mail.gmail.com>
+References: <CAPZV6o_m+Yog9vr49qahJtbo3Cay30VWx6t-LnS0xiocmhW6-A@mail.gmail.com>
+	<B446F0D3-AA4A-46AF-9D58-74CF4EA9AE26@mac.com>
+	<CAPZV6o9dYPQ=YQXDWCrFqQwtbY6MNioYc3gvm6ST4viq_T0Nig@mail.gmail.com>
+Message-ID: <ACCD9871-72F6-46D0-B69D-6D7200B749D8@mac.com>
+
+
+On 16 Jul, 2013, at 18:03, Benjamin Peterson <benjamin at python.org> wrote:
+
+> It should be safe to continue pulling. Those revisions you see below
+> are ones committed after I stripped the repo.
+
+Isn't the first one the stripped changeset? 
+
+Ronald
+
+> 
+> 2013/7/16 Ronald Oussoren <ronaldoussoren at mac.com>:
+>> 
+>> On 16 Jul, 2013, at 5:46, Benjamin Peterson <benjamin at python.org> wrote:
+>> 
+>>> If you have c3a510b22218 in your repo, you will need to strip it like this
+>>> 
+>>> $ hg strip c3a510b22218
+>>> 
+>>> (make sure to have the mq extension enabled)
+>>> 
+>>> Sorry for the trouble.
+>> 
+>> If I do that and run "hg incoming" I get a number of incoming changes (see below).
+>> I did do some work before seeing your message, does that mean I've accidently
+>> reverted your fix to the repository?
+>> 
+>> Ronald
+>> 
+>> 
+>> ronald at gondolin[0]$ hg pull -u
+>> pulling from ssh://hg at hg.python.org/cpython
+>> searching for changes
+>> adding changesets
+>> adding manifests
+>> adding file changes
+>> added 5 changesets with 4 changes to 1 files
+>> 1 files updated, 0 files merged, 0 files removed, 0 files unresolved
+>> 
+>> [~/Projects/python/rw/default]
+>> ronald at gondolin[0]$ hg strip c3a510b22218
+>> 1 files updated, 0 files merged, 0 files removed, 0 files unresolved
+>> saved backup bundle to /Users/ronald/Projects/python/rw/default/.hg/strip-backup/c3a510b22218-backup.hg
+>> 
+>> [~/Projects/python/rw/default]
+>> ronald at gondolin[0]$ hg incoming
+>> comparing with ssh://hg at hg.python.org/cpython
+>> searching for changes
+>> changeset:   84653:c3a510b22218
+>> branch:      3.3
+>> parent:      84651:e22dd5fda5a8
+>> user:        Benjamin Peterson <benjamin at python.org>
+>> date:        Mon Jul 15 19:15:34 2013 -0700
+>> summary:     check the return value of new_string() (closes #18470)
+>> 
+>> changeset:   84654:2650127ce034
+>> parent:      84652:8a078bf3cf14
+>> parent:      84653:c3a510b22218
+>> user:        Benjamin Peterson <benjamin at python.org>
+>> date:        Mon Jul 15 20:47:47 2013 -0700
+>> summary:     merge 3.3 (closes #18470)
+>> 
+>> changeset:   84655:72312ff5f712
+>> branch:      3.3
+>> parent:      84653:c3a510b22218
+>> user:        Benjamin Peterson <benjamin at python.org>
+>> date:        Mon Jul 15 20:50:22 2013 -0700
+>> summary:     move declaration to top of block
+>> 
+>> changeset:   84656:daf9ea42b610
+>> parent:      84654:2650127ce034
+>> parent:      84655:72312ff5f712
+>> user:        Benjamin Peterson <benjamin at python.org>
+>> date:        Mon Jul 15 20:50:25 2013 -0700
+>> summary:     merge 3.3
+>> 
+>> changeset:   84657:7272ef213b7c
+>> tag:         tip
+>> user:        Ronald Oussoren <ronaldoussoren at mac.com>
+>> date:        Tue Jul 16 08:32:05 2013 +0200
+>> summary:     Also remove a (broken) leaker test for the code removed in issue #18393.
+>> 
+>> 
+> 
+> 
+> 
+> -- 
+> Regards,
+> Benjamin
+
+
+From benjamin at python.org  Tue Jul 16 18:31:25 2013
+From: benjamin at python.org (Benjamin Peterson)
+Date: Tue, 16 Jul 2013 09:31:25 -0700
+Subject: [python-committers] IMPORTANT: Strip your repos if you pulled
+	recently
+In-Reply-To: <ACCD9871-72F6-46D0-B69D-6D7200B749D8@mac.com>
+References: <CAPZV6o_m+Yog9vr49qahJtbo3Cay30VWx6t-LnS0xiocmhW6-A@mail.gmail.com>
+	<B446F0D3-AA4A-46AF-9D58-74CF4EA9AE26@mac.com>
+	<CAPZV6o9dYPQ=YQXDWCrFqQwtbY6MNioYc3gvm6ST4viq_T0Nig@mail.gmail.com>
+	<ACCD9871-72F6-46D0-B69D-6D7200B749D8@mac.com>
+Message-ID: <CAPZV6o-uB6i7SAKpdpG309_C4T_G6tztLHTNxnz+wVcUT=jAUA@mail.gmail.com>
+
+Oops, the bad one is actually
+
+8889c9b5dd3a
+
+2013/7/16 Ronald Oussoren <ronaldoussoren at mac.com>:
+>
+> On 16 Jul, 2013, at 18:03, Benjamin Peterson <benjamin at python.org> wrote:
+>
+>> It should be safe to continue pulling. Those revisions you see below
+>> are ones committed after I stripped the repo.
+>
+> Isn't the first one the stripped changeset?
+>
+> Ronald
+>
+>>
+>> 2013/7/16 Ronald Oussoren <ronaldoussoren at mac.com>:
+>>>
+>>> On 16 Jul, 2013, at 5:46, Benjamin Peterson <benjamin at python.org> wrote:
+>>>
+>>>> If you have c3a510b22218 in your repo, you will need to strip it like this
+>>>>
+>>>> $ hg strip c3a510b22218
+>>>>
+>>>> (make sure to have the mq extension enabled)
+>>>>
+>>>> Sorry for the trouble.
+>>>
+>>> If I do that and run "hg incoming" I get a number of incoming changes (see below).
+>>> I did do some work before seeing your message, does that mean I've accidently
+>>> reverted your fix to the repository?
+>>>
+>>> Ronald
+>>>
+>>>
+>>> ronald at gondolin[0]$ hg pull -u
+>>> pulling from ssh://hg at hg.python.org/cpython
+>>> searching for changes
+>>> adding changesets
+>>> adding manifests
+>>> adding file changes
+>>> added 5 changesets with 4 changes to 1 files
+>>> 1 files updated, 0 files merged, 0 files removed, 0 files unresolved
+>>>
+>>> [~/Projects/python/rw/default]
+>>> ronald at gondolin[0]$ hg strip c3a510b22218
+>>> 1 files updated, 0 files merged, 0 files removed, 0 files unresolved
+>>> saved backup bundle to /Users/ronald/Projects/python/rw/default/.hg/strip-backup/c3a510b22218-backup.hg
+>>>
+>>> [~/Projects/python/rw/default]
+>>> ronald at gondolin[0]$ hg incoming
+>>> comparing with ssh://hg at hg.python.org/cpython
+>>> searching for changes
+>>> changeset:   84653:c3a510b22218
+>>> branch:      3.3
+>>> parent:      84651:e22dd5fda5a8
+>>> user:        Benjamin Peterson <benjamin at python.org>
+>>> date:        Mon Jul 15 19:15:34 2013 -0700
+>>> summary:     check the return value of new_string() (closes #18470)
+>>>
+>>> changeset:   84654:2650127ce034
+>>> parent:      84652:8a078bf3cf14
+>>> parent:      84653:c3a510b22218
+>>> user:        Benjamin Peterson <benjamin at python.org>
+>>> date:        Mon Jul 15 20:47:47 2013 -0700
+>>> summary:     merge 3.3 (closes #18470)
+>>>
+>>> changeset:   84655:72312ff5f712
+>>> branch:      3.3
+>>> parent:      84653:c3a510b22218
+>>> user:        Benjamin Peterson <benjamin at python.org>
+>>> date:        Mon Jul 15 20:50:22 2013 -0700
+>>> summary:     move declaration to top of block
+>>>
+>>> changeset:   84656:daf9ea42b610
+>>> parent:      84654:2650127ce034
+>>> parent:      84655:72312ff5f712
+>>> user:        Benjamin Peterson <benjamin at python.org>
+>>> date:        Mon Jul 15 20:50:25 2013 -0700
+>>> summary:     merge 3.3
+>>>
+>>> changeset:   84657:7272ef213b7c
+>>> tag:         tip
+>>> user:        Ronald Oussoren <ronaldoussoren at mac.com>
+>>> date:        Tue Jul 16 08:32:05 2013 +0200
+>>> summary:     Also remove a (broken) leaker test for the code removed in issue #18393.
+>>>
+>>>
+>>
+>>
+>>
+>> --
+>> Regards,
+>> Benjamin
+>
+
+
+
+-- 
+Regards,
+Benjamin
+
+From barry at python.org  Tue Jul 16 19:52:58 2013
+From: barry at python.org (Barry Warsaw)
+Date: Tue, 16 Jul 2013 13:52:58 -0400
+Subject: [python-committers] IMPORTANT: Strip your repos if you pulled
+ recently
+In-Reply-To: <CAPZV6o-uB6i7SAKpdpG309_C4T_G6tztLHTNxnz+wVcUT=jAUA@mail.gmail.com>
+References: <CAPZV6o_m+Yog9vr49qahJtbo3Cay30VWx6t-LnS0xiocmhW6-A@mail.gmail.com>
+	<B446F0D3-AA4A-46AF-9D58-74CF4EA9AE26@mac.com>
+	<CAPZV6o9dYPQ=YQXDWCrFqQwtbY6MNioYc3gvm6ST4viq_T0Nig@mail.gmail.com>
+	<ACCD9871-72F6-46D0-B69D-6D7200B749D8@mac.com>
+	<CAPZV6o-uB6i7SAKpdpG309_C4T_G6tztLHTNxnz+wVcUT=jAUA@mail.gmail.com>
+Message-ID: <20130716135258.71c5128f@anarchist>
+
+On Jul 16, 2013, at 09:31 AM, Benjamin Peterson wrote:
+
+>Oops, the bad one is actually
+>
+>8889c9b5dd3a
+
+Uh, then how do we unstrip the other one?  Or should we just re-clone and
+ignore this ever happened? ;)
+
+-Barry
+
+From storchaka at gmail.com  Tue Jul 16 19:56:21 2013
+From: storchaka at gmail.com (Serhiy Storchaka)
+Date: Tue, 16 Jul 2013 20:56:21 +0300
+Subject: [python-committers] IMPORTANT: Strip your repos if you pulled
+	recently
+In-Reply-To: <CAPZV6o-uB6i7SAKpdpG309_C4T_G6tztLHTNxnz+wVcUT=jAUA@mail.gmail.com>
+References: <CAPZV6o_m+Yog9vr49qahJtbo3Cay30VWx6t-LnS0xiocmhW6-A@mail.gmail.com>
+	<B446F0D3-AA4A-46AF-9D58-74CF4EA9AE26@mac.com>
+	<CAPZV6o9dYPQ=YQXDWCrFqQwtbY6MNioYc3gvm6ST4viq_T0Nig@mail.gmail.com>
+	<ACCD9871-72F6-46D0-B69D-6D7200B749D8@mac.com>
+	<CAPZV6o-uB6i7SAKpdpG309_C4T_G6tztLHTNxnz+wVcUT=jAUA@mail.gmail.com>
+Message-ID: <ks41fv$9dn$1@ger.gmane.org>
+
+16.07.13 19:31, Benjamin Peterson ???????(??):
+> Oops, the bad one is actually
+>
+> 8889c9b5dd3a
+
+Now I can pull!
+
+
+
+From benjamin at python.org  Tue Jul 16 20:21:43 2013
+From: benjamin at python.org (Benjamin Peterson)
+Date: Tue, 16 Jul 2013 11:21:43 -0700
+Subject: [python-committers] IMPORTANT: Strip your repos if you pulled
+	recently
+In-Reply-To: <20130716135258.71c5128f@anarchist>
+References: <CAPZV6o_m+Yog9vr49qahJtbo3Cay30VWx6t-LnS0xiocmhW6-A@mail.gmail.com>
+	<B446F0D3-AA4A-46AF-9D58-74CF4EA9AE26@mac.com>
+	<CAPZV6o9dYPQ=YQXDWCrFqQwtbY6MNioYc3gvm6ST4viq_T0Nig@mail.gmail.com>
+	<ACCD9871-72F6-46D0-B69D-6D7200B749D8@mac.com>
+	<CAPZV6o-uB6i7SAKpdpG309_C4T_G6tztLHTNxnz+wVcUT=jAUA@mail.gmail.com>
+	<20130716135258.71c5128f@anarchist>
+Message-ID: <CAPZV6o_rJXEx=w9BKH-BaLDVt7hZE=WK_U7WKunu3xwe2w9ngQ@mail.gmail.com>
+
+You can just pull.
+
+2013/7/16 Barry Warsaw <barry at python.org>:
+> On Jul 16, 2013, at 09:31 AM, Benjamin Peterson wrote:
+>
+>>Oops, the bad one is actually
+>>
+>>8889c9b5dd3a
+>
+> Uh, then how do we unstrip the other one?  Or should we just re-clone and
+> ignore this ever happened? ;)
+>
+> -Barry
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+
+
+
+-- 
+Regards,
+Benjamin
+
+From ezio.melotti at gmail.com  Tue Jul 16 22:11:17 2013
+From: ezio.melotti at gmail.com (Ezio Melotti)
+Date: Tue, 16 Jul 2013 22:11:17 +0200
+Subject: [python-committers] [Infrastructure] [Pydotorg] XSS security
+	issue
+In-Reply-To: <20130715120854.D203725014C@webabinitio.net>
+References: <CAMzhwY0v8KTw0cN5BX642WupOPxK1v7rqMuOqEi59aNwMnK=Gg@mail.gmail.com>
+	<51E3ACB7.7060305@egenix.com> <51E3AD45.8000507@python.org>
+	<3238CCFF-25D9-4C57-9727-3669E01BDD9B@voidspace.org.uk>
+	<20130715120854.D203725014C@webabinitio.net>
+Message-ID: <CACBhJdEkPwfPQp_EUuffnMh7PzjiQOoNHLBoxAv1GP5dFuwChQ@mail.gmail.com>
+
+Hi,
+
+On Mon, Jul 15, 2013 at 2:08 PM, R. David Murray <rdmurray at bitdance.com> wrote:
+> On Mon, 15 Jul 2013 11:09:08 +0300, Michael Foord <michael at voidspace.org.uk> wrote:
+>>
+>> On 15 Jul 2013, at 11:05, "M.-A. Lemburg" <mal at python.org> wrote:
+>>
+>> > Who would be the one to contact for issues like these ?
+>> >
+>> > The case is rather urgent, since the XSS can be used for stealing
+>> > session cookies on *.python.org.
+>> >
+>> > The sorting by password issue is a more obscure one. Just removing
+>> > the "feature" to sort by password should be enough to solve it.
+>>
+>> Technically it's an infrastructure issue (cc'd), but fixing the code of roundup is hardly their domain.
+>>
+>> Ezio Melotti (cc'd) did a lot of work on the Python installation of roundup, so he may have a better idea.
+>>
+>> We have a security mailing list but that is mainly intended for security issues in the language:
+>>
+>>       security at python.org <security at python.org>
+>
+> The OP also emailed security (which I heard about via IRC, I'm not
+> on that list).
+>
+> Ezio is a Roundup developer, so he is indeed the best person to look
+> at the XSS issue, since it is a Roundup problem and not specific to
+> the Tracker.  I can take a look too but he is more knowledgeable
+> than I about roundup itself.
+>
+
+I don't have time to look at this now, and it might take up to 2 weeks
+before I find some time.
+The fix is usually as simple as adding a call to escape() in the right
+spot, but finding the right spot and testing that the fix works might
+take some time.
+Before doing this, our Roundup instance should be updated (1.5.0 has
+been released recently, but AFAIK it doesn't included a fix for this).
+FTR the issue has been reported upstream at
+<http://issues.roundup-tracker.org/issue2550817>.
+
+Best Regards,
+Ezio Melotti
+
+> There is another problem which is specific to our tracker and which is the
+> bigger issue right at the moment.  We have a 'nobody' user with a blank
+> password and Developer privileges.
+>
+> I'm about to go out, so I don't want to make a change that might break
+> something right this moment, but anyone with the Coordinator role
+> could take this on if they want to do it right now:  remove either the
+> Developer role, or both roles, from that user and see what happens.
+> I suspect that user should not exist at all, but I don't know for sure.
+>
+> --David
+
+From christian at python.org  Thu Jul 18 01:55:56 2013
+From: christian at python.org (Christian Heimes)
+Date: Thu, 18 Jul 2013 01:55:56 +0200
+Subject: [python-committers] Interview with Coverity
+Message-ID: <51E72F0C.10400@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA256
+
+Hello,
+
+Kristin Brennan from Coverity has asked me for an interview about
+Python core development and how we are using Coverity Scan. Coverity
+is planing to have a monthly series of interviews with open source
+projects that use their service, for example
+http://www.coverity.com/company/press-releases/read/coverity-introduces-monthly-spotlight-series-for-coverity-scan-open-source-projects
+
+She has send me a list of questions up front. I like you to review and
+comment on my preliminary answers, please.
+
+Thanks,
+Christian
+
+
+Q: How many active developers do you have contributing to the project?
+
+- - 174 according to http://hg.python.org/committers.txt
+
+- - 152 according to
+http://bugs.python.org/user?iscommitter=1&@action=search&@sort=username&@pagesize=300
+
+- - about 60 active according to https://www.ohloh.net/p/python/
+
+- - about 360 contributors agreements (513 - 152) according to
+http://bugs.python.org/user?contrib_form=yes&%40action=search
+
+- - about 1400 names in Misc/ACKS
+
+Python Core Mentorship program and PyLadies have helped to attract new
+contributors.
+
+
+- ---
+Q: Why do you think you are able to achieve high levels of quality? (
+than liked size commercial projects)
+
+Python has an established and well working workflow. The majority of
+commits are accompanied by a ticket. Most bug fixes (except for
+trivial ones) and all new features are reviewed by other developers
+(Rietvield) before the patches are committed. Documentation updates,
+changelog entries and unit tests are usually part of a patch, too.
+Large features and modifications go through the PEP (Python
+Enhancement Proposal) process.
+
+CPython core development heavily relies on automatic tests. We are
+using buildbot for continuous integration since at least 2006. About
+40 buildbot instances to run 10k test cases on different of platforms
+and architectures: Linux (multiple distributions), Windows, Mac, BSD,
+even exotic operating systems like Solaris and AIX and hardware like
+PPC, MIPS, Sparc and Alpha (Snakebite).
+
+CPython uses time based releases not feature releases. New features
+only land in the development branch, when they are stable and went
+through our review process. We are not under pressure to add "cool
+stuff" to increase our market share. Our goal is to provide a stable
+and slowly evolving foundation for our community. Revolutionary pieces
+of software are developed outside the core by other developers. Some
+of them are later integrated into the core when they are deemed mature
+and best practice.
+
+Backward compatibility is also very important to us -- except when we
+break it deliberately with Python 3. New features are never added to
+patch level releases, too.
+
+Most of Python is written in Python, too. It's much easier and less
+errorprone to maintain Python code than C code. The rest of Python is
+written in well structured ANSI C (C89) with a well designed C API and
+a strong focus on POSIX.
+
+- ---
+Q: What is it about the developers on your program that you think
+enables them to create high quality code?
+
+All core committers are highly motivated and care deeply for Python.
+Although we are split up across lots of countries, cultures and time
+zones we are able to work together as a team very well ...
+
+[any ideas?]
+
+
+- ---
+Q: What happens if you have a developer working on the project that
+submits code doesn't meet quality expectations?
+
+It rarely happens as most changes go through a thorough review process
+before they are committed. Once in a while some issues slip through --
+after all we are just humans. Since commits are tightly monitored such
+issues are pointed in a matter of hours, even minutes. Either the
+issue is sorted out as soon as possible or the commit is reverted.
+
+Everybody is more careful in the vicinity of a new release, too.
+
+
+- ---
+Q: What sort of process do you follow to ensure high quality code?
+
+Python has coding standards for C and Python code. Major chances to
+through the PEP process, other chances go through a review process.
+Stable APIs, ABIs, automated tests and continuous integration ... but
+also tedious bike shedding discussions on the mailing list.
+
+[repetition of stuff I said before ...]
+
+
+- ---
+Q:Do you have people in formal roles to ensure the quality of the code?
+
+In theory Python has a hierarchy:
+
+Guido (Benevolent Dictator for Life) > release manager > expert for
+module or area of interested > core committer > contributor
+
+In practice this hierarchy is never imposed upon somebody but rather
+used as a tool to aid the development process. Every core committer is
+responsible for her checkins and does her best to meet our demands in
+quality. She also helps contributors to improve their patches and
+teaches them Python's coding conventions and best practices. Experts
+for a module or topic are often included in the discussion to get
+their opinion and to benefit from their knowledge.
+
+
+- ---
+Q: Can you describe how development testing and the Coverity Scan
+service fits into your release process?
+
+Coverity comes into play when the code base has stabilized and a new
+minor release is approaching its release candidate phase. Coverity is
+especially useful to find issues in unlikely code paths like error
+case that are not reached under ordinary circumstances. A stable code
+base makes it easier to find and fix the problematic code segments.
+
+Recently I went through all untriaged Coverity issues and either
+fixed, closed or triaged them all. For the future I'm planing to fix
+or report issues as they are detected. Of course it depends on my free
+time...
+
+
+- ---
+Q: What tools do you use, besides Coverity, and how do they impact
+your ability to deliver high quality code
+
+- - Roundup issue tracker
+- - Rietveld code review
+- - buildbot for CI
+- - fusil for fuzzing tests and pyfailmalloc to add random malloc()
+failures (both created by Python core dev Victor Stinner)
+- - GCC's gcov
+- - clang analyzer (Brett ?)
+- - instrumented Python builds (--with-pydebug) with extra checks,
+asserts and reference leak checks
+- - ...
+
+Most tools are written in Python
+
+- ---
+Q: What challenges do you face with regard to maintaining high quality
+code that are unique to open source and how do you overcome those
+challenges?
+
+[Does anybody have an idea for a good answer?]
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.11 (GNU/Linux)
+Comment: Using GnuPG with undefined - http://www.enigmail.net/
+
+iQIcBAEBCAAGBQJR5y8AAAoJEMeIxMHUVQ1FjRYP/j9nhCk82JrBp8h3Sie9ryOx
+N2o5qX5xYWehjV7Y1iQXFK9s43VprB8xup6ZC09/1lwQKLjsnyk6QgLf9+RrDWin
+gaeG4CTwykuiASzU1xQJxdyj7YXDmGy/C5zIxpSNKVkLn7AwB/ob1+Tf7AAkeNHd
+z8C8xCihBYHgp8iY8k3Y7yuYpFuVr6+Qz8wtl/ubU76ys5IsPf5h0JxMfQh+oNpc
++8TewXQsPnPlFvkdm9T0ecnAG7s6MCCqhEL/11kSx9LLKXEK6CtSnEEMgkWdDpmC
+bLeiM6UWs9hiimXKSnWEP/J3fXAFsq9M22jkmPDYSPIEtY0SoHHaHLdrb9uj0BUX
+jtM1c/I+gFeWO76RN6LJXqpMpoH8vGDeHnvP0jJbeMN+Ma6XSD01LD8hK0dPZ4lX
+H6p2VfoZCrj28XPLyClKLSryZ23kq1JHqxM6pOTYQEVUtmZLJlKkTn9GCIwZiLPd
+FRlzaZpmto/iCqfq2s9XSs9maddMUWbUrn+30MDvU+cl1nb+JKxNKF5nNxqc64tI
+xRUs+b819UmeMq8eQ82IVi4o1fkh+QMOqZO2hmZWwUR8j9S4SAYQGnbvYzHrAnrw
+JI9+xBm72z3e09cjHe2PZ3oG/hPCM9BargAmNEqYaI6hE0R1CTqbVenBAwGfWD2B
+6Nu9Iki9skroWbo34rKX
+=hLXG
+-----END PGP SIGNATURE-----
+
+From brian at python.org  Thu Jul 18 07:04:41 2013
+From: brian at python.org (Brian Curtin)
+Date: Thu, 18 Jul 2013 00:04:41 -0500
+Subject: [python-committers] Interview with Coverity
+In-Reply-To: <51E72F0C.10400@python.org>
+References: <51E72F0C.10400@python.org>
+Message-ID: <CAD+XWwohZQtR8LCsv3=mrqJVwcVZPgqNYtSqavFGFHFWME4qOA@mail.gmail.com>
+
+On Wed, Jul 17, 2013 at 6:55 PM, Christian Heimes <christian at python.org> wrote:
+> -----BEGIN PGP SIGNED MESSAGE-----
+> Hash: SHA256
+>
+> Hello,
+>
+> Kristin Brennan from Coverity has asked me for an interview about
+> Python core development and how we are using Coverity Scan. Coverity
+> is planing to have a monthly series of interviews with open source
+> projects that use their service, for example
+> http://www.coverity.com/company/press-releases/read/coverity-introduces-monthly-spotlight-series-for-coverity-scan-open-source-projects
+>
+> She has send me a list of questions up front. I like you to review and
+> comment on my preliminary answers, please.
+>
+> Thanks,
+> Christian
+>
+>
+> Q: How many active developers do you have contributing to the project?
+>
+> - - 174 according to http://hg.python.org/committers.txt
+>
+> - - 152 according to
+> http://bugs.python.org/user?iscommitter=1&@action=search&@sort=username&@pagesize=300
+>
+> - - about 60 active according to https://www.ohloh.net/p/python/
+>
+> - - about 360 contributors agreements (513 - 152) according to
+> http://bugs.python.org/user?contrib_form=yes&%40action=search
+>
+> - - about 1400 names in Misc/ACKS
+
+I would simplify and say something like this: Of the project's 174
+committers, around 60 are recently active, with contributions coming
+from many others.
+
+Perhaps try to figure out how many names were added to ACKS within the
+last year, then double it to get an estimate of non-committers who are
+active?
+
+From dirkjan at ochtman.nl  Thu Jul 18 07:55:57 2013
+From: dirkjan at ochtman.nl (Dirkjan Ochtman)
+Date: Thu, 18 Jul 2013 07:55:57 +0200
+Subject: [python-committers] Interview with Coverity
+In-Reply-To: <51E72F0C.10400@python.org>
+References: <51E72F0C.10400@python.org>
+Message-ID: <CAKmKYaBWMWb2_sAg6ajgQ9O9U89x3qfQeBwJ3bAkN-GTZTd5xw@mail.gmail.com>
+
+On Thu, Jul 18, 2013 at 1:55 AM, Christian Heimes <christian at python.org> wrote:
+> CPython core development heavily relies on automatic tests. We are
+> using buildbot for continuous integration since at least 2006. About
+> 40 buildbot instances to run 10k test cases on different of platforms
+> and architectures: Linux (multiple distributions), Windows, Mac, BSD,
+> even exotic operating systems like Solaris and AIX and hardware like
+> PPC, MIPS, Sparc and Alpha (Snakebite).
+
+Somewhat off-topic, sorry; I recently went looking for OS X
+buildslaves on the waterfall and didn't find any. Did I miss
+something?
+
+Cheers,
+
+Dirkjan
+
+From nad at acm.org  Thu Jul 18 10:04:33 2013
+From: nad at acm.org (Ned Deily)
+Date: Thu, 18 Jul 2013 01:04:33 -0700
+Subject: [python-committers] Interview with Coverity
+References: <51E72F0C.10400@python.org>
+	<CAKmKYaBWMWb2_sAg6ajgQ9O9U89x3qfQeBwJ3bAkN-GTZTd5xw@mail.gmail.com>
+Message-ID: <nad-6487FC.01043318072013@news.gmane.org>
+
+In article 
+<CAKmKYaBWMWb2_sAg6ajgQ9O9U89x3qfQeBwJ3bAkN-GTZTd5xw at mail.gmail.com>,
+ Dirkjan Ochtman <dirkjan at ochtman.nl> wrote:
+> Somewhat off-topic, sorry; I recently went looking for OS X
+> buildslaves on the waterfall and didn't find any. Did I miss
+> something?
+
+The only online OS X buildbots at the moment are the Tiger ones (2.7, 
+3.2, 3.3, and 3.x).  TIger is OS X 10.4, which is old and obsolete.  
+There were Mountain Lion (OS X 10.8) buildbots on Snakebite but they 
+seemed to have disappeared.  I believe I saw somewhere that there had 
+been a power failure or something and Trent was on an extended trip and 
+unable to tend them immediately so we hope they should return.  We 
+definitely could use some additional OS X buildbots.  If anyone has any 
+unused fairly recent Mac(s) capable of running 10.6 Snow Leopard (Core 
+Duo) or, better, 10.7 Lion or 10.8 Mountain Lion (Core Duo 2 or later), 
+I'm willing to host and maintain them.
+
+-- 
+ Ned Deily,
+ nad at acm.org
+
+
+From ronaldoussoren at mac.com  Thu Jul 18 10:13:21 2013
+From: ronaldoussoren at mac.com (Ronald Oussoren)
+Date: Thu, 18 Jul 2013 10:13:21 +0200
+Subject: [python-committers] Interview with Coverity
+In-Reply-To: <nad-6487FC.01043318072013@news.gmane.org>
+References: <51E72F0C.10400@python.org>
+	<CAKmKYaBWMWb2_sAg6ajgQ9O9U89x3qfQeBwJ3bAkN-GTZTd5xw@mail.gmail.com>
+	<nad-6487FC.01043318072013@news.gmane.org>
+Message-ID: <2C980DE4-1731-4770-B431-9B2CA5E2DCC6@mac.com>
+
+
+On 18 Jul, 2013, at 10:04, Ned Deily <nad at acm.org> wrote:
+
+> In article 
+> <CAKmKYaBWMWb2_sAg6ajgQ9O9U89x3qfQeBwJ3bAkN-GTZTd5xw at mail.gmail.com>,
+> Dirkjan Ochtman <dirkjan at ochtman.nl> wrote:
+>> Somewhat off-topic, sorry; I recently went looking for OS X
+>> buildslaves on the waterfall and didn't find any. Did I miss
+>> something?
+> 
+> The only online OS X buildbots at the moment are the Tiger ones (2.7, 
+> 3.2, 3.3, and 3.x).  TIger is OS X 10.4, which is old and obsolete.  
+> There were Mountain Lion (OS X 10.8) buildbots on Snakebite but they 
+> seemed to have disappeared.  I believe I saw somewhere that there had 
+> been a power failure or something and Trent was on an extended trip and 
+> unable to tend them immediately so we hope they should return.  We 
+> definitely could use some additional OS X buildbots.  If anyone has any 
+> unused fairly recent Mac(s) capable of running 10.6 Snow Leopard (Core 
+> Duo) or, better, 10.7 Lion or 10.8 Mountain Lion (Core Duo 2 or later), 
+> I'm willing to host and maintain them.
+
+I have an older Macbook Pro that can run upto 10.6 and that I want to use
+to run CI for pyobjc and py2app. If that works out it could by a cpython 
+buildbot as well.
+
+The big question for now is if the machine could run 10.7 or 10.8 in a VM :-)
+
+Ronald
+
+
+From larry at hastings.org  Thu Jul 25 22:07:59 2013
+From: larry at hastings.org (Larry Hastings)
+Date: Thu, 25 Jul 2013 13:07:59 -0700
+Subject: [python-committers] Reminder: Python 3.4 alpha 1 release is
+	Saturday August 3
+Message-ID: <51F1859F.1000608@hastings.org>
+
+
+
+It's about nine days from now.  I expect to tag the release late next 
+week.  So if you're doing any major brain surgery, please finish it up 
+in the next week or so.
+
+Your mildly anxious release manager,
+
+
+//arry/
+
+p.s. Anybody have contact information for Jim Hugunin?  He left Google 
+back in May and has dropped off the face of the internet.  I want to 
+interview him for my podcast.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20130725/db182b77/attachment.html>
+
+From solipsis at pitrou.net  Sat Jul 27 22:40:00 2013
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Sat, 27 Jul 2013 22:40:00 +0200
+Subject: [python-committers] Reminder: Python 3.4 alpha 1 release is
+ Saturday August 3
+In-Reply-To: <51F1859F.1000608@hastings.org>
+References: <51F1859F.1000608@hastings.org>
+Message-ID: <1374957600.2574.0.camel@fsol>
+
+
+Hi,
+
+Le jeudi 25 juillet 2013 ? 13:07 -0700, Larry Hastings a ?crit :
+> 
+> It's about nine days from now.  I expect to tag the release late next
+> week.  So if you're doing any major brain surgery, please finish it up
+> in the next week or so.
+
+Once http://bugs.python.org/issue18112 is reviewed, the PEP 442
+implementation could go in.
+
+cheers
+
+Antoine.
+
+
+> 
+> Your mildly anxious release manager,
+> 
+> 
+> /arry
+> 
+> p.s. Anybody have contact information for Jim Hugunin?  He left Google
+> back in May and has dropped off the face of the internet.  I want to
+> interview him for my podcast.
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+
+
+
+From ncoghlan at gmail.com  Sun Jul 28 14:55:56 2013
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Sun, 28 Jul 2013 22:55:56 +1000
+Subject: [python-committers] Changes column on filtered BuildBot waterfall
+	views?
+Message-ID: <CADiSq7d68hEyY9H+zVNV03qJzqwJnDhryZ1YVS8ajEvgJrgFWA@mail.gmail.com>
+
+I don't see any entries in the "Changes" column when I look at a
+filtered BuildBot waterfall like
+http://buildbot.python.org/all/waterfall?category=3.x.stable
+
+Is that expected? A bug in our BuildBot setup? A bug in BuildBot itself?
+
+(This is in Firefox 22 on Fedora 18)
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+
+From solipsis at pitrou.net  Sun Jul 28 19:19:37 2013
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Sun, 28 Jul 2013 19:19:37 +0200
+Subject: [python-committers] Changes column on filtered BuildBot
+ waterfall views?
+In-Reply-To: <CADiSq7d68hEyY9H+zVNV03qJzqwJnDhryZ1YVS8ajEvgJrgFWA@mail.gmail.com>
+References: <CADiSq7d68hEyY9H+zVNV03qJzqwJnDhryZ1YVS8ajEvgJrgFWA@mail.gmail.com>
+Message-ID: <1375031977.2574.0.camel@fsol>
+
+Le dimanche 28 juillet 2013 ? 22:55 +1000, Nick Coghlan a ?crit :
+> I don't see any entries in the "Changes" column when I look at a
+> filtered BuildBot waterfall like
+> http://buildbot.python.org/all/waterfall?category=3.x.stable
+> 
+> Is that expected? A bug in our BuildBot setup? A bug in BuildBot itself?
+> 
+> (This is in Firefox 22 on Fedora 18)
+
+I can't really tell. Probably a bug or limitation in BuildBot itself,
+since this is the standard waterfall view (modulo the category
+filtering).
+
+cheers
+
+Antoine.
+
+
+
+From rdmurray at bitdance.com  Mon Jul 29 03:26:23 2013
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Sun, 28 Jul 2013 21:26:23 -0400
+Subject: [python-committers] Reminder: Python 3.4 alpha 1 release is
+	Saturday August 3
+In-Reply-To: <51F1859F.1000608@hastings.org>
+References: <51F1859F.1000608@hastings.org>
+Message-ID: <20130729012623.E27B02501B6@webabinitio.net>
+
+On Thu, 25 Jul 2013 13:07:59 -0700, Larry Hastings <larry at hastings.org> wrote:
+> It's about nine days from now.  I expect to tag the release late next 
+> week.  So if you're doing any major brain surgery, please finish it up 
+> in the next week or so.
+
+FYI I'm planning on working on some non-trivial stuff for the email
+package in August, but it will all go in the "provisional" part of the
+library, which will stay provisional for 3.4.  As with the existing
+provisional code, it will involve moving some bits of code from the
+existing classes into policy hooks on the backward compatibility
+policy, and then implementing new features using those same hooks on
+the provisional policies.  I don't expect there to be any instability
+(that is not some trivial mistake) in the non-provisional code, as the
+changes there will be pretty small, and the email package has fairly
+extensive tests.
+
+Nothing will land before the Alpha 1 date, and everything should (I
+hope!) land before Alpha 2.
+
+--David
+
+From barry at python.org  Mon Jul 29 23:55:39 2013
+From: barry at python.org (Barry Warsaw)
+Date: Mon, 29 Jul 2013 17:55:39 -0400
+Subject: [python-committers] python-list moderation flag
+In-Reply-To: <51F4C99E.1060006@acm.org>
+References: <51E8F00A.4010608@acm.org> <20130726154631.109a5af0@anarchist>
+	<51F4C99E.1060006@acm.org>
+Message-ID: <20130729175539.40751a71@anarchist>
+
+I thought I'd send this to postmaster and -committers first.  If I don't get
+enough responses, I'll open it up to python-dev and python-list next.  (But we
+know and trust you guys already :).
+
+Neither Sjoerd nor I read python-list and yet we're the list owners.  It's
+time to solicit new list owners and/or moderators, ideally someones who have
+more of a vested interest in python-list than we do.
+
+Please let me know if you would like to pitch in and help moderate
+python-list.  Once I get a good collection of volunteers, I'll reset the list
+password and mail the new one to you.
+
+Cheers,
+-Barry
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 836 bytes
+Desc: not available
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20130729/cdc02911/attachment.pgp>
+
+From ethan at stoneleaf.us  Tue Jul 30 22:01:15 2013
+From: ethan at stoneleaf.us (Ethan Furman)
+Date: Tue, 30 Jul 2013 13:01:15 -0700
+Subject: [python-committers] Reminder: Python 3.4 alpha 1 release is
+ Saturday August 3
+In-Reply-To: <51F1859F.1000608@hastings.org>
+References: <51F1859F.1000608@hastings.org>
+Message-ID: <51F81B8B.8060409@stoneleaf.us>
+
+On 07/25/2013 01:07 PM, Larry Hastings wrote:
+>
+> It's about nine days from now.  I expect to tag the release late next week.  So if you're doing any major brain surgery,
+> please finish it up in the next week or so.
+
+Do modifications to _json to support Enum count as major?  If they don't make it in to the first alpha, can I put them 
+in the second?
+
+similarly-anxious-newbie-committer-ly yours,
+--
+~Ethan~
+

@@ -1,0 +1,3601 @@
+From ezio.melotti at gmail.com  Tue Feb  2 08:10:58 2016
+From: ezio.melotti at gmail.com (Ezio Melotti)
+Date: Tue, 2 Feb 2016 15:10:58 +0200
+Subject: [python-committers] Deprecation Policy PEP
+In-Reply-To: <n8gnbf$fr3$1@ger.gmane.org>
+References: <CACBhJdEat8gg8QqMA2frF=pKo8CondW-SjgGTAK4+-27nnrYhA@mail.gmail.com>
+ <n8g9c2$c8i$1@ger.gmane.org>
+ <CACBhJdEeMuneri5Y+p93vKxQJ9A4cVgSkszEzRmkYZZwX6M_uA@mail.gmail.com>
+ <n8gnbf$fr3$1@ger.gmane.org>
+Message-ID: <CACBhJdHANXS-ejLqO6ZaVsfejaO=6aY7PmXB9DyVQ5mYB73yXg@mail.gmail.com>
+
+On Fri, Jan 29, 2016 at 11:59 PM, Serhiy Storchaka <storchaka at gmail.com> wrote:
+> On 29.01.16 21:56, Ezio Melotti wrote:
+>>
+>> On Fri, Jan 29, 2016 at 8:00 PM, Serhiy Storchaka <storchaka at gmail.com>
+>> wrote:
+>>>
+>>> What about adding deprecations in bugfix releases? If current behavior is
+>>> obviously incorrect and should be fixed in development branch, but this
+>>> can
+>>> break existing code that implicitly depends on current behavior. Can we
+>>> add
+>>> documentation-only warnings or use PendingDeprecationWarning if possible?
+>>
+>>
+>> Usually deprecations are added in minor releases -- I don't know if we
+>> added DeprecationWarnings in bugfix releases before.  Adding
+>> documentation-only warnings in previous releases shouldn't be a
+>> problem.  We already did this in the 2.7 docs for APIs that have been
+>> deprecated/renamed/removed in 3.x.
+>> If for example we deprecate something in 3.6, I see no harm in adding
+>> a doc warning to the 2.7/3.5 docs stating that the feature is
+>> deprecated starting from 3.6 and removed in 3.8.
+>> I don't think we need to add DWs/PWDs though.
+>
+>
+> We already added DeprecationWarnings in bugfix releases of 2.7 (but only
+> enabled using the ``-3`` flag). There is no such mechanism for backporting
+> warnings in 3.x, but there is a need. I'm interesting wherever using
+> PendingDeprecationWarning instead of DeprecationWarnings is good enough for
+> this as well as they are less intrusive.
+>
+
+If both are silenced by default, what makes PDW less intrusive?
+For 2.7 the situation is a bit different because we have the -3 flag,
+but for 3.x I think doc warnings are enough.
+
+>>> Some deprecation can be documentation-only.
+>>
+>>
+>> Do you have examples where this has been done?
+>> I don't see the point of telling doc readers that a feature is
+>> deprecated but keeping the same information hidden to developers.  If
+>> the actual warnings cause some issue, then the issue should be
+>> addresses (the issue of being noisy has already been addressed by
+>> silencing them by default), but having doc-only deprecation warnings
+>> seems inconsistent and potentially confusing.
+>
+>
+> An attribute of a module. While in theory we can add a warning using a hack
+> with replacing a module with module subclass instance, nobody does this in
+> the stdlib.
+>
+
+Good point.  For this case having a doc-only warning should be ok, as
+it's not worth the trouble required to raise an actual warning.
+Perhaps this also requires a longer deprecation period, to give the
+desv more time to notice.
+
+> Removing some special behavior can be considered as needed a deprecation
+> period. For example the change of datetime.time.__bool__ (made without a
+> deprecation in issue13936) or ElementTree.Element.__bool__ (added indefinite
+> FutureWarning).
+>
+>> If I understand correctly, this only affects pickleable APIs that have
+>> been moved/renamed.
+>
+>
+> Since most Python classes are pickleable by default, this affects modules,
+> Python classes with stable structure that doesn't have unpickleable
+> attributes, classes specially designed for pickling, simple subclasses of
+> pickleable classes, and factory functions or methods that are used for
+> pickle representation.
+>
+
+What I meant is that it shouldn't affect API that get removed, but
+only the ones that have been moved/renamed (e.g. assertEquals ->
+assertEqual).
+If an API is gone, keeping the name around wouldn't help for pickle, would it?
+
+>> If it can be done in a _compat_pickle.py it might be ok.
+>
+>
+> Currently _compat_pickle.py is used only for pickles created in 2.x. We need
+> parallel mechanism for 3.x pickles. I think this mechanism should be
+> documented in the same document that specifies API removal, i.e. in this
+> PEP.
+>
+>>> When use ``deprecated`` and when use ``deprecated-removed``?
+>>
+>>
+>> If we agree to always specify when the API will be removed, then we
+>> won't need to use "deprecated" anymore.
+>> If we want to keep using indefinite deprecations we will use it for them.
+>>
+>> This should be specified in the PEP once we reach a consensus.
+>
+>
+> May be define that the "deprecated" directive has term to next change of
+> mayor version number (Python 4 currently)? It can be prolonged further, but
+> the existing of the API beyond this term shouldn't be expected.
+>
+
+So make deprecated:: 3.6 a shorthand for deprecated-removed:: 3.6 4.0?
+It could be done, but I'm not sure it's worth it.
+
+Best Regards,
+Ezio Melotti
+
+From ezio.melotti at gmail.com  Tue Feb  2 08:12:50 2016
+From: ezio.melotti at gmail.com (Ezio Melotti)
+Date: Tue, 2 Feb 2016 15:12:50 +0200
+Subject: [python-committers] Deprecation Policy PEP
+In-Reply-To: <20160129183931.3fa52938@subdivisions.wooz.org>
+References: <CACBhJdEat8gg8QqMA2frF=pKo8CondW-SjgGTAK4+-27nnrYhA@mail.gmail.com>
+ <CAPOVWORWuaD72C-G-8gO5n9T5DUn_qNuhJ5KsSyUwD68P0D01A@mail.gmail.com>
+ <CAP1=2W6Vh3xr7erRSBqYu4MWtUht_LkMR2tmaQn3vnegu07=DA@mail.gmail.com>
+ <20160129183931.3fa52938@subdivisions.wooz.org>
+Message-ID: <CACBhJdHoJ_CWZScPfoLdPnGojuwx0E2fFWf2gSxkhx+XOf6ttA@mail.gmail.com>
+
+On Sat, Jan 30, 2016 at 1:39 AM, Barry Warsaw <barry at python.org> wrote:
+> On Jan 29, 2016, at 06:11 PM, Brett Cannon wrote:
+>
+>>+1 from me as well, especially once Serhiy's comments are addressed.
+>
+> Me too, but only if you add a PendingDeprecationWarning to
+> PendingDeprecationWarning <wink>.
+>
+
+The original plan actually was:
+"""
+We could also introduce a MetaDeprecationWarning and make
+PendingDeprecationWarning inherit from it so that it can be used to
+pending-deprecate itself.  Once PendingDeprecationWarning is gone, the
+MetaDeprecationWarning will become useless and can then be used to
+meta-deprecate itself.
+"""
+
+> depreception-ly y'rs,
+> -Barry
+
+From ezio.melotti at gmail.com  Tue Feb  2 08:26:16 2016
+From: ezio.melotti at gmail.com (Ezio Melotti)
+Date: Tue, 2 Feb 2016 15:26:16 +0200
+Subject: [python-committers] Deprecation Policy PEP
+In-Reply-To: <CA+eR4cG=ADtcyco=sf-GfARfMd2nbTe+PYuSKs-gyyJikFPUHA@mail.gmail.com>
+References: <CACBhJdEat8gg8QqMA2frF=pKo8CondW-SjgGTAK4+-27nnrYhA@mail.gmail.com>
+ <CA+eR4cG=ADtcyco=sf-GfARfMd2nbTe+PYuSKs-gyyJikFPUHA@mail.gmail.com>
+Message-ID: <CACBhJdFy+F-E3toCpX88jskP7+c0Bx1iJ1V8=AEw5xtNgB=q4w@mail.gmail.com>
+
+On Sat, Jan 30, 2016 at 4:08 AM, Martin Panter <vadmium+py at gmail.com> wrote:
+>> What and when to deprecate
+>> ==========================
+>>
+>> * The number of releases before an API is removed is decided
+>>   on a case-by-case basis depending on widely used the API is
+>
+> depending on [how] widely used
+>
+>> * In general it's better to be conservative, and if the API is
+>>   deprecated in ``3.X``, it shouldn't be removed before ``3.X+2``.
+>>   This should also take into account which Python versions are
+>>   currently .
+>
+> which Python versions are [current].
+>
+> More explicitly, I would say as a guideline, if the proposed
+> alternative is unavailable in 3.Y, consider waiting until 3.Y becomes
+> unsupported or unused before removing (or even fully deprecating) an
+> API.
+>
+>> Porting from 2.x to 3.x
+>> -----------------------
+>>
+>> In order to make porting code to 3.X easier:
+>>
+>> * nothing that is available and not deprecated in 2.7 should be
+>>   removed from Python 3 as long as 2.7 is officially supported;
+>
+> What about an API not documented in Python 3, like
+> http.client.HTTPMessage.getallmatchingheaders()
+> <https://bugs.python.org/issue5053>? In this case I think the method
+> was rendered useless in 3.0 and it is not worth fixing.
+>
+
+The goal is to avoid unnecessary breakage.  In this case the code will
+need to be fixed regardless, so the best we can do is to add a -3
+warning to 2.7 .
+
+> Also I presume you mean not originally deprecated in 2.7.0. In other
+> words adding a ?python2 -3? warning in the next 2.7 bug fix doesn?t
+> give me a license to remove an API from 3.6.
+>
+
+Yes, even if you could argue that even removing things that were
+already deprecated will make porting more difficult.  Perhaps I should
+rephrase the section focusing the working on making the porting
+easier.
+
+>> Deprecation Progression
+>> =======================
+>>
+>> 1. in release ``3.X`` a ``DeprecationWarning`` is added
+>> 2. in release ``3.X+N`` the API is removed
+>>
+>> ``N`` can be ``>=1``, should be decided beforehand, and should be
+>> documented explicitly.
+>
+> How do we decide on the value of N for something that has to wait
+> until 2.7 is dead? Just estimate based on anticipated future release
+> dates? E.g. inspect.getargspec(). In some cases I think indefinite
+> deprecation is better.
+>
+
+An estimation is fine.
+I would use 4.0 for indefinite deprecations.  If we use the rst
+directives to collect all the deprecated APIs in a single page, we can
+go through them once 2.7 is dead.
+
+>> Deprecation Process
+>> ===================
+>
+>> 2. attach to the issue a patch to deprecate the API that:
+>>
+>>   * adds a ``DeprecationWarning`` to the code
+>>   * adds the deprecation to the documentation
+>>   * adds a test to verify that the warning is raised
+>
+> Often people propose a test that will detect when the version changes
+> to >= X+N and complains if the API has not been removed. Should this
+> be encouraged or discouraged?
+>
+
+I did it once and it ended up breaking tests in the middle of the next release.
+For the sake of the release managers, I don't think it should be done,
+especially if we come up with a better way to track deprecations.
+
+>>   * possibly updates code/examples that uses the deprecated API
+>
+> Also adjust any tests to suppress the new warning. Code to do this
+> typically looks like
+>
+> with warnings.catch_warnings():
+>     warnings.simplefilter("ignore", DeprecationWarning)
+>     deprecated.api()
+>
+
+For tests there should be a convenience function in test.support.
+
+>> 3. after review, apply the patch to the current in-development
+>>    branch and close the issue.
+>
+> Also apply similar changes to 2.7 if applicable?
+>
+>> Documenting the deprecations
+>> ============================
+>>
+>> * All deprecations should be documented in the docs, using the
+>>   ``deprecated-removed`` directive.
+>
+> If an undocumented API is being deprecated, you may not have to touch
+> the main documentation (but still consider a notice in What?s New).
+
+From ezio.melotti at gmail.com  Tue Feb  2 08:33:58 2016
+From: ezio.melotti at gmail.com (Ezio Melotti)
+Date: Tue, 2 Feb 2016 15:33:58 +0200
+Subject: [python-committers] Deprecation Policy PEP
+In-Reply-To: <CAP7+vJ+VZt9AY0dsay1XPHs2rcE2VaUJOM8Tp+61marWezdBKg@mail.gmail.com>
+References: <CACBhJdEat8gg8QqMA2frF=pKo8CondW-SjgGTAK4+-27nnrYhA@mail.gmail.com>
+ <n8g9c2$c8i$1@ger.gmane.org>
+ <CACBhJdEeMuneri5Y+p93vKxQJ9A4cVgSkszEzRmkYZZwX6M_uA@mail.gmail.com>
+ <n8gnbf$fr3$1@ger.gmane.org>
+ <CA+eR4cFcz4Q5ZeC0BTHhPRgqG4CKPGzOees71VYC-p+j5SvWpg@mail.gmail.com>
+ <CAPOVWOTtHhie7hjOEfK6T9z+GBn6+66RNkeD4dd9f4iFQVLb=Q@mail.gmail.com>
+ <CAP7+vJ+VZt9AY0dsay1XPHs2rcE2VaUJOM8Tp+61marWezdBKg@mail.gmail.com>
+Message-ID: <CACBhJdEP2x1GKTJWH6Ar6ny0v_dCaK2P6pmZgCjgMhSn9RFkAg@mail.gmail.com>
+
+On Sat, Jan 30, 2016 at 5:36 AM, Guido van Rossum <guido at python.org> wrote:
+> Following the lead of 2.7.10 and 2.7.11 we could continue with 3.10, 3.11, etc.
+>
+
+I think we should continue with 3.10, 3.11, etc.
+Changing the major version should be done for incompatible changes,
+and just doing it after 3.9 will probably just create confusion for
+both users that will wonder if it's incompatible with Python 3 and for
+things like the executable name.
+Hopefully we won't need to jump to Python 4 for a long time.
+
+> I also want the 3->4 transition to feel like a non-event for most
+> users. How we'll do that I don't know yet, but I want it to be a lot
+> smoother than 2->3.
+>
+> --
+> --Guido van Rossum (python.org/~guido)
+
+From barry at python.org  Tue Feb  2 09:40:52 2016
+From: barry at python.org (Barry Warsaw)
+Date: Tue, 2 Feb 2016 09:40:52 -0500
+Subject: [python-committers] Deprecation Policy PEP
+In-Reply-To: <CACBhJdEP2x1GKTJWH6Ar6ny0v_dCaK2P6pmZgCjgMhSn9RFkAg@mail.gmail.com>
+References: <CACBhJdEat8gg8QqMA2frF=pKo8CondW-SjgGTAK4+-27nnrYhA@mail.gmail.com>
+ <n8g9c2$c8i$1@ger.gmane.org>
+ <CACBhJdEeMuneri5Y+p93vKxQJ9A4cVgSkszEzRmkYZZwX6M_uA@mail.gmail.com>
+ <n8gnbf$fr3$1@ger.gmane.org>
+ <CA+eR4cFcz4Q5ZeC0BTHhPRgqG4CKPGzOees71VYC-p+j5SvWpg@mail.gmail.com>
+ <CAPOVWOTtHhie7hjOEfK6T9z+GBn6+66RNkeD4dd9f4iFQVLb=Q@mail.gmail.com>
+ <CAP7+vJ+VZt9AY0dsay1XPHs2rcE2VaUJOM8Tp+61marWezdBKg@mail.gmail.com>
+ <CACBhJdEP2x1GKTJWH6Ar6ny0v_dCaK2P6pmZgCjgMhSn9RFkAg@mail.gmail.com>
+Message-ID: <20160202094052.7b543dd4@subdivisions.wooz.org>
+
+On Feb 02, 2016, at 03:33 PM, Ezio Melotti wrote:
+
+>Changing the major version should be done for incompatible changes, and just
+>doing it after 3.9 will probably just create confusion for both users that
+>will wonder if it's incompatible with Python 3 and for things like the
+>executable name.  Hopefully we won't need to jump to Python 4 for a long
+>time.
+
+Changing the major version number is a much bigger political and psychological
+step than just bumping 3 to 4.  I say let's put it off as long as possible,
+and there's nothing wrong with two digit minor versions.
+
+Cheers,
+-Barry
+
+From rdmurray at bitdance.com  Tue Feb  2 09:54:12 2016
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Tue, 02 Feb 2016 09:54:12 -0500
+Subject: [python-committers] Deprecation Policy PEP
+In-Reply-To: <CACBhJdEP2x1GKTJWH6Ar6ny0v_dCaK2P6pmZgCjgMhSn9RFkAg@mail.gmail.com>
+References: <CACBhJdEat8gg8QqMA2frF=pKo8CondW-SjgGTAK4+-27nnrYhA@mail.gmail.com>
+ <n8g9c2$c8i$1@ger.gmane.org>
+ <CACBhJdEeMuneri5Y+p93vKxQJ9A4cVgSkszEzRmkYZZwX6M_uA@mail.gmail.com>
+ <n8gnbf$fr3$1@ger.gmane.org>
+ <CA+eR4cFcz4Q5ZeC0BTHhPRgqG4CKPGzOees71VYC-p+j5SvWpg@mail.gmail.com>
+ <CAPOVWOTtHhie7hjOEfK6T9z+GBn6+66RNkeD4dd9f4iFQVLb=Q@mail.gmail.com>
+ <CAP7+vJ+VZt9AY0dsay1XPHs2rcE2VaUJOM8Tp+61marWezdBKg@mail.gmail.com>
+ <CACBhJdEP2x1GKTJWH6Ar6ny0v_dCaK2P6pmZgCjgMhSn9RFkAg@mail.gmail.com>
+Message-ID: <20160202145414.3E32625119E@webabinitio.net>
+
+On Tue, 02 Feb 2016 15:33:58 +0200, Ezio Melotti <ezio.melotti at gmail.com> wrote:
+> On Sat, Jan 30, 2016 at 5:36 AM, Guido van Rossum <guido at python.org> wrote:
+> > Following the lead of 2.7.10 and 2.7.11 we could continue with 3.10, 3.11, etc.
+> >
+> 
+> I think we should continue with 3.10, 3.11, etc.
+> Changing the major version should be done for incompatible changes,
+> and just doing it after 3.9 will probably just create confusion for
+> both users that will wonder if it's incompatible with Python 3 and for
+> things like the executable name.
+> Hopefully we won't need to jump to Python 4 for a long time.
+> 
+> > I also want the 3->4 transition to feel like a non-event for most
+> > users. How we'll do that I don't know yet, but I want it to be a lot
+> > smoother than 2->3.
+
+I think Guido's point is that we shouldn't *make* incompatible changes,
+and that the 4.0 transition should be smooth so that people learn we are
+committed to that.  This is potentially analogous to the linux
+transition from 2.x to 3.x, despite the fact that it goes against the
+rules of semantic versioning.
+
+That said, I don't view removing deprecated things as a incompatible
+change, since code that has dealt with the deprecations will run on both
+the version before (usually versions plural) and the version after the
+removal.  Whether we should do a mass removal in 4.0 (or the first post
+2.7 release) is a question, and so far the sense I get of the community
+is that there is not even close to a consensus on that.  But it would
+give a semantic versioning meaning to the change from 3.x to 4.x,
+without actually being all that disruptive.  On the other hand, a mass
+removal would be more disruption than removals spaced over several
+releases, so FUD might well arise as an issue, as you say.
+
+Regardless though, the name is an issue :)
+
+So, I guess I see the arguments between going 3.9->4.0 vs 3.9->3.10
+as fairly balanced and don't have a strong preference.
+
+--David
+
+From ezio.melotti at gmail.com  Tue Feb  2 11:31:43 2016
+From: ezio.melotti at gmail.com (Ezio Melotti)
+Date: Tue, 2 Feb 2016 18:31:43 +0200
+Subject: [python-committers] Deprecation Policy PEP
+In-Reply-To: <20160202145414.3E32625119E@webabinitio.net>
+References: <CACBhJdEat8gg8QqMA2frF=pKo8CondW-SjgGTAK4+-27nnrYhA@mail.gmail.com>
+ <n8g9c2$c8i$1@ger.gmane.org>
+ <CACBhJdEeMuneri5Y+p93vKxQJ9A4cVgSkszEzRmkYZZwX6M_uA@mail.gmail.com>
+ <n8gnbf$fr3$1@ger.gmane.org>
+ <CA+eR4cFcz4Q5ZeC0BTHhPRgqG4CKPGzOees71VYC-p+j5SvWpg@mail.gmail.com>
+ <CAPOVWOTtHhie7hjOEfK6T9z+GBn6+66RNkeD4dd9f4iFQVLb=Q@mail.gmail.com>
+ <CAP7+vJ+VZt9AY0dsay1XPHs2rcE2VaUJOM8Tp+61marWezdBKg@mail.gmail.com>
+ <CACBhJdEP2x1GKTJWH6Ar6ny0v_dCaK2P6pmZgCjgMhSn9RFkAg@mail.gmail.com>
+ <20160202145414.3E32625119E@webabinitio.net>
+Message-ID: <CACBhJdH9wwR046X9K08kCLxu2BA4oSSeYDJMizMVPnCX5FpKdQ@mail.gmail.com>
+
+On Tue, Feb 2, 2016 at 4:54 PM, R. David Murray <rdmurray at bitdance.com> wrote:
+> On Tue, 02 Feb 2016 15:33:58 +0200, Ezio Melotti <ezio.melotti at gmail.com> wrote:
+>> On Sat, Jan 30, 2016 at 5:36 AM, Guido van Rossum <guido at python.org> wrote:
+>> > Following the lead of 2.7.10 and 2.7.11 we could continue with 3.10, 3.11, etc.
+>> >
+>>
+>> I think we should continue with 3.10, 3.11, etc.
+>> Changing the major version should be done for incompatible changes,
+>> and just doing it after 3.9 will probably just create confusion for
+>> both users that will wonder if it's incompatible with Python 3 and for
+>> things like the executable name.
+>> Hopefully we won't need to jump to Python 4 for a long time.
+>>
+>> > I also want the 3->4 transition to feel like a non-event for most
+>> > users. How we'll do that I don't know yet, but I want it to be a lot
+>> > smoother than 2->3.
+>
+> I think Guido's point is that we shouldn't *make* incompatible changes,
+> and that the 4.0 transition should be smooth so that people learn we are
+> committed to that.  This is potentially analogous to the linux
+> transition from 2.x to 3.x, despite the fact that it goes against the
+> rules of semantic versioning.
+>
+> That said, I don't view removing deprecated things as a incompatible
+> change, since code that has dealt with the deprecations will run on both
+> the version before (usually versions plural) and the version after the
+> removal.  Whether we should do a mass removal in 4.0 (or the first post
+> 2.7 release) is a question, and so far the sense I get of the community
+> is that there is not even close to a consensus on that.  But it would
+> give a semantic versioning meaning to the change from 3.x to 4.x,
+> without actually being all that disruptive.  On the other hand, a mass
+> removal would be more disruption than removals spaced over several
+> releases, so FUD might well arise as an issue, as you say.
+>
+
+There are two main types of changes that can make a new release
+incompatible with the previous:
+* removing/renaming (deprecated) APIs;
+* semantic changes (e.g. int/int division, print function, lazy
+builtins, nested scopes, absolute imports, unicode strings by default,
+and adding new keywords);
+
+For the former, we do it regularly in minor releases.  For the latter
+the situation is more complicated.  We did most of those in 3.0, but
+we changed semantics with nested scopes in 2.2 [0] and introduced new
+keywords like "yield" and "with" in 2.3 [1] and 2.6 [2] (using
+__future__ imports) first.
+I believe that all these things can be done in a minor release, and
+could have been done for Python 3.0 too, but it would have been really
+difficult considering the magnitude of some of the changes.
+
+Some amount of breakage happens with any new release, but we can
+choose two different approaches:
+1) spread the breakage evenly on several minor releases;
+2) holding off until the next major release and do it at once;
+
+If we choose the former, we might never need to bump the major release
+to 4.0.  If we choose the latter (like we did for Python 3) we will
+have an incompatible Python 4 (even though the incompatibilities might
+be minor).
+There's also a third option of bumping to 4.0 once some major (but
+backward compatible) change is done, such as removing the GIL or
+adding a JIT (or both).
+I'm not sure making a mass-removal of deprecated APIs for 4.0 makes
+too much sense, especially if we want to minimize breakage.
+
+Also note that by choosing the first option we might increase the
+chances that a program written for 3.6 won't run on e.g. 3.9, thus
+forcing developers to keep up with the changes that each minor release
+introduces.  Providing 3to3 fixers might make the transition easier.
+
+What we decide will likely affect the deprecation policy we want to follow.
+
+Best Regards,
+Ezio Melotti
+
+> Regardless though, the name is an issue :)
+>
+> So, I guess I see the arguments between going 3.9->4.0 vs 3.9->3.10
+> as fairly balanced and don't have a strong preference.
+>
+> --David
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+
+From tjreedy at udel.edu  Tue Feb  2 12:14:26 2016
+From: tjreedy at udel.edu (Terry Reedy)
+Date: Tue, 02 Feb 2016 12:14:26 -0500
+Subject: [python-committers] Deprecation Policy PEP
+In-Reply-To: <20160202145414.3E32625119E@webabinitio.net>
+References: <CACBhJdEat8gg8QqMA2frF=pKo8CondW-SjgGTAK4+-27nnrYhA@mail.gmail.com>
+ <n8g9c2$c8i$1@ger.gmane.org>
+ <CACBhJdEeMuneri5Y+p93vKxQJ9A4cVgSkszEzRmkYZZwX6M_uA@mail.gmail.com>
+ <n8gnbf$fr3$1@ger.gmane.org>
+ <CA+eR4cFcz4Q5ZeC0BTHhPRgqG4CKPGzOees71VYC-p+j5SvWpg@mail.gmail.com>
+ <CAPOVWOTtHhie7hjOEfK6T9z+GBn6+66RNkeD4dd9f4iFQVLb=Q@mail.gmail.com>
+ <CAP7+vJ+VZt9AY0dsay1XPHs2rcE2VaUJOM8Tp+61marWezdBKg@mail.gmail.com>
+ <CACBhJdEP2x1GKTJWH6Ar6ny0v_dCaK2P6pmZgCjgMhSn9RFkAg@mail.gmail.com>
+ <20160202145414.3E32625119E@webabinitio.net>
+Message-ID: <56B0E3F2.9070402@udel.edu>
+
+On 2/2/2016 9:54 AM, R. David Murray wrote:
+> On Tue, 02 Feb 2016 15:33:58 +0200, Ezio Melotti <ezio.melotti at gmail.com> wrote:
+>> On Sat, Jan 30, 2016 at 5:36 AM, Guido van Rossum <guido at python.org> wrote:
+>>> Following the lead of 2.7.10 and 2.7.11 we could continue with 3.10, 3.11, etc.
+>>>
+>>
+>> I think we should continue with 3.10, 3.11, etc.
+>> Changing the major version should be done for incompatible changes,
+>> and just doing it after 3.9 will probably just create confusion for
+>> both users that will wonder if it's incompatible with Python 3 and for
+>> things like the executable name.
+>> Hopefully we won't need to jump to Python 4 for a long time.
+>>
+>>> I also want the 3->4 transition to feel like a non-event for most
+>>> users. How we'll do that I don't know yet, but I want it to be a lot
+>>> smoother than 2->3.
+>
+> I think Guido's point is that we shouldn't *make* incompatible changes,
+
+A change change, as opposed to a removal change, is something like 1/2 
+changing from 0 to .5, {}.keys() changing from a list to a dict_keys, 
+and (the most disruptive) 'abc' and str() changing from bytes to 
+unicode.  I think these were all needed, but now they are done.
+
+The only comparable proposal I know of is changing .5 from a float to a 
+decimal.  I think it would be much better to add new syntax, such as 
+.5d, instead of (disruptively) changing the meaning of current syntax.
+
+> and that the 4.0 transition should be smooth so that people learn we are
+> committed to that.  This is potentially analogous to the linux
+> transition from 2.x to 3.x, despite the fact that it goes against the
+> rules of semantic versioning.
+>
+> That said, I don't view removing deprecated things as a incompatible
+> change, since code that has dealt with the deprecations will run on both
+> the version before (usually versions plural) and the version after the
+> removal.
+
+A major difference between change and removal is that using something 
+removed immediately fails instead doing something not expected and 
+likely wrong and maybe eventually failing.  Also, change in meaning 
+usually makes cross version code impossible (without adding 'if old: do 
+one thing; else: do another' conditionals).  Whereas, as you say above, 
+replacements can be backported at least a couple of versions.
+
+ > Whether we should do a mass removal in 4.0 (or the first post
+> 2.7 release) is a question, and so far the sense I get of the community
+> is that there is not even close to a consensus on that.  But it would
+> give a semantic versioning meaning to the change from 3.x to 4.x,
+> without actually being all that disruptive.
+
+By my calculation, 3.9 will be the version after 2.7 is discontinued. 
+If we do release a '3.9', make turning on DeprecationWarnings a bit 
+easier so users can check if any packages they use might fail in 4.0 (or 
+later)  After studying the -W doc entry move closely than many users are 
+likely to, , I conclude that "-W default::DeprecationWarning" is the 
+right command-line option.  Correct?  This example could be added to the 
+doc.  Installers could offer to set PYTHONWARNINGS to 
+'default::DeprecationWarning'.
+
+For 4.0, I propose this: remove deprecated features from the main part 
+of the doc, so they are not part of the Python 4.0 language.  Features 
+not removed (yet) from the code would be relegated to an Appendix, '3.x 
+remnants', which would start by declaring that the items therein are not 
+in '4.0' and should not be used in new 4.0 code.  (The check for 4.0 
+conformance would be to run with deprecation warnings on.)
+
+Timing of actual removal could depend on ease of replacement.  For 
+instance, things that can be deterministically replaced by a 'dep_fixer' 
+could be removed in 4.0.  The unittest synonym removals are an examples. 
+  Things with a replacement that can be suggested but might need to be 
+checked might go in 4.1.  Things without a suggest replacement, that 
+need a human rewrite, to be kept to 4.2.  (I am not sure how many things 
+fit in the latter two categories.)
+
+The deterministic fixes could be further categorized by when the 
+replacement is available.  The fixer could take a parameter to specify 
+the earliest version the code must work with.  Someone using the fixer 
+today might specify that the result must work with 3.3 and later.  Five 
+years from now, minimum versions would usually be higher.  The first 
+version of a fixer could be included with 3.6.
+
+-- tjr
+
+PS.  Never removing obsolete items can eventually lead to problems.  See 
+https://motherboard.vice.com/read/cern-engineers-have-to-identify-and-disconnect-9000-obsolete-cables 
+for a non-programming example.
+
+
+From steve at pearwood.info  Tue Feb  2 19:03:36 2016
+From: steve at pearwood.info (Steven D'Aprano)
+Date: Wed, 3 Feb 2016 11:03:36 +1100
+Subject: [python-committers] Deprecation Policy PEP
+In-Reply-To: <20160202094052.7b543dd4@subdivisions.wooz.org>
+References: <CACBhJdEat8gg8QqMA2frF=pKo8CondW-SjgGTAK4+-27nnrYhA@mail.gmail.com>
+ <n8g9c2$c8i$1@ger.gmane.org>
+ <CACBhJdEeMuneri5Y+p93vKxQJ9A4cVgSkszEzRmkYZZwX6M_uA@mail.gmail.com>
+ <n8gnbf$fr3$1@ger.gmane.org>
+ <CA+eR4cFcz4Q5ZeC0BTHhPRgqG4CKPGzOees71VYC-p+j5SvWpg@mail.gmail.com>
+ <CAPOVWOTtHhie7hjOEfK6T9z+GBn6+66RNkeD4dd9f4iFQVLb=Q@mail.gmail.com>
+ <CAP7+vJ+VZt9AY0dsay1XPHs2rcE2VaUJOM8Tp+61marWezdBKg@mail.gmail.com>
+ <CACBhJdEP2x1GKTJWH6Ar6ny0v_dCaK2P6pmZgCjgMhSn9RFkAg@mail.gmail.com>
+ <20160202094052.7b543dd4@subdivisions.wooz.org>
+Message-ID: <20160203000335.GJ31806@ando.pearwood.info>
+
+On Tue, Feb 02, 2016 at 09:40:52AM -0500, Barry Warsaw wrote:
+> On Feb 02, 2016, at 03:33 PM, Ezio Melotti wrote:
+> 
+> >Changing the major version should be done for incompatible changes, and just
+> >doing it after 3.9 will probably just create confusion for both users that
+> >will wonder if it's incompatible with Python 3 and for things like the
+> >executable name.  Hopefully we won't need to jump to Python 4 for a long
+> >time.
+> 
+> Changing the major version number is a much bigger political and psychological
+> step than just bumping 3 to 4.  I say let's put it off as long as possible,
+> and there's nothing wrong with two digit minor versions.
+
+It will break any code that does
+
+    if sys.version < "3.3": ...
+
+for example. Sure, people shouldn't do that, but they will.
+
+Are there any other languages or systems which bumped the major version 
+number while keeping language changes relatively minor? I can think of a 
+couple of examples of languages which bumped the major version number 
+without making big disruptive changes:
+
+* Python 1.5 -> 2.0 (technically there was a 1.6 in there as well, but 
+that wasn't used by many people).
+
+Admittedly, fewer people used Python back then, and the version bump 
+wasn't following a similiar, but backwards incompatible, version bump.
+
+* PHP 5.x -> 7.0. I count nine feature removals, but none of them look 
+big. http://php.net/ChangeLog-7.php
+
+* Java major version bumps are rarely backwards incompatible, as far as 
+I can tell. I had a Java developer explain to me that he treats the N 
+in "Java N" as effectively a minor release number.
+
+
+The point being, I'm not entirely sure I agree that a major version bump 
+would *necessarily* be considered a big deal, let alone a barrier to 
+adoption. It might be nice to have a really big feature added in 4.0 to 
+justify the version bump, but I don't think it's a "Must Do". Having 4.0 
+being a lightweight evolutionary step up from 3.9 might even reassure 
+people that we're back to normal operating practice, without the 
+extraordinary 2->3 transition.
+
+
+
+-- 
+Steve
+
+From barry at python.org  Tue Feb  2 20:00:39 2016
+From: barry at python.org (Barry Warsaw)
+Date: Tue, 2 Feb 2016 20:00:39 -0500
+Subject: [python-committers] Deprecation Policy PEP
+In-Reply-To: <20160203000335.GJ31806@ando.pearwood.info>
+References: <CACBhJdEat8gg8QqMA2frF=pKo8CondW-SjgGTAK4+-27nnrYhA@mail.gmail.com>
+ <n8g9c2$c8i$1@ger.gmane.org>
+ <CACBhJdEeMuneri5Y+p93vKxQJ9A4cVgSkszEzRmkYZZwX6M_uA@mail.gmail.com>
+ <n8gnbf$fr3$1@ger.gmane.org>
+ <CA+eR4cFcz4Q5ZeC0BTHhPRgqG4CKPGzOees71VYC-p+j5SvWpg@mail.gmail.com>
+ <CAPOVWOTtHhie7hjOEfK6T9z+GBn6+66RNkeD4dd9f4iFQVLb=Q@mail.gmail.com>
+ <CAP7+vJ+VZt9AY0dsay1XPHs2rcE2VaUJOM8Tp+61marWezdBKg@mail.gmail.com>
+ <CACBhJdEP2x1GKTJWH6Ar6ny0v_dCaK2P6pmZgCjgMhSn9RFkAg@mail.gmail.com>
+ <20160202094052.7b543dd4@subdivisions.wooz.org>
+ <20160203000335.GJ31806@ando.pearwood.info>
+Message-ID: <20160202200039.3e2a4d55@subdivisions.wooz.org>
+
+On Feb 03, 2016, at 11:03 AM, Steven D'Aprano wrote:
+
+>The point being, I'm not entirely sure I agree that a major version bump
+>would *necessarily* be considered a big deal, let alone a barrier to
+>adoption.
+
+The problem isn't so much the major version bump, but what to do about the
+command name on *nix.  I'm admittedly biased about that being "the"
+problem. ;)
+
+I think you'd get a lot of resistance if you named it 'python'.  You can't
+name it 'python3'.  Maybe 'python4' would be okay, but please let's not do
+that any time soon.  We're still in the midst of a transition to Python 3 and
+I think anything that muddies those waters will just mean more FUD that some
+of us front-liners have to contend with.
+
+OTOH, I can see it being worth it for something really big like getting rid of
+the GIL.
+
+Cheers,
+-Barry
+
+From ncoghlan at gmail.com  Sat Feb  6 01:54:43 2016
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Sat, 6 Feb 2016 16:54:43 +1000
+Subject: [python-committers] Deprecation Policy PEP
+In-Reply-To: <20160202200039.3e2a4d55@subdivisions.wooz.org>
+References: <CACBhJdEat8gg8QqMA2frF=pKo8CondW-SjgGTAK4+-27nnrYhA@mail.gmail.com>
+ <n8g9c2$c8i$1@ger.gmane.org>
+ <CACBhJdEeMuneri5Y+p93vKxQJ9A4cVgSkszEzRmkYZZwX6M_uA@mail.gmail.com>
+ <n8gnbf$fr3$1@ger.gmane.org>
+ <CA+eR4cFcz4Q5ZeC0BTHhPRgqG4CKPGzOees71VYC-p+j5SvWpg@mail.gmail.com>
+ <CAPOVWOTtHhie7hjOEfK6T9z+GBn6+66RNkeD4dd9f4iFQVLb=Q@mail.gmail.com>
+ <CAP7+vJ+VZt9AY0dsay1XPHs2rcE2VaUJOM8Tp+61marWezdBKg@mail.gmail.com>
+ <CACBhJdEP2x1GKTJWH6Ar6ny0v_dCaK2P6pmZgCjgMhSn9RFkAg@mail.gmail.com>
+ <20160202094052.7b543dd4@subdivisions.wooz.org>
+ <20160203000335.GJ31806@ando.pearwood.info>
+ <20160202200039.3e2a4d55@subdivisions.wooz.org>
+Message-ID: <CADiSq7fzqNKT65wn_LY2_ytwP0iaN+EMhNS8r2017jKr3cVaEg@mail.gmail.com>
+
+On 3 February 2016 at 11:00, Barry Warsaw <barry at python.org> wrote:
+> On Feb 03, 2016, at 11:03 AM, Steven D'Aprano wrote:
+>
+>>The point being, I'm not entirely sure I agree that a major version bump
+>>would *necessarily* be considered a big deal, let alone a barrier to
+>>adoption.
+>
+> The problem isn't so much the major version bump, but what to do about the
+> command name on *nix.  I'm admittedly biased about that being "the"
+> problem. ;)
+
+You beat me to bringing it up :)
+
+> I think you'd get a lot of resistance if you named it 'python'.  You can't
+> name it 'python3'.  Maybe 'python4' would be okay, but please let's not do
+> that any time soon.  We're still in the midst of a transition to Python 3 and
+> I think anything that muddies those waters will just mean more FUD that some
+> of us front-liners have to contend with.
+
+Although if anyone has both the C/POSIX skills and the necessary
+roundtuits to help move Geoffrey Thomas's "pythonmux" [1] idea
+forward, we may be able to settle the preferred behaviour of the
+"/usr/bin/python" path once and for all.
+
+Cheers,
+Nick.
+
+[1] https://github.com/geofft/pythonmux
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+
+From barry at python.org  Sat Feb  6 09:18:36 2016
+From: barry at python.org (Barry Warsaw)
+Date: Sat, 6 Feb 2016 09:18:36 -0500
+Subject: [python-committers] Deprecation Policy PEP
+In-Reply-To: <CADiSq7fzqNKT65wn_LY2_ytwP0iaN+EMhNS8r2017jKr3cVaEg@mail.gmail.com>
+References: <CACBhJdEat8gg8QqMA2frF=pKo8CondW-SjgGTAK4+-27nnrYhA@mail.gmail.com>
+ <n8g9c2$c8i$1@ger.gmane.org>
+ <CACBhJdEeMuneri5Y+p93vKxQJ9A4cVgSkszEzRmkYZZwX6M_uA@mail.gmail.com>
+ <n8gnbf$fr3$1@ger.gmane.org>
+ <CA+eR4cFcz4Q5ZeC0BTHhPRgqG4CKPGzOees71VYC-p+j5SvWpg@mail.gmail.com>
+ <CAPOVWOTtHhie7hjOEfK6T9z+GBn6+66RNkeD4dd9f4iFQVLb=Q@mail.gmail.com>
+ <CAP7+vJ+VZt9AY0dsay1XPHs2rcE2VaUJOM8Tp+61marWezdBKg@mail.gmail.com>
+ <CACBhJdEP2x1GKTJWH6Ar6ny0v_dCaK2P6pmZgCjgMhSn9RFkAg@mail.gmail.com>
+ <20160202094052.7b543dd4@subdivisions.wooz.org>
+ <20160203000335.GJ31806@ando.pearwood.info>
+ <20160202200039.3e2a4d55@subdivisions.wooz.org>
+ <CADiSq7fzqNKT65wn_LY2_ytwP0iaN+EMhNS8r2017jKr3cVaEg@mail.gmail.com>
+Message-ID: <20160206091836.22bb853f@subdivisions.wooz.org>
+
+On Feb 06, 2016, at 04:54 PM, Nick Coghlan wrote:
+
+>Although if anyone has both the C/POSIX skills and the necessary
+>roundtuits to help move Geoffrey Thomas's "pythonmux" [1] idea
+>forward, we may be able to settle the preferred behaviour of the
+>"/usr/bin/python" path once and for all.
+
++1 (but that's not me right now ;)
+-Barry
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 819 bytes
+Desc: OpenPGP digital signature
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20160206/56bee1d5/attachment.sig>
+
+From mal at egenix.com  Mon Feb  8 15:34:30 2016
+From: mal at egenix.com (M.-A. Lemburg)
+Date: Mon, 8 Feb 2016 21:34:30 +0100
+Subject: [python-committers] New Authenticode certificate
+In-Reply-To: <56A1F9F3.7010504@egenix.com>
+References: <56A109EF.5000704@python.org> <56A12412.3060406@egenix.com>
+ <56A134AB.107@python.org> <56A1F9F3.7010504@egenix.com>
+Message-ID: <56B8FBD6.1020808@egenix.com>
+
+To everyone: We now have a PSF code signing certificate.
+
+I have sent the certificate to Steve for use in the Windows
+installers. If other developers need to create signed
+installers/code for Python, please let me know.
+
+Thanks.
+
+On 22.01.2016 10:44, M.-A. Lemburg wrote:
+> On 21.01.2016 20:42, Steve Dower wrote:
+>> On 21Jan2016 1031, M.-A. Lemburg wrote:
+>>> I'm the one who handles the PSF StartSSL account and yes,
+>>> they also do code signing certificates.
+>>
+>> Did they provide our current certificate? The root CA is VeriSign, not StartCom.
+>>
+>> I have no particular issue with changing CA, but I really don't want multiple PSF-labelled code
+>> signing certificates floating around out there.
+> 
+> We have switched to StartSSL for most of our certificate needs.
+> Some certs are also created using Gandi (for a few
+> externally hosted python.org subdomains) or Digicert (for
+> fastly cached domains):
+> 
+> https://wiki.python.org/psf/PSF%20SSL%20Certificates
+> (you need a PSF wiki login to view the page)
+> 
+> The older Verisign ones were from before the PSF attempted to
+> centralize the certificate management.
+> 
+> I'll send you the instructions on how to create a CSR for the
+> cert offlist.
+> 
+
+-- 
+Marc-Andre Lemburg
+eGenix.com
+
+Professional Python Services directly from the Experts (#1, Feb 08 2016)
+>>> Python Projects, Coaching and Consulting ...  http://www.egenix.com/
+>>> Python Database Interfaces ...           http://products.egenix.com/
+>>> Plone/Zope Database Interfaces ...           http://zope.egenix.com/
+________________________________________________________________________
+
+::: We implement business ideas - efficiently in both time and costs :::
+
+   eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+    D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+           Registered at Amtsgericht Duesseldorf: HRB 46611
+               http://www.egenix.com/company/contact/
+                      http://www.malemburg.com/
+
+
+From jdhardy at gmail.com  Tue Feb  9 12:41:34 2016
+From: jdhardy at gmail.com (Jeff Hardy)
+Date: Tue, 9 Feb 2016 09:41:34 -0800
+Subject: [python-committers] New Authenticode certificate
+In-Reply-To: <56B8FBD6.1020808@egenix.com>
+References: <56A109EF.5000704@python.org> <56A12412.3060406@egenix.com>
+ <56A134AB.107@python.org> <56A1F9F3.7010504@egenix.com>
+ <56B8FBD6.1020808@egenix.com>
+Message-ID: <CAF7AXFHok4f=wuvkebzGhCZsbJcweGEfNAuJwyz=8rQM7pnsqA@mail.gmail.com>
+
+On Mon, Feb 8, 2016 at 12:34 PM, M.-A. Lemburg <mal at egenix.com> wrote:
+
+> To everyone: We now have a PSF code signing certificate.
+>
+> I have sent the certificate to Steve for use in the Windows
+> installers. If other developers need to create signed
+> installers/code for Python, please let me know.
+>
+
+Hi Marc-Andre,
+Would it be possible to use it for IronPython as well?
+
+- Jeff
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20160209/8f629e9c/attachment.html>
+
+From mal at egenix.com  Tue Feb  9 13:30:41 2016
+From: mal at egenix.com (M.-A. Lemburg)
+Date: Tue, 9 Feb 2016 19:30:41 +0100
+Subject: [python-committers] New Authenticode certificate
+In-Reply-To: <CAF7AXFHok4f=wuvkebzGhCZsbJcweGEfNAuJwyz=8rQM7pnsqA@mail.gmail.com>
+References: <56A109EF.5000704@python.org> <56A12412.3060406@egenix.com>
+ <56A134AB.107@python.org> <56A1F9F3.7010504@egenix.com>
+ <56B8FBD6.1020808@egenix.com>
+ <CAF7AXFHok4f=wuvkebzGhCZsbJcweGEfNAuJwyz=8rQM7pnsqA@mail.gmail.com>
+Message-ID: <56BA3051.3040708@egenix.com>
+
+On 09.02.2016 18:41, Jeff Hardy wrote:
+> On Mon, Feb 8, 2016 at 12:34 PM, M.-A. Lemburg <mal at egenix.com> wrote:
+> 
+>> To everyone: We now have a PSF code signing certificate.
+>>
+>> I have sent the certificate to Steve for use in the Windows
+>> installers. If other developers need to create signed
+>> installers/code for Python, please let me know.
+>>
+> 
+> Hi Marc-Andre,
+> Would it be possible to use it for IronPython as well?
+
+I don't know. Steve is using it as Authenticode certificate,
+which NuGet also seems to be planing to use:
+
+http://blog.nuget.org/20150203/package-signing.html
+
+but I have no experience with .NET code signing.
+
+They also seem to have settled for a slightly different
+approach since writing the above blog post:
+
+https://github.com/aspnet/Signing/blob/dev/Spec.md
+
+which doesn't look compatible with Authenticode.
+
+It will certainly work for signing executables and msi
+installers.
+
+Perhaps Steve can help with this.
+
+-- 
+Marc-Andre Lemburg
+eGenix.com
+
+Professional Python Services directly from the Experts (#1, Feb 09 2016)
+>>> Python Projects, Coaching and Consulting ...  http://www.egenix.com/
+>>> Python Database Interfaces ...           http://products.egenix.com/
+>>> Plone/Zope Database Interfaces ...           http://zope.egenix.com/
+________________________________________________________________________
+2016-01-19: Released eGenix pyOpenSSL 0.13.13 ... http://egenix.com/go86
+
+::: We implement business ideas - efficiently in both time and costs :::
+
+   eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+    D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+           Registered at Amtsgericht Duesseldorf: HRB 46611
+               http://www.egenix.com/company/contact/
+                      http://www.malemburg.com/
+
+
+From python at stevedower.id.au  Tue Feb  9 16:40:15 2016
+From: python at stevedower.id.au (Steve Dower)
+Date: Tue, 9 Feb 2016 13:40:15 -0800
+Subject: [python-committers] New Authenticode certificate
+In-Reply-To: <56BA3051.3040708@egenix.com>
+References: <56A109EF.5000704@python.org> <56A12412.3060406@egenix.com>
+ <56A134AB.107@python.org> <56A1F9F3.7010504@egenix.com>
+ <56B8FBD6.1020808@egenix.com>
+ <CAF7AXFHok4f=wuvkebzGhCZsbJcweGEfNAuJwyz=8rQM7pnsqA@mail.gmail.com>
+ <56BA3051.3040708@egenix.com>
+Message-ID: <56BA5CBF.4020708@python.org>
+
+On 09Feb2016 1030, M.-A. Lemburg wrote:
+> On 09.02.2016 18:41, Jeff Hardy wrote:
+>> On Mon, Feb 8, 2016 at 12:34 PM, M.-A. Lemburg <mal at egenix.com> wrote:
+>>
+>>> To everyone: We now have a PSF code signing certificate.
+>>>
+>>> I have sent the certificate to Steve for use in the Windows
+>>> installers. If other developers need to create signed
+>>> installers/code for Python, please let me know.
+>>>
+>>
+>> Hi Marc-Andre,
+>> Would it be possible to use it for IronPython as well?
+>
+> I don't know. Steve is using it as Authenticode certificate,
+>
+> [SNIP]
+>
+> It will certainly work for signing executables and msi
+> installers.
+>
+> Perhaps Steve can help with this.
+>
+
+There are three aspects to this: technical, political and security.
+
+Technically, yes IronPython could absolutely be signed with the same 
+certificate.
+
+Politically, it requires the PSF to be willing to put their name to the 
+safety of the signed binaries and installers. Essentially, if/when 
+something bad is done with or via something signed by the PSF, there is 
+an implied responsibility (no idea how legally enforceable it is). I am 
+not in a position to say whether or not this is okay for IronPython.
+
+Security-wise, it is very important to minimize the number of people who 
+have access to the certificate. Code signed with this certificate is 
+basically given a free pass by most virus scanners and security software.
+
+If we decide to start signing IronPython with the PSF certificate, I'd 
+be most comfortable if I were doing the builds to avoid sharing the 
+certificate any further than needed. But that isn't going to scale when 
+all the other interpreters want equal treatment.
+
+I'm not sure exactly what the cost of the certificate is to the PSF, but 
+it may be an expense they're willing to take to get separate certs?
+
+Cheers,
+Steve
+
+From mal at egenix.com  Wed Feb 10 03:40:43 2016
+From: mal at egenix.com (M.-A. Lemburg)
+Date: Wed, 10 Feb 2016 09:40:43 +0100
+Subject: [python-committers] New Authenticode certificate
+In-Reply-To: <56BA5CBF.4020708@python.org>
+References: <56A109EF.5000704@python.org> <56A12412.3060406@egenix.com>
+ <56A134AB.107@python.org> <56A1F9F3.7010504@egenix.com>
+ <56B8FBD6.1020808@egenix.com>
+ <CAF7AXFHok4f=wuvkebzGhCZsbJcweGEfNAuJwyz=8rQM7pnsqA@mail.gmail.com>
+ <56BA3051.3040708@egenix.com> <56BA5CBF.4020708@python.org>
+Message-ID: <56BAF78B.2010804@egenix.com>
+
+On 09.02.2016 22:40, Steve Dower wrote:
+> On 09Feb2016 1030, M.-A. Lemburg wrote:
+>> On 09.02.2016 18:41, Jeff Hardy wrote:
+>>> On Mon, Feb 8, 2016 at 12:34 PM, M.-A. Lemburg <mal at egenix.com> wrote:
+>>>
+>>>> To everyone: We now have a PSF code signing certificate.
+>>>>
+>>>> I have sent the certificate to Steve for use in the Windows
+>>>> installers. If other developers need to create signed
+>>>> installers/code for Python, please let me know.
+>>>>
+>>>
+>>> Hi Marc-Andre,
+>>> Would it be possible to use it for IronPython as well?
+>>
+>> I don't know. Steve is using it as Authenticode certificate,
+>>
+>> [SNIP]
+>>
+>> It will certainly work for signing executables and msi
+>> installers.
+>>
+>> Perhaps Steve can help with this.
+>>
+> 
+> There are three aspects to this: technical, political and security.
+> 
+> Technically, yes IronPython could absolutely be signed with the same certificate.
+> 
+> Politically, it requires the PSF to be willing to put their name to the safety of the signed
+> binaries and installers. Essentially, if/when something bad is done with or via something signed by
+> the PSF, there is an implied responsibility (no idea how legally enforceable it is). I am not in a
+> position to say whether or not this is okay for IronPython.
+
+Regardless of politics (the PSF wants to help where ever we can),
+we may only sign code with the PSF code signing certificate which
+the PSF has a right to distribute.
+
+I originally was under the impression that we do, but now that I
+wanted to check, I'm having trouble finding the copyright owners
+of the code.
+
+The license is the Apache license (but without copyright holder
+information), and the stdlib is part of the installers (which the
+PSF has distribution rights to), but the IronPython runtime itself
+only says: "Copyright (c) IronPython Team", so it's not clear what
+distribution rights the PSF would have.
+
+> Security-wise, it is very important to minimize the number of people who have access to the
+> certificate. Code signed with this certificate is basically given a free pass by most virus scanners
+> and security software.
+
+I don't think that's a true statement. Decent virus scanners
+will still scan the files for malicious content, even if signed.
+
+It's true that minimizing the possible attack surface is always
+preferred, though.
+
+> If we decide to start signing IronPython with the PSF certificate, I'd be most comfortable if I were
+> doing the builds to avoid sharing the certificate any further than needed. But that isn't going to
+> scale when all the other interpreters want equal treatment.
+> 
+> I'm not sure exactly what the cost of the certificate is to the PSF, but it may be an expense
+> they're willing to take to get separate certs?
+
+We can only get one code signing certificate per organization from
+our certificate provider StartSSL.
+
+-- 
+Marc-Andre Lemburg
+eGenix.com
+
+Professional Python Services directly from the Experts (#1, Feb 10 2016)
+>>> Python Projects, Coaching and Consulting ...  http://www.egenix.com/
+>>> Python Database Interfaces ...           http://products.egenix.com/
+>>> Plone/Zope Database Interfaces ...           http://zope.egenix.com/
+________________________________________________________________________
+2016-01-19: Released eGenix pyOpenSSL 0.13.13 ... http://egenix.com/go86
+
+::: We implement business ideas - efficiently in both time and costs :::
+
+   eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+    D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+           Registered at Amtsgericht Duesseldorf: HRB 46611
+               http://www.egenix.com/company/contact/
+                      http://www.malemburg.com/
+
+
+From jdhardy at gmail.com  Tue Feb 16 17:45:37 2016
+From: jdhardy at gmail.com (Jeff Hardy)
+Date: Tue, 16 Feb 2016 14:45:37 -0800
+Subject: [python-committers] New Authenticode certificate
+In-Reply-To: <56BAF78B.2010804@egenix.com>
+References: <56A109EF.5000704@python.org> <56A12412.3060406@egenix.com>
+ <56A134AB.107@python.org> <56A1F9F3.7010504@egenix.com>
+ <56B8FBD6.1020808@egenix.com>
+ <CAF7AXFHok4f=wuvkebzGhCZsbJcweGEfNAuJwyz=8rQM7pnsqA@mail.gmail.com>
+ <56BA3051.3040708@egenix.com> <56BA5CBF.4020708@python.org>
+ <56BAF78B.2010804@egenix.com>
+Message-ID: <CAF7AXFHg2VzTteHftWc=TegrVjLJiYrXA6ycuziCcYf1kjokSg@mail.gmail.com>
+
+On Wed, Feb 10, 2016 at 12:40 AM, M.-A. Lemburg <mal at egenix.com> wrote:
+
+> On 09.02.2016 22:40, Steve Dower wrote:
+> > On 09Feb2016 1030, M.-A. Lemburg wrote:
+> >> On 09.02.2016 18:41, Jeff Hardy wrote:
+> >>> On Mon, Feb 8, 2016 at 12:34 PM, M.-A. Lemburg <mal at egenix.com> wrote:
+> >>>
+> >>>> To everyone: We now have a PSF code signing certificate.
+> >>>>
+> >>>> I have sent the certificate to Steve for use in the Windows
+> >>>> installers. If other developers need to create signed
+> >>>> installers/code for Python, please let me know.
+> >>>>
+> >>>
+> >>> Hi Marc-Andre,
+> >>> Would it be possible to use it for IronPython as well?
+> >>
+> >> I don't know. Steve is using it as Authenticode certificate,
+> >>
+> >> [SNIP]
+> >>
+> >> It will certainly work for signing executables and msi
+> >> installers.
+> >>
+> >> Perhaps Steve can help with this.
+>
+
+Yes, it would be signing the IronPython .exe's, MSI, and possibly NuGet
+packages (although that part of the ecosystem is in flux and I have no idea
+what's going on right now).
+
+
+> >>
+> >
+> > There are three aspects to this: technical, political and security.
+> >
+> > Technically, yes IronPython could absolutely be signed with the same
+> certificate.
+> >
+> > Politically, it requires the PSF to be willing to put their name to the
+> safety of the signed
+> > binaries and installers. Essentially, if/when something bad is done with
+> or via something signed by
+> > the PSF, there is an implied responsibility (no idea how legally
+> enforceable it is). I am not in a
+> > position to say whether or not this is okay for IronPython.
+>
+> Regardless of politics (the PSF wants to help where ever we can),
+> we may only sign code with the PSF code signing certificate which
+> the PSF has a right to distribute.
+>
+> I originally was under the impression that we do, but now that I
+> wanted to check, I'm having trouble finding the copyright owners
+> of the code.
+>
+> The license is the Apache license (but without copyright holder
+> information), and the stdlib is part of the installers (which the
+> PSF has distribution rights to), but the IronPython runtime itself
+> only says: "Copyright (c) IronPython Team", so it's not clear what
+> distribution rights the PSF would have.
+>
+
+We deliberately didn't so copyright assignment at the start to avoid
+dealing with the MS lawyers too much, so the bulk of the code is (c)
+Microsoft, the rest would be whoever wrote it. It's a nice, low-friction
+system, as long as we don't change it. :)
+
+If we had to move to PSF copyright assignment I'd be OK with it (and I
+doubt other main contributors would have an issue) but the trick would be
+tracking down all other contributors and getting their sign off, and also
+getting MS to sign off on it (although the MS of today would probably be
+more amenable than the MS of 5 years ago).
+
+Alternatively, maybe the *binaries* can be (c) PSF, but the code copyrights
+remain the same as they are. Not sure if that's a thing. Then the PSF would
+have no issues distributing the binaries. I'm pretty sure the Apache
+license is enough to give the PSF (though their representative) permission
+to build binaries from the source and distribute them, but IANAL, etc.
+
+
+>
+> > Security-wise, it is very important to minimize the number of people who
+> have access to the
+> > certificate. Code signed with this certificate is basically given a free
+> pass by most virus scanners
+> > and security software.
+>
+> I don't think that's a true statement. Decent virus scanners
+> will still scan the files for malicious content, even if signed.
+>
+> It's true that minimizing the possible attack surface is always
+> preferred, though.
+>
+> > If we decide to start signing IronPython with the PSF certificate, I'd
+> be most comfortable if I were
+> > doing the builds to avoid sharing the certificate any further than
+> needed. But that isn't going to
+> > scale when all the other interpreters want equal treatment.
+> >
+> > I'm not sure exactly what the cost of the certificate is to the PSF, but
+> it may be an expense
+> > they're willing to take to get separate certs?
+>
+> We can only get one code signing certificate per organization from
+> our certificate provider StartSSL.
+>
+
+I don't have an issue with Steve building them; the release process is
+pretty much a single make step. It's a mild annoyance for each of us, but
+it would only be for final releases, so only 2-3 times a year at most.
+
+- Jeff
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20160216/2280c064/attachment.html>
+
+From mal at egenix.com  Wed Feb 17 12:03:36 2016
+From: mal at egenix.com (M.-A. Lemburg)
+Date: Wed, 17 Feb 2016 18:03:36 +0100
+Subject: [python-committers] New Authenticode certificate
+In-Reply-To: <CAF7AXFHg2VzTteHftWc=TegrVjLJiYrXA6ycuziCcYf1kjokSg@mail.gmail.com>
+References: <56A109EF.5000704@python.org> <56A12412.3060406@egenix.com>
+ <56A134AB.107@python.org> <56A1F9F3.7010504@egenix.com>
+ <56B8FBD6.1020808@egenix.com>
+ <CAF7AXFHok4f=wuvkebzGhCZsbJcweGEfNAuJwyz=8rQM7pnsqA@mail.gmail.com>
+ <56BA3051.3040708@egenix.com> <56BA5CBF.4020708@python.org>
+ <56BAF78B.2010804@egenix.com>
+ <CAF7AXFHg2VzTteHftWc=TegrVjLJiYrXA6ycuziCcYf1kjokSg@mail.gmail.com>
+Message-ID: <56C4A7E8.7020005@egenix.com>
+
+On 16.02.2016 23:45, Jeff Hardy wrote:
+> On Wed, Feb 10, 2016 at 12:40 AM, M.-A. Lemburg <mal at egenix.com> wrote:
+> 
+>> On 09.02.2016 22:40, Steve Dower wrote:
+>>> On 09Feb2016 1030, M.-A. Lemburg wrote:
+>>>> On 09.02.2016 18:41, Jeff Hardy wrote:
+>>>>> On Mon, Feb 8, 2016 at 12:34 PM, M.-A. Lemburg <mal at egenix.com> wrote:
+>>>>>
+>>>>>> To everyone: We now have a PSF code signing certificate.
+>>>>>>
+>>>>>> I have sent the certificate to Steve for use in the Windows
+>>>>>> installers. If other developers need to create signed
+>>>>>> installers/code for Python, please let me know.
+>>>>>>
+>>>>>
+>>>>> Hi Marc-Andre,
+>>>>> Would it be possible to use it for IronPython as well?
+>>>>
+>>>> I don't know. Steve is using it as Authenticode certificate,
+>>>>
+>>>> [SNIP]
+>>>>
+>>>> It will certainly work for signing executables and msi
+>>>> installers.
+>>>>
+>>>> Perhaps Steve can help with this.
+>>
+> 
+> Yes, it would be signing the IronPython .exe's, MSI, and possibly NuGet
+> packages (although that part of the ecosystem is in flux and I have no idea
+> what's going on right now).
+> 
+> 
+>>>>
+>>>
+>>> There are three aspects to this: technical, political and security.
+>>>
+>>> Technically, yes IronPython could absolutely be signed with the same
+>> certificate.
+>>>
+>>> Politically, it requires the PSF to be willing to put their name to the
+>> safety of the signed
+>>> binaries and installers. Essentially, if/when something bad is done with
+>> or via something signed by
+>>> the PSF, there is an implied responsibility (no idea how legally
+>> enforceable it is). I am not in a
+>>> position to say whether or not this is okay for IronPython.
+>>
+>> Regardless of politics (the PSF wants to help where ever we can),
+>> we may only sign code with the PSF code signing certificate which
+>> the PSF has a right to distribute.
+>>
+>> I originally was under the impression that we do, but now that I
+>> wanted to check, I'm having trouble finding the copyright owners
+>> of the code.
+>>
+>> The license is the Apache license (but without copyright holder
+>> information), and the stdlib is part of the installers (which the
+>> PSF has distribution rights to), but the IronPython runtime itself
+>> only says: "Copyright (c) IronPython Team", so it's not clear what
+>> distribution rights the PSF would have.
+>>
+> 
+> We deliberately didn't so copyright assignment at the start to avoid
+> dealing with the MS lawyers too much, so the bulk of the code is (c)
+> Microsoft, the rest would be whoever wrote it. It's a nice, low-friction
+> system, as long as we don't change it. :)
+> 
+> If we had to move to PSF copyright assignment I'd be OK with it (and I
+> doubt other main contributors would have an issue) but the trick would be
+> tracking down all other contributors and getting their sign off, and also
+> getting MS to sign off on it (although the MS of today would probably be
+> more amenable than the MS of 5 years ago).
+
+I can take this up to the PSF board to see whether we'd
+want to go through that trouble :-)
+
+One of the reasons Python has the long license stack is that
+we've so far avoided trying to cut it down one by one, since
+it involves lots of talk not many people really want to go
+through or invest time into.
+
+> Alternatively, maybe the *binaries* can be (c) PSF, but the code copyrights
+> remain the same as they are. Not sure if that's a thing. Then the PSF would
+> have no issues distributing the binaries. I'm pretty sure the Apache
+> license is enough to give the PSF (though their representative) permission
+> to build binaries from the source and distribute them, but IANAL, etc.
+
+Hmm, you're raising a good point. The Python contrib forms
+also license the code using the Apache license (as one of two
+possible licenses) to the PSF, without assigning copyright.
+
+The contrib forms give the PSF a permission to relicense the
+code, but this wouldn't be necessary here, since we'd just
+be distributing the binaries under the same license.
+
+And in the end, object signing just means that *we* used
+the code to build the executables, nothing more, so not
+even the "(c) PSF" should be necessary.
+
+>>> Security-wise, it is very important to minimize the number of people who
+>> have access to the
+>>> certificate. Code signed with this certificate is basically given a free
+>> pass by most virus scanners
+>>> and security software.
+>>
+>> I don't think that's a true statement. Decent virus scanners
+>> will still scan the files for malicious content, even if signed.
+>>
+>> It's true that minimizing the possible attack surface is always
+>> preferred, though.
+>>
+>>> If we decide to start signing IronPython with the PSF certificate, I'd
+>> be most comfortable if I were
+>>> doing the builds to avoid sharing the certificate any further than
+>> needed. But that isn't going to
+>>> scale when all the other interpreters want equal treatment.
+>>>
+>>> I'm not sure exactly what the cost of the certificate is to the PSF, but
+>> it may be an expense
+>>> they're willing to take to get separate certs?
+>>
+>> We can only get one code signing certificate per organization from
+>> our certificate provider StartSSL.
+>>
+> 
+> I don't have an issue with Steve building them; the release process is
+> pretty much a single make step. It's a mild annoyance for each of us, but
+> it would only be for final releases, so only 2-3 times a year at most.
+
+If Steve is fine with this approach, it sounds like a good option.
+
+-- 
+Marc-Andre Lemburg
+eGenix.com
+
+Professional Python Services directly from the Experts (#1, Feb 17 2016)
+>>> Python Projects, Coaching and Consulting ...  http://www.egenix.com/
+>>> Python Database Interfaces ...           http://products.egenix.com/
+>>> Plone/Zope Database Interfaces ...           http://zope.egenix.com/
+________________________________________________________________________
+2016-01-19: Released eGenix pyOpenSSL 0.13.13 ... http://egenix.com/go86
+
+::: We implement business ideas - efficiently in both time and costs :::
+
+   eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+    D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+           Registered at Amtsgericht Duesseldorf: HRB 46611
+               http://www.egenix.com/company/contact/
+                      http://www.malemburg.com/
+
+
+From steve.dower at python.org  Wed Feb 17 15:05:55 2016
+From: steve.dower at python.org (Steve Dower)
+Date: Wed, 17 Feb 2016 12:05:55 -0800
+Subject: [python-committers] New Authenticode certificate
+In-Reply-To: <56C4A7E8.7020005@egenix.com>
+References: <56A109EF.5000704@python.org> <56A12412.3060406@egenix.com>
+ <56A134AB.107@python.org> <56A1F9F3.7010504@egenix.com>
+ <56B8FBD6.1020808@egenix.com>
+ <CAF7AXFHok4f=wuvkebzGhCZsbJcweGEfNAuJwyz=8rQM7pnsqA@mail.gmail.com>
+ <56BA3051.3040708@egenix.com> <56BA5CBF.4020708@python.org>
+ <56BAF78B.2010804@egenix.com>
+ <CAF7AXFHg2VzTteHftWc=TegrVjLJiYrXA6ycuziCcYf1kjokSg@mail.gmail.com>
+ <56C4A7E8.7020005@egenix.com>
+Message-ID: <56C4D2A3.60701@python.org>
+
+On 17Feb2016 0903, M.-A. Lemburg wrote:
+> On 16.02.2016 23:45, Jeff Hardy wrote:
+>> I don't have an issue with Steve building them; the release process is
+>> pretty much a single make step. It's a mild annoyance for each of us, but
+>> it would only be for final releases, so only 2-3 times a year at most.
+>
+> If Steve is fine with this approach, it sounds like a good option.
+>
+
+I'm fine with this, though I'll probably contribute some extra 
+automation. One-click build/sign/upload (or send-to-Jeff) are a few of 
+my favourite things.
+
+I also agree that the certificate only indicates that "we the PSF" built 
+the code, believe it to be unchanged from the sources, and believe the 
+origin of the sources is safe. If anyone has concerns about mine or 
+Jeff's role in this, looks like now is the time to speak up.
+
+Cheers,
+Steve
+
+From mal at egenix.com  Fri Feb 19 11:35:18 2016
+From: mal at egenix.com (M.-A. Lemburg)
+Date: Fri, 19 Feb 2016 17:35:18 +0100
+Subject: [python-committers] Anyone up for a core dev panel discussion at
+ EuroPython 2016 ?
+Message-ID: <56C74446.3060306@egenix.com>
+
+Hello all,
+
+at this year's EuroPython we'll have a new officially supported
+feature, the panel discussion, and we (I'm one of the organizers)
+thought it would be big fun to have a panel of core developers
+talk about the merits of computed gotos, micro benchmarks,
+adding fast-paths for integer, free lists, and all those nifty
+things that core devs do in their spare time ;-)
+
+No, seriously, this is great stuff normal Python users never get
+to see and that's really a shame.
+
+So my question to you: will some of you attend EuroPython this
+year and would you be willing to talk on a panel ?
+
+Quick details:
+ * EuroPython 2016
+ * Location: Bilbao, Basque Country, Spain
+ * Dates: July 17-24
+ * CFP just opened: https://ep2016.europython.eu/en/call-for-proposals/
+   (and will close again in just two weeks)
+ * Everything else, just a click away: https://ep2016.europython.eu/
+ * For reference, last year: https://ep2015.europython.eu/
+
+Cheers,
+-- 
+Marc-Andre Lemburg
+eGenix.com
+
+Professional Python Services directly from the Experts (#1, Feb 19 2016)
+>>> Python Projects, Coaching and Consulting ...  http://www.egenix.com/
+>>> Python Database Interfaces ...           http://products.egenix.com/
+>>> Plone/Zope Database Interfaces ...           http://zope.egenix.com/
+________________________________________________________________________
+2016-02-19: Released eGenix PyRun 2.1.2 ...       http://egenix.com/go88
+
+::: We implement business ideas - efficiently in both time and costs :::
+
+   eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+    D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+           Registered at Amtsgericht Duesseldorf: HRB 46611
+               http://www.egenix.com/company/contact/
+                      http://www.malemburg.com/
+
+
+From brett at python.org  Fri Feb 19 11:45:11 2016
+From: brett at python.org (Brett Cannon)
+Date: Fri, 19 Feb 2016 16:45:11 +0000
+Subject: [python-committers] Anyone up for a core dev panel discussion
+ at EuroPython 2016 ?
+In-Reply-To: <56C74446.3060306@egenix.com>
+References: <56C74446.3060306@egenix.com>
+Message-ID: <CAP1=2W4Z2zrFVpxyyYzVRgCz7NHEr8RvShWU2AJ1S5tMaJy6Jg@mail.gmail.com>
+
+I'll quickly mention that I have organized Python implementation panels as
+PyCon US multiple times and they are always fun and generally well received
+by the audience.
+
+On Fri, 19 Feb 2016 at 08:37 M.-A. Lemburg <mal at egenix.com> wrote:
+
+> Hello all,
+>
+> at this year's EuroPython we'll have a new officially supported
+> feature, the panel discussion, and we (I'm one of the organizers)
+> thought it would be big fun to have a panel of core developers
+> talk about the merits of computed gotos, micro benchmarks,
+> adding fast-paths for integer, free lists, and all those nifty
+> things that core devs do in their spare time ;-)
+>
+> No, seriously, this is great stuff normal Python users never get
+> to see and that's really a shame.
+>
+> So my question to you: will some of you attend EuroPython this
+> year and would you be willing to talk on a panel ?
+>
+> Quick details:
+>  * EuroPython 2016
+>  * Location: Bilbao, Basque Country, Spain
+>  * Dates: July 17-24
+>  * CFP just opened: https://ep2016.europython.eu/en/call-for-proposals/
+>    (and will close again in just two weeks)
+>  * Everything else, just a click away: https://ep2016.europython.eu/
+>  * For reference, last year: https://ep2015.europython.eu/
+>
+> Cheers,
+> --
+> Marc-Andre Lemburg
+> eGenix.com
+>
+> Professional Python Services directly from the Experts (#1, Feb 19 2016)
+> >>> Python Projects, Coaching and Consulting ...  http://www.egenix.com/
+> >>> Python Database Interfaces ...           http://products.egenix.com/
+> >>> Plone/Zope Database Interfaces ...           http://zope.egenix.com/
+> ________________________________________________________________________
+> 2016-02-19: Released eGenix PyRun 2.1.2 ...       http://egenix.com/go88
+>
+> ::: We implement business ideas - efficiently in both time and costs :::
+>
+>    eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+>     D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+>            Registered at Amtsgericht Duesseldorf: HRB 46611
+>                http://www.egenix.com/company/contact/
+>                       http://www.malemburg.com/
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20160219/3d01c532/attachment.html>
+
+From victor.stinner at gmail.com  Fri Feb 19 11:47:50 2016
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Fri, 19 Feb 2016 17:47:50 +0100
+Subject: [python-committers] Anyone up for a core dev panel discussion
+ at EuroPython 2016 ?
+In-Reply-To: <56C74446.3060306@egenix.com>
+References: <56C74446.3060306@egenix.com>
+Message-ID: <CAMpsgwZ8t7Qc4k8xYMucSgghkHnZ=t=3N5E0x7cJ8NqSH5VdqQ@mail.gmail.com>
+
+Hi,
+
+2016-02-19 17:35 GMT+01:00 M.-A. Lemburg <mal at egenix.com>:
+> No, seriously, this is great stuff normal Python users never get
+> to see and that's really a shame.
+
+This week, I wrote an article listing my contributions during 2015 Q3:
+https://haypo.github.io/contrib-cpython-2015q3.html
+
+On Twitter, someone told me that my article was interesting. Honestly,
+I was surprised :-) I partially wrote this article because my employer
+requires that I justify that I effectively spend my time on CPython
+and not something else.
+
+When I started to contribute to Python, a few years ago, I recall that
+there were nice reports of the python-dev mailing list. Recently, I
+read that Brett Canon was the author. I really liked them, since I was
+unable to follow such "high traffic" mailing list (everything is
+relative ;-)).
+
+Just to say that I agree that we suck at communicating on enhancements
+of CPython, but also issues that we are fixing every day.
+
+For example, I do spent non negligible time on fixing our CI
+(buildbot). But I wouldn't tell my mother that I'm doing that :-D
+
+
+> So my question to you: will some of you attend EuroPython this
+> year and would you be willing to talk on a panel ?
+
+I plan to attend EuroPython (by the way, I have to submit a talk,
+probably something around FAT Python ;-)), why not joining the panel.
+
+Victor
+
+From mal at egenix.com  Fri Feb 19 15:02:46 2016
+From: mal at egenix.com (M.-A. Lemburg)
+Date: Fri, 19 Feb 2016 21:02:46 +0100
+Subject: [python-committers] Anyone up for a core dev panel discussion
+ at EuroPython 2016 ?
+In-Reply-To: <CAMpsgwZ8t7Qc4k8xYMucSgghkHnZ=t=3N5E0x7cJ8NqSH5VdqQ@mail.gmail.com>
+References: <56C74446.3060306@egenix.com>
+ <CAMpsgwZ8t7Qc4k8xYMucSgghkHnZ=t=3N5E0x7cJ8NqSH5VdqQ@mail.gmail.com>
+Message-ID: <56C774E6.2080008@egenix.com>
+
+On 19.02.2016 17:47, Victor Stinner wrote:
+> Hi,
+> 
+> 2016-02-19 17:35 GMT+01:00 M.-A. Lemburg <mal at egenix.com>:
+>> No, seriously, this is great stuff normal Python users never get
+>> to see and that's really a shame.
+> 
+> This week, I wrote an article listing my contributions during 2015 Q3:
+> https://haypo.github.io/contrib-cpython-2015q3.html
+> 
+> On Twitter, someone told me that my article was interesting. Honestly,
+> I was surprised :-) I partially wrote this article because my employer
+> requires that I justify that I effectively spend my time on CPython
+> and not something else.
+> 
+> When I started to contribute to Python, a few years ago, I recall that
+> there were nice reports of the python-dev mailing list. Recently, I
+> read that Brett Canon was the author. I really liked them, since I was
+> unable to follow such "high traffic" mailing list (everything is
+> relative ;-)).
+> 
+> Just to say that I agree that we suck at communicating on enhancements
+> of CPython, but also issues that we are fixing every day.
+> 
+> For example, I do spent non negligible time on fixing our CI
+> (buildbot). But I wouldn't tell my mother that I'm doing that :-D
+
+It's not surprising that developers don't want to spend (too much)
+time on marketing their activities. The python-dev summaries were
+certainly a useful way to have people follow what's going on
+behind the scenes:
+
+http://legacy.python.org/dev/summary/
+http://legacy.python.org/dev/summary/channews.rdf
+(too bad those links don't work anymore)
+
+The idea with the panel is to bring back some of the
+attention to the things done in core development.
+
+>> So my question to you: will some of you attend EuroPython this
+>> year and would you be willing to talk on a panel ?
+> 
+> I plan to attend EuroPython (by the way, I have to submit a talk,
+> probably something around FAT Python ;-)), why not joining the panel.
+
+Thanks, Victor. I'll let our program workgroup know.
+
+-- 
+Marc-Andre Lemburg
+eGenix.com
+
+Professional Python Services directly from the Experts (#1, Feb 19 2016)
+>>> Python Projects, Coaching and Consulting ...  http://www.egenix.com/
+>>> Python Database Interfaces ...           http://products.egenix.com/
+>>> Plone/Zope Database Interfaces ...           http://zope.egenix.com/
+________________________________________________________________________
+2016-02-19: Released eGenix PyRun 2.1.2 ...       http://egenix.com/go88
+
+::: We implement business ideas - efficiently in both time and costs :::
+
+   eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+    D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+           Registered at Amtsgericht Duesseldorf: HRB 46611
+               http://www.egenix.com/company/contact/
+                      http://www.malemburg.com/
+
+
+From jcea at jcea.es  Fri Feb 19 21:20:05 2016
+From: jcea at jcea.es (Jesus Cea)
+Date: Sat, 20 Feb 2016 03:20:05 +0100
+Subject: [python-committers] Anyone up for a core dev panel discussion
+ at EuroPython 2016 ?
+In-Reply-To: <56C74446.3060306@egenix.com>
+References: <56C74446.3060306@egenix.com>
+Message-ID: <56C7CD55.5060105@jcea.es>
+
+On 19/02/16 17:35, M.-A. Lemburg wrote:
+> at this year's EuroPython we'll have a new officially supported
+> feature, the panel discussion, and we (I'm one of the organizers)
+> thought it would be big fun to have a panel of core developers
+> talk about the merits of computed gotos, micro benchmarks,
+> adding fast-paths for integer, free lists, and all those nifty
+> things that core devs do in their spare time ;-)
+
+Hey, I am spaniard and I would love to go to EuroPython (I missed it
+last year) but it is too expensive for a freelance developer on a budget
+:-(.
+
+-- 
+Jes?s Cea Avi?n                         _/_/      _/_/_/        _/_/_/
+jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+Twitter: @jcea                        _/_/    _/_/          _/_/_/_/_/
+jabber / xmpp:jcea at jabber.org  _/_/  _/_/    _/_/          _/_/  _/_/
+"Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+"My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+"El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 473 bytes
+Desc: OpenPGP digital signature
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20160220/39ddb04f/attachment.sig>
+
+From mal at egenix.com  Sat Feb 20 07:03:22 2016
+From: mal at egenix.com (M.-A. Lemburg)
+Date: Sat, 20 Feb 2016 13:03:22 +0100
+Subject: [python-committers] Anyone up for a core dev panel discussion
+ at EuroPython 2016 ?
+In-Reply-To: <56C7CD55.5060105@jcea.es>
+References: <56C74446.3060306@egenix.com> <56C7CD55.5060105@jcea.es>
+Message-ID: <56C8560A.6050006@egenix.com>
+
+On 20.02.2016 03:20, Jesus Cea wrote:
+> On 19/02/16 17:35, M.-A. Lemburg wrote:
+>> at this year's EuroPython we'll have a new officially supported
+>> feature, the panel discussion, and we (I'm one of the organizers)
+>> thought it would be big fun to have a panel of core developers
+>> talk about the merits of computed gotos, micro benchmarks,
+>> adding fast-paths for integer, free lists, and all those nifty
+>> things that core devs do in their spare time ;-)
+> 
+> Hey, I am spaniard and I would love to go to EuroPython (I missed it
+> last year) but it is too expensive for a freelance developer on a budget
+> :-(.
+
+We will have a finaid program as usual (not sure when that'll be
+announced, though) and if you are on a panel or speaker chances
+are higher that you'll get funding. Here's the page from last
+year:
+
+https://ep2015.europython.eu/en/registration/financial-aid/
+
+-- 
+Marc-Andre Lemburg
+eGenix.com
+
+Professional Python Services directly from the Experts (#1, Feb 20 2016)
+>>> Python Projects, Coaching and Consulting ...  http://www.egenix.com/
+>>> Python Database Interfaces ...           http://products.egenix.com/
+>>> Plone/Zope Database Interfaces ...           http://zope.egenix.com/
+________________________________________________________________________
+2016-02-19: Released eGenix PyRun 2.1.2 ...       http://egenix.com/go88
+
+::: We implement business ideas - efficiently in both time and costs :::
+
+   eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+    D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+           Registered at Amtsgericht Duesseldorf: HRB 46611
+               http://www.egenix.com/company/contact/
+                      http://www.malemburg.com/
+
+
+From christian at python.org  Sun Feb 21 11:00:45 2016
+From: christian at python.org (Christian Heimes)
+Date: Sun, 21 Feb 2016 17:00:45 +0100
+Subject: [python-committers] Anyone up for a core dev panel discussion
+ at EuroPython 2016 ?
+In-Reply-To: <56C74446.3060306@egenix.com>
+References: <56C74446.3060306@egenix.com>
+Message-ID: <56C9DF2D.7030304@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+On 2016-02-19 17:35, M.-A. Lemburg wrote:
+> Hello all,
+> 
+> at this year's EuroPython we'll have a new officially supported 
+> feature, the panel discussion, and we (I'm one of the organizers) 
+> thought it would be big fun to have a panel of core developers talk
+> about the merits of computed gotos, micro benchmarks, adding
+> fast-paths for integer, free lists, and all those nifty things that
+> core devs do in their spare time ;-)
+> 
+> No, seriously, this is great stuff normal Python users never get to
+> see and that's really a shame.
+> 
+> So my question to you: will some of you attend EuroPython this year
+> and would you be willing to talk on a panel ?
+
+Hi MAL,
+
+I might be coming to EP this year. I couldn't make it last year, this
+year is looking better.
+
+If I'm able to make it, I'm willing to participate in the panel
+discussion. I can talk a bit about Python security and my work on the
+PSRT.
+
+Christian
+-----BEGIN PGP SIGNATURE-----
+
+iQEcBAEBCgAGBQJWyd8rAAoJEIZoUkkhLbaJbV8H/ijNrUG8pejhgjfSzotuAOmR
+Af37UqI1kLGwvNjIxtGCXyirXT/rIJr2Fz/nlz5LeFiJH5cxK062ZVmXMLUjZHqn
+B15DihJlPtFInucjglaGGE8sg90s++OjZT7vV2wOh12lTMWg/X2x1SR8KPle/C0o
+4Jo+jGsnJHxDIvbMgi7Reo7vjEJ5IuJVRRGsbnzZPlJzxVWmNoe1LqyMAZsV7EjN
+D+DCbk1vttCSg8gSjmhfRED5XVBkqNmvaHYvIOvmKBCQhaIA1tQXYbAobh4stcOO
+WVjluIZutGeb05JuR2kOzEz6pad0JGbu7SkBwJiWEAyMUoaz6FF+mLQQiksU1fI=
+=d3WO
+-----END PGP SIGNATURE-----
+
+From mal at egenix.com  Sun Feb 21 11:17:38 2016
+From: mal at egenix.com (M.-A. Lemburg)
+Date: Sun, 21 Feb 2016 17:17:38 +0100
+Subject: [python-committers] Anyone up for a core dev panel discussion
+ at EuroPython 2016 ?
+In-Reply-To: <56C9DF2D.7030304@python.org>
+References: <56C74446.3060306@egenix.com> <56C9DF2D.7030304@python.org>
+Message-ID: <56C9E322.6010700@egenix.com>
+
+On 21.02.2016 17:00, Christian Heimes wrote:
+> On 2016-02-19 17:35, M.-A. Lemburg wrote:
+>> Hello all,
+> 
+>> at this year's EuroPython we'll have a new officially supported 
+>> feature, the panel discussion, and we (I'm one of the organizers) 
+>> thought it would be big fun to have a panel of core developers talk
+>> about the merits of computed gotos, micro benchmarks, adding
+>> fast-paths for integer, free lists, and all those nifty things that
+>> core devs do in their spare time ;-)
+> 
+>> No, seriously, this is great stuff normal Python users never get to
+>> see and that's really a shame.
+> 
+>> So my question to you: will some of you attend EuroPython this year
+>> and would you be willing to talk on a panel ?
+> 
+> Hi MAL,
+> 
+> I might be coming to EP this year. I couldn't make it last year, this
+> year is looking better.
+> 
+> If I'm able to make it, I'm willing to participate in the panel
+> discussion. I can talk a bit about Python security and my work on the
+> PSRT.
+
+Sounds good. I'll put in touch with Alexander Hendorf
+from our program workgroup.
+
+Thanks,
+-- 
+Marc-Andre Lemburg
+eGenix.com
+
+Professional Python Services directly from the Experts (#1, Feb 21 2016)
+>>> Python Projects, Coaching and Consulting ...  http://www.egenix.com/
+>>> Python Database Interfaces ...           http://products.egenix.com/
+>>> Plone/Zope Database Interfaces ...           http://zope.egenix.com/
+________________________________________________________________________
+2016-02-19: Released eGenix PyRun 2.1.2 ...       http://egenix.com/go88
+
+::: We implement business ideas - efficiently in both time and costs :::
+
+   eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+    D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+           Registered at Amtsgericht Duesseldorf: HRB 46611
+               http://www.egenix.com/company/contact/
+                      http://www.malemburg.com/
+
+
+From jdhardy at gmail.com  Mon Feb 22 12:45:21 2016
+From: jdhardy at gmail.com (Jeff Hardy)
+Date: Mon, 22 Feb 2016 09:45:21 -0800
+Subject: [python-committers] New Authenticode certificate
+In-Reply-To: <56C4D2A3.60701@python.org>
+References: <56A109EF.5000704@python.org> <56A12412.3060406@egenix.com>
+ <56A134AB.107@python.org> <56A1F9F3.7010504@egenix.com>
+ <56B8FBD6.1020808@egenix.com>
+ <CAF7AXFHok4f=wuvkebzGhCZsbJcweGEfNAuJwyz=8rQM7pnsqA@mail.gmail.com>
+ <56BA3051.3040708@egenix.com> <56BA5CBF.4020708@python.org>
+ <56BAF78B.2010804@egenix.com>
+ <CAF7AXFHg2VzTteHftWc=TegrVjLJiYrXA6ycuziCcYf1kjokSg@mail.gmail.com>
+ <56C4A7E8.7020005@egenix.com> <56C4D2A3.60701@python.org>
+Message-ID: <CAF7AXFHuyadFWm7u-dTpy+hm27tssS_2kTRLySh6ZrEvXSj0LQ@mail.gmail.com>
+
+On Wed, Feb 17, 2016 at 12:05 PM, Steve Dower <steve.dower at python.org>
+wrote:
+
+> On 17Feb2016 0903, M.-A. Lemburg wrote:
+>
+>> On 16.02.2016 23:45, Jeff Hardy wrote:
+>>
+>>> I don't have an issue with Steve building them; the release process is
+>>> pretty much a single make step. It's a mild annoyance for each of us, but
+>>> it would only be for final releases, so only 2-3 times a year at most.
+>>>
+>>
+>> If Steve is fine with this approach, it sounds like a good option.
+>>
+>>
+> I'm fine with this, though I'll probably contribute some extra automation.
+> One-click build/sign/upload (or send-to-Jeff) are a few of my favourite
+> things.
+>
+> I also agree that the certificate only indicates that "we the PSF" built
+> the code, believe it to be unchanged from the sources, and believe the
+> origin of the sources is safe. If anyone has concerns about mine or Jeff's
+> role in this, looks like now is the time to speak up.
+>
+
+I'm rather busy right now with moving but once it's time to do another
+release I'll get in touch again and we can hash out a process for signing
+artifacts.
+
+- Jeff
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20160222/a9607fc0/attachment.html>
+
+From brett at python.org  Fri Feb 26 14:29:31 2016
+From: brett at python.org (Brett Cannon)
+Date: Fri, 26 Feb 2016 19:29:31 +0000
+Subject: [python-committers] Making the PSF CoC apply to core developers
+Message-ID: <CAP1=2W6R+BEBeFf=gq9ZvCo9RF78Gve8_PxPmLExzbDVU3kY7g@mail.gmail.com>
+
+I noticed that the devguide didn't explicitly mention that core developers
+were expected to follow the PSF CoC (
+https://docs.python.org/devguide/coredev.html and
+https://www.python.org/psf/codeofconduct/, respectively). I have opened
+http://bugs.python.org/issue26446 to make sure it gets documented.
+
+Since this is technically a modification of the requirements of getting
+commit privileges I wanted to mention it here before I (or anyone else)
+made the change.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20160226/98ec9f9e/attachment.html>
+
+From stefan at bytereef.org  Sat Feb 27 07:07:37 2016
+From: stefan at bytereef.org (Stefan Krah)
+Date: Sat, 27 Feb 2016 12:07:37 +0000 (UTC)
+Subject: [python-committers] Making the PSF CoC apply to core developers
+References: <CAP1=2W6R+BEBeFf=gq9ZvCo9RF78Gve8_PxPmLExzbDVU3kY7g@mail.gmail.com>
+Message-ID: <loom.20160227T121049-853@post.gmane.org>
+
+Brett Cannon <brett <at> python.org> writes:
+
+> I noticed that the devguide didn't explicitly mention that core developers
+were expected to follow the PSF CoC
+(https://docs.python.org/devguide/coredev.html?and
+https://www.python.org/psf/codeofconduct/, respectively). I have
+opened?http://bugs.python.org/issue26446?to make sure it gets documented.
+> Since this is technically a modification of the requirements of getting
+commit privileges I wanted to mention it here before I (or anyone else) made
+the change.
+
+When I started here, the PSF and python-dev were considered disjoint
+entities (quoting MvL from memory). Looking at
+
+  https://www.python.org/psf/records/board/history/ ,
+
+half of the current directors have never appeared anywhere on the python-dev
+infrastructure, most notably on python-checkins.
+
+Contrast this with e.g. the period of 2003-2004, where I still know all of
+the directors even though I did not know Python at that time!
+
+Some very prolific contributors do not appear in the list of PSF members at all.
+
+
+This particular CoC specifically addresses conference misbehavior, which is
+fine.  No CoC short of an 800 page volume can address the many forms of
+human shortcomings in more complex situations.  I'm not going to go into
+detail here, but "suaviter in modo, fortiter in re", even though usually
+depicted as desirable behavior, can easily lead to more stagnation and
+friction than occasional superficial impoliteness.
+
+
+I think python-dev should remain an entity where interested people can just
+come and "hack on something" instead of being overburdened by regulations.
+
+
+As for the devguide, briefly mentioning the categorical imperative should
+suffice. ;)
+
+
+
+Stefan Krah
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+From brett at python.org  Fri Feb 26 14:33:34 2016
+From: brett at python.org (Brett Cannon)
+Date: Fri, 26 Feb 2016 19:33:34 +0000
+Subject: [python-committers] This mailing list is now under the PSF CoC
+Message-ID: <CAP1=2W7az03AxcezNQFXmJk77h69mtVPEGkXO=AvOU8w31J2Zg@mail.gmail.com>
+
+I have updated the list's info page as well as the footer for this mailing
+list to denote this fact.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20160226/b7dfd0ba/attachment.html>
+
+From brett at python.org  Sat Feb 27 12:17:50 2016
+From: brett at python.org (Brett Cannon)
+Date: Sat, 27 Feb 2016 17:17:50 +0000
+Subject: [python-committers] Making the PSF CoC apply to core developers
+In-Reply-To: <loom.20160227T121049-853@post.gmane.org>
+References: <CAP1=2W6R+BEBeFf=gq9ZvCo9RF78Gve8_PxPmLExzbDVU3kY7g@mail.gmail.com>
+ <loom.20160227T121049-853@post.gmane.org>
+Message-ID: <CAP1=2W5RLvVPRqvH=psWfjU=MrQ2CQRv+ntn8QSQXW7P_QjrrQ@mail.gmail.com>
+
+On Sat, 27 Feb 2016 at 04:10 Stefan Krah <stefan at bytereef.org> wrote:
+
+> Brett Cannon <brett <at> python.org> writes:
+>
+> > I noticed that the devguide didn't explicitly mention that core
+> developers
+> were expected to follow the PSF CoC
+> (https://docs.python.org/devguide/coredev.html and
+> https://www.python.org/psf/codeofconduct/, respectively). I have
+> opened http://bugs.python.org/issue26446 to make sure it gets documented.
+> > Since this is technically a modification of the requirements of getting
+> commit privileges I wanted to mention it here before I (or anyone else)
+> made
+> the change.
+>
+> When I started here, the PSF and python-dev were considered disjoint
+> entities (quoting MvL from memory). Looking at
+>
+>   https://www.python.org/psf/records/board/history/ ,
+>
+> half of the current directors have never appeared anywhere on the
+> python-dev
+> infrastructure, most notably on python-checkins.
+>
+
+They are separate organizations. The PSF isn't mandating any of this. After
+a rather rude email on python-dev I realized we had never clearly stated
+anywhere that we expect people to be civil on various mailing lists or that
+we expect all core devs to represent Python by being civil in their
+interactions with the community.
+
+
+>
+> Contrast this with e.g. the period of 2003-2004, where I still know all of
+> the directors even though I did not know Python at that time!
+>
+> Some very prolific contributors do not appear in the list of PSF members
+> at all.
+>
+>
+> This particular CoC specifically addresses conference misbehavior, which is
+> fine.  No CoC short of an 800 page volume can address the many forms of
+> human shortcomings in more complex situations.  I'm not going to go into
+> detail here, but "suaviter in modo, fortiter in re", even though usually
+> depicted as desirable behavior, can easily lead to more stagnation and
+> friction than occasional superficial impoliteness.
+>
+>
+> I think python-dev should remain an entity where interested people can just
+> come and "hack on something" instead of being overburdened by regulations.
+>
+
+Python-ideas has been under the same CoC for a while now and it has been
+nothing but positive. When people know they are expected to behave in a
+civil manner and others know they are allowed to call someone out for being
+uncivil it typically is enough to make people behave.
+
+So there is no issue of people "being overburdened by regulations". The CoC
+only comes up when someone is being so rude that they need to be talked to
+about their attitude  problem, so as long as we try and keep people from
+being rude  it won't come up. Quite frankly, the CoC is really just meant
+as a way for people to feel comfortable in knowing they don't have to
+tolerate jerks. And I would hope none of us are jerks to people in the
+community, so saying as much shouldn't change anything for any of us. This
+also lets the community know that we don't view ourselves as some elite
+group of people whose attitudes must be tolerated no matter what; we hold
+ourselves to the same standards as the rest of the community does and it
+should be pointed out as such to make people feel comfortable.
+
+
+>
+>
+> As for the devguide, briefly mentioning the categorical imperative should
+> suffice. ;)
+>
+
+As long as we don't require them to actually read Kant, it probably would
+make a decent CoC. :)
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20160227/edc50768/attachment.html>
+
+From mal at egenix.com  Sat Feb 27 12:18:28 2016
+From: mal at egenix.com (M.-A. Lemburg)
+Date: Sat, 27 Feb 2016 18:18:28 +0100
+Subject: [python-committers] Making the PSF CoC apply to core developers
+In-Reply-To: <loom.20160227T121049-853@post.gmane.org>
+References: <CAP1=2W6R+BEBeFf=gq9ZvCo9RF78Gve8_PxPmLExzbDVU3kY7g@mail.gmail.com>
+ <loom.20160227T121049-853@post.gmane.org>
+Message-ID: <56D1DA64.5050505@egenix.com>
+
+On 27.02.2016 13:07, Stefan Krah wrote:
+> Brett Cannon <brett <at> python.org> writes:
+> 
+>> I noticed that the devguide didn't explicitly mention that core developers
+> were expected to follow the PSF CoC
+> (https://docs.python.org/devguide/coredev.html and
+> https://www.python.org/psf/codeofconduct/, respectively). I have
+> opened http://bugs.python.org/issue26446 to make sure it gets documented.
+>> Since this is technically a modification of the requirements of getting
+> commit privileges I wanted to mention it here before I (or anyone else) made
+> the change.
+> 
+> When I started here, the PSF and python-dev were considered disjoint
+> entities (quoting MvL from memory). Looking at
+> 
+>   https://www.python.org/psf/records/board/history/ ,
+> 
+> half of the current directors have never appeared anywhere on the python-dev
+> infrastructure, most notably on python-checkins.
+> 
+> Contrast this with e.g. the period of 2003-2004, where I still know all of
+> the directors even though I did not know Python at that time!
+> 
+> Some very prolific contributors do not appear in the list of PSF members at all.
+> 
+> 
+> This particular CoC specifically addresses conference misbehavior, which is
+> fine.
+
+The PSF CoC has a focus on community interaction, not on conferences.
+It's different from eg. the PyCon US conference CoC.
+
+>  No CoC short of an 800 page volume can address the many forms of
+> human shortcomings in more complex situations.  I'm not going to go into
+> detail here, but "suaviter in modo, fortiter in re", even though usually
+> depicted as desirable behavior, can easily lead to more stagnation and
+> friction than occasional superficial impoliteness.
+> 
+> I think python-dev should remain an entity where interested people can just
+> come and "hack on something" instead of being overburdened by regulations.
+> 
+> As for the devguide, briefly mentioning the categorical imperative should
+> suffice. ;)
+
+While I don't like the term "code of conduct", I do believe that
+the text itself provides a reasonable summary of what we all expect
+from Python community interactions. It's certainly more
+easily comprehensible than philosophical models of moral
+and ethics such as Kant's categorical imperative or the more modern
+discourse ethics of Habermas.
+
+Mix all that with a good dose of Monty Python's don't-take-yourself-
+too-seriously, add some Tim Peters takes-one-to-know-one-ly and
+I believe we can all be on the same page :-)
+
+Hmm, perhaps we ought to make reading some Python humor a
+prerequisite for core developers instead...
+
+https://www.python.org/doc/humor/
+
+Only-half-joking-ly,
+-- 
+Marc-Andre Lemburg
+eGenix.com
+
+Professional Python Services directly from the Experts (#1, Feb 27 2016)
+>>> Python Projects, Coaching and Consulting ...  http://www.egenix.com/
+>>> Python Database Interfaces ...           http://products.egenix.com/
+>>> Plone/Zope Database Interfaces ...           http://zope.egenix.com/
+________________________________________________________________________
+2016-02-19: Released eGenix PyRun 2.1.2 ...       http://egenix.com/go88
+
+::: We implement business ideas - efficiently in both time and costs :::
+
+   eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+    D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+           Registered at Amtsgericht Duesseldorf: HRB 46611
+               http://www.egenix.com/company/contact/
+                      http://www.malemburg.com/
+
+
+From brian at python.org  Sat Feb 27 13:31:28 2016
+From: brian at python.org (Brian Curtin)
+Date: Sat, 27 Feb 2016 13:31:28 -0500
+Subject: [python-committers] Making the PSF CoC apply to core developers
+In-Reply-To: <loom.20160227T121049-853@post.gmane.org>
+References: <CAP1=2W6R+BEBeFf=gq9ZvCo9RF78Gve8_PxPmLExzbDVU3kY7g@mail.gmail.com>
+ <loom.20160227T121049-853@post.gmane.org>
+Message-ID: <CAD+XWwoezZobP+-YwP-NuyeUjNkkMMi2mFjtadwKVLW2RxfSvQ@mail.gmail.com>
+
+On Saturday, February 27, 2016, Stefan Krah <stefan at bytereef.org> wrote:
+
+> Brett Cannon <brett <at> python.org> writes:
+>
+> > I noticed that the devguide didn't explicitly mention that core
+> developers
+> were expected to follow the PSF CoC
+> (https://docs.python.org/devguide/coredev.html and
+> https://www.python.org/psf/codeofconduct/, respectively). I have
+> opened http://bugs.python.org/issue26446 to make sure it gets documented.
+> > Since this is technically a modification of the requirements of getting
+> commit privileges I wanted to mention it here before I (or anyone else)
+> made
+> the change.
+>
+> When I started here, the PSF and python-dev were considered disjoint
+> entities (quoting MvL from memory). Looking at
+>
+>   https://www.python.org/psf/records/board/history/ ,
+>
+> half of the current directors have never appeared anywhere on the
+> python-dev
+> infrastructure, most notably on python-checkins.
+>
+> Contrast this with e.g. the period of 2003-2004, where I still know all of
+> the directors even though I did not know Python at that time!
+>
+> Some very prolific contributors do not appear in the list of PSF members
+> at all.
+>
+>
+> This particular CoC specifically addresses conference misbehavior, which is
+> fine.
+
+
+FYI It has nothing to do with conferences.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20160227/5ed43464/attachment-0001.html>
+
+From steve at pearwood.info  Sat Feb 27 21:27:42 2016
+From: steve at pearwood.info (Steven D'Aprano)
+Date: Sun, 28 Feb 2016 13:27:42 +1100
+Subject: [python-committers] Making the PSF CoC apply to core developers
+In-Reply-To: <CAP1=2W5RLvVPRqvH=psWfjU=MrQ2CQRv+ntn8QSQXW7P_QjrrQ@mail.gmail.com>
+References: <CAP1=2W6R+BEBeFf=gq9ZvCo9RF78Gve8_PxPmLExzbDVU3kY7g@mail.gmail.com>
+ <loom.20160227T121049-853@post.gmane.org>
+ <CAP1=2W5RLvVPRqvH=psWfjU=MrQ2CQRv+ntn8QSQXW7P_QjrrQ@mail.gmail.com>
+Message-ID: <20160228022741.GK12028@ando.pearwood.info>
+
+On Sat, Feb 27, 2016 at 05:17:50PM +0000, Brett Cannon wrote:
+
+[...]
+> After a rather rude email on python-dev 
+
+I haven't noticed this email. Care to link to it? We should be allowed 
+to see what sort of behaviour is likely to treated as officially 
+unacceptable in the future.
+
+I think this is actually a very important point. I've seen forums and 
+discussion groups where the enforcement of faux-politeness and "being 
+friendly and positive" and "no jerks allowed" makes the place extremely 
+hostile to anyone who doesn't follow the majority opinion. Where even 
+polite disagreement is seen as "being a jerk". Since rudeness is so 
+subjective, formal prohibitions on being "rude" is a potent weapon for 
+groups to hijack a community by labelling anything and anyone they don't 
+like as "rude". So I think it is important for us to know what you 
+consider is rude enough to require a CoC.
+
+
+[...]
+> When people know they are expected to behave in a
+> civil manner and others know they are allowed to call someone out for being
+> uncivil it typically is enough to make people behave.
+
+You don't need a CoC for that. Social expectations apply even without a 
+formal set of rules.
+
+
+> So there is no issue of people "being overburdened by regulations". The CoC
+> only comes up when someone is being so rude that they need to be talked to
+> about their attitude  problem, 
+
+Who judges that point? Can *anyone* take it upon themselves to (let's 
+say) say "Brett, you unilaterally changed the policy with no discussion 
+or consultation and just four minutes notice. That is unspeakably rude 
+and total jerk behaviour, so under your own rules you're out of here"?
+
+I'm not just making a rhetorical point. I wouldn't accept that sort of 
+unilateral behaviour from my work colleagues. It is pushy and obnoxious 
+and breeds resentment and is exactly the sort of reason why some people 
+are deeply suspicious of CoCs. And when it happens on a Friday night, 
+when people are likely to be away from their computers...
+
+http://politicaldictionary.com/words/friday-news-dump/
+
+My employer learned the hard lesson that even "self-evidently and 
+obviously correct" policy changes need a consultation period before 
+making official. No single manager can be allowed to make unilateral 
+policy changes for the entire group without giving the other relevant 
+managers time to respond. Python is over 20 years old and the core devs 
+have managed without a CoC for all that time. You could have, should 
+have, waited a few days before seemingly ramming this policy change in 
+behind people's backs.
+
+
+> so as long as we try and keep people from
+> being rude  it won't come up. Quite frankly, the CoC is really just meant
+> as a way for people to feel comfortable in knowing they don't have to
+> tolerate jerks.
+
+Nobody *has* to tolerate jerks, especially on an email forum. Just 
+filter their emails into the trash.
+
+Or maybe people could be a bit more flexible in what behaviour they 
+accept from others and a bit less quick to label others as jerks?
+
+This is an international group, and I'm an Australian, and the language 
+I use with my wife, friends and co-workers is far more forthright and 
+strong than the language I use here. But if I slip occasionally, and 
+call a spade a bloody shovel as they say, I don't want those with more 
+restrictive, less enlightened or even merely different standards to be 
+able to formally rebuke me. Why should I have to change my behaviour 
+more than I already do? Why can't they be a bit more flexible and 
+accepting of differences and less judgmental?
+
+
+> And I would hope none of us are jerks to people in the community,
+
+If I knew what you considered "a jerk", then I might be able to say 
+whether I agreed or disagreed. For all I know, you might consider this 
+email to be nothing but me being a jerk.
+
+
+
+-- 
+Steve
+
+From ncoghlan at gmail.com  Sun Feb 28 00:11:25 2016
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Sun, 28 Feb 2016 15:11:25 +1000
+Subject: [python-committers] Making the PSF CoC apply to core developers
+In-Reply-To: <20160228022741.GK12028@ando.pearwood.info>
+References: <CAP1=2W6R+BEBeFf=gq9ZvCo9RF78Gve8_PxPmLExzbDVU3kY7g@mail.gmail.com>
+ <loom.20160227T121049-853@post.gmane.org>
+ <CAP1=2W5RLvVPRqvH=psWfjU=MrQ2CQRv+ntn8QSQXW7P_QjrrQ@mail.gmail.com>
+ <20160228022741.GK12028@ando.pearwood.info>
+Message-ID: <CADiSq7fHyzGC0TGX0e1+Apcap1FasEayEwNZGikm41sOT-VRfw@mail.gmail.com>
+
+On 28 February 2016 at 12:27, Steven D'Aprano <steve at pearwood.info> wrote:
+> Nobody *has* to tolerate jerks, especially on an email forum. Just
+> filter their emails into the trash.
+
+This approach means every *future* participant in that community then
+has to encounter the person that's behaving like a jerk, realise they
+consistently behave that way, and add them to their own filters.
+That's grossly disrespectful of everyone's time and energy, include
+that of the person that's shouting into the wilderness rather than
+receiving direct and constructive feedback on which aspects of their
+behaviour are problematic.
+
+Everyone ends up being much better off in the long run if we're
+explicit about "Don't be a jerk in this environment", rather than
+pushing the task of putting up with jerkish behaviour back onto
+individual participants. Things only need to escalate to suspensions
+and bans if someone proves to be utterly incapable of either
+moderating their own behaviour or else realising that being involved
+in Python core development may not be the right activity for them (and
+I'm personally only aware of one case where we've had to resort to an
+outright permaban to protect the interests of other volunteers)
+
+> Or maybe people could be a bit more flexible in what behaviour they
+> accept from others and a bit less quick to label others as jerks?
+>
+> This is an international group, and I'm an Australian, and the language
+> I use with my wife, friends and co-workers is far more forthright and
+> strong than the language I use here. But if I slip occasionally, and
+> call a spade a bloody shovel as they say, I don't want those with more
+> restrictive, less enlightened or even merely different standards to be
+> able to formally rebuke me. Why should I have to change my behaviour
+> more than I already do? Why can't they be a bit more flexible and
+> accepting of differences and less judgmental?
+
+This is why *writing things down* instead of just assuming that
+everybody has a shared understanding of what the phrase "don't be a
+jerk" means is so important.
+
+>> And I would hope none of us are jerks to people in the community,
+>
+> If I knew what you considered "a jerk", then I might be able to say
+> whether I agreed or disagreed. For all I know, you might consider this
+> email to be nothing but me being a jerk.
+
+It doesn't read to me as you being a jerk, but it does read to me as
+you responding without actually reading the PSF Community Code of
+Conduct that Brett linked to.
+
+Quoting the document in its entirety:
+
+===============================
+The Python community is made up of members from around the globe with
+a diverse set of skills, personalities, and experiences. It is through
+these differences that our community experiences great successes and
+continued growth. When you're working with members of the community,
+we encourage you to follow these guidelines which help steer our
+interactions and strive to keep Python a positive, successful, and
+growing community.
+
+A member of the Python community is:
+
+Open
+
+Members of the community are open to collaboration, whether it's on
+PEPs, patches, problems, or otherwise. We're receptive to constructive
+comment and criticism, as the experiences and skill sets of other
+members contribute to the whole of our efforts. We're accepting of all
+who wish to take part in our activities, fostering an environment
+where anyone can participate and everyone can make a difference.
+
+Considerate
+
+Members of the community are considerate of their peers -- other
+Python users. We're thoughtful when addressing the efforts of others,
+keeping in mind that often times the labor was completed simply for
+the good of the community. We're attentive in our communications,
+whether in person or online, and we're tactful when approaching
+differing views.
+
+Respectful
+
+Members of the community are respectful. We're respectful of others,
+their positions, their skills, their commitments, and their efforts.
+We're respectful of the volunteer efforts that permeate the Python
+community. We're respectful of the processes set forth in the
+community, and we work within them. When we disagree, we are courteous
+in raising our issues.
+
+Overall, we're good to each other. We contribute to this community not
+because we have to, but because we want to. If we remember that, these
+guidelines will come naturally.
+===============================
+
+For mailing lists, the enforcement procedures are the same as those
+that have existed on all mailing lists since time immemorial: the list
+moderators have full authority to impose forced moderation and
+outright bans on folks that they consider to be interfering with the
+list's ability to achieve its intended purpose.
+
+There's a *different* document, which I assume is the one Stefan is
+referring to given his mention of conferences, which is the one used
+to define acceptable behaviour at PyCon US:
+https://us.pycon.org/2015/about/code-of-conduct/
+
+Again, that is about putting behavioural expectations in writing since
+we *can't* assume a shared understanding of phrases like "don't be a
+jerk" and "don't harass people" when attendees are flying in from all
+over the world.
+
+Regards,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+
+From brett at python.org  Sun Feb 28 14:10:18 2016
+From: brett at python.org (Brett Cannon)
+Date: Sun, 28 Feb 2016 19:10:18 +0000
+Subject: [python-committers] Making the PSF CoC apply to core developers
+In-Reply-To: <20160228022741.GK12028@ando.pearwood.info>
+References: <CAP1=2W6R+BEBeFf=gq9ZvCo9RF78Gve8_PxPmLExzbDVU3kY7g@mail.gmail.com>
+ <loom.20160227T121049-853@post.gmane.org>
+ <CAP1=2W5RLvVPRqvH=psWfjU=MrQ2CQRv+ntn8QSQXW7P_QjrrQ@mail.gmail.com>
+ <20160228022741.GK12028@ando.pearwood.info>
+Message-ID: <CAP1=2W7npjPAnNK_6YopwxRSj+dhT5RDPoKe+-W_pYZzcjyhKQ@mail.gmail.com>
+
+On Sat, 27 Feb 2016 at 18:33 Steven D'Aprano <steve at pearwood.info> wrote:
+
+> On Sat, Feb 27, 2016 at 05:17:50PM +0000, Brett Cannon wrote:
+>
+> [...]
+> > After a rather rude email on python-dev
+>
+> I haven't noticed this email. Care to link to it? We should be allowed
+> to see what sort of behaviour is likely to treated as officially
+> unacceptable in the future.
+>
+
+https://mail.python.org/pipermail/python-dev/2016-February/143417.html is
+the key email (there were two before it where tensions started to rise; you
+can see my public response later in that thread.
+
+
+>
+> I think this is actually a very important point. I've seen forums and
+> discussion groups where the enforcement of faux-politeness and "being
+> friendly and positive" and "no jerks allowed" makes the place extremely
+> hostile to anyone who doesn't follow the majority opinion.
+
+
+I have never seen this happen in the Python community.
+
+
+> Where even
+> polite disagreement is seen as "being a jerk".
+
+
+That would go against the very first part of the PSF CoC about being open.
+
+
+> Since rudeness is so
+> subjective, formal prohibitions on being "rude" is a potent weapon for
+> groups to hijack a community by labelling anything and anyone they don't
+> like as "rude". So I think it is important for us to know what you
+> consider is rude enough to require a CoC.
+>
+
+
+>
+>
+> [...]
+> > When people know they are expected to behave in a
+> > civil manner and others know they are allowed to call someone out for
+> being
+> > uncivil it typically is enough to make people behave.
+>
+> You don't need a CoC for that. Social expectations apply even without a
+> formal set of rules.
+>
+
+That is not the experience I've had on python-ideas. Since I implemented
+the CoC over there I think the discourse has cleaned up a good amount.
+
+
+>
+>
+> > So there is no issue of people "being overburdened by regulations". The
+> CoC
+> > only comes up when someone is being so rude that they need to be talked
+> to
+> > about their attitude  problem,
+>
+> Who judges that point?
+
+
+Just like any other point discussed here; either we reach consensus as a
+group or Guido makes a final call.
+
+
+> Can *anyone* take it upon themselves to (let's
+> say) say "Brett, you unilaterally changed the policy with no discussion
+> or consultation and just four minutes notice. That is unspeakably rude
+> and total jerk behaviour, so under your own rules you're out of here"?
+>
+> I'm not just making a rhetorical point. I wouldn't accept that sort of
+> unilateral behaviour from my work colleagues.
+
+
+It wasn't a unilateral decision. If it was then I would have just done it
+without  opening an issue or bringing it up here. I mentioned it here just
+in case someone might get upset by it (which obviously happened).
+
+
+> It is pushy and obnoxious
+> and breeds resentment and is exactly the sort of reason why some people
+> are deeply suspicious of CoCs. And when it happens on a Friday night,
+> when people are likely to be away from their computers...
+>
+> http://politicaldictionary.com/words/friday-news-dump/
+
+
+It happened Friday night because that's when I read the email on python-dev
+that triggered me to go through all the mailing lists I manage and make
+sure they mention the PSF CoC applies there.  There was no purposeful trick
+to try and sneak this through (if I was trying to sneak it in then I did a
+bad job by bringing this up here and/or not just committing the update
+immediately). I'm not sure how you manage your Python contribution time,
+but for me I don't have as much as I like and so I seize on it when I can
+and I don't pay attention to what day of the week it is.
+
+
+>
+>
+> My employer learned the hard lesson that even "self-evidently and
+> obviously correct" policy changes need a consultation period before
+> making official. No single manager can be allowed to make unilateral
+> policy changes for the entire group without giving the other relevant
+> managers time to respond. Python is over 20 years old and the core devs
+> have managed without a CoC for all that time.
+
+
+I'm quite aware of that having been a core dev for 13 of those years. But
+that doesn't mean we can't improve the situation. And this is more about
+giving people outside of the core dev group piece of mind than it is about
+explicitly worrying about a core dev violating the CoC. I do not want
+people thinking we are above reproach, and so I thought it would be good to
+publicly state that we are not and we hold ourselves to the same standards
+we expect everyone to follow at every major Python conference, on mailing
+lists, etc. when it involves us representing Python and the other core devs
+on this list.
+
+
+> You could have, should
+> have, waited a few days before seemingly ramming this policy change in
+> behind people's backs.
+>
+
+Steven, I didn't try to sneak this past anyone. I honestly didn't expect it
+to be that controversial at this point which is why the email is almost
+nonchalant in saying that I viewed posting here as a technicality. I
+seriously thought we as a community were passed CoCs being controversial
+based on the resounding acceptance at Python conferences and my positive
+experience on various mailing lists like python-ideas.
+
+
+>
+>
+> > so as long as we try and keep people from
+> > being rude  it won't come up. Quite frankly, the CoC is really just meant
+> > as a way for people to feel comfortable in knowing they don't have to
+> > tolerate jerks.
+>
+> Nobody *has* to tolerate jerks, especially on an email forum. Just
+> filter their emails into the trash.
+>
+
+Nick already addressed this comment the exact way I would have.
+
+
+>
+> Or maybe people could be a bit more flexible in what behaviour they
+> accept from others and a bit less quick to label others as jerks?
+>
+
+Nick replied to this the way I would have as well.
+
+
+>
+> This is an international group, and I'm an Australian, and the language
+> I use with my wife, friends and co-workers is far more forthright and
+> strong than the language I use here. But if I slip occasionally, and
+> call a spade a bloody shovel as they say, I don't want those with more
+> restrictive, less enlightened or even merely different standards to be
+> able to formally rebuke me. Why should I have to change my behaviour
+> more than I already do? Why can't they be a bit more flexible and
+> accepting of differences and less judgmental?
+>
+
+There is a massive difference between using a word that someone might
+consider a swear word and regularly being mean or disrespectful.
+
+
+>
+>
+> > And I would hope none of us are jerks to people in the community,
+>
+> If I knew what you considered "a jerk", then I might be able to say
+> whether I agreed or disagreed. For all I know, you might consider this
+> email to be nothing but me being a jerk.
+>
+
+I think the tone was a bit much here and there, but I know it's not to be
+mean and it stems from a passion on this topic (although I have to admit
+the accusations that I tried to sneak this passed everyone through some
+devious scheme did hurt a bit).
+
+I swear that I did not mean to pull a fast one or somehow exert some
+influence to make this happen on the sly and I'm sorry if you thought that;
+I seriously thought it wasn't going to be an issue. But since it is for
+ some I promise I won't make any change to the devguide unless clear
+consensus can be reached or Guido tells me to flat-out (just like any other
+change that affects Python).
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20160228/c81e282b/attachment.html>
+
+From g.brandl at gmx.net  Sun Feb 28 15:01:53 2016
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Sun, 28 Feb 2016 21:01:53 +0100
+Subject: [python-committers] Making the PSF CoC apply to core developers
+In-Reply-To: <CAP1=2W7npjPAnNK_6YopwxRSj+dhT5RDPoKe+-W_pYZzcjyhKQ@mail.gmail.com>
+References: <CAP1=2W6R+BEBeFf=gq9ZvCo9RF78Gve8_PxPmLExzbDVU3kY7g@mail.gmail.com>
+ <loom.20160227T121049-853@post.gmane.org>
+ <CAP1=2W5RLvVPRqvH=psWfjU=MrQ2CQRv+ntn8QSQXW7P_QjrrQ@mail.gmail.com>
+ <20160228022741.GK12028@ando.pearwood.info>
+ <CAP1=2W7npjPAnNK_6YopwxRSj+dhT5RDPoKe+-W_pYZzcjyhKQ@mail.gmail.com>
+Message-ID: <navjnh$j2i$1@ger.gmane.org>
+
+On 02/28/2016 08:10 PM, Brett Cannon wrote:
+
+>     Can *anyone* take it upon themselves to (let's
+>     say) say "Brett, you unilaterally changed the policy with no discussion
+>     or consultation and just four minutes notice. That is unspeakably rude
+>     and total jerk behaviour, so under your own rules you're out of here"?
+> 
+>     I'm not just making a rhetorical point. I wouldn't accept that sort of
+>     unilateral behaviour from my work colleagues.
+> 
+> 
+> It wasn't a unilateral decision. If it was then I would have just done it
+> without  opening an issue or bringing it up here. I mentioned it here just in
+> case someone might get upset by it (which obviously happened).
+
+FWIW, Eric Smith and myself (co-"owners" of the mailing list) supported this
+when Brett asked.
+
+I hope, Steven, you're by now convinced that this wasn't a cloak-and-dagger
+operation (really, for volunteer work there is no such thing as "business
+hours").
+
+Neither is it a unique thing for a python.org mailing list. This is especially
+important: what is so different about python-ideas that it needs the CoC,
+while -committers doesn't?  Much better to be consistent and to have the same
+standards applied to every list (eventually).
+
+cheers,
+Georg
+
+
+From victor.stinner at gmail.com  Sun Feb 28 15:56:23 2016
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Sun, 28 Feb 2016 21:56:23 +0100
+Subject: [python-committers] Making the PSF CoC apply to core developers
+In-Reply-To: <CAP1=2W6R+BEBeFf=gq9ZvCo9RF78Gve8_PxPmLExzbDVU3kY7g@mail.gmail.com>
+References: <CAP1=2W6R+BEBeFf=gq9ZvCo9RF78Gve8_PxPmLExzbDVU3kY7g@mail.gmail.com>
+Message-ID: <CAMpsgwbhaMFrzBpiYo4cNLaw6NxL2i8e61V122Z5HVUuHkLaqQ@mail.gmail.com>
+
+Hi,
+
+2016-02-26 20:29 GMT+01:00 Brett Cannon <brett at python.org>:
+> I noticed that the devguide didn't explicitly mention that core developers
+> were expected to follow the PSF CoC
+> (https://docs.python.org/devguide/coredev.html and
+> https://www.python.org/psf/codeofconduct/, respectively). I have opened
+> http://bugs.python.org/issue26446 to make sure it gets documented.
+>
+> Since this is technically a modification of the requirements of getting
+> commit privileges I wanted to mention it here before I (or anyone else) made
+> the change.
+
+I'm fine with this change. Especially core developers must respect the
+CoC, give the example ;-)
+
+Victor
+
+From brett at python.org  Sun Feb 28 16:25:32 2016
+From: brett at python.org (Brett Cannon)
+Date: Sun, 28 Feb 2016 21:25:32 +0000
+Subject: [python-committers] Making the PSF CoC apply to core developers
+In-Reply-To: <navjnh$j2i$1@ger.gmane.org>
+References: <CAP1=2W6R+BEBeFf=gq9ZvCo9RF78Gve8_PxPmLExzbDVU3kY7g@mail.gmail.com>
+ <loom.20160227T121049-853@post.gmane.org>
+ <CAP1=2W5RLvVPRqvH=psWfjU=MrQ2CQRv+ntn8QSQXW7P_QjrrQ@mail.gmail.com>
+ <20160228022741.GK12028@ando.pearwood.info>
+ <CAP1=2W7npjPAnNK_6YopwxRSj+dhT5RDPoKe+-W_pYZzcjyhKQ@mail.gmail.com>
+ <navjnh$j2i$1@ger.gmane.org>
+Message-ID: <CAP1=2W4boma+Sy58Go8-ABx+tX7T1AtwODa2EyonmfO8qbZCKQ@mail.gmail.com>
+
+On Sun, Feb 28, 2016, 12:02 Georg Brandl <g.brandl at gmx.net> wrote:
+
+> On 02/28/2016 08:10 PM, Brett Cannon wrote:
+>
+> >     Can *anyone* take it upon themselves to (let's
+> >     say) say "Brett, you unilaterally changed the policy with no
+> discussion
+> >     or consultation and just four minutes notice. That is unspeakably
+> rude
+> >     and total jerk behaviour, so under your own rules you're out of
+> here"?
+> >
+> >     I'm not just making a rhetorical point. I wouldn't accept that sort
+> of
+> >     unilateral behaviour from my work colleagues.
+> >
+> >
+> > It wasn't a unilateral decision. If it was then I would have just done it
+> > without  opening an issue or bringing it up here. I mentioned it here
+> just in
+> > case someone might get upset by it (which obviously happened).
+>
+> FWIW, Eric Smith and myself (co-"owners" of the mailing list) supported
+> this
+> when Brett asked.
+>
+
+I think Steven's objection was me wanting to state in the devguide that
+core devs would adhere to the CoC in all Python-related interactions in the
+community regardless of whether that interaction explicitly occurred under
+the purview of the CoC, which is a stronger statement than just this
+mailing list being under the CoC.
+
+-Brett
+
+
+> I hope, Steven, you're by now convinced that this wasn't a cloak-and-dagger
+> operation (really, for volunteer work there is no such thing as "business
+> hours").
+>
+> Neither is it a unique thing for a python.org mailing list. This is
+> especially
+> important: what is so different about python-ideas that it needs the CoC,
+> while -committers doesn't?  Much better to be consistent and to have the
+> same
+> standards applied to every list (eventually).
+>
+> cheers,
+> Georg
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20160228/d7b3aacf/attachment.html>
+
+From tjreedy at udel.edu  Sun Feb 28 19:26:19 2016
+From: tjreedy at udel.edu (Terry Reedy)
+Date: Sun, 28 Feb 2016 19:26:19 -0500
+Subject: [python-committers] Making the PSF CoC apply to core developers
+In-Reply-To: <CAMpsgwbhaMFrzBpiYo4cNLaw6NxL2i8e61V122Z5HVUuHkLaqQ@mail.gmail.com>
+References: <CAP1=2W6R+BEBeFf=gq9ZvCo9RF78Gve8_PxPmLExzbDVU3kY7g@mail.gmail.com>
+ <CAMpsgwbhaMFrzBpiYo4cNLaw6NxL2i8e61V122Z5HVUuHkLaqQ@mail.gmail.com>
+Message-ID: <56D3902B.7070402@udel.edu>
+
+On 2/28/2016 3:56 PM, Victor Stinner wrote:
+> Hi,
+>
+> 2016-02-26 20:29 GMT+01:00 Brett Cannon <brett at python.org>:
+>> I noticed that the devguide didn't explicitly mention that core developers
+>> were expected to follow the PSF CoC
+>> (https://docs.python.org/devguide/coredev.html and
+>> https://www.python.org/psf/codeofconduct/, respectively). I have opened
+>> http://bugs.python.org/issue26446 to make sure it gets documented.
+>>
+>> Since this is technically a modification of the requirements of getting
+>> commit privileges I wanted to mention it here before I (or anyone else) made
+>> the change.
+>
+> I'm fine with this change. Especially core developers must respect the
+> CoC, give the example ;-)
+
++1, for reasons of other examples.
+
+tjr
+
+
+
+From ethan at stoneleaf.us  Mon Feb 29 01:09:29 2016
+From: ethan at stoneleaf.us (Ethan Furman)
+Date: Sun, 28 Feb 2016 22:09:29 -0800
+Subject: [python-committers] Making the PSF CoC apply to core developers
+In-Reply-To: <CAP1=2W7npjPAnNK_6YopwxRSj+dhT5RDPoKe+-W_pYZzcjyhKQ@mail.gmail.com>
+References: <CAP1=2W6R+BEBeFf=gq9ZvCo9RF78Gve8_PxPmLExzbDVU3kY7g@mail.gmail.com>
+ <loom.20160227T121049-853@post.gmane.org>
+ <CAP1=2W5RLvVPRqvH=psWfjU=MrQ2CQRv+ntn8QSQXW7P_QjrrQ@mail.gmail.com>
+ <20160228022741.GK12028@ando.pearwood.info>
+ <CAP1=2W7npjPAnNK_6YopwxRSj+dhT5RDPoKe+-W_pYZzcjyhKQ@mail.gmail.com>
+Message-ID: <56D3E099.5090808@stoneleaf.us>
+
+On 02/28/2016 11:10 AM, Brett Cannon wrote:
+
+> I swear that I did not mean to pull a fast one or somehow exert some
+> influence to make this happen on the sly and I'm sorry if you thought
+> that; I seriously thought it wasn't going to be an issue. But since it
+> is for  some I promise I won't make any change to the devguide unless
+> clear consensus can be reached or Guido tells me to flat-out (just like
+> any other change that affects Python).
+
++1 for CoC.  Better to have expectations written down so nobody has to 
+guess.
+
+--
+~Ethan~
+
+
+From g.brandl at gmx.net  Mon Feb 29 02:15:32 2016
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Mon, 29 Feb 2016 08:15:32 +0100
+Subject: [python-committers] Making the PSF CoC apply to core developers
+In-Reply-To: <CAP1=2W4boma+Sy58Go8-ABx+tX7T1AtwODa2EyonmfO8qbZCKQ@mail.gmail.com>
+References: <CAP1=2W6R+BEBeFf=gq9ZvCo9RF78Gve8_PxPmLExzbDVU3kY7g@mail.gmail.com>
+ <loom.20160227T121049-853@post.gmane.org>
+ <CAP1=2W5RLvVPRqvH=psWfjU=MrQ2CQRv+ntn8QSQXW7P_QjrrQ@mail.gmail.com>
+ <20160228022741.GK12028@ando.pearwood.info>
+ <CAP1=2W7npjPAnNK_6YopwxRSj+dhT5RDPoKe+-W_pYZzcjyhKQ@mail.gmail.com>
+ <navjnh$j2i$1@ger.gmane.org>
+ <CAP1=2W4boma+Sy58Go8-ABx+tX7T1AtwODa2EyonmfO8qbZCKQ@mail.gmail.com>
+Message-ID: <nb0r6q$o5o$1@ger.gmane.org>
+
+On 02/28/2016 10:25 PM, Brett Cannon wrote:
+> 
+> 
+> On Sun, Feb 28, 2016, 12:02 Georg Brandl <g.brandl at gmx.net
+> <mailto:g.brandl at gmx.net>> wrote:
+> 
+>     On 02/28/2016 08:10 PM, Brett Cannon wrote:
+> 
+>     >     Can *anyone* take it upon themselves to (let's
+>     >     say) say "Brett, you unilaterally changed the policy with no discussion
+>     >     or consultation and just four minutes notice. That is unspeakably rude
+>     >     and total jerk behaviour, so under your own rules you're out of here"?
+>     >
+>     >     I'm not just making a rhetorical point. I wouldn't accept that sort of
+>     >     unilateral behaviour from my work colleagues.
+>     >
+>     >
+>     > It wasn't a unilateral decision. If it was then I would have just done it
+>     > without  opening an issue or bringing it up here. I mentioned it here just in
+>     > case someone might get upset by it (which obviously happened).
+> 
+>     FWIW, Eric Smith and myself (co-"owners" of the mailing list) supported this
+>     when Brett asked.
+> 
+> 
+> I think Steven's objection was me wanting to state in the devguide that core
+> devs would adhere to the CoC in all Python-related interactions in the community
+> regardless of whether that interaction explicitly occurred under the purview of
+> the CoC, which is a stronger statement than just this mailing list being under
+> the CoC.
+
+Well, "Python-related" is a bit strong and includes activities the PSF/the
+CPython developer community has no business in. It should be rephrased to
+"Python core-related" - that mostly happens through the mailing lists (and
+the tracker).  We should not presume to be an employer that will fire
+employees based on a post on their private Facebook account.
+
+cheers,
+Georg
+
+
+From brett at python.org  Mon Feb 29 12:38:46 2016
+From: brett at python.org (Brett Cannon)
+Date: Mon, 29 Feb 2016 17:38:46 +0000
+Subject: [python-committers] Making the PSF CoC apply to core developers
+In-Reply-To: <nb0r6q$o5o$1@ger.gmane.org>
+References: <CAP1=2W6R+BEBeFf=gq9ZvCo9RF78Gve8_PxPmLExzbDVU3kY7g@mail.gmail.com>
+ <loom.20160227T121049-853@post.gmane.org>
+ <CAP1=2W5RLvVPRqvH=psWfjU=MrQ2CQRv+ntn8QSQXW7P_QjrrQ@mail.gmail.com>
+ <20160228022741.GK12028@ando.pearwood.info>
+ <CAP1=2W7npjPAnNK_6YopwxRSj+dhT5RDPoKe+-W_pYZzcjyhKQ@mail.gmail.com>
+ <navjnh$j2i$1@ger.gmane.org>
+ <CAP1=2W4boma+Sy58Go8-ABx+tX7T1AtwODa2EyonmfO8qbZCKQ@mail.gmail.com>
+ <nb0r6q$o5o$1@ger.gmane.org>
+Message-ID: <CAP1=2W7-zqLDmq3L8PteA0hrFAxtwB5c3pGKeHg-M553oXYb=w@mail.gmail.com>
+
+On Sun, 28 Feb 2016 at 23:15 Georg Brandl <g.brandl at gmx.net> wrote:
+
+> On 02/28/2016 10:25 PM, Brett Cannon wrote:
+> >
+> >
+> > On Sun, Feb 28, 2016, 12:02 Georg Brandl <g.brandl at gmx.net
+> > <mailto:g.brandl at gmx.net>> wrote:
+> >
+> >     On 02/28/2016 08:10 PM, Brett Cannon wrote:
+> >
+> >     >     Can *anyone* take it upon themselves to (let's
+> >     >     say) say "Brett, you unilaterally changed the policy with no
+> discussion
+> >     >     or consultation and just four minutes notice. That is
+> unspeakably rude
+> >     >     and total jerk behaviour, so under your own rules you're out
+> of here"?
+> >     >
+> >     >     I'm not just making a rhetorical point. I wouldn't accept that
+> sort of
+> >     >     unilateral behaviour from my work colleagues.
+> >     >
+> >     >
+> >     > It wasn't a unilateral decision. If it was then I would have just
+> done it
+> >     > without  opening an issue or bringing it up here. I mentioned it
+> here just in
+> >     > case someone might get upset by it (which obviously happened).
+> >
+> >     FWIW, Eric Smith and myself (co-"owners" of the mailing list)
+> supported this
+> >     when Brett asked.
+> >
+> >
+> > I think Steven's objection was me wanting to state in the devguide that
+> core
+> > devs would adhere to the CoC in all Python-related interactions in the
+> community
+> > regardless of whether that interaction explicitly occurred under the
+> purview of
+> > the CoC, which is a stronger statement than just this mailing list being
+> under
+> > the CoC.
+>
+> Well, "Python-related" is a bit strong and includes activities the PSF/the
+> CPython developer community has no business in. It should be rephrased to
+> "Python core-related" - that mostly happens through the mailing lists (and
+> the tracker).  We should not presume to be an employer that will fire
+> employees based on a post on their private Facebook account.
+>
+
+That rephrasing is fine by me (as would be adding "public" to the
+statement). My point is when any of us have our core-dev "hat" on, people
+should know that they can expect us to behave appropriately and that if we
+misstep and say something offensive they can point it out to us without
+worries of any of us taking offense (i.e., we are just like everyone else
+and being a core dev doesn't place our behaviour above anyone else). If we
+happen to be at a meetup or conference that has not implemented a CoC that
+shouldn't give us an excuse as esteemed representatives of this language
+and community to be lax in our behaviour since how we act as core devs is
+probably amplified compared to others in the community.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20160229/431b0274/attachment.html>
+
+From mal at egenix.com  Mon Feb 29 15:09:48 2016
+From: mal at egenix.com (M.-A. Lemburg)
+Date: Mon, 29 Feb 2016 21:09:48 +0100
+Subject: [python-committers] Making the PSF CoC apply to core developers
+In-Reply-To: <CAP1=2W7-zqLDmq3L8PteA0hrFAxtwB5c3pGKeHg-M553oXYb=w@mail.gmail.com>
+References: <CAP1=2W6R+BEBeFf=gq9ZvCo9RF78Gve8_PxPmLExzbDVU3kY7g@mail.gmail.com>
+ <loom.20160227T121049-853@post.gmane.org>
+ <CAP1=2W5RLvVPRqvH=psWfjU=MrQ2CQRv+ntn8QSQXW7P_QjrrQ@mail.gmail.com>
+ <20160228022741.GK12028@ando.pearwood.info>
+ <CAP1=2W7npjPAnNK_6YopwxRSj+dhT5RDPoKe+-W_pYZzcjyhKQ@mail.gmail.com>
+ <navjnh$j2i$1@ger.gmane.org>
+ <CAP1=2W4boma+Sy58Go8-ABx+tX7T1AtwODa2EyonmfO8qbZCKQ@mail.gmail.com>
+ <nb0r6q$o5o$1@ger.gmane.org>
+ <CAP1=2W7-zqLDmq3L8PteA0hrFAxtwB5c3pGKeHg-M553oXYb=w@mail.gmail.com>
+Message-ID: <56D4A58C.6090501@egenix.com>
+
+On 29.02.2016 18:38, Brett Cannon wrote:
+> ... If we
+> happen to be at a meetup or conference that has not implemented a CoC that
+> shouldn't give us an excuse as esteemed representatives of this language
+> and community to be lax in our behaviour since how we act as core devs is
+> probably amplified compared to others in the community.
+
+This is the part about all this CoC talk I never understand. Why
+on earth would someone change their regular behavior when
+"at a meetup or conference that has not implemented a CoC" ?
+
+This sounds to me like a very "Wild West" kind of interpretation of
+civil life that doesn't necessarily map to other societies - and
+even the days of "Wild West" are long over, aren't they ;-)
+
+To me, the main purpose of CoCs is not the text itself. It's
+getting organizers thinking about how they would react to possible
+issues upfront.
+
+-- 
+Marc-Andre Lemburg
+eGenix.com
+
+Professional Python Services directly from the Experts (#1, Feb 29 2016)
+>>> Python Projects, Coaching and Consulting ...  http://www.egenix.com/
+>>> Python Database Interfaces ...           http://products.egenix.com/
+>>> Plone/Zope Database Interfaces ...           http://zope.egenix.com/
+________________________________________________________________________
+2016-02-19: Released eGenix PyRun 2.1.2 ...       http://egenix.com/go88
+
+::: We implement business ideas - efficiently in both time and costs :::
+
+   eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+    D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+           Registered at Amtsgericht Duesseldorf: HRB 46611
+               http://www.egenix.com/company/contact/
+                      http://www.malemburg.com/
+
+
+From ethan at stoneleaf.us  Mon Feb 29 15:15:30 2016
+From: ethan at stoneleaf.us (Ethan Furman)
+Date: Mon, 29 Feb 2016 12:15:30 -0800
+Subject: [python-committers] Making the PSF CoC apply to core developers
+In-Reply-To: <56D4A58C.6090501@egenix.com>
+References: <CAP1=2W6R+BEBeFf=gq9ZvCo9RF78Gve8_PxPmLExzbDVU3kY7g@mail.gmail.com>
+ <loom.20160227T121049-853@post.gmane.org>
+ <CAP1=2W5RLvVPRqvH=psWfjU=MrQ2CQRv+ntn8QSQXW7P_QjrrQ@mail.gmail.com>
+ <20160228022741.GK12028@ando.pearwood.info>
+ <CAP1=2W7npjPAnNK_6YopwxRSj+dhT5RDPoKe+-W_pYZzcjyhKQ@mail.gmail.com>
+ <navjnh$j2i$1@ger.gmane.org>
+ <CAP1=2W4boma+Sy58Go8-ABx+tX7T1AtwODa2EyonmfO8qbZCKQ@mail.gmail.com>
+ <nb0r6q$o5o$1@ger.gmane.org>
+ <CAP1=2W7-zqLDmq3L8PteA0hrFAxtwB5c3pGKeHg-M553oXYb=w@mail.gmail.com>
+ <56D4A58C.6090501@egenix.com>
+Message-ID: <56D4A6E2.6000100@stoneleaf.us>
+
+On 02/29/2016 12:09 PM, M.-A. Lemburg wrote:
+
+> This is the part about all this CoC talk I never understand. Why
+> on earth would someone change their regular behavior when
+> "at a meetup or conference that has not implemented a CoC" ?
+
+Sadly, there are plenty of people who act wildly differently depending 
+on where they are.
+
+> To me, the main purpose of CoCs is not the text itself. It's
+> getting organizers thinking about how they would react to possible
+> issues upfront.
+
+Definitely.
+
+--
+~Ethan~
+
+
+From brett at python.org  Mon Feb 29 17:07:46 2016
+From: brett at python.org (Brett Cannon)
+Date: Mon, 29 Feb 2016 22:07:46 +0000
+Subject: [python-committers] Making the PSF CoC apply to core developers
+In-Reply-To: <56D4A58C.6090501@egenix.com>
+References: <CAP1=2W6R+BEBeFf=gq9ZvCo9RF78Gve8_PxPmLExzbDVU3kY7g@mail.gmail.com>
+ <loom.20160227T121049-853@post.gmane.org>
+ <CAP1=2W5RLvVPRqvH=psWfjU=MrQ2CQRv+ntn8QSQXW7P_QjrrQ@mail.gmail.com>
+ <20160228022741.GK12028@ando.pearwood.info>
+ <CAP1=2W7npjPAnNK_6YopwxRSj+dhT5RDPoKe+-W_pYZzcjyhKQ@mail.gmail.com>
+ <navjnh$j2i$1@ger.gmane.org>
+ <CAP1=2W4boma+Sy58Go8-ABx+tX7T1AtwODa2EyonmfO8qbZCKQ@mail.gmail.com>
+ <nb0r6q$o5o$1@ger.gmane.org>
+ <CAP1=2W7-zqLDmq3L8PteA0hrFAxtwB5c3pGKeHg-M553oXYb=w@mail.gmail.com>
+ <56D4A58C.6090501@egenix.com>
+Message-ID: <CAP1=2W6fwTmZYF4ivDhjmvbOJ_cpq=O7JbE5paXuXJM5PUzOxQ@mail.gmail.com>
+
+On Mon, 29 Feb 2016 at 12:10 M.-A. Lemburg <mal at egenix.com> wrote:
+
+> On 29.02.2016 18:38, Brett Cannon wrote:
+> > ... If we
+> > happen to be at a meetup or conference that has not implemented a CoC
+> that
+> > shouldn't give us an excuse as esteemed representatives of this language
+> > and community to be lax in our behaviour since how we act as core devs is
+> > probably amplified compared to others in the community.
+>
+> This is the part about all this CoC talk I never understand. Why
+> on earth would someone change their regular behavior when
+> "at a meetup or conference that has not implemented a CoC" ?
+>
+> This sounds to me like a very "Wild West" kind of interpretation of
+> civil life that doesn't necessarily map to other societies - and
+> even the days of "Wild West" are long over, aren't they ;-)
+>
+> To me, the main purpose of CoCs is not the text itself. It's
+> getting organizers thinking about how they would react to possible
+> issues upfront.
+>
+
+
+How about this then: we make it policy that all core-involved "stuff' --
+mailing lists, issue tracker, etc. -- are to be explicitly put under the
+PSF CoC? I think python-dev and bugs.python.org are things we control which
+do not explicitly follow the PSF CoC (I have an email to python-dev-owner@
+to get get python-dev updated but I have not heard back; <nudge> :). We
+could also, as policy, put all projects under the python organization on
+GitHub -- existing and future -- under the PSF CoC by adding an appropriate
+CONTRIBUTING file to the repositories.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20160229/97f7f27f/attachment-0001.html>
+
+From steve at pearwood.info  Mon Feb 29 20:55:35 2016
+From: steve at pearwood.info (Steven D'Aprano)
+Date: Tue, 1 Mar 2016 12:55:35 +1100
+Subject: [python-committers] Making the PSF CoC apply to core developers
+In-Reply-To: <CAP1=2W7npjPAnNK_6YopwxRSj+dhT5RDPoKe+-W_pYZzcjyhKQ@mail.gmail.com>
+References: <CAP1=2W6R+BEBeFf=gq9ZvCo9RF78Gve8_PxPmLExzbDVU3kY7g@mail.gmail.com>
+ <loom.20160227T121049-853@post.gmane.org>
+ <CAP1=2W5RLvVPRqvH=psWfjU=MrQ2CQRv+ntn8QSQXW7P_QjrrQ@mail.gmail.com>
+ <20160228022741.GK12028@ando.pearwood.info>
+ <CAP1=2W7npjPAnNK_6YopwxRSj+dhT5RDPoKe+-W_pYZzcjyhKQ@mail.gmail.com>
+Message-ID: <20160301015534.GL12028@ando.pearwood.info>
+
+On Sun, Feb 28, 2016 at 07:10:18PM +0000, Brett Cannon wrote:
+> On Sat, 27 Feb 2016 at 18:33 Steven D'Aprano <steve at pearwood.info> wrote:
+
+[...]
+> > You could have, should
+> > have, waited a few days before seemingly ramming this policy change in
+> > behind people's backs.
+> 
+> Steven, I didn't try to sneak this past anyone.
+
+I can give you nothing less than full credit for not generally abusing 
+your list admin powers. And I do believe that you think you are acting 
+in the best interests of the group. But even the most innocent actions 
+can *seem* suspicious, which is why I used the words I used: "seemingly 
+... behind people's backs".
+
+I can believe that the timing of a Friday night was an unfortunate 
+coincidence. But the objection isn't about that, or even about the CoC 
+itself. I know that I'm in a minority here. If this had come down to a 
+vote, or community consensus, you probably would have got your CoC 
+approved. I'm a grown-up, I know I can't get my way all the time. But in 
+a community that claims to welcome diverse opinions, I do expect that we 
+all should be given the opportunity to express those opinions when it 
+matters -- and not just reduced to complaining afterwards.
+
+This exact objection has come up before, when you and Titus decided to 
+apply the CoC on the Python-Ideas list in 2013, and announced it to the 
+list as a done deal.
+
+Brett, I know that you have de facto powers that the rest of us don't, 
+by virtue of being a list admin. You're an elite among elites. Do the 
+CoC principles of openess, respect and consideration apply to elites 
+too? Then you should have been open to opposing viewpoints; you should 
+have given the community the respect and consideration of asking for 
+community feedback before imposing this change of rule.
+
+The honest truth is, if you had said "If nobody strongly objects by 
+Monday my time, two days from now, I'll take that as consensus in favour 
+and apply the CoC" I probably wouldn't even have argued against it. (I 
+only have so much energy for tilting at windmills, and I have to pick 
+the most important ones.)
+
+
+[...]
+> > This is an international group, and I'm an Australian, and the language
+> > I use with my wife, friends and co-workers is far more forthright and
+> > strong than the language I use here. But if I slip occasionally, and
+> > call a spade a bloody shovel as they say, I don't want those with more
+> > restrictive, less enlightened or even merely different standards to be
+> > able to formally rebuke me. Why should I have to change my behaviour
+> > more than I already do? Why can't they be a bit more flexible and
+> > accepting of differences and less judgmental?
+> 
+> There is a massive difference between using a word that someone might
+> consider a swear word and regularly being mean or disrespectful.
+
+I'm afraid you misunderstand me. To call a spade a bloody shovel is not 
+about using "swear words". It is about being frank, direct and blunt, 
+even brusque, without sugar-coating the message, beating around the 
+bush or using euphemisms. It's not even a uniquely Australian saying:
+
+1964 J. Reston in N.Y. Times 14 Feb. IV 8: The time has come to call a 
+spade a bloody shovel. This country is in an undeclared and unexplained 
+war in Vietnam. Our masters have a lot of long and fancy names for it 
+[...] but it is war just the same.
+
+Sometimes people take offence at direct language. Call a piece of 
+software "crap", or even "a jenky mess", and some people will say that 
+you're being rude and disruptive. I do not hold with that view.
+
+
+[...]
+> I swear that I did not mean to pull a fast one or somehow exert some
+> influence to make this happen on the sly and I'm sorry if you thought that;
+
+Brett I unconditionally believe you and I too am sorry that I didn't 
+make it clear enough that I was talking about the *perception* of 
+sneakiness rather than actual sneakiness.
+
+I think I've made it clear that I am not a supporter of the CoC, but I 
+am a supporter of the principles it sets forth. (And if anyone thinks 
+this is an insane contradictory position to take, I'm happy to discuss 
+it off-list.) I fully expect that had you asked for comments prior to 
+making the change, they would have been overwhelmingly in favour.
+
+Nevertheless, I believe that you should have asked first. Not because 
+you have to (you are list admin, and you are physically capable of doing 
+whatever you like to the list), but because failing to consult with the 
+community goes against the principles of the CoC.
+
+
+-- 
+Steve
+
+From steve at pearwood.info  Mon Feb 29 21:00:31 2016
+From: steve at pearwood.info (Steven D'Aprano)
+Date: Tue, 1 Mar 2016 13:00:31 +1100
+Subject: [python-committers] Making the PSF CoC apply to core developers
+In-Reply-To: <CADiSq7fHyzGC0TGX0e1+Apcap1FasEayEwNZGikm41sOT-VRfw@mail.gmail.com>
+References: <CAP1=2W6R+BEBeFf=gq9ZvCo9RF78Gve8_PxPmLExzbDVU3kY7g@mail.gmail.com>
+ <loom.20160227T121049-853@post.gmane.org>
+ <CAP1=2W5RLvVPRqvH=psWfjU=MrQ2CQRv+ntn8QSQXW7P_QjrrQ@mail.gmail.com>
+ <20160228022741.GK12028@ando.pearwood.info>
+ <CADiSq7fHyzGC0TGX0e1+Apcap1FasEayEwNZGikm41sOT-VRfw@mail.gmail.com>
+Message-ID: <20160301020031.GM12028@ando.pearwood.info>
+
+On Sun, Feb 28, 2016 at 03:11:25PM +1000, Nick Coghlan wrote:
+> On 28 February 2016 at 12:27, Steven D'Aprano <steve at pearwood.info> wrote:
+> > Nobody *has* to tolerate jerks, especially on an email forum. Just
+> > filter their emails into the trash.
+> 
+> This approach means every *future* participant in that community then
+> has to encounter the person that's behaving like a jerk, realise they
+> consistently behave that way, and add them to their own filters.
+[...]
+
+It also means they get to decide for themselves what is and isn't 
+unacceptable behaviour *to them*, without imposing those values on those 
+who don't share them.
+
+Look, I get it. I'm outvoted, and the community -- at least those who 
+are willing to speak up publicly -- agree with the CoC. I'm obviously in 
+a minority here, and I accept that.
+
+But that's not the point. The point is that if we're actually going to 
+be "open, respectful and considerate" as the CoC requires, then we 
+actually have to make time to listen to those diverse viewpoints we say 
+we want to listen to. If we're serious about the CoC, then we should 
+treat it seriously and not just give lip-service to it.
+
+How can we say we're in favour of diversity if we don't give those 
+diverse voices and viewpoints a chance to speak up before making 
+decisions? Community values come from the entire community, not just 
+from a couple of guys with admin powers on the mailing list software.
+
+Being open, respectful and considerate means that, even if you have the 
+de facto power to apply whatever rules you want, you *ask first* and 
+listen to what the community has to say. Maybe you'll be surprised by 
+what they say. Maybe you won't. But you won't know unless you ask.
+
+Even if the community is overwhelmingly in favour of the change, at 
+least those with a different opinion will have had the chance to be 
+heard. And that is critical for a healthy community. "You never listen" 
+is deadly for relationships, whether they are family, business or 
+community. There is a reason why members of minorities are often 
+described as "voiceless", and why we should *listen to them*.
+
+Even if, after due consideration, we choose to dismiss their point of 
+view. We're all adults here, and I trust that none of us expect to "win" 
+all the time. So long as we get a fair chance to have our say and have 
+it honestly considered with an open mind. I don't ask for anything more 
+than that.
+
+The most frustrating thing is that we've been through this before. In 
+2013, Brett and Titus did exactly the same thing on the Python-Ideas 
+list:
+
+https://mail.python.org/pipermail/python-ideas/2013-June/021087.html
+
+So let me make it clear: Brett, and the other list maintainers, you're 
+not listening. Even if I'm a minority of one out of the whole community, 
+your words say "of course we care what you think" but your actions say 
+"actually no, we couldn't care less". You might not have intended it 
+that way, but nevertheless that's the way it is.
+
+Imagine an alternate universe where Brett had said, "I'm the dictator of 
+this mailing list and I don't care what anyone thinks. From now on, I'm 
+going to ban 'jerk' behaviour, and if you don't like it, tough." How 
+exactly is that alternate universe different from what actually took 
+place?
+
+When this happened on Python-Ideas, people wrote to me defending the 
+change on exactly that basis: Brett's the dictator and can do what he 
+likes, he doesn't have to listen, if I don't like it, I should leave. 
+This was coming from people who were vigourously supporting the CoC and 
+the need to be welcoming to all. If there is a way to reconcile those 
+two seemingly contradictory positions, I don't know what it is.
+
+I'm not accusing Brett or anyone else of being a moustache-twirling 
+villain who is out to ruin this group, or of acting maliciously. I truly 
+believe that he is trying to act in the best interests of the community. 
+But I think he is failing. It takes actual effort to listen to minority 
+views, really listen, not just say "we're listening", and in this case I 
+feel that Brett didn't even bother with the "we're listening" part, he 
+just went straight to the "we know what's best".
+
+Having your voice heard goes a long way to making people feel welcome. 
+Having rules applied by fiat with no opportunity to be heard is not 
+open, respectful or considerate, but it is a good way to build 
+resentment and make people feel like outsiders. Which is exactly how I 
+feel now.
+
+(Although the measured and reasonable responses to my earlier email have 
+gone a long way towards mitigating that. Thank you to all those who 
+replied respectfully, and thankfully this time I wasn't told to GTFO if 
+I didn't like it.)
+
+I have worked in a team where managers would apply policy changes that 
+affected the entire team (including other managers) without a period of 
+consultation, and it is toxic behaviour. It breeds resentment and a 
+feeling of being pushed into the outer. The feeling of voicelessness can 
+break work-places, families and entire communities, and one of the most 
+important parts of social justice is to give people a voice.
+
+Technically, the CoC only says that we should be "receptive to 
+constructive comment and criticism", it doesn't say anything about 
+avoiding criticism in the first place by consulting with the community 
+before making changes that affects them. But I think that the three 
+overriding principles of openness, respect and consideration should 
+apply *proactively*, not just retroactively.
+
+
+> > If I knew what you considered "a jerk", then I might be able to say
+> > whether I agreed or disagreed. For all I know, you might consider this
+> > email to be nothing but me being a jerk.
+> 
+> It doesn't read to me as you being a jerk, but it does read to me as
+> you responding without actually reading the PSF Community Code of
+> Conduct that Brett linked to.
+
+Nick, give me some credit. I was around when the PSF voted on this the 
+first time, and I was around when it was applied to the Python-Ideas 
+list. I've read the CoC many times, and I'm quite familiar with it. This 
+is not some knee-jerk reaction. I've been thinking about this issue for 
+some time.
+
+
+-- 
+Steve
+
+From ethan at stoneleaf.us  Mon Feb 29 22:01:51 2016
+From: ethan at stoneleaf.us (Ethan Furman)
+Date: Mon, 29 Feb 2016 19:01:51 -0800
+Subject: [python-committers] Making the PSF CoC apply to core developers
+In-Reply-To: <20160301020031.GM12028@ando.pearwood.info>
+References: <CAP1=2W6R+BEBeFf=gq9ZvCo9RF78Gve8_PxPmLExzbDVU3kY7g@mail.gmail.com>
+ <loom.20160227T121049-853@post.gmane.org>
+ <CAP1=2W5RLvVPRqvH=psWfjU=MrQ2CQRv+ntn8QSQXW7P_QjrrQ@mail.gmail.com>
+ <20160228022741.GK12028@ando.pearwood.info>
+ <CADiSq7fHyzGC0TGX0e1+Apcap1FasEayEwNZGikm41sOT-VRfw@mail.gmail.com>
+ <20160301020031.GM12028@ando.pearwood.info>
+Message-ID: <56D5061F.6050208@stoneleaf.us>
+
+On 02/29/2016 06:00 PM, Steven D'Aprano wrote:
+
+> I have worked in a team where managers would apply policy changes that
+> affected the entire team (including other managers) without a period of
+> consultation, and it is toxic behaviour. It breeds resentment and a
+> feeling of being pushed into the outer. The feeling of voicelessness can
+> break work-places, families and entire communities, and one of the most
+> important parts of social justice is to give people a voice.
+
+Very true.  Thank you for speaking up and being persistent.
+
+--
+~Ethan~
+
+From brett at python.org  Mon Feb 29 23:10:08 2016
+From: brett at python.org (Brett Cannon)
+Date: Tue, 01 Mar 2016 04:10:08 +0000
+Subject: [python-committers] Making the PSF CoC apply to core developers
+In-Reply-To: <20160301020031.GM12028@ando.pearwood.info>
+References: <CAP1=2W6R+BEBeFf=gq9ZvCo9RF78Gve8_PxPmLExzbDVU3kY7g@mail.gmail.com>
+ <loom.20160227T121049-853@post.gmane.org>
+ <CAP1=2W5RLvVPRqvH=psWfjU=MrQ2CQRv+ntn8QSQXW7P_QjrrQ@mail.gmail.com>
+ <20160228022741.GK12028@ando.pearwood.info>
+ <CADiSq7fHyzGC0TGX0e1+Apcap1FasEayEwNZGikm41sOT-VRfw@mail.gmail.com>
+ <20160301020031.GM12028@ando.pearwood.info>
+Message-ID: <CAP1=2W4F8WWA=UpDe7o7cw+QFLRg-iS3y+_z2aNzDKzZg-x+WQ@mail.gmail.com>
+
+On Mon, 29 Feb 2016 at 18:01 Steven D'Aprano <steve at pearwood.info> wrote:
+
+> On Sun, Feb 28, 2016 at 03:11:25PM +1000, Nick Coghlan wrote:
+> > On 28 February 2016 at 12:27, Steven D'Aprano <steve at pearwood.info>
+> wrote:
+> > > Nobody *has* to tolerate jerks, especially on an email forum. Just
+> > > filter their emails into the trash.
+> >
+> > This approach means every *future* participant in that community then
+> > has to encounter the person that's behaving like a jerk, realise they
+> > consistently behave that way, and add them to their own filters.
+> [...]
+>
+> It also means they get to decide for themselves what is and isn't
+> unacceptable behaviour *to them*, without imposing those values on those
+> who don't share them.
+>
+> Look, I get it. I'm outvoted, and the community -- at least those who
+> are willing to speak up publicly -- agree with the CoC. I'm obviously in
+> a minority here, and I accept that.
+>
+> But that's not the point. The point is that if we're actually going to
+> be "open, respectful and considerate" as the CoC requires, then we
+> actually have to make time to listen to those diverse viewpoints we say
+> we want to listen to. If we're serious about the CoC, then we should
+> treat it seriously and not just give lip-service to it.
+>
+> How can we say we're in favour of diversity if we don't give those
+> diverse voices and viewpoints a chance to speak up before making
+> decisions? Community values come from the entire community, not just
+> from a couple of guys with admin powers on the mailing list software.
+>
+> Being open, respectful and considerate means that, even if you have the
+> de facto power to apply whatever rules you want, you *ask first* and
+> listen to what the community has to say. Maybe you'll be surprised by
+> what they say. Maybe you won't. But you won't know unless you ask.
+>
+> Even if the community is overwhelmingly in favour of the change, at
+> least those with a different opinion will have had the chance to be
+> heard. And that is critical for a healthy community. "You never listen"
+> is deadly for relationships, whether they are family, business or
+> community. There is a reason why members of minorities are often
+> described as "voiceless", and why we should *listen to them*.
+>
+> Even if, after due consideration, we choose to dismiss their point of
+> view. We're all adults here, and I trust that none of us expect to "win"
+> all the time. So long as we get a fair chance to have our say and have
+> it honestly considered with an open mind. I don't ask for anything more
+> than that.
+>
+> The most frustrating thing is that we've been through this before. In
+> 2013, Brett and Titus did exactly the same thing on the Python-Ideas
+> list:
+>
+> https://mail.python.org/pipermail/python-ideas/2013-June/021087.html
+>
+> So let me make it clear: Brett, and the other list maintainers, you're
+> not listening. Even if I'm a minority of one out of the whole community,
+> your words say "of course we care what you think" but your actions say
+> "actually no, we couldn't care less". You might not have intended it
+> that way, but nevertheless that's the way it is.
+>
+
+I see where the issue came in: I simply considered the discussion on the
+CoC already settled. As you pointed out in your second paragraph, the
+community has decided that they like the idea of a CoC (for instance, I was
+applauded at PyCon US 2014 when I gave the opening address and pointed out
+that there was a CoC in effect). I also went through these points with
+python-ideas years ago (and you're right, it wasn't a discussion as much as
+an edict of new rules on python-ideas, but I felt that was necessary to
+deal with the situation). I wasn't trying to silence dissent, I just
+considered it a settled point.
+
+And the key word for me is "settled". It's like people wanting a Python 2.8
+release: at some point we decided the key points were made and that our
+decision had been settled. I feel the same way about the CoC, so I didn't
+view it as silencing the anti-CoC side before they could argue as much as
+the argument had been had and the CoC side had won.
+
+
+>
+> Imagine an alternate universe where Brett had said, "I'm the dictator of
+> this mailing list and I don't care what anyone thinks. From now on, I'm
+> going to ban 'jerk' behaviour, and if you don't like it, tough." How
+> exactly is that alternate universe different from what actually took
+> place?
+>
+
+Two ways. One, the CoC is at least written down so it isn't quite so
+arbitrary as "Brett says so!" The other is that I considered it "... tough,
+because we have already had this discussion as a community and decided
+having a CoC is a good thing".
+
+
+>
+> When this happened on Python-Ideas, people wrote to me defending the
+> change on exactly that basis: Brett's the dictator and can do what he
+> likes, he doesn't have to listen, if I don't like it, I should leave.
+> This was coming from people who were vigourously supporting the CoC and
+> the need to be welcoming to all. If there is a way to reconcile those
+> two seemingly contradictory positions, I don't know what it is.
+>
+
+In that instance I think it's because when you come down on the anti-CoC
+side, the pro side tend to view it as you're putting the worry of silencing
+dissenting voices over protecting those who feel they can't speak up
+without a CoC. And since the pro side views the CoC as enough to prevent
+dissenting voices from being silenced in the first place then that makes
+the anti-CoC as censoring more implicitly and the possible explicit
+censoring of the anti- side.
+
+
+>
+> I'm not accusing Brett or anyone else of being a moustache-twirling
+> villain who is out to ruin this group, or of acting maliciously. I truly
+> believe that he is trying to act in the best interests of the community.
+> But I think he is failing. It takes actual effort to listen to minority
+> views, really listen, not just say "we're listening", and in this case I
+> feel that Brett didn't even bother with the "we're listening" part, he
+> just went straight to the "we know what's best".
+>
+> Having your voice heard goes a long way to making people feel welcome.
+> Having rules applied by fiat with no opportunity to be heard is not
+> open, respectful or considerate, but it is a good way to build
+> resentment and make people feel like outsiders. Which is exactly how I
+> feel now.
+>
+> (Although the measured and reasonable responses to my earlier email have
+> gone a long way towards mitigating that. Thank you to all those who
+> replied respectfully, and thankfully this time I wasn't told to GTFO if
+> I didn't like it.)
+>
+> I have worked in a team where managers would apply policy changes that
+> affected the entire team (including other managers) without a period of
+> consultation, and it is toxic behaviour. It breeds resentment and a
+> feeling of being pushed into the outer. The feeling of voicelessness can
+> break work-places, families and entire communities, and one of the most
+> important parts of social justice is to give people a voice.
+>
+
+Right, but as I said earlier in this email, this was not some knee-jerk
+decision where opposing voices had not been listened to previously. To me
+the CoC debate spanned years and has been settled at this point. So it
+isn't like a manager walking into a meeting and saying "we're switching to
+Java because I say so", it's more like "the rest of the company has
+standardized on Python and we're the lone hold-outs, so we're finally going
+to align with the rest of the company".
+
+-Brett
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20160301/f00b3a97/attachment-0001.html>
+

@@ -1,0 +1,2060 @@
+From brian.curtin at gmail.com  Fri Jun  3 01:28:08 2011
+From: brian.curtin at gmail.com (Brian Curtin)
+Date: Thu, 2 Jun 2011 18:28:08 -0500
+Subject: [python-committers] 3.2.1 rc 2
+In-Reply-To: <ir3np6$v2b$1@dough.gmane.org>
+References: <ir3np6$v2b$1@dough.gmane.org>
+Message-ID: <BANLkTikC75_N-Wje-2fj-d8+QAsYnTj68Q@mail.gmail.com>
+
+On Thu, May 19, 2011 at 13:33, Georg Brandl <g.brandl at gmx.net> wrote:
+
+> As I've already said in another thread, I plan for 3.2.1 r2 as soon as
+> http://bugs.python.org/issue12084 is fixed.  This is hopefully this
+> weekend, but may be next.  Final is, as always, one week later.
+>
+> Georg
+
+
+Sorry for taking so long to finish it, but I now have a patch completed for
+#12084. It's Windows specific so I don't imagine there are a lot of
+interested reviewers, but at least a quick look to make sure I'm not doing
+anything too crazy would be greatly appreciated so Georg and the crew and
+get on with the release process.
+
+The full test suite passes, but keep in mind that symlinks on Windows
+require administrator privileges. My build slave is the only one which runs
+as admin and it's not currently running very well. Now that I fixed this
+bug, I'll get the bot back up and running.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20110602/ce2dfc51/attachment.html>
+
+From g.brandl at gmx.net  Fri Jun  3 17:39:49 2011
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Fri, 03 Jun 2011 17:39:49 +0200
+Subject: [python-committers] 3.2.1 rc 2
+In-Reply-To: <BANLkTikC75_N-Wje-2fj-d8+QAsYnTj68Q@mail.gmail.com>
+References: <ir3np6$v2b$1@dough.gmane.org>
+	<BANLkTikC75_N-Wje-2fj-d8+QAsYnTj68Q@mail.gmail.com>
+Message-ID: <isav84$u9i$1@dough.gmane.org>
+
+On 06/03/11 01:28, Brian Curtin wrote:
+> On Thu, May 19, 2011 at 13:33, Georg Brandl <g.brandl at gmx.net
+> <mailto:g.brandl at gmx.net>> wrote:
+> 
+>     As I've already said in another thread, I plan for 3.2.1 r2 as soon as
+>     http://bugs.python.org/issue12084 is fixed.  This is hopefully this
+>     weekend, but may be next.  Final is, as always, one week later.
+> 
+>     Georg
+> 
+> 
+> Sorry for taking so long to finish it, but I now have a patch completed for
+> #12084. It's Windows specific so I don't imagine there are a lot of interested
+> reviewers, but at least a quick look to make sure I'm not doing anything too
+> crazy would be greatly appreciated so Georg and the crew and get on with the
+> release process.
+> 
+> The full test suite passes, but keep in mind that symlinks on Windows require
+> administrator privileges. My build slave is the only one which runs as admin and
+> it's not currently running very well. Now that I fixed this bug, I'll get the
+> bot back up and running.
+
+Good timing... I'm just leaving for vacation :)  I am not certain, but if all
+goes as planned I might still have some time between this and next weekend to
+get out a rc2, and reserve the weekend of the 18th/19th for the final.  I'll
+put that in the release calendar for now.
+
+cheers,
+Georg
+
+
+From barry at python.org  Fri Jun  3 17:53:46 2011
+From: barry at python.org (Barry Warsaw)
+Date: Fri, 3 Jun 2011 11:53:46 -0400
+Subject: [python-committers] 2.6.7 final today
+Message-ID: <20110603115346.29cdb153@neurotica.wooz.org>
+
+I plan on releasing Python 2.6.7 as scheduled today.  I see no showstopper bugs,
+but do feel free to ping me on irc if you know of any reason to delay the
+release.  I probably won't start on it for several hours yet.
+
+-Barry
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 836 bytes
+Desc: not available
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20110603/d1b7d81b/attachment.pgp>
+
+From rdmurray at bitdance.com  Thu Jun  9 03:43:39 2011
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Wed, 08 Jun 2011 21:43:39 -0400
+Subject: [python-committers] state of the 3.2 branch
+Message-ID: <20110609014340.6F0A4250516@webabinitio.net>
+
+I am completely confused by the state of the 3.2 branch.  My understanding
+is that RC1 has been released, that RC2 is coming soon, and that Georg
+is releasing 3.2.1 from a separate clone so that we do not have to have
+a freeze in the main repo.  All that is fine, but the main repo NEWS
+file is headed by "What's New in Python 3.2.1 Release candidate 2?",
+yet there are clearly news items in that section that should not be
+going in to release candidate 2.  As an arbitrary example, take:
+
+    - Issue #12175: FileIO.readall() now raises a ValueError instead of
+      an IOError if the file is closed.
+
+That seems to me to be clearly not a critical fix, and thus not
+appropriate for the RC stage.
+
+Is is that the NEWS section hasn't been updated?  Or, Georg, are you
+going to sort out the stuff you really put into RC2 from the other stuff
+after you release RC2?
+
+I'm not committing anything right now because it just isn't clear to me
+how all of this is working, so for me it's as if we have a freeze just
+like we had with our SVN procedures.
+
+(The 2.7 branch, on the other hand, looks as I would expect, with
+the section header referring to 2.7.3.)
+
+--
+R. David Murray           http://www.bitdance.com
+
+From benjamin at python.org  Thu Jun  9 04:26:35 2011
+From: benjamin at python.org (Benjamin Peterson)
+Date: Wed, 8 Jun 2011 21:26:35 -0500
+Subject: [python-committers] state of the 3.2 branch
+In-Reply-To: <20110609014340.6F0A4250516@webabinitio.net>
+References: <20110609014340.6F0A4250516@webabinitio.net>
+Message-ID: <BANLkTikBks4KXRy11xQYjFVZGpf1JLLZAw@mail.gmail.com>
+
+2011/6/8 R. David Murray <rdmurray at bitdance.com>:
+> I am completely confused by the state of the 3.2 branch. ?My understanding
+> is that RC1 has been released, that RC2 is coming soon, and that Georg
+> is releasing 3.2.1 from a separate clone so that we do not have to have
+> a freeze in the main repo. ?All that is fine, but the main repo NEWS
+> file is headed by "What's New in Python 3.2.1 Release candidate 2?",
+> yet there are clearly news items in that section that should not be
+> going in to release candidate 2. ?As an arbitrary example, take:
+>
+> ? ?- Issue #12175: FileIO.readall() now raises a ValueError instead of
+> ? ? ?an IOError if the file is closed.
+>
+> That seems to me to be clearly not a critical fix, and thus not
+> appropriate for the RC stage.
+>
+> Is is that the NEWS section hasn't been updated? ?Or, Georg, are you
+> going to sort out the stuff you really put into RC2 from the other stuff
+> after you release RC2?
+
+See af715726d911 It looks like Georg has been merging the 3.2.1
+release branch to the 3.2 branch and people are blindly adding to the
+news section. That stuff should probably just be relocated.
+
+
+-- 
+Regards,
+Benjamin
+
+From steve at holdenweb.com  Thu Jun  9 05:11:10 2011
+From: steve at holdenweb.com (Steve Holden)
+Date: Thu, 9 Jun 2011 04:11:10 +0100
+Subject: [python-committers] state of the 3.2 branch
+In-Reply-To: <BANLkTikBks4KXRy11xQYjFVZGpf1JLLZAw@mail.gmail.com>
+References: <20110609014340.6F0A4250516@webabinitio.net>
+	<BANLkTikBks4KXRy11xQYjFVZGpf1JLLZAw@mail.gmail.com>
+Message-ID: <1CD0156A-8B1C-48F0-946E-FDA1A7D41A25@holdenweb.com>
+
+"Blindly" never sounds good. Just sayin'.
+
+regards
+ Steve
+
+On Jun 9, 2011, at 3:26 AM, Benjamin Peterson wrote:
+
+> 2011/6/8 R. David Murray <rdmurray at bitdance.com>:
+>> I am completely confused by the state of the 3.2 branch.  My understanding
+>> is that RC1 has been released, that RC2 is coming soon, and that Georg
+>> is releasing 3.2.1 from a separate clone so that we do not have to have
+>> a freeze in the main repo.  All that is fine, but the main repo NEWS
+>> file is headed by "What's New in Python 3.2.1 Release candidate 2?",
+>> yet there are clearly news items in that section that should not be
+>> going in to release candidate 2.  As an arbitrary example, take:
+>> 
+>>    - Issue #12175: FileIO.readall() now raises a ValueError instead of
+>>      an IOError if the file is closed.
+>> 
+>> That seems to me to be clearly not a critical fix, and thus not
+>> appropriate for the RC stage.
+>> 
+>> Is is that the NEWS section hasn't been updated?  Or, Georg, are you
+>> going to sort out the stuff you really put into RC2 from the other stuff
+>> after you release RC2?
+> 
+> See af715726d911 It looks like Georg has been merging the 3.2.1
+> release branch to the 3.2 branch and people are blindly adding to the
+> news section. That stuff should probably just be relocated.
+> 
+> 
+> -- 
+> Regards,
+> Benjamin
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+
+-- 
+Steve Holden
+steve at holdenweb.com
+
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20110609/8b5cff5e/attachment.html>
+
+From nad at acm.org  Thu Jun  9 06:29:21 2011
+From: nad at acm.org (Ned Deily)
+Date: Wed, 8 Jun 2011 21:29:21 -0700
+Subject: [python-committers] state of the 3.2 branch
+In-Reply-To: <20110609014340.6F0A4250516@webabinitio.net>
+References: <20110609014340.6F0A4250516@webabinitio.net>
+Message-ID: <5FA50C13-338E-4D60-90C8-93429A709944@acm.org>
+
+
+On Jun 8, 2011, at 18:43 , R. David Murray wrote:
+
+> I am completely confused by the state of the 3.2 branch.  My understanding
+> is that RC1 has been released, that RC2 is coming soon, and that Georg
+> is releasing 3.2.1 from a separate clone so that we do not have to have
+> a freeze in the main repo.  All that is fine, but the main repo NEWS
+> file is headed by "What's New in Python 3.2.1 Release candidate 2?",
+> yet there are clearly news items in that section that should not be
+> going in to release candidate 2.  As an arbitrary example, take:
+> 
+>    - Issue #12175: FileIO.readall() now raises a ValueError instead of
+>      an IOError if the file is closed.
+> 
+> That seems to me to be clearly not a critical fix, and thus not
+> appropriate for the RC stage.
+
+Georg announced earlier that rc1 is dead so anything is allowed into rc2:
+
+http://permalink.gmane.org/gmane.comp.python.committers/1677
+
+--
+  Ned Deily
+  nad at acm.org -- []
+
+
+
+
+From g.brandl at gmx.net  Thu Jun  9 08:13:26 2011
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Thu, 09 Jun 2011 08:13:26 +0200
+Subject: [python-committers] state of the 3.2 branch
+In-Reply-To: <20110609014340.6F0A4250516@webabinitio.net>
+References: <20110609014340.6F0A4250516@webabinitio.net>
+Message-ID: <ispoa4$u9l$1@dough.gmane.org>
+
+On 06/09/11 03:43, R. David Murray wrote:
+> I am completely confused by the state of the 3.2 branch.  My understanding
+> is that RC1 has been released, that RC2 is coming soon, and that Georg
+> is releasing 3.2.1 from a separate clone so that we do not have to have
+> a freeze in the main repo.  All that is fine, but the main repo NEWS
+> file is headed by "What's New in Python 3.2.1 Release candidate 2?",
+> yet there are clearly news items in that section that should not be
+> going in to release candidate 2.  As an arbitrary example, take:
+> 
+>     - Issue #12175: FileIO.readall() now raises a ValueError instead of
+>       an IOError if the file is closed.
+> 
+> That seems to me to be clearly not a critical fix, and thus not
+> appropriate for the RC stage.
+> 
+> Is is that the NEWS section hasn't been updated?  Or, Georg, are you
+> going to sort out the stuff you really put into RC2 from the other stuff
+> after you release RC2?
+> 
+> I'm not committing anything right now because it just isn't clear to me
+> how all of this is working, so for me it's as if we have a freeze just
+> like we had with our SVN procedures.
+> 
+> (The 2.7 branch, on the other hand, looks as I would expect, with
+> the section header referring to 2.7.3.)
+
+Since there is such a long timespan between rc1 and rc2, and rc1 normall is
+the first and only prerelease anyway, I've decided to allow all fixes into
+rc2.  So just commit as usual.
+
+Georg
+
+
+From rdmurray at bitdance.com  Thu Jun  9 17:42:58 2011
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Thu, 09 Jun 2011 11:42:58 -0400
+Subject: [python-committers] state of the 3.2 branch
+In-Reply-To: <5FA50C13-338E-4D60-90C8-93429A709944@acm.org>
+References: <20110609014340.6F0A4250516@webabinitio.net>
+	<5FA50C13-338E-4D60-90C8-93429A709944@acm.org>
+Message-ID: <20110609154259.40BF32505A3@webabinitio.net>
+
+On Wed, 08 Jun 2011 21:29:21 -0700, Ned Deily <nad at acm.org> wrote:
+> 
+> On Jun 8, 2011, at 18:43 , R. David Murray wrote:
+> 
+> > I am completely confused by the state of the 3.2 branch.  My understanding
+> > is that RC1 has been released, that RC2 is coming soon, and that Georg
+> > is releasing 3.2.1 from a separate clone so that we do not have to have
+> > a freeze in the main repo.  All that is fine, but the main repo NEWS
+> > file is headed by "What's New in Python 3.2.1 Release candidate 2?",
+> > yet there are clearly news items in that section that should not be
+> > going in to release candidate 2.  As an arbitrary example, take:
+> > 
+> >    - Issue #12175: FileIO.readall() now raises a ValueError instead of
+> >      an IOError if the file is closed.
+> > 
+> > That seems to me to be clearly not a critical fix, and thus not
+> > appropriate for the RC stage.
+> 
+> Georg announced earlier that rc1 is dead so anything is allowed into rc2:
+> 
+> http://permalink.gmane.org/gmane.comp.python.committers/1677
+
+Ah, thank you.  I must have misunderstood that when I read it the first
+time (I do have a vague memory of reading it).  I will just translate
+"rc2" to "rc1" in my head and solder on :)
+
+I still does make the NEWS history look weird, though.
+
+--
+R. David Murray           http://www.bitdance.com
+
+From g.brandl at gmx.net  Thu Jun  9 19:46:25 2011
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Thu, 09 Jun 2011 19:46:25 +0200
+Subject: [python-committers] state of the 3.2 branch
+In-Reply-To: <20110609154259.40BF32505A3@webabinitio.net>
+References: <20110609014340.6F0A4250516@webabinitio.net>	<5FA50C13-338E-4D60-90C8-93429A709944@acm.org>
+	<20110609154259.40BF32505A3@webabinitio.net>
+Message-ID: <isr0te$47i$1@dough.gmane.org>
+
+On 06/09/11 17:42, R. David Murray wrote:
+> On Wed, 08 Jun 2011 21:29:21 -0700, Ned Deily <nad at acm.org> wrote:
+>> 
+>> On Jun 8, 2011, at 18:43 , R. David Murray wrote:
+>> 
+>> > I am completely confused by the state of the 3.2 branch.  My understanding
+>> > is that RC1 has been released, that RC2 is coming soon, and that Georg
+>> > is releasing 3.2.1 from a separate clone so that we do not have to have
+>> > a freeze in the main repo.  All that is fine, but the main repo NEWS
+>> > file is headed by "What's New in Python 3.2.1 Release candidate 2?",
+>> > yet there are clearly news items in that section that should not be
+>> > going in to release candidate 2.  As an arbitrary example, take:
+>> > 
+>> >    - Issue #12175: FileIO.readall() now raises a ValueError instead of
+>> >      an IOError if the file is closed.
+>> > 
+>> > That seems to me to be clearly not a critical fix, and thus not
+>> > appropriate for the RC stage.
+>> 
+>> Georg announced earlier that rc1 is dead so anything is allowed into rc2:
+>> 
+>> http://permalink.gmane.org/gmane.comp.python.committers/1677
+> 
+> Ah, thank you.  I must have misunderstood that when I read it the first
+> time (I do have a vague memory of reading it).  I will just translate
+> "rc2" to "rc1" in my head and solder on :)
+> 
+> I still does make the NEWS history look weird, though.
+
+Why? All the new stuff is under "new in 3.2.1rc2" which is correct.
+
+Georg
+
+
+From rdmurray at bitdance.com  Thu Jun  9 20:32:52 2011
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Thu, 09 Jun 2011 14:32:52 -0400
+Subject: [python-committers] state of the 3.2 branch
+In-Reply-To: <isr0te$47i$1@dough.gmane.org>
+References: <20110609014340.6F0A4250516@webabinitio.net>
+	<5FA50C13-338E-4D60-90C8-93429A709944@acm.org>
+	<20110609154259.40BF32505A3@webabinitio.net>
+	<isr0te$47i$1@dough.gmane.org>
+Message-ID: <20110609183253.551992505A3@webabinitio.net>
+
+On Thu, 09 Jun 2011 19:46:25 +0200, Georg Brandl <g.brandl at gmx.net> wrote:
+> On 06/09/11 17:42, R. David Murray wrote:
+> > On Wed, 08 Jun 2011 21:29:21 -0700, Ned Deily <nad at acm.org> wrote:
+> >> 
+> >> On Jun 8, 2011, at 18:43 , R. David Murray wrote:
+> >> 
+> >> > I am completely confused by the state of the 3.2 branch.  My understanding
+> >> > is that RC1 has been released, that RC2 is coming soon, and that Georg
+> >> > is releasing 3.2.1 from a separate clone so that we do not have to have
+> >> > a freeze in the main repo.  All that is fine, but the main repo NEWS
+> >> > file is headed by "What's New in Python 3.2.1 Release candidate 2?",
+> >> > yet there are clearly news items in that section that should not be
+> >> > going in to release candidate 2.  As an arbitrary example, take:
+> >> > 
+> >> >    - Issue #12175: FileIO.readall() now raises a ValueError instead of
+> >> >      an IOError if the file is closed.
+> >> > 
+> >> > That seems to me to be clearly not a critical fix, and thus not
+> >> > appropriate for the RC stage.
+> >> 
+> >> Georg announced earlier that rc1 is dead so anything is allowed into rc2:
+> >> 
+> >> http://permalink.gmane.org/gmane.comp.python.committers/1677
+> > 
+> > Ah, thank you.  I must have misunderstood that when I read it the first
+> > time (I do have a vague memory of reading it).  I will just translate
+> > "rc2" to "rc1" in my head and solder on :)
+> > 
+> > I still does make the NEWS history look weird, though.
+> 
+> Why? All the new stuff is under "new in 3.2.1rc2" which is correct.
+
+Yeah, but that stuff isn't the kind of stuff you'd normally see
+in an RC2.  That's what I meant by weird :).  It's not a big deal.
+
+--
+R. David Murray           http://www.bitdance.com
+
+From merwok at netwok.org  Fri Jun 10 19:57:32 2011
+From: merwok at netwok.org (=?UTF-8?B?w4lyaWMgQXJhdWpv?=)
+Date: Fri, 10 Jun 2011 19:57:32 +0200
+Subject: [python-committers] Pulling from contributors repositories
+Message-ID: <4DF25B0C.2000207@netwok.org>
+
+Hi,
+
+If someone has a cpython clone with a clean changeset that fixes a bug
+or adds a feature, is there any reason not to pull it and push it to the
+main repo?  It would save getting and applying the patch manually.
+
+Regards
+
+From solipsis at pitrou.net  Fri Jun 10 20:00:47 2011
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Fri, 10 Jun 2011 20:00:47 +0200
+Subject: [python-committers] Pulling from contributors repositories
+In-Reply-To: <4DF25B0C.2000207@netwok.org>
+References: <4DF25B0C.2000207@netwok.org>
+Message-ID: <1307728847.3653.6.camel@localhost.localdomain>
+
+Le vendredi 10 juin 2011 ? 19:57 +0200, ?ric Araujo a ?crit :
+> Hi,
+> 
+> If someone has a cpython clone with a clean changeset that fixes a bug
+> or adds a feature, is there any reason not to pull it and push it to the
+> main repo?  It would save getting and applying the patch manually.
+
+You usually want to add a Misc/NEWS message or an ACKS entry, or make a
+cosmetic change to the patch.
+(in other words, "there's no such thing as a clean changeset" :-))
+
+Regards
+
+Antoine.
+
+
+
+From ncoghlan at gmail.com  Sat Jun 11 11:24:28 2011
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Sat, 11 Jun 2011 19:24:28 +1000
+Subject: [python-committers] Pulling from contributors repositories
+In-Reply-To: <1307728847.3653.6.camel@localhost.localdomain>
+References: <4DF25B0C.2000207@netwok.org>
+	<1307728847.3653.6.camel@localhost.localdomain>
+Message-ID: <BANLkTimREzLjao8t1rR=4o1y43gnOhG24A@mail.gmail.com>
+
+On Sat, Jun 11, 2011 at 4:00 AM, Antoine Pitrou <solipsis at pitrou.net> wrote:
+> Le vendredi 10 juin 2011 ? 19:57 +0200, ?ric Araujo a ?crit :
+>> Hi,
+>>
+>> If someone has a cpython clone with a clean changeset that fixes a bug
+>> or adds a feature, is there any reason not to pull it and push it to the
+>> main repo? ?It would save getting and applying the patch manually.
+>
+> You usually want to add a Misc/NEWS message or an ACKS entry, or make a
+> cosmetic change to the patch.
+> (in other words, "there's no such thing as a clean changeset" :-))
+
+Until mercurial has better tools to bundle multiple changesets into a
+single coherent group of changes, it's still preferable to do the
+export/import dance.
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan?? |?? ncoghlan at gmail.com?? |?? Brisbane, Australia
+
+From benjamin at python.org  Sat Jun 11 17:01:37 2011
+From: benjamin at python.org (Benjamin Peterson)
+Date: Sat, 11 Jun 2011 10:01:37 -0500
+Subject: [python-committers] 2.7.2 and 3.1.4 tagged
+Message-ID: <BANLkTi=Ok-geb8+-tQQQUReyyXdD5F0cmw@mail.gmail.com>
+
+Hi,
+2.7.2 and 3.1.4 have been tagged (in the main repo) and are ready for
+binary building.
+
+
+Thanks,
+Benjamin
+
+From martin at v.loewis.de  Sun Jun 12 13:59:58 2011
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Sun, 12 Jun 2011 13:59:58 +0200
+Subject: [python-committers] Pulling from contributors repositories
+In-Reply-To: <BANLkTimREzLjao8t1rR=4o1y43gnOhG24A@mail.gmail.com>
+References: <4DF25B0C.2000207@netwok.org>	<1307728847.3653.6.camel@localhost.localdomain>
+	<BANLkTimREzLjao8t1rR=4o1y43gnOhG24A@mail.gmail.com>
+Message-ID: <4DF4AA3E.1070302@v.loewis.de>
+
+> Until mercurial has better tools to bundle multiple changesets into a
+> single coherent group of changes, it's still preferable to do the
+> export/import dance.
+
+Why did we migrate to Mercurial, then?
+
+Regards,
+Martin
+
+From ncoghlan at gmail.com  Sun Jun 12 15:03:05 2011
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Sun, 12 Jun 2011 23:03:05 +1000
+Subject: [python-committers] Pulling from contributors repositories
+In-Reply-To: <4DF4AA3E.1070302@v.loewis.de>
+References: <4DF25B0C.2000207@netwok.org>
+	<1307728847.3653.6.camel@localhost.localdomain>
+	<BANLkTimREzLjao8t1rR=4o1y43gnOhG24A@mail.gmail.com>
+	<4DF4AA3E.1070302@v.loewis.de>
+Message-ID: <BANLkTi=qjoi=2bBbBv-zdT8hx3Jqa+PisQ@mail.gmail.com>
+
+On Sun, Jun 12, 2011 at 9:59 PM, "Martin v. L?wis" <martin at v.loewis.de> wrote:
+>> Until mercurial has better tools to bundle multiple changesets into a
+>> single coherent group of changes, it's still preferable to do the
+>> export/import dance.
+>
+> Why did we migrate to Mercurial, then?
+
+The merge tools are still better and keeping out-of-tree branches up
+to date is significantly easier. The fact that bringing external
+changes *in* to the tree still requires going through the patch
+process as it did with SVN is just an artefact of our desire to keep
+the history of the central repo relatively clean and python-checkins
+at least somewhat readable.
+
+It's also possible that we should be encouraging greater use of
+Mercurial Queues [1] and making them an official part of our
+development process. After all, their stated purpose is to allow
+changes to be developed incrementally, but only landed in the official
+history as a single consolidated changeset. Since that's the behaviour
+we want, we should probably consider using the tool that is designed
+to provide it.
+
+[1] http://mercurial.selenic.com/wiki/MqExtension
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan?? |?? ncoghlan at gmail.com?? |?? Brisbane, Australia
+
+From ncoghlan at gmail.com  Sun Jun 12 15:05:39 2011
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Sun, 12 Jun 2011 23:05:39 +1000
+Subject: [python-committers] Pulling from contributors repositories
+In-Reply-To: <BANLkTi=qjoi=2bBbBv-zdT8hx3Jqa+PisQ@mail.gmail.com>
+References: <4DF25B0C.2000207@netwok.org>
+	<1307728847.3653.6.camel@localhost.localdomain>
+	<BANLkTimREzLjao8t1rR=4o1y43gnOhG24A@mail.gmail.com>
+	<4DF4AA3E.1070302@v.loewis.de>
+	<BANLkTi=qjoi=2bBbBv-zdT8hx3Jqa+PisQ@mail.gmail.com>
+Message-ID: <BANLkTi=Azadr+mKYyCSuYrjTey6sjSv-TQ@mail.gmail.com>
+
+On Sun, Jun 12, 2011 at 11:03 PM, Nick Coghlan <ncoghlan at gmail.com> wrote:
+>
+> [1] http://mercurial.selenic.com/wiki/MqExtension
+
+Arguably better link: http://mercurial.selenic.com/wiki/MqTutorial
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan?? |?? ncoghlan at gmail.com?? |?? Brisbane, Australia
+
+From martin at v.loewis.de  Sun Jun 12 16:01:36 2011
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Sun, 12 Jun 2011 16:01:36 +0200
+Subject: [python-committers] Pulling from contributors repositories
+In-Reply-To: <BANLkTi=qjoi=2bBbBv-zdT8hx3Jqa+PisQ@mail.gmail.com>
+References: <4DF25B0C.2000207@netwok.org>	<1307728847.3653.6.camel@localhost.localdomain>	<BANLkTimREzLjao8t1rR=4o1y43gnOhG24A@mail.gmail.com>	<4DF4AA3E.1070302@v.loewis.de>
+	<BANLkTi=qjoi=2bBbBv-zdT8hx3Jqa+PisQ@mail.gmail.com>
+Message-ID: <4DF4C6C0.5070809@v.loewis.de>
+
+> It's also possible that we should be encouraging greater use of
+> Mercurial Queues [1] and making them an official part of our
+> development process.
+
+Can you publish/push a patch queue to a remote repository?
+
+Regards,
+Martin
+
+From ncoghlan at gmail.com  Sun Jun 12 18:05:13 2011
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Mon, 13 Jun 2011 02:05:13 +1000
+Subject: [python-committers] Pulling from contributors repositories
+In-Reply-To: <4DF4C6C0.5070809@v.loewis.de>
+References: <4DF25B0C.2000207@netwok.org>
+	<1307728847.3653.6.camel@localhost.localdomain>
+	<BANLkTimREzLjao8t1rR=4o1y43gnOhG24A@mail.gmail.com>
+	<4DF4AA3E.1070302@v.loewis.de>
+	<BANLkTi=qjoi=2bBbBv-zdT8hx3Jqa+PisQ@mail.gmail.com>
+	<4DF4C6C0.5070809@v.loewis.de>
+Message-ID: <BANLkTi=fTETpz2iuzWDChxoBaZhSYGgN2A@mail.gmail.com>
+
+On Mon, Jun 13, 2011 at 12:01 AM, "Martin v. L?wis" <martin at v.loewis.de> wrote:
+>> It's also possible that we should be encouraging greater use of
+>> Mercurial Queues [1] and making them an official part of our
+>> development process.
+>
+> Can you publish/push a patch queue to a remote repository?
+
+bitbucket certainly lets you maintain a patch as a queue rather than
+as a separate clone. I ran across it in the context of the Py3k port
+of the PEP 380 patch:
+https://bitbucket.org/rndblnch/cpython-pep380/overview
+
+I don't have the personal experience to say how easy patch queues are
+to share in general (if nothing else, they're designed to be easy to
+export and import as ordinary patches for distribution that way).
+
+Cheers,
+Nick.
+
+
+-- 
+Nick Coghlan?? |?? ncoghlan at gmail.com?? |?? Brisbane, Australia
+
+From nad at acm.org  Sun Jun 12 19:14:29 2011
+From: nad at acm.org (Ned Deily)
+Date: Sun, 12 Jun 2011 10:14:29 -0700
+Subject: [python-committers] Pulling from contributors repositories
+References: <4DF25B0C.2000207@netwok.org>
+	<1307728847.3653.6.camel@localhost.localdomain>
+	<BANLkTimREzLjao8t1rR=4o1y43gnOhG24A@mail.gmail.com>
+	<4DF4AA3E.1070302@v.loewis.de>
+	<BANLkTi=qjoi=2bBbBv-zdT8hx3Jqa+PisQ@mail.gmail.com>
+Message-ID: <nad-486D18.10142912062011@news.gmane.org>
+
+In article <BANLkTi=qjoi=2bBbBv-zdT8hx3Jqa+PisQ at mail.gmail.com>,
+ Nick Coghlan <ncoghlan at gmail.com> wrote:
+> On Sun, Jun 12, 2011 at 9:59 PM, "Martin v. L?wis" <martin at v.loewis.de> wrote:
+> >> Until mercurial has better tools to bundle multiple changesets into a
+> >> single coherent group of changes, it's still preferable to do the
+> >> export/import dance.
+> > Why did we migrate to Mercurial, then?
+> The merge tools are still better and keeping out-of-tree branches up
+> to date is significantly easier. The fact that bringing external
+> changes *in* to the tree still requires going through the patch
+> process as it did with SVN is just an artefact of our desire to keep
+> the history of the central repo relatively clean and python-checkins
+> at least somewhat readable.
+
+It seems to me that we are making life overly difficult for ourselves in 
+at least one respect: the updating of the NEWS and ACKS files.  Because 
+most revisions are modifying one or both of these files, you are almost 
+guaranteed to have a merge conflict and often multiple merge conflicts, 
+since both files differ from branch to branch.
+
+There are several ways we could eliminate this needless pain.  Probably 
+the simplest would be to agree on a simple format for including the NEWS 
+and ACK info in the hg commit message and then agree on a process to 
+batch update the NEWS and ACK files from the commit messages prior to 
+each release.   Commit messages today often duplicate the NEWS file 
+entry anyway.  What's missing is a way to identify which section of the 
+NEWS file to add the message to and a standard form to identify an ACK.   
+I'm sure we could come up with something simple that would be acceptable 
+and that would cover merges (i.e. like duplicating the commit message on 
+a merge).
+
+For pulling changes from another repo where the commit messages were not 
+in the proper format, either a separate change to capture the NEWS could 
+be pushed.  Or, prior to pushing a set of related repo patches, one 
+could use Mercurial Queues to "edit" the commit messages.  hg 
+conveniently maps commit messages to patch header comments.  So you 
+should be able to pop each revision as a patch (hg qimport -r tip; hg 
+qpop) then edit each patch header/commit message (hg qpush; hg qrefresh 
+-e ; hg qfinish) prior to pushing to the main repo.  (That will, of 
+course, result in new revision ids and new history and cannot be done 
+once the revisions are "in the wild".)
+
+Even if the batch updates were totally manual, I think a couple of hours 
+once a release would be a worthy tradeoff if it helped to lower the 
+barrier for getting fixes in.
+
+-- 
+ Ned Deily,
+ nad at acm.org
+
+
+From benjamin at python.org  Sun Jun 12 20:01:30 2011
+From: benjamin at python.org (Benjamin Peterson)
+Date: Sun, 12 Jun 2011 13:01:30 -0500
+Subject: [python-committers] Pulling from contributors repositories
+In-Reply-To: <nad-486D18.10142912062011@news.gmane.org>
+References: <4DF25B0C.2000207@netwok.org>
+	<1307728847.3653.6.camel@localhost.localdomain>
+	<BANLkTimREzLjao8t1rR=4o1y43gnOhG24A@mail.gmail.com>
+	<4DF4AA3E.1070302@v.loewis.de>
+	<BANLkTi=qjoi=2bBbBv-zdT8hx3Jqa+PisQ@mail.gmail.com>
+	<nad-486D18.10142912062011@news.gmane.org>
+Message-ID: <BANLkTikdDFTgRj2E4xokevpvHV2k0-Fs=g@mail.gmail.com>
+
+2011/6/12 Ned Deily <nad at acm.org>:
+> There are several ways we could eliminate this needless pain. ?Probably
+> the simplest would be to agree on a simple format for including the NEWS
+> and ACK info in the hg commit message and then agree on a process to
+> batch update the NEWS and ACK files from the commit messages prior to
+> each release.
+
+The problem with this method is that spelling can't be fixed and
+messages can't be reformatted or expanded.
+
+Another method would be to write a extension for Mercurial which is
+"smart" about the format of Misc/NEWS and could do the resolution
+automatically.
+
+
+
+-- 
+Regards,
+Benjamin
+
+From merwok at netwok.org  Sun Jun 12 20:32:03 2011
+From: merwok at netwok.org (=?UTF-8?B?w4lyaWMgQXJhdWpv?=)
+Date: Sun, 12 Jun 2011 20:32:03 +0200
+Subject: [python-committers] Pulling from contributors repositories
+In-Reply-To: <BANLkTikdDFTgRj2E4xokevpvHV2k0-Fs=g@mail.gmail.com>
+References: <4DF25B0C.2000207@netwok.org>	<1307728847.3653.6.camel@localhost.localdomain>	<BANLkTimREzLjao8t1rR=4o1y43gnOhG24A@mail.gmail.com>	<4DF4AA3E.1070302@v.loewis.de>	<BANLkTi=qjoi=2bBbBv-zdT8hx3Jqa+PisQ@mail.gmail.com>	<nad-486D18.10142912062011@news.gmane.org>
+	<BANLkTikdDFTgRj2E4xokevpvHV2k0-Fs=g@mail.gmail.com>
+Message-ID: <4DF50623.4020707@netwok.org>
+
+Le 12/06/2011 20:01, Benjamin Peterson a ?crit :
+> Another method would be to write a extension for Mercurial which is
+> "smart" about the format of Misc/NEWS and could do the resolution
+> automatically.
+
+Even easier than an extension: a merge tool, i.e. a script that knows
+how to parse the file and compare three versions of it.
+
+From nad at acm.org  Sun Jun 12 20:43:05 2011
+From: nad at acm.org (Ned Deily)
+Date: Sun, 12 Jun 2011 11:43:05 -0700
+Subject: [python-committers] Pulling from contributors repositories
+References: <4DF25B0C.2000207@netwok.org>
+	<1307728847.3653.6.camel@localhost.localdomain>
+	<BANLkTimREzLjao8t1rR=4o1y43gnOhG24A@mail.gmail.com>
+	<4DF4AA3E.1070302@v.loewis.de>
+	<BANLkTi=qjoi=2bBbBv-zdT8hx3Jqa+PisQ@mail.gmail.com>
+	<nad-486D18.10142912062011@news.gmane.org>
+	<BANLkTikdDFTgRj2E4xokevpvHV2k0-Fs=g@mail.gmail.com>
+	<4DF50623.4020707@netwok.org>
+Message-ID: <nad-24D3F2.11430512062011@news.gmane.org>
+
+In article <4DF50623.4020707 at netwok.org>,
+ ?ric Araujo <merwok at netwok.org> wrote:
+> Le 12/06/2011 20:01, Benjamin Peterson a ?crit :
+> > Another method would be to write a extension for Mercurial which is
+> > "smart" about the format of Misc/NEWS and could do the resolution
+> > automatically. 
+> Even easier than an extension: a merge tool, i.e. a script that knows
+> how to parse the file and compare three versions of it.
+
+Of course a merge tool helps. ?But merge conflicts do add to the 
+complexity of the process for many people and the current NEWS update 
+policy pretty much ensures there will be conflicts even when the code 
+changes do not cause any conflicts. Why not lower the barrier?
+
+Another, more complicated way would be to use a hook to store each 
+commit message as a separate file in a Misc/NEWS.d directory. ?Then the 
+separate files could be periodically rolled up into the singe NEWS file.  
+That would allow for post-push editing by the committer.
+
+-- 
+ Ned Deily,
+ nad at acm.org
+
+
+From patcam at python.org  Mon Jun 13 20:18:22 2011
+From: patcam at python.org (Pat Campbell)
+Date: Mon, 13 Jun 2011 14:18:22 -0400
+Subject: [python-committers] (no subject)
+Message-ID: <BANLkTim82ghE7Z+96EdwBHkj1+pEhZKG-A@mail.gmail.com>
+
+-- 
+Pat Campbell
+PSF Administrator/Secretary
+patcam at python.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20110613/7d375cf4/attachment.html>
+
+From larry at hastings.org  Tue Jun 14 04:36:05 2011
+From: larry at hastings.org (Larry Hastings)
+Date: Mon, 13 Jun 2011 19:36:05 -0700
+Subject: [python-committers] Call For Topics for Python Language Summit at
+	EuroPython 2011
+Message-ID: <4DF6C915.50803@hastings.org>
+
+
+
+Howdy howdy.  Michael Foord can't make it to EuroPython this year--and 
+congratulations to him on his new baby!--so he's asked me to chair the 
+Python Language Summit in his stead.  Although I have some suggested 
+topics from Michael, I don't have any burning issues of my own to add to 
+the docket.  That's where *you* come in.
+
+If you have a topic you'd like to suggest, please email it privately to 
+me (larry at hastings dot org) along with an estimate of how long you 
+think it'll take to discuss.  Please have all suggestions to me no later 
+than Friday June 17th.  Also, please include the phrase "Python Language 
+Summit" in the subject line, in case it gets caught in my spam filters.  
+You don't have to be attending the summit to suggest a topic--I'll 
+consider suggestions from anybody.
+
+Hope to see you at EuroPython,
+
+
+/larry/
+
+From patcam at python.org  Thu Jun 16 19:10:44 2011
+From: patcam at python.org (Pat Campbell)
+Date: Thu, 16 Jun 2011 13:10:44 -0400
+Subject: [python-committers] Fwd: SF-Board] Python / WDAS Contributor
+	Agreement
+In-Reply-To: <BANLkTinyoTK2bm+4Q5KKWvb+SoTXSQ6Lfg@mail.gmail.com>
+References: <BANLkTinyoTK2bm+4Q5KKWvb+SoTXSQ6Lfg@mail.gmail.com>
+Message-ID: <BANLkTi=n-fU5ceaCav5xTM5HzTLJBut+TA@mail.gmail.com>
+
+Please see contributor agreement in the attachment.
+
+Pat
+
+---------- Forwarded message ----------
+From: Pat Campbell <patcam at python.org>
+Date: Tue, Jun 14, 2011 at 9:52 PM
+Subject: SF-Board] Python / WDAS Contributor Agreement
+To: janet.noda at disney.com
+Cc: VanL <van.lindberg at gmail.com>, PSF Board <psf at python.org>
+
+
+Hi Janet:
+
+Please see the attached & signed contributor agreement between the
+Python Software Foundation and Walt Disney Animation Studios.
+
+If you need anything else, please let us know.
+
+Thanks,
+Pat
+
+-- 
+Pat Campbell
+PSF Administrator/Secretary
+patcam at python.org
+
+
+
+-- 
+Pat Campbell
+PSF Administrator/Secretary
+patcam at python.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20110616/b81931ef/attachment-0001.html>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: WDAS-Andy Hendrickson-CA-'11.pdf
+Type: application/pdf
+Size: 730204 bytes
+Desc: not available
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20110616/b81931ef/attachment-0001.pdf>
+
+From mal at egenix.com  Thu Jun 16 19:18:45 2011
+From: mal at egenix.com (M.-A. Lemburg)
+Date: Thu, 16 Jun 2011 19:18:45 +0200
+Subject: [python-committers] Python language summit on ustream.tv
+Message-ID: <4DFA3AF5.3050306@egenix.com>
+
+Dear Python Developers,
+
+for the upcoming language summit at EuroPython, I'd like to
+try out whether streaming such meetings would work. I'll setup
+a webcam and stream the event live to a private channel on ustream.tv.
+
+These are the details in case you want to watch:
+
+URL: http://www.ustream.tv/channel/python-language-summit
+PWD: fpmUtuL4
+
+Date: Sunday, 2011-06-19
+Time: 10:00 - 16:00 CEST with breaks
+
+I'm not sure whether I can stream the whole summit, but at least
+the morning session should be possible, provided the network
+works on that day.
+
+Interaction will likely be a bit difficult in case we have
+heated discussions :-), but we'll keep the IRC channel
+#python-language-summit on freenode open as well.
+
+Thanks,
+-- 
+Marc-Andre Lemburg
+eGenix.com
+
+Professional Python Services directly from the Source  (#1, Jun 16 2011)
+>>> Python/Zope Consulting and Support ...        http://www.egenix.com/
+>>> mxODBC.Zope.Database.Adapter ...             http://zope.egenix.com/
+>>> mxODBC, mxDateTime, mxTextTools ...        http://python.egenix.com/
+________________________________________________________________________
+2011-05-23: Released eGenix mx Base 3.2.0      http://python.egenix.com/
+2011-05-25: Released mxODBC 3.1.1              http://python.egenix.com/
+2011-06-20: EuroPython 2011, Florence, Italy                4 days to go
+
+::: Try our new mxODBC.Connect Python Database Interface for free ! ::::
+
+
+   eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+    D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+           Registered at Amtsgericht Duesseldorf: HRB 46611
+               http://www.egenix.com/company/contact/
+
+From solipsis at pitrou.net  Thu Jun 16 19:42:48 2011
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Thu, 16 Jun 2011 19:42:48 +0200
+Subject: [python-committers] Contributor Agreement
+In-Reply-To: <BANLkTi=n-fU5ceaCav5xTM5HzTLJBut+TA@mail.gmail.com>
+References: <BANLkTinyoTK2bm+4Q5KKWvb+SoTXSQ6Lfg@mail.gmail.com>
+	<BANLkTi=n-fU5ceaCav5xTM5HzTLJBut+TA@mail.gmail.com>
+Message-ID: <1308246168.3643.9.camel@localhost.localdomain>
+
+
+Hello,
+
+As a side note, I sent my contributor agreement between 2 or 3 years ago
+(I don't remember exactly) but I still appear on the bug tracker as if
+it hadn't been received:
+http://bugs.python.org/user2040
+
+Is there some lag in synchronizing this information?
+(of course, I refrained from making the change myself)
+
+Regards
+
+Antoine.
+
+
+Le jeudi 16 juin 2011 ? 13:10 -0400, Pat Campbell a ?crit :
+> Please see contributor agreement in the attachment.
+> 
+> Pat
+> 
+> ---------- Forwarded message ----------
+> From: Pat Campbell <patcam at python.org>
+> Date: Tue, Jun 14, 2011 at 9:52 PM
+> Subject: SF-Board] Python / WDAS Contributor Agreement
+> To: janet.noda at disney.com
+> Cc: VanL <van.lindberg at gmail.com>, PSF Board <psf at python.org>
+> 
+> 
+> Hi Janet:
+> 
+> Please see the attached & signed contributor agreement between the 
+> Python Software Foundation and Walt Disney Animation Studios.
+> 
+> If you need anything else, please let us know.
+> 
+> Thanks, 
+> Pat
+> 
+> -- 
+> Pat Campbell
+> PSF Administrator/Secretary
+> patcam at python.org
+> 
+> 
+> 
+> 
+> -- 
+> Pat Campbell
+> PSF Administrator/Secretary
+> patcam at python.org
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+
+
+
+From patcam at python.org  Thu Jun 16 22:17:27 2011
+From: patcam at python.org (Pat Campbell)
+Date: Thu, 16 Jun 2011 16:17:27 -0400
+Subject: [python-committers] Contributor Agreement
+In-Reply-To: <1308246168.3643.9.camel@localhost.localdomain>
+References: <BANLkTinyoTK2bm+4Q5KKWvb+SoTXSQ6Lfg@mail.gmail.com>
+	<BANLkTi=n-fU5ceaCav5xTM5HzTLJBut+TA@mail.gmail.com>
+	<1308246168.3643.9.camel@localhost.localdomain>
+Message-ID: <BANLkTi=yegJDy86=u59ubBpfFXdkNennAw@mail.gmail.com>
+
+Hi Antoine:
+
+Your contributor agreement may have been misplaced during the
+transition and exchange of PSF files and records from one
+PSF Secretary to the other.
+
+Therefore, I am unable to locate your contributor agreement. Could
+you please sign and email or fax (+l 858-712-8966) another?
+
+I can then update your information in the bug tracker.
+
+Thanks,
+Pat
+
+On Thu, Jun 16, 2011 at 1:42 PM, Antoine Pitrou <solipsis at pitrou.net> wrote:
+
+>
+> Hello,
+>
+> As a side note, I sent my contributor agreement between 2 or 3 years ago
+> (I don't remember exactly) but I still appear on the bug tracker as if
+> it hadn't been received:
+> http://bugs.python.org/user2040
+>
+> Is there some lag in synchronizing this information?
+> (of course, I refrained from making the change myself)
+>
+> Regards
+>
+> Antoine.
+>
+>
+> Le jeudi 16 juin 2011 ? 13:10 -0400, Pat Campbell a ?crit :
+> > Please see contributor agreement in the attachment.
+> >
+> > Pat
+> >
+> > ---------- Forwarded message ----------
+> > From: Pat Campbell <patcam at python.org>
+> > Date: Tue, Jun 14, 2011 at 9:52 PM
+> > Subject: SF-Board] Python / WDAS Contributor Agreement
+> > To: janet.noda at disney.com
+> > Cc: VanL <van.lindberg at gmail.com>, PSF Board <psf at python.org>
+> >
+> >
+> > Hi Janet:
+> >
+> > Please see the attached & signed contributor agreement between the
+> > Python Software Foundation and Walt Disney Animation Studios.
+> >
+> > If you need anything else, please let us know.
+> >
+> > Thanks,
+> > Pat
+> >
+> > --
+> > Pat Campbell
+> > PSF Administrator/Secretary
+> > patcam at python.org
+> >
+> >
+> >
+> >
+> > --
+> > Pat Campbell
+> > PSF Administrator/Secretary
+> > patcam at python.org
+> > _______________________________________________
+> > python-committers mailing list
+> > python-committers at python.org
+> > http://mail.python.org/mailman/listinfo/python-committers
+>
+>
+>
+
+
+-- 
+Pat Campbell
+PSF Administrator/Secretary
+patcam at python.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20110616/16cc0b8b/attachment.html>
+
+From patcam at python.org  Tue Jun 28 20:49:34 2011
+From: patcam at python.org (Pat Campbell)
+Date: Tue, 28 Jun 2011 14:49:34 -0400
+Subject: [python-committers] [PSF-Board] contrib agreement
+In-Reply-To: <BANLkTi=eKTPxyV0y+XdaThZ5pTO=5LekcQ@mail.gmail.com>
+References: <BANLkTi=eKTPxyV0y+XdaThZ5pTO=5LekcQ@mail.gmail.com>
+Message-ID: <BANLkTi=Vz8akGf86TmEwd4c40cXdU-EQGQ@mail.gmail.com>
+
+Hi Grubert:
+
+Thanks for submitting your contributor agreement.
+
+Pat Campbell
+PSF Secretary
+
+On Tue, Jun 28, 2011 at 5:02 AM, engelbert gruber <
+engelbert.gruber at gmail.com> wrote:
+
+> hello,
+>
+> on bugs and pypi it is user grubert, alternate email
+> grubert at users.sourceforge.net
+>
+> all the best
+>  engelbert
+>
+> --
+> http://darefoot.blogspot.com
+>
+> _______________________________________________
+> PSF-Board mailing list
+> PSF-Board at python.org
+> http://mail.python.org/mailman/listinfo/psf-board
+>
+>
+
+
+-- 
+Pat Campbell
+PSF Administrator/Secretary
+patcam at python.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20110628/cd7d8ba5/attachment.html>
+
+From patcam at python.org  Tue Jun 28 21:15:34 2011
+From: patcam at python.org (Pat Campbell)
+Date: Tue, 28 Jun 2011 15:15:34 -0400
+Subject: [python-committers] [PSF-Board] contrib agreement
+In-Reply-To: <BANLkTi=Vz8akGf86TmEwd4c40cXdU-EQGQ@mail.gmail.com>
+References: <BANLkTi=eKTPxyV0y+XdaThZ5pTO=5LekcQ@mail.gmail.com>
+	<BANLkTi=Vz8akGf86TmEwd4c40cXdU-EQGQ@mail.gmail.com>
+Message-ID: <BANLkTi=2yBWU1o6ckaAve9vMpQnDU5=usg@mail.gmail.com>
+
+Hi Engelbert:
+
+Could you please recheck your PSF bug tracker profile. I have tried to
+pull up your profile information with the following information:
+
+user name: gruber
+Real name: Engelbert Gruber
+
+I am unable to gain access to your tracker profile. So, maybe you can
+try accessing your profile and/or send me more information so that I
+can add your contributor agreement to the tracker.
+
+Thanks,
+Pat
+
+On Tue, Jun 28, 2011 at 2:49 PM, Pat Campbell <patcam at python.org> wrote:
+
+> Hi Grubert:
+>
+> Thanks for submitting your contributor agreement.
+>
+> Pat Campbell
+> PSF Secretary
+>
+> On Tue, Jun 28, 2011 at 5:02 AM, engelbert gruber <
+> engelbert.gruber at gmail.com> wrote:
+>
+>> hello,
+>>
+>> on bugs and pypi it is user grubert, alternate email
+>> grubert at users.sourceforge.net
+>>
+>> all the best
+>>  engelbert
+>>
+>> --
+>> http://darefoot.blogspot.com
+>>
+>> _______________________________________________
+>> PSF-Board mailing list
+>> PSF-Board at python.org
+>> http://mail.python.org/mailman/listinfo/psf-board
+>>
+>>
+>
+>
+> --
+> Pat Campbell
+> PSF Administrator/Secretary
+> patcam at python.org
+>
+
+
+
+-- 
+Pat Campbell
+PSF Administrator/Secretary
+patcam at python.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20110628/9d27eb3c/attachment.html>
+
+From ncoghlan at gmail.com  Wed Jun 29 09:06:31 2011
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Wed, 29 Jun 2011 17:06:31 +1000
+Subject: [python-committers] [PSF-Board] contrib agreement
+In-Reply-To: <BANLkTi=2yBWU1o6ckaAve9vMpQnDU5=usg@mail.gmail.com>
+References: <BANLkTi=eKTPxyV0y+XdaThZ5pTO=5LekcQ@mail.gmail.com>
+	<BANLkTi=Vz8akGf86TmEwd4c40cXdU-EQGQ@mail.gmail.com>
+	<BANLkTi=2yBWU1o6ckaAve9vMpQnDU5=usg@mail.gmail.com>
+Message-ID: <BANLkTinGVA8Q9OSkfOnPXbabMQMQfjAo9Q@mail.gmail.com>
+
+On Wed, Jun 29, 2011 at 5:15 AM, Pat Campbell <patcam at python.org> wrote:
+> Hi Engelbert:
+>
+> Could you please recheck your PSF bug tracker profile. I have tried to
+> pull up your profile information with the following information:
+>
+> user name: gruber
+
+I believe the original email indicated the username was 'grubert' (the
+above is missing the final 't')
+
+Regards,
+Nick.
+
+-- 
+Nick Coghlan?? |?? ncoghlan at gmail.com?? |?? Brisbane, Australia
+
+From neologix at free.fr  Wed Jun 29 09:09:30 2011
+From: neologix at free.fr (=?ISO-8859-1?Q?Charles=2DFran=E7ois_Natali?=)
+Date: Wed, 29 Jun 2011 09:09:30 +0200
+Subject: [python-committers] [PSF-Board] contrib agreement
+In-Reply-To: <BANLkTi=2yBWU1o6ckaAve9vMpQnDU5=usg@mail.gmail.com>
+References: <BANLkTi=eKTPxyV0y+XdaThZ5pTO=5LekcQ@mail.gmail.com>
+	<BANLkTi=Vz8akGf86TmEwd4c40cXdU-EQGQ@mail.gmail.com>
+	<BANLkTi=2yBWU1o6ckaAve9vMpQnDU5=usg@mail.gmail.com>
+Message-ID: <BANLkTik2gsTwVu6-Y5qDr+3AHWo4pC5uHA@mail.gmail.com>
+
+Hi,
+
+Like Antoine, I submitted my contributor agreement, but my tracker
+profile doesn't reflect it (i.e. "Contributor Form Received" is set to
+"No").
+Should I send it again?
+
+cf
+
+
+2011/6/28 Pat Campbell <patcam at python.org>:
+> Hi Engelbert:
+>
+> Could you please recheck your PSF bug tracker profile. I have tried to
+> pull up your profile information with the following information:
+>
+> user name: gruber
+> Real name: Engelbert Gruber
+>
+> I am unable to gain access to your tracker profile. So, maybe you can
+> try accessing your profile and/or send me more information so that I
+> can add your contributor agreement to the tracker.
+>
+> Thanks,
+> Pat
+>
+> On Tue, Jun 28, 2011 at 2:49 PM, Pat Campbell <patcam at python.org> wrote:
+>>
+>> Hi Grubert:
+>>
+>> Thanks for submitting your contributor agreement.
+>>
+>> Pat Campbell
+>> PSF Secretary
+>>
+>> On Tue, Jun 28, 2011 at 5:02 AM, engelbert gruber
+>> <engelbert.gruber at gmail.com> wrote:
+>>>
+>>> hello,
+>>>
+>>> on bugs and pypi it is user grubert, alternate email
+>>> grubert at users.sourceforge.net
+>>>
+>>> all the best
+>>> ?engelbert
+>>>
+>>> --
+>>> http://darefoot.blogspot.com
+>>>
+>>> _______________________________________________
+>>> PSF-Board mailing list
+>>> PSF-Board at python.org
+>>> http://mail.python.org/mailman/listinfo/psf-board
+>>>
+>>
+>>
+>>
+>> --
+>> Pat Campbell
+>> PSF Administrator/Secretary
+>> patcam at python.org
+>
+>
+>
+> --
+> Pat Campbell
+> PSF Administrator/Secretary
+> patcam at python.org
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+>
+>
+
+From ncoghlan at gmail.com  Wed Jun 29 09:17:31 2011
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Wed, 29 Jun 2011 17:17:31 +1000
+Subject: [python-committers] [PSF-Board] contrib agreement
+In-Reply-To: <BANLkTik2gsTwVu6-Y5qDr+3AHWo4pC5uHA@mail.gmail.com>
+References: <BANLkTi=eKTPxyV0y+XdaThZ5pTO=5LekcQ@mail.gmail.com>
+	<BANLkTi=Vz8akGf86TmEwd4c40cXdU-EQGQ@mail.gmail.com>
+	<BANLkTi=2yBWU1o6ckaAve9vMpQnDU5=usg@mail.gmail.com>
+	<BANLkTik2gsTwVu6-Y5qDr+3AHWo4pC5uHA@mail.gmail.com>
+Message-ID: <BANLkTimLeFH6jjnB21Y_xLHGmiMq62SNzw@mail.gmail.com>
+
+2011/6/29 Charles-Fran?ois Natali <neologix at free.fr>:
+> Hi,
+>
+> Like Antoine, I submitted my contributor agreement, but my tracker
+> profile doesn't reflect it (i.e. "Contributor Form Received" is set to
+> "No").
+> Should I send it again?
+
+Yours was recent enough that it should be on file (the misplacement of
+some of the forms happened quite some time ago). Pat, could you check
+the contributor status for "neologix", please?
+
+Regards,
+Nick.
+
+-- 
+Nick Coghlan?? |?? ncoghlan at gmail.com?? |?? Brisbane, Australia
+
+From steve at holdenweb.com  Wed Jun 29 09:17:43 2011
+From: steve at holdenweb.com (Steve Holden)
+Date: Wed, 29 Jun 2011 00:17:43 -0700
+Subject: [python-committers] [PSF-Board] contrib agreement
+In-Reply-To: <BANLkTik2gsTwVu6-Y5qDr+3AHWo4pC5uHA@mail.gmail.com>
+References: <BANLkTi=eKTPxyV0y+XdaThZ5pTO=5LekcQ@mail.gmail.com>
+	<BANLkTi=Vz8akGf86TmEwd4c40cXdU-EQGQ@mail.gmail.com>
+	<BANLkTi=2yBWU1o6ckaAve9vMpQnDU5=usg@mail.gmail.com>
+	<BANLkTik2gsTwVu6-Y5qDr+3AHWo4pC5uHA@mail.gmail.com>
+Message-ID: <939D05AF-753A-4EB3-BA9B-89C7BBB26067@holdenweb.com>
+
+That would be a good idea.
+
+In fact any developer who feels they should have the commit-bit enabled but don't should also question whether we received their contributor agreement.
+
+It *is* important for the Foundation to hold all agreements on file, since that way we can (we would hope) establish the provenance of all Python code. That's important, because we are relying on the contributor license assignment to give us the right to re-license contributor code to other people under *our* choice of license.
+
+regards
+ Steve
+
+On Jun 29, 2011, at 12:09 AM, Charles-Fran?ois Natali wrote:
+
+> Hi,
+> 
+> Like Antoine, I submitted my contributor agreement, but my tracker
+> profile doesn't reflect it (i.e. "Contributor Form Received" is set to
+> "No").
+> Should I send it again?
+> 
+> cf
+> 
+> 
+> 2011/6/28 Pat Campbell <patcam at python.org>:
+>> Hi Engelbert:
+>> 
+>> Could you please recheck your PSF bug tracker profile. I have tried to
+>> pull up your profile information with the following information:
+>> 
+>> user name: gruber
+>> Real name: Engelbert Gruber
+>> 
+>> I am unable to gain access to your tracker profile. So, maybe you can
+>> try accessing your profile and/or send me more information so that I
+>> can add your contributor agreement to the tracker.
+>> 
+>> Thanks,
+>> Pat
+>> 
+>> On Tue, Jun 28, 2011 at 2:49 PM, Pat Campbell <patcam at python.org> wrote:
+>>> 
+>>> Hi Grubert:
+>>> 
+>>> Thanks for submitting your contributor agreement.
+>>> 
+>>> Pat Campbell
+>>> PSF Secretary
+>>> 
+>>> On Tue, Jun 28, 2011 at 5:02 AM, engelbert gruber
+>>> <engelbert.gruber at gmail.com> wrote:
+>>>> 
+>>>> hello,
+>>>> 
+>>>> on bugs and pypi it is user grubert, alternate email
+>>>> grubert at users.sourceforge.net
+>>>> 
+>>>> all the best
+>>>>  engelbert
+>>>> 
+>>>> --
+>>>> http://darefoot.blogspot.com
+>>>> 
+>>>> _______________________________________________
+>>>> PSF-Board mailing list
+>>>> PSF-Board at python.org
+>>>> http://mail.python.org/mailman/listinfo/psf-board
+>>>> 
+>>> 
+>>> 
+>>> 
+>>> --
+>>> Pat Campbell
+>>> PSF Administrator/Secretary
+>>> patcam at python.org
+>> 
+>> 
+>> 
+>> --
+>> Pat Campbell
+>> PSF Administrator/Secretary
+>> patcam at python.org
+>> 
+>> _______________________________________________
+>> python-committers mailing list
+>> python-committers at python.org
+>> http://mail.python.org/mailman/listinfo/python-committers
+>> 
+>> 
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+
+-- 
+Steve Holden
+steve at holdenweb.com
+
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20110629/25d9bad5/attachment-0001.html>
+
+From steve at holdenweb.com  Wed Jun 29 09:20:24 2011
+From: steve at holdenweb.com (Steve Holden)
+Date: Wed, 29 Jun 2011 00:20:24 -0700
+Subject: [python-committers] [PSF-Board] contrib agreement
+In-Reply-To: <BANLkTik2gsTwVu6-Y5qDr+3AHWo4pC5uHA@mail.gmail.com>
+References: <BANLkTi=eKTPxyV0y+XdaThZ5pTO=5LekcQ@mail.gmail.com>
+	<BANLkTi=Vz8akGf86TmEwd4c40cXdU-EQGQ@mail.gmail.com>
+	<BANLkTi=2yBWU1o6ckaAve9vMpQnDU5=usg@mail.gmail.com>
+	<BANLkTik2gsTwVu6-Y5qDr+3AHWo4pC5uHA@mail.gmail.com>
+Message-ID: <3D1E379F-55BA-49EA-B3D1-CB0F80B9EBBC@holdenweb.com>
+
+PS; Please accept our apologies for the inconvenience. Now the PSF administrator is able to handle database updates this should be an increasingly infrequent requirement.
+
+We appreciate developers helping us (the PSF) to jump through the necessary hoops to make sure that all legal t's are crossed and i's dotted.
+
+regards
+ Steve
+
+On Jun 29, 2011, at 12:09 AM, Charles-Fran?ois Natali wrote:
+
+> Hi,
+> 
+> Like Antoine, I submitted my contributor agreement, but my tracker
+> profile doesn't reflect it (i.e. "Contributor Form Received" is set to
+> "No").
+> Should I send it again?
+> 
+> cf
+> 
+> 
+> 2011/6/28 Pat Campbell <patcam at python.org>:
+>> Hi Engelbert:
+>> 
+>> Could you please recheck your PSF bug tracker profile. I have tried to
+>> pull up your profile information with the following information:
+>> 
+>> user name: gruber
+>> Real name: Engelbert Gruber
+>> 
+>> I am unable to gain access to your tracker profile. So, maybe you can
+>> try accessing your profile and/or send me more information so that I
+>> can add your contributor agreement to the tracker.
+>> 
+>> Thanks,
+>> Pat
+>> 
+>> On Tue, Jun 28, 2011 at 2:49 PM, Pat Campbell <patcam at python.org> wrote:
+>>> 
+>>> Hi Grubert:
+>>> 
+>>> Thanks for submitting your contributor agreement.
+>>> 
+>>> Pat Campbell
+>>> PSF Secretary
+>>> 
+>>> On Tue, Jun 28, 2011 at 5:02 AM, engelbert gruber
+>>> <engelbert.gruber at gmail.com> wrote:
+>>>> 
+>>>> hello,
+>>>> 
+>>>> on bugs and pypi it is user grubert, alternate email
+>>>> grubert at users.sourceforge.net
+>>>> 
+>>>> all the best
+>>>>  engelbert
+>>>> 
+>>>> --
+>>>> http://darefoot.blogspot.com
+>>>> 
+>>>> _______________________________________________
+>>>> PSF-Board mailing list
+>>>> PSF-Board at python.org
+>>>> http://mail.python.org/mailman/listinfo/psf-board
+>>>> 
+>>> 
+>>> 
+>>> 
+>>> --
+>>> Pat Campbell
+>>> PSF Administrator/Secretary
+>>> patcam at python.org
+>> 
+>> 
+>> 
+>> --
+>> Pat Campbell
+>> PSF Administrator/Secretary
+>> patcam at python.org
+>> 
+>> _______________________________________________
+>> python-committers mailing list
+>> python-committers at python.org
+>> http://mail.python.org/mailman/listinfo/python-committers
+>> 
+>> 
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+
+-- 
+Steve Holden
+steve at holdenweb.com
+
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20110629/f9a205bb/attachment.html>
+
+From patcam at python.org  Wed Jun 29 20:39:53 2011
+From: patcam at python.org (Pat Campbell)
+Date: Wed, 29 Jun 2011 14:39:53 -0400
+Subject: [python-committers] [PSF-Board] contrib agreement
+In-Reply-To: <BANLkTinGVA8Q9OSkfOnPXbabMQMQfjAo9Q@mail.gmail.com>
+References: <BANLkTi=eKTPxyV0y+XdaThZ5pTO=5LekcQ@mail.gmail.com>
+	<BANLkTi=Vz8akGf86TmEwd4c40cXdU-EQGQ@mail.gmail.com>
+	<BANLkTi=2yBWU1o6ckaAve9vMpQnDU5=usg@mail.gmail.com>
+	<BANLkTinGVA8Q9OSkfOnPXbabMQMQfjAo9Q@mail.gmail.com>
+Message-ID: <BANLkTim61zd2W+2mwsymC4onzr8oMZzjUQ@mail.gmail.com>
+
+Thanks for the information Nick.WeI have located Engelbert's tracker
+profile.
+
+Pat
+
+On Wed, Jun 29, 2011 at 3:06 AM, Nick Coghlan <ncoghlan at gmail.com> wrote:
+
+> On Wed, Jun 29, 2011 at 5:15 AM, Pat Campbell <patcam at python.org> wrote:
+> > Hi Engelbert:
+> >
+> > Could you please recheck your PSF bug tracker profile. I have tried to
+> > pull up your profile information with the following information:
+> >
+> > user name: gruber
+>
+> I believe the original email indicated the username was 'grubert' (the
+> above is missing the final 't')
+>
+> Regards,
+> Nick.
+>
+> --
+> Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+>
+
+
+
+-- 
+Pat Campbell
+PSF Administrator/Secretary
+patcam at python.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20110629/7ad7f43c/attachment.html>
+
+From patcam at python.org  Wed Jun 29 20:51:10 2011
+From: patcam at python.org (Pat Campbell)
+Date: Wed, 29 Jun 2011 14:51:10 -0400
+Subject: [python-committers] [PSF-Board] contrib agreement
+In-Reply-To: <BANLkTik2gsTwVu6-Y5qDr+3AHWo4pC5uHA@mail.gmail.com>
+References: <BANLkTi=eKTPxyV0y+XdaThZ5pTO=5LekcQ@mail.gmail.com>
+	<BANLkTi=Vz8akGf86TmEwd4c40cXdU-EQGQ@mail.gmail.com>
+	<BANLkTi=2yBWU1o6ckaAve9vMpQnDU5=usg@mail.gmail.com>
+	<BANLkTik2gsTwVu6-Y5qDr+3AHWo4pC5uHA@mail.gmail.com>
+Message-ID: <BANLkTint24yyeQyX5OdKdeWzMEHXDuEyyQ@mail.gmail.com>
+
+Hi Charles-Francois:
+
+I do have a hardcopy of your contributor agreement (rec'd
+on 5/20/2011). However, I would like to add your contributor
+agreement to the bug tracker.
+
+Could you please forward your tracker id and username?
+
+Thanks,
+Pat
+
+2011/6/29 Charles-Fran?ois Natali <neologix at free.fr>
+
+> Hi,
+>
+> Like Antoine, I submitted my contributor agreement, but my tracker
+> profile doesn't reflect it (i.e. "Contributor Form Received" is set to
+> "No").
+> Should I send it again?
+>
+> cf
+>
+>
+> 2011/6/28 Pat Campbell <patcam at python.org>:
+> > Hi Engelbert:
+> >
+> > Could you please recheck your PSF bug tracker profile. I have tried to
+> > pull up your profile information with the following information:
+> >
+> > user name: gruber
+> > Real name: Engelbert Gruber
+> >
+> > I am unable to gain access to your tracker profile. So, maybe you can
+> > try accessing your profile and/or send me more information so that I
+> > can add your contributor agreement to the tracker.
+> >
+> > Thanks,
+> > Pat
+> >
+> > On Tue, Jun 28, 2011 at 2:49 PM, Pat Campbell <patcam at python.org> wrote:
+> >>
+> >> Hi Grubert:
+> >>
+> >> Thanks for submitting your contributor agreement.
+> >>
+> >> Pat Campbell
+> >> PSF Secretary
+> >>
+> >> On Tue, Jun 28, 2011 at 5:02 AM, engelbert gruber
+> >> <engelbert.gruber at gmail.com> wrote:
+> >>>
+> >>> hello,
+> >>>
+> >>> on bugs and pypi it is user grubert, alternate email
+> >>> grubert at users.sourceforge.net
+> >>>
+> >>> all the best
+> >>>  engelbert
+> >>>
+> >>> --
+> >>> http://darefoot.blogspot.com
+> >>>
+> >>> _______________________________________________
+> >>> PSF-Board mailing list
+> >>> PSF-Board at python.org
+> >>> http://mail.python.org/mailman/listinfo/psf-board
+> >>>
+> >>
+> >>
+> >>
+> >> --
+> >> Pat Campbell
+> >> PSF Administrator/Secretary
+> >> patcam at python.org
+> >
+> >
+> >
+> > --
+> > Pat Campbell
+> > PSF Administrator/Secretary
+> > patcam at python.org
+> >
+> > _______________________________________________
+> > python-committers mailing list
+> > python-committers at python.org
+> > http://mail.python.org/mailman/listinfo/python-committers
+> >
+> >
+>
+
+
+
+-- 
+Pat Campbell
+PSF Administrator/Secretary
+patcam at python.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20110629/28e9d1c4/attachment.html>
+
+From patcam at python.org  Thu Jun 30 00:17:40 2011
+From: patcam at python.org (Pat Campbell)
+Date: Wed, 29 Jun 2011 18:17:40 -0400
+Subject: [python-committers] [PSF-Board] contrib agreement
+In-Reply-To: <BANLkTimROoRnFyrLAu82b+12iiUXvMKgWg@mail.gmail.com>
+References: <BANLkTi=eKTPxyV0y+XdaThZ5pTO=5LekcQ@mail.gmail.com>
+	<BANLkTi=Vz8akGf86TmEwd4c40cXdU-EQGQ@mail.gmail.com>
+	<BANLkTi=2yBWU1o6ckaAve9vMpQnDU5=usg@mail.gmail.com>
+	<BANLkTinGVA8Q9OSkfOnPXbabMQMQfjAo9Q@mail.gmail.com>
+	<BANLkTim61zd2W+2mwsymC4onzr8oMZzjUQ@mail.gmail.com>
+	<BANLkTimROoRnFyrLAu82b+12iiUXvMKgWg@mail.gmail.com>
+Message-ID: <BANLkTi=HrNuwCz3Ue4_N4ZbyLUwMSoprng@mail.gmail.com>
+
+Thanks for the clarification, Engelbert.
+Pat
+
+On Wed, Jun 29, 2011 at 5:54 PM, engelbert gruber <
+engelbert.gruber at gmail.com> wrote:
+
+> sorry for the puzzle. at times i thought grubert is cool it is
+> gru(engel)bert and there is ratbert and dilbert and donot forget major
+> grubert.
+>
+> On Wed, Jun 29, 2011 at 8:39 PM, Pat Campbell <patcam at python.org> wrote:
+> > Thanks for the information Nick.WeI have located Engelbert's tracker
+> > profile.
+> >
+> > Pat
+> >
+> > On Wed, Jun 29, 2011 at 3:06 AM, Nick Coghlan <ncoghlan at gmail.com>
+> wrote:
+> >>
+> >> On Wed, Jun 29, 2011 at 5:15 AM, Pat Campbell <patcam at python.org>
+> wrote:
+> >> > Hi Engelbert:
+> >> >
+> >> > Could you please recheck your PSF bug tracker profile. I have tried to
+> >> > pull up your profile information with the following information:
+> >> >
+> >> > user name: gruber
+> >>
+> >> I believe the original email indicated the username was 'grubert' (the
+> >> above is missing the final 't')
+> >>
+> >> Regards,
+> >> Nick.
+> >>
+> >> --
+> >> Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+> >
+> >
+> >
+> > --
+> > Pat Campbell
+> > PSF Administrator/Secretary
+> > patcam at python.org
+> >
+>
+>
+>
+> --
+> http://darefoot.blogspot.com
+>
+
+
+
+-- 
+Pat Campbell
+PSF Administrator/Secretary
+patcam at python.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20110629/4fd0137f/attachment.html>
+
+From steve at holdenweb.com  Thu Jun 30 00:23:30 2011
+From: steve at holdenweb.com (Steve Holden)
+Date: Wed, 29 Jun 2011 15:23:30 -0700
+Subject: [python-committers] [PSF-Board]   contrib agreement
+In-Reply-To: <BANLkTimROoRnFyrLAu82b+12iiUXvMKgWg@mail.gmail.com>
+References: <BANLkTi=eKTPxyV0y+XdaThZ5pTO=5LekcQ@mail.gmail.com>
+	<BANLkTi=Vz8akGf86TmEwd4c40cXdU-EQGQ@mail.gmail.com>
+	<BANLkTi=2yBWU1o6ckaAve9vMpQnDU5=usg@mail.gmail.com>
+	<BANLkTinGVA8Q9OSkfOnPXbabMQMQfjAo9Q@mail.gmail.com>
+	<BANLkTim61zd2W+2mwsymC4onzr8oMZzjUQ@mail.gmail.com>
+	<BANLkTimROoRnFyrLAu82b+12iiUXvMKgWg@mail.gmail.com>
+Message-ID: <3BA22E3A-3D76-49EB-B047-D936D9C9BAEA@holdenweb.com>
+
+I think grubert is a cool user name! You'll have to be the dev team's evil HR director ...
+
+regards
+ Steve
+
+On Jun 29, 2011, at 2:54 PM, engelbert gruber wrote:
+
+> sorry for the puzzle. at times i thought grubert is cool it is
+> gru(engel)bert and there is ratbert and dilbert and donot forget major
+> grubert.
+> 
+> On Wed, Jun 29, 2011 at 8:39 PM, Pat Campbell <patcam at python.org> wrote:
+>> Thanks for the information Nick.WeI have located Engelbert's tracker
+>> profile.
+>> 
+>> Pat
+>> 
+>> On Wed, Jun 29, 2011 at 3:06 AM, Nick Coghlan <ncoghlan at gmail.com> wrote:
+>>> 
+>>> On Wed, Jun 29, 2011 at 5:15 AM, Pat Campbell <patcam at python.org> wrote:
+>>>> Hi Engelbert:
+>>>> 
+>>>> Could you please recheck your PSF bug tracker profile. I have tried to
+>>>> pull up your profile information with the following information:
+>>>> 
+>>>> user name: gruber
+>>> 
+>>> I believe the original email indicated the username was 'grubert' (the
+>>> above is missing the final 't')
+>>> 
+>>> Regards,
+>>> Nick.
+>>> 
+>>> --
+>>> Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+>> 
+>> 
+>> 
+>> --
+>> Pat Campbell
+>> PSF Administrator/Secretary
+>> patcam at python.org
+>> 
+> 
+> 
+> 
+> -- 
+> http://darefoot.blogspot.com
+> _______________________________________________
+> PSF-Board mailing list
+> PSF-Board at python.org
+> http://mail.python.org/mailman/listinfo/psf-board
+
+-- 
+Steve Holden
+steve at holdenweb.com
+
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20110629/adac4b23/attachment-0001.html>
+
+From steve at holdenweb.com  Thu Jun 30 00:24:55 2011
+From: steve at holdenweb.com (Steve Holden)
+Date: Wed, 29 Jun 2011 15:24:55 -0700
+Subject: [python-committers] [PSF-Board]   contrib agreement
+In-Reply-To: <BANLkTi=HrNuwCz3Ue4_N4ZbyLUwMSoprng@mail.gmail.com>
+References: <BANLkTi=eKTPxyV0y+XdaThZ5pTO=5LekcQ@mail.gmail.com>
+	<BANLkTi=Vz8akGf86TmEwd4c40cXdU-EQGQ@mail.gmail.com>
+	<BANLkTi=2yBWU1o6ckaAve9vMpQnDU5=usg@mail.gmail.com>
+	<BANLkTinGVA8Q9OSkfOnPXbabMQMQfjAo9Q@mail.gmail.com>
+	<BANLkTim61zd2W+2mwsymC4onzr8oMZzjUQ@mail.gmail.com>
+	<BANLkTimROoRnFyrLAu82b+12iiUXvMKgWg@mail.gmail.com>
+	<BANLkTi=HrNuwCz3Ue4_N4ZbyLUwMSoprng@mail.gmail.com>
+Message-ID: <58EFC44C-D197-463C-B90E-EAE48997E210@holdenweb.com>
+
+You meant "grubert", of course.
+
+It amuses my non-computer friends that people often greet me as "holdenweb" at PyCon and similar places.
+
+regards
+ Steve
+
+On Jun 29, 2011, at 3:17 PM, Pat Campbell wrote:
+
+> Thanks for the clarification, Engelbert.
+
+-- 
+Steve Holden
+steve at holdenweb.com
+
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20110629/e16dac8c/attachment.html>
+
+From patcam at python.org  Thu Jun 30 03:32:43 2011
+From: patcam at python.org (Pat Campbell)
+Date: Wed, 29 Jun 2011 21:32:43 -0400
+Subject: [python-committers] [PSF-Board]  contrib agreement
+In-Reply-To: <58EFC44C-D197-463C-B90E-EAE48997E210@holdenweb.com>
+References: <BANLkTi=eKTPxyV0y+XdaThZ5pTO=5LekcQ@mail.gmail.com>
+	<BANLkTi=Vz8akGf86TmEwd4c40cXdU-EQGQ@mail.gmail.com>
+	<BANLkTi=2yBWU1o6ckaAve9vMpQnDU5=usg@mail.gmail.com>
+	<BANLkTinGVA8Q9OSkfOnPXbabMQMQfjAo9Q@mail.gmail.com>
+	<BANLkTim61zd2W+2mwsymC4onzr8oMZzjUQ@mail.gmail.com>
+	<BANLkTimROoRnFyrLAu82b+12iiUXvMKgWg@mail.gmail.com>
+	<BANLkTi=HrNuwCz3Ue4_N4ZbyLUwMSoprng@mail.gmail.com>
+	<58EFC44C-D197-463C-B90E-EAE48997E210@holdenweb.com>
+Message-ID: <BANLkTinEVCcfiiF-eGdkYDLQs=Jx3y5hcg@mail.gmail.com>
+
+Okay Steve, don't confuse me :0.
+
+Pat
+
+On Wed, Jun 29, 2011 at 6:24 PM, Steve Holden <steve at holdenweb.com> wrote:
+
+> You meant "grubert", of course.
+>
+> It amuses my non-computer friends that people often greet me as "holdenweb"
+> at PyCon and similar places.
+>
+> regards
+>  Steve
+>
+> On Jun 29, 2011, at 3:17 PM, Pat Campbell wrote:
+>
+> Thanks for the clarification, Engelbert.
+>
+>
+> --
+> Steve Holden
+> steve at holdenweb.com
+>
+>
+>
+>
+
+
+-- 
+Pat Campbell
+PSF Administrator/Secretary
+patcam at python.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20110629/cd89986a/attachment.html>
+
+From ncoghlan at gmail.com  Thu Jun 30 12:53:39 2011
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Thu, 30 Jun 2011 20:53:39 +1000
+Subject: [python-committers] [PSF-Board] contrib agreement
+In-Reply-To: <BANLkTint24yyeQyX5OdKdeWzMEHXDuEyyQ@mail.gmail.com>
+References: <BANLkTi=eKTPxyV0y+XdaThZ5pTO=5LekcQ@mail.gmail.com>
+	<BANLkTi=Vz8akGf86TmEwd4c40cXdU-EQGQ@mail.gmail.com>
+	<BANLkTi=2yBWU1o6ckaAve9vMpQnDU5=usg@mail.gmail.com>
+	<BANLkTik2gsTwVu6-Y5qDr+3AHWo4pC5uHA@mail.gmail.com>
+	<BANLkTint24yyeQyX5OdKdeWzMEHXDuEyyQ@mail.gmail.com>
+Message-ID: <BANLkTikpNxa5-inuudm32bsF899mtH0oLw@mail.gmail.com>
+
+2011/6/30 Pat Campbell <patcam at python.org>:
+> Hi Charles-Francois:
+>
+> I do have a hardcopy of your contributor agreement (rec'd
+> on 5/20/2011). However, I would like to add your contributor
+> agreement to the bug tracker.
+>
+> Could you please forward your tracker id and username?
+
+http://bugs.python.org/user12146
+
+It's probably best if we try to remember to collect tracker user names
+when we collect contributor forms in the future (I know I've generally
+neglected to ask in the past).
+
+Regards,
+Nick.
+
+-- 
+Nick Coghlan?? |?? ncoghlan at gmail.com?? |?? Brisbane, Australia
+
+From patcam at python.org  Thu Jun 30 20:11:48 2011
+From: patcam at python.org (Pat Campbell)
+Date: Thu, 30 Jun 2011 14:11:48 -0400
+Subject: [python-committers] [PSF-Board] contrib agreement
+In-Reply-To: <BANLkTikpNxa5-inuudm32bsF899mtH0oLw@mail.gmail.com>
+References: <BANLkTi=eKTPxyV0y+XdaThZ5pTO=5LekcQ@mail.gmail.com>
+	<BANLkTi=Vz8akGf86TmEwd4c40cXdU-EQGQ@mail.gmail.com>
+	<BANLkTi=2yBWU1o6ckaAve9vMpQnDU5=usg@mail.gmail.com>
+	<BANLkTik2gsTwVu6-Y5qDr+3AHWo4pC5uHA@mail.gmail.com>
+	<BANLkTint24yyeQyX5OdKdeWzMEHXDuEyyQ@mail.gmail.com>
+	<BANLkTikpNxa5-inuudm32bsF899mtH0oLw@mail.gmail.com>
+Message-ID: <BANLkTikB6wENeoJtQ7pm_ui_JRbNZTGz8A@mail.gmail.com>
+
+Excellent idea. Thanks Nick.
+Pat
+
+2011/6/30 Nick Coghlan <ncoghlan at gmail.com>
+
+> 2011/6/30 Pat Campbell <patcam at python.org>:
+> > Hi Charles-Francois:
+> >
+> > I do have a hardcopy of your contributor agreement (rec'd
+> > on 5/20/2011). However, I would like to add your contributor
+> > agreement to the bug tracker.
+> >
+> > Could you please forward your tracker id and username?
+>
+> http://bugs.python.org/user12146
+>
+> It's probably best if we try to remember to collect tracker user names
+> when we collect contributor forms in the future (I know I've generally
+> neglected to ask in the past).
+>
+> Regards,
+> Nick.
+>
+> --
+> Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+>
+
+
+
+-- 
+Pat Campbell
+PSF Administrator/Secretary
+patcam at python.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20110630/b42f908e/attachment.html>
+

@@ -1,0 +1,3201 @@
+From p.f.moore at gmail.com  Fri Sep  1 10:09:09 2017
+From: p.f.moore at gmail.com (Paul Moore)
+Date: Fri, 1 Sep 2017 15:09:09 +0100
+Subject: [python-committers] PyCharm open source license
+Message-ID: <CACac1F8NGxXD__6E2OGGiCFpRjJ366t+gkDibbJTE5t_N=Wsew@mail.gmail.com>
+
+I've been trying out PyCharm recently, and looking through the
+archives here I see that some time back JetBrains provided us with a
+free open source license. Is that still running? And if so, how do I
+go about getting a copy?
+
+Thanks,
+Paul
+
+From victor.stinner at gmail.com  Fri Sep  1 13:15:28 2017
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Fri, 1 Sep 2017 19:15:28 +0200
+Subject: [python-committers] Travis CI: macOS is now blocking -- remove
+ macOS from Travis CI?
+Message-ID: <CAMpsgwY_B24oEJgYJGYVCF9RhfYY8Q7_aS-N3KzHQaKkegp20A@mail.gmail.com>
+
+Hi,
+
+Since today, it seems like the macOS task of a Travis CI job to
+validate a pull request hangs the whole job.
+
+Don't try to cancel the macOS job, or the whole job will be marked as
+failed! ... even if macOS is in the "Allowed Failure" section. I don't
+know the best way to "repair" such job. I use "restart job" which
+restarts all tasks, even the completed *and successful* Linux and doc
+jobs.
+
+I have PRs waiting for longer than 2 hours for Travis CI. The macOS
+job is seen as "queued".
+
+Yesterday, it was possible to merge a PR even if the macOS job was
+still queued (no started).
+
+I never wait for macOS, since, as I wrote, it can take longer than 1
+hour. Moreover, macOS failures are not reported to the GitHub UI :-(
+(Hum, in fact, I'm not sure about that.)
+
+Maybe we should remove the pre-commit macOS task from the Travis CI
+config to focus on post-commit macOS buildbots? If we remove it,
+should we remove it from 2.7, 3.6 and master branches?
+
+We have 3 macOS buildbots:
+
+* x86 Tiger 3.x
+* x86-64 El Capitan 3.x
+* x86-64 Sierra 3.x
+
+All three are currently green ;-)
+
+In the last 3 months, the macOS task of Travis CI caused multiple issues :-/
+
+Victor
+
+From antoine at python.org  Fri Sep  1 13:19:40 2017
+From: antoine at python.org (Antoine Pitrou)
+Date: Fri, 1 Sep 2017 19:19:40 +0200
+Subject: [python-committers] Travis CI: macOS is now blocking -- remove
+ macOS from Travis CI?
+In-Reply-To: <CAMpsgwY_B24oEJgYJGYVCF9RhfYY8Q7_aS-N3KzHQaKkegp20A@mail.gmail.com>
+References: <CAMpsgwY_B24oEJgYJGYVCF9RhfYY8Q7_aS-N3KzHQaKkegp20A@mail.gmail.com>
+Message-ID: <abed2163-4705-9798-5e81-73447cbaf507@python.org>
+
+
+Le 01/09/2017 ? 19:15, Victor Stinner a ?crit :
+> 
+> Yesterday, it was possible to merge a PR even if the macOS job was
+> still queued (no started).
+
+It's still possible today.
+
+> Maybe we should remove the pre-commit macOS task from the Travis CI
+> config to focus on post-commit macOS buildbots?
+
+Even though macOS is slow on Travis CI, I prefer to get a pre-merge
+failure rather than have to watch the buildbots and try to merge
+followup PRs until I manage to fix the issue.
+
+In the cases where I've no reason to suspect platform-specific issues, I
+simply don't wait for the macOS result.
+
+Regards
+
+Antoine.
+
+From victor.stinner at gmail.com  Fri Sep  1 15:39:50 2017
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Fri, 1 Sep 2017 21:39:50 +0200
+Subject: [python-committers] Travis CI: macOS is now blocking -- remove
+ macOS from Travis CI?
+In-Reply-To: <abed2163-4705-9798-5e81-73447cbaf507@python.org>
+References: <CAMpsgwY_B24oEJgYJGYVCF9RhfYY8Q7_aS-N3KzHQaKkegp20A@mail.gmail.com>
+ <abed2163-4705-9798-5e81-73447cbaf507@python.org>
+Message-ID: <CAMpsgwakNNC=VhtzOUnY8Fs-KK-H2j+3vZ7GBs0piKn9QVwPZg@mail.gmail.com>
+
+Le 1 sept. 2017 7:24 PM, "Antoine Pitrou" <antoine at python.org> a ?crit :
+
+
+Le 01/09/2017 ? 19:15, Victor Stinner a ?crit :
+>
+> Yesterday, it was possible to merge a PR even if the macOS job was
+> still queued (no started).
+
+It's still possible today.
+
+
+Ah? The merge button was disabled whereas AppVeyor and the 2 mandatory
+tests of Travis CI already passed. I will check again.
+
+Victor
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170901/9032cd3e/attachment.html>
+
+From senthil at uthcode.com  Fri Sep  1 20:37:46 2017
+From: senthil at uthcode.com (Senthil Kumaran)
+Date: Fri, 1 Sep 2017 17:37:46 -0700
+Subject: [python-committers] PyCharm open source license
+In-Reply-To: <CACac1F8NGxXD__6E2OGGiCFpRjJ366t+gkDibbJTE5t_N=Wsew@mail.gmail.com>
+References: <CACac1F8NGxXD__6E2OGGiCFpRjJ366t+gkDibbJTE5t_N=Wsew@mail.gmail.com>
+Message-ID: <CAPOVWOQ3R7eSNE+AKU37HUgtB41=VZkUpi5EMb=iZtF=hiyK9g@mail.gmail.com>
+
+If you are going to use for CPython development, then reach out to Vinay
+Sajip.
+
+On Fri, Sep 1, 2017 at 7:09 AM, Paul Moore <p.f.moore at gmail.com> wrote:
+
+> I've been trying out PyCharm recently, and looking through the
+> archives here I see that some time back JetBrains provided us with a
+> free open source license. Is that still running? And if so, how do I
+> go about getting a copy?
+>
+> Thanks,
+> Paul
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170901/022199d3/attachment.html>
+
+From berker.peksag at gmail.com  Fri Sep  1 21:01:14 2017
+From: berker.peksag at gmail.com (=?UTF-8?Q?Berker_Peksa=C4=9F?=)
+Date: Sat, 2 Sep 2017 04:01:14 +0300
+Subject: [python-committers] PyCharm open source license
+In-Reply-To: <CAPOVWOQ3R7eSNE+AKU37HUgtB41=VZkUpi5EMb=iZtF=hiyK9g@mail.gmail.com>
+References: <CACac1F8NGxXD__6E2OGGiCFpRjJ366t+gkDibbJTE5t_N=Wsew@mail.gmail.com>
+ <CAPOVWOQ3R7eSNE+AKU37HUgtB41=VZkUpi5EMb=iZtF=hiyK9g@mail.gmail.com>
+Message-ID: <CAF4280K=T=7uexRTyhRwLJz5Kyvjwh9F-+mCo13kpRjhp6Se+g@mail.gmail.com>
+
+On Sat, Sep 2, 2017 at 3:37 AM, Senthil Kumaran <senthil at uthcode.com> wrote:
+> If you are going to use for CPython development, then reach out to Vinay
+> Sajip.
+
+I have four available licences for CPython development too.
+
+--Berker
+
+From larry at hastings.org  Tue Sep  5 17:39:36 2017
+From: larry at hastings.org (Larry Hastings)
+Date: Tue, 5 Sep 2017 14:39:36 -0700
+Subject: [python-committers] Workflow change reminder: The Blurb Has Landed
+Message-ID: <04b97978-cc81-ed50-e3a6-5f96c9ea54ea@hastings.org>
+
+
+
+Yesterday I "blurbified" the 2.7, 3.6, and master branches in CPython.  
+It's finally official: all* branches have now been "blurbified".  This 
+means that Misc/NEWS is no longer present in any of CPython's active 
+branches.  Instead, Misc/NEWS has been broken up into a zillion little 
+files in the new Misc/NEWS.d directory tree. (Misc/NEWS can be 
+reconstituted consistently from this directory tree.)  This banishes 
+forever the annoying problem of Misc/NEWS merge conflicts when you 
+attempt to merge a pull request, when release managers create a release, 
+etc.
+
+We announced "blurb" a month or two back, and you should already be 
+creating your news entries in Misc/NEWS.d.  But just in case, here's a 
+quick refresher.
+
+The core-workflow team has created a tool called "blurb" that makes it 
+easy to create a news entry for a commit.  It's easy to install and use.
+
+You can install it with:
+
+    python3 -m pip install blurb
+
+It requires Python 3.5 or newer.  (Sorry, it can't get backported to 3.4 
+without fixing a bug in "re"... and 3.4 is closed for bugfixes.)
+
+To create a news entry, just run blurb from anywhere inside your CPython 
+repo.  On POSIX systems just make sure "blurb" is on your path, then 
+simply run "blurb".  On Windows the recommended method is "python3 -m 
+blurb".
+
+When you run blurb, it'll guide you through creating a news entry. It'll 
+pop open an editor window on a template.  Just modify the template as 
+needed, write your news entry at the bottom, and save and exit.  blurb 
+will write out your news entry as a uniquely-named file in 
+Misc/NEWS.d--and even stage it for you in "git"!
+
+If for some reason you want to create news entries by hand, or if you 
+just want more information, please see the Dev Guide:
+
+    https://devguide.python.org/committing/#what-s-new-and-news-entries
+
+and the documentation for blurb on PyPI:
+
+     https://pypi.org/project/blurb/
+
+The migration to Misc/NEWS.d and blurb has a few other implications:
+
+ 1. Existing pending PRs or patches with Misc/NEWS entries will need to
+    be updated to generate the entry with blurb.  (Again, there really
+    shouldn't /be/ any by this point.)
+ 2. If you want to read a branch's NEWS entries in a convenient format,
+    simply use "blurb merge" to produce a temporary NEWS file.  (But
+    don't check it in!)  See the blurb documentation.
+ 3. As part of the release process, release managers now use blurb to
+    merge all the individual NEWS.d/next files into a single NEWS.d file
+    for that version.  They'll also build a traditional monolithic
+    Misc/NEWS included in the release's source tarball (but this won't
+    get checked in).
+ 4. If you're building 3.x docs from a cpython git repo, you'll now need
+    to have blurb installed.  You can use the "make venv" recipe in
+    Doc/Makefile to create a python3 venv with blurb and sphinx.
+
+
+Happy blurbing!
+
+
+/arry
+
+* All except 3.3.  Ned Deily has taken over as release manager of 3.3, 
+and he thinks we shouldn't bother with blurbifying that branch--it'll 
+reach end-of-life in mere weeks, and we're only going to make one more 
+release of it, and it gets very little work done these days.
+
+p.s. Thanks to Ned Deily who originally wrote this email, which I hacked 
+up and sent.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170905/de8586b9/attachment.html>
+
+From victor.stinner at gmail.com  Tue Sep  5 19:30:07 2017
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Wed, 6 Sep 2017 01:30:07 +0200
+Subject: [python-committers] Travis CI: macOS is now blocking -- remove
+ macOS from Travis CI?
+In-Reply-To: <CAMpsgwY_B24oEJgYJGYVCF9RhfYY8Q7_aS-N3KzHQaKkegp20A@mail.gmail.com>
+References: <CAMpsgwY_B24oEJgYJGYVCF9RhfYY8Q7_aS-N3KzHQaKkegp20A@mail.gmail.com>
+Message-ID: <CAMpsgwawSwkJzai00q5K1qaZinsM6aQkP2qvKriVk8vGg8OODA@mail.gmail.com>
+
+Hi,
+
+I was bitten again by the issue on https://github.com/python/cpython/pull/3350
+
+After restarting the Travis CI build twice (first by me, then by
+Zach), I was able to merge it. But it's painful to have to restart a
+whole build. And it wastes Travis CI resources :-(
+
+So I just proposed to drop the macOS job: https://bugs.python.org/issue31355
+
+Please read the issue for the full rationale.
+
+Victor
+
+2017-09-01 19:15 GMT+02:00 Victor Stinner <victor.stinner at gmail.com>:
+> Hi,
+>
+> Since today, it seems like the macOS task of a Travis CI job to
+> validate a pull request hangs the whole job.
+>
+> Don't try to cancel the macOS job, or the whole job will be marked as
+> failed! ... even if macOS is in the "Allowed Failure" section. I don't
+> know the best way to "repair" such job. I use "restart job" which
+> restarts all tasks, even the completed *and successful* Linux and doc
+> jobs.
+>
+> I have PRs waiting for longer than 2 hours for Travis CI. The macOS
+> job is seen as "queued".
+>
+> Yesterday, it was possible to merge a PR even if the macOS job was
+> still queued (no started).
+>
+> I never wait for macOS, since, as I wrote, it can take longer than 1
+> hour. Moreover, macOS failures are not reported to the GitHub UI :-(
+> (Hum, in fact, I'm not sure about that.)
+>
+> Maybe we should remove the pre-commit macOS task from the Travis CI
+> config to focus on post-commit macOS buildbots? If we remove it,
+> should we remove it from 2.7, 3.6 and master branches?
+>
+> We have 3 macOS buildbots:
+>
+> * x86 Tiger 3.x
+> * x86-64 El Capitan 3.x
+> * x86-64 Sierra 3.x
+>
+> All three are currently green ;-)
+>
+> In the last 3 months, the macOS task of Travis CI caused multiple issues :-/
+>
+> Victor
+
+From mariatta.wijaya at gmail.com  Tue Sep  5 21:10:48 2017
+From: mariatta.wijaya at gmail.com (Mariatta Wijaya)
+Date: Tue, 5 Sep 2017 18:10:48 -0700
+Subject: [python-committers] Cherry picker bot deployed in CPython repo
+Message-ID: <CAGbohnYyjwWEdqeV+0LpvHBDGSQr+H7bcB2vUNH3FYGUFHSOEw@mail.gmail.com>
+
+Hi,
+
+The cherry picker bot has just been deployed to CPython repo, codenamed
+miss-islington.
+
+miss-islington made the very first backport PR for CPython and became a
+first time GitHub contributor: https://github.com/python/cpython/pull/3369
+
+GitHub repo: https://github.com/python/miss-islington
+
+What is this?
+==========
+
+As part of our workflow, quite often changes made on the master branch need
+to be backported to the earlier versions. (for example: from master to 3.6
+and 2.7)
+
+Previously the backport has to be done manually by either a core developer
+or the original PR author.
+
+With the bot, the backport PR is created automatically after the PR has
+been merged. A core developer will need to review the backport PR.
+
+The issue was tracked in https://github.com/python/core-workflow/issues/8
+
+How it works
+==========
+
+1. If a PR needs to be backported to one of the maintenance branches, a
+core developer should apply the "needs backport to X.Y" label. Do this
+**before** you merge the PR.
+
+2. Merge the PR
+
+3. miss-islington will leave a comment on the PR, saying it is working on
+backporting the PR.
+
+4. If there's no merge conflict, the PR should be created momentarily.
+
+5. Review the backport PR created by miss-islington and merge it when
+you're ready.
+
+Merge Conflicts / Problems?
+======================
+
+In case of merge conflicts, or if a backport PR was not created within 2
+minutes, it likely failed and you should do the backport manually.
+
+Manual backport can be done using cherry_picker:
+https://pypi.org/project/cherry-picker/
+
+Older merged PRs not yet backported?
+==============================
+
+At the moment, those need to be backported manually.
+
+Don't want PR to be backported by a bot?
+================================
+
+My recommendation is to apply the "needs backport to X.Y" **after** the PR
+has been merged. The label is still useful to remind ourselves that this PR
+still needs backporting.
+
+Who is Miss Islington?
+=================
+
+I found out from Wikipedia that Miss Islington is the name of the witch in
+Monty Python and The Holy Grail.
+
+miss-islington has not signed the CLA!
+=============================
+
+A core dev can ignore the warning and merge the PR anyway.
+
+Thanks!
+
+
+Mariatta Wijaya
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170905/865f6509/attachment-0001.html>
+
+From alex.gaynor at gmail.com  Tue Sep  5 21:15:06 2017
+From: alex.gaynor at gmail.com (Alex Gaynor)
+Date: Tue, 5 Sep 2017 21:15:06 -0400
+Subject: [python-committers] Cherry picker bot deployed in CPython repo
+In-Reply-To: <CAGbohnYyjwWEdqeV+0LpvHBDGSQr+H7bcB2vUNH3FYGUFHSOEw@mail.gmail.com>
+References: <CAGbohnYyjwWEdqeV+0LpvHBDGSQr+H7bcB2vUNH3FYGUFHSOEw@mail.gmail.com>
+Message-ID: <CAFRnB2VUjN18BFneo-Y=SVzo98fFhFKgH=_rFFtPN0DZEGgc7Q@mail.gmail.com>
+
+This is a great UX win for our development process. Thanks for making this
+happen!
+
+Alex
+
+On Tue, Sep 5, 2017 at 9:10 PM, Mariatta Wijaya <mariatta.wijaya at gmail.com>
+wrote:
+
+> Hi,
+>
+> The cherry picker bot has just been deployed to CPython repo, codenamed
+> miss-islington.
+>
+> miss-islington made the very first backport PR for CPython and became a
+> first time GitHub contributor: https://github.com/python/cpython/pull/3369
+>
+>
+> GitHub repo: https://github.com/python/miss-islington
+>
+> What is this?
+> ==========
+>
+> As part of our workflow, quite often changes made on the master branch
+> need to be backported to the earlier versions. (for example: from master to
+> 3.6 and 2.7)
+>
+> Previously the backport has to be done manually by either a core developer
+> or the original PR author.
+>
+> With the bot, the backport PR is created automatically after the PR has
+> been merged. A core developer will need to review the backport PR.
+>
+> The issue was tracked in https://github.com/python/core-workflow/issues/8
+>
+> How it works
+> ==========
+>
+> 1. If a PR needs to be backported to one of the maintenance branches, a
+> core developer should apply the "needs backport to X.Y" label. Do this
+> **before** you merge the PR.
+>
+> 2. Merge the PR
+>
+> 3. miss-islington will leave a comment on the PR, saying it is working on
+> backporting the PR.
+>
+> 4. If there's no merge conflict, the PR should be created momentarily.
+>
+> 5. Review the backport PR created by miss-islington and merge it when
+> you're ready.
+>
+> Merge Conflicts / Problems?
+> ======================
+>
+> In case of merge conflicts, or if a backport PR was not created within 2
+> minutes, it likely failed and you should do the backport manually.
+>
+> Manual backport can be done using cherry_picker: https://pypi.
+> org/project/cherry-picker/
+>
+> Older merged PRs not yet backported?
+> ==============================
+>
+> At the moment, those need to be backported manually.
+>
+> Don't want PR to be backported by a bot?
+> ================================
+>
+> My recommendation is to apply the "needs backport to X.Y" **after** the PR
+> has been merged. The label is still useful to remind ourselves that this PR
+> still needs backporting.
+>
+> Who is Miss Islington?
+> =================
+>
+> I found out from Wikipedia that Miss Islington is the name of the witch in
+> Monty Python and The Holy Grail.
+>
+> miss-islington has not signed the CLA!
+> =============================
+>
+> A core dev can ignore the warning and merge the PR anyway.
+>
+> Thanks!
+>
+>
+> Mariatta Wijaya
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+>
+
+
+-- 
+"I disapprove of what you say, but I will defend to the death your right to
+say it." -- Evelyn Beatrice Hall (summarizing Voltaire)
+"The people's good is the highest law." -- Cicero
+GPG Key fingerprint: D1B3 ADC0 E023 8CA6
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170905/f92d5d89/attachment.html>
+
+From songofacandy at gmail.com  Tue Sep  5 21:25:40 2017
+From: songofacandy at gmail.com (INADA Naoki)
+Date: Wed, 6 Sep 2017 10:25:40 +0900
+Subject: [python-committers] Cherry picker bot deployed in CPython repo
+In-Reply-To: <CAGbohnYyjwWEdqeV+0LpvHBDGSQr+H7bcB2vUNH3FYGUFHSOEw@mail.gmail.com>
+References: <CAGbohnYyjwWEdqeV+0LpvHBDGSQr+H7bcB2vUNH3FYGUFHSOEw@mail.gmail.com>
+Message-ID: <CAEfz+TwgdYcFWxzHKkw76CESit1OyzaU9_dR30OB2gPe_HwkCg@mail.gmail.com>
+
+Congrats!
+
+INADA Naoki  <songofacandy at gmail.com>
+
+
+On Wed, Sep 6, 2017 at 10:10 AM, Mariatta Wijaya
+<mariatta.wijaya at gmail.com> wrote:
+> Hi,
+>
+> The cherry picker bot has just been deployed to CPython repo, codenamed
+> miss-islington.
+>
+> miss-islington made the very first backport PR for CPython and became a
+> first time GitHub contributor: https://github.com/python/cpython/pull/3369
+>
+> GitHub repo: https://github.com/python/miss-islington
+>
+> What is this?
+> ==========
+>
+> As part of our workflow, quite often changes made on the master branch need
+> to be backported to the earlier versions. (for example: from master to 3.6
+> and 2.7)
+>
+> Previously the backport has to be done manually by either a core developer
+> or the original PR author.
+>
+> With the bot, the backport PR is created automatically after the PR has been
+> merged. A core developer will need to review the backport PR.
+>
+> The issue was tracked in https://github.com/python/core-workflow/issues/8
+>
+> How it works
+> ==========
+>
+> 1. If a PR needs to be backported to one of the maintenance branches, a core
+> developer should apply the "needs backport to X.Y" label. Do this **before**
+> you merge the PR.
+>
+> 2. Merge the PR
+>
+> 3. miss-islington will leave a comment on the PR, saying it is working on
+> backporting the PR.
+>
+> 4. If there's no merge conflict, the PR should be created momentarily.
+>
+> 5. Review the backport PR created by miss-islington and merge it when you're
+> ready.
+>
+> Merge Conflicts / Problems?
+> ======================
+>
+> In case of merge conflicts, or if a backport PR was not created within 2
+> minutes, it likely failed and you should do the backport manually.
+>
+> Manual backport can be done using cherry_picker:
+> https://pypi.org/project/cherry-picker/
+>
+> Older merged PRs not yet backported?
+> ==============================
+>
+> At the moment, those need to be backported manually.
+>
+> Don't want PR to be backported by a bot?
+> ================================
+>
+> My recommendation is to apply the "needs backport to X.Y" **after** the PR
+> has been merged. The label is still useful to remind ourselves that this PR
+> still needs backporting.
+>
+> Who is Miss Islington?
+> =================
+>
+> I found out from Wikipedia that Miss Islington is the name of the witch in
+> Monty Python and The Holy Grail.
+>
+> miss-islington has not signed the CLA!
+> =============================
+>
+> A core dev can ignore the warning and merge the PR anyway.
+>
+> Thanks!
+>
+>
+> Mariatta Wijaya
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+
+From mariatta.wijaya at gmail.com  Wed Sep  6 17:59:52 2017
+From: mariatta.wijaya at gmail.com (Mariatta Wijaya)
+Date: Wed, 6 Sep 2017 14:59:52 -0700
+Subject: [python-committers] Cherry picker bot deployed in CPython repo
+In-Reply-To: <CAGbohnYyjwWEdqeV+0LpvHBDGSQr+H7bcB2vUNH3FYGUFHSOEw@mail.gmail.com>
+References: <CAGbohnYyjwWEdqeV+0LpvHBDGSQr+H7bcB2vUNH3FYGUFHSOEw@mail.gmail.com>
+Message-ID: <CAGbohnY3jdHLpWTL04DdTyxzO-9AkOEQfyHmtR+T7yODNM7PSw@mail.gmail.com>
+
+Update:
+
+Older merged PRs not yet backported?
+==============================
+
+A core developer can re-apply the `needs backport ..` label to trigger the
+backport. Meaning, remove the existing label, then add it back. If there
+was no label and now you want it to be backported, adding the label will
+also trigger the backport.
+
+Don't want PR to be backported by a bot?
+================================
+
+Close the backport PR made by Miss Islington and make your own backport PR.
+
+
+Thanks!
+
+
+
+Mariatta Wijaya
+
+On Tue, Sep 5, 2017 at 6:10 PM, Mariatta Wijaya <mariatta.wijaya at gmail.com>
+wrote:
+
+> Hi,
+>
+> The cherry picker bot has just been deployed to CPython repo, codenamed
+> miss-islington.
+>
+> miss-islington made the very first backport PR for CPython and became a
+> first time GitHub contributor: https://github.com/python/cpython/pull/3369
+>
+>
+> GitHub repo: https://github.com/python/miss-islington
+>
+> What is this?
+> ==========
+>
+> As part of our workflow, quite often changes made on the master branch
+> need to be backported to the earlier versions. (for example: from master to
+> 3.6 and 2.7)
+>
+> Previously the backport has to be done manually by either a core developer
+> or the original PR author.
+>
+> With the bot, the backport PR is created automatically after the PR has
+> been merged. A core developer will need to review the backport PR.
+>
+> The issue was tracked in https://github.com/python/core-workflow/issues/8
+>
+> How it works
+> ==========
+>
+> 1. If a PR needs to be backported to one of the maintenance branches, a
+> core developer should apply the "needs backport to X.Y" label. Do this
+> **before** you merge the PR.
+>
+> 2. Merge the PR
+>
+> 3. miss-islington will leave a comment on the PR, saying it is working on
+> backporting the PR.
+>
+> 4. If there's no merge conflict, the PR should be created momentarily.
+>
+> 5. Review the backport PR created by miss-islington and merge it when
+> you're ready.
+>
+> Merge Conflicts / Problems?
+> ======================
+>
+> In case of merge conflicts, or if a backport PR was not created within 2
+> minutes, it likely failed and you should do the backport manually.
+>
+> Manual backport can be done using cherry_picker: https://pypi.
+> org/project/cherry-picker/
+>
+> Older merged PRs not yet backported?
+> ==============================
+>
+> At the moment, those need to be backported manually.
+>
+> Don't want PR to be backported by a bot?
+> ================================
+>
+> My recommendation is to apply the "needs backport to X.Y" **after** the PR
+> has been merged. The label is still useful to remind ourselves that this PR
+> still needs backporting.
+>
+> Who is Miss Islington?
+> =================
+>
+> I found out from Wikipedia that Miss Islington is the name of the witch in
+> Monty Python and The Holy Grail.
+>
+> miss-islington has not signed the CLA!
+> =============================
+>
+> A core dev can ignore the warning and merge the PR anyway.
+>
+> Thanks!
+>
+>
+> Mariatta Wijaya
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170906/0c3ae5c4/attachment.html>
+
+From nad at python.org  Wed Sep  6 19:52:21 2017
+From: nad at python.org (Ned Deily)
+Date: Wed, 6 Sep 2017 16:52:21 -0700
+Subject: [python-committers] Python 3.3.7rc1 now available prior to Python
+ 3.3 end-of-life
+Message-ID: <3B07469D-32E6-4C3B-90CD-14EA0A94575D@python.org>
+
+On behalf of the Python development community and the Python 3.3 release teams, I would like to announce the availability of Python 3.3.7rc1, the release candidate of Python 3.3.7.  It is a security-fix source-only release.  Python 3.3.0 was released 5 years ago on 2012-09-29 and has been in security-fix-only mode since 2014-03-08.  Per project policy, all support for the 3.3 series of releases ends on 2017-09-29, five years after the initial release.  Therefore, Python 3.3.7 is expected to be the final release of any kind for the 3.3 series.
+
+After 2017-09-29, **we will no longer accept bug reports nor provide fixes of any kind for Python 3.3.x**; of course, third-party distributors of Python 3.3.x may choose to offer their own extended support.  Because 3.3.x has long been in security-fix mode, 3.3.7 may no longer build correctly on all current operating system releases and some tests may fail. If you are still using Python 3.3.x, we **strongly** encourage you to upgrade to a more recent, fully supported version of Python 3; see https://www.python.org/downloads/.  If you are still using your own build of Python 3.3.x , please report any critical issues with 3.3.7rc1 to the Python bug tracker prior to 2017-09-18, the expected release date for Python 3.3.7 final.  Even better, use the time to upgrade to Python 3.6.x!
+
+Thank you to everyone who has contributed to the success of Python 3.3.x over the past years!
+
+You can find Python 3.3.7rc1 here:
+https://www.python.org/downloads/release/python-337rc1/ 
+
+--
+  Ned Deily
+  nad at python.org -- []
+
+
+From senthil at uthcode.com  Thu Sep  7 09:07:51 2017
+From: senthil at uthcode.com (Senthil Kumaran)
+Date: Thu, 7 Sep 2017 06:07:51 -0700
+Subject: [python-committers] Cherry picker bot deployed in CPython repo
+In-Reply-To: <CAGbohnYyjwWEdqeV+0LpvHBDGSQr+H7bcB2vUNH3FYGUFHSOEw@mail.gmail.com>
+References: <CAGbohnYyjwWEdqeV+0LpvHBDGSQr+H7bcB2vUNH3FYGUFHSOEw@mail.gmail.com>
+Message-ID: <CAPOVWOQ+QA3UbZ8v2Cu-6u8KatJUxSGHo9g0mKiE3L9qXfnEfw@mail.gmail.com>
+
+On Tue, Sep 5, 2017 at 6:10 PM, Mariatta Wijaya <mariatta.wijaya at gmail.com>
+wrote:
+
+> Hi,
+>
+> The cherry picker bot has just been deployed to CPython repo, codenamed
+> miss-islington.
+>
+> miss-islington made the very first backport PR for CPython and became a
+> first time GitHub contributor: https://github.com/python/cpython/pull/3369
+>
+>
+>
+Thanks Mariatta.  This is an awesome contribution. It's going to extremely
+helpful.
+
+-- 
+Senthil
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170907/4d8f0d46/attachment.html>
+
+From larry at hastings.org  Fri Sep  8 15:44:26 2017
+From: larry at hastings.org (Larry Hastings)
+Date: Fri, 8 Sep 2017 12:44:26 -0700
+Subject: [python-committers] PEP 549 v2: now titled Instance Descriptors
+Message-ID: <30a24dc0-edcb-61f3-d89e-6fc5bab3c8b6@hastings.org>
+
+
+
+I've updated PEP 549 with a new title--"Instance Descriptors" is a 
+better name than "Instance Properties"--and to clarify my rationale for 
+the PEP.  I've also updated the prototype with code cleanups and a new 
+type: "collections.abc.InstanceDescriptor", a base class that allows 
+user classes to be instance descriptors.
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170908/3c8474de/attachment.html>
+
+From nad at python.org  Wed Sep 13 12:35:31 2017
+From: nad at python.org (Ned Deily)
+Date: Wed, 13 Sep 2017 09:35:31 -0700
+Subject: [python-committers] Reminder: snapshots and releases coming up in
+ the next several days
+Message-ID: <7DB7FBD1-0574-4C4B-8170-EE8FCD0E2002@python.org>
+
+Lots of releases coming up soon!
+
+2017-09-16:
+- Python 2.7.14 final release
+
+2017-09-18 1200 UTC cutoff:
+- Python 3.6.3 rc1
+- Python 3.3.7 final release (following by retirement)
+
+If you know of any issues that you feel need to be addressed in these releases, please make sure there is an open issue on the bug tracker set to "release blocker".
+
+Also on 2017-09-18:
+- Python 3.7.0 alpha 1
+
+This will be the first preview snapshot of 3.7.0.  It's still very early in the development cycle for 3.7.  The main purpose of early alpha releases is to exercise the build and release process and to make it easier for Windows and Macs users to help test.  Many new features and build changes are yet to appear in subsequent releases prior to feature code cutoff on 2018-01-29 at 3.7.0b1.
+
+Thanks for your help!
+
+--Ned
+
+--
+  Ned Deily
+  nad at python.org -- []
+
+
+From fred at fdrake.net  Wed Sep 13 12:57:29 2017
+From: fred at fdrake.net (Fred Drake)
+Date: Wed, 13 Sep 2017 12:57:29 -0400
+Subject: [python-committers] [Python-Dev] Reminder: snapshots and
+ releases coming up in the next several days
+In-Reply-To: <7DB7FBD1-0574-4C4B-8170-EE8FCD0E2002@python.org>
+References: <7DB7FBD1-0574-4C4B-8170-EE8FCD0E2002@python.org>
+Message-ID: <CAFT4OTH0SYnaZ6z4EU=+Md-UnB6fkiceaMDjfRrfhE7d2gJGCQ@mail.gmail.com>
+
+On Wed, Sep 13, 2017 at 12:35 PM, Ned Deily <nad at python.org> wrote:
+> Lots of releases coming up soon!
+
+There's a "Python Release Schedule" calendar on Google Calendar that
+used to be maintained, but that appears to have been dropped, though I
+found it useful.
+
+Is there any sort of calendar feed available with this schedule that's
+currently maintained?
+
+
+  -Fred
+
+-- 
+Fred L. Drake, Jr.    <fred at fdrake.net>
+"A storm broke loose in my mind."  --Albert Einstein
+
+From nad at python.org  Wed Sep 13 13:35:33 2017
+From: nad at python.org (Ned Deily)
+Date: Wed, 13 Sep 2017 10:35:33 -0700
+Subject: [python-committers] [Python-Dev] Reminder: snapshots and
+ releases coming up in the next several days
+In-Reply-To: <CAFT4OTH0SYnaZ6z4EU=+Md-UnB6fkiceaMDjfRrfhE7d2gJGCQ@mail.gmail.com>
+References: <7DB7FBD1-0574-4C4B-8170-EE8FCD0E2002@python.org>
+ <CAFT4OTH0SYnaZ6z4EU=+Md-UnB6fkiceaMDjfRrfhE7d2gJGCQ@mail.gmail.com>
+Message-ID: <0CEC8EE4-6A47-493C-AD88-EA778053A812@python.org>
+
+I know the issue of the Google Calendar feed has come up before and we should either maintain it or remove it from the web site. I don't know who has or had the "keys" to it. I'm traveling the next couple of days but I'll look into it afterwards. If anyone has info about it, please contact me directly.  AFAIK, there is no other release calendar feed currently.
+
+  --
+    Ned Deily
+    nad at python.org -- []
+
+
+
+> On Sep 13, 2017, at 09:57, Fred Drake <fred at fdrake.net> wrote:
+> 
+>> On Wed, Sep 13, 2017 at 12:35 PM, Ned Deily <nad at python.org> wrote:
+>> Lots of releases coming up soon!
+> 
+> There's a "Python Release Schedule" calendar on Google Calendar that
+> used to be maintained, but that appears to have been dropped, though I
+> found it useful.
+> 
+> Is there any sort of calendar feed available with this schedule that's
+> currently maintained?
+> 
+> 
+>  -Fred
+> 
+> -- 
+> Fred L. Drake, Jr.    <fred at fdrake.net>
+> "A storm broke loose in my mind."  --Albert Einstein
+
+
+From barry at python.org  Fri Sep 15 14:59:38 2017
+From: barry at python.org (Barry Warsaw)
+Date: Fri, 15 Sep 2017 11:59:38 -0700
+Subject: [python-committers] Py_UNREACHABLE
+Message-ID: <EC14A2F3-AB9D-472B-9A5E-47EA475D5E69@python.org>
+
+I landed bpo-31338 / PR #3374 which adds a Py_UNREACHABLE() macro to master, along with some additional documentation in the C API describing this and a few other common macros.  If you?re writing or reviewing C changes that include unreachable code paths, please use this macro for consistency, instead of other approaches like assert() (which can be compiled out) and `return NULL`, etc.
+
+As part of the PR, I changed a bunch of existing instances in the code:
+
+https://github.com/python/cpython/pull/3374/files
+
+If you find any cases I?ve missed, feel free to submit a PR and I will happily review it.  I think this makes our code more consistent and ultimately safer.
+
+(Thanks Victor for the PR review!)
+
+Cheers,
+-Barry
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 833 bytes
+Desc: Message signed with OpenPGP
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170915/8b1de252/attachment.sig>
+
+From victor.stinner at gmail.com  Fri Sep 15 15:36:29 2017
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Fri, 15 Sep 2017 21:36:29 +0200
+Subject: [python-committers] Py_UNREACHABLE
+In-Reply-To: <EC14A2F3-AB9D-472B-9A5E-47EA475D5E69@python.org>
+References: <EC14A2F3-AB9D-472B-9A5E-47EA475D5E69@python.org>
+Message-ID: <CAMpsgwYnQqfXCv_r2Qiw4hLJHXY2msQ1t6AbZ43di0sk7txJVw@mail.gmail.com>
+
+The good news is that other C macros are now documented as well!
+
+https://docs.python.org/dev/c-api/intro.html#useful-macros
+
+If you look at Include/pymacro.h there are even more crazy macros
+which are not documented yet, like Py_BUILD_ASSERT().
+
+I like Py_ARRAY_LENGTH() which gives the length of an array and not
+its size in bytes. The macro is nice because it fails with a
+compilation error if the argument is not an array! For example, it
+fails on "char *not_an_array" or "char not_an_array_neither[];".
+
+Victor
+
+2017-09-15 20:59 GMT+02:00 Barry Warsaw <barry at python.org>:
+> I landed bpo-31338 / PR #3374 which adds a Py_UNREACHABLE() macro to master, along with some additional documentation in the C API describing this and a few other common macros.  If you?re writing or reviewing C changes that include unreachable code paths, please use this macro for consistency, instead of other approaches like assert() (which can be compiled out) and `return NULL`, etc.
+>
+> As part of the PR, I changed a bunch of existing instances in the code:
+>
+> https://github.com/python/cpython/pull/3374/files
+>
+> If you find any cases I?ve missed, feel free to submit a PR and I will happily review it.  I think this makes our code more consistent and ultimately safer.
+>
+> (Thanks Victor for the PR review!)
+>
+> Cheers,
+> -Barry
+>
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+
+From barry at python.org  Fri Sep 15 16:46:27 2017
+From: barry at python.org (Barry Warsaw)
+Date: Fri, 15 Sep 2017 13:46:27 -0700
+Subject: [python-committers] Py_UNREACHABLE
+In-Reply-To: <CAMpsgwYnQqfXCv_r2Qiw4hLJHXY2msQ1t6AbZ43di0sk7txJVw@mail.gmail.com>
+References: <EC14A2F3-AB9D-472B-9A5E-47EA475D5E69@python.org>
+ <CAMpsgwYnQqfXCv_r2Qiw4hLJHXY2msQ1t6AbZ43di0sk7txJVw@mail.gmail.com>
+Message-ID: <C989C414-7C47-410C-A601-F241CF7663EB@python.org>
+
+On Sep 15, 2017, at 12:36, Victor Stinner <victor.stinner at gmail.com> wrote:
+> 
+> The good news is that other C macros are now documented as well!
+> 
+> https://docs.python.org/dev/c-api/intro.html#useful-macros
+> 
+> If you look at Include/pymacro.h there are even more crazy macros
+> which are not documented yet, like Py_BUILD_ASSERT().
+> 
+> I like Py_ARRAY_LENGTH() which gives the length of an array and not
+> its size in bytes. The macro is nice because it fails with a
+> compilation error if the argument is not an array! For example, it
+> fails on "char *not_an_array" or "char not_an_array_neither[];".
+
+PRs anyone? :)
+
+-Barry
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 833 bytes
+Desc: Message signed with OpenPGP
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170915/e7c6c0e9/attachment.sig>
+
+From tjreedy at udel.edu  Tue Sep 19 13:55:27 2017
+From: tjreedy at udel.edu (Terry Reedy)
+Date: Tue, 19 Sep 2017 13:55:27 -0400
+Subject: [python-committers] Reminder: snapshots and releases coming up
+ in the next several days
+In-Reply-To: <7DB7FBD1-0574-4C4B-8170-EE8FCD0E2002@python.org>
+References: <7DB7FBD1-0574-4C4B-8170-EE8FCD0E2002@python.org>
+Message-ID: <e4b57d85-1af7-39b6-50f2-e9191b8157bb@udel.edu>
+
+On 9/13/2017 12:35 PM, Ned Deily wrote:
+
+> 2017-09-18 1200 UTC cutoff:
+> - Python 3.6.3 rc1
+
+> Also on 2017-09-18:
+> - Python 3.7.0 alpha 1
+
+Have you branched these off so that further merges go into 3.6.4 and alpha2?
+
+
+
+From nad at python.org  Tue Sep 19 14:02:13 2017
+From: nad at python.org (Ned Deily)
+Date: Tue, 19 Sep 2017 14:02:13 -0400
+Subject: [python-committers] Reminder: snapshots and releases coming up
+ in the next several days
+In-Reply-To: <e4b57d85-1af7-39b6-50f2-e9191b8157bb@udel.edu>
+References: <7DB7FBD1-0574-4C4B-8170-EE8FCD0E2002@python.org>
+ <e4b57d85-1af7-39b6-50f2-e9191b8157bb@udel.edu>
+Message-ID: <93D8AC2D-1D23-4F85-B8C6-C9F472654FD3@python.org>
+
+On Sep 19, 2017, at 13:55, Terry Reedy <tjreedy at udel.edu> wrote:
+> On 9/13/2017 12:35 PM, Ned Deily wrote:
+> 
+>> 2017-09-18 1200 UTC cutoff:
+>> - Python 3.6.3 rc1
+> 
+>> Also on 2017-09-18:
+>> - Python 3.7.0 alpha 1
+> 
+> Have you branched these off so that further merges go into 3.6.4 and alpha2?
+
+Yes, they were tagged.  You can see the history in the cpython log repo (git log) or on the github python/cpython web pages.  The release announcement will be forthcoming shortly as the bits arrive from the factories.
+
+--
+  Ned Deily
+  nad at python.org -- []
+
+
+From victor.stinner at gmail.com  Tue Sep 19 15:32:48 2017
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Tue, 19 Sep 2017 21:32:48 +0200
+Subject: [python-committers] Travis CI: macOS is now blocking -- remove
+ macOS from Travis CI?
+In-Reply-To: <CAMpsgwawSwkJzai00q5K1qaZinsM6aQkP2qvKriVk8vGg8OODA@mail.gmail.com>
+References: <CAMpsgwY_B24oEJgYJGYVCF9RhfYY8Q7_aS-N3KzHQaKkegp20A@mail.gmail.com>
+ <CAMpsgwawSwkJzai00q5K1qaZinsM6aQkP2qvKriVk8vGg8OODA@mail.gmail.com>
+Message-ID: <CAMpsgwZVop1xEQEWx=h0znUQFxBov+m6k7qAiSM0x4AWk+auww@mail.gmail.com>
+
+Hi,
+
+The macOS job has been removed from Travis CI at the beginnig of the
+CPython sprint two weeks ago. Since the macOS build was removed, I'm
+less annoyed by Travis CI: it seems more stable.
+
+Are you ok to not add again the macOS job to Travis CI?
+
+Again, my rationale is that we already have 3 macOS buildbots and I'm
+looking closely at all buildbot failures. I try to keep track of *all*
+failures, even random failure. A recent macOS example:
+https://bugs.python.org/issue31510
+
+Sadly, remaining random failures are the most rare and most difficult
+to reproduce. (I fixed a lot of them last months.)
+
+Victor
+
+2017-09-06 1:30 GMT+02:00 Victor Stinner <victor.stinner at gmail.com>:
+> Hi,
+>
+> I was bitten again by the issue on https://github.com/python/cpython/pull/3350
+>
+> After restarting the Travis CI build twice (first by me, then by
+> Zach), I was able to merge it. But it's painful to have to restart a
+> whole build. And it wastes Travis CI resources :-(
+>
+> So I just proposed to drop the macOS job: https://bugs.python.org/issue31355
+>
+> Please read the issue for the full rationale.
+>
+> Victor
+>
+> 2017-09-01 19:15 GMT+02:00 Victor Stinner <victor.stinner at gmail.com>:
+>> Hi,
+>>
+>> Since today, it seems like the macOS task of a Travis CI job to
+>> validate a pull request hangs the whole job.
+>>
+>> Don't try to cancel the macOS job, or the whole job will be marked as
+>> failed! ... even if macOS is in the "Allowed Failure" section. I don't
+>> know the best way to "repair" such job. I use "restart job" which
+>> restarts all tasks, even the completed *and successful* Linux and doc
+>> jobs.
+>>
+>> I have PRs waiting for longer than 2 hours for Travis CI. The macOS
+>> job is seen as "queued".
+>>
+>> Yesterday, it was possible to merge a PR even if the macOS job was
+>> still queued (no started).
+>>
+>> I never wait for macOS, since, as I wrote, it can take longer than 1
+>> hour. Moreover, macOS failures are not reported to the GitHub UI :-(
+>> (Hum, in fact, I'm not sure about that.)
+>>
+>> Maybe we should remove the pre-commit macOS task from the Travis CI
+>> config to focus on post-commit macOS buildbots? If we remove it,
+>> should we remove it from 2.7, 3.6 and master branches?
+>>
+>> We have 3 macOS buildbots:
+>>
+>> * x86 Tiger 3.x
+>> * x86-64 El Capitan 3.x
+>> * x86-64 Sierra 3.x
+>>
+>> All three are currently green ;-)
+>>
+>> In the last 3 months, the macOS task of Travis CI caused multiple issues :-/
+>>
+>> Victor
+
+From barry at python.org  Tue Sep 19 18:03:01 2017
+From: barry at python.org (Barry Warsaw)
+Date: Tue, 19 Sep 2017 18:03:01 -0400
+Subject: [python-committers] Travis CI: macOS is now blocking -- remove
+ macOS from Travis CI?
+In-Reply-To: <CAMpsgwZVop1xEQEWx=h0znUQFxBov+m6k7qAiSM0x4AWk+auww@mail.gmail.com>
+References: <CAMpsgwY_B24oEJgYJGYVCF9RhfYY8Q7_aS-N3KzHQaKkegp20A@mail.gmail.com>
+ <CAMpsgwawSwkJzai00q5K1qaZinsM6aQkP2qvKriVk8vGg8OODA@mail.gmail.com>
+ <CAMpsgwZVop1xEQEWx=h0znUQFxBov+m6k7qAiSM0x4AWk+auww@mail.gmail.com>
+Message-ID: <77949D82-5FD9-4D95-86B4-4C00AEC8AFE9@python.org>
+
+On Sep 19, 2017, at 15:32, Victor Stinner <victor.stinner at gmail.com> wrote:
+> 
+> The macOS job has been removed from Travis CI at the beginnig of the
+> CPython sprint two weeks ago. Since the macOS build was removed, I'm
+> less annoyed by Travis CI: it seems more stable.
+> 
+> Are you ok to not add again the macOS job to Travis CI?
+> 
+> Again, my rationale is that we already have 3 macOS buildbots and I'm
+> looking closely at all buildbot failures. I try to keep track of *all*
+> failures, even random failure. A recent macOS example:
+> https://bugs.python.org/issue31510
+> 
+> Sadly, remaining random failures are the most rare and most difficult
+> to reproduce. (I fixed a lot of them last months.)
+
+If the macOS tests aren?t stable, then yes, removing them is better than frustrating developers who can?t reproduce CI failures, even on the CI machines let alone their own development boxes.
+
+I forget though, was it a problem with macOS CI stability or general throughput?  I thought they just couldn?t keep up with the workload, in which case it seems like we should be able to throw more resources at it, right?
+
+-Barry
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 833 bytes
+Desc: Message signed with OpenPGP
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170919/94672af1/attachment.sig>
+
+From brett at python.org  Tue Sep 19 19:02:37 2017
+From: brett at python.org (Brett Cannon)
+Date: Tue, 19 Sep 2017 23:02:37 +0000
+Subject: [python-committers] Travis CI: macOS is now blocking -- remove
+ macOS from Travis CI?
+In-Reply-To: <77949D82-5FD9-4D95-86B4-4C00AEC8AFE9@python.org>
+References: <CAMpsgwY_B24oEJgYJGYVCF9RhfYY8Q7_aS-N3KzHQaKkegp20A@mail.gmail.com>
+ <CAMpsgwawSwkJzai00q5K1qaZinsM6aQkP2qvKriVk8vGg8OODA@mail.gmail.com>
+ <CAMpsgwZVop1xEQEWx=h0znUQFxBov+m6k7qAiSM0x4AWk+auww@mail.gmail.com>
+ <77949D82-5FD9-4D95-86B4-4C00AEC8AFE9@python.org>
+Message-ID: <CAP1=2W5iR0fYee=orHZujAXjmAhSYWHqwVfuZ9AUH8AC_ZZ0VQ@mail.gmail.com>
+
+On Tue, 19 Sep 2017 at 15:04 Barry Warsaw <barry at python.org> wrote:
+
+> On Sep 19, 2017, at 15:32, Victor Stinner <victor.stinner at gmail.com>
+> wrote:
+> >
+> > The macOS job has been removed from Travis CI at the beginnig of the
+> > CPython sprint two weeks ago. Since the macOS build was removed, I'm
+> > less annoyed by Travis CI: it seems more stable.
+> >
+> > Are you ok to not add again the macOS job to Travis CI?
+> >
+> > Again, my rationale is that we already have 3 macOS buildbots and I'm
+> > looking closely at all buildbot failures. I try to keep track of *all*
+> > failures, even random failure. A recent macOS example:
+> > https://bugs.python.org/issue31510
+> >
+> > Sadly, remaining random failures are the most rare and most difficult
+> > to reproduce. (I fixed a lot of them last months.)
+>
+> If the macOS tests aren?t stable, then yes, removing them is better than
+> frustrating developers who can?t reproduce CI failures, even on the CI
+> machines let alone their own development boxes.
+>
+> I forget though, was it a problem with macOS CI stability or general
+> throughput?  I thought they just couldn?t keep up with the workload, in
+> which case it seems like we should be able to throw more resources at it,
+> right?
+>
+
+If it is a Travis issue then there are no more resources to throw at it
+from a Travis perspective: what they are already providing us is rather
+large and paying out of pocket is rather costly. The only other option is
+to find another CI provider who has macOS support and use them just for
+that platform.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170919/f73fb4c3/attachment-0001.html>
+
+From alex.gaynor at gmail.com  Tue Sep 19 19:33:11 2017
+From: alex.gaynor at gmail.com (Alex Gaynor)
+Date: Tue, 19 Sep 2017 19:33:11 -0400
+Subject: [python-committers] Travis CI: macOS is now blocking -- remove
+ macOS from Travis CI?
+In-Reply-To: <CAP1=2W5iR0fYee=orHZujAXjmAhSYWHqwVfuZ9AUH8AC_ZZ0VQ@mail.gmail.com>
+References: <CAMpsgwY_B24oEJgYJGYVCF9RhfYY8Q7_aS-N3KzHQaKkegp20A@mail.gmail.com>
+ <CAMpsgwawSwkJzai00q5K1qaZinsM6aQkP2qvKriVk8vGg8OODA@mail.gmail.com>
+ <CAMpsgwZVop1xEQEWx=h0znUQFxBov+m6k7qAiSM0x4AWk+auww@mail.gmail.com>
+ <77949D82-5FD9-4D95-86B4-4C00AEC8AFE9@python.org>
+ <CAP1=2W5iR0fYee=orHZujAXjmAhSYWHqwVfuZ9AUH8AC_ZZ0VQ@mail.gmail.com>
+Message-ID: <CAFRnB2WrULPf2cimt+CyLdgaDPUA75MMn+vSZJ0iMG8u_keqjw@mail.gmail.com>
+
+If you find a macOS CI platform with more capacity, please let me know :-)
+
+Travis has been totally underwater of late, but I don't know of any
+alternatives; probably because operating a fleet of macOS builders is a
+giant pain. You need Apple hardware, and it turns out you can either
+purchase a trashcan or a mac mini, and neither of those is really designed
+for a server farm.
+
+If anyone here can magically whisper in Tim Cook's ear, can you ask him to
+license macOS to AWS or Google Cloud or something?
+
+:-(,
+Alex
+
+On Tue, Sep 19, 2017 at 7:02 PM, Brett Cannon <brett at python.org> wrote:
+
+>
+>
+> On Tue, 19 Sep 2017 at 15:04 Barry Warsaw <barry at python.org> wrote:
+>
+>> On Sep 19, 2017, at 15:32, Victor Stinner <victor.stinner at gmail.com>
+>> wrote:
+>> >
+>> > The macOS job has been removed from Travis CI at the beginnig of the
+>> > CPython sprint two weeks ago. Since the macOS build was removed, I'm
+>> > less annoyed by Travis CI: it seems more stable.
+>> >
+>> > Are you ok to not add again the macOS job to Travis CI?
+>> >
+>> > Again, my rationale is that we already have 3 macOS buildbots and I'm
+>> > looking closely at all buildbot failures. I try to keep track of *all*
+>> > failures, even random failure. A recent macOS example:
+>> > https://bugs.python.org/issue31510
+>> >
+>> > Sadly, remaining random failures are the most rare and most difficult
+>> > to reproduce. (I fixed a lot of them last months.)
+>>
+>> If the macOS tests aren?t stable, then yes, removing them is better than
+>> frustrating developers who can?t reproduce CI failures, even on the CI
+>> machines let alone their own development boxes.
+>>
+>> I forget though, was it a problem with macOS CI stability or general
+>> throughput?  I thought they just couldn?t keep up with the workload, in
+>> which case it seems like we should be able to throw more resources at it,
+>> right?
+>>
+>
+> If it is a Travis issue then there are no more resources to throw at it
+> from a Travis perspective: what they are already providing us is rather
+> large and paying out of pocket is rather costly. The only other option is
+> to find another CI provider who has macOS support and use them just for
+> that platform.
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+>
+
+
+-- 
+"I disapprove of what you say, but I will defend to the death your right to
+say it." -- Evelyn Beatrice Hall (summarizing Voltaire)
+"The people's good is the highest law." -- Cicero
+GPG Key fingerprint: D1B3 ADC0 E023 8CA6
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170919/275b18a9/attachment.html>
+
+From barry at python.org  Tue Sep 19 19:53:06 2017
+From: barry at python.org (Barry Warsaw)
+Date: Tue, 19 Sep 2017 19:53:06 -0400
+Subject: [python-committers] Travis CI: macOS is now blocking -- remove
+ macOS from Travis CI?
+In-Reply-To: <CAFRnB2WrULPf2cimt+CyLdgaDPUA75MMn+vSZJ0iMG8u_keqjw@mail.gmail.com>
+References: <CAMpsgwY_B24oEJgYJGYVCF9RhfYY8Q7_aS-N3KzHQaKkegp20A@mail.gmail.com>
+ <CAMpsgwawSwkJzai00q5K1qaZinsM6aQkP2qvKriVk8vGg8OODA@mail.gmail.com>
+ <CAMpsgwZVop1xEQEWx=h0znUQFxBov+m6k7qAiSM0x4AWk+auww@mail.gmail.com>
+ <77949D82-5FD9-4D95-86B4-4C00AEC8AFE9@python.org>
+ <CAP1=2W5iR0fYee=orHZujAXjmAhSYWHqwVfuZ9AUH8AC_ZZ0VQ@mail.gmail.com>
+ <CAFRnB2WrULPf2cimt+CyLdgaDPUA75MMn+vSZJ0iMG8u_keqjw@mail.gmail.com>
+Message-ID: <5401F3F4-3CFA-41F2-996D-6C44B6AF43D2@python.org>
+
+On Sep 19, 2017, at 19:33, Alex Gaynor <alex.gaynor at gmail.com> wrote:
+> 
+> If you find a macOS CI platform with more capacity, please let me know :-)
+> 
+> Travis has been totally underwater of late, but I don't know of any alternatives; probably because operating a fleet of macOS builders is a giant pain. You need Apple hardware, and it turns out you can either purchase a trashcan or a mac mini, and neither of those is really designed for a server farm.
+> 
+> If anyone here can magically whisper in Tim Cook's ear, can you ask him to license macOS to AWS or Google Cloud or something?
+
+Brett will love my musings: one could imagine a fleet of hackintoshes talking to a flexible CI runner infrastructure as is available on some alternative hosting platforms.  Not that I, ahem, know anything about that.
+
+Cheers,
+-Barry
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 833 bytes
+Desc: Message signed with OpenPGP
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170919/00f5ce97/attachment.sig>
+
+From victor.stinner at gmail.com  Tue Sep 19 22:04:00 2017
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Wed, 20 Sep 2017 04:04:00 +0200
+Subject: [python-committers] Travis CI: macOS is now blocking -- remove
+ macOS from Travis CI?
+In-Reply-To: <77949D82-5FD9-4D95-86B4-4C00AEC8AFE9@python.org>
+References: <CAMpsgwY_B24oEJgYJGYVCF9RhfYY8Q7_aS-N3KzHQaKkegp20A@mail.gmail.com>
+ <CAMpsgwawSwkJzai00q5K1qaZinsM6aQkP2qvKriVk8vGg8OODA@mail.gmail.com>
+ <CAMpsgwZVop1xEQEWx=h0znUQFxBov+m6k7qAiSM0x4AWk+auww@mail.gmail.com>
+ <77949D82-5FD9-4D95-86B4-4C00AEC8AFE9@python.org>
+Message-ID: <CAMpsgwbvvBiZaqLe_=L1+voYLqfj8Hn+NfzxhSyQcnv_2EKyFQ@mail.gmail.com>
+
+Le 20 sept. 2017 00:03, "Barry Warsaw" <barry at python.org> a ?crit :
+
+I forget though, was it a problem with macOS CI stability or general
+throughput?  I thought they just couldn?t keep up with the workload, in
+which case it seems like we should be able to throw more resources at it,
+right?
+
+
+There were multiple issues.
+
+It was not uncommon that macOS sometimes took 30 min or 1h if not longer.
+
+The macOS job was not mandatory. So failures were not reported to GitHub.
+Moreover, since the job was much slower than the other pre-commit CIs, I
+never looked at it.
+
+Sometimes, the optional macOS job was queue but blocked a PR to be merged.
+It's a Travis CI bug and I don't want to investigate or report it for the
+other reasons.
+
+Python tests are very stable on macOS (on buildbots). So yes, it's an issue
+specific to Travis.
+
+Victor
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170920/d3b309f9/attachment.html>
+
+From ncoghlan at gmail.com  Wed Sep 20 02:37:26 2017
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Wed, 20 Sep 2017 16:37:26 +1000
+Subject: [python-committers] Travis CI: macOS is now blocking -- remove
+ macOS from Travis CI?
+In-Reply-To: <CAMpsgwbvvBiZaqLe_=L1+voYLqfj8Hn+NfzxhSyQcnv_2EKyFQ@mail.gmail.com>
+References: <CAMpsgwY_B24oEJgYJGYVCF9RhfYY8Q7_aS-N3KzHQaKkegp20A@mail.gmail.com>
+ <CAMpsgwawSwkJzai00q5K1qaZinsM6aQkP2qvKriVk8vGg8OODA@mail.gmail.com>
+ <CAMpsgwZVop1xEQEWx=h0znUQFxBov+m6k7qAiSM0x4AWk+auww@mail.gmail.com>
+ <77949D82-5FD9-4D95-86B4-4C00AEC8AFE9@python.org>
+ <CAMpsgwbvvBiZaqLe_=L1+voYLqfj8Hn+NfzxhSyQcnv_2EKyFQ@mail.gmail.com>
+Message-ID: <CADiSq7foRgLwfwuknWZH2V74AF8f-1momw759wv6xsZyJxoF9g@mail.gmail.com>
+
+On 20 September 2017 at 12:04, Victor Stinner <victor.stinner at gmail.com> wrote:
+> Python tests are very stable on macOS (on buildbots). So yes, it's an issue
+> specific to Travis.
+
+Although as Alex explains, that isn't really Travis CI's *fault* -
+it's an artifact of the licensing design for macOS being generally
+hostile to the "dynamic worker pool" model typically used for
+pre-merge CI infrastructure management.
+
+macOS is much more amenable to the post-commit model we use for the
+buildbot fleet, since we're not trying to manage an elastic pool of
+machines there - we have a static set of machines that work through
+the merged commits.
+
+Cheers,
+NIck.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+
+From nad at python.org  Tue Sep 19 17:45:53 2017
+From: nad at python.org (Ned Deily)
+Date: Tue, 19 Sep 2017 17:45:53 -0400
+Subject: [python-committers] [RELEASE] Python 3.6.3rc1 and 3.7.0a1 are now
+ available for testing and more
+Message-ID: <15E3769E-F938-44F6-AD38-EAAE976A49D2@python.org>
+
+The Python build factories have been busy the last several weeks preparing
+our fall lineup of releases.  Today we are happy to announce three
+additions: 3.6.3rc1, 3.7.0a1, and 3.3.7 final, which join last weekend's
+2.7.14 and last month's 3.5.4 bug-fix releases and 3.4.7 security-fix
+update (https://www.python.org/downloads/).
+
+1. Python 3.6.3rc1 is the first release candidate for Python 3.6.3, the next
+maintenance release of Python 3.6.  While 3.6.3rc1 is a preview release and,
+thus, not intended for production environments, we encourage you to explore
+it and provide feedback via the Python bug tracker (https://bugs.python.org).
+3.6.3 is planned for final release on 2017-10-02 with the next maintenance
+release expected to follow in about 3 months.  You can find Python 3.6.3rc1
+and more information here:
+    https://www.python.org/downloads/release/python-363rc1/
+
+2. Python 3.7.0a1 is the first of four planned alpha releases of Python 3.7,
+the next feature release of Python.  During the alpha phase, Python 3.7
+remains under heavy development: additional features will be added
+and existing features may be modified or deleted.  Please keep in mind
+that this is a preview release and its use is not recommended for
+production environments.  The next preview release, 3.6.0a2, is planned
+for 2017-10-16.  You can find Python 3.7.0a1 and more information here:
+    https://www.python.org/downloads/release/python-370a1/
+
+3. Python 3.3.7 is also now available.  It is a security-fix source-only
+release and is expected to be the final release of any kind for Python
+3.3.x before it reaches end-of-life status on 2017-09-29, five years after
+its initial release.  Because 3.3.x has long been in security-fix mode,
+3.3.7 may no longer build correctly on all current operating system
+releases and some tests may fail.  If you are still using Python 3.3.x,
+we **strongly** encourage you to upgrade now to a more recent, fully
+supported version of Python 3.  You can find Python 3.3.7 here:
+    https://www.python.org/downloads/release/python-337/ 
+
+--
+  Ned Deily
+  nad at python.org -- []
+
+
+From victor.stinner at gmail.com  Wed Sep 20 17:27:49 2017
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Wed, 20 Sep 2017 23:27:49 +0200
+Subject: [python-committers] Should I merge a PR that I approved if it was
+ written by a different core developer?
+Message-ID: <CAMpsgwbeR=Or-_BERH7z-YVDHFv-_fayYmXsHyR+yjojwiSS7w@mail.gmail.com>
+
+Hi,
+
+Before the GitHub era, in the old "Mercurial era", the unwritten rule
+was to not merge a patch written by a developer who has the commit
+bit, to not "steal" his/her work. The old workflow (patches attached
+to the bug tracker) didn't allow to easily keep the author. You had to
+find the author email and full name and specify it manually.
+
+Moreover, there was a written rule of using the name of the developer
+who actually pushed the commit, so the commiters took the
+responsability of any regression (reminder the old era with no
+pre-commit CI? ;-)).
+
+In the new Git era, the author and committer *can* be two different
+people. Examples with "git log --pretty=full":
+
+commit 9abee722d448c1c00c7d4e11ce242ec7b13e5c49
+Author: Victor Stinner <victor.stinner at gmail.com>
+Commit: GitHub <noreply at github.com>
+
+commit 8f51bb436f8adfd139cad046b91cd462c7f27f6c (tag: v3.7.0a1)
+Author: Ned Deily <nad at python.org>
+Commit: Ned Deily <nad at python.org>
+
+commit 9b47af65375fab9318e88ccb061394a36c8c6c33
+Author: svelankar <17737361+svelankar at users.noreply.github.com>
+Commit: Raymond Hettinger <rhettinger at users.noreply.github.com>
+
+My question is: is someone opposed that a core developer clicks on the
+[Merge] button for a PR proposed by a different core developer?
+
+IMHO having a committer different than the author is valuable since
+the responsability is now shared by two developers instead of single
+one. It's similar to the "Signed-Off" tags used by the Linux kernel,
+but the list is limited to a single Signed-Off :-) Well, the committer
+is usually seen as the most reponsible, but now we can complain to the
+author as well *if needed* :-D
+
+Victor
+
+From guido at python.org  Wed Sep 20 17:33:59 2017
+From: guido at python.org (Guido van Rossum)
+Date: Wed, 20 Sep 2017 14:33:59 -0700
+Subject: [python-committers] Should I merge a PR that I approved if it
+ was written by a different core developer?
+In-Reply-To: <CAMpsgwbeR=Or-_BERH7z-YVDHFv-_fayYmXsHyR+yjojwiSS7w@mail.gmail.com>
+References: <CAMpsgwbeR=Or-_BERH7z-YVDHFv-_fayYmXsHyR+yjojwiSS7w@mail.gmail.com>
+Message-ID: <CAP7+vJKXHREpVnGOXvU6QenbOCpa+Zi-jvsoz_QVe6Hw6vcPnA@mail.gmail.com>
+
+On Wed, Sep 20, 2017 at 2:27 PM, Victor Stinner <victor.stinner at gmail.com>
+wrote:
+
+> Before the GitHub era, in the old "Mercurial era", the unwritten rule
+> was to not merge a patch written by a developer who has the commit
+> bit, to not "steal" his/her work. The old workflow (patches attached
+> to the bug tracker) didn't allow to easily keep the author. You had to
+> find the author email and full name and specify it manually.
+>
+> Moreover, there was a written rule of using the name of the developer
+> who actually pushed the commit, so the commiters took the
+> responsability of any regression (reminder the old era with no
+> pre-commit CI? ;-)).
+>
+> In the new Git era, the author and committer *can* be two different
+> people. Examples with "git log --pretty=full":
+>
+> commit 9abee722d448c1c00c7d4e11ce242ec7b13e5c49
+> Author: Victor Stinner <victor.stinner at gmail.com>
+> Commit: GitHub <noreply at github.com>
+>
+> commit 8f51bb436f8adfd139cad046b91cd462c7f27f6c (tag: v3.7.0a1)
+> Author: Ned Deily <nad at python.org>
+> Commit: Ned Deily <nad at python.org>
+>
+> commit 9b47af65375fab9318e88ccb061394a36c8c6c33
+> Author: svelankar <17737361+svelankar at users.noreply.github.com>
+> Commit: Raymond Hettinger <rhettinger at users.noreply.github.com>
+>
+> My question is: is someone opposed that a core developer clicks on the
+> [Merge] button for a PR proposed by a different core developer?
+>
+> IMHO having a committer different than the author is valuable since
+> the responsability is now shared by two developers instead of single
+> one. It's similar to the "Signed-Off" tags used by the Linux kernel,
+> but the list is limited to a single Signed-Off :-) Well, the committer
+> is usually seen as the most reponsible, but now we can complain to the
+> author as well *if needed* :-D
+>
+
+I think it's a good idea in many cases, but not required. E.g. you may be
+OK with the diff but still ask the author to clean up some small nits, and
+then they can merge their own diff. Or you may be OK with the diff but want
+to wait for some other reviewer's OK.
+
+The good news is that it's no longer wrong, since the author is preserved
+regardless of who merges.
+
+-- 
+--Guido van Rossum (python.org/~guido)
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170920/c134f53b/attachment.html>
+
+From victor.stinner at gmail.com  Wed Sep 20 17:49:58 2017
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Wed, 20 Sep 2017 23:49:58 +0200
+Subject: [python-committers] Should I merge a PR that I approved if it
+ was written by a different core developer?
+In-Reply-To: <CAP7+vJKXHREpVnGOXvU6QenbOCpa+Zi-jvsoz_QVe6Hw6vcPnA@mail.gmail.com>
+References: <CAMpsgwbeR=Or-_BERH7z-YVDHFv-_fayYmXsHyR+yjojwiSS7w@mail.gmail.com>
+ <CAP7+vJKXHREpVnGOXvU6QenbOCpa+Zi-jvsoz_QVe6Hw6vcPnA@mail.gmail.com>
+Message-ID: <CAMpsgwYqKtzpESoOXbS2-+wSxYQoTaXSHG-yaNuJP5Kx4M3h7A@mail.gmail.com>
+
+> I think it's a good idea in many cases, but not required.
+
+I'm not sure that I understood correctly, what is a good idea? To
+merge the PR if I consider that it's now good enough to be merged?
+
+> E.g. you may be OK
+> with the diff but still ask the author to clean up some small nits, and then
+> they can merge their own diff.
+
+Oh, my question was specific to a PR at the "LGTM." stage, after I
+even approved the PR.
+
+I wrote my email after approving
+https://github.com/python/cpython/pull/3678 which is written by
+Antoine Pitrou. I asked a question, he replied, I like his answer. The
+patch is small and makes sense. So LGTM :-)
+
+> Or you may be OK with the diff but want to
+> wait for some other reviewer's OK.
+
+Yeah, it's not uncommon that I prefer to get a second review. Usually,
+I explicitly say it in a comment.
+
+> The good news is that it's no longer wrong, since the author is preserved
+> regardless of who merges.
+
+Yep, that's my point :-)
+
+Victor
+
+From guido at python.org  Wed Sep 20 17:51:39 2017
+From: guido at python.org (Guido van Rossum)
+Date: Wed, 20 Sep 2017 14:51:39 -0700
+Subject: [python-committers] Should I merge a PR that I approved if it
+ was written by a different core developer?
+In-Reply-To: <CAMpsgwYqKtzpESoOXbS2-+wSxYQoTaXSHG-yaNuJP5Kx4M3h7A@mail.gmail.com>
+References: <CAMpsgwbeR=Or-_BERH7z-YVDHFv-_fayYmXsHyR+yjojwiSS7w@mail.gmail.com>
+ <CAP7+vJKXHREpVnGOXvU6QenbOCpa+Zi-jvsoz_QVe6Hw6vcPnA@mail.gmail.com>
+ <CAMpsgwYqKtzpESoOXbS2-+wSxYQoTaXSHG-yaNuJP5Kx4M3h7A@mail.gmail.com>
+Message-ID: <CAP7+vJJK5-d1b0+yUG50G1xprni3Qx1tiB5RrqXebf2WmYA7Ew@mail.gmail.com>
+
+On Wed, Sep 20, 2017 at 2:49 PM, Victor Stinner <victor.stinner at gmail.com>
+wrote:
+
+> > I think it's a good idea in many cases, but not required.
+>
+> I'm not sure that I understood correctly, what is a good idea? To
+> merge the PR if I consider that it's now good enough to be merged?
+>
+
+Sorry, yes.
+
+> E.g. you may be OK
+> > with the diff but still ask the author to clean up some small nits, and
+> then
+> > they can merge their own diff.
+>
+> Oh, my question was specific to a PR at the "LGTM." stage, after I
+> even approved the PR.
+>
+> I wrote my email after approving
+> https://github.com/python/cpython/pull/3678 which is written by
+> Antoine Pitrou. I asked a question, he replied, I like his answer. The
+> patch is small and makes sense. So LGTM :-)
+>
+> > Or you may be OK with the diff but want to
+> > wait for some other reviewer's OK.
+>
+> Yeah, it's not uncommon that I prefer to get a second review. Usually,
+> I explicitly say it in a comment.
+>
+> > The good news is that it's no longer wrong, since the author is preserved
+> > regardless of who merges.
+>
+> Yep, that's my point :-)
+>
+
+Seems we're in violent agreement! :-)
+
+-- 
+--Guido van Rossum (python.org/~guido)
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170920/211dc59e/attachment-0001.html>
+
+From berker.peksag at gmail.com  Wed Sep 20 20:09:56 2017
+From: berker.peksag at gmail.com (=?UTF-8?Q?Berker_Peksa=C4=9F?=)
+Date: Thu, 21 Sep 2017 03:09:56 +0300
+Subject: [python-committers] Should I merge a PR that I approved if it
+ was written by a different core developer?
+In-Reply-To: <CAMpsgwbeR=Or-_BERH7z-YVDHFv-_fayYmXsHyR+yjojwiSS7w@mail.gmail.com>
+References: <CAMpsgwbeR=Or-_BERH7z-YVDHFv-_fayYmXsHyR+yjojwiSS7w@mail.gmail.com>
+Message-ID: <CAF4280LE7vKk8wMbuFquZL7JG93U-eckhGedc5n0GPP__rxUbw@mail.gmail.com>
+
+On Thu, Sep 21, 2017 at 12:27 AM, Victor Stinner
+<victor.stinner at gmail.com> wrote:
+> Hi,
+>
+> Before the GitHub era, in the old "Mercurial era", the unwritten rule
+> was to not merge a patch written by a developer who has the commit
+> bit, to not "steal" his/her work. The old workflow (patches attached
+> to the bug tracker) didn't allow to easily keep the author. You had to
+> find the author email and full name and specify it manually.
+
+I was quite happy with that unwritten rule because it also gave me the
+opportunity to watch buildbots on my own time. If you merge my PR in
+the middle of the night in my time zone, I can't check buildbots in
+the next 15-20 hours since I don't always have time for CPython at
+work.
+
+Also, I personally don't dump all of the items in my TODO list in
+every PR I opened so it would be better to let the author of the PR do
+the merging (or at least ask them if it's ready to be merged)
+
+> In the new Git era, the author and committer *can* be two different
+> people. Examples with "git log --pretty=full":
+
+Unfortunately, that doesn't work in practice because Buildbot doesn't
+care about the 'committer' field and you don't get any notification on
+IRC if you merged someone else's PR.
+
+--Berker
+
+From ezio.melotti at gmail.com  Wed Sep 20 20:53:29 2017
+From: ezio.melotti at gmail.com (Ezio Melotti)
+Date: Thu, 21 Sep 2017 02:53:29 +0200
+Subject: [python-committers] Should I merge a PR that I approved if it
+ was written by a different core developer?
+In-Reply-To: <CAMpsgwbeR=Or-_BERH7z-YVDHFv-_fayYmXsHyR+yjojwiSS7w@mail.gmail.com>
+References: <CAMpsgwbeR=Or-_BERH7z-YVDHFv-_fayYmXsHyR+yjojwiSS7w@mail.gmail.com>
+Message-ID: <CACBhJdH-HXTvc7fipgO2r1+qhtWBqRUKn20aVw8FrqLGvUB3Qg@mail.gmail.com>
+
+On Wed, Sep 20, 2017 at 11:27 PM, Victor Stinner <victor.stinner at gmail.com>
+wrote:
+
+> Hi,
+>
+> Before the GitHub era, in the old "Mercurial era", the unwritten rule
+> was to not merge a patch written by a developer who has the commit
+> bit, to not "steal" his/her work. The old workflow (patches attached
+> to the bug tracker) didn't allow to easily keep the author. You had to
+> find the author email and full name and specify it manually.
+>
+> Moreover, there was a written rule of using the name of the developer
+> who actually pushed the commit, so the commiters took the
+> responsability of any regression (reminder the old era with no
+> pre-commit CI? ;-)).
+>
+> In the new Git era, the author and committer *can* be two different
+> people. Examples with "git log --pretty=full":
+>
+> commit 9abee722d448c1c00c7d4e11ce242ec7b13e5c49
+> Author: Victor Stinner <victor.stinner at gmail.com>
+> Commit: GitHub <noreply at github.com>
+>
+> commit 8f51bb436f8adfd139cad046b91cd462c7f27f6c (tag: v3.7.0a1)
+> Author: Ned Deily <nad at python.org>
+> Commit: Ned Deily <nad at python.org>
+>
+> commit 9b47af65375fab9318e88ccb061394a36c8c6c33
+> Author: svelankar <17737361+svelankar at users.noreply.github.com>
+> Commit: Raymond Hettinger <rhettinger at users.noreply.github.com>
+>
+> My question is: is someone opposed that a core developer clicks on the
+> [Merge] button for a PR proposed by a different core developer?
+>
+>
+Personally I would prefer if other core devs just left a positive review
+without merging, for a few reasons:
+
+1) before merging I want to double check that everything is fine, and
+possibly tweak a few minor things before merging.  Some authors also push
+WIP or working but unpolished PRs to get some early feedback before
+following up with more iterations, and if they don't specify it clearly you
+might end up merging too early.
+2) even if you are not "stealing their work", you deprive them of the
+closure they get by finally merging a PR they have been working on for some
+time.
+3) some tools (e.g. buildbot) might only look at the committer field, and
+this might end up notifying the wrong person or skewing some statistics.
+4) I don't see a reason to do that in the first place: I expect the author
+to quickly merge a PR once all the checks pass (especially since they can
+now do it from their smart watch while lying on the beach), and even if the
+author takes a few days to do so, it usually doesn't really matter.
+
+
+> IMHO having a committer different than the author is valuable since
+> the responsability is now shared by two developers instead of single
+> one. It's similar to the "Signed-Off" tags used by the Linux kernel,
+> but the list is limited to a single Signed-Off :-) Well, the committer
+> is usually seen as the most reponsible, but now we can complain to the
+> author as well *if needed* :-D
+>
+>
+IME if the author is not a core dev, the responsibility falls on the
+committer; if the author is a core dev, the responsibility falls on the
+author/comitter (i.e. the core-dev).  If core devs merge their own patches,
+the responsible will always be the committer.
+
+If you merge other core devs' patches, you are likely to get blamed when
+something breaks even if the code wasn't yours, and if the author runs away
+and you want someone else to blame, you can always find all the reviews by
+looking at the PR referenced by the changet :)
+
+Best Regards,
+Ezio Melotti
+
+
+> Victor
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170921/ca7dfefd/attachment.html>
+
+From ncoghlan at gmail.com  Wed Sep 20 20:54:07 2017
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Thu, 21 Sep 2017 10:54:07 +1000
+Subject: [python-committers] Should I merge a PR that I approved if it
+ was written by a different core developer?
+In-Reply-To: <CAMpsgwbeR=Or-_BERH7z-YVDHFv-_fayYmXsHyR+yjojwiSS7w@mail.gmail.com>
+References: <CAMpsgwbeR=Or-_BERH7z-YVDHFv-_fayYmXsHyR+yjojwiSS7w@mail.gmail.com>
+Message-ID: <CADiSq7dNTQAYwXuHOfbFVCvZXvfrk4VSPuL=c4CB0hwRDOi=7A@mail.gmail.com>
+
+On 21 September 2017 at 07:27, Victor Stinner <victor.stinner at gmail.com> wrote:
+> Hi,
+>
+> Before the GitHub era, in the old "Mercurial era", the unwritten rule
+> was to not merge a patch written by a developer who has the commit
+> bit, to not "steal" his/her work. The old workflow (patches attached
+> to the bug tracker) didn't allow to easily keep the author. You had to
+> find the author email and full name and specify it manually.
+
+I'll typically still just leave an "Approve" review rather than
+merging directly, unless it's a PR for an issue I filed, or I'm
+working on a separate change that would end up conflicting with their
+PR if I left theirs open.
+
+That way if they think of an alternative approach that they'd prefer
+to use, they can still just amend their existing PR and ask for an
+additional review, rather than having to submit a new PR.
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+
+From barry at python.org  Thu Sep 21 10:18:48 2017
+From: barry at python.org (Barry Warsaw)
+Date: Thu, 21 Sep 2017 10:18:48 -0400
+Subject: [python-committers] Should I merge a PR that I approved if it
+ was written by a different core developer?
+In-Reply-To: <CADiSq7dNTQAYwXuHOfbFVCvZXvfrk4VSPuL=c4CB0hwRDOi=7A@mail.gmail.com>
+References: <CAMpsgwbeR=Or-_BERH7z-YVDHFv-_fayYmXsHyR+yjojwiSS7w@mail.gmail.com>
+ <CADiSq7dNTQAYwXuHOfbFVCvZXvfrk4VSPuL=c4CB0hwRDOi=7A@mail.gmail.com>
+Message-ID: <38021A1F-A199-4254-A688-5BFFD074D03C@python.org>
+
+On Sep 20, 2017, at 20:54, Nick Coghlan <ncoghlan at gmail.com> wrote:
+> 
+> On 21 September 2017 at 07:27, Victor Stinner <victor.stinner at gmail.com> wrote:
+>> Hi,
+>> 
+>> Before the GitHub era, in the old "Mercurial era", the unwritten rule
+>> was to not merge a patch written by a developer who has the commit
+>> bit, to not "steal" his/her work. The old workflow (patches attached
+>> to the bug tracker) didn't allow to easily keep the author. You had to
+>> find the author email and full name and specify it manually.
+> 
+> I'll typically still just leave an "Approve" review rather than
+> merging directly, unless it's a PR for an issue I filed, or I'm
+> working on a separate change that would end up conflicting with their
+> PR if I left theirs open.
+
+In general, I like the unwritten rule.  There?s something very satisfying about finally hitting the merge button, and as Nick points out, you may want to do some final tweaks.  I?ll usually just leave the Approve review too, and let the submitter/committer do the final merge.
+
+That said, there are times when it?s useful to do the merge for them.  If it was my PR, I might leave a note in the PR asking for a merge if I know I won?t get to it soon (maybe I?m going on vacation), or if as Nick says, it needs to get merged soon so as to avoid conflicts or blocking other people?s progress.  I?d still like it to mostly come from the original submitter.
+
+Cheers,
+-Barry
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 833 bytes
+Desc: Message signed with OpenPGP
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170921/ea269e5e/attachment-0001.sig>
+
+From guido at python.org  Thu Sep 21 11:06:36 2017
+From: guido at python.org (Guido van Rossum)
+Date: Thu, 21 Sep 2017 08:06:36 -0700
+Subject: [python-committers] Should I merge a PR that I approved if it
+ was written by a different core developer?
+In-Reply-To: <38021A1F-A199-4254-A688-5BFFD074D03C@python.org>
+References: <CAMpsgwbeR=Or-_BERH7z-YVDHFv-_fayYmXsHyR+yjojwiSS7w@mail.gmail.com>
+ <CADiSq7dNTQAYwXuHOfbFVCvZXvfrk4VSPuL=c4CB0hwRDOi=7A@mail.gmail.com>
+ <38021A1F-A199-4254-A688-5BFFD074D03C@python.org>
+Message-ID: <CAP7+vJ+WW+C6DfibHut=Krawp34oQONdbRg=BstF79OjdfxVuA@mail.gmail.com>
+
+It's funny. At Dropbox, engineers *have* to merge their own work (we call
+it "landing"). When I first got to use GitHub (for asyncio, IIRC) I could
+land other people's patches once I approved of them. That was very
+satisfying, and felt like the "better" workflow, and we adopted this for
+mypy. Cases where it's better to wait for the author also exist, but it's
+always clear from the author's comments. In general merging sooner means
+fewer conflicts with other work, and we like that.
+
+But I'll refrain from merging CPython patches by other core devs since it
+seems the consensus that usually the author (if a core dev) wants to merge
+their own work on their own time.
+
+-- 
+--Guido van Rossum (python.org/~guido)
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170921/94ace753/attachment.html>
+
+From storchaka at gmail.com  Thu Sep 21 13:15:52 2017
+From: storchaka at gmail.com (Serhiy Storchaka)
+Date: Thu, 21 Sep 2017 20:15:52 +0300
+Subject: [python-committers] Should I merge a PR that I approved if it
+ was written by a different core developer?
+In-Reply-To: <CAMpsgwbeR=Or-_BERH7z-YVDHFv-_fayYmXsHyR+yjojwiSS7w@mail.gmail.com>
+References: <CAMpsgwbeR=Or-_BERH7z-YVDHFv-_fayYmXsHyR+yjojwiSS7w@mail.gmail.com>
+Message-ID: <2966347.ZmoVNL3Yej@saraksh>
+
+??????, 20 ??????? 2017 ?. 23:27:49 EEST Victor Stinner ????????:
+> My question is: is someone opposed that a core developer clicks on the
+> [Merge] button for a PR proposed by a different core developer?
+
+I'm opposed. The author can be more acquainted with the writing code than 
+reviewers. The author sees it in wider context and knows its history. I 
+continue to think about my patches even after creating a PR and several times 
+rethinked it after approving by other core developers, that lead to rewriting 
+or even rejecting a PR.
+
+In additional, I think there is less probability that the author forgot to 
+edit the commit message before clicking on the [Merge] button. ;-)
+
+
+From victor.stinner at gmail.com  Thu Sep 21 16:58:19 2017
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Thu, 21 Sep 2017 22:58:19 +0200
+Subject: [python-committers] Should I merge a PR that I approved if it
+ was written by a different core developer?
+In-Reply-To: <2966347.ZmoVNL3Yej@saraksh>
+References: <CAMpsgwbeR=Or-_BERH7z-YVDHFv-_fayYmXsHyR+yjojwiSS7w@mail.gmail.com>
+ <2966347.ZmoVNL3Yej@saraksh>
+Message-ID: <CAMpsgwYgn3XaH_hLLrGazjLVf9FRSNMkUhO3Vt6qvYQ7JhM2xw@mail.gmail.com>
+
+Ok, no problem, let's say that a core dev should not merge a PR written by
+another core dev.
+
+In fact, I was already following this rule. I hesitated many times to click
+on Merge, but I wanted first to open a discussion. Here we are :-)
+
+
+Obvious, the good practice is to put as many approval as possible, by
+different developers :-)
+
+Victor
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170921/f00ed5be/attachment.html>
+
+From victor.stinner at gmail.com  Fri Sep 22 10:26:51 2017
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Fri, 22 Sep 2017 16:26:51 +0200
+Subject: [python-committers] What is a CPython core developer?
+Message-ID: <CAMpsgwbs80YTRQwKoUhkAQ_kG=Y6e-ZPjd6GP0n=fUxfgPLrjA@mail.gmail.com>
+
+Hi,
+
+Recently, I asked their opinion to a few core developers about
+promoting some active contributors to core developers.
+
+It seems like we have no clear rules to decide if a contributor can be
+promoted or not. The problem is that sometimes, I am explicitly asked:
+What are the steps to become a core developer? Well, I'm not sure why
+some people really want to become core developers, but that's not
+question here :-)
+
+I started to list "responsabilities" (is it the correct word?) of a
+core developer.
+
+First of all, I like how Mariatta summarized a promotion (in an oral
+discussion that we had). Becoming a core developer doesn't give
+*power*, but *responsabilities*. (Sorry, I'm not sure about the exact
+wording, maybe Mariatta can correct me here ;-))
+
+I also see that some core developers are more conservative, want to
+reduce the risk of regressions, while some others are more on the
+"forgiveness" trend ("it's better to ask forgiveness than
+permission"). I think that it's perfectly normal and expected to have
+people on the two sides. The question is how to find a compromise in
+the middle.
+
+I identified the following CPython core developers responsabilities:
+
+* Long term commitement. We someone lands a big chunk of code, we need
+someone to maintain it for at least the next 2 years. Maybe for the
+next 10 years. I think that some people sign with their blood to
+maintain crappy code for their own life, but it's better to not
+elaborate this part ;-)
+
+* Review patches and pull requests. While we don't require not expect
+newcomers to review, we expect that core developers dedicate a part of
+their time on reviews.
+
+* Know the CPython workflow. Be aware of the pre-commit and
+post-commits CIs. How ideas are discussed. It's not only about writing
+and pushing patches.
+
+* For C developer: know CPython specific issues like reference leaks
+and the garbage collector. We expect that a core developer write code
+with no reference leak, right? ;-)
+
+* Good quality patches: proposed changes are good (or almost good) at
+the first iteration. I'm not sure about this point, but I know a few
+other developers have this requiurement to promote someone.
+
+* Pushing core means becoming responsible for this code. For
+regressions, backward compatibility, security, etc.
+
+* Something else?
+
+I don't expect this list to be complete. A vote for a promotion is
+always done on a case by case basis, mostly because it's really hard
+to be ready on *all* expected points. The discussion is more to
+estimate how far is the contributor in its learning, if it's enough,
+if more learning is needed, or if mentoring is needed.
+
+Maybe we should also formalize the mentoring for contributors
+identified as potential core developers. It can be an explicit step in
+the promotion process. Each last core developers who get promoted last
+year get a mentor if I recall correctly. What do you think?
+
+I started to write an article "What is a CPython core developer?"
+which describes even more things:
+
+https://cpython-core-tutorial.readthedocs.io/en/latest/what_is_a_cpython_core_developer.html
+
+Victor
+
+From antoine at python.org  Fri Sep 22 12:48:31 2017
+From: antoine at python.org (Antoine Pitrou)
+Date: Fri, 22 Sep 2017 18:48:31 +0200
+Subject: [python-committers] What is a CPython core developer?
+In-Reply-To: <CAMpsgwbs80YTRQwKoUhkAQ_kG=Y6e-ZPjd6GP0n=fUxfgPLrjA@mail.gmail.com>
+References: <CAMpsgwbs80YTRQwKoUhkAQ_kG=Y6e-ZPjd6GP0n=fUxfgPLrjA@mail.gmail.com>
+Message-ID: <087620b6-3cfd-4c5b-2964-e3a456184ce2@python.org>
+
+
+Hi Victor,
+
+Thank you, this is a useful write-up!
+
+Le 22/09/2017 ? 16:26, Victor Stinner a ?crit?:
+> 
+> I started to list "responsabilities" (is it the correct word?) of a
+> core developer.
+> 
+> First of all, I like how Mariatta summarized a promotion (in an oral
+> discussion that we had). Becoming a core developer doesn't give
+> *power*, but *responsabilities*. (Sorry, I'm not sure about the exact
+> wording, maybe Mariatta can correct me here ;-))
+
+Well, it gives both, which is the only way things can work sanely.
+If you give power without responsabilities, you are creating a jungle;
+if you give responsabilities without the power to exert them properly,
+you are creating frustration and a dysfunctional environment.
+
+> I identified the following CPython core developers responsabilities:
+> 
+> * Long term commitement. We someone lands a big chunk of code, we need
+> someone to maintain it for at least the next 2 years. Maybe for the
+> next 10 years. I think that some people sign with their blood to
+> maintain crappy code for their own life, but it's better to not
+> elaborate this part ;-)
+
+Unfortunately we can't evaluate that in advance.  Even the person being
+promoted often does not known whether they'll still be there in 5 or 10
+years.  Hopefully that's on their horizon, but many factors can interfere.
+
+I, personally, can only think of a couple of cases where a person being
+promoted core developer vanished a few months after that.  It's not a
+big deal in the grand scheme of things, though it *is* frustrating to
+spend your time mentoring and promoting someone (which also engages your
+own responsability, since you're the one vouching that they'll be up to
+the task) only to see that person produce little to no work as a core
+developer.
+
+> * Review patches and pull requests. While we don't require not expect
+> newcomers to review, we expect that core developers dedicate a part of
+> their time on reviews.
+
+Yes, I believe this is the most important part of being a core
+developer.  What it means is that core developers care about the quality
+of the whole code base (and also the non-code parts), not only their own
+contributions to it.
+
+> * Know the CPython workflow. Be aware of the pre-commit and
+> post-commits CIs. How ideas are discussed. It's not only about writing
+> and pushing patches.
+
+This part is also required from regular contributors, at least the
+experienced ones.
+
+> * For C developer: know CPython specific issues like reference leaks
+> and the garbage collector. We expect that a core developer write code
+> with no reference leak, right? ;-)
+
+This is no different from regular contributors posting patches with C
+code in them.
+
+> * Good quality patches: proposed changes are good (or almost good) at
+> the first iteration. I'm not sure about this point, but I know a few
+> other developers have this requiurement to promote someone.
+
+Or, if the code isn't good at the first iteration, the author is able to
+figure it out by themselves and doesn't rush merge it.  Of course,
+nobody is perfect, which is why non-trivial code written by core
+developers ideally goes through a review phase anyway.  But a general
+sense of what is "in good state for review/merging" vs. "just a draft
+I'm working on" is indeed, IMHO, preferrable.
+
+> * Pushing core means becoming responsible for this code. For
+> regressions, backward compatibility, security, etc.
+
+Yes, this is the whole "know the project's lifecycle" thing.  It also
+includes knowing what to backport or not.
+
+> * Something else?
+
+Two things I would add:
+
+- Know to be nice and respectful to the others, at least to the extent
+they're nice and respectful to yourself :-)  We don't have a rock-star
+(or "bro", "wizard", "ninja", whatever the hyperbole of the day is)
+culture here.
+
+- Show a bit of humility towards existing work and try to understand the
+decisions behind something before deciding to change it all.  That said,
+given Python's current position on the technical evolution and adoption
+curve, we get less and less proposals for sweeping changes (perhaps not
+enough, actually, since even when rejected, they help challenge the
+statu quo).
+
+Regards
+
+Antoine.
+
+From brett at python.org  Fri Sep 22 13:26:13 2017
+From: brett at python.org (Brett Cannon)
+Date: Fri, 22 Sep 2017 17:26:13 +0000
+Subject: [python-committers] What is a CPython core developer?
+In-Reply-To: <087620b6-3cfd-4c5b-2964-e3a456184ce2@python.org>
+References: <CAMpsgwbs80YTRQwKoUhkAQ_kG=Y6e-ZPjd6GP0n=fUxfgPLrjA@mail.gmail.com>
+ <087620b6-3cfd-4c5b-2964-e3a456184ce2@python.org>
+Message-ID: <CAP1=2W5E3KCmWYjbLTf_GM2wCLvPuLhLdNV0qdod5XFkYUkCwg@mail.gmail.com>
+
++1 for the list Victor and Antoine have here!
+
+On Fri, 22 Sep 2017 at 09:48 Antoine Pitrou <antoine at python.org> wrote:
+
+>
+> Hi Victor,
+>
+> Thank you, this is a useful write-up!
+>
+> Le 22/09/2017 ? 16:26, Victor Stinner a ?crit :
+> >
+> > I started to list "responsabilities" (is it the correct word?) of a
+> > core developer.
+> >
+> > First of all, I like how Mariatta summarized a promotion (in an oral
+> > discussion that we had). Becoming a core developer doesn't give
+> > *power*, but *responsabilities*. (Sorry, I'm not sure about the exact
+> > wording, maybe Mariatta can correct me here ;-))
+>
+> Well, it gives both, which is the only way things can work sanely.
+> If you give power without responsabilities, you are creating a jungle;
+> if you give responsabilities without the power to exert them properly,
+> you are creating frustration and a dysfunctional environment.
+>
+> > I identified the following CPython core developers responsabilities:
+> >
+> > * Long term commitement. We someone lands a big chunk of code, we need
+> > someone to maintain it for at least the next 2 years. Maybe for the
+> > next 10 years. I think that some people sign with their blood to
+> > maintain crappy code for their own life, but it's better to not
+> > elaborate this part ;-)
+>
+> Unfortunately we can't evaluate that in advance.  Even the person being
+> promoted often does not known whether they'll still be there in 5 or 10
+> years.  Hopefully that's on their horizon, but many factors can interfere.
+>
+> I, personally, can only think of a couple of cases where a person being
+> promoted core developer vanished a few months after that.  It's not a
+> big deal in the grand scheme of things, though it *is* frustrating to
+> spend your time mentoring and promoting someone (which also engages your
+> own responsability, since you're the one vouching that they'll be up to
+> the task) only to see that person produce little to no work as a core
+> developer.
+>
+> > * Review patches and pull requests. While we don't require not expect
+> > newcomers to review, we expect that core developers dedicate a part of
+> > their time on reviews.
+>
+> Yes, I believe this is the most important part of being a core
+> developer.  What it means is that core developers care about the quality
+> of the whole code base (and also the non-code parts), not only their own
+> contributions to it.
+>
+> > * Know the CPython workflow. Be aware of the pre-commit and
+> > post-commits CIs. How ideas are discussed. It's not only about writing
+> > and pushing patches.
+>
+> This part is also required from regular contributors, at least the
+> experienced ones.
+>
+> > * For C developer: know CPython specific issues like reference leaks
+> > and the garbage collector. We expect that a core developer write code
+> > with no reference leak, right? ;-)
+>
+> This is no different from regular contributors posting patches with C
+> code in them.
+>
+> > * Good quality patches: proposed changes are good (or almost good) at
+> > the first iteration. I'm not sure about this point, but I know a few
+> > other developers have this requiurement to promote someone.
+>
+> Or, if the code isn't good at the first iteration, the author is able to
+> figure it out by themselves and doesn't rush merge it.  Of course,
+> nobody is perfect, which is why non-trivial code written by core
+> developers ideally goes through a review phase anyway.  But a general
+> sense of what is "in good state for review/merging" vs. "just a draft
+> I'm working on" is indeed, IMHO, preferrable.
+>
+> > * Pushing core means becoming responsible for this code. For
+> > regressions, backward compatibility, security, etc.
+>
+> Yes, this is the whole "know the project's lifecycle" thing.  It also
+> includes knowing what to backport or not.
+>
+> > * Something else?
+>
+> Two things I would add:
+>
+> - Know to be nice and respectful to the others, at least to the extent
+> they're nice and respectful to yourself :-)  We don't have a rock-star
+> (or "bro", "wizard", "ninja", whatever the hyperbole of the day is)
+> culture here.
+>
+> - Show a bit of humility towards existing work and try to understand the
+> decisions behind something before deciding to change it all.  That said,
+> given Python's current position on the technical evolution and adoption
+> curve, we get less and less proposals for sweeping changes (perhaps not
+> enough, actually, since even when rejected, they help challenge the
+> statu quo).
+>
+> Regards
+>
+> Antoine.
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170922/39cec914/attachment.html>
+
+From willingc at gmail.com  Fri Sep 22 13:49:21 2017
+From: willingc at gmail.com (Carol Willing)
+Date: Fri, 22 Sep 2017 10:49:21 -0700
+Subject: [python-committers] What is a CPython core developer?
+In-Reply-To: <CAP1=2W5E3KCmWYjbLTf_GM2wCLvPuLhLdNV0qdod5XFkYUkCwg@mail.gmail.com>
+References: <CAMpsgwbs80YTRQwKoUhkAQ_kG=Y6e-ZPjd6GP0n=fUxfgPLrjA@mail.gmail.com>
+ <087620b6-3cfd-4c5b-2964-e3a456184ce2@python.org>
+ <CAP1=2W5E3KCmWYjbLTf_GM2wCLvPuLhLdNV0qdod5XFkYUkCwg@mail.gmail.com>
+Message-ID: <3786E20F-4C8F-4996-9E6A-53D7701CB1F9@gmail.com>
+
+Thanks Victor for your commitment to this. :D
+
+I particularly like Mariatta's comment on responsibility, Antoine's comments on humility and respect, and Victor's linked document.
+
+
+> On Sep 22, 2017, at 10:26 AM, Brett Cannon <brett at python.org> wrote:
+> 
+> +1 for the list Victor and Antoine have here!
+> 
+> On Fri, 22 Sep 2017 at 09:48 Antoine Pitrou <antoine at python.org <mailto:antoine at python.org>> wrote:
+> 
+> Hi Victor,
+> 
+> Thank you, this is a useful write-up!
+> 
+> Le 22/09/2017 ? 16:26, Victor Stinner a ?crit :
+> >
+> > I started to list "responsabilities" (is it the correct word?) of a
+> > core developer.
+> >
+> > First of all, I like how Mariatta summarized a promotion (in an oral
+> > discussion that we had). Becoming a core developer doesn't give
+> > *power*, but *responsabilities*. (Sorry, I'm not sure about the exact
+> > wording, maybe Mariatta can correct me here ;-))
+> 
+> Well, it gives both, which is the only way things can work sanely.
+> If you give power without responsabilities, you are creating a jungle;
+> if you give responsabilities without the power to exert them properly,
+> you are creating frustration and a dysfunctional environment.
+> 
+> > I identified the following CPython core developers responsabilities:
+> >
+> > * Long term commitement. We someone lands a big chunk of code, we need
+> > someone to maintain it for at least the next 2 years. Maybe for the
+> > next 10 years. I think that some people sign with their blood to
+> > maintain crappy code for their own life, but it's better to not
+> > elaborate this part ;-)
+> 
+> Unfortunately we can't evaluate that in advance.  Even the person being
+> promoted often does not known whether they'll still be there in 5 or 10
+> years.  Hopefully that's on their horizon, but many factors can interfere.
+> 
+> I, personally, can only think of a couple of cases where a person being
+> promoted core developer vanished a few months after that.  It's not a
+> big deal in the grand scheme of things, though it *is* frustrating to
+> spend your time mentoring and promoting someone (which also engages your
+> own responsability, since you're the one vouching that they'll be up to
+> the task) only to see that person produce little to no work as a core
+> developer.
+> 
+> > * Review patches and pull requests. While we don't require not expect
+> > newcomers to review, we expect that core developers dedicate a part of
+> > their time on reviews.
+> 
+> Yes, I believe this is the most important part of being a core
+> developer.  What it means is that core developers care about the quality
+> of the whole code base (and also the non-code parts), not only their own
+> contributions to it.
+> 
+> > * Know the CPython workflow. Be aware of the pre-commit and
+> > post-commits CIs. How ideas are discussed. It's not only about writing
+> > and pushing patches.
+> 
+> This part is also required from regular contributors, at least the
+> experienced ones.
+> 
+> > * For C developer: know CPython specific issues like reference leaks
+> > and the garbage collector. We expect that a core developer write code
+> > with no reference leak, right? ;-)
+> 
+> This is no different from regular contributors posting patches with C
+> code in them.
+> 
+> > * Good quality patches: proposed changes are good (or almost good) at
+> > the first iteration. I'm not sure about this point, but I know a few
+> > other developers have this requiurement to promote someone.
+> 
+> Or, if the code isn't good at the first iteration, the author is able to
+> figure it out by themselves and doesn't rush merge it.  Of course,
+> nobody is perfect, which is why non-trivial code written by core
+> developers ideally goes through a review phase anyway.  But a general
+> sense of what is "in good state for review/merging" vs. "just a draft
+> I'm working on" is indeed, IMHO, preferrable.
+> 
+> > * Pushing core means becoming responsible for this code. For
+> > regressions, backward compatibility, security, etc.
+> 
+> Yes, this is the whole "know the project's lifecycle" thing.  It also
+> includes knowing what to backport or not.
+> 
+> > * Something else?
+> 
+> Two things I would add:
+> 
+> - Know to be nice and respectful to the others, at least to the extent
+> they're nice and respectful to yourself :-)  We don't have a rock-star
+> (or "bro", "wizard", "ninja", whatever the hyperbole of the day is)
+> culture here.
+> 
+> - Show a bit of humility towards existing work and try to understand the
+> decisions behind something before deciding to change it all.  That said,
+> given Python's current position on the technical evolution and adoption
+> curve, we get less and less proposals for sweeping changes (perhaps not
+> enough, actually, since even when rejected, they help challenge the
+> statu quo).
+> 
+> Regards
+> 
+> Antoine.
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org <mailto:python-committers at python.org>
+> https://mail.python.org/mailman/listinfo/python-committers <https://mail.python.org/mailman/listinfo/python-committers>
+> Code of Conduct: https://www.python.org/psf/codeofconduct/ <https://www.python.org/psf/codeofconduct/>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170922/8243fc94/attachment-0001.html>
+
+From tjreedy at udel.edu  Fri Sep 22 14:43:40 2017
+From: tjreedy at udel.edu (Terry Reedy)
+Date: Fri, 22 Sep 2017 14:43:40 -0400
+Subject: [python-committers] Merging when assignee does not respond.
+Message-ID: <ae2ad08b-fb87-fc72-d7cf-37c9c826ff41@udel.edu>
+
+https://bugs.python.org/issue30085
+https://github.com/python/cpython/pull/1171
+were submitted last April.
+
+Raymond assigned PR to himself, reviewed it in May.
+
+Contributor Sanket revised according to reviews, in my opinion 
+adequately.  Repeated pings on both issue and PR have not been answered. 
+  Can someone else merge this?
+
+tjr
+
+From storchaka at gmail.com  Sat Sep 23 01:26:28 2017
+From: storchaka at gmail.com (Serhiy Storchaka)
+Date: Sat, 23 Sep 2017 08:26:28 +0300
+Subject: [python-committers] What is a CPython core developer?
+In-Reply-To: <CAP1=2W5E3KCmWYjbLTf_GM2wCLvPuLhLdNV0qdod5XFkYUkCwg@mail.gmail.com>
+References: <CAMpsgwbs80YTRQwKoUhkAQ_kG=Y6e-ZPjd6GP0n=fUxfgPLrjA@mail.gmail.com>
+ <087620b6-3cfd-4c5b-2964-e3a456184ce2@python.org>
+ <CAP1=2W5E3KCmWYjbLTf_GM2wCLvPuLhLdNV0qdod5XFkYUkCwg@mail.gmail.com>
+Message-ID: <oq4r9s$dlf$1@blaine.gmane.org>
+
+22.09.17 20:26, Brett Cannon ????:
+> +1 for the list Victor and Antoine have here!
+
++1 from me too!
+
+
+From antoine at python.org  Sat Sep 23 16:58:24 2017
+From: antoine at python.org (Antoine Pitrou)
+Date: Sat, 23 Sep 2017 22:58:24 +0200
+Subject: [python-committers] Travis CI: macOS is now blocking -- remove
+ macOS from Travis CI?
+In-Reply-To: <CAMpsgwY_B24oEJgYJGYVCF9RhfYY8Q7_aS-N3KzHQaKkegp20A@mail.gmail.com>
+References: <CAMpsgwY_B24oEJgYJGYVCF9RhfYY8Q7_aS-N3KzHQaKkegp20A@mail.gmail.com>
+Message-ID: <d5fec528-b220-0e75-ed9c-b4547f580dfb@python.org>
+
+
+For the record:
+https://blog.travis-ci.com/2017-09-22-macos-update
+
+Regards
+
+Antoine.
+
+
+Le 01/09/2017 ? 19:15, Victor Stinner a ?crit?:
+> Hi,
+> 
+> Since today, it seems like the macOS task of a Travis CI job to
+> validate a pull request hangs the whole job.
+> 
+> Don't try to cancel the macOS job, or the whole job will be marked as
+> failed! ... even if macOS is in the "Allowed Failure" section. I don't
+> know the best way to "repair" such job. I use "restart job" which
+> restarts all tasks, even the completed *and successful* Linux and doc
+> jobs.
+> 
+> I have PRs waiting for longer than 2 hours for Travis CI. The macOS
+> job is seen as "queued".
+> 
+> Yesterday, it was possible to merge a PR even if the macOS job was
+> still queued (no started).
+> 
+> I never wait for macOS, since, as I wrote, it can take longer than 1
+> hour. Moreover, macOS failures are not reported to the GitHub UI :-(
+> (Hum, in fact, I'm not sure about that.)
+> 
+> Maybe we should remove the pre-commit macOS task from the Travis CI
+> config to focus on post-commit macOS buildbots? If we remove it,
+> should we remove it from 2.7, 3.6 and master branches?
+> 
+> We have 3 macOS buildbots:
+> 
+> * x86 Tiger 3.x
+> * x86-64 El Capitan 3.x
+> * x86-64 Sierra 3.x
+> 
+> All three are currently green ;-)
+> 
+> In the last 3 months, the macOS task of Travis CI caused multiple issues :-/
+> 
+> Victor
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+> 
+
+From victor.stinner at gmail.com  Sat Sep 23 18:33:13 2017
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Sun, 24 Sep 2017 00:33:13 +0200
+Subject: [python-committers] Travis CI: macOS is now blocking -- remove
+ macOS from Travis CI?
+In-Reply-To: <d5fec528-b220-0e75-ed9c-b4547f580dfb@python.org>
+References: <CAMpsgwY_B24oEJgYJGYVCF9RhfYY8Q7_aS-N3KzHQaKkegp20A@mail.gmail.com>
+ <d5fec528-b220-0e75-ed9c-b4547f580dfb@python.org>
+Message-ID: <CAMpsgwZioNnbuGxCk1A49vrUxxa7uBM-cyuY9YfqOi5+GBOqbw@mail.gmail.com>
+
+Ok. I closed https://bugs.python.org/issue31355
+
+Victor
+
+2017-09-23 22:58 GMT+02:00 Antoine Pitrou <antoine at python.org>:
+>
+> For the record:
+> https://blog.travis-ci.com/2017-09-22-macos-update
+>
+> Regards
+>
+> Antoine.
+>
+>
+> Le 01/09/2017 ? 19:15, Victor Stinner a ?crit :
+>> Hi,
+>>
+>> Since today, it seems like the macOS task of a Travis CI job to
+>> validate a pull request hangs the whole job.
+>>
+>> Don't try to cancel the macOS job, or the whole job will be marked as
+>> failed! ... even if macOS is in the "Allowed Failure" section. I don't
+>> know the best way to "repair" such job. I use "restart job" which
+>> restarts all tasks, even the completed *and successful* Linux and doc
+>> jobs.
+>>
+>> I have PRs waiting for longer than 2 hours for Travis CI. The macOS
+>> job is seen as "queued".
+>>
+>> Yesterday, it was possible to merge a PR even if the macOS job was
+>> still queued (no started).
+>>
+>> I never wait for macOS, since, as I wrote, it can take longer than 1
+>> hour. Moreover, macOS failures are not reported to the GitHub UI :-(
+>> (Hum, in fact, I'm not sure about that.)
+>>
+>> Maybe we should remove the pre-commit macOS task from the Travis CI
+>> config to focus on post-commit macOS buildbots? If we remove it,
+>> should we remove it from 2.7, 3.6 and master branches?
+>>
+>> We have 3 macOS buildbots:
+>>
+>> * x86 Tiger 3.x
+>> * x86-64 El Capitan 3.x
+>> * x86-64 Sierra 3.x
+>>
+>> All three are currently green ;-)
+>>
+>> In the last 3 months, the macOS task of Travis CI caused multiple issues :-/
+>>
+>> Victor
+>> _______________________________________________
+>> python-committers mailing list
+>> python-committers at python.org
+>> https://mail.python.org/mailman/listinfo/python-committers
+>> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+
+From storchaka at gmail.com  Sat Sep 23 20:06:39 2017
+From: storchaka at gmail.com (Serhiy Storchaka)
+Date: Sun, 24 Sep 2017 03:06:39 +0300
+Subject: [python-committers] Merging when assignee does not respond.
+In-Reply-To: <ae2ad08b-fb87-fc72-d7cf-37c9c826ff41@udel.edu>
+References: <ae2ad08b-fb87-fc72-d7cf-37c9c826ff41@udel.edu>
+Message-ID: <2483279.G9bkIPuE73@saraksh>
+
+????????, 22 ??????? 2017 ?. 14:43:40 EEST Terry Reedy ????????:
+> https://bugs.python.org/issue30085
+> https://github.com/python/cpython/pull/1171
+> were submitted last April.
+> 
+> Raymond assigned PR to himself, reviewed it in May.
+> 
+> Contributor Sanket revised according to reviews, in my opinion
+> adequately.  Repeated pings on both issue and PR have not been answered.
+>   Can someone else merge this?
+
+I would ask Raymond personally.
+
+
+From ncoghlan at gmail.com  Sun Sep 24 07:05:09 2017
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Sun, 24 Sep 2017 21:05:09 +1000
+Subject: [python-committers] What is a CPython core developer?
+In-Reply-To: <CAMpsgwbs80YTRQwKoUhkAQ_kG=Y6e-ZPjd6GP0n=fUxfgPLrjA@mail.gmail.com>
+References: <CAMpsgwbs80YTRQwKoUhkAQ_kG=Y6e-ZPjd6GP0n=fUxfgPLrjA@mail.gmail.com>
+Message-ID: <CADiSq7c+gL2vBvZXF_KDhMbg2i8vSLhypv5tr71c4eic=5eoPQ@mail.gmail.com>
+
+On 23 September 2017 at 00:26, Victor Stinner <victor.stinner at gmail.com> wrote:
+> First of all, I like how Mariatta summarized a promotion (in an oral
+> discussion that we had). Becoming a core developer doesn't give
+> *power*, but *responsabilities*. (Sorry, I'm not sure about the exact
+> wording, maybe Mariatta can correct me here ;-))
+
+That formulation also came up in a recent developer's guide discussion
+that resulted in the addition of this section:
+https://docs.python.org/devguide/coredev.html#what-it-means
+
+I think what we put there really does cover the essence of the role,
+so the main questions I personally ask about a potential new core
+developer are:
+
+1. Would gaining core developer privileges improve their ability to
+contribute effectively (in my opinion or the opinion of another core
+developer)?
+2. Do I (or another core developer that is willing to mentor them)
+trust their judgment on when things should be escalated for further
+review & discussion (or even rejected outright) vs just going ahead
+and merging them?
+
+> I also see that some core developers are more conservative, want to
+> reduce the risk of regressions, while some others are more on the
+> "forgiveness" trend ("it's better to ask forgiveness than
+> permission"). I think that it's perfectly normal and expected to have
+> people on the two sides. The question is how to find a compromise in
+> the middle.
+>
+> I identified the following CPython core developers responsabilities:
+>
+> * Know the CPython workflow. Be aware of the pre-commit and
+> post-commits CIs. How ideas are discussed. It's not only about writing
+> and pushing patches.
+>
+> * For C developer: know CPython specific issues like reference leaks
+> and the garbage collector. We expect that a core developer write code
+> with no reference leak, right? ;-)
+>
+> * Good quality patches: proposed changes are good (or almost good) at
+> the first iteration. I'm not sure about this point, but I know a few
+> other developers have this requiurement to promote someone.
+>
+> * Pushing core means becoming responsible for this code. For
+> regressions, backward compatibility, security, etc.
+
+I think these make sense, since they're about *how* we contribute, and
+*what* we should be looking for when reviewing code (whether our own
+or other people's).
+
+> * Long term commitement. We someone lands a big chunk of code, we need
+> someone to maintain it for at least the next 2 years. Maybe for the
+> next 10 years. I think that some people sign with their blood to
+> maintain crappy code for their own life, but it's better to not
+> elaborate this part ;-)
+>
+> * Review patches and pull requests. While we don't require not expect
+> newcomers to review, we expect that core developers dedicate a part of
+> their time on reviews.
+
+I'm less certain of these, as they're about *how much* we contribute,
+and while there's certainly a significant time element involved (since
+it takes time and engagement to build trust in someone else's
+judgment), we also expect people's level of involvement to ebb and
+flow based on their other commitments and their current level of
+interest in the core development process (regardless of whether
+they're a core developer or not).
+
+> * Something else?
+>
+> I don't expect this list to be complete. A vote for a promotion is
+> always done on a case by case basis, mostly because it's really hard
+> to be ready on *all* expected points. The discussion is more to
+> estimate how far is the contributor in its learning, if it's enough,
+> if more learning is needed, or if mentoring is needed.
+>
+> Maybe we should also formalize the mentoring for contributors
+> identified as potential core developers. It can be an explicit step in
+> the promotion process. Each last core developers who get promoted last
+> year get a mentor if I recall correctly. What do you think?
+
+An offer of post-promotion mentoring is already noted as part of the
+nomination process here:
+https://docs.python.org/devguide/coredev.html#what-it-takes
+
+I agree it may make sense to make that a clearly separate step in the
+process, such that someone makes the explicit decision that becoming a
+core developer is a goal they want to pursue, and then seeks an
+existing core developer to coach them through that process. Currently,
+that tends to only happen informally, by virtue of an existing core
+dev reviewing quite a few of a contributor's patches, and then asking
+if becoming a core developer themselves is a goal they've considered.
+
+There are some additional responsibilities listed at
+https://docs.python.org/devguide/coredev.html#responsibilities, but
+aside from the first paragraph about respecting the CoC, they're more
+in the nature of FYI's for just-promoted core devs.
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+
+From mariatta.wijaya at gmail.com  Mon Sep 25 23:53:39 2017
+From: mariatta.wijaya at gmail.com (Mariatta Wijaya)
+Date: Mon, 25 Sep 2017 20:53:39 -0700
+Subject: [python-committers] Can I get access to CPython's GitHub Webhook
+ events?
+Message-ID: <CAGbohnZ8yrL2VjNB-nhBULrDXir=DKDZmagi8=EdhsReQ7+C4g@mail.gmail.com>
+
+Hi,
+
+As part of maintaining miss-islington, I think it would be great if I could
+see the GitHub webhook events for the CPython repo, just to make it easier
+for me to debug problems. Sometimes miss-islington doesn't work as
+expected, and the logs I get from heroku aren't too useful..
+
+Not sure who in here can give me such access..
+The webhook info is located in
+https://github.com/python/cpython/settings/hooks and to me this is a 404
+right now.
+
+Thanks :)
+
+Mariatta Wijaya
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170925/a44e6898/attachment.html>
+
+From brett at python.org  Tue Sep 26 13:36:55 2017
+From: brett at python.org (Brett Cannon)
+Date: Tue, 26 Sep 2017 17:36:55 +0000
+Subject: [python-committers] Can I get access to CPython's GitHub
+ Webhook events?
+In-Reply-To: <CAGbohnZ8yrL2VjNB-nhBULrDXir=DKDZmagi8=EdhsReQ7+C4g@mail.gmail.com>
+References: <CAGbohnZ8yrL2VjNB-nhBULrDXir=DKDZmagi8=EdhsReQ7+C4g@mail.gmail.com>
+Message-ID: <CAP1=2W5qVMMjXrHPNRLXcx1JQhyczcFF_x-JEV7UCGgzvcO5kQ@mail.gmail.com>
+
+You can ask me or any release manager for access (which I just gave you :) .
+
+On Mon, 25 Sep 2017 at 20:54 Mariatta Wijaya <mariatta.wijaya at gmail.com>
+wrote:
+
+> Hi,
+>
+> As part of maintaining miss-islington, I think it would be great if I
+> could see the GitHub webhook events for the CPython repo, just to make it
+> easier for me to debug problems. Sometimes miss-islington doesn't work as
+> expected, and the logs I get from heroku aren't too useful..
+>
+> Not sure who in here can give me such access..
+> The webhook info is located in
+> https://github.com/python/cpython/settings/hooks and to me this is a 404
+> right now.
+>
+> Thanks :)
+>
+> Mariatta Wijaya
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170926/13bdb04f/attachment.html>
+
+From brian at python.org  Wed Sep 27 08:52:16 2017
+From: brian at python.org (Brian Curtin)
+Date: Wed, 27 Sep 2017 08:52:16 -0400
+Subject: [python-committers] =?utf-8?q?MSDN_Subscriptions_=E2=80=94_First?=
+ =?utf-8?q?_timers=2C_renewals?=
+Message-ID: <CAD+XWwp=kqhk__DKWJk5VTfY81ipxeZQ8WY+yE+g3yO0gXAYdw@mail.gmail.com>
+
+Hey everyone,
+
+If you've been waiting on a recent subscription renewal, my apologies?I
+dropped the ball on following up on some of them, but I'm getting things
+back in order with another request for renewals now that a few more are
+flowing in.
+
+If you are currently expired or within a month or so of a renewal, please
+send me the email address you use, your full name, and your mailing
+address. We haven't always needed mailing address for renewals, but they
+have been asking for it lately. If your expiration is a few months away,
+they seem to prefer we don't get too far ahead so email me directly when
+that time comes, or perhaps another one of these batches will match up.
+
+If you've never had a subscription but would like one, please send me the
+email address you use, your full name, and your mailing address. This will
+give you access to Microsoft's Developer Network, which includes access to
+things like Visual Studio and Windows licenses that we can use for working
+on Python.
+
+Thanks for everyone's work on Python!
+
+Brian
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170927/00fbb423/attachment.html>
+
+From mariatta.wijaya at gmail.com  Thu Sep 28 12:21:04 2017
+From: mariatta.wijaya at gmail.com (Mariatta Wijaya)
+Date: Thu, 28 Sep 2017 09:21:04 -0700
+Subject: [python-committers] Hacktoberfest
+Message-ID: <CAGbohnZTcu=Aaf45Y_A6A4sJaqhGdZwtt0Cn=B0abW+SQhsKhw@mail.gmail.com>
+
+Hi,
+
+October is hacktoberfest (https://hacktoberfest.digitalocean.com/)
+In the month of October, people can sign up and contribute to open source
+projects on GitHub. If they make 4 PRs during Hacktoberfest, they'll earn a
+limited edition T-Shirt.
+
+If it's ok with everyone, I want to create "hacktoberfest" label and apply
+it to some of the open issues in the DevGuide and core-workflow repo. The
+purpose of the label is to make the repo discoverable, so it shows up as
+one of the participating projects:
+https://github.com/search?q=label%3Ahacktoberfest+state%3Aopen+type%3Aissue&type=Issues
+
+Mariatta Wijaya
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170928/d71c46fb/attachment.html>
+
+From christian at python.org  Thu Sep 28 12:37:18 2017
+From: christian at python.org (Christian Heimes)
+Date: Thu, 28 Sep 2017 18:37:18 +0200
+Subject: [python-committers] Hacktoberfest
+In-Reply-To: <CAGbohnZTcu=Aaf45Y_A6A4sJaqhGdZwtt0Cn=B0abW+SQhsKhw@mail.gmail.com>
+References: <CAGbohnZTcu=Aaf45Y_A6A4sJaqhGdZwtt0Cn=B0abW+SQhsKhw@mail.gmail.com>
+Message-ID: <c93f4a67-d255-ddf4-3200-2c9354450fba@python.org>
+
+On 2017-09-28 18:21, Mariatta Wijaya wrote:
+> Hi,
+> 
+> October is hacktoberfest (https://hacktoberfest.digitalocean.com/)?
+> In the month of October, people can sign up and contribute to open
+> source projects on GitHub. If they make 4 PRs during Hacktoberfest,
+> they'll earn a limited edition T-Shirt.
+> 
+> If it's ok with everyone, I want to create "hacktoberfest" label and
+> apply it to some of the open issues in the DevGuide and core-workflow
+> repo. The purpose of the label is to make the repo discoverable, so it
+> shows up as one of the participating projects:
+> https://github.com/search?q=label%3Ahacktoberfest+state%3Aopen+type%3Aissue&type=Issues
+
+Sounds good to me.
+
+Fun fact: The real Oktoberfest in M?nchen always starts mid of September
+and ends on the first weekend of October. This year it will end on
+October 3rd. Hurry up! :)
+
+Christian
+
+From stefan at bytereef.org  Thu Sep 28 12:58:24 2017
+From: stefan at bytereef.org (Stefan Krah)
+Date: Thu, 28 Sep 2017 18:58:24 +0200
+Subject: [python-committers] Hacktoberfest
+In-Reply-To: <CAGbohnZTcu=Aaf45Y_A6A4sJaqhGdZwtt0Cn=B0abW+SQhsKhw@mail.gmail.com>
+References: <CAGbohnZTcu=Aaf45Y_A6A4sJaqhGdZwtt0Cn=B0abW+SQhsKhw@mail.gmail.com>
+Message-ID: <20170928165824.GA3119@bytereef.org>
+
+On Thu, Sep 28, 2017 at 09:21:04AM -0700, Mariatta Wijaya wrote:
+> October is hacktoberfest (https://hacktoberfest.digitalocean.com/)
+> In the month of October, people can sign up and contribute to open source
+> projects on GitHub. If they make 4 PRs during Hacktoberfest, they'll earn a
+> limited edition T-Shirt.
+
+This may sound grumpy to some, but I'm against gamification of open source
+and also against giving GitHub a special role.
+
+Any open source activity is somehow credited to or associated with some
+commercial entity.  What has changed in the last 7-10 years?
+
+
+Stefan Krah
+
+
+
+
+From antoine at python.org  Thu Sep 28 13:04:37 2017
+From: antoine at python.org (Antoine Pitrou)
+Date: Thu, 28 Sep 2017 19:04:37 +0200
+Subject: [python-committers] Hacktoberfest
+In-Reply-To: <20170928165824.GA3119@bytereef.org>
+References: <CAGbohnZTcu=Aaf45Y_A6A4sJaqhGdZwtt0Cn=B0abW+SQhsKhw@mail.gmail.com>
+ <20170928165824.GA3119@bytereef.org>
+Message-ID: <7ac307bd-8818-8f75-922b-7195715fa4dc@python.org>
+
+
+Le 28/09/2017 ? 18:58, Stefan Krah a ?crit?:
+> On Thu, Sep 28, 2017 at 09:21:04AM -0700, Mariatta Wijaya wrote:
+>> October is hacktoberfest (https://hacktoberfest.digitalocean.com/)
+>> In the month of October, people can sign up and contribute to open source
+>> projects on GitHub. If they make 4 PRs during Hacktoberfest, they'll earn a
+>> limited edition T-Shirt.
+> 
+> This may sound grumpy to some, but I'm against gamification of open source
+> and also against giving GitHub a special role.
+
+I don't like gamification, but the t-shirt thing sounds innocuous
+enough.  I would be more worried if such a scheme became permanent.
+Also I'm not even sure we can prevent this one for CPython PRs:
+
+"""To get a shirt, you must make four pull requests between October 1?31
+in any timezone. Pull requests can be to *any public repo on GitHub, not
+just the ones we?ve highlighted*.""" (emphasis added)
+
+Regards
+
+Antoine.
+
+From mariatta.wijaya at gmail.com  Thu Sep 28 13:15:58 2017
+From: mariatta.wijaya at gmail.com (Mariatta Wijaya)
+Date: Thu, 28 Sep 2017 10:15:58 -0700
+Subject: [python-committers] Hacktoberfest
+In-Reply-To: <7ac307bd-8818-8f75-922b-7195715fa4dc@python.org>
+References: <CAGbohnZTcu=Aaf45Y_A6A4sJaqhGdZwtt0Cn=B0abW+SQhsKhw@mail.gmail.com>
+ <20170928165824.GA3119@bytereef.org>
+ <7ac307bd-8818-8f75-922b-7195715fa4dc@python.org>
+Message-ID: <CAGbohnZubr4sb3wD6ksMS2ehM93i7JeKL8fAgfEkGhoGUQwvvQ@mail.gmail.com>
+
+>
+> Fun fact: The real Oktoberfest in M?nchen always starts mid of September
+> and ends on the first weekend of October. This year it will end on
+> October 3rd. Hurry up! :)
+
+
+
+Hmm.. Maybe the next core sprint can coincide with the real oktoberfest? ;)
+
+
+This may sound grumpy to some, but I'm against gamification of open source
+> and also against giving GitHub a special role.
+
+
+I'm also against gamification, which I have expressed personally to another
+core dev.
+I do believe that the ability to contribute to open source is a privilege.
+
+Any open source activity is somehow credited to or associated with some
+> commercial entity.  What has changed in the last 7-10 years?
+
+
+I don't know, I haven't been involved with open source for that long.
+
+I have a rather selfish motivation. I'd really like to see some of these
+open issues in the DevGuide closed:
+https://github.com/python/devguide/issues?q=is%3Aopen+is%3Aissue+label%3A%22help+wanted%22
+
+During the core sprint I mentioned to another core dev that I'd like to see
+someone write up the git worktree part (
+https://github.com/python/devguide/issues?q=is%3Aopen+is%3Aissue+label%3A%22help+wanted%22)
+since I don't know how it works.
+Seems like there are other core devs who knows how it works, but have not
+find time/motivation to write up the docs.
+
+If during the month of October there plenty of eager contributors looking
+for issues to work on, why not direct them to one of our issues?
+I think it benefits all of us.
+
+We are not the one giving out t-shirts anyway. It does mean we will receive
+more than usual incoming PRs.
+I think this will happen anyway whether I create the hacktoberfest label or
+not.
+
+I'm planning to apply the labes to the devguide issues that have the 'help
+wanted' labels already (see above link)
+and this core workflow issue which is supposed to be straightforward
+https://github.com/python/core-workflow/issues/164
+
+
+Mariatta Wijaya
+
+
+Mariatta Wijaya
+
+On Thu, Sep 28, 2017 at 10:04 AM, Antoine Pitrou <antoine at python.org> wrote:
+
+>
+> Le 28/09/2017 ? 18:58, Stefan Krah a ?crit :
+> > On Thu, Sep 28, 2017 at 09:21:04AM -0700, Mariatta Wijaya wrote:
+> >> October is hacktoberfest (https://hacktoberfest.digitalocean.com/)
+> >> In the month of October, people can sign up and contribute to open
+> source
+> >> projects on GitHub. If they make 4 PRs during Hacktoberfest, they'll
+> earn a
+> >> limited edition T-Shirt.
+> >
+> > This may sound grumpy to some, but I'm against gamification of open
+> source
+> > and also against giving GitHub a special role.
+>
+> I don't like gamification, but the t-shirt thing sounds innocuous
+> enough.  I would be more worried if such a scheme became permanent.
+> Also I'm not even sure we can prevent this one for CPython PRs:
+>
+> """To get a shirt, you must make four pull requests between October 1?31
+> in any timezone. Pull requests can be to *any public repo on GitHub, not
+> just the ones we?ve highlighted*.""" (emphasis added)
+>
+> Regards
+>
+> Antoine.
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170928/29585339/attachment-0001.html>
+
+From guido at python.org  Thu Sep 28 17:24:36 2017
+From: guido at python.org (Guido van Rossum)
+Date: Thu, 28 Sep 2017 14:24:36 -0700
+Subject: [python-committers] Hacktoberfest
+In-Reply-To: <CAGbohnZubr4sb3wD6ksMS2ehM93i7JeKL8fAgfEkGhoGUQwvvQ@mail.gmail.com>
+References: <CAGbohnZTcu=Aaf45Y_A6A4sJaqhGdZwtt0Cn=B0abW+SQhsKhw@mail.gmail.com>
+ <20170928165824.GA3119@bytereef.org>
+ <7ac307bd-8818-8f75-922b-7195715fa4dc@python.org>
+ <CAGbohnZubr4sb3wD6ksMS2ehM93i7JeKL8fAgfEkGhoGUQwvvQ@mail.gmail.com>
+Message-ID: <CAP7+vJJMZ8PRkRmwjPWUr4QACL5EWbL2hiR06F05OX5NRfzbtQ@mail.gmail.com>
+
+I'm with Mariatta.
+
+On Thu, Sep 28, 2017 at 10:15 AM, Mariatta Wijaya <mariatta.wijaya at gmail.com
+> wrote:
+
+> Fun fact: The real Oktoberfest in M?nchen always starts mid of September
+>> and ends on the first weekend of October. This year it will end on
+>> October 3rd. Hurry up! :)
+>
+>
+>
+> Hmm.. Maybe the next core sprint can coincide with the real oktoberfest? ;)
+>
+>
+> This may sound grumpy to some, but I'm against gamification of open source
+>> and also against giving GitHub a special role.
+>
+>
+> I'm also against gamification, which I have expressed personally to
+> another core dev.
+> I do believe that the ability to contribute to open source is a privilege.
+>
+> Any open source activity is somehow credited to or associated with some
+>> commercial entity.  What has changed in the last 7-10 years?
+>
+>
+> I don't know, I haven't been involved with open source for that long.
+>
+> I have a rather selfish motivation. I'd really like to see some of these
+> open issues in the DevGuide closed:
+> https://github.com/python/devguide/issues?q=is%3Aopen+
+> is%3Aissue+label%3A%22help+wanted%22
+>
+> During the core sprint I mentioned to another core dev that I'd like to
+> see someone write up the git worktree part (https://github.com/python/
+> devguide/issues?q=is%3Aopen+is%3Aissue+label%3A%22help+wanted%22) since I
+> don't know how it works.
+> Seems like there are other core devs who knows how it works, but have not
+> find time/motivation to write up the docs.
+>
+> If during the month of October there plenty of eager contributors looking
+> for issues to work on, why not direct them to one of our issues?
+> I think it benefits all of us.
+>
+> We are not the one giving out t-shirts anyway. It does mean we will
+> receive more than usual incoming PRs.
+> I think this will happen anyway whether I create the hacktoberfest label
+> or not.
+>
+> I'm planning to apply the labes to the devguide issues that have the 'help
+> wanted' labels already (see above link)
+> and this core workflow issue which is supposed to be straightforward
+> https://github.com/python/core-workflow/issues/164
+>
+>
+> Mariatta Wijaya
+>
+>
+> Mariatta Wijaya
+>
+> On Thu, Sep 28, 2017 at 10:04 AM, Antoine Pitrou <antoine at python.org>
+> wrote:
+>
+>>
+>> Le 28/09/2017 ? 18:58, Stefan Krah a ?crit :
+>> > On Thu, Sep 28, 2017 at 09:21:04AM -0700, Mariatta Wijaya wrote:
+>> >> October is hacktoberfest (https://hacktoberfest.digitalocean.com/)
+>> >> In the month of October, people can sign up and contribute to open
+>> source
+>> >> projects on GitHub. If they make 4 PRs during Hacktoberfest, they'll
+>> earn a
+>> >> limited edition T-Shirt.
+>> >
+>> > This may sound grumpy to some, but I'm against gamification of open
+>> source
+>> > and also against giving GitHub a special role.
+>>
+>> I don't like gamification, but the t-shirt thing sounds innocuous
+>> enough.  I would be more worried if such a scheme became permanent.
+>> Also I'm not even sure we can prevent this one for CPython PRs:
+>>
+>> """To get a shirt, you must make four pull requests between October 1?31
+>> in any timezone. Pull requests can be to *any public repo on GitHub, not
+>> just the ones we?ve highlighted*.""" (emphasis added)
+>>
+>> Regards
+>>
+>> Antoine.
+>> _______________________________________________
+>> python-committers mailing list
+>> python-committers at python.org
+>> https://mail.python.org/mailman/listinfo/python-committers
+>> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>>
+>
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+>
+
+
+-- 
+--Guido van Rossum (python.org/~guido)
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170928/2409d0e7/attachment.html>
+
+From victor.stinner at gmail.com  Thu Sep 28 17:39:02 2017
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Thu, 28 Sep 2017 23:39:02 +0200
+Subject: [python-committers] Hacktoberfest
+In-Reply-To: <CAGbohnZTcu=Aaf45Y_A6A4sJaqhGdZwtt0Cn=B0abW+SQhsKhw@mail.gmail.com>
+References: <CAGbohnZTcu=Aaf45Y_A6A4sJaqhGdZwtt0Cn=B0abW+SQhsKhw@mail.gmail.com>
+Message-ID: <CAMpsgwYHtix96PB8kQfPeHSDWjY9dtqn4dx4r7mbzXKi9MeLfQ@mail.gmail.com>
+
+Hi,
+
+2017-09-28 18:21 GMT+02:00 Mariatta Wijaya <mariatta.wijaya at gmail.com>:
+> October is hacktoberfest (https://hacktoberfest.digitalocean.com/)
+> In the month of October, people can sign up and contribute to open source
+> projects on GitHub. If they make 4 PRs during Hacktoberfest, they'll earn a
+> limited edition T-Shirt.
+
+We never tried it. Maybe it will be a mess, maybe it will be a
+success. In the worst case, it will be ignored. As least if it's a
+mess, we would have try and we will learn something.
+
+I'm open to try new things, we always look for new contributors :-)
+
+Victor
+
+From jaraco at jaraco.com  Fri Sep 29 11:20:20 2017
+From: jaraco at jaraco.com (Jason R. Coombs)
+Date: Fri, 29 Sep 2017 15:20:20 +0000
+Subject: [python-committers] 
+ =?utf-8?q?MSDN_Subscriptions_=E2=80=94_First?=
+ =?utf-8?q?_timers=2C_renewals?=
+In-Reply-To: <CAD+XWwp=kqhk__DKWJk5VTfY81ipxeZQ8WY+yE+g3yO0gXAYdw@mail.gmail.com>
+References: <CAD+XWwp=kqhk__DKWJk5VTfY81ipxeZQ8WY+yE+g3yO0gXAYdw@mail.gmail.com>
+Message-ID: <EE58A0C7-415E-44C8-880D-8678ED0D1CFA@jaraco.com>
+
+Brian,
+
+Jason R. Coombs
+jaraco at jaraco.com
+2301 Champlain St NW
+Apt 305
+Washington, DC 20009-8703
+
+It seems my subscription did lapse in August.
+
+Thanks for the help on this.
+
+> On 27 Sep, 2017, at 14:52, Brian Curtin <brian at python.org> wrote:
+> 
+> Hey everyone,
+> 
+> If you've been waiting on a recent subscription renewal, my apologies?I dropped the ball on following up on some of them, but I'm getting things back in order with another request for renewals now that a few more are flowing in.
+> 
+> If you are currently expired or within a month or so of a renewal, please send me the email address you use, your full name, and your mailing address. We haven't always needed mailing address for renewals, but they have been asking for it lately. If your expiration is a few months away, they seem to prefer we don't get too far ahead so email me directly when that time comes, or perhaps another one of these batches will match up.
+> 
+> If you've never had a subscription but would like one, please send me the email address you use, your full name, and your mailing address. This will give you access to Microsoft's Developer Network, which includes access to things like Visual Studio and Windows licenses that we can use for working on Python.
+> 
+> Thanks for everyone's work on Python!
+> 
+> Brian
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+
+

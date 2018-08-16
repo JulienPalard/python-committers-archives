@@ -1,0 +1,1334 @@
+From ncoghlan at gmail.com  Thu Oct  1 10:57:49 2015
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Thu, 1 Oct 2015 18:57:49 +1000
+Subject: [python-committers] SSH problems attempting to access hg.python.org
+Message-ID: <CADiSq7c2wJpT_DNVs+YyWzhunj3ntO8LXYH_r5YEn1TmbXN47w@mail.gmail.com>
+
+Hi folks,
+
+After getting some publickey errors from hg.python.org earlier, I'm
+now consistently getting "Too many authentication failures for hg".
+
+I've checked my SSH keys, and they're validating against other
+services OK, so this appears to be a problem with hg.python.org
+specifically.
+
+Could someone with the appropriate admin access take a look at the
+server and see what might be going on?
+
+Regards,
+Nick.
+
+P.S. Relevant public key fingerprint (in both MD5 and SHA256 format):
+
+2048 MD5:07:7b:9c:2f:f1:e4:bb:f7:a2:2a:c9:f1:2e:6d:f1:ec ncoghlan at llamedos (RSA)
+2048 SHA256:kz2qX96utlWroXvMf75x2WFiL0o2SEeHnX7eJStd3wc ncoghlan at llamedos (RSA)
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+
+From nad at acm.org  Fri Oct  2 04:24:18 2015
+From: nad at acm.org (Ned Deily)
+Date: Thu, 1 Oct 2015 22:24:18 -0400
+Subject: [python-committers] Python 3.6 Release Schedule Details
+Message-ID: <137C7ADC-7D51-40A7-B563-2F6DC61CE506@acm.org>
+
+FYI - I've just updated PEP 494 with a fleshed-out 3.6.0 release schedule.  The 3.6 schedule is generally similar to the successful 18-month development and release cycle used in recent releases but with a few significant changes.  The main difference is that the 3.6 schedule takes advantage of the earlier creation of the 3.5 branch (Thanks, Larry!), which allowed code for 3.6 to be checked in starting at 3.5.0beta1, rather than later at release candidate 1 as in previous release cycles.  This provides an additional 11 weeks of overlap between 3.5.0 and 3.6.0, accelerating the release date for 3.6.0 without significantly reducing the overall release cycle duration.
+
+Another change has been to add a fourth beta and drop the third release candidate.  My gut feeling from the past several releases is that a lot of feature code does not get checked in until close to the b1 feature code cutoff so that extending the beta phase should result in more testing exposure for all features.  And I would like to reduce the amount of churn during the release candidate phase: a worthy goal is to make no changes after rc1, so that an rc2 would be be made only if absolutely necessary.
+
+Also note that the alpha1 build is scheduled for two weeks before PyCon 2016 and alpha2 will occur a week after the conclusion of the PyCon development sprints.  Beta1, the feature code cutoff, occurs at the beginning of September just after the US Labor Day holiday and the traditional end of summer, with the final release in mid-December 2016.
+
+A comparison between the 3.5.0 and 3.6.0 release cycles shows the differences (in days):
+
+    phase   3.5.0  3.6.0
+    ======  =====  =====
+    dev       363    357
+    alpha     105    114
+    beta       77     89
+    rc         35     14
+    total     580    574
+
+As always, the schedule will be subject to changes as necessary - and comments welcomed - but I'm hoping that with this schedule we will be able to once again achieve a high-quality release and still be able to move the release date up without straining our development, testing, and release team resources.  So keep those PEPs, other features, and bug fixes coming in.  In the immortal words of Larry: "Let the wild rumpus begin!"
+
+--Ned
+
+
+PEP: 494
+Title: Python 3.6 Release Schedule
+Last-Modified: 01-Oct-2015
+Author: Ned Deily <nad at acm.org>
+Status: Active
+Type: Informational
+Content-Type: text/x-rst
+Created: 30-May-2015
+Python-Version: 3.6
+
+
+Abstract
+========
+
+This document describes the development and release schedule for
+Python 3.6.  The schedule primarily concerns itself with PEP-sized
+items.
+
+
+Release Manager and Crew
+========================
+
+- 3.6 Release Manager: Ned Deily
+- Windows installers: Steve Dower
+- Mac installers: Ned Deily
+- Documentation: Georg Brandl
+
+
+3.6 Lifespan
+============
+
+3.6 will receive bugfix updates approximately every 3-6 months for
+approximately 18 months.  After the release of 3.7.0 final, a final
+3.6 bugfix update will be released.  After that, it is expected that
+security updates (source only) will be released until 5 years after
+the release of 3.6 final, so until approximately December 2021.
+
+
+Release Schedule
+================
+
+3.6.0 schedule
+--------------
+
+- 3.6 development begins: 2015-05-24
+- 3.6.0 alpha 1: 2016-05-15
+- 3.6.0 alpha 2: 2016-06-12
+- 3.6.0 alpha 3: 2016-07-10
+- 3.6.0 alpha 4: 2016-08-07
+- 3.6.0 beta 1: 2016-09-07
+
+(No new features beyond this point.)
+
+- 3.6.0 beta 2: 2016-10-02
+- 3.6.0 beta 3: 2016-10-30
+- 3.6.0 beta 4: 2016-11-20
+- 3.6.0 candidate 1: 2016-12-04
+- 3.6.0 candidate 2 (if needed): 2016-12-11
+- 3.6.0 final: 2016-12-16
+
+
+Features for 3.6
+================
+
+Proposed changes for 3.6:
+
+* PEP 447, Add __getdescriptor__ method to metaclass
+* PEP 498, Literal String Formatting
+* PEP 499, python -m foo should bind sys.modules['foo'] in additon
+  to sys.modules['__main__']
+* PEP 501, Translation ready string interpolation
+
+
+Copyright
+=========
+
+This document has been placed in the public domain.
+
+--
+  Ned Deily
+  nad at acm.org -- []
+
+
+
+From benjamin at python.org  Fri Oct  2 07:33:04 2015
+From: benjamin at python.org (Benjamin Peterson)
+Date: Thu, 01 Oct 2015 22:33:04 -0700
+Subject: [python-committers] SSH problems attempting to access
+	hg.python.org
+In-Reply-To: <CADiSq7c2wJpT_DNVs+YyWzhunj3ntO8LXYH_r5YEn1TmbXN47w@mail.gmail.com>
+References: <CADiSq7c2wJpT_DNVs+YyWzhunj3ntO8LXYH_r5YEn1TmbXN47w@mail.gmail.com>
+Message-ID: <1443763984.766695.399297897.0736ABCD@webmail.messagingengine.com>
+
+What does `ssh-add -L` give? ssh basically throws keys at the server
+until the server accepts it. The server has a limit of two attempts, so
+if have more than two keys in your agent, problems result.
+
+On Thu, Oct 1, 2015, at 01:57, Nick Coghlan wrote:
+> Hi folks,
+> 
+> After getting some publickey errors from hg.python.org earlier, I'm
+> now consistently getting "Too many authentication failures for hg".
+> 
+> I've checked my SSH keys, and they're validating against other
+> services OK, so this appears to be a problem with hg.python.org
+> specifically.
+> 
+> Could someone with the appropriate admin access take a look at the
+> server and see what might be going on?
+> 
+> Regards,
+> Nick.
+> 
+> P.S. Relevant public key fingerprint (in both MD5 and SHA256 format):
+> 
+> 2048 MD5:07:7b:9c:2f:f1:e4:bb:f7:a2:2a:c9:f1:2e:6d:f1:ec
+> ncoghlan at llamedos (RSA)
+> 2048 SHA256:kz2qX96utlWroXvMf75x2WFiL0o2SEeHnX7eJStd3wc ncoghlan at llamedos
+> (RSA)
+> 
+> -- 
+> Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+
+From ncoghlan at gmail.com  Fri Oct  2 09:21:41 2015
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Fri, 2 Oct 2015 17:21:41 +1000
+Subject: [python-committers] SSH problems attempting to access
+	hg.python.org
+In-Reply-To: <1443763984.766695.399297897.0736ABCD@webmail.messagingengine.com>
+References: <CADiSq7c2wJpT_DNVs+YyWzhunj3ntO8LXYH_r5YEn1TmbXN47w@mail.gmail.com>
+ <1443763984.766695.399297897.0736ABCD@webmail.messagingengine.com>
+Message-ID: <CADiSq7ftjBWHymK+PQM8DR7JCWrztGsCjjGB_QFnXwfywt3dBQ@mail.gmail.com>
+
+On 2 October 2015 at 15:33, Benjamin Peterson <benjamin at python.org> wrote:
+> What does `ssh-add -L` give? ssh basically throws keys at the server
+> until the server accepts it. The server has a limit of two attempts, so
+> if have more than two keys in your agent, problems result.
+
+I normally have 3 loaded, but even cutting it back to 1 didn't help:
+
+$ hg pull -u
+pulling from ssh://hg at hg.python.org/peps
+remote: Permission denied (publickey).
+abort: no suitable response from remote hg!
+
+However, I *did* recently upgrade to the Fedora 23 beta, so now I'm
+wondering if there might be a problem with OpenSSH 7.1p1 and
+ssh-ed25519 host keys (it's the only remote SSH host I using with an
+ed25519 key -  all the others are still ssh-rsa).
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+
+From rdmurray at bitdance.com  Fri Oct  2 16:20:10 2015
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Fri, 02 Oct 2015 10:20:10 -0400
+Subject: [python-committers] Python 3.6 Release Schedule Details
+In-Reply-To: <137C7ADC-7D51-40A7-B563-2F6DC61CE506@acm.org>
+References: <137C7ADC-7D51-40A7-B563-2F6DC61CE506@acm.org>
+Message-ID: <20151002142010.A55B5B900B3@webabinitio.net>
+
+On Thu, 01 Oct 2015 22:24:18 -0400, Ned Deily <nad at acm.org> wrote:
+> Another change has been to add a fourth beta and drop the third
+> release candidate.  My gut feeling from the past several releases is
+> that a lot of feature code does not get checked in until close to the
+> b1 feature code cutoff so that extending the beta phase should result
+> in more testing exposure for all features.  And I would like to reduce
+> the amount of churn during the release candidate phase: a worthy goal
+> is to make no changes after rc1, so that an rc2 would be be made only
+> if absolutely necessary.
+
+I would like to be wrong, but I think this is unrealistic.  The reality
+seems to be that there are a significant number of people (especially on
+the Windows side, if I'm guessing correctly) who do not test until we
+get to RC1.  IIRC we had a number of changes between RC1 and RC2, and a
+non-trivial number of changes between RC2 and RC3 this time around.
+
+That said, I do feel the amount of pre-release testing, even in the beta
+part of the cycle, has increased steadily in the past two or three
+releases, which is great to see.
+
+--David
+
+From g.brandl at gmx.net  Fri Oct  2 17:39:20 2015
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Fri, 2 Oct 2015 17:39:20 +0200
+Subject: [python-committers] SSH problems attempting to access
+	hg.python.org
+In-Reply-To: <CADiSq7ftjBWHymK+PQM8DR7JCWrztGsCjjGB_QFnXwfywt3dBQ@mail.gmail.com>
+References: <CADiSq7c2wJpT_DNVs+YyWzhunj3ntO8LXYH_r5YEn1TmbXN47w@mail.gmail.com>
+ <1443763984.766695.399297897.0736ABCD@webmail.messagingengine.com>
+ <CADiSq7ftjBWHymK+PQM8DR7JCWrztGsCjjGB_QFnXwfywt3dBQ@mail.gmail.com>
+Message-ID: <mum8f8$cai$1@ger.gmane.org>
+
+On 10/02/2015 09:21 AM, Nick Coghlan wrote:
+> On 2 October 2015 at 15:33, Benjamin Peterson <benjamin at python.org> wrote:
+>> What does `ssh-add -L` give? ssh basically throws keys at the server
+>> until the server accepts it. The server has a limit of two attempts, so
+>> if have more than two keys in your agent, problems result.
+> 
+> I normally have 3 loaded, but even cutting it back to 1 didn't help:
+> 
+> $ hg pull -u
+> pulling from ssh://hg at hg.python.org/peps
+> remote: Permission denied (publickey).
+> abort: no suitable response from remote hg!
+> 
+> However, I *did* recently upgrade to the Fedora 23 beta, so now I'm
+> wondering if there might be a problem with OpenSSH 7.1p1 and
+> ssh-ed25519 host keys (it's the only remote SSH host I using with an
+> ed25519 key -  all the others are still ssh-rsa).
+
+According to the sshkeys repo, the only key you can use for accessing
+hg.python.org is ncoghlan at uberwald, a ssh-dss key which will indeed
+not be offered by openssh 7.x anymore.
+
+Georg
+
+
+From nad at acm.org  Fri Oct  2 21:41:25 2015
+From: nad at acm.org (Ned Deily)
+Date: Fri, 2 Oct 2015 15:41:25 -0400
+Subject: [python-committers] Python 3.6 Release Schedule Details
+In-Reply-To: <20151002142010.A55B5B900B3@webabinitio.net>
+References: <137C7ADC-7D51-40A7-B563-2F6DC61CE506@acm.org>
+ <20151002142010.A55B5B900B3@webabinitio.net>
+Message-ID: <4280B8A7-4FD1-4D7D-8472-57360B338C67@acm.org>
+
+On Oct 2, 2015, at 10:20, R. David Murray <rdmurray at bitdance.com> wrote:
+> On Thu, 01 Oct 2015 22:24:18 -0400, Ned Deily <nad at acm.org> wrote:
+>> Another change has been to add a fourth beta and drop the third
+>> release candidate.  My gut feeling from the past several releases is
+>> that a lot of feature code does not get checked in until close to the
+>> b1 feature code cutoff so that extending the beta phase should result
+>> in more testing exposure for all features.  And I would like to reduce
+>> the amount of churn during the release candidate phase: a worthy goal
+>> is to make no changes after rc1, so that an rc2 would be be made only
+>> if absolutely necessary.
+> 
+> I would like to be wrong, but I think this is unrealistic.  The reality
+> seems to be that there are a significant number of people (especially on
+> the Windows side, if I'm guessing correctly) who do not test until we
+> get to RC1.  IIRC we had a number of changes between RC1 and RC2, and a
+> non-trivial number of changes between RC2 and RC3 this time around.
+
+I would like to be right but we won't know for sure either way until we get there.  In 3.5.0, there were major changes to the Windows installation process and there is still some fallout from those changes that will be addressed in 3.5.1.  I'm hopeful that most of those issues were one-time things and that we can also learn from 3.5.0.  I plan to emphasize earlier testing of the betas and want to set expectations that, when we call something a release candidate, we really intend to be able to release it.  If it's not ready, then we may need to do another beta.  Release candidate releases are costly for all involved.  I'd like to see us try real hard to keep them to a minimum.
+
+> That said, I do feel the amount of pre-release testing, even in the beta
+> part of the cycle, has increased steadily in the past two or three
+> releases, which is great to see.
+
+Yes, it has.  Also, some of the third-party distributors - Ubuntu and MacPorts come to mind - have been more aggressive about pushing betas and even alphas out for wider exposure.  Anything we can do on the Windows side to help get more exposure earlier would be great, too.
+
+--
+  Ned Deily
+  nad at acm.org -- []
+
+
+
+From tjreedy at udel.edu  Sat Oct  3 00:46:21 2015
+From: tjreedy at udel.edu (Terry Reedy)
+Date: Fri, 02 Oct 2015 18:46:21 -0400
+Subject: [python-committers] Python 3.6 Release Schedule Details
+In-Reply-To: <4280B8A7-4FD1-4D7D-8472-57360B338C67@acm.org>
+References: <137C7ADC-7D51-40A7-B563-2F6DC61CE506@acm.org>
+ <20151002142010.A55B5B900B3@webabinitio.net>
+ <4280B8A7-4FD1-4D7D-8472-57360B338C67@acm.org>
+Message-ID: <560F093D.3020905@udel.edu>
+
+On 10/2/2015 3:41 PM, Ned Deily wrote:
+> On Oct 2, 2015, at 10:20, R. David Murray <rdmurray at bitdance.com>
+> wrote:
+>> On Thu, 01 Oct 2015 22:24:18 -0400, Ned Deily <nad at acm.org> wrote:
+>>> Another change has been to add a fourth beta and drop the third
+>>> release candidate.  My gut feeling from the past several releases
+>>> is that a lot of feature code does not get checked in until close
+>>> to the b1 feature code cutoff so that extending the beta phase
+>>> should result in more testing exposure for all features.  And I
+>>> would like to reduce the amount of churn during the release
+>>> candidate phase: a worthy goal is to make no changes after rc1,
+>>> so that an rc2 would be be made only if absolutely necessary.
+>>
+>> I would like to be wrong, but I think this is unrealistic.  The
+>> reality seems to be that there are a significant number of people
+>> (especially on the Windows side, if I'm guessing correctly) who do
+>> not test until we get to RC1.  IIRC we had a number of changes
+>> between RC1 and RC2, and a non-trivial number of changes between
+>> RC2 and RC3 this time around.
+>
+> I would like to be right but we won't know for sure either way until
+> we get there.  In 3.5.0, there were major changes to the Windows
+> installation process and there is still some fallout from those
+> changes that will be addressed in 3.5.1.  I'm hopeful that most of
+> those issues were one-time things and that we can also learn from
+> 3.5.0.  I plan to emphasize earlier testing of the betas and want to
+> set expectations that, when we call something a release candidate, we
+> really intend to be able to release it.  If it's not ready, then we
+> may need to do another beta.  Release candidate releases are costly
+> for all involved.  I'd like to see us try real hard to keep them to a
+> minimum.
+
+I agree with making the effort.  I believe there have been releases with 
+just 2 rcs.  The schedule looks good to me.
+
+tjr
+
+From ncoghlan at gmail.com  Sat Oct  3 07:42:23 2015
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Sat, 3 Oct 2015 15:42:23 +1000
+Subject: [python-committers] SSH problems attempting to access
+	hg.python.org
+In-Reply-To: <mum8f8$cai$1@ger.gmane.org>
+References: <CADiSq7c2wJpT_DNVs+YyWzhunj3ntO8LXYH_r5YEn1TmbXN47w@mail.gmail.com>
+ <1443763984.766695.399297897.0736ABCD@webmail.messagingengine.com>
+ <CADiSq7ftjBWHymK+PQM8DR7JCWrztGsCjjGB_QFnXwfywt3dBQ@mail.gmail.com>
+ <mum8f8$cai$1@ger.gmane.org>
+Message-ID: <CADiSq7fXTxt5TQCuNVcNKW8O+yTXUZNdFg76iFZSb03uvQYyOw@mail.gmail.com>
+
+On 3 October 2015 at 01:39, Georg Brandl <g.brandl at gmx.net> wrote:
+>> However, I *did* recently upgrade to the Fedora 23 beta, so now I'm
+>> wondering if there might be a problem with OpenSSH 7.1p1 and
+>> ssh-ed25519 host keys (it's the only remote SSH host I using with an
+>> ed25519 key -  all the others are still ssh-rsa).
+>
+> According to the sshkeys repo, the only key you can use for accessing
+> hg.python.org is ncoghlan at uberwald, a ssh-dss key which will indeed
+> not be offered by openssh 7.x anymore.
+
+Huh, I didn't realise I'd never submitted the RSA key for use on
+hg.python.org. Ah well, good motivation to finally generate some
+ed25519 keys of my own :)
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+
+From ncoghlan at gmail.com  Sat Oct  3 15:28:27 2015
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Sat, 3 Oct 2015 23:28:27 +1000
+Subject: [python-committers] Python 3.6 Release Schedule Details
+In-Reply-To: <4280B8A7-4FD1-4D7D-8472-57360B338C67@acm.org>
+References: <137C7ADC-7D51-40A7-B563-2F6DC61CE506@acm.org>
+ <20151002142010.A55B5B900B3@webabinitio.net>
+ <4280B8A7-4FD1-4D7D-8472-57360B338C67@acm.org>
+Message-ID: <CADiSq7dR3=Czmk4a_o6JGTThDOD4nVwqLUydMyo6+SAFkWfGvA@mail.gmail.com>
+
+On 3 October 2015 at 05:41, Ned Deily <nad at acm.org> wrote:
+> On Oct 2, 2015, at 10:20, R. David Murray <rdmurray at bitdance.com> wrote:
+>> That said, I do feel the amount of pre-release testing, even in the beta
+>> part of the cycle, has increased steadily in the past two or three
+>> releases, which is great to see.
+>
+> Yes, it has.  Also, some of the third-party distributors - Ubuntu and MacPorts come to mind - have been more aggressive about pushing betas and even alphas out for wider exposure.  Anything we can do on the Windows side to help get more exposure earlier would be great, too.
+
+We also looked at trying to land 3.5 for this month's Fedora 23
+release (which would have involved bringing the pre-releases into
+Fedora Rawhide), but decided it more sense to prioritise further work
+on the Python 3 migration instead. That competing task won't be there
+for the 3.6 release, so with any luck the draft release schedule
+should align nicely with bringing at least the release candidates, and
+potentially one or more of the later beta releases, into Fedora
+Rawhide for F26.
+
+On the Windows front, might it be worth considering setting up
+semi-automated MSI installer testing on Appveyor?
+http://www.appveyor.com/docs/build-configuration#installing-additional-software
+indicates it should be able to do installations from the python.org
+binaries, and it could be triggered from a repo containing download
+URLs for the installers to be tested (for example).
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+
+From barry at python.org  Sat Oct  3 16:31:32 2015
+From: barry at python.org (Barry Warsaw)
+Date: Sat, 3 Oct 2015 10:31:32 -0400
+Subject: [python-committers] Python 3.6 Release Schedule Details
+In-Reply-To: <CADiSq7dR3=Czmk4a_o6JGTThDOD4nVwqLUydMyo6+SAFkWfGvA@mail.gmail.com>
+References: <137C7ADC-7D51-40A7-B563-2F6DC61CE506@acm.org>
+ <20151002142010.A55B5B900B3@webabinitio.net>
+ <4280B8A7-4FD1-4D7D-8472-57360B338C67@acm.org>
+ <CADiSq7dR3=Czmk4a_o6JGTThDOD4nVwqLUydMyo6+SAFkWfGvA@mail.gmail.com>
+Message-ID: <20151003103132.4132fe70@limelight.wooz.org>
+
+On Oct 03, 2015, at 11:28 PM, Nick Coghlan wrote:
+
+>We also looked at trying to land 3.5 for this month's Fedora 23
+>release (which would have involved bringing the pre-releases into
+>Fedora Rawhide), but decided it more sense to prioritise further work
+>on the Python 3 migration instead.
+
+It's almost as if there's a Linux Cabal[*] dividing and conquering!  We pushed
+hard for the 3.5 migration in the very soon to be released Ubuntu 15.10,
+found, fixed, and forwarded lots of bugs, and feel pretty good about the state
+of Python 3.5.  Yes, there's a long tail and some difficult packages, but a
+lot got fixed both in Debuntu and upstream.  That'll continue but I'm planning
+for the bulk of our next cycle to be Python 3 by default and dropping 3.4.  As
+for Debian, which is release-when-ready, I'd also like us to be Python 3 by
+default and 3.5 only.  The 3.5 transition is just starting over there (mostly
+rebuilds since Ubuntu diffs have been pushed upstream to Debian wherever
+possible).
+
+Cheers,
+-Barry
+
+[*] https://mail.python.org/mailman/listinfo/linux-sig
+
+From ncoghlan at gmail.com  Sat Oct  3 17:02:53 2015
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Sun, 4 Oct 2015 01:02:53 +1000
+Subject: [python-committers] Python 3.6 Release Schedule Details
+In-Reply-To: <20151003103132.4132fe70@limelight.wooz.org>
+References: <137C7ADC-7D51-40A7-B563-2F6DC61CE506@acm.org>
+ <20151002142010.A55B5B900B3@webabinitio.net>
+ <4280B8A7-4FD1-4D7D-8472-57360B338C67@acm.org>
+ <CADiSq7dR3=Czmk4a_o6JGTThDOD4nVwqLUydMyo6+SAFkWfGvA@mail.gmail.com>
+ <20151003103132.4132fe70@limelight.wooz.org>
+Message-ID: <CADiSq7d7ANCE=DMMMAZzs5i0TRyTJHhWt=qGPTn=pk81co4Haw@mail.gmail.com>
+
+On 4 October 2015 at 00:31, Barry Warsaw <barry at python.org> wrote:
+> It's almost as if there's a Linux Cabal[*] dividing and conquering!
+
+Who, us? :)
+
+(Actually, mostly *not* me - I'm mainly a cheerleader, while folks
+like Slavek Kabrda, Robert Kuska, Petr Viktorin, Matej Stuchlik, Miro
+Hroncok, Thomas Spura, and everyone else with the Fedora Python 3
+porting badge [1,2] have done the actual work in Fedora/EPEL, while
+folks like Victor Stinner, Christian Heimes, and Maciej Szulik have
+been tackling aspects higher up the stack in
+OpenStack/FreeIPA/OpenShift)
+
+>  We pushed
+> hard for the 3.5 migration in the very soon to be released Ubuntu 15.10,
+> found, fixed, and forwarded lots of bugs, and feel pretty good about the state
+> of Python 3.5.  Yes, there's a long tail and some difficult packages, but a
+> lot got fixed both in Debuntu and upstream.
+
+Yeah, likewise on the Fedora side (including getting a long way down
+the road towards porting Samba's Python components).
+
+> That'll continue but I'm planning
+> for the bulk of our next cycle to be Python 3 by default and dropping 3.4.  As
+> for Debian, which is release-when-ready, I'd also like us to be Python 3 by
+> default and 3.5 only.  The 3.5 transition is just starting over there (mostly
+> rebuilds since Ubuntu diffs have been pushed upstream to Debian wherever
+> possible).
+
+In addition to upgrading the Fedora stack to 3.5 and then getting that
+into EPEL 7, one of our other objectives will be to continue to
+improve the usability of the Software Collections model (so it's
+easier for folks to go from system Python -> Python 2.7 SCL -> Python
+3.5 SCL, regardless of whether they're on RHEL/CentOS 6 or 7).
+
+The system Python in RHEL/CentOS *will* be switching to Python 3 at
+some point, but we don't want folks developing user space applications
+on those platforms to wait that long to switch - between Software
+Collections and parallel Python 3 stacks in EPEL, we should hopefully
+be able to get most of those migrated well before the RHEL 7 EOL in
+2024.
+
+Cheers,
+Nick.
+
+[1] https://fedoraproject.org/wiki/Changes/Python_3_as_Default#Owner
+[2] https://badges.fedoraproject.org/badge/parselmouth
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+
+From benjamin at python.org  Wed Oct  7 05:43:54 2015
+From: benjamin at python.org (Benjamin Peterson)
+Date: Tue, 06 Oct 2015 20:43:54 -0700
+Subject: [python-committers] PSA: replace your DSA keys for SSH
+In-Reply-To: <mrnscr$oe9$1@ger.gmane.org>
+References: <mrnscr$oe9$1@ger.gmane.org>
+Message-ID: <1444189434.4157677.403388457.618F6CA7@webmail.messagingengine.com>
+
+As a followup to this, I have now removed all DSA keys. People who only
+had DSA keys will need to submit new keys to hgaccounts at .
+
+On Thu, Aug 27, 2015, at 13:36, Georg Brandl wrote:
+> Hi all,
+> 
+> newer OpenSSH versions (7.0+) default to not allowing ssh-dss keys for
+> public key authentication.  If you experience "permission denied" errors,
+> this (currently) comes from the client side only and hg.python.org will
+> accept these keys if you enable them using the PubkeyAcceptedKeyTypes
+> option in your SSH config file.
+> 
+> Of course ssh-dss is being phased out for a reason; we'd like to invite
+> everybody who has only DSA keys submitted for hg.python.org access to
+> send an RSA (min. 1024 bits) or ED25519 key to hgaccounts at python.org.
+> 
+> cheers,
+> Georg
+> 
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+
+From ncoghlan at gmail.com  Wed Oct  7 12:00:01 2015
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Wed, 7 Oct 2015 20:00:01 +1000
+Subject: [python-committers] PSA: replace your DSA keys for SSH
+In-Reply-To: <1444189434.4157677.403388457.618F6CA7@webmail.messagingengine.com>
+References: <mrnscr$oe9$1@ger.gmane.org>
+ <1444189434.4157677.403388457.618F6CA7@webmail.messagingengine.com>
+Message-ID: <CADiSq7f0BhqeOF6Z+XxDoEQhuLM0UWCe9i+N9f2peU432oSLOg@mail.gmail.com>
+
+On 7 October 2015 at 13:43, Benjamin Peterson <benjamin at python.org> wrote:
+> As a followup to this, I have now removed all DSA keys. People who only
+> had DSA keys will need to submit new keys to hgaccounts at .
+
+And for folks looking for an authenticated way of passing along key
+details, if you have a GitHub account, GitHub makes them available
+after you upload them. For example: https://github.com/ncoghlan.keys
+
+Cheers,
+Nick.
+
+>
+> On Thu, Aug 27, 2015, at 13:36, Georg Brandl wrote:
+>> Hi all,
+>>
+>> newer OpenSSH versions (7.0+) default to not allowing ssh-dss keys for
+>> public key authentication.  If you experience "permission denied" errors,
+>> this (currently) comes from the client side only and hg.python.org will
+>> accept these keys if you enable them using the PubkeyAcceptedKeyTypes
+>> option in your SSH config file.
+>>
+>> Of course ssh-dss is being phased out for a reason; we'd like to invite
+>> everybody who has only DSA keys submitted for hg.python.org access to
+>> send an RSA (min. 1024 bits) or ED25519 key to hgaccounts at python.org.
+>>
+>> cheers,
+>> Georg
+>>
+>> _______________________________________________
+>> python-committers mailing list
+>> python-committers at python.org
+>> https://mail.python.org/mailman/listinfo/python-committers
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+
+
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+
+From brett at python.org  Wed Oct  7 18:53:46 2015
+From: brett at python.org (Brett Cannon)
+Date: Wed, 07 Oct 2015 16:53:46 +0000
+Subject: [python-committers] PSA: replace your DSA keys for SSH
+In-Reply-To: <CADiSq7f0BhqeOF6Z+XxDoEQhuLM0UWCe9i+N9f2peU432oSLOg@mail.gmail.com>
+References: <mrnscr$oe9$1@ger.gmane.org>
+ <1444189434.4157677.403388457.618F6CA7@webmail.messagingengine.com>
+ <CADiSq7f0BhqeOF6Z+XxDoEQhuLM0UWCe9i+N9f2peU432oSLOg@mail.gmail.com>
+Message-ID: <CAP1=2W4w3VFA+b6hoXB79j33K4H+2VPi9gtHse-CqBqYhidrVA@mail.gmail.com>
+
+Do realize, though, that simply asking hgaccounts to take the keys from
+your GitHub key URL might not get you what you expect if you use GitHub
+Desktop as that app installs its own keys.
+
+
+On Wed, 7 Oct 2015 at 03:05 Nick Coghlan <ncoghlan at gmail.com> wrote:
+
+> On 7 October 2015 at 13:43, Benjamin Peterson <benjamin at python.org> wrote:
+> > As a followup to this, I have now removed all DSA keys. People who only
+> > had DSA keys will need to submit new keys to hgaccounts at .
+>
+> And for folks looking for an authenticated way of passing along key
+> details, if you have a GitHub account, GitHub makes them available
+> after you upload them. For example: https://github.com/ncoghlan.keys
+>
+> Cheers,
+> Nick.
+>
+> >
+> > On Thu, Aug 27, 2015, at 13:36, Georg Brandl wrote:
+> >> Hi all,
+> >>
+> >> newer OpenSSH versions (7.0+) default to not allowing ssh-dss keys for
+> >> public key authentication.  If you experience "permission denied"
+> errors,
+> >> this (currently) comes from the client side only and hg.python.org will
+> >> accept these keys if you enable them using the PubkeyAcceptedKeyTypes
+> >> option in your SSH config file.
+> >>
+> >> Of course ssh-dss is being phased out for a reason; we'd like to invite
+> >> everybody who has only DSA keys submitted for hg.python.org access to
+> >> send an RSA (min. 1024 bits) or ED25519 key to hgaccounts at python.org.
+> >>
+> >> cheers,
+> >> Georg
+> >>
+> >> _______________________________________________
+> >> python-committers mailing list
+> >> python-committers at python.org
+> >> https://mail.python.org/mailman/listinfo/python-committers
+> > _______________________________________________
+> > python-committers mailing list
+> > python-committers at python.org
+> > https://mail.python.org/mailman/listinfo/python-committers
+>
+>
+>
+> --
+> Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20151007/31b4f049/attachment.html>
+
+From raymond.hettinger at gmail.com  Thu Oct  8 03:52:32 2015
+From: raymond.hettinger at gmail.com (Raymond Hettinger)
+Date: Wed, 7 Oct 2015 21:52:32 -0400
+Subject: [python-committers] PSA: replace your DSA keys for SSH
+In-Reply-To: <1444189434.4157677.403388457.618F6CA7@webmail.messagingengine.com>
+References: <mrnscr$oe9$1@ger.gmane.org>
+ <1444189434.4157677.403388457.618F6CA7@webmail.messagingengine.com>
+Message-ID: <F61D846E-CFB2-4DE7-BC3E-928A0144957B@gmail.com>
+
+
+> On Oct 6, 2015, at 11:43 PM, Benjamin Peterson <benjamin at python.org> wrote:
+> 
+> As a followup to this, I have now removed all DSA keys. People who only
+> had DSA keys will need to submit new keys to hgaccounts at .
+
+That was rather sudden and harsh.
+Effectively, you just revoked my commit rights.
+
+I'll wrestle with the new key submission as soon as I can.
+It would have been better though to have had all the devs
+upgraded *before* deleting their keys.
+
+
+Raymond
+
+From tim.peters at gmail.com  Thu Oct  8 04:38:29 2015
+From: tim.peters at gmail.com (Tim Peters)
+Date: Wed, 7 Oct 2015 21:38:29 -0500
+Subject: [python-committers] PSA: replace your DSA keys for SSH
+In-Reply-To: <1444189434.4157677.403388457.618F6CA7@webmail.messagingengine.com>
+References: <mrnscr$oe9$1@ger.gmane.org>
+ <1444189434.4157677.403388457.618F6CA7@webmail.messagingengine.com>
+Message-ID: <CAExdVNmAd43eV-0wftztG2MzU5B+2SBbJ5cmqGSoAzHnu-n=xg@mail.gmail.com>
+
+[Benjamin Peterson <benjamin at python.org>]
+> As a followup to this, I have now removed all DSA keys. People who only
+> had DSA keys will need to submit new keys to hgaccounts at .
+
+That apparently was addressed to me - cool ;-)
+
+Just noting that the Windows section of the devguide:
+
+    https://docs.python.org/devguide/faq.html
+
+should probably be changed to say something other than the current:
+
+    Use PuTTYgen to generate your public key. Choose the
+    ?SSH2 DSA? radio button,
+
+That may be a clue as to why Windows devs generated DSA keys to begin with ;-)
+
+PuTTYgen also has a "SSH-2 RSA" radio button, and #-of-bits box into
+which 4096 can be typed.
+
+From benjamin at python.org  Thu Oct  8 04:56:43 2015
+From: benjamin at python.org (Benjamin Peterson)
+Date: Wed, 07 Oct 2015 19:56:43 -0700
+Subject: [python-committers] PSA: replace your DSA keys for SSH
+In-Reply-To: <F61D846E-CFB2-4DE7-BC3E-928A0144957B@gmail.com>
+References: <mrnscr$oe9$1@ger.gmane.org>
+ <1444189434.4157677.403388457.618F6CA7@webmail.messagingengine.com>
+ <F61D846E-CFB2-4DE7-BC3E-928A0144957B@gmail.com>
+Message-ID: <1444273003.2326546.404438425.113F033D@webmail.messagingengine.com>
+
+
+
+On Wed, Oct 7, 2015, at 18:52, Raymond Hettinger wrote:
+> 
+> > On Oct 6, 2015, at 11:43 PM, Benjamin Peterson <benjamin at python.org> wrote:
+> > 
+> > As a followup to this, I have now removed all DSA keys. People who only
+> > had DSA keys will need to submit new keys to hgaccounts at .
+> 
+> That was rather sudden and harsh.
+> Effectively, you just revoked my commit rights.
+
+I'm sorry. Most keys which I removed where for long?dormant comitters.
+Likely, no amount of waiting would have resulted in these keys being
+replaced. The sudden removal of DSA keys would have happened sooner or
+later anyway when we upgraded to a newer version of openssh.
+
+> 
+> I'll wrestle with the new key submission as soon as I can.
+> It would have been better though to have had all the devs
+> upgraded *before* deleting their keys.
+
+From benjamin at python.org  Thu Oct  8 04:58:49 2015
+From: benjamin at python.org (Benjamin Peterson)
+Date: Wed, 07 Oct 2015 19:58:49 -0700
+Subject: [python-committers] PSA: replace your DSA keys for SSH
+In-Reply-To: <CAExdVNmAd43eV-0wftztG2MzU5B+2SBbJ5cmqGSoAzHnu-n=xg@mail.gmail.com>
+References: <mrnscr$oe9$1@ger.gmane.org>
+ <1444189434.4157677.403388457.618F6CA7@webmail.messagingengine.com>
+ <CAExdVNmAd43eV-0wftztG2MzU5B+2SBbJ5cmqGSoAzHnu-n=xg@mail.gmail.com>
+Message-ID: <1444273129.2327036.404442553.7679554D@webmail.messagingengine.com>
+
+
+
+On Wed, Oct 7, 2015, at 19:38, Tim Peters wrote:
+> [Benjamin Peterson <benjamin at python.org>]
+> > As a followup to this, I have now removed all DSA keys. People who only
+> > had DSA keys will need to submit new keys to hgaccounts at .
+> 
+> That apparently was addressed to me - cool ;-)
+> 
+> Just noting that the Windows section of the devguide:
+> 
+>     https://docs.python.org/devguide/faq.html
+> 
+> should probably be changed to say something other than the current:
+> 
+>     Use PuTTYgen to generate your public key. Choose the
+>     ?SSH2 DSA? radio button,
+> 
+> That may be a clue as to why Windows devs generated DSA keys to begin
+> with ;-)
+> 
+> PuTTYgen also has a "SSH-2 RSA" radio button, and #-of-bits box into
+> which 4096 can be typed.
+
+Thank you. I updated the page with exactly you suggest yesterday. The
+automatic doc building process unfortunately hadn't run yet.
+
+From p.f.moore at gmail.com  Thu Oct  8 09:56:16 2015
+From: p.f.moore at gmail.com (Paul Moore)
+Date: Thu, 8 Oct 2015 08:56:16 +0100
+Subject: [python-committers] PSA: replace your DSA keys for SSH
+In-Reply-To: <1444273129.2327036.404442553.7679554D@webmail.messagingengine.com>
+References: <mrnscr$oe9$1@ger.gmane.org>
+ <1444189434.4157677.403388457.618F6CA7@webmail.messagingengine.com>
+ <CAExdVNmAd43eV-0wftztG2MzU5B+2SBbJ5cmqGSoAzHnu-n=xg@mail.gmail.com>
+ <1444273129.2327036.404442553.7679554D@webmail.messagingengine.com>
+Message-ID: <CACac1F_yekgGgBF9m5ds9RBfJUWVJ0XjHOwVdg4Q_fHYmH+X6g@mail.gmail.com>
+
+On 8 October 2015 at 03:58, Benjamin Peterson <benjamin at python.org> wrote:
+>> Just noting that the Windows section of the devguide:
+>>
+>>     https://docs.python.org/devguide/faq.html
+>>
+>> should probably be changed to say something other than the current:
+>>
+>>     Use PuTTYgen to generate your public key. Choose the
+>>     ?SSH2 DSA? radio button,
+>>
+>> That may be a clue as to why Windows devs generated DSA keys to begin
+>> with ;-)
+>>
+>> PuTTYgen also has a "SSH-2 RSA" radio button, and #-of-bits box into
+>> which 4096 can be typed.
+>
+> Thank you. I updated the page with exactly you suggest yesterday. The
+> automatic doc building process unfortunately hadn't run yet.
+
+Ah. Presumably this means my current key no longer works and has been
+revoked. I had been reading the emails assuming that I was likely OK
+as a new committer, and not really understanding what all these
+acronyms meant. I guess I'll need to get around to redoing my keys as
+well...
+
+In future cases like this, it might be worth publishing a list of who
+is affected and changing the docs *before* making the change :-)
+
+Paul
+
+From tjreedy at udel.edu  Thu Oct  8 19:07:03 2015
+From: tjreedy at udel.edu (Terry Reedy)
+Date: Thu, 08 Oct 2015 13:07:03 -0400
+Subject: [python-committers] PSA: replace your DSA keys for SSH
+In-Reply-To: <CAExdVNmAd43eV-0wftztG2MzU5B+2SBbJ5cmqGSoAzHnu-n=xg@mail.gmail.com>
+References: <mrnscr$oe9$1@ger.gmane.org>
+ <1444189434.4157677.403388457.618F6CA7@webmail.messagingengine.com>
+ <CAExdVNmAd43eV-0wftztG2MzU5B+2SBbJ5cmqGSoAzHnu-n=xg@mail.gmail.com>
+Message-ID: <5616A2B7.5070506@udel.edu>
+
+On 10/7/2015 10:38 PM, Tim Peters wrote:
+> [Benjamin Peterson <benjamin at python.org>]
+>> As a followup to this, I have now removed all DSA keys. People who only
+>> had DSA keys will need to submit new keys to hgaccounts at .
+
+I sent a new one about 11 hours ago.  I am still getting
+Putty Fatal Error
+Disconnected: No supported authentication methods available
+(server sent: publickey)
+
+Is anyone tending the mail box, or do I have to do something else?
+
+Terry J. Reedy
+
+
+From tim.peters at gmail.com  Thu Oct  8 19:18:36 2015
+From: tim.peters at gmail.com (Tim Peters)
+Date: Thu, 8 Oct 2015 12:18:36 -0500
+Subject: [python-committers] PSA: replace your DSA keys for SSH
+In-Reply-To: <5616A2B7.5070506@udel.edu>
+References: <mrnscr$oe9$1@ger.gmane.org>
+ <1444189434.4157677.403388457.618F6CA7@webmail.messagingengine.com>
+ <CAExdVNmAd43eV-0wftztG2MzU5B+2SBbJ5cmqGSoAzHnu-n=xg@mail.gmail.com>
+ <5616A2B7.5070506@udel.edu>
+Message-ID: <CAExdVNk6j2G-9j+i6enMHBY17-KS=pGiNDZ6vG-j9Xw5P7FVww@mail.gmail.com>
+
+[Terry Reedy <tjreedy at udel.edu>, on SSH keys]
+> I sent a new one about 11 hours ago.  I am still getting
+> Putty Fatal Error
+> Disconnected: No supported authentication methods available
+> (server sent: publickey)
+>
+> Is anyone tending the mail box, or do I have to do something else?
+
+My new one got installed about 11 hours ago, so someone is watching
+sometimes ;-)
+
+Alas, SSH-related error messages are atrocious.  Two things to check
+on your end:
+
+1. Make sure Pageant has loaded your new key.
+
+2. Make sure your `ssh` alias (probably set in your Mecurial.ini) also
+   specifies your new key file.
+
+For #2, here's what's in my Merurial.ini now:
+
+ssh = "C:\Program Files\TortoiseHg\lib\TortoisePlink.exe" -ssh -2 -C
+-i C:\Code\.ssh\newkey.ppk
+
+Screw up anything on either end, and you get the same useless error message :-(
+
+From brett at python.org  Thu Oct  8 19:20:49 2015
+From: brett at python.org (Brett Cannon)
+Date: Thu, 08 Oct 2015 17:20:49 +0000
+Subject: [python-committers] PSA: replace your DSA keys for SSH
+In-Reply-To: <CAExdVNk6j2G-9j+i6enMHBY17-KS=pGiNDZ6vG-j9Xw5P7FVww@mail.gmail.com>
+References: <mrnscr$oe9$1@ger.gmane.org>
+ <1444189434.4157677.403388457.618F6CA7@webmail.messagingengine.com>
+ <CAExdVNmAd43eV-0wftztG2MzU5B+2SBbJ5cmqGSoAzHnu-n=xg@mail.gmail.com>
+ <5616A2B7.5070506@udel.edu>
+ <CAExdVNk6j2G-9j+i6enMHBY17-KS=pGiNDZ6vG-j9Xw5P7FVww@mail.gmail.com>
+Message-ID: <CAP1=2W7d7Lyh69voExjmUOjQL4wiOE-0C9291AHVLDK8W-+NLw@mail.gmail.com>
+
+I personally know Terry's key has not been installed yet. You will always
+get a reply email from whomever installs your new key that it was done and
+that you should test it.
+
+This manual key management is yet another reason why we are going to get a
+new development process *somehow* in 2016.
+
+On Thu, 8 Oct 2015 at 10:19 Tim Peters <tim.peters at gmail.com> wrote:
+
+> [Terry Reedy <tjreedy at udel.edu>, on SSH keys]
+> > I sent a new one about 11 hours ago.  I am still getting
+> > Putty Fatal Error
+> > Disconnected: No supported authentication methods available
+> > (server sent: publickey)
+> >
+> > Is anyone tending the mail box, or do I have to do something else?
+>
+> My new one got installed about 11 hours ago, so someone is watching
+> sometimes ;-)
+>
+> Alas, SSH-related error messages are atrocious.  Two things to check
+> on your end:
+>
+> 1. Make sure Pageant has loaded your new key.
+>
+> 2. Make sure your `ssh` alias (probably set in your Mecurial.ini) also
+>    specifies your new key file.
+>
+> For #2, here's what's in my Merurial.ini now:
+>
+> ssh = "C:\Program Files\TortoiseHg\lib\TortoisePlink.exe" -ssh -2 -C
+> -i C:\Code\.ssh\newkey.ppk
+>
+> Screw up anything on either end, and you get the same useless error
+> message :-(
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20151008/23e504b4/attachment.html>
+
+From brett at python.org  Thu Oct  8 19:16:03 2015
+From: brett at python.org (Brett Cannon)
+Date: Thu, 08 Oct 2015 17:16:03 +0000
+Subject: [python-committers] PSA: replace your DSA keys for SSH
+In-Reply-To: <5616A2B7.5070506@udel.edu>
+References: <mrnscr$oe9$1@ger.gmane.org>
+ <1444189434.4157677.403388457.618F6CA7@webmail.messagingengine.com>
+ <CAExdVNmAd43eV-0wftztG2MzU5B+2SBbJ5cmqGSoAzHnu-n=xg@mail.gmail.com>
+ <5616A2B7.5070506@udel.edu>
+Message-ID: <CAP1=2W7XB3cRLdxs16gcDeUhNL+590jzjQG4XZ7dW=KcSh98Zg@mail.gmail.com>
+
+People are reading it, just a matter of people having a checkout and time
+to get to the keys. If no one beats me to it I will personally work through
+the backlog tonight.
+
+On Thu, 8 Oct 2015 at 10:07 Terry Reedy <tjreedy at udel.edu> wrote:
+
+> On 10/7/2015 10:38 PM, Tim Peters wrote:
+> > [Benjamin Peterson <benjamin at python.org>]
+> >> As a followup to this, I have now removed all DSA keys. People who only
+> >> had DSA keys will need to submit new keys to hgaccounts at .
+>
+> I sent a new one about 11 hours ago.  I am still getting
+> Putty Fatal Error
+> Disconnected: No supported authentication methods available
+> (server sent: publickey)
+>
+> Is anyone tending the mail box, or do I have to do something else?
+>
+> Terry J. Reedy
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20151008/9ef1d41a/attachment.html>
+
+From tjreedy at udel.edu  Thu Oct  8 19:38:06 2015
+From: tjreedy at udel.edu (Terry Reedy)
+Date: Thu, 08 Oct 2015 13:38:06 -0400
+Subject: [python-committers] PSA: replace your DSA keys for SSH
+In-Reply-To: <CAP1=2W7d7Lyh69voExjmUOjQL4wiOE-0C9291AHVLDK8W-+NLw@mail.gmail.com>
+References: <mrnscr$oe9$1@ger.gmane.org>
+ <1444189434.4157677.403388457.618F6CA7@webmail.messagingengine.com>
+ <CAExdVNmAd43eV-0wftztG2MzU5B+2SBbJ5cmqGSoAzHnu-n=xg@mail.gmail.com>
+ <5616A2B7.5070506@udel.edu>
+ <CAExdVNk6j2G-9j+i6enMHBY17-KS=pGiNDZ6vG-j9Xw5P7FVww@mail.gmail.com>
+ <CAP1=2W7d7Lyh69voExjmUOjQL4wiOE-0C9291AHVLDK8W-+NLw@mail.gmail.com>
+Message-ID: <5616A9FE.2020709@udel.edu>
+
+On 10/8/2015 1:20 PM, Brett Cannon wrote:
+> I personally know Terry's key has not been installed yet. You will
+> always get a reply email from whomever installs your new key that it was
+> done and that you should test it.
+
+Ignore the one I sent 12 hours ago: it was still DSA though with more 
+bits.  I just sent new RSA 4096 bits, and rechecked that *is* RSA.
+
+> This manual key management is yet another reason why we are going to get
+> a new development process /somehow/ in 2016.
+
+After thinking about it, I realized that auto accepting any key sent by 
+just anyone is not a good idea either.  To you, my email address is my id.
+
+Fortunately, next release is at least 2 weeks off.
+
+> On Thu, 8 Oct 2015 at 10:19 Tim Peters <tim.peters at gmail.com
+> <mailto:tim.peters at gmail.com>> wrote:
+>
+>     [Terry Reedy <tjreedy at udel.edu <mailto:tjreedy at udel.edu>>, on SSH keys]
+>      > I sent a new one about 11 hours ago.  I am still getting
+>      > Putty Fatal Error
+>      > Disconnected: No supported authentication methods available
+>      > (server sent: publickey)
+>      >
+>      > Is anyone tending the mail box, or do I have to do something else?
+>
+>     My new one got installed about 11 hours ago, so someone is watching
+>     sometimes ;-)
+>
+>     Alas, SSH-related error messages are atrocious.  Two things to check
+>     on your end:
+>
+>     1. Make sure Pageant has loaded your new key.
+
+It had, and said DSA...
+
+>     2. Make sure your `ssh` alias (probably set in your Mecurial.ini) also
+>         specifies your new key file.
+
+>     For #2, here's what's in my Merurial.ini now:
+>
+>     ssh = "C:\Program Files\TortoiseHg\lib\TortoisePlink.exe" -ssh -2 -C
+>     -i C:\Code\.ssh\newkey.ppk
+
+Since I overwrote the old key file, the hg setting should be the same.
+
+-
+Terry
+
+
+From tjreedy at udel.edu  Thu Oct  8 19:45:21 2015
+From: tjreedy at udel.edu (Terry Reedy)
+Date: Thu, 08 Oct 2015 13:45:21 -0400
+Subject: [python-committers] PSA: replace your DSA keys for SSH
+In-Reply-To: <CAP1=2W7d7Lyh69voExjmUOjQL4wiOE-0C9291AHVLDK8W-+NLw@mail.gmail.com>
+References: <mrnscr$oe9$1@ger.gmane.org>
+ <1444189434.4157677.403388457.618F6CA7@webmail.messagingengine.com>
+ <CAExdVNmAd43eV-0wftztG2MzU5B+2SBbJ5cmqGSoAzHnu-n=xg@mail.gmail.com>
+ <5616A2B7.5070506@udel.edu>
+ <CAExdVNk6j2G-9j+i6enMHBY17-KS=pGiNDZ6vG-j9Xw5P7FVww@mail.gmail.com>
+ <CAP1=2W7d7Lyh69voExjmUOjQL4wiOE-0C9291AHVLDK8W-+NLw@mail.gmail.com>
+Message-ID: <5616ABB1.3080303@udel.edu>
+
+On 10/8/2015 1:20 PM, Brett Cannon wrote:
+ > You will
+ > always get a reply email from whomever installs your new key that it was
+ > done and that you should test it.
+
+Perhaps follow
+
+"29. How do I generate an SSH-2 public key?
+
+All generated SSH keys should be sent to hgaccounts at python.org for 
+adding to the list of keys. DSA keys are unacceptable."
+
+with "Keys are added manually, usually within a day or so. When 
+installed, a reply will be sent."
+
+I could make that my test ;-).
+
+From ncoghlan at gmail.com  Sun Oct 11 14:33:16 2015
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Sun, 11 Oct 2015 22:33:16 +1000
+Subject: [python-committers] Initial Motivations & Affiliations page has
+	been merged
+Message-ID: <CADiSq7cFb+qmMTktT9iUpZw=eqHnANPcsVnM+QXfBLGxpC5Vgw@mail.gmail.com>
+
+Based on the thread a few weeks ago and the subsequent issue tracker
+discussion at http://bugs.python.org/issue25194, I just committed an
+initial version of a "Motivations & Affiliations" page in the
+developer guide.
+
+When the site next updates, that should appear at
+https://docs.python.org/devguide/motivations.html (it's the last
+section in the main TOC, with the link appearing right at the bottom
+of the main page).
+
+In the meantime, the diff can be seen at
+https://hg.python.org/devguide/rev/0f0ff7d19cfc
+
+The first important section for core contributors is the "Limitations
+on Scope": https://hg.python.org/devguide/rev/0f0ff7d19cfc#l3.31
+
+That section spells out:
+
+* this is optional, so only fill it in if you think it's in your
+personal best interests to do so
+* for those of us working for commercial redistributors and PSF
+Sponsor Members, there's a financial transparency consideration, so we
+should be inclined towards filling out an entry
+* folks that are available for consulting or contract work are likely
+to want to fill it out as a possible source of client lead generation
+(either directly or via the PSF)
+
+The second important section is the initial guidelines for filling out
+entries, which are written in a ReST comment:
+https://hg.python.org/devguide/rev/0f0ff7d19cfc#l3.77
+
+It's hard to judge how well that initial set of guidelines is going to
+work with just the one entry, so I expect they may need to be revised
+as more people start adding their own entries. However, I figured it
+would be better to put the page live and have that discussion here as
+people start filling it out, rather than speculating further on the
+issue tracker.
+
+Regards,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+
+From ncoghlan at gmail.com  Mon Oct 12 05:08:27 2015
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Mon, 12 Oct 2015 13:08:27 +1000
+Subject: [python-committers] Initial Motivations & Affiliations page has
+	been merged
+In-Reply-To: <CADiSq7cFb+qmMTktT9iUpZw=eqHnANPcsVnM+QXfBLGxpC5Vgw@mail.gmail.com>
+References: <CADiSq7cFb+qmMTktT9iUpZw=eqHnANPcsVnM+QXfBLGxpC5Vgw@mail.gmail.com>
+Message-ID: <CADiSq7cYDwzO9cAB7xRA85Xp82Li+0u0=amEYqHiZTX_5hMZcw@mail.gmail.com>
+
+On 11 October 2015 at 22:33, Nick Coghlan <ncoghlan at gmail.com> wrote:
+> Based on the thread a few weeks ago and the subsequent issue tracker
+> discussion at http://bugs.python.org/issue25194, I just committed an
+> initial version of a "Motivations & Affiliations" page in the
+> developer guide.
+>
+> When the site next updates, that should appear at
+> https://docs.python.org/devguide/motivations.html (it's the last
+> section in the main TOC, with the link appearing right at the bottom
+> of the main page).
+
+It's been pointed out that despite the excellent feedback I received
+from folks on the issue tracker, I still missed a few aspects of the
+translation away from the legalistic bureaucratese I used in my
+initial draft (see
+https://bugs.python.org/file40527/register-of-interests.diff ).
+
+I'll do another pass on that, swapping out the more formal terms (e.g.
+"disclose") for more common plain English equivalents (e.g.
+"publish"). If there are other particular phrases and words that seem
+out of place, please let me know, either directly or here in the
+thread, as I sometimes lose track of what counts as normal English and
+what's specifically corporate/institutional English :)
+
+Regards,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+
+From steve at pearwood.info  Mon Oct 12 05:55:04 2015
+From: steve at pearwood.info (Steven D'Aprano)
+Date: Mon, 12 Oct 2015 14:55:04 +1100
+Subject: [python-committers] Initial Motivations & Affiliations page has
+	been merged
+In-Reply-To: <CADiSq7cYDwzO9cAB7xRA85Xp82Li+0u0=amEYqHiZTX_5hMZcw@mail.gmail.com>
+References: <CADiSq7cFb+qmMTktT9iUpZw=eqHnANPcsVnM+QXfBLGxpC5Vgw@mail.gmail.com>
+ <CADiSq7cYDwzO9cAB7xRA85Xp82Li+0u0=amEYqHiZTX_5hMZcw@mail.gmail.com>
+Message-ID: <20151012035504.GL28222@ando.pearwood.info>
+
+On Mon, Oct 12, 2015 at 01:08:27PM +1000, Nick Coghlan wrote:
+[...]
+> I'll do another pass on that, swapping out the more formal terms (e.g.
+> "disclose") for more common plain English equivalents (e.g.
+> "publish"). If there are other particular phrases and words that seem
+> out of place, please let me know, either directly or here in the
+> thread, as I sometimes lose track of what counts as normal English and
+> what's specifically corporate/institutional English :)
+
+"Disclose" and "publish" are not synonyms, and "disclose" is common, 
+plain English, not jargon or specifically corporate English. It's found 
+in poetry!
+
+    If I disclose my passion,
+    Our friendship's an end.             
+    --Addison, quoted in Webster's Dictionary (1913)
+
+More importantly, it is a standard English idiom. For example, "disclose 
+any conflicts of interest" is a clear sentence and a standard idiom, not 
+jargon, not formal English, but precise. If you replace it with a word 
+like "publish", you introduce uncertainty and reduce clarity. It's not 
+clear what you mean by publish. Is a note in the personals section of 
+the local newspaper good enough, or do I have to take out a full page 
+advertisment in an international magazine?
+
+
+
+-- 
+Steve
+
+From ncoghlan at gmail.com  Mon Oct 12 07:52:18 2015
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Mon, 12 Oct 2015 15:52:18 +1000
+Subject: [python-committers] Initial Motivations & Affiliations page has
+	been merged
+In-Reply-To: <CADiSq7cYDwzO9cAB7xRA85Xp82Li+0u0=amEYqHiZTX_5hMZcw@mail.gmail.com>
+References: <CADiSq7cFb+qmMTktT9iUpZw=eqHnANPcsVnM+QXfBLGxpC5Vgw@mail.gmail.com>
+ <CADiSq7cYDwzO9cAB7xRA85Xp82Li+0u0=amEYqHiZTX_5hMZcw@mail.gmail.com>
+Message-ID: <CADiSq7c1P2wVdjs39MSZV1TJeGJOwPb4xETvNm89WgEB4q9NaQ@mail.gmail.com>
+
+On 12 October 2015 at 13:08, Nick Coghlan <ncoghlan at gmail.com> wrote:
+> On 11 October 2015 at 22:33, Nick Coghlan <ncoghlan at gmail.com> wrote:
+>> Based on the thread a few weeks ago and the subsequent issue tracker
+>> discussion at http://bugs.python.org/issue25194, I just committed an
+>> initial version of a "Motivations & Affiliations" page in the
+>> developer guide.
+>>
+>> When the site next updates, that should appear at
+>> https://docs.python.org/devguide/motivations.html (it's the last
+>> section in the main TOC, with the link appearing right at the bottom
+>> of the main page).
+>
+> It's been pointed out that despite the excellent feedback I received
+> from folks on the issue tracker, I still missed a few aspects of the
+> translation away from the legalistic bureaucratese I used in my
+> initial draft (see
+> https://bugs.python.org/file40527/register-of-interests.diff ).
+>
+> I'll do another pass on that, swapping out the more formal terms (e.g.
+> "disclose") for more common plain English equivalents (e.g.
+> "publish"). If there are other particular phrases and words that seem
+> out of place, please let me know, either directly or here in the
+> thread, as I sometimes lose track of what counts as normal English and
+> what's specifically corporate/institutional English :)
+
+Further off-list feedback: this initial version of the page doesn't do
+a good job of explaining what the *point* of the page is. While that
+did get covered in the original python-committers thread and the issue
+tracker discussion, and is also covered to some degree in the
+instructions-for-developers in the page source, that doesn't help
+folks *reading* the page.
+
+I've noted that as a pending update in https://bugs.python.org/issue25194
+
+Regards,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+
+From ncoghlan at gmail.com  Wed Oct 21 17:11:41 2015
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Wed, 21 Oct 2015 17:11:41 +0200
+Subject: [python-committers] PSA: replace your DSA keys for SSH
+In-Reply-To: <1444273129.2327036.404442553.7679554D@webmail.messagingengine.com>
+References: <mrnscr$oe9$1@ger.gmane.org>
+ <1444189434.4157677.403388457.618F6CA7@webmail.messagingengine.com>
+ <CAExdVNmAd43eV-0wftztG2MzU5B+2SBbJ5cmqGSoAzHnu-n=xg@mail.gmail.com>
+ <1444273129.2327036.404442553.7679554D@webmail.messagingengine.com>
+Message-ID: <CADiSq7eNGmLLb=Minq_j1JnGv3RSBECmY_bi1zdgP1Hu1AZrcw@mail.gmail.com>
+
+On 8 October 2015 at 04:58, Benjamin Peterson <benjamin at python.org> wrote:
+> On Wed, Oct 7, 2015, at 19:38, Tim Peters wrote:
+>> [Benjamin Peterson <benjamin at python.org>]
+>> > As a followup to this, I have now removed all DSA keys. People who only
+>> > had DSA keys will need to submit new keys to hgaccounts at .
+>>
+>> That apparently was addressed to me - cool ;-)
+>>
+>> Just noting that the Windows section of the devguide:
+>>
+>>     https://docs.python.org/devguide/faq.html
+>>
+>> should probably be changed to say something other than the current:
+>>
+>>     Use PuTTYgen to generate your public key. Choose the
+>>     ?SSH2 DSA? radio button,
+>>
+>> That may be a clue as to why Windows devs generated DSA keys to begin
+>> with ;-)
+>>
+>> PuTTYgen also has a "SSH-2 RSA" radio button, and #-of-bits box into
+>> which 4096 can be typed.
+>
+> Thank you. I updated the page with exactly you suggest yesterday. The
+> automatic doc building process unfortunately hadn't run yet.
+
+Something to watch in the future is MS's efforts to port OpenSSH to
+Windows: http://blogs.msdn.com/b/powershell/archive/2015/10/19/openssh-for-windows-update.aspx
+
+As that stabilises, it may be worth offering common OpenSSH based
+instructions for Windows as well.
+
+Regards,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+

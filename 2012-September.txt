@@ -1,0 +1,1029 @@
+From hs at ox.cx  Sun Sep  2 21:36:31 2012
+From: hs at ox.cx (Hynek Schlawack)
+Date: Sun, 02 Sep 2012 21:36:31 +0200
+Subject: [python-committers] New core developer
+In-Reply-To: <1345678341.3346.1.camel@localhost.localdomain>
+References: <1345678341.3346.1.camel@localhost.localdomain>
+Message-ID: <5043B53F.4060106@ox.cx>
+
+I can?t really judge his responsiveness as he mostly hacks in areas I don?t.
+
+But judging from the issue lists he seems to be one of the most active
+current developers ATM with the curse of working on subsystems that are
+maintained by people that aren?t very prone to suggest new committers.
+
+So if you think he?s adequate, I?m sure he is. Probably overdue.
+
++1
+
+Antoine Pitrou schrieb:
+> Hello,
+> 
+> I'd like to propose Serhiy Storchaka as a new core developer. He has
+> made numerous contributions, and has proven receptive to comments and
+> reviews. He's also interested in becoming a core developer.
+> 
+> What do you think?
+> 
+> Regards
+> 
+> Antoine.
+> 
+> 
+
+From ncoghlan at gmail.com  Sat Sep  8 18:05:32 2012
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Sun, 9 Sep 2012 02:05:32 +1000
+Subject: [python-committers] PEP repo access for Daniel Holth
+Message-ID: <CADiSq7eYMXtdP7PQfwHFbLVJ1mhLBqVQ5Afx8BcU7O2SgQhM9A@mail.gmail.com>
+
+Hi,
+
+Daniel Holth's currently working on PEP 425 and 426 (the drafts for a
+cross-platform binary distribution format and for package metadata
+1.3). I'd like to get myself out of the publication loop by getting
+him direct access to push to the PEP repo, and trust him to stick to
+just updating those two PEPs (at least for now - that may change once
+the packaging module makes it back into the default branch for 3.4).
+
+Guido originally gave me commit access just to work on updating PEP
+343, so I'd like to do something similar here.
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+
+From martin at v.loewis.de  Sat Sep  8 19:00:08 2012
+From: martin at v.loewis.de (martin at v.loewis.de)
+Date: Sat, 08 Sep 2012 19:00:08 +0200
+Subject: [python-committers] PEP repo access for Daniel Holth
+In-Reply-To: <CADiSq7eYMXtdP7PQfwHFbLVJ1mhLBqVQ5Afx8BcU7O2SgQhM9A@mail.gmail.com>
+References: <CADiSq7eYMXtdP7PQfwHFbLVJ1mhLBqVQ5Afx8BcU7O2SgQhM9A@mail.gmail.com>
+Message-ID: <20120908190008.Horde.Yb37Sdjz9kRQS3mYro4UssA@webmail.df.eu>
+
+
+Zitat von Nick Coghlan <ncoghlan at gmail.com>:
+
+> Daniel Holth's currently working on PEP 425 and 426 (the drafts for a
+> cross-platform binary distribution format and for package metadata
+> 1.3). I'd like to get myself out of the publication loop by getting
+> him direct access to push to the PEP repo, and trust him to stick to
+> just updating those two PEPs (at least for now - that may change once
+> the packaging module makes it back into the default branch for 3.4).
+>
+> Guido originally gave me commit access just to work on updating PEP
+> 343, so I'd like to do something similar here.
+
+There is no access control; he should just stick to committing where
+he is supposed to (just as everybody else). Key managers are currently
+Georg Brandl, Antoine Pitrou, and Brett Cannon. I keep forgetting whether
+there is an email alias for them.
+
+Regards,
+Martin
+
+
+
+From solipsis at pitrou.net  Sat Sep  8 18:59:56 2012
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Sat, 08 Sep 2012 18:59:56 +0200
+Subject: [python-committers] PEP repo access for Daniel Holth
+In-Reply-To: <20120908190008.Horde.Yb37Sdjz9kRQS3mYro4UssA@webmail.df.eu>
+References: <CADiSq7eYMXtdP7PQfwHFbLVJ1mhLBqVQ5Afx8BcU7O2SgQhM9A@mail.gmail.com>
+	<20120908190008.Horde.Yb37Sdjz9kRQS3mYro4UssA@webmail.df.eu>
+Message-ID: <1347123596.3342.0.camel@localhost.localdomain>
+
+Le samedi 08 septembre 2012 ? 19:00 +0200, martin at v.loewis.de a ?crit :
+> Zitat von Nick Coghlan <ncoghlan at gmail.com>:
+> 
+> > Daniel Holth's currently working on PEP 425 and 426 (the drafts for a
+> > cross-platform binary distribution format and for package metadata
+> > 1.3). I'd like to get myself out of the publication loop by getting
+> > him direct access to push to the PEP repo, and trust him to stick to
+> > just updating those two PEPs (at least for now - that may change once
+> > the packaging module makes it back into the default branch for 3.4).
+> >
+> > Guido originally gave me commit access just to work on updating PEP
+> > 343, so I'd like to do something similar here.
+> 
+> There is no access control; he should just stick to committing where
+> he is supposed to (just as everybody else). Key managers are currently
+> Georg Brandl, Antoine Pitrou, and Brett Cannon. I keep forgetting whether
+> there is an email alias for them.
+
+hgaccounts <hgaccounts at python.org> :-)
+
+Best regards
+
+Antoine.
+
+
+-- 
+Software development and contracting: http://pro.pitrou.net
+
+
+
+From ncoghlan at gmail.com  Sun Sep  9 05:01:49 2012
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Sun, 9 Sep 2012 13:01:49 +1000
+Subject: [python-committers] Committer metadata not updating?
+Message-ID: <CADiSq7eD3K_yh67EcmEvJx8+N+TnQazx0-5Ht-V7tKrfKddgrg@mail.gmail.com>
+
+I just noticed that Eric Snow wasn't showing up as a committer on the
+tracker, even though I've seen him push the PEP 421 updates to the 3.3
+What's New docs.
+
+He's also missing from http://www.python.org/dev/committers and
+http://docs.python.org/devguide/developers.html
+
+Could this be another glitch from the migration of the hg server to OSU/OSL?
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+
+From g.brandl at gmx.net  Sun Sep  9 09:14:40 2012
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Sun, 09 Sep 2012 09:14:40 +0200
+Subject: [python-committers] Committer metadata not updating?
+In-Reply-To: <CADiSq7eD3K_yh67EcmEvJx8+N+TnQazx0-5Ht-V7tKrfKddgrg@mail.gmail.com>
+References: <CADiSq7eD3K_yh67EcmEvJx8+N+TnQazx0-5Ht-V7tKrfKddgrg@mail.gmail.com>
+Message-ID: <k2hfjo$7jd$1@ger.gmane.org>
+
+On 09.09.2012 05:01, Nick Coghlan wrote:
+> I just noticed that Eric Snow wasn't showing up as a committer on the
+> tracker, even though I've seen him push the PEP 421 updates to the 3.3
+> What's New docs.
+> 
+> He's also missing from http://www.python.org/dev/committers and
+> http://docs.python.org/devguide/developers.html
+> 
+> Could this be another glitch from the migration of the hg server to OSU/OSL?
+
+Only the /dev/committers could be called a glitch; hg is now on a different
+server than www and we didn't care for it yet.
+
+I've updated the tracker and the devguide now -- these steps must be taken
+manually after adding a key.
+
+cheers,
+Georg
+
+
+From g.brandl at gmx.net  Sun Sep  9 09:21:02 2012
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Sun, 09 Sep 2012 09:21:02 +0200
+Subject: [python-committers] Committer metadata not updating?
+In-Reply-To: <k2hfjo$7jd$1@ger.gmane.org>
+References: <CADiSq7eD3K_yh67EcmEvJx8+N+TnQazx0-5Ht-V7tKrfKddgrg@mail.gmail.com>
+	<k2hfjo$7jd$1@ger.gmane.org>
+Message-ID: <k2hfvm$9t1$1@ger.gmane.org>
+
+On 09.09.2012 09:14, Georg Brandl wrote:
+> On 09.09.2012 05:01, Nick Coghlan wrote:
+>> I just noticed that Eric Snow wasn't showing up as a committer on the
+>> tracker, even though I've seen him push the PEP 421 updates to the 3.3
+>> What's New docs.
+>> 
+>> He's also missing from http://www.python.org/dev/committers and
+>> http://docs.python.org/devguide/developers.html
+>> 
+>> Could this be another glitch from the migration of the hg server to OSU/OSL?
+> 
+> Only the /dev/committers could be called a glitch; hg is now on a different
+> server than www and we didn't care for it yet.
+
+The list was already generated at hg.python.org/committers.txt -- I've now
+added a redirect from the www.python.org/dev/committers URL and updated the
+location in the devguide.
+
+Georg
+
+
+From g.brandl at gmx.net  Sun Sep  9 11:27:42 2012
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Sun, 09 Sep 2012 11:27:42 +0200
+Subject: [python-committers] 3.3 rc2 released
+Message-ID: <k2hnd7$ph7$1@ger.gmane.org>
+
+Hi,
+
+quite a few critical changes went into rc2; thanks to everyone for helping
+fix these issues.
+
+If possible in any way, I'd like to cut down the number of changes between
+the last rc and the final to zero.  That means that any nontrivial changes
+in rc2 will lead to a third rc.
+
+Georg
+
+
+From ncoghlan at gmail.com  Sun Sep  9 14:20:04 2012
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Sun, 9 Sep 2012 22:20:04 +1000
+Subject: [python-committers] Committer metadata not updating?
+In-Reply-To: <k2hfvm$9t1$1@ger.gmane.org>
+References: <CADiSq7eD3K_yh67EcmEvJx8+N+TnQazx0-5Ht-V7tKrfKddgrg@mail.gmail.com>
+	<k2hfjo$7jd$1@ger.gmane.org> <k2hfvm$9t1$1@ger.gmane.org>
+Message-ID: <CADiSq7dtT2CSYgd8SEKLH+dXmv3VExCoi9+8kN8beC5zhWuN6Q@mail.gmail.com>
+
+On Sun, Sep 9, 2012 at 5:21 PM, Georg Brandl <g.brandl at gmx.net> wrote:
+> The list was already generated at hg.python.org/committers.txt -- I've now
+> added a redirect from the www.python.org/dev/committers URL and updated the
+> location in the devguide.
+
+Thanks! For both this and the rc2 release :)
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+
+From jcea at jcea.es  Fri Sep 21 02:54:48 2012
+From: jcea at jcea.es (Jesus Cea)
+Date: Fri, 21 Sep 2012 02:54:48 +0200
+Subject: [python-committers] Alexander Belopolsky
+Message-ID: <505BBAD8.9080608@jcea.es>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Alexander Belopolsky is a core developer but the bugtracker doesn't
+have a "contributor form received" flag for him?
+
+An oversight?. Can anybody check the forms and change the flag?
+
+Check: <http://bugs.python.org/issue15973#msg170803>
+
+Thanks!.
+
+- -- 
+Jes?s Cea Avi?n                         _/_/      _/_/_/        _/_/_/
+jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+jabber / xmpp:jcea at jabber.org         _/_/    _/_/          _/_/_/_/_/
+.                              _/_/  _/_/    _/_/          _/_/  _/_/
+"Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+"My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+"El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.10 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - http://www.enigmail.net/
+
+iQCVAwUBUFu62Jlgi5GaxT1NAQJiUgQAkpxQuIeK91mcD8ff9us2Y7LGBJybSeDx
+CE0ASonPEgkPK56kLTeXvD3uBFzgRUW662OjwmDCMZtpl4cBchY8rTA9egIP2SpX
+6Xo+K1Uxt9+4JZ6IvymCSQbLGMbCvg45CHyLrRjNSKqNU71lGsJptJdQFEhLbYyZ
+aCd+DfsVZHA=
+=JEwi
+-----END PGP SIGNATURE-----
+
+From alexander.belopolsky at gmail.com  Fri Sep 21 03:09:07 2012
+From: alexander.belopolsky at gmail.com (Alexander Belopolsky)
+Date: Thu, 20 Sep 2012 21:09:07 -0400
+Subject: [python-committers] Alexander Belopolsky
+In-Reply-To: <505BBAD8.9080608@jcea.es>
+References: <505BBAD8.9080608@jcea.es>
+Message-ID: <CAP7h-xaReJL6HgqeHp=0qoJx0Hoemwmd5kf95L7XLgmrdoVZDg@mail.gmail.com>
+
+FWIW, here is what Martin wrote to me ~ 1.5 years ago.  If the form
+has not been found by now, it probably cannot be found at all.   I
+have no problem resubmitting it again if necessary.
+
+""""""""""""""""""
+> The new flag is correct on my "details", but I noticed that
+> "Contributor Form Received" field is "No".  I faxed a contributor form
+> many years ago and then again when I got committer privileges.  If
+> this is not a tracker only mistake, please forward this to appropriate
+> people.
+
+It's known that the records of the contributor agreements are not
+current. I'm working (slowly) on fixing that.
+
+Regads,
+Martin
+""""""""""""""""""
+
+
+On Thu, Sep 20, 2012 at 8:54 PM, Jesus Cea <jcea at jcea.es> wrote:
+> -----BEGIN PGP SIGNED MESSAGE-----
+> Hash: SHA1
+>
+> Alexander Belopolsky is a core developer but the bugtracker doesn't
+> have a "contributor form received" flag for him?
+>
+> An oversight?. Can anybody check the forms and change the flag?
+>
+> Check: <http://bugs.python.org/issue15973#msg170803>
+>
+> Thanks!.
+>
+> - --
+> Jes?s Cea Avi?n                         _/_/      _/_/_/        _/_/_/
+> jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+> jabber / xmpp:jcea at jabber.org         _/_/    _/_/          _/_/_/_/_/
+> .                              _/_/  _/_/    _/_/          _/_/  _/_/
+> "Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+> "My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+> "El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+> -----BEGIN PGP SIGNATURE-----
+> Version: GnuPG v1.4.10 (GNU/Linux)
+> Comment: Using GnuPG with Mozilla - http://www.enigmail.net/
+>
+> iQCVAwUBUFu62Jlgi5GaxT1NAQJiUgQAkpxQuIeK91mcD8ff9us2Y7LGBJybSeDx
+> CE0ASonPEgkPK56kLTeXvD3uBFzgRUW662OjwmDCMZtpl4cBchY8rTA9egIP2SpX
+> 6Xo+K1Uxt9+4JZ6IvymCSQbLGMbCvg45CHyLrRjNSKqNU71lGsJptJdQFEhLbYyZ
+> aCd+DfsVZHA=
+> =JEwi
+> -----END PGP SIGNATURE-----
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+
+From jcea at jcea.es  Fri Sep 21 03:13:48 2012
+From: jcea at jcea.es (Jesus Cea)
+Date: Fri, 21 Sep 2012 03:13:48 +0200
+Subject: [python-committers] Alexander Belopolsky
+In-Reply-To: <CAP7h-xaReJL6HgqeHp=0qoJx0Hoemwmd5kf95L7XLgmrdoVZDg@mail.gmail.com>
+References: <505BBAD8.9080608@jcea.es>
+	<CAP7h-xaReJL6HgqeHp=0qoJx0Hoemwmd5kf95L7XLgmrdoVZDg@mail.gmail.com>
+Message-ID: <505BBF4C.7000305@jcea.es>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On 21/09/12 03:09, Alexander Belopolsky wrote:
+> FWIW, here is what Martin wrote to me ~ 1.5 years ago.  If the
+> form has not been found by now, it probably cannot be found at all.
+> I have no problem resubmitting it again if necessary.
+
+I had to send mine twice :). Do you mind to try again? :).
+
+- -- 
+Jes?s Cea Avi?n                         _/_/      _/_/_/        _/_/_/
+jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+jabber / xmpp:jcea at jabber.org         _/_/    _/_/          _/_/_/_/_/
+.                              _/_/  _/_/    _/_/          _/_/  _/_/
+"Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+"My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+"El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.10 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - http://www.enigmail.net/
+
+iQCVAwUBUFu/TJlgi5GaxT1NAQK6TgQAoK7Npd6YXQUCKZfhNr43PZjlwhTKd00k
+1iZRaVJaxw7m10ynmmHgR5V61uMifjtrQ0HENtx/ght//y0Bk2s52OGdzZKew1fN
+gNzYJ6GqQ4Qp7hkdW+Dh77cPtNZoCaoaQgvQceYKWe1hkFkRBy/+cfYxsxegSLu9
+0td8Mxg1g+Q=
+=6mLL
+-----END PGP SIGNATURE-----
+
+From mal at egenix.com  Fri Sep 21 08:36:23 2012
+From: mal at egenix.com (M.-A. Lemburg)
+Date: Fri, 21 Sep 2012 08:36:23 +0200
+Subject: [python-committers] Alexander Belopolsky
+In-Reply-To: <CAP7h-xaReJL6HgqeHp=0qoJx0Hoemwmd5kf95L7XLgmrdoVZDg@mail.gmail.com>
+References: <505BBAD8.9080608@jcea.es>
+	<CAP7h-xaReJL6HgqeHp=0qoJx0Hoemwmd5kf95L7XLgmrdoVZDg@mail.gmail.com>
+Message-ID: <505C0AE7.6060809@egenix.com>
+
+Alexander Belopolsky wrote:
+> FWIW, here is what Martin wrote to me ~ 1.5 years ago.  If the form
+> has not been found by now, it probably cannot be found at all.   I
+> have no problem resubmitting it again if necessary.
+
+Please contact Ewa, the PSF secretary, to get this resolved. I've
+added her to CC. She is in charge of the forms and can also set the
+flag in the tracker.
+
+Thanks,
+-- 
+Marc-Andre Lemburg
+eGenix.com
+
+Professional Python Services directly from the Source  (#1, Sep 21 2012)
+>>> Python/Zope Consulting and Support ...        http://www.egenix.com/
+>>> mxODBC.Zope.Database.Adapter ...             http://zope.egenix.com/
+>>> mxODBC, mxDateTime, mxTextTools ...        http://python.egenix.com/
+________________________________________________________________________
+2012-10-29: PyCon DE 2012, Leipzig, Germany ...            38 days to go
+2012-10-23: Python Meeting Duesseldorf ...                 32 days to go
+2012-09-18: Released mxODBC Zope DA 2.1.0 ...     http://egenix.com/go32
+2012-08-28: Released mxODBC 3.2.0 ...             http://egenix.com/go31
+
+
+   eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+    D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+           Registered at Amtsgericht Duesseldorf: HRB 46611
+               http://www.egenix.com/company/contact/
+
+
+
+> """"""""""""""""""
+>> The new flag is correct on my "details", but I noticed that
+>> "Contributor Form Received" field is "No".  I faxed a contributor form
+>> many years ago and then again when I got committer privileges.  If
+>> this is not a tracker only mistake, please forward this to appropriate
+>> people.
+> 
+> It's known that the records of the contributor agreements are not
+> current. I'm working (slowly) on fixing that.
+> 
+> Regads,
+> Martin
+> """"""""""""""""""
+> 
+> 
+> On Thu, Sep 20, 2012 at 8:54 PM, Jesus Cea <jcea at jcea.es> wrote:
+> Alexander Belopolsky is a core developer but the bugtracker doesn't
+> have a "contributor form received" flag for him?
+> 
+> An oversight?. Can anybody check the forms and change the flag?
+> 
+> Check: <http://bugs.python.org/issue15973#msg170803>
+> 
+> Thanks!.
+> 
+>> _______________________________________________
+>> python-committers mailing list
+>> python-committers at python.org
+>> http://mail.python.org/mailman/listinfo/python-committers
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+> 
+
+From ezio.melotti at gmail.com  Sun Sep 23 19:20:55 2012
+From: ezio.melotti at gmail.com (Ezio Melotti)
+Date: Sun, 23 Sep 2012 20:20:55 +0300
+Subject: [python-committers] Commit privileges for Chris Jerdonek
+Message-ID: <CACBhJdGnvDmEdzD-XNQ4EOd=zR1L-8THMYWo=OLHqdsaVNMAuQ@mail.gmail.com>
+
+Hi,
+I would like to propose Chris Jerdonek as a new core developer.
+His first contribution dates back to April 2010, and since then he
+report several issues and contributed many quality patches.
+He has also already signed the contributor agreement, and he is
+interested in becoming a core developer.
+
+Best Regards,
+Ezio Melotti
+
+From dickinsm at gmail.com  Sun Sep 23 19:23:23 2012
+From: dickinsm at gmail.com (Mark Dickinson)
+Date: Sun, 23 Sep 2012 18:23:23 +0100
+Subject: [python-committers] Commit privileges for Chris Jerdonek
+In-Reply-To: <CACBhJdGnvDmEdzD-XNQ4EOd=zR1L-8THMYWo=OLHqdsaVNMAuQ@mail.gmail.com>
+References: <CACBhJdGnvDmEdzD-XNQ4EOd=zR1L-8THMYWo=OLHqdsaVNMAuQ@mail.gmail.com>
+Message-ID: <CAAu3qLU4Q1FR7nBbsjfNrauYwS5poZwrMik0hTYMvH2FVYONeg@mail.gmail.com>
+
+On Sun, Sep 23, 2012 at 6:20 PM, Ezio Melotti <ezio.melotti at gmail.com> wrote:
+> Hi,
+> I would like to propose Chris Jerdonek as a new core developer.
+
++1
+
+Mark
+
+From g.brandl at gmx.net  Sun Sep 23 19:44:49 2012
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Sun, 23 Sep 2012 19:44:49 +0200
+Subject: [python-committers] Commit privileges for Chris Jerdonek
+In-Reply-To: <CAAu3qLU4Q1FR7nBbsjfNrauYwS5poZwrMik0hTYMvH2FVYONeg@mail.gmail.com>
+References: <CACBhJdGnvDmEdzD-XNQ4EOd=zR1L-8THMYWo=OLHqdsaVNMAuQ@mail.gmail.com>
+	<CAAu3qLU4Q1FR7nBbsjfNrauYwS5poZwrMik0hTYMvH2FVYONeg@mail.gmail.com>
+Message-ID: <k3nhqd$ucl$1@ger.gmane.org>
+
+On 09/23/2012 07:23 PM, Mark Dickinson wrote:
+> On Sun, Sep 23, 2012 at 6:20 PM, Ezio Melotti <ezio.melotti at gmail.com> wrote:
+>> Hi,
+>> I would like to propose Chris Jerdonek as a new core developer.
+> 
+> +1
+
++1
+
+Georg
+
+
+
+From rdmurray at bitdance.com  Sun Sep 23 19:59:53 2012
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Sun, 23 Sep 2012 13:59:53 -0400
+Subject: [python-committers] Commit privileges for Chris Jerdonek
+In-Reply-To: <k3nhqd$ucl$1@ger.gmane.org>
+References: <CACBhJdGnvDmEdzD-XNQ4EOd=zR1L-8THMYWo=OLHqdsaVNMAuQ@mail.gmail.com>
+	<CAAu3qLU4Q1FR7nBbsjfNrauYwS5poZwrMik0hTYMvH2FVYONeg@mail.gmail.com>
+	<k3nhqd$ucl$1@ger.gmane.org>
+Message-ID: <20120923175954.AC45925014F@webabinitio.net>
+
+On Sun, Sep 23, 2012 at 6:20 PM, Ezio Melotti <ezio.melotti at gmail.com> wrote:
+> I would like to propose Chris Jerdonek as a new core developer.
+
++1
+
+--David
+
+From tjreedy at udel.edu  Sun Sep 23 19:33:32 2012
+From: tjreedy at udel.edu (Terry Reedy)
+Date: Sun, 23 Sep 2012 13:33:32 -0400
+Subject: [python-committers] Commit privileges for Chris Jerdonek
+In-Reply-To: <CAAu3qLU4Q1FR7nBbsjfNrauYwS5poZwrMik0hTYMvH2FVYONeg@mail.gmail.com>
+References: <CACBhJdGnvDmEdzD-XNQ4EOd=zR1L-8THMYWo=OLHqdsaVNMAuQ@mail.gmail.com>
+	<CAAu3qLU4Q1FR7nBbsjfNrauYwS5poZwrMik0hTYMvH2FVYONeg@mail.gmail.com>
+Message-ID: <505F47EC.8030300@udel.edu>
+
+
+
+On 9/23/2012 1:23 PM, Mark Dickinson wrote:
+> On Sun, Sep 23, 2012 at 6:20 PM, Ezio Melotti <ezio.melotti at gmail.com> wrote:
+>> Hi,
+>> I would like to propose Chris Jerdonek as a new core developer.
+>
+> +1
+
++1 also. I have recently been thinking that it was about time.
+
+From brett at python.org  Sun Sep 23 22:52:24 2012
+From: brett at python.org (Brett Cannon)
+Date: Sun, 23 Sep 2012 16:52:24 -0400
+Subject: [python-committers] Commit privileges for Chris Jerdonek
+In-Reply-To: <CACBhJdGnvDmEdzD-XNQ4EOd=zR1L-8THMYWo=OLHqdsaVNMAuQ@mail.gmail.com>
+References: <CACBhJdGnvDmEdzD-XNQ4EOd=zR1L-8THMYWo=OLHqdsaVNMAuQ@mail.gmail.com>
+Message-ID: <CAP1=2W48Wg5rcSJvoLi+AWeSOhLC4HjBW8WxkUvyryMxUhL8vA@mail.gmail.com>
+
+On Sun, Sep 23, 2012 at 1:20 PM, Ezio Melotti <ezio.melotti at gmail.com>wrote:
+
+> Hi,
+> I would like to propose Chris Jerdonek as a new core developer.
+> His first contribution dates back to April 2010, and since then he
+> report several issues and contributed many quality patches.
+> He has also already signed the contributor agreement, and he is
+> interested in becoming a core developer.
+>
+
++1
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20120923/bf4a9d1f/attachment.html>
+
+From ncoghlan at gmail.com  Mon Sep 24 03:34:21 2012
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Mon, 24 Sep 2012 11:34:21 +1000
+Subject: [python-committers] Commit privileges for Chris Jerdonek
+In-Reply-To: <CAP1=2W48Wg5rcSJvoLi+AWeSOhLC4HjBW8WxkUvyryMxUhL8vA@mail.gmail.com>
+References: <CACBhJdGnvDmEdzD-XNQ4EOd=zR1L-8THMYWo=OLHqdsaVNMAuQ@mail.gmail.com>
+	<CAP1=2W48Wg5rcSJvoLi+AWeSOhLC4HjBW8WxkUvyryMxUhL8vA@mail.gmail.com>
+Message-ID: <CADiSq7f_NUN4aZiCm-0911=YdRTo1B6jQ9=fjLb9eLV7JLBodQ@mail.gmail.com>
+
+On Mon, Sep 24, 2012 at 6:52 AM, Brett Cannon <brett at python.org> wrote:
+>
+>
+> On Sun, Sep 23, 2012 at 1:20 PM, Ezio Melotti <ezio.melotti at gmail.com>
+> wrote:
+>>
+>> Hi,
+>> I would like to propose Chris Jerdonek as a new core developer.
+>> His first contribution dates back to April 2010, and since then he
+>> report several issues and contributed many quality patches.
+>> He has also already signed the contributor agreement, and he is
+>> interested in becoming a core developer.
+>
+>
+> +1
+
++1
+
+He's also exhibited great patience with fellow volunteers that get
+distracted by other things *cough* ;)
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+
+From andrew.svetlov at gmail.com  Mon Sep 24 11:26:20 2012
+From: andrew.svetlov at gmail.com (Andrew Svetlov)
+Date: Mon, 24 Sep 2012 12:26:20 +0300
+Subject: [python-committers] Commit privileges for Chris Jerdonek
+In-Reply-To: <CADiSq7f_NUN4aZiCm-0911=YdRTo1B6jQ9=fjLb9eLV7JLBodQ@mail.gmail.com>
+References: <CACBhJdGnvDmEdzD-XNQ4EOd=zR1L-8THMYWo=OLHqdsaVNMAuQ@mail.gmail.com>
+	<CAP1=2W48Wg5rcSJvoLi+AWeSOhLC4HjBW8WxkUvyryMxUhL8vA@mail.gmail.com>
+	<CADiSq7f_NUN4aZiCm-0911=YdRTo1B6jQ9=fjLb9eLV7JLBodQ@mail.gmail.com>
+Message-ID: <CAL3CFcXmhuP5NNveVSk-G85_RA3QAxH1-oWyckz=Fvf5Ae8R+w@mail.gmail.com>
+
++1
+
+On Mon, Sep 24, 2012 at 4:34 AM, Nick Coghlan <ncoghlan at gmail.com> wrote:
+> On Mon, Sep 24, 2012 at 6:52 AM, Brett Cannon <brett at python.org> wrote:
+>>
+>>
+>> On Sun, Sep 23, 2012 at 1:20 PM, Ezio Melotti <ezio.melotti at gmail.com>
+>> wrote:
+>>>
+>>> Hi,
+>>> I would like to propose Chris Jerdonek as a new core developer.
+>>> His first contribution dates back to April 2010, and since then he
+>>> report several issues and contributed many quality patches.
+>>> He has also already signed the contributor agreement, and he is
+>>> interested in becoming a core developer.
+>>
+>>
+>> +1
+>
+> +1
+>
+> He's also exhibited great patience with fellow volunteers that get
+> distracted by other things *cough* ;)
+>
+> Cheers,
+> Nick.
+>
+> --
+> Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+
+
+
+-- 
+Thanks,
+Andrew Svetlov
+
+From brett at python.org  Mon Sep 24 15:11:04 2012
+From: brett at python.org (Brett Cannon)
+Date: Mon, 24 Sep 2012 09:11:04 -0400
+Subject: [python-committers] Commit privileges for Chris Jerdonek
+In-Reply-To: <CACBhJdGnvDmEdzD-XNQ4EOd=zR1L-8THMYWo=OLHqdsaVNMAuQ@mail.gmail.com>
+References: <CACBhJdGnvDmEdzD-XNQ4EOd=zR1L-8THMYWo=OLHqdsaVNMAuQ@mail.gmail.com>
+Message-ID: <CAP1=2W4JzYpKnk+Ov+jPMjUPbqnHreME0c2NdJLMERVpkjrWgw@mail.gmail.com>
+
+I just cleared Chris' subscription to this list and he has sent in his SSH
+keys (no one has added them yet, though; hopefully soon when Antoine,
+Georg, or myself get around to it).
+
+Welcome aboard, Chris!
+
+On Sun, Sep 23, 2012 at 1:20 PM, Ezio Melotti <ezio.melotti at gmail.com>wrote:
+
+> Hi,
+> I would like to propose Chris Jerdonek as a new core developer.
+> His first contribution dates back to April 2010, and since then he
+> report several issues and contributed many quality patches.
+> He has also already signed the contributor agreement, and he is
+> interested in becoming a core developer.
+>
+> Best Regards,
+> Ezio Melotti
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20120924/5f63f462/attachment.html>
+
+From chris.jerdonek at gmail.com  Mon Sep 24 15:53:47 2012
+From: chris.jerdonek at gmail.com (Chris Jerdonek)
+Date: Mon, 24 Sep 2012 06:53:47 -0700
+Subject: [python-committers] Commit privileges for Chris Jerdonek
+In-Reply-To: <CAP1=2W4JzYpKnk+Ov+jPMjUPbqnHreME0c2NdJLMERVpkjrWgw@mail.gmail.com>
+References: <CACBhJdGnvDmEdzD-XNQ4EOd=zR1L-8THMYWo=OLHqdsaVNMAuQ@mail.gmail.com>
+	<CAP1=2W4JzYpKnk+Ov+jPMjUPbqnHreME0c2NdJLMERVpkjrWgw@mail.gmail.com>
+Message-ID: <CAOTb1wfNuF6vTnBW-9QGsYgKCD7pUW6Xm2az9ALDi+-Rp4V7+A@mail.gmail.com>
+
+On Mon, Sep 24, 2012 at 6:11 AM, Brett Cannon <brett at python.org> wrote:
+> I just cleared Chris' subscription to this list and he has sent in his SSH
+> keys (no one has added them yet, though; hopefully soon when Antoine, Georg,
+> or myself get around to it).
+>
+> Welcome aboard, Chris!
+
+Thanks, Brett.  And thanks, everyone.  Georg has already added my SSH
+keys, and I've done a few test commits in the test repository on
+hg.python.org to try things out (with some pointers earlier from Georg
+and Ezio on IRC).
+
+Needless to say, I'm excited to be part of this community.  It also
+goes without saying, please let me know if you ever see anything that
+I can do to improve how I help.  I'm always open to suggestions.
+
+Cheers,
+--Chris
+
+From alexander.belopolsky at gmail.com  Tue Sep 25 03:44:04 2012
+From: alexander.belopolsky at gmail.com (Alexander Belopolsky)
+Date: Mon, 24 Sep 2012 21:44:04 -0400
+Subject: [python-committers] Alexander Belopolsky
+In-Reply-To: <CADx+GQPxJ8OR6tvTET7ohpuxU37TB0=+_1WLWxY5eMpS5mhW6Q@mail.gmail.com>
+References: <505BBAD8.9080608@jcea.es>
+	<CAP7h-xaReJL6HgqeHp=0qoJx0Hoemwmd5kf95L7XLgmrdoVZDg@mail.gmail.com>
+	<505C0AE7.6060809@egenix.com>
+	<CADx+GQPxJ8OR6tvTET7ohpuxU37TB0=+_1WLWxY5eMpS5mhW6Q@mail.gmail.com>
+Message-ID: <CAP7h-xamFna00k2MFUZnFiKt3_E6Stkh6798HrxnFwV3kTZXiA@mail.gmail.com>
+
+FYI: I e-mailed the form to contributors at python.org today.
+
+On Fri, Sep 21, 2012 at 3:50 AM, Ewa Jodlowska <jodlowska2 at gmail.com> wrote:
+> Alexander,
+>
+> Please resubmit the form to me and I will flag it in the tracker the same
+> day I receive the form.
+>
+> Thanks,
+>
+> Ewa
+>
+>
+>
+> On Fri, Sep 21, 2012 at 8:36 AM, M.-A. Lemburg <mal at egenix.com> wrote:
+>>
+>> Alexander Belopolsky wrote:
+>> > FWIW, here is what Martin wrote to me ~ 1.5 years ago.  If the form
+>> > has not been found by now, it probably cannot be found at all.   I
+>> > have no problem resubmitting it again if necessary.
+>>
+>> Please contact Ewa, the PSF secretary, to get this resolved. I've
+>> added her to CC. She is in charge of the forms and can also set the
+>> flag in the tracker.
+>>
+>> Thanks,
+>> --
+>> Marc-Andre Lemburg
+>> eGenix.com
+>>
+>> Professional Python Services directly from the Source  (#1, Sep 21 2012)
+>> >>> Python/Zope Consulting and Support ...        http://www.egenix.com/
+>> >>> mxODBC.Zope.Database.Adapter ...             http://zope.egenix.com/
+>> >>> mxODBC, mxDateTime, mxTextTools ...        http://python.egenix.com/
+>> ________________________________________________________________________
+>> 2012-10-29: PyCon DE 2012, Leipzig, Germany ...            38 days to go
+>> 2012-10-23: Python Meeting Duesseldorf ...                 32 days to go
+>> 2012-09-18: Released mxODBC Zope DA 2.1.0 ...     http://egenix.com/go32
+>> 2012-08-28: Released mxODBC 3.2.0 ...             http://egenix.com/go31
+>>
+>>
+>>    eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+>>     D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+>>            Registered at Amtsgericht Duesseldorf: HRB 46611
+>>                http://www.egenix.com/company/contact/
+>>
+>>
+>>
+>> > """"""""""""""""""
+>> >> The new flag is correct on my "details", but I noticed that
+>> >> "Contributor Form Received" field is "No".  I faxed a contributor form
+>> >> many years ago and then again when I got committer privileges.  If
+>> >> this is not a tracker only mistake, please forward this to appropriate
+>> >> people.
+>> >
+>> > It's known that the records of the contributor agreements are not
+>> > current. I'm working (slowly) on fixing that.
+>> >
+>> > Regads,
+>> > Martin
+>> > """"""""""""""""""
+>> >
+>> >
+>> > On Thu, Sep 20, 2012 at 8:54 PM, Jesus Cea <jcea at jcea.es> wrote:
+>> > Alexander Belopolsky is a core developer but the bugtracker doesn't
+>> > have a "contributor form received" flag for him?
+>> >
+>> > An oversight?. Can anybody check the forms and change the flag?
+>> >
+>> > Check: <http://bugs.python.org/issue15973#msg170803>
+>> >
+>> > Thanks!.
+>> >
+>> >> _______________________________________________
+>> >> python-committers mailing list
+>> >> python-committers at python.org
+>> >> http://mail.python.org/mailman/listinfo/python-committers
+>> > _______________________________________________
+>> > python-committers mailing list
+>> > python-committers at python.org
+>> > http://mail.python.org/mailman/listinfo/python-committers
+>> >
+>
+>
+
+From g.brandl at gmx.net  Tue Sep 25 13:26:06 2012
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Tue, 25 Sep 2012 13:26:06 +0200
+Subject: [python-committers] Alexander Belopolsky
+In-Reply-To: <505BBAD8.9080608@jcea.es>
+References: <505BBAD8.9080608@jcea.es>
+Message-ID: <k3s4cb$foj$1@ger.gmane.org>
+
+On 09/21/2012 02:54 AM, Jesus Cea wrote:
+> Alexander Belopolsky is a core developer but the bugtracker doesn't
+> have a "contributor form received" flag for him?
+> 
+> An oversight?. Can anybody check the forms and change the flag?
+> 
+> Check: <http://bugs.python.org/issue15973#msg170803>
+
+May I note that it's commonly considered bad practice to put the name of
+a person in the subject without any explication?  E.g. "Commit privileges
+for Chris Jerdonek" is fine, "Alexander Belopolsky" is not.  We're certainly
+not discussion everything about Alexander in this thread :)
+
+cheers,
+Georg
+
+
+From jcea at jcea.es  Wed Sep 26 02:35:38 2012
+From: jcea at jcea.es (Jesus Cea)
+Date: Wed, 26 Sep 2012 02:35:38 +0200
+Subject: [python-committers] Alexander Belopolsky
+In-Reply-To: <k3s4cb$foj$1@ger.gmane.org>
+References: <505BBAD8.9080608@jcea.es> <k3s4cb$foj$1@ger.gmane.org>
+Message-ID: <50624DDA.8010809@jcea.es>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On 25/09/12 13:26, Georg Brandl wrote:
+> May I note that it's commonly considered bad practice to put the
+> name of a person in the subject without any explication?  E.g.
+> "Commit privileges for Chris Jerdonek" is fine, "Alexander
+> Belopolsky" is not.  We're certainly not discussion everything
+> about Alexander in this thread :)
+
+I agree. Thanks for pointing it out. Please, excuse me.
+
+- -- 
+Jes?s Cea Avi?n                         _/_/      _/_/_/        _/_/_/
+jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+jabber / xmpp:jcea at jabber.org         _/_/    _/_/          _/_/_/_/_/
+.                              _/_/  _/_/    _/_/          _/_/  _/_/
+"Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+"My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+"El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.10 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - http://www.enigmail.net/
+
+iQCVAwUBUGJN2plgi5GaxT1NAQLtdgP+LFP8qxILK7zKOZDtnLngb8lU9nDdz+84
+gWyW5Yo7Clgk9xOAm9rAAgZIHn1Your+uVtFnRwByRcBDl0obc2+KpKtqFUQTfyv
+3/Wj1LYklJPs132Wh/dawFmlKe4CqjorJUIorza/itrhCRJxzHssm7+RoqgaCN/g
+Y/52OJ7IqHE=
+=2Arp
+-----END PGP SIGNATURE-----
+
+From trent at snakebite.org  Thu Sep 27 02:27:00 2012
+From: trent at snakebite.org (Trent Nelson)
+Date: Wed, 26 Sep 2012 20:27:00 -0400
+Subject: [python-committers] Commit privileges for Chris Jerdonek
+In-Reply-To: <CAOTb1wfNuF6vTnBW-9QGsYgKCD7pUW6Xm2az9ALDi+-Rp4V7+A@mail.gmail.com>
+References: <CACBhJdGnvDmEdzD-XNQ4EOd=zR1L-8THMYWo=OLHqdsaVNMAuQ@mail.gmail.com>
+	<CAP1=2W4JzYpKnk+Ov+jPMjUPbqnHreME0c2NdJLMERVpkjrWgw@mail.gmail.com>
+	<CAOTb1wfNuF6vTnBW-9QGsYgKCD7pUW6Xm2az9ALDi+-Rp4V7+A@mail.gmail.com>
+Message-ID: <20120927002659.GB68527@snakebite.org>
+
+On Mon, Sep 24, 2012 at 06:53:47AM -0700, Chris Jerdonek wrote:
+> On Mon, Sep 24, 2012 at 6:11 AM, Brett Cannon <brett at python.org> wrote:
+> > I just cleared Chris' subscription to this list and he has sent in his SSH
+> > keys (no one has added them yet, though; hopefully soon when Antoine, Georg,
+> > or myself get around to it).
+> >
+> > Welcome aboard, Chris!
+> 
+> Thanks, Brett.  And thanks, everyone.  Georg has already added my SSH
+> keys, and I've done a few test commits in the test repository on
+> hg.python.org to try things out (with some pointers earlier from Georg
+> and Ezio on IRC).
+
+    Just refreshed Snakebite, you should have access to it now via:
+
+        svn co https://svn.snakebite.net/.snakebite
+        cd .snakebite
+        sh snakebite.subr
+
+
+From g.brandl at gmx.net  Sat Sep 29 10:35:09 2012
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Sat, 29 Sep 2012 10:35:09 +0200
+Subject: [python-committers] 3.3 branch created in main repository
+Message-ID: <k46bsh$cfm$1@ger.gmane.org>
+
+Hi all,
+
+from now on there is a 3.3 branch in the main repo.
+
+Until the last ordinary 3.2 bugfix release is done (which will be soon),
+the usual procedure for 3.x will be to check into 3.2, merge into 3.3, and
+then merge into default, except of course for a) fixes of 3.3-only features
+and b) trivial things like typos that you don't feel have to be in 3.2.4.
+
+default is now Python 3.4, and new features can be committed there.
+
+When the binaries are built and all the fiddling with the web servers is
+done, I'll announce the 3.3.0 release, and then go drink a large quantity
+of champagne [1].
+
+cheers,
+Georg
+
+[1] If only I could afford it :)
+
+
+From chris.jerdonek at gmail.com  Sat Sep 29 18:51:51 2012
+From: chris.jerdonek at gmail.com (Chris Jerdonek)
+Date: Sat, 29 Sep 2012 09:51:51 -0700
+Subject: [python-committers] contributor forms (was Re: contributor form for
+ Alexander Belopolsky)
+Message-ID: <CAOTb1wfZ=Msw_kPwNAc2rowaaC1R8jLCuz48gDcXwoj--DOM=A@mail.gmail.com>
+
+On Fri, Sep 21, 2012, Jes?s Cea Avi?n wrote:
+>
+> Alexander Belopolsky is a core developer but the bugtracker doesn't [edit: but now does]
+> have a "contributor form received" flag for him?
+
+FWIW, you can see a list of all such core developers using this URL:
+
+http://bugs.python.org/user?iscommitter=1&contrib_form=0&@action=search&@sort=username&@pagesize=300
+
+There are currently 35 without a contributor form (though I realize
+that many of them may not currently be active).
+
+--Chris
+
+From tjreedy at udel.edu  Sat Sep 29 19:04:48 2012
+From: tjreedy at udel.edu (Terry Reedy)
+Date: Sat, 29 Sep 2012 13:04:48 -0400
+Subject: [python-committers] contributor forms (was Re: contributor form
+ for Alexander Belopolsky)
+In-Reply-To: <CAOTb1wfZ=Msw_kPwNAc2rowaaC1R8jLCuz48gDcXwoj--DOM=A@mail.gmail.com>
+References: <CAOTb1wfZ=Msw_kPwNAc2rowaaC1R8jLCuz48gDcXwoj--DOM=A@mail.gmail.com>
+Message-ID: <50672A30.2000505@udel.edu>
+
+
+
+On 9/29/2012 12:51 PM, Chris Jerdonek wrote:
+
+> FWIW, you can see a list of all such core developers using this URL:
+>
+> http://bugs.python.org/user?iscommitter=1&contrib_form=0&@action=search&@sort=username&@pagesize=300
+
+I see "You do not have permission to search the user class." in a bright 
+red box. ;-).
+
+
+From ncoghlan at gmail.com  Sun Sep 30 04:47:11 2012
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Sun, 30 Sep 2012 08:17:11 +0530
+Subject: [python-committers] contributor forms (was Re: contributor form
+ for Alexander Belopolsky)
+In-Reply-To: <50672A30.2000505@udel.edu>
+References: <CAOTb1wfZ=Msw_kPwNAc2rowaaC1R8jLCuz48gDcXwoj--DOM=A@mail.gmail.com>
+	<50672A30.2000505@udel.edu>
+Message-ID: <CADiSq7d90E9ig1xU8LNWa47+y6djKVU_bxP+L97ByutoQwvgMA@mail.gmail.com>
+
+On Sat, Sep 29, 2012 at 10:34 PM, Terry Reedy <tjreedy at udel.edu> wrote:
+>
+>
+> On 9/29/2012 12:51 PM, Chris Jerdonek wrote:
+>
+>> FWIW, you can see a list of all such core developers using this URL:
+>>
+>>
+>> http://bugs.python.org/user?iscommitter=1&contrib_form=0&@action=search&@sort=username&@pagesize=300
+>
+>
+> I see "You do not have permission to search the user class." in a bright red
+> box. ;-).
+
+Yeah, you just need to be logged in to do that search.
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+
+From ncoghlan at gmail.com  Sun Sep 30 04:53:04 2012
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Sun, 30 Sep 2012 08:23:04 +0530
+Subject: [python-committers] PEP status updates
+Message-ID: <CADiSq7fbTS7KOc4h8WPLFNno=9aHDz1rBcPO2txRFzHZ7oAOnw@mail.gmail.com>
+
+PEP authors and implementors: could you please check the PEP list for
+any Accepted PEPs that should be flipped to Final (e.g. I noticed PEP
+397 isn't Final, despite being included in 3.3)
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+

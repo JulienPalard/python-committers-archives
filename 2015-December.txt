@@ -1,0 +1,1167 @@
+From brian at python.org  Fri Dec  4 10:55:00 2015
+From: brian at python.org (Brian Curtin)
+Date: Fri, 4 Dec 2015 10:55:00 -0500
+Subject: [python-committers] MSDN Subscription Expired
+In-Reply-To: <565B5FD1.6020305@stoneleaf.us>
+References: <563E0C2D.7050104@stoneleaf.us>
+ <CAD+XWwp-9yo4m2hcjLzP-ZUjNryspYkaMjm6wPnTMH_c96jS6A@mail.gmail.com>
+ <565B5FD1.6020305@stoneleaf.us>
+Message-ID: <CAD+XWwqqRHz_kw_TKXN8PDCyn-f5RuZwfH1fb3pJKV7-L2zedQ@mail.gmail.com>
+
+I'll double check - occasionally something gets tripped up with these.
+
+On Sun, Nov 29, 2015 at 3:28 PM, Ethan Furman <ethan at stoneleaf.us> wrote:
+> On 11/07/2015 06:57 AM, Brian Curtin wrote:
+>
+>> All I need is the email associated with the account and your
+>> Subscriber ID.
+>
+> I haven't heard anything yet, did I miss something?
+>
+> --
+> ~Ethan~
+
+From jcea at jcea.es  Sun Dec  6 20:05:29 2015
+From: jcea at jcea.es (Jesus Cea)
+Date: Mon, 7 Dec 2015 02:05:29 +0100
+Subject: [python-committers] Committer missing :)
+Message-ID: <5664DB59.3090003@jcea.es>
+
+I was trying to push a patch but it seems I am not a committer anymore.
+My name vanished of <https://hg.python.org/committers.txt> and the tracker.
+
+I guess I had a DSA key in hg.python.org and those are not valid
+anymore, but looks like I am not a documented committer anymore in order
+to send a new 2048 bits RSA key.
+
+I don't know if this is a mistake or a decision. Just let me know.
+
+-- 
+Jes?s Cea Avi?n                         _/_/      _/_/_/        _/_/_/
+jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+Twitter: @jcea                        _/_/    _/_/          _/_/_/_/_/
+jabber / xmpp:jcea at jabber.org  _/_/  _/_/    _/_/          _/_/  _/_/
+"Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+"My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+"El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 473 bytes
+Desc: OpenPGP digital signature
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20151207/ffe0eb93/attachment.sig>
+
+From benjamin at python.org  Sun Dec  6 20:09:25 2015
+From: benjamin at python.org (Benjamin Peterson)
+Date: Sun, 06 Dec 2015 17:09:25 -0800
+Subject: [python-committers] Committer missing :)
+In-Reply-To: <5664DB59.3090003@jcea.es>
+References: <5664DB59.3090003@jcea.es>
+Message-ID: <1449450565.2981810.459800353.1E69F35B@webmail.messagingengine.com>
+
+Indeed, if you have no keys around, the (automatically generated)
+committers.txt file will not list you.
+
+
+On Sun, Dec 6, 2015, at 17:05, Jesus Cea wrote:
+> I was trying to push a patch but it seems I am not a committer anymore.
+> My name vanished of <https://hg.python.org/committers.txt> and the
+> tracker.
+> 
+> I guess I had a DSA key in hg.python.org and those are not valid
+> anymore, but looks like I am not a documented committer anymore in order
+> to send a new 2048 bits RSA key.
+> 
+> I don't know if this is a mistake or a decision. Just let me know.
+> 
+> -- 
+> Jes?s Cea Avi?n                         _/_/      _/_/_/        _/_/_/
+> jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+> Twitter: @jcea                        _/_/    _/_/          _/_/_/_/_/
+> jabber / xmpp:jcea at jabber.org  _/_/  _/_/    _/_/          _/_/  _/_/
+> "Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+> "My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+> "El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+> 
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Email had 1 attachment:
+> + signature.asc
+>   1k (application/pgp-signature)
+
+From rdmurray at bitdance.com  Sun Dec  6 22:25:51 2015
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Sun, 06 Dec 2015 22:25:51 -0500
+Subject: [python-committers] Committer missing :)
+In-Reply-To: <1449450565.2981810.459800353.1E69F35B@webmail.messagingengine.com>
+References: <5664DB59.3090003@jcea.es>
+ <1449450565.2981810.459800353.1E69F35B@webmail.messagingengine.com>
+Message-ID: <20151207032551.A980FB200A4@webabinitio.net>
+
+On the other hand, docs.python.org/devguide/developers.html still will
+(and does).
+
+On Sun, 06 Dec 2015 17:09:25 -0800, Benjamin Peterson <benjamin at python.org> wrote:
+> Indeed, if you have no keys around, the (automatically generated)
+> committers.txt file will not list you.
+> 
+> 
+> On Sun, Dec 6, 2015, at 17:05, Jesus Cea wrote:
+> > I was trying to push a patch but it seems I am not a committer anymore.
+> > My name vanished of <https://hg.python.org/committers.txt> and the
+> > tracker.
+> > 
+> > I guess I had a DSA key in hg.python.org and those are not valid
+> > anymore, but looks like I am not a documented committer anymore in order
+> > to send a new 2048 bits RSA key.
+> > 
+> > I don't know if this is a mistake or a decision. Just let me know.
+> > 
+> > -- 
+> > Jes??s Cea Avi??n                         _/_/      _/_/_/        _/_/_/
+> > jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+> > Twitter: @jcea                        _/_/    _/_/          _/_/_/_/_/
+> > jabber / xmpp:jcea at jabber.org  _/_/  _/_/    _/_/          _/_/  _/_/
+> > "Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+> > "My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+> > "El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+> > 
+> > _______________________________________________
+> > python-committers mailing list
+> > python-committers at python.org
+> > https://mail.python.org/mailman/listinfo/python-committers
+> > Email had 1 attachment:
+> > + signature.asc
+> >   1k (application/pgp-signature)
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+
+From ethan at stoneleaf.us  Sun Dec  6 23:30:41 2015
+From: ethan at stoneleaf.us (Ethan Furman)
+Date: Sun, 06 Dec 2015 20:30:41 -0800
+Subject: [python-committers] Committer missing :)
+In-Reply-To: <20151207032551.A980FB200A4@webabinitio.net>
+References: <5664DB59.3090003@jcea.es>
+ <1449450565.2981810.459800353.1E69F35B@webmail.messagingengine.com>
+ <20151207032551.A980FB200A4@webabinitio.net>
+Message-ID: <56650B71.4040207@stoneleaf.us>
+
+On 12/06/2015 07:25 PM, R. David Murray wrote:
+ > On Sun, 06 Dec 2015 17:09:25 -0800, Benjamin Peterson wrote:
+ >> On Sun, Dec 6, 2015, at 17:05, Jesus Cea wrote:
+
+ >>> I guess I had a DSA key in hg.python.org and those are not valid
+ >>> anymore, but looks like I am not a documented committer anymore in
+ >>> order to send a new 2048 bits RSA key.
+
+ >> Indeed, if you have no keys around, the (automatically generated)
+ >> committers.txt file will not list you.
+
+ > On the other hand, docs.python.org/devguide/developers.html still will
+ > (and does).
+
+According to
+
+ 
+https://docs.python.org/devguide/faq.html#how-do-i-generate-an-ssh-2-public-key
+
+the place to send keys is
+
+   hgaccounts at python.org
+
+--
+~Ethan~
+
+From larry at hastings.org  Mon Dec  7 00:06:46 2015
+From: larry at hastings.org (Larry Hastings)
+Date: Sun, 6 Dec 2015 21:06:46 -0800
+Subject: [python-committers] [RELEASED] Python 3.5.1 and 3.4.4rc1 are now
+ available
+Message-ID: <566513E6.9050108@hastings.org>
+
+
+On behalf of the Python development community and the Python 3.4 and 3.5 
+release teams, I'm pleased to announce the simultaneous availability of 
+Python 3.5.1 and Python 3.4.4rc1.   As point releases, both have many 
+incremental improvements over their predecessor releases.
+
+
+You can find Python 3.5.1 here:
+
+    https://www.python.org/downloads/release/python-351/
+
+And you can find Python 3.4.4rc1 here:
+
+    https://www.python.org/downloads/release/python-344rc1/
+
+
+Python 2.7.11 shipped today too, so it's a Python release-day hat trick!
+
+
+Happy computing,
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20151206/1694bacf/attachment.html>
+
+From jcea at jcea.es  Fri Dec 11 16:50:12 2015
+From: jcea at jcea.es (Jesus Cea)
+Date: Fri, 11 Dec 2015 22:50:12 +0100
+Subject: [python-committers] I am nos selectable in the bugtracker
+Message-ID: <566B4514.3070308@jcea.es>
+
+After sending my new SSH key I have recovered "push" abilities in the
+mercurial repository, but it looks like I am not present in the bug
+tracker "assigned to" field.
+
+Thanks for your time.
+
+-- 
+Jes?s Cea Avi?n                         _/_/      _/_/_/        _/_/_/
+jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+Twitter: @jcea                        _/_/    _/_/          _/_/_/_/_/
+jabber / xmpp:jcea at jabber.org  _/_/  _/_/    _/_/          _/_/  _/_/
+"Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+"My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+"El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 473 bytes
+Desc: OpenPGP digital signature
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20151211/50bf711c/attachment.sig>
+
+From zachary.ware+pydev at gmail.com  Fri Dec 11 17:01:39 2015
+From: zachary.ware+pydev at gmail.com (Zachary Ware)
+Date: Fri, 11 Dec 2015 16:01:39 -0600
+Subject: [python-committers] I am nos selectable in the bugtracker
+In-Reply-To: <566B4514.3070308@jcea.es>
+References: <566B4514.3070308@jcea.es>
+Message-ID: <CAKJDb-PCcj0gHkLsosWYyJ+QRb8RD8O+FPakRsabB+CrCpj1UQ@mail.gmail.com>
+
+On Fri, Dec 11, 2015 at 3:50 PM, Jesus Cea <jcea at jcea.es> wrote:
+> After sending my new SSH key I have recovered "push" abilities in the
+> mercurial repository, but it looks like I am not present in the bug
+> tracker "assigned to" field.
+
+I see you in 'assigned to', as 'jcea'.  Your own username is always at
+the very top of the list.
+
+-- 
+Zach
+
+From rdmurray at bitdance.com  Fri Dec 11 17:03:33 2015
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Fri, 11 Dec 2015 17:03:33 -0500
+Subject: [python-committers] I am nos selectable in the bugtracker
+In-Reply-To: <566B4514.3070308@jcea.es>
+References: <566B4514.3070308@jcea.es>
+Message-ID: <20151211220334.A34E22510EB@webabinitio.net>
+
+On Fri, 11 Dec 2015 22:50:12 +0100, Jesus Cea <jcea at jcea.es> wrote:
+> After sending my new SSH key I have recovered "push" abilities in the
+> mercurial repository, but it looks like I am not present in the bug
+> tracker "assigned to" field.
+
+I see jcea there.
+
+--David
+
+From brett at python.org  Sat Dec 12 18:32:35 2015
+From: brett at python.org (Brett Cannon)
+Date: Sat, 12 Dec 2015 23:32:35 +0000
+Subject: [python-committers] Would anyone STOP contributing to Python if we
+ used GitHub?
+Message-ID: <CAP1=2W5zN+m8OXG8EKWOiW-2dgnjwyCi7bsyxQQU4L_6F+9XfQ@mail.gmail.com>
+
+Over at core-workflow@ we are discussing details of the GitHub and GitLab
+proposals and one of the worries the GitLab supporters have brought up is
+that some core developers could flat-out stop contributing if we moved to
+GitHub. Now I have major doubts that's true as no one has told me that is
+the case yet after all the time that this workflow change has been
+discussed, but I would not be doing my due diligence if I didn't check to
+make sure I truly didn't need to consider this in my final decision.
+
+So, if you would actually *stop* contributing to Python's development if we
+switched to GitHub, please let me know (and this is obviously addressed to
+us core developers and not external contributors since they can always
+submit old-style patches through the issue tracker). This is not asking
+about preference or you would only begrudgingly use GitHub since some
+people will begrudgingly do whatever decision I reach, so please don't
+reply about begrudging use so I can keep the signal:noise ratio down; only
+reply with  "I will quit Python over GitHub" emails.
+
+You can email me privately if you want, but let me know if you care if I
+share this with very select people like Guido. Also realize that anyone who
+says they will walk away will be held to their word; if we still choose to
+switch to GitHub I will expect you to no longer contribute to Python and
+will personally hold you to your word (which also makes private emails a
+little moot, but I can understand if you would rather fade away than make a
+public political statement). I'm saying this not to be threaten people into
+not giving me an answer but because I want to get the point across that
+this is a very serious question, so I don't want any wavering on the answer.
+
+Please let me know by Wednesday, Dec 16 if you would walk away. I know it's
+not a ton of time but I said I expect silence so I don't want to be sitting
+around to find out the results of this question.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20151212/83cd4019/attachment.html>
+
+From stefan at bytereef.org  Sun Dec 13 12:55:00 2015
+From: stefan at bytereef.org (s.krah)
+Date: Sun, 13 Dec 2015 18:55:00 +0100
+Subject: [python-committers] Would anyone STOP contributing to Python if
+ we used GitHub?
+In-Reply-To: <CAP1=2W5zN+m8OXG8EKWOiW-2dgnjwyCi7bsyxQQU4L_6F+9XfQ@mail.gmail.com>
+References: <CAP1=2W5zN+m8OXG8EKWOiW-2dgnjwyCi7bsyxQQU4L_6F+9XfQ@mail.gmail.com>
+Message-ID: <1519c7b3ab6.e435baa3124677.5675721965312467708@bytereef.org>
+
+
+
+Brett Cannon &lt;brett at python.org&gt; wrote:
+&gt; You can email me privately if you want, but let me know if you care if I share this with
+&gt; very select people like Guido. Also realize that anyone who says they will walk away will
+&gt; be held to their word; if we still choose to switch to GitHub I will expect you to no longer
+&gt; contribute to Python and will personally hold you to your word (which also makes private
+&gt; emails a little moot, but I can understand if you would rather fade away than make a public
+&gt; political statement). I'm saying this not to be threaten people into not giving me an answer
+&gt; but because I want to get the point across that this is a very serious question, so I don't
+&gt; want any wavering on the answer.
+
+
+
+This doesn't concern me, since I've already said on core-workflow that I'll stay
+regardless of the decision.   Still, this sounds more like an ultimatum than a survey. ;)
+
+Wavering is completely natural on such matters, for example the ctypes maintainer
+mentioned in his goodbye message (shortly after the svn -&gt; hg transition) that he
+hadn't even looked at mercurial yet.  Which indicates to me that churn in the
+workflow can be a contributing factor in decisions like that.
+
+
+More than that, changing one's opinion is rather natural, too.  As a real world
+example, I intensely disliked f-strings when they were discussed initially.  I
+prudently stayed out of the discussion altogether, and when I saw Eric's
+implementation I was instantly sold.  That's a complete reversal from -1 to +1.
+
+
+I can't imagine that a statistician would accept any results derived from an
+inquiry worded like that.
+
+
+Stefan Krah
+
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20151213/52eebce3/attachment.html>
+
+From brett at python.org  Sun Dec 13 14:28:04 2015
+From: brett at python.org (Brett Cannon)
+Date: Sun, 13 Dec 2015 19:28:04 +0000
+Subject: [python-committers] Would anyone STOP contributing to Python if
+ we used GitHub?
+In-Reply-To: <1519c7b3ab6.e435baa3124677.5675721965312467708@bytereef.org>
+References: <CAP1=2W5zN+m8OXG8EKWOiW-2dgnjwyCi7bsyxQQU4L_6F+9XfQ@mail.gmail.com>
+ <1519c7b3ab6.e435baa3124677.5675721965312467708@bytereef.org>
+Message-ID: <CAP1=2W6YeqovjRy5aTzZ7d2UdN+NvvU2FnuZt2nosqJ_psvaLQ@mail.gmail.com>
+
+On Sun, 13 Dec 2015 at 09:55 s.krah <stefan at bytereef.org> wrote:
+
+>
+> *Brett Cannon <brett at python.org <brett at python.org>>* wrote:
+> > You can email me privately if you want, but let me know if you care if I
+> share this with
+> > very select people like Guido. Also realize that anyone who says they
+> will walk away will
+> > be held to their word; if we still choose to switch to GitHub I will
+> expect you to no longer
+> > contribute to Python and will personally hold you to your word (which
+> also makes private
+> > emails a little moot, but I can understand if you would rather fade away
+> than make a public
+> > political statement). I'm saying this not to be threaten people into not
+> giving me an answer
+> > but because I want to get the point across that this is a very serious
+> question, so I don't
+> > want any wavering on the answer.
+>
+> This doesn't concern me, since I've already said on core-workflow that
+> I'll stay
+> regardless of the decision.   Still, this sounds more like an ultimatum
+> than a survey. ;)
+>
+
+It's about absolutes and not maybes for me on this question.
+
+
+>
+> Wavering is completely natural on such matters, for example the ctypes
+> maintainer
+> mentioned in his goodbye message (shortly after the svn -> hg transition)
+> that he
+> hadn't even looked at mercurial yet.  Which indicates to me that churn in
+> the
+> workflow can be a contributing factor in decisions like that.
+>
+
+Sure, and I have already received an email from someone saying that a
+change to git might really hurt their ability to ramp up and contribute at
+their admittedly small amount that they currently do (I also pointed out
+hg-git exists so it won't be quite a transition as the svn -> hg one).
+
+
+>
+>
+> More than that, changing one's opinion is rather natural, too.  As a real
+> world
+> example, I intensely disliked f-strings when they were discussed
+> initially.  I
+> prudently stayed out of the discussion altogether, and when I saw Eric's
+> implementation I was instantly sold.  That's a complete reversal from -1
+> to +1.
+>
+
+And that's fine and I'm not saying some people won't come to dislike
+whatever decision I make (I actually expect it). But the whole point with
+this is to find out if anyone is fundamentally against GitHub at a moral
+level. You can say you don't like GitHub's workflow style, their colours,
+whatever, and you can possibly get over it. But if you have moral issues
+ with GitHub because it's closed source or commercial and refuse to use it
+on that basis then the chances of you changing your mind on that is
+probably fairly slim.
+
+
+>
+> I can't imagine that a statistician would accept any results derived from
+> an
+> inquiry worded like that.
+>
+
+My inquiry is to see if anyone has such reservations about GitHub that
+there is no chance they will ever use it because of fundamentally held
+beliefs. The email is strongly worded because I only care about people with
+strong feelings. The email was purposefully worded to measure a specific
+sentiment.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20151213/76b281ec/attachment.html>
+
+From vinay_sajip at yahoo.co.uk  Tue Dec 15 11:58:42 2015
+From: vinay_sajip at yahoo.co.uk (Vinay Sajip)
+Date: Tue, 15 Dec 2015 16:58:42 +0000 (UTC)
+Subject: [python-committers] Would anyone STOP contributing to Python if
+ we used GitHub?
+References: <CAP1=2W5zN+m8OXG8EKWOiW-2dgnjwyCi7bsyxQQU4L_6F+9XfQ@mail.gmail.com>
+Message-ID: <loom.20151215T174851-679@post.gmane.org>
+
+Brett Cannon <brett <at> python.org> writes:
+
+> Over at core-workflow we are discussing details of the GitHub and GitLab
+> proposals
+
+I don't have any strong feelings against GitHub, and I understand you want
+to bring out strong feelings, but
+
+> Also realize that anyone who says they will walk away will be held to
+> their word; if we still choose to switch to GitHub I will expect you to
+> no longer contribute to Python and will personally hold you to your word
+
+seems a little strong. Even principled people can change their minds about
+things, can't they? To me, this does come across like an ultimatum (Stefan's
+word) or a threat (your word) - as if you want to somehow punish people who
+make the "wrong" decision now, even if they relent later (which might be for
+perfectly valid reasons). What's the justification for this bit of it? I
+would have thought it would be enough for people to say if they are going to
+walk away - if they later on change their minds, eat humble pie (which would
+be evident to those who care) and want to come back, why would you want to
+exclude contributors who have already passed a certain commitment/competence
+bar to become Python committers? One of the reasons touted for adopting
+GitHub is to increase the number of contributors and contributions, not to
+decrease them, surely.
+
+Perhaps I've just misunderstood the tone in your post. I hope that's so.
+
+Regards,
+
+Vinay Sajip
+
+
+From brett at python.org  Tue Dec 15 12:11:50 2015
+From: brett at python.org (Brett Cannon)
+Date: Tue, 15 Dec 2015 17:11:50 +0000
+Subject: [python-committers] Would anyone STOP contributing to Python if
+ we used GitHub?
+In-Reply-To: <loom.20151215T174851-679@post.gmane.org>
+References: <CAP1=2W5zN+m8OXG8EKWOiW-2dgnjwyCi7bsyxQQU4L_6F+9XfQ@mail.gmail.com>
+ <loom.20151215T174851-679@post.gmane.org>
+Message-ID: <CAP1=2W5zAeKOdMrqnet_rnfDrpWhKLYRgwZ2of4k=8ev1mHrMw@mail.gmail.com>
+
+On Tue, 15 Dec 2015 at 08:58 Vinay Sajip <vinay_sajip at yahoo.co.uk> wrote:
+
+> Brett Cannon <brett <at> python.org> writes:
+>
+> > Over at core-workflow we are discussing details of the GitHub and GitLab
+> > proposals
+>
+> I don't have any strong feelings against GitHub, and I understand you want
+> to bring out strong feelings, but
+>
+> > Also realize that anyone who says they will walk away will be held to
+> > their word; if we still choose to switch to GitHub I will expect you to
+> > no longer contribute to Python and will personally hold you to your word
+>
+> seems a little strong. Even principled people can change their minds about
+> things, can't they?
+
+
+Of course they can.
+
+
+> To me, this does come across like an ultimatum (Stefan's
+> word) or a threat (your word) - as if you want to somehow punish people who
+> make the "wrong" decision now, even if they relent later (which might be
+> for
+> perfectly valid reasons). What's the justification for this bit of it?
+
+
+
+> I
+> would have thought it would be enough for people to say if they are going
+> to
+> walk away - if they later on change their minds, eat humble pie (which
+> would
+> be evident to those who care) and want to come back, why would you want to
+> exclude contributors who have already passed a certain
+> commitment/competence
+> bar to become Python committers? One of the reasons touted for adopting
+> GitHub is to increase the number of contributors and contributions, not to
+> decrease them, surely.
+>
+> Perhaps I've just misunderstood the tone in your post. I hope that's so.
+>
+
+It's meant to convey that I want people to seriously think about telling me
+that GitHub would cause them to walk away. I'm not interested in knee jerk
+reactions here because telling me that GitHub will walk away is a very
+serious statement that potentially impacts us all.
+
+And I didn't say "leave and never come back", I simply said "plan to leave
+because you said you would". If I announce on January 1 we are going with
+GitHub I don't really expect your view to change in two weeks, so be
+prepared to stick to your word. Now if after walking away and some months
+have passed you have a change of heart then of course you can admit you
+have changed your mind and come back. They key point here -- and why I
+didn't do an anonymous survey -- is that I need the weight of this to be
+properly communicated; if there were a group of core developers who had
+ideological issues with GitHub to the point of leaving Python development
+then I need to know that to know if that minority is enough to warrant
+ignoring GitHub for all of us.
+
+I'm sorry if this came off as a threat that I'm holding over people to
+scare them or it comes off as me trying to be a bully to people. I'm simply
+trying to make sure I get answers to this question which are truly sincere
+and the importance of the answer is properly communicated.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20151215/33ec52db/attachment.html>
+
+From ethan at stoneleaf.us  Tue Dec 15 14:40:56 2015
+From: ethan at stoneleaf.us (Ethan Furman)
+Date: Tue, 15 Dec 2015 11:40:56 -0800
+Subject: [python-committers] Would anyone STOP contributing to Python if
+ we used GitHub?
+In-Reply-To: <CAP1=2W5zN+m8OXG8EKWOiW-2dgnjwyCi7bsyxQQU4L_6F+9XfQ@mail.gmail.com>
+References: <CAP1=2W5zN+m8OXG8EKWOiW-2dgnjwyCi7bsyxQQU4L_6F+9XfQ@mail.gmail.com>
+Message-ID: <56706CC8.1070101@stoneleaf.us>
+
+On 12/12/2015 03:32 PM, Brett Cannon wrote:
+
+ > Over at core-workflow@ we are discussing details of the GitHub and
+ > GitLab proposals and one of the worries the GitLab supporters have
+ > brought up is that some core developers could flat-out stop
+ > contributing if we moved to GitHub. Now I have major doubts that's
+ > true as no one has told me that is the case yet after all the time
+ > that this workflow change has been discussed, but I would not be
+ > doing my due diligence if I didn't check to make sure I truly didn't
+ > need to consider this in my final decision.
+ >
+ > So, if you would actually *stop* contributing to Python's development
+ > if we switched to GitHub, please let me know.
+
+http://techcrunch.com/2014/03/15/julie-ann-horvath-describes-sexism-and-intimidation-behind-her-github-exit/
+
+http://www.theverge.com/2014/3/19/5526574/github-sexism-scandal-julie-ann-horvath
+
+http://www.dailydot.com/technology/julie-ann-horvath-quits-github-sexism-harassment/
+
+http://readwrite.com/2014/04/24/github-women-reputation-julie-ann-horvath
+
+http://bits.blogs.nytimes.com/2014/04/21/github-founder-resigns-after-investigation/?_r=0
+
+I love Python (as I'm sure all core developers do), and I am not over 
+burdened with a sense of my own importance though I do think my 
+contributions have made Python better (PEP 409, PEP 435, PEP 461). 
+However, I cannot and will not be associated with a project that 
+supports GitHub until such time as GitHub becomes a decent place for 
+women to work.
+
+Those links are a year and half old, so if there is current evidence to 
+the contrary I'm interested in seeing it.
+
+If there is not, then it behooves us to act according to our own words 
+claiming support for women and not use GitHUb, perhaps even blogging 
+about our decision and its reasons to apply some pressure to them to 
+affect a change.
+
+I sincerely hope I am not alone in these feelings.
+
+--
+~Ethan~
+
+From ethan at stoneleaf.us  Tue Dec 15 15:07:02 2015
+From: ethan at stoneleaf.us (Ethan Furman)
+Date: Tue, 15 Dec 2015 12:07:02 -0800
+Subject: [python-committers] Would anyone STOP contributing to Python if
+ we used GitHub?
+In-Reply-To: <56706CC8.1070101@stoneleaf.us>
+References: <CAP1=2W5zN+m8OXG8EKWOiW-2dgnjwyCi7bsyxQQU4L_6F+9XfQ@mail.gmail.com>
+ <56706CC8.1070101@stoneleaf.us>
+Message-ID: <567072E6.9020700@stoneleaf.us>
+
+On 12/15/2015 11:40 AM, Ethan Furman wrote:
+
+ > I cannot and will not be associated with a project that
+ > supports GitHub [...]
+
+Lest anyone accuse me of hypocrisy because I have a GitHub account, it 
+is required for a class I am taking, and will be deleted (or at least go 
+unused) once that class is finished.
+
+My repos are on BitBucket.
+
+--
+~Ethan~
+
+From senthil at uthcode.com  Tue Dec 15 15:41:23 2015
+From: senthil at uthcode.com (Senthil Kumaran)
+Date: Tue, 15 Dec 2015 12:41:23 -0800
+Subject: [python-committers] Would anyone STOP contributing to Python if
+ we used GitHub?
+In-Reply-To: <56706CC8.1070101@stoneleaf.us>
+References: <CAP1=2W5zN+m8OXG8EKWOiW-2dgnjwyCi7bsyxQQU4L_6F+9XfQ@mail.gmail.com>
+ <56706CC8.1070101@stoneleaf.us>
+Message-ID: <CAPOVWOTk2pev_zhVWhq37MRLQMLm5PgD-MrtLS8ToQLS-xYLsw@mail.gmail.com>
+
+Hello Ethan,
+
+On Tue, Dec 15, 2015 at 11:40 AM, Ethan Furman <ethan at stoneleaf.us> wrote:
+
+> Those links are a year and half old, so if there is current evidence to
+> the contrary I'm interested in seeing it.
+>
+
+These are the follow-up articles which state that Github Inc has taken some
+actions to correct the "mistakes" they might have done.
+
+https://github.com/blog/1826-follow-up-to-the-investigation-results
+https://github.com/blog/2039-adopting-the-open-code-of-conduct
+
+
+> If there is not, then it behooves us to act according to our own words
+> claiming support for women and not use GitHUb, perhaps even blogging about
+> our decision and its reasons to apply some pressure to them to affect a
+> change.
+>
+> I sincerely hope I am not alone in these feelings.
+>
+
+As you noted, they are more than a year old and re-churning this may not be
+in our best interest IMHO. It is like ignoring any action the company might
+have done to correct mistakes (the above blog links).
+
+I am +1 on moving development to Github because of technical reasons. If we
+have doubts on the culture of the company, it may be a good idea to talk
+directly to their public relations department or an informal chat with
+women who currently work at Github and get a firsthand view of the place
+and not be biased with reports in media, especially the old ones.
+
+Thanks,
+Senthil
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20151215/7da6867a/attachment.html>
+
+From nas-python at arctrix.com  Tue Dec 15 15:49:23 2015
+From: nas-python at arctrix.com (Neil Schemenauer)
+Date: Tue, 15 Dec 2015 12:49:23 -0800
+Subject: [python-committers] Would anyone STOP contributing to Python if
+ we used GitHub?
+In-Reply-To: <loom.20151215T174851-679@post.gmane.org>
+References: <CAP1=2W5zN+m8OXG8EKWOiW-2dgnjwyCi7bsyxQQU4L_6F+9XfQ@mail.gmail.com>
+ <loom.20151215T174851-679@post.gmane.org>
+Message-ID: <20151215204923.GA3787@python.ca>
+
+On 2015-12-15, Vinay Sajip wrote:
+> Brett Cannon <brett <at> python.org> writes:
+> > Also realize that anyone who says they will walk away will be held to
+> > their word; if we still choose to switch to GitHub I will expect you to
+> > no longer contribute to Python and will personally hold you to your word
+> 
+> seems a little strong. Even principled people can change their minds about
+> things, can't they? To me, this does come across like an ultimatum (Stefan's
+> word) or a threat (your word)
+
+I agree this is too strong.  If people don't want to use GitHub,
+they can clone from a different repos, maybe PSF can even provide
+one.  Patches can be sent using the 'git am' command.  I don't see
+why not using GitHub means you can't contribute to Python.  We would
+be rejecting valuable contributions for no good reason.
+
+You could say something like "you will not get commit access through
+GitHub".  I.e. you will have to get someone else to commit or pull
+your changes.
+
+Regards,
+
+  Neil
+
+From ethan at stoneleaf.us  Tue Dec 15 16:00:04 2015
+From: ethan at stoneleaf.us (Ethan Furman)
+Date: Tue, 15 Dec 2015 13:00:04 -0800
+Subject: [python-committers] Would anyone STOP contributing to Python if
+ we used GitHub?
+In-Reply-To: <CAPOVWOTk2pev_zhVWhq37MRLQMLm5PgD-MrtLS8ToQLS-xYLsw@mail.gmail.com>
+References: <CAP1=2W5zN+m8OXG8EKWOiW-2dgnjwyCi7bsyxQQU4L_6F+9XfQ@mail.gmail.com>
+ <56706CC8.1070101@stoneleaf.us>
+ <CAPOVWOTk2pev_zhVWhq37MRLQMLm5PgD-MrtLS8ToQLS-xYLsw@mail.gmail.com>
+Message-ID: <56707F54.1090806@stoneleaf.us>
+
+On 12/15/2015 12:41 PM, Senthil Kumaran wrote:
+
+ > These are the follow-up articles which state that Github Inc has
+ > taken some actions to correct the "mistakes" they might have done.
+ >
+ > https://github.com/blog/1826-follow-up-to-the-investigation-results
+ > https://github.com/blog/2039-adopting-the-open-code-of-conduct
+
+Thank you.  It would seem they are at least trying, which is heartening.
+
+I withdraw my objections.
+
+--
+~Ethan~
+
+From barry at python.org  Tue Dec 15 15:59:38 2015
+From: barry at python.org (Barry Warsaw)
+Date: Tue, 15 Dec 2015 15:59:38 -0500
+Subject: [python-committers] Would anyone STOP contributing to Python if
+ we used GitHub?
+In-Reply-To: <CAPOVWOTk2pev_zhVWhq37MRLQMLm5PgD-MrtLS8ToQLS-xYLsw@mail.gmail.com>
+References: <CAP1=2W5zN+m8OXG8EKWOiW-2dgnjwyCi7bsyxQQU4L_6F+9XfQ@mail.gmail.com>
+ <56706CC8.1070101@stoneleaf.us>
+ <CAPOVWOTk2pev_zhVWhq37MRLQMLm5PgD-MrtLS8ToQLS-xYLsw@mail.gmail.com>
+Message-ID: <20151215155938.13d89639@limelight.wooz.org>
+
+On Dec 15, 2015, at 12:41 PM, Senthil Kumaran wrote:
+
+>If we have doubts on the culture of the company, it may be a good idea to
+>talk directly to their public relations department or an informal chat with
+>women who currently work at Github and get a firsthand view of the place and
+>not be biased with reports in media, especially the old ones.
+
+Jono Bacon, a former colleague of mine and former Ubuntu Community Manager is
+now Director of Community at GitHub.  I'd be happy to reach out to him with
+any of our concerns in this regard.
+
+Cheers,
+-Barry
+
+From ethan at stoneleaf.us  Tue Dec 15 16:06:25 2015
+From: ethan at stoneleaf.us (Ethan Furman)
+Date: Tue, 15 Dec 2015 13:06:25 -0800
+Subject: [python-committers] Would anyone STOP contributing to Python if
+ we used GitHub?
+In-Reply-To: <20151215155938.13d89639@limelight.wooz.org>
+References: <CAP1=2W5zN+m8OXG8EKWOiW-2dgnjwyCi7bsyxQQU4L_6F+9XfQ@mail.gmail.com>
+ <56706CC8.1070101@stoneleaf.us>
+ <CAPOVWOTk2pev_zhVWhq37MRLQMLm5PgD-MrtLS8ToQLS-xYLsw@mail.gmail.com>
+ <20151215155938.13d89639@limelight.wooz.org>
+Message-ID: <567080D1.6030504@stoneleaf.us>
+
+On 12/15/2015 12:59 PM, Barry Warsaw wrote:
+> On Dec 15, 2015, at 12:41 PM, Senthil Kumaran wrote:
+>
+>> If we have doubts on the culture of the company, it may be a good idea to
+>> talk directly to their public relations department or an informal chat with
+>> women who currently work at Github and get a firsthand view of the place and
+>> not be biased with reports in media, especially the old ones.
+>
+> Jono Bacon, a former colleague of mine and former Ubuntu Community Manager is
+> now Director of Community at GitHub.  I'd be happy to reach out to him with
+> any of our concerns in this regard.
+
+I don't know what other concerns there might be, but I think it would be 
+good to collect them and ask Jono about them.  If past issues have 
+changed for the better then the more who know the better; likewise, if 
+there are still issues we should be cognizant of them.
+
+--
+~Ethan~
+
+
+From barry at python.org  Tue Dec 15 16:09:10 2015
+From: barry at python.org (Barry Warsaw)
+Date: Tue, 15 Dec 2015 16:09:10 -0500
+Subject: [python-committers] Would anyone STOP contributing to Python if
+ we used GitHub?
+In-Reply-To: <567080D1.6030504@stoneleaf.us>
+References: <CAP1=2W5zN+m8OXG8EKWOiW-2dgnjwyCi7bsyxQQU4L_6F+9XfQ@mail.gmail.com>
+ <56706CC8.1070101@stoneleaf.us>
+ <CAPOVWOTk2pev_zhVWhq37MRLQMLm5PgD-MrtLS8ToQLS-xYLsw@mail.gmail.com>
+ <20151215155938.13d89639@limelight.wooz.org>
+ <567080D1.6030504@stoneleaf.us>
+Message-ID: <20151215160910.4d737e48@limelight.wooz.org>
+
+On Dec 15, 2015, at 01:06 PM, Ethan Furman wrote:
+
+>I don't know what other concerns there might be, but I think it would be good
+>to collect them and ask Jono about them.  If past issues have changed for the
+>better then the more who know the better; likewise, if there are still issues
+>we should be cognizant of them.
+
+If anybody has specific questions they'd like Jono to answer, send them to me
+off-list in the next few days.  I'll compile them and forward them on to
+Jono.  I'll repeat the offer on the workflow mailing list.
+
+Cheers,
+-Barry
+
+From brett at python.org  Tue Dec 15 16:11:26 2015
+From: brett at python.org (Brett Cannon)
+Date: Tue, 15 Dec 2015 21:11:26 +0000
+Subject: [python-committers] Would anyone STOP contributing to Python if
+ we used GitHub?
+In-Reply-To: <20151215204923.GA3787@python.ca>
+References: <CAP1=2W5zN+m8OXG8EKWOiW-2dgnjwyCi7bsyxQQU4L_6F+9XfQ@mail.gmail.com>
+ <loom.20151215T174851-679@post.gmane.org> <20151215204923.GA3787@python.ca>
+Message-ID: <CAP1=2W5VyXNVL7wT922=4SiVcY55LM+3OxMqfkh8N7kVtggOpA@mail.gmail.com>
+
+On Tue, 15 Dec 2015 at 12:49 Neil Schemenauer <nas-python at arctrix.com>
+wrote:
+
+> On 2015-12-15, Vinay Sajip wrote:
+> > Brett Cannon <brett <at> python.org> writes:
+> > > Also realize that anyone who says they will walk away will be held to
+> > > their word; if we still choose to switch to GitHub I will expect you to
+> > > no longer contribute to Python and will personally hold you to your
+> word
+> >
+> > seems a little strong. Even principled people can change their minds
+> about
+> > things, can't they? To me, this does come across like an ultimatum
+> (Stefan's
+> > word) or a threat (your word)
+>
+> I agree this is too strong.  If people don't want to use GitHub,
+> they can clone from a different repos, maybe PSF can even provide
+> one.  Patches can be sent using the 'git am' command.  I don't see
+> why not using GitHub means you can't contribute to Python.  We would
+> be rejecting valuable contributions for no good reason.
+
+
+> You could say something like "you will not get commit access through
+> GitHub".  I.e. you will have to get someone else to commit or pull
+> your changes.
+>
+
+That's exactly what I meant; I'm not going to push to ban someone from
+uploading a patch to bugs.python.org. This is entirely about commit/push
+privileges and who would relinquish them if we switched to GitHub (and
+simply expecting them to follow through on their relinquishment if they
+said they would).
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20151215/a155288c/attachment.html>
+
+From jcea at jcea.es  Tue Dec 15 16:51:07 2015
+From: jcea at jcea.es (Jesus Cea)
+Date: Tue, 15 Dec 2015 22:51:07 +0100
+Subject: [python-committers] Would anyone STOP contributing to Python if
+ we used GitHub?
+In-Reply-To: <CAP1=2W5zAeKOdMrqnet_rnfDrpWhKLYRgwZ2of4k=8ev1mHrMw@mail.gmail.com>
+References: <CAP1=2W5zN+m8OXG8EKWOiW-2dgnjwyCi7bsyxQQU4L_6F+9XfQ@mail.gmail.com>
+ <loom.20151215T174851-679@post.gmane.org>
+ <CAP1=2W5zAeKOdMrqnet_rnfDrpWhKLYRgwZ2of4k=8ev1mHrMw@mail.gmail.com>
+Message-ID: <56708B4B.7080506@jcea.es>
+
+On 15/12/15 18:11, Brett Cannon wrote:
+
+> I'm sorry if this came off as a threat that I'm holding over people to
+> scare them or it comes off as me trying to be a bully to people. I'm
+> simply trying to make sure I get answers to this question which are
+> truly sincere and the importance of the answer is properly communicated.
+
+I don't like github. Centralization is a threat and I try to do as much
+as I can to counterbalance it. That Python developers helps github to
+get bigger even is something to be sad about.
+
+I love Mercurial. I think that GIT is inconsistent and dangerous, and
+the only reason for its success is networking effect and services like
+github. I must say that I was proud of Python committers when the
+decision to migrate to Mercurial was done.
+
+I have quite strong opinions about all this.
+
+That said, I value Python a lot and my status as a core developer, even
+if my contributions are sparse. I want to help to improve the language
+and I enjoy to be part of the process.
+
+Migrating to github, if it happens, WILL NOT stop my contributions at
+all, but for me is a lost battle against centralization, independence,
+and what Internet should be. Helping to grow a private business where WE
+would be the product, with a future plan/roadmap we don't have a word
+about and just to use a closed source product. Interestingly, git was
+created as a reaction to bitkeeper closed product...
+<https://en.wikipedia.org/wiki/Git_%28software%29#History>.
+
+I realize that my weight as a very low activity committer is minimal and
+I don't have an alternative proposal. Just voicing my disappointment.
+
+PS: Given a migration to a closed service, I would rather prefer to
+migrate to bitbucket, even using GIT (puf!), just to help to keep alive
+a healthy competition to GitHUB.
+
+-- 
+Jes?s Cea Avi?n                         _/_/      _/_/_/        _/_/_/
+jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+Twitter: @jcea                        _/_/    _/_/          _/_/_/_/_/
+jabber / xmpp:jcea at jabber.org  _/_/  _/_/    _/_/          _/_/  _/_/
+"Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+"My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+"El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 473 bytes
+Desc: OpenPGP digital signature
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20151215/b4a02fc2/attachment-0001.sig>
+
+From barry at python.org  Tue Dec 15 17:00:53 2015
+From: barry at python.org (Barry Warsaw)
+Date: Tue, 15 Dec 2015 17:00:53 -0500
+Subject: [python-committers] Would anyone STOP contributing to Python if
+ we used GitHub?
+In-Reply-To: <56708B4B.7080506@jcea.es>
+References: <CAP1=2W5zN+m8OXG8EKWOiW-2dgnjwyCi7bsyxQQU4L_6F+9XfQ@mail.gmail.com>
+ <loom.20151215T174851-679@post.gmane.org>
+ <CAP1=2W5zAeKOdMrqnet_rnfDrpWhKLYRgwZ2of4k=8ev1mHrMw@mail.gmail.com>
+ <56708B4B.7080506@jcea.es>
+Message-ID: <20151215170053.192c88e6@limelight.wooz.org>
+
+On Dec 15, 2015, at 10:51 PM, Jesus Cea wrote:
+
+>I realize that my weight as a very low activity committer is minimal and
+>I don't have an alternative proposal.
+
+An alternative which meets many of your criteria is the GitLab proposal in PEP
+507.
+
+Cheers,
+-Barry
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 819 bytes
+Desc: OpenPGP digital signature
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20151215/356fb036/attachment.sig>
+
+From ncoghlan at gmail.com  Tue Dec 15 22:13:09 2015
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Wed, 16 Dec 2015 13:13:09 +1000
+Subject: [python-committers] Would anyone STOP contributing to Python if
+ we used GitHub?
+In-Reply-To: <20151215170053.192c88e6@limelight.wooz.org>
+References: <CAP1=2W5zN+m8OXG8EKWOiW-2dgnjwyCi7bsyxQQU4L_6F+9XfQ@mail.gmail.com>
+ <loom.20151215T174851-679@post.gmane.org>
+ <CAP1=2W5zAeKOdMrqnet_rnfDrpWhKLYRgwZ2of4k=8ev1mHrMw@mail.gmail.com>
+ <56708B4B.7080506@jcea.es>
+ <20151215170053.192c88e6@limelight.wooz.org>
+Message-ID: <CADiSq7dEPnFcpHY6E6VOAT9Th5qiGF+5UEiBe1iYPrCkymk93w@mail.gmail.com>
+
+On 16 December 2015 at 08:00, Barry Warsaw <barry at python.org> wrote:
+> On Dec 15, 2015, at 10:51 PM, Jesus Cea wrote:
+>
+>>I realize that my weight as a very low activity committer is minimal and
+>>I don't have an alternative proposal.
+>
+> An alternative which meets many of your criteria is the GitLab proposal in PEP
+> 507.
+
+(TL;DR of below: my own main concern has shifted to ensuring that,
+even if we choose GitHub now, we can still add GitLab, Kallithea or
+Phrabricator in parallel later, without disrupting the folks that
+genuinely prefer GitHub based workflows)
+
+For me personally, regardless of what happens in the near term, I
+still want to see us eventually offer a free-software-needs-free-tools
+friendly contribution path running on a project like GitLab CE,
+Kallithea or Phabricator.
+
+However, I'm also satisfied that, regardless of what we do on the free
+software side of things, we want to offer a GitHub based contribution
+path for folks familiar with that workflow (I now see this as similar
+to the fact we actively work to support both Windows and Mac OS X as
+user and contributor platforms, even though they're proprietary
+operating systems).
+
+Having accepted that my own long term goal is to minimise barriers to
+contribution both for folks accustomed to using popular proprietary
+platforms *and* for folks that aim to use exclusively free software,
+I've come around to the view that a compromise "open enough" solution
+that leaves *nobody* especially happy with the outcome likely isn't a
+good approach, and hence it's better to pursue a "parallel
+contribution path" model where we create two *interoperable*
+workflows, rather than a single *compromise* workflow.
+
+Splitting the two workflows that way means the folks that "just want
+something that works" can benefit from the use of a commercial
+freemium service, while folks that genuinely prefer to use free and
+open source tools are also generally willing to be a bit more
+forgiving of any deficiencies relative to better funded alternatives.
+
+That means my core requirements for the near term solution have
+changed markedly from those I documented in my withdrawn workflow
+PEPs: I now merely want to ensure we don't lock ourselves *out* of
+adding a parallel free-software-needs-free-tools contribution path
+later. The GitHub-with-a-merge-bot refinement currently being
+discussed on the core-workflow list clearly meets that criterion
+(since a merge bot can be updated to accept submissions from multiple
+sources), and the GitLab EE proposal in PEP 507 arguably does as well
+(the features we want from GitLab EE that aren't in GitLab CE are
+relatively minimal, and hence readily implemented on top of CE as an
+external script if desired).
+
+Cheers,
+Nick.
+
+P.S. As an analogy I've been working on, consider how folks typically
+approach creating a welcoming environment for vegetarians & vegans at
+a community event. Do they:
+
+1) serve exclusively vegetarian & vegan dishes?; or
+2) provide enjoyable vegetarian & vegan dishes, clearly marked as
+such, while also providing non-vegetarian options?
+
+The latter approach is by far the most common one, as the former risks
+vocal complaints about the lack of meat dishes from non-vegetarians at
+the event if your event isn't specifically about vegetarianism and
+veganism. The equivalent we see in open source workflow design is
+folks resenting being "forced" to use open source and free software
+solutions that they consider inferior (or at least unfamiliar) in
+order to participate, rather than being given a free choice between
+them and their more familiar proprietary competitors.
+
+By the same taken, nobody would consider a community event that
+refused to cater to special dietary needs to be a particularly
+welcoming event, which is why I consider it important to offer a
+free-software-needs-free-tools friendly approach to contribution.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+
+From vinay_sajip at yahoo.co.uk  Sat Dec 19 03:34:55 2015
+From: vinay_sajip at yahoo.co.uk (Vinay Sajip)
+Date: Sat, 19 Dec 2015 08:34:55 +0000 (UTC)
+Subject: [python-committers] JetBrains licenses for IDEs
+Message-ID: <loom.20151219T092342-956@post.gmane.org>
+
+Several committers have used JetBrains' PyCharm IDE in the past, and I am the 
+person who initially requested a license for Python committers. The last 
+license we had expired a while ago, and a couple of people asked me about 
+renewals.  So I applied to JetBrains for a renewed license.
+
+They have now very kindly responded with licenses for Python committers - not 
+just for PyCharm but for a number of their other development tools as well - 
+including IntelliJ IDEA, AppCode, CLion, PyCharm and others. The terms of the 
+license (which is valid for a year, but should be renewable) restricts usage 
+to development of non-commercial, open source software.
+
+JetBrains' new licensing model means that (IIUC) each user needs to have a 
+JetBrains account. Once you have set one up, let me know if you're interested 
+in using the tools and I'll email you a link you can visit to get your 
+license. Please note that we have a limited pool of licenses, and each click 
+of the link will, I understand, take one license from the pool. Please don't 
+share this link with anyone else, and if another committer asks you about it, 
+please refer them to me (so that I can keep track of who has what).
+
+Regards,
+
+Vinay Sajip
+
+
+
+From larry at hastings.org  Mon Dec 21 01:36:46 2015
+From: larry at hastings.org (Larry Hastings)
+Date: Sun, 20 Dec 2015 22:36:46 -0800
+Subject: [python-committers] [RELEASED] Python 3.4.4 is now available
+Message-ID: <56779DFE.9040709@hastings.org>
+
+
+On behalf of the Python development community and the Python 3.4 release 
+team, I'm pleased to announce the availability of Python 3.4.4.  Python 
+3.4.4 is the last version of Python 3.4.4 with binary installers, and 
+the end of "bugfix" support.  After this release, Python 3.4.4 moves 
+into "security fixes only" mode, and future releases will be 
+source-code-only.
+
+You can see what's changed in Python 3.4.4 (as compared to previous 
+versions of 3.4) here:
+
+     https://docs.python.org/3.4/whatsnew/changelog.html#python-3-4-4
+
+And you can download Python 3.4.4 here:
+
+     https://www.python.org/downloads/release/python-344/
+
+Windows and Mac users: please read the important platform-specific 
+"Notes on this release" section near the end of that page.
+
+
+One final note.  3.4.4 final marks the end of an era: it contains the 
+last Windows installers that will be built by Martin von Loewis.  Martin 
+has been the Windows release "Platform Expert" since the Python 2.4 
+release cycle started more than twelve years ago--in other words, for 
+more than half of Python's entire existence!  On behalf of the Python 
+community, and particularly on behalf of the Python release managers, 
+I'd like to thank Martin for his years of service to the community, and 
+for the care and professionalism he brought to his role.  It was a 
+pleasure working with him, and we wish him the very best in his future 
+projects.
+
+
+We hope you enjoy Python 3.4.4!
+
+Happy holidays,
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20151220/677cbd9e/attachment.html>
+

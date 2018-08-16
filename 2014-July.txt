@@ -1,0 +1,171 @@
+From victor.stinner at gmail.com  Tue Jul  8 13:18:19 2014
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Tue, 8 Jul 2014 13:18:19 +0200
+Subject: [python-committers] Commit access to PEPs for Ben Hoyt
+Message-ID: <CAMpsgwZ3KRtgds3KD=-kt5Zh5qbzjppZhKw-c2a37RJnPMvABw@mail.gmail.com>
+
+Hi,
+
+Ben Hoyt (benhoyt at gmail.com) is working on the os.scandir() PEP 471:
+http://legacy.python.org/dev/peps/pep-0471/
+
+Currently, he send me the PEP text and I update the repository. Would
+it be possible to give him access to the repository directly? (only to
+the peps reposistory)
+
+Victor
+
+From eliben at gmail.com  Tue Jul  8 16:06:22 2014
+From: eliben at gmail.com (Eli Bendersky)
+Date: Tue, 8 Jul 2014 07:06:22 -0700
+Subject: [python-committers] Commit access to PEPs for Ben Hoyt
+In-Reply-To: <CAMpsgwZ3KRtgds3KD=-kt5Zh5qbzjppZhKw-c2a37RJnPMvABw@mail.gmail.com>
+References: <CAMpsgwZ3KRtgds3KD=-kt5Zh5qbzjppZhKw-c2a37RJnPMvABw@mail.gmail.com>
+Message-ID: <CAF-Rda8Sehm9VENg4amW8tDmLzC+wV2DbBgQiKKkV4oeugi8XA@mail.gmail.com>
+
+On Tue, Jul 8, 2014 at 4:18 AM, Victor Stinner <victor.stinner at gmail.com>
+wrote:
+
+> Hi,
+>
+> Ben Hoyt (benhoyt at gmail.com) is working on the os.scandir() PEP 471:
+> http://legacy.python.org/dev/peps/pep-0471/
+>
+> Currently, he send me the PEP text and I update the repository. Would
+> it be possible to give him access to the repository directly? (only to
+> the peps reposistory)
+>
+>
++1
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20140708/288dd334/attachment.html>
+
+From greg at krypto.org  Tue Jul  8 17:41:50 2014
+From: greg at krypto.org (Gregory P. Smith)
+Date: Tue, 8 Jul 2014 08:41:50 -0700
+Subject: [python-committers] Commit access to PEPs for Ben Hoyt
+In-Reply-To: <CAF-Rda8Sehm9VENg4amW8tDmLzC+wV2DbBgQiKKkV4oeugi8XA@mail.gmail.com>
+References: <CAMpsgwZ3KRtgds3KD=-kt5Zh5qbzjppZhKw-c2a37RJnPMvABw@mail.gmail.com>
+ <CAF-Rda8Sehm9VENg4amW8tDmLzC+wV2DbBgQiKKkV4oeugi8XA@mail.gmail.com>
+Message-ID: <CAGE7PNLiFoNzmZqQmuiVDaHYS=LMJ15VUgAGeiPS3cDhJwHOSw@mail.gmail.com>
+
++1
+
+
+On Tue, Jul 8, 2014 at 7:06 AM, Eli Bendersky <eliben at gmail.com> wrote:
+
+>
+>
+>
+> On Tue, Jul 8, 2014 at 4:18 AM, Victor Stinner <victor.stinner at gmail.com>
+> wrote:
+>
+>> Hi,
+>>
+>> Ben Hoyt (benhoyt at gmail.com) is working on the os.scandir() PEP 471:
+>> http://legacy.python.org/dev/peps/pep-0471/
+>>
+>> Currently, he send me the PEP text and I update the repository. Would
+>> it be possible to give him access to the repository directly? (only to
+>> the peps reposistory)
+>>
+>>
+> +1
+>
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+>
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20140708/dfc89aea/attachment.html>
+
+From ncoghlan at gmail.com  Sat Jul 12 20:08:52 2014
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Sat, 12 Jul 2014 13:08:52 -0500
+Subject: [python-committers] Commit access to PEPs for Ben Hoyt
+In-Reply-To: <CAGE7PNLiFoNzmZqQmuiVDaHYS=LMJ15VUgAGeiPS3cDhJwHOSw@mail.gmail.com>
+References: <CAMpsgwZ3KRtgds3KD=-kt5Zh5qbzjppZhKw-c2a37RJnPMvABw@mail.gmail.com>
+ <CAF-Rda8Sehm9VENg4amW8tDmLzC+wV2DbBgQiKKkV4oeugi8XA@mail.gmail.com>
+ <CAGE7PNLiFoNzmZqQmuiVDaHYS=LMJ15VUgAGeiPS3cDhJwHOSw@mail.gmail.com>
+Message-ID: <CADiSq7chT-8XKg-tpsHN0b-37NFq4H5+H4L3bbmFnjqmMshdvg@mail.gmail.com>
+
+On 8 Jul 2014 11:42, "Gregory P. Smith" <greg at krypto.org> wrote:
+>
+> +1
+
++1 from me, too.
+
+Cheers,
+Nick.
+
+>
+>
+> On Tue, Jul 8, 2014 at 7:06 AM, Eli Bendersky <eliben at gmail.com> wrote:
+>>
+>>
+>>
+>>
+>> On Tue, Jul 8, 2014 at 4:18 AM, Victor Stinner <victor.stinner at gmail.com>
+wrote:
+>>>
+>>> Hi,
+>>>
+>>> Ben Hoyt (benhoyt at gmail.com) is working on the os.scandir() PEP 471:
+>>> http://legacy.python.org/dev/peps/pep-0471/
+>>>
+>>> Currently, he send me the PEP text and I update the repository. Would
+>>> it be possible to give him access to the repository directly? (only to
+>>> the peps reposistory)
+>>>
+>>
+>> +1
+>>
+>>
+>> _______________________________________________
+>> python-committers mailing list
+>> python-committers at python.org
+>> https://mail.python.org/mailman/listinfo/python-committers
+>>
+>
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20140712/3e6bfd38/attachment.html>
+
+From ncoghlan at gmail.com  Sun Jul 13 19:50:47 2014
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Sun, 13 Jul 2014 12:50:47 -0500
+Subject: [python-committers] Programming readability/usability study using
+	Python
+Message-ID: <CADiSq7caUZb1yKhNSbxikGBe2kNxxF2skTjQRDC_ah2ZGRM0og@mail.gmail.com>
+
+Via Gary Bernhardt, here's an interesting study on things that can
+make Python code hard to read:
+
+http://arxiv.org/pdf/1304.5257.pdf
+
+(I suggest trying the experiment yourself on Figure 1, before
+continuing on to read the explanation in the text - the result may
+surprise you!)
+
+I've also followed up with the researchers regarding the experimental
+design for their vertical whitespace question - I think it has some
+flaws that limit its applicability in real world code, so perhaps I
+can interest them in getting another paper out of it :)
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+

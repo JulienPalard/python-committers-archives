@@ -1,0 +1,986 @@
+From brian at python.org  Thu Jul  7 08:12:49 2016
+From: brian at python.org (Brian Curtin)
+Date: Thu, 7 Jul 2016 08:12:49 -0400
+Subject: [python-committers] MSDN subscriptions/renewals
+Message-ID: <CAD+XWwoevFao=PvTF5NCL=XyRuyz53Et5M_aPE-GepZqOqc6RQ@mail.gmail.com>
+
+Hey all,
+
+The fine folks at Microsoft have been giving us complimentary access
+to Microsoft Developer Network subscriptions for many years now in
+support of Python on Windows, and it's soon going to be expiration
+time (or past that) for some of your accounts.
+
+If any existing subscribers anyone would like a renewal, please send
+me both your email login as well as your Subscriber ID. You can find
+that at https://msdn.microsoft.com/en-us/subscriptions/manage/ once
+you're logged in.
+
+If you would like a subscription for the first time, which gives you
+access to Visual Studio, Windows disk images, and more, please send me
+all of the following:
+
+First Name:
+Last Name:
+Email Address:
+Project/Company: Python Software Foundation
+Complete Mailing Address:
+Phone Number:
+
+In order to ease the work on our Microsoft contact's side, I'd like to
+batch up the list of names that we send them, so I'm going to collect
+responses for a week or so and then send them off. After that it takes
+around a week for them to go through it and get everything enabled,
+after which Microsoft will send you an email about your new
+subscription.
+
+Brian
+
+From steve at pearwood.info  Thu Jul  7 12:03:50 2016
+From: steve at pearwood.info (Steven D'Aprano)
+Date: Fri, 8 Jul 2016 02:03:50 +1000
+Subject: [python-committers] Is it just me or is the tip broken at the
+ moment?
+Message-ID: <20160707160349.GZ27919@ando.pearwood.info>
+
+I'm wondering if I've broken something at my end, or if everyone is 
+seeing the same error.
+
+
+[steve at ando cpython]$ hg fetch
+pulling from ssh://hg at hg.python.org/cpython
+searching for changes
+no changes found
+[steve at ando cpython]$ hg update
+0 files updated, 0 files merged, 0 files removed, 0 files unresolved
+[steve at ando cpython]$ ./python
+Failed to import the site module
+Traceback (most recent call last):
+  File "/home/steve/python/python-dev/cpython/Lib/site.py", line 571, in <module>
+    main()
+  File "/home/steve/python/python-dev/cpython/Lib/site.py", line 557, in main
+    known_paths = addusersitepackages(known_paths)
+  File "/home/steve/python/python-dev/cpython/Lib/site.py", line 281, in addusersitepackages
+    user_site = getusersitepackages()
+  File "/home/steve/python/python-dev/cpython/Lib/site.py", line 257, in getusersitepackages
+    user_base = getuserbase() # this will also set USER_BASE
+  File "/home/steve/python/python-dev/cpython/Lib/site.py", line 247, in getuserbase
+    USER_BASE = get_config_var('userbase')
+  File "/home/steve/python/python-dev/cpython/Lib/sysconfig.py", line 591, in get_config_var
+    return get_config_vars().get(name)
+  File "/home/steve/python/python-dev/cpython/Lib/sysconfig.py", line 540, in get_config_vars
+    _init_posix(_CONFIG_VARS)
+  File "/home/steve/python/python-dev/cpython/Lib/sysconfig.py", line 411, in _init_posix
+    _temp = __import__(name, globals(), locals(), ['build_time_vars'], 0)
+ImportError: No module named '_sysconfigdata_dm'
+
+
+
+-- 
+Steve
+
+From zachary.ware+pydev at gmail.com  Thu Jul  7 12:15:29 2016
+From: zachary.ware+pydev at gmail.com (Zachary Ware)
+Date: Thu, 7 Jul 2016 11:15:29 -0500
+Subject: [python-committers] Is it just me or is the tip broken at the
+ moment?
+In-Reply-To: <20160707160349.GZ27919@ando.pearwood.info>
+References: <20160707160349.GZ27919@ando.pearwood.info>
+Message-ID: <CAKJDb-PesosjA_Brs7c991X-jDDrRy-EVixuocDjchqGFo6HLg@mail.gmail.com>
+
+On Thu, Jul 7, 2016 at 11:03 AM, Steven D'Aprano <steve at pearwood.info> wrote:
+> I'm wondering if I've broken something at my end, or if everyone is
+> seeing the same error.
+
+Works fine for me.  Have you rebuilt since pulling?  If a simple
+'make' doesn't do it for you, try an hg purge before redoing configure
+and make.  If you don't have the purge extension enabled, you can
+enable it for one command like so: `hg --config extensions.purge=
+purge --all`.  Note that `hg purge --all` will remove all untracked
+files, so be sure you don't have any stray files in the repo that you
+want to keep.
+
+-- 
+Zach
+
+From rdmurray at bitdance.com  Thu Jul  7 12:34:44 2016
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Thu, 07 Jul 2016 12:34:44 -0400
+Subject: [python-committers] Is it just me or is the tip broken at the
+ moment?
+In-Reply-To: <CAKJDb-PesosjA_Brs7c991X-jDDrRy-EVixuocDjchqGFo6HLg@mail.gmail.com>
+References: <20160707160349.GZ27919@ando.pearwood.info>
+ <CAKJDb-PesosjA_Brs7c991X-jDDrRy-EVixuocDjchqGFo6HLg@mail.gmail.com>
+Message-ID: <20160707163444.980E8B1415B@webabinitio.net>
+
+On Thu, 07 Jul 2016 11:15:29 -0500, Zachary Ware <zachary.ware+pydev at gmail.com> wrote:
+> On Thu, Jul 7, 2016 at 11:03 AM, Steven D'Aprano <steve at pearwood.info> wrote:
+> > I'm wondering if I've broken something at my end, or if everyone is
+> > seeing the same error.
+> 
+> Works fine for me.  Have you rebuilt since pulling?  If a simple
+> 'make' doesn't do it for you, try an hg purge before redoing configure
+> and make.  If you don't have the purge extension enabled, you can
+> enable it for one command like so: `hg --config extensions.purge=
+> purge --all`.  Note that `hg purge --all` will remove all untracked
+> files, so be sure you don't have any stray files in the repo that you
+> want to keep.
+
+I've never had a need to use hg purge.  'make distclean' has always
+been enough for me in these situations.
+
+--David
+
+From steve at pearwood.info  Thu Jul  7 12:55:10 2016
+From: steve at pearwood.info (Steven D'Aprano)
+Date: Fri, 8 Jul 2016 02:55:10 +1000
+Subject: [python-committers] Is it just me or is the tip broken at the
+ moment?
+In-Reply-To: <CAKJDb-PesosjA_Brs7c991X-jDDrRy-EVixuocDjchqGFo6HLg@mail.gmail.com>
+References: <20160707160349.GZ27919@ando.pearwood.info>
+ <CAKJDb-PesosjA_Brs7c991X-jDDrRy-EVixuocDjchqGFo6HLg@mail.gmail.com>
+Message-ID: <20160707165510.GA27919@ando.pearwood.info>
+
+On Thu, Jul 07, 2016 at 11:15:29AM -0500, Zachary Ware wrote:
+> On Thu, Jul 7, 2016 at 11:03 AM, Steven D'Aprano <steve at pearwood.info> wrote:
+> > I'm wondering if I've broken something at my end, or if everyone is
+> > seeing the same error.
+> 
+> Works fine for me.  Have you rebuilt since pulling? 
+
+I have now, and that's fixed the problem.
+
+Thanks.
+
+
+-- 
+Steve
+
+From p.f.moore at gmail.com  Thu Jul  7 13:24:08 2016
+From: p.f.moore at gmail.com (Paul Moore)
+Date: Thu, 7 Jul 2016 18:24:08 +0100
+Subject: [python-committers] MSDN subscriptions/renewals
+In-Reply-To: <CAD+XWwoevFao=PvTF5NCL=XyRuyz53Et5M_aPE-GepZqOqc6RQ@mail.gmail.com>
+References: <CAD+XWwoevFao=PvTF5NCL=XyRuyz53Et5M_aPE-GepZqOqc6RQ@mail.gmail.com>
+Message-ID: <CACac1F90ju8M2d1Uj56jectR2=7XAWBtq=g8bWCPsS7EyuqBZw@mail.gmail.com>
+
+Hi Brian,
+My current subscription expires at the start of November, which seems
+to be a little out of sync with when you do these renewals (I'm not
+sure how that happened - I think I was late renewing one year). I
+don't know if it's worth renewing now to bring things back in sync,
+but in case it is, my details are
+
+First Name: Paul
+Last Name: Moore
+Email address: p.f.moore at gmail.com
+Mailing address: xxx
+Phone number: xxx
+
+Regards,
+Paul
+
+On 7 July 2016 at 13:12, Brian Curtin <brian at python.org> wrote:
+> Hey all,
+>
+> The fine folks at Microsoft have been giving us complimentary access
+> to Microsoft Developer Network subscriptions for many years now in
+> support of Python on Windows, and it's soon going to be expiration
+> time (or past that) for some of your accounts.
+>
+> If any existing subscribers anyone would like a renewal, please send
+> me both your email login as well as your Subscriber ID. You can find
+> that at https://msdn.microsoft.com/en-us/subscriptions/manage/ once
+> you're logged in.
+>
+> If you would like a subscription for the first time, which gives you
+> access to Visual Studio, Windows disk images, and more, please send me
+> all of the following:
+>
+> First Name:
+> Last Name:
+> Email Address:
+> Project/Company: Python Software Foundation
+> Complete Mailing Address:
+> Phone Number:
+>
+> In order to ease the work on our Microsoft contact's side, I'd like to
+> batch up the list of names that we send them, so I'm going to collect
+> responses for a week or so and then send them off. After that it takes
+> around a week for them to go through it and get everything enabled,
+> after which Microsoft will send you an email about your new
+> subscription.
+>
+> Brian
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+
+From xdegaye at gmail.com  Fri Jul  8 16:47:19 2016
+From: xdegaye at gmail.com (Xavier de Gaye)
+Date: Fri, 8 Jul 2016 22:47:19 +0200
+Subject: [python-committers] generated importlib files modified by the build
+Message-ID: <CAN4cRFzKgZJh6MeO9pSVFQci7FTWxoukedFpTFV2vLDvHKv4dA@mail.gmail.com>
+
+The files generated by Programs/_freeze_importlib.c
+    Python/importlib.h
+    Python/importlib_external.h
+are modified by the build after the last changeset d32517de5d8c
+(Issue #26972: Fix some mistakes in importlib-related docstrings.).
+
+Xavier
+
+From brett at python.org  Fri Jul  8 19:45:38 2016
+From: brett at python.org (Brett Cannon)
+Date: Fri, 08 Jul 2016 23:45:38 +0000
+Subject: [python-committers] generated importlib files modified by the
+ build
+In-Reply-To: <CAN4cRFzKgZJh6MeO9pSVFQci7FTWxoukedFpTFV2vLDvHKv4dA@mail.gmail.com>
+References: <CAN4cRFzKgZJh6MeO9pSVFQci7FTWxoukedFpTFV2vLDvHKv4dA@mail.gmail.com>
+Message-ID: <CAP1=2W7vFk+3-aVWGzaWththky3=6rZe0BWqMKfey+xfdDvYeQ@mail.gmail.com>
+
+On Fri, 8 Jul 2016 at 13:47 Xavier de Gaye <xdegaye at gmail.com> wrote:
+
+> The files generated by Programs/_freeze_importlib.c
+>     Python/importlib.h
+>     Python/importlib_external.h
+> are modified by the build after the last changeset d32517de5d8c
+> (Issue #26972: Fix some mistakes in importlib-related docstrings.).
+>
+
+All that means is I forgot to run `make` after applying a patch that
+updated some docstrings. I have subsequently committed the updated .h
+files.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20160708/e2c37e02/attachment.html>
+
+From nad at python.org  Fri Jul  8 21:07:53 2016
+From: nad at python.org (Ned Deily)
+Date: Fri, 8 Jul 2016 21:07:53 -0400
+Subject: [python-committers] Reminder: 3.6.0a3 shapshot 2016-07-11 12:00 UTC
+Message-ID: <AE376F05-2903-4DDD-A0FA-D03ACFBE98A9@python.org>
+
+The next alpha snapshot for the 3.6 release cycle is coming up in a couple of days.  This is the third of four alphas we have planned.  Keep that feature code coming in!
+
+As a reminder, alpha releases are intended to make it easier for the wider community to test the current state of new features and bug fixes for an upcoming Python release as a whole and for us to test the release process.  During the alpha phase, features may be added, modified, or deleted up until the start of the beta phase.  Alpha users beware!
+
+Looking ahead, the last alpha release, 3.6.0a4, will follow next month on 2016-08-15.  This is a slight change from the previous schedule.  Due to popular request, we're moved the feature code cutoff date, 3.6.0b1, from Wednesday, 09-07, to Monday, 09-12, to allow a bit more time after the end-of-summer holiday.  In doing so, it seems to make sense to move the final alpha back a week to give a bit more time there for check-ins.
+
+To recap:
+
+2016-07-11 ~12:00 UTC: code snapshot for 3.6.0 alpha 3
+
+2016-08-15 ~12:00 UTC: code snapshot for 3.6.0 alpha 4. (**CHANGED**, was 08-08)
+
+now to 2016-09-12: Alpha phase (unrestricted feature development)
+
+2016-09-12: 3.6.0 feature code freeze, 3.7.0 feature development begins (**CHANGED**, was 09-07)
+
+2016-09-12 to 2016-12-04: 3.6.0 beta phase (bug and regression fixes, no new features)
+
+2016-12-04 3.6.0 release candidate 1 (3.6.0 code freeze)
+
+2016-12-16 3.6.0 release (3.6.0rc1 plus, if necessary, any dire emergency fixes)
+
+--Ned
+
+
+https://www.python.org/dev/peps/pep-0494/
+
+--
+  Ned Deily
+  nad at python.org -- []
+
+
+From nad at python.org  Tue Jul 12 01:27:47 2016
+From: nad at python.org (Ned Deily)
+Date: Tue, 12 Jul 2016 01:27:47 -0400
+Subject: [python-committers] [RELEASE] Python 3.6.0a3 is now available
+Message-ID: <0E07A2EA-2F6A-4FD8-8C27-C0C2FBA8241B@python.org>
+
+On behalf of the Python development community and the Python 3.6 release
+team, I'm happy to announce the availability of Python 3.6.0a3.
+3.6.0a3 is the third of four planned alpha releases of Python 3.6,
+the next major release of Python.  During the alpha phase, Python 3.6
+remains under heavy development: additional features will be added
+and existing features may be modified or deleted.  Please keep in mind
+that this is a preview release and its use is not recommended for
+production environments.
+
+You can find Python 3.6.0a3 here:
+
+https://www.python.org/downloads/release/python-360a3/ 
+
+The next release of Python 3.6 will be 3.6.0a4, currently scheduled for
+2016-08-15.
+
+--Ned
+
+--
+  Ned Deily
+  nad at python.org -- []
+
+
+From xdegaye at gmail.com  Fri Jul 22 09:01:50 2016
+From: xdegaye at gmail.com (Xavier de Gaye)
+Date: Fri, 22 Jul 2016 15:01:50 +0200
+Subject: [python-committers] autoconf 2.70
+Message-ID: <c6c53b39-05b7-c4b2-2551-f5f5146e01f4@gmail.com>
+
+It seems that the configure file on the default branch has been generated with
+autoconf 2.70. Autoconf 2.70 has not yet been released [1].  The differences
+between the generated configure files with 2.69 and 2.70 are a few lines [3]
+added by 2.70 with 'runstatedir' in them.  The last old discussion on the
+usage of different autoconf versions [2] does not really answer the following
+question:
+
+I am using 2.69, should a commit that changes configure.ac respects the
+existing 'runstatedir' lines added by a previous commit or uses directly the
+configure file generated by 2.69 ?
+
+Xavier
+
+[1] http://thread.gmane.org/gmane.comp.sysutils.autoconf.general/16193
+[2] http://thread.gmane.org/gmane.comp.python.devel/135327
+[3] diff -r fe168c2b5e95 configure
+--- a/configure	Wed Jul 06 23:58:16 2016 -0700
++++ b/configure	Fri Jul 22 14:49:31 2016 +0200
+@@ -777,7 +777,6 @@
+  docdir
+  oldincludedir
+  includedir
+-runstatedir
+  localstatedir
+  sharedstatedir
+  sysconfdir
+@@ -888,7 +887,6 @@
+  sysconfdir='${prefix}/etc'
+  sharedstatedir='${prefix}/com'
+  localstatedir='${prefix}/var'
+-runstatedir='${localstatedir}/run'
+  includedir='${prefix}/include'
+  oldincludedir='/usr/include'
+  docdir='${datarootdir}/doc/${PACKAGE_TARNAME}'
+@@ -1141,15 +1139,6 @@
+    | -silent | --silent | --silen | --sile | --sil)
+      silent=yes ;;
+
+-  -runstatedir | --runstatedir | --runstatedi | --runstated \
+-  | --runstate | --runstat | --runsta | --runst | --runs \
+-  | --run | --ru | --r)
+-    ac_prev=runstatedir ;;
+-  -runstatedir=* | --runstatedir=* | --runstatedi=* | --runstated=* \
+-  | --runstate=* | --runstat=* | --runsta=* | --runst=* | --runs=* \
+-  | --run=* | --ru=* | --r=*)
+-    runstatedir=$ac_optarg ;;
+-
+    -sbindir | --sbindir | --sbindi | --sbind | --sbin | --sbi | --sb)
+      ac_prev=sbindir ;;
+    -sbindir=* | --sbindir=* | --sbindi=* | --sbind=* | --sbin=* \
+@@ -1287,7 +1276,7 @@
+  for ac_var in	exec_prefix prefix bindir sbindir libexecdir datarootdir \
+  		datadir sysconfdir sharedstatedir localstatedir includedir \
+  		oldincludedir docdir infodir htmldir dvidir pdfdir psdir \
+-		libdir localedir mandir runstatedir
++		libdir localedir mandir
+  do
+    eval ac_val=\$$ac_var
+    # Remove trailing slashes.
+@@ -1440,7 +1429,6 @@
+    --sysconfdir=DIR        read-only single-machine data [PREFIX/etc]
+    --sharedstatedir=DIR    modifiable architecture-independent data [PREFIX/com]
+    --localstatedir=DIR     modifiable single-machine data [PREFIX/var]
+-  --runstatedir=DIR       modifiable per-process data [LOCALSTATEDIR/run]
+    --libdir=DIR            object code libraries [EPREFIX/lib]
+    --includedir=DIR        C header files [PREFIX/include]
+    --oldincludedir=DIR     C header files for non-gcc [/usr/include]
+
+
+
+From nad at python.org  Fri Jul 22 12:39:01 2016
+From: nad at python.org (Ned Deily)
+Date: Fri, 22 Jul 2016 12:39:01 -0400
+Subject: [python-committers] autoconf 2.70
+In-Reply-To: <c6c53b39-05b7-c4b2-2551-f5f5146e01f4@gmail.com>
+References: <c6c53b39-05b7-c4b2-2551-f5f5146e01f4@gmail.com>
+Message-ID: <BDC49F96-D78C-401D-AB39-6D85CB313931@python.org>
+
+On Jul 22, 2016, at 09:01, Xavier de Gaye <xdegaye at gmail.com> wrote:
+> It seems that the configure file on the default branch has been generated with
+> autoconf 2.70. Autoconf 2.70 has not yet been released [1].  The differences
+> between the generated configure files with 2.69 and 2.70 are a few lines [3]
+> added by 2.70 with 'runstatedir' in them.  The last old discussion on the
+> usage of different autoconf versions [2] does not really answer the following
+> question:
+> 
+> I am using 2.69, should a commit that changes configure.ac respects the
+> existing 'runstatedir' lines added by a previous commit or uses directly the
+> configure file generated by 2.69 ?
+
+It looks like Matthias used a 2.70 for this commit:
+
+https://hg.python.org/cpython/rev/78d2cb7f66b6
+
+thus probably inadvertently introducing the unused "runstatedir" stuff.
+
+Since 2.69 is the current version, it's fine to "auto-remove" them.
+
+IIRC, some years ago when autoconf was releasing more often and there were multiple versions in use, we had a test in configure.ac to ensure that a particular version of autoconf was being used.  That doesn't seem to be necessary but it's something to keep in mind if we do start seeing on-going problems with autoconf churn.
+
+--
+  Ned Deily
+  nad at python.org -- []
+
+
+From brett at python.org  Fri Jul 22 12:41:41 2016
+From: brett at python.org (Brett Cannon)
+Date: Fri, 22 Jul 2016 16:41:41 +0000
+Subject: [python-committers] autoconf 2.70
+In-Reply-To: <c6c53b39-05b7-c4b2-2551-f5f5146e01f4@gmail.com>
+References: <c6c53b39-05b7-c4b2-2551-f5f5146e01f4@gmail.com>
+Message-ID: <CAP1=2W4rCnuZj6MhVCjcv=AhSrwkh+y8iEm=HCKF_oMgzxrS2w@mail.gmail.com>
+
+On Fri, 22 Jul 2016 at 06:02 Xavier de Gaye <xdegaye at gmail.com> wrote:
+
+> It seems that the configure file on the default branch has been generated
+> with
+> autoconf 2.70. Autoconf 2.70 has not yet been released [1].  The
+> differences
+> between the generated configure files with 2.69 and 2.70 are a few lines
+> [3]
+> added by 2.70 with 'runstatedir' in them.  The last old discussion on the
+> usage of different autoconf versions [2] does not really answer the
+> following
+> question:
+>
+> I am using 2.69, should a commit that changes configure.ac respects the
+> existing 'runstatedir' lines added by a previous commit or uses directly
+> the
+> configure file generated by 2.69 ?
+>
+
+If autoconf 2.70 is not released yet then it's fine to regenerate configure
+w/ 2.69.
+
+-Brett
+
+
+>
+> Xavier
+>
+> [1] http://thread.gmane.org/gmane.comp.sysutils.autoconf.general/16193
+> [2] http://thread.gmane.org/gmane.comp.python.devel/135327
+> [3] diff -r fe168c2b5e95 configure
+> --- a/configure Wed Jul 06 23:58:16 2016 -0700
+> +++ b/configure Fri Jul 22 14:49:31 2016 +0200
+> @@ -777,7 +777,6 @@
+>   docdir
+>   oldincludedir
+>   includedir
+> -runstatedir
+>   localstatedir
+>   sharedstatedir
+>   sysconfdir
+> @@ -888,7 +887,6 @@
+>   sysconfdir='${prefix}/etc'
+>   sharedstatedir='${prefix}/com'
+>   localstatedir='${prefix}/var'
+> -runstatedir='${localstatedir}/run'
+>   includedir='${prefix}/include'
+>   oldincludedir='/usr/include'
+>   docdir='${datarootdir}/doc/${PACKAGE_TARNAME}'
+> @@ -1141,15 +1139,6 @@
+>     | -silent | --silent | --silen | --sile | --sil)
+>       silent=yes ;;
+>
+> -  -runstatedir | --runstatedir | --runstatedi | --runstated \
+> -  | --runstate | --runstat | --runsta | --runst | --runs \
+> -  | --run | --ru | --r)
+> -    ac_prev=runstatedir ;;
+> -  -runstatedir=* | --runstatedir=* | --runstatedi=* | --runstated=* \
+> -  | --runstate=* | --runstat=* | --runsta=* | --runst=* | --runs=* \
+> -  | --run=* | --ru=* | --r=*)
+> -    runstatedir=$ac_optarg ;;
+> -
+>     -sbindir | --sbindir | --sbindi | --sbind | --sbin | --sbi | --sb)
+>       ac_prev=sbindir ;;
+>     -sbindir=* | --sbindir=* | --sbindi=* | --sbind=* | --sbin=* \
+> @@ -1287,7 +1276,7 @@
+>   for ac_var in exec_prefix prefix bindir sbindir libexecdir datarootdir \
+>                 datadir sysconfdir sharedstatedir localstatedir includedir
+> \
+>                 oldincludedir docdir infodir htmldir dvidir pdfdir psdir \
+> -               libdir localedir mandir runstatedir
+> +               libdir localedir mandir
+>   do
+>     eval ac_val=\$$ac_var
+>     # Remove trailing slashes.
+> @@ -1440,7 +1429,6 @@
+>     --sysconfdir=DIR        read-only single-machine data [PREFIX/etc]
+>     --sharedstatedir=DIR    modifiable architecture-independent data
+> [PREFIX/com]
+>     --localstatedir=DIR     modifiable single-machine data [PREFIX/var]
+> -  --runstatedir=DIR       modifiable per-process data [LOCALSTATEDIR/run]
+>     --libdir=DIR            object code libraries [EPREFIX/lib]
+>     --includedir=DIR        C header files [PREFIX/include]
+>     --oldincludedir=DIR     C header files for non-gcc [/usr/include]
+>
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20160722/74cd3b9f/attachment.html>
+
+From brett at python.org  Fri Jul 22 13:46:10 2016
+From: brett at python.org (Brett Cannon)
+Date: Fri, 22 Jul 2016 17:46:10 +0000
+Subject: [python-committers] No commits to the devguide, please
+Message-ID: <CAP1=2W4TaF9eZ2wypbUHTeJKhJ4j=wwM1UFC+WLKg5JMKYaj0g@mail.gmail.com>
+
+I'm going to try to migrate it to GitHub today.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20160722/67cdbfbc/attachment.html>
+
+From brett at python.org  Fri Jul 22 15:45:23 2016
+From: brett at python.org (Brett Cannon)
+Date: Fri, 22 Jul 2016 19:45:23 +0000
+Subject: [python-committers] No commits to the devguide, please
+In-Reply-To: <CAP1=2W4TaF9eZ2wypbUHTeJKhJ4j=wwM1UFC+WLKg5JMKYaj0g@mail.gmail.com>
+References: <CAP1=2W4TaF9eZ2wypbUHTeJKhJ4j=wwM1UFC+WLKg5JMKYaj0g@mail.gmail.com>
+Message-ID: <CAP1=2W7eJk2YS0S7ebBnx-m67zL1WVZ2jBKCz3-qK4yObONsAw@mail.gmail.com>
+
+I'm waiting on the cron job to trigger to double-check everything worked
+out for pushing to docs.python.org/devguide, but until then the new repo
+for the devguide is https://github.com/python/devguide !
+
+I will migrate the issues from bugs.python.org shortly and then remove the
+component so people can use GitHub for devguide issues.
+
+I will need someone to make the repo read-only (I don't have write access
+to hg.python.org to update its .hg/hgrc file, or at least not that I know
+of).
+
+On Fri, 22 Jul 2016 at 10:46 Brett Cannon <brett at python.org> wrote:
+
+> I'm going to try to migrate it to GitHub today.
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20160722/16f094c5/attachment.html>
+
+From p.f.moore at gmail.com  Sat Jul 23 15:15:35 2016
+From: p.f.moore at gmail.com (Paul Moore)
+Date: Sat, 23 Jul 2016 20:15:35 +0100
+Subject: [python-committers] PEP process with github
+Message-ID: <CACac1F9fKLV3dkHkdgDMRqvtHh3Bpf2gvkZ1Yf4kBfbz=VNepg@mail.gmail.com>
+
+With PEPs now being hosted on github, is there any specific process
+for handling reviews/discussions on the github tracker? PEP 1 doesn't
+mention the matter, other than to note that discussions "may also
+occur on a list other than python-dev" although the approach of having
+a Discussions-To header doesn't really work well there.
+
+My suggestion (which is basically what we've been doing with PEP 514)
+is that PEP discussions are acceptable on the tracker, but comments on
+the core list should be monitored as well (and responded to on-list).
+When the PEP is ready for acceptance, a posting of the final version
+should be made to the list, and the acceptance email should be posted
+to the list (so that there's a permanent record of the acceptance,
+which can be linked to in the PEP).
+
+Is that reasonable? Does it need an update to PEP 1 to cover it? If
+so, should I post a PR for PEP 1? Or is it obvious enough to be
+assumed without needing the bureaucracy of updating PEP 1?
+
+Paul
+
+From barry at python.org  Sat Jul 23 16:15:20 2016
+From: barry at python.org (Barry Warsaw)
+Date: Sat, 23 Jul 2016 16:15:20 -0400
+Subject: [python-committers] PEP process with github
+In-Reply-To: <CACac1F9fKLV3dkHkdgDMRqvtHh3Bpf2gvkZ1Yf4kBfbz=VNepg@mail.gmail.com>
+References: <CACac1F9fKLV3dkHkdgDMRqvtHh3Bpf2gvkZ1Yf4kBfbz=VNepg@mail.gmail.com>
+Message-ID: <20160723161520.61adcefb.barry@wooz.org>
+
+On Jul 23, 2016, at 08:15 PM, Paul Moore wrote:
+
+>With PEPs now being hosted on github, is there any specific process
+>for handling reviews/discussions on the github tracker? PEP 1 doesn't
+>mention the matter, other than to note that discussions "may also
+>occur on a list other than python-dev" although the approach of having
+>a Discussions-To header doesn't really work well there.
+
+I think it could.  A Discussions-To header could point to the tracker issue
+URL; it doesn't have to be an email address.  You just want to give people a
+pointer for where the discussion is happening, or has happened.
+
+>My suggestion (which is basically what we've been doing with PEP 514)
+>is that PEP discussions are acceptable on the tracker, but comments on
+>the core list should be monitored as well (and responded to on-list).
+>When the PEP is ready for acceptance, a posting of the final version
+>should be made to the list, and the acceptance email should be posted
+>to the list (so that there's a permanent record of the acceptance,
+>which can be linked to in the PEP).
+>
+>Is that reasonable? Does it need an update to PEP 1 to cover it? If
+>so, should I post a PR for PEP 1? Or is it obvious enough to be
+>assumed without needing the bureaucracy of updating PEP 1?
+
+It seems generally reasonable to me.
+
+My own opinion is that PEPs should not be accepted without at least some
+interactions on python-dev.  For PEPs where the primary discussion happens on
+that list, no Discussions-To should be need.  Where most of the discussion
+happens elsewhere (e.g. on a topic sig), the Discussions-To header points the
+way, but regular postings on python-dev helps make sure that people are aware
+of it.
+
+I don't think we need any substantive changes to PEP 1, but if you want to
+suggest some better wording to make this new avenue of PEP development more
+clear, please do submit a PR against PEP 1.
+
+Cheers,
+-Barry
+
+From brett at python.org  Sat Jul 23 16:17:43 2016
+From: brett at python.org (Brett Cannon)
+Date: Sat, 23 Jul 2016 20:17:43 +0000
+Subject: [python-committers] PEP process with github
+In-Reply-To: <CACac1F9fKLV3dkHkdgDMRqvtHh3Bpf2gvkZ1Yf4kBfbz=VNepg@mail.gmail.com>
+References: <CACac1F9fKLV3dkHkdgDMRqvtHh3Bpf2gvkZ1Yf4kBfbz=VNepg@mail.gmail.com>
+Message-ID: <CAP1=2W6YR3Cw+vE3xvMkAJZjNyXCXVzwKATdv2qRSSL=+5nB3Q@mail.gmail.com>
+
+On Sat, Jul 23, 2016, 12:15 Paul Moore <p.f.moore at gmail.com> wrote:
+
+> With PEPs now being hosted on github, is there any specific process
+> for handling reviews/discussions on the github tracker? PEP 1 doesn't
+> mention the matter, other than to note that discussions "may also
+> occur on a list other than python-dev" although the approach of having
+> a Discussions-To header doesn't really work well there.
+>
+> My suggestion (which is basically what we've been doing with PEP 514)
+> is that PEP discussions are acceptable on the tracker, but comments on
+> the core list should be monitored as well (and responded to on-list).
+>
+
+The problem with this is it bifurcates the discussion. I do think that all
+grammar fixes and such like that should be on GitHub as a PR. And I do
+think PEPs still need to be announced here. But whether the discussion
+happens here or GitHub, I don't think we should split it.
+
+-Brett
+
+When the PEP is ready for acceptance, a posting of the final version
+> should be made to the list, and the acceptance email should be posted
+> to the list (so that there's a permanent record of the acceptance,
+> which can be linked to in the PEP).
+>
+> Is that reasonable? Does it need an update to PEP 1 to cover it? If
+> so, should I post a PR for PEP 1? Or is it obvious enough to be
+> assumed without needing the bureaucracy of updating PEP 1?
+>
+> Paul
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20160723/43c84125/attachment.html>
+
+From guido at python.org  Sat Jul 23 16:24:53 2016
+From: guido at python.org (Guido van Rossum)
+Date: Sat, 23 Jul 2016 13:24:53 -0700
+Subject: [python-committers] PEP process with github
+In-Reply-To: <20160723161520.61adcefb.barry@wooz.org>
+References: <CACac1F9fKLV3dkHkdgDMRqvtHh3Bpf2gvkZ1Yf4kBfbz=VNepg@mail.gmail.com>
+ <20160723161520.61adcefb.barry@wooz.org>
+Message-ID: <CAP7+vJ+ddAddyacqZ5yHn2mj1BoNjSWgDe3RCkVny+UGLr8B6g@mail.gmail.com>
+
+I encourage adding this flow to PEP 1 so that it's clear that it's
+supported, and also to ensure that the flow doesn't ignore python-dev.
+
+On Sat, Jul 23, 2016 at 1:15 PM, Barry Warsaw <barry at python.org> wrote:
+> On Jul 23, 2016, at 08:15 PM, Paul Moore wrote:
+>
+>>With PEPs now being hosted on github, is there any specific process
+>>for handling reviews/discussions on the github tracker? PEP 1 doesn't
+>>mention the matter, other than to note that discussions "may also
+>>occur on a list other than python-dev" although the approach of having
+>>a Discussions-To header doesn't really work well there.
+>
+> I think it could.  A Discussions-To header could point to the tracker issue
+> URL; it doesn't have to be an email address.  You just want to give people a
+> pointer for where the discussion is happening, or has happened.
+>
+>>My suggestion (which is basically what we've been doing with PEP 514)
+>>is that PEP discussions are acceptable on the tracker, but comments on
+>>the core list should be monitored as well (and responded to on-list).
+>>When the PEP is ready for acceptance, a posting of the final version
+>>should be made to the list, and the acceptance email should be posted
+>>to the list (so that there's a permanent record of the acceptance,
+>>which can be linked to in the PEP).
+>>
+>>Is that reasonable? Does it need an update to PEP 1 to cover it? If
+>>so, should I post a PR for PEP 1? Or is it obvious enough to be
+>>assumed without needing the bureaucracy of updating PEP 1?
+>
+> It seems generally reasonable to me.
+>
+> My own opinion is that PEPs should not be accepted without at least some
+> interactions on python-dev.  For PEPs where the primary discussion happens on
+> that list, no Discussions-To should be need.  Where most of the discussion
+> happens elsewhere (e.g. on a topic sig), the Discussions-To header points the
+> way, but regular postings on python-dev helps make sure that people are aware
+> of it.
+>
+> I don't think we need any substantive changes to PEP 1, but if you want to
+> suggest some better wording to make this new avenue of PEP development more
+> clear, please do submit a PR against PEP 1.
+>
+> Cheers,
+> -Barry
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+
+
+
+-- 
+--Guido van Rossum (python.org/~guido)
+
+From brett at python.org  Sat Jul 23 16:20:18 2016
+From: brett at python.org (Brett Cannon)
+Date: Sat, 23 Jul 2016 20:20:18 +0000
+Subject: [python-committers] PEP process with github
+In-Reply-To: <CAP1=2W6YR3Cw+vE3xvMkAJZjNyXCXVzwKATdv2qRSSL=+5nB3Q@mail.gmail.com>
+References: <CACac1F9fKLV3dkHkdgDMRqvtHh3Bpf2gvkZ1Yf4kBfbz=VNepg@mail.gmail.com>
+ <CAP1=2W6YR3Cw+vE3xvMkAJZjNyXCXVzwKATdv2qRSSL=+5nB3Q@mail.gmail.com>
+Message-ID: <CAP1=2W5MwcUty5aXuCWJZ3uJ_iYWwp2ATh5dNsXw7LA-m-exMg@mail.gmail.com>
+
+On Sat, Jul 23, 2016, 13:17 Brett Cannon <brett at python.org> wrote:
+
+>
+>
+> On Sat, Jul 23, 2016, 12:15 Paul Moore <p.f.moore at gmail.com> wrote:
+>
+>> With PEPs now being hosted on github, is there any specific process
+>> for handling reviews/discussions on the github tracker? PEP 1 doesn't
+>> mention the matter, other than to note that discussions "may also
+>> occur on a list other than python-dev" although the approach of having
+>> a Discussions-To header doesn't really work well there.
+>>
+>> My suggestion (which is basically what we've been doing with PEP 514)
+>> is that PEP discussions are acceptable on the tracker, but comments on
+>> the core list should be monitored as well (and responded to on-list).
+>>
+>
+> The problem with this is it bifurcates the discussion. I do think that all
+> grammar fixes and such like that should be on GitHub as a PR. And I do
+> think PEPs still need to be announced here. But whether the discussion
+> happens here or GitHub, I don't think we should split it.
+>
+
+And I should mention that the reason I think it worked with the latest PEP
+is people seemed fine wirh the overall pep while you and Steve hashed out
+the finer details on GitHub. If you want to say general discussion is here
+and I once it's down to the finer details with the pronouncer on GitHub
+then that seems fine as well.
+
+
+> -Brett
+>
+> When the PEP is ready for acceptance, a posting of the final version
+>> should be made to the list, and the acceptance email should be posted
+>> to the list (so that there's a permanent record of the acceptance,
+>> which can be linked to in the PEP).
+>>
+>> Is that reasonable? Does it need an update to PEP 1 to cover it? If
+>> so, should I post a PR for PEP 1? Or is it obvious enough to be
+>> assumed without needing the bureaucracy of updating PEP 1?
+>>
+>> Paul
+>> _______________________________________________
+>> python-committers mailing list
+>> python-committers at python.org
+>> https://mail.python.org/mailman/listinfo/python-committers
+>> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>>
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20160723/8f191170/attachment-0001.html>
+
+From p.f.moore at gmail.com  Sat Jul 23 17:08:31 2016
+From: p.f.moore at gmail.com (Paul Moore)
+Date: Sat, 23 Jul 2016 22:08:31 +0100
+Subject: [python-committers] PEP process with github
+In-Reply-To: <CAP7+vJ+ddAddyacqZ5yHn2mj1BoNjSWgDe3RCkVny+UGLr8B6g@mail.gmail.com>
+References: <CACac1F9fKLV3dkHkdgDMRqvtHh3Bpf2gvkZ1Yf4kBfbz=VNepg@mail.gmail.com>
+ <20160723161520.61adcefb.barry@wooz.org>
+ <CAP7+vJ+ddAddyacqZ5yHn2mj1BoNjSWgDe3RCkVny+UGLr8B6g@mail.gmail.com>
+Message-ID: <CACac1F-Ksae8h2m+R3WQ-0nZoPRF-PGPk3bkRr=kQfTXB1mjLQ@mail.gmail.com>
+
+On 23 July 2016 at 21:24, Guido van Rossum <guido at python.org> wrote:
+> I encourage adding this flow to PEP 1 so that it's clear that it's
+> supported, and also to ensure that the flow doesn't ignore python-dev.
+
+OK, I'll pull together a PR for PEP 1.
+Paul
+
+From ncoghlan at gmail.com  Sun Jul 24 04:13:55 2016
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Sun, 24 Jul 2016 18:13:55 +1000
+Subject: [python-committers] PEP process with github
+In-Reply-To: <CACac1F9fKLV3dkHkdgDMRqvtHh3Bpf2gvkZ1Yf4kBfbz=VNepg@mail.gmail.com>
+References: <CACac1F9fKLV3dkHkdgDMRqvtHh3Bpf2gvkZ1Yf4kBfbz=VNepg@mail.gmail.com>
+Message-ID: <CADiSq7e4o4Df4mb6VsGb1WRNsmA_cQfsVd-XhCY66bv+XmGw2w@mail.gmail.com>
+
+On 24 July 2016 at 05:15, Paul Moore <p.f.moore at gmail.com> wrote:
+> Is that reasonable? Does it need an update to PEP 1 to cover it? If
+> so, should I post a PR for PEP 1? Or is it obvious enough to be
+> assumed without needing the bureaucracy of updating PEP 1?
+
+One of the advantages of moving the PEPs repo to GitHub is that
+updating PEP 1 is no longer as painful as it used to be: you can post
+a PR with the suggested changes, and as long as python-dev is
+generally amenable, approving the change/clarification in the process
+is just a matter of clicking the big green merge button :)
+
+In this case, I think the key point of the Discussions-To header is
+that it's a way for the BDFL-Delegate to say "If you want your opinion
+on this topic to be heard by the responsible BDFL-Delegate, express it
+*here*".
+
+Historically, that location was always python-dev (and that's still
+the default for any PEP without a BDFL-Delegate assigned). Then we
+tweaked it a few years ago to say that for topics that don't result in
+a change specifically to CPython or the standard library, the final
+disposition of the PEP may take place on another python.org mailing
+list (specifically so packaging interoperability PEPs could be handled
+on distutils-sig, with folks from python-dev that wanted to
+participate in those discussions signing up to both lists).
+
+This time, I think a suitable tweak may be that while initial high
+level discussion should still take place on python-dev (or the
+appropriate corresponding venue), Guido or the BDFL-Delegate may
+direct discussion of the finer details to a GitHub PR if the mailing
+list consensus is that the overall PEP is a good idea, but there are
+some specifics to work out before the PEP can be accepted.
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+
+From victor.stinner at gmail.com  Tue Jul 26 07:22:11 2016
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Tue, 26 Jul 2016 13:22:11 +0200
+Subject: [python-committers] Xavier de Gaye
+Message-ID: <CAMpsgwYskjEa4v7gz9unfFbFvKnM_6gyFZ1UROFrHSQDe2sbdg@mail.gmail.com>
+
+Hi,
+
+Xavier de Gaye is a Python core developer since June 3, 2016. I just
+noticed that his grant wasn't logged in the devguide: it's now fixed
+(online doc not up to date yet):
+https://docs.python.org/devguide/developers.html#permissions-history
+
+Xavier already pushed some changes to enhance Android support in
+CPython 3.6. I helped him to learn the CPython workflow (Mercurial,
+bug tracker, etc.).
+
+I consider that he knows understand well the process and I don't need
+to mentor him. But I will probably continue to help him to review his
+patches, answer to questions, etc.
+
+It looks like the Android port is also related to cross-compilation,
+so it looks like CPython 3.6 will be easier to cross-compile as well.
+Great!
+
+For Android, the HQ is the "Meta-issue: support of the android platform"
+https://bugs.python.org/issue26865
+
+Victor
+
+From ncoghlan at gmail.com  Tue Jul 26 10:32:49 2016
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Wed, 27 Jul 2016 00:32:49 +1000
+Subject: [python-committers] Xavier de Gaye
+In-Reply-To: <CAMpsgwYskjEa4v7gz9unfFbFvKnM_6gyFZ1UROFrHSQDe2sbdg@mail.gmail.com>
+References: <CAMpsgwYskjEa4v7gz9unfFbFvKnM_6gyFZ1UROFrHSQDe2sbdg@mail.gmail.com>
+Message-ID: <CADiSq7e+CDc-VOTXLT-w=njZO-NSNSuuH=-d+BsrKJ0osPmuHA@mail.gmail.com>
+
+On 26 July 2016 at 21:22, Victor Stinner <victor.stinner at gmail.com> wrote:
+> It looks like the Android port is also related to cross-compilation,
+> so it looks like CPython 3.6 will be easier to cross-compile as well.
+> Great!
+>
+> For Android, the HQ is the "Meta-issue: support of the android platform"
+> https://bugs.python.org/issue26865
+
+Thanks for the update, and welcome again Xavier!
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+
+From ethan at stoneleaf.us  Tue Jul 26 14:02:39 2016
+From: ethan at stoneleaf.us (Ethan Furman)
+Date: Tue, 26 Jul 2016 11:02:39 -0700
+Subject: [python-committers] Xavier de Gaye
+In-Reply-To: <CADiSq7e+CDc-VOTXLT-w=njZO-NSNSuuH=-d+BsrKJ0osPmuHA@mail.gmail.com>
+References: <CAMpsgwYskjEa4v7gz9unfFbFvKnM_6gyFZ1UROFrHSQDe2sbdg@mail.gmail.com>
+ <CADiSq7e+CDc-VOTXLT-w=njZO-NSNSuuH=-d+BsrKJ0osPmuHA@mail.gmail.com>
+Message-ID: <5797A5BF.9000504@stoneleaf.us>
+
+On 07/26/2016 07:32 AM, Nick Coghlan wrote:
+> On 26 July 2016 at 21:22, Victor Stinner wrote:
+
+>> It looks like the Android port is also related to cross-compilation,
+>> so it looks like CPython 3.6 will be easier to cross-compile as well.
+>> Great!
+>>
+>> For Android, the HQ is the "Meta-issue: support of the android platform"
+>> https://bugs.python.org/issue26865
+>
+> Thanks for the update, and welcome again Xavier!
+
+And many thanks for your work on android and cross-compiling!
+
+--
+~Ethan~
+
+From xdegaye at gmail.com  Tue Jul 26 15:36:24 2016
+From: xdegaye at gmail.com (Xavier de Gaye)
+Date: Tue, 26 Jul 2016 21:36:24 +0200
+Subject: [python-committers] Xavier de Gaye
+In-Reply-To: <CAMpsgwYskjEa4v7gz9unfFbFvKnM_6gyFZ1UROFrHSQDe2sbdg@mail.gmail.com>
+References: <CAMpsgwYskjEa4v7gz9unfFbFvKnM_6gyFZ1UROFrHSQDe2sbdg@mail.gmail.com>
+Message-ID: <e49033c8-9a5c-af36-234d-9bdeb6dcdad9@gmail.com>
+
+On 07/26/2016 01:22 PM, Victor Stinner wrote:
+ > I consider that he knows understand well the process and I don't need
+ > to mentor him. But I will probably continue to help him to review his
+ > patches, answer to questions, etc.
+
+It's nice and comforting having you looking over my shoulder, thanks again Victor.
+
+Xavier
+

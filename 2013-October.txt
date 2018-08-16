@@ -1,0 +1,1060 @@
+From barry at python.org  Tue Oct  1 02:17:51 2013
+From: barry at python.org (Barry Warsaw)
+Date: Mon, 30 Sep 2013 20:17:51 -0400
+Subject: [python-committers] 2.6.9rc1
+Message-ID: <20130930201751.12991e4e@anarchist>
+
+Not that anybody would be crazy enough to do so, but please do not commit
+anything to the 2.6 branch.  I am spinning 2.6.9rc1 now.
+
+Cheers,
+-Barry
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 836 bytes
+Desc: not available
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20130930/4460e023/attachment.sig>
+
+From larry at hastings.org  Sat Oct 19 21:00:39 2013
+From: larry at hastings.org (Larry Hastings)
+Date: Sat, 19 Oct 2013 12:00:39 -0700
+Subject: [python-committers] I *might* push Python 3.4.0 alpha 4 back a week
+Message-ID: <5262D6D7.8050908@hastings.org>
+
+
+A lot has landed in trunk in the last day or two: Tulip, Argument 
+Clinic, and statistics just landed too.  The buildbots are upset at us 
+humans--there's a lot of red.  See for yourself:
+
+    http://buildbot.python.org/all/waterfall?category=3.x.stable
+
+I'd like to tag Alpha 4 late tonight, but if the buildbots are still 
+mostly-red it's a bad idea.  If you can help make the buildbots happy, 
+and have some time in the next eight or ten hours, please hop in to 
+#python-dev and ask what you can do to help.
+
+SOS -- Save Our Schedule,
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20131019/c23fa95f/attachment.html>
+
+From victor.stinner at gmail.com  Sat Oct 19 23:59:29 2013
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Sat, 19 Oct 2013 23:59:29 +0200
+Subject: [python-committers] I *might* push Python 3.4.0 alpha 4 back a
+	week
+In-Reply-To: <5262D6D7.8050908@hastings.org>
+References: <5262D6D7.8050908@hastings.org>
+Message-ID: <CAMpsgwZReZf_=eCmTVnhFJGutKGBP1mbz0tEnLitiwq-_S=2Gg@mail.gmail.com>
+
+2013/10/19 Larry Hastings <larry at hastings.org>:
+> A lot has landed in trunk in the last day or two: Tulip, Argument Clinic,
+> and statistics just landed too.
+
+Wow, Python 3.4 looks great! I was waiting for statistics.
+
+Don't forget to update the What's New in Python 3.4 document.
+
+Victor
+
+From larry at hastings.org  Mon Oct 21 00:52:57 2013
+From: larry at hastings.org (Larry Hastings)
+Date: Sun, 20 Oct 2013 15:52:57 -0700
+Subject: [python-committers] Python 3.4.0a4: Coming In For A Bumpy Landing
+Message-ID: <52645EC9.20906@hastings.org>
+
+
+
+3.4.0a4 is tagged and I'm in the process of releasing it.  But it's 
+going to be, let's say, more "alpha-quality" than the previous alphas.
+
+Known problems:
+
+  * There's a reference count leak in the compiler.
+  * asyncio test suite sometimes times out, which takes... an hour.
+  * asyncio test suit fails on a couple of platforms.
+
+
+I don't think any of these are bad enough to slip the schedule. However, 
+if you disagree, pipe up, feel free to try and change my mind, it's not 
+too late.
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20131020/463d76cf/attachment.html>
+
+From benjamin at python.org  Mon Oct 21 00:57:10 2013
+From: benjamin at python.org (Benjamin Peterson)
+Date: Sun, 20 Oct 2013 18:57:10 -0400
+Subject: [python-committers] [Python-Dev] Python 3.4.0a4: Coming In For
+	A Bumpy Landing
+In-Reply-To: <52645EC9.20906@hastings.org>
+References: <52645EC9.20906@hastings.org>
+Message-ID: <CAPZV6o-sscZoL_hh=aNk1m8F+cn7mDe_e3z05XM8De7z3rOSnw@mail.gmail.com>
+
+2013/10/20 Larry Hastings <larry at hastings.org>:
+>
+>
+> 3.4.0a4 is tagged and I'm in the process of releasing it.  But it's going to
+> be, let's say, more "alpha-quality" than the previous alphas.
+>
+> Known problems:
+>
+> There's a reference count leak in the compiler.
+
+This is fixed, so you could just move the tag up a bit.
+
+
+-- 
+Regards,
+Benjamin
+
+From nad at acm.org  Mon Oct 21 01:10:14 2013
+From: nad at acm.org (Ned Deily)
+Date: Sun, 20 Oct 2013 16:10:14 -0700
+Subject: [python-committers] [Python-Dev] Python 3.4.0a4: Coming In For
+	A Bumpy Landing
+In-Reply-To: <CAPZV6o-sscZoL_hh=aNk1m8F+cn7mDe_e3z05XM8De7z3rOSnw@mail.gmail.com>
+References: <52645EC9.20906@hastings.org>
+ <CAPZV6o-sscZoL_hh=aNk1m8F+cn7mDe_e3z05XM8De7z3rOSnw@mail.gmail.com>
+Message-ID: <D0D0E759-4D29-4AFE-8D8C-64752F253493@acm.org>
+
+
+On Oct 20, 2013, at 15:57 , Benjamin Peterson <benjamin at python.org> wrote:
+
+> 2013/10/20 Larry Hastings <larry at hastings.org>:
+>> 
+>> 
+>> 3.4.0a4 is tagged and I'm in the process of releasing it.  But it's going to
+>> be, let's say, more "alpha-quality" than the previous alphas.
+>> 
+>> Known problems:
+>> 
+>> There's a reference count leak in the compiler.
+> 
+> This is fixed, so you could just move the tag up a bit.
+
+
+Unfortunately, the Windows and OS X installers have already been manufactured so we would either have to redo them or document that there is a discrepancy between the source and binary releases.  Probably not a big deal in any case for an alpha release.
+
+--
+  Ned Deily
+  nad at acm.org -- []
+
+
+
+From benjamin at python.org  Mon Oct 21 01:15:40 2013
+From: benjamin at python.org (Benjamin Peterson)
+Date: Sun, 20 Oct 2013 19:15:40 -0400
+Subject: [python-committers] [Python-Dev] Python 3.4.0a4: Coming In For
+ A Bumpy Landing
+In-Reply-To: <D0D0E759-4D29-4AFE-8D8C-64752F253493@acm.org>
+References: <52645EC9.20906@hastings.org>
+ <CAPZV6o-sscZoL_hh=aNk1m8F+cn7mDe_e3z05XM8De7z3rOSnw@mail.gmail.com>
+ <D0D0E759-4D29-4AFE-8D8C-64752F253493@acm.org>
+Message-ID: <CAPZV6o858yBGAwxetQKbt7nNvv+cDte_Jrzwfs7PVMK=HaeH8w@mail.gmail.com>
+
+2013/10/20 Ned Deily <nad at acm.org>:
+>
+> On Oct 20, 2013, at 15:57 , Benjamin Peterson <benjamin at python.org> wrote:
+>
+>> 2013/10/20 Larry Hastings <larry at hastings.org>:
+>>>
+>>>
+>>> 3.4.0a4 is tagged and I'm in the process of releasing it.  But it's going to
+>>> be, let's say, more "alpha-quality" than the previous alphas.
+>>>
+>>> Known problems:
+>>>
+>>> There's a reference count leak in the compiler.
+>>
+>> This is fixed, so you could just move the tag up a bit.
+>
+>
+> Unfortunately, the Windows and OS X installers have already been manufactured so we would either have to redo them or document that there is a discrepancy between the source and binary releases.  Probably not a big deal in any case for an alpha release.
+
+Ah, I didn't realize the release process had gotten that far. Carry on.
+
+
+-- 
+Regards,
+Benjamin
+
+From larry at hastings.org  Mon Oct 21 02:24:57 2013
+From: larry at hastings.org (Larry Hastings)
+Date: Sun, 20 Oct 2013 17:24:57 -0700
+Subject: [python-committers] [RELEASED] Python 3.4.0a4
+Message-ID: <52647459.5000205@hastings.org>
+
+
+On behalf of the Python development team, I'm very pleased to announce
+the fourth and final alpha release of Python 3.4.
+
+This is a preview release, and its use is not recommended for
+production settings.
+
+Python 3.4 includes a range of improvements of the 3.x series, including
+hundreds of small improvements and bug fixes.  Major new features and
+changes in the 3.4 release series so far include:
+
+* PEP 435, a standardized "enum" module
+* PEP 436, a build enhancement that will help generate introspection
+            information for builtins
+* PEP 442, improved semantics for object finalization
+* PEP 443, adding single-dispatch generic functions to the standard library
+* PEP 445, a new C API for implementing custom memory allocators
+* PEP 446, changing file descriptors to not be inherited by default
+            in subprocesses
+* PEP 450, the new "statistics" module
+* PEP 3156, the new "asyncio" module, a new framework for asynchronous I/O
+
+To download Python 3.4.0a4 visit:
+
+     http://www.python.org/download/releases/3.4.0/
+
+
+Python 3.4.0a4 has several known issues:
+
+* The Python compiler has a small memory leak.
+* The "asyncio" module test suite fails on some platforms.
+* I/O conducted by the "asyncio" module may, rarely,
+   erroneously time out.  The timeout takes one hour.
+
+Please consider trying Python 3.4.0a4 with your code and reporting any
+new issues you notice to:
+
+      http://bugs.python.org/
+
+
+Enjoy!
+
+--
+Larry Hastings, Release Manager
+larry at hastings.org
+(on behalf of the entire python-dev team and 3.4's contributors)
+
+From barry at python.org  Mon Oct 21 13:46:12 2013
+From: barry at python.org (Barry Warsaw)
+Date: Mon, 21 Oct 2013 07:46:12 -0400
+Subject: [python-committers] Python 2.6.9 final final due out 28 October 2013
+Message-ID: <20131021074612.51e95ec1@anarchist>
+
+This is a reminder that Python 2.6.9 final - and by that I mean *really* final
+as it will be the last supported version of Python 2.6 - is scheduled for
+release one week from today, on October 28, 2013.
+
+All known showstopper security bugs have been applied to the branch.  If you
+know of anything that should go into Python 2.6 but has not yet, please
+contact me asap.  Please test rc1 on your platforms and code, and let me know
+if you have any problems.
+
+Barring any showstoppers, I will likely cut the release AM my local time.
+
+Cheers,
+-Barry
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 836 bytes
+Desc: not available
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20131021/fba6e2ad/attachment.sig>
+
+From ncoghlan at gmail.com  Thu Oct 24 12:39:50 2013
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Thu, 24 Oct 2013 20:39:50 +1000
+Subject: [python-committers] Upgrade Donald Stufft to full committer status
+Message-ID: <CADiSq7ePP01_Epwd6=h7LmtWgETahR1YRU-0S6S7W=E+ncd6GQ@mail.gmail.com>
+
+With PEP 453 accepted, could Donald please be upgraded to full
+committer access for ensurepip maintenance (the initial PEP 453
+commits will still go through review on the tracker). (His SSH key is
+already on file for PEP updates, so I believe the only actual change
+needed is to adjust his status on the issue tracker)
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+
+From hs at ox.cx  Thu Oct 24 13:03:16 2013
+From: hs at ox.cx (Hynek Schlawack)
+Date: Thu, 24 Oct 2013 13:03:16 +0200
+Subject: [python-committers] Upgrade Donald Stufft to full committer
+	status
+In-Reply-To: <CADiSq7ePP01_Epwd6=h7LmtWgETahR1YRU-0S6S7W=E+ncd6GQ@mail.gmail.com>
+References: <CADiSq7ePP01_Epwd6=h7LmtWgETahR1YRU-0S6S7W=E+ncd6GQ@mail.gmail.com>
+Message-ID: <58D5AE65-89BA-4E25-BD6B-09CFA49A09C8@ox.cx>
+
+
+Am 24.10.2013 um 12:39 schrieb Nick Coghlan <ncoghlan at gmail.com>:
+
+> With PEP 453 accepted, could Donald please be upgraded to full
+> committer access for ensurepip maintenance (the initial PEP 453
+> commits will still go through review on the tracker). (His SSH key is
+> already on file for PEP updates, so I believe the only actual change
+> needed is to adjust his status on the issue tracker)
+
+Please do. :)
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 235 bytes
+Desc: Message signed with OpenPGP using GPGMail
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20131024/dbabc34d/attachment.sig>
+
+From eliben at gmail.com  Thu Oct 24 14:43:21 2013
+From: eliben at gmail.com (Eli Bendersky)
+Date: Thu, 24 Oct 2013 05:43:21 -0700
+Subject: [python-committers] Upgrade Donald Stufft to full committer
+	status
+In-Reply-To: <CADiSq7ePP01_Epwd6=h7LmtWgETahR1YRU-0S6S7W=E+ncd6GQ@mail.gmail.com>
+References: <CADiSq7ePP01_Epwd6=h7LmtWgETahR1YRU-0S6S7W=E+ncd6GQ@mail.gmail.com>
+Message-ID: <CAF-Rda8P_-GaE_nzGa8y38DdNy44CuZjimYxF5Qr_b8mdFQGfQ@mail.gmail.com>
+
+On Thu, Oct 24, 2013 at 3:39 AM, Nick Coghlan <ncoghlan at gmail.com> wrote:
+
+> With PEP 453 accepted, could Donald please be upgraded to full
+> committer access for ensurepip maintenance (the initial PEP 453
+> commits will still go through review on the tracker). (His SSH key is
+> already on file for PEP updates, so I believe the only actual change
+> needed is to adjust his status on the issue tracker)
+>
+
+Seeing Donald's involvement in the Python infrastructure, I think it's a
+no-brainer +1
+
+Eli
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20131024/b118f48b/attachment.html>
+
+From brett at python.org  Thu Oct 24 15:21:20 2013
+From: brett at python.org (Brett Cannon)
+Date: Thu, 24 Oct 2013 09:21:20 -0400
+Subject: [python-committers] Upgrade Donald Stufft to full committer
+	status
+In-Reply-To: <CADiSq7ePP01_Epwd6=h7LmtWgETahR1YRU-0S6S7W=E+ncd6GQ@mail.gmail.com>
+References: <CADiSq7ePP01_Epwd6=h7LmtWgETahR1YRU-0S6S7W=E+ncd6GQ@mail.gmail.com>
+Message-ID: <CAP1=2W4GuqWvNqYYV0koUAfzt9LzwKhDXe9BrWPF3jjUmceEfw@mail.gmail.com>
+
+On Thu, Oct 24, 2013 at 6:39 AM, Nick Coghlan <ncoghlan at gmail.com> wrote:
+
+> With PEP 453 accepted, could Donald please be upgraded to full
+> committer access for ensurepip maintenance (the initial PEP 453
+> commits will still go through review on the tracker). (His SSH key is
+> already on file for PEP updates, so I believe the only actual change
+> needed is to adjust his status on the issue tracker)
+>
+
+I just approved his subscription to python-committers, so that leaves
+Donald replying to this email with his tracker ID so one of us can tweak
+his settings.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20131024/39aa69ba/attachment.html>
+
+From rdmurray at bitdance.com  Thu Oct 24 16:59:04 2013
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Thu, 24 Oct 2013 10:59:04 -0400
+Subject: [python-committers] Your buildbots are out of memory
+In-Reply-To: <CAP1=2W4bKw1aTbMFbgzd8QWtn9cmtX-Sz0NrF5xx3XcC2M86Vw@mail.gmail.com>
+References: <CAP1=2W4bKw1aTbMFbgzd8QWtn9cmtX-Sz0NrF5xx3XcC2M86Vw@mail.gmail.com>
+Message-ID: <20131024145904.DE61B250B48@webabinitio.net>
+
+On Thu, 24 Oct 2013 10:12:07 -0400, Brett Cannon <brett at yvrsfo.ca> wrote:
+> FYI if you didn't know
+
+You mean disk space?  I don't get notified automatically when /tmp fills
+up with test detritus.  I suppose I should set something up.
+
+However, it looks like someone has added some tests that use more tmp space,
+since the amount of /tmp that exist has been fine up until this point,
+and the runs on 2.7 and 3.3 are still working.
+
+I can increase /tmp, but I wonder if there is a new test that should
+be protected with the largefile resource.  Perhaps not,
+/tmp is currently 16MB on those bots, and I'm not sure what we
+consider 'large' for test files.
+
+--David
+
+From antoine at python.org  Thu Oct 24 17:08:11 2013
+From: antoine at python.org (Antoine Pitrou)
+Date: Thu, 24 Oct 2013 17:08:11 +0200
+Subject: [python-committers] Your buildbots are out of memory
+In-Reply-To: <20131024145904.DE61B250B48@webabinitio.net>
+References: <CAP1=2W4bKw1aTbMFbgzd8QWtn9cmtX-Sz0NrF5xx3XcC2M86Vw@mail.gmail.com>
+ <20131024145904.DE61B250B48@webabinitio.net>
+Message-ID: <c5899c3f1690eee86421f921da4f2bf1@ssl.pitrou.net>
+
+On 2013-10-24 16:59, R. David Murray wrote:
+> 
+> However, it looks like someone has added some tests that use more tmp 
+> space,
+> since the amount of /tmp that exist has been fine up until this point,
+> and the runs on 2.7 and 3.3 are still working.
+> 
+> I can increase /tmp, but I wonder if there is a new test that should
+> be protected with the largefile resource.  Perhaps not,
+> /tmp is currently 16MB on those bots, and I'm not sure what we
+> consider 'large' for test files.
+
+For test files, I would consider "large" to start around 100MB or more 
+:-)
+16MB is less than the size of a Python process executing regrtest...
+It's incredibly small.
+
+Regards
+
+Antoine.
+
+
+From donald at stufft.io  Thu Oct 24 17:42:18 2013
+From: donald at stufft.io (Donald Stufft)
+Date: Thu, 24 Oct 2013 11:42:18 -0400
+Subject: [python-committers] Upgrade Donald Stufft to full committer
+	status
+In-Reply-To: <CAP1=2W4GuqWvNqYYV0koUAfzt9LzwKhDXe9BrWPF3jjUmceEfw@mail.gmail.com>
+References: <CADiSq7ePP01_Epwd6=h7LmtWgETahR1YRU-0S6S7W=E+ncd6GQ@mail.gmail.com>
+ <CAP1=2W4GuqWvNqYYV0koUAfzt9LzwKhDXe9BrWPF3jjUmceEfw@mail.gmail.com>
+Message-ID: <557B88FC-DAA6-4582-9369-08B3CD07DB2A@stufft.io>
+
+dstufft
+
+On Oct 24, 2013, at 9:21 AM, Brett Cannon <brett at python.org> wrote:
+
+> 
+> 
+> 
+> On Thu, Oct 24, 2013 at 6:39 AM, Nick Coghlan <ncoghlan at gmail.com> wrote:
+> With PEP 453 accepted, could Donald please be upgraded to full
+> committer access for ensurepip maintenance (the initial PEP 453
+> commits will still go through review on the tracker). (His SSH key is
+> already on file for PEP updates, so I believe the only actual change
+> needed is to adjust his status on the issue tracker)
+> 
+> I just approved his subscription to python-committers, so that leaves Donald replying to this email with his tracker ID so one of us can tweak his settings. 
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+
+
+-----------------
+Donald Stufft
+PGP: 0x6E3CBCE93372DCFA // 7C6B 7C5D 5E2B 6356 A926 F04F 6E3C BCE9 3372 DCFA
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20131024/c9c43ee3/attachment-0001.html>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 801 bytes
+Desc: Message signed with OpenPGP using GPGMail
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20131024/c9c43ee3/attachment-0001.sig>
+
+From brett at python.org  Thu Oct 24 18:38:23 2013
+From: brett at python.org (Brett Cannon)
+Date: Thu, 24 Oct 2013 12:38:23 -0400
+Subject: [python-committers] Upgrade Donald Stufft to full committer
+	status
+In-Reply-To: <557B88FC-DAA6-4582-9369-08B3CD07DB2A@stufft.io>
+References: <CADiSq7ePP01_Epwd6=h7LmtWgETahR1YRU-0S6S7W=E+ncd6GQ@mail.gmail.com>
+ <CAP1=2W4GuqWvNqYYV0koUAfzt9LzwKhDXe9BrWPF3jjUmceEfw@mail.gmail.com>
+ <557B88FC-DAA6-4582-9369-08B3CD07DB2A@stufft.io>
+Message-ID: <CAP1=2W4qaPRUexO7OW5H3n186sbbHgHqixZmzrjBzmgd==cEBQ@mail.gmail.com>
+
+Changes made to bugs.python.org
+
+
+On Thu, Oct 24, 2013 at 11:42 AM, Donald Stufft <donald at stufft.io> wrote:
+
+> dstufft
+>
+> On Oct 24, 2013, at 9:21 AM, Brett Cannon <brett at python.org> wrote:
+>
+>
+>
+>
+> On Thu, Oct 24, 2013 at 6:39 AM, Nick Coghlan <ncoghlan at gmail.com> wrote:
+>
+>> With PEP 453 accepted, could Donald please be upgraded to full
+>> committer access for ensurepip maintenance (the initial PEP 453
+>> commits will still go through review on the tracker). (His SSH key is
+>> already on file for PEP updates, so I believe the only actual change
+>> needed is to adjust his status on the issue tracker)
+>>
+>
+> I just approved his subscription to python-committers, so that leaves
+> Donald replying to this email with his tracker ID so one of us can tweak
+> his settings.
+>  _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+>
+>
+>
+> -----------------
+> Donald Stufft
+> PGP: 0x6E3CBCE93372DCFA // 7C6B 7C5D 5E2B 6356 A926 F04F 6E3C BCE9 3372
+> DCFA
+>
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20131024/a88be510/attachment.html>
+
+From rdmurray at bitdance.com  Thu Oct 24 19:53:31 2013
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Thu, 24 Oct 2013 13:53:31 -0400
+Subject: [python-committers] Your buildbots are out of memory
+In-Reply-To: <c5899c3f1690eee86421f921da4f2bf1@ssl.pitrou.net>
+References: <CAP1=2W4bKw1aTbMFbgzd8QWtn9cmtX-Sz0NrF5xx3XcC2M86Vw@mail.gmail.com>
+ <20131024145904.DE61B250B48@webabinitio.net>
+ <c5899c3f1690eee86421f921da4f2bf1@ssl.pitrou.net>
+Message-ID: <20131024175332.6400C250BB3@webabinitio.net>
+
+On Thu, 24 Oct 2013 17:08:11 +0200, Antoine Pitrou <antoine at python.org> wrote:
+> On 2013-10-24 16:59, R. David Murray wrote:
+> > 
+> > However, it looks like someone has added some tests that use more tmp 
+> > space,
+> > since the amount of /tmp that exist has been fine up until this point,
+> > and the runs on 2.7 and 3.3 are still working.
+> > 
+> > I can increase /tmp, but I wonder if there is a new test that should
+> > be protected with the largefile resource.  Perhaps not,
+> > /tmp is currently 16MB on those bots, and I'm not sure what we
+> > consider 'large' for test files.
+> 
+> For test files, I would consider "large" to start around 100MB or more 
+> :-)
+> 16MB is less than the size of a Python process executing regrtest...
+> It's incredibly small.
+
+It's the default value for the /tmp in-memory filesystem on
+linux vserver, and like I said it has been enough up to this point.
+(Yes it fills up sometimes, but that's because of test failures
+in the bsddb tests that don't clean up properly.)
+
+Anyway, based on Antoine's opinion, I've increased the size to 120MB.
+
+--David
+
+From g.brandl at gmx.net  Sun Oct 27 13:57:26 2013
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Sun, 27 Oct 2013 13:57:26 +0100
+Subject: [python-committers] 3.3.3rc1 tagged
+Message-ID: <l4j2h8$rna$1@ger.gmane.org>
+
+Hi,
+
+I've tagged 3.3.3rc1 today; final is scheduled for Nov 8.  Please notify
+me of any 3.3 regressions you find; I will then port them to the repo
+from which the final is cut.
+
+General bugfixing can continue on the 3.3 branch in the main repo and will
+not be relevant for 3.3.
+
+cheers,
+Georg
+
+
+From g.brandl at gmx.net  Sun Oct 27 13:59:39 2013
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Sun, 27 Oct 2013 13:59:39 +0100
+Subject: [python-committers] 3.3.3rc1 tagged
+In-Reply-To: <l4j2h8$rna$1@ger.gmane.org>
+References: <l4j2h8$rna$1@ger.gmane.org>
+Message-ID: <l4j2lc$rna$2@ger.gmane.org>
+
+Am 27.10.2013 13:57, schrieb Georg Brandl:
+> Hi,
+> 
+> I've tagged 3.3.3rc1 today; final is scheduled for Nov 8.  Please notify
+> me of any 3.3 regressions you find; I will then port them to the repo
+> from which the final is cut.
+> 
+> General bugfixing can continue on the 3.3 branch in the main repo and will
+> not be relevant for 3.3.
+                      ^^^
+should be 3.3.3, of course.
+
+Georg
+
+
+
+From georg at python.org  Sun Oct 27 21:47:05 2013
+From: georg at python.org (Georg Brandl)
+Date: Sun, 27 Oct 2013 21:47:05 +0100
+Subject: [python-committers] [RELEASED] Python 3.3.3 release candidate 1
+Message-ID: <526D7BC9.5060609@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On behalf of the Python development team, I'm quite happy to announce the
+Python 3.3.3 release candidate 1.
+
+Python 3.3.3 includes several security fixes and over 150 bug fixes compared to
+the Python 3.3.2 release.
+
+This release fully supports OS X 10.9 Mavericks.  In particular, this release
+fixes an issue that could cause previous versions of Python to crash when typing
+in interactive mode on OS X 10.9.
+
+Python 3.3.3 also contains a new batteries-included feature for OS X users of
+IDLE and other Tkinter-based programs.  The python.org Mac OS X 64-bit/32-bit
+x86-64/i386 Installer for OS X 10.6+ now includes its own builtin version of
+Tcl/Tk 8.5.  It is no longer necessary to install a third-party version of
+Tcl/Tk 8.5 to workaround the problematic system versions.  See
+http://www.python.org/download/mac/tcltk/ for more information.
+
+Python 3.3 includes a range of improvements of the 3.x series, as well as easier
+porting between 2.x and 3.x.  In total, almost 500 API items are new or improved
+in Python 3.3.  For a more extensive list of changes in the 3.3 series, see
+
+    http://docs.python.org/3.3/whatsnew/3.3.html
+
+and for the detailed changelog of 3.3.3, see
+
+    http://docs.python.org/3.3/whatsnew/changelog.html
+
+To download Python 3.3.3 rc1 visit:
+
+    http://www.python.org/download/releases/3.3.3/
+
+This is a preview release, please report any bugs to
+
+     http://bugs.python.org/
+
+The final version is scheduled to be released in two weeks' time, on or about
+the 10th of November.
+
+Enjoy!
+
+- --
+Georg Brandl, Release Manager
+georg at python.org
+(on behalf of the entire python-dev team and 3.3's contributors)
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v2.0.22 (GNU/Linux)
+
+iEYEARECAAYFAlJte8kACgkQN9GcIYhpnLDx8wCgqtabbC8DaoW+Vy03AYGWyLhw
+sWcAoIK5jQeXDAxHayG+VWH/rRF1+qHC
+=yOed
+-----END PGP SIGNATURE-----
+
+From barry at python.org  Tue Oct 29 14:55:44 2013
+From: barry at python.org (Barry Warsaw)
+Date: Tue, 29 Oct 2013 09:55:44 -0400
+Subject: [python-committers] 2.6.9 final
+Message-ID: <20131029095544.45b746e2@anarchist>
+
+I wasn't able to release 2.6.9 last night due to unrelated issues.  I'm going
+to be spinning the release today.
+
+-Barry
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 836 bytes
+Desc: not available
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20131029/9a260733/attachment.sig>
+
+From barry at python.org  Wed Oct 30 15:13:01 2013
+From: barry at python.org (Barry Warsaw)
+Date: Wed, 30 Oct 2013 10:13:01 -0400
+Subject: [python-committers] Closing the 2.6 branch?
+Message-ID: <20131030101301.60c2e9f8@anarchist>
+
+Now that 2.6.9 is out, I wonder if there's anything we can or should do to the
+Mercurial repository to explicitly prevent commits to the 2.6 branch?  We have
+we done to older branches?
+
+Also, can anybody think of anything in the devguide that needs to be updated?
+
+Cheers,
+-Barry
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 836 bytes
+Desc: not available
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20131030/9a338ab2/attachment.sig>
+
+From benjamin at python.org  Wed Oct 30 15:18:01 2013
+From: benjamin at python.org (Benjamin Peterson)
+Date: Wed, 30 Oct 2013 10:18:01 -0400
+Subject: [python-committers] Closing the 2.6 branch?
+In-Reply-To: <20131030101301.60c2e9f8@anarchist>
+References: <20131030101301.60c2e9f8@anarchist>
+Message-ID: <CAPZV6o9sJpYdzE+L_EvqzHMt5JGpRUXQwAzorL=knjTOGtDx2Q@mail.gmail.com>
+
+2013/10/30 Barry Warsaw <barry at python.org>:
+> Now that 2.6.9 is out, I wonder if there's anything we can or should do to the
+> Mercurial repository to explicitly prevent commits to the 2.6 branch?  We have
+> we done to older branches?
+
+I've now disabled pushing to the 2.6 branch.
+
+
+
+-- 
+Regards,
+Benjamin
+
+From barry at python.org  Wed Oct 30 15:20:58 2013
+From: barry at python.org (Barry Warsaw)
+Date: Wed, 30 Oct 2013 10:20:58 -0400
+Subject: [python-committers] Closing the 2.6 branch?
+In-Reply-To: <CAPZV6o9sJpYdzE+L_EvqzHMt5JGpRUXQwAzorL=knjTOGtDx2Q@mail.gmail.com>
+References: <20131030101301.60c2e9f8@anarchist>
+ <CAPZV6o9sJpYdzE+L_EvqzHMt5JGpRUXQwAzorL=knjTOGtDx2Q@mail.gmail.com>
+Message-ID: <20131030102058.1d2f427b@anarchist>
+
+On Oct 30, 2013, at 10:18 AM, Benjamin Peterson wrote:
+
+>I've now disabled pushing to the 2.6 branch.
+
+Thanks!
+-Barry
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 836 bytes
+Desc: not available
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20131030/62cc485a/attachment.sig>
+
+From martin at v.loewis.de  Wed Oct 30 15:24:56 2013
+From: martin at v.loewis.de (=?ISO-8859-15?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Wed, 30 Oct 2013 15:24:56 +0100
+Subject: [python-committers] Closing the 2.6 branch?
+In-Reply-To: <20131030101301.60c2e9f8@anarchist>
+References: <20131030101301.60c2e9f8@anarchist>
+Message-ID: <527116B8.2040709@v.loewis.de>
+
+Am 30.10.13 15:13, schrieb Barry Warsaw:
+> Now that 2.6.9 is out, I wonder if there's anything we can or
+> should do to the Mercurial repository to explicitly prevent commits
+> to the 2.6 branch?  We have we done to older branches?
+
+I think closing the branch is just right; it's done through "hg commit
+--close-branch".
+
+> We have we done to older branches?
+
+hg branches -c will tell:
+
+default                    86195:63a1ee94b3ed
+2.7                        86192:0820e8394d96
+3.3                        86193:249ba942a6d4 (inaktiv)
+2.6                        85914:6d7ae764b4f2 (inaktiv)
+3.2                        85752:ef90c40fe6cf (inaktiv)
+3.1                        85751:713d71048ab9 (inaktiv)
+2.5                        73244:b48e1b48e670 (geschlossen)
+3.0                        68249:4cd9f5e89061 (geschlossen)
+legacy-trunk               68241:b77918288f7d (geschlossen)
+2.4                        68239:ceec209b26d4 (geschlossen)
+2.3                        68237:364638d6434d (geschlossen)
+2.2                        68235:61b0263d6881 (geschlossen)
+2.1                        68233:e849d484029f (geschlossen)
+2.0                        68231:5fd74354d73b (geschlossen)
+
+In addition, I *think* we have a hook on the master that prevents
+further pushes to the branch.
+
+> Also, can anybody think of anything in the devguide that needs to
+> be updated?
+
+Not the devguide. If anywhere, in PEP 101.
+
+Regards,
+Martin
+
+
+From barry at python.org  Wed Oct 30 16:34:49 2013
+From: barry at python.org (Barry Warsaw)
+Date: Wed, 30 Oct 2013 11:34:49 -0400
+Subject: [python-committers] Closing the 2.6 branch?
+In-Reply-To: <527116B8.2040709@v.loewis.de>
+References: <20131030101301.60c2e9f8@anarchist> <527116B8.2040709@v.loewis.de>
+Message-ID: <20131030113449.4d5f25ee@anarchist>
+
+On Oct 30, 2013, at 03:24 PM, Martin v. L?wis wrote:
+
+>I think closing the branch is just right; it's done through "hg commit
+>--close-branch".
+
+>In addition, I *think* we have a hook on the master that prevents
+>further pushes to the branch.
+
+Looks like Benjamin updated the hook but didn't close the branch.  I think
+we've got that all sorted out now though.
+
+>Not the devguide. If anywhere, in PEP 101.
+
+I'll take a swing through that when I get some free time.
+
+Cheers,
+-Barry
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 836 bytes
+Desc: not available
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20131030/a9b3646b/attachment.sig>
+
+From ncoghlan at gmail.com  Wed Oct 30 16:28:54 2013
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Thu, 31 Oct 2013 01:28:54 +1000
+Subject: [python-committers] Closing the 2.6 branch?
+In-Reply-To: <527116B8.2040709@v.loewis.de>
+References: <20131030101301.60c2e9f8@anarchist> <527116B8.2040709@v.loewis.de>
+Message-ID: <CADiSq7exg=A8ip8GZNsS65e4daTo3QQ8MnPrYweRyRjTZcg6rA@mail.gmail.com>
+
+On 31 Oct 2013 00:31, Martin v. L?wis <martin at v.loewis.de> wrote:
+>
+> Am 30.10.13 15:13, schrieb Barry Warsaw:
+> > Now that 2.6.9 is out, I wonder if there's anything we can or
+> > should do to the Mercurial repository to explicitly prevent commits
+> > to the 2.6 branch?  We have we done to older branches?
+>
+> I think closing the branch is just right; it's done through "hg commit
+> --close-branch".
+>
+> > We have we done to older branches?
+>
+> hg branches -c will tell:
+>
+> default                    86195:63a1ee94b3ed
+> 2.7                        86192:0820e8394d96
+> 3.3                        86193:249ba942a6d4 (inaktiv)
+> 2.6                        85914:6d7ae764b4f2 (inaktiv)
+> 3.2                        85752:ef90c40fe6cf (inaktiv)
+> 3.1                        85751:713d71048ab9 (inaktiv)
+> 2.5                        73244:b48e1b48e670 (geschlossen)
+> 3.0                        68249:4cd9f5e89061 (geschlossen)
+> legacy-trunk               68241:b77918288f7d (geschlossen)
+> 2.4                        68239:ceec209b26d4 (geschlossen)
+> 2.3                        68237:364638d6434d (geschlossen)
+> 2.2                        68235:61b0263d6881 (geschlossen)
+> 2.1                        68233:e849d484029f (geschlossen)
+> 2.0                        68231:5fd74354d73b (geschlossen)
+>
+> In addition, I *think* we have a hook on the master that prevents
+> further pushes to the branch.
+>
+> > Also, can anybody think of anything in the devguide that needs to
+> > be updated?
+>
+> Not the devguide. If anywhere, in PEP 101.
+
+There's a trick to get the PEP 0 generator to move the release PEP to the
+historical section, too. I'd have to look at the source code to remember
+what it is, though.
+
+Cheers,
+Nick.
+
+>
+> Regards,
+> Martin
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20131031/5b1b37c6/attachment-0001.html>
+
+From jcea at jcea.es  Wed Oct 30 16:34:32 2013
+From: jcea at jcea.es (Jesus Cea)
+Date: Wed, 30 Oct 2013 16:34:32 +0100
+Subject: [python-committers] Closing the 2.6 branch?
+In-Reply-To: <CAPZV6o9sJpYdzE+L_EvqzHMt5JGpRUXQwAzorL=knjTOGtDx2Q@mail.gmail.com>
+References: <20131030101301.60c2e9f8@anarchist>
+ <CAPZV6o9sJpYdzE+L_EvqzHMt5JGpRUXQwAzorL=knjTOGtDx2Q@mail.gmail.com>
+Message-ID: <52712708.2030302@jcea.es>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On 30/10/13 15:18, Benjamin Peterson wrote:
+> 2013/10/30 Barry Warsaw <barry at python.org>:
+>> Now that 2.6.9 is out, I wonder if there's anything we can or 
+>> should do to the Mercurial repository to explicitly prevent 
+>> commits to the 2.6 branch?  We have we done to older branches?
+> 
+> I've now disabled pushing to the 2.6 branch.
+
+Could I suggest to mark the branch as "closed" in Mercurial?. I still
+see it in "hg heads".
+
+- -- 
+Jes?s Cea Avi?n                         _/_/      _/_/_/        _/_/_/
+jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+Twitter: @jcea                        _/_/    _/_/          _/_/_/_/_/
+jabber / xmpp:jcea at jabber.org  _/_/  _/_/    _/_/          _/_/  _/_/
+"Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+"My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+"El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.15 (GNU/Linux)
+Comment: Using GnuPG with Thunderbird - http://www.enigmail.net/
+
+iQCVAwUBUnEnCJlgi5GaxT1NAQKQagP+PCtYPHZ6FmcRyva2oDT4spP4UcuNheEw
+faqrVe+jDdDEXx9hPiU36VLfQpSZKFHUQKAw7jBBJCYi5TSyxYq2oEGhdTwjg6JL
+bsQ1mbE2H/7a+uB30+fUiZmydcqD8fpeSmWwFMjDzYO6z55kmCXpFxUHnEBa3hCM
+LhOR20hgFVE=
+=wqbn
+-----END PGP SIGNATURE-----
+
+From barry at python.org  Wed Oct 30 16:54:25 2013
+From: barry at python.org (Barry Warsaw)
+Date: Wed, 30 Oct 2013 11:54:25 -0400
+Subject: [python-committers] Closing the 2.6 branch?
+In-Reply-To: <CADiSq7exg=A8ip8GZNsS65e4daTo3QQ8MnPrYweRyRjTZcg6rA@mail.gmail.com>
+References: <20131030101301.60c2e9f8@anarchist> <527116B8.2040709@v.loewis.de>
+ <CADiSq7exg=A8ip8GZNsS65e4daTo3QQ8MnPrYweRyRjTZcg6rA@mail.gmail.com>
+Message-ID: <20131030115425.06b3528f@anarchist>
+
+On Oct 31, 2013, at 01:28 AM, Nick Coghlan wrote:
+
+>There's a trick to get the PEP 0 generator to move the release PEP to the
+>historical section, too. I'd have to look at the source code to remember
+>what it is, though.
+
+        elif pep.type_ == 'Informational':
+            # Hack until the conflict between the use of "Final"
+            # for both API definition PEPs and other (actually
+            # obsolete) PEPs is addressed
+            if (pep.status == "Active" or
+                "Release Schedule" not in pep.title):
+                info.append(pep)
+            else:
+                historical.append(pep)
+
+So PEP 361 (the 2.6/3.0 release schedule PEP) actually does end up in the
+Historical bin.  The PEP itself probably should have remained Active until
+yesterday.
+
+Do we want an explicit state for Status: Final -> Historical?
+
+(TBH, I don't care enough to do any work on it. ;)
+
+-Barry
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 836 bytes
+Desc: not available
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20131030/6e8921d3/attachment.sig>
+
+From barry at python.org  Wed Oct 30 16:55:28 2013
+From: barry at python.org (Barry Warsaw)
+Date: Wed, 30 Oct 2013 11:55:28 -0400
+Subject: [python-committers] Closing the 2.6 branch?
+In-Reply-To: <52712708.2030302@jcea.es>
+References: <20131030101301.60c2e9f8@anarchist>
+ <CAPZV6o9sJpYdzE+L_EvqzHMt5JGpRUXQwAzorL=knjTOGtDx2Q@mail.gmail.com>
+ <52712708.2030302@jcea.es>
+Message-ID: <20131030115528.14713554@anarchist>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA256
+
+On Oct 30, 2013, at 04:34 PM, Jesus Cea wrote:
+
+>Could I suggest to mark the branch as "closed" in Mercurial?. I still
+>see it in "hg heads".
+
+$ hg pull -u
+
+/me replaces the time machine keys before Guido notices they were missing.
+
+- -Barry
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.14 (GNU/Linux)
+
+iQIcBAEBCAAGBQJScSvwAAoJEBJutWOnSwa/vw0P/Anj00KegI99JiC636saN+6v
+xGi1YbmtvlCEiKkEBHMBfGQSgNkr0ImfgFKyT4sY8hIve9AGkoOKUzYXUFFsWjI1
+G2g5Xch4eoEqfCTmFXHvPjfjCyrsE/P7BDgO3h3lSvYC2Y3DkNjrZVta3weu4kbE
+PpMhUTV7QUExX8k01SUEbAA5ToZu2rThy5Qp8ho9kaRZqeekTZ2Vyx2ShZUfuHxf
+CHQ6x0vNE0j1DuhvrqbWqzSxFsQNs0hlG7uSn/JRuWakQCKh4AkVRlAv2Y8SDlTj
+ZdKfRXuXfzThwFA0ya4ln8Zwd1loZyKZdn7U5oBb3VT4k0G884/l5mRxcVCW4xfw
+BFLKgvfYccDFEgkR4Y8g178FMpY7aLTMAN+lFiQ7z685l1ni9dm9QvU8FPPTUhlT
+OWI+xWws5oOnLmZriz8dC2DyC+Xx7etlyYVUx7SGfH/xVHnInhw0tI3lSs35/nNA
+bZiyhW/Pc8s3rU1T/pVO2lfifEk+am3OM8ubKjvYinYyVjrK3q8+dLvLG6vHy2DR
+CqqZEmxbeQkp8a7xDyG5scs4La1z7MoNYYzwZjjKlr3RltTLvLnexi8XMg/SYmgp
+BZamqJGT+yv4gdUMsODAc/B180E5EVoDDj2nBX6tNB6HZUWJC2CLagrqYRbG4laC
+oCsTkECKE1EYMl9iF+FK
+=dRg3
+-----END PGP SIGNATURE-----
+
+From ncoghlan at gmail.com  Wed Oct 30 23:03:28 2013
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Thu, 31 Oct 2013 08:03:28 +1000
+Subject: [python-committers] Closing the 2.6 branch?
+In-Reply-To: <20131030115425.06b3528f@anarchist>
+References: <20131030101301.60c2e9f8@anarchist> <527116B8.2040709@v.loewis.de>
+ <CADiSq7exg=A8ip8GZNsS65e4daTo3QQ8MnPrYweRyRjTZcg6rA@mail.gmail.com>
+ <20131030115425.06b3528f@anarchist>
+Message-ID: <CADiSq7cV8u=D=+emeOHRpRb7PLqs5Om3yBG5XwjFiXKxAbBnow@mail.gmail.com>
+
+On 31 Oct 2013 01:54, "Barry Warsaw" <barry at python.org> wrote:
+>
+> On Oct 31, 2013, at 01:28 AM, Nick Coghlan wrote:
+>
+> >There's a trick to get the PEP 0 generator to move the release PEP to the
+> >historical section, too. I'd have to look at the source code to remember
+> >what it is, though.
+>
+>         elif pep.type_ == 'Informational':
+>             # Hack until the conflict between the use of "Final"
+>             # for both API definition PEPs and other (actually
+>             # obsolete) PEPs is addressed
+>             if (pep.status == "Active" or
+>                 "Release Schedule" not in pep.title):
+>                 info.append(pep)
+>             else:
+>                 historical.append(pep)
+>
+> So PEP 361 (the 2.6/3.0 release schedule PEP) actually does end up in the
+> Historical bin.  The PEP itself probably should have remained Active until
+> yesterday.
+>
+> Do we want an explicit state for Status: Final -> Historical?
+>
+> (TBH, I don't care enough to do any work on it. ;)
+
+Ah, you have divined the true reason why that hack is still there ;)
+
+Cheers,
+Nick.
+
+>
+> -Barry
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20131031/0a805c6d/attachment.html>
+

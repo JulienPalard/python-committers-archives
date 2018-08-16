@@ -1,0 +1,1049 @@
+From alexandre at peadrop.com  Tue Aug 14 07:32:29 2012
+From: alexandre at peadrop.com (Alexandre Vassalotti)
+Date: Mon, 13 Aug 2012 22:32:29 -0700
+Subject: [python-committers] Django running in debug mode on bugs.python.org
+Message-ID: <CANcUUecCZu36o0jAv9B3iVGDqOcLYoqLyqiLUs5k5rkCbECRCg@mail.gmail.com>
+
+Hi guys,
+
+I just got an exception from the code review tool running on bugs.python.org.
+The server returned the full debug stack trace (which means DEBUG=True in
+Django). Is this intended?
+
+Cheers,
+-- Alexandre
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20120813/491f2e6f/attachment.html>
+
+From ezio.melotti at gmail.com  Tue Aug 14 13:59:37 2012
+From: ezio.melotti at gmail.com (Ezio Melotti)
+Date: Tue, 14 Aug 2012 14:59:37 +0300
+Subject: [python-committers] Django running in debug mode on
+	bugs.python.org
+In-Reply-To: <CANcUUecCZu36o0jAv9B3iVGDqOcLYoqLyqiLUs5k5rkCbECRCg@mail.gmail.com>
+References: <CANcUUecCZu36o0jAv9B3iVGDqOcLYoqLyqiLUs5k5rkCbECRCg@mail.gmail.com>
+Message-ID: <CACBhJdGczG0vmVbNYBBMVuHhYg8Vuayi9q-ouc225pgnQsfi-g@mail.gmail.com>
+
+On Tue, Aug 14, 2012 at 8:32 AM, Alexandre Vassalotti
+<alexandre at peadrop.com> wrote:
+> Hi guys,
+>
+> I just got an exception from the code review tool running on
+> bugs.python.org. The server returned the full debug stack trace (which means
+> DEBUG=True in Django). Is this intended?
+>
+> Cheers,
+> -- Alexandre
+
+It used to be set to True but IIRC at some point I changed it to be False.
+Unless someone changed this intentionally, it's likely that the change
+got lost when the repo got moved to HG.
+
+Best Regards,
+Ezio Melotti
+
+From stefan at bytereef.org  Sat Aug 18 11:53:58 2012
+From: stefan at bytereef.org (Stefan Krah)
+Date: Sat, 18 Aug 2012 11:53:58 +0200
+Subject: [python-committers] anyone still have access to the coverity
+ scan results?
+In-Reply-To: <1295528246.3705.3.camel@localhost.localdomain>
+References: <AANLkTi=PdckA3Efm3Zy=EuNGR76EH-R9wXR5icFQ=Zcd@mail.gmail.com>
+	<AANLkTinZHWhZR6G8dfQwi+SXy-BUot1dbnBZTw8eG_7J@mail.gmail.com>
+	<AANLkTim0EtF-Aot1DHTrwvkkbMEy5N7WSEJHirvtUBF-@mail.gmail.com>
+	<AANLkTin80eD2YKOf_139VLiKeEktG0hcBemyCzXBE3Mx@mail.gmail.com>
+	<AANLkTimGY0mT3C-92KBpzaAborQodHwxQ_x967-BqpTt@mail.gmail.com>
+	<AANLkTikOSANK=huUv_VXpu3eDcagxDLk_oL5WW=XXwos@mail.gmail.com>
+	<7F68C6B0-257C-42AC-BD86-6F7B454F46DC@holdenweb.com>
+	<1295528246.3705.3.camel@localhost.localdomain>
+Message-ID: <20120818095358.GA6855@sleipnir.bytereef.org>
+
+Antoine Pitrou <solipsis at pitrou.net> wrote:
+> Besides, if the coverity results are private and limited to a couple of
+> core devs, I don't think other sprinters will benefit a lot from such
+> "education". Or do you have something particular in mind?
+
+What is the status of the scans? Does anyone have access by now? For example,
+I'm curious to see the results for Modules/_decimal/*, Modules/_decimal/libmpdec/*
+and Objects/memoryobject.c.
+
+
+Stefan Krah
+
+
+
+
+From lists at cheimes.de  Sat Aug 18 13:55:44 2012
+From: lists at cheimes.de (Christian Heimes)
+Date: Sat, 18 Aug 2012 13:55:44 +0200
+Subject: [python-committers] anyone still have access to the coverity
+ scan results?
+In-Reply-To: <20120818095358.GA6855@sleipnir.bytereef.org>
+References: <AANLkTi=PdckA3Efm3Zy=EuNGR76EH-R9wXR5icFQ=Zcd@mail.gmail.com>
+	<AANLkTinZHWhZR6G8dfQwi+SXy-BUot1dbnBZTw8eG_7J@mail.gmail.com>
+	<AANLkTim0EtF-Aot1DHTrwvkkbMEy5N7WSEJHirvtUBF-@mail.gmail.com>
+	<AANLkTin80eD2YKOf_139VLiKeEktG0hcBemyCzXBE3Mx@mail.gmail.com>
+	<AANLkTimGY0mT3C-92KBpzaAborQodHwxQ_x967-BqpTt@mail.gmail.com>
+	<AANLkTikOSANK=huUv_VXpu3eDcagxDLk_oL5WW=XXwos@mail.gmail.com>
+	<7F68C6B0-257C-42AC-BD86-6F7B454F46DC@holdenweb.com>
+	<1295528246.3705.3.camel@localhost.localdomain>
+	<20120818095358.GA6855@sleipnir.bytereef.org>
+Message-ID: <502F82C0.5030808@cheimes.de>
+
+Am 18.08.2012 11:53, schrieb Stefan Krah:
+> Antoine Pitrou <solipsis at pitrou.net> wrote:
+>> Besides, if the coverity results are private and limited to a couple of
+>> core devs, I don't think other sprinters will benefit a lot from such
+>> "education". Or do you have something particular in mind?
+> 
+> What is the status of the scans? Does anyone have access by now? For example,
+> I'm curious to see the results for Modules/_decimal/*, Modules/_decimal/libmpdec/*
+> and Objects/memoryobject.c.
+
+Yup, my login still works. I can send you a CSV or XML report if you like.
+
+Christian
+
+From stefan at bytereef.org  Sat Aug 18 15:08:32 2012
+From: stefan at bytereef.org (Stefan Krah)
+Date: Sat, 18 Aug 2012 15:08:32 +0200
+Subject: [python-committers] anyone still have access to the coverity
+ scan results?
+In-Reply-To: <502F82C0.5030808@cheimes.de>
+References: <AANLkTi=PdckA3Efm3Zy=EuNGR76EH-R9wXR5icFQ=Zcd@mail.gmail.com>
+	<AANLkTinZHWhZR6G8dfQwi+SXy-BUot1dbnBZTw8eG_7J@mail.gmail.com>
+	<AANLkTim0EtF-Aot1DHTrwvkkbMEy5N7WSEJHirvtUBF-@mail.gmail.com>
+	<AANLkTin80eD2YKOf_139VLiKeEktG0hcBemyCzXBE3Mx@mail.gmail.com>
+	<AANLkTimGY0mT3C-92KBpzaAborQodHwxQ_x967-BqpTt@mail.gmail.com>
+	<AANLkTikOSANK=huUv_VXpu3eDcagxDLk_oL5WW=XXwos@mail.gmail.com>
+	<7F68C6B0-257C-42AC-BD86-6F7B454F46DC@holdenweb.com>
+	<1295528246.3705.3.camel@localhost.localdomain>
+	<20120818095358.GA6855@sleipnir.bytereef.org>
+	<502F82C0.5030808@cheimes.de>
+Message-ID: <20120818130832.GA8778@sleipnir.bytereef.org>
+
+Christian Heimes <lists at cheimes.de> wrote:
+> Yup, my login still works. I can send you a CSV or XML report if you like.
+
+Thanks, got the CSV!
+
+If anyone has the possibility to create new accounts, I would like to apply
+for one.
+
+
+Stefan Krah
+
+
+
+
+From lists at cheimes.de  Sat Aug 18 17:01:10 2012
+From: lists at cheimes.de (Christian Heimes)
+Date: Sat, 18 Aug 2012 17:01:10 +0200
+Subject: [python-committers] anyone still have access to the coverity
+ scan results?
+In-Reply-To: <20120818130832.GA8778@sleipnir.bytereef.org>
+References: <AANLkTi=PdckA3Efm3Zy=EuNGR76EH-R9wXR5icFQ=Zcd@mail.gmail.com>
+	<AANLkTinZHWhZR6G8dfQwi+SXy-BUot1dbnBZTw8eG_7J@mail.gmail.com>
+	<AANLkTim0EtF-Aot1DHTrwvkkbMEy5N7WSEJHirvtUBF-@mail.gmail.com>
+	<AANLkTin80eD2YKOf_139VLiKeEktG0hcBemyCzXBE3Mx@mail.gmail.com>
+	<AANLkTimGY0mT3C-92KBpzaAborQodHwxQ_x967-BqpTt@mail.gmail.com>
+	<AANLkTikOSANK=huUv_VXpu3eDcagxDLk_oL5WW=XXwos@mail.gmail.com>
+	<7F68C6B0-257C-42AC-BD86-6F7B454F46DC@holdenweb.com>
+	<1295528246.3705.3.camel@localhost.localdomain>
+	<20120818095358.GA6855@sleipnir.bytereef.org>
+	<502F82C0.5030808@cheimes.de>
+	<20120818130832.GA8778@sleipnir.bytereef.org>
+Message-ID: <502FAE36.7070704@cheimes.de>
+
+Am 18.08.2012 15:08, schrieb Stefan Krah:
+> Christian Heimes <lists at cheimes.de> wrote:
+>> Yup, my login still works. I can send you a CSV or XML report if you like.
+> 
+> Thanks, got the CSV!
+> 
+> If anyone has the possibility to create new accounts, I would like to apply
+> for one.
+
+Who usually uploads the necessary files to coverity? The current files
+are rather old (patchlevel.h says 3.3.0a0). I was able to create the
+report files but the files must be uploaded to a registered location.
+
+Christian
+
+
+From rdmurray at bitdance.com  Sat Aug 18 17:56:40 2012
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Sat, 18 Aug 2012 11:56:40 -0400
+Subject: [python-committers] anyone still have access to the coverity
+	scan results?
+In-Reply-To: <502FAE36.7070704@cheimes.de>
+References: <AANLkTi=PdckA3Efm3Zy=EuNGR76EH-R9wXR5icFQ=Zcd@mail.gmail.com>
+	<AANLkTinZHWhZR6G8dfQwi+SXy-BUot1dbnBZTw8eG_7J@mail.gmail.com>
+	<AANLkTim0EtF-Aot1DHTrwvkkbMEy5N7WSEJHirvtUBF-@mail.gmail.com>
+	<AANLkTin80eD2YKOf_139VLiKeEktG0hcBemyCzXBE3Mx@mail.gmail.com>
+	<AANLkTimGY0mT3C-92KBpzaAborQodHwxQ_x967-BqpTt@mail.gmail.com>
+	<AANLkTikOSANK=huUv_VXpu3eDcagxDLk_oL5WW=XXwos@mail.gmail.com>
+	<7F68C6B0-257C-42AC-BD86-6F7B454F46DC@holdenweb.com>
+	<1295528246.3705.3.camel@localhost.localdomain>
+	<20120818095358.GA6855@sleipnir.bytereef.org>
+	<502F82C0.5030808@cheimes.de>
+	<20120818130832.GA8778@sleipnir.bytereef.org>
+	<502FAE36.7070704@cheimes.de>
+Message-ID: <20120818155641.2415325016D@webabinitio.net>
+
+On Sat, 18 Aug 2012 17:01:10 +0200, Christian Heimes <lists at cheimes.de> wrote:
+> Am 18.08.2012 15:08, schrieb Stefan Krah:
+> > Christian Heimes <lists at cheimes.de> wrote:
+> >> Yup, my login still works. I can send you a CSV or XML report if you like.
+> > 
+> > Thanks, got the CSV!
+> > 
+> > If anyone has the possibility to create new accounts, I would like to apply
+> > for one.
+> 
+> Who usually uploads the necessary files to coverity? The current files
+> are rather old (patchlevel.h says 3.3.0a0). I was able to create the
+> report files but the files must be uploaded to a registered location.
+
+It is quite possible the server migration of the hg repo broke some
+automated upload script.  I'm just guessing, though.
+
+--David
+
+From g.brandl at gmx.net  Sun Aug 19 13:04:56 2012
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Sun, 19 Aug 2012 13:04:56 +0200
+Subject: [python-committers] 3.3 rc1 next week
+Message-ID: <k0qh8k$i33$1@ger.gmane.org>
+
+Dear committers,
+
+if the buffer/array-related blockers are resolved in time, the rc1
+will be released one week from now.
+
+Since some people asked: at the moment we are not in the RC phase yet,
+so fixing bugs is allowed, but it would be advisable to have a second
+committer review any nontrivial fix.
+
+ From the release of rc1, I will keep the code that will become 3.3 in
+a separate repo, so that commits to "default" on cpython *won't* go
+into 3.3.  You will have to notify me of all commits that you think
+*should* go there, so that I can cherry-pick them.  Not all bugfixes
+fall into that category; only showstopper-level ones.  The rest will
+have to wait for 3.3.1.
+
+cheers,
+Georg
+
+
+From brett at python.org  Sun Aug 19 17:56:10 2012
+From: brett at python.org (Brett Cannon)
+Date: Sun, 19 Aug 2012 11:56:10 -0400
+Subject: [python-committers] anyone still have access to the coverity
+	scan results?
+In-Reply-To: <502FAE36.7070704@cheimes.de>
+References: <AANLkTi=PdckA3Efm3Zy=EuNGR76EH-R9wXR5icFQ=Zcd@mail.gmail.com>
+	<AANLkTinZHWhZR6G8dfQwi+SXy-BUot1dbnBZTw8eG_7J@mail.gmail.com>
+	<AANLkTim0EtF-Aot1DHTrwvkkbMEy5N7WSEJHirvtUBF-@mail.gmail.com>
+	<AANLkTin80eD2YKOf_139VLiKeEktG0hcBemyCzXBE3Mx@mail.gmail.com>
+	<AANLkTimGY0mT3C-92KBpzaAborQodHwxQ_x967-BqpTt@mail.gmail.com>
+	<AANLkTikOSANK=huUv_VXpu3eDcagxDLk_oL5WW=XXwos@mail.gmail.com>
+	<7F68C6B0-257C-42AC-BD86-6F7B454F46DC@holdenweb.com>
+	<1295528246.3705.3.camel@localhost.localdomain>
+	<20120818095358.GA6855@sleipnir.bytereef.org>
+	<502F82C0.5030808@cheimes.de>
+	<20120818130832.GA8778@sleipnir.bytereef.org>
+	<502FAE36.7070704@cheimes.de>
+Message-ID: <CAP1=2W5DegHEJeGb1kqQ751JHZkdt3_eg10HB_8YteEkndyTgQ@mail.gmail.com>
+
+On Sat, Aug 18, 2012 at 11:01 AM, Christian Heimes <lists at cheimes.de> wrote:
+
+> Am 18.08.2012 15:08, schrieb Stefan Krah:
+> > Christian Heimes <lists at cheimes.de> wrote:
+> >> Yup, my login still works. I can send you a CSV or XML report if you
+> like.
+> >
+> > Thanks, got the CSV!
+> >
+> > If anyone has the possibility to create new accounts, I would like to
+> apply
+> > for one.
+>
+> Who usually uploads the necessary files to coverity? The current files
+> are rather old (patchlevel.h says 3.3.0a0). I was able to create the
+> report files but the files must be uploaded to a registered location.
+>
+
+I think I'm still listed as the main contact and I never uploaded anything.
+I believe Coverty pulls the files in themselves.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20120819/c04071f0/attachment.html>
+
+From brett at python.org  Sun Aug 19 18:02:18 2012
+From: brett at python.org (Brett Cannon)
+Date: Sun, 19 Aug 2012 12:02:18 -0400
+Subject: [python-committers] anyone still have access to the coverity
+	scan results?
+In-Reply-To: <CAP1=2W5DegHEJeGb1kqQ751JHZkdt3_eg10HB_8YteEkndyTgQ@mail.gmail.com>
+References: <AANLkTi=PdckA3Efm3Zy=EuNGR76EH-R9wXR5icFQ=Zcd@mail.gmail.com>
+	<AANLkTinZHWhZR6G8dfQwi+SXy-BUot1dbnBZTw8eG_7J@mail.gmail.com>
+	<AANLkTim0EtF-Aot1DHTrwvkkbMEy5N7WSEJHirvtUBF-@mail.gmail.com>
+	<AANLkTin80eD2YKOf_139VLiKeEktG0hcBemyCzXBE3Mx@mail.gmail.com>
+	<AANLkTimGY0mT3C-92KBpzaAborQodHwxQ_x967-BqpTt@mail.gmail.com>
+	<AANLkTikOSANK=huUv_VXpu3eDcagxDLk_oL5WW=XXwos@mail.gmail.com>
+	<7F68C6B0-257C-42AC-BD86-6F7B454F46DC@holdenweb.com>
+	<1295528246.3705.3.camel@localhost.localdomain>
+	<20120818095358.GA6855@sleipnir.bytereef.org>
+	<502F82C0.5030808@cheimes.de>
+	<20120818130832.GA8778@sleipnir.bytereef.org>
+	<502FAE36.7070704@cheimes.de>
+	<CAP1=2W5DegHEJeGb1kqQ751JHZkdt3_eg10HB_8YteEkndyTgQ@mail.gmail.com>
+Message-ID: <CAP1=2W43SePtB7uL+jmjPY=smdv4sCjnuktcpx_HJGeBgHyupQ@mail.gmail.com>
+
+On Sun, Aug 19, 2012 at 11:56 AM, Brett Cannon <brett at python.org> wrote:
+
+>
+>
+> On Sat, Aug 18, 2012 at 11:01 AM, Christian Heimes <lists at cheimes.de>wrote:
+>
+>> Am 18.08.2012 15:08, schrieb Stefan Krah:
+>> > Christian Heimes <lists at cheimes.de> wrote:
+>> >> Yup, my login still works. I can send you a CSV or XML report if you
+>> like.
+>> >
+>> > Thanks, got the CSV!
+>> >
+>> > If anyone has the possibility to create new accounts, I would like to
+>> apply
+>> > for one.
+>>
+>> Who usually uploads the necessary files to coverity? The current files
+>> are rather old (patchlevel.h says 3.3.0a0). I was able to create the
+>> report files but the files must be uploaded to a registered location.
+>>
+>
+> I think I'm still listed as the main contact and I never uploaded
+> anything. I believe Coverty pulls the files in themselves.
+>
+
+So when trying to log in (which didn't work; Coverty has changed this
+system so many times I don't what username/password works anymore) there
+was a notice that how you submit code has changed:
+
+At the same time, we also have changes in the process to submit the build
+to Coverity Scan for Open Source Projects.
+
+0. With the new version, there are three steps to analyze a codebase:
+build, analyze, and commit.
+1. You do the build step, then tar up the intermediate representation and
+stick it somewhere we can get it by http.
+2. Our scripts wget it, analyze it, commit it to the DB and send you an
+email.
+
+The link to their build tools is http://scan.coverity.com/self-build/ . So
+it looks like we have to give them the files to analyze now after we have
+built them with their tool chain on LInux.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20120819/dad9b0ee/attachment.html>
+
+From lists at cheimes.de  Sun Aug 19 19:00:01 2012
+From: lists at cheimes.de (Christian Heimes)
+Date: Sun, 19 Aug 2012 19:00:01 +0200
+Subject: [python-committers] anyone still have access to the coverity
+ scan results?
+In-Reply-To: <CAP1=2W43SePtB7uL+jmjPY=smdv4sCjnuktcpx_HJGeBgHyupQ@mail.gmail.com>
+References: <AANLkTi=PdckA3Efm3Zy=EuNGR76EH-R9wXR5icFQ=Zcd@mail.gmail.com>
+	<AANLkTinZHWhZR6G8dfQwi+SXy-BUot1dbnBZTw8eG_7J@mail.gmail.com>
+	<AANLkTim0EtF-Aot1DHTrwvkkbMEy5N7WSEJHirvtUBF-@mail.gmail.com>
+	<AANLkTin80eD2YKOf_139VLiKeEktG0hcBemyCzXBE3Mx@mail.gmail.com>
+	<AANLkTimGY0mT3C-92KBpzaAborQodHwxQ_x967-BqpTt@mail.gmail.com>
+	<AANLkTikOSANK=huUv_VXpu3eDcagxDLk_oL5WW=XXwos@mail.gmail.com>
+	<7F68C6B0-257C-42AC-BD86-6F7B454F46DC@holdenweb.com>
+	<1295528246.3705.3.camel@localhost.localdomain>
+	<20120818095358.GA6855@sleipnir.bytereef.org>
+	<502F82C0.5030808@cheimes.de>
+	<20120818130832.GA8778@sleipnir.bytereef.org>
+	<502FAE36.7070704@cheimes.de>
+	<CAP1=2W5DegHEJeGb1kqQ751JHZkdt3_eg10HB_8YteEkndyTgQ@mail.gmail.com>
+	<CAP1=2W43SePtB7uL+jmjPY=smdv4sCjnuktcpx_HJGeBgHyupQ@mail.gmail.com>
+Message-ID: <50311B91.4060109@cheimes.de>
+
+Am 19.08.2012 18:02, schrieb Brett Cannon:
+> The link to their build tools is http://scan.coverity.com/self-build/ .
+> So it looks like we have to give them the files to analyze now after we
+> have built them with their tool chain on LInux.
+
+Yes, that's what I'm talking about. It took me a while to figure out the
+correct URL and my password, too. The new version of coverity doesn't
+pull the changes automatically. Instead you have to compile the code
+with a custom build system and provide a download link for the results:
+
+Coverity Scan Self-Build - updated July 2012
+
+Coverity build tool link is:
+
+    Linux-64 6.0.2
+    Linux-32 6.0.2
+
+Downloading and building
+Do once:
+
+    Download and extract the tarball
+
+    Add the bin directory to your path
+
+Do for each build:
+
+    cd to your build directory
+        optional: Run any build steps that you don't want to analyze ?
+i.e. ./configure
+    cov-build --dir cov-int [BUILD CMD and ARGS]
+    Create a README file with your name, email, and project's name
+    tar czvf project.tgz README cov-int
+    Upload the project.tgz to your server
+
+For your first build, after making the archive file available on a
+server, send the URL for it to scan-admin at coverity.com. Once we sort out
+any issues with the archive processing, you will get project name, and
+password to submit builds automatically whenever you like.
+Submitting self-builds
+Enter project name, password, email and download URL here:
+http://scan.coverity.com/submit.html
+
+
+http://scan.coverity.com/self-build/6.0.2/cov-analysis-linux64-6.0.2.tar.gz
+http://scan.coverity.com/self-build/6.0.2/cov-analysis-linux32-6.0.2.tar.gz
+
+
+I've tried to upload my build of Python's py3k head but the system
+doesn't recognize my password for the upload process. I guess we need to
+get a different password for the upload process. Or you could try your
+login data. Perhaps I don't have the necessary permissions. My build is
+available at http://dl.dropbox.com/u/19557108/project.tgz
+
+Christian
+
+From martin at v.loewis.de  Sun Aug 19 21:15:52 2012
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Sun, 19 Aug 2012 21:15:52 +0200
+Subject: [python-committers] anyone still have access to the coverity
+ scan results?
+In-Reply-To: <7F68C6B0-257C-42AC-BD86-6F7B454F46DC@holdenweb.com>
+References: <AANLkTi=PdckA3Efm3Zy=EuNGR76EH-R9wXR5icFQ=Zcd@mail.gmail.com>
+	<AANLkTinZHWhZR6G8dfQwi+SXy-BUot1dbnBZTw8eG_7J@mail.gmail.com>
+	<AANLkTim0EtF-Aot1DHTrwvkkbMEy5N7WSEJHirvtUBF-@mail.gmail.com>
+	<AANLkTin80eD2YKOf_139VLiKeEktG0hcBemyCzXBE3Mx@mail.gmail.com>
+	<AANLkTimGY0mT3C-92KBpzaAborQodHwxQ_x967-BqpTt@mail.gmail.com>
+	<AANLkTikOSANK=huUv_VXpu3eDcagxDLk_oL5WW=XXwos@mail.gmail.com>
+	<7F68C6B0-257C-42AC-BD86-6F7B454F46DC@holdenweb.com>
+Message-ID: <50313B68.1070602@v.loewis.de>
+
+On 20.01.2011 02:44, Steve Holden wrote:
+> Could we consider offering a complimentary PyCon registration to a
+> member of the Coverity team as an encouragement to have someone
+> around during the sprints? I am sure that much useful informal
+> education would take place, benefiting many sprints, if we enable it
+> and just let things happen.
+> 
+> Or would this be seen as favoring one vendor?
+
+I would see nothing wrong with it, and getting this person in
+the conference may allow people to chat in person. Coverity
+has offered this free service, and even though they also had
+promotion of their product in mind, they actually do demonstrate
+a real interest in free software.
+
+Regards,
+Martin
+
+
+From solipsis at pitrou.net  Sun Aug 19 21:30:04 2012
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Sun, 19 Aug 2012 21:30:04 +0200
+Subject: [python-committers] anyone still have access to the coverity
+ scan results?
+In-Reply-To: <50313B68.1070602@v.loewis.de>
+References: <AANLkTi=PdckA3Efm3Zy=EuNGR76EH-R9wXR5icFQ=Zcd@mail.gmail.com>
+	<AANLkTinZHWhZR6G8dfQwi+SXy-BUot1dbnBZTw8eG_7J@mail.gmail.com>
+	<AANLkTim0EtF-Aot1DHTrwvkkbMEy5N7WSEJHirvtUBF-@mail.gmail.com>
+	<AANLkTin80eD2YKOf_139VLiKeEktG0hcBemyCzXBE3Mx@mail.gmail.com>
+	<AANLkTimGY0mT3C-92KBpzaAborQodHwxQ_x967-BqpTt@mail.gmail.com>
+	<AANLkTikOSANK=huUv_VXpu3eDcagxDLk_oL5WW=XXwos@mail.gmail.com>
+	<7F68C6B0-257C-42AC-BD86-6F7B454F46DC@holdenweb.com>
+	<50313B68.1070602@v.loewis.de>
+Message-ID: <1345404604.3379.11.camel@localhost.localdomain>
+
+Le dimanche 19 ao?t 2012 ? 21:15 +0200, "Martin v. L?wis" a ?crit :
+> On 20.01.2011 02:44, Steve Holden wrote:
+> > Could we consider offering a complimentary PyCon registration to a
+> > member of the Coverity team as an encouragement to have someone
+> > around during the sprints? I am sure that much useful informal
+> > education would take place, benefiting many sprints, if we enable it
+> > and just let things happen.
+> > 
+> > Or would this be seen as favoring one vendor?
+> 
+> I would see nothing wrong with it, and getting this person in
+> the conference may allow people to chat in person. Coverity
+> has offered this free service, and even though they also had
+> promotion of their product in mind, they actually do demonstrate
+> a real interest in free software.
+
+I don't know where Steve's message was posted (I can't see it in the
+archives or in my inbox).
+It seems this would be not only favoring a vendor, but favoring someone
+who doesn't participate in the community (unless we have a contributor
+who is also a Coverity employee). And it would favour one (US) Python
+conference over other non-US conferences, since typically sprints don't
+get recorded for remote viewing.
+
+Regards
+
+Antoine.
+
+
+-- 
+Software development and contracting: http://pro.pitrou.net
+
+
+
+From brett at python.org  Mon Aug 20 04:43:54 2012
+From: brett at python.org (Brett Cannon)
+Date: Sun, 19 Aug 2012 22:43:54 -0400
+Subject: [python-committers] anyone still have access to the coverity
+	scan results?
+In-Reply-To: <50313B68.1070602@v.loewis.de>
+References: <AANLkTi=PdckA3Efm3Zy=EuNGR76EH-R9wXR5icFQ=Zcd@mail.gmail.com>
+	<AANLkTinZHWhZR6G8dfQwi+SXy-BUot1dbnBZTw8eG_7J@mail.gmail.com>
+	<AANLkTim0EtF-Aot1DHTrwvkkbMEy5N7WSEJHirvtUBF-@mail.gmail.com>
+	<AANLkTin80eD2YKOf_139VLiKeEktG0hcBemyCzXBE3Mx@mail.gmail.com>
+	<AANLkTimGY0mT3C-92KBpzaAborQodHwxQ_x967-BqpTt@mail.gmail.com>
+	<AANLkTikOSANK=huUv_VXpu3eDcagxDLk_oL5WW=XXwos@mail.gmail.com>
+	<7F68C6B0-257C-42AC-BD86-6F7B454F46DC@holdenweb.com>
+	<50313B68.1070602@v.loewis.de>
+Message-ID: <CAP1=2W42PCBR_ABvHqpyn-7-MeSFFDyTWPp5y1ifN5Jah1z1Uw@mail.gmail.com>
+
+On Aug 19, 2012 3:16 PM, Martin v. L?wis <martin at v.loewis.de> wrote:
+>
+> On 20.01.2011 02:44, Steve Holden wrote:
+> > Could we consider offering a complimentary PyCon registration to a
+> > member of the Coverity team as an encouragement to have someone
+> > around during the sprints? I am sure that much useful informal
+> > education would take place, benefiting many sprints, if we enable it
+> > and just let things happen.
+> >
+> > Or would this be seen as favoring one vendor?
+>
+> I would see nothing wrong with it, and getting this person in
+> the conference may allow people to chat in person. Coverity
+> has offered this free service, and even though they also had
+> promotion of their product in mind, they actually do demonstrate
+> a real interest in free software.
+
+I believe coverty is/was paid by a branch of the US government to do this
+in the name of security for key software.
+
+>
+> Regards,
+> Martin
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20120819/3484d300/attachment.html>
+
+From victor.stinner at gmail.com  Tue Aug 21 00:05:09 2012
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Tue, 21 Aug 2012 00:05:09 +0200
+Subject: [python-committers] 3.3 rc1 next week
+In-Reply-To: <k0qh8k$i33$1@ger.gmane.org>
+References: <k0qh8k$i33$1@ger.gmane.org>
+Message-ID: <CAMpsgwbTy1h3LRmMHg6V5UWCj-xp7AYd0OkFSoSfcF_+=UYMyA@mail.gmail.com>
+
+Why not creating a 3.3.0 branch to prepare the release instead of a
+different repository?
+
+Victor
+Le 19 ao?t 2012 13:05, "Georg Brandl" <g.brandl at gmx.net> a ?crit :
+
+> Dear committers,
+>
+> if the buffer/array-related blockers are resolved in time, the rc1
+> will be released one week from now.
+>
+> Since some people asked: at the moment we are not in the RC phase yet,
+> so fixing bugs is allowed, but it would be advisable to have a second
+> committer review any nontrivial fix.
+>
+> From the release of rc1, I will keep the code that will become 3.3 in
+> a separate repo, so that commits to "default" on cpython *won't* go
+> into 3.3.  You will have to notify me of all commits that you think
+> *should* go there, so that I can cherry-pick them.  Not all bugfixes
+> fall into that category; only showstopper-level ones.  The rest will
+> have to wait for 3.3.1.
+>
+> cheers,
+> Georg
+>
+> ______________________________**_________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/**mailman/listinfo/python-**committers<http://mail.python.org/mailman/listinfo/python-committers>
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20120821/9cb996af/attachment.html>
+
+From g.brandl at gmx.net  Tue Aug 21 00:30:25 2012
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Tue, 21 Aug 2012 00:30:25 +0200
+Subject: [python-committers] 3.3 rc1 next week
+In-Reply-To: <CAMpsgwbTy1h3LRmMHg6V5UWCj-xp7AYd0OkFSoSfcF_+=UYMyA@mail.gmail.com>
+References: <k0qh8k$i33$1@ger.gmane.org>
+	<CAMpsgwbTy1h3LRmMHg6V5UWCj-xp7AYd0OkFSoSfcF_+=UYMyA@mail.gmail.com>
+Message-ID: <k0udpu$ei8$1@ger.gmane.org>
+
+Well, I can certainly push the branch back to the main repo, but I really
+don't want anyone else committing to it.
+
+Georg
+
+On 21.08.2012 00:05, Victor Stinner wrote:
+> Why not creating a 3.3.0 branch to prepare the release instead of a different
+> repository?
+>
+> Victor
+>
+> Le 19 ao?t 2012 13:05, "Georg Brandl" <g.brandl at gmx.net
+> <mailto:g.brandl at gmx.net>> a ?crit :
+>
+>     Dear committers,
+>
+>     if the buffer/array-related blockers are resolved in time, the rc1
+>     will be released one week from now.
+>
+>     Since some people asked: at the moment we are not in the RC phase yet,
+>     so fixing bugs is allowed, but it would be advisable to have a second
+>     committer review any nontrivial fix.
+>
+>      >From the release of rc1, I will keep the code that will become 3.3 in
+>     a separate repo, so that commits to "default" on cpython *won't* go
+>     into 3.3.  You will have to notify me of all commits that you think
+>     *should* go there, so that I can cherry-pick them.  Not all bugfixes
+>     fall into that category; only showstopper-level ones.  The rest will
+>     have to wait for 3.3.1.
+>
+>     cheers,
+>     Georg
+>
+>     _________________________________________________
+>     python-committers mailing list
+>     python-committers at python.org <mailto:python-committers at python.org>
+>     http://mail.python.org/__mailman/listinfo/python-__committers
+>     <http://mail.python.org/mailman/listinfo/python-committers>
+>
+>
+>
+
+
+
+From petri at digip.org  Tue Aug 21 11:57:14 2012
+From: petri at digip.org (Petri Lehtinen)
+Date: Tue, 21 Aug 2012 12:57:14 +0300
+Subject: [python-committers] 3.3 rc1 next week
+In-Reply-To: <k0qh8k$i33$1@ger.gmane.org>
+References: <k0qh8k$i33$1@ger.gmane.org>
+Message-ID: <20120821095714.GC17735@chang>
+
+Georg Brandl wrote:
+> From the release of rc1, I will keep the code that will become 3.3 in
+> a separate repo, so that commits to "default" on cpython *won't* go
+> into 3.3.  You will have to notify me of all commits that you think
+> *should* go there, so that I can cherry-pick them.  Not all bugfixes
+> fall into that category; only showstopper-level ones.  The rest will
+> have to wait for 3.3.1.
+
+If commits to default go to 3.3.1 after RC 1, when will the 3.3/3.4
+separation happen?
+
+Petri
+
+From martin at v.loewis.de  Tue Aug 21 17:19:44 2012
+From: martin at v.loewis.de (martin at v.loewis.de)
+Date: Tue, 21 Aug 2012 17:19:44 +0200
+Subject: [python-committers] 3.3 rc1 next week
+In-Reply-To: <20120821095714.GC17735@chang>
+References: <k0qh8k$i33$1@ger.gmane.org> <20120821095714.GC17735@chang>
+Message-ID: <20120821171944.Horde.IlHiZbuWis5QM6cQXfKDTvA@webmail.df.eu>
+
+
+Zitat von Petri Lehtinen <petri at digip.org>:
+
+> Georg Brandl wrote:
+>> From the release of rc1, I will keep the code that will become 3.3 in
+>> a separate repo, so that commits to "default" on cpython *won't* go
+>> into 3.3.  You will have to notify me of all commits that you think
+>> *should* go there, so that I can cherry-pick them.  Not all bugfixes
+>> fall into that category; only showstopper-level ones.  The rest will
+>> have to wait for 3.3.1.
+>
+> If commits to default go to 3.3.1 after RC 1, when will the 3.3/3.4
+> separation happen?
+
+As soon as Georg creates the maintenance branch :-)
+
+PEP 101 says that this happens immediately after creating the 3.3.0
+tag, before pushing that to the release clone. After the release
+announcement is sent, the release clone gets merged back to the
+main repo.
+
+People interested in that should really read PEP 101. I think it's
+a master-piece of detail (going back to Barry Warsaw's passion for
+detail and documentation).
+
+Regards,
+Martin
+
+
+
+From solipsis at pitrou.net  Thu Aug 23 01:32:21 2012
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Thu, 23 Aug 2012 01:32:21 +0200
+Subject: [python-committers] New core developer
+Message-ID: <1345678341.3346.1.camel@localhost.localdomain>
+
+
+Hello,
+
+I'd like to propose Serhiy Storchaka as a new core developer. He has
+made numerous contributions, and has proven receptive to comments and
+reviews. He's also interested in becoming a core developer.
+
+What do you think?
+
+Regards
+
+Antoine.
+
+
+-- 
+Software development and contracting: http://pro.pitrou.net
+
+
+
+From rdmurray at bitdance.com  Thu Aug 23 02:48:58 2012
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Wed, 22 Aug 2012 20:48:58 -0400
+Subject: [python-committers] New core developer
+In-Reply-To: <1345678341.3346.1.camel@localhost.localdomain>
+References: <1345678341.3346.1.camel@localhost.localdomain>
+Message-ID: <20120823004859.5BE29250168@webabinitio.net>
+
+On Thu, 23 Aug 2012 01:32:21 +0200, Antoine Pitrou <solipsis at pitrou.net> wrote:
+> I'd like to propose Serhiy Storchaka as a new core developer. He has
+> made numerous contributions, and has proven receptive to comments and
+> reviews. He's also interested in becoming a core developer.
+> 
+> What do you think?
+
++1 from me.  I haven't reviewed his patches myself, since they are
+mostly C stuff, but his demeanor on the tracker has been very positive
+from what I've read.  I think he is/will be an asset to the project.
+
+--David
+
+From alexander.belopolsky at gmail.com  Thu Aug 23 02:51:04 2012
+From: alexander.belopolsky at gmail.com (Alexander Belopolsky)
+Date: Wed, 22 Aug 2012 20:51:04 -0400
+Subject: [python-committers] New core developer
+In-Reply-To: <1345678341.3346.1.camel@localhost.localdomain>
+References: <1345678341.3346.1.camel@localhost.localdomain>
+Message-ID: <CAP7h-xbPDBKd5nkv7yxNJnFO=wi2YoqzOoz8v-nzXhPEQd4x6A@mail.gmail.com>
+
+On Wed, Aug 22, 2012 at 7:32 PM, Antoine Pitrou <solipsis at pitrou.net> wrote:
+> I'd like to propose Serhiy Storchaka as a new core developer.
+
++1
+
+From victor.stinner at gmail.com  Thu Aug 23 14:40:33 2012
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Thu, 23 Aug 2012 14:40:33 +0200
+Subject: [python-committers] New core developer
+In-Reply-To: <1345678341.3346.1.camel@localhost.localdomain>
+References: <1345678341.3346.1.camel@localhost.localdomain>
+Message-ID: <CAMpsgwYtz-Xjw6iZOY4e2aE=UHhj5cee5Y435C4AvVXStzEArg@mail.gmail.com>
+
+Ok for me.
+
+Victor
+Le 23 ao?t 2012 01:35, "Antoine Pitrou" <solipsis at pitrou.net> a ?crit :
+
+>
+> Hello,
+>
+> I'd like to propose Serhiy Storchaka as a new core developer. He has
+> made numerous contributions, and has proven receptive to comments and
+> reviews. He's also interested in becoming a core developer.
+>
+> What do you think?
+>
+> Regards
+>
+> Antoine.
+>
+>
+> --
+> Software development and contracting: http://pro.pitrou.net
+>
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20120823/30ae012c/attachment.html>
+
+From ncoghlan at gmail.com  Fri Aug 24 01:59:37 2012
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Fri, 24 Aug 2012 09:59:37 +1000
+Subject: [python-committers] Commit privileges for Eric Snow
+Message-ID: <CADiSq7dTHzwLwpzZZ+ZLRwjuDAg+YyY4-d2BnwFwx2z6hV+fAQ@mail.gmail.com>
+
+I'd like to propose granting Eric Snow commit privileges.
+
+He's been contributing for a couple of years, mostly working on the
+import system replacement with Brett and participating in design
+discussions on import-sig, but also contributing to patches and
+discussions relating to the core compiler and code execution
+machinery.
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+
+From jnoller at gmail.com  Fri Aug 24 02:01:34 2012
+From: jnoller at gmail.com (Jesse Noller)
+Date: Thu, 23 Aug 2012 20:01:34 -0400
+Subject: [python-committers] Commit privileges for Eric Snow
+In-Reply-To: <CADiSq7dTHzwLwpzZZ+ZLRwjuDAg+YyY4-d2BnwFwx2z6hV+fAQ@mail.gmail.com>
+References: <CADiSq7dTHzwLwpzZZ+ZLRwjuDAg+YyY4-d2BnwFwx2z6hV+fAQ@mail.gmail.com>
+Message-ID: <D9DBDD8A-B5F6-477D-92E4-F538623DDFBC@gmail.com>
+
++1
+
+On Aug 23, 2012, at 7:59 PM, Nick Coghlan <ncoghlan at gmail.com> wrote:
+
+> I'd like to propose granting Eric Snow commit privileges.
+> 
+> He's been contributing for a couple of years, mostly working on the
+> import system replacement with Brett and participating in design
+> discussions on import-sig, but also contributing to patches and
+> discussions relating to the core compiler and code execution
+> machinery.
+> 
+> Cheers,
+> Nick.
+> 
+> -- 
+> Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+
+From senthil at uthcode.com  Fri Aug 24 02:05:38 2012
+From: senthil at uthcode.com (Senthil Kumaran)
+Date: Thu, 23 Aug 2012 17:05:38 -0700
+Subject: [python-committers] Commit privileges for Eric Snow
+In-Reply-To: <CADiSq7dTHzwLwpzZZ+ZLRwjuDAg+YyY4-d2BnwFwx2z6hV+fAQ@mail.gmail.com>
+References: <CADiSq7dTHzwLwpzZZ+ZLRwjuDAg+YyY4-d2BnwFwx2z6hV+fAQ@mail.gmail.com>
+Message-ID: <CAPOVWORBNq_D8M=3A03Azx2zHcPfr115im_971OrncP31mRabw@mail.gmail.com>
+
++1 Eric is really involved with recent work in import machinery and
+other core areas. His comments have been helpful.
+
+Thanks,
+Senthil
+
+On Thu, Aug 23, 2012 at 4:59 PM, Nick Coghlan <ncoghlan at gmail.com> wrote:
+> I'd like to propose granting Eric Snow commit privileges.
+>
+> He's been contributing for a couple of years, mostly working on the
+> import system replacement with Brett and participating in design
+> discussions on import-sig, but also contributing to patches and
+> discussions relating to the core compiler and code execution
+> machinery.
+>
+> Cheers,
+> Nick.
+>
+> --
+> Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+
+From rdmurray at bitdance.com  Fri Aug 24 03:19:29 2012
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Thu, 23 Aug 2012 21:19:29 -0400
+Subject: [python-committers] Commit privileges for Eric Snow
+In-Reply-To: <CADiSq7dTHzwLwpzZZ+ZLRwjuDAg+YyY4-d2BnwFwx2z6hV+fAQ@mail.gmail.com>
+References: <CADiSq7dTHzwLwpzZZ+ZLRwjuDAg+YyY4-d2BnwFwx2z6hV+fAQ@mail.gmail.com>
+Message-ID: <20120824011930.686752500FA@webabinitio.net>
+
+
+On Fri, 24 Aug 2012 09:59:37 +1000, Nick Coghlan <ncoghlan at gmail.com> wrote:
+> I'd like to propose granting Eric Snow commit privileges.
+
++1
+
+--David
+
+From greg at krypto.org  Fri Aug 24 06:34:48 2012
+From: greg at krypto.org (Gregory P. Smith)
+Date: Thu, 23 Aug 2012 21:34:48 -0700
+Subject: [python-committers] Commit privileges for Eric Snow
+In-Reply-To: <CADiSq7dTHzwLwpzZZ+ZLRwjuDAg+YyY4-d2BnwFwx2z6hV+fAQ@mail.gmail.com>
+References: <CADiSq7dTHzwLwpzZZ+ZLRwjuDAg+YyY4-d2BnwFwx2z6hV+fAQ@mail.gmail.com>
+Message-ID: <CAGE7PNJRdHdQzx24j=pY+3kBD6HpwLmixPzaokW+w9LVuNiNGQ@mail.gmail.com>
+
++1
+
+He doesn't already have them? Blink.
+
+--
+got tyops? this was quickly tapped out on a touch screen.
+On Aug 23, 2012 4:59 PM, "Nick Coghlan" <ncoghlan at gmail.com> wrote:
+
+> I'd like to propose granting Eric Snow commit privileges.
+>
+> He's been contributing for a couple of years, mostly working on the
+> import system replacement with Brett and participating in design
+> discussions on import-sig, but also contributing to patches and
+> discussions relating to the core compiler and code execution
+> machinery.
+>
+> Cheers,
+> Nick.
+>
+> --
+> Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20120823/a42b5a27/attachment.html>
+
+From hs at ox.cx  Fri Aug 24 09:23:20 2012
+From: hs at ox.cx (Hynek Schlawack)
+Date: Fri, 24 Aug 2012 09:23:20 +0200
+Subject: [python-committers] Commit privileges for Eric Snow
+In-Reply-To: <CAGE7PNJRdHdQzx24j=pY+3kBD6HpwLmixPzaokW+w9LVuNiNGQ@mail.gmail.com>
+References: <CADiSq7dTHzwLwpzZZ+ZLRwjuDAg+YyY4-d2BnwFwx2z6hV+fAQ@mail.gmail.com>
+	<CAGE7PNJRdHdQzx24j=pY+3kBD6HpwLmixPzaokW+w9LVuNiNGQ@mail.gmail.com>
+Message-ID: <73253388-F160-48F1-9C7B-EDDE05E73B95@ox.cx>
+
+that was also my reaction :)
+
++1
+
+Am 24.08.2012 um 06:34 schrieb Gregory P. Smith <greg at krypto.org>:
+
+> +1
+> 
+> He doesn't already have them? Blink.
+> 
+> --
+> got tyops? this was quickly tapped out on a touch screen.
+> 
+> On Aug 23, 2012 4:59 PM, "Nick Coghlan" <ncoghlan at gmail.com> wrote:
+> I'd like to propose granting Eric Snow commit privileges.
+> 
+> He's been contributing for a couple of years, mostly working on the
+> import system replacement with Brett and participating in design
+> discussions on import-sig, but also contributing to patches and
+> discussions relating to the core compiler and code execution
+> machinery.
+> 
+> Cheers,
+> Nick.
+> 
+> --
+> Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20120824/dc4ef2b0/attachment-0001.html>
+
+From brett at python.org  Fri Aug 24 18:01:59 2012
+From: brett at python.org (Brett Cannon)
+Date: Fri, 24 Aug 2012 12:01:59 -0400
+Subject: [python-committers] Commit privileges for Eric Snow
+In-Reply-To: <CADiSq7dTHzwLwpzZZ+ZLRwjuDAg+YyY4-d2BnwFwx2z6hV+fAQ@mail.gmail.com>
+References: <CADiSq7dTHzwLwpzZZ+ZLRwjuDAg+YyY4-d2BnwFwx2z6hV+fAQ@mail.gmail.com>
+Message-ID: <CAP1=2W7ks_9srRAsstoNca_RpPMBoQgMY1LDob27nHLLEcEz8w@mail.gmail.com>
+
+On Thu, Aug 23, 2012 at 7:59 PM, Nick Coghlan <ncoghlan at gmail.com> wrote:
+
+> I'd like to propose granting Eric Snow commit privileges.
+>
+> He's been contributing for a couple of years, mostly working on the
+> import system replacement with Brett and participating in design
+> discussions on import-sig, but also contributing to patches and
+> discussions relating to the core compiler and code execution
+> machinery.
+>
+
++1
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20120824/d5e2b299/attachment.html>
+
+From dickinsm at gmail.com  Fri Aug 24 21:05:01 2012
+From: dickinsm at gmail.com (Mark Dickinson)
+Date: Fri, 24 Aug 2012 20:05:01 +0100
+Subject: [python-committers] Commit privileges for Eric Snow
+In-Reply-To: <CADiSq7dTHzwLwpzZZ+ZLRwjuDAg+YyY4-d2BnwFwx2z6hV+fAQ@mail.gmail.com>
+References: <CADiSq7dTHzwLwpzZZ+ZLRwjuDAg+YyY4-d2BnwFwx2z6hV+fAQ@mail.gmail.com>
+Message-ID: <CAAu3qLWj-N+5h9HNEhTb81JHtueEUoHJw4PJFjf7BY6rLG4WYw@mail.gmail.com>
+
+On Fri, Aug 24, 2012 at 12:59 AM, Nick Coghlan <ncoghlan at gmail.com> wrote:
+> I'd like to propose granting Eric Snow commit privileges.
+
++1
+
+From g.brandl at gmx.net  Sat Aug 25 21:40:58 2012
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Sat, 25 Aug 2012 21:40:58 +0200
+Subject: [python-committers] Reminder: 3.3.0 commits only on release clone
+Message-ID: <k1b9o7$85t$1@ger.gmane.org>
+
+Hi,
+
+3.3.0 rc1 is now out, and I'd like to remind you that commits you
+want to be in 3.3.0 rc2 or final have to be in my release clone,
+so you need to tell me you want them there.  Either ping me on IRC,
+or send an email, and I'll have a look.
+
+cheers,
+Georg
+
+

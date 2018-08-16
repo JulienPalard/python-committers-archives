@@ -1,0 +1,2657 @@
+From tjreedy at udel.edu  Wed Dec  1 20:53:21 2010
+From: tjreedy at udel.edu (Terry Reedy)
+Date: Wed, 01 Dec 2010 14:53:21 -0500
+Subject: [python-committers] Blocking feature backports
+Message-ID: <4CF6A7B1.9040209@udel.edu>
+
+I would like to commit a couple of new feature patches in the next 
+couple of days for #9299 (if no one else does it) and #10534 (working on 
+that).  It appears to be somewhat customary to follow such patches with 
+3.1/2.7 blocks, but Georg implied in another message that the process is 
+obsolete in that no one is doing blind mass merges anymore, and I 
+apparently cannot do blocks with TortoiseSvn. So is it alright if I make 
+the commits and simply note in the commit messages that they are for a 
+new feature and should not be merged backwards?
+
+-- 
+Terry Jan Reedy
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20101201/c5297f40/attachment.html>
+
+From rdmurray at bitdance.com  Wed Dec  1 21:48:27 2010
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Wed, 01 Dec 2010 15:48:27 -0500
+Subject: [python-committers] Blocking feature backports
+In-Reply-To: <4CF6A7B1.9040209@udel.edu>
+References: <4CF6A7B1.9040209@udel.edu>
+Message-ID: <20101201204828.7F1152365E4@kimball.webabinitio.net>
+
+On Wed, 01 Dec 2010 14:53:21 -0500, Terry Reedy <tjreedy at udel.edu> wrote:
+> I would like to commit a couple of new feature patches in the next 
+> couple of days for #9299 (if no one else does it) and #10534 (working on 
+> that).  It appears to be somewhat customary to follow such patches with 
+> 3.1/2.7 blocks, but Georg implied in another message that the process is 
+> obsolete in that no one is doing blind mass merges anymore, and I 
+> apparently cannot do blocks with TortoiseSvn. So is it alright if I make 
+> the commits and simply note in the commit messages that they are for a 
+> new feature and should not be merged backwards?
+
+I think that's fine.  I'm not even sure it is necessary to mention
+that it is a feature and won't be backported, though certainly
+that can't hurt, and should be done if there could be any doubt.
+
+My understanding of the current status of svnmerge block is that
+you should use it if it helps you and not worry about it otherwise.
+Georg and I and some others find it useful for managing our own
+patches, but otherwise I think that it isn't being used.
+
+If I'm wrong I'm sure Benjamin, as the release manager whom this
+would affect, will chime in :)
+
+--David
+
+From alexander.belopolsky at gmail.com  Wed Dec  1 22:01:38 2010
+From: alexander.belopolsky at gmail.com (Alexander Belopolsky)
+Date: Wed, 1 Dec 2010 16:01:38 -0500
+Subject: [python-committers] Blocking feature backports
+In-Reply-To: <20101201204828.7F1152365E4@kimball.webabinitio.net>
+References: <4CF6A7B1.9040209@udel.edu>
+	<20101201204828.7F1152365E4@kimball.webabinitio.net>
+Message-ID: <AANLkTinWbH+qDgAfdmhUYZVaUQFH_1RmC8X+CrxwG+KD@mail.gmail.com>
+
+On Wed, Dec 1, 2010 at 3:48 PM, R. David Murray <rdmurray at bitdance.com> wrote:
+>> .. So is it alright if I make
+>> the commits and simply note in the commit messages that they are for a
+>> new feature and should not be merged backwards?
+>
+> I think that's fine. ?I'm not even sure it is necessary to mention
+> that it is a feature and won't be backported, though certainly
+> that can't hurt, and should be done if there could be any doubt.
+>
++1
+
+If the changeset that you are committing has a associated tracker
+issue, make sure it is mentioned in the log message.  It is
+conventional to start log messages with "Issue #NNNN:".  On the
+tracker, make sure that the issue is properly classified as a feature
+requests and closed after the commit.  If it is a bug fix and needs to
+be backported, the issue should stay open until the backports are
+done.
+
+From jcea at jcea.es  Wed Dec  1 22:23:18 2010
+From: jcea at jcea.es (Jesus Cea)
+Date: Wed, 01 Dec 2010 22:23:18 +0100
+Subject: [python-committers] Blocking feature backports
+In-Reply-To: <20101201204828.7F1152365E4@kimball.webabinitio.net>
+References: <4CF6A7B1.9040209@udel.edu>
+	<20101201204828.7F1152365E4@kimball.webabinitio.net>
+Message-ID: <4CF6BCC6.9080602@jcea.es>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On 01/12/10 21:48, R. David Murray wrote:
+> My understanding of the current status of svnmerge block is that
+> you should use it if it helps you and not worry about it otherwise.
+> Georg and I and some others find it useful for managing our own
+> patches, but otherwise I think that it isn't being used.
+
+Remember that after 12th December, with Mercurial becoming the primary
+version system, the dynamic will change a lot.
+
+Still 12 days to go. I will be very happy :).
+
+- -- 
+Jesus Cea Avion                         _/_/      _/_/_/        _/_/_/
+jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+jabber / xmpp:jcea at jabber.org         _/_/    _/_/          _/_/_/_/_/
+.                              _/_/  _/_/    _/_/          _/_/  _/_/
+"Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+"My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+"El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.10 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - http://enigmail.mozdev.org/
+
+iQCVAwUBTPa8xplgi5GaxT1NAQIkywP/fbMjh0+uz315oIACzU1rifMm+bRZph9A
+GkhrRupKpNBGQiEeguABlyL3Mk9jy2S2AI3p+HP9GNNXeWUf1atLIIiTBP541sJs
+5q5Uevhc3A/HFpW38UFlWdL3ZzMkBgUEtDZdTGnuIkb74rQNNPPeSdyy4pDJkeNB
+GCBVNR37wc4=
+=ZOh8
+-----END PGP SIGNATURE-----
+
+From rdmurray at bitdance.com  Wed Dec  1 22:47:50 2010
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Wed, 01 Dec 2010 16:47:50 -0500
+Subject: [python-committers] Blocking feature backports
+In-Reply-To: <4CF6BCC6.9080602@jcea.es>
+References: <4CF6A7B1.9040209@udel.edu>
+	<20101201204828.7F1152365E4@kimball.webabinitio.net>
+	<4CF6BCC6.9080602@jcea.es>
+Message-ID: <20101201214750.65A3D22B6BD@kimball.webabinitio.net>
+
+On Wed, 01 Dec 2010 22:23:18 +0100, Jesus Cea <jcea at jcea.es> wrote:
+> On 01/12/10 21:48, R. David Murray wrote:
+> > My understanding of the current status of svnmerge block is that
+> > you should use it if it helps you and not worry about it otherwise.
+> > Georg and I and some others find it useful for managing our own
+> > patches, but otherwise I think that it isn't being used.
+> 
+> Remember that after 12th December, with Mercurial becoming the primary
+> version system, the dynamic will change a lot.
+> 
+> Still 12 days to go. I will be very happy :).
+
+Mercurial can't become the primary version system until after we've had
+a test-and-work-out-the-bugs period, so IMO that schedule is going to
+have to be modified.
+
+--David
+
+From benjamin at python.org  Thu Dec  2 02:05:53 2010
+From: benjamin at python.org (Benjamin Peterson)
+Date: Wed, 1 Dec 2010 19:05:53 -0600
+Subject: [python-committers] Blocking feature backports
+In-Reply-To: <4CF6A7B1.9040209@udel.edu>
+References: <4CF6A7B1.9040209@udel.edu>
+Message-ID: <AANLkTinjCM4ie=inDB=_-a3N6ky65UH6F4ZGXEHAdmDC@mail.gmail.com>
+
+2010/12/1 Terry Reedy <tjreedy at udel.edu>:
+> I would like to commit a couple of new feature patches in the next couple of
+> days for #9299 (if no one else does it) and #10534 (working on that).? It
+> appears to be somewhat customary to follow such patches with 3.1/2.7 blocks,
+> but Georg implied in another message that the process is obsolete in that no
+> one is doing blind mass merges anymore, and I apparently cannot do blocks
+> with TortoiseSvn. So is it alright if I make the commits and simply note in
+> the commit messages that they are for a new feature and should not be merged
+> backwards?
+
+Please only use svnmerge if it helps you. I just use it to backport
+things from py3k because it provides commit messages.
+
+
+
+-- 
+Regards,
+Benjamin
+
+From merwok at netwok.org  Thu Dec  2 02:19:25 2010
+From: merwok at netwok.org (=?UTF-8?B?w4lyaWMgQXJhdWpv?=)
+Date: Thu, 02 Dec 2010 02:19:25 +0100
+Subject: [python-committers] Blocking feature backports
+In-Reply-To: <20101201204828.7F1152365E4@kimball.webabinitio.net>
+References: <4CF6A7B1.9040209@udel.edu>
+	<20101201204828.7F1152365E4@kimball.webabinitio.net>
+Message-ID: <4CF6F41D.10400@netwok.org>
+
+Le 01/12/2010 21:48, R. David Murray a ?crit :
+> My understanding of the current status of svnmerge block is that
+> you should use it if it helps you and not worry about it otherwise.
+> Georg and I and some others find it useful for managing our own
+> patches, but otherwise I think that it isn't being used.
+
+There?s something I wanted to ask: Are you using some script or shell
+function to list the revisions that *you* committed that haven?t been
+merged or blocked yet?
+
+Regards
+
+
+From rdmurray at bitdance.com  Thu Dec  2 04:08:04 2010
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Wed, 01 Dec 2010 22:08:04 -0500
+Subject: [python-committers] Blocking feature backports
+In-Reply-To: <4CF6F41D.10400@netwok.org>
+References: <4CF6A7B1.9040209@udel.edu>
+	<20101201204828.7F1152365E4@kimball.webabinitio.net>
+	<4CF6F41D.10400@netwok.org>
+Message-ID: <20101202030804.CB89C234988@kimball.webabinitio.net>
+
+On Thu, 02 Dec 2010 02:19:25 +0100, <merwok at netwok.org> wrote:
+> Le 01/12/2010 21:48, R. David Murray a ??crit :
+> > My understanding of the current status of svnmerge block is that
+> > you should use it if it helps you and not worry about it otherwise.
+> > Georg and I and some others find it useful for managing our own
+> > patches, but otherwise I think that it isn't being used.
+> 
+> There???s something I wanted to ask: Are you using some script or shell
+> function to list the revisions that *you* committed that haven???t been
+> merged or blocked yet?
+
+svnmerge avail --log provides an svn log like output for the revisions
+that haven't been blocked.  I just pipe that to less and search for
+my committer id.
+
+--David
+
+From jcea at jcea.es  Thu Dec  2 04:16:35 2010
+From: jcea at jcea.es (Jesus Cea)
+Date: Thu, 02 Dec 2010 04:16:35 +0100
+Subject: [python-committers] Blocking feature backports
+In-Reply-To: <20101201214750.65A3D22B6BD@kimball.webabinitio.net>
+References: <4CF6A7B1.9040209@udel.edu>	<20101201204828.7F1152365E4@kimball.webabinitio.net>	<4CF6BCC6.9080602@jcea.es>
+	<20101201214750.65A3D22B6BD@kimball.webabinitio.net>
+Message-ID: <4CF70F93.8060407@jcea.es>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On 01/12/10 22:47, R. David Murray wrote:
+> Mercurial can't become the primary version system until after we've had
+> a test-and-work-out-the-bugs period, so IMO that schedule is going to
+> have to be modified.
+
+After two years since Mercurial decision was done, let me daydream a bit
+:-).
+
+And I do actually have confidence that the people on charge of this
+migration have set a realistic milestone.
+
+- -- 
+Jesus Cea Avion                         _/_/      _/_/_/        _/_/_/
+jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+jabber / xmpp:jcea at jabber.org         _/_/    _/_/          _/_/_/_/_/
+.                              _/_/  _/_/    _/_/          _/_/  _/_/
+"Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+"My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+"El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.10 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - http://enigmail.mozdev.org/
+
+iQCVAwUBTPcPk5lgi5GaxT1NAQKD9wP9GNBlpKK8P6ZkB/s13+mL7Fy4HT55sSiB
+2OusKxJFoHAFXLQT34cvmJUpBSXAxIQenm7pgfiK2nHuyf+HaU6hMZA6UbUYcxOb
+/p+5IEW23OXmWidNtPCgNXGSToyoyrDZnRBGL+Gs40W8qqOOO1D95GKmduoPnhe1
+BafE70AppU0=
+=L/RF
+-----END PGP SIGNATURE-----
+
+From g.brandl at gmx.net  Thu Dec  2 11:03:08 2010
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Thu, 02 Dec 2010 11:03:08 +0100
+Subject: [python-committers] Blocking feature backports
+In-Reply-To: <20101202030804.CB89C234988@kimball.webabinitio.net>
+References: <4CF6A7B1.9040209@udel.edu>	<20101201204828.7F1152365E4@kimball.webabinitio.net>	<4CF6F41D.10400@netwok.org>
+	<20101202030804.CB89C234988@kimball.webabinitio.net>
+Message-ID: <id7r0l$5hp$1@dough.gmane.org>
+
+Am 02.12.2010 04:08, schrieb R. David Murray:
+> On Thu, 02 Dec 2010 02:19:25 +0100, <merwok at netwok.org> wrote:
+>> Le 01/12/2010 21:48, R. David Murray a ??crit :
+>> > My understanding of the current status of svnmerge block is that
+>> > you should use it if it helps you and not worry about it otherwise.
+>> > Georg and I and some others find it useful for managing our own
+>> > patches, but otherwise I think that it isn't being used.
+>> 
+>> There???s something I wanted to ask: Are you using some script or shell
+>> function to list the revisions that *you* committed that haven???t been
+>> merged or blocked yet?
+> 
+> svnmerge avail --log provides an svn log like output for the revisions
+> that haven't been blocked.  I just pipe that to less and search for
+> my committer id.
+
+BTW, it's very useful to give it a revision range with
+-rOLDESTREVISIONYOUDIDNTMERGE:HEADREVISION (it wants actual numbers for both).
+Speeds up the process tremendously.
+
+Georg
+
+
+From merwok at netwok.org  Thu Dec  2 12:42:00 2010
+From: merwok at netwok.org (=?UTF-8?B?w4lyaWMgQXJhdWpv?=)
+Date: Thu, 02 Dec 2010 12:42:00 +0100
+Subject: [python-committers] Blocking feature backports
+In-Reply-To: <id7r0l$5hp$1@dough.gmane.org>
+References: <4CF6A7B1.9040209@udel.edu>	<20101201204828.7F1152365E4@kimball.webabinitio.net>	<4CF6F41D.10400@netwok.org>	<20101202030804.CB89C234988@kimball.webabinitio.net>
+	<id7r0l$5hp$1@dough.gmane.org>
+Message-ID: <4CF78608.8070806@netwok.org>
+
+Thanks for the tips David and Georg (and Michael for trying :) I knew
+about svnmerge avail, my question was about filtering).
+
+Cheers
+
+
+From martin at v.loewis.de  Sat Dec  4 15:01:18 2010
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Sat, 04 Dec 2010 15:01:18 +0100
+Subject: [python-committers] Blocking feature backports
+In-Reply-To: <4CF70F93.8060407@jcea.es>
+References: <4CF6A7B1.9040209@udel.edu>	<20101201204828.7F1152365E4@kimball.webabinitio.net>	<4CF6BCC6.9080602@jcea.es>	<20101201214750.65A3D22B6BD@kimball.webabinitio.net>
+	<4CF70F93.8060407@jcea.es>
+Message-ID: <4CFA49AE.1090403@v.loewis.de>
+
+Am 02.12.2010 04:16, schrieb Jesus Cea:
+> On 01/12/10 22:47, R. David Murray wrote:
+>> Mercurial can't become the primary version system until after we've had
+>> a test-and-work-out-the-bugs period, so IMO that schedule is going to
+>> have to be modified.
+> 
+> After two years since Mercurial decision was done, let me daydream a bit
+> :-).
+> 
+> And I do actually have confidence that the people on charge of this
+> migration have set a realistic milestone.
+
+I don't. We still don't have a conversion result to inspect, so we
+can't possibly make the switch in 8 days from now.
+
+More likely, the switch will happen next year.
+
+Regards,
+Martin
+
+From g.brandl at gmx.net  Sat Dec  4 16:25:56 2010
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Sat, 04 Dec 2010 16:25:56 +0100
+Subject: [python-committers] Blocking feature backports
+In-Reply-To: <4CFA49AE.1090403@v.loewis.de>
+References: <4CF6A7B1.9040209@udel.edu>	<20101201204828.7F1152365E4@kimball.webabinitio.net>	<4CF6BCC6.9080602@jcea.es>	<20101201214750.65A3D22B6BD@kimball.webabinitio.net>	<4CF70F93.8060407@jcea.es>
+	<4CFA49AE.1090403@v.loewis.de>
+Message-ID: <iddmmh$9f5$1@dough.gmane.org>
+
+Am 04.12.2010 15:01, schrieb "Martin v. L?wis":
+> Am 02.12.2010 04:16, schrieb Jesus Cea:
+>> On 01/12/10 22:47, R. David Murray wrote:
+>>> Mercurial can't become the primary version system until after we've had
+>>> a test-and-work-out-the-bugs period, so IMO that schedule is going to
+>>> have to be modified.
+>> 
+>> After two years since Mercurial decision was done, let me daydream a bit
+>> :-).
+>> 
+>> And I do actually have confidence that the people on charge of this
+>> migration have set a realistic milestone.
+> 
+> I don't. We still don't have a conversion result to inspect, so we
+> can't possibly make the switch in 8 days from now.
+> 
+> More likely, the switch will happen next year.
+
+As sad as it is, that's true.  It's just unfair to developers and
+infrastructure providers to switch on such a short notice without a
+testing period.
+
+Georg
+
+
+From g.brandl at gmx.net  Sat Dec  4 18:42:41 2010
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Sat, 04 Dec 2010 18:42:41 +0100
+Subject: [python-committers] 3.2 beta 1 freeze
+Message-ID: <iddumv$b8k$1@dough.gmane.org>
+
+This is it: no more features into py3k for a few months please.
+And no commits at all for now, except if you ask on #python-dev.
+
+cheers,
+Georg
+
+
+From ocean-city at m2.ccsnet.ne.jp  Sun Dec  5 05:38:35 2010
+From: ocean-city at m2.ccsnet.ne.jp (Hirokazu Yamamoto)
+Date: Sun, 05 Dec 2010 13:38:35 +0900
+Subject: [python-committers] 3.2 beta 1 freeze
+In-Reply-To: <iddumv$b8k$1@dough.gmane.org>
+References: <iddumv$b8k$1@dough.gmane.org>
+Message-ID: <4CFB174B.8050704@m2.ccsnet.ne.jp>
+
+On 2010/12/05 2:42, Georg Brandl wrote:
+> This is it: no more features into py3k for a few months please.
+> And no commits at all for now, except if you ask on #python-dev.
+>
+> cheers,
+> Georg
+
+Sorry, maybe I missed this mail. :-(
+
+From ncoghlan at gmail.com  Sun Dec  5 09:15:33 2010
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Sun, 5 Dec 2010 18:15:33 +1000
+Subject: [python-committers] 3.2 beta 1 freeze
+In-Reply-To: <4CFB174B.8050704@m2.ccsnet.ne.jp>
+References: <iddumv$b8k$1@dough.gmane.org> <4CFB174B.8050704@m2.ccsnet.ne.jp>
+Message-ID: <AANLkTikAQh+9DV=V-vT_sq5WFLyOnrCNHsiNFfo8OdFq@mail.gmail.com>
+
+On Sun, Dec 5, 2010 at 2:38 PM, Hirokazu Yamamoto
+<ocean-city at m2.ccsnet.ne.jp> wrote:
+> On 2010/12/05 2:42, Georg Brandl wrote:
+>>
+>> This is it: no more features into py3k for a few months please.
+>> And no commits at all for now, except if you ask on #python-dev.
+>>
+>> cheers,
+>> Georg
+>
+> Sorry, maybe I missed this mail. :-(
+
+Ack, me too. Sorry about that :(
+
+Regards,
+Nick.
+
+-- 
+Nick Coghlan?? |?? ncoghlan at gmail.com?? |?? Brisbane, Australia
+
+From dirkjan at ochtman.nl  Sun Dec  5 11:14:06 2010
+From: dirkjan at ochtman.nl (Dirkjan Ochtman)
+Date: Sun, 5 Dec 2010 11:14:06 +0100
+Subject: [python-committers] Blocking feature backports
+In-Reply-To: <iddmmh$9f5$1@dough.gmane.org>
+References: <4CF6A7B1.9040209@udel.edu>
+	<20101201204828.7F1152365E4@kimball.webabinitio.net>
+	<4CF6BCC6.9080602@jcea.es>
+	<20101201214750.65A3D22B6BD@kimball.webabinitio.net>
+	<4CF70F93.8060407@jcea.es> <4CFA49AE.1090403@v.loewis.de>
+	<iddmmh$9f5$1@dough.gmane.org>
+Message-ID: <AANLkTimq8uUbAgFhRft66DpfrkF=1H0e20woPEGxA8Lg@mail.gmail.com>
+
+On Sat, Dec 4, 2010 at 16:25, Georg Brandl <g.brandl at gmx.net> wrote:
+> As sad as it is, that's true. ?It's just unfair to developers and
+> infrastructure providers to switch on such a short notice without a
+> testing period.
+
+Yeah, I'm very sorry. The last step in the conversion has proven
+pretty annoying to get right. I need to separate release maintenance
+branches from feature branches, and it turns out that due to the way
+we use SVN, we also have a bunch of tag-related branches. I only found
+out about the last part recently, and it looks fairly consistent, and
+therefore hard to script.
+
+Georg, I guess we should get together in IRC and see what makes sense
+for a new schedule? Do we wait until after the 3.2 release now, or
+just until after the holidays?
+
+I'll keep on working on finding out what's happening with the tag branches.
+
+Cheers,
+
+Dirkjan
+
+From raymond.hettinger at gmail.com  Sun Dec  5 11:18:32 2010
+From: raymond.hettinger at gmail.com (Raymond Hettinger)
+Date: Sun, 5 Dec 2010 02:18:32 -0800
+Subject: [python-committers] Blocking feature backports
+In-Reply-To: <AANLkTimq8uUbAgFhRft66DpfrkF=1H0e20woPEGxA8Lg@mail.gmail.com>
+References: <4CF6A7B1.9040209@udel.edu>
+	<20101201204828.7F1152365E4@kimball.webabinitio.net>
+	<4CF6BCC6.9080602@jcea.es>
+	<20101201214750.65A3D22B6BD@kimball.webabinitio.net>
+	<4CF70F93.8060407@jcea.es> <4CFA49AE.1090403@v.loewis.de>
+	<iddmmh$9f5$1@dough.gmane.org>
+	<AANLkTimq8uUbAgFhRft66DpfrkF=1H0e20woPEGxA8Lg@mail.gmail.com>
+Message-ID: <C619CEC3-4043-41FD-A6E2-DC95EB960EF8@gmail.com>
+
+
+On Dec 5, 2010, at 2:14 AM, Dirkjan Ochtman wrote:
+> Do we wait until after the 3.2 release now, or
+> just until after the holidays?
+
++1 for waiting until after the 3.2 release.
+It is just around the corner.
+
+
+Raymond
+
+
+From ncoghlan at gmail.com  Sun Dec  5 11:26:36 2010
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Sun, 5 Dec 2010 20:26:36 +1000
+Subject: [python-committers] Blocking feature backports
+In-Reply-To: <C619CEC3-4043-41FD-A6E2-DC95EB960EF8@gmail.com>
+References: <4CF6A7B1.9040209@udel.edu>
+	<20101201204828.7F1152365E4@kimball.webabinitio.net>
+	<4CF6BCC6.9080602@jcea.es>
+	<20101201214750.65A3D22B6BD@kimball.webabinitio.net>
+	<4CF70F93.8060407@jcea.es> <4CFA49AE.1090403@v.loewis.de>
+	<iddmmh$9f5$1@dough.gmane.org>
+	<AANLkTimq8uUbAgFhRft66DpfrkF=1H0e20woPEGxA8Lg@mail.gmail.com>
+	<C619CEC3-4043-41FD-A6E2-DC95EB960EF8@gmail.com>
+Message-ID: <AANLkTinL-OUZqW=AasfmuSNvLg+Q7THxTqCF3K4SDQTg@mail.gmail.com>
+
+On Sun, Dec 5, 2010 at 8:18 PM, Raymond Hettinger
+<raymond.hettinger at gmail.com> wrote:
+>
+> On Dec 5, 2010, at 2:14 AM, Dirkjan Ochtman wrote:
+>> Do we wait until after the 3.2 release now, or
+>> just until after the holidays?
+>
+> +1 for waiting until after the 3.2 release.
+> It is just around the corner.
+
+It would be nice to have the structure of the build information
+consistent across the whole 3.2.x series though.
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan?? |?? ncoghlan at gmail.com?? |?? Brisbane, Australia
+
+From g.brandl at gmx.net  Sun Dec  5 12:11:49 2010
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Sun, 05 Dec 2010 12:11:49 +0100
+Subject: [python-committers] Blocking feature backports
+In-Reply-To: <AANLkTinL-OUZqW=AasfmuSNvLg+Q7THxTqCF3K4SDQTg@mail.gmail.com>
+References: <4CF6A7B1.9040209@udel.edu>	<20101201204828.7F1152365E4@kimball.webabinitio.net>	<4CF6BCC6.9080602@jcea.es>	<20101201214750.65A3D22B6BD@kimball.webabinitio.net>	<4CF70F93.8060407@jcea.es>
+	<4CFA49AE.1090403@v.loewis.de>	<iddmmh$9f5$1@dough.gmane.org>	<AANLkTimq8uUbAgFhRft66DpfrkF=1H0e20woPEGxA8Lg@mail.gmail.com>	<C619CEC3-4043-41FD-A6E2-DC95EB960EF8@gmail.com>
+	<AANLkTinL-OUZqW=AasfmuSNvLg+Q7THxTqCF3K4SDQTg@mail.gmail.com>
+Message-ID: <idfs6c$lrc$1@dough.gmane.org>
+
+Am 05.12.2010 11:26, schrieb Nick Coghlan:
+> On Sun, Dec 5, 2010 at 8:18 PM, Raymond Hettinger
+> <raymond.hettinger at gmail.com> wrote:
+>>
+>> On Dec 5, 2010, at 2:14 AM, Dirkjan Ochtman wrote:
+>>> Do we wait until after the 3.2 release now, or
+>>> just until after the holidays?
+>>
+>> +1 for waiting until after the 3.2 release.
+>> It is just around the corner.
+> 
+> It would be nice to have the structure of the build information
+> consistent across the whole 3.2.x series though.
+
+That, and I'd like to not have to make another maintenance branch
+in SVN for 3.2.
+
+Georg
+
+
+From g.brandl at gmx.net  Sun Dec  5 12:16:48 2010
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Sun, 05 Dec 2010 12:16:48 +0100
+Subject: [python-committers] Providing .tgz sources
+Message-ID: <idfsfv$mvc$1@dough.gmane.org>
+
+Hi,
+
+I wonder if it's still necessary to provide .tar.bz2 and .tgz source
+tarballs.  If anything, it would be nice to provide .tar.xz in addition
+to .tar.bz2, which has a nicer compression ratio:
+
+.tgz     - 13 MB
+.tar.bz2 - 11 MB
+.tar.xz  - 8.6 MB
+
+Georg
+
+
+
+From asmodai at in-nomine.org  Sun Dec  5 13:33:40 2010
+From: asmodai at in-nomine.org (Jeroen Ruigrok van der Werven)
+Date: Sun, 5 Dec 2010 13:33:40 +0100
+Subject: [python-committers] Providing .tgz sources
+In-Reply-To: <idfsfv$mvc$1@dough.gmane.org>
+References: <idfsfv$mvc$1@dough.gmane.org>
+Message-ID: <20101205123340.GC16987@nexus.in-nomine.org>
+
+-On [20101205 12:19], Georg Brandl (g.brandl at gmx.net) wrote:
+>I wonder if it's still necessary to provide .tar.bz2 and .tgz source
+>tarballs.  If anything, it would be nice to provide .tar.xz in addition
+>to .tar.bz2, which has a nicer compression ratio:
+
+Given that xz is only provided since GNU Coreutils 7.1 and only in some
+newer BSD releases (if at all, I know FreeBSD 8 at least has it in the base,
+no idea about pkgsrc and such), I'd say you might want to provide tgz and
+tbz2 for another year before really stopping to provide other formats.
+
+I mean, seriously, is providing some extra files in a particular compression
+format the biggest of our problems?
+
+-- 
+Jeroen Ruigrok van der Werven <asmodai(-at-)in-nomine.org> / asmodai
+????? ?????? ??? ?? ??????
+http://www.in-nomine.org/ | http://www.rangaku.org/ | GPG: 2EAC625B
+The only trust in this world is that of steel...
+
+From g.brandl at gmx.net  Sun Dec  5 13:55:59 2010
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Sun, 05 Dec 2010 13:55:59 +0100
+Subject: [python-committers] Providing .tgz sources
+In-Reply-To: <20101205123340.GC16987@nexus.in-nomine.org>
+References: <idfsfv$mvc$1@dough.gmane.org>
+	<20101205123340.GC16987@nexus.in-nomine.org>
+Message-ID: <idg29k$cj5$1@dough.gmane.org>
+
+Am 05.12.2010 13:33, schrieb Jeroen Ruigrok van der Werven:
+> -On [20101205 12:19], Georg Brandl (g.brandl at gmx.net) wrote:
+>>I wonder if it's still necessary to provide .tar.bz2 and .tgz source
+>>tarballs.  If anything, it would be nice to provide .tar.xz in addition
+>>to .tar.bz2, which has a nicer compression ratio:
+> 
+> Given that xz is only provided since GNU Coreutils 7.1 and only in some
+> newer BSD releases (if at all, I know FreeBSD 8 at least has it in the base,
+> no idea about pkgsrc and such), I'd say you might want to provide tgz and
+> tbz2 for another year before really stopping to provide other formats.
+
+That's why I said "in addition to".
+
+> I mean, seriously, is providing some extra files in a particular compression
+> format the biggest of our problems?
+
+It was just a thought I had while I watched the files upload through my
+rather slow link.  I promise I won't disturb you again tackling our real
+big problems.
+
+Georg
+
+
+From asmodai at in-nomine.org  Sun Dec  5 14:58:24 2010
+From: asmodai at in-nomine.org (Jeroen Ruigrok van der Werven)
+Date: Sun, 5 Dec 2010 14:58:24 +0100
+Subject: [python-committers] Providing .tgz sources
+In-Reply-To: <idg29k$cj5$1@dough.gmane.org>
+References: <idfsfv$mvc$1@dough.gmane.org>
+	<20101205123340.GC16987@nexus.in-nomine.org>
+	<idg29k$cj5$1@dough.gmane.org>
+Message-ID: <20101205135824.GA29719@nexus.in-nomine.org>
+
+-On [20101205 13:58], Georg Brandl (g.brandl at gmx.net) wrote:
+>That's why I said "in addition to".
+
+My mistake, read over that.
+
+>It was just a thought I had while I watched the files upload through my
+>rather slow link.  I promise I won't disturb you again tackling our real
+>big problems.
+
+There's no need to feel offended or attacked, since my response was not
+meant as such. My apologies if you felt it as such.
+
+I just wondered why, in light of my having missed the "in addition to", we
+would need to move to xz only, given that disk space is relatively cheap as
+opposed to the real code, et cetera.
+
+-- 
+Jeroen Ruigrok van der Werven <asmodai(-at-)in-nomine.org> / asmodai
+????? ?????? ??? ?? ??????
+http://www.in-nomine.org/ | http://www.rangaku.org/ | GPG: 2EAC625B
+Ain't gonna spend the rest of my Life, quietly fading away...
+
+From dirkjan at ochtman.nl  Sun Dec  5 15:08:02 2010
+From: dirkjan at ochtman.nl (Dirkjan Ochtman)
+Date: Sun, 5 Dec 2010 15:08:02 +0100
+Subject: [python-committers] Providing .tgz sources
+In-Reply-To: <20101205135824.GA29719@nexus.in-nomine.org>
+References: <idfsfv$mvc$1@dough.gmane.org>
+	<20101205123340.GC16987@nexus.in-nomine.org>
+	<idg29k$cj5$1@dough.gmane.org>
+	<20101205135824.GA29719@nexus.in-nomine.org>
+Message-ID: <AANLkTikJgsA7EoOgOrBDo==0o2FtaPNr_CgQ19LdprrD@mail.gmail.com>
+
+On Sun, Dec 5, 2010 at 14:58, Jeroen Ruigrok van der Werven
+<asmodai at in-nomine.org> wrote:
+> I just wondered why, in light of my having missed the "in addition to", we
+> would need to move to xz only, given that disk space is relatively cheap as
+> opposed to the real code, et cetera.
+
+Because bandwidth is much more expensive than disk space?
+
+Cheers,
+
+Dirkjan
+
+From solipsis at pitrou.net  Sun Dec  5 15:15:04 2010
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Sun, 05 Dec 2010 15:15:04 +0100
+Subject: [python-committers] Providing .tgz sources
+In-Reply-To: <idfsfv$mvc$1@dough.gmane.org>
+References: <idfsfv$mvc$1@dough.gmane.org>
+Message-ID: <1291558504.3525.2.camel@localhost.localdomain>
+
+Le dimanche 05 d?cembre 2010 ? 12:16 +0100, Georg Brandl a ?crit :
+> Hi,
+> 
+> I wonder if it's still necessary to provide .tar.bz2 and .tgz source
+> tarballs.  If anything, it would be nice to provide .tar.xz in addition
+> to .tar.bz2, which has a nicer compression ratio:
+> 
+> .tgz     - 13 MB
+> .tar.bz2 - 11 MB
+> .tar.xz  - 8.6 MB
+
+It is likely that many non-GNU based platforms, such as commercial
+Unices, don't know about xz yet (not to mention old Debian / RHEL
+machines). So I would vote to continue providing .tar.bz2 and/or .tgz
+tarballs.
+
+Regards
+
+Antoine.
+
+
+
+From g.brandl at gmx.net  Sun Dec  5 15:28:33 2010
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Sun, 05 Dec 2010 15:28:33 +0100
+Subject: [python-committers] Providing .tgz sources
+In-Reply-To: <20101205135824.GA29719@nexus.in-nomine.org>
+References: <idfsfv$mvc$1@dough.gmane.org>	<20101205123340.GC16987@nexus.in-nomine.org>	<idg29k$cj5$1@dough.gmane.org>
+	<20101205135824.GA29719@nexus.in-nomine.org>
+Message-ID: <idg7n6$nc$2@dough.gmane.org>
+
+Am 05.12.2010 14:58, schrieb Jeroen Ruigrok van der Werven:
+> -On [20101205 13:58], Georg Brandl (g.brandl at gmx.net) wrote:
+>>That's why I said "in addition to".
+> 
+> My mistake, read over that.
+> 
+>>It was just a thought I had while I watched the files upload through my
+>>rather slow link.  I promise I won't disturb you again tackling our real
+>>big problems.
+> 
+> There's no need to feel offended or attacked, since my response was not
+> meant as such. My apologies if you felt it as such.
+
+Yes, I know and I'm sorry for the harsh tone.  It's just that when you're
+in the middle of doing a release, a perceived complaint that you're doing
+nothing of real worth feels a bit strange :)
+
+Georg
+
+
+From orsenthil at gmail.com  Sun Dec  5 16:56:48 2010
+From: orsenthil at gmail.com (Senthil Kumaran)
+Date: Sun, 5 Dec 2010 23:56:48 +0800
+Subject: [python-committers] Providing .tgz sources
+In-Reply-To: <idfsfv$mvc$1@dough.gmane.org>
+References: <idfsfv$mvc$1@dough.gmane.org>
+Message-ID: <20101205155648.GA1203@rubuntu>
+
+On Sun, Dec 05, 2010 at 12:16:48PM +0100, Georg Brandl wrote:
+> I wonder if it's still necessary to provide .tar.bz2 and .tgz source
+> tarballs. 
+
+Yes, it is necessary. People sometimes just expect it from an Open
+Source project. (At least, when someone is going to try it for the
+first time)
+
+> If anything, it would be nice to provide .tar.xz in
+> addition to .tar.bz2, which has a nicer compression ratio:
+
++1.
+
+I personally, have not downloaded any .xz compressed file yet. So, I
+would be curious to know about this new format, and if I see Python
+being provided in a such a novel format, I would be bit excited to
+try it too. :)
+
+
+-- 
+Senthil
+
+From g.brandl at gmx.net  Sun Dec  5 17:06:04 2010
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Sun, 05 Dec 2010 17:06:04 +0100
+Subject: [python-committers] Providing .tgz sources
+In-Reply-To: <20101205155648.GA1203@rubuntu>
+References: <idfsfv$mvc$1@dough.gmane.org> <20101205155648.GA1203@rubuntu>
+Message-ID: <idgde3$rnu$1@dough.gmane.org>
+
+Am 05.12.2010 16:56, schrieb Senthil Kumaran:
+> On Sun, Dec 05, 2010 at 12:16:48PM +0100, Georg Brandl wrote:
+>> I wonder if it's still necessary to provide .tar.bz2 and .tgz source
+>> tarballs. 
+> 
+> Yes, it is necessary. People sometimes just expect it from an Open
+> Source project. (At least, when someone is going to try it for the
+> first time)
+
+Okay, I give up -- there seems to be a conspiracy of misunderstanding
+today :)
+
+Georg
+
+
+From fredrik at pythonware.com  Sun Dec  5 18:02:50 2010
+From: fredrik at pythonware.com (Fredrik Lundh)
+Date: Sun, 5 Dec 2010 18:02:50 +0100
+Subject: [python-committers] Providing .tgz sources
+In-Reply-To: <idfsfv$mvc$1@dough.gmane.org>
+References: <idfsfv$mvc$1@dough.gmane.org>
+Message-ID: <AANLkTikFfm1+t7mbS2sap_W74H2LKQnO+atfwX+64kDe@mail.gmail.com>
+
+2010/12/5 Georg Brandl <g.brandl at gmx.net>:
+> Hi,
+>
+> I wonder if it's still necessary to provide .tar.bz2 and .tgz source
+> tarballs. ?If anything, it would be nice to provide .tar.xz in addition
+> to .tar.bz2, which has a nicer compression ratio:
+>
+> .tgz ? ? - 13 MB
+> .tar.bz2 - 11 MB
+> .tar.xz ?- 8.6 MB
+
+tgz (and zip) are the most portable formats available, though.  What
+does the site stats say about current usage?
+
+(btw, someone mentioned bandwidth -- are we paying for bandwidth? what
+fraction of the python.org traffic is downloads?)
+
+</F>
+
+From fdrake at acm.org  Sun Dec  5 18:15:22 2010
+From: fdrake at acm.org (Fred Drake)
+Date: Sun, 5 Dec 2010 12:15:22 -0500
+Subject: [python-committers] Providing .tgz sources
+In-Reply-To: <AANLkTikFfm1+t7mbS2sap_W74H2LKQnO+atfwX+64kDe@mail.gmail.com>
+References: <idfsfv$mvc$1@dough.gmane.org>
+	<AANLkTikFfm1+t7mbS2sap_W74H2LKQnO+atfwX+64kDe@mail.gmail.com>
+Message-ID: <AANLkTi=T5TZ5T_YaBJXXU4ezV738S6Z_Vvix8SyBKEn_@mail.gmail.com>
+
+On Sun, Dec 5, 2010 at 12:02 PM, Fredrik Lundh <fredrik at pythonware.com> wrote:
+> (btw, someone mentioned bandwidth -- are we paying for bandwidth? what
+> fraction of the python.org traffic is downloads?)
+
+Even if the PSF isn't paying for bandwidth (and I don't know either
+way), users on the other end often are.  This is understandable and
+real concern.
+
+If providing this new format helps them, I'd be all for that.
+
+
+? -Fred
+
+--
+Fred L. Drake, Jr.? ? <fdrake at acm.org>
+"A storm broke loose in my mind."? --Albert Einstein
+
+From mal at egenix.com  Sun Dec  5 19:16:50 2010
+From: mal at egenix.com (M.-A. Lemburg)
+Date: Sun, 05 Dec 2010 19:16:50 +0100
+Subject: [python-committers] Providing .tgz sources
+In-Reply-To: <idfsfv$mvc$1@dough.gmane.org>
+References: <idfsfv$mvc$1@dough.gmane.org>
+Message-ID: <4CFBD712.2090701@egenix.com>
+
+Georg Brandl wrote:
+> Hi,
+> 
+> I wonder if it's still necessary to provide .tar.bz2 and .tgz source
+> tarballs.  If anything, it would be nice to provide .tar.xz in addition
+> to .tar.bz2, which has a nicer compression ratio:
+> 
+> .tgz     - 13 MB
+> .tar.bz2 - 11 MB
+> .tar.xz  - 8.6 MB
+
+I've never heard of the .xz format before, but if it provides better
+compression, then why not add it to the available options.
+
+I'd also suggest a .zip file source format as alternative to the above.
+This is more common on Windows platforms.
+
+BTW: The download page says:
+"""
+    * Python 3.1.3 compressed source tarball (for Linux, Unix or OS X)
+    * Python 3.1.3 bzipped source tarball (for Linux, Unix or OS X, more compressed)
+"""
+This sounds like the source tarball is not the right source distribution
+for Windows platforms.
+
+And then there's a general issue with the user experience for first-time
+users of Python: there's a quick install guide missing on the download
+page.
+
+I'll open a ticket for that.
+
+-- 
+Marc-Andre Lemburg
+eGenix.com
+
+Professional Python Services directly from the Source  (#1, Dec 05 2010)
+>>> Python/Zope Consulting and Support ...        http://www.egenix.com/
+>>> mxODBC.Zope.Database.Adapter ...             http://zope.egenix.com/
+>>> mxODBC, mxDateTime, mxTextTools ...        http://python.egenix.com/
+________________________________________________________________________
+
+::: Try our new mxODBC.Connect Python Database Interface for free ! ::::
+
+
+   eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+    D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+           Registered at Amtsgericht Duesseldorf: HRB 46611
+               http://www.egenix.com/company/contact/
+
+From fredrik at pythonware.com  Sun Dec  5 19:23:29 2010
+From: fredrik at pythonware.com (Fredrik Lundh)
+Date: Sun, 5 Dec 2010 19:23:29 +0100
+Subject: [python-committers] Providing .tgz sources
+In-Reply-To: <AANLkTi=T5TZ5T_YaBJXXU4ezV738S6Z_Vvix8SyBKEn_@mail.gmail.com>
+References: <idfsfv$mvc$1@dough.gmane.org>
+	<AANLkTikFfm1+t7mbS2sap_W74H2LKQnO+atfwX+64kDe@mail.gmail.com>
+	<AANLkTi=T5TZ5T_YaBJXXU4ezV738S6Z_Vvix8SyBKEn_@mail.gmail.com>
+Message-ID: <AANLkTi=Y56ofxfkFEFu2E_ySKHOFUv2JHmerXbgJseH6@mail.gmail.com>
+
+2010/12/5 Fred Drake <fdrake at acm.org>:
+> On Sun, Dec 5, 2010 at 12:02 PM, Fredrik Lundh <fredrik at pythonware.com> wrote:
+>> (btw, someone mentioned bandwidth -- are we paying for bandwidth? what
+>> fraction of the python.org traffic is downloads?)
+>
+> Even if the PSF isn't paying for bandwidth (and I don't know either
+> way), users on the other end often are. ?This is understandable and
+> real concern.
+>
+> If providing this new format helps them, I'd be all for that.
+
+Sure, I don't mind adding a new format -- I'd like to see more metrics
+before I convince myself that removing the lowest common denominator
+format is a good idea, though.
+
+(and the difference is one MP3 or a short YouTube clip, so I'm not
+sure how real this issue is...)
+
+</F>
+
+From g.brandl at gmx.net  Sun Dec  5 19:23:25 2010
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Sun, 05 Dec 2010 19:23:25 +0100
+Subject: [python-committers] Providing .tgz sources
+In-Reply-To: <4CFBD712.2090701@egenix.com>
+References: <idfsfv$mvc$1@dough.gmane.org> <4CFBD712.2090701@egenix.com>
+Message-ID: <idglfk$vlc$1@dough.gmane.org>
+
+Am 05.12.2010 19:16, schrieb M.-A. Lemburg:
+> Georg Brandl wrote:
+>> Hi,
+>> 
+>> I wonder if it's still necessary to provide .tar.bz2 and .tgz source
+>> tarballs.  If anything, it would be nice to provide .tar.xz in addition
+>> to .tar.bz2, which has a nicer compression ratio:
+>> 
+>> .tgz     - 13 MB
+>> .tar.bz2 - 11 MB
+>> .tar.xz  - 8.6 MB
+> 
+> I've never heard of the .xz format before, but if it provides better
+> compression, then why not add it to the available options.
+
+Yes, I think it's best to just add it for now.  I may do that for future
+3.2 releases.
+
+> I'd also suggest a .zip file source format as alternative to the above.
+> This is more common on Windows platforms.
+> 
+> BTW: The download page says:
+> """
+>     * Python 3.1.3 compressed source tarball (for Linux, Unix or OS X)
+>     * Python 3.1.3 bzipped source tarball (for Linux, Unix or OS X, more compressed)
+> """
+> This sounds like the source tarball is not the right source distribution
+> for Windows platforms.
+
+Basically, it is good for all platforms, but most line-endings will be Unix
+line-endings in these files.  Providing a .zip file with Windows line
+endings needs one more export/archive step from the source repo.
+
+> And then there's a general issue with the user experience for first-time
+> users of Python: there's a quick install guide missing on the download
+> page.
+
+Not sure that is needed: those who download the installers will know what
+to do with them, and those who download the source should also know
+(otherwise README has a quick build and install section.)
+
+Georg
+
+
+From martin at v.loewis.de  Sun Dec  5 20:00:09 2010
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Sun, 05 Dec 2010 20:00:09 +0100
+Subject: [python-committers] Blocking feature backports
+In-Reply-To: <idfs6c$lrc$1@dough.gmane.org>
+References: <4CF6A7B1.9040209@udel.edu>	<20101201204828.7F1152365E4@kimball.webabinitio.net>	<4CF6BCC6.9080602@jcea.es>	<20101201214750.65A3D22B6BD@kimball.webabinitio.net>	<4CF70F93.8060407@jcea.es>	<4CFA49AE.1090403@v.loewis.de>	<iddmmh$9f5$1@dough.gmane.org>	<AANLkTimq8uUbAgFhRft66DpfrkF=1H0e20woPEGxA8Lg@mail.gmail.com>	<C619CEC3-4043-41FD-A6E2-DC95EB960EF8@gmail.com>	<AANLkTinL-OUZqW=AasfmuSNvLg+Q7THxTqCF3K4SDQTg@mail.gmail.com>
+	<idfs6c$lrc$1@dough.gmane.org>
+Message-ID: <4CFBE139.8060603@v.loewis.de>
+
+Am 05.12.2010 12:11, schrieb Georg Brandl:
+> Am 05.12.2010 11:26, schrieb Nick Coghlan:
+>> On Sun, Dec 5, 2010 at 8:18 PM, Raymond Hettinger
+>> <raymond.hettinger at gmail.com> wrote:
+>>>
+>>> On Dec 5, 2010, at 2:14 AM, Dirkjan Ochtman wrote:
+>>>> Do we wait until after the 3.2 release now, or
+>>>> just until after the holidays?
+>>>
+>>> +1 for waiting until after the 3.2 release.
+>>> It is just around the corner.
+>>
+>> It would be nice to have the structure of the build information
+>> consistent across the whole 3.2.x series though.
+> 
+> That, and I'd like to not have to make another maintenance branch
+> in SVN for 3.2.
+
+Then I'd like to repeat my request not to switch to Mercurial just
+before the release candidate - have at least one beta release
+before the Mercurial switch.
+
+Personally, I'd still like to defer beta1 until after the Mercurial
+switch (or alternatively, do the final 3.2 release from subversion
+as Raymond suggested).
+
+Regards,
+Martin
+
+From solipsis at pitrou.net  Sun Dec  5 20:07:42 2010
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Sun, 05 Dec 2010 20:07:42 +0100
+Subject: [python-committers] Blocking feature backports
+In-Reply-To: <4CFBE139.8060603@v.loewis.de>
+References: <4CF6A7B1.9040209@udel.edu>
+	<20101201204828.7F1152365E4@kimball.webabinitio.net>
+	<4CF6BCC6.9080602@jcea.es>
+	<20101201214750.65A3D22B6BD@kimball.webabinitio.net>
+	<4CF70F93.8060407@jcea.es>	<4CFA49AE.1090403@v.loewis.de>
+	<iddmmh$9f5$1@dough.gmane.org>
+	<AANLkTimq8uUbAgFhRft66DpfrkF=1H0e20woPEGxA8Lg@mail.gmail.com>
+	<C619CEC3-4043-41FD-A6E2-DC95EB960EF8@gmail.com>
+	<AANLkTinL-OUZqW=AasfmuSNvLg+Q7THxTqCF3K4SDQTg@mail.gmail.com>
+	<idfs6c$lrc$1@dough.gmane.org>  <4CFBE139.8060603@v.loewis.de>
+Message-ID: <1291576062.3525.6.camel@localhost.localdomain>
+
+Le dimanche 05 d?cembre 2010 ? 20:00 +0100, "Martin v. L?wis" a ?crit :
+> Am 05.12.2010 12:11, schrieb Georg Brandl:
+> > Am 05.12.2010 11:26, schrieb Nick Coghlan:
+> >> On Sun, Dec 5, 2010 at 8:18 PM, Raymond Hettinger
+> >> <raymond.hettinger at gmail.com> wrote:
+> >>>
+> >>> On Dec 5, 2010, at 2:14 AM, Dirkjan Ochtman wrote:
+> >>>> Do we wait until after the 3.2 release now, or
+> >>>> just until after the holidays?
+> >>>
+> >>> +1 for waiting until after the 3.2 release.
+> >>> It is just around the corner.
+> >>
+> >> It would be nice to have the structure of the build information
+> >> consistent across the whole 3.2.x series though.
+> > 
+> > That, and I'd like to not have to make another maintenance branch
+> > in SVN for 3.2.
+> 
+> Then I'd like to repeat my request not to switch to Mercurial just
+> before the release candidate - have at least one beta release
+> before the Mercurial switch.
+> 
+> Personally, I'd still like to defer beta1 until after the Mercurial
+> switch (or alternatively, do the final 3.2 release from subversion
+> as Raymond suggested).
+
+What would these proposed delayings / deferments achieve?
+
+
+
+
+From martin at v.loewis.de  Sun Dec  5 20:23:39 2010
+From: martin at v.loewis.de (=?UTF-8?B?Ik1hcnRpbiB2LiBMw7Z3aXMi?=)
+Date: Sun, 05 Dec 2010 20:23:39 +0100
+Subject: [python-committers] Providing .tgz sources
+In-Reply-To: <20101205123340.GC16987@nexus.in-nomine.org>
+References: <idfsfv$mvc$1@dough.gmane.org>
+	<20101205123340.GC16987@nexus.in-nomine.org>
+Message-ID: <4CFBE6BB.4000009@v.loewis.de>
+
+> I mean, seriously, is providing some extra files in a particular compression
+> format the biggest of our problems?
+
+For those of us involved in the release process, every single file is a
+big problem, indeed. Seriously.
+
+Regards,
+Martin
+
+From martin at v.loewis.de  Sun Dec  5 20:39:40 2010
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Sun, 05 Dec 2010 20:39:40 +0100
+Subject: [python-committers] Providing .tgz sources
+In-Reply-To: <idfsfv$mvc$1@dough.gmane.org>
+References: <idfsfv$mvc$1@dough.gmane.org>
+Message-ID: <4CFBEA7C.6040400@v.loewis.de>
+
+> I wonder if it's still necessary to provide .tar.bz2 and .tgz source
+> tarballs.  If anything, it would be nice to provide .tar.xz in addition
+> to .tar.bz2, which has a nicer compression ratio:
+
+Looking at download statistics, for the 2.7 release, in July, we had
+these numbers of downloads:
+
+Python-2.7.tgz     32059
+Python-2.7.tar.bz2 24986
+python-2.7.msi    577240
+
+In November, the numbers were
+
+Python-2.7.tgz       24535
+Python-2.7.tar.bz2   20797
+python-2.7.msi      569328
+
+Regards,
+Martin
+
+From asmodai at in-nomine.org  Sun Dec  5 20:40:58 2010
+From: asmodai at in-nomine.org (Jeroen Ruigrok van der Werven)
+Date: Sun, 5 Dec 2010 20:40:58 +0100
+Subject: [python-committers] Providing .tgz sources
+In-Reply-To: <4CFBE6BB.4000009@v.loewis.de>
+References: <idfsfv$mvc$1@dough.gmane.org>
+	<20101205123340.GC16987@nexus.in-nomine.org>
+	<4CFBE6BB.4000009@v.loewis.de>
+Message-ID: <20101205194058.GC29719@nexus.in-nomine.org>
+
+-On [20101205 20:23], "Martin v. L?wis" (martin at v.loewis.de) wrote:
+>For those of us involved in the release process, every single file is a
+>big problem, indeed. Seriously.
+
+Correct me if wrong, but isn't rolling up a tgz, tbz2, or txz not a matter
+of repeating the same actions on a tarball you already have, namely merely
+compressing the resulting tarball that you already have. Easy enough to
+script/put in a Makefile.
+
+Which only leaves generating hashes/sig files, uploading, and linking it on
+the site. All of which can be automated to a high degree.
+
+So what exactly is the big problem here then?
+
+-- 
+Jeroen Ruigrok van der Werven <asmodai(-at-)in-nomine.org> / asmodai
+????? ?????? ??? ?? ??????
+http://www.in-nomine.org/ | http://www.rangaku.org/ | GPG: 2EAC625B
+The fragrance always stays in the hand that gives the rose...
+
+From asmodai at in-nomine.org  Sun Dec  5 20:44:03 2010
+From: asmodai at in-nomine.org (Jeroen Ruigrok van der Werven)
+Date: Sun, 5 Dec 2010 20:44:03 +0100
+Subject: [python-committers] Blocking feature backports
+In-Reply-To: <1291576062.3525.6.camel@localhost.localdomain>
+References: <20101201214750.65A3D22B6BD@kimball.webabinitio.net>
+	<4CF70F93.8060407@jcea.es> <4CFA49AE.1090403@v.loewis.de>
+	<iddmmh$9f5$1@dough.gmane.org>
+	<AANLkTimq8uUbAgFhRft66DpfrkF=1H0e20woPEGxA8Lg@mail.gmail.com>
+	<C619CEC3-4043-41FD-A6E2-DC95EB960EF8@gmail.com>
+	<AANLkTinL-OUZqW=AasfmuSNvLg+Q7THxTqCF3K4SDQTg@mail.gmail.com>
+	<idfs6c$lrc$1@dough.gmane.org> <4CFBE139.8060603@v.loewis.de>
+	<1291576062.3525.6.camel@localhost.localdomain>
+Message-ID: <20101205194403.GD29719@nexus.in-nomine.org>
+
+-On [20101205 20:07], Antoine Pitrou (solipsis at pitrou.net) wrote:
+>What would these proposed delayings / deferments achieve?
+
+Peace and quiet for the release team during the release.
+
+Why confound the situation by forcing a migration of the VCS in the middle
+of release time? It's not like postponing a month will cause issues aside
+from waiting a bit longer for the migration. It makes even more sense given
+December's nature of social visits, partying and whatnot.
+
+Again, maybe I am missing something, but what is the rush?
+
+-- 
+Jeroen Ruigrok van der Werven <asmodai(-at-)in-nomine.org> / asmodai
+????? ?????? ??? ?? ??????
+http://www.in-nomine.org/ | http://www.rangaku.org/ | GPG: 2EAC625B
+Life is just one damned thing after another...
+
+From g.brandl at gmx.net  Sun Dec  5 20:43:27 2010
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Sun, 05 Dec 2010 20:43:27 +0100
+Subject: [python-committers] Providing .tgz sources
+In-Reply-To: <4CFBEA7C.6040400@v.loewis.de>
+References: <idfsfv$mvc$1@dough.gmane.org> <4CFBEA7C.6040400@v.loewis.de>
+Message-ID: <idgq5n$jf6$1@dough.gmane.org>
+
+Am 05.12.2010 20:39, schrieb "Martin v. L?wis":
+>> I wonder if it's still necessary to provide .tar.bz2 and .tgz source
+>> tarballs.  If anything, it would be nice to provide .tar.xz in addition
+>> to .tar.bz2, which has a nicer compression ratio:
+> 
+> Looking at download statistics, for the 2.7 release, in July, we had
+> these numbers of downloads:
+> 
+> Python-2.7.tgz     32059
+> Python-2.7.tar.bz2 24986
+> python-2.7.msi    577240
+> 
+> In November, the numbers were
+> 
+> Python-2.7.tgz       24535
+> Python-2.7.tar.bz2   20797
+> python-2.7.msi      569328
+
+OK, so the tgz is still more popular than the bz2 one, and that means
+it shouldn't go away.
+
+I've decided to make tar.xz tarballs available for the remaining 3.2
+prereleases; we'll see if anyone at all is interested in them.
+
+As for the .zip version, I've not found any requests for a source
+download with Windows-specific newlines.  I suppose that developers
+either check out directly from SVN, or have decompression programs
+and editors that can cope.
+
+cheers,
+Georg
+
+
+From martin at v.loewis.de  Sun Dec  5 20:49:23 2010
+From: martin at v.loewis.de (=?UTF-8?B?Ik1hcnRpbiB2LiBMw7Z3aXMi?=)
+Date: Sun, 05 Dec 2010 20:49:23 +0100
+Subject: [python-committers] Blocking feature backports
+In-Reply-To: <1291576062.3525.6.camel@localhost.localdomain>
+References: <4CF6A7B1.9040209@udel.edu>	<20101201204828.7F1152365E4@kimball.webabinitio.net>	<4CF6BCC6.9080602@jcea.es>	<20101201214750.65A3D22B6BD@kimball.webabinitio.net>	<4CF70F93.8060407@jcea.es>	<4CFA49AE.1090403@v.loewis.de>	<iddmmh$9f5$1@dough.gmane.org>	<AANLkTimq8uUbAgFhRft66DpfrkF=1H0e20woPEGxA8Lg@mail.gmail.com>	<C619CEC3-4043-41FD-A6E2-DC95EB960EF8@gmail.com>	<AANLkTinL-OUZqW=AasfmuSNvLg+Q7THxTqCF3K4SDQTg@mail.gmail.com>	<idfs6c$lrc$1@dough.gmane.org>
+	<4CFBE139.8060603@v.loewis.de>
+	<1291576062.3525.6.camel@localhost.localdomain>
+Message-ID: <4CFBECC3.3050602@v.loewis.de>
+
+>> Personally, I'd still like to defer beta1 until after the Mercurial
+>> switch (or alternatively, do the final 3.2 release from subversion
+>> as Raymond suggested).
+> 
+> What would these proposed delayings / deferments achieve?
+
+They will prevent the mess from happening that would happen if we switch
+to Mercurial in the middle of release candidates. I expect the initial
+release using Mercurial to just not work, plus I plan to need several
+days to make the release. Doing so under the time pressure of a release
+candidate is not something I look forward to.
+
+Regards,
+Martin
+
+From martin at v.loewis.de  Sun Dec  5 20:54:59 2010
+From: martin at v.loewis.de (=?UTF-8?B?Ik1hcnRpbiB2LiBMw7Z3aXMi?=)
+Date: Sun, 05 Dec 2010 20:54:59 +0100
+Subject: [python-committers] Providing .tgz sources
+In-Reply-To: <20101205194058.GC29719@nexus.in-nomine.org>
+References: <idfsfv$mvc$1@dough.gmane.org>
+	<20101205123340.GC16987@nexus.in-nomine.org>
+	<4CFBE6BB.4000009@v.loewis.de>
+	<20101205194058.GC29719@nexus.in-nomine.org>
+Message-ID: <4CFBEE13.8010202@v.loewis.de>
+
+Am 05.12.2010 20:40, schrieb Jeroen Ruigrok van der Werven:
+> -On [20101205 20:23], "Martin v. L?wis" (martin at v.loewis.de) wrote:
+>> For those of us involved in the release process, every single file is a
+>> big problem, indeed. Seriously.
+> 
+> Correct me if wrong, but isn't rolling up a tgz, tbz2, or txz not a matter
+> of repeating the same actions on a tarball you already have, namely merely
+> compressing the resulting tarball that you already have. Easy enough to
+> script/put in a Makefile.
+> 
+> Which only leaves generating hashes/sig files, uploading, and linking it on
+> the site. All of which can be automated to a high degree.
+> 
+> So what exactly is the big problem here then?
+
+One problem is that it is not automated (at least not when I do it,
+nor is the creation of the release page automated).
+
+The next problem is that, with so many files, it becomes just not
+feasible to test them all. As a consequence, you risk releasing broken
+files. For example, when Benjamin released both 2.7.1 and 3.1.3 on the
+same day, I had to produce 16 files. I lost track of what files where
+in what state, and broke some of them. I didn't test all installers
+I built.
+
+The last problem is that the release page gets cluttered, confusing
+users as to what file they need to download for what purpose.
+
+Regards,
+Martin
+
+From martin at v.loewis.de  Sun Dec  5 20:58:19 2010
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Sun, 05 Dec 2010 20:58:19 +0100
+Subject: [python-committers] Providing .tgz sources
+In-Reply-To: <idgq5n$jf6$1@dough.gmane.org>
+References: <idfsfv$mvc$1@dough.gmane.org> <4CFBEA7C.6040400@v.loewis.de>
+	<idgq5n$jf6$1@dough.gmane.org>
+Message-ID: <4CFBEEDB.6020903@v.loewis.de>
+
+> As for the .zip version, I've not found any requests for a source
+> download with Windows-specific newlines.  I suppose that developers
+> either check out directly from SVN, or have decompression programs
+> and editors that can cope.
+
+Indeed, Windows users should be able to cope with the tgz just fine.
+Per svn:eol-style, the files that need to be CRLF are marked so,
+and should remain usable even with a Unix export. The C and
+Python files will have LF only, which VS and Python can deal with
+just fine. Only notepad would do nonsense when trying to open such
+a file.
+
+Regards,
+Martin
+
+From brett at python.org  Sun Dec  5 21:55:03 2010
+From: brett at python.org (Brett Cannon)
+Date: Sun, 5 Dec 2010 12:55:03 -0800
+Subject: [python-committers] Providing .tgz sources
+In-Reply-To: <idgq5n$jf6$1@dough.gmane.org>
+References: <idfsfv$mvc$1@dough.gmane.org> <4CFBEA7C.6040400@v.loewis.de>
+	<idgq5n$jf6$1@dough.gmane.org>
+Message-ID: <AANLkTi=NmZvxp=Q+Sn-HO9dntGjFdmGs-Ew2mqLkGRZs@mail.gmail.com>
+
+On Sun, Dec 5, 2010 at 11:43, Georg Brandl <g.brandl at gmx.net> wrote:
+> Am 05.12.2010 20:39, schrieb "Martin v. L?wis":
+>>> I wonder if it's still necessary to provide .tar.bz2 and .tgz source
+>>> tarballs. ?If anything, it would be nice to provide .tar.xz in addition
+>>> to .tar.bz2, which has a nicer compression ratio:
+>>
+>> Looking at download statistics, for the 2.7 release, in July, we had
+>> these numbers of downloads:
+>>
+>> Python-2.7.tgz ? ? 32059
+>> Python-2.7.tar.bz2 24986
+>> python-2.7.msi ? ?577240
+>>
+>> In November, the numbers were
+>>
+>> Python-2.7.tgz ? ? ? 24535
+>> Python-2.7.tar.bz2 ? 20797
+>> python-2.7.msi ? ? ?569328
+>
+> OK, so the tgz is still more popular than the bz2 one, and that means
+> it shouldn't go away.
+
+Well, is it more popular because that is just what people are used to
+downloading or the first download link on the web page? Or is it
+because people fundamentally prefer tgz files over tar.bz2? Are there
+actual platforms that can't handle tar.bz2 but can handle tgz? I'm
+willing to bet it's because of the download link order and has nothing
+to do with actual preference (especially since we don't state file
+size on the download page).
+
+Personally I don't know why we have both tgz and tar.bz2 other than
+tradition. I say trim it down to tar.bz2 for portability and move on
+to using a ustar-based tar.xz to be cutting edge and minimize download
+size overall while making it the first download option to make sure
+people notice it. I'd also vote for listing the file size on the
+download page, but that's just another step for release managers that
+I don't want to burden them with.
+
+-Brett
+
+>
+> I've decided to make tar.xz tarballs available for the remaining 3.2
+> prereleases; we'll see if anyone at all is interested in them.
+>
+> As for the .zip version, I've not found any requests for a source
+> download with Windows-specific newlines. ?I suppose that developers
+> either check out directly from SVN, or have decompression programs
+> and editors that can cope.
+>
+> cheers,
+> Georg
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+>
+
+From martin at v.loewis.de  Sun Dec  5 22:06:32 2010
+From: martin at v.loewis.de (=?UTF-8?B?Ik1hcnRpbiB2LiBMw7Z3aXMi?=)
+Date: Sun, 05 Dec 2010 22:06:32 +0100
+Subject: [python-committers] Providing .tgz sources
+In-Reply-To: <AANLkTi=NmZvxp=Q+Sn-HO9dntGjFdmGs-Ew2mqLkGRZs@mail.gmail.com>
+References: <idfsfv$mvc$1@dough.gmane.org>
+	<4CFBEA7C.6040400@v.loewis.de>	<idgq5n$jf6$1@dough.gmane.org>
+	<AANLkTi=NmZvxp=Q+Sn-HO9dntGjFdmGs-Ew2mqLkGRZs@mail.gmail.com>
+Message-ID: <4CFBFED8.30402@v.loewis.de>
+
+> Well, is it more popular because that is just what people are used to
+> downloading or the first download link on the web page? Or is it
+> because people fundamentally prefer tgz files over tar.bz2?
+
+These questions are difficult to answer with the download stats alone.
+If you really want to know, we should setup a poll...
+
+> Are there
+> actual platforms that can't handle tar.bz2 but can handle tgz?
+
+That, in turn, is easy to answer: yes, there are. Certain Solaris
+releases had gzip available (even though /usr/bin/tar wouldn't know
+how to invoke it), but no bzip2 utility.
+
+> I'm
+> willing to bet it's because of the download link order and has nothing
+> to do with actual preference (especially since we don't state file
+> size on the download page).
+
+Not sure what page you are looking at; on
+
+http://www.python.org/download/releases/2.7/
+
+we do.
+
+> Personally I don't know why we have both tgz and tar.bz2 other than
+> tradition. I say trim it down to tar.bz2 for portability and move on
+> to using a ustar-based tar.xz to be cutting edge and minimize download
+> size overall while making it the first download option to make sure
+> people notice it. I'd also vote for listing the file size on the
+> download page, but that's just another step for release managers that
+> I don't want to burden them with.
+
+You would also need to specify what page you refer to as "the download
+page".
+
+Regards,
+Martin
+
+From brett at python.org  Sun Dec  5 22:11:12 2010
+From: brett at python.org (Brett Cannon)
+Date: Sun, 5 Dec 2010 13:11:12 -0800
+Subject: [python-committers] Providing .tgz sources
+In-Reply-To: <4CFBFED8.30402@v.loewis.de>
+References: <idfsfv$mvc$1@dough.gmane.org> <4CFBEA7C.6040400@v.loewis.de>
+	<idgq5n$jf6$1@dough.gmane.org>
+	<AANLkTi=NmZvxp=Q+Sn-HO9dntGjFdmGs-Ew2mqLkGRZs@mail.gmail.com>
+	<4CFBFED8.30402@v.loewis.de>
+Message-ID: <AANLkTikdgrLyTCaaSmP4QhcvJrRuBSRkTz3OuvR6Xw2N@mail.gmail.com>
+
+On Sun, Dec 5, 2010 at 13:06, "Martin v. L?wis" <martin at v.loewis.de> wrote:
+>> Well, is it more popular because that is just what people are used to
+>> downloading or the first download link on the web page? Or is it
+>> because people fundamentally prefer tgz files over tar.bz2?
+>
+> These questions are difficult to answer with the download stats alone.
+> If you really want to know, we should setup a poll...
+
+I could if people care, but I don't anyone does.
+
+>
+>> Are there
+>> actual platforms that can't handle tar.bz2 but can handle tgz?
+>
+> That, in turn, is easy to answer: yes, there are. Certain Solaris
+> releases had gzip available (even though /usr/bin/tar wouldn't know
+> how to invoke it), but no bzip2 utility.
+
+If these are Solaris platforms we support then that's fine and we
+should keep tgz files, but if these are platforms we no longer care
+about then I say the lives of release managers should be simplified by
+cutting tgz files.
+
+>
+>> I'm
+>> willing to bet it's because of the download link order and has nothing
+>> to do with actual preference (especially since we don't state file
+>> size on the download page).
+>
+> Not sure what page you are looking at; on
+>
+> http://www.python.org/download/releases/2.7/
+>
+> we do.
+
+I was actually looking at that page, but the size specifics are below
+the download links and are only noticeable if you scroll far enough
+down. I doubt I am the only person who has made that mistake.
+
+-Brett
+
+>
+>> Personally I don't know why we have both tgz and tar.bz2 other than
+>> tradition. I say trim it down to tar.bz2 for portability and move on
+>> to using a ustar-based tar.xz to be cutting edge and minimize download
+>> size overall while making it the first download option to make sure
+>> people notice it. I'd also vote for listing the file size on the
+>> download page, but that's just another step for release managers that
+>> I don't want to burden them with.
+>
+> You would also need to specify what page you refer to as "the download
+> page".
+>
+> Regards,
+> Martin
+>
+
+From martin at v.loewis.de  Sun Dec  5 22:30:14 2010
+From: martin at v.loewis.de (=?UTF-8?B?Ik1hcnRpbiB2LiBMw7Z3aXMi?=)
+Date: Sun, 05 Dec 2010 22:30:14 +0100
+Subject: [python-committers] Providing .tgz sources
+In-Reply-To: <AANLkTikdgrLyTCaaSmP4QhcvJrRuBSRkTz3OuvR6Xw2N@mail.gmail.com>
+References: <idfsfv$mvc$1@dough.gmane.org> <4CFBEA7C.6040400@v.loewis.de>
+	<idgq5n$jf6$1@dough.gmane.org>
+	<AANLkTi=NmZvxp=Q+Sn-HO9dntGjFdmGs-Ew2mqLkGRZs@mail.gmail.com>
+	<4CFBFED8.30402@v.loewis.de>
+	<AANLkTikdgrLyTCaaSmP4QhcvJrRuBSRkTz3OuvR6Xw2N@mail.gmail.com>
+Message-ID: <4CFC0466.8000004@v.loewis.de>
+
+>> That, in turn, is easy to answer: yes, there are. Certain Solaris
+>> releases had gzip available (even though /usr/bin/tar wouldn't know
+>> how to invoke it), but no bzip2 utility.
+> 
+> If these are Solaris platforms we support then that's fine and we
+> should keep tgz files, but if these are platforms we no longer care
+> about then I say the lives of release managers should be simplified by
+> cutting tgz files.
+
+We haven't been really careful in determining what Solaris releases
+we support; PEP 11 lists no Solaris releases that are not supported
+anymore. I'd say anything since Solaris 9 (released 2002) needs to
+be supported. Unfortunately, I don't have any installation of that
+anymore, so I'm not sure whether it had bzip2 - I doubt it, but
+it is certainly possible to obtain a bzip2 binary from SunFreeware
+(or build it yourself from source).
+
+Regards,
+Martin
+
+From dalke at dalkescientific.com  Sun Dec  5 22:48:35 2010
+From: dalke at dalkescientific.com (Andrew Dalke)
+Date: Sun, 5 Dec 2010 22:48:35 +0100
+Subject: [python-committers] Providing .tgz sources
+In-Reply-To: <AANLkTi=NmZvxp=Q+Sn-HO9dntGjFdmGs-Ew2mqLkGRZs@mail.gmail.com>
+References: <idfsfv$mvc$1@dough.gmane.org> <4CFBEA7C.6040400@v.loewis.de>
+	<idgq5n$jf6$1@dough.gmane.org>
+	<AANLkTi=NmZvxp=Q+Sn-HO9dntGjFdmGs-Ew2mqLkGRZs@mail.gmail.com>
+Message-ID: <12F7572D-828B-4543-B12E-F99AA8A91756@dalkescientific.com>
+
+On Dec 5, 2010, at 9:55 PM, Brett Cannon wrote:
+> Well, is it more popular because that is just what people are used to
+> downloading or the first download link on the web page? Or is it
+> because people fundamentally prefer tgz files over tar.bz2?
+
+I prefer tgz over tar.bz2 because my fingers are more used
+to typing gz* than bz*, and because it's more likely that
+gzip will be installed than bzip. But my habits were formed
+before bzip was even available.
+
+I have chosen bzip over gzip in cases where I know that
+download bandwidth was limited but otherwise I use gzip.
+
+Plus, Python comes with a gzip module. ;)
+
+> Are there actual platforms that can't handle tar.bz2
+> but can handle tgz?
+
+I can test this tomorrow when I visit my client and type
+"bzip" into a box there, but I think the answer is "yes."
+This is a 3-4 year old Linux box where I had to install
+a number of packages just to get it to state where I
+could compile Emacs 23.x, since their package installer
+doesn't have a new enough Emacs version.
+
+Short version: most of the users log into the Linux
+box to run pre-compiled chemistry applications. They
+aren't doing development on the machines.
+
+If Python was only available in bzip then I would have
+to install bzip myself - which isn't hard - while I
+grumble that it's more work for me for little savings.
+After all, in these cases I'm at a large pharmaceutical
+company with plenty of bandwidth, so the savings of a
+few MB won't be noticeable.
+
+They sure aren't going to have xz.
+
+So, drop .tar.gz and I can still handle it.
+
+> Personally I don't know why we have both tgz and tar.bz2 other than
+> tradition. I say trim it down to tar.bz2 for portability and move on
+> to using a ustar-based tar.xz to be cutting edge and minimize download
+> size overall while making it the first download option to make sure
+> people notice it.
+
+While I would say to drop the bz2 and make it an xz instead.
+*shrug* it's no big deal either which way.
+
+If this is something you want to figure out, there's no
+need for a poll. This is near ideal case for A/B testing.
+Swap the two lines now and see what changes. And watch
+the referrer logs to identify which downloads come
+from that page.
+
+
+Before today I had never even heard of .xz files. For
+others who haven't heard of it, it's based on the LZMA2
+algorithm, which is a slight improvement on the LZMA algorithm
+which 7zip uses. It's been for about 2 years, and so I'm
+surprised to see that it's part of the GNU coreutils already.
+
+Here's a short read about the history
+  http://linuxgazette.net/162/lindholm.html
+with some numbers as well. It looks like the compression
+time is a lot longer than gzip. This page
+  http://stephane.lesimple.fr/wiki/blog/lzop_vs_compress_vs_gzip_vs_bzip2_vs_lzma_vs_lzma2-xz_benchmark_reloaded
+recommends gzip if you want compression speed, and xz
+if you want smaller size.
+
+
+				Andrew
+				dalke at dalkescientific.com
+
+
+
+From fredrik at pythonware.com  Sun Dec  5 22:59:48 2010
+From: fredrik at pythonware.com (Fredrik Lundh)
+Date: Sun, 5 Dec 2010 22:59:48 +0100
+Subject: [python-committers] Providing .tgz sources
+In-Reply-To: <4CFBEA7C.6040400@v.loewis.de>
+References: <idfsfv$mvc$1@dough.gmane.org> <4CFBEA7C.6040400@v.loewis.de>
+Message-ID: <AANLkTikG3qSk9sx_hgRifRLXXsbV_qsa9M5YK=0Owf-7@mail.gmail.com>
+
+2010/12/5 "Martin v. L?wis" <martin at v.loewis.de>:
+>> I wonder if it's still necessary to provide .tar.bz2 and .tgz source
+>> tarballs. ?If anything, it would be nice to provide .tar.xz in addition
+>> to .tar.bz2, which has a nicer compression ratio:
+>
+> Looking at download statistics, for the 2.7 release, in July, we had
+> these numbers of downloads:
+>
+> Python-2.7.tgz ? ? 32059
+> Python-2.7.tar.bz2 24986
+> python-2.7.msi ? ?577240
+>
+> In November, the numbers were
+>
+> Python-2.7.tgz ? ? ? 24535
+> Python-2.7.tar.bz2 ? 20797
+> python-2.7.msi ? ? ?569328
+
+So source tarballs are <10% of the downloads (not very surprising; I
+guess most people use binary package managers if they want a runtime,
+and SVN if they want source).  Sounds like people who are concerned
+about overall bandwidth use should look at optimizing the installer
+size instead :)
+
+</F>
+
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+>
+
+From solipsis at pitrou.net  Sun Dec  5 23:11:20 2010
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Sun, 05 Dec 2010 23:11:20 +0100
+Subject: [python-committers] Providing .tgz sources
+In-Reply-To: <AANLkTikdgrLyTCaaSmP4QhcvJrRuBSRkTz3OuvR6Xw2N@mail.gmail.com>
+References: <idfsfv$mvc$1@dough.gmane.org> <4CFBEA7C.6040400@v.loewis.de>
+	<idgq5n$jf6$1@dough.gmane.org>
+	<AANLkTi=NmZvxp=Q+Sn-HO9dntGjFdmGs-Ew2mqLkGRZs@mail.gmail.com>
+	<4CFBFED8.30402@v.loewis.de>
+	<AANLkTikdgrLyTCaaSmP4QhcvJrRuBSRkTz3OuvR6Xw2N@mail.gmail.com>
+Message-ID: <1291587080.3525.10.camel@localhost.localdomain>
+
+Le dimanche 05 d?cembre 2010 ? 13:11 -0800, Brett Cannon a ?crit :
+>
+> If these are Solaris platforms we support then that's fine and we
+> should keep tgz files, but if these are platforms we no longer care
+> about then I say the lives of release managers should be simplified by
+> cutting tgz files.
+
+I think we should actually cut bz2 files. Leave tgz for legacy platforms
+and users, and provide xz for much better compression.
+
+(by the way, using GNU tar you don't have to specify the compression
+mode anymore: just do "tar xf ..." or "tar tf ..." and it will be
+autodetected)
+
+Regards
+
+Antoine.
+
+
+
+From ncoghlan at gmail.com  Mon Dec  6 05:47:49 2010
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Mon, 6 Dec 2010 14:47:49 +1000
+Subject: [python-committers] Blocking feature backports
+In-Reply-To: <4CFBECC3.3050602@v.loewis.de>
+References: <4CF6A7B1.9040209@udel.edu>
+	<20101201204828.7F1152365E4@kimball.webabinitio.net>
+	<4CF6BCC6.9080602@jcea.es>
+	<20101201214750.65A3D22B6BD@kimball.webabinitio.net>
+	<4CF70F93.8060407@jcea.es> <4CFA49AE.1090403@v.loewis.de>
+	<iddmmh$9f5$1@dough.gmane.org>
+	<AANLkTimq8uUbAgFhRft66DpfrkF=1H0e20woPEGxA8Lg@mail.gmail.com>
+	<C619CEC3-4043-41FD-A6E2-DC95EB960EF8@gmail.com>
+	<AANLkTinL-OUZqW=AasfmuSNvLg+Q7THxTqCF3K4SDQTg@mail.gmail.com>
+	<idfs6c$lrc$1@dough.gmane.org> <4CFBE139.8060603@v.loewis.de>
+	<1291576062.3525.6.camel@localhost.localdomain>
+	<4CFBECC3.3050602@v.loewis.de>
+Message-ID: <AANLkTi=82i3meuonmHLgXf0K3jzn3eFQG_DHsfT_g7XC@mail.gmail.com>
+
+On Mon, Dec 6, 2010 at 5:49 AM, "Martin v. L?wis" <martin at v.loewis.de> wrote:
+>>> Personally, I'd still like to defer beta1 until after the Mercurial
+>>> switch (or alternatively, do the final 3.2 release from subversion
+>>> as Raymond suggested).
+>>
+>> What would these proposed delayings / deferments achieve?
+>
+> They will prevent the mess from happening that would happen if we switch
+> to Mercurial in the middle of release candidates. I expect the initial
+> release using Mercurial to just not work, plus I plan to need several
+> days to make the release. Doing so under the time pressure of a release
+> candidate is not something I look forward to.
+
+This.
+
+However, I also sympathise with Georg's desire to have both the
+original release and subsequent maintenance releases all on Mercurial
+rather than being stuck with releasing from a Subversion branch, or
+else trying to switch between Subversion and Mercurial for the 3.2.1
+maintenance release.
+
+Given that we don't have any strict external deadlines, the solution
+that seems to make the most sense is to:
+1. Feature freeze now (which has happened with 3.2b1 going out the
+door the other day)
+2. Work on the Mercurial transition over the next few weeks and do
+3.2b2 from Mercurial early in the new year.
+3. Do b3/rc1/rc2 based on the mutually convenient b2 release date that
+is worked out between Georg, Dirkjan, Martin and Ronald.
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan?? |?? ncoghlan at gmail.com?? |?? Brisbane, Australia
+
+From steve at holdenweb.com  Mon Dec  6 07:24:11 2010
+From: steve at holdenweb.com (Steve Holden)
+Date: Mon, 06 Dec 2010 07:24:11 +0100
+Subject: [python-committers] Providing .tgz sources
+In-Reply-To: <AANLkTikdgrLyTCaaSmP4QhcvJrRuBSRkTz3OuvR6Xw2N@mail.gmail.com>
+References: <idfsfv$mvc$1@dough.gmane.org>
+	<4CFBEA7C.6040400@v.loewis.de>	<idgq5n$jf6$1@dough.gmane.org>	<AANLkTi=NmZvxp=Q+Sn-HO9dntGjFdmGs-Ew2mqLkGRZs@mail.gmail.com>	<4CFBFED8.30402@v.loewis.de>
+	<AANLkTikdgrLyTCaaSmP4QhcvJrRuBSRkTz3OuvR6Xw2N@mail.gmail.com>
+Message-ID: <4CFC818B.1080508@holdenweb.com>
+
+On 12/5/2010 10:11 PM, Brett Cannon wrote:
+> On Sun, Dec 5, 2010 at 13:06, "Martin v. L?wis" <martin at v.loewis.de> wrote:
+>>> Well, is it more popular because that is just what people are used to
+>>> downloading or the first download link on the web page? Or is it
+>>> because people fundamentally prefer tgz files over tar.bz2?
+>>
+>> These questions are difficult to answer with the download stats alone.
+>> If you really want to know, we should setup a poll...
+> 
+> I could if people care, but I don't anyone does.
+> 
+>>
+>>> Are there
+>>> actual platforms that can't handle tar.bz2 but can handle tgz?
+>>
+>> That, in turn, is easy to answer: yes, there are. Certain Solaris
+>> releases had gzip available (even though /usr/bin/tar wouldn't know
+>> how to invoke it), but no bzip2 utility.
+> 
+> If these are Solaris platforms we support then that's fine and we
+> should keep tgz files, but if these are platforms we no longer care
+> about then I say the lives of release managers should be simplified by
+> cutting tgz files.
+> 
+>>
+>>> I'm
+>>> willing to bet it's because of the download link order and has nothing
+>>> to do with actual preference (especially since we don't state file
+>>> size on the download page).
+>>
+>> Not sure what page you are looking at; on
+>>
+>> http://www.python.org/download/releases/2.7/
+>>
+>> we do.
+> 
+> I was actually looking at that page, but the size specifics are below
+> the download links and are only noticeable if you scroll far enough
+> down. I doubt I am the only person who has made that mistake.
+> 
+> -Brett
+> 
+>>
+>>> Personally I don't know why we have both tgz and tar.bz2 other than
+>>> tradition. I say trim it down to tar.bz2 for portability and move on
+>>> to using a ustar-based tar.xz to be cutting edge and minimize download
+>>> size overall while making it the first download option to make sure
+>>> people notice it. I'd also vote for listing the file size on the
+>>> download page, but that's just another step for release managers that
+>>> I don't want to burden them with.
+>>
+>> You would also need to specify what page you refer to as "the download
+>> page".
+>>
+Surely this is all bike shedding. Will anyone fail to download Python
+because we don't offer a .xz foramt download? I sincerely doubt it. So
+what do we gain by such an addition to compensate for the increasing
+complexity to be faced during releases?
+
+regards
+ Steve
+-- 
+Steve Holden           +1 571 484 6266   +1 800 494 3119
+PyCon 2011 Atlanta March 9-17       http://us.pycon.org/
+See Python Video!       http://python.mirocommunity.org/
+Holden Web LLC                 http://www.holdenweb.com/
+
+From steve at holdenweb.com  Mon Dec  6 07:26:53 2010
+From: steve at holdenweb.com (Steve Holden)
+Date: Mon, 06 Dec 2010 07:26:53 +0100
+Subject: [python-committers] Blocking feature backports
+In-Reply-To: <4CFBECC3.3050602@v.loewis.de>
+References: <4CF6A7B1.9040209@udel.edu>	<20101201204828.7F1152365E4@kimball.webabinitio.net>	<4CF6BCC6.9080602@jcea.es>	<20101201214750.65A3D22B6BD@kimball.webabinitio.net>	<4CF70F93.8060407@jcea.es>	<4CFA49AE.1090403@v.loewis.de>	<iddmmh$9f5$1@dough.gmane.org>	<AANLkTimq8uUbAgFhRft66DpfrkF=1H0e20woPEGxA8Lg@mail.gmail.com>	<C619CEC3-4043-41FD-A6E2-DC95EB960EF8@gmail.com>	<AANLkTinL-OUZqW=AasfmuSNvLg+Q7THxTqCF3K4SDQTg@mail.gmail.com>	<idfs6c$lrc$1@dough.gmane.org>	<4CFBE139.8060603@v.loewis.de>	<1291576062.3525.6.camel@localhost.localdomain>
+	<4CFBECC3.3050602@v.loewis.de>
+Message-ID: <4CFC822D.3070101@holdenweb.com>
+
+On 12/5/2010 8:49 PM, "Martin v. L?wis" wrote:
+>>> Personally, I'd still like to defer beta1 until after the Mercurial
+>>> switch (or alternatively, do the final 3.2 release from subversion
+>>> as Raymond suggested).
+>>
+>> What would these proposed delayings / deferments achieve?
+> 
+> They will prevent the mess from happening that would happen if we switch
+> to Mercurial in the middle of release candidates. I expect the initial
+> release using Mercurial to just not work, plus I plan to need several
+> days to make the release. Doing so under the time pressure of a release
+> candidate is not something I look forward to.
+> 
++1
+
+Let's not *ask* for trouble.
+
+regards
+ Steve
+-- 
+Steve Holden           +1 571 484 6266   +1 800 494 3119
+PyCon 2011 Atlanta March 9-17       http://us.pycon.org/
+See Python Video!       http://python.mirocommunity.org/
+Holden Web LLC                 http://www.holdenweb.com/
+
+From brett at python.org  Mon Dec  6 08:15:41 2010
+From: brett at python.org (Brett Cannon)
+Date: Sun, 5 Dec 2010 23:15:41 -0800
+Subject: [python-committers] Providing .tgz sources
+In-Reply-To: <4CFC818B.1080508@holdenweb.com>
+References: <idfsfv$mvc$1@dough.gmane.org> <4CFBEA7C.6040400@v.loewis.de>
+	<idgq5n$jf6$1@dough.gmane.org>
+	<AANLkTi=NmZvxp=Q+Sn-HO9dntGjFdmGs-Ew2mqLkGRZs@mail.gmail.com>
+	<4CFBFED8.30402@v.loewis.de>
+	<AANLkTikdgrLyTCaaSmP4QhcvJrRuBSRkTz3OuvR6Xw2N@mail.gmail.com>
+	<4CFC818B.1080508@holdenweb.com>
+Message-ID: <AANLkTi=HVeWELTB+cghqxew3npybxNSEgKU1e-mfhXYG@mail.gmail.com>
+
+On Sun, Dec 5, 2010 at 22:24, Steve Holden <steve at holdenweb.com> wrote:
+> On 12/5/2010 10:11 PM, Brett Cannon wrote:
+>> On Sun, Dec 5, 2010 at 13:06, "Martin v. L?wis" <martin at v.loewis.de> wrote:
+>>>> Well, is it more popular because that is just what people are used to
+>>>> downloading or the first download link on the web page? Or is it
+>>>> because people fundamentally prefer tgz files over tar.bz2?
+>>>
+>>> These questions are difficult to answer with the download stats alone.
+>>> If you really want to know, we should setup a poll...
+>>
+>> I could if people care, but I don't anyone does.
+>>
+>>>
+>>>> Are there
+>>>> actual platforms that can't handle tar.bz2 but can handle tgz?
+>>>
+>>> That, in turn, is easy to answer: yes, there are. Certain Solaris
+>>> releases had gzip available (even though /usr/bin/tar wouldn't know
+>>> how to invoke it), but no bzip2 utility.
+>>
+>> If these are Solaris platforms we support then that's fine and we
+>> should keep tgz files, but if these are platforms we no longer care
+>> about then I say the lives of release managers should be simplified by
+>> cutting tgz files.
+>>
+>>>
+>>>> I'm
+>>>> willing to bet it's because of the download link order and has nothing
+>>>> to do with actual preference (especially since we don't state file
+>>>> size on the download page).
+>>>
+>>> Not sure what page you are looking at; on
+>>>
+>>> http://www.python.org/download/releases/2.7/
+>>>
+>>> we do.
+>>
+>> I was actually looking at that page, but the size specifics are below
+>> the download links and are only noticeable if you scroll far enough
+>> down. I doubt I am the only person who has made that mistake.
+>>
+>> -Brett
+>>
+>>>
+>>>> Personally I don't know why we have both tgz and tar.bz2 other than
+>>>> tradition. I say trim it down to tar.bz2 for portability and move on
+>>>> to using a ustar-based tar.xz to be cutting edge and minimize download
+>>>> size overall while making it the first download option to make sure
+>>>> people notice it. I'd also vote for listing the file size on the
+>>>> download page, but that's just another step for release managers that
+>>>> I don't want to burden them with.
+>>>
+>>> You would also need to specify what page you refer to as "the download
+>>> page".
+>>>
+> Surely this is all bike shedding.
+
+I don't think so when we are trying to make getting a new release
+easier w.r.t. smaller source download.
+
+> Will anyone fail to download Python
+> because we don't offer a .xz foramt download? I sincerely doubt it.
+
+I do as well.
+
+> So
+> what do we gain by such an addition to compensate for the increasing
+> complexity to be faced during releases?
+
+It only increases complexity if we don't cut one of the tar.bz2 or tgz
+source releases. But by offering a a tar.xz file we can give people a
+smaller download which saves everyone time and bandwidth which can
+matter if the downloader's Internet connection is slow and/or costly.
+
+-Brett
+
+>
+> regards
+> ?Steve
+> --
+> Steve Holden ? ? ? ? ? +1 571 484 6266 ? +1 800 494 3119
+> PyCon 2011 Atlanta March 9-17 ? ? ? http://us.pycon.org/
+> See Python Video! ? ? ? http://python.mirocommunity.org/
+> Holden Web LLC ? ? ? ? ? ? ? ? http://www.holdenweb.com/
+>
+
+From g.brandl at gmx.net  Mon Dec  6 13:02:42 2010
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Mon, 06 Dec 2010 13:02:42 +0100
+Subject: [python-committers] Updated hg schedule
+Message-ID: <idiji0$4l9$1@dough.gmane.org>
+
+Hi,
+
+after careful discussion I have come to the conclusion it is
+not feasible to get the migration done in time for 3.2 final,
+especially considering that December is not exactly a time
+where everyone wants to be doing extra work.
+
+All releases up and including 3.2 will therefore be made from SVN.
+3.2 will face the same small issue as 2.7 and 3.1, i.e. that
+subsequent releases will have different-looking build identification.
+
+Dirkjan is positive that he will have the test repo ready by the
+end of the month.  That means that if the issues left in the test
+repo are small enough to be done in a few days, SVN will be frozen
+as soon as 3.2 final is out of the door, and anything committed
+to py3k from then on will go to Mercurial once it's ready.
+
+I hope this is a good compromise for everyone.
+
+Georg
+
+
+From barry at python.org  Mon Dec  6 13:24:56 2010
+From: barry at python.org (Barry Warsaw)
+Date: Mon, 6 Dec 2010 07:24:56 -0500
+Subject: [python-committers] Providing .tgz sources
+In-Reply-To: <AANLkTi=HVeWELTB+cghqxew3npybxNSEgKU1e-mfhXYG@mail.gmail.com>
+References: <idfsfv$mvc$1@dough.gmane.org> <4CFBEA7C.6040400@v.loewis.de>
+	<idgq5n$jf6$1@dough.gmane.org>
+	<AANLkTi=NmZvxp=Q+Sn-HO9dntGjFdmGs-Ew2mqLkGRZs@mail.gmail.com>
+	<4CFBFED8.30402@v.loewis.de>
+	<AANLkTikdgrLyTCaaSmP4QhcvJrRuBSRkTz3OuvR6Xw2N@mail.gmail.com>
+	<4CFC818B.1080508@holdenweb.com>
+	<AANLkTi=HVeWELTB+cghqxew3npybxNSEgKU1e-mfhXYG@mail.gmail.com>
+Message-ID: <20101206072456.586d5cac@snowdog>
+
+On Dec 05, 2010, at 11:15 PM, Brett Cannon wrote:
+
+>It only increases complexity if we don't cut one of the tar.bz2 or tgz
+>source releases. But by offering a a tar.xz file we can give people a
+>smaller download which saves everyone time and bandwidth which can
+>matter if the downloader's Internet connection is slow and/or costly.
+
+I mildly wonder about download scripts out there that have baked-in
+assumptions about the files that are available.  It's not actually that hard
+to predict the url of a download file for a new release.
+
+I can't imagine *adding* a download format is that much more complex, except
+perhaps for our users to try to figure out which file to grab, and even that's
+stretching it I think.  But I would be okay with adding an .xz download for
+3.2 and then re-evaluating the offerings for 3.3.  It would be an interesting
+experiment to see how many .xz downloads we get (I hadn't even heard of the
+format until now).
+
+-Barry
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 836 bytes
+Desc: not available
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20101206/d3d9ea48/attachment.pgp>
+
+From g.brandl at gmx.net  Mon Dec  6 13:34:23 2010
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Mon, 06 Dec 2010 13:34:23 +0100
+Subject: [python-committers] Providing .tgz sources
+In-Reply-To: <20101206072456.586d5cac@snowdog>
+References: <idfsfv$mvc$1@dough.gmane.org>
+	<4CFBEA7C.6040400@v.loewis.de>	<idgq5n$jf6$1@dough.gmane.org>	<AANLkTi=NmZvxp=Q+Sn-HO9dntGjFdmGs-Ew2mqLkGRZs@mail.gmail.com>	<4CFBFED8.30402@v.loewis.de>	<AANLkTikdgrLyTCaaSmP4QhcvJrRuBSRkTz3OuvR6Xw2N@mail.gmail.com>	<4CFC818B.1080508@holdenweb.com>	<AANLkTi=HVeWELTB+cghqxew3npybxNSEgKU1e-mfhXYG@mail.gmail.com>
+	<20101206072456.586d5cac@snowdog>
+Message-ID: <idildd$d7k$1@dough.gmane.org>
+
+Am 06.12.2010 13:24, schrieb Barry Warsaw:
+> On Dec 05, 2010, at 11:15 PM, Brett Cannon wrote:
+> 
+>>It only increases complexity if we don't cut one of the tar.bz2 or tgz
+>>source releases. But by offering a a tar.xz file we can give people a
+>>smaller download which saves everyone time and bandwidth which can
+>>matter if the downloader's Internet connection is slow and/or costly.
+> 
+> I mildly wonder about download scripts out there that have baked-in
+> assumptions about the files that are available.  It's not actually that hard
+> to predict the url of a download file for a new release.
+> 
+> I can't imagine *adding* a download format is that much more complex, except
+> perhaps for our users to try to figure out which file to grab, and even that's
+> stretching it I think.  But I would be okay with adding an .xz download for
+> 3.2 and then re-evaluating the offerings for 3.3.  It would be an interesting
+> experiment to see how many .xz downloads we get (I hadn't even heard of the
+> format until now).
+
+One thing to consider is that distributions such as Gentoo will certainly
+switch to using the .xz, but mirror it.  So even if it doesn't show up as
+a large download count on python.org, every user of these distributions
+can profit from the reduced download size.
+
+Georg
+
+
+From lukasz at langa.pl  Mon Dec  6 13:48:26 2010
+From: lukasz at langa.pl (=?UTF-8?B?xYF1a2FzeiBMYW5nYQ==?=)
+Date: Mon, 06 Dec 2010 13:48:26 +0100
+Subject: [python-committers] Providing .tgz sources
+In-Reply-To: <20101206072456.586d5cac@snowdog>
+References: <idfsfv$mvc$1@dough.gmane.org>
+	<4CFBEA7C.6040400@v.loewis.de>	<idgq5n$jf6$1@dough.gmane.org>	<AANLkTi=NmZvxp=Q+Sn-HO9dntGjFdmGs-Ew2mqLkGRZs@mail.gmail.com>	<4CFBFED8.30402@v.loewis.de>	<AANLkTikdgrLyTCaaSmP4QhcvJrRuBSRkTz3OuvR6Xw2N@mail.gmail.com>	<4CFC818B.1080508@holdenweb.com>	<AANLkTi=HVeWELTB+cghqxew3npybxNSEgKU1e-mfhXYG@mail.gmail.com>
+	<20101206072456.586d5cac@snowdog>
+Message-ID: <4CFCDB9A.7060006@langa.pl>
+
+Am 06.12.2010 13:24, schrieb Barry Warsaw:
+> I can't imagine *adding* a download format is that much more complex, except
+> perhaps for our users to try to figure out which file to grab, and even that's
+> stretching it I think.  But I would be okay with adding an .xz download for
+> 3.2 and then re-evaluating the offerings for 3.3.  It would be an interesting
+> experiment to see how many .xz downloads we get (I hadn't even heard of the
+> format until now).
+
+I like this idea. And, based on Brett's intuition, I would make the 
+bzip2 link be the first. That alone could easily change the usage 
+statistics in favor of bzip2.
+
+Best regards,
+?ukasz
+
+From g.brandl at gmx.net  Mon Dec  6 22:48:41 2010
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Mon, 06 Dec 2010 22:48:41 +0100
+Subject: [python-committers] py3k unfrozen
+Message-ID: <idjlsr$n9u$1@dough.gmane.org>
+
+Please remember, no new features from this point on :)
+
+Georg
+
+
+From georg at python.org  Mon Dec  6 22:46:48 2010
+From: georg at python.org (Georg Brandl)
+Date: Mon, 06 Dec 2010 22:46:48 +0100
+Subject: [python-committers] [RELEASED] Python 3.2 beta 1
+Message-ID: <4CFD59C8.4070006@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On behalf of the Python development team, I'm happy to announce the
+first of two beta preview releases of Python 3.2.
+
+Python 3.2 is a continuation of the efforts to improve and stabilize the
+Python 3.x line.  Since the final release of Python 2.7, the 2.x line
+will only receive bugfixes, and new features are developed for 3.x only.
+
+Since PEP 3003, the Moratorium on Language Changes, is in effect, there
+are no changes in Python's syntax and built-in types in Python 3.2.
+Development efforts concentrated on the standard library and support for
+porting code to Python 3.  Highlights are:
+
+* numerous improvements to the unittest module
+* PEP 3147, support for .pyc repository directories
+* PEP 3149, support for version tagged dynamic libraries
+* PEP 3148, a new futures library for concurrent programming
+* PEP 384, a stable ABI for extension modules
+* PEP 391, dictionary-based logging configuration
+* an overhauled GIL implementation that reduces contention
+* an extended email package that handles bytes messages
+* countless fixes regarding bytes/string issues; among them full
+  support for a bytes environment (filenames, environment variables)
+* many consistency and behavior fixes for numeric operations
+* a sysconfig module to access configuration information
+* a pure-Python implementation of the datetime module
+* additions to the shutil module, among them archive file support
+* improvements to pdb, the Python debugger
+
+For a more extensive list of changes in 3.2, see
+
+    http://docs.python.org/3.2/whatsnew/3.2.html
+
+To download Python 3.2 visit:
+
+    http://www.python.org/download/releases/3.2/
+
+Please consider trying Python 3.2 with your code and reporting any bugs
+you may notice to:
+
+    http://bugs.python.org/
+
+
+Enjoy!
+
+- --
+Georg Brandl, Release Manager
+georg at python.org
+(on behalf of the entire python-dev team and 3.2's contributors)
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v2.0.16 (GNU/Linux)
+
+iEYEARECAAYFAkz9WcgACgkQN9GcIYhpnLBRYwCeMmH1GMmKOx9fVk8a/F0/TOzj
+Vp0AoIHYBNcxV/U0AXIwMGWFHi1bAB+a
+=KBam
+-----END PGP SIGNATURE-----
+
+From brett at python.org  Mon Dec  6 23:45:31 2010
+From: brett at python.org (Brett Cannon)
+Date: Mon, 6 Dec 2010 14:45:31 -0800
+Subject: [python-committers] [RELEASED] Python 3.2 beta 1
+In-Reply-To: <4CFD59C8.4070006@python.org>
+References: <4CFD59C8.4070006@python.org>
+Message-ID: <AANLkTimxNCAAu+6cS0JSU79ehFcpOWhpSrVb_3BkS7AV@mail.gmail.com>
+
+On Mon, Dec 6, 2010 at 13:46, Georg Brandl <georg at python.org> wrote:
+> -----BEGIN PGP SIGNED MESSAGE-----
+> Hash: SHA1
+>
+> On behalf of the Python development team, I'm happy to announce the
+> first of two beta preview releases of Python 3.2.
+>
+> Python 3.2 is a continuation of the efforts to improve and stabilize the
+> Python 3.x line. ?Since the final release of Python 2.7, the 2.x line
+> will only receive bugfixes, and new features are developed for 3.x only.
+>
+> Since PEP 3003, the Moratorium on Language Changes, is in effect, there
+> are no changes in Python's syntax and built-in types in Python 3.2.
+> Development efforts concentrated on the standard library and support for
+> porting code to Python 3. ?Highlights are:
+>
+> * numerous improvements to the unittest module
+> * PEP 3147, support for .pyc repository directories
+> * PEP 3149, support for version tagged dynamic libraries
+> * PEP 3148, a new futures library for concurrent programming
+> * PEP 384, a stable ABI for extension modules
+> * PEP 391, dictionary-based logging configuration
+> * an overhauled GIL implementation that reduces contention
+> * an extended email package that handles bytes messages
+> * countless fixes regarding bytes/string issues; among them full
+> ?support for a bytes environment (filenames, environment variables)
+> * many consistency and behavior fixes for numeric operations
+> * a sysconfig module to access configuration information
+> * a pure-Python implementation of the datetime module
+> * additions to the shutil module, among them archive file support
+> * improvements to pdb, the Python debugger
+>
+> For a more extensive list of changes in 3.2, see
+>
+> ? ?http://docs.python.org/3.2/whatsnew/3.2.html
+
+* Introduction of a new importlib ABC to make supporting PEP 3147 (and
+any future bytecode changes) transparent along with deprecating the
+old source and bytecode-based ABCs in a backwards-compatible way.
+
+This may be more of a What's New entry to go with the PEP 3147
+mention, though, than a highlight.
+
+From lukasz at langa.pl  Tue Dec  7 09:24:37 2010
+From: lukasz at langa.pl (=?utf-8?Q?=C5=81ukasz_Langa?=)
+Date: Tue, 7 Dec 2010 09:24:37 +0100
+Subject: [python-committers] [Python-Dev] [RELEASED] Python 3.2 beta 1
+In-Reply-To: <4CFD59C8.4070006@python.org>
+References: <4CFD59C8.4070006@python.org>
+Message-ID: <433FCEE2-CD6C-48BD-90DF-2990B27E4EED@langa.pl>
+
+Wiadomo?? napisana przez Georg Brandl w dniu 2010-12-06, o godz. 22:46:
+
+> -----BEGIN PGP SIGNED MESSAGE-----
+> Hash: SHA1
+> 
+> On behalf of the Python development team, I'm happy to announce the
+> first of two beta preview releases of Python 3.2.
+> 
+> Python 3.2 is a continuation of the efforts to improve and stabilize the
+> Python 3.x line.  Since the final release of Python 2.7, the 2.x line
+> will only receive bugfixes, and new features are developed for 3.x only.
+> 
+> Since PEP 3003, the Moratorium on Language Changes, is in effect, there
+> are no changes in Python's syntax and built-in types in Python 3.2.
+> Development efforts concentrated on the standard library and support for
+> porting code to Python 3.  Highlights are:
+> 
+> [snip]
+
+* configparser 1.1: new API using the mapping protocol access, support for pluggable interpolation handlers, additional interpolation handler (ExtendedInterpolation) which supports the zc.buildout syntax, support for alternative option/value delimiters, support for customization of accepted INI file structure (e.g. comment prefixes, name of the DEFAULT section, indentation, empty lines in multiline values, etc.), support for specifying encoding for read operations, ConfigParser class deprecated in favor of SafeConfigParser, lots of other small changes.
+
+-- 
+Best regards,
+?ukasz Langa
+tel. +48 791 080 144
+WWW http://lukasz.langa.pl/
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20101207/1ccb5e59/attachment.html>
+
+From jcea at jcea.es  Tue Dec  7 12:05:18 2010
+From: jcea at jcea.es (Jesus Cea)
+Date: Tue, 07 Dec 2010 12:05:18 +0100
+Subject: [python-committers] Providing .tgz sources
+In-Reply-To: <1291558504.3525.2.camel@localhost.localdomain>
+References: <idfsfv$mvc$1@dough.gmane.org>
+	<1291558504.3525.2.camel@localhost.localdomain>
+Message-ID: <4CFE14EE.5010901@jcea.es>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On 05/12/10 15:15, Antoine Pitrou wrote:
+> Le dimanche 05 d?cembre 2010 ? 12:16 +0100, Georg Brandl a ?crit :
+>> Hi,
+>>
+>> I wonder if it's still necessary to provide .tar.bz2 and .tgz source
+>> tarballs.  If anything, it would be nice to provide .tar.xz in addition
+>> to .tar.bz2, which has a nicer compression ratio:
+>>
+>> .tgz     - 13 MB
+>> .tar.bz2 - 11 MB
+>> .tar.xz  - 8.6 MB
+> 
+> It is likely that many non-GNU based platforms, such as commercial
+> Unices, don't know about xz yet (not to mention old Debian / RHEL
+> machines). So I would vote to continue providing .tar.bz2 and/or .tgz
+> tarballs.
+
+Providing XZ files *IN ADDITION* to gz/bz2 will increase the mindshare
+for the format. I am checking the webpage and installing the XZ tools
+just now :-).
+
+- -- 
+Jesus Cea Avion                         _/_/      _/_/_/        _/_/_/
+jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+jabber / xmpp:jcea at jabber.org         _/_/    _/_/          _/_/_/_/_/
+.                              _/_/  _/_/    _/_/          _/_/  _/_/
+"Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+"My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+"El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.10 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - http://enigmail.mozdev.org/
+
+iQCVAwUBTP4U7Zlgi5GaxT1NAQK0NAP+KCij3y/m5O8a9wioP2atPDjn8DFwWxxv
+2uMQKBCQikGiVS5LRF6gE11jvJMRBnmaW6RI7HylP/WM7/KtGKx6Fl4MjRzzqKvQ
+yyk+vY1+RfQ5Oc1Q7vLTLKGTibSXUY59jfQo2I09nCXpkeMYSu4iuz7SSDPS/QUR
+b9eH+YhexgU=
+=j2ys
+-----END PGP SIGNATURE-----
+
+From michael at voidspace.org.uk  Tue Dec  7 12:19:53 2010
+From: michael at voidspace.org.uk (Michael Foord)
+Date: Tue, 07 Dec 2010 11:19:53 +0000
+Subject: [python-committers] Providing .tgz sources
+In-Reply-To: <4CFE14EE.5010901@jcea.es>
+References: <idfsfv$mvc$1@dough.gmane.org>	<1291558504.3525.2.camel@localhost.localdomain>
+	<4CFE14EE.5010901@jcea.es>
+Message-ID: <4CFE1859.2090207@voidspace.org.uk>
+
+On 07/12/2010 11:05, Jesus Cea wrote:
+> -----BEGIN PGP SIGNED MESSAGE-----
+> Hash: SHA1
+>
+> On 05/12/10 15:15, Antoine Pitrou wrote:
+>> Le dimanche 05 d?cembre 2010 ? 12:16 +0100, Georg Brandl a ?crit :
+>>> Hi,
+>>>
+>>> I wonder if it's still necessary to provide .tar.bz2 and .tgz source
+>>> tarballs.  If anything, it would be nice to provide .tar.xz in addition
+>>> to .tar.bz2, which has a nicer compression ratio:
+>>>
+>>> .tgz     - 13 MB
+>>> .tar.bz2 - 11 MB
+>>> .tar.xz  - 8.6 MB
+>> It is likely that many non-GNU based platforms, such as commercial
+>> Unices, don't know about xz yet (not to mention old Debian / RHEL
+>> machines). So I would vote to continue providing .tar.bz2 and/or .tgz
+>> tarballs.
+> Providing XZ files *IN ADDITION* to gz/bz2 will increase the mindshare
+> for the format. I am checking the webpage and installing the XZ tools
+> just now :-).
+>
+
+That's not *our* job though.
+
+Michael
+
+> - --
+> Jesus Cea Avion                         _/_/      _/_/_/        _/_/_/
+> jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+> jabber / xmpp:jcea at jabber.org         _/_/    _/_/          _/_/_/_/_/
+> .                              _/_/  _/_/    _/_/          _/_/  _/_/
+> "Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+> "My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+> "El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+> -----BEGIN PGP SIGNATURE-----
+> Version: GnuPG v1.4.10 (GNU/Linux)
+> Comment: Using GnuPG with Mozilla - http://enigmail.mozdev.org/
+>
+> iQCVAwUBTP4U7Zlgi5GaxT1NAQK0NAP+KCij3y/m5O8a9wioP2atPDjn8DFwWxxv
+> 2uMQKBCQikGiVS5LRF6gE11jvJMRBnmaW6RI7HylP/WM7/KtGKx6Fl4MjRzzqKvQ
+> yyk+vY1+RfQ5Oc1Q7vLTLKGTibSXUY59jfQo2I09nCXpkeMYSu4iuz7SSDPS/QUR
+> b9eH+YhexgU=
+> =j2ys
+> -----END PGP SIGNATURE-----
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+
+
+-- 
+
+http://www.voidspace.org.uk/
+
+READ CAREFULLY. By accepting and reading this email you agree,
+on behalf of your employer, to release me from all obligations
+and waivers arising from any and all NON-NEGOTIATED agreements,
+licenses, terms-of-service, shrinkwrap, clickwrap, browsewrap,
+confidentiality, non-disclosure, non-compete and acceptable use
+policies (?BOGUS AGREEMENTS?) that I have entered into with your
+employer, its partners, licensors, agents and assigns, in
+perpetuity, without prejudice to my ongoing rights and privileges.
+You further represent that you have the authority to release me
+from any BOGUS AGREEMENTS on behalf of your employer.
+
+From jcea at jcea.es  Tue Dec  7 12:25:04 2010
+From: jcea at jcea.es (Jesus Cea)
+Date: Tue, 07 Dec 2010 12:25:04 +0100
+Subject: [python-committers] Blocking feature backports
+In-Reply-To: <4CFBE139.8060603@v.loewis.de>
+References: <4CF6A7B1.9040209@udel.edu>	<20101201204828.7F1152365E4@kimball.webabinitio.net>	<4CF6BCC6.9080602@jcea.es>	<20101201214750.65A3D22B6BD@kimball.webabinitio.net>	<4CF70F93.8060407@jcea.es>	<4CFA49AE.1090403@v.loewis.de>	<iddmmh$9f5$1@dough.gmane.org>	<AANLkTimq8uUbAgFhRft66DpfrkF=1H0e20woPEGxA8Lg@mail.gmail.com>	<C619CEC3-4043-41FD-A6E2-DC95EB960EF8@gmail.com>	<AANLkTinL-OUZqW=AasfmuSNvLg+Q7THxTqCF3K4SDQTg@mail.gmail.com>	<idfs6c$lrc$1@dough.gmane.org>
+	<4CFBE139.8060603@v.loewis.de>
+Message-ID: <4CFE1990.1070509@jcea.es>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On 05/12/10 20:00, "Martin v. L?wis" wrote:
+> Personally, I'd still like to defer beta1 until after the Mercurial
+> switch (or alternatively, do the final 3.2 release from subversion
+> as Raymond suggested).
+
+I would vote +1 to deferral of beta1 until mercurial migration. Anything
+pushing mercurial migration would be good. But Beta1 is already out...
+
+Would be shameful to manage 3.2.x using svn...
+
+- -- 
+Jesus Cea Avion                         _/_/      _/_/_/        _/_/_/
+jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+jabber / xmpp:jcea at jabber.org         _/_/    _/_/          _/_/_/_/_/
+.                              _/_/  _/_/    _/_/          _/_/  _/_/
+"Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+"My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+"El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.10 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - http://enigmail.mozdev.org/
+
+iQCVAwUBTP4ZkJlgi5GaxT1NAQKzCAQAh0Pg/SSg7IPiNZZM8/g1tKr70b/w7r1n
+OS+9tE2LNXFnlI7s2jpk2RfZXcNsj8As/v3VBAm4nk6Km5TIBZbaPnCpfIhUSbXF
+KbZU1eN7IThRkWyEqnUO9ZF48ji23jobaoRnHXf6Ak3CTkAKpzMLSNZgn8OXgpFM
+ux6kTe8P6do=
+=949r
+-----END PGP SIGNATURE-----
+
+From g.brandl at gmx.net  Tue Dec  7 20:45:32 2010
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Tue, 07 Dec 2010 20:45:32 +0100
+Subject: [python-committers] Blocking feature backports
+In-Reply-To: <4CFE1990.1070509@jcea.es>
+References: <4CF6A7B1.9040209@udel.edu>	<20101201204828.7F1152365E4@kimball.webabinitio.net>	<4CF6BCC6.9080602@jcea.es>	<20101201214750.65A3D22B6BD@kimball.webabinitio.net>	<4CF70F93.8060407@jcea.es>	<4CFA49AE.1090403@v.loewis.de>	<iddmmh$9f5$1@dough.gmane.org>	<AANLkTimq8uUbAgFhRft66DpfrkF=1H0e20woPEGxA8Lg@mail.gmail.com>	<C619CEC3-4043-41FD-A6E2-DC95EB960EF8@gmail.com>	<AANLkTinL-OUZqW=AasfmuSNvLg+Q7THxTqCF3K4SDQTg@mail.gmail.com>	<idfs6c$lrc$1@dough.gmane.org>	<4CFBE139.8060603@v.loewis.de>
+	<4CFE1990.1070509@jcea.es>
+Message-ID: <idm326$gsa$1@dough.gmane.org>
+
+Am 07.12.2010 12:25, schrieb Jesus Cea:
+> On 05/12/10 20:00, "Martin v. L?wis" wrote:
+>> Personally, I'd still like to defer beta1 until after the Mercurial
+>> switch (or alternatively, do the final 3.2 release from subversion
+>> as Raymond suggested).
+> 
+> I would vote +1 to deferral of beta1 until mercurial migration. Anything
+> pushing mercurial migration would be good. But Beta1 is already out...
+> 
+> Would be shameful to manage 3.2.x using svn...
+
+Please read the updated schedule.  It is a good compromise between the
+desire to have a speedy migration and the strain on the developers
+involved in the release.  These are not just the release manager and the
+binary builders, but also all those developers who need to commit bug
+fixes, not all of whom might be comfortable with using a new VCS during
+the beta or RC phase.
+
+Georg
+
+
+From g.brandl at gmx.net  Sun Dec 19 11:12:18 2010
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Sun, 19 Dec 2010 11:12:18 +0100
+Subject: [python-committers] Freezing py3k for beta2
+Message-ID: <ieklsn$m3j$1@dough.gmane.org>
+
+Hi,
+
+it's now time for beta2; you know the drill by now: I'll be in
+#python-dev on and off, if you like to commit something please
+coordinate there.
+
+Georg
+
+
+From rdmurray at bitdance.com  Mon Dec 20 20:05:33 2010
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Mon, 20 Dec 2010 14:05:33 -0500
+Subject: [python-committers] oops commit
+Message-ID: <20101220190533.B2B851FE49C@kimball.webabinitio.net>
+
+Gah, I just realized that I committed something and I haven't seen
+Georg's unfreeze message yet.
+
+It was wrong anyway, so I reverted it.
+
+--David
+
+From g.brandl at gmx.net  Tue Dec 21 14:49:01 2010
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Tue, 21 Dec 2010 14:49:01 +0100
+Subject: [python-committers] Thaw [was Re: oops commit]
+In-Reply-To: <20101220190533.B2B851FE49C@kimball.webabinitio.net>
+References: <20101220190533.B2B851FE49C@kimball.webabinitio.net>
+Message-ID: <ieq7pm$7p9$1@dough.gmane.org>
+
+Am 20.12.2010 20:05, schrieb R. David Murray:
+> Gah, I just realized that I committed something and I haven't seen
+> Georg's unfreeze message yet.
+> 
+> It was wrong anyway, so I reverted it.
+
+Very good :)
+
+For everyone, the branch is now open again.
+
+Georg
+
+
+From georg at python.org  Tue Dec 21 20:18:56 2010
+From: georg at python.org (Georg Brandl)
+Date: Tue, 21 Dec 2010 20:18:56 +0100
+Subject: [python-committers] [RELEASED] Python 3.2 beta 2
+Message-ID: <4D10FDA0.7090808@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On behalf of the Python development team, I'm happy to announce the
+second beta preview release of Python 3.2.
+
+Python 3.2 is a continuation of the efforts to improve and stabilize the
+Python 3.x line.  Since the final release of Python 2.7, the 2.x line
+will only receive bugfixes, and new features are developed for 3.x only.
+
+Since PEP 3003, the Moratorium on Language Changes, is in effect, there
+are no changes in Python's syntax and built-in types in Python 3.2.
+Development efforts concentrated on the standard library and support for
+porting code to Python 3.  Highlights are:
+
+* numerous improvements to the unittest module
+* PEP 3147, support for .pyc repository directories
+* PEP 3149, support for version tagged dynamic libraries
+* PEP 3148, a new futures library for concurrent programming
+* PEP 384, a stable ABI for extension modules
+* PEP 391, dictionary-based logging configuration
+* an overhauled GIL implementation that reduces contention
+* an extended email package that handles bytes messages
+* countless fixes regarding bytes/string issues; among them full
+  support for a bytes environment (filenames, environment variables)
+* many consistency and behavior fixes for numeric operations
+* a sysconfig module to access configuration information
+* a pure-Python implementation of the datetime module
+* additions to the shutil module, among them archive file support
+* improvements to pdb, the Python debugger
+
+For a more extensive list of changes in 3.2, see
+
+    http://docs.python.org/3.2/whatsnew/3.2.html
+
+To download Python 3.2 visit:
+
+    http://www.python.org/download/releases/3.2/
+
+Please consider trying Python 3.2 with your code and reporting any bugs
+you may notice to:
+
+    http://bugs.python.org/
+
+
+Enjoy!
+
+- -- 
+Georg Brandl, Release Manager
+georg at python.org
+(on behalf of the entire python-dev team and 3.2's contributors)
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.11 (GNU/Linux)
+
+iEYEARECAAYFAk0Q/aAACgkQN9GcIYhpnLDf8gCgkLGAsE+T3R505jZc1RxXDYsa
+NSsAnRGaFjeTm9o2Z5O8FuIzTUG8t1PT
+=hHzz
+-----END PGP SIGNATURE-----
+
+From ncoghlan at gmail.com  Wed Dec 22 02:15:34 2010
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Wed, 22 Dec 2010 12:15:34 +1100
+Subject: [python-committers] [RELEASED] Python 3.2 beta 2
+In-Reply-To: <4D10FDA0.7090808@python.org>
+References: <4D10FDA0.7090808@python.org>
+Message-ID: <AANLkTin-oLhRK7+mbnk7pdyJh9zsZSAm7-V+JjvyBTAd@mail.gmail.com>
+
+On Wed, Dec 22, 2010 at 6:18 AM, Georg Brandl <georg at python.org> wrote:
+> Since PEP 3003, the Moratorium on Language Changes, is in effect, there
+> are no changes in Python's syntax and built-in types in Python 3.2.
+
+Minor nit - we actually did tweak a few of the builtin types a bit
+(mostly the stuff to improve Sequence ABC conformance and to make
+range objects more list-like)
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan?? |?? ncoghlan at gmail.com?? |?? Brisbane, Australia
+
+From g.brandl at gmx.net  Wed Dec 22 14:46:09 2010
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Wed, 22 Dec 2010 14:46:09 +0100
+Subject: [python-committers] [RELEASED] Python 3.2 beta 2
+In-Reply-To: <AANLkTin-oLhRK7+mbnk7pdyJh9zsZSAm7-V+JjvyBTAd@mail.gmail.com>
+References: <4D10FDA0.7090808@python.org>
+	<AANLkTin-oLhRK7+mbnk7pdyJh9zsZSAm7-V+JjvyBTAd@mail.gmail.com>
+Message-ID: <iess0a$q23$1@dough.gmane.org>
+
+Am 22.12.2010 02:15, schrieb Nick Coghlan:
+> On Wed, Dec 22, 2010 at 6:18 AM, Georg Brandl <georg at python.org> wrote:
+>> Since PEP 3003, the Moratorium on Language Changes, is in effect, there
+>> are no changes in Python's syntax and built-in types in Python 3.2.
+> 
+> Minor nit - we actually did tweak a few of the builtin types a bit
+> (mostly the stuff to improve Sequence ABC conformance and to make
+> range objects more list-like)
+
+Indeed, I'll fix this wording for the next announcement.  (And I will
+mention SSL, sorry Antoine).
+
+Georg
+
+
+From eric at trueblade.com  Wed Dec 22 14:09:46 2010
+From: eric at trueblade.com (Eric Smith)
+Date: Wed, 22 Dec 2010 08:09:46 -0500
+Subject: [python-committers] [RELEASED] Python 3.2 beta 2
+In-Reply-To: <iess0a$q23$1@dough.gmane.org>
+References: <4D10FDA0.7090808@python.org>	<AANLkTin-oLhRK7+mbnk7pdyJh9zsZSAm7-V+JjvyBTAd@mail.gmail.com>
+	<iess0a$q23$1@dough.gmane.org>
+Message-ID: <4D11F89A.3080103@trueblade.com>
+
+On 12/22/2010 8:46 AM, Georg Brandl wrote:
+> Am 22.12.2010 02:15, schrieb Nick Coghlan:
+>> On Wed, Dec 22, 2010 at 6:18 AM, Georg Brandl<georg at python.org>  wrote:
+>>> Since PEP 3003, the Moratorium on Language Changes, is in effect, there
+>>> are no changes in Python's syntax and built-in types in Python 3.2.
+>>
+>> Minor nit - we actually did tweak a few of the builtin types a bit
+>> (mostly the stuff to improve Sequence ABC conformance and to make
+>> range objects more list-like)
+>
+> Indeed, I'll fix this wording for the next announcement.  (And I will
+> mention SSL, sorry Antoine).
+
+If you're only going to mention some vague "some builtins had minor 
+changes", then I'm fine with that. If you're going to enumerate all such 
+changes, that will be a bigger job. There were 2 such changes I'm aware 
+of: str.format_map (#6081) and the addition of alternate ("#") 
+formatting to float, complex and decimal (#7094) __format__ methods.
+
+For this announcement I don't think it's necessary to list them all.
+
+

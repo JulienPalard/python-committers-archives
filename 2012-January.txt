@@ -1,0 +1,914 @@
+From senthil at uthcode.com  Wed Jan  4 07:10:12 2012
+From: senthil at uthcode.com (Senthil Kumaran)
+Date: Wed, 4 Jan 2012 14:10:12 +0800
+Subject: [python-committers] 3.2 branch in mercurial
+Message-ID: <CAPOVWOStVBze6B-bqCpQw0KJy0C3kbrXyKhybaUvkC31jT2T-g@mail.gmail.com>
+
+I think, there is something wrong with state of hg.python.org at the moment.
+
+On a fresh clone from hg.python.org
+
+$hg clone ssh://hg at hg.python.org/cpython cpython
+
+If I do, hg branches, the 3.2 is shown as inactive. Did something
+change recently?
+
+(env27)bash-3.2$ hg branches
+default                    74263:8f7c4b16c8d7
+2.7                        74256:789d59773801
+3.2                        74262:b8f978aa2614 (inactive)
+3.1                        74253:fb5707168351 (inactive)
+2.6                        73245:62fa61f2ee7d (inactive)
+2.5                        73244:b48e1b48e670 (closed)
+3.0                        68249:4cd9f5e89061 (closed)
+legacy-trunk               68241:b77918288f7d (closed)
+2.4                        68239:ceec209b26d4 (closed)
+2.3                        68237:364638d6434d (closed)
+2.2                        68235:61b0263d6881 (closed)
+2.1                        68233:e849d484029f (closed)
+2.0                        68231:5fd74354d73b (closed)
+
+
+The problem is when I clone cpython to 3.2, update 3.2, make changes,
+commit , it creates  a new head when I try to commit, it asks me to
+merge
+
+Workflow (which is supposed to work seamlessly and had been working
+till my last commit a week ago).
+
+$hg clone cpython 3.2
+$cd 3.2
+$hg update 3.2
+$hg branch
+3.2
+$#make changes
+$hg commit
+# gives a msg saying one head created. Which is wrong.
+$hg push
+...
+searching for changes
+abort: push creates new remote heads!
+(did you forget to merge? use push -f to force)
+
+Was there any wrong merge? Or am I doing something wrong?
+
+-- 
+Senthil
+
+From benjamin at python.org  Wed Jan  4 07:39:33 2012
+From: benjamin at python.org (Benjamin Peterson)
+Date: Wed, 4 Jan 2012 00:39:33 -0600
+Subject: [python-committers] 3.2 branch in mercurial
+In-Reply-To: <CAPOVWOStVBze6B-bqCpQw0KJy0C3kbrXyKhybaUvkC31jT2T-g@mail.gmail.com>
+References: <CAPOVWOStVBze6B-bqCpQw0KJy0C3kbrXyKhybaUvkC31jT2T-g@mail.gmail.com>
+Message-ID: <CAPZV6o-WpYs2vc38xFCyKitV5UYehX5QW2mytbAyJWU5Ty6M0A@mail.gmail.com>
+
+2012/1/4 Senthil Kumaran <senthil at uthcode.com>:
+> I think, there is something wrong with state of hg.python.org at the moment.
+>
+> On a fresh clone from hg.python.org
+>
+> $hg clone ssh://hg at hg.python.org/cpython cpython
+>
+> If I do, hg branches, the 3.2 is shown as inactive. Did something
+> change recently?
+
+It just means you need to merge changes from upstream in the same
+branch with your changes.
+
+-- 
+Regards,
+Benjamin
+
+From petri at digip.org  Wed Jan  4 07:39:48 2012
+From: petri at digip.org (Petri Lehtinen)
+Date: Wed, 4 Jan 2012 08:39:48 +0200
+Subject: [python-committers] 3.2 branch in mercurial
+In-Reply-To: <CAPOVWOStVBze6B-bqCpQw0KJy0C3kbrXyKhybaUvkC31jT2T-g@mail.gmail.com>
+References: <CAPOVWOStVBze6B-bqCpQw0KJy0C3kbrXyKhybaUvkC31jT2T-g@mail.gmail.com>
+Message-ID: <20120104063948.GA17512@p16>
+
+Senthil Kumaran wrote:
+> I think, there is something wrong with state of hg.python.org at the moment.
+> 
+> On a fresh clone from hg.python.org
+> 
+> $hg clone ssh://hg at hg.python.org/cpython cpython
+> 
+> If I do, hg branches, the 3.2 is shown as inactive. Did something
+> change recently?
+
+>From hg help glossary:
+
+    If a named branch has no topological heads, it is considered to be
+    inactive.
+
+So AFAICS, this just means that 3.2 has been merged to default (which
+always should be the case).
+
+(snip)
+> searching for changes
+> abort: push creates new remote heads!
+> (did you forget to merge? use push -f to force)
+> 
+> Was there any wrong merge? Or am I doing something wrong?
+
+I think you should merge to default before pushing. That's at least
+what I always do. If the change shouldn't be made to 3.3 for some
+reason, you should do a "null merge".
+
+Please note that I'm not a hg expert, rather a hg disliker :)
+
+Petri
+
+From ncoghlan at gmail.com  Wed Jan  4 08:17:25 2012
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Wed, 4 Jan 2012 17:17:25 +1000
+Subject: [python-committers] 3.2 branch in mercurial
+In-Reply-To: <20120104063948.GA17512@p16>
+References: <CAPOVWOStVBze6B-bqCpQw0KJy0C3kbrXyKhybaUvkC31jT2T-g@mail.gmail.com>
+	<20120104063948.GA17512@p16>
+Message-ID: <CADiSq7ff60T+OZgc4PFci6ZhEqn_vMGkaAfF38Jif=FcBT73ag@mail.gmail.com>
+
+On Wed, Jan 4, 2012 at 4:39 PM, Petri Lehtinen <petri at digip.org> wrote:
+> Senthil Kumaran wrote:
+>> I think, there is something wrong with state of hg.python.org at the moment.
+>>
+>> On a fresh clone from hg.python.org
+>>
+>> $hg clone ssh://hg at hg.python.org/cpython cpython
+>>
+>> If I do, hg branches, the 3.2 is shown as inactive. Did something
+>> change recently?
+>
+> >From hg help glossary:
+>
+> ? ?If a named branch has no topological heads, it is considered to be
+> ? ?inactive.
+>
+> So AFAICS, this just means that 3.2 has been merged to default (which
+> always should be the case).
+>
+> (snip)
+>> searching for changes
+>> abort: push creates new remote heads!
+>> (did you forget to merge? use push -f to force)
+>>
+>> Was there any wrong merge? Or am I doing something wrong?
+>
+> I think you should merge to default before pushing. That's at least
+> what I always do. If the change shouldn't be made to 3.3 for some
+> reason, you should do a "null merge".
+
+Petri has it right here. The default state for hg.python.org/cpython
+is to have only two active heads: default and 2.7.
+
+3.2 should be inactive, because all 3.2 changes should either be
+merged into default, or else explicitly flagged as inapplicable to
+default (by merging, reverting and then committing).
+
+I'm not sure why you're regularly making fresh clones rather than
+using "hg pull -u" to update an existing clone (which is a *lot*
+faster).
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan?? |?? ncoghlan at gmail.com?? |?? Brisbane, Australia
+
+From senthil at uthcode.com  Wed Jan  4 08:19:07 2012
+From: senthil at uthcode.com (Senthil Kumaran)
+Date: Wed, 4 Jan 2012 15:19:07 +0800
+Subject: [python-committers] 3.2 branch in mercurial
+In-Reply-To: <20120104063948.GA17512@p16>
+References: <CAPOVWOStVBze6B-bqCpQw0KJy0C3kbrXyKhybaUvkC31jT2T-g@mail.gmail.com>
+	<20120104063948.GA17512@p16>
+Message-ID: <CAPOVWOTtV6rhkt6vhm8pm-YztL2qG2HPeYatx6ZW=DncN_g9Dg@mail.gmail.com>
+
+On Wed, Jan 4, 2012 at 2:39 PM, Petri Lehtinen <petri at digip.org> wrote:
+>
+> From hg help glossary:
+>
+> ? ?If a named branch has no topological heads, it is considered to be
+> ? ?inactive.
+>
+> So AFAICS, this just means that 3.2 has been merged to default (which
+> always should be the case).
+
+Got it. I got confused when I saw 2.7 as an active one. (And yeah,
+since 2.7 is not merged to default, it is an active one.)
+
+> (snip)
+>> searching for changes
+>> abort: push creates new remote heads!
+>> (did you forget to merge? use push -f to force)
+>>
+>> Was there any wrong merge? Or am I doing something wrong?
+>
+> I think you should merge to default before pushing. That's at least
+> what I always do.
+
+Yeah, the trouble was, when pushing from local 3.2 to local default,
+it  was aborting asking me to merge. Which was odd, because I had just
+done the cloning of (local) default to (local)3.2 and I was in the
+correct branch as well.
+
+Ned Deily on IRC suggested that I do the reverse, that is, pull the
+changes to default (from local 3.2)  and then do the merge, commit,
+push. It seem to have worked. But I could not figure out, why the
+first push did not work. I shall try again and see why it occurred.
+
+Thanks,
+Senthil
+
+From patcam at python.org  Sun Jan  8 19:15:25 2012
+From: patcam at python.org (Pat Campbell)
+Date: Sun, 8 Jan 2012 13:15:25 -0500
+Subject: [python-committers] Contributor agreement
+In-Reply-To: <CALc-kK68ek=Ru1+daB9ozaAFBadD0FvPfsTD0XTaHo+OAhEkCg@mail.gmail.com>
+References: <CALc-kK68ek=Ru1+daB9ozaAFBadD0FvPfsTD0XTaHo+OAhEkCg@mail.gmail.com>
+Message-ID: <CAFy_4d++Vd=usWmp72p=hM1N0+S6KU91ihD1YDUOOBmyzOEpLg@mail.gmail.com>
+
+Hi Jyotirmoy:
+
+Thank-you for submitting your contributor agreement.
+
+ Your contributor agreement form has been added to the online
+
+PSF bug tracker.
+
+
+
+Pat
+
+
+On Sun, Jan 8, 2012 at 12:22 AM, Jyotirmoy Bhattacharya <
+jyotirmoy at jyotirmoy.net> wrote:
+
+> Please find attached a scan of my signed contributor agreement.
+>
+> Regards,
+> Jyotirmoy Bhattacharya
+>
+
+
+
+-- 
+Pat Campbell
+PSF Administrator/Secretary
+patcam at python.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20120108/6c41bde2/attachment.html>
+
+From michael at voidspace.org.uk  Tue Jan 10 14:04:59 2012
+From: michael at voidspace.org.uk (Michael Foord)
+Date: Tue, 10 Jan 2012 13:04:59 +0000
+Subject: [python-committers] Python Language Summit at PyCon US
+Message-ID: <D4FE2A1F-6F93-471D-8489-F6DD3D06D72A@voidspace.org.uk>
+
+Hello Python Committers,
+
+As usual we will hold a Python Language Summit before the PyCon US conference.
+
+The language summit will be in the conference hotel, to discuss the ongoing development of the Python language. It will be held on the  *Wednesday* before the conference (Wednesday 7th March), a change from previous years.
+
+The language summit is an invite only event. All Python core developers, plus selected others, are invited. If you would like to attend, for all or part of the day, please respond off list to me so I can keep a track of numbers.
+
+If you have topics you would like to see on the agenda please also let me know.
+
+I'll send more details on the event, times and the location within the venue, nearer the date.
+
+All the best,
+
+Michael Foord
+
+--
+http://www.voidspace.org.uk/
+
+
+May you do good and not evil
+May you find forgiveness for yourself and forgive others
+May you share freely, never taking more than you give.
+-- the sqlite blessing 
+http://www.sqlite.org/different.html
+
+
+
+
+
+
+From alex.gaynor at gmail.com  Tue Jan 10 17:10:40 2012
+From: alex.gaynor at gmail.com (Alex Gaynor)
+Date: Tue, 10 Jan 2012 10:10:40 -0600
+Subject: [python-committers] Python Language Summit at PyCon US
+In-Reply-To: <D4FE2A1F-6F93-471D-8489-F6DD3D06D72A@voidspace.org.uk>
+References: <D4FE2A1F-6F93-471D-8489-F6DD3D06D72A@voidspace.org.uk>
+Message-ID: <CAFRnB2UPL5Fy=Sc50i=hDL3+fU+zsDo8Aj0gCARQ2jiy16f0vA@mail.gmail.com>
+
+On Tue, Jan 10, 2012 at 7:04 AM, Michael Foord <michael at voidspace.org.uk>wrote:
+
+> Hello Python Committers,
+>
+> As usual we will hold a Python Language Summit before the PyCon US
+> conference.
+>
+> The language summit will be in the conference hotel, to discuss the
+> ongoing development of the Python language. It will be held on the
+>  *Wednesday* before the conference (Wednesday 7th March), a change from
+> previous years.
+>
+> The language summit is an invite only event. All Python core developers,
+> plus selected others, are invited. If you would like to attend, for all or
+> part of the day, please respond off list to me so I can keep a track of
+> numbers.
+>
+> If you have topics you would like to see on the agenda please also let me
+> know.
+>
+> I'll send more details on the event, times and the location within the
+> venue, nearer the date.
+>
+> All the best,
+>
+> Michael Foord
+>
+> --
+> http://www.voidspace.org.uk/
+>
+>
+> May you do good and not evil
+> May you find forgiveness for yourself and forgive others
+> May you share freely, never taking more than you give.
+> -- the sqlite blessing
+> http://www.sqlite.org/different.html
+>
+>
+>
+>
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+>
+
+Hey Michael,
+
+I'd love to attend.
+
+Alex
+
+-- 
+"I disapprove of what you say, but I will defend to the death your right to
+say it." -- Evelyn Beatrice Hall (summarizing Voltaire)
+"The people's good is the highest law." -- Cicero
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20120110/972a121d/attachment.html>
+
+From patcam at python.org  Fri Jan 13 00:39:58 2012
+From: patcam at python.org (Pat Campbell)
+Date: Thu, 12 Jan 2012 18:39:58 -0500
+Subject: [python-committers] Contributor Agreement
+In-Reply-To: <CAHgrdmhK26vBu+g13pyPyoL7y9U1wB0nTK-AJ3gpsHT64-dp7w@mail.gmail.com>
+References: <CAHgrdmhK26vBu+g13pyPyoL7y9U1wB0nTK-AJ3gpsHT64-dp7w@mail.gmail.com>
+Message-ID: <CAFy_4dLbXqr5D+wgJg_kitPP9aY+F0KfJjwfPWwDgv1NBg+Nyw@mail.gmail.com>
+
+Hi Michael:
+
+Thank-you for submitting your contributor agreement.
+
+It has been added to the online PSF bug tracker.
+
+
+
+Pat Campbell
+
+PSF Secretary
+
+
+On Thu, Jan 12, 2012 at 1:26 PM, Michael Goderbauer <contact at m-goderbauer.de
+> wrote:
+
+> Hello,
+>
+> attached you will find my signed contributor agreement.
+>
+> Regards,
+> Michael Goderbauer
+>
+
+
+
+-- 
+Pat Campbell
+PSF Administrator/Secretary
+patcam at python.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20120112/deec73b9/attachment.html>
+
+From michael at voidspace.org.uk  Mon Jan 30 17:32:10 2012
+From: michael at voidspace.org.uk (Michael Foord)
+Date: Mon, 30 Jan 2012 16:32:10 +0000
+Subject: [python-committers] Python Language Summit at PyCon
+Message-ID: <0F616CEF-AB1F-4DA9-BCF6-943DB3DF1D96@voidspace.org.uk>
+
+Hello all,
+
+The Python language summit at PyCon 2012 will soon be upon us.
+
+I have one volunteer to act as a scribe for the event and write up notes afterwards. It would be best to have at least one more person taking notes and able to write them up, as one person won't get all of the discussion of interest.
+
+Do we have anyone willing to setup "video streaming", similar to what will be done for the PSF meeting? If anyone is willing to take this on, Marc-Andre should be able to help with the technical details.
+
+We're not usually short of topics to discuss, but the only specific idea for the summit agenda I have so far is "namespace packages". We have two competing PEPs for Python 3.3, so it makes a good topic for discussion.
+
+Experimental packages are another potential topic. We have some candidates for packages that some would like to see in the standard library, but marked in the documentation as experimental and with reduced guarantees on API stability.
+
+Another topic worthy of discussion is the proposed changes to the release cycle, if no decision has been made by the summit.
+
+If you have any other topics you think would be good to discuss please let me know.
+
+All the best,
+
+Michael Foord 
+
+--
+http://www.voidspace.org.uk/
+
+
+May you do good and not evil
+May you find forgiveness for yourself and forgive others
+May you share freely, never taking more than you give.
+-- the sqlite blessing 
+http://www.sqlite.org/different.html
+
+
+
+
+
+
+From barry at python.org  Mon Jan 30 17:37:03 2012
+From: barry at python.org (Barry Warsaw)
+Date: Mon, 30 Jan 2012 11:37:03 -0500
+Subject: [python-committers] Python Language Summit at PyCon
+In-Reply-To: <0F616CEF-AB1F-4DA9-BCF6-943DB3DF1D96@voidspace.org.uk>
+References: <0F616CEF-AB1F-4DA9-BCF6-943DB3DF1D96@voidspace.org.uk>
+Message-ID: <20120130113703.5bc4dabf@resist.wooz.org>
+
+On Jan 30, 2012, at 04:32 PM, Michael Foord wrote:
+
+>If you have any other topics you think would be good to discuss please let me
+>know.
+
+I'm really looking forward to the summit this year, thanks for all the great
+work in putting it together.
+
+Another topic (possibly) is the splitting of the stdlib from the core
+interpreter repo.  We have more experience now with Mercurial to know whether
+this is feasible, and hopefully we'll have enough representation from the
+other implementations to know whether it would still be useful.
+
+Cheers,
+-Barry
+
+From brett at python.org  Mon Jan 30 17:59:22 2012
+From: brett at python.org (Brett Cannon)
+Date: Mon, 30 Jan 2012 11:59:22 -0500
+Subject: [python-committers] Python Language Summit at PyCon
+In-Reply-To: <20120130113703.5bc4dabf@resist.wooz.org>
+References: <0F616CEF-AB1F-4DA9-BCF6-943DB3DF1D96@voidspace.org.uk>
+	<20120130113703.5bc4dabf@resist.wooz.org>
+Message-ID: <CAP1=2W6eds=cErmg7j0_DBTUe6+BBGDmruNcyRWdK4CU2L8hQw@mail.gmail.com>
+
+On Mon, Jan 30, 2012 at 11:37, Barry Warsaw <barry at python.org> wrote:
+
+> On Jan 30, 2012, at 04:32 PM, Michael Foord wrote:
+>
+> >If you have any other topics you think would be good to discuss please
+> let me
+> >know.
+>
+> I'm really looking forward to the summit this year, thanks for all the
+> great
+> work in putting it together.
+>
+> Another topic (possibly) is the splitting of the stdlib from the core
+> interpreter repo.  We have more experience now with Mercurial to know
+> whether
+> this is feasible, and hopefully we'll have enough representation from the
+> other implementations to know whether it would still be useful.
+>
+>
+Since I have not heard anything about a VM summit (although I'm sure it
+would be easy to have a spontaneous one on Thursday), we might want to
+discuss how we want to get the benchmarks inline for Python 3 and then what
+we can do to get speed.python.org going. And all of this plays into what
+the other VMs need from CPython for Python 3 support to be easier.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20120130/9cc509d2/attachment.html>
+
+From mal at egenix.com  Mon Jan 30 18:13:28 2012
+From: mal at egenix.com (M.-A. Lemburg)
+Date: Mon, 30 Jan 2012 18:13:28 +0100
+Subject: [python-committers] Python Language Summit at PyCon
+In-Reply-To: <0F616CEF-AB1F-4DA9-BCF6-943DB3DF1D96@voidspace.org.uk>
+References: <0F616CEF-AB1F-4DA9-BCF6-943DB3DF1D96@voidspace.org.uk>
+Message-ID: <4F26CFB8.6090002@egenix.com>
+
+Hi Michael,
+
+I won't be at PyCon US, so can't attend.
+
+I've added a page on the streaming details to the PSF wiki in case
+someone wants to give that a try. AFAIK, there was no interest from
+other developers in joining in via that channel when we ran
+the streaming of the summit at EuroPython, so it may not be worth the
+trouble.
+
+http://wiki.python.org/psf/Streaming%20PSF%20Members%20meetings
+
+Have fun,
+-- 
+Marc-Andre Lemburg
+eGenix.com
+
+Professional Python Services directly from the Source  (#1, Jan 30 2012)
+>>> Python/Zope Consulting and Support ...        http://www.egenix.com/
+>>> mxODBC.Zope.Database.Adapter ...             http://zope.egenix.com/
+>>> mxODBC, mxDateTime, mxTextTools ...        http://python.egenix.com/
+________________________________________________________________________
+
+::: Try our new mxODBC.Connect Python Database Interface for free ! ::::
+
+
+   eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+    D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+           Registered at Amtsgericht Duesseldorf: HRB 46611
+               http://www.egenix.com/company/contact/
+
+
+Michael Foord wrote:
+> Hello all,
+> 
+> The Python language summit at PyCon 2012 will soon be upon us.
+> 
+> I have one volunteer to act as a scribe for the event and write up notes afterwards. It would be best to have at least one more person taking notes and able to write them up, as one person won't get all of the discussion of interest.
+> 
+> Do we have anyone willing to setup "video streaming", similar to what will be done for the PSF meeting? If anyone is willing to take this on, Marc-Andre should be able to help with the technical details.
+> 
+> We're not usually short of topics to discuss, but the only specific idea for the summit agenda I have so far is "namespace packages". We have two competing PEPs for Python 3.3, so it makes a good topic for discussion.
+> 
+> Experimental packages are another potential topic. We have some candidates for packages that some would like to see in the standard library, but marked in the documentation as experimental and with reduced guarantees on API stability.
+> 
+> Another topic worthy of discussion is the proposed changes to the release cycle, if no decision has been made by the summit.
+> 
+> If you have any other topics you think would be good to discuss please let me know.
+> 
+> All the best,
+> 
+> Michael Foord 
+> 
+> --
+> http://www.voidspace.org.uk/
+> 
+> 
+> May you do good and not evil
+> May you find forgiveness for yourself and forgive others
+> May you share freely, never taking more than you give.
+> -- the sqlite blessing 
+> http://www.sqlite.org/different.html
+> 
+> 
+> 
+> 
+> 
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+
+
+From michael at voidspace.org.uk  Mon Jan 30 20:15:39 2012
+From: michael at voidspace.org.uk (Michael Foord)
+Date: Mon, 30 Jan 2012 19:15:39 +0000
+Subject: [python-committers] Python Language Summit at PyCon
+In-Reply-To: <CAP1=2W6eds=cErmg7j0_DBTUe6+BBGDmruNcyRWdK4CU2L8hQw@mail.gmail.com>
+References: <0F616CEF-AB1F-4DA9-BCF6-943DB3DF1D96@voidspace.org.uk>
+	<20120130113703.5bc4dabf@resist.wooz.org>
+	<CAP1=2W6eds=cErmg7j0_DBTUe6+BBGDmruNcyRWdK4CU2L8hQw@mail.gmail.com>
+Message-ID: <4F26EC5B.9070707@voidspace.org.uk>
+
+On 30/01/2012 16:59, Brett Cannon wrote:
+>
+>
+> On Mon, Jan 30, 2012 at 11:37, Barry Warsaw <barry at python.org 
+> <mailto:barry at python.org>> wrote:
+>
+>     On Jan 30, 2012, at 04:32 PM, Michael Foord wrote:
+>
+>     >If you have any other topics you think would be good to discuss
+>     please let me
+>     >know.
+>
+>     I'm really looking forward to the summit this year, thanks for all
+>     the great
+>     work in putting it together.
+>
+>     Another topic (possibly) is the splitting of the stdlib from the core
+>     interpreter repo.  We have more experience now with Mercurial to
+>     know whether
+>     this is feasible, and hopefully we'll have enough representation
+>     from the
+>     other implementations to know whether it would still be useful.
+>
+>
+> Since I have not heard anything about a VM summit (although I'm sure 
+> it would be easy to have a spontaneous one on Thursday), we might want 
+> to discuss how we want to get the benchmarks inline for Python 3 and 
+> then what we can do to get speed.python.org <http://speed.python.org> 
+> going. And all of this plays into what the other VMs need from CPython 
+> for Python 3 support to be easier.
+Instead of a VM summit this year we are having a web development summit 
+on the Thursday before the conference, organised by Chris McDonough. An 
+informal vm summit would be fine if you can get people together.
+
+I've added your and Barry's suggestions to the agenda for the language 
+summit, plus one from Steve Holden on what (more) the PSF can do for 
+alternative implementations.
+
+All the best,
+
+Michael Foord
+
+-- 
+http://www.voidspace.org.uk/
+
+May you do good and not evil
+May you find forgiveness for yourself and forgive others
+May you share freely, never taking more than you give.
+-- the sqlite blessing http://www.sqlite.org/different.html
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20120130/31542896/attachment-0001.html>
+
+From michael at voidspace.org.uk  Mon Jan 30 20:17:28 2012
+From: michael at voidspace.org.uk (Michael Foord)
+Date: Mon, 30 Jan 2012 19:17:28 +0000
+Subject: [python-committers] Python Language Summit at PyCon
+In-Reply-To: <CAP1=2W6eds=cErmg7j0_DBTUe6+BBGDmruNcyRWdK4CU2L8hQw@mail.gmail.com>
+References: <0F616CEF-AB1F-4DA9-BCF6-943DB3DF1D96@voidspace.org.uk>
+	<20120130113703.5bc4dabf@resist.wooz.org>
+	<CAP1=2W6eds=cErmg7j0_DBTUe6+BBGDmruNcyRWdK4CU2L8hQw@mail.gmail.com>
+Message-ID: <4F26ECC8.7090209@voidspace.org.uk>
+
+On 30/01/2012 16:59, Brett Cannon wrote:
+>
+>
+> On Mon, Jan 30, 2012 at 11:37, Barry Warsaw <barry at python.org 
+> <mailto:barry at python.org>> wrote:
+>
+>     On Jan 30, 2012, at 04:32 PM, Michael Foord wrote:
+>
+>     >If you have any other topics you think would be good to discuss
+>     please let me
+>     >know.
+>
+>     I'm really looking forward to the summit this year, thanks for all
+>     the great
+>     work in putting it together.
+>
+>     Another topic (possibly) is the splitting of the stdlib from the core
+>     interpreter repo.  We have more experience now with Mercurial to
+>     know whether
+>     this is feasible, and hopefully we'll have enough representation
+>     from the
+>     other implementations to know whether it would still be useful.
+>
+>
+> Since I have not heard anything about a VM summit (although I'm sure 
+> it would be easy to have a spontaneous one on Thursday), we might want 
+> to discuss how we want to get the benchmarks inline for Python 3 and 
+> then what we can do to get speed.python.org <http://speed.python.org> 
+> going. And all of this plays into what the other VMs need from CPython 
+> for Python 3 support to be easier.
+I'd also be interested in what concrete things can be done in Python 3 
+to make web development easier. Unfortunately it would better if that 
+discussion happened *after* the web-development summit, but if we have 
+the right people at the language summit it may still be fruitful.
+
+All the best,
+
+Michael
+
+-- 
+http://www.voidspace.org.uk/
+
+May you do good and not evil
+May you find forgiveness for yourself and forgive others
+May you share freely, never taking more than you give.
+-- the sqlite blessing http://www.sqlite.org/different.html
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20120130/c5c4a92a/attachment.html>
+
+From barry at python.org  Mon Jan 30 20:28:43 2012
+From: barry at python.org (Barry Warsaw)
+Date: Mon, 30 Jan 2012 14:28:43 -0500
+Subject: [python-committers] Python Language Summit at PyCon
+In-Reply-To: <4F26ECC8.7090209@voidspace.org.uk>
+References: <0F616CEF-AB1F-4DA9-BCF6-943DB3DF1D96@voidspace.org.uk>
+	<20120130113703.5bc4dabf@resist.wooz.org>
+	<CAP1=2W6eds=cErmg7j0_DBTUe6+BBGDmruNcyRWdK4CU2L8hQw@mail.gmail.com>
+	<4F26ECC8.7090209@voidspace.org.uk>
+Message-ID: <20120130142843.720b44c5@resist.wooz.org>
+
+On Jan 30, 2012, at 07:17 PM, Michael Foord wrote:
+
+>I'd also be interested in what concrete things can be done in Python 3 to
+>make web development easier. Unfortunately it would better if that discussion
+>happened *after* the web-development summit, but if we have the right people
+>at the language summit it may still be fruitful.
+
+Note that there is going to be a Python 3 panel at the web development
+summit.  I'm moderating it, but talk to Chris for details.
+
+I wish we could do more at Pycon to promote Python 3.
+
+-Barry
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 836 bytes
+Desc: not available
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20120130/0d1d8c17/attachment.pgp>
+
+From brian at python.org  Mon Jan 30 20:38:51 2012
+From: brian at python.org (Brian Curtin)
+Date: Mon, 30 Jan 2012 13:38:51 -0600
+Subject: [python-committers] Python Language Summit at PyCon
+In-Reply-To: <20120130142843.720b44c5@resist.wooz.org>
+References: <0F616CEF-AB1F-4DA9-BCF6-943DB3DF1D96@voidspace.org.uk>
+	<20120130113703.5bc4dabf@resist.wooz.org>
+	<CAP1=2W6eds=cErmg7j0_DBTUe6+BBGDmruNcyRWdK4CU2L8hQw@mail.gmail.com>
+	<4F26ECC8.7090209@voidspace.org.uk>
+	<20120130142843.720b44c5@resist.wooz.org>
+Message-ID: <CAD+XWwrOhj2A=kcoMp-JQ6f_pTM1MW6pSFmEW1aungQuQAbFqQ@mail.gmail.com>
+
+On Mon, Jan 30, 2012 at 13:28, Barry Warsaw <barry at python.org> wrote:
+> On Jan 30, 2012, at 07:17 PM, Michael Foord wrote:
+>
+>>I'd also be interested in what concrete things can be done in Python 3 to
+>>make web development easier. Unfortunately it would better if that discussion
+>>happened *after* the web-development summit, but if we have the right people
+>>at the language summit it may still be fruitful.
+>
+> Note that there is going to be a Python 3 panel at the web development
+> summit. ?I'm moderating it, but talk to Chris for details.
+>
+> I wish we could do more at Pycon to promote Python 3.
+
+Unfortunately we didn't get many proposals for 3.x talks this year.
+Myself and Senthil will be talking about it from a standard CPython
+view (mine is on Windows stuff, his is on general stdlib
+improvements), and there's a CherryPy 2/3 talk, but I believe that's
+about it.
+
+~3/95 kind of sucks.
+
+From vinay_sajip at yahoo.co.uk  Mon Jan 30 21:13:18 2012
+From: vinay_sajip at yahoo.co.uk (Vinay Sajip)
+Date: Mon, 30 Jan 2012 20:13:18 +0000 (UTC)
+Subject: [python-committers] Python Language Summit at PyCon
+References: <0F616CEF-AB1F-4DA9-BCF6-943DB3DF1D96@voidspace.org.uk>
+Message-ID: <loom.20120130T210840-370@post.gmane.org>
+
+Michael Foord <michael <at> voidspace.org.uk> writes:
+
+> If you have any other topics you think would be good to discuss please let
+> me know.
+
+I unfortunately won't be attending, but one topic I wish I could be there to
+discuss is the provision of virtualenv-like functionality in Python (pythonv
+branch, which tracks default pretty closely and generally passes all tests when
+I do a periodic merge).
+
+PEP 405 refers, and there are some open issues in there which it would surely be
+good to get some pointers on.
+
+Regards,
+
+Vinay Sajip
+
+
+From mfoord at python.org  Mon Jan 30 21:14:36 2012
+From: mfoord at python.org (Michael Foord)
+Date: Mon, 30 Jan 2012 20:14:36 +0000
+Subject: [python-committers] Python Language Summit at PyCon
+In-Reply-To: <loom.20120130T210840-370@post.gmane.org>
+References: <0F616CEF-AB1F-4DA9-BCF6-943DB3DF1D96@voidspace.org.uk>
+	<loom.20120130T210840-370@post.gmane.org>
+Message-ID: <4F26FA2C.9080200@python.org>
+
+On 30/01/2012 20:13, Vinay Sajip wrote:
+> Michael Foord<michael<at>  voidspace.org.uk>  writes:
+>
+>> If you have any other topics you think would be good to discuss please let
+>> me know.
+> I unfortunately won't be attending, but one topic I wish I could be there to
+> discuss is the provision of virtualenv-like functionality in Python (pythonv
+> branch, which tracks default pretty closely and generally passes all tests when
+> I do a periodic merge).
+>
+> PEP 405 refers, and there are some open issues in there which it would surely be
+> good to get some pointers on.
+
+Added to the agenda. Carl Meyer will be attending, so he can perhaps 
+speak on the topic.
+
+Michael
+>
+> Regards,
+>
+> Vinay Sajip
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+>
+
+
+-- 
+http://www.voidspace.org.uk/
+
+May you do good and not evil
+May you find forgiveness for yourself and forgive others
+May you share freely, never taking more than you give.
+-- the sqlite blessing http://www.sqlite.org/different.html
+
+
+From ncoghlan at gmail.com  Mon Jan 30 23:17:45 2012
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Tue, 31 Jan 2012 08:17:45 +1000
+Subject: [python-committers] Python Language Summit at PyCon
+In-Reply-To: <20120130113703.5bc4dabf@resist.wooz.org>
+References: <0F616CEF-AB1F-4DA9-BCF6-943DB3DF1D96@voidspace.org.uk>
+	<20120130113703.5bc4dabf@resist.wooz.org>
+Message-ID: <CADiSq7emD=DBe=_NaAL-L61Xht=f=JYKqcLb9t0E=1YG_P5oVw@mail.gmail.com>
+
+On Tue, Jan 31, 2012 at 2:37 AM, Barry Warsaw <barry at python.org> wrote:
+> Another topic (possibly) is the splitting of the stdlib from the core
+> interpreter repo. ?We have more experience now with Mercurial to know whether
+> this is feasible, and hopefully we'll have enough representation from the
+> other implementations to know whether it would still be useful.
+
+I won't be there either, but my two cents on this particular topic is
+that I'd be *really* keen to see two active development branches in
+the CPython repo post-3.3 release: "stdlib" and "default"
+
+It would mean that, for the life of 3.3, we'll always have the option
+of cutting a new release that *only* updates the standard library,
+without touching the interpreter core.
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan?? |?? ncoghlan at gmail.com?? |?? Brisbane, Australia
+
+From dalke at dalkescientific.com  Tue Jan 31 04:30:18 2012
+From: dalke at dalkescientific.com (Andrew Dalke)
+Date: Tue, 31 Jan 2012 04:30:18 +0100
+Subject: [python-committers] Python Language Summit at PyCon
+In-Reply-To: <CAD+XWwrOhj2A=kcoMp-JQ6f_pTM1MW6pSFmEW1aungQuQAbFqQ@mail.gmail.com>
+References: <0F616CEF-AB1F-4DA9-BCF6-943DB3DF1D96@voidspace.org.uk>
+	<20120130113703.5bc4dabf@resist.wooz.org>
+	<CAP1=2W6eds=cErmg7j0_DBTUe6+BBGDmruNcyRWdK4CU2L8hQw@mail.gmail.com>
+	<4F26ECC8.7090209@voidspace.org.uk>
+	<20120130142843.720b44c5@resist.wooz.org>
+	<CAD+XWwrOhj2A=kcoMp-JQ6f_pTM1MW6pSFmEW1aungQuQAbFqQ@mail.gmail.com>
+Message-ID: <69C65ED8-23E0-4EEA-87A5-F7F2A349060C@dalkescientific.com>
+
+On Jan 30, 2012, at 8:38 PM, Brian Curtin wrote:
+> Unfortunately we didn't get many proposals for 3.x talks this year.
+
+It may not be as bad as you think.
+
+My talk for EuroPython last year ("Python's Other Collection Types and Algorithms") used Python 3.2 for all of the examples, but nothing in the abstract mentioned that the talk would be 3.x and not 2.x.
+
+Part of my plan was to get people used to seeing Python 3.x as being common-place.
+
+I'm plan to submit talk about concurrent.futures for this year, and I'll again have all of the examples for 3.2, even though a 2.x backport exists.
+
+				Andrew
+				dalke at dalkescientific.com
+
+

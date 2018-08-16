@@ -1,0 +1,1001 @@
+From antoine at python.org  Thu Dec  1 06:48:22 2016
+From: antoine at python.org (Antoine Pitrou)
+Date: Thu, 1 Dec 2016 12:48:22 +0100
+Subject: [python-committers] "Bug in Mailman version 2.1.23 - We're sorry,
+ we hit a bug!"
+Message-ID: <de3157f4-a871-8232-7284-1df39957ced5@python.org>
+
+
+Hi,
+
+I'm not sure who I should send this to, so here it is:
+
+
+$ curl -i https://mail.python.org/mailman/listinfo/python-buildbots
+HTTP/1.1 200 OK
+Date: Thu, 01 Dec 2016 11:47:20 GMT
+Server: Apache/2.4.7 (Ubuntu)
+Strict-Transport-Security: max-age=31556926
+Vary: Accept-Encoding
+Transfer-Encoding: chunked
+Content-Type: text/html
+
+<head><title>Bug in Mailman version 2.1.23</title></head>
+<body bgcolor=#ffffff><h2>Bug in Mailman version 2.1.23</h2>
+<p><h3>We're sorry, we hit a bug!</h3>
+
+<p>Please inform the webmaster for this site of this
+problem.  Printing of traceback and other system information has been
+explicitly inhibited, but the webmaster can find this information in the
+Mailman error logs.
+
+From barry at python.org  Thu Dec  1 10:01:25 2016
+From: barry at python.org (Barry Warsaw)
+Date: Thu, 1 Dec 2016 10:01:25 -0500
+Subject: [python-committers] "Bug in Mailman version 2.1.23 - We're
+ sorry, we hit a bug!"
+In-Reply-To: <de3157f4-a871-8232-7284-1df39957ced5@python.org>
+References: <de3157f4-a871-8232-7284-1df39957ced5@python.org>
+Message-ID: <20161201100125.5973b941@subdivisions.wooz.org>
+
+On Dec 01, 2016, at 12:48 PM, Antoine Pitrou wrote:
+
+>I'm not sure who I should send this to, so here it is:
+
+Forwarded to postmaster@
+
+-B
+
+
+From ncoghlan at gmail.com  Sun Dec  4 03:54:51 2016
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Sun, 4 Dec 2016 18:54:51 +1000
+Subject: [python-committers] 3.6 release blocker review request
+Message-ID: <CADiSq7cWkEaA-=z8LTmad9+uqaP4P3GF8gmuPXTDH+6h7Ywz1A@mail.gmail.com>
+
+Hi folks,
+
+The PEP 487 implementation included some changes to the way the
+implicit __class__ cell is initialised in order to allow zero-argument
+super() to work properly in class methods called from __set_name__ and
+__init_subclass__ implementations.
+
+Unfortunately, the specific implementation chosen turned out to have
+an obscure incompatibility with certain custom metaclasses, notably
+including the metaclass for Model objects in Django. While there's a
+patch pending to fix the incompatibility in Django, this should really
+be a deprecation warning on the CPython side, rather than an abrupt
+compatibility break.
+
+The latest patches attached to issue 23722 partially revert the
+previous changes, and update the data model documentation to cover the
+new constraints on custom metaclass implementations that want to
+support zero-argument super():
+
+* http://bugs.python.org/issue23722#msg282317
+
+Aside from the unintentional backwards compatibility break, the main
+reason this is a release blocker is that in order to detect the
+problematic case, we need to revert some of the changes previously
+made to the bytecode generated for class statements (some opcodes had
+been dropped as no longer needed, but now we need them again for error
+detection purposes).
+
+Regards,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+
+From nad at python.org  Mon Dec  5 18:45:36 2016
+From: nad at python.org (Ned Deily)
+Date: Mon, 5 Dec 2016 18:45:36 -0500
+Subject: [python-committers] LAST CHANCE: 3.6.0 code freeze (3.6.0rc1) in 12
+ hours at 2016-12-07 12:00 UTC
+Message-ID: <87B3103E-2819-41BA-9966-EFA5BD064665@python.org>
+
+The final hours for fixes for 3.6.0 are here.  Although the cutoff for 3.6.0rc1 is scheduled for today, we are still reviewing a few last release-critical fixes, primarily my fault for not pinging these earlier.  So I'm going to hold off tagging rc1 for another 12 hours or so.  This is your last chance to get release-critical fixes in for 3.6.0.  After rc1 is tagged and released, the 3.6 branch will be open again for normal maintenance-release changes which will first be released in 3.6.1 in the first quarter of 2017.
+
+Should any emergency showstopper problems be discovered affecting 3.6.0rc1, please open an issue, mark it as "release blocker", if possible push a fix to the 3.6 branch, and we will discuss what action to take for 3.6.0.  As I've mentioned many times now, my goal is to have *no* code changes for 3.6.0 after rc1 so you will have to make a *really* strong case to add any code changes after rc1 and prior to the final release scheduled for 12-16.  Should the need arise for such a change, it would be cherrypicked from the 3.6 branch.  I am more willing to consider cherry-picking pure doc changes after rc1 but these will also need to be pushed to 3.6 and marked as "release blocker".
+
+Thank you all once again for all of your hard work in getting 3.6 to this point!  It's going to be a really good release!
+
+--
+  Ned Deily
+  nad at python.org -- []
+
+
+From victor.stinner at gmail.com  Mon Dec  5 19:26:43 2016
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Tue, 6 Dec 2016 01:26:43 +0100
+Subject: [python-committers] [Python-Dev] LAST CHANCE: 3.6.0 code freeze
+ (3.6.0rc1) in 12 hours at 2016-12-07 12:00 UTC
+In-Reply-To: <87B3103E-2819-41BA-9966-EFA5BD064665@python.org>
+References: <87B3103E-2819-41BA-9966-EFA5BD064665@python.org>
+Message-ID: <CAMpsgwaiutiMVDMtjHA3SGsG+jZsDz+rZTgdySZgFdHHMO852Q@mail.gmail.com>
+
+Hi,
+
+Can someone please review my patch for the following issue?
+"Change in behavior when overriding warnings.showwarning and with
+catch_warnings(record=True)"
+http://bugs.python.org/issue28835
+
+It would be nice to fix a known regression which has a patch :-)
+
+I added warnings._showwarnmsg() to Python 3.6 to be able to extend the
+warnings API, see:
+https://bugs.python.org/issue26568
+
+Victor
+
+2016-12-06 0:45 GMT+01:00 Ned Deily <nad at python.org>:
+> The final hours for fixes for 3.6.0 are here.  Although the cutoff for 3.6.0rc1 is scheduled for today, we are still reviewing a few last release-critical fixes, primarily my fault for not pinging these earlier.  So I'm going to hold off tagging rc1 for another 12 hours or so.  This is your last chance to get release-critical fixes in for 3.6.0.  After rc1 is tagged and released, the 3.6 branch will be open again for normal maintenance-release changes which will first be released in 3.6.1 in the first quarter of 2017.
+>
+> Should any emergency showstopper problems be discovered affecting 3.6.0rc1, please open an issue, mark it as "release blocker", if possible push a fix to the 3.6 branch, and we will discuss what action to take for 3.6.0.  As I've mentioned many times now, my goal is to have *no* code changes for 3.6.0 after rc1 so you will have to make a *really* strong case to add any code changes after rc1 and prior to the final release scheduled for 12-16.  Should the need arise for such a change, it would be cherrypicked from the 3.6 branch.  I am more willing to consider cherry-picking pure doc changes after rc1 but these will also need to be pushed to 3.6 and marked as "release blocker".
+>
+> Thank you all once again for all of your hard work in getting 3.6 to this point!  It's going to be a really good release!
+>
+> --
+>   Ned Deily
+>   nad at python.org -- []
+>
+> _______________________________________________
+> Python-Dev mailing list
+> Python-Dev at python.org
+> https://mail.python.org/mailman/listinfo/python-dev
+> Unsubscribe: https://mail.python.org/mailman/options/python-dev/victor.stinner%40gmail.com
+
+From vinay_sajip at yahoo.co.uk  Tue Dec  6 10:15:21 2016
+From: vinay_sajip at yahoo.co.uk (Vinay Sajip)
+Date: Tue, 6 Dec 2016 15:15:21 +0000 (UTC)
+Subject: [python-committers] Licences for PyCharm and other JetBrains
+ products
+References: <350647246.854001.1481037321467.ref@mail.yahoo.com>
+Message-ID: <350647246.854001.1481037321467@mail.yahoo.com>
+
+Today I received 20 one-year licenses from JetBrains for the PyCharm IDE (Professional) and other JetBrains products (the licenses cover their "All Products Pack") for use in Python development. There are 17 licenses available - of the licenses I asked for last year, three people took them up, so those are in use and come out of the allocation of 20. In the unlikely event that there is much greater take up this year and we use up all 20, we can ask for more.
+
+If any of you are interested in using these licenses, let me know off-list and I will forward the license access details to you. To access the licenses, you will need to have (or create) a JetBrains account.
+
+Regards,
+
+Vinay Sajip
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20161206/b69fc195/attachment.html>
+
+From nad at python.org  Wed Dec  7 02:26:10 2016
+From: nad at python.org (Ned Deily)
+Date: Wed, 7 Dec 2016 02:26:10 -0500
+Subject: [python-committers] [RELEASE] Python 3.6.0rc1 is now available
+Message-ID: <56B63E55-9CD5-4823-8282-449F6E598702@python.org>
+
+On behalf of the Python development community and the Python 3.6 release
+team, I'm excited to announce the availability of Python 3.6.0rc1. 3.6.0rc1
+is the release candiate for Python 3.6, the next major release of
+Python.
+
+Code for 3.6.0 is now frozen.  Assuming no release critical problems are
+found prior to the 3.6.0 final release date, currently 2016-12-16, the
+3.6.0 final release will be the same code base as this 3.6.0rc1.
+Maintenance releases for the 3.6 series will follow at regular
+intervals starting in the first quarter of 2017.
+
+Among the new major new features in Python 3.6 are:
+
+* PEP 468 - Preserving the order of **kwargs in a function
+* PEP 487 - Simpler customization of class creation
+* PEP 495 - Local Time Disambiguation
+* PEP 498 - Literal String Formatting
+* PEP 506 - Adding A Secrets Module To The Standard Library
+* PEP 509 - Add a private version to dict
+* PEP 515 - Underscores in Numeric Literals
+* PEP 519 - Adding a file system path protocol
+* PEP 520 - Preserving Class Attribute Definition Order
+* PEP 523 - Adding a frame evaluation API to CPython
+* PEP 524 - Make os.urandom() blocking on Linux (during system startup)
+* PEP 525 - Asynchronous Generators (provisional)
+* PEP 526 - Syntax for Variable Annotations (provisional)
+* PEP 528 - Change Windows console encoding to UTF-8
+* PEP 529 - Change Windows filesystem encoding to UTF-8
+* PEP 530 - Asynchronous Comprehensions
+
+Please see "What?s New In Python 3.6" for more information:
+
+https://docs.python.org/3.6/whatsnew/3.6.html
+
+You can find Python 3.6.0rc1 here:
+
+https://www.python.org/downloads/release/python-360rc1/
+
+Note that 3.6.0rc1 is still a preview release and thus its use is not
+recommended for production environments.
+
+More information about the release schedule can be found here:
+
+https://www.python.org/dev/peps/pep-0494/
+
+--
+  Ned Deily
+  nad at python.org -- []
+
+
+From storchaka at gmail.com  Wed Dec  7 03:09:36 2016
+From: storchaka at gmail.com (Serhiy Storchaka)
+Date: Wed, 7 Dec 2016 10:09:36 +0200
+Subject: [python-committers] [RELEASE] Python 3.6.0rc1 is now available
+In-Reply-To: <56B63E55-9CD5-4823-8282-449F6E598702@python.org>
+References: <56B63E55-9CD5-4823-8282-449F6E598702@python.org>
+Message-ID: <o28g3s$8fl$1@blaine.gmane.org>
+
+On 07.12.16 09:26, Ned Deily wrote:
+> Code for 3.6.0 is now frozen.  Assuming no release critical problems are
+> found prior to the 3.6.0 final release date, currently 2016-12-16, the
+> 3.6.0 final release will be the same code base as this 3.6.0rc1.
+> Maintenance releases for the 3.6 series will follow at regular
+> intervals starting in the first quarter of 2017.
+
+Is the 3.6 branch now open for non-critical bug fixes?
+
+
+
+From nad at python.org  Wed Dec  7 03:11:40 2016
+From: nad at python.org (Ned Deily)
+Date: Wed, 7 Dec 2016 03:11:40 -0500
+Subject: [python-committers] 3.6 branch is now open for 3.6.1
+Message-ID: <1E6DE848-D50D-4C8C-AF09-43AB6AFFF42B@python.org>
+
+OK, rc1 is now out the door.  Thanks to everyone who helped resolve the remaining release blocker issues.
+
+As of now, the code base for 3.6.0 final is frozen.  The 3.6 branch is now open for code that will be released in 3.6.1, the first 3.6 maintenance release.  As usual, that means bug fixes, security fixes, and documentation updates. Refer to the Developer's Guide for more information on the development cycle.  If you have any questions about whether a change is appropriate for a 3.6.x maintenance release, please ask.
+
+http://cpython-devguide.readthedocs.io/en/latest/devcycle.html#maintenance-branches
+
+During the period between rc1 and the final release (scheduled for 2016-12-16), please continue to test 3.6.0rc1 and encourage others to do so.  Repeating what I wrote earlier:
+
+Should any emergency showstopper problems be discovered affecting 3.6.0rc1, please open an issue, mark it as "release blocker", if possible push a fix to the 3.6 branch for 3.6.1, and we will discuss what action to take for 3.6.0.  As I've mentioned many times now, my goal is to have *no* code changes for 3.6.0 after rc1 so you will have to make a *really* strong case to add any code changes after rc1 and prior to the final release scheduled for 12-16.  Should the need arise for such a change, it would be cherrypicked from the 3.6 branch.  I am more willing to consider cherry-picking pure doc changes after rc1 but these will also need to be pushed to 3.6 and marked as "release blocker".
+
+Counting down the days to the final release!
+
+--
+  Ned Deily
+  nad at python.org -- []
+
+
+From nad at python.org  Wed Dec  7 21:07:42 2016
+From: nad at python.org (Ned Deily)
+Date: Wed, 7 Dec 2016 21:07:42 -0500
+Subject: [python-committers] 3.6 What's New document changes for 3.6.0 final
+Message-ID: <E63E9A9F-322C-4ED0-AC97-81AAB507D42B@python.org>
+
+Since the question has already come up and there will likely be further changes, let's keep it simple: feel free to make changes in the 3.6 branch to Doc/whatsnew/3.6.rst for 3.6.0 and I will cherrypick those changes just prior to producing the 3.6.0 final.  Likewise with Misc/NEWS.  As stated before, any other potential changes require a 3.6 checkin and a "release blocker" issue in the tracker.
+
+Thanks!
+--Ned
+
+--
+  Ned Deily
+  nad at python.org -- []
+
+
+From larry at hastings.org  Thu Dec  8 17:12:54 2016
+From: larry at hastings.org (Larry Hastings)
+Date: Thu, 8 Dec 2016 14:12:54 -0800
+Subject: [python-committers] Release schedule for 3.5.3 and 3.4.6
+Message-ID: <d7ceb6ed-3b9b-b985-5b63-8d7c0d73a33f@hastings.org>
+
+
+
+Here's the release schedule for Python versions 3.5.3 and 3.4.6.
+
+    Sun Jan  1st, 2017 - tag 3.5.3rc1and 3.4.6rc1
+    Mon Jan  2nd, 2017 - release 3.5.3rc1and 3.4.6rc1
+    Sun Jan 15th, 2017 - tag 3.5.3 finaland 3.4.6final
+    Mon Jan 16th, 2017 - release 3.5.3 finaland 3.4.6final
+
+
+The 3.5 branch is still in maintenance mode.  I don't plan to transition 
+it to security-fixes-only mode until 3.6 has been out for a while (e.g. 
+once 3.6.1 comes out).  So 3.5.3 will be released both with source code 
+and binary installers for Windows and OS X.
+
+The 3.4 branch is already in security-fixes-only mode, and 3.4.6 will be 
+a source-code-only release.
+
+
+Looking forward to {next_python_version} in {days_until_release},
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20161208/950cbc2e/attachment.html>
+
+From nad at python.org  Fri Dec 16 02:48:00 2016
+From: nad at python.org (Ned Deily)
+Date: Fri, 16 Dec 2016 02:48:00 -0500
+Subject: [python-committers] Python 3.6.0rc2 coming soon,
+ 3.6.0 final now 2016-12-23
+Message-ID: <40659694-6ADF-472D-8792-C61CB0B58FED@python.org>
+
+Hi all!
+
+Today (2016-12-16) has long been our planned release date for 3.6.0 final.  So far most of the feedback from users testing the preview versions of 3.6.0 has been very positive.  We made it to the next-to-final milestone, the 3.6.0rc1 release candidate, 10 days ago with hopes of going directly to the final release.  Alas, in the last few days at least one outstanding issue that we had hoped would not be a real-world problem has proven to be a showstopper during third-party package testing and I have been persuaded that we do need to fix it before 3.6.0 final.  I take responsibility and apologize for not ensuring it was resolved earlier in the release cycle; I'll try to do better next time.  Therefore, we are going to produce a second release candidate.  Besides the showstopper fix (#28147), I've cherrypicked a few requested build fixes and, as promised, some last-minute documentation updates and additions.  I'm also expecting to cherrypick at least one more asynchio fix before tagging and manufacturing 3.6.0rc2 sometime later today (i.e. within the next 24 hours).  Assuming that is accomplished, we will be looking for quick feedback to ensure that we have addressed the problems and have not introduced any new ones.  Then, assuming all goes well and no new showstoppers are found, we plan to release 3.6.0 final on Friday 2016-12-23, a week from now.
+
+Also note that there is no change in the status of the cpython repo branches.  Continue to push appropriate changes to the 3.6 branch for the 3.6.1 maintenance release and to the default branch for the next feature release, 3.7.0.  Should you run into a potential showstopper problem for 3.6.0, please make sure there is an open issue for it on the bug tracker marked as "release blocker", work to getting a fix pushed to the 3.6 branch for 3.6.1, and contact me ASAP to discuss potential cherrypicking.  Please do the same for any necessary important documentation fixes for 3.6.0 final.  As before, my goal will be to have no new changes after the release candidate.
+
+Thank you all again for your great efforts and co-operation throughout the 3.6 development cycle!  We are oh-so-close to getting your work officially out there.
+
+--Ned
+
+P.S. Happy Beethoven's Birthday
+  
+
+FYI: Here is a list of the post 3.6.0rc1 changesets that have been cherrypicked so far for 3.6.0rc2.  There will likely be at least one more.  (Note, the description and files list below for some changesets may be truncated.)
+
+user:        Yury Selivanov <yury at magic.io>
+date:        Wed Dec 07 16:19:56 2016 -0800
+files:       Doc/whatsnew/3.6.rst
+description:
+Issue #28635: Drop the note that whatsnew is incomplete
+
+user:        Ned Deily <nad at python.org>
+date:        Wed Dec 07 23:37:12 2016 -0500
+files:       Doc/tools/templates/indexsidebar.html
+description:
+Issue #28900: Update documentation sidebar for 3.6.0rc.
+
+user:        Benjamin Peterson <benjamin at python.org>
+date:        Wed Dec 07 23:54:28 2016 -0800
+files:       Include/pyport.h
+description:
+guard HAVE_LONG_LONG definition to prevent redefinition (#28898)
+[prevent gdb build errors with 3.6.0]
+
+user:        Steve Dower <steve.dower at microsoft.com>
+date:        Wed Dec 07 13:02:27 2016 -0800
+files:       Doc/library/importlib.rst Doc/using/windows.rst Doc/whatsnew/3.6.rst Misc/NEW
+description:
+Issue #28896: Deprecate WindowsRegistryFinder
+
+user:        Steve Dower <steve.dower at microsoft.com>
+date:        Sun Dec 11 14:48:32 2016 -0800
+files:       Tools/msi/distutils.command.__init__.py Tools/msi/distutils.command.bdist_win
+description:
+Issue #28783: Replaces bdist_wininst in nuget packages with stub
+
+user:        Yury Selivanov <yury at magic.io>
+date:        Mon Dec 12 16:44:58 2016 -0500
+files:       Doc/library/asyncio-protocol.rst Doc/whatsnew/3.6.rst
+description:
+Issue #28089: Document TCP_NODELAY in asyncio
+
+user:        Victor Stinner <victor.stinner at gmail.com>
+date:        Thu Dec 15 16:20:53 2016 +0100
+files:       Doc/whatsnew/3.6.rst
+description:
+Issue #28979: Fix What's New in Python 3.6, dict
+
+user:        Victor Stinner <victor.stinner at gmail.com>
+date:        Thu Dec 15 17:21:23 2016 +0100
+files:       Lib/test/test_dict.py Misc/NEWS Modules/_testcapimodule.c Objects/dictobject.
+description:
+Issue #28147: Fix a memory leak in split-table dictionaries: setattr() must not
+convert combined table into split table.  Patch written by INADA Naoki.
+
+user:        Yury Selivanov <yury at magic.io>
+date:        Thu Dec 15 17:36:05 2016 -0500
+files:       Doc/glossary.rst Doc/library/asyncio-eventloop.rst Doc/library/inspect.rst [...]
+description:
+Issue #28091: Document PEP 525 & PEP 530.
+
+user:        Yury Selivanov <yury at magic.io>
+date:        Thu Dec 15 17:56:43 2016 -0500
+files:       Doc/whatsnew/3.6.rst
+description:
+Issue #28635: asyncio-related fixes and additions. [docs only]
+
+user:        Yury Selivanov <yury at magic.io>
+date:        Thu Dec 15 18:58:19 2016 -0500
+files:       Doc/library/asyncio.rst
+description:
+docs: asyncio is no longer provisional
+
+user:        Ned Deily <nad at python.org>
+date:        Thu Dec 15 23:20:48 2016 -0500
+files:       Misc/NEWS
+description:
+Issue #28898: add Misc/NEWS entry
+
+--
+  Ned Deily
+  nad at python.org -- []
+
+
+From nad at python.org  Sat Dec 17 00:01:00 2016
+From: nad at python.org (Ned Deily)
+Date: Sat, 17 Dec 2016 00:01:00 -0500
+Subject: [python-committers] [RELEASE] Python 3.6.0rc2 is now available
+Message-ID: <281D809C-E94E-41BB-954D-D092A4CBC03B@python.org>
+
+On behalf of the Python development community and the Python 3.6 release
+team, I would like to announce the availability of Python 3.6.0rc2. 3.6.0rc2
+is the second release candidate for Python 3.6, the next major release of
+Python.
+
+Code for 3.6.0 is now frozen.  3.6.0rc2 is the same code base as the first
+release candidate, 3.6.0rc1, with the addition of fixes for a couple of
+critical problems and with some documentation additions and updates.
+Assuming no further release critical problems are found prior to the 3.6.0
+final release date, now planned for 2016-12-23, the 3.6.0 final release
+will be the same code base as this 3.6.0rc2.  Maintenance releases for the
+3.6 series will follow at regular intervals starting in the first quarter
+of 2017.
+
+Among the new major new features in Python 3.6 are:
+
+* PEP 468 - Preserving the order of **kwargs in a function
+* PEP 487 - Simpler customization of class creation
+* PEP 495 - Local Time Disambiguation
+* PEP 498 - Literal String Formatting
+* PEP 506 - Adding A Secrets Module To The Standard Library
+* PEP 509 - Add a private version to dict
+* PEP 515 - Underscores in Numeric Literals
+* PEP 519 - Adding a file system path protocol
+* PEP 520 - Preserving Class Attribute Definition Order
+* PEP 523 - Adding a frame evaluation API to CPython
+* PEP 524 - Make os.urandom() blocking on Linux (during system startup)
+* PEP 525 - Asynchronous Generators (provisional)
+* PEP 526 - Syntax for Variable Annotations (provisional)
+* PEP 528 - Change Windows console encoding to UTF-8
+* PEP 529 - Change Windows filesystem encoding to UTF-8
+* PEP 530 - Asynchronous Comprehensions
+
+Please see "What?s New In Python 3.6" for more information:
+
+https://docs.python.org/3.6/whatsnew/3.6.html
+
+You can find Python 3.6.0rc2 here:
+
+https://www.python.org/downloads/release/python-360rc2/
+
+Note that 3.6.0rc2 is still a preview release and thus its use is not
+recommended for production environments.
+
+More information about the release schedule can be found here:
+
+https://www.python.org/dev/peps/pep-0494/
+
+--
+  Ned Deily
+  nad at python.org -- []
+
+
+From nad at python.org  Mon Dec 19 01:03:18 2016
+From: nad at python.org (Ned Deily)
+Date: Mon, 19 Dec 2016 01:03:18 -0500
+Subject: [python-committers] [Python-Dev] Should I delay 3.5.3 and 3.4.6
+ by two weeks?
+In-Reply-To: <b99f2412-74e8-fc96-3f2a-e0811ea7f58f@hastings.org>
+References: <b99f2412-74e8-fc96-3f2a-e0811ea7f58f@hastings.org>
+Message-ID: <59258551-9735-424D-9D31-AE6D4D51DC33@python.org>
+
+On Dec 19, 2016, at 00:26, Larry Hastings <larry at hastings.org> wrote:
+> Python 3.6.0 final just slipped by two weeks.
+
+While it should not affect decisions about 3.5.3 and 3.4.6, so there's no confusion: the 3.6.0 release date slipped one week, from 2016-12-16 to 2016-12-23.  Of course, until the release happens, it's possible that it could slip again but it hasn't yet and we are going to do our best to keep it from doing so.
+
+--
+  Ned Deily
+  nad at python.org -- []
+
+
+From larry at hastings.org  Mon Dec 19 00:26:18 2016
+From: larry at hastings.org (Larry Hastings)
+Date: Sun, 18 Dec 2016 21:26:18 -0800
+Subject: [python-committers] Should I delay 3.5.3 and 3.4.6 by two weeks?
+Message-ID: <b99f2412-74e8-fc96-3f2a-e0811ea7f58f@hastings.org>
+
+
+
+Python 3.6.0 final just slipped by two weeks.  I scheduled 3.5.3 and 
+3.4.6 to ship about a month after 3.6.0 did, to "let the dust settle" 
+around the release.  I expect a flood of adoption of 3.6, and people 
+switching will find bugs, and maybe those bugs are in 3.5 or 3.4.  So it 
+just seemed sensible.
+
+3.6 just slipped by two weeks.  So now there's less than two weeks 
+between 3.6.0 final shipping and tagging the release canddiates for 
+3.5.3 and 3.4.6.  This isn't as much time as I'd like.
+
+If I had total freedom to do as I liked, I'd slip my releases by two 
+weeks to match 3.6.  But there might be people planning around 3.5.3 and 
+3.4.6--like Guido was waiting for 3.5.3 for something iirc.
+
+So, if you have an opinion, please vote for one of these three options:
+
+  * Don't slip 3.5.3. and 3.4.6.
+  * Slip 3.5.3 and 3.4.6 by two weeks to match 3.6.0.
+  * Slip 3.5.3 and 3.4.6 by a whole month, to give 3.6.0 the ability to
+    slip again without us having to change the release.
+
+
+Your faithful servant,
+
+
+//arry/
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20161218/65a0cd34/attachment.html>
+
+From raymond.hettinger at gmail.com  Mon Dec 19 03:41:33 2016
+From: raymond.hettinger at gmail.com (Raymond Hettinger)
+Date: Mon, 19 Dec 2016 00:41:33 -0800
+Subject: [python-committers] [Python-Dev] Should I delay 3.5.3 and 3.4.6
+ by two weeks?
+In-Reply-To: <b99f2412-74e8-fc96-3f2a-e0811ea7f58f@hastings.org>
+References: <b99f2412-74e8-fc96-3f2a-e0811ea7f58f@hastings.org>
+Message-ID: <D99BE80F-4ABC-4582-A372-2B990F3B44AE@gmail.com>
+
+
+> On Dec 18, 2016, at 9:26 PM, Larry Hastings <larry at hastings.org> wrote:
+> 
+> So, if you have an opinion, please vote for one of these three options:
+> 	? Don't slip 3.5.3. and 3.4.6.
+> 	? Slip 3.5.3 and 3.4.6 by two weeks to match 3.6.0.
+> 	? Slip 3.5.3 and 3.4.6 by a whole month, to give 3.6.0 the ability to slip again without us having to change the release.
+
+I vote for not slipping.   2.7.13 is out.  3.6.0 is almost out.  And it would be nice to have the others done as well.  That way, we know the whole source tree is open and can start moving forward without reservations.
+
+Also, I would like the 3.6.0 announcement to not get drowned-out or attenuated by other announcements around older releases (i.e. it would be nice if 3.6.0 was the actual latest release of any version for a while).
+
+
+Raymond
+
+From brett at python.org  Mon Dec 19 11:50:26 2016
+From: brett at python.org (Brett Cannon)
+Date: Mon, 19 Dec 2016 16:50:26 +0000
+Subject: [python-committers] [Python-Dev] Should I delay 3.5.3 and 3.4.6
+ by two weeks?
+In-Reply-To: <o38qq4$6ta$1@blaine.gmane.org>
+References: <b99f2412-74e8-fc96-3f2a-e0811ea7f58f@hastings.org>
+ <o38qq4$6ta$1@blaine.gmane.org>
+Message-ID: <CAP1=2W7WCX7s9zyO=KMOt_mEauA0H64+8pYt246excG_Q63jsQ@mail.gmail.com>
+
+On Mon, 19 Dec 2016 at 06:29 Terry Reedy <tjreedy at udel.edu> wrote:
+
+> On 12/19/2016 12:26 AM, Larry Hastings wrote:
+> >
+> >
+> > Python 3.6.0 final just slipped by two weeks.  I scheduled 3.5.3 and
+> > 3.4.6 to ship about a month after 3.6.0 did, to "let the dust settle"
+> > around the release.  I expect a flood of adoption of 3.6, and people
+> > switching will find bugs, and maybe those bugs are in 3.5 or 3.4.  So it
+> > just seemed sensible.
+> >
+> > 3.6 just slipped by two weeks.  So now there's less than two weeks
+> > between 3.6.0 final shipping and tagging the release canddiates for
+> > 3.5.3 and 3.4.6.  This isn't as much time as I'd like.
+> >
+> > If I had total freedom to do as I liked, I'd slip my releases by two
+> > weeks to match 3.6.  But there might be people planning around 3.5.3 and
+> > 3.4.6--like Guido was waiting for 3.5.3 for something iirc.
+> >
+> > So, if you have an opinion, please vote for one of these three options:
+> >
+> >   * Don't slip 3.5.3. and 3.4.6.
+>
+> I am mildly in favor of this.  There are already known bugs in 3.5 that
+> will not get fixed, no matter how long you delay the final maintenance
+> release.  There are even bugs left in 2.7 after 6 years of fixing.  In
+> the meanwhile, it is a mild nuisance to have 3 3.x maintenance branches
+> open.
+>
+> I don't know when Brett will move us to GIT and how that might impact
+> the timing.
+>
+
+Slipping doesn't affect me yet as all the pieces are still not quite in
+place. So a shift in release just shifts the blackout period for the week
+prior to the 3.5.3 release.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20161219/9f6cdd99/attachment.html>
+
+From antoine at python.org  Mon Dec 19 12:07:29 2016
+From: antoine at python.org (Antoine Pitrou)
+Date: Mon, 19 Dec 2016 18:07:29 +0100
+Subject: [python-committers] Should I delay 3.5.3 and 3.4.6 by two weeks?
+In-Reply-To: <b99f2412-74e8-fc96-3f2a-e0811ea7f58f@hastings.org>
+References: <b99f2412-74e8-fc96-3f2a-e0811ea7f58f@hastings.org>
+Message-ID: <d0ee7f85-0502-ee47-4ec2-2834cd4b9603@python.org>
+
+
+Le 19/12/2016 ? 06:26, Larry Hastings a ?crit :
+> 
+> So, if you have an opinion, please vote for one of these three options:
+> 
+>   * Don't slip 3.5.3. and 3.4.6.
+>   * Slip 3.5.3 and 3.4.6 by two weeks to match 3.6.0.
+>   * Slip 3.5.3 and 3.4.6 by a whole month, to give 3.6.0 the ability to
+>     slip again without us having to change the release.
+
+I would myself vote for a delay.  How long exactly doesn't really matter.
+
+Motivation : I would like a fix for https://bugs.python.org/issue28427
+to get in 3.5.3.  The fix is ready but a quick look by the current dict
+specialists may be welcome (though I can do without as well :-)).
+Reviewer workforce may be scarce especially around end-of-Gregorian-year
+festivities.
+
+Regards
+
+Antoine.
+
+From brett at python.org  Mon Dec 19 17:23:14 2016
+From: brett at python.org (Brett Cannon)
+Date: Mon, 19 Dec 2016 22:23:14 +0000
+Subject: [python-committers] Can we delete
+ https://hg.python.org/coding/cpython/?
+Message-ID: <CAP1=2W4Ugteh=Bx88HuuppSOe8LTrUTAm3D9R-o6tn0hi3864A@mail.gmail.com>
+
+It's erroneously labeled as the "official python repo" and created by some
+stranger.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20161219/60f6c61a/attachment.html>
+
+From benjamin at python.org  Tue Dec 20 02:06:51 2016
+From: benjamin at python.org (Benjamin Peterson)
+Date: Mon, 19 Dec 2016 23:06:51 -0800
+Subject: [python-committers] Can we delete
+ https://hg.python.org/coding/cpython/?
+In-Reply-To: <CAP1=2W4Ugteh=Bx88HuuppSOe8LTrUTAm3D9R-o6tn0hi3864A@mail.gmail.com>
+References: <CAP1=2W4Ugteh=Bx88HuuppSOe8LTrUTAm3D9R-o6tn0hi3864A@mail.gmail.com>
+Message-ID: <1482217611.3345267.824506945.7783CB18@webmail.messagingengine.com>
+
+Killed.
+
+On Mon, Dec 19, 2016, at 14:23, Brett Cannon wrote:
+> It's erroneously labeled as the "official python repo" and created by
+> some
+> stranger.
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+
+From jaraco at jaraco.com  Mon Dec 19 20:58:54 2016
+From: jaraco at jaraco.com (Jason R. Coombs)
+Date: Tue, 20 Dec 2016 01:58:54 +0000
+Subject: [python-committers] Can we delete
+ https://hg.python.org/coding/cpython/?
+In-Reply-To: <CAP1=2W4Ugteh=Bx88HuuppSOe8LTrUTAm3D9R-o6tn0hi3864A@mail.gmail.com>
+References: <CAP1=2W4Ugteh=Bx88HuuppSOe8LTrUTAm3D9R-o6tn0hi3864A@mail.gmail.com>
+Message-ID: <B3D3EAB1-7498-488D-B0B7-A90AEEDEF70D@jaraco.com>
+
+Seems that way. It doesn?t have any change sets not in the canonical repo.
+
+$ hg incoming https://hg.python.org/coding/cpython
+comparing with https://hg.python.org/coding/cpython
+searching for changes
+no changes found
+
+> On 19 Dec, 2016, at 17:23, Brett Cannon <brett at python.org> wrote:
+> 
+> It's erroneously labeled as the "official python repo" and created by some stranger.
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+
+
+From doko at ubuntu.com  Tue Dec 20 05:25:14 2016
+From: doko at ubuntu.com (Matthias Klose)
+Date: Tue, 20 Dec 2016 11:25:14 +0100
+Subject: [python-committers] Should I delay 3.5.3 and 3.4.6 by two weeks?
+In-Reply-To: <b99f2412-74e8-fc96-3f2a-e0811ea7f58f@hastings.org>
+References: <b99f2412-74e8-fc96-3f2a-e0811ea7f58f@hastings.org>
+Message-ID: <9181f663-347b-fefd-ba3f-dc9d17bd9de3@ubuntu.com>
+
+On 19.12.2016 06:26, Larry Hastings wrote:
+> 
+> 
+> Python 3.6.0 final just slipped by two weeks.  I scheduled 3.5.3 and 3.4.6 to
+> ship about a month after 3.6.0 did, to "let the dust settle" around the
+> release.  I expect a flood of adoption of 3.6, and people switching will find
+> bugs, and maybe those bugs are in 3.5 or 3.4.  So it just seemed sensible.
+> 
+> 3.6 just slipped by two weeks.  So now there's less than two weeks between 3.6.0
+> final shipping and tagging the release canddiates for 3.5.3 and 3.4.6.  This
+> isn't as much time as I'd like.
+> 
+> If I had total freedom to do as I liked, I'd slip my releases by two weeks to
+> match 3.6.  But there might be people planning around 3.5.3 and 3.4.6--like
+> Guido was waiting for 3.5.3 for something iirc.
+> 
+> So, if you have an opinion, please vote for one of these three options:
+> 
+>  * Don't slip 3.5.3. and 3.4.6.
+>  * Slip 3.5.3 and 3.4.6 by two weeks to match 3.6.0.
+>  * Slip 3.5.3 and 3.4.6 by a whole month, to give 3.6.0 the ability to
+>    slip again without us having to change the release.
+
+I would appreciate a 3.5.3 release which doesn't slip, or which only slips by a
+week, to be available before the Debian freeze.  Neither Debian nor Ubuntu ship
+the 3.4 branch anymore, so for 3.4 I'm fine with any solution.
+
+Matthias
+
+
+From brian at python.org  Tue Dec 20 12:27:38 2016
+From: brian at python.org (Brian Curtin)
+Date: Tue, 20 Dec 2016 12:27:38 -0500
+Subject: [python-committers] MSDN Subscriptions - first timers and renewals
+Message-ID: <CAD+XWwpE1mULkFy19XdnMu5RkJ2P_hNwOtNZbWiC-BVVTrxQUA@mail.gmail.com>
+
+Hey all,
+
+I heard some of you wanted MSDN subscription renewals from Santa
+Claus, so I can take care of that and put in a good word for you. If
+you're an existing subscriber I just need the email and subscriber ID
+for your account, which you can get out of some of the emails they
+send you, or via
+https://msdn.microsoft.com/en-us/subscriptions/manage/.
+
+If you don't have a subscription and would like access to various
+Microsoft tools to help you make Python better, e.g., Visual Studio,
+Windows images, etc., they give us complimentary access to the
+Microsoft Developer Network to enable that. Each subscription gets you
+one year of access to download those tools (plus some amount of Azure
+credit), and they give us continued renewals as long as we're using
+them and making Python better. If you'd like a subscription for the
+first time, I need the following info:
+First Name:
+Last Name:
+Email Address:
+Project/Company: Python Software Foundation
+Complete Mailing Address:
+Phone Number:
+
+I'd like to batch these up so it makes things easier on the folks at
+Microsoft who help us out with this, so get me your details and I'll
+send a batch next week on the 28th, and any batches after that I'll
+just gauge by how many are coming in.
+
+Thanks,
+
+Brian
+
+From larry at hastings.org  Thu Dec 22 12:33:16 2016
+From: larry at hastings.org (Larry Hastings)
+Date: Thu, 22 Dec 2016 09:33:16 -0800
+Subject: [python-committers] Should I delay 3.5.3 and 3.4.6 by two weeks?
+In-Reply-To: <9181f663-347b-fefd-ba3f-dc9d17bd9de3@ubuntu.com>
+References: <b99f2412-74e8-fc96-3f2a-e0811ea7f58f@hastings.org>
+ <9181f663-347b-fefd-ba3f-dc9d17bd9de3@ubuntu.com>
+Message-ID: <9ed1f97c-8ffe-8908-4b36-c1bd2c778b75@hastings.org>
+
+
+
+100% of votes cast were for "don't slip", so we won't slip.
+
+
+Retreat!  Full steam behind!
+
+
+//arry/
+
+On 12/20/2016 02:25 AM, Matthias Klose wrote:
+> On 19.12.2016 06:26, Larry Hastings wrote:
+>> Python 3.6.0 final just slipped by two weeks. I scheduled 3.5.3 and 
+>> 3.4.6 to ship about a month after 3.6.0 did, to "let the dust settle" 
+>> around the release. I expect a flood of adoption of 3.6, and people 
+>> switching will find bugs, and maybe those bugs are in 3.5 or 3.4. So 
+>> it just seemed sensible. 3.6 just slipped by two weeks. So now 
+>> there's less than two weeks between 3.6.0 final shipping and tagging 
+>> the release canddiates for 3.5.3 and 3.4.6. This isn't as much time 
+>> as I'd like. If I had total freedom to do as I liked, I'd slip my 
+>> releases by two weeks to match 3.6. But there might be people 
+>> planning around 3.5.3 and 3.4.6--like Guido was waiting for 3.5.3 for 
+>> something iirc. So, if you have an opinion, please vote for one of 
+>> these three options: * Don't slip 3.5.3. and 3.4.6. * Slip 3.5.3 and 
+>> 3.4.6 by two weeks to match 3.6.0. * Slip 3.5.3 and 3.4.6 by a whole 
+>> month, to give 3.6.0 the ability to slip again without us having to 
+>> change the release. 
+> I would appreciate a 3.5.3 release which doesn't slip, or which only 
+> slips by a week, to be available before the Debian freeze. Neither 
+> Debian nor Ubuntu ship the 3.4 branch anymore, so for 3.4 I'm fine 
+> with any solution. Matthias
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20161222/70f834be/attachment.html>
+
+From antoine at python.org  Thu Dec 22 13:16:17 2016
+From: antoine at python.org (Antoine Pitrou)
+Date: Thu, 22 Dec 2016 19:16:17 +0100
+Subject: [python-committers] Should I delay 3.5.3 and 3.4.6 by two weeks?
+In-Reply-To: <9ed1f97c-8ffe-8908-4b36-c1bd2c778b75@hastings.org>
+References: <b99f2412-74e8-fc96-3f2a-e0811ea7f58f@hastings.org>
+ <9181f663-347b-fefd-ba3f-dc9d17bd9de3@ubuntu.com>
+ <9ed1f97c-8ffe-8908-4b36-c1bd2c778b75@hastings.org>
+Message-ID: <75aece65-548e-9e79-17f3-01bfe0be33a4@python.org>
+
+
+Le 22/12/2016 ? 18:33, Larry Hastings a ?crit :
+> 
+> 
+> 100% of votes cast were for "don't slip", so we won't slip.
+
+While that doesn't change the outcome, I did vote for a delay.
+
+Regards
+
+Antoine.
+
+From nad at python.org  Fri Dec 23 05:34:48 2016
+From: nad at python.org (Ned Deily)
+Date: Fri, 23 Dec 2016 05:34:48 -0500
+Subject: [python-committers] [RELEASE] Python 3.6.0 is released!
+Message-ID: <1C5335CD-4028-4F1C-A5EC-6A4DA615552E@python.org>
+
+On behalf of the Python development community and the Python 3.6 release
+team, I am pleased to announce the availability of Python 3.6.0.  Python
+3.6.0 is the newest major release of the Python language, and it contains
+many new features and optimizations.  See the "What?s New In Python 3.6"
+document for more information:
+
+    https://docs.python.org/3.6/whatsnew/3.6.html
+
+You can download Python 3.6.0 here:
+
+    https://www.python.org/downloads/release/python-360/
+
+Also, most third-party distributors of Python should be making 3.6.0
+packages available soon.
+
+Maintenance releases for the 3.6 series will follow at regular intervals
+starting in the first quarter of 2017.
+
+We hope you enjoy Python 3.6.0!
+
+P.S. As a volunteer-staffed open source project, we could not bring
+Python releases to you without the enormous contributions of many,
+many people.  Thank you to all who have contributed and reviewed code
+and documentation changes, documented and investigated bugs, tested
+Python and third-party packages, and provided and supported the
+infrastructure needed to support Python development and testing.
+Please consider supporting the work of the Python Software Foundation.
+More at:
+
+    https://www.python.org/psf-landing/
+
+--
+  Ned Deily
+  nad at python.org -- []
+
+
+From brett at python.org  Fri Dec 23 13:07:01 2016
+From: brett at python.org (Brett Cannon)
+Date: Fri, 23 Dec 2016 18:07:01 +0000
+Subject: [python-committers] commit privs given to Maciej Szulik for
+ bugs.python.org work
+Message-ID: <CAP1=2W5CMdh9=ZQxiofT2hcCpVrk5RvVMD_GLU7Wgg+xHtSgow@mail.gmail.com>
+
+Maciej has been helping Ezio, David, and me out with updates to
+bugs.python.org for the GitHub migration and he's reached a point where we
+are all comfortable with him making updates to the issue tracker's code
+without us holding him up. He knows not to commit to Python itself or other
+repos.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20161223/779fd439/attachment.html>
+
+From victor.stinner at gmail.com  Fri Dec 23 18:37:21 2016
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Sat, 24 Dec 2016 00:37:21 +0100
+Subject: [python-committers] commit privs given to Maciej Szulik for
+ bugs.python.org work
+In-Reply-To: <CAP1=2W5CMdh9=ZQxiofT2hcCpVrk5RvVMD_GLU7Wgg+xHtSgow@mail.gmail.com>
+References: <CAP1=2W5CMdh9=ZQxiofT2hcCpVrk5RvVMD_GLU7Wgg+xHtSgow@mail.gmail.com>
+Message-ID: <CAMpsgwZ=VC+p_40CsTF=g8+hgj6AMT79fF5jf5MrTCWhxsYMHw@mail.gmail.com>
+
+2016-12-23 19:07 GMT+01:00 Brett Cannon <brett at python.org>:
+> Maciej has been helping Ezio, David, and me out with updates to
+> bugs.python.org for the GitHub migration and he's reached a point where we
+> are all comfortable with him making updates to the issue tracker's code
+> without us holding him up. He knows not to commit to Python itself or other
+> repos.
+
+Push to which repository?
+
+Aren't we moving to GitHub where a project can have multiple teams, so
+different groups of people, instead of a single monolithic team?
+
+Victor
+
+From ezio.melotti at gmail.com  Sat Dec 24 02:40:14 2016
+From: ezio.melotti at gmail.com (Ezio Melotti)
+Date: Sat, 24 Dec 2016 08:40:14 +0100
+Subject: [python-committers] commit privs given to Maciej Szulik for
+ bugs.python.org work
+In-Reply-To: <CAMpsgwZ=VC+p_40CsTF=g8+hgj6AMT79fF5jf5MrTCWhxsYMHw@mail.gmail.com>
+References: <CAP1=2W5CMdh9=ZQxiofT2hcCpVrk5RvVMD_GLU7Wgg+xHtSgow@mail.gmail.com>
+ <CAMpsgwZ=VC+p_40CsTF=g8+hgj6AMT79fF5jf5MrTCWhxsYMHw@mail.gmail.com>
+Message-ID: <CACBhJdFkd_P1Yq2VPK3KXv_3rMuZUoUVsxGeokH7rYV=L=oEPw@mail.gmail.com>
+
+On Sat, Dec 24, 2016 at 12:37 AM, Victor Stinner
+<victor.stinner at gmail.com> wrote:
+> 2016-12-23 19:07 GMT+01:00 Brett Cannon <brett at python.org>:
+>> Maciej has been helping Ezio, David, and me out with updates to
+>> bugs.python.org for the GitHub migration and he's reached a point where we
+>> are all comfortable with him making updates to the issue tracker's code
+>> without us holding him up. He knows not to commit to Python itself or other
+>> repos.
+>
+> Push to which repository?
+>
+
+https://hg.python.org/tracker/
+
+> Aren't we moving to GitHub where a project can have multiple teams, so
+> different groups of people, instead of a single monolithic team?
+>
+
+Eventually yes, even though h.p.o/tracker won't probably be ported to
+GitHub (see core-workflow thread "GitHub migration update for
+2016-12-19").
+With his help we should be able to complete the migration faster, and
+then make all the teams we need.
+
+> Victor
+
+From victor.stinner at gmail.com  Sat Dec 24 04:37:09 2016
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Sat, 24 Dec 2016 10:37:09 +0100
+Subject: [python-committers] commit privs given to Maciej Szulik for
+ bugs.python.org work
+In-Reply-To: <CACBhJdFkd_P1Yq2VPK3KXv_3rMuZUoUVsxGeokH7rYV=L=oEPw@mail.gmail.com>
+References: <CAP1=2W5CMdh9=ZQxiofT2hcCpVrk5RvVMD_GLU7Wgg+xHtSgow@mail.gmail.com>
+ <CAMpsgwZ=VC+p_40CsTF=g8+hgj6AMT79fF5jf5MrTCWhxsYMHw@mail.gmail.com>
+ <CACBhJdFkd_P1Yq2VPK3KXv_3rMuZUoUVsxGeokH7rYV=L=oEPw@mail.gmail.com>
+Message-ID: <CAMpsgwYeocUGqVGBvASPydOB538TnhZ9nY83pPBiUzCyCc7mDg@mail.gmail.com>
+
+https://hg.python.org/tracker/
+
+Ah ok, no problem if it's only for this repository. (+1)
+
+Victor
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20161224/4a6b9cb0/attachment.html>
+
+From larry at hastings.org  Sat Dec 31 11:09:48 2016
+From: larry at hastings.org (Larry Hastings)
+Date: Sat, 31 Dec 2016 08:09:48 -0800
+Subject: [python-committers] Reminder: 3.5.3 rc1 and 3.4.6 rc1 tagged
+ tomorrow
+Message-ID: <36c3119f-74d4-85f1-d8b2-71207488cea6@hastings.org>
+
+
+
+Just a reminder: I'll be tagging 3.5.3 rc1 and 3.4.6 rc1 tomorrow, Jan 1 
+2017, sometime between 24 and 36 hours from now.  Please work quickly if 
+there's anything you need to get in to either of those releases.  I'm 
+hoping that, for once, there are literally no code changes between rc1 
+and final.
+
+
+Best wishes for a happy new year,
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20161231/54f643a6/attachment.html>
+

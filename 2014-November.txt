@@ -1,0 +1,517 @@
+From vinay_sajip at yahoo.co.uk  Tue Nov 11 13:00:57 2014
+From: vinay_sajip at yahoo.co.uk (Vinay Sajip)
+Date: Tue, 11 Nov 2014 12:00:57 +0000
+Subject: [python-committers] PyCharm license
+Message-ID: <1415707257.64095.YahooMailNeo@web172402.mail.ir2.yahoo.com>
+
+I received today a one-year license from JetBrains for the PyCharm IDE (Professional) for use in Python development. According to my understanding, this is a multi-user license available to all CPython committers. If any of you are interested in using PyCharm, let me know off-list and I will forward the license details to you.
+
+Regards,
+
+Vinay Sajip
+
+From antoine at python.org  Wed Nov 12 12:35:51 2014
+From: antoine at python.org (Antoine Pitrou)
+Date: Wed, 12 Nov 2014 12:35:51 +0100
+Subject: [python-committers] "OpenID provider discovery failed"
+Message-ID: <54634617.5010106@python.org>
+
+
+Hello,
+
+I get "OpenID provider discovery failed" when trying to log in on
+https://bugs.python.org. It used to work. Did something change recently?
+
+Thanks
+
+Antoine.
+
+From jcea at jcea.es  Wed Nov 12 13:25:55 2014
+From: jcea at jcea.es (Jesus Cea)
+Date: Wed, 12 Nov 2014 13:25:55 +0100
+Subject: [python-committers] "OpenID provider discovery failed"
+In-Reply-To: <54634617.5010106@python.org>
+References: <54634617.5010106@python.org>
+Message-ID: <546351D3.40208@jcea.es>
+
+On 12/11/14 12:35, Antoine Pitrou wrote:
+> I get "OpenID provider discovery failed" when trying to log in on
+> https://bugs.python.org. It used to work. Did something change recently?
+
+It works for me. I use "http://www.jcea.es/", that is delegated to
+http://certifi.ca/.
+
+-- 
+Jes?s Cea Avi?n                         _/_/      _/_/_/        _/_/_/
+jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+Twitter: @jcea                        _/_/    _/_/          _/_/_/_/_/
+jabber / xmpp:jcea at jabber.org  _/_/  _/_/    _/_/          _/_/  _/_/
+"Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+"My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+"El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 473 bytes
+Desc: OpenPGP digital signature
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20141112/a8fbb795/attachment.sig>
+
+From michael at voidspace.org.uk  Wed Nov 12 13:29:08 2014
+From: michael at voidspace.org.uk (Michael Foord)
+Date: Wed, 12 Nov 2014 12:29:08 +0000
+Subject: [python-committers] "OpenID provider discovery failed"
+In-Reply-To: <54634617.5010106@python.org>
+References: <54634617.5010106@python.org>
+Message-ID: <54635294.7070105@voidspace.org.uk>
+
+
+On 12/11/14 11:35, Antoine Pitrou wrote:
+> Hello,
+>
+> I get "OpenID provider discovery failed" when trying to log in on
+> https://bugs.python.org. It used to work. Did something change recently?
+If you used to use MyOpenId as your provider then they shutdown and you 
+need a new provider. I only discovered that it had finally happened not 
+long ago when I tried to login to bugs.python.org.
+
+Michael
+
+> Thanks
+>
+> Antoine.
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+
+
+From antoine at python.org  Wed Nov 12 15:01:52 2014
+From: antoine at python.org (Antoine Pitrou)
+Date: Wed, 12 Nov 2014 15:01:52 +0100
+Subject: [python-committers] "OpenID provider discovery failed"
+In-Reply-To: <54634617.5010106@python.org>
+References: <54634617.5010106@python.org>
+Message-ID: <54636850.1040704@python.org>
+
+
+For the record, my provider (https://ssl.pitrou.net/openid/antoine)
+works properly on PyPI.
+
+
+Le 12/11/2014 12:35, Antoine Pitrou a ?crit :
+> 
+> Hello,
+> 
+> I get "OpenID provider discovery failed" when trying to log in on
+> https://bugs.python.org. It used to work. Did something change recently?
+> 
+> Thanks
+> 
+> Antoine.
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> 
+
+From barry at python.org  Wed Nov 12 15:30:12 2014
+From: barry at python.org (Barry Warsaw)
+Date: Wed, 12 Nov 2014 09:30:12 -0500
+Subject: [python-committers] "OpenID provider discovery failed"
+In-Reply-To: <54634617.5010106@python.org>
+References: <54634617.5010106@python.org>
+Message-ID: <20141112093012.2d297aa6@anarchist.wooz.org>
+
+On Nov 12, 2014, at 12:35 PM, Antoine Pitrou wrote:
+
+>I get "OpenID provider discovery failed" when trying to log in on
+>https://bugs.python.org. It used to work. Did something change recently?
+
+Launchpad still wfm.
+
+-Barry
+
+From antoine at python.org  Wed Nov 12 21:29:41 2014
+From: antoine at python.org (Antoine Pitrou)
+Date: Wed, 12 Nov 2014 21:29:41 +0100
+Subject: [python-committers] [Infrastructure] "OpenID provider discovery
+ failed"
+In-Reply-To: <54636850.1040704@python.org>
+References: <54634617.5010106@python.org> <54636850.1040704@python.org>
+Message-ID: <5463C335.9060804@python.org>
+
+
+This was solved after some investigation with Ezio. The ssl parameters
+on the OpenID server were too strict (b.p.o runs an old Debian version).
+
+Regards
+
+Antoine.
+
+
+
+Le 12/11/2014 15:01, Antoine Pitrou a ?crit :
+> 
+> For the record, my provider (https://ssl.pitrou.net/openid/antoine)
+> works properly on PyPI.
+> 
+> 
+> Le 12/11/2014 12:35, Antoine Pitrou a ?crit :
+>>
+>> Hello,
+>>
+>> I get "OpenID provider discovery failed" when trying to log in on
+>> https://bugs.python.org. It used to work. Did something change recently?
+>>
+>> Thanks
+>>
+>> Antoine.
+>> _______________________________________________
+>> python-committers mailing list
+>> python-committers at python.org
+>> https://mail.python.org/mailman/listinfo/python-committers
+>>
+> ________________________________________________
+> Infrastructure mailing list
+> Infrastructure at python.org
+> https://mail.python.org/mailman/listinfo/infrastructure
+> Unsubscribe: https://mail.python.org/mailman/options/infrastructure/solipsis%40pitrou.net
+> 
+
+From brian at python.org  Fri Nov 14 00:04:18 2014
+From: brian at python.org (Brian Curtin)
+Date: Thu, 13 Nov 2014 17:04:18 -0600
+Subject: [python-committers] MSDN Subscriptions/Renewals
+Message-ID: <CAD+XWwqX8-vx+3KUKGWSa5YME7RUJ_PBj3CEz=EHBED0ixCMEA@mail.gmail.com>
+
+Hey all,
+
+Since I've gotten a couple of requests now for MSDN renewals, I may as
+well try to do them in a big batch. If you have an MSDN subscription
+that is expired or soon expiring, I can get you a renewal if you send
+me the email address you use to login and your Subscriber ID. This is
+found at https://msdn.microsoft.com/subscriptions/manage/
+
+If you don't have a subscription but would like one - it gives you
+access to Windows ISOs, Visual Studio, and other Microsoft software -
+please send me your preferred email address, mailing address, and
+telephone number, and I'll get you setup.
+
+Brian Curtin
+
+From ncoghlan at gmail.com  Fri Nov 14 03:08:14 2014
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Fri, 14 Nov 2014 12:08:14 +1000
+Subject: [python-committers] MSDN Subscriptions/Renewals
+In-Reply-To: <CAD+XWwqX8-vx+3KUKGWSa5YME7RUJ_PBj3CEz=EHBED0ixCMEA@mail.gmail.com>
+References: <CAD+XWwqX8-vx+3KUKGWSa5YME7RUJ_PBj3CEz=EHBED0ixCMEA@mail.gmail.com>
+Message-ID: <CADiSq7ei+++oPcd5v+QefJnga9Y+7jPsF3kaPYSbaHYjysPNmA@mail.gmail.com>
+
+On 14 November 2014 09:04, Brian Curtin <brian at python.org> wrote:
+
+> Hey all,
+>
+> Since I've gotten a couple of requests now for MSDN renewals, I may as
+> well try to do them in a big batch. If you have an MSDN subscription
+> that is expired or soon expiring, I can get you a renewal if you send
+> me the email address you use to login and your Subscriber ID. This is
+> found at https://msdn.microsoft.com/subscriptions/manage/
+>
+> If you don't have a subscription but would like one - it gives you
+> access to Windows ISOs, Visual Studio, and other Microsoft software -
+> please send me your preferred email address, mailing address, and
+> telephone number, and I'll get you setup.
+>
+
+Oh, that reminds me - we should mention the availability of Visual Studio
+Community edition on python-dev, and likely update the developers guide to
+recommend it to Windows based contributors.
+
+I'll write something up for the list, and post a tracker issue for the
+latter aspect.
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20141114/e139e172/attachment.html>
+
+From ncoghlan at gmail.com  Fri Nov 14 03:11:05 2014
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Fri, 14 Nov 2014 12:11:05 +1000
+Subject: [python-committers] MSDN Subscriptions/Renewals
+In-Reply-To: <CADiSq7ei+++oPcd5v+QefJnga9Y+7jPsF3kaPYSbaHYjysPNmA@mail.gmail.com>
+References: <CAD+XWwqX8-vx+3KUKGWSa5YME7RUJ_PBj3CEz=EHBED0ixCMEA@mail.gmail.com>
+ <CADiSq7ei+++oPcd5v+QefJnga9Y+7jPsF3kaPYSbaHYjysPNmA@mail.gmail.com>
+Message-ID: <CADiSq7cc=y2HfwRejiN6HRYY6+0evxq+bEa6wv+kBD-0Xi8xVA@mail.gmail.com>
+
+On 14 November 2014 12:08, Nick Coghlan <ncoghlan at gmail.com> wrote:
+
+> On 14 November 2014 09:04, Brian Curtin <brian at python.org> wrote:
+>
+>> Hey all,
+>>
+>> Since I've gotten a couple of requests now for MSDN renewals, I may as
+>> well try to do them in a big batch. If you have an MSDN subscription
+>> that is expired or soon expiring, I can get you a renewal if you send
+>> me the email address you use to login and your Subscriber ID. This is
+>> found at https://msdn.microsoft.com/subscriptions/manage/
+>>
+>> If you don't have a subscription but would like one - it gives you
+>> access to Windows ISOs, Visual Studio, and other Microsoft software -
+>> please send me your preferred email address, mailing address, and
+>> telephone number, and I'll get you setup.
+>>
+>
+> Oh, that reminds me - we should mention the availability of Visual Studio
+> Community edition on python-dev, and likely update the developers guide to
+> recommend it to Windows based contributors.
+>
+> I'll write something up for the list, and post a tracker issue for the
+> latter aspect.
+>
+
+Oops, belay that - I realised there are associated problems with C runtime
+versioning. I'll chime in on Steve's VS2015 thread instead.
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20141114/0790eb06/attachment.html>
+
+From antoine at python.org  Fri Nov 14 04:14:26 2014
+From: antoine at python.org (Antoine Pitrou)
+Date: Fri, 14 Nov 2014 04:14:26 +0100
+Subject: [python-committers] MSDN Subscriptions/Renewals
+In-Reply-To: <CADiSq7cc=y2HfwRejiN6HRYY6+0evxq+bEa6wv+kBD-0Xi8xVA@mail.gmail.com>
+References: <CAD+XWwqX8-vx+3KUKGWSa5YME7RUJ_PBj3CEz=EHBED0ixCMEA@mail.gmail.com>
+ <CADiSq7ei+++oPcd5v+QefJnga9Y+7jPsF3kaPYSbaHYjysPNmA@mail.gmail.com>
+ <CADiSq7cc=y2HfwRejiN6HRYY6+0evxq+bEa6wv+kBD-0Xi8xVA@mail.gmail.com>
+Message-ID: <54657392.3030109@python.org>
+
+
+Le 14/11/2014 03:11, Nick Coghlan a ?crit :
+>     Oh, that reminds me - we should mention the availability of Visual
+>     Studio Community edition on python-dev, and likely update the
+>     developers guide to recommend it to Windows based contributors.
+> 
+>     I'll write something up for the list, and post a tracker issue for
+>     the latter aspect.
+> 
+> 
+> Oops, belay that - I realised there are associated problems with C
+> runtime versioning. I'll chime in on Steve's VS2015 thread instead.
+
+The Express versions should be sufficient, except for testing 64-bit builds.
+
+Regards
+
+Antoine.
+
+From Steve.Dower at microsoft.com  Fri Nov 14 17:47:49 2014
+From: Steve.Dower at microsoft.com (Steve Dower)
+Date: Fri, 14 Nov 2014 16:47:49 +0000
+Subject: [python-committers] MSDN Subscriptions/Renewals
+In-Reply-To: <54657392.3030109@python.org>
+References: <CAD+XWwqX8-vx+3KUKGWSa5YME7RUJ_PBj3CEz=EHBED0ixCMEA@mail.gmail.com>
+ <CADiSq7ei+++oPcd5v+QefJnga9Y+7jPsF3kaPYSbaHYjysPNmA@mail.gmail.com>
+ <CADiSq7cc=y2HfwRejiN6HRYY6+0evxq+bEa6wv+kBD-0Xi8xVA@mail.gmail.com>
+ <54657392.3030109@python.org>
+Message-ID: <400812affc954c12b43783b7b07f8be6@DM2PR0301MB0734.namprd03.prod.outlook.com>
+
+Antoine Pitrou wrote:
+> Le 14/11/2014 03:11, Nick Coghlan a ?crit :
+>>     Oh, that reminds me - we should mention the availability of Visual
+>>     Studio Community edition on python-dev, and likely update the
+>>     developers guide to recommend it to Windows based contributors.
+>> 
+>>     I'll write something up for the list, and post a tracker issue for
+>>     the latter aspect.
+>> 
+>> 
+>> Oops, belay that - I realised there are associated problems with C 
+>> runtime versioning. I'll chime in on Steve's VS2015 thread instead.
+> 
+> The Express versions should be sufficient, except for testing 64-bit builds.
+
+And Paul Moore is very close to having cloud-based VM images set up for people to do 64-bit builds, though I think he's skipping the VS 2010 installation.
+
+As I understand it, there'll be a VS Community 2015 as well (though the Express editions are still part of the daily builds...), and if not the recent Express for Desktop builds don't have the 64-bit bug, so there'll certainly be a free VS that can develop/build/debug Python.
+
+Hopefully we're quickly getting to the point where open-source devs don't need to worry about MSDN subscriptions :)
+
+Cheers,
+Steve
+
+> Regards
+> 
+> Antoine.
+>
+
+From antoine at python.org  Fri Nov 14 18:10:44 2014
+From: antoine at python.org (Antoine Pitrou)
+Date: Fri, 14 Nov 2014 18:10:44 +0100
+Subject: [python-committers] MSDN Subscriptions/Renewals
+In-Reply-To: <400812affc954c12b43783b7b07f8be6@DM2PR0301MB0734.namprd03.prod.outlook.com>
+References: <CAD+XWwqX8-vx+3KUKGWSa5YME7RUJ_PBj3CEz=EHBED0ixCMEA@mail.gmail.com>
+ <CADiSq7ei+++oPcd5v+QefJnga9Y+7jPsF3kaPYSbaHYjysPNmA@mail.gmail.com>
+ <CADiSq7cc=y2HfwRejiN6HRYY6+0evxq+bEa6wv+kBD-0Xi8xVA@mail.gmail.com>
+ <54657392.3030109@python.org>
+ <400812affc954c12b43783b7b07f8be6@DM2PR0301MB0734.namprd03.prod.outlook.com>
+Message-ID: <54663794.5070007@python.org>
+
+
+Le 14/11/2014 17:47, Steve Dower a ?crit :
+> Antoine Pitrou wrote:
+>> Le 14/11/2014 03:11, Nick Coghlan a ?crit :
+>>>     Oh, that reminds me - we should mention the availability of Visual
+>>>     Studio Community edition on python-dev, and likely update the
+>>>     developers guide to recommend it to Windows based contributors.
+>>>
+>>>     I'll write something up for the list, and post a tracker issue for
+>>>     the latter aspect.
+>>>
+>>>
+>>> Oops, belay that - I realised there are associated problems with C 
+>>> runtime versioning. I'll chime in on Steve's VS2015 thread instead.
+>>
+>> The Express versions should be sufficient, except for testing 64-bit builds.
+> 
+> And Paul Moore is very close to having cloud-based VM images set up for people to do 64-bit builds, though I think he's skipping the VS 2010 installation.
+> 
+> As I understand it, there'll be a VS Community 2015 as well (though the Express editions are still part of the daily builds...), and if not the recent Express for Desktop builds don't have the 64-bit bug, so there'll certainly be a free VS that can develop/build/debug Python.
+> 
+> Hopefully we're quickly getting to the point where open-source devs
+don't need to worry about MSDN subscriptions :)
+
+There's still the OS license, though :)
+
+Regards
+
+Antoine.
+
+From vinay_sajip at yahoo.co.uk  Fri Nov 14 22:39:36 2014
+From: vinay_sajip at yahoo.co.uk (Vinay Sajip)
+Date: Fri, 14 Nov 2014 21:39:36 +0000 (UTC)
+Subject: [python-committers] MSDN Subscriptions/Renewals
+References: <CAD+XWwqX8-vx+3KUKGWSa5YME7RUJ_PBj3CEz=EHBED0ixCMEA@mail.gmail.com>
+Message-ID: <loom.20141114T223722-344@post.gmane.org>
+
+Brian Curtin <brian <at> python.org> writes:
+
+> Since I've gotten a couple of requests now for MSDN renewals, I may as
+> well try to do them in a big batch. If you have an MSDN subscription
+> that is expired or soon expiring, I can get you a renewal if you send
+> me the email address you use to login and your Subscriber ID. This is
+> found at https://msdn.microsoft.com/subscriptions/manage/
+
+Mine expires on 4 March 2015 - I don't see that qualifying as "soon". Can I 
+assume you'll be doing another batch perhaps early in 2015?
+
+Regards,
+
+Vinay Sajip
+
+
+From larry at hastings.org  Mon Nov 24 04:48:24 2014
+From: larry at hastings.org (Larry Hastings)
+Date: Sun, 23 Nov 2014 19:48:24 -0800
+Subject: [python-committers] Time for a 3.4.3?
+Message-ID: <5472AA88.2060105@hastings.org>
+
+
+
+3.4.2 rc1 was two months ago.  Time to start thinking about another 
+point release?  I was thinking about 3.4.3 rc1 on Dec 13, then 3.4.3 
+final on Dec 27.
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20141123/1bdbb2ee/attachment.html>
+
+From ncoghlan at gmail.com  Mon Nov 24 07:08:03 2014
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Mon, 24 Nov 2014 16:08:03 +1000
+Subject: [python-committers] Time for a 3.4.3?
+In-Reply-To: <5472AA88.2060105@hastings.org>
+References: <5472AA88.2060105@hastings.org>
+Message-ID: <CADiSq7f0t6uS2EcKmrZmhAP84zf2mFGQt6i0yBMDC6e0j-yGUQ@mail.gmail.com>
+
+On 24 November 2014 at 13:48, Larry Hastings <larry at hastings.org> wrote:
+>
+> 3.4.2 rc1 was two months ago.  Time to start thinking about another point
+> release?  I was thinking about 3.4.3 rc1 on Dec 13, then 3.4.3 final on Dec
+> 27.
+
+If you and the other folks involved in releases are up for the faster
+maintenance update cycle, I don't see any problem with the idea.
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+
+From martin at v.loewis.de  Mon Nov 24 15:48:09 2014
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Mon, 24 Nov 2014 15:48:09 +0100
+Subject: [python-committers] Time for a 3.4.3?
+In-Reply-To: <5472AA88.2060105@hastings.org>
+References: <5472AA88.2060105@hastings.org>
+Message-ID: <54734529.8010201@v.loewis.de>
+
+Am 24.11.14 04:48, schrieb Larry Hastings:
+> 
+> 
+> 3.4.2 rc1 was two months ago.  Time to start thinking about another
+> point release?  I was thinking about 3.4.3 rc1 on Dec 13, then 3.4.3
+> final on Dec 27.
+
+I'm travelling between Christmas and New Year. So it would be better to
+do the release in early 2015.
+
+Regards,
+Martin
+
+
+
+From larry at hastings.org  Sun Nov 30 18:05:25 2014
+From: larry at hastings.org (Larry Hastings)
+Date: Sun, 30 Nov 2014 09:05:25 -0800
+Subject: [python-committers] Time for a 3.4.3?
+In-Reply-To: <54734529.8010201@v.loewis.de>
+References: <5472AA88.2060105@hastings.org> <54734529.8010201@v.loewis.de>
+Message-ID: <547B4E55.6000308@hastings.org>
+
+On 11/24/2014 06:48 AM, "Martin v. L?wis" wrote:
+> Am 24.11.14 04:48, schrieb Larry Hastings:
+>> 3.4.2 rc1 was two months ago.  Time to start thinking about another
+>> point release?  I was thinking about 3.4.3 rc1 on Dec 13, then 3.4.3
+>> final on Dec 27.
+> I'm travelling between Christmas and New Year. So it would be better to
+> do the release in early 2015.
+
+Let's hold off entirely until next year then.  There's nothing of 
+burning import waiting for 3.4.3, and trying to straddle the holidays 
+would mean doing the RC a couple days before Christmas, which is a busy 
+time for everybody.
+
+See you next year,
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20141130/c17ba0e6/attachment.html>
+

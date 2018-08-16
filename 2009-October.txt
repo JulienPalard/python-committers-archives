@@ -1,0 +1,2202 @@
+From barry at python.org  Thu Oct  1 14:54:31 2009
+From: barry at python.org (Barry Warsaw)
+Date: Thu, 1 Oct 2009 08:54:31 -0400
+Subject: [python-committers] Python 2.6.3
+Message-ID: <08BC0547-59FB-4D2D-B30F-B9DE838158EC@python.org>
+
+We've had no show stopper bugs so far, so barring any new last minute  
+red flags I think we'll go ahead and do the 2.6.3 final release.
+
+Martin, Ronald, I will tag the tree tonight my time, some time after  
+2200 utc.  That will give you overnight your time to build the  
+binaries.  Then I'll flip the web site switch and make the  
+announcement some time tomorrow.
+
+Sound okay?
+-Barry
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: PGP.sig
+Type: application/pgp-signature
+Size: 832 bytes
+Desc: This is a digitally signed message part
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20091001/ba325989/attachment.pgp>
+
+From ronaldoussoren at mac.com  Thu Oct  1 14:57:49 2009
+From: ronaldoussoren at mac.com (Ronald Oussoren)
+Date: Thu, 01 Oct 2009 14:57:49 +0200
+Subject: [python-committers] Python 2.6.3
+In-Reply-To: <08BC0547-59FB-4D2D-B30F-B9DE838158EC@python.org>
+References: <08BC0547-59FB-4D2D-B30F-B9DE838158EC@python.org>
+Message-ID: <89BA80BA-8C6A-47E6-ADCD-C306EFB43CFE@mac.com>
+
+
+On 1 Oct, 2009, at 14:54, Barry Warsaw wrote:
+
+> We've had no show stopper bugs so far, so barring any new last  
+> minute red flags I think we'll go ahead and do the 2.6.3 final  
+> release.
+>
+> Martin, Ronald, I will tag the tree tonight my time, some time after  
+> 2200 utc.  That will give you overnight your time to build the  
+> binaries.  Then I'll flip the web site switch and make the  
+> announcement some time tomorrow.
+>
+> Sound okay?
+
+Sounds good to me.
+
+Ronald
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: smime.p7s
+Type: application/pkcs7-signature
+Size: 2224 bytes
+Desc: not available
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20091001/45a229bc/attachment.bin>
+
+From barry at python.org  Fri Oct  2 01:44:27 2009
+From: barry at python.org (Barry Warsaw)
+Date: Thu, 1 Oct 2009 19:44:27 -0400
+Subject: [python-committers] Fwd: [Python-checkins] r75184 - python/tags/r263
+References: <20091001234036.C081DE3AE0@mail.wooz.org>
+Message-ID: <546F2286-0C27-4DA0-AF1F-1BDD986BA00A@python.org>
+
+Martin, Ronald, Python 2.6.3 final is tagged.
+
+Begin forwarded message:
+
+> From: barry.warsaw <python-checkins at python.org>
+> Date: October 1, 2009 7:40:36 PM EDT
+> To: python-checkins at python.org
+> Subject: [Python-checkins] r75184 - python/tags/r263
+> Message-Id: <20091001234036.C081DE3AE0 at mail.wooz.org>
+>
+> Author: barry.warsaw
+> Date: Fri Oct  2 01:40:29 2009
+> New Revision: 75184
+>
+> Log:
+> Tagging for 2.6.3 final.
+>
+>
+> Added:
+>   python/tags/r263/
+>      - copied from r75183, /python/branches/release26-maint/
+> _______________________________________________
+> Python-checkins mailing list
+> Python-checkins at python.org
+> http://mail.python.org/mailman/listinfo/python-checkins
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: PGP.sig
+Type: application/pgp-signature
+Size: 832 bytes
+Desc: This is a digitally signed message part
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20091001/e20e4698/attachment.pgp>
+
+From steve at holdenweb.com  Fri Oct  2 05:05:17 2009
+From: steve at holdenweb.com (Steve Holden)
+Date: Thu, 01 Oct 2009 23:05:17 -0400
+Subject: [python-committers] Fwd: [Python-checkins] r75184 -
+	python/tags/r263
+In-Reply-To: <546F2286-0C27-4DA0-AF1F-1BDD986BA00A@python.org>
+References: <20091001234036.C081DE3AE0@mail.wooz.org>
+	<546F2286-0C27-4DA0-AF1F-1BDD986BA00A@python.org>
+Message-ID: <4AC56DED.5050908@holdenweb.com>
+
+And of course this is going to be the best-tested release ever on
+Windows, since I went to all the trouble of getting those MSDN
+subscriptions for everyone, right?
+
+regards
+ Steve
+
+Barry Warsaw wrote:
+> Martin, Ronald, Python 2.6.3 final is tagged.
+> 
+> Begin forwarded message:
+> 
+>> From: barry.warsaw <python-checkins at python.org>
+>> Date: October 1, 2009 7:40:36 PM EDT
+>> To: python-checkins at python.org
+>> Subject: [Python-checkins] r75184 - python/tags/r263
+>> Message-Id: <20091001234036.C081DE3AE0 at mail.wooz.org>
+>>
+>> Author: barry.warsaw
+>> Date: Fri Oct  2 01:40:29 2009
+>> New Revision: 75184
+>>
+>> Log:
+>> Tagging for 2.6.3 final.
+>>
+>>
+>> Added:
+>>   python/tags/r263/
+>>      - copied from r75183, /python/branches/release26-maint/
+>> _______________________________________________
+>> Python-checkins mailing list
+>> Python-checkins at python.org
+>> http://mail.python.org/mailman/listinfo/python-checkins
+> 
+> 
+> ------------------------------------------------------------------------
+> 
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+
+
+-- 
+Steve Holden           +1 571 484 6266   +1 800 494 3119
+Holden Web LLC                 http://www.holdenweb.com/
+Watch PyCon on video now!          http://pycon.blip.tv/
+
+
+From ncoghlan at gmail.com  Fri Oct  2 12:22:40 2009
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Fri, 02 Oct 2009 20:22:40 +1000
+Subject: [python-committers] Fwd: [Python-checkins] r75184
+	-	python/tags/r263
+In-Reply-To: <4AC56DED.5050908@holdenweb.com>
+References: <20091001234036.C081DE3AE0@mail.wooz.org>	<546F2286-0C27-4DA0-AF1F-1BDD986BA00A@python.org>
+	<4AC56DED.5050908@holdenweb.com>
+Message-ID: <4AC5D470.9020705@gmail.com>
+
+Steve Holden wrote:
+> And of course this is going to be the best-tested release ever on
+> Windows, since I went to all the trouble of getting those MSDN
+> subscriptions for everyone, right?
+
+Naturally! ;)
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+---------------------------------------------------------------
+
+From barry at python.org  Sat Oct  3 00:45:11 2009
+From: barry at python.org (Barry Warsaw)
+Date: Fri, 2 Oct 2009 18:45:11 -0400
+Subject: [python-committers] release26-maint is open
+Message-ID: <3CFD72CF-E78B-44FF-B427-F0A908582324@python.org>
+
+Thanks everybody for your help with 2.6.3.  The deed is done, so the  
+2.6 branch is now open.
+
+-Barry
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: PGP.sig
+Type: application/pgp-signature
+Size: 832 bytes
+Desc: This is a digitally signed message part
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20091002/7b29a5d7/attachment.pgp>
+
+From martin at v.loewis.de  Sun Oct  4 11:02:21 2009
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Sun, 04 Oct 2009 11:02:21 +0200
+Subject: [python-committers] Python 2.6.4?
+Message-ID: <4AC8649D.1010502@v.loewis.de>
+
+It seems logging is broken in 2.6.3. Should we release
+2.6.4 quickly?
+
+http://bugs.python.org/issue7052
+
+Regards,
+Martin
+
+From theller at ctypes.org  Sun Oct  4 12:14:23 2009
+From: theller at ctypes.org (Thomas Heller)
+Date: Sun, 04 Oct 2009 12:14:23 +0200
+Subject: [python-committers] Python 2.6.4?
+In-Reply-To: <4AC8649D.1010502@v.loewis.de>
+References: <4AC8649D.1010502@v.loewis.de>
+Message-ID: <4AC8757F.6050007@ctypes.org>
+
+Martin v. L?wis schrieb:
+> It seems logging is broken in 2.6.3. Should we release
+> 2.6.4 quickly?
+> 
+> http://bugs.python.org/issue7052
+
+It also reports a 2.6.3rc1 version number on windows:
+
+Python 2.6.3 (r263rc1:75186, Oct  2 2009, 20:40:30) [MSC v.1500 32 bit (Intel)]
+on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>>
+
+Thomas
+
+From solipsis at pitrou.net  Sun Oct  4 13:38:33 2009
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Sun, 04 Oct 2009 13:38:33 +0200
+Subject: [python-committers] Python 2.6.4?
+In-Reply-To: <4AC8757F.6050007@ctypes.org>
+References: <4AC8649D.1010502@v.loewis.de>  <4AC8757F.6050007@ctypes.org>
+Message-ID: <1254656313.5267.1.camel@localhost>
+
+Le dimanche 04 octobre 2009 ? 12:14 +0200, Thomas Heller a ?crit :
+> Martin v. L?wis schrieb:
+> > It seems logging is broken in 2.6.3. Should we release
+> > 2.6.4 quickly?
+> > 
+> > http://bugs.python.org/issue7052
+
+Perhaps we should leave a one-week delay between rc and final next time,
+so that this kind of late-minute issues have an opportunity to be
+discovered ?
+
+
+
+
+From kbk at shore.net  Sun Oct  4 19:56:50 2009
+From: kbk at shore.net (Kurt B. Kaiser)
+Date: Sun, 04 Oct 2009 13:56:50 -0400
+Subject: [python-committers] Python 2.6.4?
+In-Reply-To: <4AC8757F.6050007@ctypes.org>
+References: <4AC8649D.1010502@v.loewis.de> <4AC8757F.6050007@ctypes.org>
+Message-ID: <1254679010.14266.1337978977@webmail.messagingengine.com>
+
+
+On Sun, 04 Oct 2009 12:14:23 +0200, "Thomas Heller" <theller at ctypes.org>
+said:
+> Martin v. L?wis schrieb:
+> > It seems logging is broken in 2.6.3. Should we release
+> > 2.6.4 quickly?
+> > 
+> > http://bugs.python.org/issue7052
+> 
+> It also reports a 2.6.3rc1 version number on windows:
+> 
+> Python 2.6.3 (r263rc1:75186, Oct  2 2009, 20:40:30) [MSC v.1500 32 bit
+> (Intel)]
+> on win32
+> Type "help", "copyright", "credits" or "license" for more information.
+> >>>
+
+I did an upgrade in-place on Win XP.  In c:\Python26 I found
+
+python26.dll  2,084KB 4/14/2009 10:42 PM
+python.exe       26KB 10/2/2009 8:42 PM
+
+When I ran python.exe from c:\Python26 I got
+
+Python 2.6.2 (r262:71605, Apr 14 2009, 22:40:02) [MSC v.1500 32 bit
+(Intel)] on win32
+Type "copyright", "credits" or "license()" for more information.
+
+------------------------------------------------------------------------------------
+
+I then re-ran the installer and 'repaired' Python.  No difference.
+
+I used the Control Panel to uninstall Python2.6.  It didn't completely
+remove - python26.dll, msvcr90.dll, and Microsoft.VC90.CRT.manifest
+remained.
+
+Reinstalled Python2.6 - no difference.
+Uninstalled Python26, deleted the Python26 directory, reinstalled Python
+2.6.3.  Now have correct version.
+
+Found python26.dll in c:\Windows\System32\ with 10/2 date.  Clearly this
+was being shadowed by the python26.dll in c:\Python26\.  I have no idea
+where that came from - as far as I know, I had a vanilla 2.6.2
+installation, and I don't build Python on Windows.
+
+FWIW to the Windows gurus.
+
+
+
+
+
+-- 
+KBK
+
+
+From skip at pobox.com  Sun Oct  4 20:06:34 2009
+From: skip at pobox.com (skip at pobox.com)
+Date: Sun, 4 Oct 2009 13:06:34 -0500
+Subject: [python-committers] Python 2.6.4?
+In-Reply-To: <1254656313.5267.1.camel@localhost>
+References: <4AC8649D.1010502@v.loewis.de> <4AC8757F.6050007@ctypes.org>
+	<1254656313.5267.1.camel@localhost>
+Message-ID: <19144.58410.983557.211132@montanaro.dyndns.org>
+
+    Antoine> Perhaps we should leave a one-week delay between rc and final
+    Antoine> next time, so that this kind of late-minute issues have an
+    Antoine> opportunity to be discovered ?
+
+Yeah, I was a little surprised the final release followed rc1 so quickly.
+We were working through some problems on Solaris at work (I submitted
+several bugs as a result), but couldn't pump them out fast enough to get
+them seen before the final release went out.
+
+Skip
+
+From martin at v.loewis.de  Sun Oct  4 20:20:33 2009
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Sun, 04 Oct 2009 20:20:33 +0200
+Subject: [python-committers] Python 2.6.4?
+In-Reply-To: <1254679010.14266.1337978977@webmail.messagingengine.com>
+References: <4AC8649D.1010502@v.loewis.de> <4AC8757F.6050007@ctypes.org>
+	<1254679010.14266.1337978977@webmail.messagingengine.com>
+Message-ID: <4AC8E771.6000409@v.loewis.de>
+
+> Found python26.dll in c:\Windows\System32\ with 10/2 date.  Clearly this
+> was being shadowed by the python26.dll in c:\Python26\.  I have no idea
+> where that came from - as far as I know, I had a vanilla 2.6.2
+> installation, and I don't build Python on Windows.
+> 
+> FWIW to the Windows gurus.
+
+The final 2.6.3 release mistakenly identifies its svn tag as 263rc1.
+It still actually is the final release, as can be seen when looking
+at sys.version_info.
+
+Regards,
+Martin
+
+From kbk at shore.net  Sun Oct  4 20:24:35 2009
+From: kbk at shore.net (Kurt B. Kaiser)
+Date: Sun, 04 Oct 2009 14:24:35 -0400
+Subject: [python-committers] Python 2.6.4?
+In-Reply-To: <4AC8E771.6000409@v.loewis.de>
+References: <4AC8649D.1010502@v.loewis.de> <4AC8757F.6050007@ctypes.org>
+	<1254679010.14266.1337978977@webmail.messagingengine.com>
+	<4AC8E771.6000409@v.loewis.de>
+Message-ID: <1254680675.19360.1337987565@webmail.messagingengine.com>
+
+
+On Sun, 04 Oct 2009 20:20:33 +0200, ""Martin v. L?wis""
+<martin at v.loewis.de> said:
+> > Found python26.dll in c:\Windows\System32\ with 10/2 date.  Clearly this
+> > was being shadowed by the python26.dll in c:\Python26\.  I have no idea
+> > where that came from - as far as I know, I had a vanilla 2.6.2
+> > installation, and I don't build Python on Windows.
+> > 
+> > FWIW to the Windows gurus.
+> 
+> The final 2.6.3 release mistakenly identifies its svn tag as 263rc1.
+> It still actually is the final release, as can be seen when looking
+> at sys.version_info.
+
+Yes, but what I experienced is much worse - I was actually getting the
+2.6.2 version of python26.dll due to shadowing, instead of the 2.6.3
+version.
+
+-- 
+KBK
+
+
+From martin at v.loewis.de  Sun Oct  4 20:47:28 2009
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Sun, 04 Oct 2009 20:47:28 +0200
+Subject: [python-committers] Python 2.6.4?
+In-Reply-To: <1254680675.19360.1337987565@webmail.messagingengine.com>
+References: <4AC8649D.1010502@v.loewis.de> <4AC8757F.6050007@ctypes.org>
+	<1254679010.14266.1337978977@webmail.messagingengine.com>
+	<4AC8E771.6000409@v.loewis.de>
+	<1254680675.19360.1337987565@webmail.messagingengine.com>
+Message-ID: <4AC8EDC0.80805@v.loewis.de>
+
+> Yes, but what I experienced is much worse - I was actually getting the
+> 2.6.2 version of python26.dll due to shadowing, instead of the 2.6.3
+> version.
+
+Ah. Did you get a message "[TARGETDIR] exists. Are you sure you want to
+overwrite existing files?"
+
+Regards,
+Martin
+
+From kbk at shore.net  Sun Oct  4 21:00:23 2009
+From: kbk at shore.net (Kurt B. Kaiser)
+Date: Sun, 04 Oct 2009 15:00:23 -0400
+Subject: [python-committers] Python 2.6.4?
+In-Reply-To: <4AC8EDC0.80805@v.loewis.de>
+References: <4AC8649D.1010502@v.loewis.de> <4AC8757F.6050007@ctypes.org>
+	<1254679010.14266.1337978977@webmail.messagingengine.com>
+	<4AC8E771.6000409@v.loewis.de>
+	<1254680675.19360.1337987565@webmail.messagingengine.com>
+	<4AC8EDC0.80805@v.loewis.de>
+Message-ID: <1254682823.25822.1337990599@webmail.messagingengine.com>
+
+
+On Sun, 04 Oct 2009 20:47:28 +0200, ""Martin v. L?wis""
+<martin at v.loewis.de> said:
+> > Yes, but what I experienced is much worse - I was actually getting the
+> > 2.6.2 version of python26.dll due to shadowing, instead of the 2.6.3
+> > version.
+> 
+> Ah. Did you get a message "[TARGETDIR] exists. Are you sure you want to
+> overwrite existing files?"
+
+I may well have, but that wouldn't surprise me when doing an upgrade in
+place.
+
+The real problem, it seems, is there was a spurious python26.dll in
+c:\Python26, which shadowed the one in c:\Windows.  That file may have
+been unique to my installation (I don't recall duplicating it - no
+reason to do so).  But if other people have it subsequent to a 2.6.2
+install, they will probably have the same difficulty I had.
+
+-- 
+KBK
+
+
+From martin at v.loewis.de  Sun Oct  4 21:42:29 2009
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Sun, 04 Oct 2009 21:42:29 +0200
+Subject: [python-committers] Python 2.6.4?
+In-Reply-To: <1254682823.25822.1337990599@webmail.messagingengine.com>
+References: <4AC8649D.1010502@v.loewis.de> <4AC8757F.6050007@ctypes.org>
+	<1254679010.14266.1337978977@webmail.messagingengine.com>
+	<4AC8E771.6000409@v.loewis.de>
+	<1254680675.19360.1337987565@webmail.messagingengine.com>
+	<4AC8EDC0.80805@v.loewis.de>
+	<1254682823.25822.1337990599@webmail.messagingengine.com>
+Message-ID: <4AC8FAA5.9070807@v.loewis.de>
+
+>>> Yes, but what I experienced is much worse - I was actually getting the
+>>> 2.6.2 version of python26.dll due to shadowing, instead of the 2.6.3
+>>> version.
+>> Ah. Did you get a message "[TARGETDIR] exists. Are you sure you want to
+>> overwrite existing files?"
+> 
+> I may well have, but that wouldn't surprise me when doing an upgrade in
+> place.
+
+Ok, so I need to make the message more clear that this is an error, and
+that most likely you do not want to proceed. If this was an upgrade
+in place, the message would have read "This update will replace your
+existing [ProductLine] installation."
+
+> The real problem, it seems, is there was a spurious python26.dll in
+> c:\Python26, which shadowed the one in c:\Windows.
+
+Not spurious. Most likely, your previous installation was "just for me";
+in this case, it cannot install into system32.
+
+If you then do a "for all users" installation into the same location,
+you get the behavior that you observed: python26.dll gets installed to
+system32, and you end up with two copies of the DLL.
+
+Regards,
+Martin
+
+
+
+From kbk at shore.net  Sun Oct  4 22:18:45 2009
+From: kbk at shore.net (Kurt B. Kaiser)
+Date: Sun, 04 Oct 2009 16:18:45 -0400
+Subject: [python-committers] Python 2.6.4?
+In-Reply-To: <4AC8FAA5.9070807@v.loewis.de>
+References: <4AC8649D.1010502@v.loewis.de> <4AC8757F.6050007@ctypes.org>
+	<1254679010.14266.1337978977@webmail.messagingengine.com>
+	<4AC8E771.6000409@v.loewis.de>
+	<1254680675.19360.1337987565@webmail.messagingengine.com>
+	<4AC8EDC0.80805@v.loewis.de>
+	<1254682823.25822.1337990599@webmail.messagingengine.com>
+	<4AC8FAA5.9070807@v.loewis.de>
+Message-ID: <1254687525.8324.1337996983@webmail.messagingengine.com>
+
+
+On Sun, 04 Oct 2009 21:42:29 +0200, ""Martin v. L?wis""
+<martin at v.loewis.de> said:
+> >>> Yes, but what I experienced is much worse - I was actually getting the
+> >>> 2.6.2 version of python26.dll due to shadowing, instead of the 2.6.3
+> >>> version.
+> >> Ah. Did you get a message "[TARGETDIR] exists. Are you sure you want to
+> >> overwrite existing files?"
+> > 
+> > I may well have, but that wouldn't surprise me when doing an upgrade in
+> > place.
+> 
+> Ok, so I need to make the message more clear that this is an error, and
+> that most likely you do not want to proceed. If this was an upgrade
+> in place, the message would have read "This update will replace your
+> existing [ProductLine] installation."
+
+Well, I'm not at all sure that I saw the 'exists' message.  That one is
+raised whenever the directory tree isn't empty?
+
+
+> 
+> > The real problem, it seems, is there was a spurious python26.dll in
+> > c:\Python26, which shadowed the one in c:\Windows.
+> 
+> Not spurious. Most likely, your previous installation was "just for me";
+> in this case, it cannot install into system32.
+
+Ah so!  I think that is quite likely.  I'm not a big Windows user and it
+took me a bit to realize the disadvantages of a 'just for me'
+installation on my netbook.
+
+> 
+> If you then do a "for all users" installation into the same location,
+> you get the behavior that you observed: python26.dll gets installed to
+> system32, and you end up with two copies of the DLL.
+
+Is there a way to configure the installer so that if an 'all users'
+installation was being done, any python26.dll in c:\Python26 would be
+deleted?  I'm surely not the only person who's going to run into this.
+
+Thanks for the analysis.
+
+-- 
+KBK
+
+
+From martin at v.loewis.de  Sun Oct  4 23:02:02 2009
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Sun, 04 Oct 2009 23:02:02 +0200
+Subject: [python-committers] Python 2.6.4?
+In-Reply-To: <1254687525.8324.1337996983@webmail.messagingengine.com>
+References: <4AC8649D.1010502@v.loewis.de> <4AC8757F.6050007@ctypes.org>
+	<1254679010.14266.1337978977@webmail.messagingengine.com>
+	<4AC8E771.6000409@v.loewis.de>
+	<1254680675.19360.1337987565@webmail.messagingengine.com>
+	<4AC8EDC0.80805@v.loewis.de>
+	<1254682823.25822.1337990599@webmail.messagingengine.com>
+	<4AC8FAA5.9070807@v.loewis.de>
+	<1254687525.8324.1337996983@webmail.messagingengine.com>
+Message-ID: <4AC90D4A.20004@v.loewis.de>
+
+>> Ok, so I need to make the message more clear that this is an error, and
+>> that most likely you do not want to proceed. If this was an upgrade
+>> in place, the message would have read "This update will replace your
+>> existing [ProductLine] installation."
+> 
+> Well, I'm not at all sure that I saw the 'exists' message.  That one is
+> raised whenever the directory tree isn't empty?
+
+No, only if the directory exists, and isn't considered as having a
+version to upgrade.
+
+> Is there a way to configure the installer so that if an 'all users'
+> installation was being done, any python26.dll in c:\Python26 would be
+> deleted?
+
+Unfortunately, no. That's why the warning message is issued that this
+kind of installation is probably the wrong thing to do.
+
+Regards,
+Martin
+
+From barry at python.org  Mon Oct  5 19:02:41 2009
+From: barry at python.org (Barry Warsaw)
+Date: Mon, 5 Oct 2009 13:02:41 -0400
+Subject: [python-committers] 2.6 tree freeze
+Message-ID: <8A16313F-D081-4E10-A9A7-E626F2BE1874@python.org>
+
+It seems likely that we'll have to make a quick 2.6.4.  Please, do not  
+commit anything to the 2.6-maint tree without checking with me first.
+
+Thanks,
+-Barry
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: PGP.sig
+Type: application/pgp-signature
+Size: 832 bytes
+Desc: This is a digitally signed message part
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20091005/18a82afc/attachment.pgp>
+
+From barry at python.org  Mon Oct  5 22:24:08 2009
+From: barry at python.org (Barry Warsaw)
+Date: Mon, 5 Oct 2009 16:24:08 -0400
+Subject: [python-committers] Python 2.6.4?
+In-Reply-To: <4AC8649D.1010502@v.loewis.de>
+References: <4AC8649D.1010502@v.loewis.de>
+Message-ID: <29206241-A578-4650-930D-0EEE371D3C78@python.org>
+
+On Oct 4, 2009, at 5:02 AM, Martin v. L?wis wrote:
+
+> It seems logging is broken in 2.6.3. Should we release
+> 2.6.4 quickly?
+>
+> http://bugs.python.org/issue7052
+
+I believe both the logging fix and the distutils fix is in the tree  
+now, right?  There are no other release blockers in the tracker.
+
+Unless there are objections, I will tag the tree for 2.6.4rc1 tomorrow  
+morning UTC-0400 and make the release as soon as the Mac image and  
+Windows binaries are available.
+
+-Barry
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: PGP.sig
+Type: application/pgp-signature
+Size: 832 bytes
+Desc: This is a digitally signed message part
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20091005/cfe8d7b1/attachment.pgp>
+
+From barry at python.org  Mon Oct  5 22:26:24 2009
+From: barry at python.org (Barry Warsaw)
+Date: Mon, 5 Oct 2009 16:26:24 -0400
+Subject: [python-committers] Python 2.6.4?
+In-Reply-To: <1254656313.5267.1.camel@localhost>
+References: <4AC8649D.1010502@v.loewis.de> <4AC8757F.6050007@ctypes.org>
+	<1254656313.5267.1.camel@localhost>
+Message-ID: <612803F1-6517-4D01-A645-DD9D38CE69D5@python.org>
+
+On Oct 4, 2009, at 7:38 AM, Antoine Pitrou wrote:
+
+> Perhaps we should leave a one-week delay between rc and final next  
+> time,
+> so that this kind of late-minute issues have an opportunity to be
+> discovered ?
+
+I'm skeptical it would have made a difference, and I seemed to have  
+misplaced the copy of Guido's time machine keys that I had, but it's a  
+worthwhile experiment anyway :).
+
+Shall we say 2.6.4rc1 tomorrow-ish and if no rc2 is necessary, a final  
+release on Friday the 16th?
+
+-Barry
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: PGP.sig
+Type: application/pgp-signature
+Size: 832 bytes
+Desc: This is a digitally signed message part
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20091005/54de715e/attachment.pgp>
+
+From barry at python.org  Mon Oct  5 22:27:03 2009
+From: barry at python.org (Barry Warsaw)
+Date: Mon, 5 Oct 2009 16:27:03 -0400
+Subject: [python-committers] Python 2.6.4?
+In-Reply-To: <19144.58410.983557.211132@montanaro.dyndns.org>
+References: <4AC8649D.1010502@v.loewis.de> <4AC8757F.6050007@ctypes.org>
+	<1254656313.5267.1.camel@localhost>
+	<19144.58410.983557.211132@montanaro.dyndns.org>
+Message-ID: <684C5258-DFC3-4641-A9DE-4B3572BF4534@python.org>
+
+On Oct 4, 2009, at 2:06 PM, skip at pobox.com wrote:
+
+>    Antoine> Perhaps we should leave a one-week delay between rc and  
+> final
+>    Antoine> next time, so that this kind of late-minute issues have an
+>    Antoine> opportunity to be discovered ?
+>
+> Yeah, I was a little surprised the final release followed rc1 so  
+> quickly.
+> We were working through some problems on Solaris at work (I submitted
+> several bugs as a result), but couldn't pump them out fast enough to  
+> get
+> them seen before the final release went out.
+
+But no release blockers in that set of bugs?
+
+-Barry
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: PGP.sig
+Type: application/pgp-signature
+Size: 832 bytes
+Desc: This is a digitally signed message part
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20091005/6c8a5d49/attachment.pgp>
+
+From skip at pobox.com  Mon Oct  5 23:07:48 2009
+From: skip at pobox.com (skip at pobox.com)
+Date: Mon, 5 Oct 2009 16:07:48 -0500
+Subject: [python-committers] Python 2.6.4?
+In-Reply-To: <684C5258-DFC3-4641-A9DE-4B3572BF4534@python.org>
+References: <4AC8649D.1010502@v.loewis.de> <4AC8757F.6050007@ctypes.org>
+	<1254656313.5267.1.camel@localhost>
+	<19144.58410.983557.211132@montanaro.dyndns.org>
+	<684C5258-DFC3-4641-A9DE-4B3572BF4534@python.org>
+Message-ID: <19146.24612.442055.121122@montanaro.dyndns.org>
+
+
+    Barry> But no release blockers in that set of bugs?
+
+I've no idea.  By the time I could submit the reports the final release was
+out so I didn't even consider whether they would have been release blockers
+or not.
+
+Skip
+
+From martin at v.loewis.de  Mon Oct  5 23:00:25 2009
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Mon, 05 Oct 2009 23:00:25 +0200
+Subject: [python-committers] Python 2.6.4?
+In-Reply-To: <612803F1-6517-4D01-A645-DD9D38CE69D5@python.org>
+References: <4AC8649D.1010502@v.loewis.de>
+	<4AC8757F.6050007@ctypes.org>	<1254656313.5267.1.camel@localhost>
+	<612803F1-6517-4D01-A645-DD9D38CE69D5@python.org>
+Message-ID: <4ACA5E69.3090806@v.loewis.de>
+
+> I'm skeptical it would have made a difference, and I seemed to have
+> misplaced the copy of Guido's time machine keys that I had, but it's a
+> worthwhile experiment anyway :).
+> 
+> Shall we say 2.6.4rc1 tomorrow-ish and if no rc2 is necessary, a final
+> release on Friday the 16th?
+
+I'll likely be able to produce binaries only on Saturday (17th), but
+otherwise, the schedule sounds find to me (in particular as I'm
+travelling next week and won't be able to produce binaries between this
+Saturday and next Friday).
+
+Regards,
+Martin
+
+From barry at python.org  Mon Oct  5 23:09:39 2009
+From: barry at python.org (Barry Warsaw)
+Date: Mon, 5 Oct 2009 17:09:39 -0400
+Subject: [python-committers] Python 2.6.4?
+In-Reply-To: <4ACA5E69.3090806@v.loewis.de>
+References: <4AC8649D.1010502@v.loewis.de>
+	<4AC8757F.6050007@ctypes.org>	<1254656313.5267.1.camel@localhost>
+	<612803F1-6517-4D01-A645-DD9D38CE69D5@python.org>
+	<4ACA5E69.3090806@v.loewis.de>
+Message-ID: <0DA9B0E3-5641-4579-BC2B-EB5CA21DD2E3@python.org>
+
+On Oct 5, 2009, at 5:00 PM, Martin v. L?wis wrote:
+
+>> I'm skeptical it would have made a difference, and I seemed to have
+>> misplaced the copy of Guido's time machine keys that I had, but  
+>> it's a
+>> worthwhile experiment anyway :).
+>>
+>> Shall we say 2.6.4rc1 tomorrow-ish and if no rc2 is necessary, a  
+>> final
+>> release on Friday the 16th?
+>
+> I'll likely be able to produce binaries only on Saturday (17th), but
+> otherwise, the schedule sounds find to me (in particular as I'm
+> travelling next week and won't be able to produce binaries between  
+> this
+> Saturday and next Friday).
+
+I could probably do a release on Saturday or Sunday.
+
+-Barry
+
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: PGP.sig
+Type: application/pgp-signature
+Size: 832 bytes
+Desc: This is a digitally signed message part
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20091005/c78881fb/attachment-0001.pgp>
+
+From ocean-city at m2.ccsnet.ne.jp  Tue Oct  6 11:46:03 2009
+From: ocean-city at m2.ccsnet.ne.jp (Hirokazu Yamamoto)
+Date: Tue, 06 Oct 2009 18:46:03 +0900
+Subject: [python-committers] Python 2.6.4?
+In-Reply-To: <29206241-A578-4650-930D-0EEE371D3C78@python.org>
+References: <4AC8649D.1010502@v.loewis.de>
+	<29206241-A578-4650-930D-0EEE371D3C78@python.org>
+Message-ID: <4ACB11DB.9070308@m2.ccsnet.ne.jp>
+
+
+> Unless there are objections, I will tag the tree for 2.6.4rc1 tomorrow 
+> morning UTC-0400 and make the release as soon as the Mac image and 
+> Windows binaries are available.
+> 
+> -Barry
+
+I think it will be nice if issue6869 will be fixed before 2.6.4.
+(This is crash bug, so)
+
+And I'm happy if r74952 will be backported as well. :-)
+
+From barry at python.org  Tue Oct  6 15:00:13 2009
+From: barry at python.org (Barry Warsaw)
+Date: Tue, 6 Oct 2009 09:00:13 -0400
+Subject: [python-committers] Python 2.6.4?
+In-Reply-To: <4ACB11DB.9070308@m2.ccsnet.ne.jp>
+References: <4AC8649D.1010502@v.loewis.de>
+	<29206241-A578-4650-930D-0EEE371D3C78@python.org>
+	<4ACB11DB.9070308@m2.ccsnet.ne.jp>
+Message-ID: <5DD8D877-2FCF-4512-B151-8B551C8E5F7F@python.org>
+
+On Oct 6, 2009, at 5:46 AM, Hirokazu Yamamoto wrote:
+
+>
+>> Unless there are objections, I will tag the tree for 2.6.4rc1  
+>> tomorrow morning UTC-0400 and make the release as soon as the Mac  
+>> image and Windows binaries are available.
+>> -Barry
+>
+> I think it will be nice if issue6869 will be fixed before 2.6.4.
+> (This is crash bug, so)
+>
+> And I'm happy if r74952 will be backported as well. :-)
+
+I want to keep 2.6.4 tightly focussed on fixing the brown paper bag  
+bugs in logging and distutils.  Sorry, but this will have to wait for  
+2.6.5.
+
+-Barry
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: PGP.sig
+Type: application/pgp-signature
+Size: 832 bytes
+Desc: This is a digitally signed message part
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20091006/10bd9206/attachment.pgp>
+
+From barry at python.org  Tue Oct  6 15:15:32 2009
+From: barry at python.org (Barry Warsaw)
+Date: Tue, 6 Oct 2009 09:15:32 -0400
+Subject: [python-committers] tagging for 2.6.4rc1
+Message-ID: <70E61AC9-9304-443C-9A00-EA8C9C6D5DF9@python.org>
+
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: PGP.sig
+Type: application/pgp-signature
+Size: 832 bytes
+Desc: This is a digitally signed message part
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20091006/f9ef9202/attachment.pgp>
+
+From barry at python.org  Tue Oct 13 14:27:01 2009
+From: barry at python.org (Barry Warsaw)
+Date: Tue, 13 Oct 2009 08:27:01 -0400
+Subject: [python-committers] On track for Python 2.6.4 final this Sunday?
+Message-ID: <430E0910-C2A1-48F7-B036-743BA5BA91A3@python.org>
+
+Are we on track to release 2.6.4 final this Sunday or do we need  
+another rc?
+
+Yesterday, Tarek committed another setuptools related fix and said  
+that he was going to run a bunch of build tests locally.  Tarek, how  
+did that go?
+
+Please note that issue 7064 is still open as a release blocker.  Can  
+we close that (again) now?
+
+http://bugs.python.org/issue7064
+
+I am still being very conservative about what goes in 2.6.4.  Only  
+regressions introduced in 2.6.3 are being accepted.  There's plenty of  
+time after that for patches to go in for 2.6.5.
+
+-Barry
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: PGP.sig
+Type: application/pgp-signature
+Size: 832 bytes
+Desc: This is a digitally signed message part
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20091013/fe1891d5/attachment.pgp>
+
+From mal at egenix.com  Tue Oct 13 16:16:36 2009
+From: mal at egenix.com (M.-A. Lemburg)
+Date: Tue, 13 Oct 2009 16:16:36 +0200
+Subject: [python-committers] [Python-Dev] On track for Python 2.6.4
+	final this Sunday?
+In-Reply-To: <430E0910-C2A1-48F7-B036-743BA5BA91A3@python.org>
+References: <430E0910-C2A1-48F7-B036-743BA5BA91A3@python.org>
+Message-ID: <4AD48BC4.2060809@egenix.com>
+
+Barry Warsaw wrote:
+> Are we on track to release 2.6.4 final this Sunday or do we need another
+> rc?
+> 
+> Yesterday, Tarek committed another setuptools related fix and said that
+> he was going to run a bunch of build tests locally.  Tarek, how did that
+> go?
+> 
+> Please note that issue 7064 is still open as a release blocker.  Can we
+> close that (again) now?
+> 
+> http://bugs.python.org/issue7064
+> 
+> I am still being very conservative about what goes in 2.6.4.  Only
+> regressions introduced in 2.6.3 are being accepted.  There's plenty of
+> time after that for patches to go in for 2.6.5.
+
+It would be nice to get this issue resolved out for 2.6.4:
+
+http://bugs.python.org/issue4120
+
+The problem is that extensions built with 2.6.x will not work
+when used with a User-only installation of Python on machines that
+don't already have the MS VC90 CRT DLLs installed system-wide.
+
+There's a patch available that appears to work, but someone with
+more manifest-Windows-DLL-fu than me will need to have a look at it.
+
+One possible approach would be to use the patch in 2.6.4 and then
+continue digging deeper until 2.6.5 is released.
+
+-- 
+Marc-Andre Lemburg
+eGenix.com
+
+Professional Python Services directly from the Source  (#1, Oct 13 2009)
+>>> Python/Zope Consulting and Support ...        http://www.egenix.com/
+>>> mxODBC.Zope.Database.Adapter ...             http://zope.egenix.com/
+>>> mxODBC, mxDateTime, mxTextTools ...        http://python.egenix.com/
+________________________________________________________________________
+
+::: Try our new mxODBC.Connect Python Database Interface for free ! ::::
+
+
+   eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+    D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+           Registered at Amtsgericht Duesseldorf: HRB 46611
+               http://www.egenix.com/company/contact/
+
+From martin at v.loewis.de  Tue Oct 13 16:41:01 2009
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Tue, 13 Oct 2009 22:41:01 +0800
+Subject: [python-committers] [Python-Dev] On track for Python
+ 2.6.4	final this Sunday?
+In-Reply-To: <4AD48BC4.2060809@egenix.com>
+References: <430E0910-C2A1-48F7-B036-743BA5BA91A3@python.org>
+	<4AD48BC4.2060809@egenix.com>
+Message-ID: <4AD4917D.8090800@v.loewis.de>
+
+
+> It would be nice to get this issue resolved out for 2.6.4:
+> 
+> http://bugs.python.org/issue4120
+> 
+> The problem is that extensions built with 2.6.x will not work
+> when used with a User-only installation of Python on machines that
+> don't already have the MS VC90 CRT DLLs installed system-wide.
+
+As this bug already exists in 2.6.2, I don't think the change is
+eligible for 2.6.4.
+
+In addition, I want to review it, which I won't be able to until
+Sunday.
+
+> One possible approach would be to use the patch in 2.6.4 and then
+> continue digging deeper until 2.6.5 is released.
+
+This also speaks against the patch. Anything being changed in this area
+ideally should be the final state of affairs for the rest of 2.6.x.
+
+Regards,
+Martin
+
+
+From pje at telecommunity.com  Tue Oct 13 16:52:02 2009
+From: pje at telecommunity.com (P.J. Eby)
+Date: Tue, 13 Oct 2009 10:52:02 -0400
+Subject: [python-committers] [Python-Dev] On track for Python 2.6.4
+	final this Sunday?
+In-Reply-To: <430E0910-C2A1-48F7-B036-743BA5BA91A3@python.org>
+References: <430E0910-C2A1-48F7-B036-743BA5BA91A3@python.org>
+Message-ID: <20091013145211.8DB243A4068@sparrow.telecommunity.com>
+
+At 08:27 AM 10/13/2009 -0400, Barry Warsaw wrote:
+>Are we on track to release 2.6.4 final this Sunday or do we need
+>another rc?
+>
+>Yesterday, Tarek committed another setuptools related fix and said
+>that he was going to run a bunch of build tests locally.  Tarek, how
+>did that go?
+
+FWIW, that change won't work to fix the problem on Windows if a 
+package's setup.py is written with cross-platform paths (i.e., the usual case).
+
+Also, for the record, it's not really a setuptools-related fix; it's 
+just attempting to fix collateral damage caused by the attempt to fix 
+the problems caused by the original API change...  which affected all 
+build_ext customizations relying on the docstring of the changed 
+method, not just the one in setuptools.
+
+
+From mal at egenix.com  Tue Oct 13 17:01:05 2009
+From: mal at egenix.com (M.-A. Lemburg)
+Date: Tue, 13 Oct 2009 17:01:05 +0200
+Subject: [python-committers] [Python-Dev] On track for Python
+ 2.6.4	final this Sunday?
+In-Reply-To: <4AD4917D.8090800@v.loewis.de>
+References: <430E0910-C2A1-48F7-B036-743BA5BA91A3@python.org>	<4AD48BC4.2060809@egenix.com>
+	<4AD4917D.8090800@v.loewis.de>
+Message-ID: <4AD49631.70607@egenix.com>
+
+"Martin v. L?wis" wrote:
+> 
+>> It would be nice to get this issue resolved out for 2.6.4:
+>>
+>> http://bugs.python.org/issue4120
+>>
+>> The problem is that extensions built with 2.6.x will not work
+>> when used with a User-only installation of Python on machines that
+>> don't already have the MS VC90 CRT DLLs installed system-wide.
+> 
+> As this bug already exists in 2.6.2, I don't think the change is
+> eligible for 2.6.4.
+> 
+> In addition, I want to review it, which I won't be able to until
+> Sunday.
+
+Then I'd suggest to wait another week with 2.6.4 to give you a
+chance to look at the patch.
+
+>> One possible approach would be to use the patch in 2.6.4 and then
+>> continue digging deeper until 2.6.5 is released.
+> 
+> This also speaks against the patch. Anything being changed in this area
+> ideally should be the final state of affairs for the rest of 2.6.x.
+
+Of course, but we don't live in an ideal world, otherwise we would
+have noticed before releasing 2.6 :-)
+
+I guess the problem is that developer typically already have the
+MS VC90 CRT DLLs installed system-wide, so they simply don't notice.
+
+-- 
+Marc-Andre Lemburg
+eGenix.com
+
+Professional Python Services directly from the Source  (#1, Oct 13 2009)
+>>> Python/Zope Consulting and Support ...        http://www.egenix.com/
+>>> mxODBC.Zope.Database.Adapter ...             http://zope.egenix.com/
+>>> mxODBC, mxDateTime, mxTextTools ...        http://python.egenix.com/
+________________________________________________________________________
+
+::: Try our new mxODBC.Connect Python Database Interface for free ! ::::
+
+
+   eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+    D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+           Registered at Amtsgericht Duesseldorf: HRB 46611
+               http://www.egenix.com/company/contact/
+
+From ziade.tarek at gmail.com  Tue Oct 13 17:16:19 2009
+From: ziade.tarek at gmail.com (=?ISO-8859-1?Q?Tarek_Ziad=E9?=)
+Date: Tue, 13 Oct 2009 17:16:19 +0200
+Subject: [python-committers] [Python-Dev] On track for Python 2.6.4
+	final this Sunday?
+In-Reply-To: <20091013145211.8DB243A4068@sparrow.telecommunity.com>
+References: <430E0910-C2A1-48F7-B036-743BA5BA91A3@python.org>
+	<20091013145211.8DB243A4068@sparrow.telecommunity.com>
+Message-ID: <94bdd2610910130816g42826010w3d20901683678ed3@mail.gmail.com>
+
+On Tue, Oct 13, 2009 at 4:52 PM, P.J. Eby <pje at telecommunity.com> wrote:
+> At 08:27 AM 10/13/2009 -0400, Barry Warsaw wrote:
+>>
+>> Are we on track to release 2.6.4 final this Sunday or do we need
+>> another rc?
+>>
+>> Yesterday, Tarek committed another setuptools related fix and said
+>> that he was going to run a bunch of build tests locally. ?Tarek, how
+>> did that go?
+>
+
+I still need to do some more tests, I didn't have time to try the
+various projects under win32.
+It's planned to night.
+
+The tests are consisting of compiling and insatling a dozain of
+projects on linux and win32 (and bith when possible)
+
+> FWIW, that change won't work to fix the problem on Windows if a package's
+> setup.py is written with cross-platform paths (i.e., the usual case).
+>
+> Also, for the record, it's not really a setuptools-related fix; it's just
+> attempting to fix collateral damage caused by the attempt to fix the
+> problems caused by the original API change... ?which affected all build_ext
+> customizations relying on the docstring of the changed method, not just the
+> one in setuptools.
+
+Yes the doctest was pretty fuzzy about what is an extension name. It's
+will be improved in 2.7.
+
+The current code is doing os.path.join()'s to join the Extension name
+with the build path,
+leading to the collateral damage you are mentioning. To fix the
+problem, the API has to be as permissive
+as it was before.
+
+I have already three or four tests to fix that problem in
+test_build_ext. If you can take a look at them and
+think of any other test that would be missing, that would be
+appreciated. Another pair of eye is never enough.
+
+Tarek
+
+From martin at v.loewis.de  Tue Oct 13 17:20:21 2009
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Tue, 13 Oct 2009 23:20:21 +0800
+Subject: [python-committers] [Python-Dev] On track for Python
+ 2.6.4	final this Sunday?
+In-Reply-To: <4AD49631.70607@egenix.com>
+References: <430E0910-C2A1-48F7-B036-743BA5BA91A3@python.org>	<4AD48BC4.2060809@egenix.com>
+	<4AD4917D.8090800@v.loewis.de> <4AD49631.70607@egenix.com>
+Message-ID: <4AD49AB5.9040703@v.loewis.de>
+
+
+>> As this bug already exists in 2.6.2, I don't think the change is
+>> eligible for 2.6.4.
+>>
+>> In addition, I want to review it, which I won't be able to until
+>> Sunday.
+> 
+> Then I'd suggest to wait another week with 2.6.4 to give you a
+> chance to look at the patch.
+
+That won't make the change more eligible.
+
+> Of course, but we don't live in an ideal world, otherwise we would
+> have noticed before releasing 2.6 :-)
+
+Oh, I did notice. I had been cautioning for years that switching to
+a newer VS version (2005 or later) would cause severe problems. We
+are still trying to recover from the switch to VS 2008. That said,
+staying with VS 2003 really hadn't been an option, either. It's
+just said that Microsoft has created a new DLL hell in their attempt
+to fix the old one, and that they fail to admit it (assuming that
+everybody should be using .NET, anyway).
+
+Regards,
+Martin
+
+
+From pje at telecommunity.com  Tue Oct 13 17:30:26 2009
+From: pje at telecommunity.com (P.J. Eby)
+Date: Tue, 13 Oct 2009 11:30:26 -0400
+Subject: [python-committers] [Python-Dev] On track for Python 2.6.4
+ final this Sunday?
+In-Reply-To: <94bdd2610910130816g42826010w3d20901683678ed3@mail.gmail.co
+ m>
+References: <430E0910-C2A1-48F7-B036-743BA5BA91A3@python.org>
+	<20091013145211.8DB243A4068@sparrow.telecommunity.com>
+	<94bdd2610910130816g42826010w3d20901683678ed3@mail.gmail.com>
+Message-ID: <20091013153037.3EB2A3A4068@sparrow.telecommunity.com>
+
+At 05:16 PM 10/13/2009 +0200, Tarek Ziad? wrote:
+>Yes the doctest was pretty fuzzy about what is an extension name. It's
+>will be improved in 2.7.
+>
+>The current code is doing os.path.join()'s to join the Extension name
+>with the build path,
+>leading to the collateral damage you are mentioning. To fix the
+>problem, the API has to be as permissive
+>as it was before.
+>
+>I have already three or four tests to fix that problem in
+>test_build_ext. If you can take a look at them and
+>think of any other test that would be missing, that would be
+>appreciated. Another pair of eye is never enough.
+
+One identical to test_build_ext_path_with_os_sep, but that explicitly 
+uses a '/' (rather than os.sep) will identify the problem I'm 
+referring to, when run on Windows.
+
+It's common practice to use /-separated paths in setup scripts, 
+regardless of platform.  So, your current fix (converting os.sep to 
+'.') will work on Linux, Mac, etc., but fail on Windows when run with 
+the same setup.py, since os.sep is a backslash there.
+
+(Just as a side note, if when you split off issue 7115 you'd said 
+what the new issue number was in 7064, or copied me to the nosy-list 
+on the new issue, I'd have been able to review this change and 
+comment on it yesterday instead of today, and I'd have done it in the 
+bug tracker rather than via Python-Dev.)
+
+
+From ziade.tarek at gmail.com  Tue Oct 13 17:39:10 2009
+From: ziade.tarek at gmail.com (=?ISO-8859-1?Q?Tarek_Ziad=E9?=)
+Date: Tue, 13 Oct 2009 17:39:10 +0200
+Subject: [python-committers] [Python-Dev] On track for Python 2.6.4
+	final this Sunday?
+In-Reply-To: <20091013153037.3EB2A3A4068@sparrow.telecommunity.com>
+References: <430E0910-C2A1-48F7-B036-743BA5BA91A3@python.org>
+	<20091013145211.8DB243A4068@sparrow.telecommunity.com>
+	<94bdd2610910130816g42826010w3d20901683678ed3@mail.gmail.com>
+	<20091013153037.3EB2A3A4068@sparrow.telecommunity.com>
+Message-ID: <94bdd2610910130839jf0b653fg231d1ed4c5236c10@mail.gmail.com>
+
+On Tue, Oct 13, 2009 at 5:30 PM, P.J. Eby <pje at telecommunity.com> wrote:
+>
+> One identical to test_build_ext_path_with_os_sep, but that explicitly uses a
+> '/' (rather than os.sep) will identify the problem I'm referring to, when
+> run on Windows.
+>
+> It's common practice to use /-separated paths in setup scripts, regardless
+> of platform. ?So, your current fix (converting os.sep to '.') will work on
+> Linux, Mac, etc., but fail on Windows when run with the same setup.py, since
+> os.sep is a backslash there.
+
+Ok I will have a look at  this tonite. Thanks. Notice that this changed I made
+to fix another bug opened a can of worms because Extension is not enough/clearly
+documented in this regards.
+
+The goal for 2.7/3.2 is to come up with one single way to define extensions,
+and I will probably just add deprecation warnings  for the other forms.
+
+>
+> (Just as a side note, if when you split off issue 7115 you'd said what the
+> new issue number was in 7064, or copied me to the nosy-list on the new
+> issue, I'd have been able to review this change and comment on it yesterday
+> instead of today, and I'd have done it in the bug tracker rather than via
+> Python-Dev.)
+
+Sorry about that, I'll add a note on #7064.
+
+From mal at egenix.com  Tue Oct 13 17:59:17 2009
+From: mal at egenix.com (M.-A. Lemburg)
+Date: Tue, 13 Oct 2009 17:59:17 +0200
+Subject: [python-committers] [Python-Dev] On track for Python
+ 2.6.4	final this Sunday?
+In-Reply-To: <4AD49AB5.9040703@v.loewis.de>
+References: <430E0910-C2A1-48F7-B036-743BA5BA91A3@python.org>	<4AD48BC4.2060809@egenix.com>	<4AD4917D.8090800@v.loewis.de>
+	<4AD49631.70607@egenix.com> <4AD49AB5.9040703@v.loewis.de>
+Message-ID: <4AD4A3D5.8030907@egenix.com>
+
+"Martin v. L?wis" wrote:
+> 
+>>> As this bug already exists in 2.6.2, I don't think the change is
+>>> eligible for 2.6.4.
+>>>
+>>> In addition, I want to review it, which I won't be able to until
+>>> Sunday.
+>>
+>> Then I'd suggest to wait another week with 2.6.4 to give you a
+>> chance to look at the patch.
+> 
+> That won't make the change more eligible.
+
+No, but chances increase :-)
+
+>> Of course, but we don't live in an ideal world, otherwise we would
+>> have noticed before releasing 2.6 :-)
+> 
+> Oh, I did notice. I had been cautioning for years that switching to
+> a newer VS version (2005 or later) would cause severe problems. We
+> are still trying to recover from the switch to VS 2008. That said,
+> staying with VS 2003 really hadn't been an option, either. It's
+> just said that Microsoft has created a new DLL hell in their attempt
+> to fix the old one, and that they fail to admit it (assuming that
+> everybody should be using .NET, anyway).
+
+Well, hopefully we can work out those problems and then stay with
+VS 2008 a bit.
+
+MS is already working on VS 2010:
+
+http://www.microsoft.com/visualstudio/en-us/products/2010/default.mspx
+
+List of C/C++ changes:
+
+http://msdn.microsoft.com/en-us/library/dd465215(VS.100).aspx
+
+Not sure what this means:
+
+"""
+The libraries deployment model is no longer based on the fusion mechanism, and manifests are no
+longer used. Instead, the name of each dynamic link library contains its version number.
+"""
+
+Perhaps they finally realized that adding version number to DLLs is
+better than trying to match manifests.
+
+-- 
+Marc-Andre Lemburg
+eGenix.com
+
+Professional Python Services directly from the Source  (#1, Oct 13 2009)
+>>> Python/Zope Consulting and Support ...        http://www.egenix.com/
+>>> mxODBC.Zope.Database.Adapter ...             http://zope.egenix.com/
+>>> mxODBC, mxDateTime, mxTextTools ...        http://python.egenix.com/
+________________________________________________________________________
+
+::: Try our new mxODBC.Connect Python Database Interface for free ! ::::
+
+
+   eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+    D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+           Registered at Amtsgericht Duesseldorf: HRB 46611
+               http://www.egenix.com/company/contact/
+
+From barry at python.org  Tue Oct 13 18:56:09 2009
+From: barry at python.org (Barry Warsaw)
+Date: Tue, 13 Oct 2009 12:56:09 -0400
+Subject: [python-committers] [Python-Dev] On track for Python
+	2.6.4	final this Sunday?
+In-Reply-To: <4AD49631.70607@egenix.com>
+References: <430E0910-C2A1-48F7-B036-743BA5BA91A3@python.org>	<4AD48BC4.2060809@egenix.com>
+	<4AD4917D.8090800@v.loewis.de> <4AD49631.70607@egenix.com>
+Message-ID: <E048EC3C-4640-424D-B6B1-223A6CB519D5@python.org>
+
+On Oct 13, 2009, at 11:01 AM, M.-A. Lemburg wrote:
+
+> Then I'd suggest to wait another week with 2.6.4 to give you a
+> chance to look at the patch.
+
+That's not a good option, IMO.  We have a known broken 2.6.3 out there  
+and we owe it to our users to correct our mistake and given them the  
+release they should have gotten in the first place.
+
+We don't need to wait too long for 2.6.5 though.  A few months would  
+be appropriate.
+
+-Barry
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: PGP.sig
+Type: application/pgp-signature
+Size: 832 bytes
+Desc: This is a digitally signed message part
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20091013/646e6f94/attachment.pgp>
+
+From barry at python.org  Tue Oct 13 18:57:21 2009
+From: barry at python.org (Barry Warsaw)
+Date: Tue, 13 Oct 2009 12:57:21 -0400
+Subject: [python-committers] [Python-Dev] On track for Python 2.6.4
+	final this Sunday?
+In-Reply-To: <94bdd2610910130816g42826010w3d20901683678ed3@mail.gmail.com>
+References: <430E0910-C2A1-48F7-B036-743BA5BA91A3@python.org>
+	<20091013145211.8DB243A4068@sparrow.telecommunity.com>
+	<94bdd2610910130816g42826010w3d20901683678ed3@mail.gmail.com>
+Message-ID: <52E997AF-A050-41F4-9E2A-36282590B230@python.org>
+
+On Oct 13, 2009, at 11:16 AM, Tarek Ziad? wrote:
+
+> I still need to do some more tests, I didn't have time to try the
+> various projects under win32.
+> It's planned to night.
+>
+> The tests are consisting of compiling and insatling a dozain of
+> projects on linux and win32 (and bith when possible)
+
+Great thanks, let us know how it goes.  If there's any question at all  
+about the fixes that have gone in since rc1, we should spin an rc2.
+
+-Barry
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: PGP.sig
+Type: application/pgp-signature
+Size: 832 bytes
+Desc: This is a digitally signed message part
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20091013/29a389de/attachment-0001.pgp>
+
+From mal at egenix.com  Tue Oct 13 19:07:22 2009
+From: mal at egenix.com (M.-A. Lemburg)
+Date: Tue, 13 Oct 2009 19:07:22 +0200
+Subject: [python-committers] [Python-Dev] On track for Python
+ 2.6.4	final this Sunday?
+In-Reply-To: <E048EC3C-4640-424D-B6B1-223A6CB519D5@python.org>
+References: <430E0910-C2A1-48F7-B036-743BA5BA91A3@python.org>	<4AD48BC4.2060809@egenix.com>	<4AD4917D.8090800@v.loewis.de>
+	<4AD49631.70607@egenix.com>
+	<E048EC3C-4640-424D-B6B1-223A6CB519D5@python.org>
+Message-ID: <4AD4B3CA.4000409@egenix.com>
+
+Barry Warsaw wrote:
+> On Oct 13, 2009, at 11:01 AM, M.-A. Lemburg wrote:
+> 
+>> Then I'd suggest to wait another week with 2.6.4 to give you a
+>> chance to look at the patch.
+> 
+> That's not a good option, IMO.  We have a known broken 2.6.3 out there
+> and we owe it to our users to correct our mistake and given them the
+> release they should have gotten in the first place.
+> 
+> We don't need to wait too long for 2.6.5 though.  A few months would be
+> appropriate.
+
+Would it be reasonable to shorten that period, if the fix for the
+mentioned problem gets ready for prime time earlier ?
+
+-- 
+Marc-Andre Lemburg
+eGenix.com
+
+Professional Python Services directly from the Source  (#1, Oct 13 2009)
+>>> Python/Zope Consulting and Support ...        http://www.egenix.com/
+>>> mxODBC.Zope.Database.Adapter ...             http://zope.egenix.com/
+>>> mxODBC, mxDateTime, mxTextTools ...        http://python.egenix.com/
+________________________________________________________________________
+
+::: Try our new mxODBC.Connect Python Database Interface for free ! ::::
+
+
+   eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+    D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+           Registered at Amtsgericht Duesseldorf: HRB 46611
+               http://www.egenix.com/company/contact/
+
+From barry at python.org  Tue Oct 13 19:12:42 2009
+From: barry at python.org (Barry Warsaw)
+Date: Tue, 13 Oct 2009 13:12:42 -0400
+Subject: [python-committers] [Python-Dev] On track for Python
+	2.6.4	final this Sunday?
+In-Reply-To: <4AD4B3CA.4000409@egenix.com>
+References: <430E0910-C2A1-48F7-B036-743BA5BA91A3@python.org>	<4AD48BC4.2060809@egenix.com>	<4AD4917D.8090800@v.loewis.de>
+	<4AD49631.70607@egenix.com>
+	<E048EC3C-4640-424D-B6B1-223A6CB519D5@python.org>
+	<4AD4B3CA.4000409@egenix.com>
+Message-ID: <66AEE52E-608D-4A55-A85B-B95C570950D0@python.org>
+
+On Oct 13, 2009, at 1:07 PM, M.-A. Lemburg wrote:
+
+> Would it be reasonable to shorten that period, if the fix for the
+> mentioned problem gets ready for prime time earlier ?
+
+I think there are many 2.6.x bugs queued up for after 2.6.4 is  
+released.  I'm not at all opposed to setting a date approximately 1  
+month from now for the first 2.6.5 rc.  That should give people plenty  
+of time to get their top fixes in.
+
+i-like-timed-releases-ly y'rs,
+-Barry
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: PGP.sig
+Type: application/pgp-signature
+Size: 832 bytes
+Desc: This is a digitally signed message part
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20091013/b20175f7/attachment.pgp>
+
+From ssteinerx at gmail.com  Tue Oct 13 19:04:41 2009
+From: ssteinerx at gmail.com (ssteinerX@gmail.com)
+Date: Tue, 13 Oct 2009 13:04:41 -0400
+Subject: [python-committers] [Python-Dev] On track for Python 2.6.4
+	final this Sunday?
+In-Reply-To: <52E997AF-A050-41F4-9E2A-36282590B230@python.org>
+References: <430E0910-C2A1-48F7-B036-743BA5BA91A3@python.org>
+	<20091013145211.8DB243A4068@sparrow.telecommunity.com>
+	<94bdd2610910130816g42826010w3d20901683678ed3@mail.gmail.com>
+	<52E997AF-A050-41F4-9E2A-36282590B230@python.org>
+Message-ID: <FE461493-B4EB-4C25-B63D-1348E60E1B75@gmail.com>
+
+
+On Oct 13, 2009, at 12:57 PM, Barry Warsaw wrote:
+
+> On Oct 13, 2009, at 11:16 AM, Tarek Ziad? wrote:
+>
+>> I still need to do some more tests, I didn't have time to try the
+>> various projects under win32.
+>> It's planned to night.
+>>
+>> The tests are consisting of compiling and insatling a dozain of
+>> projects on linux and win32 (and bith when possible)
+>
+> Great thanks, let us know how it goes.  If there's any question at  
+> all about the fixes that have gone in since rc1, we should spin an  
+> rc2.
+
+Just curious, how big a server does the linux portion of the test  
+require memory-wise?  Would, e.g. an Ubuntu 9.0x with 256MB do the job?
+
+I ask because those types of servers are available for short-run jobs  
+for pennines per hour and I would be willing to work on the code to  
+fire-up, load them with the test suite, do the run, and shut them  
+down.  I happen to have a bunch of code lying around for doing such  
+things...
+
+S
+
+
+
+
+From skip at pobox.com  Tue Oct 13 19:33:03 2009
+From: skip at pobox.com (skip at pobox.com)
+Date: Tue, 13 Oct 2009 12:33:03 -0500
+Subject: [python-committers] [Python-Dev] On track for Python 2.6.4
+ final this Sunday?
+In-Reply-To: <4AD4B3CA.4000409@egenix.com>
+References: <430E0910-C2A1-48F7-B036-743BA5BA91A3@python.org>
+	<4AD48BC4.2060809@egenix.com> <4AD4917D.8090800@v.loewis.de>
+	<4AD49631.70607@egenix.com>
+	<E048EC3C-4640-424D-B6B1-223A6CB519D5@python.org>
+	<4AD4B3CA.4000409@egenix.com>
+Message-ID: <19156.47567.39139.469228@montanaro.dyndns.org>
+
+    >> We don't need to wait too long for 2.6.5 though.  A few months would be
+    >> appropriate.
+
+    MAL> Would it be reasonable to shorten that period, if the fix for the
+    MAL> mentioned problem gets ready for prime time earlier ?
+
+I think it would be worthwhile to prioritize all outstanding bugs which have
+been mentioned in the context of 2.6.[345] and run a bug day with the top
+priority being to fix those bugs.  If that task is completed, then move onto
+other stuff.  Once those primary bugs are tackled schedule a 2.6.5 release.
+
+Skip
+ 
+
+From rdmurray at bitdance.com  Tue Oct 13 19:41:49 2009
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Tue, 13 Oct 2009 13:41:49 -0400 (EDT)
+Subject: [python-committers] [Python-Dev] On track for Python 2.6.4
+ final this Sunday?
+In-Reply-To: <52E997AF-A050-41F4-9E2A-36282590B230@python.org>
+References: <430E0910-C2A1-48F7-B036-743BA5BA91A3@python.org>
+	<20091013145211.8DB243A4068@sparrow.telecommunity.com>
+	<94bdd2610910130816g42826010w3d20901683678ed3@mail.gmail.com>
+	<52E997AF-A050-41F4-9E2A-36282590B230@python.org>
+Message-ID: <Pine.LNX.4.64.0910131339190.18193@kimball.webabinitio.net>
+
+On Tue, 13 Oct 2009 at 12:57, Barry Warsaw wrote:
+> On Oct 13, 2009, at 11:16 AM, Tarek Ziad? wrote:
+>> I still need to do some more tests, I didn't have time to try the
+>> various projects under win32.
+>> It's planned to night.
+>> 
+>> The tests are consisting of compiling and insatling a dozain of
+>> projects on linux and win32 (and bith when possible)
+>
+> Great thanks, let us know how it goes.  If there's any question at all about 
+> the fixes that have gone in since rc1, we should spin an rc2.
+
+I always thought that the idea of a release candidate was that if there
+were any fixes _at all_ that there would be a new rc.  Only when no
+bugs needing fixed are found does the rc turn into the actual release.
+But I understand that this is an idealized rc/release policy :)
+
+--David (RDM)
+
+From barry at python.org  Tue Oct 13 19:45:39 2009
+From: barry at python.org (Barry Warsaw)
+Date: Tue, 13 Oct 2009 13:45:39 -0400
+Subject: [python-committers] [Python-Dev] On track for Python 2.6.4
+	final this Sunday?
+In-Reply-To: <Pine.LNX.4.64.0910131339190.18193@kimball.webabinitio.net>
+References: <430E0910-C2A1-48F7-B036-743BA5BA91A3@python.org>
+	<20091013145211.8DB243A4068@sparrow.telecommunity.com>
+	<94bdd2610910130816g42826010w3d20901683678ed3@mail.gmail.com>
+	<52E997AF-A050-41F4-9E2A-36282590B230@python.org>
+	<Pine.LNX.4.64.0910131339190.18193@kimball.webabinitio.net>
+Message-ID: <39C0375D-0A34-45F8-90AA-A4AA089CC9C5@python.org>
+
+On Oct 13, 2009, at 1:41 PM, R. David Murray wrote:
+
+> I always thought that the idea of a release candidate was that if  
+> there
+> were any fixes _at all_ that there would be a new rc.  Only when no
+> bugs needing fixed are found does the rc turn into the actual release.
+> But I understand that this is an idealized rc/release policy :)
+
+I'll invoke the Umbrella Rule now.  If we don't do one we'll wish we  
+had.  If we do, we won't have needed it.
+
+-Barry
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: PGP.sig
+Type: application/pgp-signature
+Size: 832 bytes
+Desc: This is a digitally signed message part
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20091013/3576ca18/attachment-0001.pgp>
+
+From mal at egenix.com  Tue Oct 13 19:54:20 2009
+From: mal at egenix.com (M.-A. Lemburg)
+Date: Tue, 13 Oct 2009 19:54:20 +0200
+Subject: [python-committers] [Python-Dev] On track for Python
+ 2.6.4	final this Sunday?
+In-Reply-To: <66AEE52E-608D-4A55-A85B-B95C570950D0@python.org>
+References: <430E0910-C2A1-48F7-B036-743BA5BA91A3@python.org>	<4AD48BC4.2060809@egenix.com>	<4AD4917D.8090800@v.loewis.de>	<4AD49631.70607@egenix.com>	<E048EC3C-4640-424D-B6B1-223A6CB519D5@python.org>	<4AD4B3CA.4000409@egenix.com>
+	<66AEE52E-608D-4A55-A85B-B95C570950D0@python.org>
+Message-ID: <4AD4BECC.6010300@egenix.com>
+
+Barry Warsaw wrote:
+> On Oct 13, 2009, at 1:07 PM, M.-A. Lemburg wrote:
+> 
+>> Would it be reasonable to shorten that period, if the fix for the
+>> mentioned problem gets ready for prime time earlier ?
+> 
+> I think there are many 2.6.x bugs queued up for after 2.6.4 is
+> released.  I'm not at all opposed to setting a date approximately 1
+> month from now for the first 2.6.5 rc.  That should give people plenty
+> of time to get their top fixes in.
+> 
+> i-like-timed-releases-ly y'rs,
+
+Agreed. Adding some pressure that way helps :-)
+
+-- 
+Marc-Andre Lemburg
+eGenix.com
+
+Professional Python Services directly from the Source  (#1, Oct 13 2009)
+>>> Python/Zope Consulting and Support ...        http://www.egenix.com/
+>>> mxODBC.Zope.Database.Adapter ...             http://zope.egenix.com/
+>>> mxODBC, mxDateTime, mxTextTools ...        http://python.egenix.com/
+________________________________________________________________________
+
+::: Try our new mxODBC.Connect Python Database Interface for free ! ::::
+
+
+   eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+    D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+           Registered at Amtsgericht Duesseldorf: HRB 46611
+               http://www.egenix.com/company/contact/
+
+From guido at python.org  Tue Oct 13 20:00:27 2009
+From: guido at python.org (Guido van Rossum)
+Date: Tue, 13 Oct 2009 11:00:27 -0700
+Subject: [python-committers] [Python-Dev] On track for Python 2.6.4
+	final this Sunday?
+In-Reply-To: <39C0375D-0A34-45F8-90AA-A4AA089CC9C5@python.org>
+References: <430E0910-C2A1-48F7-B036-743BA5BA91A3@python.org> 
+	<20091013145211.8DB243A4068@sparrow.telecommunity.com>
+	<94bdd2610910130816g42826010w3d20901683678ed3@mail.gmail.com> 
+	<52E997AF-A050-41F4-9E2A-36282590B230@python.org>
+	<Pine.LNX.4.64.0910131339190.18193@kimball.webabinitio.net> 
+	<39C0375D-0A34-45F8-90AA-A4AA089CC9C5@python.org>
+Message-ID: <ca471dc20910131100s2b1c6e3as9eaa8ef124917c44@mail.gmail.com>
+
+On Tue, Oct 13, 2009 at 10:45 AM, Barry Warsaw <barry at python.org> wrote:
+> On Oct 13, 2009, at 1:41 PM, R. David Murray wrote:
+>
+>> I always thought that the idea of a release candidate was that if there
+>> were any fixes _at all_ that there would be a new rc. ?Only when no
+>> bugs needing fixed are found does the rc turn into the actual release.
+>> But I understand that this is an idealized rc/release policy :)
+>
+> I'll invoke the Umbrella Rule now. ?If we don't do one we'll wish we had.
+> ?If we do, we won't have needed it.
+
+Traceback (most recent call last):
+  File "umbrella_rules.py", line 6, in <module>
+    UmbrellaRule()
+  File "unbrella_rules.py", line 4, in UmbrellaRule
+    raise DuplicateRuleName('http://whatplanetisthis.com/2008/02/the-umbrella-rule-and-sharing-rules-in-general/')
+DuplicateRuleName:
+http://whatplanetisthis.com/2008/02/the-umbrella-rule-and-sharing-rules-in-general/
+
+-- 
+--Guido van Rossum (home page: http://www.python.org/~guido/)
+
+From barry at python.org  Tue Oct 13 20:06:29 2009
+From: barry at python.org (Barry Warsaw)
+Date: Tue, 13 Oct 2009 14:06:29 -0400
+Subject: [python-committers] [Python-Dev] On track for Python 2.6.4
+	final this Sunday?
+In-Reply-To: <ca471dc20910131100s2b1c6e3as9eaa8ef124917c44@mail.gmail.com>
+References: <430E0910-C2A1-48F7-B036-743BA5BA91A3@python.org>
+	<20091013145211.8DB243A4068@sparrow.telecommunity.com>
+	<94bdd2610910130816g42826010w3d20901683678ed3@mail.gmail.com>
+	<52E997AF-A050-41F4-9E2A-36282590B230@python.org>
+	<Pine.LNX.4.64.0910131339190.18193@kimball.webabinitio.net>
+	<39C0375D-0A34-45F8-90AA-A4AA089CC9C5@python.org>
+	<ca471dc20910131100s2b1c6e3as9eaa8ef124917c44@mail.gmail.com>
+Message-ID: <B82471F1-DFB4-4A5A-B52E-F6CA56660A19@python.org>
+
+On Oct 13, 2009, at 2:00 PM, Guido van Rossum wrote:
+
+> Traceback (most recent call last):
+>  File "umbrella_rules.py", line 6, in <module>
+>    UmbrellaRule()
+>  File "unbrella_rules.py", line 4, in UmbrellaRule
+>    raise DuplicateRuleName('http://whatplanetisthis.com/2008/02/the-umbrella-rule-and-sharing-rules-in-general/')
+> DuplicateRuleName:
+> http://whatplanetisthis.com/2008/02/the-umbrella-rule-and-sharing-rules-in-general/
+
+MisinformedMeteorologistRule (probably more PC than stupid weatherman  
+rule :)
+
+-Barry
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: PGP.sig
+Type: application/pgp-signature
+Size: 832 bytes
+Desc: This is a digitally signed message part
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20091013/299606e5/attachment.pgp>
+
+From martin at v.loewis.de  Wed Oct 14 00:10:24 2009
+From: martin at v.loewis.de (=?ISO-8859-15?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Wed, 14 Oct 2009 06:10:24 +0800
+Subject: [python-committers] [Python-Dev] On track for Python 2.6.4
+ final this Sunday?
+In-Reply-To: <Pine.LNX.4.64.0910131339190.18193@kimball.webabinitio.net>
+References: <430E0910-C2A1-48F7-B036-743BA5BA91A3@python.org>	<20091013145211.8DB243A4068@sparrow.telecommunity.com>	<94bdd2610910130816g42826010w3d20901683678ed3@mail.gmail.com>	<52E997AF-A050-41F4-9E2A-36282590B230@python.org>
+	<Pine.LNX.4.64.0910131339190.18193@kimball.webabinitio.net>
+Message-ID: <4AD4FAD0.1080807@v.loewis.de>
+
+
+> I always thought that the idea of a release candidate was that if there
+> were any fixes _at all_ that there would be a new rc.  Only when no
+> bugs needing fixed are found does the rc turn into the actual release.
+
+This was also my understanding; that's the point of calling it
+"candidate". Since the code base of 2.6.4rc1 was not released as-is,
+we would need to consider another candidate.
+
+But then, Barry doesn't like release candidates in the first place.
+
+Regards,
+Martin
+
+
+
+From ziade.tarek at gmail.com  Wed Oct 14 00:44:29 2009
+From: ziade.tarek at gmail.com (=?ISO-8859-1?Q?Tarek_Ziad=E9?=)
+Date: Wed, 14 Oct 2009 00:44:29 +0200
+Subject: [python-committers] [Python-Dev] On track for Python 2.6.4
+	final this Sunday?
+In-Reply-To: <94bdd2610910130816g42826010w3d20901683678ed3@mail.gmail.com>
+References: <430E0910-C2A1-48F7-B036-743BA5BA91A3@python.org>
+	<20091013145211.8DB243A4068@sparrow.telecommunity.com>
+	<94bdd2610910130816g42826010w3d20901683678ed3@mail.gmail.com>
+Message-ID: <94bdd2610910131544h231d07cdqb07d3f6f65eee06d@mail.gmail.com>
+
+On Tue, Oct 13, 2009 at 5:16 PM, Tarek Ziad? <ziade.tarek at gmail.com> wrote:
+> On Tue, Oct 13, 2009 at 4:52 PM, P.J. Eby <pje at telecommunity.com> wrote:
+>> At 08:27 AM 10/13/2009 -0400, Barry Warsaw wrote:
+>>>
+>>> Are we on track to release 2.6.4 final this Sunday or do we need
+>>> another rc?
+>>>
+>>> Yesterday, Tarek committed another setuptools related fix and said
+>>> that he was going to run a bunch of build tests locally. ?Tarek, how
+>>> did that go?
+>>
+>
+> I still need to do some more tests, I didn't have time to try the
+> various projects under win32.
+> It's planned to night.
+>
+> The tests are consisting of compiling and insatling a dozain of
+> projects on linux and win32 (and bith when possible)
+
+Barry,
+
+I'll continue my win32 smoke tests tomorrow, it's not over. So far, so good.
+
+windows XP (vmware) - VC9 - running setup.py build+install
+
+- zope.interface 3.5.2 + setuptools 0.6c9
+- Twisted-8.2.0 + setuptools 0.6c9
+- pythonwin32-314 +plain distutils: works but I had a failure on
+'mc.exe' on one extension which is unrelated obviously.
+  pywin32 builds fine otherwise. Still investigating. on this one
+
+Tarek
+
+From barry at python.org  Wed Oct 14 01:06:38 2009
+From: barry at python.org (Barry Warsaw)
+Date: Tue, 13 Oct 2009 19:06:38 -0400
+Subject: [python-committers] [Python-Dev] On track for Python 2.6.4
+	final this Sunday?
+In-Reply-To: <4AD4FAD0.1080807@v.loewis.de>
+References: <430E0910-C2A1-48F7-B036-743BA5BA91A3@python.org>	<20091013145211.8DB243A4068@sparrow.telecommunity.com>	<94bdd2610910130816g42826010w3d20901683678ed3@mail.gmail.com>	<52E997AF-A050-41F4-9E2A-36282590B230@python.org>
+	<Pine.LNX.4.64.0910131339190.18193@kimball.webabinitio.net>
+	<4AD4FAD0.1080807@v.loewis.de>
+Message-ID: <79DD5085-8D85-43F7-87B7-B378D76ECA64@python.org>
+
+On Oct 13, 2009, at 6:10 PM, Martin v. L?wis wrote:
+
+>> I always thought that the idea of a release candidate was that if  
+>> there
+>> were any fixes _at all_ that there would be a new rc.  Only when no
+>> bugs needing fixed are found does the rc turn into the actual  
+>> release.
+>
+> This was also my understanding; that's the point of calling it
+> "candidate". Since the code base of 2.6.4rc1 was not released as-is,
+> we would need to consider another candidate.
+>
+> But then, Barry doesn't like release candidates in the first place.
+
+No, but let's do one anyway!
+
+So, we can either make Sunday's release rc2 and do the final release  
+one week later, or I can try to get an rc2 out in the next day or two,  
+with a final release mid-next week.
+
+Thoughts?
+-Barry
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: PGP.sig
+Type: application/pgp-signature
+Size: 832 bytes
+Desc: This is a digitally signed message part
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20091013/7027cbcd/attachment-0001.pgp>
+
+From martin at v.loewis.de  Wed Oct 14 04:15:55 2009
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Wed, 14 Oct 2009 10:15:55 +0800
+Subject: [python-committers] [Python-Dev] On track for Python 2.6.4
+ final this Sunday?
+In-Reply-To: <79DD5085-8D85-43F7-87B7-B378D76ECA64@python.org>
+References: <430E0910-C2A1-48F7-B036-743BA5BA91A3@python.org>	<20091013145211.8DB243A4068@sparrow.telecommunity.com>	<94bdd2610910130816g42826010w3d20901683678ed3@mail.gmail.com>	<52E997AF-A050-41F4-9E2A-36282590B230@python.org>
+	<Pine.LNX.4.64.0910131339190.18193@kimball.webabinitio.net>
+	<4AD4FAD0.1080807@v.loewis.de>
+	<79DD5085-8D85-43F7-87B7-B378D76ECA64@python.org>
+Message-ID: <4AD5345B.4080301@v.loewis.de>
+
+> So, we can either make Sunday's release rc2 and do the final release one
+> week later, or I can try to get an rc2 out in the next day or two, with
+> a final release mid-next week.
+> 
+> Thoughts?
+
+I won't be able to produce Windows binaries until Saturday. Now sure how
+that would fit into the "within the next day or two" plan.
+
+Regards,
+Martin
+
+From anthonybaxter at gmail.com  Wed Oct 14 04:37:16 2009
+From: anthonybaxter at gmail.com (Anthony Baxter)
+Date: Wed, 14 Oct 2009 13:37:16 +1100
+Subject: [python-committers] [Python-Dev] On track for Python 2.6.4
+	final this Sunday?
+In-Reply-To: <e69d3ed20910131936w4ef49fd7oa97dd432b9920919@mail.gmail.com>
+References: <430E0910-C2A1-48F7-B036-743BA5BA91A3@python.org>
+	<20091013145211.8DB243A4068@sparrow.telecommunity.com>
+	<94bdd2610910130816g42826010w3d20901683678ed3@mail.gmail.com>
+	<52E997AF-A050-41F4-9E2A-36282590B230@python.org>
+	<Pine.LNX.4.64.0910131339190.18193@kimball.webabinitio.net>
+	<4AD4FAD0.1080807@v.loewis.de>
+	<79DD5085-8D85-43F7-87B7-B378D76ECA64@python.org>
+	<e69d3ed20910131936w4ef49fd7oa97dd432b9920919@mail.gmail.com>
+Message-ID: <e69d3ed20910131937m56648924of767bd57c2aa578@mail.gmail.com>
+
+I strongly urge another release candidate. But then, I am not doing the
+work, so take that advice for what it is...
+
+On Oct 14, 2009 10:18 AM, "Barry Warsaw" <barry at python.org> wrote:
+
+On Oct 13, 2009, at 6:10 PM, Martin v. L?wis wrote: >> I always thought that
+the idea of a release ...
+No, but let's do one anyway!
+
+So, we can either make Sunday's release rc2 and do the final release one
+week later, or I can try to get an rc2 out in the next day or two, with a
+final release mid-next week.
+
+Thoughts?
+-Barry
+
+
+_______________________________________________
+python-committers mailing list
+python-committers at python.org
+http://mail.python.org/mailman/listinfo/python-committers
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20091014/05578d19/attachment.htm>
+
+From barry at python.org  Wed Oct 14 04:45:43 2009
+From: barry at python.org (Barry Warsaw)
+Date: Tue, 13 Oct 2009 22:45:43 -0400
+Subject: [python-committers] [Python-Dev] On track for Python 2.6.4
+	final this Sunday?
+In-Reply-To: <4AD5345B.4080301@v.loewis.de>
+References: <430E0910-C2A1-48F7-B036-743BA5BA91A3@python.org>	<20091013145211.8DB243A4068@sparrow.telecommunity.com>	<94bdd2610910130816g42826010w3d20901683678ed3@mail.gmail.com>	<52E997AF-A050-41F4-9E2A-36282590B230@python.org>
+	<Pine.LNX.4.64.0910131339190.18193@kimball.webabinitio.net>
+	<4AD4FAD0.1080807@v.loewis.de>
+	<79DD5085-8D85-43F7-87B7-B378D76ECA64@python.org>
+	<4AD5345B.4080301@v.loewis.de>
+Message-ID: <B093CC07-0455-4ABA-BB47-7DC46CEBEB6D@python.org>
+
+On Oct 13, 2009, at 10:15 PM, Martin v. L?wis wrote:
+
+>> So, we can either make Sunday's release rc2 and do the final  
+>> release one
+>> week later, or I can try to get an rc2 out in the next day or two,  
+>> with
+>> a final release mid-next week.
+>>
+>> Thoughts?
+>
+> I won't be able to produce Windows binaries until Saturday. Now sure  
+> how
+> that would fit into the "within the next day or two" plan.
+
+That seems to argue for doing rc2 on Sunday the 18th.  If I tag the  
+release some time Saturday, you could have the binaries by Sunday  
+right?  Then we'll take one more week and release the final on the 25th.
+
+-Barry
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: PGP.sig
+Type: application/pgp-signature
+Size: 832 bytes
+Desc: This is a digitally signed message part
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20091013/c97ee626/attachment.pgp>
+
+From martin at v.loewis.de  Wed Oct 14 14:06:58 2009
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Wed, 14 Oct 2009 20:06:58 +0800
+Subject: [python-committers] [Python-Dev] On track for Python 2.6.4
+ final this Sunday?
+In-Reply-To: <B093CC07-0455-4ABA-BB47-7DC46CEBEB6D@python.org>
+References: <430E0910-C2A1-48F7-B036-743BA5BA91A3@python.org>	<20091013145211.8DB243A4068@sparrow.telecommunity.com>	<94bdd2610910130816g42826010w3d20901683678ed3@mail.gmail.com>	<52E997AF-A050-41F4-9E2A-36282590B230@python.org>
+	<Pine.LNX.4.64.0910131339190.18193@kimball.webabinitio.net>
+	<4AD4FAD0.1080807@v.loewis.de>
+	<79DD5085-8D85-43F7-87B7-B378D76ECA64@python.org>
+	<4AD5345B.4080301@v.loewis.de>
+	<B093CC07-0455-4ABA-BB47-7DC46CEBEB6D@python.org>
+Message-ID: <4AD5BEE2.2000405@v.loewis.de>
+
+
+> That seems to argue for doing rc2 on Sunday the 18th.  If I tag the
+> release some time Saturday, you could have the binaries by Sunday
+> right?
+
+Correct.
+
+Regards,
+Martin
+
+
+From barry at python.org  Wed Oct 14 14:48:01 2009
+From: barry at python.org (Barry Warsaw)
+Date: Wed, 14 Oct 2009 08:48:01 -0400
+Subject: [python-committers] [Python-Dev] On track for Python 2.6.4
+	final this Sunday?
+In-Reply-To: <4AD5BEE2.2000405@v.loewis.de>
+References: <430E0910-C2A1-48F7-B036-743BA5BA91A3@python.org>	<20091013145211.8DB243A4068@sparrow.telecommunity.com>	<94bdd2610910130816g42826010w3d20901683678ed3@mail.gmail.com>	<52E997AF-A050-41F4-9E2A-36282590B230@python.org>
+	<Pine.LNX.4.64.0910131339190.18193@kimball.webabinitio.net>
+	<4AD4FAD0.1080807@v.loewis.de>
+	<79DD5085-8D85-43F7-87B7-B378D76ECA64@python.org>
+	<4AD5345B.4080301@v.loewis.de>
+	<B093CC07-0455-4ABA-BB47-7DC46CEBEB6D@python.org>
+	<4AD5BEE2.2000405@v.loewis.de>
+Message-ID: <9185B478-1C1B-4F26-A20D-24834EBFD898@python.org>
+
+On Oct 14, 2009, at 8:06 AM, Martin v. L?wis wrote:
+
+>> That seems to argue for doing rc2 on Sunday the 18th.  If I tag the
+>> release some time Saturday, you could have the binaries by Sunday
+>> right?
+>
+> Correct.
+
+Cool.  I've updated the Python Release Schedule calendar to reflect  
+the new dates.
+
+-Barry
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: PGP.sig
+Type: application/pgp-signature
+Size: 832 bytes
+Desc: This is a digitally signed message part
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20091014/914686ad/attachment.pgp>
+
+From barry at python.org  Sat Oct 17 22:30:31 2009
+From: barry at python.org (Barry Warsaw)
+Date: Sat, 17 Oct 2009 16:30:31 -0400
+Subject: [python-committers] 2.6.4rc2 - issue 7149
+Message-ID: <5EC1C538-E33D-4545-BF4F-544BB6B0311D@python.org>
+
+Ronald, please let me know when you've applied the patch for bug  
+7149.  That's the last thing I'm waiting on in order to tag 2.6.4rc2.   
+Thanks.
+
+-Barry
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: PGP.sig
+Type: application/pgp-signature
+Size: 832 bytes
+Desc: This is a digitally signed message part
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20091017/93a7937d/attachment.pgp>
+
+From ronaldoussoren at mac.com  Sun Oct 18 09:09:35 2009
+From: ronaldoussoren at mac.com (Ronald Oussoren)
+Date: Sun, 18 Oct 2009 09:09:35 +0200
+Subject: [python-committers] 2.6.4rc2 - issue 7149
+In-Reply-To: <5EC1C538-E33D-4545-BF4F-544BB6B0311D@python.org>
+References: <5EC1C538-E33D-4545-BF4F-544BB6B0311D@python.org>
+Message-ID: <189AD43C-5272-49AF-ADA2-CF2FB7F5F5B6@mac.com>
+
+
+On 17 Oct, 2009, at 22:30, Barry Warsaw wrote:
+
+> Ronald, please let me know when you've applied the patch for bug  
+> 7149.  That's the last thing I'm waiting on in order to tag  
+> 2.6.4rc2.  Thanks.
+
+Sorry about the late reply,  I haven't been near a computer on  
+Saturday. I've applied the fix for #7149 in r75483.
+
+Ronald
+>
+> -Barry
+>
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: smime.p7s
+Type: application/pkcs7-signature
+Size: 3567 bytes
+Desc: not available
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20091018/bed80131/attachment.bin>
+
+From barry at python.org  Sun Oct 18 18:24:30 2009
+From: barry at python.org (Barry Warsaw)
+Date: Sun, 18 Oct 2009 12:24:30 -0400
+Subject: [python-committers] 2.6.4rc2 - issue 7149
+In-Reply-To: <189AD43C-5272-49AF-ADA2-CF2FB7F5F5B6@mac.com>
+References: <5EC1C538-E33D-4545-BF4F-544BB6B0311D@python.org>
+	<189AD43C-5272-49AF-ADA2-CF2FB7F5F5B6@mac.com>
+Message-ID: <93058EF2-04A2-426A-A2B4-973202299381@python.org>
+
+On Oct 18, 2009, at 3:09 AM, Ronald Oussoren wrote:
+
+> Sorry about the late reply,  I haven't been near a computer on  
+> Saturday. I've applied the fix for #7149 in r75483.
+
+Thanks!  I had a gig last night so wasn't able to tag the release, but  
+I'm going to do it now.
+
+-Barry
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: PGP.sig
+Type: application/pgp-signature
+Size: 832 bytes
+Desc: This is a digitally signed message part
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20091018/d450ecf0/attachment.pgp>
+
+From barry at python.org  Sun Oct 18 19:03:41 2009
+From: barry at python.org (Barry Warsaw)
+Date: Sun, 18 Oct 2009 13:03:41 -0400
+Subject: [python-committers] Fwd: [Python-checkins] r75498 -
+	python/tags/r264rc2
+References: <20091018165338.0D9BFE3C18@mail.wooz.org>
+Message-ID: <E151B3AC-F1FF-4329-97AE-0BE10FED75A0@python.org>
+
+2.6.4rc2 is tagged.  You know the drill :)
+
+Begin forwarded message:
+
+> From: barry.warsaw <python-checkins at python.org>
+> Date: October 18, 2009 12:53:38 PM EDT
+> To: python-checkins at python.org
+> Subject: [Python-checkins] r75498 - python/tags/r264rc2
+> Message-Id: <20091018165338.0D9BFE3C18 at mail.wooz.org>
+>
+> Author: barry.warsaw
+> Date: Sun Oct 18 18:50:55 2009
+> New Revision: 75498
+>
+> Log:
+> Tagging 2.6.4rc2
+>
+>
+> Added:
+>   python/tags/r264rc2/
+>      - copied from r75497, /python/branches/release26-maint/
+> _______________________________________________
+> Python-checkins mailing list
+> Python-checkins at python.org
+> http://mail.python.org/mailman/listinfo/python-checkins
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: PGP.sig
+Type: application/pgp-signature
+Size: 832 bytes
+Desc: This is a digitally signed message part
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20091018/724e8bc7/attachment.pgp>
+
+From barry at python.org  Mon Oct 26 02:44:00 2009
+From: barry at python.org (Barry Warsaw)
+Date: Sun, 25 Oct 2009 21:44:00 -0400
+Subject: [python-committers] tagging 2.6.4
+Message-ID: <4BCF12E0-481E-44A3-8D0B-C25F9343205F@python.org>
+
+Please, no commits.  I'm tagging 2.6.4 final.
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: PGP.sig
+Type: application/pgp-signature
+Size: 832 bytes
+Desc: This is a digitally signed message part
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20091025/418def3d/attachment.pgp>
+
+From barry at python.org  Mon Oct 26 02:49:13 2009
+From: barry at python.org (Barry Warsaw)
+Date: Sun, 25 Oct 2009 21:49:13 -0400
+Subject: [python-committers] Fwd: [Python-checkins] r75707 - python/tags/r264
+References: <20091026014844.40D91E3922@mail.wooz.org>
+Message-ID: <4E06BA1D-E3D1-47CE-8BF1-798A96EA6563@python.org>
+
+
+
+Begin forwarded message:
+
+> From: barry.warsaw <python-checkins at python.org>
+> Date: October 25, 2009 9:48:44 PM EDT
+> To: python-checkins at python.org
+> Subject: [Python-checkins] r75707 - python/tags/r264
+> Message-Id: <20091026014844.40D91E3922 at mail.wooz.org>
+>
+> Author: barry.warsaw
+> Date: Mon Oct 26 02:48:31 2009
+> New Revision: 75707
+>
+> Log:
+> Tagging 2.6.4 final
+>
+>
+> Added:
+>   python/tags/r264/
+>      - copied from r75706, /python/branches/release26-maint/
+> _______________________________________________
+> Python-checkins mailing list
+> Python-checkins at python.org
+> http://mail.python.org/mailman/listinfo/python-checkins
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: PGP.sig
+Type: application/pgp-signature
+Size: 832 bytes
+Desc: This is a digitally signed message part
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20091025/5e2c337f/attachment.pgp>
+
+From barry at python.org  Mon Oct 26 23:50:37 2009
+From: barry at python.org (Barry Warsaw)
+Date: Mon, 26 Oct 2009 18:50:37 -0400
+Subject: [python-committers] 2.6 tree is thawed
+Message-ID: <081B636A-77E1-4F8B-BA4E-A1C773201ED2@python.org>
+
+Thanks everyone for a well-tested release.  2.6.4 is out.  2.6.5 will  
+be a "normal" release in that fixes do not need to be restricted to  
+regressions.
+
+-Barry
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: PGP.sig
+Type: application/pgp-signature
+Size: 832 bytes
+Desc: This is a digitally signed message part
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20091026/c507b81c/attachment.pgp>
+

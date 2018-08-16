@@ -1,0 +1,4330 @@
+From g.brandl at gmx.net  Fri Mar  4 17:55:14 2011
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Fri, 04 Mar 2011 17:55:14 +0100
+Subject: [python-committers] SVN repository is now read-only
+Message-ID: <ikr5je$er2$1@dough.gmane.org>
+
+Antoine and me are starting the conversion now (it takes quite
+a while to get the SVN repo and convert it, so we're doing it
+overnight).
+
+The majority of the work will be done tomorrow: pushing the new
+repositories live, enabling and testing all integration into
+python.org services and probably more work on the new devguide.
+
+Please join us in #python-dev if you have questions.
+
+cheers,
+Georg
+
+
+From solipsis at pitrou.net  Fri Mar  4 18:18:33 2011
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Fri, 04 Mar 2011 18:18:33 +0100
+Subject: [python-committers] SVN repository is now read-only
+In-Reply-To: <ikr5je$er2$1@dough.gmane.org>
+References: <ikr5je$er2$1@dough.gmane.org>
+Message-ID: <1299259113.3721.2.camel@localhost.localdomain>
+
+
+Since it was just asked on #python-dev:
+
+The current "cpython" repository is still a test repository, you can do
+your test commits against it; a new fresh repository will replace it
+once the conversion is over (so any important commits should be deferred
+until further announcement :-)).
+
+(I'm saying "commits" and not only "pushes" because if you base your
+commits on some of the test commits that were done in between, they will
+not push properly into the new repository)
+
+Regards
+
+Antoine.
+
+
+Le vendredi 04 mars 2011 ? 17:55 +0100, Georg Brandl a ?crit :
+> Antoine and me are starting the conversion now (it takes quite
+> a while to get the SVN repo and convert it, so we're doing it
+> overnight).
+> 
+> The majority of the work will be done tomorrow: pushing the new
+> repositories live, enabling and testing all integration into
+> python.org services and probably more work on the new devguide.
+> 
+> Please join us in #python-dev if you have questions.
+> 
+> cheers,
+> Georg
+> 
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+> 
+
+
+
+From stefan at bytereef.org  Fri Mar  4 18:21:26 2011
+From: stefan at bytereef.org (Stefan Krah)
+Date: Fri, 4 Mar 2011 18:21:26 +0100
+Subject: [python-committers] SVN repository is now read-only
+In-Reply-To: <ikr5je$er2$1@dough.gmane.org>
+References: <ikr5je$er2$1@dough.gmane.org>
+Message-ID: <20110304172126.GA26909@sleipnir.bytereef.org>
+
+Georg Brandl <g.brandl at gmx.net> wrote:
+> Antoine and me are starting the conversion now (it takes quite
+> a while to get the SVN repo and convert it, so we're doing it
+> overnight).
+> 
+> The majority of the work will be done tomorrow: pushing the new
+> repositories live, enabling and testing all integration into
+> python.org services and probably more work on the new devguide.
+> 
+> Please join us in #python-dev if you have questions.
+
+Would it interfere with your plans if I commit an svnmerge for
+py3k-cdecimal? Or is this now impossible?
+
+
+Thanks,
+
+Stefan Krah
+
+
+From martin at v.loewis.de  Fri Mar  4 18:37:30 2011
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Fri, 04 Mar 2011 18:37:30 +0100
+Subject: [python-committers] SVN repository is now read-only
+In-Reply-To: <20110304172126.GA26909@sleipnir.bytereef.org>
+References: <ikr5je$er2$1@dough.gmane.org>
+	<20110304172126.GA26909@sleipnir.bytereef.org>
+Message-ID: <4D71235A.8040909@v.loewis.de>
+
+Am 04.03.2011 18:21, schrieb Stefan Krah:
+> Georg Brandl <g.brandl at gmx.net> wrote:
+>> Antoine and me are starting the conversion now (it takes quite
+>> a while to get the SVN repo and convert it, so we're doing it
+>> overnight).
+>>
+>> The majority of the work will be done tomorrow: pushing the new
+>> repositories live, enabling and testing all integration into
+>> python.org services and probably more work on the new devguide.
+>>
+>> Please join us in #python-dev if you have questions.
+> 
+> Would it interfere with your plans if I commit an svnmerge for
+> py3k-cdecimal? Or is this now impossible?
+
+It's impossible now; the repository is read-only (IIUC)
+
+Regards,
+Martin
+
+From g.brandl at gmx.net  Fri Mar  4 18:47:11 2011
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Fri, 04 Mar 2011 18:47:11 +0100
+Subject: [python-committers] SVN repository is now read-only
+In-Reply-To: <20110304172126.GA26909@sleipnir.bytereef.org>
+References: <ikr5je$er2$1@dough.gmane.org>
+	<20110304172126.GA26909@sleipnir.bytereef.org>
+Message-ID: <4D71259F.9030504@gmx.net>
+
+On 04.03.2011 18:21, Stefan Krah wrote:
+> Georg Brandl <g.brandl at gmx.net> wrote:
+>> Antoine and me are starting the conversion now (it takes quite
+>> a while to get the SVN repo and convert it, so we're doing it
+>> overnight).
+>> 
+>> The majority of the work will be done tomorrow: pushing the new
+>> repositories live, enabling and testing all integration into
+>> python.org services and probably more work on the new devguide.
+>> 
+>> Please join us in #python-dev if you have questions.
+> 
+> Would it interfere with your plans if I commit an svnmerge for
+> py3k-cdecimal? Or is this now impossible?
+
+It was impossible, but now I removed the block again.  Please do
+your svnmerge thing quickly :)
+
+Georg
+
+
+
+From stefan at bytereef.org  Fri Mar  4 18:56:26 2011
+From: stefan at bytereef.org (Stefan Krah)
+Date: Fri, 4 Mar 2011 18:56:26 +0100
+Subject: [python-committers] SVN repository is now read-only
+In-Reply-To: <4D71259F.9030504@gmx.net>
+References: <ikr5je$er2$1@dough.gmane.org>
+	<20110304172126.GA26909@sleipnir.bytereef.org>
+	<4D71259F.9030504@gmx.net>
+Message-ID: <20110304175626.GA27876@sleipnir.bytereef.org>
+
+Georg Brandl <g.brandl at gmx.net> wrote:
+> On 04.03.2011 18:21, Stefan Krah wrote:
+> > Georg Brandl <g.brandl at gmx.net> wrote:
+> >> Antoine and me are starting the conversion now (it takes quite
+> >> a while to get the SVN repo and convert it, so we're doing it
+> >> overnight).
+> >> 
+> >> The majority of the work will be done tomorrow: pushing the new
+> >> repositories live, enabling and testing all integration into
+> >> python.org services and probably more work on the new devguide.
+> >> 
+> >> Please join us in #python-dev if you have questions.
+> > 
+> > Would it interfere with your plans if I commit an svnmerge for
+> > py3k-cdecimal? Or is this now impossible?
+> 
+> It was impossible, but now I removed the block again.  Please do
+> your svnmerge thing quickly :)
+
+Thanks! Done in r88752. Let the conversion begin. :)
+
+
+Stefan Krah
+
+
+
+From g.brandl at gmx.net  Fri Mar  4 19:10:41 2011
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Fri, 04 Mar 2011 19:10:41 +0100
+Subject: [python-committers] SVN repository is now read-only
+In-Reply-To: <4D71235A.8040909@v.loewis.de>
+References: <ikr5je$er2$1@dough.gmane.org>
+	<20110304172126.GA26909@sleipnir.bytereef.org>
+	<4D71235A.8040909@v.loewis.de>
+Message-ID: <ikra12$a9d$1@dough.gmane.org>
+
+On 04.03.2011 18:37, "Martin v. L?wis" wrote:
+> Am 04.03.2011 18:21, schrieb Stefan Krah:
+>> Georg Brandl <g.brandl at gmx.net> wrote:
+>>> Antoine and me are starting the conversion now (it takes quite
+>>> a while to get the SVN repo and convert it, so we're doing it
+>>> overnight).
+>>>
+>>> The majority of the work will be done tomorrow: pushing the new
+>>> repositories live, enabling and testing all integration into
+>>> python.org services and probably more work on the new devguide.
+>>>
+>>> Please join us in #python-dev if you have questions.
+>> 
+>> Would it interfere with your plans if I commit an svnmerge for
+>> py3k-cdecimal? Or is this now impossible?
+> 
+> It's impossible now; the repository is read-only (IIUC)
+
+It's actually not that bad since hgsubversion allows incremental
+conversion.  So in theory SVN could remain open until the
+conversion process has reached recent commits, but I'd rather not
+have confusion whether a certain commit made it into hg or not.
+
+Georg
+
+
+From raymond.hettinger at gmail.com  Fri Mar  4 21:15:41 2011
+From: raymond.hettinger at gmail.com (Raymond Hettinger)
+Date: Fri, 4 Mar 2011 12:15:41 -0800
+Subject: [python-committers] SVN repository is now read-only
+In-Reply-To: <ikr5je$er2$1@dough.gmane.org>
+References: <ikr5je$er2$1@dough.gmane.org>
+Message-ID: <260CFB9F-B127-4FB3-A15A-33AFD64781FB@gmail.com>
+
+
+On Mar 4, 2011, at 8:55 AM, Georg Brandl wrote:
+
+> Antoine and me are starting the conversion now (it takes quite
+> a while to get the SVN repo and convert it, so we're doing it
+> overnight).
+
+
+Thanks for stepping up and getting this done.
+
+
+Raymond
+
+
+From guido at python.org  Fri Mar  4 21:21:39 2011
+From: guido at python.org (Guido van Rossum)
+Date: Fri, 4 Mar 2011 12:21:39 -0800
+Subject: [python-committers] SVN repository is now read-only
+In-Reply-To: <260CFB9F-B127-4FB3-A15A-33AFD64781FB@gmail.com>
+References: <ikr5je$er2$1@dough.gmane.org>
+	<260CFB9F-B127-4FB3-A15A-33AFD64781FB@gmail.com>
+Message-ID: <AANLkTinYeSYhkAsEMbKgyQOTzm67zxnEcYguDpQUSnQO@mail.gmail.com>
+
+On Fri, Mar 4, 2011 at 12:15 PM, Raymond Hettinger
+<raymond.hettinger at gmail.com> wrote:
+>
+> On Mar 4, 2011, at 8:55 AM, Georg Brandl wrote:
+>
+>> Antoine and me are starting the conversion now (it takes quite
+>> a while to get the SVN repo and convert it, so we're doing it
+>> overnight).
+>
+> Thanks for stepping up and getting this done.
+
++1
+
+-- 
+--Guido van Rossum (python.org/~guido)
+
+From steve at holdenweb.com  Fri Mar  4 21:34:44 2011
+From: steve at holdenweb.com (Steve Holden)
+Date: Fri, 4 Mar 2011 12:34:44 -0800
+Subject: [python-committers] SVN repository is now read-only
+In-Reply-To: <260CFB9F-B127-4FB3-A15A-33AFD64781FB@gmail.com>
+References: <ikr5je$er2$1@dough.gmane.org>
+	<260CFB9F-B127-4FB3-A15A-33AFD64781FB@gmail.com>
+Message-ID: <02F3F280-D900-4BD5-9720-82E7EA32BBCF@holdenweb.com>
+
+On Mar 4, 2011, at 12:15 PM, Raymond Hettinger wrote:
+
+> 
+> On Mar 4, 2011, at 8:55 AM, Georg Brandl wrote:
+> 
+>> Antoine and me are starting the conversion now (it takes quite
+>> a while to get the SVN repo and convert it, so we're doing it
+>> overnight).
+> 
+> 
+> Thanks for stepping up and getting this done.
+
+
++1
+
+This is *long* overdue. Thanks, Georg.
+
+regards
+ Steve
+
+From brett at python.org  Fri Mar  4 23:25:47 2011
+From: brett at python.org (Brett Cannon)
+Date: Fri, 4 Mar 2011 14:25:47 -0800
+Subject: [python-committers] SVN repository is now read-only
+In-Reply-To: <02F3F280-D900-4BD5-9720-82E7EA32BBCF@holdenweb.com>
+References: <ikr5je$er2$1@dough.gmane.org>
+	<260CFB9F-B127-4FB3-A15A-33AFD64781FB@gmail.com>
+	<02F3F280-D900-4BD5-9720-82E7EA32BBCF@holdenweb.com>
+Message-ID: <AANLkTik85jdpjXmFz4syXBe+ZRzaj3Z8P1HjnfF97ZcT@mail.gmail.com>
+
+On Fri, Mar 4, 2011 at 12:34, Steve Holden <steve at holdenweb.com> wrote:
+
+> On Mar 4, 2011, at 12:15 PM, Raymond Hettinger wrote:
+>
+> >
+> > On Mar 4, 2011, at 8:55 AM, Georg Brandl wrote:
+> >
+> >> Antoine and me are starting the conversion now (it takes quite
+> >> a while to get the SVN repo and convert it, so we're doing it
+> >> overnight).
+> >
+> >
+> > Thanks for stepping up and getting this done.
+>
+>
+> +1
+>
+> This is *long* overdue. Thanks, Georg.
+>
+
+And thanks to Antoine as well. And Dirkjan for starting it.
+
+-Brett
+
+
+>
+> regards
+>  Steve
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20110304/b3d86f51/attachment.html>
+
+From ncoghlan at gmail.com  Sat Mar  5 09:39:09 2011
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Sat, 5 Mar 2011 18:39:09 +1000
+Subject: [python-committers] SVN repository is now read-only
+In-Reply-To: <AANLkTik85jdpjXmFz4syXBe+ZRzaj3Z8P1HjnfF97ZcT@mail.gmail.com>
+References: <ikr5je$er2$1@dough.gmane.org>
+	<260CFB9F-B127-4FB3-A15A-33AFD64781FB@gmail.com>
+	<02F3F280-D900-4BD5-9720-82E7EA32BBCF@holdenweb.com>
+	<AANLkTik85jdpjXmFz4syXBe+ZRzaj3Z8P1HjnfF97ZcT@mail.gmail.com>
+Message-ID: <AANLkTikgQLLVE_SEPb_LChT678VFvpyprwzdfaEDo8_M@mail.gmail.com>
+
+On Sat, Mar 5, 2011 at 8:25 AM, Brett Cannon <brett at python.org> wrote:
+> On Fri, Mar 4, 2011 at 12:34, Steve Holden <steve at holdenweb.com> wrote:
+>> This is *long* overdue. Thanks, Georg.
+>
+> And thanks to Antoine as well. And Dirkjan for starting it.
+
+And Brett for starting us down this path oh so many moons ago :)
+
+Now to make sure the laptop has hg installed and a clone set up before
+I fly out next week...
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan?? |?? ncoghlan at gmail.com?? |?? Brisbane, Australia
+
+From g.brandl at gmx.net  Sat Mar  5 09:56:44 2011
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Sat, 05 Mar 2011 09:56:44 +0100
+Subject: [python-committers] SVN repository is now read-only
+In-Reply-To: <AANLkTikgQLLVE_SEPb_LChT678VFvpyprwzdfaEDo8_M@mail.gmail.com>
+References: <ikr5je$er2$1@dough.gmane.org>
+	<260CFB9F-B127-4FB3-A15A-33AFD64781FB@gmail.com>
+	<02F3F280-D900-4BD5-9720-82E7EA32BBCF@holdenweb.com>
+	<AANLkTik85jdpjXmFz4syXBe+ZRzaj3Z8P1HjnfF97ZcT@mail.gmail.com>
+	<AANLkTikgQLLVE_SEPb_LChT678VFvpyprwzdfaEDo8_M@mail.gmail.com>
+Message-ID: <ikstu9$mpm$1@dough.gmane.org>
+
+On 05.03.2011 09:39, Nick Coghlan wrote:
+> On Sat, Mar 5, 2011 at 8:25 AM, Brett Cannon <brett at python.org> wrote:
+>> On Fri, Mar 4, 2011 at 12:34, Steve Holden <steve at holdenweb.com> wrote:
+>>> This is *long* overdue. Thanks, Georg.
+>>
+>> And thanks to Antoine as well. And Dirkjan for starting it.
+> 
+> And Brett for starting us down this path oh so many moons ago :)
+> 
+> Now to make sure the laptop has hg installed and a clone set up before
+> I fly out next week...
+
+You might not need to, thanks to Brett's Dev-in-a-box project...
+
+Georg
+
+
+
+From ncoghlan at gmail.com  Sat Mar  5 10:31:03 2011
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Sat, 5 Mar 2011 19:31:03 +1000
+Subject: [python-committers] SVN repository is now read-only
+In-Reply-To: <ikstu9$mpm$1@dough.gmane.org>
+References: <ikr5je$er2$1@dough.gmane.org>
+	<260CFB9F-B127-4FB3-A15A-33AFD64781FB@gmail.com>
+	<02F3F280-D900-4BD5-9720-82E7EA32BBCF@holdenweb.com>
+	<AANLkTik85jdpjXmFz4syXBe+ZRzaj3Z8P1HjnfF97ZcT@mail.gmail.com>
+	<AANLkTikgQLLVE_SEPb_LChT678VFvpyprwzdfaEDo8_M@mail.gmail.com>
+	<ikstu9$mpm$1@dough.gmane.org>
+Message-ID: <AANLkTik2zCL1_zgwhCEL_ypsw9TKU4r03xqgRzKg=LU2@mail.gmail.com>
+
+On Sat, Mar 5, 2011 at 6:56 PM, Georg Brandl <g.brandl at gmx.net> wrote:
+> You might not need to, thanks to Brett's Dev-in-a-box project...
+
+True, but I need to dust off the laptop and get everything up to date
+before I leave, anyway (I really don't use it much when I'm not
+travelling). May as well set up a new clone while I'm at it.
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan?? |?? ncoghlan at gmail.com?? |?? Brisbane, Australia
+
+From solipsis at pitrou.net  Sat Mar  5 15:18:42 2011
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Sat, 05 Mar 2011 15:18:42 +0100
+Subject: [python-committers] New repositories
+Message-ID: <1299334722.3692.0.camel@localhost.localdomain>
+
+
+Hello,
+
+Creation of the final hg repositories on hg.python.org is under way, so
+please no test commits anymore.
+
+Thank you
+
+Antoine.
+
+
+
+From g.brandl at gmx.net  Sat Mar  5 15:20:38 2011
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Sat, 05 Mar 2011 15:20:38 +0100
+Subject: [python-committers] New repositories
+In-Reply-To: <1299334722.3692.0.camel@localhost.localdomain>
+References: <1299334722.3692.0.camel@localhost.localdomain>
+Message-ID: <iktgtl$9li$1@dough.gmane.org>
+
+On 05.03.2011 15:18, Antoine Pitrou wrote:
+> 
+> Hello,
+> 
+> Creation of the final hg repositories on hg.python.org is under way, so
+> please no test commits anymore.
+
+And since testing things out if you're new to Mercurial is still a
+good idea, we'll create another clone in "sandbox/cpython" as the
+default testing grounds.
+
+Georg
+
+
+From g.brandl at gmx.net  Sat Mar  5 15:30:21 2011
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Sat, 05 Mar 2011 15:30:21 +0100
+Subject: [python-committers] New repositories
+In-Reply-To: <iktgtl$9li$1@dough.gmane.org>
+References: <1299334722.3692.0.camel@localhost.localdomain>
+	<iktgtl$9li$1@dough.gmane.org>
+Message-ID: <ikthg1$dqa$1@dough.gmane.org>
+
+On 05.03.2011 15:20, Georg Brandl wrote:
+> On 05.03.2011 15:18, Antoine Pitrou wrote:
+>> 
+>> Hello,
+>> 
+>> Creation of the final hg repositories on hg.python.org is under way, so
+>> please no test commits anymore.
+> 
+> And since testing things out if you're new to Mercurial is still a
+> good idea, we'll create another clone in "sandbox/cpython" as the
+> default testing grounds.
+
+To clarify the reason for this: of course everybody can also create
+their own clone cpython using the "server-side clone" feature at
+http://hg.python.org/cpython/.  However, this repo has the same
+consistency-checking hooks enabled as the /cpython repository, whereas
+custom clones start out with no hooks.
+
+Georg
+
+
+From tjreedy at udel.edu  Sat Mar  5 19:06:33 2011
+From: tjreedy at udel.edu (Terry Reedy)
+Date: Sat, 05 Mar 2011 13:06:33 -0500
+Subject: [python-committers] New repositories
+In-Reply-To: <ikthg1$dqa$1@dough.gmane.org>
+References: <1299334722.3692.0.camel@localhost.localdomain>
+	<iktgtl$9li$1@dough.gmane.org> <ikthg1$dqa$1@dough.gmane.org>
+Message-ID: <4D727BA9.6060809@udel.edu>
+
+
+
+On 3/5/2011 9:30 AM, Georg Brandl wrote:
+> On 05.03.2011 15:20, Georg Brandl wrote:
+>> On 05.03.2011 15:18, Antoine Pitrou wrote:
+>>>
+>>> Hello,
+>>>
+>>> Creation of the final hg repositories on hg.python.org is under way, so
+>>> please no test commits anymore.
+>>
+>> And since testing things out if you're new to Mercurial is still a
+>> good idea, we'll create another clone in "sandbox/cpython" as the
+>> default testing grounds.
+
+Great, I was going to ask for this. Since I never mastered the 
+(Tortoise) SVN merge-conflict-resolution tool, I would like to practice 
+with merge-resolution of intentional conflicts between something pushed 
+by someone else (and pulled by me) and my working copy.
+
+> To clarify the reason for this: of course everybody can also create
+> their own clone cpython using the "server-side clone" feature at
+> http://hg.python.org/cpython/.  However, this repo has the same
+> consistency-checking hooks enabled as the /cpython repository, whereas
+> custom clones start out with no hooks.
+
+Terry
+
+
+From solipsis at pitrou.net  Sun Mar  6 09:42:02 2011
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Sun, 06 Mar 2011 09:42:02 +0100
+Subject: [python-committers] Push rights for Ross Lagerwall
+Message-ID: <1299400922.3699.6.camel@localhost.localdomain>
+
+
+Hello,
+
+Ross Logerwall has been contributing patches for several months (both
+bug fixes and new features). 28 changesets bear his name. I would like
+to propose him as a committer (is this still the appropriate word?).
+
+Regards
+
+Antoine.
+
+
+
+From victor.stinner at haypocalc.com  Sun Mar  6 10:55:18 2011
+From: victor.stinner at haypocalc.com (Victor Stinner)
+Date: Sun, 06 Mar 2011 10:55:18 +0100
+Subject: [python-committers] Use hg commit --user?
+Message-ID: <1299405318.30509.2.camel@marge>
+
+Hi,
+
+I do sometimes commit patches written by someone else. I tried to always
+add him/her to Misc/ACKS and in the changelog entry (Misc/NEWS). With
+git, it's possible to record an author different than the commiter. In
+Mercurial, I see a --user option.
+
+Can I use this option to commit a patch written by someone else? Or is
+there another option for that?
+
+If I use hg commit --user, is it possible to see somewhere that the
+commiter was me?
+
+Victor
+
+
+From g.brandl at gmx.net  Sun Mar  6 11:23:05 2011
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Sun, 06 Mar 2011 11:23:05 +0100
+Subject: [python-committers] Use hg commit --user?
+In-Reply-To: <1299405318.30509.2.camel@marge>
+References: <1299405318.30509.2.camel@marge>
+Message-ID: <ikvnaa$g6q$1@dough.gmane.org>
+
+On 06.03.2011 10:55, Victor Stinner wrote:
+> Hi,
+> 
+> I do sometimes commit patches written by someone else. I tried to always
+> add him/her to Misc/ACKS and in the changelog entry (Misc/NEWS). With
+> git, it's possible to record an author different than the commiter. In
+> Mercurial, I see a --user option.
+> 
+> Can I use this option to commit a patch written by someone else? Or is
+> there another option for that?
+> 
+> If I use hg commit --user, is it possible to see somewhere that the
+> commiter was me?
+
+Basically, no.  If you want to honor contributors, put their name into
+the commit message.
+
+Georg
+
+
+
+From ncoghlan at gmail.com  Sun Mar  6 12:48:14 2011
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Sun, 6 Mar 2011 21:48:14 +1000
+Subject: [python-committers] Push rights for Ross Lagerwall
+In-Reply-To: <1299400922.3699.6.camel@localhost.localdomain>
+References: <1299400922.3699.6.camel@localhost.localdomain>
+Message-ID: <AANLkTinUV87YV6-5cr_0rXJWYJTd72fp+PKQypJ_QJmM@mail.gmail.com>
+
+On Sun, Mar 6, 2011 at 6:42 PM, Antoine Pitrou <solipsis at pitrou.net> wrote:
+>
+> Hello,
+>
+> Ross Logerwall has been contributing patches for several months (both
+> bug fixes and new features). 28 changesets bear his name. I would like
+> to propose him as a committer (is this still the appropriate word?).
+
+I suspect that "pusher" has a few too many negative connotations to be
+a popular alternative :)
+
+I've certainly used "core dev" as an alternative shorthand for
+"someone with the right to publish changes to the official CPython
+repository" that is neutral regarding the VCS technology. I've seen
+others using it that way, as well. I'd also say "committers" is still
+fine, despite technically being incorrect now.
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan?? |?? ncoghlan at gmail.com?? |?? Brisbane, Australia
+
+From dirkjan at ochtman.nl  Sun Mar  6 13:25:00 2011
+From: dirkjan at ochtman.nl (Dirkjan Ochtman)
+Date: Sun, 6 Mar 2011 13:25:00 +0100
+Subject: [python-committers] Use hg commit --user?
+In-Reply-To: <ikvnaa$g6q$1@dough.gmane.org>
+References: <1299405318.30509.2.camel@marge> <ikvnaa$g6q$1@dough.gmane.org>
+Message-ID: <AANLkTik6X6aZ9bVADtE1jTbhUeL4Gwdj=_m3j3a3NWnz@mail.gmail.com>
+
+On Sun, Mar 6, 2011 at 11:23, Georg Brandl <g.brandl at gmx.net> wrote:
+>> If I use hg commit --user, is it possible to see somewhere that the
+>> commiter was me?
+>
+> Basically, no. ?If you want to honor contributors, put their name into
+> the commit message.
+
+You can still see who pushed it in the python-checkins emails.
+
+Cheers,
+
+Dirkjan
+
+From steve at holdenweb.com  Sun Mar  6 16:40:17 2011
+From: steve at holdenweb.com (Steve Holden)
+Date: Sun, 6 Mar 2011 10:40:17 -0500
+Subject: [python-committers] Use hg commit --user?
+In-Reply-To: <1299405318.30509.2.camel@marge>
+References: <1299405318.30509.2.camel@marge>
+Message-ID: <3C49D03D-B75E-4535-B711-F02D4E2908E5@holdenweb.com>
+
+People who have not signed a contributor agreement should not be listed as code authors: this leads to non-auditable contributions and a lack of clarity as to intellectual property ownership that can have negative consequences. If you want to make someone an author, confirm they are contributors before you do so, please.
+
+regards
+ Steve
+
+On Mar 6, 2011, at 4:55 AM, Victor Stinner wrote:
+
+> Hi,
+> 
+> I do sometimes commit patches written by someone else. I tried to always
+> add him/her to Misc/ACKS and in the changelog entry (Misc/NEWS). With
+> git, it's possible to record an author different than the commiter. In
+> Mercurial, I see a --user option.
+> 
+> Can I use this option to commit a patch written by someone else? Or is
+> there another option for that?
+> 
+> If I use hg commit --user, is it possible to see somewhere that the
+> commiter was me?
+> 
+> Victor
+> 
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+
+
+From solipsis at pitrou.net  Sun Mar  6 16:47:01 2011
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Sun, 06 Mar 2011 16:47:01 +0100
+Subject: [python-committers] Use hg commit --user?
+In-Reply-To: <3C49D03D-B75E-4535-B711-F02D4E2908E5@holdenweb.com>
+References: <1299405318.30509.2.camel@marge>
+	<3C49D03D-B75E-4535-B711-F02D4E2908E5@holdenweb.com>
+Message-ID: <1299426421.3699.11.camel@localhost.localdomain>
+
+Le dimanche 06 mars 2011 ? 10:40 -0500, Steve Holden a ?crit :
+> People who have not signed a contributor agreement should not be
+> listed as code authors: this leads to non-auditable contributions and
+> a lack of clarity as to intellectual property ownership that can have
+> negative consequences. If you want to make someone an author, confirm
+> they are contributors before you do so, please.
+
+Is that some kind of joke?
+
+
+
+From steve at holdenweb.com  Sun Mar  6 20:42:27 2011
+From: steve at holdenweb.com (Steve Holden)
+Date: Sun, 6 Mar 2011 14:42:27 -0500
+Subject: [python-committers] Use hg commit --user?
+In-Reply-To: <1299440037.3699.64.camel@localhost.localdomain>
+References: <1299405318.30509.2.camel@marge>
+	<3C49D03D-B75E-4535-B711-F02D4E2908E5@holdenweb.com>
+	<1299426421.3699.11.camel@localhost.localdomain>
+	<81524B85-F828-48F8-BD50-D6794D94DB64@holdenweb.com>
+	<1299433520.3699.39.camel@localhost.localdomain>
+	<8B0B24D6-76B6-4132-89F2-2117D45F1287@holdenweb.com>
+	<1299436815.3699.56.camel@localhost.localdomain>
+	<4933AF0D-BABE-43C5-A8A9-5486F8260291@holdenweb.com>
+	<1299440037.3699.64.camel@localhost.localdomain>
+Message-ID: <2EA00EB3-2BC0-4EA2-B523-2FD89063A8D9@holdenweb.com>
+
+
+On Mar 6, 2011, at 2:33 PM, Antoine Pitrou wrote:
+
+> 
+>>> Le dimanche 06 mars 2011 ? 13:19 -0500, Steve Holden a ?crit :
+>>>> In short, if someone isn't able to sign a contributor agreement we
+>>>> should ask ourselves whether it's really appropriate to incorporate
+>>>> their contributions into the code base.
+>>> 
+>>> What do you mean with "isn't able"? Surely everyone is physically and
+>>> technically able to do so :)
+>>> Now, if someone (such as Anatoly) actively *refuses* to sign an
+>>> agreement when asked to, I agree they might not be reliable. But I don't
+>>> think that's the case we're talking about.
+>> 
+>> I meant "isn't able" in the sense that the would-be contributor
+>> doesn't have rights in the code they seek to contribute.
+> 
+> Ok, but how do you know that, if they still sign an agreement?
+
+There isn't much we can do about people willfully lying to us. This does not relieve us of the obligation to try and ensure that contributions are covered by a contributor agreement.
+
+> 
+>>>> If you make checkins of other people's code you should be as certain
+>>>> as you can that you have the right to include it - since your
+>>>> contributor agreement states that you assign to the PSF the right to
+>>>> relicense your contributions.
+>>> 
+>>> I don't understand your reasoning. When I check in someone else's work,
+>>> the author of the checkin is mostly someone else (I guess under the hood
+>>> it may be more complicated, in French law it might be called a
+>>> "composite work" or a "collective work", but let's try to ignore that).
+>>> So *my* contributor agreement can't apply to the checkin since it is
+>>> only valid for my own contributions.
+>> 
+>> We'll need to get advice on this: if you are adding the code to the
+>> code base then it is surely covered by your contributor agreement
+>> (assuming you are adding the "this code provided under a contributor
+>> agreement" notice as requested in the developer notes). If you aren't,
+>> then shouldn't you be?
+> 
+> Sorry, I don't understand your question: shouldn't I be what?
+> 
+Shouldn't you be adding the notice?
+
+> As for the "this code provided under a contributor agreement" notice, I
+> haven't seen it added in a long time (neither by me nor by anyone else).
+> I'm not convinced it should pollute our commit messages and/or our code
+> files (since it would end up basically anywhere, or at least that's the
+> desired effect).
+> 
+>> If you aren't happy that you have the rights to do that then I don't
+>> believe you should be checking in those contributions because they may
+>> threaten to encumber code we are licensing to third parties.
+> 
+> I'm not unhappy with it. I'm simply quite sure that an agreement I have
+> signed cannot be forced on a third-party (the submitter and main author
+> of the checked in code) who hasn't signed it. Legally, I mean.
+> 
+>>>> Wouldn't it be easier and more straightforward to have these people
+>>>> sign contributor agreements even if you continue to check in their
+>>>> code?
+>>> 
+>>> Well, between mandating the signature of an agreement, and not mandating
+>>> said signature, I think the easiest and most straightforward (both for
+>>> them - who have to sign it -, for us - who have to check that an
+>>> agreement exists -, and for the PSF - who has to gather and record said
+>>> agreements) is the latter. All other things being equal, that is.
+>> 
+>> "The latter" meaning requiring contributor agreements? I hope so, but
+>> language is rarely as clear as we would wish.
+> 
+> No, "the latter" meant "not mandating said signature".
+
+OK. As far as I am concerned, adding code to the repository that is not covered by a contributor agreement is a recipe for disaster, and I would like to hear what other committers think. I'm not sure how or when the committers list was dropped from our conversation, but I hope you don't mind me adding it back for that purpose.
+
+regards
+ Steve
+
+
+From nad at acm.org  Sun Mar  6 22:08:53 2011
+From: nad at acm.org (Ned Deily)
+Date: Sun, 06 Mar 2011 13:08:53 -0800
+Subject: [python-committers] Push rights for Ross Lagerwall
+References: <1299400922.3699.6.camel@localhost.localdomain>
+Message-ID: <nad-7A948E.13085306032011@news.gmane.org>
+
+In article <1299400922.3699.6.camel at localhost.localdomain>,
+ Antoine Pitrou <solipsis at pitrou.net> wrote:
+> Ross Logerwall has been contributing patches for several months (both
+> bug fixes and new features). 28 changesets bear his name. I would like
+> to propose him as a committer (is this still the appropriate word?).
+
+Regardless of the term, +1.  Ross has contributed a lot of good stuff 
+recently and has been very helpful on the tracker as well.
+
+-- 
+ Ned Deily,
+ nad at acm.org
+
+
+From rdmurray at bitdance.com  Sun Mar  6 23:13:11 2011
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Sun, 06 Mar 2011 17:13:11 -0500
+Subject: [python-committers] Push rights for Ross Lagerwall
+In-Reply-To: <nad-7A948E.13085306032011@news.gmane.org>
+References: <1299400922.3699.6.camel@localhost.localdomain>
+	<nad-7A948E.13085306032011@news.gmane.org>
+Message-ID: <20110306221311.15C0B24A3A1@kimball.webabinitio.net>
+
+On Sun, 06 Mar 2011 13:08:53 -0800, Ned Deily <nad at acm.org> wrote:
+> In article <1299400922.3699.6.camel at localhost.localdomain>,
+>  Antoine Pitrou <solipsis at pitrou.net> wrote:
+> > Ross Logerwall has been contributing patches for several months (both
+> > bug fixes and new features). 28 changesets bear his name. I would like
+> > to propose him as a committer (is this still the appropriate word?).
+> 
+> Regardless of the term, +1.  Ross has contributed a lot of good stuff 
+> recently and has been very helpful on the tracker as well.
+
+I haven't reviewed at his patch or tracker history myself, but he is
+someone I have on my mental list as "probable future committer" based
+on the activity I've noticed.  So if Antoine says it's time, I say +1.
+
+--
+R. David Murray                                      www.bitdance.com
+
+From ziade.tarek at gmail.com  Sun Mar  6 23:22:16 2011
+From: ziade.tarek at gmail.com (=?ISO-8859-1?Q?Tarek_Ziad=E9?=)
+Date: Sun, 6 Mar 2011 23:22:16 +0100
+Subject: [python-committers] Push rights for Ross Lagerwall
+In-Reply-To: <AANLkTinUV87YV6-5cr_0rXJWYJTd72fp+PKQypJ_QJmM@mail.gmail.com>
+References: <1299400922.3699.6.camel@localhost.localdomain>
+	<AANLkTinUV87YV6-5cr_0rXJWYJTd72fp+PKQypJ_QJmM@mail.gmail.com>
+Message-ID: <AANLkTinaKGb=iqr-5kEBRAFGYb0GhSDj7ied-XvZ7+fZ@mail.gmail.com>
+
+On Sun, Mar 6, 2011 at 12:48 PM, Nick Coghlan <ncoghlan at gmail.com> wrote:
+> On Sun, Mar 6, 2011 at 6:42 PM, Antoine Pitrou <solipsis at pitrou.net> wrote:
+>>
+>> Hello,
+>>
+>> Ross Logerwall has been contributing patches for several months (both
+>> bug fixes and new features). 28 changesets bear his name. I would like
+>> to propose him as a committer (is this still the appropriate word?).
+>
+> I suspect that "pusher" has a few too many negative connotations to be
+> a popular alternative :)
+>
+> I've certainly used "core dev" as an alternative shorthand for
+> "someone with the right to publish changes to the official CPython
+> repository" that is neutral regarding the VCS technology. I've seen
+> others using it that way, as well. I'd also say "committers" is still
+> fine, despite technically being incorrect now.
+
+I would say that  "commiter" is still a valid term in a DVCS.
+
+- Commiting means adding new revisions into a repository
+- Pushing is just the action to copy some revisions from a repository to another
+
+A "Python commiter" is authorized to commit revisions to the central
+hg.python.org/cpython repository, whether it's by copying them from
+another repository, or by doing a direct commit (via push). The latter
+happens to be unnecessary,
+
+
+Cheers
+Tarek
+
+
+
+> Cheers,
+> Nick.
+>
+> --
+> Nick Coghlan?? |?? ncoghlan at gmail.com?? |?? Brisbane, Australia
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+>
+
+
+
+-- 
+Tarek Ziad? | http://ziade.org
+
+From rdmurray at bitdance.com  Sun Mar  6 23:24:19 2011
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Sun, 06 Mar 2011 17:24:19 -0500
+Subject: [python-committers] Use hg commit --user?
+In-Reply-To: <2EA00EB3-2BC0-4EA2-B523-2FD89063A8D9@holdenweb.com>
+References: <1299405318.30509.2.camel@marge>
+	<3C49D03D-B75E-4535-B711-F02D4E2908E5@holdenweb.com>
+	<1299426421.3699.11.camel@localhost.localdomain>
+	<81524B85-F828-48F8-BD50-D6794D94DB64@holdenweb.com>
+	<1299433520.3699.39.camel@localhost.localdomain>
+	<8B0B24D6-76B6-4132-89F2-2117D45F1287@holdenweb.com>
+	<1299436815.3699.56.camel@localhost.localdomain>
+	<4933AF0D-BABE-43C5-A8A9-5486F8260291@holdenweb.com>
+	<1299440037.3699.64.camel@localhost.localdomain>
+	<2EA00EB3-2BC0-4EA2-B523-2FD89063A8D9@holdenweb.com>
+Message-ID: <20110306222419.499F124A3A3@kimball.webabinitio.net>
+
+On Sun, 06 Mar 2011 14:42:27 -0500, Steve Holden <steve at holdenweb.com> wrote:
+> OK. As far as I am concerned, adding code to the repository that is
+> not covered by a contributor agreement is a recipe for disaster, and I
+> would like to hear what other committers think. I'm not sure how or
+> when the committers list was dropped from our conversation, but I hope
+> you don't mind me adding it back for that purpose.
+
+When we've had these discussions before, it was basically left up to
+our judgement what constituted "enough code" to make worrying about a
+contributor agreement necessary.  Certainly it does not seem that bug
+fix commits of a few changed lines or even tens of changed lines is worth
+worrying about:  how can fixing our own code incorporate someone else's
+copyrighted work?  I think you'd be hard pressed to get such a claim
+by a judge.  (Of course, I'm not a lawyer, so I'm probably wrong.)
+
+Bigger chunks, especially features, yes.  Perhaps we have not been as
+good about checking on agreements in those cases as we should have been.
+Anyone care to review the last N changesets to find out?
+
+Has any progress been made on an electronically signable agreement
+and/or adding "posting a patch to this tracker means you have the right
+to contribute it and you do contribute it" language to the tracker?
+
+--
+R. David Murray                                      www.bitdance.com
+
+From ncoghlan at gmail.com  Mon Mar  7 00:46:57 2011
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Mon, 7 Mar 2011 09:46:57 +1000
+Subject: [python-committers] Use hg commit --user?
+In-Reply-To: <20110306222419.499F124A3A3@kimball.webabinitio.net>
+References: <1299405318.30509.2.camel@marge>
+	<3C49D03D-B75E-4535-B711-F02D4E2908E5@holdenweb.com>
+	<1299426421.3699.11.camel@localhost.localdomain>
+	<81524B85-F828-48F8-BD50-D6794D94DB64@holdenweb.com>
+	<1299433520.3699.39.camel@localhost.localdomain>
+	<8B0B24D6-76B6-4132-89F2-2117D45F1287@holdenweb.com>
+	<1299436815.3699.56.camel@localhost.localdomain>
+	<4933AF0D-BABE-43C5-A8A9-5486F8260291@holdenweb.com>
+	<1299440037.3699.64.camel@localhost.localdomain>
+	<2EA00EB3-2BC0-4EA2-B523-2FD89063A8D9@holdenweb.com>
+	<20110306222419.499F124A3A3@kimball.webabinitio.net>
+Message-ID: <AANLkTi=2FRJtYVDQmE36PD7vo6SRpRC4GYSDf5kUC+0x@mail.gmail.com>
+
+On Mon, Mar 7, 2011 at 8:24 AM, R. David Murray <rdmurray at bitdance.com> wrote:
+> Has any progress been made on an electronically signable agreement
+> and/or adding "posting a patch to this tracker means you have the right
+> to contribute it and you do contribute it" language to the tracker?
+
+Note that the latter point (regarding implicit declarations of "right
+to submit" and actual submission when posting patches to the tracker)
+is something we're already effectively relying on when incorporating
+posted patches. The fact that such patches are almost always
+derivative of the Python source in the first place also significantly
+reduces the chance of legal hassles.
+
+The situation with committers is different, because each of us can
+push stuff straight into the source tree without going via the
+tracker. The only way to keep our noses clean from a legal perspective
+at that point is to have a contributor agreement in place that covers
+everything we commit to the main repository.
+
+The contributor-agreements-for-non-committers issue mainly comes up
+when there is a substantial piece of code that was originally written
+for something else, that is suggested as a patch to CPython (e.g. the
+locale neutral number parsing and formatting routines).
+
+Still, Steve's right: when we commit something, *we're* the ones
+making the assertion that the change is small enough not to need a
+contributor agreement, so the commit record should reflect that.
+
+If something seems iffy, bring it up on python-dev (preferably cc'ing
+VanL directly as well).
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan?? |?? ncoghlan at gmail.com?? |?? Brisbane, Australia
+
+From solipsis at pitrou.net  Mon Mar  7 19:48:33 2011
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Mon, 07 Mar 2011 19:48:33 +0100
+Subject: [python-committers] Use hg commit --user?
+In-Reply-To: <20110306222419.499F124A3A3@kimball.webabinitio.net>
+References: <1299405318.30509.2.camel@marge>
+	<3C49D03D-B75E-4535-B711-F02D4E2908E5@holdenweb.com>
+	<1299426421.3699.11.camel@localhost.localdomain>
+	<81524B85-F828-48F8-BD50-D6794D94DB64@holdenweb.com>
+	<1299433520.3699.39.camel@localhost.localdomain>
+	<8B0B24D6-76B6-4132-89F2-2117D45F1287@holdenweb.com>
+	<1299436815.3699.56.camel@localhost.localdomain>
+	<4933AF0D-BABE-43C5-A8A9-5486F8260291@holdenweb.com>
+	<1299440037.3699.64.camel@localhost.localdomain>
+	<2EA00EB3-2BC0-4EA2-B523-2FD89063A8D9@holdenweb.com>
+	<20110306222419.499F124A3A3@kimball.webabinitio.net>
+Message-ID: <1299523713.3770.91.camel@localhost.localdomain>
+
+Le dimanche 06 mars 2011 ? 17:24 -0500, R. David Murray a ?crit :
+> Has any progress been made on an electronically signable agreement
+> and/or adding "posting a patch to this tracker means you have the right
+> to contribute it and you do contribute it" language to the tracker?
+
++1. That would be a very worthwhile thing for the PSF to spend time on,
+and could solve all practical issues with the contributor agreement.
+With a preference with David's latter proposition.
+
+Regards
+
+Antoine.
+
+
+
+From jnoller at gmail.com  Tue Mar  8 04:19:11 2011
+From: jnoller at gmail.com (Jesse Noller)
+Date: Mon, 7 Mar 2011 22:19:11 -0500
+Subject: [python-committers] Use hg commit --user?
+In-Reply-To: <1299523713.3770.91.camel@localhost.localdomain>
+References: <1299405318.30509.2.camel@marge>
+	<3C49D03D-B75E-4535-B711-F02D4E2908E5@holdenweb.com>
+	<1299426421.3699.11.camel@localhost.localdomain>
+	<81524B85-F828-48F8-BD50-D6794D94DB64@holdenweb.com>
+	<1299433520.3699.39.camel@localhost.localdomain>
+	<8B0B24D6-76B6-4132-89F2-2117D45F1287@holdenweb.com>
+	<1299436815.3699.56.camel@localhost.localdomain>
+	<4933AF0D-BABE-43C5-A8A9-5486F8260291@holdenweb.com>
+	<1299440037.3699.64.camel@localhost.localdomain>
+	<2EA00EB3-2BC0-4EA2-B523-2FD89063A8D9@holdenweb.com>
+	<20110306222419.499F124A3A3@kimball.webabinitio.net>
+	<1299523713.3770.91.camel@localhost.localdomain>
+Message-ID: <AANLkTikCd0WD000ES6Wc+soQHHdp+pR_HBYhsfS8v9Kv@mail.gmail.com>
+
+On Mon, Mar 7, 2011 at 1:48 PM, Antoine Pitrou <solipsis at pitrou.net> wrote:
+> Le dimanche 06 mars 2011 ? 17:24 -0500, R. David Murray a ?crit :
+>> Has any progress been made on an electronically signable agreement
+>> and/or adding "posting a patch to this tracker means you have the right
+>> to contribute it and you do contribute it" language to the tracker?
+>
+> +1. That would be a very worthwhile thing for the PSF to spend time on,
+> and could solve all practical issues with the contributor agreement.
+> With a preference with David's latter proposition.
+>
+> Regards
+>
+> Antoine.
+
+I've raised this question on the board level in the past, and will do
+so again at the members meeting.
+
+jesse.
+
+From g.rodola at gmail.com  Tue Mar  8 09:53:19 2011
+From: g.rodola at gmail.com (=?ISO-8859-1?Q?Giampaolo_Rodol=E0?=)
+Date: Tue, 8 Mar 2011 09:53:19 +0100
+Subject: [python-committers] Push rights for Ross Lagerwall
+Message-ID: <AANLkTinRhHCnQ+yFX7ZiCm9PwArWKCfA9k3fEiV=-EsR@mail.gmail.com>
+
+Antoine Pitrou ha scritto:
+> Hello,
+>
+> Ross Logerwall has been contributing patches for several months (both
+>bug fixes and new features). 28 changesets bear his name. I would like
+> to propose him as a committer (is this still the appropriate word?).
+>
+> Regards
+>
+> Antoine.
+
++1 from me as well.
+http://bugs.python.org/issue10812 and others such as sendfile()
+addition are some valuable pieces of work.
+
+
+--- Giampaolo
+http://code.google.com/p/pyftpdlib/
+http://code.google.com/p/psutil/
+
+From raymond.hettinger at gmail.com  Tue Mar  8 09:57:06 2011
+From: raymond.hettinger at gmail.com (Raymond Hettinger)
+Date: Tue, 8 Mar 2011 00:57:06 -0800
+Subject: [python-committers] Push rights for Ross Lagerwall
+In-Reply-To: <AANLkTinRhHCnQ+yFX7ZiCm9PwArWKCfA9k3fEiV=-EsR@mail.gmail.com>
+References: <AANLkTinRhHCnQ+yFX7ZiCm9PwArWKCfA9k3fEiV=-EsR@mail.gmail.com>
+Message-ID: <9A87DA92-38DA-4EB3-8A84-648481A65A33@gmail.com>
+
+
+On Mar 8, 2011, at 12:53 AM, Giampaolo Rodol? wrote:
+
+> Antoine Pitrou ha scritto:
+>> Hello,
+>> 
+>> Ross Logerwall has been contributing patches for several months (both
+>> bug fixes and new features). 28 changesets bear his name. I would like
+>> to propose him as a committer (is this still the appropriate word?).
+>> 
+>> Regards
+>> 
+>> Antoine.
+> 
+> +1 from me as well.
+> http://bugs.python.org/issue10812 and others such as sendfile()
+> addition are some valuable pieces of work.
+
+Do we have a signed contributor agreement?
+
+
+Raymond
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20110308/e9d5568f/attachment.html>
+
+From g.brandl at gmx.net  Tue Mar  8 12:32:12 2011
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Tue, 08 Mar 2011 12:32:12 +0100
+Subject: [python-committers] Roundup integration hook added
+Message-ID: <il545k$k86$1@dough.gmane.org>
+
+Thanks to Kelsey Hightower, we now have a hook that notifies Roundup
+of commit messages that reference issues.
+
+*** To make this work, you need to use a hg user name in the form
+*** "User Name <email at address>" AND make sure Roundup knows of this
+*** email address.  To check this, go to "Your Details" in Roundup
+*** and make sure the address is either in "E-mail address" or in
+*** "Alternate E-mail addresses".
+
+Then if you put "#12345", "issue 12345" or "issue12345" in a commit
+message, this commit message will be added as a comment on the
+Roundup issue with a link to the changeset when it is pushed to the
+central repo.
+
+If you prefix this with one of "close", "closing", "closed", "closes"
+(or the same verb forms of "fix"), the issue will also be closed
+automatically.
+
+Please let us know of any bugs you encounter.
+
+Georg
+
+
+From solipsis at pitrou.net  Tue Mar  8 15:19:55 2011
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Tue, 08 Mar 2011 15:19:55 +0100
+Subject: [python-committers] Push rights for Ross Lagerwall
+In-Reply-To: <9A87DA92-38DA-4EB3-8A84-648481A65A33@gmail.com>
+References: <AANLkTinRhHCnQ+yFX7ZiCm9PwArWKCfA9k3fEiV=-EsR@mail.gmail.com>
+	<9A87DA92-38DA-4EB3-8A84-648481A65A33@gmail.com>
+Message-ID: <1299593995.3763.20.camel@localhost.localdomain>
+
+Le mardi 08 mars 2011 ? 00:57 -0800, Raymond Hettinger a ?crit :
+
+> 
+> Do we have a signed contributor agreement?
+
+I've told Ross it would be nice to send one if he hadn't already done
+so, but I have obviously no way of checking whether he did or not.
+
+Regards
+
+Antoine.
+
+
+
+From steve at holdenweb.com  Tue Mar  8 16:27:20 2011
+From: steve at holdenweb.com (Steve Holden)
+Date: Tue, 8 Mar 2011 10:27:20 -0500
+Subject: [python-committers] Push rights for Ross Lagerwall
+In-Reply-To: <1299593995.3763.20.camel@localhost.localdomain>
+References: <AANLkTinRhHCnQ+yFX7ZiCm9PwArWKCfA9k3fEiV=-EsR@mail.gmail.com>
+	<9A87DA92-38DA-4EB3-8A84-648481A65A33@gmail.com>
+	<1299593995.3763.20.camel@localhost.localdomain>
+Message-ID: <573181BC-FE94-4CA9-A3D1-AAEC268A408A@holdenweb.com>
+
+Pat should know if we have received one.
+
+regards
+ Steve
+
+
+On Mar 8, 2011, at 9:19 AM, Antoine Pitrou wrote:
+
+> Le mardi 08 mars 2011 ? 00:57 -0800, Raymond Hettinger a ?crit :
+> 
+>> 
+>> Do we have a signed contributor agreement?
+> 
+> I've told Ross it would be nice to send one if he hadn't already done
+> so, but I have obviously no way of checking whether he did or not.
+> 
+> Regards
+> 
+> Antoine.
+> 
+> 
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+
+
+From solipsis at pitrou.net  Wed Mar  9 12:20:27 2011
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Wed, 09 Mar 2011 12:20:27 +0100
+Subject: [python-committers] [Fwd: Re:  Push rights for Ross Lagerwall]
+Message-ID: <1299669627.3749.3.camel@localhost.localdomain>
+
+
+What is the process now? Is it a showstopper?
+
+
+
+-------- Message transf?r? --------
+De: Pat Campbell <patcam at python.org>
+?: Antoine Pitrou <solipsis at pitrou.net>
+Cc: Steve Holden <steve at holdenweb.com>
+Sujet: Re: [python-committers] Push rights for Ross Lagerwall
+Date: Tue, 8 Mar 2011 11:54:29 -0500
+
+Hi All:
+ 
+I have not received a contributor agreement for Ross Lagerwall yet. It
+maybe
+in transit at this point. However, if the need arises another can be
+sent
+directly to me at:
+ 
+PSF
+c/o Pat Campbell
+6306 Treetop Circle
+Tampa, Florida 33617
+ 
+Thanks,
+Pat
+
+
+On Tue, Mar 8, 2011 at 11:12 AM, Antoine Pitrou <solipsis at pitrou.net>
+wrote:
+        
+        Absolutely no idea. Either very recently, or earlier.
+        
+        
+        
+        Le mardi 08 mars 2011 ? 11:07 -0500, Pat Campbell a ?crit :
+        
+        > Hi All:
+        >
+        > When should it have come in?
+        >
+        > Thanks,
+        > Pat
+        >
+        >
+        > On Tue, Mar 8, 2011 at 10:27 AM, Steve Holden
+        <steve at holdenweb.com>
+        > wrote:
+        >         Pat should know if we have received one.
+        >
+        >         regards
+        >          Steve
+        >
+        >
+        >         On Mar 8, 2011, at 9:19 AM, Antoine Pitrou wrote:
+        >
+        >         > Le mardi 08 mars 2011 ? 00:57 -0800, Raymond
+        Hettinger a
+        >         ?crit :
+        >         >
+        >         >>
+        >         >> Do we have a signed contributor agreement?
+        >         >
+        >         > I've told Ross it would be nice to send one if he
+        hadn't
+        >         already done
+        >         > so, but I have obviously no way of checking whether
+        he did
+        >         or not.
+        >         >
+        >         > Regards
+        >         >
+        >         > Antoine.
+        >         >
+        >         >
+        >         > _______________________________________________
+        >         > python-committers mailing list
+        >         > python-committers at python.org
+        >         >
+        http://mail.python.org/mailman/listinfo/python-committers
+        >
+        >
+        >
+        >
+        > --
+        > Pat Campbell
+        > PSF Administrator/Secretary
+        > patcam at python.org
+        
+        
+        
+
+
+
+-- 
+Pat Campbell
+PSF Administrator/Secretary
+patcam at python.org
+
+
+
+From ncoghlan at gmail.com  Wed Mar  9 12:29:22 2011
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Wed, 9 Mar 2011 06:29:22 -0500
+Subject: [python-committers] [Fwd: Re: Push rights for Ross Lagerwall]
+In-Reply-To: <1299669627.3749.3.camel@localhost.localdomain>
+References: <1299669627.3749.3.camel@localhost.localdomain>
+Message-ID: <AANLkTinakuYrZW0OxpMsstnPGynri=NAS7qj0yGmu-oW@mail.gmail.com>
+
+On Wed, Mar 9, 2011 at 6:20 AM, Antoine Pitrou <solipsis at pitrou.net> wrote:
+>
+> What is the process now? Is it a showstopper?
+
+I believe so (cc'ed Van to double check).
+
+I know a digiital photograph is good enough for acceptance of a PSF
+nomination - is it enough for the contributor's agreement as well?
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan?? |?? ncoghlan at gmail.com?? |?? Brisbane, Australia
+
+From solipsis at pitrou.net  Wed Mar  9 12:32:45 2011
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Wed, 09 Mar 2011 12:32:45 +0100
+Subject: [python-committers] [Fwd: Re: Push rights for Ross Lagerwall]
+In-Reply-To: <AANLkTinakuYrZW0OxpMsstnPGynri=NAS7qj0yGmu-oW@mail.gmail.com>
+References: <1299669627.3749.3.camel@localhost.localdomain>
+	<AANLkTinakuYrZW0OxpMsstnPGynri=NAS7qj0yGmu-oW@mail.gmail.com>
+Message-ID: <1299670365.3749.4.camel@localhost.localdomain>
+
+Le mercredi 09 mars 2011 ? 06:29 -0500, Nick Coghlan a ?crit :
+> On Wed, Mar 9, 2011 at 6:20 AM, Antoine Pitrou <solipsis at pitrou.net> wrote:
+> >
+> > What is the process now? Is it a showstopper?
+> 
+> I believe so (cc'ed Van to double check).
+> 
+> I know a digiital photograph is good enough for acceptance of a PSF
+> nomination - is it enough for the contributor's agreement as well?
+
+? I've never sent any photo to the PSF... (and I don't intend doing so)
+
+
+
+From mal at egenix.com  Wed Mar  9 12:34:52 2011
+From: mal at egenix.com (M.-A. Lemburg)
+Date: Wed, 09 Mar 2011 12:34:52 +0100
+Subject: [python-committers] [Fwd: Re:  Push rights for Ross Lagerwall]
+In-Reply-To: <1299669627.3749.3.camel@localhost.localdomain>
+References: <1299669627.3749.3.camel@localhost.localdomain>
+Message-ID: <4D7765DC.6040803@egenix.com>
+
+Antoine Pitrou wrote:
+> 
+> What is the process now? Is it a showstopper?
+
+Yes.
+
+Developers uploading copyrightable patches to the tracker
+need to sign the contributor agreement before those patches
+can make it into the core - even before they get direct commit
+rights.
+
+Otherwise, the PSF does not have the right to redistribute that
+code under the PSF license.
+
+http://docs.python.org/devguide/coredev.html#sign-a-contributor-agreement
+
+> -------- Message transf?r? --------
+> De: Pat Campbell <patcam at python.org>
+> ?: Antoine Pitrou <solipsis at pitrou.net>
+> Cc: Steve Holden <steve at holdenweb.com>
+> Sujet: Re: [python-committers] Push rights for Ross Lagerwall
+> Date: Tue, 8 Mar 2011 11:54:29 -0500
+> 
+> Hi All:
+>  
+> I have not received a contributor agreement for Ross Lagerwall yet. It
+> maybe
+> in transit at this point. However, if the need arises another can be
+> sent
+> directly to me at:
+>  
+> PSF
+> c/o Pat Campbell
+> 6306 Treetop Circle
+> Tampa, Florida 33617
+>  
+> Thanks,
+> Pat
+> 
+> 
+> On Tue, Mar 8, 2011 at 11:12 AM, Antoine Pitrou <solipsis at pitrou.net>
+> wrote:
+>         
+>         Absolutely no idea. Either very recently, or earlier.
+>         
+>         
+>         
+>         Le mardi 08 mars 2011 ? 11:07 -0500, Pat Campbell a ?crit :
+>         
+>         > Hi All:
+>         >
+>         > When should it have come in?
+>         >
+>         > Thanks,
+>         > Pat
+>         >
+>         >
+>         > On Tue, Mar 8, 2011 at 10:27 AM, Steve Holden
+>         <steve at holdenweb.com>
+>         > wrote:
+>         >         Pat should know if we have received one.
+>         >
+>         >         regards
+>         >          Steve
+>         >
+>         >
+>         >         On Mar 8, 2011, at 9:19 AM, Antoine Pitrou wrote:
+>         >
+>         >         > Le mardi 08 mars 2011 ? 00:57 -0800, Raymond
+>         Hettinger a
+>         >         ?crit :
+>         >         >
+>         >         >>
+>         >         >> Do we have a signed contributor agreement?
+>         >         >
+>         >         > I've told Ross it would be nice to send one if he
+>         hadn't
+>         >         already done
+>         >         > so, but I have obviously no way of checking whether
+>         he did
+>         >         or not.
+>         >         >
+>         >         > Regards
+>         >         >
+>         >         > Antoine.
+>         >         >
+>         >         >
+>         >         > _______________________________________________
+>         >         > python-committers mailing list
+>         >         > python-committers at python.org
+>         >         >
+>         http://mail.python.org/mailman/listinfo/python-committers
+>         >
+>         >
+>         >
+>         >
+>         > --
+>         > Pat Campbell
+>         > PSF Administrator/Secretary
+>         > patcam at python.org
+>         
+>         
+>         
+> 
+> 
+> 
+
+-- 
+Marc-Andre Lemburg
+eGenix.com
+
+Professional Python Services directly from the Source  (#1, Mar 09 2011)
+>>> Python/Zope Consulting and Support ...        http://www.egenix.com/
+>>> mxODBC.Zope.Database.Adapter ...             http://zope.egenix.com/
+>>> mxODBC, mxDateTime, mxTextTools ...        http://python.egenix.com/
+________________________________________________________________________
+
+::: Try our new mxODBC.Connect Python Database Interface for free ! ::::
+
+
+   eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+    D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+           Registered at Amtsgericht Duesseldorf: HRB 46611
+               http://www.egenix.com/company/contact/
+
+From ncoghlan at gmail.com  Wed Mar  9 12:38:05 2011
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Wed, 9 Mar 2011 06:38:05 -0500
+Subject: [python-committers] [Fwd: Re: Push rights for Ross Lagerwall]
+In-Reply-To: <1299670365.3749.4.camel@localhost.localdomain>
+References: <1299669627.3749.3.camel@localhost.localdomain>
+	<AANLkTinakuYrZW0OxpMsstnPGynri=NAS7qj0yGmu-oW@mail.gmail.com>
+	<1299670365.3749.4.camel@localhost.localdomain>
+Message-ID: <AANLkTik_=882cB=6jpRbLnu40RzU_XYS12Z3c252pSjh@mail.gmail.com>
+
+On Wed, Mar 9, 2011 at 6:32 AM, Antoine Pitrou <solipsis at pitrou.net> wrote:
+>> I know a digiital photograph is good enough for acceptance of a PSF
+>> nomination - is it enough for the contributor's agreement as well?
+>
+> ? I've never sent any photo to the PSF... (and I don't intend doing so)
+
+"... of the signed nomination form ..." (sorry, original was
+unnecessarily terse - the digital photo was basically the modern day
+alternative to faxing or mailing the form).
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan?? |?? ncoghlan at gmail.com?? |?? Brisbane, Australia
+
+From solipsis at pitrou.net  Wed Mar  9 12:46:12 2011
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Wed, 09 Mar 2011 12:46:12 +0100
+Subject: [python-committers] [Fwd: Re:  Push rights for Ross Lagerwall]
+In-Reply-To: <4D7765DC.6040803@egenix.com>
+References: <1299669627.3749.3.camel@localhost.localdomain>
+	<4D7765DC.6040803@egenix.com>
+Message-ID: <1299671172.3749.8.camel@localhost.localdomain>
+
+
+Ok, so, since the PSF appears to have a meeting very soon, can I request
+that the PSF gets its act together and solves the "electronic
+contributor agreement" issue once and for all?
+
+The way we core developers are prevented from working properly is
+**totally** unacceptable.
+
+Thank you
+
+Antoine.
+
+
+
+Le mercredi 09 mars 2011 ? 12:34 +0100, M.-A. Lemburg a ?crit :
+> Antoine Pitrou wrote:
+> > 
+> > What is the process now? Is it a showstopper?
+> 
+> Yes.
+> 
+> Developers uploading copyrightable patches to the tracker
+> need to sign the contributor agreement before those patches
+> can make it into the core - even before they get direct commit
+> rights.
+> 
+> Otherwise, the PSF does not have the right to redistribute that
+> code under the PSF license.
+> 
+> http://docs.python.org/devguide/coredev.html#sign-a-contributor-agreement
+> 
+> > -------- Message transf?r? --------
+> > De: Pat Campbell <patcam at python.org>
+> > ?: Antoine Pitrou <solipsis at pitrou.net>
+> > Cc: Steve Holden <steve at holdenweb.com>
+> > Sujet: Re: [python-committers] Push rights for Ross Lagerwall
+> > Date: Tue, 8 Mar 2011 11:54:29 -0500
+> > 
+> > Hi All:
+> >  
+> > I have not received a contributor agreement for Ross Lagerwall yet. It
+> > maybe
+> > in transit at this point. However, if the need arises another can be
+> > sent
+> > directly to me at:
+> >  
+> > PSF
+> > c/o Pat Campbell
+> > 6306 Treetop Circle
+> > Tampa, Florida 33617
+> >  
+> > Thanks,
+> > Pat
+> > 
+> > 
+> > On Tue, Mar 8, 2011 at 11:12 AM, Antoine Pitrou <solipsis at pitrou.net>
+> > wrote:
+> >         
+> >         Absolutely no idea. Either very recently, or earlier.
+> >         
+> >         
+> >         
+> >         Le mardi 08 mars 2011 ? 11:07 -0500, Pat Campbell a ?crit :
+> >         
+> >         > Hi All:
+> >         >
+> >         > When should it have come in?
+> >         >
+> >         > Thanks,
+> >         > Pat
+> >         >
+> >         >
+> >         > On Tue, Mar 8, 2011 at 10:27 AM, Steve Holden
+> >         <steve at holdenweb.com>
+> >         > wrote:
+> >         >         Pat should know if we have received one.
+> >         >
+> >         >         regards
+> >         >          Steve
+> >         >
+> >         >
+> >         >         On Mar 8, 2011, at 9:19 AM, Antoine Pitrou wrote:
+> >         >
+> >         >         > Le mardi 08 mars 2011 ? 00:57 -0800, Raymond
+> >         Hettinger a
+> >         >         ?crit :
+> >         >         >
+> >         >         >>
+> >         >         >> Do we have a signed contributor agreement?
+> >         >         >
+> >         >         > I've told Ross it would be nice to send one if he
+> >         hadn't
+> >         >         already done
+> >         >         > so, but I have obviously no way of checking whether
+> >         he did
+> >         >         or not.
+> >         >         >
+> >         >         > Regards
+> >         >         >
+> >         >         > Antoine.
+> >         >         >
+> >         >         >
+> >         >         > _______________________________________________
+> >         >         > python-committers mailing list
+> >         >         > python-committers at python.org
+> >         >         >
+> >         http://mail.python.org/mailman/listinfo/python-committers
+> >         >
+> >         >
+> >         >
+> >         >
+> >         > --
+> >         > Pat Campbell
+> >         > PSF Administrator/Secretary
+> >         > patcam at python.org
+> >         
+> >         
+> >         
+> > 
+> > 
+> > 
+> 
+
+
+
+From steve at holdenweb.com  Wed Mar  9 13:00:46 2011
+From: steve at holdenweb.com (Steve Holden)
+Date: Wed, 9 Mar 2011 07:00:46 -0500
+Subject: [python-committers] [PSF-Members] [Fwd: Re: Push rights for
+	Ross Lagerwall]
+In-Reply-To: <1299671172.3749.8.camel@localhost.localdomain>
+References: <1299669627.3749.3.camel@localhost.localdomain>
+	<4D7765DC.6040803@egenix.com>
+	<1299671172.3749.8.camel@localhost.localdomain>
+Message-ID: <87F39B2E-07F5-480C-B3CC-5E8F9FCD8041@holdenweb.com>
+
+Fortunately this *can be discussed at the members' meeting. Since I don't always follow python-dev I wasn't aware this was blocking commits - the process is pretty straightforward as it is. Guido established the Foundation to do what it's doing, but we would love to do it more efficiently. But anyone with access to a fax machine or a scanner can submit a contributor agreement very simply.
+
+However, specific ideas about how to action this request are also welcome. We certainly don't want to hold up development. Unfortunately we want encumbered code even less.
+
+regards
+ Steve
+
+
+On Mar 9, 2011, at 6:46 AM, Antoine Pitrou wrote:
+
+> 
+> Ok, so, since the PSF appears to have a meeting very soon, can I request
+> that the PSF gets its act together and solves the "electronic
+> contributor agreement" issue once and for all?
+> 
+> The way we core developers are prevented from working properly is
+> **totally** unacceptable.
+> 
+> Thank you
+> 
+> Antoine.
+> 
+> 
+> 
+> Le mercredi 09 mars 2011 ? 12:34 +0100, M.-A. Lemburg a ?crit :
+>> Antoine Pitrou wrote:
+>>> 
+>>> What is the process now? Is it a showstopper?
+>> 
+>> Yes.
+>> 
+>> Developers uploading copyrightable patches to the tracker
+>> need to sign the contributor agreement before those patches
+>> can make it into the core - even before they get direct commit
+>> rights.
+>> 
+>> Otherwise, the PSF does not have the right to redistribute that
+>> code under the PSF license.
+>> 
+>> http://docs.python.org/devguide/coredev.html#sign-a-contributor-agreement
+>> 
+>>> -------- Message transf?r? --------
+>>> De: Pat Campbell <patcam at python.org>
+>>> ?: Antoine Pitrou <solipsis at pitrou.net>
+>>> Cc: Steve Holden <steve at holdenweb.com>
+>>> Sujet: Re: [python-committers] Push rights for Ross Lagerwall
+>>> Date: Tue, 8 Mar 2011 11:54:29 -0500
+>>> 
+>>> Hi All:
+>>> 
+>>> I have not received a contributor agreement for Ross Lagerwall yet. It
+>>> maybe
+>>> in transit at this point. However, if the need arises another can be
+>>> sent
+>>> directly to me at:
+>>> 
+>>> PSF
+>>> c/o Pat Campbell
+>>> 6306 Treetop Circle
+>>> Tampa, Florida 33617
+>>> 
+>>> Thanks,
+>>> Pat
+>>> 
+>>> 
+>>> On Tue, Mar 8, 2011 at 11:12 AM, Antoine Pitrou <solipsis at pitrou.net>
+>>> wrote:
+>>> 
+>>>        Absolutely no idea. Either very recently, or earlier.
+>>> 
+>>> 
+>>> 
+>>>        Le mardi 08 mars 2011 ? 11:07 -0500, Pat Campbell a ?crit :
+>>> 
+>>>> Hi All:
+>>>> 
+>>>> When should it have come in?
+>>>> 
+>>>> Thanks,
+>>>> Pat
+>>>> 
+>>>> 
+>>>> On Tue, Mar 8, 2011 at 10:27 AM, Steve Holden
+>>>        <steve at holdenweb.com>
+>>>> wrote:
+>>>>        Pat should know if we have received one.
+>>>> 
+>>>>        regards
+>>>>         Steve
+>>>> 
+>>>> 
+>>>>        On Mar 8, 2011, at 9:19 AM, Antoine Pitrou wrote:
+>>>> 
+>>>>> Le mardi 08 mars 2011 ? 00:57 -0800, Raymond
+>>>        Hettinger a
+>>>>        ?crit :
+>>>>> 
+>>>>>> 
+>>>>>> Do we have a signed contributor agreement?
+>>>>> 
+>>>>> I've told Ross it would be nice to send one if he
+>>>        hadn't
+>>>>        already done
+>>>>> so, but I have obviously no way of checking whether
+>>>        he did
+>>>>        or not.
+>>>>> 
+>>>>> Regards
+>>>>> 
+>>>>> Antoine.
+>>>>> 
+>>>>> 
+>>>>> _______________________________________________
+>>>>> python-committers mailing list
+>>>>> python-committers at python.org
+>>>>> 
+>>>        http://mail.python.org/mailman/listinfo/python-committers
+>>>> 
+>>>> 
+>>>> 
+>>>> 
+>>>> --
+>>>> Pat Campbell
+>>>> PSF Administrator/Secretary
+>>>> patcam at python.org
+>>> 
+>>> 
+>>> 
+>>> 
+>>> 
+>>> 
+>> 
+> 
+> 
+> _______________________________________________
+> PSF-Members mailing list
+> PSF-Members at python.org
+> http://mail.python.org/mailman/listinfo/psf-members
+
+
+From solipsis at pitrou.net  Wed Mar  9 13:04:07 2011
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Wed, 09 Mar 2011 13:04:07 +0100
+Subject: [python-committers] [PSF-Members] [Fwd: Re: Push rights for
+ Ross Lagerwall]
+In-Reply-To: <87F39B2E-07F5-480C-B3CC-5E8F9FCD8041@holdenweb.com>
+References: <1299669627.3749.3.camel@localhost.localdomain>
+	<4D7765DC.6040803@egenix.com>
+	<1299671172.3749.8.camel@localhost.localdomain>
+	<87F39B2E-07F5-480C-B3CC-5E8F9FCD8041@holdenweb.com>
+Message-ID: <1299672247.3749.11.camel@localhost.localdomain>
+
+Le mercredi 09 mars 2011 ? 07:00 -0500, Steve Holden a ?crit :
+> But anyone with access to a fax machine or a scanner can submit a
+> contributor agreement very simply.
+
+That's like saying "anyone with access to a printer can send a patch via
+postal mail".
+Sorry, but we are in the 21th century now.
+
+
+> We certainly don't want to hold up development.
+
+Unfortunately, that's what you are doing.
+You are also making people frustrated.
+Please solve the issue.
+
+
+
+From jnoller at gmail.com  Wed Mar  9 13:08:42 2011
+From: jnoller at gmail.com (Jesse Noller)
+Date: Wed, 9 Mar 2011 07:08:42 -0500
+Subject: [python-committers] [Fwd: Re:  Push rights for Ross Lagerwall]
+In-Reply-To: <1299669627.3749.3.camel@localhost.localdomain>
+References: <1299669627.3749.3.camel@localhost.localdomain>
+Message-ID: <F39896F9-96F5-489D-A02A-4E95C62B1BA0@gmail.com>
+
+We have to have contributor agreements on file for core committers.
+
+On Mar 9, 2011, at 6:20 AM, Antoine Pitrou <solipsis at pitrou.net> wrote:
+
+> 
+> What is the process now? Is it a showstopper?
+> 
+> 
+> 
+> -------- Message transf?r? --------
+> De: Pat Campbell <patcam at python.org>
+> ?: Antoine Pitrou <solipsis at pitrou.net>
+> Cc: Steve Holden <steve at holdenweb.com>
+> Sujet: Re: [python-committers] Push rights for Ross Lagerwall
+> Date: Tue, 8 Mar 2011 11:54:29 -0500
+> 
+> Hi All:
+> 
+> I have not received a contributor agreement for Ross Lagerwall yet. It
+> maybe
+> in transit at this point. However, if the need arises another can be
+> sent
+> directly to me at:
+> 
+> PSF
+> c/o Pat Campbell
+> 6306 Treetop Circle
+> Tampa, Florida 33617
+> 
+> Thanks,
+> Pat
+> 
+> 
+> On Tue, Mar 8, 2011 at 11:12 AM, Antoine Pitrou <solipsis at pitrou.net>
+> wrote:
+> 
+>        Absolutely no idea. Either very recently, or earlier.
+> 
+> 
+> 
+>        Le mardi 08 mars 2011 ? 11:07 -0500, Pat Campbell a ?crit :
+> 
+>> Hi All:
+>> 
+>> When should it have come in?
+>> 
+>> Thanks,
+>> Pat
+>> 
+>> 
+>> On Tue, Mar 8, 2011 at 10:27 AM, Steve Holden
+>        <steve at holdenweb.com>
+>> wrote:
+>>        Pat should know if we have received one.
+>> 
+>>        regards
+>>         Steve
+>> 
+>> 
+>>        On Mar 8, 2011, at 9:19 AM, Antoine Pitrou wrote:
+>> 
+>>> Le mardi 08 mars 2011 ? 00:57 -0800, Raymond
+>        Hettinger a
+>>        ?crit :
+>>> 
+>>>> 
+>>>> Do we have a signed contributor agreement?
+>>> 
+>>> I've told Ross it would be nice to send one if he
+>        hadn't
+>>        already done
+>>> so, but I have obviously no way of checking whether
+>        he did
+>>        or not.
+>>> 
+>>> Regards
+>>> 
+>>> Antoine.
+>>> 
+>>> 
+>>> _______________________________________________
+>>> python-committers mailing list
+>>> python-committers at python.org
+>>> 
+>        http://mail.python.org/mailman/listinfo/python-committers
+>> 
+>> 
+>> 
+>> 
+>> --
+>> Pat Campbell
+>> PSF Administrator/Secretary
+>> patcam at python.org
+> 
+> 
+> 
+> 
+> 
+> 
+> -- 
+> Pat Campbell
+> PSF Administrator/Secretary
+> patcam at python.org
+> 
+> 
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+
+From ncoghlan at gmail.com  Wed Mar  9 13:12:14 2011
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Wed, 9 Mar 2011 07:12:14 -0500
+Subject: [python-committers] [PSF-Members] [Fwd: Re: Push rights for
+	Ross Lagerwall]
+In-Reply-To: <1299672247.3749.11.camel@localhost.localdomain>
+References: <1299669627.3749.3.camel@localhost.localdomain>
+	<4D7765DC.6040803@egenix.com>
+	<1299671172.3749.8.camel@localhost.localdomain>
+	<87F39B2E-07F5-480C-B3CC-5E8F9FCD8041@holdenweb.com>
+	<1299672247.3749.11.camel@localhost.localdomain>
+Message-ID: <AANLkTikhbiS5fV1Pi6Qcz+3EihtKsP55s6pKTNH4hoMf@mail.gmail.com>
+
+On Wed, Mar 9, 2011 at 7:04 AM, Antoine Pitrou <solipsis at pitrou.net> wrote:
+> Le mercredi 09 mars 2011 ? 07:00 -0500, Steve Holden a ?crit :
+>> But anyone with access to a fax machine or a scanner can submit a
+>> contributor agreement very simply.
+>
+> That's like saying "anyone with access to a printer can send a patch via
+> postal mail".
+> Sorry, but we are in the 21th century now.
+
+Print form, fill in form, sign form, take photo, upload photo, email
+photo isn't all that onerous a task.
+
+Compared to setting up GPG (or something of that ilk), it's positively
+straightforward.
+
+Please don't blame the PSF for the inadequate state of digital
+signature technologies and their uncertain place in law.
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan?? |?? ncoghlan at gmail.com?? |?? Brisbane, Australia
+
+From ncoghlan at gmail.com  Wed Mar  9 13:25:26 2011
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Wed, 9 Mar 2011 07:25:26 -0500
+Subject: [python-committers] [PSF-Members] [Fwd: Re: Push rights for
+	Ross Lagerwall]
+In-Reply-To: <AANLkTikhbiS5fV1Pi6Qcz+3EihtKsP55s6pKTNH4hoMf@mail.gmail.com>
+References: <1299669627.3749.3.camel@localhost.localdomain>
+	<4D7765DC.6040803@egenix.com>
+	<1299671172.3749.8.camel@localhost.localdomain>
+	<87F39B2E-07F5-480C-B3CC-5E8F9FCD8041@holdenweb.com>
+	<1299672247.3749.11.camel@localhost.localdomain>
+	<AANLkTikhbiS5fV1Pi6Qcz+3EihtKsP55s6pKTNH4hoMf@mail.gmail.com>
+Message-ID: <AANLkTikzvYpT72b43PPACgHB4LQ5F5VNy1RY9vumaM7T@mail.gmail.com>
+
+On Wed, Mar 9, 2011 at 7:12 AM, Nick Coghlan <ncoghlan at gmail.com> wrote:
+> Please don't blame the PSF for the inadequate state of digital
+> signature technologies and their uncertain place in law.
+
+What we *could* do though, is have a better explanation of the reasons
+behind the relatively archaic process for submission of contributor
+forms.
+
+Alternatively, something that occurred to me is that every core dev
+*must* set up SSH correctly to push changes. So why not have a text
+version of the form and require people to push a signed copy of their
+completed form as a text file to that repository before their access
+to the main repository is switched on?
+
+We're relying on the SSH keys to identify submitters of contributions,
+so sure we could rely on them for the form sign-off as well...
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan?? |?? ncoghlan at gmail.com?? |?? Brisbane, Australia
+
+From jnoller at gmail.com  Wed Mar  9 13:25:38 2011
+From: jnoller at gmail.com (Jesse Noller)
+Date: Wed, 9 Mar 2011 07:25:38 -0500
+Subject: [python-committers] [PSF-Members] [Fwd: Re: Push rights for
+	Ross Lagerwall]
+In-Reply-To: <87F39B2E-07F5-480C-B3CC-5E8F9FCD8041@holdenweb.com>
+References: <1299669627.3749.3.camel@localhost.localdomain>
+	<4D7765DC.6040803@egenix.com>
+	<1299671172.3749.8.camel@localhost.localdomain>
+	<87F39B2E-07F5-480C-B3CC-5E8F9FCD8041@holdenweb.com>
+Message-ID: <AANLkTikL7SKzVsFf_dbhjthAo-7JZgKfD1F=ytZBEh25@mail.gmail.com>
+
+On Wed, Mar 9, 2011 at 7:00 AM, Steve Holden <steve at holdenweb.com> wrote:
+> Fortunately this *can be discussed at the members' meeting. Since I don't always follow python-dev I wasn't aware this was blocking commits - the process is pretty straightforward as it is. Guido established the Foundation to do what it's doing, but we would love to do it more efficiently. But anyone with access to a fax machine or a scanner can submit a contributor agreement very simply.
+>
+> However, specific ideas about how to action this request are also welcome. We certainly don't want to hold up development. Unfortunately we want encumbered code even less.
+>
+> regards
+> ?Steve
+>
+
+I've brought this up at board meetings in the past. Specific ideas
+even, and I have not received a very warm welcome. The quickest path?
+Don't roll our own, and use something like what RackSpace (a multi
+million dollar company and a large army of lawyers) uses for
+OpenStack:
+
+https://rackspace.echosign.com/public/hostedForm?formid=ABCZR72YX57B
+
+Seems pretty cut and dry to me. We should *not* implement our own.
+There is also:
+
+http://code.google.com/legal/individual-cla-v1.0.html
+
+So, this is definite fodder for the members meeting this week. I
+believe we have an actionable path.
+
+Jesse
+
+From solipsis at pitrou.net  Wed Mar  9 13:37:50 2011
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Wed, 09 Mar 2011 13:37:50 +0100
+Subject: [python-committers] [PSF-Members] [Fwd: Re: Push rights for
+ Ross Lagerwall]
+In-Reply-To: <AANLkTikzvYpT72b43PPACgHB4LQ5F5VNy1RY9vumaM7T@mail.gmail.com>
+References: <1299669627.3749.3.camel@localhost.localdomain>
+	<4D7765DC.6040803@egenix.com>
+	<1299671172.3749.8.camel@localhost.localdomain>
+	<87F39B2E-07F5-480C-B3CC-5E8F9FCD8041@holdenweb.com>
+	<1299672247.3749.11.camel@localhost.localdomain>
+	<AANLkTikhbiS5fV1Pi6Qcz+3EihtKsP55s6pKTNH4hoMf@mail.gmail.com>
+	<AANLkTikzvYpT72b43PPACgHB4LQ5F5VNy1RY9vumaM7T@mail.gmail.com>
+Message-ID: <1299674270.3749.18.camel@localhost.localdomain>
+
+Le mercredi 09 mars 2011 ? 07:25 -0500, Nick Coghlan a ?crit :
+> On Wed, Mar 9, 2011 at 7:12 AM, Nick Coghlan <ncoghlan at gmail.com> wrote:
+> > Please don't blame the PSF for the inadequate state of digital
+> > signature technologies and their uncertain place in law.
+> 
+> What we *could* do though, is have a better explanation
+
+No, sorry, that doesn't parse.
+We don't need an explanation, we need a *solution*. Nobody cares about
+explanations when most online projects accept patches and enrole
+committers freely.
+
+If e-commerce or PayPal is satisfied with a *totally automated Web
+process*, then the PSF shouldn't need *physical* paperwork with *manual
+approval*. That's all.
+
+
+
+
+From jnoller at gmail.com  Wed Mar  9 13:39:36 2011
+From: jnoller at gmail.com (Jesse Noller)
+Date: Wed, 9 Mar 2011 07:39:36 -0500
+Subject: [python-committers] [PSF-Members] [Fwd: Re: Push rights for
+	Ross Lagerwall]
+In-Reply-To: <1299674270.3749.18.camel@localhost.localdomain>
+References: <1299669627.3749.3.camel@localhost.localdomain>
+	<4D7765DC.6040803@egenix.com>
+	<1299671172.3749.8.camel@localhost.localdomain>
+	<87F39B2E-07F5-480C-B3CC-5E8F9FCD8041@holdenweb.com>
+	<1299672247.3749.11.camel@localhost.localdomain>
+	<AANLkTikhbiS5fV1Pi6Qcz+3EihtKsP55s6pKTNH4hoMf@mail.gmail.com>
+	<AANLkTikzvYpT72b43PPACgHB4LQ5F5VNy1RY9vumaM7T@mail.gmail.com>
+	<1299674270.3749.18.camel@localhost.localdomain>
+Message-ID: <AANLkTi=kBgGDGiQR=n07QDC7hVNb86ayGdb9_69aVV0o@mail.gmail.com>
+
+On Wed, Mar 9, 2011 at 7:37 AM, Antoine Pitrou <solipsis at pitrou.net> wrote:
+> Le mercredi 09 mars 2011 ? 07:25 -0500, Nick Coghlan a ?crit :
+>> On Wed, Mar 9, 2011 at 7:12 AM, Nick Coghlan <ncoghlan at gmail.com> wrote:
+>> > Please don't blame the PSF for the inadequate state of digital
+>> > signature technologies and their uncertain place in law.
+>>
+>> What we *could* do though, is have a better explanation
+>
+> No, sorry, that doesn't parse.
+> We don't need an explanation, we need a *solution*. Nobody cares about
+> explanations when most online projects accept patches and enrole
+> committers freely.
+
+While I agree with you that we need to do this better; don't interpret
+what "other projects do" as "doing it right".
+
+From solipsis at pitrou.net  Wed Mar  9 13:42:20 2011
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Wed, 09 Mar 2011 13:42:20 +0100
+Subject: [python-committers] [PSF-Members] [Fwd: Re: Push rights for
+ Ross Lagerwall]
+In-Reply-To: <AANLkTi=kBgGDGiQR=n07QDC7hVNb86ayGdb9_69aVV0o@mail.gmail.com>
+References: <1299669627.3749.3.camel@localhost.localdomain>
+	<4D7765DC.6040803@egenix.com>
+	<1299671172.3749.8.camel@localhost.localdomain>
+	<87F39B2E-07F5-480C-B3CC-5E8F9FCD8041@holdenweb.com>
+	<1299672247.3749.11.camel@localhost.localdomain>
+	<AANLkTikhbiS5fV1Pi6Qcz+3EihtKsP55s6pKTNH4hoMf@mail.gmail.com>
+	<AANLkTikzvYpT72b43PPACgHB4LQ5F5VNy1RY9vumaM7T@mail.gmail.com>
+	<1299674270.3749.18.camel@localhost.localdomain>
+	<AANLkTi=kBgGDGiQR=n07QDC7hVNb86ayGdb9_69aVV0o@mail.gmail.com>
+Message-ID: <1299674540.3749.20.camel@localhost.localdomain>
+
+
+> > No, sorry, that doesn't parse.
+> > We don't need an explanation, we need a *solution*. Nobody cares about
+> > explanations when most online projects accept patches and enrole
+> > committers freely.
+> 
+> While I agree with you that we need to do this better; don't interpret
+> what "other projects do" as "doing it right".
+
+They definitely do it right from a social perspective.
+
+
+
+
+From ncoghlan at gmail.com  Wed Mar  9 13:46:14 2011
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Wed, 9 Mar 2011 07:46:14 -0500
+Subject: [python-committers] [PSF-Members] [Fwd: Re: Push rights for
+	Ross Lagerwall]
+In-Reply-To: <1299674540.3749.20.camel@localhost.localdomain>
+References: <1299669627.3749.3.camel@localhost.localdomain>
+	<4D7765DC.6040803@egenix.com>
+	<1299671172.3749.8.camel@localhost.localdomain>
+	<87F39B2E-07F5-480C-B3CC-5E8F9FCD8041@holdenweb.com>
+	<1299672247.3749.11.camel@localhost.localdomain>
+	<AANLkTikhbiS5fV1Pi6Qcz+3EihtKsP55s6pKTNH4hoMf@mail.gmail.com>
+	<AANLkTikzvYpT72b43PPACgHB4LQ5F5VNy1RY9vumaM7T@mail.gmail.com>
+	<1299674270.3749.18.camel@localhost.localdomain>
+	<AANLkTi=kBgGDGiQR=n07QDC7hVNb86ayGdb9_69aVV0o@mail.gmail.com>
+	<1299674540.3749.20.camel@localhost.localdomain>
+Message-ID: <AANLkTim11z5Z1eygqemMMpNmAobnGhyqVF-YqA6xEaH-@mail.gmail.com>
+
+On Wed, Mar 9, 2011 at 7:42 AM, Antoine Pitrou <solipsis at pitrou.net> wrote:
+>
+>> > No, sorry, that doesn't parse.
+>> > We don't need an explanation, we need a *solution*. Nobody cares about
+>> > explanations when most online projects accept patches and enrole
+>> > committers freely.
+>>
+>> While I agree with you that we need to do this better; don't interpret
+>> what "other projects do" as "doing it right".
+>
+> They definitely do it right from a social perspective.
+
+Which is made significantly easier by the fact that a lot of them
+couldn't care less about the legal perspective :)
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan?? |?? ncoghlan at gmail.com?? |?? Brisbane, Australia
+
+From jnoller at gmail.com  Wed Mar  9 13:46:44 2011
+From: jnoller at gmail.com (Jesse Noller)
+Date: Wed, 9 Mar 2011 07:46:44 -0500
+Subject: [python-committers] [PSF-Members] [Fwd: Re: Push rights for
+	Ross Lagerwall]
+In-Reply-To: <1299674540.3749.20.camel@localhost.localdomain>
+References: <1299669627.3749.3.camel@localhost.localdomain>
+	<4D7765DC.6040803@egenix.com>
+	<1299671172.3749.8.camel@localhost.localdomain>
+	<87F39B2E-07F5-480C-B3CC-5E8F9FCD8041@holdenweb.com>
+	<1299672247.3749.11.camel@localhost.localdomain>
+	<AANLkTikhbiS5fV1Pi6Qcz+3EihtKsP55s6pKTNH4hoMf@mail.gmail.com>
+	<AANLkTikzvYpT72b43PPACgHB4LQ5F5VNy1RY9vumaM7T@mail.gmail.com>
+	<1299674270.3749.18.camel@localhost.localdomain>
+	<AANLkTi=kBgGDGiQR=n07QDC7hVNb86ayGdb9_69aVV0o@mail.gmail.com>
+	<1299674540.3749.20.camel@localhost.localdomain>
+Message-ID: <AANLkTinZOOKkjADwOjP2noJrmjYZYu8dkaRAAm3Ms18_@mail.gmail.com>
+
+On Wed, Mar 9, 2011 at 7:42 AM, Antoine Pitrou <solipsis at pitrou.net> wrote:
+>
+>> > No, sorry, that doesn't parse.
+>> > We don't need an explanation, we need a *solution*. Nobody cares about
+>> > explanations when most online projects accept patches and enrole
+>> > committers freely.
+>>
+>> While I agree with you that we need to do this better; don't interpret
+>> what "other projects do" as "doing it right".
+>
+> They definitely do it right from a social perspective.
+>
+>
+
+And probably not from a legal perspective. Ask anyone who has tried to
+relicense a project and attempted to track down old willy nilly
+contributors, or been forced to got and get CLAs after the fact.
+
+I completely agree with you - we have to make this process modern, and
+simple. We just disagree on if it's necessary or not.
+
+From solipsis at pitrou.net  Wed Mar  9 13:53:38 2011
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Wed, 09 Mar 2011 13:53:38 +0100
+Subject: [python-committers] [PSF-Members] [Fwd: Re: Push rights for
+ Ross Lagerwall]
+In-Reply-To: <AANLkTinZOOKkjADwOjP2noJrmjYZYu8dkaRAAm3Ms18_@mail.gmail.com>
+References: <1299669627.3749.3.camel@localhost.localdomain>
+	<4D7765DC.6040803@egenix.com>
+	<1299671172.3749.8.camel@localhost.localdomain>
+	<87F39B2E-07F5-480C-B3CC-5E8F9FCD8041@holdenweb.com>
+	<1299672247.3749.11.camel@localhost.localdomain>
+	<AANLkTikhbiS5fV1Pi6Qcz+3EihtKsP55s6pKTNH4hoMf@mail.gmail.com>
+	<AANLkTikzvYpT72b43PPACgHB4LQ5F5VNy1RY9vumaM7T@mail.gmail.com>
+	<1299674270.3749.18.camel@localhost.localdomain>
+	<AANLkTi=kBgGDGiQR=n07QDC7hVNb86ayGdb9_69aVV0o@mail.gmail.com>
+	<1299674540.3749.20.camel@localhost.localdomain>
+	<AANLkTinZOOKkjADwOjP2noJrmjYZYu8dkaRAAm3Ms18_@mail.gmail.com>
+Message-ID: <1299675218.3749.26.camel@localhost.localdomain>
+
+
+> I completely agree with you - we have to make this process modern, and
+> simple. We just disagree on if it's necessary or not.
+
+I hate arguments from authority, but here's the 2010 breakdown of
+committers by changesets (thanks Mercurial :-)). Who do you think is the
+most sensitive to such issues?
+
+$ hg churn -c -d 2010
+georg at python.org                  1087 *********************************
+solipsis at pitrou.net                987 ******************************
+benjamin at python.org                959 *****************************
+victor.stinner at haypocalc.com       696 *********************
+dickinsm at gmail.com                 629 *******************
+ezio.melotti at gmail.com             462 **************
+rdmurray at bitdance.com              404 ************
+orsenthil at gmail.com                368 ***********
+python at rcn.com                     331 **********
+florent.xicluna at gmail.com          281 *********
+brian.curtin at gmail.com             243 *******
+alexander.belopolsky at gmail.com     237 *******
+fuzzyman at voidspace.org.uk          195 ******
+ronaldoussoren at mac.com             192 ******
+merwok at netwok.org                  180 *****
+ziade.tarek at gmail.com              168 *****
+bcannon at gmail.com                  160 *****
+martin at v.loewis.de                 160 *****
+vinay_sajip at yahoo.co.uk            159 *****
+amk at amk.ca                         125 ****
+ocean-city at m2.ccsnet.ne.jp         121 ****
+greg at mad-scientist.com             119 ****
+stefan at bytereef.org                 98 ***
+eric at trueblade.com                  93 ***
+doko at ubuntu.com                     85 ***
+g.rodola at gmail.com                  82 **
+barry at python.org                    77 **
+ncoghlan at gmail.com                  47 *
+amauryfa at gmail.com                  36 *
+daniel at stutzbachenterprises.com     34 *
+tjreedy at udel.edu                    26 *
+steven.bethard at gmail.com            23 *
+lukasz at langa.pl                     23 *
+lars at gustaebel.de                   23 *
+collinw at gmail.com                   22 *
+alexandre at peadrop.com               20 *
+theller at ctypes.org                  20 *
+fdrake at acm.org                      19 *
+jcea at jcea.es                        18 *
+jafo at tummy.com                      16 
+mail at timgolden.me.uk                16 
+exarkun at divmod.com                  15 
+pjenvey at underboss.org               12 
+larry at hastings.org                  11 
+brian at sweetapp.com                  11 
+kristjan at ccpgames.com               11 
+mal at egenix.com                      11 
+gh at ghaering.de                       9 
+jackdied at gmail.com                   8 
+richard at commonground.com.au          7 
+skip at pobox.com                       6 
+dirkjan at ochtman.nl                   6 
+askh at opera.com                       6 
+jyasskin at gmail.com                   5 
+dmalcolm at redhat.com                  4 
+pje at telecommunity.com                4 
+asmodai at in-nomine.org                4 
+arigo at tunes.org                      4 
+jnoller at gmail.com                    3 
+doug.hellmann at gmail.com              3 
+kbk at shore.net                        1 
+facundobatista at gmail.com             1 
+
+
+
+
+From eric at trueblade.com  Wed Mar  9 13:57:20 2011
+From: eric at trueblade.com (Eric Smith)
+Date: Wed, 09 Mar 2011 07:57:20 -0500
+Subject: [python-committers] [PSF-Members] [Fwd: Re: Push rights for
+ Ross Lagerwall]
+In-Reply-To: <1299675218.3749.26.camel@localhost.localdomain>
+References: <1299669627.3749.3.camel@localhost.localdomain>	<4D7765DC.6040803@egenix.com>	<1299671172.3749.8.camel@localhost.localdomain>	<87F39B2E-07F5-480C-B3CC-5E8F9FCD8041@holdenweb.com>	<1299672247.3749.11.camel@localhost.localdomain>	<AANLkTikhbiS5fV1Pi6Qcz+3EihtKsP55s6pKTNH4hoMf@mail.gmail.com>	<AANLkTikzvYpT72b43PPACgHB4LQ5F5VNy1RY9vumaM7T@mail.gmail.com>	<1299674270.3749.18.camel@localhost.localdomain>	<AANLkTi=kBgGDGiQR=n07QDC7hVNb86ayGdb9_69aVV0o@mail.gmail.com>	<1299674540.3749.20.camel@localhost.localdomain>	<AANLkTinZOOKkjADwOjP2noJrmjYZYu8dkaRAAm3Ms18_@mail.gmail.com>
+	<1299675218.3749.26.camel@localhost.localdomain>
+Message-ID: <4D777930.2050903@trueblade.com>
+
+On 3/9/2011 7:53 AM, Antoine Pitrou wrote:
+>
+>> I completely agree with you - we have to make this process modern, and
+>> simple. We just disagree on if it's necessary or not.
+>
+> I hate arguments from authority, but here's the 2010 breakdown of
+> committers by changesets (thanks Mercurial :-)). Who do you think is the
+> most sensitive to such issues?
+
+I'm not sure what you're arguing for. Are you saying the PSF shouldn't 
+bother making sure the copyright to python is unencumbered?
+
+Eric.
+
+From solipsis at pitrou.net  Wed Mar  9 14:07:43 2011
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Wed, 09 Mar 2011 14:07:43 +0100
+Subject: [python-committers] [PSF-Members] [Fwd: Re: Push rights for
+ Ross Lagerwall]
+In-Reply-To: <4D777930.2050903@trueblade.com>
+References: <1299669627.3749.3.camel@localhost.localdomain>
+	<4D7765DC.6040803@egenix.com>
+	<1299671172.3749.8.camel@localhost.localdomain>
+	<87F39B2E-07F5-480C-B3CC-5E8F9FCD8041@holdenweb.com>
+	<1299672247.3749.11.camel@localhost.localdomain>
+	<AANLkTikhbiS5fV1Pi6Qcz+3EihtKsP55s6pKTNH4hoMf@mail.gmail.com>
+	<AANLkTikzvYpT72b43PPACgHB4LQ5F5VNy1RY9vumaM7T@mail.gmail.com>
+	<1299674270.3749.18.camel@localhost.localdomain>
+	<AANLkTi=kBgGDGiQR=n07QDC7hVNb86ayGdb9_69aVV0o@mail.gmail.com>
+	<1299674540.3749.20.camel@localhost.localdomain>
+	<AANLkTinZOOKkjADwOjP2noJrmjYZYu8dkaRAAm3Ms18_@mail.gmail.com>
+	<1299675218.3749.26.camel@localhost.localdomain>
+	<4D777930.2050903@trueblade.com>
+Message-ID: <1299676063.3749.35.camel@localhost.localdomain>
+
+
+> I'm not sure what you're arguing for. Are you saying the PSF shouldn't 
+> bother making sure the copyright to python is unencumbered?
+
+Eric, let me quote myself again:
+
+        Ok, so, since the PSF appears to have a meeting very soon, can I
+        request
+        that the PSF gets its act together and solves the "electronic
+        contributor agreement" issue once and for all?
+        
+        The way we core developers are prevented from working properly
+        is
+        **totally** unacceptable.
+        
+        Thank you
+
+
+I don't care and don't want to argue (I insist about this) about
+religions, be it christianism or intellectual property.
+If you think a legal rule is needed, please just *ensure it doesn't get
+in the way*. That's your job as a self-proclaimed "protector of IP
+rights", not mine.
+
+And if you can't pull it off, then admit you failed in your duty and
+stop bothering us core developers.
+
+
+
+From jnoller at gmail.com  Wed Mar  9 14:07:56 2011
+From: jnoller at gmail.com (Jesse Noller)
+Date: Wed, 9 Mar 2011 08:07:56 -0500
+Subject: [python-committers] [PSF-Members] [Fwd: Re: Push rights for
+	Ross Lagerwall]
+In-Reply-To: <1299675218.3749.26.camel@localhost.localdomain>
+References: <1299669627.3749.3.camel@localhost.localdomain>
+	<4D7765DC.6040803@egenix.com>
+	<1299671172.3749.8.camel@localhost.localdomain>
+	<87F39B2E-07F5-480C-B3CC-5E8F9FCD8041@holdenweb.com>
+	<1299672247.3749.11.camel@localhost.localdomain>
+	<AANLkTikhbiS5fV1Pi6Qcz+3EihtKsP55s6pKTNH4hoMf@mail.gmail.com>
+	<AANLkTikzvYpT72b43PPACgHB4LQ5F5VNy1RY9vumaM7T@mail.gmail.com>
+	<1299674270.3749.18.camel@localhost.localdomain>
+	<AANLkTi=kBgGDGiQR=n07QDC7hVNb86ayGdb9_69aVV0o@mail.gmail.com>
+	<1299674540.3749.20.camel@localhost.localdomain>
+	<AANLkTinZOOKkjADwOjP2noJrmjYZYu8dkaRAAm3Ms18_@mail.gmail.com>
+	<1299675218.3749.26.camel@localhost.localdomain>
+Message-ID: <AANLkTinSXdJCVuppUwyXENOE6Rrg5nNaqvXbjNLE80rv@mail.gmail.com>
+
+On Wed, Mar 9, 2011 at 7:53 AM, Antoine Pitrou <solipsis at pitrou.net> wrote:
+>
+>> I completely agree with you - we have to make this process modern, and
+>> simple. We just disagree on if it's necessary or not.
+>
+> I hate arguments from authority, but here's the 2010 breakdown of
+> committers by changesets (thanks Mercurial :-)). Who do you think is the
+> most sensitive to such issues?
+>
+
+Antoine; if you don't want the help - I don't need to help.
+
+From solipsis at pitrou.net  Wed Mar  9 14:10:36 2011
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Wed, 09 Mar 2011 14:10:36 +0100
+Subject: [python-committers] [PSF-Members] [Fwd: Re: Push rights for
+ Ross Lagerwall]
+In-Reply-To: <AANLkTinSXdJCVuppUwyXENOE6Rrg5nNaqvXbjNLE80rv@mail.gmail.com>
+References: <1299669627.3749.3.camel@localhost.localdomain>
+	<4D7765DC.6040803@egenix.com>
+	<1299671172.3749.8.camel@localhost.localdomain>
+	<87F39B2E-07F5-480C-B3CC-5E8F9FCD8041@holdenweb.com>
+	<1299672247.3749.11.camel@localhost.localdomain>
+	<AANLkTikhbiS5fV1Pi6Qcz+3EihtKsP55s6pKTNH4hoMf@mail.gmail.com>
+	<AANLkTikzvYpT72b43PPACgHB4LQ5F5VNy1RY9vumaM7T@mail.gmail.com>
+	<1299674270.3749.18.camel@localhost.localdomain>
+	<AANLkTi=kBgGDGiQR=n07QDC7hVNb86ayGdb9_69aVV0o@mail.gmail.com>
+	<1299674540.3749.20.camel@localhost.localdomain>
+	<AANLkTinZOOKkjADwOjP2noJrmjYZYu8dkaRAAm3Ms18_@mail.gmail.com>
+	<1299675218.3749.26.camel@localhost.localdomain>
+	<AANLkTinSXdJCVuppUwyXENOE6Rrg5nNaqvXbjNLE80rv@mail.gmail.com>
+Message-ID: <1299676236.3749.38.camel@localhost.localdomain>
+
+Le mercredi 09 mars 2011 ? 08:07 -0500, Jesse Noller a ?crit :
+> On Wed, Mar 9, 2011 at 7:53 AM, Antoine Pitrou <solipsis at pitrou.net> wrote:
+> >
+> >> I completely agree with you - we have to make this process modern, and
+> >> simple. We just disagree on if it's necessary or not.
+> >
+> > I hate arguments from authority, but here's the 2010 breakdown of
+> > committers by changesets (thanks Mercurial :-)). Who do you think is the
+> > most sensitive to such issues?
+> >
+> 
+> Antoine; if you don't want the help - I don't need to help.
+
+I have started this thread by asking that the PSF solves the situation.
+That is the very definition of asking for help in my book.
+
+
+
+From steve at holdenweb.com  Wed Mar  9 14:23:46 2011
+From: steve at holdenweb.com (Steve Holden)
+Date: Wed, 9 Mar 2011 08:23:46 -0500
+Subject: [python-committers] [PSF-Members] [Fwd: Re: Push rights for
+	Ross Lagerwall]
+In-Reply-To: <1299676063.3749.35.camel@localhost.localdomain>
+References: <1299669627.3749.3.camel@localhost.localdomain>
+	<4D7765DC.6040803@egenix.com>
+	<1299671172.3749.8.camel@localhost.localdomain>
+	<87F39B2E-07F5-480C-B3CC-5E8F9FCD8041@holdenweb.com>
+	<1299672247.3749.11.camel@localhost.localdomain>
+	<AANLkTikhbiS5fV1Pi6Qcz+3EihtKsP55s6pKTNH4hoMf@mail.gmail.com>
+	<AANLkTikzvYpT72b43PPACgHB4LQ5F5VNy1RY9vumaM7T@mail.gmail.com>
+	<1299674270.3749.18.camel@localhost.localdomain>
+	<AANLkTi=kBgGDGiQR=n07QDC7hVNb86ayGdb9_69aVV0o@mail.gmail.com>
+	<1299674540.3749.20.camel@localhost.localdomain>
+	<AANLkTinZOOKkjADwOjP2noJrmjYZYu8dkaRAAm3Ms18_@mail.gmail.com>
+	<1299675218.3749.26.camel@localhost.localdomain>
+	<4D777930.2050903@trueblade.com>
+	<1299676063.3749.35.camel@localhost.localdomain>
+Message-ID: <6499E317-4F23-4439-B8C6-04D071D360E1@holdenweb.com>
+
+On Mar 9, 2011, at 8:07 AM, Antoine Pitrou wrote:
+
+> I don't care and don't want to argue (I insist about this) about
+> religions, be it christianism or intellectual property.
+> If you think a legal rule is needed, please just *ensure it doesn't get
+> in the way*. That's your job as a self-proclaimed "protector of IP
+> rights", not mine.
+> 
+As I have already pointed out in this thread, the PSF is not a "self-proclaimed" anything. It was established by Guido precisely to ensure that the IP was unencumbered. So Guido clearly thinks the rule is needed.
+
+I think Jesse has pointed us to some very satisfactory potential solutions. I also think you are making a mountain out of a molehill. Electronic forms are easier to deal with, but I seriously doubt their absence has lost as much development effort as the total collective developer time already expended on this thread :-)
+
+regards
+ Steve
+
+From solipsis at pitrou.net  Wed Mar  9 14:35:48 2011
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Wed, 09 Mar 2011 14:35:48 +0100
+Subject: [python-committers] [PSF-Members] [Fwd: Re: Push rights for
+ Ross Lagerwall]
+In-Reply-To: <6499E317-4F23-4439-B8C6-04D071D360E1@holdenweb.com>
+References: <1299669627.3749.3.camel@localhost.localdomain>
+	<4D7765DC.6040803@egenix.com>
+	<1299671172.3749.8.camel@localhost.localdomain>
+	<87F39B2E-07F5-480C-B3CC-5E8F9FCD8041@holdenweb.com>
+	<1299672247.3749.11.camel@localhost.localdomain>
+	<AANLkTikhbiS5fV1Pi6Qcz+3EihtKsP55s6pKTNH4hoMf@mail.gmail.com>
+	<AANLkTikzvYpT72b43PPACgHB4LQ5F5VNy1RY9vumaM7T@mail.gmail.com>
+	<1299674270.3749.18.camel@localhost.localdomain>
+	<AANLkTi=kBgGDGiQR=n07QDC7hVNb86ayGdb9_69aVV0o@mail.gmail.com>
+	<1299674540.3749.20.camel@localhost.localdomain>
+	<AANLkTinZOOKkjADwOjP2noJrmjYZYu8dkaRAAm3Ms18_@mail.gmail.com>
+	<1299675218.3749.26.camel@localhost.localdomain>
+	<4D777930.2050903@trueblade.com>
+	<1299676063.3749.35.camel@localhost.localdomain>
+	<6499E317-4F23-4439-B8C6-04D071D360E1@holdenweb.com>
+Message-ID: <1299677748.3749.49.camel@localhost.localdomain>
+
+
+Hello Steve,
+
+> > I don't care and don't want to argue (I insist about this) about
+> > religions, be it christianism or intellectual property.
+> > If you think a legal rule is needed, please just *ensure it doesn't get
+> > in the way*. That's your job as a self-proclaimed "protector of IP
+> > rights", not mine.
+> > 
+> As I have already pointed out in this thread, the PSF is not a
+> "self-proclaimed" anything. It was established by Guido precisely to
+> ensure that the IP was unencumbered. So Guido clearly thinks the rule
+> is needed.
+
+I would like to hear Guido's opinion today about this. Python's
+development is not the same as it was 10 years ago, and the world has
+changed too.
+
+> I think Jesse has pointed us to some very satisfactory potential
+> solutions. I also think you are making a mountain out of a molehill.
+
+The reason I am making a mountain out of a slightly oversized molehill
+is that otherwise it seems people here don't care to solve the issue,
+and instead keep patronizing about how the current process is fine
+(which it is!... as long as it isn't actually applied...).
+
+> Electronic forms are easier to deal with, but I seriously doubt their
+> absence has lost as much development effort as the total collective
+> developer time already expended on this thread :-)
+
+Well, I agree that not so much development effort has been lost because
+of us checking contributor agreements, but I think there's a reason, and
+you might not like it.
+
+Regards
+
+Antoine.
+
+
+
+From guido at python.org  Wed Mar  9 14:30:40 2011
+From: guido at python.org (Guido van Rossum)
+Date: Wed, 9 Mar 2011 08:30:40 -0500
+Subject: [python-committers] [PSF-Members] [Fwd: Re: Push rights for
+	Ross Lagerwall]
+In-Reply-To: <1299674540.3749.20.camel@localhost.localdomain>
+References: <1299669627.3749.3.camel@localhost.localdomain>
+	<4D7765DC.6040803@egenix.com>
+	<1299671172.3749.8.camel@localhost.localdomain>
+	<87F39B2E-07F5-480C-B3CC-5E8F9FCD8041@holdenweb.com>
+	<1299672247.3749.11.camel@localhost.localdomain>
+	<AANLkTikhbiS5fV1Pi6Qcz+3EihtKsP55s6pKTNH4hoMf@mail.gmail.com>
+	<AANLkTikzvYpT72b43PPACgHB4LQ5F5VNy1RY9vumaM7T@mail.gmail.com>
+	<1299674270.3749.18.camel@localhost.localdomain>
+	<AANLkTi=kBgGDGiQR=n07QDC7hVNb86ayGdb9_69aVV0o@mail.gmail.com>
+	<1299674540.3749.20.camel@localhost.localdomain>
+Message-ID: <AANLkTimopA-C_F6v=aEKvwWWY_2e-VAkZntCghbs5cWs@mail.gmail.com>
+
+On Wed, Mar 9, 2011 at 7:42 AM, Antoine Pitrou <solipsis at pitrou.net> wrote:
+>
+>> > No, sorry, that doesn't parse.
+>> > We don't need an explanation, we need a *solution*. Nobody cares about
+>> > explanations when most online projects accept patches and enrole
+>> > committers freely.
+>>
+>> While I agree with you that we need to do this better; don't interpret
+>> what "other projects do" as "doing it right".
+>
+> They definitely do it right from a social perspective.
+
+Another way of doing it right from a social perspective is to give
+someone commit privileges even while they are still figuring out how
+to send in their agreement via snail mail. It is enough for the pile
+of agreements to be eventually consistent. Assuming you all trust the
+new committer, there is no need for a transaction where the receipt of
+the agreement must have  occurred before they can be given access to
+the system -- as long as it's indicated that it can be withdrawn if
+they don't send in the agreement.
+
+In the mean time, yes, we need a web-based way of submitting
+agreements. I believe I have already mentioned once before that Google
+has a simple web form for individual contributors
+(http://code.google.com/legal/individual-cla-v1.0.html) and only
+requires a faxed signature for corporate contributors (where there are
+actual lawyers on the contributing side).
+
+-- 
+--Guido van Rossum (python.org/~guido)
+
+From guido at python.org  Wed Mar  9 14:45:15 2011
+From: guido at python.org (Guido van Rossum)
+Date: Wed, 9 Mar 2011 08:45:15 -0500
+Subject: [python-committers] [PSF-Members] [Fwd: Re: Push rights for
+	Ross Lagerwall]
+In-Reply-To: <1299677748.3749.49.camel@localhost.localdomain>
+References: <1299669627.3749.3.camel@localhost.localdomain>
+	<4D7765DC.6040803@egenix.com>
+	<1299671172.3749.8.camel@localhost.localdomain>
+	<87F39B2E-07F5-480C-B3CC-5E8F9FCD8041@holdenweb.com>
+	<1299672247.3749.11.camel@localhost.localdomain>
+	<AANLkTikhbiS5fV1Pi6Qcz+3EihtKsP55s6pKTNH4hoMf@mail.gmail.com>
+	<AANLkTikzvYpT72b43PPACgHB4LQ5F5VNy1RY9vumaM7T@mail.gmail.com>
+	<1299674270.3749.18.camel@localhost.localdomain>
+	<AANLkTi=kBgGDGiQR=n07QDC7hVNb86ayGdb9_69aVV0o@mail.gmail.com>
+	<1299674540.3749.20.camel@localhost.localdomain>
+	<AANLkTinZOOKkjADwOjP2noJrmjYZYu8dkaRAAm3Ms18_@mail.gmail.com>
+	<1299675218.3749.26.camel@localhost.localdomain>
+	<4D777930.2050903@trueblade.com>
+	<1299676063.3749.35.camel@localhost.localdomain>
+	<6499E317-4F23-4439-B8C6-04D071D360E1@holdenweb.com>
+	<1299677748.3749.49.camel@localhost.localdomain>
+Message-ID: <AANLkTi=e6+WOrn_qdUhKcv-WXqAD+eSvtJ205O=o1sPJ@mail.gmail.com>
+
+On Wed, Mar 9, 2011 at 8:35 AM, Antoine Pitrou <solipsis at pitrou.net> wrote:
+>
+> Hello Steve,
+>
+>> > I don't care and don't want to argue (I insist about this) about
+>> > religions, be it christianism or intellectual property.
+>> > If you think a legal rule is needed, please just *ensure it doesn't get
+>> > in the way*. That's your job as a self-proclaimed "protector of IP
+>> > rights", not mine.
+>> >
+>> As I have already pointed out in this thread, the PSF is not a
+>> "self-proclaimed" anything. It was established by Guido precisely to
+>> ensure that the IP was unencumbered. So Guido clearly thinks the rule
+>> is needed.
+>
+> I would like to hear Guido's opinion today about this. Python's
+> development is not the same as it was 10 years ago, and the world has
+> changed too.
+
+If anything, we need the forms more than 10 years ago. BUT unlike then
+it's acceptable to fill out a web form.
+
+>> I think Jesse has pointed us to some very satisfactory potential
+>> solutions. I also think you are making a mountain out of a molehill.
+>
+> The reason I am making a mountain out of a slightly oversized molehill
+> is that otherwise it seems people here don't care to solve the issue,
+> and instead keep patronizing about how the current process is fine
+> (which it is!... as long as it isn't actually applied...).
+>
+>> Electronic forms are easier to deal with, but I seriously doubt their
+>> absence has lost as much development effort as the total collective
+>> developer time already expended on this thread :-)
+>
+> Well, I agree that not so much development effort has been lost because
+> of us checking contributor agreements, but I think there's a reason, and
+> you might not like it.
+
+TBH I don't think that the implementation of the web form ought to be
+the PSF directors' job. However approval of this change in process and
+of the exact legal text that people agree to on the web form is. One
+of the developers or some other volunteer can do the implementation --
+just don't make it live until the PSF's lawyer has approved the text.
+(Though if it was me I'd just copy the Google forms, scratch out
+Google, and write in Python in crayon.) Please do record which version
+of the form is agreed to.
+
+As a temporary solution for new contributors, if you trust them, give
+them their permissions and ask them to fill the paperwork later (soon,
+but not as a condition for the permissions).
+
+-- 
+--Guido van Rossum (python.org/~guido)
+
+From mal at egenix.com  Wed Mar  9 16:18:46 2011
+From: mal at egenix.com (M.-A. Lemburg)
+Date: Wed, 09 Mar 2011 16:18:46 +0100
+Subject: [python-committers] [PSF-Members] [Fwd: Re: Push rights
+ for	Ross Lagerwall]
+In-Reply-To: <AANLkTinSXdJCVuppUwyXENOE6Rrg5nNaqvXbjNLE80rv@mail.gmail.com>
+References: <1299669627.3749.3.camel@localhost.localdomain>	<4D7765DC.6040803@egenix.com>	<1299671172.3749.8.camel@localhost.localdomain>	<87F39B2E-07F5-480C-B3CC-5E8F9FCD8041@holdenweb.com>	<1299672247.3749.11.camel@localhost.localdomain>	<AANLkTikhbiS5fV1Pi6Qcz+3EihtKsP55s6pKTNH4hoMf@mail.gmail.com>	<AANLkTikzvYpT72b43PPACgHB4LQ5F5VNy1RY9vumaM7T@mail.gmail.com>	<1299674270.3749.18.camel@localhost.localdomain>	<AANLkTi=kBgGDGiQR=n07QDC7hVNb86ayGdb9_69aVV0o@mail.gmail.com>	<1299674540.3749.20.camel@localhost.localdomain>	<AANLkTinZOOKkjADwOjP2noJrmjYZYu8dkaRAAm3Ms18_@mail.gmail.com>	<1299675218.3749.26.camel@localhost.localdomain>
+	<AANLkTinSXdJCVuppUwyXENOE6Rrg5nNaqvXbjNLE80rv@mail.gmail.com>
+Message-ID: <4D779A56.9020205@egenix.com>
+
+I really don't understand what all the fuzz is about. We have
+a two step process:
+
+* Step 1
+
+What the PSF initially needs is an acknowledgement of the
+contributor (committer or not) that he or she is willing to
+accept and enter into the agreement.
+
+This can be done by checking a checkbox on the bug tracker,
+a comment on the tracker, an inline note in the patch,
+an emailed form, via IRC, etc.
+
+The only important aspect in this step is to make the contributor
+aware of the requirement and get his/her agreement to follow
+up on it.
+
+* Step 2
+
+The paperwork can then be done as second step - in whatever
+way is legally needed.
+
+The only important aspect with this second step is that
+the PSF does get to know about the new contribution. Since
+Pat is not following the checkins list, an email to her
+would be nice.
+
+* Possible issues and solutions
+
+If anything, I believe it's the legal form we require that's
+giving people second thoughts, not finding a fax machine or
+post box :-)
+
+   http://www.python.org/psf/contrib/
+
+Or perhaps, they are not aware of the requirement at all,
+since the tracker doesn't mention it on the submission page:
+
+   http://bugs.python.org/issue?@template=item
+
+A simple note like this on the tracker would go a long way:
+
+"""
+Please be aware that we can only accept patches for Python
+if you are willing to sign a contributor agreement with
+the PSF (linked to the contrib forms).
+
+The agreement is necessary in order for the PSF to be able
+to legally distribute your contribution together with the
+Python distribution. If you have questions, please write to
+contributor-agreement at python.org.
+"""
+
+contributor-agreement at python.org could be aliased to
+psf at python.org, pat at python.org, or even better, a
+PSF committee taking care of this business.
+
+For new core committers, I believe that step 1 and 2 ought
+to really already have happened long before they even become
+core committers. After all, submitting code is one of the
+more important requirements we have for them, right ?
+
+-- 
+Marc-Andre Lemburg
+eGenix.com
+
+Professional Python Services directly from the Source  (#1, Mar 09 2011)
+>>> Python/Zope Consulting and Support ...        http://www.egenix.com/
+>>> mxODBC.Zope.Database.Adapter ...             http://zope.egenix.com/
+>>> mxODBC, mxDateTime, mxTextTools ...        http://python.egenix.com/
+________________________________________________________________________
+
+::: Try our new mxODBC.Connect Python Database Interface for free ! ::::
+
+
+   eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+    D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+           Registered at Amtsgericht Duesseldorf: HRB 46611
+               http://www.egenix.com/company/contact/
+
+From steve at holdenweb.com  Wed Mar  9 17:39:52 2011
+From: steve at holdenweb.com (Steve Holden)
+Date: Wed, 9 Mar 2011 11:39:52 -0500
+Subject: [python-committers] [PSF-Members] [Fwd: Re: Push rights
+	for	Ross Lagerwall]
+In-Reply-To: <4D779A56.9020205@egenix.com>
+References: <1299669627.3749.3.camel@localhost.localdomain>	<4D7765DC.6040803@egenix.com>	<1299671172.3749.8.camel@localhost.localdomain>	<87F39B2E-07F5-480C-B3CC-5E8F9FCD8041@holdenweb.com>	<1299672247.3749.11.camel@localhost.localdomain>	<AANLkTikhbiS5fV1Pi6Qcz+3EihtKsP55s6pKTNH4hoMf@mail.gmail.com>	<AANLkTikzvYpT72b43PPACgHB4LQ5F5VNy1RY9vumaM7T@mail.gmail.com>	<1299674270.3749.18.camel@localhost.localdomain>	<AANLkTi=kBgGDGiQR=n07QDC7hVNb86ayGdb9_69aVV0o@mail.gmail.com>	<1299674540.3749.20.camel@localhost.localdomain>	<AANLkTinZOOKkjADwOjP2noJrmjYZYu8dkaRAAm3Ms18_@mail.gmail.com>	<1299675218.3749.26.camel@localhost.localdomain>
+	<AANLkTinSXdJCVuppUwyXENOE6Rrg5nNaqvXbjNLE80rv@mail.gmail.com>
+	<4D779A56.9020205@egenix.com>
+Message-ID: <7995B103-2682-46F3-8731-CC7C89ED123E@holdenweb.com>
+
+On Mar 9, 2011, at 10:18 AM, M.-A. Lemburg wrote:
+
+> contributor-agreement at python.org could be aliased to
+> psf at python.org, pat at python.org, or even better, a
+> PSF committee taking care of this business.
+
+Lest this strike fear into the hearts of members I would point out that it would operate much like the Trademarks Committee, which never meets, but handles inquiries about the use of PSF trademarks (yes, not everyone agrees with trademarks, but if you have to have them then there has to be a legal owner) by email and responds to requests without reference to the Board.
+
+Effectively this would give people who understand the agreement the opportunity to assist those who don't.
+
+regards
+ Steve
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20110309/96cbd2ae/attachment.html>
+
+From jcea at jcea.es  Thu Mar 10 01:50:21 2011
+From: jcea at jcea.es (Jesus Cea)
+Date: Thu, 10 Mar 2011 01:50:21 +0100
+Subject: [python-committers] [PSF-Members] [Fwd: Re: Push rights for
+ Ross Lagerwall]
+In-Reply-To: <1299677748.3749.49.camel@localhost.localdomain>
+References: <1299669627.3749.3.camel@localhost.localdomain>	<4D7765DC.6040803@egenix.com>	<1299671172.3749.8.camel@localhost.localdomain>	<87F39B2E-07F5-480C-B3CC-5E8F9FCD8041@holdenweb.com>	<1299672247.3749.11.camel@localhost.localdomain>	<AANLkTikhbiS5fV1Pi6Qcz+3EihtKsP55s6pKTNH4hoMf@mail.gmail.com>	<AANLkTikzvYpT72b43PPACgHB4LQ5F5VNy1RY9vumaM7T@mail.gmail.com>	<1299674270.3749.18.camel@localhost.localdomain>	<AANLkTi=kBgGDGiQR=n07QDC7hVNb86ayGdb9_69aVV0o@mail.gmail.com>	<1299674540.3749.20.camel@localhost.localdomain>	<AANLkTinZOOKkjADwOjP2noJrmjYZYu8dkaRAAm3Ms18_@mail.gmail.com>	<1299675218.3749.26.camel@localhost.localdomain>	<4D777930.2050903@trueblade.com>	<1299676063.3749.35.camel@localhost.localdomain>	<6499E317-4F23-4439-B8C6-04D071D360E1@holdenweb.com>
+	<1299677748.3749.49.camel@localhost.localdomain>
+Message-ID: <4D78204D.1030906@jcea.es>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On 09/03/11 14:35, Antoine Pitrou wrote:
+> Well, I agree that not so much development effort has been lost because
+> of us checking contributor agreements, but I think there's a reason, and
+> you might not like it.
+
+I sent my signature in 2008 (I faxed it to USA). Some time after,
+somebody asked me to send it again, because they couldn't find it
+anymore (they got it initially, because I got my commit privileges).
+
+So, somebody lost it, and somebody found it was missing and ask for it
+again. So, somebody was paying attention and investing time being sure
+everything is ok.
+
+That said, I have used the same PGP key for 15 years. Would be nice if a
+digital signature would be enough. I am probably an exception, nevertheless.
+
+
+- -- 
+Jesus Cea Avion                         _/_/      _/_/_/        _/_/_/
+jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+jabber / xmpp:jcea at jabber.org         _/_/    _/_/          _/_/_/_/_/
+.                              _/_/  _/_/    _/_/          _/_/  _/_/
+"Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+"My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+"El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.10 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - http://enigmail.mozdev.org/
+
+iQCVAwUBTXggTZlgi5GaxT1NAQJHOAP+MBRI75AlVzBk+r27qGIE4H2+4xXp9RnX
+655MESIJkn5SflWaKLoRZWPYFzPsnm4spAzcFgwD2pcKjzTjSS7N+UOaJ8eDCrxf
+K1bs/E4k5BI/1gYFXDK6e7MKLQnO7ySZX/3hvC/L945odIf+asz6cMkor85bScV6
+6jgbv0r/bx4=
+=x29g
+-----END PGP SIGNATURE-----
+
+From martin at v.loewis.de  Thu Mar 10 04:28:26 2011
+From: martin at v.loewis.de (=?UTF-8?B?Ik1hcnRpbiB2LiBMw7Z3aXMi?=)
+Date: Wed, 09 Mar 2011 22:28:26 -0500
+Subject: [python-committers] [PSF-Members] [Fwd: Re: Push rights for
+ Ross Lagerwall]
+In-Reply-To: <1299674270.3749.18.camel@localhost.localdomain>
+References: <1299669627.3749.3.camel@localhost.localdomain>	<4D7765DC.6040803@egenix.com>	<1299671172.3749.8.camel@localhost.localdomain>	<87F39B2E-07F5-480C-B3CC-5E8F9FCD8041@holdenweb.com>	<1299672247.3749.11.camel@localhost.localdomain>	<AANLkTikhbiS5fV1Pi6Qcz+3EihtKsP55s6pKTNH4hoMf@mail.gmail.com>	<AANLkTikzvYpT72b43PPACgHB4LQ5F5VNy1RY9vumaM7T@mail.gmail.com>
+	<1299674270.3749.18.camel@localhost.localdomain>
+Message-ID: <4D78455A.1090000@v.loewis.de>
+
+ > We don't need an explanation, we need a *solution*.
+
+Please speak for yourself only. Is it just you being upset to
+have to use paper, or is Ross Lagerwall actively refusing to
+put his signature on a piece of paper?
+
+Regards,
+Martin
+
+From steve at holdenweb.com  Thu Mar 10 06:45:09 2011
+From: steve at holdenweb.com (Steve Holden)
+Date: Thu, 10 Mar 2011 00:45:09 -0500
+Subject: [python-committers] [PSF-Members] [Fwd: Re: Push rights for
+	Ross Lagerwall]
+In-Reply-To: <4D78455A.1090000@v.loewis.de>
+References: <1299669627.3749.3.camel@localhost.localdomain>	<4D7765DC.6040803@egenix.com>	<1299671172.3749.8.camel@localhost.localdomain>	<87F39B2E-07F5-480C-B3CC-5E8F9FCD8041@holdenweb.com>	<1299672247.3749.11.camel@localhost.localdomain>	<AANLkTikhbiS5fV1Pi6Qcz+3EihtKsP55s6pKTNH4hoMf@mail.gmail.com>	<AANLkTikzvYpT72b43PPACgHB4LQ5F5VNy1RY9vumaM7T@mail.gmail.com>
+	<1299674270.3749.18.camel@localhost.localdomain>
+	<4D78455A.1090000@v.loewis.de>
+Message-ID: <727C3298-20CB-45F9-B443-86284250F604@holdenweb.com>
+
+
+On Mar 9, 2011, at 10:28 PM, Martin v. L?wis wrote:
+
+> > We don't need an explanation, we need a *solution*.
+> 
+> Please speak for yourself only. Is it just you being upset to
+> have to use paper, or is Ross Lagerwall actively refusing to
+> put his signature on a piece of paper?
+> 
+Because Antoine is not entitled to include you in his "we" does not entitle you to put him in the singular. I doubt he is the only member who finds it difficult to understand why we are still using paper. It's not exactly trailblazing, is it?
+
+regards
+ Steve
+
+
+
+From martin at v.loewis.de  Thu Mar 10 11:46:45 2011
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Thu, 10 Mar 2011 05:46:45 -0500
+Subject: [python-committers] [PSF-Members] [Fwd: Re: Push rights for
+ Ross Lagerwall]
+In-Reply-To: <727C3298-20CB-45F9-B443-86284250F604@holdenweb.com>
+References: <1299669627.3749.3.camel@localhost.localdomain>	<4D7765DC.6040803@egenix.com>	<1299671172.3749.8.camel@localhost.localdomain>	<87F39B2E-07F5-480C-B3CC-5E8F9FCD8041@holdenweb.com>	<1299672247.3749.11.camel@localhost.localdomain>	<AANLkTikhbiS5fV1Pi6Qcz+3EihtKsP55s6pKTNH4hoMf@mail.gmail.com>	<AANLkTikzvYpT72b43PPACgHB4LQ5F5VNy1RY9vumaM7T@mail.gmail.com>
+	<1299674270.3749.18.camel@localhost.localdomain>
+	<4D78455A.1090000@v.loewis.de>
+	<727C3298-20CB-45F9-B443-86284250F604@holdenweb.com>
+Message-ID: <4D78AC15.8050002@v.loewis.de>
+
+Am 10.03.11 00:45, schrieb Steve Holden:
+>
+> On Mar 9, 2011, at 10:28 PM, Martin v. L?wis wrote:
+>
+>>> We don't need an explanation, we need a *solution*.
+>>
+>> Please speak for yourself only. Is it just you being upset to have
+>> to use paper, or is Ross Lagerwall actively refusing to put his
+>> signature on a piece of paper?
+>>
+> Because Antoine is not entitled to include you in his "we" does not
+> entitle you to put him in the singular. I doubt he is the only member
+> who finds it difficult to understand why we are still using paper.
+
+I'd still like to understand whether this issue actually blocks the
+case at hand. Antoine originally wrote
+
+ > I've told Ross it would be nice to send one if he hadn't
+ > already done so, but I have obviously no way of checking whether
+ > he did or not.
+
+So the next logical step would be to ask him. If Ross said that
+he did send the form, that would be good enough for me to proceed.
+That would also be a *solution*.
+
+Regards,
+Martin
+
+From kbk at shore.net  Thu Mar 10 14:25:32 2011
+From: kbk at shore.net (Kurt B. Kaiser)
+Date: Thu, 10 Mar 2011 08:25:32 -0500
+Subject: [python-committers] Contirbutor Agreements
+In-Reply-To: <4D78AC15.8050002@v.loewis.de>
+References: <1299669627.3749.3.camel@localhost.localdomain>
+	<4D7765DC.6040803@egenix.com>
+	<1299671172.3749.8.camel@localhost.localdomain>
+	<87F39B2E-07F5-480C-B3CC-5E8F9FCD8041@holdenweb.com>
+	<1299672247.3749.11.camel@localhost.localdomain>
+	<AANLkTikhbiS5fV1Pi6Qcz+3EihtKsP55s6pKTNH4hoMf@mail.gmail.com>
+	<AANLkTikzvYpT72b43PPACgHB4LQ5F5VNy1RY9vumaM7T@mail.gmail.com><1299674270.3749.18.camel@localhost.localdomain><4D78455A.1090000@v.loewis.de><727C3298-20CB-45F9-B443-86284250F604@holdenweb.com>
+	<4D78AC15.8050002@v.loewis.de>
+Message-ID: <1299763532.22079.1428243225@webmail.messagingengine.com>
+
+We received a contributor agreement from Boris Feld, Belfort, France by
+postal mail.
+
+I will send it by postal mail to our Administrator.
+
+I have not seen an agreement from Ross.  If he sent one, I'd suggest he
+re-send it by attaching a scan to an email, given that it appears time
+is pressing.  The Feld agreement took several weeks to wend its way to
+me.
+
+KBK
+
+On Thu, 10 Mar 2011 05:46 -0500, " Martin v. L?wis "
+<martin at v.loewis.de> wrote:
+> Am 10.03.11 00:45, schrieb Steve Holden:
+> >
+> > On Mar 9, 2011, at 10:28 PM, Martin v. L?wis wrote:
+> >
+> >>> We don't need an explanation, we need a *solution*.
+> >>
+> >> Please speak for yourself only. Is it just you being upset to have
+> >> to use paper, or is Ross Lagerwall actively refusing to put his
+> >> signature on a piece of paper?
+> >>
+> > Because Antoine is not entitled to include you in his "we" does not
+> > entitle you to put him in the singular. I doubt he is the only member
+> > who finds it difficult to understand why we are still using paper.
+> 
+> I'd still like to understand whether this issue actually blocks the
+> case at hand. Antoine originally wrote
+> 
+>  > I've told Ross it would be nice to send one if he hadn't
+>  > already done so, but I have obviously no way of checking whether
+>  > he did or not.
+> 
+> So the next logical step would be to ask him. If Ross said that
+> he did send the form, that would be good enough for me to proceed.
+> That would also be a *solution*.
+> 
+> Regards,
+> Martin
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+> 
+
+From solipsis at pitrou.net  Thu Mar 10 16:04:10 2011
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Thu, 10 Mar 2011 16:04:10 +0100
+Subject: [python-committers] [PSF-Members] [Fwd: Re: Push rights for
+ Ross Lagerwall]
+In-Reply-To: <4D78AC15.8050002@v.loewis.de>
+References: <1299669627.3749.3.camel@localhost.localdomain>
+	<4D7765DC.6040803@egenix.com>
+	<1299671172.3749.8.camel@localhost.localdomain>
+	<87F39B2E-07F5-480C-B3CC-5E8F9FCD8041@holdenweb.com>
+	<1299672247.3749.11.camel@localhost.localdomain>
+	<AANLkTikhbiS5fV1Pi6Qcz+3EihtKsP55s6pKTNH4hoMf@mail.gmail.com>
+	<AANLkTikzvYpT72b43PPACgHB4LQ5F5VNy1RY9vumaM7T@mail.gmail.com>
+	<1299674270.3749.18.camel@localhost.localdomain>
+	<4D78455A.1090000@v.loewis.de>
+	<727C3298-20CB-45F9-B443-86284250F604@holdenweb.com>
+	<4D78AC15.8050002@v.loewis.de>
+Message-ID: <1299769450.3808.6.camel@localhost.localdomain>
+
+
+>  > I've told Ross it would be nice to send one if he hadn't
+>  > already done so, but I have obviously no way of checking whether
+>  > he did or not.
+> 
+> So the next logical step would be to ask him. If Ross said that
+> he did send the form, that would be good enough for me to proceed.
+> That would also be a *solution*.
+
+Martin, why don't you implement your solution yourself, if you think the
+process is not a problem? That would be a good way of putting money
+where your mouth is.
+
+I'm obviously not going to do that work for you. I'm not paid by the PSF
+to solve paperwork.
+
+
+
+
+From martin at v.loewis.de  Thu Mar 10 17:25:19 2011
+From: martin at v.loewis.de (=?UTF-8?B?Ik1hcnRpbiB2LiBMw7Z3aXMi?=)
+Date: Thu, 10 Mar 2011 11:25:19 -0500
+Subject: [python-committers] [PSF-Members] [Fwd: Re: Push rights for
+ Ross Lagerwall]
+In-Reply-To: <1299769450.3808.6.camel@localhost.localdomain>
+References: <1299669627.3749.3.camel@localhost.localdomain>	
+	<4D7765DC.6040803@egenix.com>	
+	<1299671172.3749.8.camel@localhost.localdomain>	
+	<87F39B2E-07F5-480C-B3CC-5E8F9FCD8041@holdenweb.com>	
+	<1299672247.3749.11.camel@localhost.localdomain>	
+	<AANLkTikhbiS5fV1Pi6Qcz+3EihtKsP55s6pKTNH4hoMf@mail.gmail.com>	
+	<AANLkTikzvYpT72b43PPACgHB4LQ5F5VNy1RY9vumaM7T@mail.gmail.com>	
+	<1299674270.3749.18.camel@localhost.localdomain>	
+	<4D78455A.1090000@v.loewis.de>	
+	<727C3298-20CB-45F9-B443-86284250F604@holdenweb.com>	
+	<4D78AC15.8050002@v.loewis.de>
+	<1299769450.3808.6.camel@localhost.localdomain>
+Message-ID: <4D78FB6F.2050104@v.loewis.de>
+
+>> So the next logical step would be to ask him. If Ross said that
+>> he did send the form, that would be good enough for me to proceed.
+>> That would also be a *solution*.
+>
+> Martin, why don't you implement your solution yourself, if you think the
+> process is not a problem? That would be a good way of putting money
+> where your mouth is.
+>
+> I'm obviously not going to do that work for you. I'm not paid by the PSF
+> to solve paperwork.
+
+Just for the record: neither am I. However, sending an email to Ross 
+wasn't that difficult.
+
+Regards,
+Martin
+
+From solipsis at pitrou.net  Thu Mar 10 17:43:50 2011
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Thu, 10 Mar 2011 17:43:50 +0100
+Subject: [python-committers] [PSF-Members] [Fwd: Re: Push rights for
+ Ross Lagerwall]
+In-Reply-To: <4D78FB6F.2050104@v.loewis.de>
+References: <1299669627.3749.3.camel@localhost.localdomain>
+	<4D7765DC.6040803@egenix.com>
+	<1299671172.3749.8.camel@localhost.localdomain>
+	<87F39B2E-07F5-480C-B3CC-5E8F9FCD8041@holdenweb.com>
+	<1299672247.3749.11.camel@localhost.localdomain>
+	<AANLkTikhbiS5fV1Pi6Qcz+3EihtKsP55s6pKTNH4hoMf@mail.gmail.com>
+	<AANLkTikzvYpT72b43PPACgHB4LQ5F5VNy1RY9vumaM7T@mail.gmail.com>
+	<1299674270.3749.18.camel@localhost.localdomain>
+	<4D78455A.1090000@v.loewis.de>
+	<727C3298-20CB-45F9-B443-86284250F604@holdenweb.com>
+	<4D78AC15.8050002@v.loewis.de>
+	<1299769450.3808.6.camel@localhost.localdomain>
+	<4D78FB6F.2050104@v.loewis.de>
+Message-ID: <1299775430.3808.18.camel@localhost.localdomain>
+
+Le jeudi 10 mars 2011 ? 11:25 -0500, "Martin v. L?wis" a ?crit :
+> >> So the next logical step would be to ask him. If Ross said that
+> >> he did send the form, that would be good enough for me to proceed.
+> >> That would also be a *solution*.
+> >
+> > Martin, why don't you implement your solution yourself, if you think the
+> > process is not a problem? That would be a good way of putting money
+> > where your mouth is.
+> >
+> > I'm obviously not going to do that work for you. I'm not paid by the PSF
+> > to solve paperwork.
+> 
+> Just for the record: neither am I. However, sending an email to Ross 
+> wasn't that difficult.
+
+Right, sending a mail isn't difficult. Do you volunteer to do the
+necessary work (sending emails, following up on them, etc.) each and
+every time the need for requesting and checking contributor agreements
+arises?
+
+Thank you
+
+Antoine.
+
+
+
+From steve at holdenweb.com  Thu Mar 10 17:54:43 2011
+From: steve at holdenweb.com (Steve Holden)
+Date: Thu, 10 Mar 2011 11:54:43 -0500
+Subject: [python-committers] [PSF-Members] [Fwd: Re: Push rights for
+	Ross Lagerwall]
+In-Reply-To: <1299775430.3808.18.camel@localhost.localdomain>
+References: <1299669627.3749.3.camel@localhost.localdomain>
+	<4D7765DC.6040803@egenix.com>
+	<1299671172.3749.8.camel@localhost.localdomain>
+	<87F39B2E-07F5-480C-B3CC-5E8F9FCD8041@holdenweb.com>
+	<1299672247.3749.11.camel@localhost.localdomain>
+	<AANLkTikhbiS5fV1Pi6Qcz+3EihtKsP55s6pKTNH4hoMf@mail.gmail.com>
+	<AANLkTikzvYpT72b43PPACgHB4LQ5F5VNy1RY9vumaM7T@mail.gmail.com>
+	<1299674270.3749.18.camel@localhost.localdomain>
+	<4D78455A.1090000@v.loewis.de>
+	<727C3298-20CB-45F9-B443-86284250F604@holdenweb.com>
+	<4D78AC15.8050002@v.loewis.de>
+	<1299769450.3808.6.camel@localhost.localdomain>
+	<4D78FB6F.2050104@v.loewis.de>
+	<1299775430.3808.18.camel@localhost.localdomain>
+Message-ID: <29ECAE2F-505D-4AB0-85DF-74BAC211FB8F@holdenweb.com>
+
+On Mar 10, 2011, at 11:43 AM, Antoine Pitrou wrote:
+
+> Le jeudi 10 mars 2011 ? 11:25 -0500, "Martin v. L?wis" a ?crit :
+>>>> So the next logical step would be to ask him. If Ross said that
+>>>> he did send the form, that would be good enough for me to proceed.
+>>>> That would also be a *solution*.
+>>> 
+>>> Martin, why don't you implement your solution yourself, if you think the
+>>> process is not a problem? That would be a good way of putting money
+>>> where your mouth is.
+>>> 
+>>> I'm obviously not going to do that work for you. I'm not paid by the PSF
+>>> to solve paperwork.
+>> 
+>> Just for the record: neither am I. However, sending an email to Ross 
+>> wasn't that difficult.
+> 
+> Right, sending a mail isn't difficult. Do you volunteer to do the
+> necessary work (sending emails, following up on them, etc.) each and
+> every time the need for requesting and checking contributor agreements
+> arises?
+> 
+> Thank you
+
+Antoine:
+
+Your point will be more effectively made without this continual sniping at anyone who responds to you. That wasn't intended as a serious question, was it? UYou know Martin won't have time to do that.
+
+As a matter of fact, though, the PSF has an administrator who is perfectly capable of doing just this if it's the best process we have, she just hasn't been involved in processing new developers in the past. So Pat should probably get involved in defining what the process is.
+
+Let's work towards a solution, please.
+
+regards
+ Steve
+
+
+From jnoller at gmail.com  Thu Mar 10 18:00:04 2011
+From: jnoller at gmail.com (Jesse Noller)
+Date: Thu, 10 Mar 2011 12:00:04 -0500
+Subject: [python-committers] [PSF-Members] [Fwd: Re: Push rights for
+	Ross Lagerwall]
+In-Reply-To: <29ECAE2F-505D-4AB0-85DF-74BAC211FB8F@holdenweb.com>
+References: <1299669627.3749.3.camel@localhost.localdomain>
+	<4D7765DC.6040803@egenix.com>
+	<1299671172.3749.8.camel@localhost.localdomain>
+	<87F39B2E-07F5-480C-B3CC-5E8F9FCD8041@holdenweb.com>
+	<1299672247.3749.11.camel@localhost.localdomain>
+	<AANLkTikhbiS5fV1Pi6Qcz+3EihtKsP55s6pKTNH4hoMf@mail.gmail.com>
+	<AANLkTikzvYpT72b43PPACgHB4LQ5F5VNy1RY9vumaM7T@mail.gmail.com>
+	<1299674270.3749.18.camel@localhost.localdomain>
+	<4D78455A.1090000@v.loewis.de>
+	<727C3298-20CB-45F9-B443-86284250F604@holdenweb.com>
+	<4D78AC15.8050002@v.loewis.de>
+	<1299769450.3808.6.camel@localhost.localdomain>
+	<4D78FB6F.2050104@v.loewis.de>
+	<1299775430.3808.18.camel@localhost.localdomain>
+	<29ECAE2F-505D-4AB0-85DF-74BAC211FB8F@holdenweb.com>
+Message-ID: <AANLkTikSnwX9nzetbvFNqvnEJ5N82hvbmqu1tzpmT7YR@mail.gmail.com>
+
+On Thu, Mar 10, 2011 at 11:54 AM, Steve Holden <steve at holdenweb.com> wrote:
+> On Mar 10, 2011, at 11:43 AM, Antoine Pitrou wrote:
+>
+>> Le jeudi 10 mars 2011 ? 11:25 -0500, "Martin v. L?wis" a ?crit :
+>>>>> So the next logical step would be to ask him. If Ross said that
+>>>>> he did send the form, that would be good enough for me to proceed.
+>>>>> That would also be a *solution*.
+>>>>
+>>>> Martin, why don't you implement your solution yourself, if you think the
+>>>> process is not a problem? That would be a good way of putting money
+>>>> where your mouth is.
+>>>>
+>>>> I'm obviously not going to do that work for you. I'm not paid by the PSF
+>>>> to solve paperwork.
+>>>
+>>> Just for the record: neither am I. However, sending an email to Ross
+>>> wasn't that difficult.
+>>
+>> Right, sending a mail isn't difficult. Do you volunteer to do the
+>> necessary work (sending emails, following up on them, etc.) each and
+>> every time the need for requesting and checking contributor agreements
+>> arises?
+>>
+>> Thank you
+>
+> Antoine:
+>
+> Your point will be more effectively made without this continual sniping at anyone who responds to you. That wasn't intended as a serious question, was it? UYou know Martin won't have time to do that.
+>
+> As a matter of fact, though, the PSF has an administrator who is perfectly capable of doing just this if it's the best process we have, she just hasn't been involved in processing new developers in the past. So Pat should probably get involved in defining what the process is.
+>
+> Let's work towards a solution, please.
+>
+> regards
+> ?Steve
+
+I have spoken to Van Lindberg, and he and I will be driving/discussing
+the best approach for electronic CLAs/signing. We will drive this on a
+PSF level.
+
+From solipsis at pitrou.net  Thu Mar 10 18:04:31 2011
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Thu, 10 Mar 2011 18:04:31 +0100
+Subject: [python-committers] [PSF-Members] [Fwd: Re: Push rights for
+ Ross Lagerwall]
+In-Reply-To: <AANLkTikSnwX9nzetbvFNqvnEJ5N82hvbmqu1tzpmT7YR@mail.gmail.com>
+References: <1299669627.3749.3.camel@localhost.localdomain>
+	<4D7765DC.6040803@egenix.com>
+	<1299671172.3749.8.camel@localhost.localdomain>
+	<87F39B2E-07F5-480C-B3CC-5E8F9FCD8041@holdenweb.com>
+	<1299672247.3749.11.camel@localhost.localdomain>
+	<AANLkTikhbiS5fV1Pi6Qcz+3EihtKsP55s6pKTNH4hoMf@mail.gmail.com>
+	<AANLkTikzvYpT72b43PPACgHB4LQ5F5VNy1RY9vumaM7T@mail.gmail.com>
+	<1299674270.3749.18.camel@localhost.localdomain>
+	<4D78455A.1090000@v.loewis.de>
+	<727C3298-20CB-45F9-B443-86284250F604@holdenweb.com>
+	<4D78AC15.8050002@v.loewis.de>
+	<1299769450.3808.6.camel@localhost.localdomain>
+	<4D78FB6F.2050104@v.loewis.de>
+	<1299775430.3808.18.camel@localhost.localdomain>
+	<29ECAE2F-505D-4AB0-85DF-74BAC211FB8F@holdenweb.com>
+	<AANLkTikSnwX9nzetbvFNqvnEJ5N82hvbmqu1tzpmT7YR@mail.gmail.com>
+Message-ID: <1299776671.3808.24.camel@localhost.localdomain>
+
+Le jeudi 10 mars 2011 ? 12:00 -0500, Jesse Noller a ?crit :
+> I have spoken to Van Lindberg, and he and I will be driving/discussing
+> the best approach for electronic CLAs/signing. We will drive this on a
+> PSF level.
+
+Thank you!
+
+
+
+From kbk at shore.net  Sun Mar 13 13:46:23 2011
+From: kbk at shore.net (Kurt B. Kaiser)
+Date: Sun, 13 Mar 2011 08:46:23 -0400
+Subject: [python-committers] Contirbutor Agreements
+In-Reply-To: <1299763532.22079.1428243225@webmail.messagingengine.com>
+References: <1299669627.3749.3.camel@localhost.localdomain><4D7765DC.6040803@egenix.com><1299671172.3749.8.camel@localhost.localdomain><87F39B2E-07F5-480C-B3CC-5E8F9FCD8041@holdenweb.com><1299672247.3749.11.camel@localhost.localdomain><AANLkTikhbiS5fV1Pi6Qcz+3EihtKsP55s6pKTNH4hoMf@mail.gmail.com><AANLkTikzvYpT72b43PPACgHB4LQ5F5VNy1RY9vumaM7T@mail.gmail.com><1299674270.3749.18.camel@localhost.localdomain><4D78455A.1090000@v.loewis.de><727C3298-20CB-45F9-B443-86284250F604@holdenweb.com><4D78AC15.8050002@v.loewis.de>
+	<1299763532.22079.1428243225@webmail.messagingengine.com>
+Message-ID: <1300020383.23963.1429202129@webmail.messagingengine.com>
+
+We have now received a contributor agreement by fax from Ross Lagerwall.
+
+KBK
+
+On Thu, 10 Mar 2011 08:25 -0500, "Kurt B. Kaitorser" <kbk at shore.net>
+wrote:
+> We received a contributor agreement from Boris Feld, Belfort, France by
+> postal mail.
+> 
+> I will send it by postal mail to our Administrator.
+> 
+> I have not seen an agreement from Ross.  If he sent one, I'd suggest he
+> re-send it by attaching a scan to an email, given that it appears time
+> is pressing.  The Feld agreement took several weeks to wend its way to
+> me.
+> 
+> KBK
+> 
+> On Thu, 10 Mar 2011 05:46 -0500, " Martin v. L?wis "
+> <martin at v.loewis.de> wrote:
+> > Am 10.03.11 00:45, schrieb Steve Holden:
+> > >
+> > > On Mar 9, 2011, at 10:28 PM, Martin v. L?wis wrote:
+> > >
+> > >>> We don't need an explanation, we need a *solution*.
+> > >>
+> > >> Please speak for yourself only. Is it just you being upset to have
+> > >> to use paper, or is Ross Lagerwall actively refusing to put his
+> > >> signature on a piece of paper?
+> > >>
+> > > Because Antoine is not entitled to include you in his "we" does not
+> > > entitle you to put him in the singular. I doubt he is the only member
+> > > who finds it difficult to understand why we are still using paper.
+> > 
+> > I'd still like to understand whether this issue actually blocks the
+> > case at hand. Antoine originally wrote
+> > 
+> >  > I've told Ross it would be nice to send one if he hadn't
+> >  > already done so, but I have obviously no way of checking whether
+> >  > he did or not.
+> > 
+> > So the next logical step would be to ask him. If Ross said that
+> > he did send the form, that would be good enough for me to proceed.
+> > That would also be a *solution*.
+> > 
+> > Regards,
+> > Martin
+> > _______________________________________________
+> > python-committers mailing list
+> > python-committers at python.org
+> > http://mail.python.org/mailman/listinfo/python-committers
+> > 
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+> 
+-- 
+KBK
+
+
+From martin at v.loewis.de  Wed Mar 16 04:22:19 2011
+From: martin at v.loewis.de (=?ISO-8859-15?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Tue, 15 Mar 2011 23:22:19 -0400
+Subject: [python-committers] Recording committer status in the bug tracker
+Message-ID: <4D802CEB.5060204@v.loewis.de>
+
+I added a boolean flag to the bug tracker indicating what user accounts 
+belong to committers. Please check that the flag is set in Your Details,
+Is Committer. If it's not, please let me know.
+
+Regards,
+Martin
+
+From alex.gaynor at gmail.com  Wed Mar 16 04:45:27 2011
+From: alex.gaynor at gmail.com (Alex Gaynor)
+Date: Tue, 15 Mar 2011 23:45:27 -0400
+Subject: [python-committers] Recording committer status in the bug
+	tracker
+In-Reply-To: <4D802CEB.5060204@v.loewis.de>
+References: <4D802CEB.5060204@v.loewis.de>
+Message-ID: <AANLkTimRrz9FTZs9ESsToysGFEgvbWZBWyCCKEJ39LZ+@mail.gmail.com>
+
+On Tue, Mar 15, 2011 at 11:22 PM, "Martin v. L?wis" <martin at v.loewis.de>wrote:
+
+> I added a boolean flag to the bug tracker indicating what user accounts
+> belong to committers. Please check that the flag is set in Your Details,
+> Is Committer. If it's not, please let me know.
+>
+> Regards,
+> Martin
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+>
+
+I'm not showing as a committer (also not showing as CLA received, but I
+suppose that's different).
+
+Alex
+
+-- 
+"I disapprove of what you say, but I will defend to the death your right to
+say it." -- Evelyn Beatrice Hall (summarizing Voltaire)
+"The people's good is the highest law." -- Cicero
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20110315/312a67c9/attachment.html>
+
+From fdrake at acm.org  Wed Mar 16 05:09:34 2011
+From: fdrake at acm.org (Fred Drake)
+Date: Wed, 16 Mar 2011 00:09:34 -0400
+Subject: [python-committers] Recording committer status in the bug
+	tracker
+In-Reply-To: <4D802CEB.5060204@v.loewis.de>
+References: <4D802CEB.5060204@v.loewis.de>
+Message-ID: <AANLkTikne9x5wxurNKYHAYshx=va_=QuFkmLn6kmdJBX@mail.gmail.com>
+
+On Tue, Mar 15, 2011 at 11:22 PM, "Martin v. L?wis" <martin at v.loewis.de> wrote:
+> added a boolean flag to the bug tracker indicating what user accounts belong
+> to committers.
+
+I'm showing as a committer, but not that my contributor form has been
+received.  I've pointed out the later problem before (some time ago),
+and there was no response.  I know I've provided one.
+
+If someone could check on that, I'd appreciate it.  If I need to
+submit a new form, I can do that as well.
+
+
+? -Fred
+
+--
+Fred L. Drake, Jr.? ? <fdrake at acm.org>
+"A storm broke loose in my mind."? --Albert Einstein
+
+From martin at v.loewis.de  Wed Mar 16 05:11:44 2011
+From: martin at v.loewis.de (=?UTF-8?B?Ik1hcnRpbiB2LiBMw7Z3aXMi?=)
+Date: Wed, 16 Mar 2011 00:11:44 -0400
+Subject: [python-committers] Recording committer status in the bug
+	tracker
+In-Reply-To: <AANLkTimRrz9FTZs9ESsToysGFEgvbWZBWyCCKEJ39LZ+@mail.gmail.com>
+References: <4D802CEB.5060204@v.loewis.de>
+	<AANLkTimRrz9FTZs9ESsToysGFEgvbWZBWyCCKEJ39LZ+@mail.gmail.com>
+Message-ID: <4D803880.4000701@v.loewis.de>
+
+
+> I'm not showing as a committer (also not showing as CLA received, but I
+> suppose that's different).
+
+I couldn't find you at first since you didn't put your last name into 
+the tracker. I have fixed that as well now.
+
+As for the CLA - this is a known issue; this isn't getting updated 
+regularly.
+
+Regards,
+Martin
+
+From eliben at gmail.com  Wed Mar 16 05:18:55 2011
+From: eliben at gmail.com (Eli Bendersky)
+Date: Wed, 16 Mar 2011 06:18:55 +0200
+Subject: [python-committers] Recording committer status in the bug
+	tracker
+In-Reply-To: <AANLkTikne9x5wxurNKYHAYshx=va_=QuFkmLn6kmdJBX@mail.gmail.com>
+References: <4D802CEB.5060204@v.loewis.de>
+	<AANLkTikne9x5wxurNKYHAYshx=va_=QuFkmLn6kmdJBX@mail.gmail.com>
+Message-ID: <AANLkTi=HFW3Dzr=tO=VGPvG5YYRXQ=5sf7p4RAp-rJ4+@mail.gmail.com>
+
+On Wed, Mar 16, 2011 at 06:09, Fred Drake <fdrake at acm.org> wrote:
+
+> On Tue, Mar 15, 2011 at 11:22 PM, "Martin v. L?wis" <martin at v.loewis.de>
+> wrote:
+> > added a boolean flag to the bug tracker indicating what user accounts
+> belong
+> > to committers.
+>
+> I'm showing as a committer, but not that my contributor form has been
+> received.  I've pointed out the later problem before (some time ago),
+> and there was no response.  I know I've provided one.
+>
+
+Same here. I have a confirmation email from Kurt Kaiser (Jan 27th 2011) that
+my contributor agreement was received.
+Eli
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20110316/205bee6f/attachment.html>
+
+From tjreedy at udel.edu  Wed Mar 16 07:05:57 2011
+From: tjreedy at udel.edu (Terry Reedy)
+Date: Wed, 16 Mar 2011 02:05:57 -0400
+Subject: [python-committers] Recording committer status in the
+	bug	tracker
+In-Reply-To: <AANLkTi=HFW3Dzr=tO=VGPvG5YYRXQ=5sf7p4RAp-rJ4+@mail.gmail.com>
+References: <4D802CEB.5060204@v.loewis.de>
+	<AANLkTikne9x5wxurNKYHAYshx=va_=QuFkmLn6kmdJBX@mail.gmail.com>
+	<AANLkTi=HFW3Dzr=tO=VGPvG5YYRXQ=5sf7p4RAp-rJ4+@mail.gmail.com>
+Message-ID: <4D805345.1000403@udel.edu>
+
+
+
+On 3/16/2011 12:18 AM, Eli Bendersky wrote:
+>
+> On Wed, Mar 16, 2011 at 06:09, Fred Drake <fdrake at acm.org
+> <mailto:fdrake at acm.org>> wrote:
+>
+>     On Tue, Mar 15, 2011 at 11:22 PM, "Martin v. L?wis"
+>     <martin at v.loewis.de <mailto:martin at v.loewis.de>> wrote:
+>      > added a boolean flag to the bug tracker indicating what user
+>     accounts belong
+>      > to committers.
+>
+>     I'm showing as a committer, but not that my contributor form has been
+>     received.  I've pointed out the later problem before (some time ago),
+>     and there was no response.  I know I've provided one.
+>
+>
+> Same here. I have a confirmation email from Kurt Kaiser (Jan 27th 2011)
+> that my contributor agreement was received.
+> Eli
+
+Ditto, except that contributor form was a few years ago I believe. I 
+don't think info has been properly transferred to tracker.
+
+
+From steve at holdenweb.com  Wed Mar 16 11:14:42 2011
+From: steve at holdenweb.com (Steve Holden)
+Date: Wed, 16 Mar 2011 06:14:42 -0400
+Subject: [python-committers] Recording committer status in the bug
+	tracker
+In-Reply-To: <4D803880.4000701@v.loewis.de>
+References: <4D802CEB.5060204@v.loewis.de>
+	<AANLkTimRrz9FTZs9ESsToysGFEgvbWZBWyCCKEJ39LZ+@mail.gmail.com>
+	<4D803880.4000701@v.loewis.de>
+Message-ID: <097F6B2B-EBC3-4B18-9E1F-F0A980E43D47@holdenweb.com>
+
+
+On Mar 16, 2011, at 12:11 AM, Martin v. L?wis wrote:
+
+> 
+>> I'm not showing as a committer (also not showing as CLA received, but I
+>> suppose that's different).
+> 
+> I couldn't find you at first since you didn't put your last name into the tracker. I have fixed that as well now.
+> 
+> As for the CLA - this is a known issue; this isn't getting updated regularly.
+> 
+Time it did, then. Anything the Foundation can do to help?
+
+regards
+ Steve
+
+
+From martin at v.loewis.de  Wed Mar 16 13:49:40 2011
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Wed, 16 Mar 2011 08:49:40 -0400
+Subject: [python-committers] Recording committer status in the bug
+	tracker
+In-Reply-To: <097F6B2B-EBC3-4B18-9E1F-F0A980E43D47@holdenweb.com>
+References: <4D802CEB.5060204@v.loewis.de>
+	<AANLkTimRrz9FTZs9ESsToysGFEgvbWZBWyCCKEJ39LZ+@mail.gmail.com>
+	<4D803880.4000701@v.loewis.de>
+	<097F6B2B-EBC3-4B18-9E1F-F0A980E43D47@holdenweb.com>
+Message-ID: <4D80B1E4.4070903@v.loewis.de>
+
+>> As for the CLA - this is a known issue; this isn't getting updated regularly.
+>>
+> Time it did, then. Anything the Foundation can do to help?
+
+AMK did once enter all known contrib forms into it, up to a certain 
+point. The plan then was that Pat should keep it updated. That never
+happened, I believe.
+
+Regards,
+Martin
+
+From barry at python.org  Wed Mar 16 16:05:38 2011
+From: barry at python.org (Barry Warsaw)
+Date: Wed, 16 Mar 2011 11:05:38 -0400
+Subject: [python-committers] Recording committer status in the bug
+ tracker
+In-Reply-To: <097F6B2B-EBC3-4B18-9E1F-F0A980E43D47@holdenweb.com>
+References: <4D802CEB.5060204@v.loewis.de>
+	<AANLkTimRrz9FTZs9ESsToysGFEgvbWZBWyCCKEJ39LZ+@mail.gmail.com>
+	<4D803880.4000701@v.loewis.de>
+	<097F6B2B-EBC3-4B18-9E1F-F0A980E43D47@holdenweb.com>
+Message-ID: <20110316110538.6cbda18d@neurotica>
+
+On Mar 16, 2011, at 06:14 AM, Steve Holden wrote:
+
+>Time it did, then. Anything the Foundation can do to help?
+
+How about posting a list of people for which you have verified contributor
+forms on record?  I'm in the same boat as Fred.  I'm nearly certain I signed a
+contributor form way back when, but I also heard some got lost.  If I need to
+sign another one, I'm happy (and legally able) to.
+
+-Barry
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 836 bytes
+Desc: not available
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20110316/01d57138/attachment.pgp>
+
+From steve at holdenweb.com  Wed Mar 16 16:44:29 2011
+From: steve at holdenweb.com (Steve Holden)
+Date: Wed, 16 Mar 2011 11:44:29 -0400
+Subject: [python-committers] Recording committer status in the bug
+	tracker
+In-Reply-To: <20110316110538.6cbda18d@neurotica>
+References: <4D802CEB.5060204@v.loewis.de>
+	<AANLkTimRrz9FTZs9ESsToysGFEgvbWZBWyCCKEJ39LZ+@mail.gmail.com>
+	<4D803880.4000701@v.loewis.de>
+	<097F6B2B-EBC3-4B18-9E1F-F0A980E43D47@holdenweb.com>
+	<20110316110538.6cbda18d@neurotica>
+Message-ID: <25DDECA2-1543-4205-AA1C-B81714CF007D@holdenweb.com>
+
+Pat:
+
+It appears that our contributor agreement records are not complete. Do you have a list of people for whom we hold a signed agreement, please?
+
+regards
+ Steve
+
+On Mar 16, 2011, at 11:05 AM, Barry Warsaw wrote:
+
+> On Mar 16, 2011, at 06:14 AM, Steve Holden wrote:
+> 
+>> Time it did, then. Anything the Foundation can do to help?
+> 
+> How about posting a list of people for which you have verified contributor
+> forms on record?  I'm in the same boat as Fred.  I'm nearly certain I signed a
+> contributor form way back when, but I also heard some got lost.  If I need to
+> sign another one, I'm happy (and legally able) to.
+> 
+> -Barry
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+
+
+From stutzbach at google.com  Wed Mar 16 18:32:24 2011
+From: stutzbach at google.com (Daniel Stutzbach)
+Date: Wed, 16 Mar 2011 10:32:24 -0700
+Subject: [python-committers] Recording committer status in the bug
+	tracker
+In-Reply-To: <4D802CEB.5060204@v.loewis.de>
+References: <4D802CEB.5060204@v.loewis.de>
+Message-ID: <AANLkTinTg2SCR=Ei=CDZNEqEqe-ApKu+Hxxp1Hcjr9cb@mail.gmail.com>
+
+On Tue, Mar 15, 2011 at 8:22 PM, "Martin v. L?wis" <martin at v.loewis.de>wrote:
+
+> I added a boolean flag to the bug tracker indicating what user accounts
+> belong to committers. Please check that the flag is set in Your Details,
+> Is Committer. If it's not, please let me know.
+>
+
+For me, the area next to "Is Committer" is blank and "Contributor Form
+Received" is no.
+
+I handed in a Contributor Form during the sprints as PyCon 2007.  Although I
+think now the copyright on my contributions are owned by Google and covered
+by Google's agreement with the PSF.  However, I am not a lawyer. ;-)
+
+-- 
+Daniel Stutzbach
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20110316/727f5a66/attachment.html>
+
+From steve at holdenweb.com  Wed Mar 16 20:40:53 2011
+From: steve at holdenweb.com (Steve Holden)
+Date: Wed, 16 Mar 2011 15:40:53 -0400
+Subject: [python-committers] Recording committer status in the bug
+	tracker
+In-Reply-To: <AANLkTimg7QDy3ScDn1UYcq2s76TRiyRtcSRowCtguPwh@mail.gmail.com>
+References: <4D802CEB.5060204@v.loewis.de>
+	<AANLkTimRrz9FTZs9ESsToysGFEgvbWZBWyCCKEJ39LZ+@mail.gmail.com>
+	<4D803880.4000701@v.loewis.de>
+	<097F6B2B-EBC3-4B18-9E1F-F0A980E43D47@holdenweb.com>
+	<20110316110538.6cbda18d@neurotica>
+	<25DDECA2-1543-4205-AA1C-B81714CF007D@holdenweb.com>
+	<AANLkTimg7QDy3ScDn1UYcq2s76TRiyRtcSRowCtguPwh@mail.gmail.com>
+Message-ID: <20D26E02-5272-4915-B6B3-296E783150F6@holdenweb.com>
+
+Yes, I can. Thanks, Pat
+
+regards
+ Steve
+
+On Mar 16, 2011, at 12:04 PM, Pat Campbell wrote:
+
+> Hi Steve:
+>  
+> Are you able to read the attached spreadsheet?
+> Thanks,
+> Pat
+> 
+>  
+> On Wed, Mar 16, 2011 at 11:44 AM, Steve Holden <steve at holdenweb.com> wrote:
+> Pat:
+> 
+> It appears that our contributor agreement records are not complete. Do you have a list of people for whom we hold a signed agreement, please?
+> 
+> regards
+>  Steve
+> 
+> On Mar 16, 2011, at 11:05 AM, Barry Warsaw wrote:
+> 
+> > On Mar 16, 2011, at 06:14 AM, Steve Holden wrote:
+> >
+> >> Time it did, then. Anything the Foundation can do to help?
+> >
+> > How about posting a list of people for which you have verified contributor
+> > forms on record?  I'm in the same boat as Fred.  I'm nearly certain I signed a
+> > contributor form way back when, but I also heard some got lost.  If I need to
+> > sign another one, I'm happy (and legally able) to.
+> >
+> > -Barry
+> > _______________________________________________
+> > python-committers mailing list
+> > python-committers at python.org
+> > http://mail.python.org/mailman/listinfo/python-committers
+> 
+> 
+> 
+> 
+> -- 
+> Pat Campbell
+> PSF Administrator/Secretary
+> patcam at python.org
+> <ContributorAgreements-'-09, '10, & '11.xls>
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20110316/5c4accc5/attachment.html>
+
+From g.brandl at gmx.net  Wed Mar 23 21:41:56 2011
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Wed, 23 Mar 2011 21:41:56 +0100
+Subject: [python-committers] PEPs repo converted
+Message-ID: <imdluc$u51$1@dough.gmane.org>
+
+Please commit any PEP changes to hg.python.org/peps.
+
+Also, sorry for the span on -checkins, I should not have enabled
+the notification hook before pushing all changes :)
+
+Georg
+
+
+From victor.stinner at haypocalc.com  Thu Mar 24 02:31:47 2011
+From: victor.stinner at haypocalc.com (Victor Stinner)
+Date: Thu, 24 Mar 2011 02:31:47 +0100
+Subject: [python-committers] There are two versions of the Contributor
+	Agreement
+Message-ID: <1300930307.1028.31.camel@marge>
+
+http://www.python.org/psf/contrib/contrib-form-python/
+and
+http://www.python.org/psf/contrib/contrib-form/
+
+It looks like the first one is old, because
+http://www.python.org/psf/contrib/ points to the second one.
+
+Victor
+
+
+From nad at acm.org  Thu Mar 24 02:35:13 2011
+From: nad at acm.org (Ned Deily)
+Date: Wed, 23 Mar 2011 18:35:13 -0700
+Subject: [python-committers] PEPs repo converted
+References: <imdluc$u51$1@dough.gmane.org>
+Message-ID: <nad-3EADD1.18351323032011@news.gmane.org>
+
+In article <imdluc$u51$1 at dough.gmane.org>,
+ Georg Brandl <g.brandl at gmx.net> wrote:
+
+> Please commit any PEP changes to hg.python.org/peps.
+
+Looks like the Version and Last-Modified keywords formerly supplied by 
+svn are now AWOL on the generated web pages.
+
+-- 
+ Ned Deily,
+ nad at acm.org
+
+
+From tjreedy at udel.edu  Thu Mar 24 03:41:57 2011
+From: tjreedy at udel.edu (Terry Reedy)
+Date: Wed, 23 Mar 2011 22:41:57 -0400
+Subject: [python-committers] There are two versions of the Contributor
+ Agreement
+In-Reply-To: <1300930307.1028.31.camel@marge>
+References: <1300930307.1028.31.camel@marge>
+Message-ID: <4D8AAF75.1080609@udel.edu>
+
+
+
+On 3/23/2011 9:31 PM, Victor Stinner wrote:
+> http://www.python.org/psf/contrib/contrib-form-python/
+> and
+> http://www.python.org/psf/contrib/contrib-form/
+>
+> It looks like the first one is old, because
+> http://www.python.org/psf/contrib/ points to the second one.
+
+I believe you are right. The only difference is the addition of the line 
+'The currently acceptible licenses..." and a vaguely remember some 
+discussion just before I signed it (the 2nd version with the addition).
+
+From steve at holdenweb.com  Thu Mar 24 05:55:28 2011
+From: steve at holdenweb.com (Steve Holden)
+Date: Thu, 24 Mar 2011 00:55:28 -0400
+Subject: [python-committers] There are two versions of the Contributor
+	Agreement
+In-Reply-To: <4D8AAF75.1080609@udel.edu>
+References: <1300930307.1028.31.camel@marge> <4D8AAF75.1080609@udel.edu>
+Message-ID: <358ED9D3-E1DD-4962-A8CB-3E73DD27F4F7@holdenweb.com>
+
+We should ask the pydotorg list to fix this. Should we at the same time requet the assition of a field for the committer's user name?
+
+regards
+ Steve
+
+On Mar 23, 2011, at 10:41 PM, Terry Reedy wrote:
+
+> 
+> 
+> On 3/23/2011 9:31 PM, Victor Stinner wrote:
+>> http://www.python.org/psf/contrib/contrib-form-python/
+>> and
+>> http://www.python.org/psf/contrib/contrib-form/
+>> 
+>> It looks like the first one is old, because
+>> http://www.python.org/psf/contrib/ points to the second one.
+> 
+> I believe you are right. The only difference is the addition of the line 'The currently acceptible licenses..." and a vaguely remember some discussion just before I signed it (the 2nd version with the addition).
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+
+
+From g.brandl at gmx.net  Thu Mar 24 09:12:05 2011
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Thu, 24 Mar 2011 09:12:05 +0100
+Subject: [python-committers] PEPs repo converted
+In-Reply-To: <nad-3EADD1.18351323032011@news.gmane.org>
+References: <imdluc$u51$1@dough.gmane.org>
+	<nad-3EADD1.18351323032011@news.gmane.org>
+Message-ID: <imeucl$stg$1@dough.gmane.org>
+
+On 24.03.2011 02:35, Ned Deily wrote:
+> In article <imdluc$u51$1 at dough.gmane.org>,
+>  Georg Brandl <g.brandl at gmx.net> wrote:
+> 
+>> Please commit any PEP changes to hg.python.org/peps.
+> 
+> Looks like the Version and Last-Modified keywords formerly supplied by 
+> svn are now AWOL on the generated web pages.
+
+Thanks, I've fixed that now (by locally enabling the keyword
+extension).
+
+Georg
+
+
+
+
+From mal at egenix.com  Thu Mar 24 09:40:44 2011
+From: mal at egenix.com (M.-A. Lemburg)
+Date: Thu, 24 Mar 2011 09:40:44 +0100
+Subject: [python-committers] There are two versions of the Contributor
+ Agreement
+In-Reply-To: <4D8AAF75.1080609@udel.edu>
+References: <1300930307.1028.31.camel@marge> <4D8AAF75.1080609@udel.edu>
+Message-ID: <4D8B038C.10408@egenix.com>
+
+Terry Reedy wrote:
+> 
+> 
+> On 3/23/2011 9:31 PM, Victor Stinner wrote:
+>> http://www.python.org/psf/contrib/contrib-form-python/
+>> and
+>> http://www.python.org/psf/contrib/contrib-form/
+>>
+>> It looks like the first one is old, because
+>> http://www.python.org/psf/contrib/ points to the second one.
+> 
+> I believe you are right. The only difference is the addition of the line
+> 'The currently acceptible licenses..." and a vaguely remember some
+> discussion just before I signed it (the 2nd version with the addition).
+
+The first one is old and was mainly used when we started to
+ask for CLAs. It optionally also covers past contributions.
+
+The second one is the one we currently use. It does not
+have the clause to cover past contributions, since we now
+expect contributors to sign the CLA before the contributions
+go into the repository.
+
+Could someone please arrange for the first URL to redirect to the
+second one ?
+
+Thanks,
+-- 
+Marc-Andre Lemburg
+eGenix.com
+
+Professional Python Services directly from the Source  (#1, Mar 24 2011)
+>>> Python/Zope Consulting and Support ...        http://www.egenix.com/
+>>> mxODBC.Zope.Database.Adapter ...             http://zope.egenix.com/
+>>> mxODBC, mxDateTime, mxTextTools ...        http://python.egenix.com/
+________________________________________________________________________
+
+::: Try our new mxODBC.Connect Python Database Interface for free ! ::::
+
+
+   eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+    D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+           Registered at Amtsgericht Duesseldorf: HRB 46611
+               http://www.egenix.com/company/contact/
+
+From rdmurray at bitdance.com  Thu Mar 24 13:18:50 2011
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Thu, 24 Mar 2011 08:18:50 -0400
+Subject: [python-committers] There are two versions of the Contributor
+	Agreement
+In-Reply-To: <4D8B038C.10408@egenix.com>
+References: <1300930307.1028.31.camel@marge> <4D8AAF75.1080609@udel.edu>
+	<4D8B038C.10408@egenix.com>
+Message-ID: <20110324121850.D815FF4A1B@kimball.webabinitio.net>
+
+On Thu, 24 Mar 2011 09:40:44 +0100, "M.-A. Lemburg" <mal at egenix.com> wrote:
+> The second one is the one we currently use. It does not
+> have the clause to cover past contributions, since we now
+> expect contributors to sign the CLA before the contributions
+> go into the repository.
+
+Note that this rarely happens in practice.  At least, it rarely happens
+that the PSF has the form in hand and acknowledged prior to the first
+significant checkin.
+
+--
+R. David Murray           http://www.bitdance.com
+
+From mal at egenix.com  Thu Mar 24 14:29:26 2011
+From: mal at egenix.com (M.-A. Lemburg)
+Date: Thu, 24 Mar 2011 14:29:26 +0100
+Subject: [python-committers] There are two versions of the Contributor
+ Agreement
+In-Reply-To: <20110324121850.D815FF4A1B@kimball.webabinitio.net>
+References: <1300930307.1028.31.camel@marge>
+	<4D8AAF75.1080609@udel.edu>	<4D8B038C.10408@egenix.com>
+	<20110324121850.D815FF4A1B@kimball.webabinitio.net>
+Message-ID: <4D8B4736.4060006@egenix.com>
+
+R. David Murray wrote:
+> On Thu, 24 Mar 2011 09:40:44 +0100, "M.-A. Lemburg" <mal at egenix.com> wrote:
+>> The second one is the one we currently use. It does not
+>> have the clause to cover past contributions, since we now
+>> expect contributors to sign the CLA before the contributions
+>> go into the repository.
+> 
+> Note that this rarely happens in practice.  At least, it rarely happens
+> that the PSF has the form in hand and acknowledged prior to the first
+> significant checkin.
+
+True and there's work underway to fix this.
+
+I should have phrased the reply more carefully: while in the ideal
+case, we should have the CLA before adding significant contributions
+to the repo, it is fine if we only get it in time for a release
+containing the contribution.
+
+Also, given that we have for many years worked without any CLA,
+let's not overrate all this. If a contributor uploads a patch to
+the tracker, he or she will know that the patch could end up in the
+repo and subsequent release - regardless of whether they sign a CLA or not.
+
+Legally this is a gray area, though, which is why the PSF introduced
+the CLA some years ago.
+
+Note that the PSF may also get into trouble if such code was submitted
+by someone who doesn't own the copyright to the patch. This has
+happened a couple of times in the past (fortunately, before cutting
+the release), so for larger contributions, it's better to double
+check with the patch provider and get the CLA before adding the
+code to the repo. The problem is then no longer a PSF problem,
+but one of the patch provider.
+
+-- 
+Marc-Andre Lemburg
+eGenix.com
+
+Professional Python Services directly from the Source  (#1, Mar 24 2011)
+>>> Python/Zope Consulting and Support ...        http://www.egenix.com/
+>>> mxODBC.Zope.Database.Adapter ...             http://zope.egenix.com/
+>>> mxODBC, mxDateTime, mxTextTools ...        http://python.egenix.com/
+________________________________________________________________________
+
+::: Try our new mxODBC.Connect Python Database Interface for free ! ::::
+
+
+   eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+    D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+           Registered at Amtsgericht Duesseldorf: HRB 46611
+               http://www.egenix.com/company/contact/
+
+From jcea at jcea.es  Thu Mar 24 19:14:47 2011
+From: jcea at jcea.es (Jesus Cea)
+Date: Thu, 24 Mar 2011 19:14:47 +0100
+Subject: [python-committers] PEPs repo converted
+In-Reply-To: <imeucl$stg$1@dough.gmane.org>
+References: <imdluc$u51$1@dough.gmane.org>	<nad-3EADD1.18351323032011@news.gmane.org>
+	<imeucl$stg$1@dough.gmane.org>
+Message-ID: <4D8B8A17.6000605@jcea.es>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On 24/03/11 09:12, Georg Brandl wrote:
+> On 24.03.2011 02:35, Ned Deily wrote:
+>> In article <imdluc$u51$1 at dough.gmane.org>,
+>>  Georg Brandl <g.brandl at gmx.net> wrote:
+>>
+>>> Please commit any PEP changes to hg.python.org/peps.
+>>
+>> Looks like the Version and Last-Modified keywords formerly supplied by 
+>> svn are now AWOL on the generated web pages.
+> 
+> Thanks, I've fixed that now (by locally enabling the keyword
+> extension).
+
+These requirements (activate the keyword extension, and set it to
+"**.txt" files) should be documented somewhere... :).
+
+BTW, can I actually push to "hg.python.org/peps", as indicated?. I would
+expect something like "ssh://hg at hg.python.org/peps".
+
+- -- 
+Jesus Cea Avion                         _/_/      _/_/_/        _/_/_/
+jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+jabber / xmpp:jcea at jabber.org         _/_/    _/_/          _/_/_/_/_/
+.                              _/_/  _/_/    _/_/          _/_/  _/_/
+"Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+"My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+"El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.10 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - http://enigmail.mozdev.org/
+
+iQCVAwUBTYuKF5lgi5GaxT1NAQKKtwP8DXMD02ocwHiHIJbnd2lr3bp8vbxx7HiF
+yTrBKH6LdqyNUHgorcvXtL5lzcrwqcg/ppOVtODHolM48GMM3hX0A44SAqjMMYoO
+YByRWmt5v/lOBaKfgW/mM2TEbDm7PeGkCh/zzBFVelA9fk2VNYZ1u8epb0lxFmwr
+g2K2MPqqRfY=
+=V7w3
+-----END PGP SIGNATURE-----
+
+From g.brandl at gmx.net  Thu Mar 24 22:29:08 2011
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Thu, 24 Mar 2011 22:29:08 +0100
+Subject: [python-committers] PEPs repo converted
+In-Reply-To: <4D8B8A17.6000605@jcea.es>
+References: <imdluc$u51$1@dough.gmane.org>	<nad-3EADD1.18351323032011@news.gmane.org>
+	<imeucl$stg$1@dough.gmane.org> <4D8B8A17.6000605@jcea.es>
+Message-ID: <imgd33$vo4$1@dough.gmane.org>
+
+On 24.03.2011 19:14, Jesus Cea wrote:
+> -----BEGIN PGP SIGNED MESSAGE-----
+> Hash: SHA1
+> 
+> On 24/03/11 09:12, Georg Brandl wrote:
+>> On 24.03.2011 02:35, Ned Deily wrote:
+>>> In article <imdluc$u51$1 at dough.gmane.org>,
+>>>  Georg Brandl <g.brandl at gmx.net> wrote:
+>>>
+>>>> Please commit any PEP changes to hg.python.org/peps.
+>>>
+>>> Looks like the Version and Last-Modified keywords formerly supplied by 
+>>> svn are now AWOL on the generated web pages.
+>> 
+>> Thanks, I've fixed that now (by locally enabling the keyword
+>> extension).
+> 
+> These requirements (activate the keyword extension, and set it to
+> "**.txt" files) should be documented somewhere... :).
+
+Well, I don't think it's required for anyone other than python.org.
+Those who edit the PEPs just need to keep the $Revision$ and $Date$ intact.
+
+> BTW, can I actually push to "hg.python.org/peps", as indicated?. I would
+> expect something like "ssh://hg at hg.python.org/peps".
+
+Yes, of course.
+
+Georg
+
+
+From jcea at jcea.es  Fri Mar 25 04:47:45 2011
+From: jcea at jcea.es (Jesus Cea)
+Date: Fri, 25 Mar 2011 04:47:45 +0100
+Subject: [python-committers] PEPs repo converted
+In-Reply-To: <imgd33$vo4$1@dough.gmane.org>
+References: <imdluc$u51$1@dough.gmane.org>	<nad-3EADD1.18351323032011@news.gmane.org>	<imeucl$stg$1@dough.gmane.org>
+	<4D8B8A17.6000605@jcea.es> <imgd33$vo4$1@dough.gmane.org>
+Message-ID: <4D8C1061.1020102@jcea.es>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On 24/03/11 22:29, Georg Brandl wrote:
+>> These requirements (activate the keyword extension, and set it to 
+>> "**.txt" files) should be documented somewhere... :).
+> 
+> Well, I don't think it's required for anyone other than python.org. 
+> Those who edit the PEPs just need to keep the $Revision$ and $Date$
+> intact.
+
+So, must I disable the extension KW again?. I am confused.
+
+Maybe editors simply must keep "$Revision$" and "$Date$", since those
+keywords are expanded in the server, for showing in docs.python.org?.
+
+- -- 
+Jesus Cea Avion                         _/_/      _/_/_/        _/_/_/
+jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+jabber / xmpp:jcea at jabber.org         _/_/    _/_/          _/_/_/_/_/
+.                              _/_/  _/_/    _/_/          _/_/  _/_/
+"Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+"My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+"El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.10 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - http://enigmail.mozdev.org/
+
+iQCVAwUBTYwQYZlgi5GaxT1NAQI5pgP/btNjHZnGu1lFgoWLPOnQfK1fM9glufyZ
+YenlTJDlSXrieheam8SOUXMmNX/dgvjVxqfDvXmRFosoPIPZlEFDMTwPxyq99mVu
+MihH8UYFVy87+9xngL7IiWctKMwAQRHZcuOZayqKBWqA9lSDOSD2s9e27L1Xyypm
+xNpkX9lRIoo=
+=VaPC
+-----END PGP SIGNATURE-----
+
+From jcea at jcea.es  Fri Mar 25 06:21:05 2011
+From: jcea at jcea.es (Jesus Cea)
+Date: Fri, 25 Mar 2011 06:21:05 +0100
+Subject: [python-committers] PEPs repo converted
+In-Reply-To: <4D8C1061.1020102@jcea.es>
+References: <imdluc$u51$1@dough.gmane.org>	<nad-3EADD1.18351323032011@news.gmane.org>	<imeucl$stg$1@dough.gmane.org>	<4D8B8A17.6000605@jcea.es>
+	<imgd33$vo4$1@dough.gmane.org> <4D8C1061.1020102@jcea.es>
+Message-ID: <4D8C2641.9010300@jcea.es>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+PEP 0001 still lists SVN as the way to checkout/commit PEPs. I guess
+that place would be the right place to document the details about
+keywords & mercurial.
+
+- -- 
+Jesus Cea Avion                         _/_/      _/_/_/        _/_/_/
+jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+jabber / xmpp:jcea at jabber.org         _/_/    _/_/          _/_/_/_/_/
+.                              _/_/  _/_/    _/_/          _/_/  _/_/
+"Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+"My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+"El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.10 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - http://enigmail.mozdev.org/
+
+iQCVAwUBTYwmQZlgi5GaxT1NAQJwRwP/Wnc4iYzYn+eD4fQ1gzipbrZO5DTs54Aa
+iTugXjWCLN/jQ9EmJatRyMxcwT999dyY7r25vsFF17YvqH4CLbmHNbe2SxKmfQlO
+KZ9wm9pR1TAXBnNskT+MhvdJJ0rwSjPC25z6nPWhZky6zDl8AzB/JyqquBiVIX1S
+SK4dKh+EPIY=
+=bKsT
+-----END PGP SIGNATURE-----
+
+From martin at v.loewis.de  Fri Mar 25 06:58:02 2011
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Fri, 25 Mar 2011 06:58:02 +0100
+Subject: [python-committers] PEPs repo converted
+In-Reply-To: <4D8C1061.1020102@jcea.es>
+References: <imdluc$u51$1@dough.gmane.org>	<nad-3EADD1.18351323032011@news.gmane.org>	<imeucl$stg$1@dough.gmane.org>	<4D8B8A17.6000605@jcea.es>
+	<imgd33$vo4$1@dough.gmane.org> <4D8C1061.1020102@jcea.es>
+Message-ID: <4D8C2EEA.9070804@v.loewis.de>
+
+Am 25.03.2011 04:47, schrieb Jesus Cea:
+> On 24/03/11 22:29, Georg Brandl wrote:
+>>> These requirements (activate the keyword extension, and set it to 
+>>> "**.txt" files) should be documented somewhere... :).
+> 
+>> Well, I don't think it's required for anyone other than python.org. 
+>> Those who edit the PEPs just need to keep the $Revision$ and $Date$
+>> intact.
+> 
+> So, must I disable the extension KW again?. I am confused.
+
+No. You may enable the extension, or you may disable it, just as you
+like. It makes no difference.
+
+> Maybe editors simply must keep "$Revision$" and "$Date$", since those
+> keywords are expanded in the server, for showing in docs.python.org?.
+
+Editors may add the keywords, or they may remove them, just as they
+like. It does make a difference and is the choice of the editor.
+In any case, the PEPs don't show up in docs.python.org (AFAIK), but
+in http://www.python.org/dev/peps/.
+
+Regards,
+Martin
+
+From ncoghlan at gmail.com  Sat Mar 26 05:01:02 2011
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Sat, 26 Mar 2011 14:01:02 +1000
+Subject: [python-committers] PEPs repo converted
+In-Reply-To: <imdluc$u51$1@dough.gmane.org>
+References: <imdluc$u51$1@dough.gmane.org>
+Message-ID: <AANLkTi=euw-gnYWnR9eE1UPaHvgNnvX0=k-RXzdiZ=dQ@mail.gmail.com>
+
+On Thu, Mar 24, 2011 at 6:41 AM, Georg Brandl <g.brandl at gmx.net> wrote:
+> Please commit any PEP changes to hg.python.org/peps.
+>
+> Also, sorry for the span on -checkins, I should not have enabled
+> the notification hook before pushing all changes :)
+
+With the quick and easy svn:external reference to docutils gone, could
+we get the README updated with where to find docutils?
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan?? |?? ncoghlan at gmail.com?? |?? Brisbane, Australia
+
+From g.brandl at gmx.net  Sat Mar 26 18:12:10 2011
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Sat, 26 Mar 2011 18:12:10 +0100
+Subject: [python-committers] PEPs repo converted
+In-Reply-To: <AANLkTi=euw-gnYWnR9eE1UPaHvgNnvX0=k-RXzdiZ=dQ@mail.gmail.com>
+References: <imdluc$u51$1@dough.gmane.org>
+	<AANLkTi=euw-gnYWnR9eE1UPaHvgNnvX0=k-RXzdiZ=dQ@mail.gmail.com>
+Message-ID: <iml6p5$bst$1@dough.gmane.org>
+
+On 26.03.2011 05:01, Nick Coghlan wrote:
+> On Thu, Mar 24, 2011 at 6:41 AM, Georg Brandl <g.brandl at gmx.net> wrote:
+>> Please commit any PEP changes to hg.python.org/peps.
+>>
+>> Also, sorry for the span on -checkins, I should not have enabled
+>> the notification hook before pushing all changes :)
+> 
+> With the quick and easy svn:external reference to docutils gone, could
+> we get the README updated with where to find docutils?
+
+I'd have thought that docutils is pretty much universally available
+nowadays.  But you're right that README is out of date, I've updated
+it now.
+
+Georg
+
+
+From ncoghlan at gmail.com  Sun Mar 27 05:35:21 2011
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Sun, 27 Mar 2011 13:35:21 +1000
+Subject: [python-committers] PEPs repo converted
+In-Reply-To: <iml6p5$bst$1@dough.gmane.org>
+References: <imdluc$u51$1@dough.gmane.org>
+	<AANLkTi=euw-gnYWnR9eE1UPaHvgNnvX0=k-RXzdiZ=dQ@mail.gmail.com>
+	<iml6p5$bst$1@dough.gmane.org>
+Message-ID: <AANLkTi=wSwrCP+R+nSo+-tuMXNWYkerH=ZEmqsz6Knuk@mail.gmail.com>
+
+On Sun, Mar 27, 2011 at 3:12 AM, Georg Brandl <g.brandl at gmx.net> wrote:
+> I'd have thought that docutils is pretty much universally available
+> nowadays. ?But you're right that README is out of date, I've updated
+> it now.
+
+Yeah, it turned out to just be a "sudo apt-get python-docutils" away.
+I'm just unused to having to even think about it :)
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan?? |?? ncoghlan at gmail.com?? |?? Brisbane, Australia
+

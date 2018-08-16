@@ -1,0 +1,535 @@
+From merwok at netwok.org  Thu Oct  6 16:34:06 2011
+From: merwok at netwok.org (=?UTF-8?B?w4lyaWMgQXJhdWpv?=)
+Date: Thu, 06 Oct 2011 16:34:06 +0200
+Subject: [python-committers] Three wishes for Mercurial-Roundup
+	integration
+In-Reply-To: <j3si5k$mrt$1@dough.gmane.org>
+References: <4E5E4789.8060001@netwok.org>
+	<j3lthk$ioc$1@dough.gmane.org>	<4E610A0A.7040407@netwok.org>
+	<j3si5k$mrt$1@dough.gmane.org>
+Message-ID: <4E8DBC5E.2080208@netwok.org>
+
+Le 03/09/2011 08:42, Georg Brandl a ?crit :
+> Am 02.09.2011 18:53, schrieb ?ric Araujo:
+>>>> 3) To let us track the backport of changesets from cpython/packaging to
+>>>> distutils2, I would like the script to look at changesets in the
+>>>> distutils2 repo and send messages to Roundup when a bug number is detected.
+>>> Sure.  Should be a simple [hooks] entry.
+>>
+>> Changing this requires admin access to hg.python.org, doesn?t it?  Can
+>> Antoine or you make the changes (benchmarks, devguide, d2)?  Thanks.
+> 
+> This should be done; please let me know if it doesn't work as intended.
+
+This changeset: http://hg.python.org/distutils2/rev/3749fcae0dce
+failed to update this report: http://bugs.python.org/issue12222
+
+From g.brandl at gmx.net  Thu Oct  6 19:25:22 2011
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Thu, 06 Oct 2011 19:25:22 +0200
+Subject: [python-committers] Three wishes for Mercurial-Roundup
+	integration
+In-Reply-To: <4E8DBC5E.2080208@netwok.org>
+References: <4E5E4789.8060001@netwok.org>
+	<j3lthk$ioc$1@dough.gmane.org>	<4E610A0A.7040407@netwok.org>
+	<j3si5k$mrt$1@dough.gmane.org> <4E8DBC5E.2080208@netwok.org>
+Message-ID: <j6ko9r$jvm$2@dough.gmane.org>
+
+On 10/06/11 16:34, ?ric Araujo wrote:
+> Le 03/09/2011 08:42, Georg Brandl a ?crit :
+>> Am 02.09.2011 18:53, schrieb ?ric Araujo:
+>>>>> 3) To let us track the backport of changesets from cpython/packaging to
+>>>>> distutils2, I would like the script to look at changesets in the
+>>>>> distutils2 repo and send messages to Roundup when a bug number is detected.
+>>>> Sure.  Should be a simple [hooks] entry.
+>>>
+>>> Changing this requires admin access to hg.python.org, doesn?t it?  Can
+>>> Antoine or you make the changes (benchmarks, devguide, d2)?  Thanks.
+>> 
+>> This should be done; please let me know if it doesn't work as intended.
+> 
+> This changeset: http://hg.python.org/distutils2/rev/3749fcae0dce
+> failed to update this report: http://bugs.python.org/issue12222
+
+Did you get a "sent email to roundup" message on push?
+
+Georg
+
+
+From solipsis at pitrou.net  Thu Oct  6 19:29:21 2011
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Thu, 06 Oct 2011 19:29:21 +0200
+Subject: [python-committers] Three wishes for Mercurial-Roundup
+ integration
+In-Reply-To: <4E8DBC5E.2080208@netwok.org>
+References: <4E5E4789.8060001@netwok.org> <j3lthk$ioc$1@dough.gmane.org>
+	<4E610A0A.7040407@netwok.org> <j3si5k$mrt$1@dough.gmane.org>
+	<4E8DBC5E.2080208@netwok.org>
+Message-ID: <1317922161.3631.27.camel@localhost.localdomain>
+
+Le jeudi 06 octobre 2011 ? 16:34 +0200, ?ric Araujo a ?crit :
+> Le 03/09/2011 08:42, Georg Brandl a ?crit :
+> > Am 02.09.2011 18:53, schrieb ?ric Araujo:
+> >>>> 3) To let us track the backport of changesets from cpython/packaging to
+> >>>> distutils2, I would like the script to look at changesets in the
+> >>>> distutils2 repo and send messages to Roundup when a bug number is detected.
+> >>> Sure.  Should be a simple [hooks] entry.
+> >>
+> >> Changing this requires admin access to hg.python.org, doesn?t it?  Can
+> >> Antoine or you make the changes (benchmarks, devguide, d2)?  Thanks.
+> > 
+> > This should be done; please let me know if it doesn't work as intended.
+> 
+> This changeset: http://hg.python.org/distutils2/rev/3749fcae0dce
+> failed to update this report: http://bugs.python.org/issue12222
+
+Are you sure? From here it seems to have worked fine.
+
+
+
+From merwok at netwok.org  Sun Oct  9 10:24:34 2011
+From: merwok at netwok.org (=?UTF-8?B?w4lyaWMgQXJhdWpv?=)
+Date: Sun, 09 Oct 2011 10:24:34 +0200
+Subject: [python-committers] Three wishes for Mercurial-Roundup
+	integration
+In-Reply-To: <1317922161.3631.27.camel@localhost.localdomain>
+References: <4E5E4789.8060001@netwok.org>
+	<j3lthk$ioc$1@dough.gmane.org>	<4E610A0A.7040407@netwok.org>
+	<j3si5k$mrt$1@dough.gmane.org>	<4E8DBC5E.2080208@netwok.org>
+	<1317922161.3631.27.camel@localhost.localdomain>
+Message-ID: <4E915A42.1000306@netwok.org>
+
+Le 06/10/2011 19:29, Antoine Pitrou a ?crit :
+> Le jeudi 06 octobre 2011 ? 16:34 +0200, ?ric Araujo a ?crit :
+>> This changeset: http://hg.python.org/distutils2/rev/3749fcae0dce
+>> failed to update this report: http://bugs.python.org/issue12222
+> Are you sure? From here it seems to have worked fine.
+
+You can see messages created by the push to the cpython repo, but no
+message for the push to the distutils2 repo.
+
+Regards
+
+From merwok at netwok.org  Wed Oct 12 18:10:51 2011
+From: merwok at netwok.org (=?UTF-8?B?w4lyaWMgQXJhdWpv?=)
+Date: Wed, 12 Oct 2011 18:10:51 +0200
+Subject: [python-committers] Three wishes for Mercurial-Roundup
+	integration
+In-Reply-To: <j6ko9r$jvm$2@dough.gmane.org>
+References: <4E5E4789.8060001@netwok.org>	<j3lthk$ioc$1@dough.gmane.org>	<4E610A0A.7040407@netwok.org>	<j3si5k$mrt$1@dough.gmane.org>
+	<4E8DBC5E.2080208@netwok.org> <j6ko9r$jvm$2@dough.gmane.org>
+Message-ID: <4E95BC0B.9090506@netwok.org>
+
+Le 06/10/2011 19:25, Georg Brandl a ?crit :
+> Did you get a "sent email to roundup" message on push?
+
+Just pushed to the distutils2 repo:
+
+remote: adding changesets
+remote: adding manifests
+remote: adding file changes
+remote: added 6 changesets with 13 changes to 8 files
+remote: Traceback (most recent call last):
+remote:   File "/data/hg/repos/hooks/hgroundup.py", line 57, in update_issue
+remote:     _update_issue(*args, **kwargs)
+remote:   File "/data/hg/repos/hooks/hgroundup.py", line 69, in
+_update_issue
+remote:     repourl = posixpath.join(ui.config('web', 'baseurl'), 'rev/')
+remote:   File "/usr/lib/python2.6/posixpath.py", line 67, in join
+remote:     elif path == '' or path.endswith('/'):
+remote: AttributeError: 'NoneType' object has no attribute 'endswith'
+remote: error: changegroup.roundup hook raised an exception: 'NoneType'
+object has no attribute 'endswith'
+
+Thanks
+
+From g.brandl at gmx.net  Wed Oct 12 19:24:10 2011
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Wed, 12 Oct 2011 19:24:10 +0200
+Subject: [python-committers] Three wishes for Mercurial-Roundup
+	integration
+In-Reply-To: <4E95BC0B.9090506@netwok.org>
+References: <4E5E4789.8060001@netwok.org>	<j3lthk$ioc$1@dough.gmane.org>	<4E610A0A.7040407@netwok.org>	<j3si5k$mrt$1@dough.gmane.org>
+	<4E8DBC5E.2080208@netwok.org> <j6ko9r$jvm$2@dough.gmane.org>
+	<4E95BC0B.9090506@netwok.org>
+Message-ID: <j74icf$a27$1@dough.gmane.org>
+
+Am 12.10.2011 18:10, schrieb ?ric Araujo:
+> Le 06/10/2011 19:25, Georg Brandl a ?crit :
+>> Did you get a "sent email to roundup" message on push?
+> 
+> Just pushed to the distutils2 repo:
+> 
+> remote: adding changesets
+> remote: adding manifests
+> remote: adding file changes
+> remote: added 6 changesets with 13 changes to 8 files
+> remote: Traceback (most recent call last):
+> remote:   File "/data/hg/repos/hooks/hgroundup.py", line 57, in update_issue
+> remote:     _update_issue(*args, **kwargs)
+> remote:   File "/data/hg/repos/hooks/hgroundup.py", line 69, in
+> _update_issue
+> remote:     repourl = posixpath.join(ui.config('web', 'baseurl'), 'rev/')
+> remote:   File "/usr/lib/python2.6/posixpath.py", line 67, in join
+> remote:     elif path == '' or path.endswith('/'):
+> remote: AttributeError: 'NoneType' object has no attribute 'endswith'
+> remote: error: changegroup.roundup hook raised an exception: 'NoneType'
+> object has no attribute 'endswith'
+
+OK; should be fixed now.
+
+Georg
+
+
+
+From stefan at bytereef.org  Sat Oct 15 22:06:55 2011
+From: stefan at bytereef.org (Stefan Krah)
+Date: Sat, 15 Oct 2011 22:06:55 +0200
+Subject: [python-committers] Coverity scans
+Message-ID: <20111015200655.GA2031@sleipnir.bytereef.org>
+
+Hi,
+
+what is the status of the coverity scans? If you go to
+
+  http://scan.coverity.com/rungAll.html
+
+and click on "Sign in", you get a maintenance message. For
+other projects there is a login screen.
+
+
+Do we have an official contact person? Is it possible to
+have the login reactivated and get access to the scans?
+
+
+Stefan Krah
+
+
+
+From asmodai at in-nomine.org  Sun Oct 16 06:57:18 2011
+From: asmodai at in-nomine.org (Jeroen Ruigrok van der Werven)
+Date: Sun, 16 Oct 2011 06:57:18 +0200
+Subject: [python-committers] Coverity scans
+In-Reply-To: <20111015200655.GA2031@sleipnir.bytereef.org>
+References: <20111015200655.GA2031@sleipnir.bytereef.org>
+Message-ID: <20111016045718.GA9752@nexus.in-nomine.org>
+
+-On [20111015 22:23], Stefan Krah (stefan at bytereef.org) wrote:
+>Do we have an official contact person? Is it possible to
+>have the login reactivated and get access to the scans?
+
+Some of us have access to the latest scans. I know I have at least.
+If I remember correctly Brett was the person to take the lead on the latest
+results and coordinate with the committers.
+
+-- 
+Jeroen Ruigrok van der Werven <asmodai(-at-)in-nomine.org> / asmodai
+????? ?????? ??? ?? ??????
+http://www.in-nomine.org/ | GPG: 2EAC625B
+My greatest fear... Is that all my Memories will be lost... Like
+tears, in the rain...
+
+From brett at python.org  Mon Oct 17 17:52:38 2011
+From: brett at python.org (Brett Cannon)
+Date: Mon, 17 Oct 2011 08:52:38 -0700
+Subject: [python-committers] Coverity scans
+In-Reply-To: <20111016045718.GA9752@nexus.in-nomine.org>
+References: <20111015200655.GA2031@sleipnir.bytereef.org>
+	<20111016045718.GA9752@nexus.in-nomine.org>
+Message-ID: <CAP1=2W4WrEiGx+f3EJUEwQG1EqErBn3OzbLPTAat2Qn_Z6zL2A@mail.gmail.com>
+
+Yes, I have been appointed lead on this, but as my life has been
+thrown into complete turmoil and will continue to be so for at least a
+month (if people care I'm going to do a G+ post on what has happened
+in my life once a certain thing is scheduled, hopefully this week).
+Once I have had a chance to look at the scans and the tools presented
+I will put a notice here about what we have and how people can
+possibly help out with it.
+
+On Sat, Oct 15, 2011 at 21:57, Jeroen Ruigrok van der Werven
+<asmodai at in-nomine.org> wrote:
+> -On [20111015 22:23], Stefan Krah (stefan at bytereef.org) wrote:
+>>Do we have an official contact person? Is it possible to
+>>have the login reactivated and get access to the scans?
+>
+> Some of us have access to the latest scans. I know I have at least.
+> If I remember correctly Brett was the person to take the lead on the latest
+> results and coordinate with the committers.
+>
+> --
+> Jeroen Ruigrok van der Werven <asmodai(-at-)in-nomine.org> / asmodai
+> ????? ?????? ??? ?? ??????
+> http://www.in-nomine.org/ | GPG: 2EAC625B
+> My greatest fear... Is that all my Memories will be lost... Like
+> tears, in the rain...
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+>
+
+From merwok at netwok.org  Tue Oct 18 18:37:07 2011
+From: merwok at netwok.org (=?UTF-8?B?w4lyaWMgQXJhdWpv?=)
+Date: Tue, 18 Oct 2011 18:37:07 +0200
+Subject: [python-committers] Three wishes for Mercurial-Roundup
+	integration
+In-Reply-To: <j74icf$a27$1@dough.gmane.org>
+References: <4E5E4789.8060001@netwok.org>	<j3lthk$ioc$1@dough.gmane.org>	<4E610A0A.7040407@netwok.org>	<j3si5k$mrt$1@dough.gmane.org>	<4E8DBC5E.2080208@netwok.org>
+	<j6ko9r$jvm$2@dough.gmane.org>	<4E95BC0B.9090506@netwok.org>
+	<j74icf$a27$1@dough.gmane.org>
+Message-ID: <4E9DAB33.60907@netwok.org>
+
+Le 12/10/2011 19:24, Georg Brandl a ?crit :
+> OK; should be fixed now.
+
+It is, thanks!
+
+From brett at python.org  Tue Oct 18 19:25:50 2011
+From: brett at python.org (Brett Cannon)
+Date: Tue, 18 Oct 2011 10:25:50 -0700
+Subject: [python-committers] PyCharm license renewal
+Message-ID: <CAP1=2W4kyg8RcDusOtp7OgKd=F4NsqWBrjqWogT0RQNqO9txtw@mail.gmail.com>
+
+I just got the PyCharm license for another year for core devs, so if
+you want me to forward you the license just let me know.
+
+From solipsis at pitrou.net  Fri Oct 21 19:13:22 2011
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Fri, 21 Oct 2011 19:13:22 +0200
+Subject: [python-committers] Commit rights for Petri?
+Message-ID: <1319217202.3382.8.camel@localhost.localdomain>
+
+
+Hello,
+
+Petri Lehtinen has been an active contributor for some time, he has been
+quite receptive to reviews and we have committed a dozen of his patches.
+Do you think it is time to offer him commit rights?
+
+cheers
+
+Antoine.
+
+
+
+From ezio.melotti at gmail.com  Fri Oct 21 19:41:47 2011
+From: ezio.melotti at gmail.com (Ezio Melotti)
+Date: Fri, 21 Oct 2011 20:41:47 +0300
+Subject: [python-committers] Commit rights for Petri?
+In-Reply-To: <1319217202.3382.8.camel@localhost.localdomain>
+References: <1319217202.3382.8.camel@localhost.localdomain>
+Message-ID: <4EA1AEDB.6060208@gmail.com>
+
+On 21/10/2011 20.13, Antoine Pitrou wrote:
+> Hello,
+>
+> Petri Lehtinen has been an active contributor for some time, he has been
+> quite receptive to reviews and we have committed a dozen of his patches.
+> Do you think it is time to offer him commit rights?
+
++1
+I also met him during the sprints at PyCon FI and he was the most active 
+contributor of the group.
+
+Best Regards,
+Ezio Melotti
+
+>
+> cheers
+>
+> Antoine.
+>
+
+From ncoghlan at gmail.com  Sat Oct 22 03:13:25 2011
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Sat, 22 Oct 2011 11:13:25 +1000
+Subject: [python-committers] Commit rights for Petri?
+In-Reply-To: <1319217202.3382.8.camel@localhost.localdomain>
+References: <1319217202.3382.8.camel@localhost.localdomain>
+Message-ID: <CADiSq7dza2sgrSKii2BFis-goo6rAMtokg3eBxBi+h3mKHApxQ@mail.gmail.com>
+
+On Sat, Oct 22, 2011 at 3:13 AM, Antoine Pitrou <solipsis at pitrou.net> wrote:
+>
+> Hello,
+>
+> Petri Lehtinen has been an active contributor for some time, he has been
+> quite receptive to reviews and we have committed a dozen of his patches.
+> Do you think it is time to offer him commit rights?
+
++1 from me - I was thinking the same thing after Senthil committed his
+last batch of fixes.
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan?? |?? ncoghlan at gmail.com?? |?? Brisbane, Australia
+
+From senthil at uthcode.com  Sat Oct 22 03:28:36 2011
+From: senthil at uthcode.com (Senthil Kumaran)
+Date: Sat, 22 Oct 2011 09:28:36 +0800
+Subject: [python-committers] Commit rights for Petri?
+In-Reply-To: <CADiSq7dza2sgrSKii2BFis-goo6rAMtokg3eBxBi+h3mKHApxQ@mail.gmail.com>
+References: <1319217202.3382.8.camel@localhost.localdomain>
+	<CADiSq7dza2sgrSKii2BFis-goo6rAMtokg3eBxBi+h3mKHApxQ@mail.gmail.com>
+Message-ID: <20111022012836.GA5428@mathmagic>
+
+On Sat, Oct 22, 2011 at 11:13:25AM +1000, Nick Coghlan wrote:
+> >
+> > Petri Lehtinen has been an active contributor for some time, he has been
+> > quite receptive to reviews and we have committed a dozen of his patches.
+> > Do you think it is time to offer him commit rights?
+> 
+> +1 from me - I was thinking the same thing after Senthil committed his
+> last batch of fixes.
+
++1 of course. He has been providing patches for a long time now.
+
+-- 
+Senthil
+
+From g.brandl at gmx.net  Sun Oct 23 14:57:04 2011
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Sun, 23 Oct 2011 14:57:04 +0200
+Subject: [python-committers] 3-way conflict markers
+Message-ID: <j812uo$i8c$1@dough.gmane.org>
+
+Hi,
+
+for those of you who also miss the seeing base revision in merge conflict
+markers sometimes, I recently saw this post on mercurial-devel:
+
+http://comments.gmane.org/gmane.comp.version-control.mercurial.devel/45022
+
+There is a reason why it is not the default behavior: mercurial collapses
+conflict regions when local and other have changed a few lines identically;
+this is not possible with 3-way markers.
+
+Georg
+
+
+From patcam at python.org  Mon Oct 24 20:07:20 2011
+From: patcam at python.org (Pat Campbell)
+Date: Mon, 24 Oct 2011 14:07:20 -0400
+Subject: [python-committers] [PSF-Board] Contributor agreement
+In-Reply-To: <20111024063735.GA2453@p16>
+References: <20111024063735.GA2453@p16>
+Message-ID: <CAFy_4dK21OHDv4EuT6ELnNqoY6CGnNdsgWNRUN6G_6qrsSBEjA@mail.gmail.com>
+
+Hi Petri:
+
+Thank-you for submitting your contributor agreement.
+
+Have you had a chance to create your profile on the PSF tracker
+http://bugs.python.org/user? If so, please email your "username" &
+your "ID #" to me in order for the tracker to show your contributor
+agreement submission to the PSF.
+
+Thanks,
+Pat
+
+On Mon, Oct 24, 2011 at 2:37 AM, Petri Lehtinen <petri at digip.org> wrote:
+
+> Attached a signed contributor agreement.
+>
+> _______________________________________________
+> PSF-Board mailing list
+> PSF-Board at python.org
+> http://mail.python.org/mailman/listinfo/psf-board
+>
+>
+
+
+-- 
+Pat Campbell
+PSF Administrator/Secretary
+patcam at python.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20111024/5729e8d4/attachment.html>
+
+From petri at digip.org  Mon Oct 24 21:26:07 2011
+From: petri at digip.org (Petri Lehtinen)
+Date: Mon, 24 Oct 2011 22:26:07 +0300
+Subject: [python-committers] [PSF-Board] Contributor agreement
+In-Reply-To: <CAFy_4dK21OHDv4EuT6ELnNqoY6CGnNdsgWNRUN6G_6qrsSBEjA@mail.gmail.com>
+References: <20111024063735.GA2453@p16>
+	<CAFy_4dK21OHDv4EuT6ELnNqoY6CGnNdsgWNRUN6G_6qrsSBEjA@mail.gmail.com>
+Message-ID: <20111024192606.GB2494@ihaa>
+
+Pat Campbell wrote:
+> Hi Petri:
+> 
+> Thank-you for submitting your contributor agreement.
+> 
+> Have you had a chance to create your profile on the PSF tracker
+> http://bugs.python.org/user? If so, please email your "username" &
+> your "ID #" to me in order for the tracker to show your contributor
+> agreement submission to the PSF.
+
+Hi Pat,
+
+My username in the tracker is petri.lehtinen, and my user page is at
+http://bugs.python.org/user14287, so the ID# is probably 14287.
+
+Petri
+
+From patcam at python.org  Mon Oct 24 21:48:02 2011
+From: patcam at python.org (Pat Campbell)
+Date: Mon, 24 Oct 2011 15:48:02 -0400
+Subject: [python-committers] [PSF-Board] Contributor agreement
+In-Reply-To: <20111024192606.GB2494@ihaa>
+References: <20111024063735.GA2453@p16>
+	<CAFy_4dK21OHDv4EuT6ELnNqoY6CGnNdsgWNRUN6G_6qrsSBEjA@mail.gmail.com>
+	<20111024192606.GB2494@ihaa>
+Message-ID: <CAFy_4dLY9rq+2ux9ZYkcj7bpP9f3-5P9LfZQE42m5x=FFb5mpQ@mail.gmail.com>
+
+Hi Petri:
+
+Your contributor agreement has been added to the PSF tracker online.
+
+Thanks,
+Pat
+
+On Mon, Oct 24, 2011 at 3:26 PM, Petri Lehtinen <petri at digip.org> wrote:
+
+> Pat Campbell wrote:
+> > Hi Petri:
+> >
+> > Thank-you for submitting your contributor agreement.
+> >
+> > Have you had a chance to create your profile on the PSF tracker
+> > http://bugs.python.org/user? If so, please email your "username" &
+> > your "ID #" to me in order for the tracker to show your contributor
+> > agreement submission to the PSF.
+>
+> Hi Pat,
+>
+> My username in the tracker is petri.lehtinen, and my user page is at
+> http://bugs.python.org/user14287, so the ID# is probably 14287.
+>
+> Petri
+>
+
+
+
+-- 
+Pat Campbell
+PSF Administrator/Secretary
+patcam at python.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20111024/edb33929/attachment.html>
+
+From martin at v.loewis.de  Mon Oct 31 12:44:27 2011
+From: martin at v.loewis.de (=?ISO-8859-15?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Mon, 31 Oct 2011 12:44:27 +0100
+Subject: [python-committers] 2.5 branch is now closed
+Message-ID: <4EAE8A1B.1000104@v.loewis.de>
+
+More than 5 years after its initial release, I have now closed the 2.5
+maintenance branch. Please don't commit anything to it anymore.
+
+Regards,
+Martin
+

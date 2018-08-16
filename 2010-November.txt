@@ -1,0 +1,2011 @@
+From g.brandl at gmx.net  Sat Nov  6 15:34:28 2010
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Sat, 06 Nov 2010 15:34:28 +0100
+Subject: [python-committers] New schedule for 3.2
+Message-ID: <ib3p3t$ot$1@dough.gmane.org>
+
+Hi,
+
+on a request by Martin, I added another alpha to the Python 3.2 release
+schedule.  The scheduled releases are now
+
+- 3.2 alpha 4: November 13, 2010
+- 3.2 beta 1: December 4, 2010
+- 3.2 beta 2: December 18, 2010
+- 3.2 candidate 1: January 8, 2010
+- 3.2 candidate 2: January 22, 2011
+- 3.2 final: February 5, 2011
+
+So you have three weeks more to add your favorite new features to 3.2 --
+use them wisely!
+
+cheers,
+Georg
+
+-- 
+Thus spake the Lord: Thou shalt indent with four spaces. No more, no less.
+Four shall be the number of spaces thou shalt indent, and the number of thy
+indenting shall be four. Eight shalt thou not indent, nor either indent thou
+two, excepting that thou then proceed to four. Tabs are right out.
+
+
+From victor.stinner at haypocalc.com  Sun Nov  7 16:52:33 2010
+From: victor.stinner at haypocalc.com (Victor Stinner)
+Date: Sun, 7 Nov 2010 16:52:33 +0100
+Subject: [python-committers] Deny nonbreaking spaces in the precommit script?
+Message-ID: <201011071652.33279.victor.stinner@haypocalc.com>
+
+Hi,
+
+I introduced nonbreaking spaces in Lib/os.py in a comment, because I kept Alt 
+Gr. key pressed to write the space after # (stupid Xorg keyboard variant!).
+
+This change introduces a strange bug in "LANG=C ./python -m test.regrtest -v 
+test_imp test_trace" command.
+
+The real bug was fixed in issue #10329, but I would like to know if it would be 
+possible to block a commit introducing nonbreaking spaces? A least for me :-)
+
+Victor
+
+From guido at python.org  Sun Nov  7 19:25:22 2010
+From: guido at python.org (Guido van Rossum)
+Date: Sun, 7 Nov 2010 10:25:22 -0800
+Subject: [python-committers] Deny nonbreaking spaces in the precommit
+	script?
+In-Reply-To: <201011071652.33279.victor.stinner@haypocalc.com>
+References: <201011071652.33279.victor.stinner@haypocalc.com>
+Message-ID: <AANLkTimYbGn84__eHEB3bNEx1y+ccaMvV2nKASXK=ea8@mail.gmail.com>
+
+Hm, tricky, the stdlib is already supposed to be ASCII only except for
+author names in comments and a few specific encoding test cases. But
+since your non-breaking space was in a comment you'd have to add
+another exception to whatever checker exists.
+
+How about fixing your personal tool chain so it displays non-breaking
+spaces in an obviously different way?
+
+On Sun, Nov 7, 2010 at 7:52 AM, Victor Stinner
+<victor.stinner at haypocalc.com> wrote:
+> Hi,
+>
+> I introduced nonbreaking spaces in Lib/os.py in a comment, because I kept Alt
+> Gr. key pressed to write the space after # (stupid Xorg keyboard variant!).
+>
+> This change introduces a strange bug in "LANG=C ./python -m test.regrtest -v
+> test_imp test_trace" command.
+>
+> The real bug was fixed in issue #10329, but I would like to know if it would be
+> possible to block a commit introducing nonbreaking spaces? A least for me :-)
+>
+> Victor
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+>
+
+
+
+-- 
+--Guido van Rossum (python.org/~guido)
+
+From benjamin at python.org  Sun Nov  7 19:28:44 2010
+From: benjamin at python.org (Benjamin Peterson)
+Date: Sun, 7 Nov 2010 12:28:44 -0600
+Subject: [python-committers] Deny nonbreaking spaces in the precommit
+	script?
+In-Reply-To: <201011071652.33279.victor.stinner@haypocalc.com>
+References: <201011071652.33279.victor.stinner@haypocalc.com>
+Message-ID: <AANLkTi=ZUuXGi2HB5iZmj99hGQZW6h70BbL1z3juovD3@mail.gmail.com>
+
+2010/11/7 Victor Stinner <victor.stinner at haypocalc.com>:
+> Hi,
+>
+> I introduced nonbreaking spaces in Lib/os.py in a comment, because I kept Alt
+> Gr. key pressed to write the space after # (stupid Xorg keyboard variant!).
+>
+> This change introduces a strange bug in "LANG=C ./python -m test.regrtest -v
+> test_imp test_trace" command.
+>
+> The real bug was fixed in issue #10329, but I would like to know if it would be
+> possible to block a commit introducing nonbreaking spaces? A least for me :-)
+
+I don't think add pre-commit hooks for every conceivable mistake is
+the right way to go.
+
+
+
+-- 
+Regards,
+Benjamin
+
+From tjreedy at udel.edu  Mon Nov  8 06:47:26 2010
+From: tjreedy at udel.edu (Terry Reedy)
+Date: Mon, 08 Nov 2010 00:47:26 -0500
+Subject: [python-committers] Need help with read-write checkouts
+	(Win/TortoiseSVN)
+Message-ID: <4CD78EEE.7030302@udel.edu>
+
+Wanting to finish up the difflib issue (#2986) with my first commits, I read
+http://www.python.org/dev/faq/
+(especially 2.2.2 and 2.3), loaded TortoiseSVN, and successfully did a 
+read-only checkout. But when I try to do the needed read-write checkout, 
+I get a blank plink screen and ... nothing. I tried both with 
+'pythondev@' and Pageant running and without both after creating a 
+svn.python.org  profile. And ideas what to do next? Is there some step 
+missing from the faq?
+
+In attempting to verify that my commit privileges are working (2.8.2), I 
+noticed that in order to log in with putty, or 'register' the private 
+key with pageant, I need a 'passphrase'. If I gave one when generating 
+the key, I have no memory of it and cannot find such written down after 
+extensive search. So if either of the above is the unmentioned missing 
+step, I will need for someone to replace my current public key after I 
+generate a new pair. Who is currently available to do so?
+
+For once, I would like copies of helpful responses sent directly to me. 
+I am signed up for the digest version of this list and cannot login to 
+change that. Mailman will not (at the moment, at least) accept the 
+password that it generated for me and that it sends in the monthly 
+reminders.
+
+-- 
+
+Terry Jan Reedy
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20101108/420fa7f1/attachment.html>
+
+From lukasz at langa.pl  Mon Nov  8 11:55:39 2010
+From: lukasz at langa.pl (=?UTF-8?B?xYF1a2FzeiBMYW5nYQ==?=)
+Date: Mon, 08 Nov 2010 11:55:39 +0100
+Subject: [python-committers] Deny nonbreaking spaces in the precommit
+ script?
+In-Reply-To: <AANLkTi=ZUuXGi2HB5iZmj99hGQZW6h70BbL1z3juovD3@mail.gmail.com>
+References: <201011071652.33279.victor.stinner@haypocalc.com>
+	<AANLkTi=ZUuXGi2HB5iZmj99hGQZW6h70BbL1z3juovD3@mail.gmail.com>
+Message-ID: <4CD7D72B.1020509@langa.pl>
+
+Am 07.11.2010 19:28, schrieb Benjamin Peterson:
+> 2010/11/7 Victor Stinner<victor.stinner at haypocalc.com>:
+>> I would like to know if it would be
+>> possible to block a commit introducing nonbreaking spaces? A least for me :-)
+> I don't think add pre-commit hooks for every conceivable mistake is
+> the right way to go.
+
+I see you're basically saying "We're all adults here" and that we should 
+be able to control our own environment so these kinds of commits don't 
+happen (like Guido said). Well guess what, I believe that isn't going to 
+work. Let me tell you why.
+
+1. Most* contributors work on Python in their spare time. That means 
+they also have jobs, families, all kinds of everyday trouble. Even if 
+99% of the time their performance is stellar, there will be times when 
+some stupid errors get through.
+
+2. We invite more contributors now which means there are going to be 
+more rookies than ever before. I for one am an example of that. You 
+either expect newbies to perform like their own mentors from day one or 
+expect mentors to waste time working out dumb rookie mistakes made 
+because of a misconfigured environment, etc.
+
+3. Speaking of environments, they change. Software evolves, people 
+switch machines, operating systems, editors, toolchains. If one Debian 
+veteran switches to Mac OS X and makes some error because of false 
+assumptions, misconfigured software, whatever... his experience should 
+prevent other people from making the same mistake in the future.
+
+I could go on and risk boring you to death. The point is, if we can 
+automate stuff out of the workflow, we should definitely do it. Each and 
+every time. We don't gain anything by not implementing automation.
+
+Even if that commit hook prevents a single wrong commit a year, it's 
+worth it. As unpaid volunteers, we don't have time for hunting the same 
+mistakes twice.
+
+One last disclaimer. I'm not a native speaker so if the tone of my post 
+sounds offensive or rude, I apologise in advance because that was not my 
+intention. OTOH, the zen says explicit is better than diplomatic. Or 
+something like that.
+
+
+* Yup, that's guessing. Correct me if I'm wrong.
+
+-- 
+Best regards,
+?ukasz Langa
+
+From dirkjan at ochtman.nl  Mon Nov  8 12:33:56 2010
+From: dirkjan at ochtman.nl (Dirkjan Ochtman)
+Date: Mon, 8 Nov 2010 12:33:56 +0100
+Subject: [python-committers] Deny nonbreaking spaces in the precommit
+	script?
+In-Reply-To: <4CD7D72B.1020509@langa.pl>
+References: <201011071652.33279.victor.stinner@haypocalc.com>
+	<AANLkTi=ZUuXGi2HB5iZmj99hGQZW6h70BbL1z3juovD3@mail.gmail.com>
+	<4CD7D72B.1020509@langa.pl>
+Message-ID: <AANLkTimDFHvkFVkgXn3yaXdhFE0ff-2RfiPUgXX9MF8j@mail.gmail.com>
+
+2010/11/8 ?ukasz Langa <lukasz at langa.pl>:
+> I see you're basically saying "We're all adults here" and that we should be
+> able to control our own environment so these kinds of commits don't happen
+> (like Guido said). Well guess what, I believe that isn't going to work. Let
+> me tell you why.
+
+I must say I kind of agree with ?ukasz.
+
+One of the reasons I use Python is because it alleviates my having to
+think about memory management and checking for error values. In the
+same fashion, having automated checks means I can spend less of my
+time thinking about possible stupid mistakes, and less time fixing
+them.
+
+Cheers,
+
+Dirkjan
+
+From orsenthil at gmail.com  Mon Nov  8 12:42:15 2010
+From: orsenthil at gmail.com (Senthil Kumaran)
+Date: Mon, 8 Nov 2010 19:42:15 +0800
+Subject: [python-committers] Deny nonbreaking spaces in the precommit
+ script?
+In-Reply-To: <4CD7D72B.1020509@langa.pl>
+References: <201011071652.33279.victor.stinner@haypocalc.com>
+	<AANLkTi=ZUuXGi2HB5iZmj99hGQZW6h70BbL1z3juovD3@mail.gmail.com>
+	<4CD7D72B.1020509@langa.pl>
+Message-ID: <20101108114215.GA1039@rubuntu>
+
+On Mon, Nov 08, 2010 at 11:55:39AM +0100, ?ukasz Langa wrote:
+> Even if that commit hook prevents a single wrong commit a year, it's
+> worth it. As unpaid volunteers, we don't have time for hunting the
+> same mistakes twice.
+
+For common mistakes, there are commit hooks which prevent you from
+committing wrongly indented code or rst files. This helps couple of
+times a year, but having commit-hooks for every other mistake may not
+be a good idea.
+
+We can just customize our environments. It is easy.
+
+-- 
+Senthil
+
+From michael at voidspace.org.uk  Mon Nov  8 12:55:43 2010
+From: michael at voidspace.org.uk (Michael Foord)
+Date: Mon, 08 Nov 2010 11:55:43 +0000
+Subject: [python-committers] Deny nonbreaking spaces in the precommit
+ script?
+In-Reply-To: <20101108114215.GA1039@rubuntu>
+References: <201011071652.33279.victor.stinner@haypocalc.com>	<AANLkTi=ZUuXGi2HB5iZmj99hGQZW6h70BbL1z3juovD3@mail.gmail.com>	<4CD7D72B.1020509@langa.pl>
+	<20101108114215.GA1039@rubuntu>
+Message-ID: <4CD7E53F.2090507@voidspace.org.uk>
+
+On 08/11/2010 11:42, Senthil Kumaran wrote:
+> On Mon, Nov 08, 2010 at 11:55:39AM +0100, ?ukasz Langa wrote:
+>> Even if that commit hook prevents a single wrong commit a year, it's
+>> worth it. As unpaid volunteers, we don't have time for hunting the
+>> same mistakes twice.
+> For common mistakes, there are commit hooks which prevent you from
+> committing wrongly indented code or rst files. This helps couple of
+> times a year, but having commit-hooks for every other mistake may not
+> be a good idea.
+>
+> We can just customize our environments. It is easy.
+Additional checks could be put in `make patchcheck` or a local commit 
+hook for hg.
+
+All the best,
+
+Michael Foord
+
+-- 
+
+http://www.voidspace.org.uk/
+
+READ CAREFULLY. By accepting and reading this email you agree,
+on behalf of your employer, to release me from all obligations
+and waivers arising from any and all NON-NEGOTIATED agreements,
+licenses, terms-of-service, shrinkwrap, clickwrap, browsewrap,
+confidentiality, non-disclosure, non-compete and acceptable use
+policies (?BOGUS AGREEMENTS?) that I have entered into with your
+employer, its partners, licensors, agents and assigns, in
+perpetuity, without prejudice to my ongoing rights and privileges.
+You further represent that you have the authority to release me
+from any BOGUS AGREEMENTS on behalf of your employer.
+
+From fredrik at pythonware.com  Mon Nov  8 13:15:32 2010
+From: fredrik at pythonware.com (Fredrik Lundh)
+Date: Mon, 8 Nov 2010 13:15:32 +0100
+Subject: [python-committers] Deny nonbreaking spaces in the precommit
+	script?
+In-Reply-To: <20101108114215.GA1039@rubuntu>
+References: <201011071652.33279.victor.stinner@haypocalc.com>
+	<AANLkTi=ZUuXGi2HB5iZmj99hGQZW6h70BbL1z3juovD3@mail.gmail.com>
+	<4CD7D72B.1020509@langa.pl> <20101108114215.GA1039@rubuntu>
+Message-ID: <AANLkTikT-MqLtR_iGH9grdt2L0cvPHW3u6XbgewN123U@mail.gmail.com>
+
+2010/11/8 Senthil Kumaran <orsenthil at gmail.com>:
+> On Mon, Nov 08, 2010 at 11:55:39AM +0100, ?ukasz Langa wrote:
+>> Even if that commit hook prevents a single wrong commit a year, it's
+>> worth it. As unpaid volunteers, we don't have time for hunting the
+>> same mistakes twice.
+>
+> For common mistakes, there are commit hooks which prevent you from
+> committing wrongly indented code or rst files. This helps couple of
+> times a year, but having commit-hooks for every other mistake may not
+> be a good idea.
+
+Depends on how you phrase the tests, though -- the tests "does this
+file only contain characters from the accepted character set" and
+"does this file contain a non-breaking space" will both catch this
+issue, but the former is more useful.
+
+</F>
+
+From lukasz at langa.pl  Mon Nov  8 13:18:54 2010
+From: lukasz at langa.pl (=?UTF-8?B?xYF1a2FzeiBMYW5nYQ==?=)
+Date: Mon, 08 Nov 2010 13:18:54 +0100
+Subject: [python-committers] Deny nonbreaking spaces in the precommit
+ script?
+In-Reply-To: <4CD7E53F.2090507@voidspace.org.uk>
+References: <201011071652.33279.victor.stinner@haypocalc.com>	<AANLkTi=ZUuXGi2HB5iZmj99hGQZW6h70BbL1z3juovD3@mail.gmail.com>	<4CD7D72B.1020509@langa.pl>
+	<20101108114215.GA1039@rubuntu> <4CD7E53F.2090507@voidspace.org.uk>
+Message-ID: <4CD7EAAE.7050103@langa.pl>
+
+Am 08.11.2010 12:55, schrieb Michael Foord:
+> On 08/11/2010 11:42, Senthil Kumaran wrote:
+>> We can just customize our environments. It is easy.
+
+I already pointed out in my last post why that's not going to solve the 
+problem.
+
+> Additional checks could be put in `make patchcheck` or a local commit 
+> hook for hg.
+
+Automation always pays off. Simplifying the process always pays off. 
+Providing yet another step to the workflow would be a move in the 
+opposite direction*. Is there any point in weighing each time whether a 
+mistake is common enough to be included in the commit hooks? It's not 
+like we're paying some SVN vendor a fee per hook ;-)
+
+* A completely separate topic would be that programmer-side precommit 
+hooks are a terrific idea for Hg. But just as client-side form 
+validation doesn't free Web apps from having to implement server-side as 
+well, I believe hooks on the central repository should be as complete 
+and as restrictive as it gets.
+
+-- 
+Best regards,
+?ukasz Langa
+
+From michael at voidspace.org.uk  Mon Nov  8 13:22:34 2010
+From: michael at voidspace.org.uk (Michael Foord)
+Date: Mon, 08 Nov 2010 12:22:34 +0000
+Subject: [python-committers] Deny nonbreaking spaces in the precommit
+ script?
+In-Reply-To: <4CD7EAAE.7050103@langa.pl>
+References: <201011071652.33279.victor.stinner@haypocalc.com>	<AANLkTi=ZUuXGi2HB5iZmj99hGQZW6h70BbL1z3juovD3@mail.gmail.com>	<4CD7D72B.1020509@langa.pl>	<20101108114215.GA1039@rubuntu>
+	<4CD7E53F.2090507@voidspace.org.uk> <4CD7EAAE.7050103@langa.pl>
+Message-ID: <4CD7EB8A.2050108@voidspace.org.uk>
+
+On 08/11/2010 12:18, ?ukasz Langa wrote:
+> Am 08.11.2010 12:55, schrieb Michael Foord:
+>> On 08/11/2010 11:42, Senthil Kumaran wrote:
+>>> We can just customize our environments. It is easy.
+>
+> I already pointed out in my last post why that's not going to solve 
+> the problem.
+>
+>> Additional checks could be put in `make patchcheck` or a local commit 
+>> hook for hg.
+>
+> Automation always pays off. Simplifying the process always pays off. 
+> Providing yet another step to the workflow would be a move in the 
+> opposite direction*.
+
+You mean `make patchcheck` isn't *already* part of your workflow?
+
+Michael
+
+> Is there any point in weighing each time whether a mistake is common 
+> enough to be included in the commit hooks? It's not like we're paying 
+> some SVN vendor a fee per hook ;-)
+>
+> * A completely separate topic would be that programmer-side precommit 
+> hooks are a terrific idea for Hg. But just as client-side form 
+> validation doesn't free Web apps from having to implement server-side 
+> as well, I believe hooks on the central repository should be as 
+> complete and as restrictive as it gets.
+>
+
+
+-- 
+
+http://www.voidspace.org.uk/
+
+READ CAREFULLY. By accepting and reading this email you agree,
+on behalf of your employer, to release me from all obligations
+and waivers arising from any and all NON-NEGOTIATED agreements,
+licenses, terms-of-service, shrinkwrap, clickwrap, browsewrap,
+confidentiality, non-disclosure, non-compete and acceptable use
+policies (?BOGUS AGREEMENTS?) that I have entered into with your
+employer, its partners, licensors, agents and assigns, in
+perpetuity, without prejudice to my ongoing rights and privileges.
+You further represent that you have the authority to release me
+from any BOGUS AGREEMENTS on behalf of your employer.
+
+
+From solipsis at pitrou.net  Mon Nov  8 13:33:54 2010
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Mon, 08 Nov 2010 13:33:54 +0100
+Subject: [python-committers] Deny nonbreaking spaces in the precommit
+ script?
+In-Reply-To: <4CD7EAAE.7050103@langa.pl>
+References: <201011071652.33279.victor.stinner@haypocalc.com>
+	<AANLkTi=ZUuXGi2HB5iZmj99hGQZW6h70BbL1z3juovD3@mail.gmail.com>
+	<4CD7D72B.1020509@langa.pl> <20101108114215.GA1039@rubuntu>
+	<4CD7E53F.2090507@voidspace.org.uk>  <4CD7EAAE.7050103@langa.pl>
+Message-ID: <1289219634.3572.5.camel@localhost.localdomain>
+
+
+> Automation always pays off. Simplifying the process always pays off. 
+> Providing yet another step to the workflow would be a move in the 
+> opposite direction*. Is there any point in weighing each time whether a 
+> mistake is common enough to be included in the commit hooks? It's not 
+> like we're paying some SVN vendor a fee per hook ;-)
+
+No, but it's not like the hooks appear by telepathy either. Someone has
+to write them and to maintain them. I'm not sure who that is currently
+(Martin is a safe guess ;-)) but, regardless, it's not "free" in terms
+of maintenance overhead.
+
+I personally don't care whether we deny non-breaking spaces or not. I
+see no reason to deny them, since the cause of the test_trace failure
+was ultimately a bug in the trace module, and the non-breaking space
+actually uncovered this bug (isn't uncovering bugs a good thing?). The
+interpreter has no problem with utf-8 characters in source files, and I
+guess most humans have no problems reading non-breaking spaces either.
+
+Regards
+
+Antoine.
+
+
+
+From dirkjan at ochtman.nl  Mon Nov  8 13:39:52 2010
+From: dirkjan at ochtman.nl (Dirkjan Ochtman)
+Date: Mon, 8 Nov 2010 13:39:52 +0100
+Subject: [python-committers] Deny nonbreaking spaces in the precommit
+	script?
+In-Reply-To: <4CD7EB8A.2050108@voidspace.org.uk>
+References: <201011071652.33279.victor.stinner@haypocalc.com>
+	<AANLkTi=ZUuXGi2HB5iZmj99hGQZW6h70BbL1z3juovD3@mail.gmail.com>
+	<4CD7D72B.1020509@langa.pl> <20101108114215.GA1039@rubuntu>
+	<4CD7E53F.2090507@voidspace.org.uk> <4CD7EAAE.7050103@langa.pl>
+	<4CD7EB8A.2050108@voidspace.org.uk>
+Message-ID: <AANLkTinTh-ipAdPfDEHhS3OmC46sPqw5t0Tz5Gi-cfKZ@mail.gmail.com>
+
+2010/11/8 Michael Foord <michael at voidspace.org.uk>:
+> You mean `make patchcheck` isn't *already* part of your workflow?
+
+Seems easier to me if I don't have to issue a separate command for it...
+
+Cheers,
+
+Dirkjan
+
+From ncoghlan at gmail.com  Mon Nov  8 13:53:36 2010
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Mon, 8 Nov 2010 22:53:36 +1000
+Subject: [python-committers] Deny nonbreaking spaces in the precommit
+	script?
+In-Reply-To: <1289219634.3572.5.camel@localhost.localdomain>
+References: <201011071652.33279.victor.stinner@haypocalc.com>
+	<AANLkTi=ZUuXGi2HB5iZmj99hGQZW6h70BbL1z3juovD3@mail.gmail.com>
+	<4CD7D72B.1020509@langa.pl> <20101108114215.GA1039@rubuntu>
+	<4CD7E53F.2090507@voidspace.org.uk> <4CD7EAAE.7050103@langa.pl>
+	<1289219634.3572.5.camel@localhost.localdomain>
+Message-ID: <AANLkTi=v98XW4Hi=PH=oSSKv8j_c0-O0XJbBEedV=qEs@mail.gmail.com>
+
+On Mon, Nov 8, 2010 at 10:33 PM, Antoine Pitrou <solipsis at pitrou.net> wrote:
+> I personally don't care whether we deny non-breaking spaces or not. I
+> see no reason to deny them, since the cause of the test_trace failure
+> was ultimately a bug in the trace module, and the non-breaking space
+> actually uncovered this bug (isn't uncovering bugs a good thing?). The
+> interpreter has no problem with utf-8 characters in source files, and I
+> guess most humans have no problems reading non-breaking spaces either.
+
+Indeed, the problem with automating this particular test is that it is
+ill-specified. Assuming we decided to change reindent.py (or added
+some other checker) to reject unexpected characters:
+- what characters are disallowed?
+- are those characters also disallowed in string literals?
+- what about source files that are specifically designed to test
+handling of those characters in particular contexts?
+
+Non-breaking spaces are legal in utf-8 encoded Python source files.
+While including them accidentally is less than ideal, it is perfectly
+valid to include them deliberately. Trying to design an automated
+check that can make a reasonable guess at intent is going to require
+far more effort than is needed.
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan?? |?? ncoghlan at gmail.com?? |?? Brisbane, Australia
+
+From ncoghlan at gmail.com  Mon Nov  8 13:54:21 2010
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Mon, 8 Nov 2010 22:54:21 +1000
+Subject: [python-committers] Deny nonbreaking spaces in the precommit
+	script?
+In-Reply-To: <AANLkTi=v98XW4Hi=PH=oSSKv8j_c0-O0XJbBEedV=qEs@mail.gmail.com>
+References: <201011071652.33279.victor.stinner@haypocalc.com>
+	<AANLkTi=ZUuXGi2HB5iZmj99hGQZW6h70BbL1z3juovD3@mail.gmail.com>
+	<4CD7D72B.1020509@langa.pl> <20101108114215.GA1039@rubuntu>
+	<4CD7E53F.2090507@voidspace.org.uk> <4CD7EAAE.7050103@langa.pl>
+	<1289219634.3572.5.camel@localhost.localdomain>
+	<AANLkTi=v98XW4Hi=PH=oSSKv8j_c0-O0XJbBEedV=qEs@mail.gmail.com>
+Message-ID: <AANLkTinLDzfE6qSa8Xm4fhWq1TC=5GzhjHWtXFQDxX3X@mail.gmail.com>
+
+On Mon, Nov 8, 2010 at 10:53 PM, Nick Coghlan <ncoghlan at gmail.com> wrote:
+> Non-breaking spaces are legal in utf-8 encoded Python source files.
+> While including them accidentally is less than ideal, it is perfectly
+> valid to include them deliberately. Trying to design an automated
+> check that can make a reasonable guess at intent is going to require
+> far more effort than is needed.
+
+s/needed/reasonable/
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan?? |?? ncoghlan at gmail.com?? |?? Brisbane, Australia
+
+From michael at voidspace.org.uk  Mon Nov  8 13:55:19 2010
+From: michael at voidspace.org.uk (Michael Foord)
+Date: Mon, 08 Nov 2010 12:55:19 +0000
+Subject: [python-committers] Deny nonbreaking spaces in the precommit
+ script?
+In-Reply-To: <AANLkTi=v98XW4Hi=PH=oSSKv8j_c0-O0XJbBEedV=qEs@mail.gmail.com>
+References: <201011071652.33279.victor.stinner@haypocalc.com>	<AANLkTi=ZUuXGi2HB5iZmj99hGQZW6h70BbL1z3juovD3@mail.gmail.com>	<4CD7D72B.1020509@langa.pl>
+	<20101108114215.GA1039@rubuntu>	<4CD7E53F.2090507@voidspace.org.uk>
+	<4CD7EAAE.7050103@langa.pl>	<1289219634.3572.5.camel@localhost.localdomain>
+	<AANLkTi=v98XW4Hi=PH=oSSKv8j_c0-O0XJbBEedV=qEs@mail.gmail.com>
+Message-ID: <4CD7F337.1050204@voidspace.org.uk>
+
+On 08/11/2010 12:53, Nick Coghlan wrote:
+> [snip...]
+> Non-breaking spaces are legal in utf-8 encoded Python source files.
+> While including them accidentally is less than ideal, it is perfectly
+> valid to include them deliberately. Trying to design an automated
+> check that can make a reasonable guess at intent is going to require
+> far more effort than is needed.
+>
+
+Is it valid though? Standard library rules are ascii only (as referenced 
+by Guido in this thread). If you need the characters in a string literal 
+you must escape them.
+
+Michael
+
+> Cheers,
+> Nick.
+>
+
+
+-- 
+
+http://www.voidspace.org.uk/
+
+READ CAREFULLY. By accepting and reading this email you agree,
+on behalf of your employer, to release me from all obligations
+and waivers arising from any and all NON-NEGOTIATED agreements,
+licenses, terms-of-service, shrinkwrap, clickwrap, browsewrap,
+confidentiality, non-disclosure, non-compete and acceptable use
+policies (?BOGUS AGREEMENTS?) that I have entered into with your
+employer, its partners, licensors, agents and assigns, in
+perpetuity, without prejudice to my ongoing rights and privileges.
+You further represent that you have the authority to release me
+from any BOGUS AGREEMENTS on behalf of your employer.
+
+
+From ncoghlan at gmail.com  Mon Nov  8 13:59:27 2010
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Mon, 8 Nov 2010 22:59:27 +1000
+Subject: [python-committers] Deny nonbreaking spaces in the precommit
+	script?
+In-Reply-To: <4CD7F337.1050204@voidspace.org.uk>
+References: <201011071652.33279.victor.stinner@haypocalc.com>
+	<AANLkTi=ZUuXGi2HB5iZmj99hGQZW6h70BbL1z3juovD3@mail.gmail.com>
+	<4CD7D72B.1020509@langa.pl> <20101108114215.GA1039@rubuntu>
+	<4CD7E53F.2090507@voidspace.org.uk> <4CD7EAAE.7050103@langa.pl>
+	<1289219634.3572.5.camel@localhost.localdomain>
+	<AANLkTi=v98XW4Hi=PH=oSSKv8j_c0-O0XJbBEedV=qEs@mail.gmail.com>
+	<4CD7F337.1050204@voidspace.org.uk>
+Message-ID: <AANLkTi=00BgZzYDAYJovNFF7ygkABBqDXNC4thO_WquZ@mail.gmail.com>
+
+On Mon, Nov 8, 2010 at 10:55 PM, Michael Foord <michael at voidspace.org.uk> wrote:
+> On 08/11/2010 12:53, Nick Coghlan wrote:
+>>
+>> [snip...]
+>> Non-breaking spaces are legal in utf-8 encoded Python source files.
+>> While including them accidentally is less than ideal, it is perfectly
+>> valid to include them deliberately. Trying to design an automated
+>> check that can make a reasonable guess at intent is going to require
+>> far more effort than is needed.
+>>
+>
+> Is it valid though? Standard library rules are ascii only (as referenced by
+> Guido in this thread). If you need the characters in a string literal you
+> must escape them.
+
+Nope - those are the "few specific encoding test cases" he mentioned
+in that email. They take advantage of the utf-8 encoding of the source
+files these days.
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan?? |?? ncoghlan at gmail.com?? |?? Brisbane, Australia
+
+From michael at voidspace.org.uk  Mon Nov  8 14:08:21 2010
+From: michael at voidspace.org.uk (Michael Foord)
+Date: Mon, 08 Nov 2010 13:08:21 +0000
+Subject: [python-committers] Deny nonbreaking spaces in the precommit
+ script?
+In-Reply-To: <AANLkTi=00BgZzYDAYJovNFF7ygkABBqDXNC4thO_WquZ@mail.gmail.com>
+References: <201011071652.33279.victor.stinner@haypocalc.com>	<AANLkTi=ZUuXGi2HB5iZmj99hGQZW6h70BbL1z3juovD3@mail.gmail.com>	<4CD7D72B.1020509@langa.pl>	<20101108114215.GA1039@rubuntu>	<4CD7E53F.2090507@voidspace.org.uk>	<4CD7EAAE.7050103@langa.pl>	<1289219634.3572.5.camel@localhost.localdomain>	<AANLkTi=v98XW4Hi=PH=oSSKv8j_c0-O0XJbBEedV=qEs@mail.gmail.com>	<4CD7F337.1050204@voidspace.org.uk>
+	<AANLkTi=00BgZzYDAYJovNFF7ygkABBqDXNC4thO_WquZ@mail.gmail.com>
+Message-ID: <4CD7F645.2040604@voidspace.org.uk>
+
+On 08/11/2010 12:59, Nick Coghlan wrote:
+> On Mon, Nov 8, 2010 at 10:55 PM, Michael Foord<michael at voidspace.org.uk>  wrote:
+>> On 08/11/2010 12:53, Nick Coghlan wrote:
+>>> [snip...]
+>>> Non-breaking spaces are legal in utf-8 encoded Python source files.
+>>> While including them accidentally is less than ideal, it is perfectly
+>>> valid to include them deliberately. Trying to design an automated
+>>> check that can make a reasonable guess at intent is going to require
+>>> far more effort than is needed.
+>>>
+>> Is it valid though? Standard library rules are ascii only (as referenced by
+>> Guido in this thread). If you need the characters in a string literal you
+>> must escape them.
+> Nope - those are the "few specific encoding test cases" he mentioned
+> in that email. They take advantage of the utf-8 encoding of the source
+> files these days.
+
+Ah, well - if we *do* allow non-ascii characters in standard library 
+files then we *can't* make it a pre-commit hook unless we hardcode those 
+exceptions into it.
+
+Adding a pre-commit hook would necessitate someone creating it anyway, 
+and so far no-one has volunteered.
+
+All the best,
+
+Michael
+> Cheers,
+> Nick.
+>
+
+
+-- 
+
+http://www.voidspace.org.uk/
+
+READ CAREFULLY. By accepting and reading this email you agree,
+on behalf of your employer, to release me from all obligations
+and waivers arising from any and all NON-NEGOTIATED agreements,
+licenses, terms-of-service, shrinkwrap, clickwrap, browsewrap,
+confidentiality, non-disclosure, non-compete and acceptable use
+policies (?BOGUS AGREEMENTS?) that I have entered into with your
+employer, its partners, licensors, agents and assigns, in
+perpetuity, without prejudice to my ongoing rights and privileges.
+You further represent that you have the authority to release me
+from any BOGUS AGREEMENTS on behalf of your employer.
+
+
+From fredrik at pythonware.com  Mon Nov  8 14:10:09 2010
+From: fredrik at pythonware.com (Fredrik Lundh)
+Date: Mon, 8 Nov 2010 14:10:09 +0100
+Subject: [python-committers] Deny nonbreaking spaces in the precommit
+	script?
+In-Reply-To: <AANLkTi=00BgZzYDAYJovNFF7ygkABBqDXNC4thO_WquZ@mail.gmail.com>
+References: <201011071652.33279.victor.stinner@haypocalc.com>
+	<AANLkTi=ZUuXGi2HB5iZmj99hGQZW6h70BbL1z3juovD3@mail.gmail.com>
+	<4CD7D72B.1020509@langa.pl> <20101108114215.GA1039@rubuntu>
+	<4CD7E53F.2090507@voidspace.org.uk> <4CD7EAAE.7050103@langa.pl>
+	<1289219634.3572.5.camel@localhost.localdomain>
+	<AANLkTi=v98XW4Hi=PH=oSSKv8j_c0-O0XJbBEedV=qEs@mail.gmail.com>
+	<4CD7F337.1050204@voidspace.org.uk>
+	<AANLkTi=00BgZzYDAYJovNFF7ygkABBqDXNC4thO_WquZ@mail.gmail.com>
+Message-ID: <AANLkTi=PKeB0q7o+MFLWxnniXGwU3bgbU9NLJhkaAjLJ@mail.gmail.com>
+
+On Mon, Nov 8, 2010 at 1:59 PM, Nick Coghlan <ncoghlan at gmail.com> wrote:
+> On Mon, Nov 8, 2010 at 10:55 PM, Michael Foord <michael at voidspace.org.uk> wrote:
+>> On 08/11/2010 12:53, Nick Coghlan wrote:
+>>>
+>>> [snip...]
+>>> Non-breaking spaces are legal in utf-8 encoded Python source files.
+>>> While including them accidentally is less than ideal, it is perfectly
+>>> valid to include them deliberately. Trying to design an automated
+>>> check that can make a reasonable guess at intent is going to require
+>>> far more effort than is needed.
+>>>
+>>
+>> Is it valid though? Standard library rules are ascii only (as referenced by
+>> Guido in this thread). If you need the characters in a string literal you
+>> must escape them.
+>
+> Nope - those are the "few specific encoding test cases" he mentioned
+> in that email. They take advantage of the utf-8 encoding of the source
+> files these days.
+
+One would have thought that "test cases" referred to test cases, not
+strings in non-test code, and that the "the stdlib is already supposed
+to be ASCII only" meant that the standard library is supposed to be
+ASCII only, not UTF-8.
+
+</F>
+
+From solipsis at pitrou.net  Mon Nov  8 14:17:09 2010
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Mon, 08 Nov 2010 14:17:09 +0100
+Subject: [python-committers] Deny nonbreaking spaces in the precommit
+ script?
+In-Reply-To: <AANLkTi=PKeB0q7o+MFLWxnniXGwU3bgbU9NLJhkaAjLJ@mail.gmail.com>
+References: <201011071652.33279.victor.stinner@haypocalc.com>
+	<AANLkTi=ZUuXGi2HB5iZmj99hGQZW6h70BbL1z3juovD3@mail.gmail.com>
+	<4CD7D72B.1020509@langa.pl> <20101108114215.GA1039@rubuntu>
+	<4CD7E53F.2090507@voidspace.org.uk> <4CD7EAAE.7050103@langa.pl>
+	<1289219634.3572.5.camel@localhost.localdomain>
+	<AANLkTi=v98XW4Hi=PH=oSSKv8j_c0-O0XJbBEedV=qEs@mail.gmail.com>
+	<4CD7F337.1050204@voidspace.org.uk>
+	<AANLkTi=00BgZzYDAYJovNFF7ygkABBqDXNC4thO_WquZ@mail.gmail.com>
+	<AANLkTi=PKeB0q7o+MFLWxnniXGwU3bgbU9NLJhkaAjLJ@mail.gmail.com>
+Message-ID: <1289222229.3572.7.camel@localhost.localdomain>
+
+Le lundi 08 novembre 2010 ? 14:10 +0100, Fredrik Lundh a ?crit :
+> 
+> One would have thought that "test cases" referred to test cases, not
+> strings in non-test code, and that the "the stdlib is already supposed
+> to be ASCII only" meant that the standard library is supposed to be
+> ASCII only, not UTF-8.
+
+?[...] the stdlib is already supposed to be ASCII only except for
+author names in comments and a few specific encoding test cases.?
+
+You seem to have missed part of the sentence.
+
+
+
+From fredrik at pythonware.com  Mon Nov  8 14:19:38 2010
+From: fredrik at pythonware.com (Fredrik Lundh)
+Date: Mon, 8 Nov 2010 14:19:38 +0100
+Subject: [python-committers] Deny nonbreaking spaces in the precommit
+	script?
+In-Reply-To: <1289222229.3572.7.camel@localhost.localdomain>
+References: <201011071652.33279.victor.stinner@haypocalc.com>
+	<AANLkTi=ZUuXGi2HB5iZmj99hGQZW6h70BbL1z3juovD3@mail.gmail.com>
+	<4CD7D72B.1020509@langa.pl> <20101108114215.GA1039@rubuntu>
+	<4CD7E53F.2090507@voidspace.org.uk> <4CD7EAAE.7050103@langa.pl>
+	<1289219634.3572.5.camel@localhost.localdomain>
+	<AANLkTi=v98XW4Hi=PH=oSSKv8j_c0-O0XJbBEedV=qEs@mail.gmail.com>
+	<4CD7F337.1050204@voidspace.org.uk>
+	<AANLkTi=00BgZzYDAYJovNFF7ygkABBqDXNC4thO_WquZ@mail.gmail.com>
+	<AANLkTi=PKeB0q7o+MFLWxnniXGwU3bgbU9NLJhkaAjLJ@mail.gmail.com>
+	<1289222229.3572.7.camel@localhost.localdomain>
+Message-ID: <AANLkTi=x3QFM8XZ7PP8ZwuNMq1p9BVvfLp08DA5NoJgV@mail.gmail.com>
+
+On Mon, Nov 8, 2010 at 2:17 PM, Antoine Pitrou <solipsis at pitrou.net> wrote:
+> Le lundi 08 novembre 2010 ? 14:10 +0100, Fredrik Lundh a ?crit :
+>>
+>> One would have thought that "test cases" referred to test cases, not
+>> strings in non-test code, and that the "the stdlib is already supposed
+>> to be ASCII only" meant that the standard library is supposed to be
+>> ASCII only, not UTF-8.
+>
+> ?[...] the stdlib is already supposed to be ASCII only except for
+> author names in comments and a few specific encoding test cases.?
+>
+> You seem to have missed part of the sentence.
+
+No, I didn't.  Try again.
+
+</F>
+
+From benjamin at python.org  Mon Nov  8 15:04:46 2010
+From: benjamin at python.org (Benjamin Peterson)
+Date: Mon, 8 Nov 2010 08:04:46 -0600
+Subject: [python-committers] Deny nonbreaking spaces in the precommit
+	script?
+In-Reply-To: <4CD7D72B.1020509@langa.pl>
+References: <201011071652.33279.victor.stinner@haypocalc.com>
+	<AANLkTi=ZUuXGi2HB5iZmj99hGQZW6h70BbL1z3juovD3@mail.gmail.com>
+	<4CD7D72B.1020509@langa.pl>
+Message-ID: <AANLkTi=ogzEm_Fqu=jOKq3+KRHOUgGJT1RnhBU=MBWHT@mail.gmail.com>
+
+2010/11/8 ?ukasz Langa <lukasz at langa.pl>:
+> Am 07.11.2010 19:28, schrieb Benjamin Peterson:
+>>
+>> 2010/11/7 Victor Stinner<victor.stinner at haypocalc.com>:
+>>>
+>>> I would like to know if it would be
+>>> possible to block a commit introducing nonbreaking spaces? A least for me
+>>> :-)
+>>
+>> I don't think add pre-commit hooks for every conceivable mistake is
+>> the right way to go.
+>
+> I see you're basically saying "We're all adults here" and that we should be
+> able to control our own environment so these kinds of commits don't happen
+> (like Guido said). Well guess what, I believe that isn't going to work. Let
+> me tell you why.
+>
+> 1. Most* contributors work on Python in their spare time. That means they
+> also have jobs, families, all kinds of everyday trouble. Even if 99% of the
+> time their performance is stellar, there will be times when some stupid
+> errors get through.
+>
+> 2. We invite more contributors now which means there are going to be more
+> rookies than ever before. I for one am an example of that. You either expect
+> newbies to perform like their own mentors from day one or expect mentors to
+> waste time working out dumb rookie mistakes made because of a misconfigured
+> environment, etc.
+>
+> 3. Speaking of environments, they change. Software evolves, people switch
+> machines, operating systems, editors, toolchains. If one Debian veteran
+> switches to Mac OS X and makes some error because of false assumptions,
+> misconfigured software, whatever... his experience should prevent other
+> people from making the same mistake in the future.
+>
+> I could go on and risk boring you to death. The point is, if we can automate
+> stuff out of the workflow, we should definitely do it. Each and every time.
+> We don't gain anything by not implementing automation.
+
+I don't think you can ever automate "checking for mistakes" out of the
+workflow. There will never be a commit hook that checks whether you
+created a race condition or deference possibly uninitialized memory.
+IMO, if you're unwilling to be looking for simple and complex bugs,
+you should think twice before committing at all.
+
+>
+> Even if that commit hook prevents a single wrong commit a year, it's worth
+> it. As unpaid volunteers, we don't have time for hunting the same mistakes
+> twice.
+>
+> One last disclaimer. I'm not a native speaker so if the tone of my post
+> sounds offensive or rude, I apologise in advance because that was not my
+> intention. OTOH, the zen says explicit is better than diplomatic. Or
+> something like that.
+
+
+
+
+-- 
+Regards,
+Benjamin
+
+From lukasz at langa.pl  Mon Nov  8 15:30:14 2010
+From: lukasz at langa.pl (=?UTF-8?B?xYF1a2FzeiBMYW5nYQ==?=)
+Date: Mon, 08 Nov 2010 15:30:14 +0100
+Subject: [python-committers] Deny nonbreaking spaces in the precommit
+ script?
+In-Reply-To: <AANLkTi=ogzEm_Fqu=jOKq3+KRHOUgGJT1RnhBU=MBWHT@mail.gmail.com>
+References: <201011071652.33279.victor.stinner@haypocalc.com>	<AANLkTi=ZUuXGi2HB5iZmj99hGQZW6h70BbL1z3juovD3@mail.gmail.com>	<4CD7D72B.1020509@langa.pl>
+	<AANLkTi=ogzEm_Fqu=jOKq3+KRHOUgGJT1RnhBU=MBWHT@mail.gmail.com>
+Message-ID: <4CD80976.50801@langa.pl>
+
+Am 08.11.2010 15:04, schrieb Benjamin Peterson:
+> I don't think you can ever automate "checking for mistakes" out of the
+> workflow. There will never be a commit hook that checks whether you
+> created a race condition or deference possibly uninitialized memory.
+
+That goes without saying. Then again, with my post I was aiming at the 
+subset of problems that can be caught automatically. You seem to be 
+saying that spell checkers are useless because they don't guarantee that 
+sentences make actual sense.
+
+> IMO, if you're unwilling to be looking for simple and complex bugs,
+> you should think twice before committing at all.
+
+Ouch. I am unwilling to accuse anybody of unwillingness ;-) It's obvious 
+that every committer is obliged to do her best to ensure quality of each 
+and every commit. This doesn't mean automated checks are unnecessary. 
+Nor does that mean people advocating for more safety catches look for 
+ways for being sloppy.
+
+Then again this discussion is already far too long for such a simple 
+matter. So, to make matters a bit more productive:
+
+I am willing to convert existing SVN hooks to Mercurial and maintain 
+them, if there's nobody doing that already.
+
+-- 
+Best regards,
+?ukasz Langa
+
+From barry at python.org  Mon Nov  8 16:46:53 2010
+From: barry at python.org (Barry Warsaw)
+Date: Mon, 8 Nov 2010 10:46:53 -0500
+Subject: [python-committers] New schedule for 3.2
+In-Reply-To: <ib3p3t$ot$1@dough.gmane.org>
+References: <ib3p3t$ot$1@dough.gmane.org>
+Message-ID: <20101108104653.1e145bc9@mission>
+
+On Nov 06, 2010, at 03:34 PM, Georg Brandl wrote:
+
+>on a request by Martin, I added another alpha to the Python 3.2 release
+>schedule.  The scheduled releases are now
+>
+>- 3.2 alpha 4: November 13, 2010
+>- 3.2 beta 1: December 4, 2010
+>- 3.2 beta 2: December 18, 2010
+>- 3.2 candidate 1: January 8, 2010
+>- 3.2 candidate 2: January 22, 2011
+>- 3.2 final: February 5, 2011
+>
+>So you have three weeks more to add your favorite new features to 3.2 --
+>use them wisely!
+
+Still on my radar are issues 9807 and 10262.  I should have an updated patch
+for the former in the next few days and will also look at the latter.
+
+-Barry
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 836 bytes
+Desc: not available
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20101108/83e1a356/attachment.pgp>
+
+From g.brandl at gmx.net  Mon Nov  8 17:05:34 2010
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Mon, 08 Nov 2010 17:05:34 +0100
+Subject: [python-committers] Deny nonbreaking spaces in the precommit
+	script?
+In-Reply-To: <4CD80976.50801@langa.pl>
+References: <201011071652.33279.victor.stinner@haypocalc.com>	<AANLkTi=ZUuXGi2HB5iZmj99hGQZW6h70BbL1z3juovD3@mail.gmail.com>	<4CD7D72B.1020509@langa.pl>	<AANLkTi=ogzEm_Fqu=jOKq3+KRHOUgGJT1RnhBU=MBWHT@mail.gmail.com>
+	<4CD80976.50801@langa.pl>
+Message-ID: <ib976s$n9t$1@dough.gmane.org>
+
+Am 08.11.2010 15:30, schrieb ?ukasz Langa:
+> Am 08.11.2010 15:04, schrieb Benjamin Peterson:
+>> I don't think you can ever automate "checking for mistakes" out of the
+>> workflow. There will never be a commit hook that checks whether you
+>> created a race condition or deference possibly uninitialized memory.
+> 
+> That goes without saying. Then again, with my post I was aiming at the 
+> subset of problems that can be caught automatically. You seem to be 
+> saying that spell checkers are useless because they don't guarantee that 
+> sentences make actual sense.
+
+After the hg migration, I can only recommend my hgcodesmell extension
+that takes care of checking for (at the moment) debugging leftovers or
+merge conflict markers, but can easily be adapted to check for whatever
+you fear will destroy your reputation as a committer...
+
+http://bitbucket.org/birkenfeld/hgcodesmell/
+
+It doesn't simply deny the commit, but rather gives you a diff of the
+questionable change and asks whether to continue.
+
+>> IMO, if you're unwilling to be looking for simple and complex bugs,
+>> you should think twice before committing at all.
+> 
+> Ouch. I am unwilling to accuse anybody of unwillingness ;-) It's obvious 
+> that every committer is obliged to do her best to ensure quality of each 
+> and every commit. This doesn't mean automated checks are unnecessary. 
+> Nor does that mean people advocating for more safety catches look for 
+> ways for being sloppy.
+> 
+> Then again this discussion is already far too long for such a simple 
+> matter. So, to make matters a bit more productive:
+> 
+> I am willing to convert existing SVN hooks to Mercurial and maintain 
+> them, if there's nobody doing that already.
+
+That's already done; the whitespace checking hook we have for SVN
+currently is ported and in the hg.python.org/hooks repo.
+
+Georg
+
+
+From dmalcolm at redhat.com  Mon Nov  8 18:28:05 2010
+From: dmalcolm at redhat.com (David Malcolm)
+Date: Mon, 08 Nov 2010 12:28:05 -0500
+Subject: [python-committers] Deny nonbreaking spaces in the
+	precommit	script?
+In-Reply-To: <4CD7EB8A.2050108@voidspace.org.uk>
+References: <201011071652.33279.victor.stinner@haypocalc.com>
+	<AANLkTi=ZUuXGi2HB5iZmj99hGQZW6h70BbL1z3juovD3@mail.gmail.com>
+	<4CD7D72B.1020509@langa.pl>	<20101108114215.GA1039@rubuntu>
+	<4CD7E53F.2090507@voidspace.org.uk> <4CD7EAAE.7050103@langa.pl>
+	<4CD7EB8A.2050108@voidspace.org.uk>
+Message-ID: <1289237285.9493.11.camel@radiator.bos.redhat.com>
+
+On Mon, 2010-11-08 at 12:22 +0000, Michael Foord wrote:
+> On 08/11/2010 12:18, ?ukasz Langa wrote:
+> > Am 08.11.2010 12:55, schrieb Michael Foord:
+> >> On 08/11/2010 11:42, Senthil Kumaran wrote:
+> >>> We can just customize our environments. It is easy.
+> >
+> > I already pointed out in my last post why that's not going to solve 
+> > the problem.
+> >
+> >> Additional checks could be put in `make patchcheck` or a local commit 
+> >> hook for hg.
+> >
+> > Automation always pays off. Simplifying the process always pays off. 
+> > Providing yet another step to the workflow would be a move in the 
+> > opposite direction*.
+> 
+> You mean `make patchcheck` isn't *already* part of your workflow?
+
+FWIW, "make patchcheck" isn't mentioned on the "Python Patch Submission
+Guidelines" here:
+  http://www.python.org/dev/patches/
+and doesn't seem to be mentioned anywhere on the website.
+
+I'm attaching a patch (to the website) that adds this to that page.
+
+(snip)
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: beta.python.org-mention-patchcheck.patch
+Type: text/x-patch
+Size: 713 bytes
+Desc: not available
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20101108/a0f35903/attachment.bin>
+
+From michael at voidspace.org.uk  Mon Nov  8 18:32:23 2010
+From: michael at voidspace.org.uk (Michael Foord)
+Date: Mon, 08 Nov 2010 17:32:23 +0000
+Subject: [python-committers] Deny nonbreaking spaces in the precommit
+ script?
+In-Reply-To: <1289237285.9493.11.camel@radiator.bos.redhat.com>
+References: <201011071652.33279.victor.stinner@haypocalc.com>	
+	<AANLkTi=ZUuXGi2HB5iZmj99hGQZW6h70BbL1z3juovD3@mail.gmail.com>	
+	<4CD7D72B.1020509@langa.pl>	<20101108114215.GA1039@rubuntu>	
+	<4CD7E53F.2090507@voidspace.org.uk> <4CD7EAAE.7050103@langa.pl>	
+	<4CD7EB8A.2050108@voidspace.org.uk>
+	<1289237285.9493.11.camel@radiator.bos.redhat.com>
+Message-ID: <4CD83427.9010107@voidspace.org.uk>
+
+On 08/11/2010 17:28, David Malcolm wrote:
+> On Mon, 2010-11-08 at 12:22 +0000, Michael Foord wrote:
+>> On 08/11/2010 12:18, ?ukasz Langa wrote:
+>>> Am 08.11.2010 12:55, schrieb Michael Foord:
+>>>> On 08/11/2010 11:42, Senthil Kumaran wrote:
+>>>>> We can just customize our environments. It is easy.
+>>> I already pointed out in my last post why that's not going to solve
+>>> the problem.
+>>>
+>>>> Additional checks could be put in `make patchcheck` or a local commit
+>>>> hook for hg.
+>>> Automation always pays off. Simplifying the process always pays off.
+>>> Providing yet another step to the workflow would be a move in the
+>>> opposite direction*.
+>> You mean `make patchcheck` isn't *already* part of your workflow?
+> FWIW, "make patchcheck" isn't mentioned on the "Python Patch Submission
+> Guidelines" here:
+>    http://www.python.org/dev/patches/
+> and doesn't seem to be mentioned anywhere on the website.
+>
+> I'm attaching a patch (to the website) that adds this to that page.
+>
+> (snip)
+I've forwarded the patch to the pydotorg-www mailing list. Thanks.
+
+All the best,
+
+Michael Foord
+
+-- 
+
+http://www.voidspace.org.uk/
+
+READ CAREFULLY. By accepting and reading this email you agree,
+on behalf of your employer, to release me from all obligations
+and waivers arising from any and all NON-NEGOTIATED agreements,
+licenses, terms-of-service, shrinkwrap, clickwrap, browsewrap,
+confidentiality, non-disclosure, non-compete and acceptable use
+policies (?BOGUS AGREEMENTS?) that I have entered into with your
+employer, its partners, licensors, agents and assigns, in
+perpetuity, without prejudice to my ongoing rights and privileges.
+You further represent that you have the authority to release me
+from any BOGUS AGREEMENTS on behalf of your employer.
+
+
+From brett at python.org  Mon Nov  8 19:47:09 2010
+From: brett at python.org (Brett Cannon)
+Date: Mon, 8 Nov 2010 10:47:09 -0800
+Subject: [python-committers] Need help with read-write checkouts
+	(Win/TortoiseSVN)
+In-Reply-To: <4CD78EEE.7030302@udel.edu>
+References: <4CD78EEE.7030302@udel.edu>
+Message-ID: <AANLkTi=Yf4rnSMLCGWa-QMhmo2=H78-JeF8TCUFpB8=x@mail.gmail.com>
+
+On Sun, Nov 7, 2010 at 21:47, Terry Reedy <tjreedy at udel.edu> wrote:
+> Wanting to finish up the difflib issue (#2986) with my first commits, I read
+> http://www.python.org/dev/faq/
+> (especially 2.2.2 and 2.3), loaded TortoiseSVN, and successfully did a
+> read-only checkout. But when I try to do the needed read-write checkout, I
+> get a blank plink screen and ... nothing. I tried both with 'pythondev@' and
+> Pageant running and without both after creating a? svn.python.org? profile.
+> And ideas what to do next? Is there some step missing from the faq?
+>
+> In attempting to verify that my commit privileges are working (2.8.2), I
+> noticed that in order to log in with putty, or 'register' the private key
+> with pageant, I need a 'passphrase'. If I gave one when generating the key,
+> I have no memory of it and cannot find such written down after extensive
+> search.
+
+There is such a step. SSH keys are protected using a password and
+needed to decrypt the key, so if you lost the password then you have
+lost your key.
+
+> So if either of the above is the unmentioned missing step, I will
+> need for someone to replace my current public key after I generate a new
+> pair. Who is currently available to do so?
+>
+
+Just reply to your email with your new public key attached. There are
+a couple of us that can replace your old key.
+
+> For once, I would like copies of helpful responses sent directly to me. I am
+> signed up for the digest version of this list and cannot login to change
+> that. Mailman will not (at the moment, at least) accept the password that it
+> generated for me and that it sends in the monthly reminders.
+
+You can always email the list owners, but since I am one of them I
+went ahead and manually turned off digest delivery for you, Terry.
+
+From tjreedy at udel.edu  Mon Nov  8 20:24:57 2010
+From: tjreedy at udel.edu (Terry Reedy)
+Date: Mon, 08 Nov 2010 14:24:57 -0500
+Subject: [python-committers] Need help with read-write checkouts
+ (Win/TortoiseSVN)
+In-Reply-To: <AANLkTi=Yf4rnSMLCGWa-QMhmo2=H78-JeF8TCUFpB8=x@mail.gmail.com>
+References: <4CD78EEE.7030302@udel.edu>
+	<AANLkTi=Yf4rnSMLCGWa-QMhmo2=H78-JeF8TCUFpB8=x@mail.gmail.com>
+Message-ID: <4CD84E89.8060902@udel.edu>
+
+
+> Just reply to your email with your new public key attached. There are
+> a couple of us that can replace your old key.
+
+Here. I also sent it to Martin an hour or so ago.
+
+> You can always email the list owners, but since I am one of them I
+> went ahead and manually turned off digest delivery for you, Terry.
+
+A request to email my password again, in case it was automatically 
+changed, also failed.
+
+Terry
+
+-------------- next part --------------
+An embedded and charset-unspecified text was scrubbed...
+Name: python.pub
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20101108/eb74e65d/attachment.ksh>
+
+From rdmurray at bitdance.com  Mon Nov  8 20:33:34 2010
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Mon, 08 Nov 2010 14:33:34 -0500
+Subject: [python-committers] Need help with read-write checkouts
+	(Win/TortoiseSVN)
+In-Reply-To: <4CD84E89.8060902@udel.edu>
+References: <4CD78EEE.7030302@udel.edu>
+	<AANLkTi=Yf4rnSMLCGWa-QMhmo2=H78-JeF8TCUFpB8=x@mail.gmail.com>
+	<4CD84E89.8060902@udel.edu>
+Message-ID: <20101108193334.ACAC01FED05@kimball.webabinitio.net>
+
+On Mon, 08 Nov 2010 14:24:57 -0500, Terry Reedy <tjreedy at udel.edu> wrote:
+> A request to email my password again, in case it was automatically 
+> changed, also failed.
+
+Are you sure you are using the email address under which you
+are subscribed?
+
+--
+R. David Murray                                      www.bitdance.com
+
+From brett at python.org  Mon Nov  8 21:46:14 2010
+From: brett at python.org (Brett Cannon)
+Date: Mon, 8 Nov 2010 12:46:14 -0800
+Subject: [python-committers] Need help with read-write checkouts
+	(Win/TortoiseSVN)
+In-Reply-To: <4CD84E89.8060902@udel.edu>
+References: <4CD78EEE.7030302@udel.edu>
+	<AANLkTi=Yf4rnSMLCGWa-QMhmo2=H78-JeF8TCUFpB8=x@mail.gmail.com>
+	<4CD84E89.8060902@udel.edu>
+Message-ID: <AANLkTiktNmSCw2R9tCMAyPBqNLJ-PDQ+CFt1mxK2v-PR@mail.gmail.com>
+
+On Mon, Nov 8, 2010 at 11:24, Terry Reedy <tjreedy at udel.edu> wrote:
+>
+>> Just reply to your email with your new public key attached. There are
+>> a couple of us that can replace your old key.
+>
+> Here. I also sent it to Martin an hour or so ago.
+
+Done, although I had to manually alter the format to be correct so let
+me know if it doesn't work.
+
+>
+>> You can always email the list owners, but since I am one of them I
+>> went ahead and manually turned off digest delivery for you, Terry.
+>
+> A request to email my password again, in case it was automatically changed,
+> also failed.
+
+Your email address is the one you are mailing from and there are no
+special flags on your account compared to others so I don't know what
+is going on.
+
+From martin at v.loewis.de  Mon Nov  8 22:58:47 2010
+From: martin at v.loewis.de (=?UTF-8?B?Ik1hcnRpbiB2LiBMw7Z3aXMi?=)
+Date: Mon, 08 Nov 2010 22:58:47 +0100
+Subject: [python-committers] Deny nonbreaking spaces in the precommit
+ script?
+In-Reply-To: <4CD7D72B.1020509@langa.pl>
+References: <201011071652.33279.victor.stinner@haypocalc.com>	<AANLkTi=ZUuXGi2HB5iZmj99hGQZW6h70BbL1z3juovD3@mail.gmail.com>
+	<4CD7D72B.1020509@langa.pl>
+Message-ID: <4CD87297.60801@v.loewis.de>
+
+> We don't gain anything by not implementing automation.
+
+I certainly gain something: spare time where I can work on other stuff
+than fulfilling infrastructure wishes of people.
+
+Regards,
+Martin
+
+From martin at v.loewis.de  Mon Nov  8 23:03:14 2010
+From: martin at v.loewis.de (=?windows-1252?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Mon, 08 Nov 2010 23:03:14 +0100
+Subject: [python-committers] Deny nonbreaking spaces in the precommit
+ script?
+In-Reply-To: <AANLkTi=x3QFM8XZ7PP8ZwuNMq1p9BVvfLp08DA5NoJgV@mail.gmail.com>
+References: <201011071652.33279.victor.stinner@haypocalc.com>	<AANLkTi=ZUuXGi2HB5iZmj99hGQZW6h70BbL1z3juovD3@mail.gmail.com>	<4CD7D72B.1020509@langa.pl>
+	<20101108114215.GA1039@rubuntu>	<4CD7E53F.2090507@voidspace.org.uk>
+	<4CD7EAAE.7050103@langa.pl>	<1289219634.3572.5.camel@localhost.localdomain>	<AANLkTi=v98XW4Hi=PH=oSSKv8j_c0-O0XJbBEedV=qEs@mail.gmail.com>	<4CD7F337.1050204@voidspace.org.uk>	<AANLkTi=00BgZzYDAYJovNFF7ygkABBqDXNC4thO_WquZ@mail.gmail.com>	<AANLkTi=PKeB0q7o+MFLWxnniXGwU3bgbU9NLJhkaAjLJ@mail.gmail.com>	<1289222229.3572.7.camel@localhost.localdomain>
+	<AANLkTi=x3QFM8XZ7PP8ZwuNMq1p9BVvfLp08DA5NoJgV@mail.gmail.com>
+Message-ID: <4CD873A2.5090502@v.loewis.de>
+
+Am 08.11.2010 14:19, schrieb Fredrik Lundh:
+> On Mon, Nov 8, 2010 at 2:17 PM, Antoine Pitrou <solipsis at pitrou.net> wrote:
+>> Le lundi 08 novembre 2010 ? 14:10 +0100, Fredrik Lundh a ?crit :
+>>>
+>>> One would have thought that "test cases" referred to test cases, not
+>>> strings in non-test code, and that the "the stdlib is already supposed
+>>> to be ASCII only" meant that the standard library is supposed to be
+>>> ASCII only, not UTF-8.
+>>
+>> ?[...] the stdlib is already supposed to be ASCII only except for
+>> author names in comments and a few specific encoding test cases.?
+>>
+>> You seem to have missed part of the sentence.
+> 
+> No, I didn't.  Try again.
+
+Ok, my try: You deliberately have chosen to ignore it. Right?
+
+If it's not that, I can't guess what you may have meant.
+
+Regards,
+Martin
+
+From fredrik at pythonware.com  Tue Nov  9 00:26:07 2010
+From: fredrik at pythonware.com (Fredrik Lundh)
+Date: Tue, 9 Nov 2010 00:26:07 +0100
+Subject: [python-committers] Deny nonbreaking spaces in the precommit
+	script?
+In-Reply-To: <4CD873A2.5090502@v.loewis.de>
+References: <201011071652.33279.victor.stinner@haypocalc.com>
+	<AANLkTi=ZUuXGi2HB5iZmj99hGQZW6h70BbL1z3juovD3@mail.gmail.com>
+	<4CD7D72B.1020509@langa.pl> <20101108114215.GA1039@rubuntu>
+	<4CD7E53F.2090507@voidspace.org.uk> <4CD7EAAE.7050103@langa.pl>
+	<1289219634.3572.5.camel@localhost.localdomain>
+	<AANLkTi=v98XW4Hi=PH=oSSKv8j_c0-O0XJbBEedV=qEs@mail.gmail.com>
+	<4CD7F337.1050204@voidspace.org.uk>
+	<AANLkTi=00BgZzYDAYJovNFF7ygkABBqDXNC4thO_WquZ@mail.gmail.com>
+	<AANLkTi=PKeB0q7o+MFLWxnniXGwU3bgbU9NLJhkaAjLJ@mail.gmail.com>
+	<1289222229.3572.7.camel@localhost.localdomain>
+	<AANLkTi=x3QFM8XZ7PP8ZwuNMq1p9BVvfLp08DA5NoJgV@mail.gmail.com>
+	<4CD873A2.5090502@v.loewis.de>
+Message-ID: <AANLkTi=x5J3ZP5uAmzsTFJSRUm9N9O5qk8kAteLbp78W@mail.gmail.com>
+
+On Mon, Nov 8, 2010 at 11:03 PM, "Martin v. L?wis" <martin at v.loewis.de> wrote:
+> Am 08.11.2010 14:19, schrieb Fredrik Lundh:
+>> On Mon, Nov 8, 2010 at 2:17 PM, Antoine Pitrou <solipsis at pitrou.net> wrote:
+>>> Le lundi 08 novembre 2010 ? 14:10 +0100, Fredrik Lundh a ?crit :
+>>>>
+>>>> One would have thought that "test cases" referred to test cases, not
+>>>> strings in non-test code, and that the "the stdlib is already supposed
+>>>> to be ASCII only" meant that the standard library is supposed to be
+>>>> ASCII only, not UTF-8.
+>>>
+>>> ?[...] the stdlib is already supposed to be ASCII only except for
+>>> author names in comments and a few specific encoding test cases.?
+>>>
+>>> You seem to have missed part of the sentence.
+>>
+>> No, I didn't. ?Try again.
+>
+> Ok, my try: You deliberately have chosen to ignore it. Right?
+
+Not at all.  The original statement had the form "A, except B and C".
+That's not very hard to parse, is it?   A is always true, except for
+the specific cases B and C.
+
+When Michael then infers that "A means that D must be escaped", Nick
+claims that C ("encoding test cases") actually was referring to D
+("string literals in the standard library").  That's clearly not true
+for any straight-forward interpretation of those phrases, and I've
+never ever seen Guido be that imprecise in his writing, but when I
+wonder why he said C if he meant D, I suddenly find myself in a fight
+with two minibosses.  What's going on here?
+
+</F>
+
+From g.brandl at gmx.net  Sat Nov 13 10:13:34 2010
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Sat, 13 Nov 2010 09:13:34 +0000
+Subject: [python-committers] 3.2 alpha 4 freeze
+Message-ID: <iblkuk$ik1$1@dough.gmane.org>
+
+... and it's release day again!
+
+If you want to commit, please coordinate with me on #python-dev.
+
+Thanks,
+Georg
+
+
+
+From benjamin at python.org  Sat Nov 13 18:21:27 2010
+From: benjamin at python.org (Benjamin Peterson)
+Date: Sat, 13 Nov 2010 11:21:27 -0600
+Subject: [python-committers] 2.7 and 3.1 branches frozen for RC
+Message-ID: <AANLkTinb3fEiwg7L2chCbWkJxcBbTXZS_9ZLLUGE6Ng5@mail.gmail.com>
+
+All branches are closed now. I'll be on #python-dev and on email if you need me.
+
+-- 
+Regards,
+Benjamin
+
+From benjamin at python.org  Sun Nov 14 00:33:54 2010
+From: benjamin at python.org (Benjamin Peterson)
+Date: Sat, 13 Nov 2010 17:33:54 -0600
+Subject: [python-committers] maintenance branches are open
+Message-ID: <AANLkTik5QBMh1c_veCo6Gm0rsNAM--7pb1Sghoytde1s@mail.gmail.com>
+
+2.7.1rc1 and 3.1.3rc1 are released, so their branches are open now.
+Please only very safe bug fixes until final (two weeks).
+
+-- 
+Regards,
+Benjamin
+
+From g.brandl at gmx.net  Tue Nov 16 15:01:43 2010
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Tue, 16 Nov 2010 15:01:43 +0100
+Subject: [python-committers] trunk is open
+Message-ID: <ibu2v3$jae$1@dough.gmane.org>
+
+Dear fellow committers,
+
+those of you who choose to observe commit freezes may now
+again commit to trunk.
+
+Thanks,
+Georg
+
+
+From georg at python.org  Tue Nov 16 15:05:51 2010
+From: georg at python.org (Georg Brandl)
+Date: Tue, 16 Nov 2010 15:05:51 +0100
+Subject: [python-committers] [RELEASED] Python 3.2 alpha 4
+Message-ID: <4CE28FBF.9020200@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On behalf of the Python development team, I'm happy to announce the
+fourth and (this time really) final alpha preview release of Python 3.2.
+
+Python 3.2 is a continuation of the efforts to improve and stabilize the
+Python 3.x line.  Since the final release of Python 2.7, the 2.x line
+will only receive bugfixes, and new features are developed for 3.x only.
+
+Since PEP 3003, the Moratorium on Language Changes, is in effect, there
+are no changes in Python's syntax and built-in types in Python 3.2.
+Development efforts concentrated on the standard library and support for
+porting code to Python 3.  Highlights are:
+
+* numerous improvements to the unittest module
+* PEP 3147, support for .pyc repository directories
+* PEP 3149, support for version tagged dynamic libraries
+* an overhauled GIL implementation that reduces contention
+* many consistency and behavior fixes for numeric operations
+* countless fixes regarding string/unicode issues; among them full
+  support for a bytes environment (filenames, environment variables)
+* a sysconfig module to access configuration information
+* a pure-Python implementation of the datetime module
+* additions to the shutil module, among them archive file support
+* improvements to pdb, the Python debugger
+
+For an extensive list of changes in 3.2, see Misc/NEWS in the Python
+distribution.
+
+To download Python 3.2 visit:
+
+     http://www.python.org/download/releases/3.2/
+
+3.2 documentation can be found at:
+
+     http://docs.python.org/3.2/
+
+Please consider trying Python 3.2 with your code and reporting any bugs
+you may notice to:
+
+     http://bugs.python.org/
+
+
+Enjoy!
+
+- -- 
+Georg Brandl, Release Manager
+georg at python.org
+(on behalf of the entire python-dev team and 3.2's contributors)
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v2.0.16 (GNU/Linux)
+
+iEYEARECAAYFAkzij74ACgkQN9GcIYhpnLCbtwCgi4whRruM0Oi6yfgjVclYErFa
+OJcAn0U8UBBsQBFyGcnKJRbls6B+guQ2
+=Vuqf
+-----END PGP SIGNATURE-----
+
+From alexander.belopolsky at gmail.com  Tue Nov 16 15:17:17 2010
+From: alexander.belopolsky at gmail.com (Alexander Belopolsky)
+Date: Tue, 16 Nov 2010 09:17:17 -0500
+Subject: [python-committers] trunk is open
+In-Reply-To: <ibu2v3$jae$1@dough.gmane.org>
+References: <ibu2v3$jae$1@dough.gmane.org>
+Message-ID: <AANLkTi=9sxu_AKL9DX0KVn9frx9DPe92CDgyyMTGnNYb@mail.gmail.com>
+
+On Tue, Nov 16, 2010 at 9:01 AM, Georg Brandl <g.brandl at gmx.net> wrote:
+..
+> those of you who choose to observe commit freezes may now
+> again commit to trunk.
+
+I assume you meant "to the py3k branch."
+
+From steve at holdenweb.com  Tue Nov 16 15:25:12 2010
+From: steve at holdenweb.com (Steve Holden)
+Date: Tue, 16 Nov 2010 09:25:12 -0500
+Subject: [python-committers] trunk is open
+In-Reply-To: <AANLkTi=9sxu_AKL9DX0KVn9frx9DPe92CDgyyMTGnNYb@mail.gmail.com>
+References: <ibu2v3$jae$1@dough.gmane.org>
+	<AANLkTi=9sxu_AKL9DX0KVn9frx9DPe92CDgyyMTGnNYb@mail.gmail.com>
+Message-ID: <4CE29448.4030904@holdenweb.com>
+
+On 11/16/2010 9:17 AM, Alexander Belopolsky wrote:
+> On Tue, Nov 16, 2010 at 9:01 AM, Georg Brandl <g.brandl at gmx.net> wrote:
+> ..
+>> those of you who choose to observe commit freezes may now
+>> again commit to trunk.
+> 
+> I assume you meant "to the py3k branch."
+> _______________________________________________
+
+
+Any why wouldn't the py3k branch now be trunk?
+
+regards
+ Steve
+-- 
+Steve Holden           +1 571 484 6266   +1 800 494 3119
+PyCon 2011 Atlanta March 9-17       http://us.pycon.org/
+See Python Video!       http://python.mirocommunity.org/
+Holden Web LLC                 http://www.holdenweb.com/
+
+From orsenthil at gmail.com  Tue Nov 16 15:36:36 2010
+From: orsenthil at gmail.com (Senthil Kumaran)
+Date: Tue, 16 Nov 2010 22:36:36 +0800
+Subject: [python-committers] trunk is open
+In-Reply-To: <4CE29448.4030904@holdenweb.com>
+References: <ibu2v3$jae$1@dough.gmane.org>
+	<AANLkTi=9sxu_AKL9DX0KVn9frx9DPe92CDgyyMTGnNYb@mail.gmail.com>
+	<4CE29448.4030904@holdenweb.com>
+Message-ID: <AANLkTinAgroPRZKu-FmME3gaaAVD_O=nzAB9t8=K9VZS@mail.gmail.com>
+
+On Tue, Nov 16, 2010 at 10:25 PM, Steve Holden <steve at holdenweb.com> wrote:
+>
+> Any why wouldn't the py3k branch now be trunk?
+
+If you meant, why would't the py3k branch be renamed to trunk, then I
+think, it was do with svn properties and tracking of merges.
+We use svnmerge to backport py3k to release31-maint and
+release27-maint. In 2.x series, we used to port 2.x trunk code to py3k
+and then from py3k to release31-maint. In the current scenario, the
+second case remains intact.
+
+
+-- 
+Senthil
+
+From jcea at jcea.es  Tue Nov 16 16:43:20 2010
+From: jcea at jcea.es (Jesus Cea)
+Date: Tue, 16 Nov 2010 16:43:20 +0100
+Subject: [python-committers] trunk is open
+In-Reply-To: <AANLkTinAgroPRZKu-FmME3gaaAVD_O=nzAB9t8=K9VZS@mail.gmail.com>
+References: <ibu2v3$jae$1@dough.gmane.org>	<AANLkTi=9sxu_AKL9DX0KVn9frx9DPe92CDgyyMTGnNYb@mail.gmail.com>	<4CE29448.4030904@holdenweb.com>
+	<AANLkTinAgroPRZKu-FmME3gaaAVD_O=nzAB9t8=K9VZS@mail.gmail.com>
+Message-ID: <4CE2A698.2020606@jcea.es>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On 16/11/10 15:36, Senthil Kumaran wrote:
+> On Tue, Nov 16, 2010 at 10:25 PM, Steve Holden <steve at holdenweb.com> wrote:
+>>
+>> Any why wouldn't the py3k branch now be trunk?
+> 
+> If you meant, why would't the py3k branch be renamed to trunk, then I
+> think, it was do with svn properties and tracking of merges.
+> We use svnmerge to backport py3k to release31-maint and
+> release27-maint. In 2.x series, we used to port 2.x trunk code to py3k
+> and then from py3k to release31-maint. In the current scenario, the
+> second case remains intact.
+
+All these will be meaningless after we finish the mercurial migration.
+God, it is about time :-).
+
+- -- 
+Jesus Cea Avion                         _/_/      _/_/_/        _/_/_/
+jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+jabber / xmpp:jcea at jabber.org         _/_/    _/_/          _/_/_/_/_/
+.                              _/_/  _/_/    _/_/          _/_/  _/_/
+"Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+"My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+"El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.10 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - http://enigmail.mozdev.org/
+
+iQCVAwUBTOKml5lgi5GaxT1NAQL+ggQAnog3CAUufiL7zg57kcaHNp/+66yBgSXa
+rTw6w+23GVarKBgdTt+92f0B0EXxzUIP05GcmWkTThiEreYj38s7PVU6RJKWFevC
+SCK2LFcRpoTPN9q4HBcPmyxqv/wZ2m2UM64j3KhAvkmD0tGCMg+cgNy4q3F4onYb
+zHRDLrBWK5w=
+=IoNr
+-----END PGP SIGNATURE-----
+
+From stutzbach at google.com  Tue Nov 16 19:14:19 2010
+From: stutzbach at google.com (Daniel Stutzbach)
+Date: Tue, 16 Nov 2010 10:14:19 -0800
+Subject: [python-committers] New ssh keys
+Message-ID: <AANLkTinyrpJ87SdroqBECR9aqfQ5ay+-hhuDN3J1DA0z@mail.gmail.com>
+
+Now that I've started work at Google, I'd like to add new ssh keys so that I
+can commit from my work desktop and laptop.  I hope that 20%-time will allow
+me to contribute to Python on a somewhat more regular basis than my previous
+sporadic bursts of activity. :-)
+
+ssh-dss
+AAAAB3NzaC1kc3MAAACBAKNWAIUwiu5ywy2yL7CsSXOzo70EbFujqyVPuv08UU2jz/hjFXMtGTM+mj7KRNrLwyN5hffN4hqFqCxKotEMh4Wx/jIXO22XwEUNpsYK0wazsfHehfc14R7O1maCl+XNjAfXXrPFFeAc7ShChqnpUOrB7DYle0j7S5T9kpzYOTfBAAAAFQD82W1/jkG3MQba4/plea3s7XztRQAAAIAIWQ5yy5kBWsOgp5SzsrDhWFH9XGUuY86+hFzKMUcnYI6tWfG8xSOb7XNlBmg75kG9/eiTJOWs92lr09LCp8Crya/BOJ6sLEyxVli0p10Sv3K+EzrNpzH2BoiIF6eLZ5ImT6yGhGwxWBkVGBEJa190zSwwZzVUWXGaICSXka3bYwAAAIB7FTtSdjNtGCzJrxntj5T6zNZ+bOrQwdanrVKwhofmUTzkXuP51YLSsBbp5vLjIj4IHbDnpQYrqCUwKUizknyOscqxamCdjLHJqoLyg1YK0C4C5p0hjseE41jykmkGEULYKW879dLdR5OX6Y5Z7rGz2kuDmaO6LriT9Q2ZSAbAew==
+stutzbach at filfre
+
+ssh-dss
+AAAAB3NzaC1kc3MAAACBAOeVF3nWzdx2/6IhiChhlV3jVtdbCyzCcP/0i7i47ioNEcr+vQAy4AkcFD9LhRoIT17CZTnUNTMA6kn/wNeIhVkqqgn6iXeq31vDnvzn1q0JvWe7gQRp43p89/WMxhnRBQmTulw4ms96jhCunr/rCojzQNWkx6u8CWaFFtBc9lGpAAAAFQCNFKZ1H0paQMvYDdPam+QG2SroOQAAAIEArmwAaMasXZYNykDp6ZKd5hXQQoGr4Lln0lIvHWjeoGVbboQuEiLITipULJEBjFW/8nNSDHdhiWyhSUc31UXi1sKrCqSG49d+OzqjT4+Evfsf8B9AEMH5NJfi+nOmL0WLvZGsjTYHyj21FMHo5dkuvvoapBqh/Y7ecWj3MoD6wDIAAACATgNf7ipLRqjTwJzIc+I0Cn+s0wGTGh4uK/pPZ2wsvXQdHrIv4ABNjrC48r1FuJ2J86RBVumYZnIpbG+81+3LmQQOtDEyhvIP/dAkfCVimC9EfyH0YYfBYVBx62S6/qhWJ1qieWbfkJBzG9KVRvkwpaJ0qGcPlTI0w4TgJbmIU+A=
+stutzbach at stutzbach-glaptop
+
+
+-- 
+Daniel Stutzbach
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20101116/4d57035e/attachment-0001.html>
+
+From g.brandl at gmx.net  Tue Nov 16 19:59:08 2010
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Tue, 16 Nov 2010 19:59:08 +0100
+Subject: [python-committers] New ssh keys
+In-Reply-To: <AANLkTinyrpJ87SdroqBECR9aqfQ5ay+-hhuDN3J1DA0z@mail.gmail.com>
+References: <AANLkTinyrpJ87SdroqBECR9aqfQ5ay+-hhuDN3J1DA0z@mail.gmail.com>
+Message-ID: <ibukcp$fg4$1@dough.gmane.org>
+
+Am 16.11.2010 19:14, schrieb Daniel Stutzbach:
+> Now that I've started work at Google, I'd like to add new ssh keys so that I can
+> commit from my work desktop and laptop.  I hope that 20%-time will allow me to
+> contribute to Python on a somewhat more regular basis than my previous sporadic
+> bursts of activity. :-)
+
+Done!
+
+Georg
+
+
+From ncoghlan at gmail.com  Wed Nov 17 12:51:41 2010
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Wed, 17 Nov 2010 21:51:41 +1000
+Subject: [python-committers] trunk is open
+In-Reply-To: <4CE2A698.2020606@jcea.es>
+References: <ibu2v3$jae$1@dough.gmane.org>
+	<AANLkTi=9sxu_AKL9DX0KVn9frx9DPe92CDgyyMTGnNYb@mail.gmail.com>
+	<4CE29448.4030904@holdenweb.com>
+	<AANLkTinAgroPRZKu-FmME3gaaAVD_O=nzAB9t8=K9VZS@mail.gmail.com>
+	<4CE2A698.2020606@jcea.es>
+Message-ID: <AANLkTik_1eRKBAhePX1TvDhn8B81Y4tR1sjLuzCyLeWC@mail.gmail.com>
+
+On Wed, Nov 17, 2010 at 1:43 AM, Jesus Cea <jcea at jcea.es> wrote:
+> -----BEGIN PGP SIGNED MESSAGE-----
+> Hash: SHA1
+>
+> On 16/11/10 15:36, Senthil Kumaran wrote:
+>> On Tue, Nov 16, 2010 at 10:25 PM, Steve Holden <steve at holdenweb.com> wrote:
+>>>
+>>> Any why wouldn't the py3k branch now be trunk?
+>>
+>> If you meant, why would't the py3k branch be renamed to trunk, then I
+>> think, it was do with svn properties and tracking of merges.
+>> We use svnmerge to backport py3k to release31-maint and
+>> release27-maint. In 2.x series, we used to port 2.x trunk code to py3k
+>> and then from py3k to release31-maint. In the current scenario, the
+>> second case remains intact.
+>
+> All these will be meaningless after we finish the mercurial migration.
+
+Which would be the other reason we didn't bother renaming the py3k branch :)
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan?? |?? ncoghlan at gmail.com?? |?? Brisbane, Australia
+
+From merwok at netwok.org  Sat Nov 20 19:39:23 2010
+From: merwok at netwok.org (=?UTF-8?B?w4lyaWMgQXJhdWpv?=)
+Date: Sat, 20 Nov 2010 19:39:23 +0100
+Subject: [python-committers] maintenance branches are open
+In-Reply-To: <AANLkTik5QBMh1c_veCo6Gm0rsNAM--7pb1Sghoytde1s@mail.gmail.com>
+References: <AANLkTik5QBMh1c_veCo6Gm0rsNAM--7pb1Sghoytde1s@mail.gmail.com>
+Message-ID: <4CE815DB.7070908@netwok.org>
+
+> 2.7.1rc1 and 3.1.3rc1 are released, so their branches are open now.
+> Please only very safe bug fixes until final (two weeks).
+
+I?m afraid I can?t define what a very safe fix is.  I think I won?t
+merge anything for another week and then suffer the pains of svnmerge
+multiple revisions in a row.  Is it okay to make you nosy on bugs I fix
+in 3.2 to ask you if they are very safe?
+
+Regards
+
+
+From benjamin at python.org  Sat Nov 20 19:42:21 2010
+From: benjamin at python.org (Benjamin Peterson)
+Date: Sat, 20 Nov 2010 12:42:21 -0600
+Subject: [python-committers] maintenance branches are open
+In-Reply-To: <4CE815DB.7070908@netwok.org>
+References: <AANLkTik5QBMh1c_veCo6Gm0rsNAM--7pb1Sghoytde1s@mail.gmail.com>
+	<4CE815DB.7070908@netwok.org>
+Message-ID: <AANLkTi=iiJMmK-49it96_fgt=9w3UOdU5eY0hZVFmDyn@mail.gmail.com>
+
+2010/11/20 ?ric Araujo <merwok at netwok.org>:
+>> 2.7.1rc1 and 3.1.3rc1 are released, so their branches are open now.
+>> Please only very safe bug fixes until final (two weeks).
+>
+> I?m afraid I can?t define what a very safe fix is. ?I think I won?t
+> merge anything for another week and then suffer the pains of svnmerge
+> multiple revisions in a row. ?Is it okay to make you nosy on bugs I fix
+> in 3.2 to ask you if they are very safe?
+
+By all means. Or ask on irc.
+
+
+
+-- 
+Regards,
+Benjamin
+
+From dirkjan at ochtman.nl  Wed Nov 24 14:48:25 2010
+From: dirkjan at ochtman.nl (Dirkjan Ochtman)
+Date: Wed, 24 Nov 2010 14:48:25 +0100
+Subject: [python-committers] New hg repo ssh URIs
+Message-ID: <AANLkTi=kkO_oSGgCwJ=8wWX-Ay=BCAqeh_Rf3b+MECOM@mail.gmail.com>
+
+All ssh repos can now be accessed by using ssh://hg at hg.python.org/repo
+instead of ssh://hg at hg.python.org/repos/repo. While the old way should
+continue to work, the new address should be considered preferable.
+
+Cheers,
+
+Dirkjan
+
+From jcea at jcea.es  Wed Nov 24 15:53:19 2010
+From: jcea at jcea.es (Jesus Cea)
+Date: Wed, 24 Nov 2010 15:53:19 +0100
+Subject: [python-committers] New hg repo ssh URIs
+In-Reply-To: <AANLkTi=kkO_oSGgCwJ=8wWX-Ay=BCAqeh_Rf3b+MECOM@mail.gmail.com>
+References: <AANLkTi=kkO_oSGgCwJ=8wWX-Ay=BCAqeh_Rf3b+MECOM@mail.gmail.com>
+Message-ID: <4CED26DF.9030508@jcea.es>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On 24/11/10 14:48, Dirkjan Ochtman wrote:
+> All ssh repos can now be accessed by using ssh://hg at hg.python.org/repo
+> instead of ssh://hg at hg.python.org/repos/repo. While the old way should
+> continue to work, the new address should be considered preferable.
+
+Are those repositories read/write?. What is their use TODAY?. Only for
+being ready for 12 december?.
+
+The push will be thru SSH only?. No option for HTTPS pushing?.
+
+- -- 
+Jesus Cea Avion                         _/_/      _/_/_/        _/_/_/
+jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+jabber / xmpp:jcea at jabber.org         _/_/    _/_/          _/_/_/_/_/
+.                              _/_/  _/_/    _/_/          _/_/  _/_/
+"Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+"My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+"El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.10 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - http://enigmail.mozdev.org/
+
+iQCVAwUBTO0m35lgi5GaxT1NAQK9ugP9EcqWszLqtRsodWjJF8i6Pvk/Ni+g3H4H
+JuAIqx6gnOMnzGpNOE1nM/aI09t+Yqeqhqrep+vnkTLGxns+/9ASRUWEEqdLUFJr
+gJ9Y3G6vPOTsxOcUefXAKeK/efZPrMwnKUH/lvTRZli9L/bZ9AgAabhyM6Vkj9CK
+Klth5NjfH1Q=
+=nqnC
+-----END PGP SIGNATURE-----
+
+From eric at trueblade.com  Wed Nov 24 15:57:03 2010
+From: eric at trueblade.com (Eric Smith)
+Date: Wed, 24 Nov 2010 09:57:03 -0500
+Subject: [python-committers] New hg repo ssh URIs
+In-Reply-To: <AANLkTi=kkO_oSGgCwJ=8wWX-Ay=BCAqeh_Rf3b+MECOM@mail.gmail.com>
+References: <AANLkTi=kkO_oSGgCwJ=8wWX-Ay=BCAqeh_Rf3b+MECOM@mail.gmail.com>
+Message-ID: <4CED27BF.8030107@trueblade.com>
+
+On 11/24/10 8:48 AM, Dirkjan Ochtman wrote:
+> All ssh repos can now be accessed by using ssh://hg at hg.python.org/repo
+> instead of ssh://hg at hg.python.org/repos/repo. While the old way should
+> continue to work, the new address should be considered preferable.
+
+I'd suggest deleting the /repos/ URIs eventually (as in before the end 
+of the year). I don't see the need to keep them around and have the 
+maintenance burden.
+
+Thanks everyone for working on the hg migration. I can't wait.
+
+-- 
+Eric.
+
+From g.brandl at gmx.net  Wed Nov 24 17:16:27 2010
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Wed, 24 Nov 2010 17:16:27 +0100
+Subject: [python-committers] New hg repo ssh URIs
+In-Reply-To: <4CED26DF.9030508@jcea.es>
+References: <AANLkTi=kkO_oSGgCwJ=8wWX-Ay=BCAqeh_Rf3b+MECOM@mail.gmail.com>
+	<4CED26DF.9030508@jcea.es>
+Message-ID: <icjdou$4m1$1@dough.gmane.org>
+
+Am 24.11.2010 15:53, schrieb Jesus Cea:
+> On 24/11/10 14:48, Dirkjan Ochtman wrote:
+>> All ssh repos can now be accessed by using ssh://hg at hg.python.org/repo
+>> instead of ssh://hg at hg.python.org/repos/repo. While the old way should
+>> continue to work, the new address should be considered preferable.
+> 
+> Are those repositories read/write?. What is their use TODAY?. Only for
+> being ready for 12 december?.
+
+Some of the repos are already used productively, such as distutils2 and
+the benchmarks repo, some are used by those helping with the migration,
+such as hooks and pymigr.  The cpython one will become the test repo
+once Dirkjan is done with his schedule.
+
+> The push will be thru SSH only?. No option for HTTPS pushing?.
+
+No; that would be just another infrastructure for us to handle, plus
+we would need to maintain passwords for every user.  Since the current
+SVN also only allows commit via ssh/public-key, I don't see a problem
+doing the same for hg.
+
+Georg
+
+
+From dirkjan at ochtman.nl  Thu Nov 25 10:04:01 2010
+From: dirkjan at ochtman.nl (Dirkjan Ochtman)
+Date: Thu, 25 Nov 2010 10:04:01 +0100
+Subject: [python-committers] New hg repo ssh URIs
+In-Reply-To: <4CED27BF.8030107@trueblade.com>
+References: <AANLkTi=kkO_oSGgCwJ=8wWX-Ay=BCAqeh_Rf3b+MECOM@mail.gmail.com>
+	<4CED27BF.8030107@trueblade.com>
+Message-ID: <AANLkTi=UtBmiUa13aycV142UvaGK8=v49YfjeYsghpzP@mail.gmail.com>
+
+On Wed, Nov 24, 2010 at 15:57, Eric Smith <eric at trueblade.com> wrote:
+> I'd suggest deleting the /repos/ URIs eventually (as in before the end of
+> the year). I don't see the need to keep them around and have the maintenance
+> burden.
+
+Maybe, but it's currently like three lines in a script, not as if
+there's a huge maintenance burden.
+
+Cheers,
+
+Dirkjan
+
+From benjamin at python.org  Sat Nov 27 15:38:33 2010
+From: benjamin at python.org (Benjamin Peterson)
+Date: Sat, 27 Nov 2010 08:38:33 -0600
+Subject: [python-committers] 2.7.1 and 3.1.3 today
+Message-ID: <AANLkTikWz7-AQP3pziTWyp5pLEJE0wHa9ck23RvScL+f@mail.gmail.com>
+
+I'm going to start working on the releases now, so the maintenance
+branches are now closed.
+
+-- 
+Regards,
+Benjamin
+
+From benjamin at python.org  Sun Nov 28 05:48:17 2010
+From: benjamin at python.org (Benjamin Peterson)
+Date: Sat, 27 Nov 2010 22:48:17 -0600
+Subject: [python-committers] 2.7.* and 3.1.* branches open
+Message-ID: <AANLkTikoL3FgberOyzAbdtDYUb49isWz3CjSyf3vWe9E@mail.gmail.com>
+
+With 2.7.1 and 3.1.3 out, the maintenance branches are again open. I
+would expect 3.1.4 and 2.7.2 to be released in the June/July area.
+
+-- 
+Regards,
+Benjamin
+
+From michael at voidspace.org.uk  Sun Nov 28 19:05:43 2010
+From: michael at voidspace.org.uk (Michael Foord)
+Date: Sun, 28 Nov 2010 18:05:43 +0000
+Subject: [python-committers] Python Language Summit at PyCon 2011
+Message-ID: <4CF299F7.1010308@voidspace.org.uk>
+
+Hello all,
+
+We will be holding another Python language summit as part of PyCon 2011 
+in Atlanta. The summit will be on Thursday March 10th, the second day of 
+the tutorials and the day before the conference proper begins.
+
+All python-committers are invited (if you have attended in previous 
+years you will receive another copy of this invitation). If you intend 
+to attend, or think it is likely that you will attend, please reply and 
+let me know as soon as possible to help with venue planning. A maybe is 
+fine, you can always change your mind later. Attending for only part of 
+the day is fine. We expect the summit to run from 10am - 4pm with 
+appropriate breaks.
+
+We will also be inviting contributors to alternative implementations of 
+Python, and select Python community members. Again, having an idea of 
+the number of attendees help us to decide how many of these we can invite.
+
+If you are giving a tutorial and would also like to attend the language 
+summit you will need to talk to the tutorial organisers and let them 
+know that you won't be available on the Thursday.
+
+As in previous years we are also running a VM summit, on Wednesday March 
+9th. This is by invite only, with no general invitation to 
+python-committers. Invites have already gone out, but if you would like 
+to be included please email me and (space permitting) I will add you.
+
+If you have suggestions of people you think should be invited to the 
+language summit then feel free to pass them onto me.
+
+Details of the language summit are below.
+
+
+What is it?
+-----------
+
+The Python Language Summit is an invitation-only event for the
+developers of Python implementations (CPython, IronPython, Jython,
+Parrot, PyPy, etc.) to share information, discuss our shared problems
+and hopefully solve them.
+
+These issues might be related to the language itself, the standard
+library, the development process, Python 3.x and 2.x, the
+documentation, package index, web site, etc. The Summit will focus on
+discussion more than on presentations; the planned program is included
+at the bottom of this message. We're currently planning for 50-60
+people to attend the Summit.
+
+The Language Summit is being organized in conjunction with PyCon 2011,
+with support from the Python Software Foundation. This is the fourth
+language summit.
+
+http://us.pycon.org/2011/home/
+
+Previous summits were held at PyCon 2009 & 2010 and EuroPython 2010.
+
+Where is it?
+------------
+
+The Language Summit will be at the Hyatt Atlanta Regency Hotel
+( http://atlantaregency.hyatt.com/hyatt/hotels/index.jsp ), the same hotel
+where the conference is being held. Thursday March 10 is the day before 
+PyCon
+begins, and is also the second day of the PyCon tutorials.
+
+The summit will be from 10am - 4pm and is likely to be in the Courtland or
+Dunwoody rooms. Further details will be emailed to attendees before the
+event.
+
+What is required?
+-----------------
+
+Attending the Summit is free. You are responsible for your travel and
+hotel costs.
+
+If you wish to attend PyCon, you must still register and pay for
+PyCon. Note that you don't have to stay for PyCon if you're only
+interested in the Language Summit.
+
+As it does every year, PyCon will be offering financial assistance to
+people who are unable to attend the conference otherwise. I am not on
+the financial-aid committee and can't guarantee anything, but language
+summit attendees would stand a very good chance of receiving some aid.
+
+See http://us.pycon.org/2010/registration/financial-aid/ for more
+information about financial aid. (This is the 2010 page, registration
+for 2011 has not yet opened. Procedures for applying for financial
+aid are likely to be the same as 2010.)
+
+
+What do I need to do?
+---------------------
+
+If you would like to attend the summit, or would like a slot to be 
+reserved for you, then please reply to this email (off-list). We only 
+have space for 60 attendees so it is important we know who is attending.
+
+Note that the summit proceedings may be recorded and made publicly
+available.
+
+I look forward to seeing you and working with you at the Summit.
+
+Regards,
+
+Michael Foord
+Coordinator, Python Language Summit
+
+p.s. The sessions have not been finally decided. Suggestions for topics 
+of discussion will be gratefully received. Once I have a session 
+outlines I will post them on this list. Bonus points for reading this 
+far down the email by the way...
+
+-- 
+
+http://www.voidspace.org.uk/
+
+READ CAREFULLY. By accepting and reading this email you agree,
+on behalf of your employer, to release me from all obligations
+and waivers arising from any and all NON-NEGOTIATED agreements,
+licenses, terms-of-service, shrinkwrap, clickwrap, browsewrap,
+confidentiality, non-disclosure, non-compete and acceptable use
+policies (?BOGUS AGREEMENTS?) that I have entered into with your
+employer, its partners, licensors, agents and assigns, in
+perpetuity, without prejudice to my ongoing rights and privileges.
+You further represent that you have the authority to release me
+from any BOGUS AGREEMENTS on behalf of your employer.
+
+

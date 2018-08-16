@@ -1,0 +1,2167 @@
+From jcea at jcea.es  Mon Aug  3 03:48:46 2015
+From: jcea at jcea.es (Jesus Cea)
+Date: Mon, 3 Aug 2015 03:48:46 +0200
+Subject: [python-committers] getting help with the hgaccounts alias
+In-Reply-To: <20150731122330.4ffdb500@limelight.wooz.org>
+References: <CAP1=2W5XwGSeg9LH9yMVz_eeyMmdNiNOpA7evniZPek147Nu2A@mail.gmail.com>
+ <6C4AEFC5-B3CE-4346-8BF3-291BEE18A3F6@mac.com>
+ <CAP1=2W4qE9uNAj-KzgpEAZZ_2s0gVn46S2Pnd8QVd3X5zEXrSw@mail.gmail.com>
+ <20150722174107.D0E46250F9A@webabinitio.net>
+ <CAP1=2W4-KhoEDPnN=9T3q2KstZDBS679XzykwTCajEuRrEVO+Q@mail.gmail.com>
+ <55B10A62.7010206@jcea.es>
+ <CADiSq7e4irRDLPwctsze_v5=YO72BUjAgx-TYS7JfaJmJZHs6A@mail.gmail.com>
+ <55B21F44.7050709@jcea.es>
+ <CAP1=2W7v7rKUX4F-USNMdLxg8EMOKrfFj6pHS-cpAR0KjXAtFw@mail.gmail.com>
+ <55BA6407.6090508@jcea.es> <20150731122330.4ffdb500@limelight.wooz.org>
+Message-ID: <55BEC87E.3020700@jcea.es>
+
+On 31/07/15 18:23, Barry Warsaw wrote:
+> This is likely an ssh problem on your end, not an hg problem.
+> 
+> http://superuser.com/questions/187779/too-many-authentication-failures-for-username
+
+Apparently you MUST be added to the maintenance group BEFORE being able
+to clone the repository. I think this should be documented more clearly
+in the devguide.
+
+-- 
+Jes?s Cea Avi?n                         _/_/      _/_/_/        _/_/_/
+jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+Twitter: @jcea                        _/_/    _/_/          _/_/_/_/_/
+jabber / xmpp:jcea at jabber.org  _/_/  _/_/    _/_/          _/_/  _/_/
+"Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+"My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+"El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 473 bytes
+Desc: OpenPGP digital signature
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150803/e1f76e55/attachment.sig>
+
+From brett at python.org  Mon Aug  3 07:12:24 2015
+From: brett at python.org (Brett Cannon)
+Date: Mon, 03 Aug 2015 05:12:24 +0000
+Subject: [python-committers] getting help with the hgaccounts alias
+In-Reply-To: <55BEC87E.3020700@jcea.es>
+References: <CAP1=2W5XwGSeg9LH9yMVz_eeyMmdNiNOpA7evniZPek147Nu2A@mail.gmail.com>
+ <6C4AEFC5-B3CE-4346-8BF3-291BEE18A3F6@mac.com>
+ <CAP1=2W4qE9uNAj-KzgpEAZZ_2s0gVn46S2Pnd8QVd3X5zEXrSw@mail.gmail.com>
+ <20150722174107.D0E46250F9A@webabinitio.net>
+ <CAP1=2W4-KhoEDPnN=9T3q2KstZDBS679XzykwTCajEuRrEVO+Q@mail.gmail.com>
+ <55B10A62.7010206@jcea.es>
+ <CADiSq7e4irRDLPwctsze_v5=YO72BUjAgx-TYS7JfaJmJZHs6A@mail.gmail.com>
+ <55B21F44.7050709@jcea.es>
+ <CAP1=2W7v7rKUX4F-USNMdLxg8EMOKrfFj6pHS-cpAR0KjXAtFw@mail.gmail.com>
+ <55BA6407.6090508@jcea.es> <20150731122330.4ffdb500@limelight.wooz.org>
+ <55BEC87E.3020700@jcea.es>
+Message-ID: <CAP1=2W5PhfWBwuXr3Y5A68pm17wa+6KwXgrsuEFTqEwXi7FvOg@mail.gmail.com>
+
+I clarified the instructions in commit 68b06ae9aee4.
+
+On Sun, Aug 2, 2015 at 6:49 PM Jesus Cea <jcea at jcea.es> wrote:
+
+> On 31/07/15 18:23, Barry Warsaw wrote:
+> > This is likely an ssh problem on your end, not an hg problem.
+> >
+> >
+> http://superuser.com/questions/187779/too-many-authentication-failures-for-username
+>
+> Apparently you MUST be added to the maintenance group BEFORE being able
+> to clone the repository. I think this should be documented more clearly
+> in the devguide.
+>
+> --
+> Jes?s Cea Avi?n                         _/_/      _/_/_/        _/_/_/
+> jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+> Twitter: @jcea                        _/_/    _/_/          _/_/_/_/_/
+> jabber / xmpp:jcea at jabber.org  _/_/  _/_/    _/_/          _/_/  _/_/
+> "Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+> "My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+> "El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150803/5789e094/attachment.html>
+
+From jcea at jcea.es  Mon Aug  3 18:58:57 2015
+From: jcea at jcea.es (Jesus Cea)
+Date: Mon, 3 Aug 2015 18:58:57 +0200
+Subject: [python-committers] getting help with the hgaccounts alias
+In-Reply-To: <CAP1=2W5PhfWBwuXr3Y5A68pm17wa+6KwXgrsuEFTqEwXi7FvOg@mail.gmail.com>
+References: <CAP1=2W5XwGSeg9LH9yMVz_eeyMmdNiNOpA7evniZPek147Nu2A@mail.gmail.com>
+ <6C4AEFC5-B3CE-4346-8BF3-291BEE18A3F6@mac.com>
+ <CAP1=2W4qE9uNAj-KzgpEAZZ_2s0gVn46S2Pnd8QVd3X5zEXrSw@mail.gmail.com>
+ <20150722174107.D0E46250F9A@webabinitio.net>
+ <CAP1=2W4-KhoEDPnN=9T3q2KstZDBS679XzykwTCajEuRrEVO+Q@mail.gmail.com>
+ <55B10A62.7010206@jcea.es>
+ <CADiSq7e4irRDLPwctsze_v5=YO72BUjAgx-TYS7JfaJmJZHs6A@mail.gmail.com>
+ <55B21F44.7050709@jcea.es>
+ <CAP1=2W7v7rKUX4F-USNMdLxg8EMOKrfFj6pHS-cpAR0KjXAtFw@mail.gmail.com>
+ <55BA6407.6090508@jcea.es> <20150731122330.4ffdb500@limelight.wooz.org>
+ <55BEC87E.3020700@jcea.es>
+ <CAP1=2W5PhfWBwuXr3Y5A68pm17wa+6KwXgrsuEFTqEwXi7FvOg@mail.gmail.com>
+Message-ID: <55BF9DD1.9030705@jcea.es>
+
+On 03/08/15 07:12, Brett Cannon wrote:
+> I clarified the instructions in commit 68b06ae9aee4.
+
+Good improvement. Thanks. When is the HTML regenerated. I committed
+changes some days ago and they are not online yet :-?.
+
+-- 
+Jes?s Cea Avi?n                         _/_/      _/_/_/        _/_/_/
+jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+Twitter: @jcea                        _/_/    _/_/          _/_/_/_/_/
+jabber / xmpp:jcea at jabber.org  _/_/  _/_/    _/_/          _/_/  _/_/
+"Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+"My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+"El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 473 bytes
+Desc: OpenPGP digital signature
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150803/65b0bf32/attachment.sig>
+
+From brett at python.org  Mon Aug  3 20:45:06 2015
+From: brett at python.org (Brett Cannon)
+Date: Mon, 03 Aug 2015 18:45:06 +0000
+Subject: [python-committers] getting help with the hgaccounts alias
+In-Reply-To: <55BF9DD1.9030705@jcea.es>
+References: <CAP1=2W5XwGSeg9LH9yMVz_eeyMmdNiNOpA7evniZPek147Nu2A@mail.gmail.com>
+ <6C4AEFC5-B3CE-4346-8BF3-291BEE18A3F6@mac.com>
+ <CAP1=2W4qE9uNAj-KzgpEAZZ_2s0gVn46S2Pnd8QVd3X5zEXrSw@mail.gmail.com>
+ <20150722174107.D0E46250F9A@webabinitio.net>
+ <CAP1=2W4-KhoEDPnN=9T3q2KstZDBS679XzykwTCajEuRrEVO+Q@mail.gmail.com>
+ <55B10A62.7010206@jcea.es>
+ <CADiSq7e4irRDLPwctsze_v5=YO72BUjAgx-TYS7JfaJmJZHs6A@mail.gmail.com>
+ <55B21F44.7050709@jcea.es>
+ <CAP1=2W7v7rKUX4F-USNMdLxg8EMOKrfFj6pHS-cpAR0KjXAtFw@mail.gmail.com>
+ <55BA6407.6090508@jcea.es> <20150731122330.4ffdb500@limelight.wooz.org>
+ <55BEC87E.3020700@jcea.es>
+ <CAP1=2W5PhfWBwuXr3Y5A68pm17wa+6KwXgrsuEFTqEwXi7FvOg@mail.gmail.com>
+ <55BF9DD1.9030705@jcea.es>
+Message-ID: <CAP1=2W47vagDYMci0a+TguT6Nhhz-RO5vmw8VZka2BgUdFRQQw@mail.gmail.com>
+
+On Mon, Aug 3, 2015 at 9:59 AM Jesus Cea <jcea at jcea.es> wrote:
+
+> On 03/08/15 07:12, Brett Cannon wrote:
+> > I clarified the instructions in commit 68b06ae9aee4.
+>
+> Good improvement. Thanks. When is the HTML regenerated. I committed
+> changes some days ago and they are not online yet :-?.
+>
+
+I think it's once or twice a day. We should probably document if there is a
+way to check why a doc push has not happened. Until then I guess file a bug
+against the website?
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150803/293c5b60/attachment.html>
+
+From rdmurray at bitdance.com  Fri Aug  7 02:46:28 2015
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Thu, 06 Aug 2015 20:46:28 -0400
+Subject: [python-committers] erykun
+Message-ID: <20150807004628.7A14CB14089@webabinitio.net>
+
+FYI I just granted Developer privs on the tracker to eryksun (real name
+unknown), after wondering why s/he hadn't just closed an issue s/he
+commented on and thereby finding s/he didn't have them yet.
+
+Someone to keep an eye on, IMO.
+
+--David
+
+From larry at hastings.org  Sun Aug  9 12:37:12 2015
+From: larry at hastings.org (Larry Hastings)
+Date: Sun, 09 Aug 2015 03:37:12 -0700
+Subject: [python-committers] Reminder: the "3.5" branch in CPython trunk is
+	now 3.5.1
+Message-ID: <55C72D58.6040704@hastings.org>
+
+
+
+As I write this email I'm tagging Python 3.5.0 release candidate 1. This 
+is the moment that we switch over to our new experimental workflow, 
+where we use Bitbucket and pull requests for all future changesets that 
+will get applied to 3.5.0.
+
+The Bitbucket repository isn't ready yet, and I'm still putting the 
+final touches on the documentation for the process.  I'll have 
+everything ready no later than a day from now.  It'll be posted here, 
+and will also go into the Python Dev Guide.  For now changes for 
+3.5.0rc2 will just have to wait.
+
+
+Again: any revisions you check in to the "3.5" branch on 
+hg.python.org/cpython right now will go automatically into 3.5.1. They 
+will *not* automatically go in to 3.5.0.  The only way to get changes 
+into 3.5.0 from this moment forward is by creating a pull request on 
+Bitbucket which you convince me to accept.
+
+
+//arry/
+
+p.s. In case you're curious, the last revision to make it in to 3.5.0rc1 
+(apart from the revisions I generate as part of my build engineering 
+work) was 202a7aabd4fe.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150809/d833b560/attachment.html>
+
+From bcannon at gmail.com  Sun Aug  9 20:19:46 2015
+From: bcannon at gmail.com (Brett Cannon)
+Date: Sun, 09 Aug 2015 18:19:46 +0000
+Subject: [python-committers] Having issues updating a checkout
+Message-ID: <CAP1=2W4oLvct470GT=0AgVEV5dLP190tpMXdbz-j4Tajhvg0+A@mail.gmail.com>
+
+Anyone else seeing this?
+
+  pulling from ssh://hg at hg.python.org/cpython
+  remote: ssh_exchange_identification: Connection closed by remote host
+  abort: no suitable response from remote hg!
+
+My laptop is fairly new so I'm trying to eliminate any way it might be my
+setup instead of the servers.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150809/34bedeb8/attachment.html>
+
+From bcannon at gmail.com  Sun Aug  9 20:44:36 2015
+From: bcannon at gmail.com (Brett Cannon)
+Date: Sun, 09 Aug 2015 18:44:36 +0000
+Subject: [python-committers] Having issues updating a checkout
+In-Reply-To: <CAP1=2W4oLvct470GT=0AgVEV5dLP190tpMXdbz-j4Tajhvg0+A@mail.gmail.com>
+References: <CAP1=2W4oLvct470GT=0AgVEV5dLP190tpMXdbz-j4Tajhvg0+A@mail.gmail.com>
+Message-ID: <CAP1=2W7mjLhVjYtqzefXdyp7=zNKvaHnSZwFetxsGnAaFAW5XQ@mail.gmail.com>
+
+It finally worked, so it looks like this was a server hiccup that just
+happened to last a little while.
+
+On Sun, 9 Aug 2015 at 11:19 Brett Cannon <bcannon at gmail.com> wrote:
+
+> Anyone else seeing this?
+>
+>   pulling from ssh://hg at hg.python.org/cpython
+>   remote: ssh_exchange_identification: Connection closed by remote host
+>   abort: no suitable response from remote hg!
+>
+> My laptop is fairly new so I'm trying to eliminate any way it might be my
+> setup instead of the servers.
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150809/df80b18f/attachment.html>
+
+From nad at acm.org  Sun Aug  9 20:45:27 2015
+From: nad at acm.org (Ned Deily)
+Date: Sun, 9 Aug 2015 14:45:27 -0400
+Subject: [python-committers] Having issues updating a checkout
+In-Reply-To: <CAP1=2W4oLvct470GT=0AgVEV5dLP190tpMXdbz-j4Tajhvg0+A@mail.gmail.com>
+References: <CAP1=2W4oLvct470GT=0AgVEV5dLP190tpMXdbz-j4Tajhvg0+A@mail.gmail.com>
+Message-ID: <0C50FB25-AC35-4B9D-960C-BFB676450562@acm.org>
+
+> On Aug 9, 2015, at 14:19, Brett Cannon <bcannon at gmail.com> wrote:
+> 
+> Anyone else seeing this?
+> 
+>   pulling from ssh://hg at hg.python.org/cpython 
+>   remote: ssh_exchange_identification: Connection closed by remote host 
+>   abort: no suitable response from remote hg!
+> 
+> My laptop is fairly new so I'm trying to eliminate any way it might be my setup instead of the servers.
+
+You are not alone.  Both Steve Dower and I have seen similar problems within the last four hours or so; it appears to be intermittent.
+
+--
+  Ned Deily
+  nad at acm.org -- []
+
+
+
+From rdmurray at bitdance.com  Mon Aug 10 02:40:08 2015
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Sun, 09 Aug 2015 20:40:08 -0400
+Subject: [python-committers] Having issues updating a checkout
+In-Reply-To: <0C50FB25-AC35-4B9D-960C-BFB676450562@acm.org>
+References: <CAP1=2W4oLvct470GT=0AgVEV5dLP190tpMXdbz-j4Tajhvg0+A@mail.gmail.com>
+ <0C50FB25-AC35-4B9D-960C-BFB676450562@acm.org>
+Message-ID: <20150810004009.2C5A7250FD5@webabinitio.net>
+
+According to the infrastructure list/#python-infra, there is currently
+some instability in the load balancers.  That is probably the source of
+these errors.
+
+On Sun, 09 Aug 2015 14:45:27 -0400, Ned Deily <nad at acm.org> wrote:
+> > On Aug 9, 2015, at 14:19, Brett Cannon <bcannon at gmail.com> wrote:
+> > 
+> > Anyone else seeing this?
+> > 
+> >   pulling from ssh://hg at hg.python.org/cpython 
+> >   remote: ssh_exchange_identification: Connection closed by remote host 
+> >   abort: no suitable response from remote hg!
+> > 
+> > My laptop is fairly new so I'm trying to eliminate any way it might be my setup instead of the servers.
+> 
+> You are not alone.  Both Steve Dower and I have seen similar problems within the last four hours or so; it appears to be intermittent.
+> 
+> --
+>   Ned Deily
+>   nad at acm.org -- []
+> 
+> 
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+
+From larry at hastings.org  Mon Aug 10 10:05:40 2015
+From: larry at hastings.org (Larry Hastings)
+Date: Mon, 10 Aug 2015 01:05:40 -0700
+Subject: [python-committers] Python 3.5.0rc1 is delayed by a day
+Message-ID: <55C85B54.4020007@hastings.org>
+
+
+
+We retagged Python 3.5.0rc1 today to fix two bugs that popped up late in 
+the process.  Release candidates are supposed to be software you 
+genuinely would release, and I couldn't release Python with both those 
+bugs.  This delay rippled through the whole process, so it just isn't 
+going out tonight (late Sunday / early Monday in my timezone).  I have 
+every expectation it'll go out Monday.
+
+In case you're interested, the bugs are (were!):
+
+    http://bugs.python.org/issue24745
+    http://bugs.python.org/issue24835
+
+My thanks to the folks who stepped up and fixed the bugs on short 
+notice, and my apologies to the community for the delay.  We're just 
+trying to make the best Python we can, for yooooooooou!
+
+See you tomorrow,
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150810/48ff77f2/attachment-0001.html>
+
+From larry at hastings.org  Mon Aug 10 10:27:58 2015
+From: larry at hastings.org (Larry Hastings)
+Date: Mon, 10 Aug 2015 01:27:58 -0700
+Subject: [python-committers] Instructions on the new "push request" workflow
+ for 3.5.0rc1+ through 3.5.0 final
+Message-ID: <55C8608E.5020509@hastings.org>
+
+
+As of Python 3.5.0rc1, the canonical repository for Python 3.5.0 is
+*no longer* on hg.python.org.  Instead, it's hosted on Bitbucket on
+my personal account, here:
+
+     https://bitbucket.org/larry/cpython350
+
+Since 3.5.0rc1 isn't out yet I'm keeping the repository private for now.
+Once 3.5.0 rc1 is released (hopefully Monday) I'll flip the switch and make
+the repository public.  (I'll email python-dev and python-committers when
+that happens.)
+
+
+Putting it succinctly, here's a table of versions and where you'd check in
+for your change to go there:
+
+     3.5.0 : https://bitbucket.org/larry/cpython350 (branch "3.5")
+     3.5.1 : hg.python.org/cpython (branch "3.5")
+     3.6.0 : hg.python.org/cpython (branch "default")
+
+You'll notice nobody but myself has checkin permissions for my 3.5.0 repo on
+Bitbucket.  That's on purpose.  The only way you can get changes in to 3.5.0
+now is by sending me a Bitbucket "pull request".  This is a workflow
+experiment, to see if we as a community like this sort of new-fangled gizmo.
+
+For now, we're only using Bitbucket for the actual final checking-in stage.
+Requests for fixes to be accepted into 3.5.0 and code review will all still
+happen on the Python issue tracker.
+
+Also, I'm officially now asking you folks to do the forward-merge into 3.5.1
+and 3.6.0 yourselves.
+
+
+Here's how to get a fix checked in for 3.5.0, starting with 3.5.0rc1+ and
+continuing through until 3.5.0 final.
+
+Pre-requisites:
+   * You must have a Bitbucket account.
+   * You must have commit rights to the CPython repository.
+
+  1. Create an issue on the Python issue tracker for the problem.
+
+  2. Submit a patch that fixes the problem.
+
+  3. Add me to the issue and get me to agree that it needs fixing in 3.5.0.
+     (You can attempt this step before 2 if you prefer.)
+
+  4. Fork my repository into your Bitbucket account using their web GUI.
+     To do that, go to Bitbucket, log in, then go to my 3.5.0 repo:
+
+     https://bitbucket.org/larry/cpython350
+
+     and press the "Fork" link in the left column.  Bitbucket has a tutorial
+     on how to do this, here:
+
+https://confluence.atlassian.com/display/BITBUCKET/Fork+a+teammate%27s+repository
+
+     Note: DO NOT start with a conventional CPython trunk cloned from
+     hg.python.org.  The 3.5 branch in my repo and the 3.5 branch in normal
+     CPython trunk have intentionally diverged and *need* to stay 
+out-of-sync.
+
+  5. Make a local clone of your fork on your computer.
+
+     Bitbucket has a tutorial on how to do that, here:
+
+https://confluence.atlassian.com/display/BITBUCKET/Copy+your+Mercurial+repository+and+add+source+files
+
+     Reminder: switch to the 3.5 branch!
+
+  6. Apply your change to the 3.5 branch and check in.
+
+     Reminder: check in to the 3.5 branch!
+
+  7. Make sure you checked in your change to the 3.5 branch.
+
+     Reminder: Seriously.  I keep messing this up.  I say, the more 
+reminders,
+     the better.
+
+  8. Push your change back to *your* fork on *your* Bitbucket account.
+
+     Just normal "hg push" should work here.
+
+     In case it helps, I recommend using the "https" protocol for this 
+step, as
+     it sidesteps ssh authentication and prompts you for your Bitbucket 
+username
+     and password.
+
+  9. Create a pull request using Bitbucket's web GUI.
+
+     Bitbucket has a tutorial on how to create a pull request, here:
+
+https://confluence.atlassian.com/display/BITBUCKET/Create+a+pull+request
+
+     On the "Create pull request" web GUI, make sure that you specify
+     branch "3.5" for *both* your repo *and* my repo.  Also, make sure
+     you *don't* check the "Close 3.5 after the pull request is merged"
+     check box.
+
+     (If you use the "Compare" page, you also need to select "3.5" in both
+     drop-down lists--one for my repo, and one for yours.)
+
+10. Paste a link to the pull request into the issue tracker issue for this
+     change request.
+
+11. Wait for confirmation that I've accepted your pull request into the
+     3.5.0 repo.
+
+12. Pull your accepted change from your local Bitbucket fork repo into
+     a normal hg.cpython.org CPython repo, merge into 3.5, then merge
+     into 3.6, then push.
+
+
+For the record, here's what *my* workflow looks like when I accept your
+pull request:
+
+1. Click on the URL you pasted into the pull request.
+
+2. Visually check that the diff matches the approved diff in the issue
+    on the issue tracker.
+
+3. Click on the "Merge" button.
+
+
+Frequently Asked Questions
+==========================
+
+Q: What if someone sends me a "pull request" for a change that doesn't
+    merge cleanly?
+A: Then I'll decline it, and ask you on the issue tracker to rebase
+    and resubmit.
+
+Q: What if someone sends me a "pull request" but they don't have commit
+    rights to CPython?
+A: I'll ignore it.  I'll only pay attention to pull requests pasted into
+    the issue tracker by someone with commit rights.
+
+Q: Whose name goes on the commit?
+A: It gets the name the checkin was made with.  Don't worry, your name
+    will stay on your commit.
+
+Q: This seems like a lot more work than the old way.
+A: For you guys, yes.  But notice how little work it is for *me*! Seriously.
+
+Q: Can I reuse my fork / my local copy?  Or do I have to create
+    a fresh one each time?
+A: I don't care either way.  All I care about are clean pull requests.
+    If you're careful you should have no trouble reusing forks and local
+    checkouts.  If it were me, I'd probably use a fresh fork each time.
+    Forks are cheap and this way is cleaner.
+
+
+I'll add these instructions to the Python Dev Guide in the next day or two.
+
+
+/arry
+
+p.s. Remember to use the 3.5 branch!
+
+From bcannon at gmail.com  Tue Aug 11 00:38:37 2015
+From: bcannon at gmail.com (Brett Cannon)
+Date: Mon, 10 Aug 2015 22:38:37 +0000
+Subject: [python-committers] A possible solution to the Misc/NEWS merging
+	problem
+Message-ID: <CAP1=2W7=a+MPF50bwcDBTEEqu8r2OuZuqH_YrANUG4uN19mnAw@mail.gmail.com>
+
+We have all been there: you fix something in some maintenance branch, do
+your `hg pull` into the default branch, and everything *but* Misc/NEWS
+merges cleanly. You typically revert Misc/NEWS, commit your forward-ported
+change to default, and then move on with your life. It would be much easier
+if Misc/NEWS was never an issue.
+
+In preparation for choosing a workflow that allows us to do patch/PR
+merging through the browser, we have been thinking about this Misc/NEWS
+"problem". The solution we came up with was to put the changelog message in
+Roundup. The idea is that Roundup grows a changelog field to enter a
+changelog messge and a comma-separated list of commit revisions pertaining
+to the issue. We continue to do commit messages as we do, but when Roundup
+adds the commit message to the issue it will also append the revision
+number to the revision(s) field. Any relevant changelog entry for an issue
+will be added to the issue itself -- by hand to start, we can talk about
+automation later -- and not a file that could have merge conflicts. When it
+comes time to cut a release we will have a tool that will go through
+Roundup, collect all the relevant issues for the release, and create the
+changelog file based on what is in Roundup.
+
+This will buy us several things. One is no more merge conflicts for
+Misc/NEWS since it won't exist as-is (we might have the release manager
+check in a generated file per version, but that can be discussed later).
+Two is no more extra commits to add a missing changelog entry in Misc/NEWS
+since you just need to update the issue in Roundup instead. Three is it
+should lead to a more rich changelog as we will have the issue # and all
+related commits tied to the changelog message itself, so they can contain
+whatever backlinks we want in the changelog.
+
+The only potential downside is any change warranting a changelog entry will
+now also require an issue. Now I personally think -- and others on the
+core-workflow list seem to agree -- this is actually a good thing to help
+track changes that are made and tie all relevant information together from
+across the issue tracker and code repo. Basically if something is important
+enough to be listed in the changelog it should be important enough to have
+an issue tracking it (we could even require the changelog entry be filled
+in before you're allowed to set an issue to "fixed").
+
+The whole point of this email is to let everyone know that this is the plan
+and should be coming in a couple of months (I'm also hoping to make a
+decision about a new overall workflow by 2016, but I need to hear back from
+Donald first about whether the proposed timeline for a test instance will
+work for him). If you hate this idea so much that it will cause you to stop
+contributing to Python then let me know, otherwise I'm going to assume
+people are either happy with this approach or will begrudgingly accept it.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150810/f9c2065e/attachment.html>
+
+From brett at python.org  Tue Aug 11 02:19:52 2015
+From: brett at python.org (Brett Cannon)
+Date: Tue, 11 Aug 2015 00:19:52 +0000
+Subject: [python-committers] [Python-Dev] Instructions on the new "push
+ request" workflow for 3.5.0rc1+ through 3.5.0 final
+In-Reply-To: <55C8608E.5020509@hastings.org>
+References: <55C8608E.5020509@hastings.org>
+Message-ID: <CAP1=2W7_HxhkS2xbq3QSZ6-11JjJk9TKKxbPWXQTO9sWjFYaGA@mail.gmail.com>
+
+A quick hg tip for making sure you check out the right branch: end the URL
+on #3.5 and it will start the repo out with the 3.5 as the active branch.
+
+On Mon, Aug 10, 2015, 01:28 Larry Hastings <larry at hastings.org> wrote:
+
+>
+> As of Python 3.5.0rc1, the canonical repository for Python 3.5.0 is
+> *no longer* on hg.python.org.  Instead, it's hosted on Bitbucket on
+> my personal account, here:
+>
+>      https://bitbucket.org/larry/cpython350
+>
+> Since 3.5.0rc1 isn't out yet I'm keeping the repository private for now.
+> Once 3.5.0 rc1 is released (hopefully Monday) I'll flip the switch and make
+> the repository public.  (I'll email python-dev and python-committers when
+> that happens.)
+>
+>
+> Putting it succinctly, here's a table of versions and where you'd check in
+> for your change to go there:
+>
+>      3.5.0 : https://bitbucket.org/larry/cpython350 (branch "3.5")
+>      3.5.1 : hg.python.org/cpython (branch "3.5")
+>      3.6.0 : hg.python.org/cpython (branch "default")
+>
+> You'll notice nobody but myself has checkin permissions for my 3.5.0 repo
+> on
+> Bitbucket.  That's on purpose.  The only way you can get changes in to
+> 3.5.0
+> now is by sending me a Bitbucket "pull request".  This is a workflow
+> experiment, to see if we as a community like this sort of new-fangled
+> gizmo.
+>
+> For now, we're only using Bitbucket for the actual final checking-in stage.
+> Requests for fixes to be accepted into 3.5.0 and code review will all still
+> happen on the Python issue tracker.
+>
+> Also, I'm officially now asking you folks to do the forward-merge into
+> 3.5.1
+> and 3.6.0 yourselves.
+>
+>
+> Here's how to get a fix checked in for 3.5.0, starting with 3.5.0rc1+ and
+> continuing through until 3.5.0 final.
+>
+> Pre-requisites:
+>    * You must have a Bitbucket account.
+>    * You must have commit rights to the CPython repository.
+>
+>   1. Create an issue on the Python issue tracker for the problem.
+>
+>   2. Submit a patch that fixes the problem.
+>
+>   3. Add me to the issue and get me to agree that it needs fixing in 3.5.0.
+>      (You can attempt this step before 2 if you prefer.)
+>
+>   4. Fork my repository into your Bitbucket account using their web GUI.
+>      To do that, go to Bitbucket, log in, then go to my 3.5.0 repo:
+>
+>      https://bitbucket.org/larry/cpython350
+>
+>      and press the "Fork" link in the left column.  Bitbucket has a
+> tutorial
+>      on how to do this, here:
+>
+>
+> https://confluence.atlassian.com/display/BITBUCKET/Fork+a+teammate%27s+repository
+>
+>      Note: DO NOT start with a conventional CPython trunk cloned from
+>      hg.python.org.  The 3.5 branch in my repo and the 3.5 branch in
+> normal
+>      CPython trunk have intentionally diverged and *need* to stay
+> out-of-sync.
+>
+>   5. Make a local clone of your fork on your computer.
+>
+>      Bitbucket has a tutorial on how to do that, here:
+>
+>
+> https://confluence.atlassian.com/display/BITBUCKET/Copy+your+Mercurial+repository+and+add+source+files
+>
+>      Reminder: switch to the 3.5 branch!
+>
+>   6. Apply your change to the 3.5 branch and check in.
+>
+>      Reminder: check in to the 3.5 branch!
+>
+>   7. Make sure you checked in your change to the 3.5 branch.
+>
+>      Reminder: Seriously.  I keep messing this up.  I say, the more
+> reminders,
+>      the better.
+>
+>   8. Push your change back to *your* fork on *your* Bitbucket account.
+>
+>      Just normal "hg push" should work here.
+>
+>      In case it helps, I recommend using the "https" protocol for this
+> step, as
+>      it sidesteps ssh authentication and prompts you for your Bitbucket
+> username
+>      and password.
+>
+>   9. Create a pull request using Bitbucket's web GUI.
+>
+>      Bitbucket has a tutorial on how to create a pull request, here:
+>
+> https://confluence.atlassian.com/display/BITBUCKET/Create+a+pull+request
+>
+>      On the "Create pull request" web GUI, make sure that you specify
+>      branch "3.5" for *both* your repo *and* my repo.  Also, make sure
+>      you *don't* check the "Close 3.5 after the pull request is merged"
+>      check box.
+>
+>      (If you use the "Compare" page, you also need to select "3.5" in both
+>      drop-down lists--one for my repo, and one for yours.)
+>
+> 10. Paste a link to the pull request into the issue tracker issue for this
+>      change request.
+>
+> 11. Wait for confirmation that I've accepted your pull request into the
+>      3.5.0 repo.
+>
+> 12. Pull your accepted change from your local Bitbucket fork repo into
+>      a normal hg.cpython.org CPython repo, merge into 3.5, then merge
+>      into 3.6, then push.
+>
+>
+> For the record, here's what *my* workflow looks like when I accept your
+> pull request:
+>
+> 1. Click on the URL you pasted into the pull request.
+>
+> 2. Visually check that the diff matches the approved diff in the issue
+>     on the issue tracker.
+>
+> 3. Click on the "Merge" button.
+>
+>
+> Frequently Asked Questions
+> ==========================
+>
+> Q: What if someone sends me a "pull request" for a change that doesn't
+>     merge cleanly?
+> A: Then I'll decline it, and ask you on the issue tracker to rebase
+>     and resubmit.
+>
+> Q: What if someone sends me a "pull request" but they don't have commit
+>     rights to CPython?
+> A: I'll ignore it.  I'll only pay attention to pull requests pasted into
+>     the issue tracker by someone with commit rights.
+>
+> Q: Whose name goes on the commit?
+> A: It gets the name the checkin was made with.  Don't worry, your name
+>     will stay on your commit.
+>
+> Q: This seems like a lot more work than the old way.
+> A: For you guys, yes.  But notice how little work it is for *me*!
+> Seriously.
+>
+> Q: Can I reuse my fork / my local copy?  Or do I have to create
+>     a fresh one each time?
+> A: I don't care either way.  All I care about are clean pull requests.
+>     If you're careful you should have no trouble reusing forks and local
+>     checkouts.  If it were me, I'd probably use a fresh fork each time.
+>     Forks are cheap and this way is cleaner.
+>
+>
+> I'll add these instructions to the Python Dev Guide in the next day or two.
+>
+>
+> /arry
+>
+> p.s. Remember to use the 3.5 branch!
+> _______________________________________________
+> Python-Dev mailing list
+> Python-Dev at python.org
+> https://mail.python.org/mailman/listinfo/python-dev
+> Unsubscribe:
+> https://mail.python.org/mailman/options/python-dev/brett%40python.org
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150811/76cd290c/attachment-0001.html>
+
+From larry at hastings.org  Tue Aug 11 02:26:18 2015
+From: larry at hastings.org (Larry Hastings)
+Date: Mon, 10 Aug 2015 17:26:18 -0700
+Subject: [python-committers] [RELEASED] Python 3.5.0rc1 is now available
+Message-ID: <55C9412A.5030003@hastings.org>
+
+
+
+On behalf of the Python development community and the Python 3.5 release 
+team, I'm relieved to announce the availability of Python 3.5.0rc1, also 
+known as Python 3.5.0 Release Candidate 1.
+
+Python 3.5 has now entered "feature freeze".  By default new features 
+may no longer be added to Python 3.5.
+
+This is a preview release, and its use is not recommended for production 
+settings.
+
+
+You can find Python 3.5.0rc1 here:
+
+     https://www.python.org/downloads/release/python-350rc1/
+
+Windows and Mac users: please read the important platform-specific 
+"Notes on this release" section near the end of that page.
+
+
+Happy hacking,
+
+
+/arry
+
+
+From larry at hastings.org  Tue Aug 11 02:28:18 2015
+From: larry at hastings.org (Larry Hastings)
+Date: Mon, 10 Aug 2015 17:28:18 -0700
+Subject: [python-committers] Instructions on the new "push request"
+ workflow for 3.5.0rc1+ through 3.5.0 final
+In-Reply-To: <55C8608E.5020509@hastings.org>
+References: <55C8608E.5020509@hastings.org>
+Message-ID: <55C941A2.70100@hastings.org>
+
+
+On 08/10/2015 01:27 AM, Larry Hastings wrote:
+>
+> As of Python 3.5.0rc1, the canonical repository for Python 3.5.0 is
+> *no longer* on hg.python.org.  Instead, it's hosted on Bitbucket on
+> my personal account, here:
+>
+>     https://bitbucket.org/larry/cpython350
+>
+> Since 3.5.0rc1 isn't out yet I'm keeping the repository private for now.
+> Once 3.5.0 rc1 is released (hopefully Monday) I'll flip the switch and 
+> make
+> the repository public.  (I'll email python-dev and python-committers when
+> that happens.)
+
+Python 3.5.0rc1 just went live.  So, as promised, I've flipped the 
+switch--my "cpython350" repository is now public.
+
+En garde,
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150810/e36b4776/attachment.html>
+
+From larry at hastings.org  Tue Aug 11 02:55:40 2015
+From: larry at hastings.org (Larry Hastings)
+Date: Mon, 10 Aug 2015 17:55:40 -0700
+Subject: [python-committers] Sorry folks, minor hiccup for Python 3.5.0rc1
+Message-ID: <55C9480C.20409@hastings.org>
+
+
+
+I built the source tarballs with a slightly-out-of-date tree.  We 
+slipped the release by a day to get two fixes in, but the tree I built 
+from didn't have those two fixes.
+
+I yanked the tarballs off the release page as soon as I suspected 
+something.  I'm rebuilding the tarballs and the docs now.  If you 
+grabbed the tarball as soon as it appeared, it's slightly out of date, 
+please re-grab.
+
+Sorry for the palaver,
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150810/e0e53cab/attachment.html>
+
+From larry at hastings.org  Tue Aug 11 02:56:26 2015
+From: larry at hastings.org (Larry Hastings)
+Date: Mon, 10 Aug 2015 17:56:26 -0700
+Subject: [python-committers] Sorry folks,
+	minor hiccup for Python 3.5.0rc1
+In-Reply-To: <55C9480C.20409@hastings.org>
+References: <55C9480C.20409@hastings.org>
+Message-ID: <55C9483A.8010300@hastings.org>
+
+On 08/10/2015 05:55 PM, Larry Hastings wrote:
+> I yanked the tarballs off the release page as soon as I suspected 
+> something.  I'm rebuilding the tarballs and the docs now.  If you 
+> grabbed the tarball as soon as it appeared, it's slightly out of date, 
+> please re-grab.
+
+p.s. I should have mentioned--the Mac and Windows builds should be 
+fine.  They, unlike me, updated their tree ;-)
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150810/26adc279/attachment.html>
+
+From robertc at robertcollins.net  Tue Aug 11 04:58:45 2015
+From: robertc at robertcollins.net (Robert Collins)
+Date: Tue, 11 Aug 2015 14:58:45 +1200
+Subject: [python-committers] A possible solution to the Misc/NEWS
+	merging problem
+In-Reply-To: <CAP1=2W7=a+MPF50bwcDBTEEqu8r2OuZuqH_YrANUG4uN19mnAw@mail.gmail.com>
+References: <CAP1=2W7=a+MPF50bwcDBTEEqu8r2OuZuqH_YrANUG4uN19mnAw@mail.gmail.com>
+Message-ID: <CAJ3HoZ2FiqYNMn9SfW4M6WhSTyVDP7hRua6Z=KryNhhUwO5OxA@mail.gmail.com>
+
+On 11 August 2015 at 10:38, Brett Cannon <bcannon at gmail.com> wrote:
+> We have all been there: you fix something in some maintenance branch, do
+> your `hg pull` into the default branch, and everything but Misc/NEWS merges
+> cleanly. You typically revert Misc/NEWS, commit your forward-ported change
+> to default, and then move on with your life. It would be much easier if
+> Misc/NEWS was never an issue.
+...
+> The whole point of this email is to let everyone know that this is the plan
+> and should be coming in a couple of months (I'm also hoping to make a
+> decision about a new overall workflow by 2016, but I need to hear back from
+> Donald first about whether the proposed timeline for a test instance will
+> work for him). If you hate this idea so much that it will cause you to stop
+> contributing to Python then let me know, otherwise I'm going to assume
+> people are either happy with this approach or will begrudgingly accept it.
+
+Clearly I should join the core-workflow list.
+
+Has anyone put forward the 'standard' solution other projects use: to
+extract NEWS entries from commit logs?
+
+-Rob
+
+-- 
+Robert Collins <rbtcollins at hp.com>
+Distinguished Technologist
+HP Converged Cloud
+
+From rdmurray at bitdance.com  Tue Aug 11 16:19:31 2015
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Tue, 11 Aug 2015 10:19:31 -0400
+Subject: [python-committers] A possible solution to the Misc/NEWS
+	merging problem
+In-Reply-To: <CAJ3HoZ2FiqYNMn9SfW4M6WhSTyVDP7hRua6Z=KryNhhUwO5OxA@mail.gmail.com>
+References: <CAP1=2W7=a+MPF50bwcDBTEEqu8r2OuZuqH_YrANUG4uN19mnAw@mail.gmail.com>
+ <CAJ3HoZ2FiqYNMn9SfW4M6WhSTyVDP7hRua6Z=KryNhhUwO5OxA@mail.gmail.com>
+Message-ID: <20150811141931.90E61250FFA@webabinitio.net>
+
+On Tue, 11 Aug 2015 14:58:45 +1200, Robert Collins <robertc at robertcollins.net> wrote:
+> On 11 August 2015 at 10:38, Brett Cannon <bcannon at gmail.com> wrote:
+> > We have all been there: you fix something in some maintenance branch, do
+> > your `hg pull` into the default branch, and everything but Misc/NEWS merges
+> > cleanly. You typically revert Misc/NEWS, commit your forward-ported change
+> > to default, and then move on with your life. It would be much easier if
+> > Misc/NEWS was never an issue.
+> ...
+> > The whole point of this email is to let everyone know that this is the plan
+> > and should be coming in a couple of months (I'm also hoping to make a
+> > decision about a new overall workflow by 2016, but I need to hear back from
+> > Donald first about whether the proposed timeline for a test instance will
+> > work for him). If you hate this idea so much that it will cause you to stop
+> > contributing to Python then let me know, otherwise I'm going to assume
+> > people are either happy with this approach or will begrudgingly accept it.
+> 
+> Clearly I should join the core-workflow list.
+> 
+> Has anyone put forward the 'standard' solution other projects use: to
+> extract NEWS entries from commit logs?
+
+Yes, and we will doubtless allow for the tracker field to be populated
+from specially tagged commit message paragraphs.  But the commit log is
+*not* the NEWS file, and commit log entries cannot be edited, so the
+source for the NEWS file has to be somewhere else...thus the tracker
+fields.
+
+Note that IMO it should never be the case that a commit log entry is the
+*same* as a NEWS entry: the two serve different purposes and have
+different audiences.  The full commit message should be wordier.  But
+allowing committers to put a tagged paragraph in a commit message so they
+don't have to also update the tracker is a fine idea.
+
+--David
+
+From doko at ubuntu.com  Wed Aug 12 02:29:47 2015
+From: doko at ubuntu.com (Matthias Klose)
+Date: Wed, 12 Aug 2015 02:29:47 +0200
+Subject: [python-committers] [Python-Dev] Sorry folks,
+	minor hiccup for Python 3.5.0rc1
+In-Reply-To: <55C9483A.8010300@hastings.org>
+References: <55C9480C.20409@hastings.org> <55C9483A.8010300@hastings.org>
+Message-ID: <55CA937B.9050601@ubuntu.com>
+
+On 08/11/2015 02:56 AM, Larry Hastings wrote:
+> On 08/10/2015 05:55 PM, Larry Hastings wrote:
+>> I yanked the tarballs off the release page as soon as I suspected something. 
+>> I'm rebuilding the tarballs and the docs now.  If you grabbed the tarball as
+>> soon as it appeared, it's slightly out of date, please re-grab.
+> 
+> p.s. I should have mentioned--the Mac and Windows builds should be fine.  They,
+> unlike me, updated their tree ;-)
+
+didn't see any follow-up message. are the source tarballs now fixed?
+
+
+From larry at hastings.org  Wed Aug 12 08:01:54 2015
+From: larry at hastings.org (Larry Hastings)
+Date: Tue, 11 Aug 2015 23:01:54 -0700
+Subject: [python-committers] [Python-Dev] Sorry folks,
+	minor hiccup for Python 3.5.0rc1
+In-Reply-To: <55CA937B.9050601@ubuntu.com>
+References: <55C9480C.20409@hastings.org> <55C9483A.8010300@hastings.org>
+ <55CA937B.9050601@ubuntu.com>
+Message-ID: <55CAE152.7070108@hastings.org>
+
+On 08/11/2015 05:29 PM, Matthias Klose wrote:
+> On 08/11/2015 02:56 AM, Larry Hastings wrote:
+>> On 08/10/2015 05:55 PM, Larry Hastings wrote:
+>>> I yanked the tarballs off the release page as soon as I suspected something.
+>>> I'm rebuilding the tarballs and the docs now.  If you grabbed the tarball as
+>>> soon as it appeared, it's slightly out of date, please re-grab.
+>> p.s. I should have mentioned--the Mac and Windows builds should be fine.  They,
+>> unlike me, updated their tree ;-)
+> didn't see any follow-up message. are the source tarballs now fixed?
+>
+
+Yes.  I deleted the tarballs as soon as I detected a problem; I only 
+re-uploaded them once everything is correct.  They were fixed within an 
+hour if I remember correctly.  The correct .tgz has md5 sum 
+7ef9c440b863dc19a4c9fed55c3e9093, and the correct .tar.xz has md5 sum 
+984540f202abc9305435df321c91720c.
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150811/6009e42d/attachment.html>
+
+From Steve.Dower at microsoft.com  Wed Aug 12 18:03:39 2015
+From: Steve.Dower at microsoft.com (Steve Dower)
+Date: Wed, 12 Aug 2015 16:03:39 +0000
+Subject: [python-committers] [low-pri] Changing my email address
+Message-ID: <BLUPR0301MB165285F53605FDC8307864C6F57E0@BLUPR0301MB1652.namprd03.prod.outlook.com>
+
+Hi all
+
+Just a heads-up that I'll be switching to an alternate email address for all of my Python communications, due to what I'm sure are very sensible corporate security policies that nonetheless corrupt code snippets and URLs in my incoming email.
+
+I will henceforth be known as steve.dower at python.org (which is forwarding to python at stevedower.id.au, for the security conscious who will no doubt spot that address in headers).
+
+I can obviously still be reached at my old address, just don't send me URLs or text with full stops in it please :)
+
+Cheers,
+Steve
+
+
+From larry at hastings.org  Sun Aug 16 09:13:10 2015
+From: larry at hastings.org (Larry Hastings)
+Date: Sun, 16 Aug 2015 00:13:10 -0700
+Subject: [python-committers] How are we merging forward from the Bitbucket
+	3.5 repo?
+Message-ID: <55D03806.1020808@hastings.org>
+
+
+
+So far I've accepted two pull requests into 
+bitbucket.com/larry/cpython350 in the 3.5 branch, what will become 
+3.5.0rc2.  As usual, it's the contributor's responsibility to merge 
+forward; if their checkin goes in to 3.5, it's their responsibility to 
+also merge it into the hg.python.org/cpython 3.5 branch (which will be 
+3.5.1) and default branch (which right now is 3.6).
+
+But... what's the plan here?  I didn't outline anything specific, I just 
+assumed we'd do the normal thing, pulling from 3.5.0 into 3.5.1 and 
+merging.  But of the two pull requests so far accepted, one was merged 
+this way, though it cherry-picked the revision (skipping the pull 
+request merge revision Bitbucket created), and one was checked in to 
+3.5.1 directly (no merging).
+
+I suppose we can do whatever we like.  But it'd be helpful if we were 
+consistent.  I can suggest three approaches:
+
+ 1. After your push request is merged, you cherry-pick your revision
+    from bitbucket.com/larry/cpython350 into hg.python.org/cpython and
+    merge.  After 3.5.0 final is released I do a big null merge from
+    bitbucket.com/larry/cpython350 into hg.python.org/cpython.
+ 2. After your push request is merged, you manually check in a new
+    equivalent revision into hg.python.org/cpython in the 3.5 branch. 
+    No merging necessary because from Mercurial's perspective it's
+    unrelated to the revision I accepted.  After 3.5.0 final is released
+    I do a big null merge from bitbucket.com/larry/cpython350 into
+    hg.python.org/cpython.
+ 3. After your push request is merged, you pull from
+    bitbucket.com/larry/cpython350 into hg.python.org/cpython and merge
+    into 3.5.  In this version I don't have to do a final null merge!
+
+I'd prefer 3; that's what we normally do, and that's what I was 
+expecting.  So far people have done 1 and 2.
+
+Can we pick one approach and stick with it?  Pretty-please?
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150816/29402719/attachment.html>
+
+From guido at python.org  Sun Aug 16 16:08:03 2015
+From: guido at python.org (Guido van Rossum)
+Date: Sun, 16 Aug 2015 17:08:03 +0300
+Subject: [python-committers] How are we merging forward from the
+ Bitbucket 3.5 repo?
+In-Reply-To: <55D03806.1020808@hastings.org>
+References: <55D03806.1020808@hastings.org>
+Message-ID: <CAP7+vJ+vM-YD1oyU2xs-U4is7+grYEPVXkE06ZunSJTpi-GaQA@mail.gmail.com>
+
+I presume the issue here is that Hg is so complicated that everyone knows a
+different subset of the commands and semantics.
+
+I personally don't know what the commands for cherry-picking a revision
+would be.
+
+I also don't know exactly what happens when you merge a PR using bitbucket.
+(I'm only familiar with the GitHub PR flow, and I don't like its behavior,
+which seems to always create an extra merge revision for what I consider as
+logically a single commit.)
+
+BTW When I go to https://bitbucket.org/larry/cpython350 the first thing I
+see (in a very big bold font) is "This is Python version 3.6.0 alpha 1".
+What's going on here? It doesn't inspire confidence.
+
+On Sun, Aug 16, 2015 at 10:13 AM, Larry Hastings <larry at hastings.org> wrote:
+
+>
+>
+> So far I've accepted two pull requests into bitbucket.com/larry/cpython350
+> in the 3.5 branch, what will become 3.5.0rc2.  As usual, it's the
+> contributor's responsibility to merge forward; if their checkin goes in to
+> 3.5, it's their responsibility to also merge it into the
+> hg.python.org/cpython 3.5 branch (which will be 3.5.1) and default branch
+> (which right now is 3.6).
+>
+> But... what's the plan here?  I didn't outline anything specific, I just
+> assumed we'd do the normal thing, pulling from 3.5.0 into 3.5.1 and
+> merging.  But of the two pull requests so far accepted, one was merged this
+> way, though it cherry-picked the revision (skipping the pull request merge
+> revision Bitbucket created), and one was checked in to 3.5.1 directly (no
+> merging).
+>
+> I suppose we can do whatever we like.  But it'd be helpful if we were
+> consistent.  I can suggest three approaches:
+>
+>    1. After your push request is merged, you cherry-pick your revision
+>    from bitbucket.com/larry/cpython350 into hg.python.org/cpython and
+>    merge.  After 3.5.0 final is released I do a big null merge from
+>    bitbucket.com/larry/cpython350 into hg.python.org/cpython.
+>    2. After your push request is merged, you manually check in a new
+>    equivalent revision into hg.python.org/cpython in the 3.5 branch.  No
+>    merging necessary because from Mercurial's perspective it's unrelated to
+>    the revision I accepted.  After 3.5.0 final is released I do a big null
+>    merge from bitbucket.com/larry/cpython350 into hg.python.org/cpython.
+>    3. After your push request is merged, you pull from
+>    bitbucket.com/larry/cpython350 into hg.python.org/cpython and merge
+>    into 3.5.  In this version I don't have to do a final null merge!
+>
+> I'd prefer 3; that's what we normally do, and that's what I was
+> expecting.  So far people have done 1 and 2.
+>
+> Can we pick one approach and stick with it?  Pretty-please?
+>
+>
+> */arry*
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+>
+>
+
+
+-- 
+--Guido van Rossum (python.org/~guido)
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150816/33bd6bed/attachment.html>
+
+From mal at egenix.com  Sun Aug 16 16:36:10 2015
+From: mal at egenix.com (M.-A. Lemburg)
+Date: Sun, 16 Aug 2015 16:36:10 +0200
+Subject: [python-committers] How are we merging forward from the
+ Bitbucket 3.5 repo?
+In-Reply-To: <CAP7+vJ+vM-YD1oyU2xs-U4is7+grYEPVXkE06ZunSJTpi-GaQA@mail.gmail.com>
+References: <55D03806.1020808@hastings.org>
+ <CAP7+vJ+vM-YD1oyU2xs-U4is7+grYEPVXkE06ZunSJTpi-GaQA@mail.gmail.com>
+Message-ID: <55D09FDA.1050106@egenix.com>
+
+On 16.08.2015 16:08, Guido van Rossum wrote:
+> I presume the issue here is that Hg is so complicated that everyone knows a
+> different subset of the commands and semantics.
+> 
+> I personally don't know what the commands for cherry-picking a revision
+> would be.
+> 
+> I also don't know exactly what happens when you merge a PR using bitbucket.
+> (I'm only familiar with the GitHub PR flow, and I don't like its behavior,
+> which seems to always create an extra merge revision for what I consider as
+> logically a single commit.)
+> 
+> BTW When I go to https://bitbucket.org/larry/cpython350 the first thing I
+> see (in a very big bold font) is "This is Python version 3.6.0 alpha 1".
+> What's going on here? It doesn't inspire confidence.
+
+You are probably looking at the default branch within that repo fork.
+
+This is the 3.5 branch:
+
+https://bitbucket.org/larry/cpython350/branch/3.5
+
+> On Sun, Aug 16, 2015 at 10:13 AM, Larry Hastings <larry at hastings.org> wrote:
+> 
+>>
+>>
+>> So far I've accepted two pull requests into bitbucket.com/larry/cpython350
+>> in the 3.5 branch, what will become 3.5.0rc2.  As usual, it's the
+>> contributor's responsibility to merge forward; if their checkin goes in to
+>> 3.5, it's their responsibility to also merge it into the
+>> hg.python.org/cpython 3.5 branch (which will be 3.5.1) and default branch
+>> (which right now is 3.6).
+>>
+>> But... what's the plan here?  I didn't outline anything specific, I just
+>> assumed we'd do the normal thing, pulling from 3.5.0 into 3.5.1 and
+>> merging.  But of the two pull requests so far accepted, one was merged this
+>> way, though it cherry-picked the revision (skipping the pull request merge
+>> revision Bitbucket created), and one was checked in to 3.5.1 directly (no
+>> merging).
+>>
+>> I suppose we can do whatever we like.  But it'd be helpful if we were
+>> consistent.  I can suggest three approaches:
+>>
+>>    1. After your push request is merged, you cherry-pick your revision
+>>    from bitbucket.com/larry/cpython350 into hg.python.org/cpython and
+>>    merge.  After 3.5.0 final is released I do a big null merge from
+>>    bitbucket.com/larry/cpython350 into hg.python.org/cpython.
+>>    2. After your push request is merged, you manually check in a new
+>>    equivalent revision into hg.python.org/cpython in the 3.5 branch.  No
+>>    merging necessary because from Mercurial's perspective it's unrelated to
+>>    the revision I accepted.  After 3.5.0 final is released I do a big null
+>>    merge from bitbucket.com/larry/cpython350 into hg.python.org/cpython.
+>>    3. After your push request is merged, you pull from
+>>    bitbucket.com/larry/cpython350 into hg.python.org/cpython and merge
+>>    into 3.5.  In this version I don't have to do a final null merge!
+>>
+>> I'd prefer 3; that's what we normally do, and that's what I was
+>> expecting.  So far people have done 1 and 2.
+>>
+>> Can we pick one approach and stick with it?  Pretty-please?
+>>
+>>
+>> */arry*
+>>
+>> _______________________________________________
+>> python-committers mailing list
+>> python-committers at python.org
+>> https://mail.python.org/mailman/listinfo/python-committers
+>>
+>>
+> 
+> 
+> 
+> 
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> 
+
+-- 
+Marc-Andre Lemburg
+eGenix.com
+
+Professional Python Services directly from the Source  (#1, Aug 16 2015)
+>>> Python Projects, Coaching and Consulting ...  http://www.egenix.com/
+>>> mxODBC Plone/Zope Database Adapter ...       http://zope.egenix.com/
+>>> mxODBC, mxDateTime, mxTextTools ...        http://python.egenix.com/
+________________________________________________________________________
+2015-08-12: Released mxODBC 3.3.4 ...             http://egenix.com/go80
+2015-08-22: FrOSCon 2015 ...                                6 days to go
+
+::::: Try our mxODBC.Connect Python Database Interface for free ! ::::::
+
+   eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+    D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+           Registered at Amtsgericht Duesseldorf: HRB 46611
+               http://www.egenix.com/company/contact/
+
+From rdmurray at bitdance.com  Sun Aug 16 17:24:32 2015
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Sun, 16 Aug 2015 11:24:32 -0400
+Subject: [python-committers] [Python-Dev] How are we merging forward
+	from the Bitbucket 3.5 repo?
+In-Reply-To: <55D03806.1020808@hastings.org>
+References: <55D03806.1020808@hastings.org>
+Message-ID: <20150816152433.15812B14095@webabinitio.net>
+
+On Sun, 16 Aug 2015 00:13:10 -0700, Larry Hastings <larry at hastings.org> wrote:
+> 
+> 
+> So far I've accepted two pull requests into 
+> bitbucket.com/larry/cpython350 in the 3.5 branch, what will become 
+> 3.5.0rc2.  As usual, it's the contributor's responsibility to merge 
+> forward; if their checkin goes in to 3.5, it's their responsibility to 
+> also merge it into the hg.python.org/cpython 3.5 branch (which will be 
+> 3.5.1) and default branch (which right now is 3.6).
+> 
+> But... what's the plan here?  I didn't outline anything specific, I just 
+> assumed we'd do the normal thing, pulling from 3.5.0 into 3.5.1 and 
+> merging.  But of the two pull requests so far accepted, one was merged 
+> this way, though it cherry-picked the revision (skipping the pull 
+> request merge revision Bitbucket created), and one was checked in to 
+> 3.5.1 directly (no merging).
+> 
+> I suppose we can do whatever we like.  But it'd be helpful if we were 
+> consistent.  I can suggest three approaches:
+> 
+>  1. After your push request is merged, you cherry-pick your revision
+>     from bitbucket.com/larry/cpython350 into hg.python.org/cpython and
+>     merge.  After 3.5.0 final is released I do a big null merge from
+>     bitbucket.com/larry/cpython350 into hg.python.org/cpython.
+>  2. After your push request is merged, you manually check in a new
+>     equivalent revision into hg.python.org/cpython in the 3.5 branch. 
+>     No merging necessary because from Mercurial's perspective it's
+>     unrelated to the revision I accepted.  After 3.5.0 final is released
+>     I do a big null merge from bitbucket.com/larry/cpython350 into
+>     hg.python.org/cpython.
+>  3. After your push request is merged, you pull from
+>     bitbucket.com/larry/cpython350 into hg.python.org/cpython and merge
+>     into 3.5.  In this version I don't have to do a final null merge!
+> 
+> I'd prefer 3; that's what we normally do, and that's what I was 
+> expecting.  So far people have done 1 and 2.
+> 
+> Can we pick one approach and stick with it?  Pretty-please?
+
+Pick one Larry, you are the RM :)
+
+The reason you got different things was that how to do this was
+under-specified.  Which of course we didn't realize, this being a new
+procedure and all.
+
+That said, I'm still not sure how (3) works.  Can you give us a step by
+step like you did for creating the pull request?  Including how it
+relates to the workflow for the other branches?  (What I did was just do
+the thing I normally do, and then follow your instructions for creating
+a pull request using the same patch I had previously committed to 3.4.)
+
+--David
+
+From rdmurray at bitdance.com  Sun Aug 16 17:36:19 2015
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Sun, 16 Aug 2015 11:36:19 -0400
+Subject: [python-committers] [Python-Dev] How are we managing 3.5 NEWS?
+In-Reply-To: <55D03806.1020808@hastings.org>
+References: <55D03806.1020808@hastings.org>
+Message-ID: <20150816153619.5A5A0B14095@webabinitio.net>
+
+The 3.5.0 patch flow question also brings up the question of how we
+are managing NEWS for 3.5.0 vs 3.5.1.  We have some commits that
+are going in to both 3.5.0a2 and 3.5.1, and some that are only going
+in to 3.5.1.  Currently the 3.5.1 NEWS says things are going in to
+3.5.0a2, but that's obviously wrong.
+
+Do we relabel the section in 3.5.1 NEWS as 3.5.1a1?  That would leave us
+with the 3.5.1 NEWS never having the last alpha sections from 3.5.0,
+which is logical but might be confusing (or is that the way we've done
+it in the past?)  Do we leave it to the RM to sort out each individual
+patch when he merges 3.5.0 into the 3.5 branch?  That sounds like a lot
+of work, although if there are few enough patches that go into the
+alphas, it might not be too hard.
+
+Either way, that final 3.5.0 merge is going to require an edit of the
+NEWS file.
+
+Larry, how do you plan to handle this?
+
+--David
+
+PS: We'll also need an answer to this question for the proposed new
+NEWS workflow of putting the NEWS items in the tracker.  We'll probably
+need to introduce x.y.z versions into the tracker.
+
+From rdmurray at bitdance.com  Sun Aug 16 17:43:24 2015
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Sun, 16 Aug 2015 11:43:24 -0400
+Subject: [python-committers] [Python-Dev] How are we merging forward
+	from the Bitbucket 3.5 repo?
+In-Reply-To: <20150816152433.15812B14095@webabinitio.net>
+References: <55D03806.1020808@hastings.org>
+ <20150816152433.15812B14095@webabinitio.net>
+Message-ID: <20150816154324.8028AB14095@webabinitio.net>
+
+On Sun, 16 Aug 2015 11:24:32 -0400, "R. David Murray" <rdmurray at bitdance.com> wrote:
+> On Sun, 16 Aug 2015 00:13:10 -0700, Larry Hastings <larry at hastings.org> wrote:
+> >  3. After your push request is merged, you pull from
+> >     bitbucket.com/larry/cpython350 into hg.python.org/cpython and merge
+> >     into 3.5.  In this version I don't have to do a final null merge!
+> > 
+> > I'd prefer 3; that's what we normally do, and that's what I was 
+> > expecting.  So far people have done 1 and 2.
+
+Thinking about this some more I realize why I was confused.  My
+patch/pull request was something that got committed to 3.4.  In that
+case, to follow your 3 I'd have to leave 3.4 open until you merged the
+pull request, and that goes against our normal workflow.
+
+Maybe my patch will be the only exception...
+
+--David
+
+From tjreedy at udel.edu  Sun Aug 16 16:48:43 2015
+From: tjreedy at udel.edu (Terry Reedy)
+Date: Sun, 16 Aug 2015 10:48:43 -0400
+Subject: [python-committers] How are we merging forward from the
+ Bitbucket 3.5 repo?
+In-Reply-To: <55D03806.1020808@hastings.org>
+References: <55D03806.1020808@hastings.org>
+Message-ID: <55D0A2CB.7030403@udel.edu>
+
+On 8/16/2015 3:13 AM, Larry Hastings wrote:
+>
+>
+> So far I've accepted two pull requests into
+> bitbucket.com/larry/cpython350 in the 3.5 branch, what will become
+> 3.5.0rc2.  As usual, it's the contributor's responsibility to merge
+> forward; if their checkin goes in to 3.5, it's their responsibility to
+> also merge it into the hg.python.org/cpython 3.5 branch (which will be
+> 3.5.1) and default branch (which right now is 3.6).
+>
+> But... what's the plan here?  I didn't outline anything specific, I just
+> assumed we'd do the normal thing, pulling from 3.5.0 into 3.5.1 and
+> merging.  But of the two pull requests so far accepted, one was merged
+> this way, though it cherry-picked the revision (skipping the pull
+> request merge revision Bitbucket created), and one was checked in to
+> 3.5.1 directly (no merging).
+>
+> I suppose we can do whatever we like.  But it'd be helpful if we were
+> consistent.  I can suggest three approaches:
+>
+>  1. After your push request is merged, you cherry-pick your revision
+>     from bitbucket.com/larry/cpython350 into hg.python.org/cpython and
+>     merge.  After 3.5.0 final is released I do a big null merge from
+>     bitbucket.com/larry/cpython350 into hg.python.org/cpython.
+>  2. After your push request is merged, you manually check in a new
+>     equivalent revision into hg.python.org/cpython in the 3.5 branch.
+>     No merging necessary because from Mercurial's perspective it's
+>     unrelated to the revision I accepted.  After 3.5.0 final is released
+>     I do a big null merge from bitbucket.com/larry/cpython350 into
+>     hg.python.org/cpython.
+>  3. After your push request is merged, you pull from
+>     bitbucket.com/larry/cpython350 into hg.python.org/cpython and merge
+>     into 3.5.  In this version I don't have to do a final null merge!
+
+This does not work for bug fix that enters chain in 3.4.
+
+> I'd prefer 3; that's what we normally do, and that's what I was
+> expecting.  So far people have done 1 and 2.
+
+I though (normal) the approach was equivalent to 2 but in opposite 
+order, and with with release manager being the only one to touch the 
+release branch.  Do what would be done in any case, regardless of 
+release manager response: apply bug fix to 3.4 (if appropriate), merge 
+into 3.5.1 and 3.6.  Then request that it be pulled into the 3.5.0 side 
+branch, which gets null merged when released.  If request is denied, all 
+done anyway.  This is what I did for an Idle NEWS.txt change in 2.7.9. 
+Benjamin pulled into the 2.7.9 release branch.
+
+ > Can we pick one approach and stick with it?  Pretty-please?
+
+Its ultimately your choice, after reading responses.
+
+tjr
+
+
+From larry at hastings.org  Mon Aug 17 04:28:19 2015
+From: larry at hastings.org (Larry Hastings)
+Date: Sun, 16 Aug 2015 19:28:19 -0700
+Subject: [python-committers] How are we merging forward from the
+ Bitbucket 3.5 repo?
+In-Reply-To: <CAP7+vJ+vM-YD1oyU2xs-U4is7+grYEPVXkE06ZunSJTpi-GaQA@mail.gmail.com>
+References: <55D03806.1020808@hastings.org>
+ <CAP7+vJ+vM-YD1oyU2xs-U4is7+grYEPVXkE06ZunSJTpi-GaQA@mail.gmail.com>
+Message-ID: <55D146C3.9050509@hastings.org>
+
+On 08/16/2015 07:08 AM, Guido van Rossum wrote:
+> I presume the issue here is that Hg is so complicated that everyone 
+> knows a different subset of the commands and semantics.
+>
+> I personally don't know what the commands for cherry-picking a 
+> revision would be.
+
+There are a couple.  The command you'd want for this use case is 
+probably "hg transplant", because it lets you pull revisions from a 
+different repo.  Note that "transplant" is an extension; it's 
+distributed with Mercurial but is turned off by default. (Presumably 
+because it's an "unloved" feature, which seems to translate roughly to 
+"deprecated and only minimally supported".)
+
+The Mercurial team recommends "graft", and they also provide "rebase", 
+but neither of those can pull revisions from another repo.
+
+Since all revisions committed to 3.5.0 should be merged into 3.5.1 
+sooner or later, personally I don't see the *need* for cherry-picking.
+
+
+> I also don't know exactly what happens when you merge a PR using 
+> bitbucket. (I'm only familiar with the GitHub PR flow, and I don't 
+> like its behavior, which seems to always create an extra merge 
+> revision for what I consider as logically a single commit.)
+
+Bitbucket doesn't appear to create any extraneous merge revisions. Of 
+the two PRs I've accepted, only one created a merge, and that was sensible.
+
+
+> BTW When I go to https://bitbucket.org/larry/cpython350 the first 
+> thing I see (in a very big bold font) is "This is Python version 3.6.0 
+> alpha 1". What's going on here? It doesn't inspire confidence.
+
+It was displaying the readme from the default branch.  We use the 3.5 
+branch.
+
+I just went and looked, and there's a "default branch" option for the 
+repo on Bitbucket.  I changed it from "default" to "3.5" and now it 
+displays "This is Python version 3.5.0 release candidate 1". Hopefully 
+that inspires more confidence!
+
+/
+/arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150816/d19df0d1/attachment.html>
+
+From barry at python.org  Mon Aug 17 17:03:03 2015
+From: barry at python.org (Barry Warsaw)
+Date: Mon, 17 Aug 2015 11:03:03 -0400
+Subject: [python-committers] How are we merging forward from the
+ Bitbucket 3.5 repo?
+In-Reply-To: <55D03806.1020808@hastings.org>
+References: <55D03806.1020808@hastings.org>
+Message-ID: <20150817110303.1df37a36@anarchist.wooz.org>
+
+On Aug 16, 2015, at 12:13 AM, Larry Hastings wrote:
+
+>Can we pick one approach and stick with it?  Pretty-please?
+
+I agree with the "You're the RM, pick one" sentiment, but just want to add a
+plea for *documenting* whatever you choose, preferably under a big red blinky
+banner in the devguide. ;)   I can be a good monkey and follow directions, but
+I just don't want to have to dig through long threads on semi-public mailing
+lists to figure out which buttons to push.
+
+Cheers,
+-Barry
+
+From larry at hastings.org  Mon Aug 24 22:05:38 2015
+From: larry at hastings.org (Larry Hastings)
+Date: Mon, 24 Aug 2015 13:05:38 -0700
+Subject: [python-committers] [Python-Dev] How are we merging forward
+ from the Bitbucket 3.5 repo?
+In-Reply-To: <20150816152433.15812B14095@webabinitio.net>
+References: <55D03806.1020808@hastings.org>
+ <20150816152433.15812B14095@webabinitio.net>
+Message-ID: <55DB7912.8030905@hastings.org>
+
+On 08/16/2015 08:24 AM, R. David Murray wrote:
+> On Sun, 16 Aug 2015 00:13:10 -0700, Larry Hastings <larry at hastings.org> wrote:
+>> Can we pick one approach and stick with it?  Pretty-please?
+> Pick one Larry, you are the RM :)
+
+Okay.  Unsurprisingly, I pick what I called option 3 before.  It's 
+basically what we do now when checking in work to 
+earlier-version-branches, with the added complexity of the Bitbucket 
+repo.  I just tried it and it seems fine.
+
+> Can you give us a step by
+> step like you did for creating the pull request?  Including how it
+> relates to the workflow for the other branches?
+Also, on 08/17/2015 08:03 AM, Barry Warsaw wrote:
+> I agree with the "You're the RM, pick one" sentiment, but just want to add a
+> plea for *documenting* whatever you choose, preferably under a big red blinky
+> banner in the devguide. ;)   I can be a good monkey and follow directions, but
+> I just don't want to have to dig through long threads on semi-public mailing
+> lists to figure out which buttons to push.
+
+I'll post a message describing the workflow to these two newsgroups 
+(hopefully by today) and update the devguide (hopefully by tomorrow).  
+There's no rush as I haven't accepted any pull requests recently, though 
+I have a couple I should attend to.
+
+(For those waiting on a reply on pull requests, sit tight, I want to get 
+these workflow docs done first, that way you'll know what to do if/when 
+your pull request is accepted.)
+
+Thanks, everybody,
+
+
+//arry//
+
+/p.s. In case you're wondering, this RC period is way, way less stress 
+than 3.4 was.  Part of that is the workflow change, and part of it is 
+that there just isn't that much people are trying to get in this time.  
+In 3.4 I think I had 70 merge requests just from Victor for asyncio...!
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150824/835a91bc/attachment.html>
+
+From larry at hastings.org  Tue Aug 25 22:16:33 2015
+From: larry at hastings.org (Larry Hastings)
+Date: Tue, 25 Aug 2015 13:16:33 -0700
+Subject: [python-committers] [RELEASED] Python 3.5.0rc2 is now available
+Message-ID: <55DCCD21.4020308@hastings.org>
+
+
+
+On behalf of the Python development community and the Python 3.5 release 
+team, I'm relieved to announce the availability of Python 3.5.0rc2, also 
+known as Python 3.5.0 Release Candidate 2.
+
+Python 3.5 has now entered "feature freeze".  By default new features 
+may no longer be added to Python 3.5.
+
+This is a preview release, and its use is not recommended for production 
+settings.
+
+
+You can find Python 3.5.0rc2 here:
+
+     https://www.python.org/downloads/release/python-350rc2/
+
+Windows and Mac users: please read the important platform-specific 
+"Notes on this release" section near the end of that page.
+
+
+Happy hacking,
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150825/e85ea06d/attachment.html>
+
+From larry at hastings.org  Thu Aug 27 21:32:52 2015
+From: larry at hastings.org (Larry Hastings)
+Date: Thu, 27 Aug 2015 12:32:52 -0700
+Subject: [python-committers] How To Forward-Merge Your Change After Your
+ Pull Request Is Accepted Into Python 3.5.0rcX
+Message-ID: <55DF65E4.7060109@hastings.org>
+
+
+
+Now that we're in the "release candidate" phase of Python 3.5.0, the 
+workflow
+has changed a little.  We're trying an experiment using Bitbucket and pull
+requests.  You can read about that workflow, here:
+
+https://mail.python.org/pipermail/python-dev/2015-August/141167.html
+
+But the instructions for that workflow are pretty hazy on what you do after
+your pull request is accepted.  This message is an addendum to those
+instructions, describing exactly what you should do after your pull
+request is accepted.
+
+To save wear and tear on my hands (and your eyes), for the rest of these
+instructions, I'm going to refer to each place-you-can-check-things-in-to
+by version number as follows:
+
+         3.4   : hg.python.org/cpython (branch "3.4")
+         3.5.0 : https://bitbucket.org/larry/cpython350 (branch "3.5")
+         3.5.1 : hg.python.org/cpython (branch "3.5")
+         3.6   : hg.python.org/cpython (branch "default")
+
+With that nomenclature established I can now precisely say: when your pull
+request is accepted into 3.5.0, you need to merge from 3.5.0 into 3.5.1,
+and then from 3.5.1 into 3.6.
+
+Doing this is much like the existing workflow.   You use "hg merge" to merge
+your changes from previous versions into subsequent versions (what I call
+"forward merging").
+
+What complicates matters is the fact that the 3.5.0 release candidates don't
+live in the normal repo--they lives in a repo on Bitbucket which is only
+writeable by me.  In order to keep a tight lid on the changes checked in to
+the 3.5.0 release candidates, I won't pull revisions from the normal CPython
+repo.  (If I did, I'd also pull in changes intended for 3.5.1, and...
+it'd be a mess.)
+
+So here come the instructions.  They look long, but that's just because I go
+into a lot of detail to try and make them as foolproof as possible. They
+aren't really much longer or more complicated than the steps you already
+follow to perform forward-merges.
+
+Note that these are easy, guaranteed-clean instructions on how to 
+perform the
+merge.  Are there shortcuts you could take that might speed things up?  Yes.
+But I encourage you to skip those shortcuts and stick to my instructions.
+Working with multiple branches is complicated enough, and this external repo
+makes things even more complicated.  It's all too easy to make a mistake.
+
+
+HOW TO FORWARD-MERGE FROM 3.5.0 TO 3.5.1
+----------------------------------------
+
+
+  1: Wait until your pull request has been accepted.
+
+
+  2: Make a *clean* local clone of the CPython tree, updated to the "3.5"
+     branch.  In my instructions I'll call the clone "cpython351-merge":
+
+         % hg clone ssh://hg at hg.python.org/cpython -u 3.5 cpython351-merge
+
+         % cd cpython351-merge
+
+
+  3: Confirm that you're in the correct branch.  You should be in the
+     "3.5" branch.  Run this command:
+
+         % hg id
+
+     Let's assume that the current head in the "3.5" branch has changeset
+     ID "7890abcdef".  If that were true, the output of "hg id" would look
+     like this:
+
+         7890abcdef (3.5)
+
+     It might also say "tip" on the end, like this:
+
+         7890abcdef (3.5) tip
+
+     If it doesn't say "3.5", switch to the 3.5 branch:
+
+         % hg up -r 3.5
+
+     and repeat this step.
+
+
+  4: Pull from the 3.5.0 repo into your "cpython351-merge" directory.
+
+         % hg pull ssh://hg at bitbucket.org/larry/cpython350
+
+     You should now have two "heads" in the 3.5 branch; the existing head
+     you saw in the previous step, and the new head you just pulled in,
+     which should be the changeset from your pull request.
+
+
+  5: As an optional step: confirm you have the correct two heads.
+     This command will print a list of all the heads in the current repo:
+
+         % hg heads
+
+     Again, you should have exactly two identified as being on the "3.5"
+     branch; one should have the changeset ID shown by "hg id" in step 3,
+     the other should be your change from the pull request.
+
+
+  6: Merge the two heads together:
+
+         % hg merge
+
+     If there are merge conflicts, Mercurial will guide you through the
+     conflict resolution process as normal.
+
+
+  7: Make sure that all your changes merged properly and you didn't
+     merge anything else by accident.  I run these two commands:
+
+         % hg stat
+
+         % hg diff
+
+     and read all the output.
+
+
+  8: Make sure Misc/NEWS has your update in the right spot.  (See below.)
+
+
+  9: Check in.  The checkin comment should be something like
+
+         Merge from 3.5.0 to 3.5.1.
+
+
+10: Push your changes back into the main CPython repo.
+
+         % hg push
+
+
+11: Now forward-merge your change to 3.6 as normal, following the
+     CPython Dev Guide instructions:
+
+https://docs.python.org/devguide/committing.html#merging-between-different-branches-within-the-same-major-version
+
+
+FREQUENTLY ASKED QUESTIONS
+--------------------------
+
+
+Q: I screwed something up!  What do I do now?
+
+If you haven't pushed your changes out, it's no problem.  Just delete your
+repo and start over.
+
+If you *have* pushed your changes out, obviously we'll need to fix the
+mistake.  If you're not sure how to fix the problem, I suggest logging
+in to the #python-dev IRC channel and asking for help.
+
+
+Q: What do I need to do about Misc/NEWS?
+
+I'm glad you asked!
+
+First, you *must* put your Misc/NEWS update into the correct section.  If
+you're creating a pull request for Python 3.5.0 rc-something, put it in the
+3.5.0 rc-something section.  If you're checking in to 3.5.1, put it in the
+3.5.1 section.  If you're just checking into 3.6, put it in the 3.6.0 
+alpha 1
+section.
+
+Second, when you merge forward, make sure the merge tool puts your Misc/NEWS
+entry in the right section.  The merge tool I seem to use isn't particularly
+smart about this, so I've had to manually edit Misc/NEWS many times to fix
+it.  (When I released 3.5.0rc2, I had to do a lot of cleanup on Misc/NEWS,
+and again in the 3.5.1 branch, and again in 3.6.)  Every time you merge
+forward, make sure your Misc/NEWS entry is in the right spot.
+
+
+Q: What if a second pull request is accepted before I get around to doing
+the merge?
+
+Well, *someone* needs to merge, and they're going to have to merge *both*
+changes.  I can't come up with a good general policy here. Hopefully this
+won't happen often; for now let's just handle it on a case-by-case basis.
+
+
+Q: What if I have a bugfix for 3.4 that I want to ship with 3.5.0?
+
+You have to check in twice, and merge-forward twice.  First, check in to 
+3.4,
+then merge forward into 3.5.1 and 3.6.  Then, once your pull request is
+accepted into 3.5.0, do a "null merge" (a merge where no files are changed)
+from 3.5.0 into 3.5.1 and 3.6.
+
+
+Q: What if my pull request is turned down?
+
+If your bug fix isn't critical enough to merit shipping with 3.5.0, just 
+check
+it into the normal 3.5 branch on hg.python.org and it'll ship with 3.5.1.
+(And, naturally, forward-merge it into 3.6.)
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150827/4f45085f/attachment.html>
+
+From g.brandl at gmx.net  Thu Aug 27 22:36:38 2015
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Thu, 27 Aug 2015 22:36:38 +0200
+Subject: [python-committers] PSA: replace your DSA keys for SSH
+Message-ID: <mrnscr$oe9$1@ger.gmane.org>
+
+Hi all,
+
+newer OpenSSH versions (7.0+) default to not allowing ssh-dss keys for
+public key authentication.  If you experience "permission denied" errors,
+this (currently) comes from the client side only and hg.python.org will
+accept these keys if you enable them using the PubkeyAcceptedKeyTypes
+option in your SSH config file.
+
+Of course ssh-dss is being phased out for a reason; we'd like to invite
+everybody who has only DSA keys submitted for hg.python.org access to
+send an RSA (min. 1024 bits) or ED25519 key to hgaccounts at python.org.
+
+cheers,
+Georg
+
+
+From tjreedy at udel.edu  Thu Aug 27 22:34:21 2015
+From: tjreedy at udel.edu (Terry Reedy)
+Date: Thu, 27 Aug 2015 16:34:21 -0400
+Subject: [python-committers] How To Forward-Merge Your Change After Your
+ Pull Request Is Accepted Into Python 3.5.0rcX
+In-Reply-To: <55DF65E4.7060109@hastings.org>
+References: <55DF65E4.7060109@hastings.org>
+Message-ID: <55DF744D.8020104@udel.edu>
+
+On 8/27/2015 3:32 PM, Larry Hastings wrote:
+>
+>
+> Now that we're in the "release candidate" phase of Python 3.5.0, the
+> workflow
+> has changed a little.  We're trying an experiment using Bitbucket and pull
+> requests.  You can read about that workflow, here:
+>
+> https://mail.python.org/pipermail/python-dev/2015-August/141167.html
+>
+> But the instructions for that workflow are pretty hazy on what you do after
+> your pull request is accepted.  This message is an addendum to those
+> instructions, describing exactly what you should do after your pull
+> request is accepted.
+>
+> To save wear and tear on my hands (and your eyes), for the rest of these
+> instructions, I'm going to refer to each place-you-can-check-things-in-to
+> by version number as follows:
+>
+>          3.4   : hg.python.org/cpython (branch "3.4")
+>          3.5.0 : https://bitbucket.org/larry/cpython350 (branch "3.5")
+>          3.5.1 : hg.python.org/cpython (branch "3.5")
+>          3.6   : hg.python.org/cpython (branch "default")
+>
+> With that nomenclature established I can now precisely say: when your pull
+> request is accepted into 3.5.0, you need to merge from 3.5.0 into 3.5.1,
+> and then from 3.5.1 into 3.6.
+
+> Doing this is much like the existing workflow.   You use "hg merge" to merge
+> your changes from previous versions into subsequent versions (what I call
+> "forward merging").
+>
+> What complicates matters is the fact that the 3.5.0 release candidates don't
+> live in the normal repo--they lives in a repo on Bitbucket which is only
+> writeable by me.  In order to keep a tight lid on the changes checked in to
+> the 3.5.0 release candidates, I won't pull revisions from the normal CPython
+> repo.  (If I did, I'd also pull in changes intended for 3.5.1, and...
+> it'd be a mess.)
+>
+> So here come the instructions.  They look long, but that's just because I go
+> into a lot of detail to try and make them as foolproof as possible. They
+> aren't really much longer or more complicated than the steps you already
+> follow to perform forward-merges.
+>
+> Note that these are easy, guaranteed-clean instructions on how to
+> perform the
+> merge.  Are there shortcuts you could take that might speed things up?  Yes.
+> But I encourage you to skip those shortcuts and stick to my instructions.
+> Working with multiple branches is complicated enough, and this external repo
+> makes things even more complicated.  It's all too easy to make a mistake.
+>
+>
+> HOW TO FORWARD-MERGE FROM 3.5.0 TO 3.5.1
+> ----------------------------------------
+>
+>
+>   1: Wait until your pull request has been accepted.
+>
+>
+>   2: Make a *clean* local clone of the CPython tree, updated to the "3.5"
+>      branch.  In my instructions I'll call the clone "cpython351-merge":
+>
+>          % hg clone ssh://hg at hg.python.org/cpython -u 3.5 cpython351-merge
+>
+>          % cd cpython351-merge
+
+I am going to be making a pull request.  I presume that making a copy of 
+my current master clone, freshly updated by a pull, should work just as 
+well.
+
+>   3: Confirm that you're in the correct branch.  You should be in the
+>      "3.5" branch.  Run this command:
+>
+>          % hg id
+>
+>      Let's assume that the current head in the "3.5" branch has changeset
+>      ID "7890abcdef".  If that were true, the output of "hg id" would look
+>      like this:
+>
+>          7890abcdef (3.5)
+>
+>      It might also say "tip" on the end, like this:
+>
+>          7890abcdef (3.5) tip
+>
+>      If it doesn't say "3.5", switch to the 3.5 branch:
+>
+>          % hg up -r 3.5
+>
+>      and repeat this step.
+>
+>
+>   4: Pull from the 3.5.0 repo into your "cpython351-merge" directory.
+>
+>          % hg pull ssh://hg at bitbucket.org/larry/cpython350
+>
+>      You should now have two "heads" in the 3.5 branch; the existing head
+>      you saw in the previous step, and the new head you just pulled in,
+>      which should be the changeset from your pull request.
+>
+>
+>   5: As an optional step: confirm you have the correct two heads.
+>      This command will print a list of all the heads in the current repo:
+>
+>          % hg heads
+>
+>      Again, you should have exactly two identified as being on the "3.5"
+>      branch; one should have the changeset ID shown by "hg id" in step 3,
+>      the other should be your change from the pull request.
+>
+>
+>   6: Merge the two heads together:
+>
+>          % hg merge
+>
+>      If there are merge conflicts, Mercurial will guide you through the
+>      conflict resolution process as normal.
+>
+>
+>   7: Make sure that all your changes merged properly and you didn't
+>      merge anything else by accident.  I run these two commands:
+>
+>          % hg stat
+>
+>          % hg diff
+>
+>      and read all the output.
+>
+>
+>   8: Make sure Misc/NEWS has your update in the right spot.  (See below.)
+
+After all the steps above, which will take some time, refreshing the 
+cpython351-merge clone would be a good idea, to minimize the chance of 
+losing a push race.
+
+hg pull ssh://hg at hg.python.org/cpython
+
+
+>   9: Check in.  The checkin comment should be something like
+>
+>          Merge from 3.5.0 to 3.5.1.
+>
+>
+> 10: Push your changes back into the main CPython repo.
+>
+>          % hg push
+
+I was under that impression that I should not push commits before 
+merging forward, but I gather that this is actually ok as long as one 
+quickly follows with a separate merge and push.
+
+> 11: Now forward-merge your change to 3.6 as normal, following the
+>      CPython Dev Guide instructions:
+>
+> https://docs.python.org/devguide/committing.html#merging-between-different-branches-within-the-same-major-version
+
+I presume this means first switching back to my normal 3.6 clone and 
+pulling to get the 3.5 merge
+
+
+> FREQUENTLY ASKED QUESTIONS
+> --------------------------
+>
+>
+> Q: I screwed something up!  What do I do now?
+>
+> If you haven't pushed your changes out, it's no problem.  Just delete your
+> repo and start over.
+>
+> If you *have* pushed your changes out, obviously we'll need to fix the
+> mistake.  If you're not sure how to fix the problem, I suggest logging
+> in to the #python-dev IRC channel and asking for help.
+>
+>
+> Q: What do I need to do about Misc/NEWS?
+>
+> I'm glad you asked!
+>
+> First, you *must* put your Misc/NEWS update into the correct section.  If
+> you're creating a pull request for Python 3.5.0 rc-something, put it in the
+> 3.5.0 rc-something section.  If you're checking in to 3.5.1, put it in the
+> 3.5.1 section.  If you're just checking into 3.6, put it in the 3.6.0
+> alpha 1
+> section.
+>
+> Second, when you merge forward, make sure the merge tool puts your Misc/NEWS
+> entry in the right section.  The merge tool I seem to use isn't particularly
+> smart about this, so I've had to manually edit Misc/NEWS many times to fix
+> it.  (When I released 3.5.0rc2, I had to do a lot of cleanup on Misc/NEWS,
+> and again in the 3.5.1 branch, and again in 3.6.)  Every time you merge
+> forward, make sure your Misc/NEWS entry is in the right spot.
+>
+>
+> Q: What if a second pull request is accepted before I get around to doing
+> the merge?
+>
+> Well, *someone* needs to merge, and they're going to have to merge *both*
+> changes.  I can't come up with a good general policy here. Hopefully this
+> won't happen often; for now let's just handle it on a case-by-case basis.
+
+If a patch is a 3.4 bugfix to be null-merged (as below), you could say 
+that in the commit message in case you accept another request before the 
+null merge is taken care of.
+
+> Q: What if I have a bugfix for 3.4 that I want to ship with 3.5.0?
+>
+> You have to check in twice, and merge-forward twice.  First, check in to
+> 3.4,
+> then merge forward into 3.5.1 and 3.6.  Then, once your pull request is
+> accepted into 3.5.0, do a "null merge" (a merge where no files are changed)
+> from 3.5.0 into 3.5.1 and 3.6.
+
+> Q: What if my pull request is turned down?
+>
+> If your bug fix isn't critical enough to merit shipping with 3.5.0, just
+> check
+> it into the normal 3.5 branch on hg.python.org and it'll ship with 3.5.1.
+> (And, naturally, forward-merge it into 3.6.)
+
+
+From donald at stufft.io  Fri Aug 28 01:36:59 2015
+From: donald at stufft.io (Donald Stufft)
+Date: Thu, 27 Aug 2015 19:36:59 -0400
+Subject: [python-committers] PSA: replace your DSA keys for SSH
+In-Reply-To: <mrnscr$oe9$1@ger.gmane.org>
+References: <mrnscr$oe9$1@ger.gmane.org>
+Message-ID: <etPan.55df9f1b.312457d1.103bf@Draupnir.home>
+
+On August 27, 2015 at 4:37:21 PM, Georg Brandl (g.brandl at gmx.net) wrote:
+> Hi all,
+>  
+> newer OpenSSH versions (7.0+) default to not allowing ssh-dss keys for
+> public key authentication. If you experience "permission denied" errors,
+> this (currently) comes from the client side only and hg.python.org will
+> accept these keys if you enable them using the PubkeyAcceptedKeyTypes
+> option in your SSH config file.
+>  
+> Of course ssh-dss is being phased out for a reason; we'd like to invite
+> everybody who has only DSA keys submitted for hg.python.org access to
+> send an RSA (min. 1024 bits) or ED25519 key to hgaccounts at python.org.
+>  
+>
+
+Can we bump up the minimum on RSA keys? 1024 isn?t really enough anymore, ideally they?d be at least 4096 but 2048 is also OK.
+
+-----------------
+Donald Stufft
+PGP: 0x6E3CBCE93372DCFA // 7C6B 7C5D 5E2B 6356 A926 F04F 6E3C BCE9 3372 DCFA
+
+
+
+From benjamin at python.org  Fri Aug 28 05:30:19 2015
+From: benjamin at python.org (Benjamin Peterson)
+Date: Thu, 27 Aug 2015 20:30:19 -0700
+Subject: [python-committers] PSA: replace your DSA keys for SSH
+In-Reply-To: <etPan.55df9f1b.312457d1.103bf@Draupnir.home>
+References: <mrnscr$oe9$1@ger.gmane.org>
+ <etPan.55df9f1b.312457d1.103bf@Draupnir.home>
+Message-ID: <1440732619.1105321.368197673.3010F07C@webmail.messagingengine.com>
+
+
+
+On Thu, Aug 27, 2015, at 16:36, Donald Stufft wrote:
+> On August 27, 2015 at 4:37:21 PM, Georg Brandl (g.brandl at gmx.net) wrote:
+> > Hi all,
+> >  
+> > newer OpenSSH versions (7.0+) default to not allowing ssh-dss keys for
+> > public key authentication. If you experience "permission denied" errors,
+> > this (currently) comes from the client side only and hg.python.org will
+> > accept these keys if you enable them using the PubkeyAcceptedKeyTypes
+> > option in your SSH config file.
+> >  
+> > Of course ssh-dss is being phased out for a reason; we'd like to invite
+> > everybody who has only DSA keys submitted for hg.python.org access to
+> > send an RSA (min. 1024 bits) or ED25519 key to hgaccounts at python.org.
+> >  
+> >
+> 
+> Can we bump up the minimum on RSA keys? 1024 isn?t really enough anymore,
+> ideally they?d be at least 4096 but 2048 is also OK.
+
+Even better: send a ed25519 key as documented in the devguide.
+

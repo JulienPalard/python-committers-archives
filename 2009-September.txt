@@ -1,0 +1,1005 @@
+From doko at debian.org  Sun Sep 13 17:54:27 2009
+From: doko at debian.org (Matthias Klose)
+Date: Sun, 13 Sep 2009 17:54:27 +0200
+Subject: [python-committers] Misc/NEWS entries added to released versions
+In-Reply-To: <49D9319F.1050506@debian.org>
+References: <49D9319F.1050506@debian.org>
+Message-ID: <4AAD15B3.8080504@debian.org>
+
+On 06.04.2009 00:33, Matthias Klose wrote:
+> While looking at the diffs between the 261 release tags and the 26 branch, I
+> noticed many items in Misc/NEWS appearing in the 2.6.1 or even 2.6 sections.
+> I moved all of these to 2.6.2, after checking some of them, and found all of the
+> checked ones be backported after the 2.6.1 release. Is there anything what could
+> be done to avoid these wrong merges?
+>
+> I plan to check the items on the 3.0 branch soon.
+
+done again for the 2.6.3 (2.6 branch) and 3.1.2 (3.1 branch) entries. I didn't 
+check if these were inserted to earlier entries by intent except for the removal 
+of the entry for issue #2522.
+
+   Matthias
+
+From greg at krypto.org  Sun Sep 13 18:07:40 2009
+From: greg at krypto.org (Gregory P. Smith)
+Date: Sun, 13 Sep 2009 09:07:40 -0700
+Subject: [python-committers] Misc/NEWS entries added to released versions
+In-Reply-To: <4AAD15B3.8080504@debian.org>
+References: <49D9319F.1050506@debian.org> <4AAD15B3.8080504@debian.org>
+Message-ID: <52dc1c820909130907h46de056cp9fd27e45ccf0c038@mail.gmail.com>
+
+On Sun, Sep 13, 2009 at 8:54 AM, Matthias Klose <doko at debian.org> wrote:
+> On 06.04.2009 00:33, Matthias Klose wrote:
+>>
+>> While looking at the diffs between the 261 release tags and the 26 branch,
+>> I
+>> noticed many items in Misc/NEWS appearing in the 2.6.1 or even 2.6
+>> sections.
+>> I moved all of these to 2.6.2, after checking some of them, and found all
+>> of the
+>> checked ones be backported after the 2.6.1 release. Is there anything what
+>> could
+>> be done to avoid these wrong merges?
+>>
+>> I plan to check the items on the 3.0 branch soon.
+>
+> done again for the 2.6.3 (2.6 branch) and 3.1.2 (3.1 branch) entries. I
+> didn't check if these were inserted to earlier entries by intent except for
+> the removal of the entry for issue #2522.
+>
+> ?Matthias
+
+Thanks.  One reason this happens is that our NEWS file is very
+difficult to navigate.  svnmerge rarely works on it because the
+context is often different in the branch file but figuring out which
+version's section of the bazillion line file you are currently in is
+very tedious in a text editor.
+
+brainstorm:
+
+It'd be nicer if we could generate the file from another source,
+perhaps keep each releases news in its own file and merge it all
+together at release time?
+
+Or have a NEWS.latest file that contains only updates since the
+previous release (part of making a release would be to prepend
+NEWS.latest to the NEWS file and truncate NEWS.latest)?
+
+From brett at python.org  Sun Sep 13 22:15:54 2009
+From: brett at python.org (Brett Cannon)
+Date: Sun, 13 Sep 2009 13:15:54 -0700
+Subject: [python-committers] Misc/NEWS entries added to released versions
+In-Reply-To: <52dc1c820909130907h46de056cp9fd27e45ccf0c038@mail.gmail.com>
+References: <49D9319F.1050506@debian.org> <4AAD15B3.8080504@debian.org> 
+	<52dc1c820909130907h46de056cp9fd27e45ccf0c038@mail.gmail.com>
+Message-ID: <bbaeab100909131315k357a816sa4000d845833e999@mail.gmail.com>
+
+On Sun, Sep 13, 2009 at 09:07, Gregory P. Smith <greg at krypto.org> wrote:
+> On Sun, Sep 13, 2009 at 8:54 AM, Matthias Klose <doko at debian.org> wrote:
+>> On 06.04.2009 00:33, Matthias Klose wrote:
+>>>
+>>> While looking at the diffs between the 261 release tags and the 26 branch,
+>>> I
+>>> noticed many items in Misc/NEWS appearing in the 2.6.1 or even 2.6
+>>> sections.
+>>> I moved all of these to 2.6.2, after checking some of them, and found all
+>>> of the
+>>> checked ones be backported after the 2.6.1 release. Is there anything what
+>>> could
+>>> be done to avoid these wrong merges?
+>>>
+>>> I plan to check the items on the 3.0 branch soon.
+>>
+>> done again for the 2.6.3 (2.6 branch) and 3.1.2 (3.1 branch) entries. I
+>> didn't check if these were inserted to earlier entries by intent except for
+>> the removal of the entry for issue #2522.
+>>
+>> ?Matthias
+>
+> Thanks. ?One reason this happens is that our NEWS file is very
+> difficult to navigate. ?svnmerge rarely works on it because the
+> context is often different in the branch file but figuring out which
+> version's section of the bazillion line file you are currently in is
+> very tedious in a text editor.
+>
+> brainstorm:
+>
+> It'd be nicer if we could generate the file from another source,
+> perhaps keep each releases news in its own file and merge it all
+> together at release time?
+>
+> Or have a NEWS.latest file that contains only updates since the
+> previous release (part of making a release would be to prepend
+> NEWS.latest to the NEWS file and truncate NEWS.latest)?
+
+Or simply take the first line of each commit? I mean why do we enter
+it twice? If we have a commit that is unimportant we could come up
+with some convention to make it as such or simply have the comment
+start with a blank line.
+
+-Brett
+
+From solipsis at pitrou.net  Sun Sep 13 22:26:21 2009
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Sun, 13 Sep 2009 22:26:21 +0200
+Subject: [python-committers] Misc/NEWS entries added to released versions
+In-Reply-To: <bbaeab100909131315k357a816sa4000d845833e999@mail.gmail.com>
+References: <49D9319F.1050506@debian.org> <4AAD15B3.8080504@debian.org>
+	<52dc1c820909130907h46de056cp9fd27e45ccf0c038@mail.gmail.com>
+	<bbaeab100909131315k357a816sa4000d845833e999@mail.gmail.com>
+Message-ID: <1252873581.5630.51.camel@localhost>
+
+Le dimanche 13 septembre 2009 ? 13:15 -0700, Brett Cannon a ?crit :
+> 
+> Or simply take the first line of each commit? I mean why do we enter
+> it twice? If we have a commit that is unimportant we could come up
+> with some convention to make it as such or simply have the comment
+> start with a blank line.
+
+The NEWS file is often more carefully, or differently, worded than
+commit messages are.
+Trying to generate it automatically would probably involve some a
+posteriori maintenance, and I doubt it's really worth it (at worse, you
+save a copy / paste in the cases where the commit message is perfectly
+adequate as a NEWS entry).
+
+
+
+From rdmurray at bitdance.com  Sun Sep 13 22:24:44 2009
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Sun, 13 Sep 2009 16:24:44 -0400 (EDT)
+Subject: [python-committers] Misc/NEWS entries added to released versions
+In-Reply-To: <bbaeab100909131315k357a816sa4000d845833e999@mail.gmail.com>
+References: <49D9319F.1050506@debian.org> <4AAD15B3.8080504@debian.org> 
+	<52dc1c820909130907h46de056cp9fd27e45ccf0c038@mail.gmail.com>
+	<bbaeab100909131315k357a816sa4000d845833e999@mail.gmail.com>
+Message-ID: <Pine.LNX.4.64.0909131621010.6303@kimball.webabinitio.net>
+
+On Sun, 13 Sep 2009 at 13:15, Brett Cannon wrote:
+> On Sun, Sep 13, 2009 at 09:07, Gregory P. Smith <greg at krypto.org> wrote:
+>> Thanks. ??One reason this happens is that our NEWS file is very
+>> difficult to navigate. ??svnmerge rarely works on it because the
+>> context is often different in the branch file but figuring out which
+>> version's section of the bazillion line file you are currently in is
+>> very tedious in a text editor.
+>>
+>> brainstorm:
+>>
+>> It'd be nicer if we could generate the file from another source,
+>> perhaps keep each releases news in its own file and merge it all
+>> together at release time?
+>>
+>> Or have a NEWS.latest file that contains only updates since the
+>> previous release (part of making a release would be to prepend
+>> NEWS.latest to the NEWS file and truncate NEWS.latest)?
+>
+> Or simply take the first line of each commit? I mean why do we enter
+> it twice? If we have a commit that is unimportant we could come up
+> with some convention to make it as such or simply have the comment
+> start with a blank line.
+
+I think it is often good to put more information into the commit message
+than should go into the NEWS entry.  But having a way to mark up the
+NEWS entry inside the commit message might work.
+
+We'd need a volunteer to implement it, though :)
+
+--David
+
+From brett at python.org  Sun Sep 13 22:26:12 2009
+From: brett at python.org (Brett Cannon)
+Date: Sun, 13 Sep 2009 13:26:12 -0700
+Subject: [python-committers] Adding a hidden field to BaseException going to
+	break the ABI?
+Message-ID: <bbaeab100909131326o9079fa1qf20f24c8f2ff3422@mail.gmail.com>
+
+issue6844 wants to stop a warning from being raised when someone
+accesses a 'message' attribute on an exception when it is set by the
+user (currently any usage of the 'message' attribute raises a
+warning). To do this properly is going to require some state flag on
+BaseException's struct. But I don't know if that constitutes breaking
+the ABI during a micro release or not. I figure no but I wanted to
+double-check.
+
+-Brett
+
+From brett at python.org  Sun Sep 13 22:27:58 2009
+From: brett at python.org (Brett Cannon)
+Date: Sun, 13 Sep 2009 13:27:58 -0700
+Subject: [python-committers] Misc/NEWS entries added to released versions
+In-Reply-To: <1252873581.5630.51.camel@localhost>
+References: <49D9319F.1050506@debian.org> <4AAD15B3.8080504@debian.org> 
+	<52dc1c820909130907h46de056cp9fd27e45ccf0c038@mail.gmail.com> 
+	<bbaeab100909131315k357a816sa4000d845833e999@mail.gmail.com> 
+	<1252873581.5630.51.camel@localhost>
+Message-ID: <bbaeab100909131327r102d5b21k6deabcf974adeb76@mail.gmail.com>
+
+On Sun, Sep 13, 2009 at 13:26, Antoine Pitrou <solipsis at pitrou.net> wrote:
+> Le dimanche 13 septembre 2009 ? 13:15 -0700, Brett Cannon a ?crit :
+>>
+>> Or simply take the first line of each commit? I mean why do we enter
+>> it twice? If we have a commit that is unimportant we could come up
+>> with some convention to make it as such or simply have the comment
+>> start with a blank line.
+>
+> The NEWS file is often more carefully, or differently, worded than
+> commit messages are.
+
+Right, which is why only the first line would be used. All the other
+usual detail can be there, just do it on another line.
+
+> Trying to generate it automatically would probably involve some a
+> posteriori maintenance, and I doubt it's really worth it (at worse, you
+> save a copy / paste in the cases where the commit message is perfectly
+> adequate as a NEWS entry).
+
+I suspect we would have to start either at some golden revision or not
+until a release happens.
+
+-Brett
+
+From benjamin at python.org  Sun Sep 13 22:30:33 2009
+From: benjamin at python.org (Benjamin Peterson)
+Date: Sun, 13 Sep 2009 15:30:33 -0500
+Subject: [python-committers] Adding a hidden field to BaseException
+	going to break the ABI?
+In-Reply-To: <bbaeab100909131326o9079fa1qf20f24c8f2ff3422@mail.gmail.com>
+References: <bbaeab100909131326o9079fa1qf20f24c8f2ff3422@mail.gmail.com>
+Message-ID: <1afaf6160909131330k5cbbefccq7da2e9db005079cc@mail.gmail.com>
+
+2009/9/13 Brett Cannon <brett at python.org>:
+> issue6844 wants to stop a warning from being raised when someone
+> accesses a 'message' attribute on an exception when it is set by the
+> user (currently any usage of the 'message' attribute raises a
+> warning). To do this properly is going to require some state flag on
+> BaseException's struct. But I don't know if that constitutes breaking
+> the ABI during a micro release or not. I figure no but I wanted to
+> double-check.
+
+Is the BaseException struct public?
+
+
+-- 
+Regards,
+Benjamin
+
+From solipsis at pitrou.net  Sun Sep 13 22:38:12 2009
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Sun, 13 Sep 2009 22:38:12 +0200
+Subject: [python-committers] Misc/NEWS entries added to released versions
+In-Reply-To: <bbaeab100909131327r102d5b21k6deabcf974adeb76@mail.gmail.com>
+References: <49D9319F.1050506@debian.org> <4AAD15B3.8080504@debian.org>
+	<52dc1c820909130907h46de056cp9fd27e45ccf0c038@mail.gmail.com>
+	<bbaeab100909131315k357a816sa4000d845833e999@mail.gmail.com>
+	<1252873581.5630.51.camel@localhost>
+	<bbaeab100909131327r102d5b21k6deabcf974adeb76@mail.gmail.com>
+Message-ID: <1252874292.5630.53.camel@localhost>
+
+Le dimanche 13 septembre 2009 ? 13:27 -0700, Brett Cannon a ?crit :
+> 
+> Right, which is why only the first line would be used. All the other
+> usual detail can be there, just do it on another line.
+
+But if that line is longer than 80 characters, your $EDITOR may split it
+automatically and it'll break the generated NEWS.
+(either that, or you'll want to split it manually to make editing more
+comfortable)
+
+
+
+From brett at python.org  Sun Sep 13 22:34:37 2009
+From: brett at python.org (Brett Cannon)
+Date: Sun, 13 Sep 2009 13:34:37 -0700
+Subject: [python-committers] Adding a hidden field to BaseException
+	going to break the ABI?
+In-Reply-To: <1afaf6160909131330k5cbbefccq7da2e9db005079cc@mail.gmail.com>
+References: <bbaeab100909131326o9079fa1qf20f24c8f2ff3422@mail.gmail.com> 
+	<1afaf6160909131330k5cbbefccq7da2e9db005079cc@mail.gmail.com>
+Message-ID: <bbaeab100909131334o3a98c531s996335953fc070a1@mail.gmail.com>
+
+On Sun, Sep 13, 2009 at 13:30, Benjamin Peterson <benjamin at python.org> wrote:
+> 2009/9/13 Brett Cannon <brett at python.org>:
+>> issue6844 wants to stop a warning from being raised when someone
+>> accesses a 'message' attribute on an exception when it is set by the
+>> user (currently any usage of the 'message' attribute raises a
+>> warning). To do this properly is going to require some state flag on
+>> BaseException's struct. But I don't know if that constitutes breaking
+>> the ABI during a micro release or not. I figure no but I wanted to
+>> double-check.
+>
+> Is the BaseException struct public?
+
+Only in so far as PyExc_BaseException is documented for use with
+PyErr_*() and inheritance.
+
+-Brett
+
+From doko at debian.org  Sun Sep 13 22:56:10 2009
+From: doko at debian.org (Matthias Klose)
+Date: Sun, 13 Sep 2009 22:56:10 +0200
+Subject: [python-committers] Misc/NEWS entries added to released versions
+In-Reply-To: <52dc1c820909130907h46de056cp9fd27e45ccf0c038@mail.gmail.com>
+References: <49D9319F.1050506@debian.org> <4AAD15B3.8080504@debian.org>
+	<52dc1c820909130907h46de056cp9fd27e45ccf0c038@mail.gmail.com>
+Message-ID: <4AAD5C6A.4080508@debian.org>
+
+On 13.09.2009 18:07, Gregory P. Smith wrote:
+> On Sun, Sep 13, 2009 at 8:54 AM, Matthias Klose<doko at debian.org>  wrote:
+>> On 06.04.2009 00:33, Matthias Klose wrote:
+>>>
+>>> While looking at the diffs between the 261 release tags and the 26 branch,
+>>> I
+>>> noticed many items in Misc/NEWS appearing in the 2.6.1 or even 2.6
+>>> sections.
+>>> I moved all of these to 2.6.2, after checking some of them, and found all
+>>> of the
+>>> checked ones be backported after the 2.6.1 release. Is there anything what
+>>> could
+>>> be done to avoid these wrong merges?
+>>>
+>>> I plan to check the items on the 3.0 branch soon.
+>>
+>> done again for the 2.6.3 (2.6 branch) and 3.1.2 (3.1 branch) entries. I
+>> didn't check if these were inserted to earlier entries by intent except for
+>> the removal of the entry for issue #2522.
+>>
+>>   Matthias
+>
+> Thanks.  One reason this happens is that our NEWS file is very
+> difficult to navigate.  svnmerge rarely works on it because the
+> context is often different in the branch file but figuring out which
+> version's section of the bazillion line file you are currently in is
+> very tedious in a text editor.
+>
+> brainstorm:
+
+another idea: have a pre-commit hook, which rejects modifications to this file
+to entries for a released version, which can be overwritten by some keyword in 
+the commit message.
+
+   Matthias
+
+From g.brandl at gmx.net  Mon Sep 14 12:31:00 2009
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Mon, 14 Sep 2009 10:31:00 +0000
+Subject: [python-committers] Misc/NEWS entries added to released versions
+In-Reply-To: <bbaeab100909131315k357a816sa4000d845833e999@mail.gmail.com>
+References: <49D9319F.1050506@debian.org> <4AAD15B3.8080504@debian.org>
+	<52dc1c820909130907h46de056cp9fd27e45ccf0c038@mail.gmail.com>
+	<bbaeab100909131315k357a816sa4000d845833e999@mail.gmail.com>
+Message-ID: <h8kv3t$aqk$1@ger.gmane.org>
+
+Brett Cannon schrieb:
+
+>> brainstorm:
+>>
+>> It'd be nicer if we could generate the file from another source,
+>> perhaps keep each releases news in its own file and merge it all
+>> together at release time?
+>>
+>> Or have a NEWS.latest file that contains only updates since the
+>> previous release (part of making a release would be to prepend
+>> NEWS.latest to the NEWS file and truncate NEWS.latest)?
+> 
+> Or simply take the first line of each commit? I mean why do we enter
+> it twice? If we have a commit that is unimportant we could come up
+> with some convention to make it as such or simply have the comment
+> start with a blank line.
+
+We should just switch to Mercurial :)
+
+I've already hacked up a hg extension to automatically fill the commit message
+with the changes in a NEWS or CHANGELOG file.  This works quite well -- you
+add the short but nice description to NEWS, do "hg commit", and the editor
+pops up where you can either accept the message consisting of only the changes
+in NEWS, or add some more stuff that's not interesting to users.
+
+cheers,
+Georg
+
+-- 
+Thus spake the Lord: Thou shalt indent with four spaces. No more, no less.
+Four shall be the number of spaces thou shalt indent, and the number of thy
+indenting shall be four. Eight shalt thou not indent, nor either indent thou
+two, excepting that thou then proceed to four. Tabs are right out.
+
+
+From anthonybaxter at gmail.com  Mon Sep 14 10:37:53 2009
+From: anthonybaxter at gmail.com (Anthony Baxter)
+Date: Mon, 14 Sep 2009 18:37:53 +1000
+Subject: [python-committers] Misc/NEWS entries added to released versions
+In-Reply-To: <e69d3ed20909140136v113644c4tf8330c734319a294@mail.gmail.com>
+References: <49D9319F.1050506@debian.org> <4AAD15B3.8080504@debian.org>
+	<52dc1c820909130907h46de056cp9fd27e45ccf0c038@mail.gmail.com>
+	<bbaeab100909131315k357a816sa4000d845833e999@mail.gmail.com>
+	<h8kv3t$aqk$1@ger.gmane.org>
+	<e69d3ed20909140136v113644c4tf8330c734319a294@mail.gmail.com>
+Message-ID: <e69d3ed20909140137g18949980y398830951c2fc455@mail.gmail.com>
+
+Often the NEWS entry ends up being rewritten from the commit message to be
+more user-focussed description of the change...
+
+On Sep 14, 2009 6:33 PM, "Georg Brandl" <g.brandl at gmx.net> wrote:
+
+Brett Cannon schrieb:
+
+>> brainstorm: >> >> It'd be nicer if we could generate the file from
+another source, >> perhaps ke...
+We should just switch to Mercurial :)
+
+I've already hacked up a hg extension to automatically fill the commit
+message
+with the changes in a NEWS or CHANGELOG file.  This works quite well -- you
+add the short but nice description to NEWS, do "hg commit", and the editor
+pops up where you can either accept the message consisting of only the
+changes
+in NEWS, or add some more stuff that's not interesting to users.
+
+cheers,
+Georg
+
+--
+Thus spake the Lord: Thou shalt indent with four spaces. No more, no less.
+Four shall be the number of spaces thou shalt indent, and the number of thy
+indenting shall be four. Eight shalt thou not indent, nor either indent thou
+two, excepting that thou then proceed to four. Tabs are right out.
+
+_______________________________________________ python-committers mailing
+list python-committers at py...
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20090914/964cce6a/attachment-0001.htm>
+
+From g.brandl at gmx.net  Mon Sep 14 12:40:15 2009
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Mon, 14 Sep 2009 12:40:15 +0200
+Subject: [python-committers] Misc/NEWS entries added to released versions
+In-Reply-To: <e69d3ed20909140137g18949980y398830951c2fc455@mail.gmail.com>
+References: <49D9319F.1050506@debian.org>
+	<4AAD15B3.8080504@debian.org>	<52dc1c820909130907h46de056cp9fd27e45ccf0c038@mail.gmail.com>	<bbaeab100909131315k357a816sa4000d845833e999@mail.gmail.com>	<h8kv3t$aqk$1@ger.gmane.org>	<e69d3ed20909140136v113644c4tf8330c734319a294@mail.gmail.com>
+	<e69d3ed20909140137g18949980y398830951c2fc455@mail.gmail.com>
+Message-ID: <h8kvl8$cq8$1@ger.gmane.org>
+
+Yes, but still: in many cases they are very similar.
+
+Plus, it's hard to auto-add a NEWS entry from a commit message (because
+you need to determine the right section), while it's easy to pre-fill
+the commit message from a NEWS diff.
+
+Georg
+
+Anthony Baxter schrieb:
+> Often the NEWS entry ends up being rewritten from the commit message to
+> be more user-focussed description of the change...
+> 
+>> On Sep 14, 2009 6:33 PM, "Georg Brandl" <g.brandl at gmx.net
+>> <mailto:g.brandl at gmx.net>> wrote:
+>>
+>> Brett Cannon schrieb:
+>>
+>> >> brainstorm: >> >> It'd be nicer if we could generate the file from
+>> another source, >> perhaps ke...
+>>
+>> We should just switch to Mercurial :)
+>>
+>> I've already hacked up a hg extension to automatically fill the commit
+>> message
+>> with the changes in a NEWS or CHANGELOG file.  This works quite well
+>> -- you
+>> add the short but nice description to NEWS, do "hg commit", and the editor
+>> pops up where you can either accept the message consisting of only the
+>> changes
+>> in NEWS, or add some more stuff that's not interesting to users.
+
+
+From solipsis at pitrou.net  Mon Sep 14 13:03:00 2009
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Mon, 14 Sep 2009 13:03:00 +0200
+Subject: [python-committers] Misc/NEWS entries added to released versions
+Message-ID: <1252926180.5954.17.camel@localhost>
+
+
+Le lundi 14 septembre 2009 ? 12:40 +0200, Georg Brandl a ?crit :
+> Yes, but still: in many cases they are very similar.
+> 
+> Plus, it's hard to auto-add a NEWS entry from a commit message (because
+> you need to determine the right section), while it's easy to pre-fill
+> the commit message from a NEWS diff.
+
+This sounds like a better approach indeed.
+
+Antoine.
+
+
+
+From rdmurray at bitdance.com  Mon Sep 14 16:05:08 2009
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Mon, 14 Sep 2009 10:05:08 -0400 (EDT)
+Subject: [python-committers] Misc/NEWS entries added to released versions
+In-Reply-To: <h8kvl8$cq8$1@ger.gmane.org>
+References: <49D9319F.1050506@debian.org> <4AAD15B3.8080504@debian.org>
+	<52dc1c820909130907h46de056cp9fd27e45ccf0c038@mail.gmail.com>
+	<bbaeab100909131315k357a816sa4000d845833e999@mail.gmail.com>
+	<h8kv3t$aqk$1@ger.gmane.org>
+	<e69d3ed20909140136v113644c4tf8330c734319a294@mail.gmail.com>
+	<e69d3ed20909140137g18949980y398830951c2fc455@mail.gmail.com>
+	<h8kvl8$cq8$1@ger.gmane.org>
+Message-ID: <Pine.LNX.4.64.0909141004000.6303@kimball.webabinitio.net>
+
+On Mon, 14 Sep 2009 at 12:40, Georg Brandl wrote:
+> Yes, but still: in many cases they are very similar.
+>
+> Plus, it's hard to auto-add a NEWS entry from a commit message (because
+> you need to determine the right section), while it's easy to pre-fill
+> the commit message from a NEWS diff.
+
+But the problem we are trying to solve is the fact that the NEWS
+entries wind up in the _wrong_ section on merges.  Any thoughts
+about how to solve that under Mercurial?
+
+--David
+
+From g.brandl at gmx.net  Mon Sep 14 18:40:51 2009
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Mon, 14 Sep 2009 18:40:51 +0200
+Subject: [python-committers] Misc/NEWS entries added to released versions
+In-Reply-To: <Pine.LNX.4.64.0909141004000.6303@kimball.webabinitio.net>
+References: <49D9319F.1050506@debian.org>
+	<4AAD15B3.8080504@debian.org>	<52dc1c820909130907h46de056cp9fd27e45ccf0c038@mail.gmail.com>	<bbaeab100909131315k357a816sa4000d845833e999@mail.gmail.com>	<h8kv3t$aqk$1@ger.gmane.org>	<e69d3ed20909140136v113644c4tf8330c734319a294@mail.gmail.com>	<e69d3ed20909140137g18949980y398830951c2fc455@mail.gmail.com>	<h8kvl8$cq8$1@ger.gmane.org>
+	<Pine.LNX.4.64.0909141004000.6303@kimball.webabinitio.net>
+Message-ID: <h8lkpd$i2b$1@ger.gmane.org>
+
+R. David Murray schrieb:
+> On Mon, 14 Sep 2009 at 12:40, Georg Brandl wrote:
+>> Yes, but still: in many cases they are very similar.
+>>
+>> Plus, it's hard to auto-add a NEWS entry from a commit message (because
+>> you need to determine the right section), while it's easy to pre-fill
+>> the commit message from a NEWS diff.
+> 
+> But the problem we are trying to solve is the fact that the NEWS
+> entries wind up in the _wrong_ section on merges.  Any thoughts
+> about how to solve that under Mercurial?
+
+You are right, my shameless plug doesn't even solve the original problem :)
+
+However, the fact remains that *should* someone want to write an extension
+that handles this the right way, it would be much much easier than for
+Subversion.  So, before we shoot at solutions here, let's wait for the
+switch.
+
+Georg
+
+-- 
+Thus spake the Lord: Thou shalt indent with four spaces. No more, no less.
+Four shall be the number of spaces thou shalt indent, and the number of thy
+indenting shall be four. Eight shalt thou not indent, nor either indent thou
+two, excepting that thou then proceed to four. Tabs are right out.
+
+
+From alexandre at peadrop.com  Mon Sep 14 19:05:02 2009
+From: alexandre at peadrop.com (Alexandre Vassalotti)
+Date: Mon, 14 Sep 2009 13:05:02 -0400
+Subject: [python-committers] Misc/NEWS entries added to released versions
+In-Reply-To: <Pine.LNX.4.64.0909141004000.6303@kimball.webabinitio.net>
+References: <49D9319F.1050506@debian.org> <4AAD15B3.8080504@debian.org> 
+	<52dc1c820909130907h46de056cp9fd27e45ccf0c038@mail.gmail.com> 
+	<bbaeab100909131315k357a816sa4000d845833e999@mail.gmail.com> 
+	<h8kv3t$aqk$1@ger.gmane.org>
+	<e69d3ed20909140136v113644c4tf8330c734319a294@mail.gmail.com> 
+	<e69d3ed20909140137g18949980y398830951c2fc455@mail.gmail.com> 
+	<h8kvl8$cq8$1@ger.gmane.org>
+	<Pine.LNX.4.64.0909141004000.6303@kimball.webabinitio.net>
+Message-ID: <acd65fa20909141005r434a6dc9lbdf55919b69e0b36@mail.gmail.com>
+
+On Mon, Sep 14, 2009 at 10:05 AM, R. David Murray <rdmurray at bitdance.com> wrote:
+> But the problem we are trying to solve is the fact that the NEWS
+> entries wind up in the _wrong_ section on merges. ?Any thoughts
+> about how to solve that under Mercurial?
+>
+
+Could we add a version tag to each NEWS entry? Or perhaps, we could
+move the content of NEWS to NEWS.history after each release? These may
+not be the most elegant solutions, but I think either would solve the
+issue.
+
+-- Alexandre
+
+From jnoller at gmail.com  Fri Sep 18 19:40:08 2009
+From: jnoller at gmail.com (Jesse Noller)
+Date: Fri, 18 Sep 2009 13:40:08 -0400
+Subject: [python-committers] Doug Hellmann
+Message-ID: <4222a8490909181040n70ed6f38xfbbb20a921e0e699@mail.gmail.com>
+
+I would like to propose we give the commit bit to Doug Hellmann in
+order for him to help out with documentation and GHOP style tasks
+(he's helped in the past).
+
+You might know him from the "Python Module of the Week" series here:
+
+http://www.doughellmann.com/PyMOTW/
+
+Many of his examples, and doc snippets have landed in our official
+documentation. I myself am working on pulling in his multiprocessing
+documents for mp's docs. I know Georg sounded positive on this
+(correct me if I wrong Georg) - he's a great, great doc writer and I
+think he could help out a lot.
+
+jesse
+
+From benjamin at python.org  Fri Sep 18 19:44:32 2009
+From: benjamin at python.org (Benjamin Peterson)
+Date: Fri, 18 Sep 2009 12:44:32 -0500
+Subject: [python-committers] Doug Hellmann
+In-Reply-To: <4222a8490909181040n70ed6f38xfbbb20a921e0e699@mail.gmail.com>
+References: <4222a8490909181040n70ed6f38xfbbb20a921e0e699@mail.gmail.com>
+Message-ID: <1afaf6160909181044u3bec7087sc9c657745f75cff6@mail.gmail.com>
+
+2009/9/18 Jesse Noller <jnoller at gmail.com>:
+> I would like to propose we give the commit bit to Doug Hellmann in
+> order for him to help out with documentation and GHOP style tasks
+> (he's helped in the past).
+>
+> You might know him from the "Python Module of the Week" series here:
+>
+> http://www.doughellmann.com/PyMOTW/
+>
+> Many of his examples, and doc snippets have landed in our official
+> documentation. I myself am working on pulling in his multiprocessing
+> documents for mp's docs. I know Georg sounded positive on this
+> (correct me if I wrong Georg) - he's a great, great doc writer and I
+> think he could help out a lot.
+
+Ok. Sounds good, but have you asked him?
+
+
+
+-- 
+Regards,
+Benjamin
+
+From brett at python.org  Fri Sep 18 19:45:17 2009
+From: brett at python.org (Brett Cannon)
+Date: Fri, 18 Sep 2009 10:45:17 -0700
+Subject: [python-committers] Doug Hellmann
+In-Reply-To: <4222a8490909181040n70ed6f38xfbbb20a921e0e699@mail.gmail.com>
+References: <4222a8490909181040n70ed6f38xfbbb20a921e0e699@mail.gmail.com>
+Message-ID: <bbaeab100909181045u4a872156q68486a4d2dde31af@mail.gmail.com>
+
+As long as he sticks to the docs (at least initially unless you are
+going to personally approve all code commits) I'm fine with it.
+
+On Fri, Sep 18, 2009 at 10:40, Jesse Noller <jnoller at gmail.com> wrote:
+> I would like to propose we give the commit bit to Doug Hellmann in
+> order for him to help out with documentation and GHOP style tasks
+> (he's helped in the past).
+>
+> You might know him from the "Python Module of the Week" series here:
+>
+> http://www.doughellmann.com/PyMOTW/
+>
+> Many of his examples, and doc snippets have landed in our official
+> documentation. I myself am working on pulling in his multiprocessing
+> documents for mp's docs. I know Georg sounded positive on this
+> (correct me if I wrong Georg) - he's a great, great doc writer and I
+> think he could help out a lot.
+>
+> jesse
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+>
+
+From jim at zope.com  Fri Sep 18 19:46:24 2009
+From: jim at zope.com (Jim Fulton)
+Date: Fri, 18 Sep 2009 13:46:24 -0400
+Subject: [python-committers] Doug Hellmann
+In-Reply-To: <4222a8490909181040n70ed6f38xfbbb20a921e0e699@mail.gmail.com>
+References: <4222a8490909181040n70ed6f38xfbbb20a921e0e699@mail.gmail.com>
+Message-ID: <1099b90b0909181046m64c9bec2tf89929e70c084b76@mail.gmail.com>
+
+On Fri, Sep 18, 2009 at 1:40 PM, Jesse Noller <jnoller at gmail.com> wrote:
+> I would like to propose we give the commit bit to Doug Hellmann in
+> order for him to help out with documentation and GHOP style tasks
+> (he's helped in the past).
+
++1
+
+Jim
+
+-- 
+Jim Fulton
+
+From mal at egenix.com  Fri Sep 18 20:05:05 2009
+From: mal at egenix.com (M.-A. Lemburg)
+Date: Fri, 18 Sep 2009 20:05:05 +0200
+Subject: [python-committers] Doug Hellmann
+In-Reply-To: <4222a8490909181040n70ed6f38xfbbb20a921e0e699@mail.gmail.com>
+References: <4222a8490909181040n70ed6f38xfbbb20a921e0e699@mail.gmail.com>
+Message-ID: <4AB3CBD1.8090505@egenix.com>
+
+Jesse Noller wrote:
+> I would like to propose we give the commit bit to Doug Hellmann in
+> order for him to help out with documentation and GHOP style tasks
+> (he's helped in the past).
+> 
+> You might know him from the "Python Module of the Week" series here:
+> 
+> http://www.doughellmann.com/PyMOTW/
+> 
+> Many of his examples, and doc snippets have landed in our official
+> documentation. I myself am working on pulling in his multiprocessing
+> documents for mp's docs. I know Georg sounded positive on this
+> (correct me if I wrong Georg) - he's a great, great doc writer and I
+> think he could help out a lot.
+
++1
+
+-- 
+Marc-Andre Lemburg
+eGenix.com
+
+Professional Python Services directly from the Source  (#1, Sep 18 2009)
+>>> Python/Zope Consulting and Support ...        http://www.egenix.com/
+>>> mxODBC.Zope.Database.Adapter ...             http://zope.egenix.com/
+>>> mxODBC, mxDateTime, mxTextTools ...        http://python.egenix.com/
+________________________________________________________________________
+
+::: Try our new mxODBC.Connect Python Database Interface for free ! ::::
+
+
+   eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+    D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+           Registered at Amtsgericht Duesseldorf: HRB 46611
+               http://www.egenix.com/company/contact/
+
+From ziade.tarek at gmail.com  Fri Sep 18 20:10:11 2009
+From: ziade.tarek at gmail.com (=?ISO-8859-1?Q?Tarek_Ziad=E9?=)
+Date: Fri, 18 Sep 2009 20:10:11 +0200
+Subject: [python-committers] Doug Hellmann
+In-Reply-To: <4222a8490909181040n70ed6f38xfbbb20a921e0e699@mail.gmail.com>
+References: <4222a8490909181040n70ed6f38xfbbb20a921e0e699@mail.gmail.com>
+Message-ID: <94bdd2610909181110v737c5c90p7a4351da6c691b27@mail.gmail.com>
+
++1
+
+Tarek
+
+On Sep 18, 2009 7:41 PM, "Jesse Noller" <jnoller at gmail.com> wrote:
+
+I would like to propose we give the commit bit to Doug Hellmann in
+order for him to help out with documentation and GHOP style tasks
+(he's helped in the past).
+
+You might know him from the "Python Module of the Week" series here:
+
+http://www.doughellmann.com/PyMOTW/
+
+Many of his examples, and doc snippets have landed in our official
+documentation. I myself am working on pulling in his multiprocessing
+documents for mp's docs. I know Georg sounded positive on this
+(correct me if I wrong Georg) - he's a great, great doc writer and I
+think he could help out a lot.
+
+jesse
+_______________________________________________
+python-committers mailing list
+python-committers at python.org
+http://mail.python.org/mailman/listinfo/python-committers
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20090918/12053817/attachment.htm>
+
+From jnoller at gmail.com  Fri Sep 18 20:45:57 2009
+From: jnoller at gmail.com (Jesse Noller)
+Date: Fri, 18 Sep 2009 14:45:57 -0400
+Subject: [python-committers] Doug Hellmann
+In-Reply-To: <bbaeab100909181045u4a872156q68486a4d2dde31af@mail.gmail.com>
+References: <4222a8490909181040n70ed6f38xfbbb20a921e0e699@mail.gmail.com>
+	<bbaeab100909181045u4a872156q68486a4d2dde31af@mail.gmail.com>
+Message-ID: <F549F34A-CB46-4A60-94E6-5E23A1B43131@gmail.com>
+
+The docs are the initial thing, I'll ask him to run anything else by me.
+
+On Sep 18, 2009, at 1:45 PM, Brett Cannon <brett at python.org> wrote:
+
+> As long as he sticks to the docs (at least initially unless you are
+> going to personally approve all code commits) I'm fine with it.
+>
+> On Fri, Sep 18, 2009 at 10:40, Jesse Noller <jnoller at gmail.com> wrote:
+>> I would like to propose we give the commit bit to Doug Hellmann in
+>> order for him to help out with documentation and GHOP style tasks
+>> (he's helped in the past).
+>>
+>> You might know him from the "Python Module of the Week" series here:
+>>
+>> http://www.doughellmann.com/PyMOTW/
+>>
+>> Many of his examples, and doc snippets have landed in our official
+>> documentation. I myself am working on pulling in his multiprocessing
+>> documents for mp's docs. I know Georg sounded positive on this
+>> (correct me if I wrong Georg) - he's a great, great doc writer and I
+>> think he could help out a lot.
+>>
+>> jesse
+>> _______________________________________________
+>> python-committers mailing list
+>> python-committers at python.org
+>> http://mail.python.org/mailman/listinfo/python-committers
+>>
+
+From jnoller at gmail.com  Fri Sep 18 20:46:34 2009
+From: jnoller at gmail.com (Jesse Noller)
+Date: Fri, 18 Sep 2009 14:46:34 -0400
+Subject: [python-committers] Doug Hellmann
+In-Reply-To: <1afaf6160909181044u3bec7087sc9c657745f75cff6@mail.gmail.com>
+References: <4222a8490909181040n70ed6f38xfbbb20a921e0e699@mail.gmail.com>
+	<1afaf6160909181044u3bec7087sc9c657745f75cff6@mail.gmail.com>
+Message-ID: <696A6789-9DA5-493A-8EF0-FEB07400FFCD@gmail.com>
+
+
+
+On Sep 18, 2009, at 1:44 PM, Benjamin Peterson <benjamin at python.org>  
+wrote:
+
+> 2009/9/18 Jesse Noller <jnoller at gmail.com>:
+>> I would like to propose we give the commit bit to Doug Hellmann in
+>> order for him to help out with documentation and GHOP style tasks
+>> (he's helped in the past).
+>>
+>> You might know him from the "Python Module of the Week" series here:
+>>
+>> http://www.doughellmann.com/PyMOTW/
+>>
+>> Many of his examples, and doc snippets have landed in our official
+>> documentation. I myself am working on pulling in his multiprocessing
+>> documents for mp's docs. I know Georg sounded positive on this
+>> (correct me if I wrong Georg) - he's a great, great doc writer and I
+>> think he could help out a lot.
+>
+> Ok. Sounds good, but have you asked him?
+>
+
+
+Yes I have, spoke to him this morning.
+
+From g.brandl at gmx.net  Fri Sep 18 23:50:08 2009
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Fri, 18 Sep 2009 23:50:08 +0200
+Subject: [python-committers] Doug Hellmann
+In-Reply-To: <4222a8490909181040n70ed6f38xfbbb20a921e0e699@mail.gmail.com>
+References: <4222a8490909181040n70ed6f38xfbbb20a921e0e699@mail.gmail.com>
+Message-ID: <h90veg$tf4$1@ger.gmane.org>
+
+Jesse Noller schrieb:
+> I would like to propose we give the commit bit to Doug Hellmann in
+> order for him to help out with documentation and GHOP style tasks
+> (he's helped in the past).
+> 
+> You might know him from the "Python Module of the Week" series here:
+> 
+> http://www.doughellmann.com/PyMOTW/
+> 
+> Many of his examples, and doc snippets have landed in our official
+> documentation. I myself am working on pulling in his multiprocessing
+> documents for mp's docs. I know Georg sounded positive on this
+> (correct me if I wrong Georg)
+
+Not at all :)
+
+> he's a great, great doc writer and I think he could help out a lot.
+
+Seems to have been accepted -- ask him to send his public key(s) to me,
+and I'll add them.
+
+Georg
+
+-- 
+Thus spake the Lord: Thou shalt indent with four spaces. No more, no less.
+Four shall be the number of spaces thou shalt indent, and the number of thy
+indenting shall be four. Eight shalt thou not indent, nor either indent thou
+two, excepting that thou then proceed to four. Tabs are right out.
+
+
+From barry at python.org  Tue Sep 29 18:44:43 2009
+From: barry at python.org (Barry Warsaw)
+Date: Tue, 29 Sep 2009 12:44:43 -0400
+Subject: [python-committers] Python 2.6.3rc1
+Message-ID: <3EA91489-10EB-49C1-886F-F9FFB69D3D4D@python.org>
+
+As previously announced, I'm planning on releasing 2.6.3rc1 tonight,  
+at about 2230 UTC. Right now we have three release blockers, which I'm  
+reviewing now (and Antoine just said on IRC that he's closing one of  
+them now).
+
+http://bugs.python.org/issue?@columns=title,id,activity,versions,assignee&@sort=activity&@group=priority&@filter=priority,status&@pagesize=50&@startwith=0&priority=1&status=1&@dispname=Showstoppers
+
+Please refrain from committing any changes to 2.6.3 from now until the  
+release, unless they specifically close one of the blockers, or you  
+contact me on #python-dev or by email first.  I'll be imposing a hard- 
+freeze on checkins at 2100 UTC today (5pm US/Eastern).
+
+After 2.6.3rc1 is out, please do not commit anything to that branch  
+without checking with me first.  I'll only accept brown-bag removing  
+patches, and I want to have a stable tree by Thursday so that we can  
+get Windows and Mac binaries built for Friday's release.
+
+Thanks!
+-Barry
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: PGP.sig
+Type: application/pgp-signature
+Size: 832 bytes
+Desc: This is a digitally signed message part
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20090929/a2857701/attachment.pgp>
+
+From barry at python.org  Wed Sep 30 00:44:20 2009
+From: barry at python.org (Barry Warsaw)
+Date: Tue, 29 Sep 2009 18:44:20 -0400
+Subject: [python-committers] Fwd: [Python-checkins] r75152 -
+	python/tags/r263rc1
+References: <20090929224239.C923AE3B61@mail.wooz.org>
+Message-ID: <630DB3EC-76C7-449E-A0F0-E65408720D7C@python.org>
+
+2.6.3rc1 is tagged.  Martin, Ronald have at it!
+
+Everyone else, please still do not commit anything to the 2.6 tree  
+without asking first.  Only critical brown-bag bug fixes from now  
+until the final release on Friday.
+
+Begin forwarded message:
+
+> From: barry.warsaw <python-checkins at python.org>
+> Date: September 29, 2009 6:42:39 PM EDT
+> To: python-checkins at python.org
+> Subject: [Python-checkins] r75152 - python/tags/r263rc1
+> Message-Id: <20090929224239.C923AE3B61 at mail.wooz.org>
+>
+> Author: barry.warsaw
+> Date: Wed Sep 30 00:42:33 2009
+> New Revision: 75152
+>
+> Log:
+> Taggint 2.6.3rc1
+>
+>
+> Added:
+>   python/tags/r263rc1/
+>      - copied from r75151, /python/branches/release26-maint/
+> _______________________________________________
+> Python-checkins mailing list
+> Python-checkins at python.org
+> http://mail.python.org/mailman/listinfo/python-checkins
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: PGP.sig
+Type: application/pgp-signature
+Size: 832 bytes
+Desc: This is a digitally signed message part
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20090929/b53a4000/attachment.pgp>
+
+From barry at python.org  Tue Sep 29 23:30:00 2009
+From: barry at python.org (Barry Warsaw)
+Date: Tue, 29 Sep 2009 17:30:00 -0400
+Subject: [python-committers] checkin freeze on python 2.6 branch
+Message-ID: <066BCA1F-3E46-4603-8553-9693EE77E3CE@python.org>
+
+Please, no more commits now on the 2.6 branch until further notice.  I  
+will start building the release in about an hour.  Ping me on irc with  
+any last minute issues.
+
+-Barry
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: PGP.sig
+Type: application/pgp-signature
+Size: 832 bytes
+Desc: This is a digitally signed message part
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20090929/b67f654e/attachment.pgp>
+

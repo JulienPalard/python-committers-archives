@@ -1,0 +1,4257 @@
+From barry at python.org  Wed Oct  1 14:23:19 2008
+From: barry at python.org (Barry Warsaw)
+Date: Wed, 1 Oct 2008 08:23:19 -0400
+Subject: [python-committers] Python 2.6 final today
+Message-ID: <1954BD33-02D8-4FC1-A027-97DCDD687A32@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+I've been out of town since Friday, but I don't yet see anything in  
+the 700 billion email messages I'm now catching up on that leads me to  
+think we need to delay the release.  Yay!
+
+I will be on irc later today and will be trolling through the tracker  
+and buildbots soon.  Don't trust email to get an important issue in  
+front of me today, please use irc or submit a showstopper bug against  
+2.6 if something /must/ be addressed before today's release.
+
+I'm going to make a test release at around 1600UTC today, just to see  
+how building the docs and such go.  I'm still planning on doing the  
+final final release at about 2200UTC.  If you need to coordinate with  
+me (e.g. press releases, Windows builds, etc.) please meeting me on  
+#python-dev on irc.freenode.net.
+
+- -Barry
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQCVAwUBSONrt3EjvBPtnXfVAQJn7wP9HSieFM7daE5vbvsuJGZtHyC2NFmT5Rsm
+Fd/ce6CvLzGEkUQ5GQs09TtiZZbIYiObUNkbVQBV8Zbu7A9S3fx7PBpHmPOnIIbr
+Dfw39pphdKE76yoJmC7OkFTlDbOw6rbuD+JLAzCgcjxx1MqL1Cx08vl2/WEJf3Fl
+izAVTI2Bwwc=
+=BCvf
+-----END PGP SIGNATURE-----
+
+From barry at python.org  Wed Oct  1 21:36:44 2008
+From: barry at python.org (Barry Warsaw)
+Date: Wed, 1 Oct 2008 15:36:44 -0400
+Subject: [python-committers] Cutting Python 2.6
+Message-ID: <D4BD3F4E-7F63-48CB-823D-5DEE045BAD71@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Over the next several hours I will be cutting Python 2.6.  All lights  
+and buildbots are go for final release tonight.
+
+I have not yet heard from Trent about press releases, so we'll have to  
+do those after the fact.
+
+I am also planning on releasing 3.0rc2 tonight, but only if there's  
+time.  Final releases have much more work and the process is much less  
+tested, so it may take me quite a while to get 2.6 final out.
+
+The trunk and 3.0 branches are officially frozen until further  
+notice.  You /must/ contact me on irc if you need to make any changes.
+
+Remember: #python-dev on irc.freenode.net.  Please include my nick  
+'barry' in any ping so I will notice.
+
+Yee haw!
+
+- -Barry
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQCVAwUBSOPRTnEjvBPtnXfVAQIYtAP+JwBnMBLfUqlLbhuy/4QG+nr9fYvDnrp8
+/WUHHleUw3uyYsBpxBlJNkmXkA52pPrvLJ7gopUCTuXiWyUZIb+dtczPc/vvZTuV
+qw+J1+GRmkMgc/5T5RoEF6rHAUccF7R7llZilsnttBi0TTSrw+fooDJSuqoxqd9k
+sMdOlOFMATg=
+=HqDw
+-----END PGP SIGNATURE-----
+
+From guido at python.org  Wed Oct  1 22:33:39 2008
+From: guido at python.org (Guido van Rossum)
+Date: Wed, 1 Oct 2008 13:33:39 -0700
+Subject: [python-committers] Cutting Python 2.6
+In-Reply-To: <D4BD3F4E-7F63-48CB-823D-5DEE045BAD71@python.org>
+References: <D4BD3F4E-7F63-48CB-823D-5DEE045BAD71@python.org>
+Message-ID: <ca471dc20810011333j4c8cddf3x7c210c5a9dea1d4b@mail.gmail.com>
+
+On Wed, Oct 1, 2008 at 12:36 PM, Barry Warsaw <barry at python.org> wrote:
+> Over the next several hours I will be cutting Python 2.6.  All lights and
+> buildbots are go for final release tonight.
+>
+> I have not yet heard from Trent about press releases, so we'll have to do
+> those after the fact.
+
+Press releases can lag behind, but I hope that this time the Windows
+and OSX installers will be released together with the main tarball.
+
+> I am also planning on releasing 3.0rc2 tonight, but only if there's time.
+
+I'd recommend against this now. We need a few more days to implement
+the solution for undecodable filenames. There's a patch set by Victor
+Stinner that does most of what I'd like to have, but it needs 1-2 more
+rounds of review and refinements. I'd really like to hold up rc2 until
+this is in.
+
+>  Final releases have much more work and the process is much less tested, so
+> it may take me quite a while to get 2.6 final out.
+>
+> The trunk and 3.0 branches are officially frozen until further notice.  You
+> /must/ contact me on irc if you need to make any changes.
+
+Why freeze the 3.0 branch?
+
+> Remember: #python-dev on irc.freenode.net.  Please include my nick 'barry'
+> in any ping so I will notice.
+>
+> Yee haw!
+
+Amen! Thanks for your relentless efforts, Barry and others!!!
+
+-- 
+--Guido van Rossum (home page: http://www.python.org/~guido/)
+
+From musiccomposition at gmail.com  Wed Oct  1 22:37:11 2008
+From: musiccomposition at gmail.com (Benjamin Peterson)
+Date: Wed, 1 Oct 2008 15:37:11 -0500
+Subject: [python-committers] Cutting Python 2.6
+In-Reply-To: <ca471dc20810011333j4c8cddf3x7c210c5a9dea1d4b@mail.gmail.com>
+References: <D4BD3F4E-7F63-48CB-823D-5DEE045BAD71@python.org>
+	<ca471dc20810011333j4c8cddf3x7c210c5a9dea1d4b@mail.gmail.com>
+Message-ID: <1afaf6160810011337y62ffd2a0vf557e85f04a80fab@mail.gmail.com>
+
+On Wed, Oct 1, 2008 at 3:33 PM, Guido van Rossum <guido at python.org> wrote:
+> On Wed, Oct 1, 2008 at 12:36 PM, Barry Warsaw <barry at python.org> wrote:
+>> The trunk and 3.0 branches are officially frozen until further notice.  You
+>> /must/ contact me on irc if you need to make any changes.
+>
+> Why freeze the 3.0 branch?
+
+So he can release 3.0rc2, I imagine.
+
+
+-- 
+Cheers,
+Benjamin Peterson
+"There's no place like 127.0.0.1."
+
+From barry at python.org  Wed Oct  1 22:48:52 2008
+From: barry at python.org (Barry Warsaw)
+Date: Wed, 1 Oct 2008 16:48:52 -0400
+Subject: [python-committers] Cutting Python 2.6
+In-Reply-To: <ca471dc20810011333j4c8cddf3x7c210c5a9dea1d4b@mail.gmail.com>
+References: <D4BD3F4E-7F63-48CB-823D-5DEE045BAD71@python.org>
+	<ca471dc20810011333j4c8cddf3x7c210c5a9dea1d4b@mail.gmail.com>
+Message-ID: <DD88B500-4BF4-4DA9-A980-9EF165E4DA08@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On Oct 1, 2008, at 4:33 PM, Guido van Rossum wrote:
+
+> On Wed, Oct 1, 2008 at 12:36 PM, Barry Warsaw <barry at python.org>  
+> wrote:
+>> Over the next several hours I will be cutting Python 2.6.  All  
+>> lights and
+>> buildbots are go for final release tonight.
+>>
+>> I have not yet heard from Trent about press releases, so we'll have  
+>> to do
+>> those after the fact.
+>
+> Press releases can lag behind, but I hope that this time the Windows
+> and OSX installers will be released together with the main tarball.
+
+I agree, but I have not heard from Ronald or Martin about that yet.   
+Ronald, are you still planning on building the OS X installer?  I  
+believe we also want Sean to build the RPMs.
+
+Here's what might work: I will build the source tarball as normal,  
+uploading everything to dinsdale.  I'll fiddle the web site locally  
+but not commit the changes, so they won't become public yet.  I'll  
+send a message here when everything's ready and then if we hear from  
+Ronald and Martin, they can build the binaries.  As long as it's  
+October 1st somewhere in the world, we won't be lying. :)
+
+If I don't hear from them though, I will push the big red button just  
+before midnight my time (US/Eastern, UTC-0400).  We'll have to back- 
+load the binaries tomorrow.
+
+>> I am also planning on releasing 3.0rc2 tonight, but only if there's  
+>> time.
+>
+> I'd recommend against this now. We need a few more days to implement
+> the solution for undecodable filenames. There's a patch set by Victor
+> Stinner that does most of what I'd like to have, but it needs 1-2 more
+> rounds of review and refinements. I'd really like to hold up rc2 until
+> this is in.
+
+Great, works for me!
+
+>> Final releases have much more work and the process is much less  
+>> tested, so
+>> it may take me quite a while to get 2.6 final out.
+>>
+>> The trunk and 3.0 branches are officially frozen until further  
+>> notice.  You
+>> /must/ contact me on irc if you need to make any changes.
+>
+> Why freeze the 3.0 branch?
+
+It's not now <wink>.  So we'll put off 3.0rc2 and leave the 3.0 branch  
+thawed.
+
+>> Remember: #python-dev on irc.freenode.net.  Please include my nick  
+>> 'barry'
+>> in any ping so I will notice.
+>>
+>> Yee haw!
+>
+> Amen! Thanks for your relentless efforts, Barry and others!!!
+
+i-can-has-vacation-now?-ly y'rs,
+- -Barry
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQCVAwUBSOPiNHEjvBPtnXfVAQIhmQP+KVFqOe0y2+bfhVWmLkoqhUTPrFxrnP6F
+Zt2RzQHsklLdkRZayXCA2UqWSMp8YblZIxcp5n/UFRMnmIXOR6RzeAfGuZNboSd+
+4pVdIVh6ALvclIQvlqKyabfa4IA2rzP/zcDRUFBLatqCnJ7+oKymNeYAuV6mFW8Q
+wtZnWNY+oZg=
+=E9xu
+-----END PGP SIGNATURE-----
+
+From martin at v.loewis.de  Wed Oct  1 23:00:15 2008
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Wed, 01 Oct 2008 23:00:15 +0200
+Subject: [python-committers] Cutting Python 2.6
+In-Reply-To: <DD88B500-4BF4-4DA9-A980-9EF165E4DA08@python.org>
+References: <D4BD3F4E-7F63-48CB-823D-5DEE045BAD71@python.org>
+	<ca471dc20810011333j4c8cddf3x7c210c5a9dea1d4b@mail.gmail.com>
+	<DD88B500-4BF4-4DA9-A980-9EF165E4DA08@python.org>
+Message-ID: <48E3E4DF.8090008@v.loewis.de>
+
+>> Press releases can lag behind, but I hope that this time the Windows
+>> and OSX installers will be released together with the main tarball.
+> 
+> I agree, but I have not heard from Ronald or Martin about that yet. 
+
+That's because you didn't ask, I guess.
+
+> Ronald, are you still planning on building the OS X installer?  I
+> believe we also want Sean to build the RPMs.
+> 
+> Here's what might work: I will build the source tarball as normal,
+> uploading everything to dinsdale.  I'll fiddle the web site locally but
+> not commit the changes, so they won't become public yet.  I'll send a
+> message here when everything's ready and then if we hear from Ronald and
+> Martin, they can build the binaries.  As long as it's October 1st
+> somewhere in the world, we won't be lying. :)
+> 
+> If I don't hear from them though, I will push the big red button just
+> before midnight my time (US/Eastern, UTC-0400).  We'll have to back-load
+> the binaries tomorrow.
+
+I certainly won't be able to produce binaries before 8:00 UTC,
+October 2. I'll be asleep for the coming hours, then commute, etc.
+
+I must admit that I'm fairly unhappy how coordination with other people
+works when creating releases. Anthony Baxter did a better job. This
+started by asking whether the people involved have actually time to
+work on the release, at the day in question.
+
+Regards,
+Martin
+
+
+From barry at python.org  Wed Oct  1 23:11:04 2008
+From: barry at python.org (Barry Warsaw)
+Date: Wed, 1 Oct 2008 17:11:04 -0400
+Subject: [python-committers] Cutting Python 2.6
+In-Reply-To: <48E3E4DF.8090008@v.loewis.de>
+References: <D4BD3F4E-7F63-48CB-823D-5DEE045BAD71@python.org>
+	<ca471dc20810011333j4c8cddf3x7c210c5a9dea1d4b@mail.gmail.com>
+	<DD88B500-4BF4-4DA9-A980-9EF165E4DA08@python.org>
+	<48E3E4DF.8090008@v.loewis.de>
+Message-ID: <31E4EC13-B1E6-499A-99F8-8D9163A71A7D@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On Oct 1, 2008, at 5:00 PM, Martin v. L?wis wrote:
+
+>>> Press releases can lag behind, but I hope that this time the Windows
+>>> and OSX installers will be released together with the main tarball.
+>>
+>> I agree, but I have not heard from Ronald or Martin about that yet.
+>
+> That's because you didn't ask, I guess.
+
+Probably so, though today's release has been advertised for months.
+
+>> Ronald, are you still planning on building the OS X installer?  I
+>> believe we also want Sean to build the RPMs.
+>>
+>> Here's what might work: I will build the source tarball as normal,
+>> uploading everything to dinsdale.  I'll fiddle the web site locally  
+>> but
+>> not commit the changes, so they won't become public yet.  I'll send a
+>> message here when everything's ready and then if we hear from  
+>> Ronald and
+>> Martin, they can build the binaries.  As long as it's October 1st
+>> somewhere in the world, we won't be lying. :)
+>>
+>> If I don't hear from them though, I will push the big red button just
+>> before midnight my time (US/Eastern, UTC-0400).  We'll have to back- 
+>> load
+>> the binaries tomorrow.
+>
+> I certainly won't be able to produce binaries before 8:00 UTC,
+> October 2. I'll be asleep for the coming hours, then commute, etc.
+>
+> I must admit that I'm fairly unhappy how coordination with other  
+> people
+> works when creating releases. Anthony Baxter did a better job. This
+> started by asking whether the people involved have actually time to
+> work on the release, at the day in question.
+
+Yes, I should have been more proactive in getting everyone  
+coordinated, but as I say we've all known about today's release date  
+for a very long time.  I accept responsibility though.  I know I suck  
+and will happily resign if another sucke^H^H^H^H^Hvolunteer wants to  
+step up for next time :).
+
+We'll just have to get the additional binaries when they're  
+available.  Benjamin can do the OS X releases if necessary.
+
+- -Barry
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQCVAwUBSOPnaXEjvBPtnXfVAQJmUQP9HoAHtIfphjp1jwBOGXX4eKrUau5ooJWN
+GYl1bHguQ+dByFC/n5rXKhJR7mwfx5OkgdUiBPs5kvTZD1aVv7wD79RzZVHR5LH2
+vUleHDK6iHVrJ3V/xujHlIYvEvIE15Tjhhlqz4QihJ7P0yYoUGLmXp4h74Uv91Rh
+POmd2ozlhtE=
+=0F3r
+-----END PGP SIGNATURE-----
+
+From martin at v.loewis.de  Wed Oct  1 23:19:30 2008
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Wed, 01 Oct 2008 23:19:30 +0200
+Subject: [python-committers] Cutting Python 2.6
+In-Reply-To: <31E4EC13-B1E6-499A-99F8-8D9163A71A7D@python.org>
+References: <D4BD3F4E-7F63-48CB-823D-5DEE045BAD71@python.org>
+	<ca471dc20810011333j4c8cddf3x7c210c5a9dea1d4b@mail.gmail.com>
+	<DD88B500-4BF4-4DA9-A980-9EF165E4DA08@python.org>
+	<48E3E4DF.8090008@v.loewis.de>
+	<31E4EC13-B1E6-499A-99F8-8D9163A71A7D@python.org>
+Message-ID: <48E3E962.80903@v.loewis.de>
+
+> Yes, I should have been more proactive in getting everyone coordinated,
+> but as I say we've all known about today's release date for a very long
+> time.
+
+Sure. However, creating the tag around 22:00 UTC (or later) makes it
+fairly difficult for me to create binaries on the same day. To have
+binaries released on the scheduled day, the tag should be available
+no later than 16:00 UTC (which still means that I'll have to stay in
+office longer than usual).
+
+Regards,
+Martin
+
+From barry at python.org  Wed Oct  1 23:21:58 2008
+From: barry at python.org (Barry Warsaw)
+Date: Wed, 1 Oct 2008 17:21:58 -0400
+Subject: [python-committers] Cutting Python 2.6
+In-Reply-To: <48E3E962.80903@v.loewis.de>
+References: <D4BD3F4E-7F63-48CB-823D-5DEE045BAD71@python.org>
+	<ca471dc20810011333j4c8cddf3x7c210c5a9dea1d4b@mail.gmail.com>
+	<DD88B500-4BF4-4DA9-A980-9EF165E4DA08@python.org>
+	<48E3E4DF.8090008@v.loewis.de>
+	<31E4EC13-B1E6-499A-99F8-8D9163A71A7D@python.org>
+	<48E3E962.80903@v.loewis.de>
+Message-ID: <33B92457-8238-402C-9C68-8EF4ABE57EE2@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On Oct 1, 2008, at 5:19 PM, Martin v. L?wis wrote:
+
+>> Yes, I should have been more proactive in getting everyone  
+>> coordinated,
+>> but as I say we've all known about today's release date for a very  
+>> long
+>> time.
+>
+> Sure. However, creating the tag around 22:00 UTC (or later) makes it
+> fairly difficult for me to create binaries on the same day. To have
+> binaries released on the scheduled day, the tag should be available
+> no later than 16:00 UTC (which still means that I'll have to stay in
+> office longer than usual).
+
+Yes, of course that makes sense.  What would be a better time for you  
+Martin?  I would like to at least debug this aspect of the PEP so that  
+next time we can coordinate better.
+
+I'm guessing the earlier in your day the better.  I'm generally online  
+by 1300 UTC.  Maybe it makes sense to do the prep work the night  
+before so the tag is ready by your morning?
+
+- -Barry
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQCVAwUBSOPp9nEjvBPtnXfVAQIipwQAjNywHldquD5henfI8lDNKyiX/TxZ41Sz
+GJGQJQMIJe8oM8OWDg387+DGgjbHrmUQjQPYko54vMw4rwrJFi4xO8rpcVCZDary
+DR6qotfFDSRb6ObBv5GRsX6AR4uwAOjpYUAjTnsykIe4j+AYb+wECaNhR+nh8fz3
+7OXowSgUFAc=
+=mszQ
+-----END PGP SIGNATURE-----
+
+From martin at v.loewis.de  Wed Oct  1 23:32:01 2008
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Wed, 01 Oct 2008 23:32:01 +0200
+Subject: [python-committers] Cutting Python 2.6
+In-Reply-To: <33B92457-8238-402C-9C68-8EF4ABE57EE2@python.org>
+References: <D4BD3F4E-7F63-48CB-823D-5DEE045BAD71@python.org>
+	<ca471dc20810011333j4c8cddf3x7c210c5a9dea1d4b@mail.gmail.com>
+	<DD88B500-4BF4-4DA9-A980-9EF165E4DA08@python.org>
+	<48E3E4DF.8090008@v.loewis.de>
+	<31E4EC13-B1E6-499A-99F8-8D9163A71A7D@python.org>
+	<48E3E962.80903@v.loewis.de>
+	<33B92457-8238-402C-9C68-8EF4ABE57EE2@python.org>
+Message-ID: <48E3EC51.7090206@v.loewis.de>
+
+> Yes, of course that makes sense.  What would be a better time for you
+> Martin?  I would like to at least debug this aspect of the PEP so that
+> next time we can coordinate better.
+
+As I said: If you create the tag in your morning, I can do the binaries
+before heading home. Please send an email message to
+martin.vonloewis at hpi.uni-potsdam.de and martin at v.loewis.de when the tag
+is done (along to all other people who need to know that the tag has
+been created).
+
+> I'm guessing the earlier in your day the better.  I'm generally online
+> by 1300 UTC.  Maybe it makes sense to do the prep work the night before
+> so the tag is ready by your morning?
+
+Afternoon/early evening is fine. Not sure how much time you need: if you
+can do it by 1600 UTC, that's good enough (I know that a release is
+upcoming, so I would be waiting for your message).
+
+Of course, if you rather prefer to do that stuff in your afternoon
+(the day before the release): that would work for me as well. I think
+people will accept the tree being frozen for more than 24 hours.
+
+Of course, Anthony is in a different time zone, so when he created
+the tag in his evening, I had all day, and the binaries would still
+be available when he got up the next morning.
+
+Regards,
+Martin
+
+From barry at python.org  Wed Oct  1 23:39:14 2008
+From: barry at python.org (Barry Warsaw)
+Date: Wed, 1 Oct 2008 17:39:14 -0400
+Subject: [python-committers] Cutting Python 2.6
+In-Reply-To: <48E3EC51.7090206@v.loewis.de>
+References: <D4BD3F4E-7F63-48CB-823D-5DEE045BAD71@python.org>
+	<ca471dc20810011333j4c8cddf3x7c210c5a9dea1d4b@mail.gmail.com>
+	<DD88B500-4BF4-4DA9-A980-9EF165E4DA08@python.org>
+	<48E3E4DF.8090008@v.loewis.de>
+	<31E4EC13-B1E6-499A-99F8-8D9163A71A7D@python.org>
+	<48E3E962.80903@v.loewis.de>
+	<33B92457-8238-402C-9C68-8EF4ABE57EE2@python.org>
+	<48E3EC51.7090206@v.loewis.de>
+Message-ID: <3742E6AA-D260-48FB-8F07-0D4574CCA3BB@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On Oct 1, 2008, at 5:32 PM, Martin v. L?wis wrote:
+
+>> Yes, of course that makes sense.  What would be a better time for you
+>> Martin?  I would like to at least debug this aspect of the PEP so  
+>> that
+>> next time we can coordinate better.
+>
+> As I said: If you create the tag in your morning, I can do the  
+> binaries
+> before heading home. Please send an email message to
+> martin.vonloewis at hpi.uni-potsdam.de and martin at v.loewis.de when the  
+> tag
+> is done (along to all other people who need to know that the tag has
+> been created).
+>
+>> I'm guessing the earlier in your day the better.  I'm generally  
+>> online
+>> by 1300 UTC.  Maybe it makes sense to do the prep work the night  
+>> before
+>> so the tag is ready by your morning?
+>
+> Afternoon/early evening is fine. Not sure how much time you need: if  
+> you
+> can do it by 1600 UTC, that's good enough (I know that a release is
+> upcoming, so I would be waiting for your message).
+>
+> Of course, if you rather prefer to do that stuff in your afternoon
+> (the day before the release): that would work for me as well. I think
+> people will accept the tree being frozen for more than 24 hours.
+>
+> Of course, Anthony is in a different time zone, so when he created
+> the tag in his evening, I had all day, and the binaries would still
+> be available when he got up the next morning.
+
+You're absolutely right and that sounds good.  I will update the PEP  
+accordingly.  Martin, Ronald, Sean, what timezones are you in?  I am  
+US/Eastern.
+
+- -Barry
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQCVAwUBSOPuAnEjvBPtnXfVAQI52QQAm8HIZ6JHYgvj7yS+l1hjjqhhSgASMB93
+hYp6LCDBWHs4gSrkuWn4p5FhiR0jYuW89GLkg+I19+AGbs6qgoTaw+Kcp1usXlRI
+mOi6V3hlQg19xT1kBFGnYHMF1ge5lsyVO7czokWOGGfJnqYbdq8LcMaBXGE8ePwt
+mGSeIkKRnuM=
+=i9y+
+-----END PGP SIGNATURE-----
+
+From ncoghlan at gmail.com  Wed Oct  1 23:44:43 2008
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Thu, 02 Oct 2008 07:44:43 +1000
+Subject: [python-committers] Cutting Python 2.6
+In-Reply-To: <48E3EC51.7090206@v.loewis.de>
+References: <D4BD3F4E-7F63-48CB-823D-5DEE045BAD71@python.org>	<ca471dc20810011333j4c8cddf3x7c210c5a9dea1d4b@mail.gmail.com>	<DD88B500-4BF4-4DA9-A980-9EF165E4DA08@python.org>	<48E3E4DF.8090008@v.loewis.de>	<31E4EC13-B1E6-499A-99F8-8D9163A71A7D@python.org>	<48E3E962.80903@v.loewis.de>	<33B92457-8238-402C-9C68-8EF4ABE57EE2@python.org>
+	<48E3EC51.7090206@v.loewis.de>
+Message-ID: <48E3EF4B.1040207@gmail.com>
+
+Martin v. L?wis wrote:
+> Of course, Anthony is in a different time zone, so when he created
+> the tag in his evening, I had all day, and the binaries would still
+> be available when he got up the next morning.
+
+That's a good point - if Barry is on the US west coast somewhere, it
+actually works out to about a 17 or 18 hour time advantage for those of
+us in eastern Australia (depending on daylight saving).
+
+FWIW, I'd personally be fine with the trunk being frozen a day early if
+it was necessary to get the tags and binaries all ready on the day of
+release - just so long as it was mentioned in the release PEP.
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+---------------------------------------------------------------
+            http://www.boredomandlaziness.org
+
+From barry at python.org  Wed Oct  1 23:48:41 2008
+From: barry at python.org (Barry Warsaw)
+Date: Wed, 1 Oct 2008 17:48:41 -0400
+Subject: [python-committers] Cutting Python 2.6
+In-Reply-To: <48E3EF4B.1040207@gmail.com>
+References: <D4BD3F4E-7F63-48CB-823D-5DEE045BAD71@python.org>	<ca471dc20810011333j4c8cddf3x7c210c5a9dea1d4b@mail.gmail.com>	<DD88B500-4BF4-4DA9-A980-9EF165E4DA08@python.org>	<48E3E4DF.8090008@v.loewis.de>	<31E4EC13-B1E6-499A-99F8-8D9163A71A7D@python.org>	<48E3E962.80903@v.loewis.de>	<33B92457-8238-402C-9C68-8EF4ABE57EE2@python.org>
+	<48E3EC51.7090206@v.loewis.de> <48E3EF4B.1040207@gmail.com>
+Message-ID: <81B88E6E-B0A1-4300-A1E8-78B75FBB8BB8@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On Oct 1, 2008, at 5:44 PM, Nick Coghlan wrote:
+
+> Martin v. L?wis wrote:
+>> Of course, Anthony is in a different time zone, so when he created
+>> the tag in his evening, I had all day, and the binaries would still
+>> be available when he got up the next morning.
+>
+> That's a good point - if Barry is on the US west coast somewhere, it
+> actually works out to about a 17 or 18 hour time advantage for those  
+> of
+> us in eastern Australia (depending on daylight saving).
+
+I'm US/Eastern, but it's not that different. :)
+
+> FWIW, I'd personally be fine with the trunk being frozen a day early  
+> if
+> it was necessary to get the tags and binaries all ready on the day of
+> release - just so long as it was mentioned in the release PEP.
+
+IIUC, the critical bottleneck is tagging the tree, so the RM needs to  
+make it far enough through the PEP to get to that point.  Of course  
+that does mean freezing the tree, and I don't think it's too difficult  
+to do that.
+
+- -Barry
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQCVAwUBSOPwOnEjvBPtnXfVAQJVXQP/YP/JYd7r7KKv1mtZVFBAq9QpTCi6bLse
+xORM1W42aAYLwRezlmXkVLcoM7ypMk2htH+78VuMtQz6v9GPBkjaMYmwUqrH5SQO
+cm/mRLouZwX4hgWsATIp9SU+MAUxiKvWisyYWfQKT7uhwakf6nCSLL0Tk6QJXhro
+K8tIezCxrXw=
+=K+Ii
+-----END PGP SIGNATURE-----
+
+From barry at python.org  Thu Oct  2 00:11:04 2008
+From: barry at python.org (Barry Warsaw)
+Date: Wed, 1 Oct 2008 18:11:04 -0400
+Subject: [python-committers] Cutting Python 2.6
+In-Reply-To: <48E3EC51.7090206@v.loewis.de>
+References: <D4BD3F4E-7F63-48CB-823D-5DEE045BAD71@python.org>
+	<ca471dc20810011333j4c8cddf3x7c210c5a9dea1d4b@mail.gmail.com>
+	<DD88B500-4BF4-4DA9-A980-9EF165E4DA08@python.org>
+	<48E3E4DF.8090008@v.loewis.de>
+	<31E4EC13-B1E6-499A-99F8-8D9163A71A7D@python.org>
+	<48E3E962.80903@v.loewis.de>
+	<33B92457-8238-402C-9C68-8EF4ABE57EE2@python.org>
+	<48E3EC51.7090206@v.loewis.de>
+Message-ID: <65E74DF4-F89C-41C0-9026-5E939017F426@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+The 2.6 tag has been created.
+
+- -Barry
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQCVAwUBSOP1eHEjvBPtnXfVAQLDagP/RrRQrSCzLGBZK06kFR46p42rFv42ixnq
+IRWgBWd5wRfFAivuMrkntTyTNMniH+ujTeSaJ6oplVY78RGGBmPzERI8xBhOsZj4
+HYe/X51Vmjh8hTTYqs66ljV4xydAp04MDs0g81QgFNnsqac3aCwxVV8/RIrJfn0P
+8YlAqREAVYo=
+=s35e
+-----END PGP SIGNATURE-----
+
+From jcea at jcea.es  Thu Oct  2 00:37:20 2008
+From: jcea at jcea.es (Jesus Cea)
+Date: Thu, 02 Oct 2008 00:37:20 +0200
+Subject: [python-committers] Cutting Python 2.6
+In-Reply-To: <81B88E6E-B0A1-4300-A1E8-78B75FBB8BB8@python.org>
+References: <D4BD3F4E-7F63-48CB-823D-5DEE045BAD71@python.org>	<ca471dc20810011333j4c8cddf3x7c210c5a9dea1d4b@mail.gmail.com>	<DD88B500-4BF4-4DA9-A980-9EF165E4DA08@python.org>	<48E3E4DF.8090008@v.loewis.de>	<31E4EC13-B1E6-499A-99F8-8D9163A71A7D@python.org>	<48E3E962.80903@v.loewis.de>	<33B92457-8238-402C-9C68-8EF4ABE57EE2@python.org>	<48E3EC51.7090206@v.loewis.de>
+	<48E3EF4B.1040207@gmail.com>
+	<81B88E6E-B0A1-4300-A1E8-78B75FBB8BB8@python.org>
+Message-ID: <48E3FBA0.8030603@jcea.es>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Barry Warsaw wrote:
+> IIUC, the critical bottleneck is tagging the tree, so the RM needs to
+> make it far enough through the PEP to get to that point.  Of course that
+> does mean freezing the tree, and I don't think it's too difficult to do
+> that.
+
+I always found strange the need to freeze the tree. When a svn tag is
+created, the build process should use that tag to extract the files and
+build the release, while the repository is being updated normally.
+
+In fact in a *.0 release, the tag should be a branch actually.
+
+Sure I'm missing something...
+
+- --
+Jesus Cea Avion                         _/_/      _/_/_/        _/_/_/
+jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+jabber / xmpp:jcea at jabber.org         _/_/    _/_/          _/_/_/_/_/
+.                              _/_/  _/_/    _/_/          _/_/  _/_/
+"Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+"My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+"El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.8 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - http://enigmail.mozdev.org
+
+iQCVAwUBSOP7oJlgi5GaxT1NAQKmwQP/XTepaw9fFqf4b3VWsocvj0s4sb7THKgF
+cVi7Rf424YD+i7AJzMe0aFMEsrhvor1Ma/KMMXdypymxXkUapuJmLIP6R3BWZzyp
+sCDzRifhgHJg6LCq3TpIPvYseurUR1P0hgLZEKf5K/EAO+BJc6RIknBOgNS0RuHG
+SNs5cVMhe7g=
+=VRp9
+-----END PGP SIGNATURE-----
+
+From anthonybaxter at gmail.com  Thu Oct  2 01:00:51 2008
+From: anthonybaxter at gmail.com (Anthony Baxter)
+Date: Thu, 2 Oct 2008 10:00:51 +1100
+Subject: [python-committers] Cutting Python 2.6
+In-Reply-To: <48E3FBA0.8030603@jcea.es>
+References: <D4BD3F4E-7F63-48CB-823D-5DEE045BAD71@python.org>
+	<DD88B500-4BF4-4DA9-A980-9EF165E4DA08@python.org>
+	<48E3E4DF.8090008@v.loewis.de>
+	<31E4EC13-B1E6-499A-99F8-8D9163A71A7D@python.org>
+	<48E3E962.80903@v.loewis.de>
+	<33B92457-8238-402C-9C68-8EF4ABE57EE2@python.org>
+	<48E3EC51.7090206@v.loewis.de> <48E3EF4B.1040207@gmail.com>
+	<81B88E6E-B0A1-4300-A1E8-78B75FBB8BB8@python.org>
+	<48E3FBA0.8030603@jcea.es>
+Message-ID: <e69d3ed20810011600x4634d05ocf1bbc2ad4530f7f@mail.gmail.com>
+
+If there's a screwup, and you need to recut the branch, you want to be
+sure someone else hasn't been helpful and added something else to the
+repo.
+
+
+On Thu, Oct 2, 2008 at 9:37 AM, Jesus Cea <jcea at jcea.es> wrote:
+> -----BEGIN PGP SIGNED MESSAGE-----
+> Hash: SHA1
+>
+> Barry Warsaw wrote:
+>> IIUC, the critical bottleneck is tagging the tree, so the RM needs to
+>> make it far enough through the PEP to get to that point.  Of course that
+>> does mean freezing the tree, and I don't think it's too difficult to do
+>> that.
+>
+> I always found strange the need to freeze the tree. When a svn tag is
+> created, the build process should use that tag to extract the files and
+> build the release, while the repository is being updated normally.
+>
+> In fact in a *.0 release, the tag should be a branch actually.
+>
+> Sure I'm missing something...
+>
+> - --
+> Jesus Cea Avion                         _/_/      _/_/_/        _/_/_/
+> jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+> jabber / xmpp:jcea at jabber.org         _/_/    _/_/          _/_/_/_/_/
+> .                              _/_/  _/_/    _/_/          _/_/  _/_/
+> "Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+> "My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+> "El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+> -----BEGIN PGP SIGNATURE-----
+> Version: GnuPG v1.4.8 (GNU/Linux)
+> Comment: Using GnuPG with Mozilla - http://enigmail.mozdev.org
+>
+> iQCVAwUBSOP7oJlgi5GaxT1NAQKmwQP/XTepaw9fFqf4b3VWsocvj0s4sb7THKgF
+> cVi7Rf424YD+i7AJzMe0aFMEsrhvor1Ma/KMMXdypymxXkUapuJmLIP6R3BWZzyp
+> sCDzRifhgHJg6LCq3TpIPvYseurUR1P0hgLZEKf5K/EAO+BJc6RIknBOgNS0RuHG
+> SNs5cVMhe7g=
+> =VRp9
+> -----END PGP SIGNATURE-----
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+>
+
+From barry at python.org  Thu Oct  2 01:01:26 2008
+From: barry at python.org (Barry Warsaw)
+Date: Wed, 1 Oct 2008 19:01:26 -0400
+Subject: [python-committers] sources and docs are available
+Message-ID: <23A1A6CA-5BD0-463B-95F1-E3BC74290F06@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Although I'm not quite ready to thaw the tree and make the  
+announcement, the Python 2.6 final tarballs are now on dinsdale.  If  
+you'd like to grab them and take a look, run the tests, etc, that  
+would be great.
+
+@dinsdale[/data/ftp.python.org/pub/python/2.6:789]% md5sum Python-2.6*
+de4402c1d5465f3960e50ddbbc73cfd7  Python-2.6-docs-html.tar.bz2
+5c6f52c3ed321a0a227c1933aa9647f3  Python-2.6-docs-html.tgz
+fea8c5c63814ca998e9573fd90e22612  Python-2.6.tar.bz2
+2249173d62b455ce30052bec6fe72607  Python-2.6.tgz
+
+http://www.python.org/ftp/python/2.6/Python-2.6-docs-html.tar.bz2
+http://www.python.org/ftp/python/2.6/Python-2.6-docs-html.tgz
+http://www.python.org/ftp/python/2.6/Python-2.6.tar.bz2
+http://www.python.org/ftp/python/2.6/Python-2.6.tgz
+
+- -Barry
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQCVAwUBSOQBRnEjvBPtnXfVAQIY8QQAmAb0KPBetesunh7WQcMec/KmeVrqD9ne
+ca2Q4JA5nKAaD3F9JNsl/2kKuFM/7oXeJlpsYML3S7B3ygYvK6thZIu1ches3Cue
+v7Lx+dUk+C4dmYLX/JZvTUbXZmwFSjKucXtt6GhE+U5opcnDDCtaVRbseJTMjq9L
+fyXxm4cjHAs=
+=Lohi
+-----END PGP SIGNATURE-----
+
+From barry at python.org  Thu Oct  2 01:06:03 2008
+From: barry at python.org (Barry Warsaw)
+Date: Wed, 1 Oct 2008 19:06:03 -0400
+Subject: [python-committers] sources and docs are available
+In-Reply-To: <23A1A6CA-5BD0-463B-95F1-E3BC74290F06@python.org>
+References: <23A1A6CA-5BD0-463B-95F1-E3BC74290F06@python.org>
+Message-ID: <7D2C1576-831A-4751-B24F-3EDB1BFB0C06@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On Oct 1, 2008, at 7:01 PM, Barry Warsaw wrote:
+
+> Although I'm not quite ready to thaw the tree and make the  
+> announcement, the Python 2.6 final tarballs are now on dinsdale.  If  
+> you'd like to grab them and take a look, run the tests, etc, that  
+> would be great.
+>
+> @dinsdale[/data/ftp.python.org/pub/python/2.6:789]% md5sum Python-2.6*
+> de4402c1d5465f3960e50ddbbc73cfd7  Python-2.6-docs-html.tar.bz2
+> 5c6f52c3ed321a0a227c1933aa9647f3  Python-2.6-docs-html.tgz
+> fea8c5c63814ca998e9573fd90e22612  Python-2.6.tar.bz2
+> 2249173d62b455ce30052bec6fe72607  Python-2.6.tgz
+>
+> http://www.python.org/ftp/python/2.6/Python-2.6-docs-html.tar.bz2
+> http://www.python.org/ftp/python/2.6/Python-2.6-docs-html.tgz
+> http://www.python.org/ftp/python/2.6/Python-2.6.tar.bz2
+> http://www.python.org/ftp/python/2.6/Python-2.6.tgz
+
+As reported on irc, the source tarballs are too huge because Doc/build  
+got included.  Working on a fix now.
+
+- -Barry
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQCVAwUBSOQCW3EjvBPtnXfVAQKe0QP+JL520pFjekTY4OXYw7FGT5BCu3j+FNv8
+2UpbadQIEb+ym8cNRuNkTxBIfGnXW+/kk+jzGwl5EnJ0Zhuxx0vfcnItx5GEmLK9
+dovMq1fi+GsnKeycEapwvUrjXaSjeifQz6+iTp/DqaH08AWfwfXvkwB/0FHzzq61
+RoLAd50/0KM=
+=/uZi
+-----END PGP SIGNATURE-----
+
+From barry at python.org  Thu Oct  2 02:07:00 2008
+From: barry at python.org (Barry Warsaw)
+Date: Wed, 1 Oct 2008 20:07:00 -0400
+Subject: [python-committers] sources and docs are available
+In-Reply-To: <7D2C1576-831A-4751-B24F-3EDB1BFB0C06@python.org>
+References: <23A1A6CA-5BD0-463B-95F1-E3BC74290F06@python.org>
+	<7D2C1576-831A-4751-B24F-3EDB1BFB0C06@python.org>
+Message-ID: <ED556868-BBC8-4DBF-A516-62E563AD9C1B@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On Oct 1, 2008, at 7:06 PM, Barry Warsaw wrote:
+
+> As reported on irc, the source tarballs are too huge because Doc/ 
+> build got included.  Working on a fix now.
+
+The new tarballs are up.  I'm re-running the test with them.
+
+- -Barry
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQCVAwUBSOQQpXEjvBPtnXfVAQJijAP+O36wTefnQ8AYn32UNPw2g8tMJHEEd1OE
+2otK1i7ACHN9jXIFTSQy5MA+gkKHf500UsIUHoU9bSoLkkfHQk1h4MRiW6FgiZ9F
+yurIpPXvCADh0Okiw2TAF4RKLeQ3LkBqgCEsz8Wa8q8hE5BEnH1CXPr/3CIuKOwi
+BoSlJ45wiL0=
+=sOgo
+-----END PGP SIGNATURE-----
+
+From guido at python.org  Thu Oct  2 03:35:51 2008
+From: guido at python.org (Guido van Rossum)
+Date: Wed, 1 Oct 2008 18:35:51 -0700
+Subject: [python-committers] Cutting Python 2.6
+In-Reply-To: <e69d3ed20810011600x4634d05ocf1bbc2ad4530f7f@mail.gmail.com>
+References: <D4BD3F4E-7F63-48CB-823D-5DEE045BAD71@python.org>
+	<48E3E4DF.8090008@v.loewis.de>
+	<31E4EC13-B1E6-499A-99F8-8D9163A71A7D@python.org>
+	<48E3E962.80903@v.loewis.de>
+	<33B92457-8238-402C-9C68-8EF4ABE57EE2@python.org>
+	<48E3EC51.7090206@v.loewis.de> <48E3EF4B.1040207@gmail.com>
+	<81B88E6E-B0A1-4300-A1E8-78B75FBB8BB8@python.org>
+	<48E3FBA0.8030603@jcea.es>
+	<e69d3ed20810011600x4634d05ocf1bbc2ad4530f7f@mail.gmail.com>
+Message-ID: <ca471dc20810011835o3d73c5f4k97f92c9abe55dd42@mail.gmail.com>
+
+There should be a way to re-tag only the file(s) that contain the fix.
+
+On Wed, Oct 1, 2008 at 4:00 PM, Anthony Baxter <anthonybaxter at gmail.com> wrote:
+> If there's a screwup, and you need to recut the branch, you want to be
+> sure someone else hasn't been helpful and added something else to the
+> repo.
+>
+>
+> On Thu, Oct 2, 2008 at 9:37 AM, Jesus Cea <jcea at jcea.es> wrote:
+>> -----BEGIN PGP SIGNED MESSAGE-----
+>> Hash: SHA1
+>>
+>> Barry Warsaw wrote:
+>>> IIUC, the critical bottleneck is tagging the tree, so the RM needs to
+>>> make it far enough through the PEP to get to that point.  Of course that
+>>> does mean freezing the tree, and I don't think it's too difficult to do
+>>> that.
+>>
+>> I always found strange the need to freeze the tree. When a svn tag is
+>> created, the build process should use that tag to extract the files and
+>> build the release, while the repository is being updated normally.
+>>
+>> In fact in a *.0 release, the tag should be a branch actually.
+>>
+>> Sure I'm missing something...
+>>
+>> - --
+>> Jesus Cea Avion                         _/_/      _/_/_/        _/_/_/
+>> jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+>> jabber / xmpp:jcea at jabber.org         _/_/    _/_/          _/_/_/_/_/
+>> .                              _/_/  _/_/    _/_/          _/_/  _/_/
+>> "Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+>> "My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+>> "El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+>> -----BEGIN PGP SIGNATURE-----
+>> Version: GnuPG v1.4.8 (GNU/Linux)
+>> Comment: Using GnuPG with Mozilla - http://enigmail.mozdev.org
+>>
+>> iQCVAwUBSOP7oJlgi5GaxT1NAQKmwQP/XTepaw9fFqf4b3VWsocvj0s4sb7THKgF
+>> cVi7Rf424YD+i7AJzMe0aFMEsrhvor1Ma/KMMXdypymxXkUapuJmLIP6R3BWZzyp
+>> sCDzRifhgHJg6LCq3TpIPvYseurUR1P0hgLZEKf5K/EAO+BJc6RIknBOgNS0RuHG
+>> SNs5cVMhe7g=
+>> =VRp9
+>> -----END PGP SIGNATURE-----
+>> _______________________________________________
+>> python-committers mailing list
+>> python-committers at python.org
+>> http://mail.python.org/mailman/listinfo/python-committers
+>>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+>
+
+
+
+-- 
+--Guido van Rossum (home page: http://www.python.org/~guido/)
+
+From anthonybaxter at gmail.com  Thu Oct  2 03:47:27 2008
+From: anthonybaxter at gmail.com (Anthony Baxter)
+Date: Thu, 2 Oct 2008 11:47:27 +1000
+Subject: [python-committers] Cutting Python 2.6
+In-Reply-To: <ca471dc20810011835o3d73c5f4k97f92c9abe55dd42@mail.gmail.com>
+References: <D4BD3F4E-7F63-48CB-823D-5DEE045BAD71@python.org>
+	<31E4EC13-B1E6-499A-99F8-8D9163A71A7D@python.org>
+	<48E3E962.80903@v.loewis.de>
+	<33B92457-8238-402C-9C68-8EF4ABE57EE2@python.org>
+	<48E3EC51.7090206@v.loewis.de> <48E3EF4B.1040207@gmail.com>
+	<81B88E6E-B0A1-4300-A1E8-78B75FBB8BB8@python.org>
+	<48E3FBA0.8030603@jcea.es>
+	<e69d3ed20810011600x4634d05ocf1bbc2ad4530f7f@mail.gmail.com>
+	<ca471dc20810011835o3d73c5f4k97f92c9abe55dd42@mail.gmail.com>
+Message-ID: <e69d3ed20810011847p414a2fb0v1b9b923462359451@mail.gmail.com>
+
+Sure, but that's more fiddly. From experience, when you're cutting
+releases, making things as simple as possible is a good thing.
+
+
+
+On Thu, Oct 2, 2008 at 11:35 AM, Guido van Rossum <guido at python.org> wrote:
+> There should be a way to re-tag only the file(s) that contain the fix.
+>
+> On Wed, Oct 1, 2008 at 4:00 PM, Anthony Baxter <anthonybaxter at gmail.com> wrote:
+>> If there's a screwup, and you need to recut the branch, you want to be
+>> sure someone else hasn't been helpful and added something else to the
+>> repo.
+>>
+>>
+>> On Thu, Oct 2, 2008 at 9:37 AM, Jesus Cea <jcea at jcea.es> wrote:
+>>> -----BEGIN PGP SIGNED MESSAGE-----
+>>> Hash: SHA1
+>>>
+>>> Barry Warsaw wrote:
+>>>> IIUC, the critical bottleneck is tagging the tree, so the RM needs to
+>>>> make it far enough through the PEP to get to that point.  Of course that
+>>>> does mean freezing the tree, and I don't think it's too difficult to do
+>>>> that.
+>>>
+>>> I always found strange the need to freeze the tree. When a svn tag is
+>>> created, the build process should use that tag to extract the files and
+>>> build the release, while the repository is being updated normally.
+>>>
+>>> In fact in a *.0 release, the tag should be a branch actually.
+>>>
+>>> Sure I'm missing something...
+>>>
+>>> - --
+>>> Jesus Cea Avion                         _/_/      _/_/_/        _/_/_/
+>>> jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+>>> jabber / xmpp:jcea at jabber.org         _/_/    _/_/          _/_/_/_/_/
+>>> .                              _/_/  _/_/    _/_/          _/_/  _/_/
+>>> "Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+>>> "My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+>>> "El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+>>> -----BEGIN PGP SIGNATURE-----
+>>> Version: GnuPG v1.4.8 (GNU/Linux)
+>>> Comment: Using GnuPG with Mozilla - http://enigmail.mozdev.org
+>>>
+>>> iQCVAwUBSOP7oJlgi5GaxT1NAQKmwQP/XTepaw9fFqf4b3VWsocvj0s4sb7THKgF
+>>> cVi7Rf424YD+i7AJzMe0aFMEsrhvor1Ma/KMMXdypymxXkUapuJmLIP6R3BWZzyp
+>>> sCDzRifhgHJg6LCq3TpIPvYseurUR1P0hgLZEKf5K/EAO+BJc6RIknBOgNS0RuHG
+>>> SNs5cVMhe7g=
+>>> =VRp9
+>>> -----END PGP SIGNATURE-----
+>>> _______________________________________________
+>>> python-committers mailing list
+>>> python-committers at python.org
+>>> http://mail.python.org/mailman/listinfo/python-committers
+>>>
+>> _______________________________________________
+>> python-committers mailing list
+>> python-committers at python.org
+>> http://mail.python.org/mailman/listinfo/python-committers
+>>
+>
+>
+>
+> --
+> --Guido van Rossum (home page: http://www.python.org/~guido/)
+>
+
+From barry at python.org  Thu Oct  2 04:02:50 2008
+From: barry at python.org (Barry Warsaw)
+Date: Wed, 1 Oct 2008 22:02:50 -0400
+Subject: [python-committers] Cutting Python 2.6
+In-Reply-To: <e69d3ed20810011847p414a2fb0v1b9b923462359451@mail.gmail.com>
+References: <D4BD3F4E-7F63-48CB-823D-5DEE045BAD71@python.org>
+	<31E4EC13-B1E6-499A-99F8-8D9163A71A7D@python.org>
+	<48E3E962.80903@v.loewis.de>
+	<33B92457-8238-402C-9C68-8EF4ABE57EE2@python.org>
+	<48E3EC51.7090206@v.loewis.de> <48E3EF4B.1040207@gmail.com>
+	<81B88E6E-B0A1-4300-A1E8-78B75FBB8BB8@python.org>
+	<48E3FBA0.8030603@jcea.es>
+	<e69d3ed20810011600x4634d05ocf1bbc2ad4530f7f@mail.gmail.com>
+	<ca471dc20810011835o3d73c5f4k97f92c9abe55dd42@mail.gmail.com>
+	<e69d3ed20810011847p414a2fb0v1b9b923462359451@mail.gmail.com>
+Message-ID: <43BC8939-2B44-4CE9-9C76-03AA42229439@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On Oct 1, 2008, at 9:47 PM, Anthony Baxter wrote:
+
+> Sure, but that's more fiddly. From experience, when you're cutting
+> releases, making things as simple as possible is a good thing.
+
+Especially when a lot of the process is scripted.
+
+- -Barry
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQCVAwUBSOQry3EjvBPtnXfVAQJI7wP9HOtS7jMhOX4g47PZ4mNUs6VYywBEV7uo
+LZo0EuqJHiWfOHjkmpAipxo2ApXhhqpvFgGNtDBx4lPnsjbJbsrg2TO2/F8fwkMA
+O9oR3oQ5opUD5tONwE5q/1GHJPssw+UazqPP3262+K0UFS5IqwDlDu2msx3/H+sv
+YaB6kAykvMA=
+=Z8ir
+-----END PGP SIGNATURE-----
+
+From anthonybaxter at gmail.com  Thu Oct  2 04:05:01 2008
+From: anthonybaxter at gmail.com (Anthony Baxter)
+Date: Thu, 2 Oct 2008 12:05:01 +1000
+Subject: [python-committers] Cutting Python 2.6
+In-Reply-To: <43BC8939-2B44-4CE9-9C76-03AA42229439@python.org>
+References: <D4BD3F4E-7F63-48CB-823D-5DEE045BAD71@python.org>
+	<33B92457-8238-402C-9C68-8EF4ABE57EE2@python.org>
+	<48E3EC51.7090206@v.loewis.de> <48E3EF4B.1040207@gmail.com>
+	<81B88E6E-B0A1-4300-A1E8-78B75FBB8BB8@python.org>
+	<48E3FBA0.8030603@jcea.es>
+	<e69d3ed20810011600x4634d05ocf1bbc2ad4530f7f@mail.gmail.com>
+	<ca471dc20810011835o3d73c5f4k97f92c9abe55dd42@mail.gmail.com>
+	<e69d3ed20810011847p414a2fb0v1b9b923462359451@mail.gmail.com>
+	<43BC8939-2B44-4CE9-9C76-03AA42229439@python.org>
+Message-ID: <e69d3ed20810011905r644d506aq816b83681627232b@mail.gmail.com>
+
+That's why I wrote the welease.py script. Dunno if you've been using
+it. I wanted to make the release process as foolproof as possible so I
+wouldn't screw it up :-)
+
+
+On Thu, Oct 2, 2008 at 12:02 PM, Barry Warsaw <barry at python.org> wrote:
+> -----BEGIN PGP SIGNED MESSAGE-----
+> Hash: SHA1
+>
+> On Oct 1, 2008, at 9:47 PM, Anthony Baxter wrote:
+>
+>> Sure, but that's more fiddly. From experience, when you're cutting
+>> releases, making things as simple as possible is a good thing.
+>
+> Especially when a lot of the process is scripted.
+>
+> - -Barry
+>
+> -----BEGIN PGP SIGNATURE-----
+> Version: GnuPG v1.4.9 (Darwin)
+>
+> iQCVAwUBSOQry3EjvBPtnXfVAQJI7wP9HOtS7jMhOX4g47PZ4mNUs6VYywBEV7uo
+> LZo0EuqJHiWfOHjkmpAipxo2ApXhhqpvFgGNtDBx4lPnsjbJbsrg2TO2/F8fwkMA
+> O9oR3oQ5opUD5tONwE5q/1GHJPssw+UazqPP3262+K0UFS5IqwDlDu2msx3/H+sv
+> YaB6kAykvMA=
+> =Z8ir
+> -----END PGP SIGNATURE-----
+>
+
+From barry at python.org  Thu Oct  2 04:08:15 2008
+From: barry at python.org (Barry Warsaw)
+Date: Wed, 1 Oct 2008 22:08:15 -0400
+Subject: [python-committers] Cutting Python 2.6
+In-Reply-To: <e69d3ed20810011905r644d506aq816b83681627232b@mail.gmail.com>
+References: <D4BD3F4E-7F63-48CB-823D-5DEE045BAD71@python.org>
+	<33B92457-8238-402C-9C68-8EF4ABE57EE2@python.org>
+	<48E3EC51.7090206@v.loewis.de> <48E3EF4B.1040207@gmail.com>
+	<81B88E6E-B0A1-4300-A1E8-78B75FBB8BB8@python.org>
+	<48E3FBA0.8030603@jcea.es>
+	<e69d3ed20810011600x4634d05ocf1bbc2ad4530f7f@mail.gmail.com>
+	<ca471dc20810011835o3d73c5f4k97f92c9abe55dd42@mail.gmail.com>
+	<e69d3ed20810011847p414a2fb0v1b9b923462359451@mail.gmail.com>
+	<43BC8939-2B44-4CE9-9C76-03AA42229439@python.org>
+	<e69d3ed20810011905r644d506aq816b83681627232b@mail.gmail.com>
+Message-ID: <D22BD77E-0113-4895-A288-832F0B3BBC97@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On Oct 1, 2008, at 10:05 PM, Anthony Baxter wrote:
+
+> That's why I wrote the welease.py script. Dunno if you've been using
+> it. I wanted to make the release process as foolproof as possible so I
+> wouldn't screw it up :-)
+
+Unfortunately, I had a lot of problems getting the u/i to work on my  
+boxes.  I, with the help of Benjamin Peterson, stole lots of good  
+stuff from it though!  We have a command line release.py script that  
+automates lots of it.  I think the one big thing I'd like to teach it  
+for next time is how to fiddle all the little bits of web pages that  
+have to get updated.  Actually building the release, along with all  
+the svn games and building the docs is now a pretty trivial exercise.
+
+- -Barry
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQCVAwUBSOQtD3EjvBPtnXfVAQIiGwQAnANc0C01gth9vSHXKnlJQcy1B21MGlCL
+rv/BzFuCT+H5eeI0ZZEqHioMixop1vLoA3qSNTKQl3Ry5Gmrm2Z9PYMiATp3w4K4
+0oXoBPHjL49yAraHsLs8dZt04Vu+PSU9oZ7Zt9YNis39VH5GhO4gdMl6HIAwOERY
+yBtS9/U8TB0=
+=10Nt
+-----END PGP SIGNATURE-----
+
+From barry at python.org  Thu Oct  2 05:24:25 2008
+From: barry at python.org (Barry Warsaw)
+Date: Wed, 1 Oct 2008 23:24:25 -0400
+Subject: [python-committers] python 2.6
+Message-ID: <D4C35E2F-69F8-49C5-AE3D-CB574907CFF4@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Well, I /think/ everything's done, except:
+
+* write and send the announcement
+* Martin to upload msi's tomorrow
+* fix docs.python.org
+
+Actually, I couldn't figure out what to do to make docs.python.org and  
+all the other current/dev docs symlinks do the right thing.  It's  
+probably because I'm 1) stupid; 2) completely exhausted; 3) all of the  
+above.  In any case, PEP 101 isn't helpful, so Georg, please fix the  
+documentation links when you're able.  It'd be great if you can take a  
+pass through PEP 101 and update any documentation related instructions.
+
+Thanks all, this truly was a community release.  Huge thanks to my irc- 
+buds once again.
+
+- -Barry
+
+P.S. The release26-maint branch is now open for 2.6.1.  The trunk is  
+open for 2.7 :)
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQCVAwUBSOQ+6XEjvBPtnXfVAQIMZgP+PQDi1zHkk0pvr2xdAxVXY4QnGCytu4Pp
+c+mWmnzVCmtmUsUFMFEeIwruFFdJrCeBiByyYftFW0b95Ru1ld4ajJPJarucmJme
+0ocgJk/KdVd0T0xLTxhOKQ3VqDG+6mAwg0lTMu/XdThQsbNCQSm3yK/NiYaY63uq
+sPx0keVcSmw=
+=tlDv
+-----END PGP SIGNATURE-----
+
+From martin at v.loewis.de  Thu Oct  2 07:52:11 2008
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Thu, 02 Oct 2008 07:52:11 +0200
+Subject: [python-committers] Cutting Python 2.6
+In-Reply-To: <ca471dc20810011835o3d73c5f4k97f92c9abe55dd42@mail.gmail.com>
+References: <D4BD3F4E-7F63-48CB-823D-5DEE045BAD71@python.org>	<48E3E4DF.8090008@v.loewis.de>	<31E4EC13-B1E6-499A-99F8-8D9163A71A7D@python.org>	<48E3E962.80903@v.loewis.de>	<33B92457-8238-402C-9C68-8EF4ABE57EE2@python.org>	<48E3EC51.7090206@v.loewis.de>
+	<48E3EF4B.1040207@gmail.com>	<81B88E6E-B0A1-4300-A1E8-78B75FBB8BB8@python.org>	<48E3FBA0.8030603@jcea.es>	<e69d3ed20810011600x4634d05ocf1bbc2ad4530f7f@mail.gmail.com>
+	<ca471dc20810011835o3d73c5f4k97f92c9abe55dd42@mail.gmail.com>
+Message-ID: <48E4618B.9060104@v.loewis.de>
+
+> There should be a way to re-tag only the file(s) that contain the fix.
+
+It's possible to edit the tag itself (rather than the trunk/maintenance
+branch), but then you also need to merge the changes back into the
+trunk. Also, editing the tag effectively makes it a branch; such usage
+is discouraged (and it will screw up conversion to, say, bazaar, which
+assumes a tag denotes a single revision).
+
+It would be possible to create a branch just for the release, but that's
+more tedious.
+
+In the specific case, I think it would be best to create the maintenance
+branch earlier; then only that branch needs to be frozen (instead of the
+mainline).
+
+Regards,
+Martin
+
+From martin at v.loewis.de  Thu Oct  2 08:08:06 2008
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Thu, 02 Oct 2008 08:08:06 +0200
+Subject: [python-committers] Cutting Python 2.6
+In-Reply-To: <3742E6AA-D260-48FB-8F07-0D4574CCA3BB@python.org>
+References: <D4BD3F4E-7F63-48CB-823D-5DEE045BAD71@python.org>
+	<ca471dc20810011333j4c8cddf3x7c210c5a9dea1d4b@mail.gmail.com>
+	<DD88B500-4BF4-4DA9-A980-9EF165E4DA08@python.org>
+	<48E3E4DF.8090008@v.loewis.de>
+	<31E4EC13-B1E6-499A-99F8-8D9163A71A7D@python.org>
+	<48E3E962.80903@v.loewis.de>
+	<33B92457-8238-402C-9C68-8EF4ABE57EE2@python.org>
+	<48E3EC51.7090206@v.loewis.de>
+	<3742E6AA-D260-48FB-8F07-0D4574CCA3BB@python.org>
+Message-ID: <48E46546.1010205@v.loewis.de>
+
+> You're absolutely right and that sounds good.  I will update the PEP
+> accordingly.  Martin, Ronald, Sean, what timezones are you in?  I am
+> US/Eastern.
+
+I'm in CET (Central European), that GMT+2 in DST, and GMT+1 otherwise.
+
+As for Sean: Sean and me had agreed that we won't do RPMs anymore for
+2.5.x. Maybe we need to reconsider now, but my view is that binary RPMs
+typically fit a very specific OS release only (e.g. some version of
+Redhat); all the other RPM-using distributions (SuSE etc) couldn't use
+it. So compared to the value, the effort is too big.
+
+Regards,
+Martin
+
+From anthonybaxter at gmail.com  Thu Oct  2 08:28:06 2008
+From: anthonybaxter at gmail.com (Anthony Baxter)
+Date: Thu, 2 Oct 2008 16:28:06 +1000
+Subject: [python-committers] Cutting Python 2.6
+In-Reply-To: <48E46546.1010205@v.loewis.de>
+References: <D4BD3F4E-7F63-48CB-823D-5DEE045BAD71@python.org>
+	<ca471dc20810011333j4c8cddf3x7c210c5a9dea1d4b@mail.gmail.com>
+	<DD88B500-4BF4-4DA9-A980-9EF165E4DA08@python.org>
+	<48E3E4DF.8090008@v.loewis.de>
+	<31E4EC13-B1E6-499A-99F8-8D9163A71A7D@python.org>
+	<48E3E962.80903@v.loewis.de>
+	<33B92457-8238-402C-9C68-8EF4ABE57EE2@python.org>
+	<48E3EC51.7090206@v.loewis.de>
+	<3742E6AA-D260-48FB-8F07-0D4574CCA3BB@python.org>
+	<48E46546.1010205@v.loewis.de>
+Message-ID: <e69d3ed20810012328h304c1aer4c7a1aff8cf50d41@mail.gmail.com>
+
+On Thu, Oct 2, 2008 at 4:08 PM, "Martin v. L?wis" <martin at v.loewis.de> wrote:
+>> You're absolutely right and that sounds good.  I will update the PEP
+>> accordingly.  Martin, Ronald, Sean, what timezones are you in?  I am
+>> US/Eastern.
+>
+> I'm in CET (Central European), that GMT+2 in DST, and GMT+1 otherwise.
+>
+> As for Sean: Sean and me had agreed that we won't do RPMs anymore for
+> 2.5.x. Maybe we need to reconsider now, but my view is that binary RPMs
+> typically fit a very specific OS release only (e.g. some version of
+> Redhat); all the other RPM-using distributions (SuSE etc) couldn't use
+> it. So compared to the value, the effort is too big.
+
++1. Last time I looked (a fair while ago now) the number of downloads
+of the RPM packages wasn't that large.
+
+From martin at v.loewis.de  Thu Oct  2 08:47:52 2008
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Thu, 02 Oct 2008 08:47:52 +0200
+Subject: [python-committers] 3.0rc2 schedule
+Message-ID: <48E46E98.3090106@v.loewis.de>
+
+I propose that the release of 3.0rc2 is deferred until all release
+blockers have been resolved (either by actually fixing them, or by
+carefully considering that they shouldn't actually block the release).
+
+What else is the point of having the "release blocker" priority, if
+they don't actually manage to block the release?
+
+Also, I would like to think that there shouldn't be any
+non-documentation changes between the last release candidate, and
+the final release(*). Otherwise, what's the point of calling it
+a "release candidate" if it doesn't actually get released, later?
+IOW, what's the difference to a beta release?
+
+(*) Consequently, there doesn't need to be much more time between
+the release candidate and the final release except but a few days,
+or, at most, a week.
+
+Regards,
+Martin
+
+From anthonybaxter at gmail.com  Thu Oct  2 09:05:37 2008
+From: anthonybaxter at gmail.com (Anthony Baxter)
+Date: Thu, 2 Oct 2008 17:05:37 +1000
+Subject: [python-committers] 3.0rc2 schedule
+In-Reply-To: <48E46E98.3090106@v.loewis.de>
+References: <48E46E98.3090106@v.loewis.de>
+Message-ID: <e69d3ed20810020005p33bfb4cay6ccccb70c1ca1ea6@mail.gmail.com>
+
+On Thu, Oct 2, 2008 at 4:47 PM, "Martin v. L?wis" <martin at v.loewis.de> wrote:
+> I propose that the release of 3.0rc2 is deferred until all release
+> blockers have been resolved (either by actually fixing them, or by
+> carefully considering that they shouldn't actually block the release).
+>
+> What else is the point of having the "release blocker" priority, if
+> they don't actually manage to block the release?
+
++10. Absolutely.
+
+> Also, I would like to think that there shouldn't be any
+> non-documentation changes between the last release candidate, and
+> the final release(*). Otherwise, what's the point of calling it
+> a "release candidate" if it doesn't actually get released, later?
+> IOW, what's the difference to a beta release?
+>
+> (*) Consequently, there doesn't need to be much more time between
+> the release candidate and the final release except but a few days,
+> or, at most, a week.
+
+That's been the policy for the last few releases, as far as I can recall.
+
+From ronaldoussoren at mac.com  Thu Oct  2 08:20:37 2008
+From: ronaldoussoren at mac.com (Ronald Oussoren)
+Date: Thu, 02 Oct 2008 08:20:37 +0200
+Subject: [python-committers] Cutting Python 2.6
+In-Reply-To: <48E46546.1010205@v.loewis.de>
+References: <D4BD3F4E-7F63-48CB-823D-5DEE045BAD71@python.org>
+	<ca471dc20810011333j4c8cddf3x7c210c5a9dea1d4b@mail.gmail.com>
+	<DD88B500-4BF4-4DA9-A980-9EF165E4DA08@python.org>
+	<48E3E4DF.8090008@v.loewis.de>
+	<31E4EC13-B1E6-499A-99F8-8D9163A71A7D@python.org>
+	<48E3E962.80903@v.loewis.de>
+	<33B92457-8238-402C-9C68-8EF4ABE57EE2@python.org>
+	<48E3EC51.7090206@v.loewis.de>
+	<3742E6AA-D260-48FB-8F07-0D4574CCA3BB@python.org>
+	<48E46546.1010205@v.loewis.de>
+Message-ID: <B5BA9DF9-14D3-4B55-9407-C483D4BF6AF4@mac.com>
+
+
+On 2 Oct, 2008, at 8:08, Martin v. L?wis wrote:
+
+>> You're absolutely right and that sounds good.  I will update the PEP
+>> accordingly.  Martin, Ronald, Sean, what timezones are you in?  I am
+>> US/Eastern.
+>
+> I'm in CET (Central European), that GMT+2 in DST, and GMT+1 otherwise.
+
+I'm in CET as wel.
+
+Ronald
+
+
+From skip at pobox.com  Thu Oct  2 11:20:08 2008
+From: skip at pobox.com (skip at pobox.com)
+Date: Thu, 2 Oct 2008 04:20:08 -0500
+Subject: [python-committers] 3.0rc2 schedule
+In-Reply-To: <48E46E98.3090106@v.loewis.de>
+References: <48E46E98.3090106@v.loewis.de>
+Message-ID: <18660.37448.915078.277812@montanaro-dyndns-org.local>
+
+
+    Martin> I propose that the release of 3.0rc2 is deferred until all
+    Martin> release blockers have been resolved (either by actually fixing
+    Martin> them, or by carefully considering that they shouldn't actually
+    Martin> block the release).
+
++1.  Even though it's not 3.0-specific, I think the highest priority problem
+which should be resolved ASAP is the 403 Forbidden which essentially all doc
+pages return right now.
+ 
+Skip
+
+From solipsis at pitrou.net  Thu Oct  2 13:11:09 2008
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Thu, 02 Oct 2008 13:11:09 +0200
+Subject: [python-committers] python 2.6 + hg mirror
+In-Reply-To: <D4C35E2F-69F8-49C5-AE3D-CB574907CFF4@python.org>
+References: <D4C35E2F-69F8-49C5-AE3D-CB574907CFF4@python.org>
+Message-ID: <1222945869.7054.2.camel@fsol>
+
+Le mercredi 01 octobre 2008 ? 23:24 -0400, Barry Warsaw a ?crit :
+> P.S. The release26-maint branch is now open for 2.6.1.
+
+I have created a Mercurial mirror (actually, two) for it.
+http://code.python.org/hg/
+
+Half OT, but Mercurial users can also help review the Mercurial support
+patch for Rietveld's upload.py here:
+http://codereview.appspot.com/4651
+
+Regards
+
+Antoine.
+
+
+
+From barry at python.org  Thu Oct  2 14:52:25 2008
+From: barry at python.org (Barry Warsaw)
+Date: Thu, 2 Oct 2008 08:52:25 -0400
+Subject: [python-committers] 3.0rc2 schedule
+In-Reply-To: <48E46E98.3090106@v.loewis.de>
+References: <48E46E98.3090106@v.loewis.de>
+Message-ID: <1179FEBB-0E80-41E9-8B8D-9E709E12555D@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On Oct 2, 2008, at 2:47 AM, Martin v. L?wis wrote:
+
+> I propose that the release of 3.0rc2 is deferred until all release
+> blockers have been resolved (either by actually fixing them, or by
+> carefully considering that they shouldn't actually block the release).
+
+We should reconsider whether 3.0 is ready for release candidates.   
+Perhaps it makes more sense to rename rc1 to beta4 and fix some of  
+these blockers.  Now that 2.6 is (mostly) out of the way, we can  
+concentrate on getting 3.0 right.
+
+- -Barry
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQCVAwUBSOTECXEjvBPtnXfVAQIX6AP5ART0TxYwBVVg4BixDD7Fua7WXFmFcJJA
+JXkr8fXQPlGsTWychGSXHpaWOuS2qoSPZd/NC1KLcctkkJO1YC7Uuw3iT06XYEOC
+DbHbCQHmH7sSQmVCYHC1azibHCAdL5uvJLtVoc3GC0aOkV3XRlieVo7k2PhdvwIJ
+Wok8R0eQwq8=
+=IkmX
+-----END PGP SIGNATURE-----
+
+From ncoghlan at gmail.com  Thu Oct  2 14:59:07 2008
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Thu, 02 Oct 2008 22:59:07 +1000
+Subject: [python-committers] 3.0rc2 schedule
+In-Reply-To: <1179FEBB-0E80-41E9-8B8D-9E709E12555D@python.org>
+References: <48E46E98.3090106@v.loewis.de>
+	<1179FEBB-0E80-41E9-8B8D-9E709E12555D@python.org>
+Message-ID: <48E4C59B.2010900@gmail.com>
+
+Barry Warsaw wrote:
+> We should reconsider whether 3.0 is ready for release candidates. 
+> Perhaps it makes more sense to rename rc1 to beta4 and fix some of these
+> blockers.  Now that 2.6 is (mostly) out of the way, we can concentrate
+> on getting 3.0 right.
+
+Yes, with Victor's filesystem decoding related changes still to go in,
+along with a a few other API changes to be forward ported from 2.6,
+calling the current state of 3.0 a release candidate definitely seems to
+be getting ahead of ourselves.
+
+A big +1 from me for declaring it still in beta until all the 3.0
+release blockers are fixed.
+
+Cheers,
+Nick.
+
+_______________________________________________
+python-committers mailing list
+python-committers at python.org
+http://mail.python.org/mailman/listinfo/python-committers
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+---------------------------------------------------------------
+            http://www.boredomandlaziness.org
+
+From fdrake at acm.org  Thu Oct  2 15:15:47 2008
+From: fdrake at acm.org (Fred Drake)
+Date: Thu, 02 Oct 2008 09:15:47 -0400
+Subject: [python-committers] 3.0rc2 schedule
+In-Reply-To: <48E4C59B.2010900@gmail.com>
+References: <48E46E98.3090106@v.loewis.de>
+	<1179FEBB-0E80-41E9-8B8D-9E709E12555D@python.org>
+	<48E4C59B.2010900@gmail.com>
+Message-ID: <673C88CC-4A43-4E10-BA7D-A98AB9335600@acm.org>
+
+On Oct 2, 2008, at 8:59 AM, Nick Coghlan wrote:
+> A big +1 from me for declaring it still in beta until all the 3.0
+> release blockers are fixed.
+
++1 from me as well.  From what I've read about the pathname issues,  
+I'm pretty worried about the usability of 3.0.
+
+
+   -Fred
+
+-- 
+Fred L. Drake, Jr.  <fdrake at acm.org>
+
+
+From ncoghlan at gmail.com  Thu Oct  2 15:39:48 2008
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Thu, 02 Oct 2008 23:39:48 +1000
+Subject: [python-committers] 3.0rc2 schedule
+In-Reply-To: <673C88CC-4A43-4E10-BA7D-A98AB9335600@acm.org>
+References: <48E46E98.3090106@v.loewis.de>
+	<1179FEBB-0E80-41E9-8B8D-9E709E12555D@python.org>
+	<48E4C59B.2010900@gmail.com>
+	<673C88CC-4A43-4E10-BA7D-A98AB9335600@acm.org>
+Message-ID: <48E4CF24.1010809@gmail.com>
+
+Fred Drake wrote:
+> On Oct 2, 2008, at 8:59 AM, Nick Coghlan wrote:
+>> A big +1 from me for declaring it still in beta until all the 3.0
+>> release blockers are fixed.
+> 
+> +1 from me as well.  From what I've read about the pathname issues, I'm
+> pretty worried about the usability of 3.0.
+
+If you don't make a habit of borking your own filesystems with dodgy
+filenames, it runs fine.
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+---------------------------------------------------------------
+            http://www.boredomandlaziness.org
+
+From anthonybaxter at gmail.com  Thu Oct  2 18:06:17 2008
+From: anthonybaxter at gmail.com (Anthony Baxter)
+Date: Fri, 3 Oct 2008 03:06:17 +1100
+Subject: [python-committers] 3.0rc2 schedule
+In-Reply-To: <48E4CF24.1010809@gmail.com>
+References: <48E46E98.3090106@v.loewis.de>
+	<1179FEBB-0E80-41E9-8B8D-9E709E12555D@python.org>
+	<48E4C59B.2010900@gmail.com>
+	<673C88CC-4A43-4E10-BA7D-A98AB9335600@acm.org>
+	<48E4CF24.1010809@gmail.com>
+Message-ID: <e69d3ed20810020906v40144f5eq48eb7645daec98a3@mail.gmail.com>
+
+IMHO if there's still big scary stuff out there, calling this a
+release candidate does us no good PR-wise, and does no good for our
+users. 3.0 is going to be scary enough for them as it is - cutting a
+release candidate that we either know is broken, or else has
+significant changes, is a very bad idea.
+
+
+On Fri, Oct 3, 2008 at 12:39 AM, Nick Coghlan <ncoghlan at gmail.com> wrote:
+> Fred Drake wrote:
+>> On Oct 2, 2008, at 8:59 AM, Nick Coghlan wrote:
+>>> A big +1 from me for declaring it still in beta until all the 3.0
+>>> release blockers are fixed.
+>>
+>> +1 from me as well.  From what I've read about the pathname issues, I'm
+>> pretty worried about the usability of 3.0.
+>
+> If you don't make a habit of borking your own filesystems with dodgy
+> filenames, it runs fine.
+>
+> Cheers,
+> Nick.
+>
+> --
+> Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+> ---------------------------------------------------------------
+>            http://www.boredomandlaziness.org
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+>
+
+From python at rcn.com  Thu Oct  2 18:31:51 2008
+From: python at rcn.com (Raymond Hettinger)
+Date: Thu, 2 Oct 2008 09:31:51 -0700
+Subject: [python-committers] 3.0rc2 schedule
+References: <48E46E98.3090106@v.loewis.de><1179FEBB-0E80-41E9-8B8D-9E709E12555D@python.org><48E4C59B.2010900@gmail.com><673C88CC-4A43-4E10-BA7D-A98AB9335600@acm.org><48E4CF24.1010809@gmail.com>
+	<e69d3ed20810020906v40144f5eq48eb7645daec98a3@mail.gmail.com>
+Message-ID: <A0DB70C5C6AC4323B413E257F935E646@RaymondLaptop1>
+
+> IMHO if there's still big scary stuff out there, calling this a
+> release candidate does us no good PR-wise, and does no good for our
+> users. 3.0 is going to be scary enough for them as it is - cutting a
+> release candidate that we either know is broken, or else has
+> significant changes, is a very bad idea.
+
+I concur.  Better to go through another beta.
+It feels like 3.0 is being rushed.
+
+
+Raymond
+
+From barry at python.org  Thu Oct  2 18:36:45 2008
+From: barry at python.org (Barry Warsaw)
+Date: Thu, 2 Oct 2008 12:36:45 -0400
+Subject: [python-committers] 3.0rc2 schedule
+In-Reply-To: <A0DB70C5C6AC4323B413E257F935E646@RaymondLaptop1>
+References: <48E46E98.3090106@v.loewis.de><1179FEBB-0E80-41E9-8B8D-9E709E12555D@python.org><48E4C59B.2010900@gmail.com><673C88CC-4A43-4E10-BA7D-A98AB9335600@acm.org><48E4CF24.1010809@gmail.com>
+	<e69d3ed20810020906v40144f5eq48eb7645daec98a3@mail.gmail.com>
+	<A0DB70C5C6AC4323B413E257F935E646@RaymondLaptop1>
+Message-ID: <89FEDF2C-BABA-46DC-916D-90FCEC39B50A@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On Oct 2, 2008, at 12:31 PM, Raymond Hettinger wrote:
+
+>> IMHO if there's still big scary stuff out there, calling this a
+>> release candidate does us no good PR-wise, and does no good for our
+>> users. 3.0 is going to be scary enough for them as it is - cutting a
+>> release candidate that we either know is broken, or else has
+>> significant changes, is a very bad idea.
+>
+> I concur.  Better to go through another beta.
+> It feels like 3.0 is being rushed.
+
+I agree.  I'm swamped right now, but I will try to put together a  
+revised schedule proposal later tonight.
+
+Someone please distract Guido while I "borrow" the keys to the time  
+machine.
+
+- -Barry
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQCVAwUBSOT4nnEjvBPtnXfVAQLR3QP+NW6g5vNb6Avqk42lXg1I0vvhYn7UoR5q
+Of7u7OSjuir2rK3srvZyzsUuPNeFANY1vNwPD+j3WT2fL+ZgdVzefYHNGtk3CPG6
+L9NvTRvMhj17rFjFMV9hng5CgCS4bKGfg5/yrKeOBL8/MPeQfF2p3+UWYdBWNAfV
+p+1vmjTMcUk=
+=LdRB
+-----END PGP SIGNATURE-----
+
+From guido at python.org  Thu Oct  2 18:41:36 2008
+From: guido at python.org (Guido van Rossum)
+Date: Thu, 2 Oct 2008 09:41:36 -0700
+Subject: [python-committers] 3.0rc2 schedule
+In-Reply-To: <89FEDF2C-BABA-46DC-916D-90FCEC39B50A@python.org>
+References: <48E46E98.3090106@v.loewis.de>
+	<1179FEBB-0E80-41E9-8B8D-9E709E12555D@python.org>
+	<48E4C59B.2010900@gmail.com>
+	<673C88CC-4A43-4E10-BA7D-A98AB9335600@acm.org>
+	<48E4CF24.1010809@gmail.com>
+	<e69d3ed20810020906v40144f5eq48eb7645daec98a3@mail.gmail.com>
+	<A0DB70C5C6AC4323B413E257F935E646@RaymondLaptop1>
+	<89FEDF2C-BABA-46DC-916D-90FCEC39B50A@python.org>
+Message-ID: <ca471dc20810020941q7826c95fk9e49354eacdc6700@mail.gmail.com>
+
+On Thu, Oct 2, 2008 at 9:36 AM, Barry Warsaw <barry at python.org> wrote:
+> On Oct 2, 2008, at 12:31 PM, Raymond Hettinger wrote:
+>
+>>> IMHO if there's still big scary stuff out there, calling this a
+>>> release candidate does us no good PR-wise, and does no good for our
+>>> users. 3.0 is going to be scary enough for them as it is - cutting a
+>>> release candidate that we either know is broken, or else has
+>>> significant changes, is a very bad idea.
+>>
+>> I concur.  Better to go through another beta.
+>> It feels like 3.0 is being rushed.
+>
+> I agree.  I'm swamped right now, but I will try to put together a revised
+> schedule proposal later tonight.
+>
+> Someone please distract Guido while I "borrow" the keys to the time machine.
+
+No need to be sneaky about it, go right ahead. I don't think we should
+retroactively rename rc1 to beta4, but we can certainly label the next
+release as beta5, with an explanation, and the first real release
+candidate should be called rc2 to avoid confusion.
+
+BTW I'll go over the release blockers today and see what I can do.
+We've got to get this baby back on the road! :-)
+
+-- 
+--Guido van Rossum (home page: http://www.python.org/~guido/)
+
+From facundobatista at gmail.com  Thu Oct  2 18:53:32 2008
+From: facundobatista at gmail.com (Facundo Batista)
+Date: Thu, 2 Oct 2008 13:53:32 -0300
+Subject: [python-committers] 3.0rc2 schedule
+In-Reply-To: <ca471dc20810020941q7826c95fk9e49354eacdc6700@mail.gmail.com>
+References: <48E46E98.3090106@v.loewis.de>
+	<1179FEBB-0E80-41E9-8B8D-9E709E12555D@python.org>
+	<48E4C59B.2010900@gmail.com>
+	<673C88CC-4A43-4E10-BA7D-A98AB9335600@acm.org>
+	<48E4CF24.1010809@gmail.com>
+	<e69d3ed20810020906v40144f5eq48eb7645daec98a3@mail.gmail.com>
+	<A0DB70C5C6AC4323B413E257F935E646@RaymondLaptop1>
+	<89FEDF2C-BABA-46DC-916D-90FCEC39B50A@python.org>
+	<ca471dc20810020941q7826c95fk9e49354eacdc6700@mail.gmail.com>
+Message-ID: <e04bdf310810020953n7d45ee6exebee54b76b7a0c10@mail.gmail.com>
+
+2008/10/2 Guido van Rossum <guido at python.org>:
+
+> No need to be sneaky about it, go right ahead. I don't think we should
+> retroactively rename rc1 to beta4, but we can certainly label the next
+> release as beta5, with an explanation, and the first real release
+> candidate should be called rc2 to avoid confusion.
+
++1.
+
+This is not the normal standardized way to release software, but I'm
+sure this will prove our commitment to the quality of the product.
+
+Thank you!
+
+-- 
+.    Facundo
+
+Blog: http://www.taniquetil.com.ar/plog/
+PyAr: http://www.python.org/ar/
+
+From jcea at jcea.es  Thu Oct  2 19:05:18 2008
+From: jcea at jcea.es (Jesus Cea)
+Date: Thu, 02 Oct 2008 19:05:18 +0200
+Subject: [python-committers] Cutting Python 2.6
+In-Reply-To: <e69d3ed20810011600x4634d05ocf1bbc2ad4530f7f@mail.gmail.com>
+References: <D4BD3F4E-7F63-48CB-823D-5DEE045BAD71@python.org>	<DD88B500-4BF4-4DA9-A980-9EF165E4DA08@python.org>	<48E3E4DF.8090008@v.loewis.de>	<31E4EC13-B1E6-499A-99F8-8D9163A71A7D@python.org>	<48E3E962.80903@v.loewis.de>	<33B92457-8238-402C-9C68-8EF4ABE57EE2@python.org>	<48E3EC51.7090206@v.loewis.de>
+	<48E3EF4B.1040207@gmail.com>	<81B88E6E-B0A1-4300-A1E8-78B75FBB8BB8@python.org>	<48E3FBA0.8030603@jcea.es>
+	<e69d3ed20810011600x4634d05ocf1bbc2ad4530f7f@mail.gmail.com>
+Message-ID: <48E4FF4E.9090902@jcea.es>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Anthony Baxter wrote:
+> If there's a screwup, and you need to recut the branch, you want to be
+> sure someone else hasn't been helpful and added something else to the
+> repo.
+
+But you can put the tag/create the branch in any revision you want...
+
+In fact, my approach would be to create a 2.6 branch after 2.6b3, and
+leave the trunk for 2.7 work.
+
+No, I am not voluntering as release manager O:-). If freezing the tree
+24 hours is needed, that's fine.
+
+- --
+Jesus Cea Avion                         _/_/      _/_/_/        _/_/_/
+jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+jabber / xmpp:jcea at jabber.org         _/_/    _/_/          _/_/_/_/_/
+.                              _/_/  _/_/    _/_/          _/_/  _/_/
+"Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+"My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+"El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.8 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - http://enigmail.mozdev.org
+
+iQCVAwUBSOT/Splgi5GaxT1NAQLgugQAnOkKOAs8Fy+SxoLOeBvu1cVdl4/Vhrfy
+UFBN8Qcmx+fuD0i9PJj6oggTJNQflA9D/AtqflRKfYvBRQWdGlG864RpCWe4f0N4
+XZTx8OXzT35wp8w8x6jlx8YhWeNvESO9OCsSAyyLb8CZJuLGgtod8VkyhWgjPgXh
+E2GYWqApYms=
+=JH2/
+-----END PGP SIGNATURE-----
+
+From fdrake at acm.org  Thu Oct  2 19:08:25 2008
+From: fdrake at acm.org (Fred Drake)
+Date: Thu, 02 Oct 2008 13:08:25 -0400
+Subject: [python-committers] 3.0rc2 schedule
+In-Reply-To: <48E4CF24.1010809@gmail.com>
+References: <48E46E98.3090106@v.loewis.de>
+	<1179FEBB-0E80-41E9-8B8D-9E709E12555D@python.org>
+	<48E4C59B.2010900@gmail.com>
+	<673C88CC-4A43-4E10-BA7D-A98AB9335600@acm.org>
+	<48E4CF24.1010809@gmail.com>
+Message-ID: <0638E8A4-63E7-41E0-86DB-699AD66B52B8@acm.org>
+
+On Oct 2, 2008, at 9:39 AM, Nick Coghlan wrote:
+> If you don't make a habit of borking your own filesystems with dodgy
+> filenames, it runs fine.
+
+I really hope the individuals making this argument are being  
+facetious.  I don't think this is the source of the problem at all.
+
+The expect the most common occurrence of the problem comes from  
+sharing of drives between operating systems and individual  
+configurations; those ubiquitous little USB "thumb" drives get shared  
+between all kinds of computers these days as people share files they  
+don't want to or can't pass over a network for whatever reason.   
+(Those drives might actually serve other purposes first, such as being  
+music players, and so may have no other interfaces for transferring  
+files.)
+
+If someone hands me a USB flash drive with filenames encoded in  
+whatever is reasonable for them, I should be able to use Python tools  
+on the files without having to use non-Python tools to copy or rename  
+the file first.  The possibility of a conflicting encoding is  
+increased if the source machine is configured to use a very different  
+encoding, clearly, but that's not that unusual.
+
+The world is smaller than it used to be, and we really need to  
+understand that.
+
+
+   -Fred
+
+-- 
+Fred L. Drake, Jr.  <fdrake at acm.org>
+
+
+From guido at python.org  Thu Oct  2 19:53:30 2008
+From: guido at python.org (Guido van Rossum)
+Date: Thu, 2 Oct 2008 10:53:30 -0700
+Subject: [python-committers] 3.0rc2 schedule
+In-Reply-To: <0638E8A4-63E7-41E0-86DB-699AD66B52B8@acm.org>
+References: <48E46E98.3090106@v.loewis.de>
+	<1179FEBB-0E80-41E9-8B8D-9E709E12555D@python.org>
+	<48E4C59B.2010900@gmail.com>
+	<673C88CC-4A43-4E10-BA7D-A98AB9335600@acm.org>
+	<48E4CF24.1010809@gmail.com>
+	<0638E8A4-63E7-41E0-86DB-699AD66B52B8@acm.org>
+Message-ID: <ca471dc20810021053m68317272o754a4c0b77351a6a@mail.gmail.com>
+
+On Thu, Oct 2, 2008 at 10:08 AM, Fred Drake <fdrake at acm.org> wrote:
+> On Oct 2, 2008, at 9:39 AM, Nick Coghlan wrote:
+>>
+>> If you don't make a habit of borking your own filesystems with dodgy
+>> filenames, it runs fine.
+>
+> I really hope the individuals making this argument are being facetious.  I
+> don't think this is the source of the problem at all.
+>
+> The expect the most common occurrence of the problem comes from sharing of
+> drives between operating systems and individual configurations; those
+> ubiquitous little USB "thumb" drives get shared between all kinds of
+> computers these days as people share files they don't want to or can't pass
+> over a network for whatever reason.  (Those drives might actually serve
+> other purposes first, such as being music players, and so may have no other
+> interfaces for transferring files.)
+>
+> If someone hands me a USB flash drive with filenames encoded in whatever is
+> reasonable for them, I should be able to use Python tools on the files
+> without having to use non-Python tools to copy or rename the file first.
+>  The possibility of a conflicting encoding is increased if the source
+> machine is configured to use a very different encoding, clearly, but that's
+> not that unusual.
+>
+> The world is smaller than it used to be, and we really need to understand
+> that.
+
+All good points.
+
+However no matter how you spin it, we're in a hard place. If we
+maintain that filenames should always be represented as text strings,
+we have no choice of coming up with a way of encoding all possible
+byte sequences into Unicode strings, using a reversible encoding. This
+has been shown to be hard no matter what encoding you favor -- as soon
+as those "Unicode" strings are passed on to other libraries or
+programs nobody is sure how they will be treated.
+
+If we switch to the view that all filenames are bytes after all,
+Windows loses, because because not all filenames are representable
+that way (unless you deviate from the encoding that Windows has chosen
+for you, which presents other problems). Also, it would be a *huge*
+project, since filenames are so ubiquitous.
+
+There are a number of ways out, but I don't think we'll be able to
+come up with a solution without doing a lot of experimentation.
+Therefore I believe the best thing to do is to release 3.0 with a
+low-level solution that makes it possible to carry out those
+experiments. I am hoping that Martin will check in his
+sys.setfilesystemencoding() function, and am am working on Victor
+Stinner's code for better supporting filenames-as-bytes (in addition
+to, not instead of filenames-as-text), and I expect that these two are
+together to allow the necessary experimentation to take place
+post-3.0.
+
+-- 
+--Guido van Rossum (home page: http://www.python.org/~guido/)
+
+From guido at python.org  Thu Oct  2 19:55:07 2008
+From: guido at python.org (Guido van Rossum)
+Date: Thu, 2 Oct 2008 10:55:07 -0700
+Subject: [python-committers] 3.0rc2 schedule
+In-Reply-To: <ca471dc20810021053m68317272o754a4c0b77351a6a@mail.gmail.com>
+References: <48E46E98.3090106@v.loewis.de>
+	<1179FEBB-0E80-41E9-8B8D-9E709E12555D@python.org>
+	<48E4C59B.2010900@gmail.com>
+	<673C88CC-4A43-4E10-BA7D-A98AB9335600@acm.org>
+	<48E4CF24.1010809@gmail.com>
+	<0638E8A4-63E7-41E0-86DB-699AD66B52B8@acm.org>
+	<ca471dc20810021053m68317272o754a4c0b77351a6a@mail.gmail.com>
+Message-ID: <ca471dc20810021055l14b9eb57ib43354f228af322d@mail.gmail.com>
+
+I forgot one thing. In the *long* run I expect the problem to go away
+-- UTF-8 is going to win out. But this is years off, and that's why we
+need to support non-UTF-8-encoded filenames in the short and medium
+term. And this can be many years.
+
+-- 
+--Guido van Rossum (home page: http://www.python.org/~guido/)
+
+From fdrake at acm.org  Thu Oct  2 20:11:45 2008
+From: fdrake at acm.org (Fred Drake)
+Date: Thu, 02 Oct 2008 14:11:45 -0400
+Subject: [python-committers] 3.0rc2 schedule
+In-Reply-To: <ca471dc20810021053m68317272o754a4c0b77351a6a@mail.gmail.com>
+References: <48E46E98.3090106@v.loewis.de>
+	<1179FEBB-0E80-41E9-8B8D-9E709E12555D@python.org>	<48E4C59B.2010900@gmail.com>
+	<673C88CC-4A43-4E10-BA7D-A98AB9335600@acm.org>	<48E4CF24.1010809@gmail.com>
+	<0638E8A4-63E7-41E0-86DB-699AD66B52B8@acm.org>
+	<ca471dc20810021053m68317272o754a4c0b77351a6a@mail.gmail.com>
+Message-ID: <0ECC641E-468B-41D0-96BB-AE238377F5E8@acm.org>
+
+On Oct 2, 2008, at 1:53 PM, Guido van Rossum wrote:
+> we have no choice of coming up with a way of encoding all possible
+> byte sequences into Unicode strings, using a reversible encoding. This
+> has been shown to be hard no matter what encoding you favor -- as soon
+> as those "Unicode" strings are passed on to other libraries or
+> programs nobody is sure how they will be treated.
+
+Indeed; weird encoding heuristics would be unusable in practice, and  
+don't seem to offer benefits to those building higher-level  
+portability layers either.  I see no future for that approach.
+
+> If we switch to the view that all filenames are bytes after all,
+> Windows loses, because because not all filenames are representable
+> that way (unless you deviate from the encoding that Windows has chosen
+> for you, which presents other problems). Also, it would be a *huge*
+> project, since filenames are so ubiquitous.
+
+As much as I'd like to say files and paths are bytes ('cause that's  
+easy), I agree that it doesn't work that way either.  Paths are  
+platform-specific, and Windows and Unix might disagree just for the  
+principal of the thing for many years to come.
+
+> There are a number of ways out, but I don't think we'll be able to
+> come up with a solution without doing a lot of experimentation.
+> Therefore I believe the best thing to do is to release 3.0 with a
+> low-level solution that makes it possible to carry out those
+> experiments.
+
+Agreed.  Having it be possible to use whatever the "right" solution is  
+on each platform is about as good as it gets in the short term.   
+Getting good, portable abstractions on top of that will take time.
+
+That doesn't mean it's not scary when thinking about writing portable  
+code in this environment.  That's not entirely new, but the fact that  
+so much of these details are being addressed so late in the release  
+cycle *should* give cause for concern, especially to those of use who  
+are still a long way from stepping up to current versions.
+
+
+   -Fred
+
+-- 
+Fred Drake   <fdrake at acm.org>
+
+
+From barry at python.org  Thu Oct  2 20:12:51 2008
+From: barry at python.org (Barry Warsaw)
+Date: Thu, 2 Oct 2008 14:12:51 -0400
+Subject: [python-committers] Cutting Python 2.6
+In-Reply-To: <48E46546.1010205@v.loewis.de>
+References: <D4BD3F4E-7F63-48CB-823D-5DEE045BAD71@python.org>
+	<ca471dc20810011333j4c8cddf3x7c210c5a9dea1d4b@mail.gmail.com>
+	<DD88B500-4BF4-4DA9-A980-9EF165E4DA08@python.org>
+	<48E3E4DF.8090008@v.loewis.de>
+	<31E4EC13-B1E6-499A-99F8-8D9163A71A7D@python.org>
+	<48E3E962.80903@v.loewis.de>
+	<33B92457-8238-402C-9C68-8EF4ABE57EE2@python.org>
+	<48E3EC51.7090206@v.loewis.de>
+	<3742E6AA-D260-48FB-8F07-0D4574CCA3BB@python.org>
+	<48E46546.1010205@v.loewis.de>
+Message-ID: <2077C579-14F2-4A44-BE96-9329E5DB0732@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On Oct 2, 2008, at 2:08 AM, Martin v. L?wis wrote:
+
+>> You're absolutely right and that sounds good.  I will update the PEP
+>> accordingly.  Martin, Ronald, Sean, what timezones are you in?  I am
+>> US/Eastern.
+>
+> I'm in CET (Central European), that GMT+2 in DST, and GMT+1 otherwise.
+
+Got it, thanks.
+
+> As for Sean: Sean and me had agreed that we won't do RPMs anymore for
+> 2.5.x. Maybe we need to reconsider now, but my view is that binary  
+> RPMs
+> typically fit a very specific OS release only (e.g. some version of
+> Redhat); all the other RPM-using distributions (SuSE etc) couldn't use
+> it. So compared to the value, the effort is too big.
+
+Yep, Sean said he didn't have time to do the RPMs this time, and I  
+agree completely, the effort is too big for the value.  I've nixed the  
+RPM steps from PEP 101.
+
+- -Barry
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQCVAwUBSOUPI3EjvBPtnXfVAQKrXgP/e0AD1+5aX8SsB7SOdY6s6u0pHk7MFZzl
+8mblmD9dz6aa/pdQkhFNluFhIBkX76JA4mI6EQuY7GaQgUfVm+A9Iq/DZsiHcX+0
+w67a04b/hWd/qWDbmhkMUn0KLF/bOtbzxmQEI2NHE8nTPDbens7KDgyOHBNW+z/E
+K5EBK+Kruxc=
+=Gldj
+-----END PGP SIGNATURE-----
+
+From barry at python.org  Thu Oct  2 20:13:10 2008
+From: barry at python.org (Barry Warsaw)
+Date: Thu, 2 Oct 2008 14:13:10 -0400
+Subject: [python-committers] Cutting Python 2.6
+In-Reply-To: <B5BA9DF9-14D3-4B55-9407-C483D4BF6AF4@mac.com>
+References: <D4BD3F4E-7F63-48CB-823D-5DEE045BAD71@python.org>
+	<ca471dc20810011333j4c8cddf3x7c210c5a9dea1d4b@mail.gmail.com>
+	<DD88B500-4BF4-4DA9-A980-9EF165E4DA08@python.org>
+	<48E3E4DF.8090008@v.loewis.de>
+	<31E4EC13-B1E6-499A-99F8-8D9163A71A7D@python.org>
+	<48E3E962.80903@v.loewis.de>
+	<33B92457-8238-402C-9C68-8EF4ABE57EE2@python.org>
+	<48E3EC51.7090206@v.loewis.de>
+	<3742E6AA-D260-48FB-8F07-0D4574CCA3BB@python.org>
+	<48E46546.1010205@v.loewis.de>
+	<B5BA9DF9-14D3-4B55-9407-C483D4BF6AF4@mac.com>
+Message-ID: <96A0F15B-4641-4F2B-9B2E-7B533FE559DF@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On Oct 2, 2008, at 2:20 AM, Ronald Oussoren wrote:
+
+>
+> On 2 Oct, 2008, at 8:08, Martin v. L?wis wrote:
+>
+>>> You're absolutely right and that sounds good.  I will update the PEP
+>>> accordingly.  Martin, Ronald, Sean, what timezones are you in?  I am
+>>> US/Eastern.
+>>
+>> I'm in CET (Central European), that GMT+2 in DST, and GMT+1  
+>> otherwise.
+>
+> I'm in CET as wel.
+
+Got it, thanks.
+
+- -Barry
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQCVAwUBSOUPNnEjvBPtnXfVAQJe3QP/bDyBfEbtv/gzBwAADX2eWZFjEuG4wT3E
+SrbE0lom9/Aa5TluTxIloGmANuiCplQD+3dfMp+cW8t8luWW7COsOz8VO5AA46e+
+P3R9WbYSdrOcD+rPzQxrh81mTn9QPFDLwus9/9Q7uMqy1wMllOYt+FsDUzL0K+uv
+ztFSH2YqBoc=
+=gSfz
+-----END PGP SIGNATURE-----
+
+From barry at python.org  Thu Oct  2 20:39:21 2008
+From: barry at python.org (Barry Warsaw)
+Date: Thu, 2 Oct 2008 14:39:21 -0400
+Subject: [python-committers] new tarballs
+Message-ID: <7B9B779A-19BE-4CEC-9F46-C57E920AD292@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+It was pointed out that the source tarballs I uploaded had some cruft  
+in them that they shouldn't have, such as svn turds and whatnot.
+
+I've generated new tarballs with that stuff deleted.  I do /not/ want  
+to bump the Python version number for this because this only removes  
+files that never should have been in the tarball in the first place,  
+and I cut the new ones from the same r26 tag with no changes.
+
+Would someone please check the new tarballs out and see if they look  
+right to you:
+
+http://www.python.org/ftp/python/2.6/Python-2.6.tgz.fixed
+http://www.python.org/ftp/python/2.6/Python-2.6.tar.bz2.fixed
+
+Everything unpacks and looks right to me, but I'd love to have another  
+pair of eyes look at them.  If it looks good, I will update the  
+download page, move the files into place, and send a follow up  
+announcement to the mailing lists.
+
+Thanks,
+- -Barry
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQCVAwUBSOUVWXEjvBPtnXfVAQLDbwP+PT3R7MszFgAmFGVerTydvf1ojcpCdnA2
+zbPj48GTTSg1jf1f4rzKS19b9/8XkrnJShTD9x0j7oKsqcAAML8quJGZRT9F3rjH
+kCEA46TDgrMMpP0hAecAUZPjn/53x8WKqbF7dFTemqY+QThMBZcMGIOAVtqxRCsX
+b18X5y+GxIk=
+=nn/R
+-----END PGP SIGNATURE-----
+
+From guido at python.org  Thu Oct  2 20:46:41 2008
+From: guido at python.org (Guido van Rossum)
+Date: Thu, 2 Oct 2008 11:46:41 -0700
+Subject: [python-committers] 3.0rc2 schedule
+In-Reply-To: <0ECC641E-468B-41D0-96BB-AE238377F5E8@acm.org>
+References: <48E46E98.3090106@v.loewis.de>
+	<1179FEBB-0E80-41E9-8B8D-9E709E12555D@python.org>
+	<48E4C59B.2010900@gmail.com>
+	<673C88CC-4A43-4E10-BA7D-A98AB9335600@acm.org>
+	<48E4CF24.1010809@gmail.com>
+	<0638E8A4-63E7-41E0-86DB-699AD66B52B8@acm.org>
+	<ca471dc20810021053m68317272o754a4c0b77351a6a@mail.gmail.com>
+	<0ECC641E-468B-41D0-96BB-AE238377F5E8@acm.org>
+Message-ID: <ca471dc20810021146s655cdf27ve302ee9cf2914fef@mail.gmail.com>
+
+On Thu, Oct 2, 2008 at 11:11 AM, Fred Drake <fdrake at acm.org> wrote:
+> That doesn't mean it's not scary when thinking about writing portable code
+> in this environment.  That's not entirely new, but the fact that so much of
+> these details are being addressed so late in the release cycle *should* give
+> cause for concern, especially to those of use who are still a long way from
+> stepping up to current versions.
+
+I had always expected that issues like these would crop up fairly late
+in the Py3k development cycle -- the first two years were completely
+filled with discussions about language changes, and then their
+implementation. Library stuff (and this *is* library stuff, even if
+it's pretty fundamental) necessarily had to come later, once we had a
+more-or-less usable version of the language.
+
+FWIW, I don't expect any of the other release blockers to be quite
+this invasive -- and this one is actually not all that invasive, since
+most system calls *already* supported bytes alongside with text
+strings. There are only two C-level changes: the addition of getcwdb()
+(and the removal of getcwdu()), and the change in behavior for
+listdir() with a text string argument (skipping undecodable filenames
+rather than returning raw bytes). There was a one-line change in io.py
+to make the built-in open() function (which is really an alias for
+io.open()) accept bytes, and then a bunch of changes to posixpath.py,
+glob.py and fnmatch.py to support bytes.
+
+It's really not very invasive, and not much changes -- the changes are
+mostly in our minds, as we now have all learned about the issues and
+the differences between platforms, and know what to tell people to do
+about them. *That* is the major change, not the few code changes.
+
+-- 
+--Guido van Rossum (home page: http://www.python.org/~guido/)
+
+From martin at v.loewis.de  Thu Oct  2 20:48:07 2008
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Thu, 02 Oct 2008 20:48:07 +0200
+Subject: [python-committers] 3.0rc2 schedule
+In-Reply-To: <0638E8A4-63E7-41E0-86DB-699AD66B52B8@acm.org>
+References: <48E46E98.3090106@v.loewis.de>	<1179FEBB-0E80-41E9-8B8D-9E709E12555D@python.org>	<48E4C59B.2010900@gmail.com>	<673C88CC-4A43-4E10-BA7D-A98AB9335600@acm.org>	<48E4CF24.1010809@gmail.com>
+	<0638E8A4-63E7-41E0-86DB-699AD66B52B8@acm.org>
+Message-ID: <48E51767.6070603@v.loewis.de>
+
+> If someone hands me a USB flash drive with filenames encoded in whatever
+> is reasonable for them, I should be able to use Python tools on the
+> files without having to use non-Python tools to copy or rename the file
+> first.
+
+I agree. I disagree that you should be able to do so with Python 3.0
+(although it looks like you might).
+
+Regards,
+Martin
+
+
+From fdrake at acm.org  Thu Oct  2 20:52:54 2008
+From: fdrake at acm.org (Fred Drake)
+Date: Thu, 02 Oct 2008 14:52:54 -0400
+Subject: [python-committers] 3.0rc2 schedule
+In-Reply-To: <ca471dc20810021146s655cdf27ve302ee9cf2914fef@mail.gmail.com>
+References: <48E46E98.3090106@v.loewis.de>
+	<1179FEBB-0E80-41E9-8B8D-9E709E12555D@python.org>	<48E4C59B.2010900@gmail.com>
+	<673C88CC-4A43-4E10-BA7D-A98AB9335600@acm.org>	<48E4CF24.1010809@gmail.com>
+	<0638E8A4-63E7-41E0-86DB-699AD66B52B8@acm.org>
+	<ca471dc20810021053m68317272o754a4c0b77351a6a@mail.gmail.com>
+	<0ECC641E-468B-41D0-96BB-AE238377F5E8@acm.org>
+	<ca471dc20810021146s655cdf27ve302ee9cf2914fef@mail.gmail.com>
+Message-ID: <B08AC78F-BE9F-4A98-BF2B-927C36D69307@acm.org>
+
+On Oct 2, 2008, at 2:46 PM, Guido van Rossum wrote:
+> It's really not very invasive, and not much changes -- the changes are
+> mostly in our minds, as we now have all learned about the issues and
+> the differences between platforms, and know what to tell people to do
+> about them. *That* is the major change, not the few code changes.
+
+
+Heh.  Doesn't pay to educate users, does it?  :-/
+
+At about the same time, Martin said:
+> I agree. I disagree that you should be able to do so with Python 3.0
+> (although it looks like you might).
+
+Why do you disagree that I should be able to do this with Python 3.0?   
+(I can guess, but that just increases the likelihood that I'll be  
+wrong, which I don't like.)
+
+
+   -Fred
+
+-- 
+Fred Drake   <fdrake at acm.org>
+
+
+From martin at v.loewis.de  Thu Oct  2 21:02:33 2008
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Thu, 02 Oct 2008 21:02:33 +0200
+Subject: [python-committers] 3.0rc2 schedule
+In-Reply-To: <0ECC641E-468B-41D0-96BB-AE238377F5E8@acm.org>
+References: <48E46E98.3090106@v.loewis.de>	<1179FEBB-0E80-41E9-8B8D-9E709E12555D@python.org>	<48E4C59B.2010900@gmail.com>	<673C88CC-4A43-4E10-BA7D-A98AB9335600@acm.org>	<48E4CF24.1010809@gmail.com>	<0638E8A4-63E7-41E0-86DB-699AD66B52B8@acm.org>	<ca471dc20810021053m68317272o754a4c0b77351a6a@mail.gmail.com>
+	<0ECC641E-468B-41D0-96BB-AE238377F5E8@acm.org>
+Message-ID: <48E51AC9.4020504@v.loewis.de>
+
+> That doesn't mean it's not scary when thinking about writing portable
+> code in this environment.  That's not entirely new, but the fact that so
+> much of these details are being addressed so late in the release cycle
+> *should* give cause for concern, especially to those of use who are
+> still a long way from stepping up to current versions.
+
+That sounds pretty much like an outsider view. I knew about this issue
+right since PEP 277 was implemented, in 2002, see issue 594001. See then
+issue 683592 which discusses Unicode file names returned from listdir
+on POSIX. Take particular notice of Guido's comment
+
+# FWIW, I like Just's "fall back to bytestrings" aproach.
+
+Python 3.0rc1, as released, *does* give you access to all files.
+
+People have been going forth an back considering all the design
+options; the details have been addressed years ago. It's just that
+now, the way of addressing them is reconsidered (in the light of
+other things having changed along, of course).
+
+Regards,
+Martin
+
+From martin at v.loewis.de  Thu Oct  2 21:08:41 2008
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Thu, 02 Oct 2008 21:08:41 +0200
+Subject: [python-committers] 3.0rc2 schedule
+In-Reply-To: <B08AC78F-BE9F-4A98-BF2B-927C36D69307@acm.org>
+References: <48E46E98.3090106@v.loewis.de>	<1179FEBB-0E80-41E9-8B8D-9E709E12555D@python.org>	<48E4C59B.2010900@gmail.com>	<673C88CC-4A43-4E10-BA7D-A98AB9335600@acm.org>	<48E4CF24.1010809@gmail.com>	<0638E8A4-63E7-41E0-86DB-699AD66B52B8@acm.org>	<ca471dc20810021053m68317272o754a4c0b77351a6a@mail.gmail.com>	<0ECC641E-468B-41D0-96BB-AE238377F5E8@acm.org>	<ca471dc20810021146s655cdf27ve302ee9cf2914fef@mail.gmail.com>
+	<B08AC78F-BE9F-4A98-BF2B-927C36D69307@acm.org>
+Message-ID: <48E51C39.4060609@v.loewis.de>
+
+> At about the same time, Martin said:
+>> I agree. I disagree that you should be able to do so with Python 3.0
+>> (although it looks like you might).
+> 
+> Why do you disagree that I should be able to do this with Python 3.0? 
+> (I can guess, but that just increases the likelihood that I'll be wrong,
+> which I don't like.)
+
+There might be systems and environments where Python doesn't work at
+all, or doesn't work "correctly" (i.e. as the majority of users would
+expect). There have been such systems and environments always. There
+will always be bugs. There will always be later releases to fix them.
+Python 3.0 doesn't have to be perfect, and won't be.
+
+I'm still in favor of a solution that doesn't divide the APIs into
+"character file names" and "byte file names"; I want the "character
+file names" to work always. However, I find it completely unrealistic
+to make this work in Python 3.0. Providing that feature in 3.1 is
+still early enough, plus it requires a PEP.
+
+Regards,
+Martin
+
+From guido at python.org  Thu Oct  2 21:13:31 2008
+From: guido at python.org (Guido van Rossum)
+Date: Thu, 2 Oct 2008 12:13:31 -0700
+Subject: [python-committers] 3.0rc2 schedule
+In-Reply-To: <48E51C39.4060609@v.loewis.de>
+References: <48E46E98.3090106@v.loewis.de> <48E4C59B.2010900@gmail.com>
+	<673C88CC-4A43-4E10-BA7D-A98AB9335600@acm.org>
+	<48E4CF24.1010809@gmail.com>
+	<0638E8A4-63E7-41E0-86DB-699AD66B52B8@acm.org>
+	<ca471dc20810021053m68317272o754a4c0b77351a6a@mail.gmail.com>
+	<0ECC641E-468B-41D0-96BB-AE238377F5E8@acm.org>
+	<ca471dc20810021146s655cdf27ve302ee9cf2914fef@mail.gmail.com>
+	<B08AC78F-BE9F-4A98-BF2B-927C36D69307@acm.org>
+	<48E51C39.4060609@v.loewis.de>
+Message-ID: <ca471dc20810021213l34ad859byb618f628aecf7049@mail.gmail.com>
+
+On Thu, Oct 2, 2008 at 12:08 PM, "Martin v. L?wis" <martin at v.loewis.de> wrote:
+> I'm still in favor of a solution that doesn't divide the APIs into
+> "character file names" and "byte file names"; I want the "character
+> file names" to work always.
+
+I wish we could do that too, but I don't see how to make it work in
+all contexts. If you are passing filenames to other programs or
+libraries you may be forced to pass bytes, or in other cases you may
+be forced to give up on supporting undecodable filenames (e.g. when
+passing filenames to something written in Java).
+
+> However, I find it completely unrealistic
+> to make this work in Python 3.0. Providing that feature in 3.1 is
+> still early enough, plus it requires a PEP.
+
+Right.
+
+-- 
+--Guido van Rossum (home page: http://www.python.org/~guido/)
+
+From fdrake at acm.org  Thu Oct  2 21:19:11 2008
+From: fdrake at acm.org (Fred Drake)
+Date: Thu, 02 Oct 2008 15:19:11 -0400
+Subject: [python-committers] 3.0rc2 schedule
+In-Reply-To: <48E51C39.4060609@v.loewis.de>
+References: <48E46E98.3090106@v.loewis.de>
+	<1179FEBB-0E80-41E9-8B8D-9E709E12555D@python.org>	<48E4C59B.2010900@gmail.com>
+	<673C88CC-4A43-4E10-BA7D-A98AB9335600@acm.org>	<48E4CF24.1010809@gmail.com>
+	<0638E8A4-63E7-41E0-86DB-699AD66B52B8@acm.org>
+	<ca471dc20810021053m68317272o754a4c0b77351a6a@mail.gmail.com>
+	<0ECC641E-468B-41D0-96BB-AE238377F5E8@acm.org>
+	<ca471dc20810021146s655cdf27ve302ee9cf2914fef@mail.gmail.com>
+	<B08AC78F-BE9F-4A98-BF2B-927C36D69307@acm.org>
+	<48E51C39.4060609@v.loewis.de>
+Message-ID: <C34DA5A3-71EE-44CC-9BEC-2509352087F9@acm.org>
+
+On Oct 2, 2008, at 3:08 PM, Martin v. L?wis wrote:
+> I'm still in favor of a solution that doesn't divide the APIs into
+> "character file names" and "byte file names"; I want the "character
+> file names" to work always. However, I find it completely unrealistic
+> to make this work in Python 3.0.
+
+
+Ok, that's reasonable.  I'm not expecting to be able to use character- 
+file-names everywhere in 3.0, or really anywhere, as nice as that  
+would be.  I just want to be able to perform all operations with all  
+files (to the extent they're supported by the O/S and filesystem, etc.).
+
+Making a convenient, portable API that lets me do that easily is  
+certainly out of scope.
+
+
+   -Fred
+
+-- 
+Fred Drake   <fdrake at acm.org>
+
+
+From martin at v.loewis.de  Thu Oct  2 21:55:30 2008
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Thu, 02 Oct 2008 21:55:30 +0200
+Subject: [python-committers] Cutting Python 2.6
+In-Reply-To: <48E4FF4E.9090902@jcea.es>
+References: <D4BD3F4E-7F63-48CB-823D-5DEE045BAD71@python.org>	<DD88B500-4BF4-4DA9-A980-9EF165E4DA08@python.org>	<48E3E4DF.8090008@v.loewis.de>	<31E4EC13-B1E6-499A-99F8-8D9163A71A7D@python.org>	<48E3E962.80903@v.loewis.de>	<33B92457-8238-402C-9C68-8EF4ABE57EE2@python.org>	<48E3EC51.7090206@v.loewis.de>	<48E3EF4B.1040207@gmail.com>	<81B88E6E-B0A1-4300-A1E8-78B75FBB8BB8@python.org>	<48E3FBA0.8030603@jcea.es>	<e69d3ed20810011600x4634d05ocf1bbc2ad4530f7f@mail.gmail.com>
+	<48E4FF4E.9090902@jcea.es>
+Message-ID: <48E52732.1030201@v.loewis.de>
+
+>> If there's a screwup, and you need to recut the branch, you want to be
+>> sure someone else hasn't been helpful and added something else to the
+>> repo.
+> 
+> But you can put the tag/create the branch in any revision you want...
+
+Suppose you have three subsequent revisions in the trunk:
+
+A contains what you originally wanted to tag
+A+1 contains a change by somebody else, not to be released
+A+2 is the change that you made to fix a bug you noticed
+    during the release
+
+How do you create the release tag so that it contains change
+sets A and A+2, but not A+1? (and no, creating a branch just for
+the release is no option, because that means you have to copy all
+the changes you made on the branch back to the trunk)
+
+Regards,
+Martin
+
+From mal at egenix.com  Thu Oct  2 22:13:45 2008
+From: mal at egenix.com (M.-A. Lemburg)
+Date: Thu, 02 Oct 2008 22:13:45 +0200
+Subject: [python-committers] 3.0rc2 schedule
+In-Reply-To: <0638E8A4-63E7-41E0-86DB-699AD66B52B8@acm.org>
+References: <48E46E98.3090106@v.loewis.de>	<1179FEBB-0E80-41E9-8B8D-9E709E12555D@python.org>	<48E4C59B.2010900@gmail.com>	<673C88CC-4A43-4E10-BA7D-A98AB9335600@acm.org>	<48E4CF24.1010809@gmail.com>
+	<0638E8A4-63E7-41E0-86DB-699AD66B52B8@acm.org>
+Message-ID: <48E52B79.4010702@egenix.com>
+
+On 2008-10-02 19:08, Fred Drake wrote:
+> On Oct 2, 2008, at 9:39 AM, Nick Coghlan wrote:
+>> If you don't make a habit of borking your own filesystems with dodgy
+>> filenames, it runs fine.
+> 
+> I really hope the individuals making this argument are being facetious. 
+> I don't think this is the source of the problem at all.
+
+FWIW: In Germany you run into those filename encoding problems all the
+time, esp. when using Windows shares on Unix.
+
+It is not uncommon at all to have all user files reside in a user folder
+with accented characters or Umlauts.
+
+And the story goes on: if you then have set Unix to a different locale
+(and encoding), it is possible to have Unix create file names on the
+Windows share that don't look right when viewed on other Windows
+machines.
+
+-- 
+Marc-Andre Lemburg
+eGenix.com
+
+Professional Python Services directly from the Source  (#1, Oct 02 2008)
+>>> Python/Zope Consulting and Support ...        http://www.egenix.com/
+>>> mxODBC.Zope.Database.Adapter ...             http://zope.egenix.com/
+>>> mxODBC, mxDateTime, mxTextTools ...        http://python.egenix.com/
+________________________________________________________________________
+
+:::: Try mxODBC.Zope.DA for Windows,Linux,Solaris,MacOSX for free ! ::::
+
+
+   eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+    D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+           Registered at Amtsgericht Duesseldorf: HRB 46611
+
+From nick.bastin at gmail.com  Thu Oct  2 22:15:33 2008
+From: nick.bastin at gmail.com (Nicholas Bastin)
+Date: Thu, 2 Oct 2008 16:15:33 -0400
+Subject: [python-committers] Cutting Python 2.6
+In-Reply-To: <48E52732.1030201@v.loewis.de>
+References: <D4BD3F4E-7F63-48CB-823D-5DEE045BAD71@python.org>
+	<48E3E962.80903@v.loewis.de>
+	<33B92457-8238-402C-9C68-8EF4ABE57EE2@python.org>
+	<48E3EC51.7090206@v.loewis.de> <48E3EF4B.1040207@gmail.com>
+	<81B88E6E-B0A1-4300-A1E8-78B75FBB8BB8@python.org>
+	<48E3FBA0.8030603@jcea.es>
+	<e69d3ed20810011600x4634d05ocf1bbc2ad4530f7f@mail.gmail.com>
+	<48E4FF4E.9090902@jcea.es> <48E52732.1030201@v.loewis.de>
+Message-ID: <66d0a6e10810021315h6e4619ecs23a0c417ca4dd6fe@mail.gmail.com>
+
+On Thu, Oct 2, 2008 at 3:55 PM, "Martin v. L?wis" <martin at v.loewis.de>wrote:
+>
+> Suppose you have three subsequent revisions in the trunk:
+>
+> A contains what you originally wanted to tag
+> A+1 contains a change by somebody else, not to be released
+> A+2 is the change that you made to fix a bug you noticed
+>    during the release
+>
+> How do you create the release tag so that it contains change
+> sets A and A+2, but not A+1?
+
+
+You always create a branch for the release (subversion doesn't make any
+distinction between a tag and a branch anyhow, so you might as well just
+make a branch).
+
+(and no, creating a branch just for
+> the release is no option, because that means you have to copy all
+> the changes you made on the branch back to the trunk)
+>
+
+Any by "copy" you mean "merge", right?  Presumably someone is cutting a
+release because we believe it's done, and thus the likelihood of needing to
+make changes is very very low.  If you indeed have the extraordinary
+circumstance where you have to modify the release after you make the branch,
+just make the change on the branch, cut the release, and merge that change
+back into the main line.
+
+Version control systems are built to avoid precisely the situation which is
+being discussed here - we should take advantage of that.
+
+--
+Nick
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20081002/83ccacc4/attachment.htm>
+
+From martin at v.loewis.de  Thu Oct  2 22:25:19 2008
+From: martin at v.loewis.de (=?UTF-8?B?Ik1hcnRpbiB2LiBMw7Z3aXMi?=)
+Date: Thu, 02 Oct 2008 22:25:19 +0200
+Subject: [python-committers] Cutting Python 2.6
+In-Reply-To: <66d0a6e10810021315h6e4619ecs23a0c417ca4dd6fe@mail.gmail.com>
+References: <D4BD3F4E-7F63-48CB-823D-5DEE045BAD71@python.org>	
+	<48E3E962.80903@v.loewis.de>	
+	<33B92457-8238-402C-9C68-8EF4ABE57EE2@python.org>	
+	<48E3EC51.7090206@v.loewis.de> <48E3EF4B.1040207@gmail.com>	
+	<81B88E6E-B0A1-4300-A1E8-78B75FBB8BB8@python.org>	
+	<48E3FBA0.8030603@jcea.es>	
+	<e69d3ed20810011600x4634d05ocf1bbc2ad4530f7f@mail.gmail.com>	
+	<48E4FF4E.9090902@jcea.es> <48E52732.1030201@v.loewis.de>
+	<66d0a6e10810021315h6e4619ecs23a0c417ca4dd6fe@mail.gmail.com>
+Message-ID: <48E52E2F.5080108@v.loewis.de>
+
+> You always create a branch for the release (subversion doesn't make any
+> distinction between a tag and a branch anyhow, so you might as well just
+> make a branch).
+
+I don't think the tag should be edited (there are a few that were, and
+that's unfortunate already). For example, conversion to bzr will
+conclude it's a bazaar branch, not a tag.
+
+> Any by "copy" you mean "merge", right?  Presumably someone is cutting a
+> release because we believe it's done, and thus the likelihood of needing
+> to make changes is very very low.  If you indeed have the extraordinary
+> circumstance where you have to modify the release after you make the
+> branch, just make the change on the branch, cut the release, and merge
+> that change back into the main line.
+
+It's standard procedure to change the code after declaring it
+releasable; during the release process, the version numbers get adjusted
+throughout, and those changes get committed before the release tag is
+made.
+
+> Version control systems are built to avoid precisely the situation which
+> is being discussed here - we should take advantage of that.
+
+I would leave that up to the release manager.
+
+Regards,
+Martin
+
+From nick.bastin at gmail.com  Thu Oct  2 23:06:28 2008
+From: nick.bastin at gmail.com (Nicholas Bastin)
+Date: Thu, 2 Oct 2008 17:06:28 -0400
+Subject: [python-committers] Cutting Python 2.6
+In-Reply-To: <48E52E2F.5080108@v.loewis.de>
+References: <D4BD3F4E-7F63-48CB-823D-5DEE045BAD71@python.org>
+	<48E3EC51.7090206@v.loewis.de> <48E3EF4B.1040207@gmail.com>
+	<81B88E6E-B0A1-4300-A1E8-78B75FBB8BB8@python.org>
+	<48E3FBA0.8030603@jcea.es>
+	<e69d3ed20810011600x4634d05ocf1bbc2ad4530f7f@mail.gmail.com>
+	<48E4FF4E.9090902@jcea.es> <48E52732.1030201@v.loewis.de>
+	<66d0a6e10810021315h6e4619ecs23a0c417ca4dd6fe@mail.gmail.com>
+	<48E52E2F.5080108@v.loewis.de>
+Message-ID: <66d0a6e10810021406l19c6a35hfcea48e4e52763d5@mail.gmail.com>
+
+On Thu, Oct 2, 2008 at 4:25 PM, "Martin v. L?wis" <martin at v.loewis.de>wrote:
+
+> > You always create a branch for the release (subversion doesn't make any
+> > distinction between a tag and a branch anyhow, so you might as well just
+> > make a branch).
+>
+> I don't think the tag should be edited (there are a few that were, and
+> that's unfortunate already). For example, conversion to bzr will
+> conclude it's a bazaar branch, not a tag.
+
+
+I agree, that's why I think we should make a branch.  Tags should be treated
+as immutable - it's merely an artifact of a limitation in the source control
+system we use that you can't make real labels.
+
+
+> It's standard procedure to change the code after declaring it
+> releasable; during the release process, the version numbers get adjusted
+> throughout, and those changes get committed before the release tag is
+> made.
+>
+
+I guess my question is, is there a normal use case where the code needs to
+be changed for a release after the 'tag' is made? If all the changes are
+getting committed before the release tag is made, then what is the problem?
+
+--
+Nick
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20081002/dbc40963/attachment.htm>
+
+From fredrik at pythonware.com  Thu Oct  2 23:08:21 2008
+From: fredrik at pythonware.com (Fredrik Lundh)
+Date: Thu, 2 Oct 2008 23:08:21 +0200
+Subject: [python-committers] Cutting Python 2.6
+In-Reply-To: <48E52732.1030201@v.loewis.de>
+References: <D4BD3F4E-7F63-48CB-823D-5DEE045BAD71@python.org>
+	<48E3E962.80903@v.loewis.de>
+	<33B92457-8238-402C-9C68-8EF4ABE57EE2@python.org>
+	<48E3EC51.7090206@v.loewis.de> <48E3EF4B.1040207@gmail.com>
+	<81B88E6E-B0A1-4300-A1E8-78B75FBB8BB8@python.org>
+	<48E3FBA0.8030603@jcea.es>
+	<e69d3ed20810011600x4634d05ocf1bbc2ad4530f7f@mail.gmail.com>
+	<48E4FF4E.9090902@jcea.es> <48E52732.1030201@v.loewis.de>
+Message-ID: <368a5cd50810021408y31593df9t56b1a2ad9bb866e9@mail.gmail.com>
+
+> How do you create the release tag so that it contains change
+> sets A and A+2, but not A+1? (and no, creating a branch just for
+> the release is no option, because that means you have to copy all
+> the changes you made on the branch back to the trunk)
+
+creating a branch for the release is no option?  that's odd, because I
+do that all the time.  i.e.
+
+   1 - create trunk snapshot by branching
+   2 - build release kit from branch
+   3 - tweak snapshot in branch if necessary, repeat from 2
+   4 - when the kit is solid, tag the final branch
+   5 - merge relevant changes back to trunk
+
+</F>
+
+From nick.bastin at gmail.com  Thu Oct  2 23:25:48 2008
+From: nick.bastin at gmail.com (Nicholas Bastin)
+Date: Thu, 2 Oct 2008 17:25:48 -0400
+Subject: [python-committers] Cutting Python 2.6
+In-Reply-To: <368a5cd50810021408y31593df9t56b1a2ad9bb866e9@mail.gmail.com>
+References: <D4BD3F4E-7F63-48CB-823D-5DEE045BAD71@python.org>
+	<33B92457-8238-402C-9C68-8EF4ABE57EE2@python.org>
+	<48E3EC51.7090206@v.loewis.de> <48E3EF4B.1040207@gmail.com>
+	<81B88E6E-B0A1-4300-A1E8-78B75FBB8BB8@python.org>
+	<48E3FBA0.8030603@jcea.es>
+	<e69d3ed20810011600x4634d05ocf1bbc2ad4530f7f@mail.gmail.com>
+	<48E4FF4E.9090902@jcea.es> <48E52732.1030201@v.loewis.de>
+	<368a5cd50810021408y31593df9t56b1a2ad9bb866e9@mail.gmail.com>
+Message-ID: <66d0a6e10810021425x46fccbedm81c21c6c9c767e2d@mail.gmail.com>
+
+On Thu, Oct 2, 2008 at 5:08 PM, Fredrik Lundh <fredrik at pythonware.com>wrote:
+
+> > How do you create the release tag so that it contains change
+> > sets A and A+2, but not A+1? (and no, creating a branch just for
+> > the release is no option, because that means you have to copy all
+> > the changes you made on the branch back to the trunk)
+>
+> creating a branch for the release is no option?  that's odd, because I
+> do that all the time.  i.e.
+>
+>   1 - create trunk snapshot by branching
+>   2 - build release kit from branch
+>   3 - tweak snapshot in branch if necessary, repeat from 2
+>   4 - when the kit is solid, tag the final branch
+>   5 - merge relevant changes back to trunk
+
+
+I second this - it's what I've been trying to say and failing, I suppose.
+ This seems like the natural way (and how I've done it on any other
+project), and avoids the need to lock out any working branch from commits.
+ The only reason I can see for avoiding this process is if you believe that
+merging is somehow difficult or impossible.
+
+--
+Nick
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20081002/aeeab32e/attachment-0001.htm>
+
+From ncoghlan at gmail.com  Fri Oct  3 00:01:39 2008
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Fri, 03 Oct 2008 08:01:39 +1000
+Subject: [python-committers] 3.0rc2 schedule
+In-Reply-To: <0638E8A4-63E7-41E0-86DB-699AD66B52B8@acm.org>
+References: <48E46E98.3090106@v.loewis.de>
+	<1179FEBB-0E80-41E9-8B8D-9E709E12555D@python.org>
+	<48E4C59B.2010900@gmail.com>
+	<673C88CC-4A43-4E10-BA7D-A98AB9335600@acm.org>
+	<48E4CF24.1010809@gmail.com>
+	<0638E8A4-63E7-41E0-86DB-699AD66B52B8@acm.org>
+Message-ID: <48E544C3.2010907@gmail.com>
+
+Fred Drake wrote:
+> On Oct 2, 2008, at 9:39 AM, Nick Coghlan wrote:
+>> If you don't make a habit of borking your own filesystems with dodgy
+>> filenames, it runs fine.
+> 
+> I really hope the individuals making this argument are being facetious. 
+> I don't think this is the source of the problem at all.
+
+To quote Raymond: "native speakers of ASCII will never be able to master
+Unicode like a native"
+
+I.E. not being facetious, so much as underestimating the frequency of
+the problem occurring in other parts of the world due to living and
+working in a single language environment where encoding issues almost
+never arise (and where UTF-8 is by far the most common encoding after
+ASCII and iso-8859-1).
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+---------------------------------------------------------------
+            http://www.boredomandlaziness.org
+
+From senn at maya.com  Thu Oct  2 23:51:56 2008
+From: senn at maya.com (Jeff Senn)
+Date: Thu, 2 Oct 2008 17:51:56 -0400
+Subject: [python-committers] new tarballs
+In-Reply-To: <7B9B779A-19BE-4CEC-9F46-C57E920AD292@python.org>
+References: <7B9B779A-19BE-4CEC-9F46-C57E920AD292@python.org>
+Message-ID: <729A7243-1B48-43C2-82C2-C20AF1FDC9A9@maya.com>
+
+
+Is whoever does the OS-X build on this list?  I have problems building  
+the
+Mac OS-X installer build using the build script in the tarball...
+
+(Could there be uncommitted changes to Mac/BuildScript/build- 
+installer.py?)
+
+-Jas
+
+On Oct 2, 2008, at 2:39 PM, Barry Warsaw wrote:
+
+> -----BEGIN PGP SIGNED MESSAGE-----
+> Hash: SHA1
+>
+> It was pointed out that the source tarballs I uploaded had some  
+> cruft in them that they shouldn't have, such as svn turds and whatnot.
+>
+> I've generated new tarballs with that stuff deleted.  I do /not/  
+> want to bump the Python version number for this because this only  
+> removes files that never should have been in the tarball in the  
+> first place, and I cut the new ones from the same r26 tag with no  
+> changes.
+>
+> Would someone please check the new tarballs out and see if they look  
+> right to you:
+>
+> http://www.python.org/ftp/python/2.6/Python-2.6.tgz.fixed
+> http://www.python.org/ftp/python/2.6/Python-2.6.tar.bz2.fixed
+>
+> Everything unpacks and looks right to me, but I'd love to have  
+> another pair of eyes look at them.  If it looks good, I will update  
+> the download page, move the files into place, and send a follow up  
+> announcement to the mailing lists.
+>
+> Thanks,
+> - -Barry
+>
+> -----BEGIN PGP SIGNATURE-----
+> Version: GnuPG v1.4.9 (Darwin)
+>
+> iQCVAwUBSOUVWXEjvBPtnXfVAQLDbwP+PT3R7MszFgAmFGVerTydvf1ojcpCdnA2
+> zbPj48GTTSg1jf1f4rzKS19b9/8XkrnJShTD9x0j7oKsqcAAML8quJGZRT9F3rjH
+> kCEA46TDgrMMpP0hAecAUZPjn/53x8WKqbF7dFTemqY+QThMBZcMGIOAVtqxRCsX
+> b18X5y+GxIk=
+> =nn/R
+> -----END PGP SIGNATURE-----
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+>
+
+
+From martin at v.loewis.de  Fri Oct  3 00:26:00 2008
+From: martin at v.loewis.de (=?UTF-8?B?Ik1hcnRpbiB2LiBMw7Z3aXMi?=)
+Date: Fri, 03 Oct 2008 00:26:00 +0200
+Subject: [python-committers] Cutting Python 2.6
+In-Reply-To: <66d0a6e10810021406l19c6a35hfcea48e4e52763d5@mail.gmail.com>
+References: <D4BD3F4E-7F63-48CB-823D-5DEE045BAD71@python.org>	
+	<48E3EC51.7090206@v.loewis.de> <48E3EF4B.1040207@gmail.com>	
+	<81B88E6E-B0A1-4300-A1E8-78B75FBB8BB8@python.org>	
+	<48E3FBA0.8030603@jcea.es>	
+	<e69d3ed20810011600x4634d05ocf1bbc2ad4530f7f@mail.gmail.com>	
+	<48E4FF4E.9090902@jcea.es> <48E52732.1030201@v.loewis.de>	
+	<66d0a6e10810021315h6e4619ecs23a0c417ca4dd6fe@mail.gmail.com>	
+	<48E52E2F.5080108@v.loewis.de>
+	<66d0a6e10810021406l19c6a35hfcea48e4e52763d5@mail.gmail.com>
+Message-ID: <48E54A78.4040600@v.loewis.de>
+
+> I guess my question is, is there a normal use case where the code needs
+> to be changed for a release after the 'tag' is made? If all the changes
+> are getting committed before the release tag is made, then what is the
+> problem?
+
+The changes that need to be made are committed to the trunk (or the
+maintenance branch), which gets tagged when they are all made. If
+unrelated changed are made to the trunk, it can't be tagged anymore,
+hence the trunk must be frozen.
+
+Please study the commit logs in detail if its still not clear.
+
+Regards,
+Martin
+
+From musiccomposition at gmail.com  Fri Oct  3 00:26:35 2008
+From: musiccomposition at gmail.com (Benjamin Peterson)
+Date: Thu, 2 Oct 2008 17:26:35 -0500
+Subject: [python-committers] new tarballs
+In-Reply-To: <729A7243-1B48-43C2-82C2-C20AF1FDC9A9@maya.com>
+References: <7B9B779A-19BE-4CEC-9F46-C57E920AD292@python.org>
+	<729A7243-1B48-43C2-82C2-C20AF1FDC9A9@maya.com>
+Message-ID: <1afaf6160810021526m43246732kad40bd30a0aa1880@mail.gmail.com>
+
+On Thu, Oct 2, 2008 at 4:51 PM, Jeff Senn <senn at maya.com> wrote:
+>
+> Is whoever does the OS-X build on this list?  I have problems building the
+> Mac OS-X installer build using the build script in the tarball...
+>
+> (Could there be uncommitted changes to Mac/BuildScript/build-installer.py?)
+
+I had to hack the thing up a bit to get it to work. It's ugly, though,
+so I'll have to clean it up and commit sometime.
+
+
+-- 
+Cheers,
+Benjamin Peterson
+"There's nothing quite as beautiful as an oboe... except a chicken
+stuck in a vacuum cleaner."
+
+From martin at v.loewis.de  Fri Oct  3 00:27:39 2008
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Fri, 03 Oct 2008 00:27:39 +0200
+Subject: [python-committers] Cutting Python 2.6
+In-Reply-To: <368a5cd50810021408y31593df9t56b1a2ad9bb866e9@mail.gmail.com>
+References: <D4BD3F4E-7F63-48CB-823D-5DEE045BAD71@python.org>	<48E3E962.80903@v.loewis.de>	<33B92457-8238-402C-9C68-8EF4ABE57EE2@python.org>	<48E3EC51.7090206@v.loewis.de>
+	<48E3EF4B.1040207@gmail.com>	<81B88E6E-B0A1-4300-A1E8-78B75FBB8BB8@python.org>	<48E3FBA0.8030603@jcea.es>	<e69d3ed20810011600x4634d05ocf1bbc2ad4530f7f@mail.gmail.com>	<48E4FF4E.9090902@jcea.es>
+	<48E52732.1030201@v.loewis.de>
+	<368a5cd50810021408y31593df9t56b1a2ad9bb866e9@mail.gmail.com>
+Message-ID: <48E54ADB.3020609@v.loewis.de>
+
+> creating a branch for the release is no option?
+
+It might be, but that's for the release manager to decide, and
+he has chosen the alternative option of freezing the repository.
+
+>  that's odd, because I
+> do that all the time.  i.e.
+> 
+>    1 - create trunk snapshot by branching
+>    2 - build release kit from branch
+>    3 - tweak snapshot in branch if necessary, repeat from 2
+>    4 - when the kit is solid, tag the final branch
+>    5 - merge relevant changes back to trunk
+
+It's more complicated than the current procedure.
+
+Regards,
+Martin
+
+From senn at maya.com  Fri Oct  3 01:28:35 2008
+From: senn at maya.com (Jeff Senn)
+Date: Thu, 2 Oct 2008 19:28:35 -0400
+Subject: [python-committers] new tarballs
+In-Reply-To: <1afaf6160810021526m43246732kad40bd30a0aa1880@mail.gmail.com>
+References: <7B9B779A-19BE-4CEC-9F46-C57E920AD292@python.org>
+	<729A7243-1B48-43C2-82C2-C20AF1FDC9A9@maya.com>
+	<1afaf6160810021526m43246732kad40bd30a0aa1880@mail.gmail.com>
+Message-ID: <60878FCB-9CDA-4DA5-8DB7-4FE3D98B36B4@maya.com>
+
+
+On Oct 2, 2008, at 6:26 PM, Benjamin Peterson wrote:
+
+> On Thu, Oct 2, 2008 at 4:51 PM, Jeff Senn <senn at maya.com> wrote:
+>>
+>> Is whoever does the OS-X build on this list?  I have problems  
+>> building the
+>> Mac OS-X installer build using the build script in the tarball...
+>>
+>> (Could there be uncommitted changes to Mac/BuildScript/build- 
+>> installer.py?)
+>
+> I had to hack the thing up a bit to get it to work. It's ugly, though,
+> so I'll have to clean it up and commit sometime.
+
+Hm.  Unfortunate to make a "release" that doesn't include quite the  
+right
+build script. For the record, attached are my changes to the build  
+script to
+get it to work.  (I'm trying to build the OS-X "stackless" variant for
+distribution for 2.6).
+
+I'm assuming that the following are correct and intended:
+
+1- the name of the Mac python install folder in /Applications should  
+now be
+    "Python<version>" rather than "MacPython<version>"
+2- the filename of the released documentation from the ftp site  
+changed from
+    "html-<version>.tar.bz2" to "python-docs-html.tar.bz2"
+
+But I notice that your posted dmg does NOT include the
+"Update Shell Profile.command"  Should that be gone now?
+
+My /Library/Framework.../Documentation/...html files build slightly  
+differently
+than yours...
+
+Also I notice that my build has usually slightly smaller exe and .so  
+sizes
+than yours (that could be due to different versions of compiler I  
+suppose)
+
+Can you let me know when/if/where you commit changes to build- 
+installer.py?
+Thanks,
+-Jas
+
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: build-installer.py-diffs
+Type: application/octet-stream
+Size: 2656 bytes
+Desc: not available
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20081002/94c4f10b/attachment.obj>
+-------------- next part --------------
+
+
+
+
+
+
+
+From anthonybaxter at gmail.com  Fri Oct  3 06:34:45 2008
+From: anthonybaxter at gmail.com (Anthony Baxter)
+Date: Fri, 3 Oct 2008 14:34:45 +1000
+Subject: [python-committers] Cutting Python 2.6
+In-Reply-To: <66d0a6e10810021406l19c6a35hfcea48e4e52763d5@mail.gmail.com>
+References: <D4BD3F4E-7F63-48CB-823D-5DEE045BAD71@python.org>
+	<48E3EF4B.1040207@gmail.com>
+	<81B88E6E-B0A1-4300-A1E8-78B75FBB8BB8@python.org>
+	<48E3FBA0.8030603@jcea.es>
+	<e69d3ed20810011600x4634d05ocf1bbc2ad4530f7f@mail.gmail.com>
+	<48E4FF4E.9090902@jcea.es> <48E52732.1030201@v.loewis.de>
+	<66d0a6e10810021315h6e4619ecs23a0c417ca4dd6fe@mail.gmail.com>
+	<48E52E2F.5080108@v.loewis.de>
+	<66d0a6e10810021406l19c6a35hfcea48e4e52763d5@mail.gmail.com>
+Message-ID: <e69d3ed20810022134l5edefe13x582ea0d71c4161f2@mail.gmail.com>
+
+On Fri, Oct 3, 2008 at 7:06 AM, Nicholas Bastin <nick.bastin at gmail.com> wrote:
+>
+>
+> On Thu, Oct 2, 2008 at 4:25 PM, "Martin v. L?wis" <martin at v.loewis.de>
+> wrote:
+>>
+>> > You always create a branch for the release (subversion doesn't make any
+>> > distinction between a tag and a branch anyhow, so you might as well just
+>> > make a branch).
+>>
+>> I don't think the tag should be edited (there are a few that were, and
+>> that's unfortunate already). For example, conversion to bzr will
+>> conclude it's a bazaar branch, not a tag.
+>
+> I agree, that's why I think we should make a branch.  Tags should be treated
+> as immutable - it's merely an artifact of a limitation in the source control
+> system we use that you can't make real labels.
+>
+>>
+>> It's standard procedure to change the code after declaring it
+>> releasable; during the release process, the version numbers get adjusted
+>> throughout, and those changes get committed before the release tag is
+>> made.
+>
+> I guess my question is, is there a normal use case where the code needs to
+> be changed for a release after the 'tag' is made? If all the changes are
+> getting committed before the release tag is made, then what is the problem?
+
+It's happened a couple of times when I've made releases - the process
+I had was to automate it as much as possible, then take the generated
+tarball, unpack it freshly and run the full tests, and then check
+things like the README and all those other places. Making a release is
+still a pretty fiddly process, and things slip through.
+
+From musiccomposition at gmail.com  Fri Oct  3 13:52:31 2008
+From: musiccomposition at gmail.com (Benjamin Peterson)
+Date: Fri, 3 Oct 2008 06:52:31 -0500
+Subject: [python-committers] new tarballs
+In-Reply-To: <60878FCB-9CDA-4DA5-8DB7-4FE3D98B36B4@maya.com>
+References: <7B9B779A-19BE-4CEC-9F46-C57E920AD292@python.org>
+	<729A7243-1B48-43C2-82C2-C20AF1FDC9A9@maya.com>
+	<1afaf6160810021526m43246732kad40bd30a0aa1880@mail.gmail.com>
+	<60878FCB-9CDA-4DA5-8DB7-4FE3D98B36B4@maya.com>
+Message-ID: <1afaf6160810030452v4ed258e9v9a04572897f2a50@mail.gmail.com>
+
+On Thu, Oct 2, 2008 at 6:28 PM, Jeff Senn <senn at maya.com> wrote:
+>
+> On Oct 2, 2008, at 6:26 PM, Benjamin Peterson wrote:
+>
+>> On Thu, Oct 2, 2008 at 4:51 PM, Jeff Senn <senn at maya.com> wrote:
+>>>
+>>> Is whoever does the OS-X build on this list?  I have problems building
+>>> the
+>>> Mac OS-X installer build using the build script in the tarball...
+>>>
+>>> (Could there be uncommitted changes to
+>>> Mac/BuildScript/build-installer.py?)
+>>
+>> I had to hack the thing up a bit to get it to work. It's ugly, though,
+>> so I'll have to clean it up and commit sometime.
+>
+> Hm.  Unfortunate to make a "release" that doesn't include quite the right
+> build script. For the record, attached are my changes to the build script to
+> get it to work.  (I'm trying to build the OS-X "stackless" variant for
+> distribution for 2.6).
+>
+> I'm assuming that the following are correct and intended:
+>
+> 1- the name of the Mac python install folder in /Applications should now be
+>   "Python<version>" rather than "MacPython<version>"
+> 2- the filename of the released documentation from the ftp site changed from
+>   "html-<version>.tar.bz2" to "python-docs-html.tar.bz2"
+>
+> But I notice that your posted dmg does NOT include the
+> "Update Shell Profile.command"  Should that be gone now?
+>
+> My /Library/Framework.../Documentation/...html files build slightly
+> differently
+> than yours...
+>
+> Also I notice that my build has usually slightly smaller exe and .so sizes
+> than yours (that could be due to different versions of compiler I suppose)
+
+I compiled some newer libraries also.
+
+>
+> Can you let me know when/if/where you commit changes to build-installer.py?
+
+I've updated now.
+
+> Thanks,
+> -Jas
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+
+
+
+-- 
+Cheers,
+Benjamin Peterson
+"There's nothing quite as beautiful as an oboe... except a chicken
+stuck in a vacuum cleaner."
+
+From barry at python.org  Fri Oct  3 14:07:28 2008
+From: barry at python.org (Barry Warsaw)
+Date: Fri, 3 Oct 2008 08:07:28 -0400
+Subject: [python-committers] Cutting Python 2.6
+In-Reply-To: <48E52E2F.5080108@v.loewis.de>
+References: <D4BD3F4E-7F63-48CB-823D-5DEE045BAD71@python.org>	
+	<48E3E962.80903@v.loewis.de>	
+	<33B92457-8238-402C-9C68-8EF4ABE57EE2@python.org>	
+	<48E3EC51.7090206@v.loewis.de> <48E3EF4B.1040207@gmail.com>	
+	<81B88E6E-B0A1-4300-A1E8-78B75FBB8BB8@python.org>	
+	<48E3FBA0.8030603@jcea.es>	
+	<e69d3ed20810011600x4634d05ocf1bbc2ad4530f7f@mail.gmail.com>	
+	<48E4FF4E.9090902@jcea.es> <48E52732.1030201@v.loewis.de>
+	<66d0a6e10810021315h6e4619ecs23a0c417ca4dd6fe@mail.gmail.com>
+	<48E52E2F.5080108@v.loewis.de>
+Message-ID: <56D25434-FD11-46D1-9770-CA91D7BCBCFC@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On Oct 2, 2008, at 4:25 PM, Martin v. L?wis wrote:
+
+>> You always create a branch for the release (subversion doesn't make  
+>> any
+>> distinction between a tag and a branch anyhow, so you might as well  
+>> just
+>> make a branch).
+>
+> I don't think the tag should be edited (there are a few that were, and
+> that's unfortunate already). For example, conversion to bzr will
+> conclude it's a bazaar branch, not a tag.
+
+I agree.
+
+>> Version control systems are built to avoid precisely the situation  
+>> which
+>> is being discussed here - we should take advantage of that.
+>
+> I would leave that up to the release manager.
+
+Imposing a freeze simplifies the release process, so I would like to  
+keep it.
+
+- -Barry
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQCVAwUBSOYLAHEjvBPtnXfVAQKuQwP/RZp4SJWyG5MNSXCu2QBHHJlYIYPouz+g
+Ms5/nEh2IMQ0JBzkrJBAzAnP8Fgl6ofhAQkh9FntP6t7X1w9xPhcMqLbV7pSR5wG
+1TKg6gWZ1woi6Ez84kc35rBdNDnKmYCLZjNz8l6lmLlfXIFopkd9ECOfYxME8nzk
++DqxKHMF+j4=
+=L6jU
+-----END PGP SIGNATURE-----
+
+From barry at python.org  Fri Oct  3 14:09:06 2008
+From: barry at python.org (Barry Warsaw)
+Date: Fri, 3 Oct 2008 08:09:06 -0400
+Subject: [python-committers] Cutting Python 2.6
+In-Reply-To: <e69d3ed20810022134l5edefe13x582ea0d71c4161f2@mail.gmail.com>
+References: <D4BD3F4E-7F63-48CB-823D-5DEE045BAD71@python.org>
+	<48E3EF4B.1040207@gmail.com>
+	<81B88E6E-B0A1-4300-A1E8-78B75FBB8BB8@python.org>
+	<48E3FBA0.8030603@jcea.es>
+	<e69d3ed20810011600x4634d05ocf1bbc2ad4530f7f@mail.gmail.com>
+	<48E4FF4E.9090902@jcea.es> <48E52732.1030201@v.loewis.de>
+	<66d0a6e10810021315h6e4619ecs23a0c417ca4dd6fe@mail.gmail.com>
+	<48E52E2F.5080108@v.loewis.de>
+	<66d0a6e10810021406l19c6a35hfcea48e4e52763d5@mail.gmail.com>
+	<e69d3ed20810022134l5edefe13x582ea0d71c4161f2@mail.gmail.com>
+Message-ID: <83E65C7F-2D9C-419A-AE5E-4C18476D5905@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On Oct 3, 2008, at 12:34 AM, Anthony Baxter wrote:
+
+> It's happened a couple of times when I've made releases - the process
+> I had was to automate it as much as possible, then take the generated
+> tarball, unpack it freshly and run the full tests, and then check
+> things like the README and all those other places. Making a release is
+> still a pretty fiddly process, and things slip through.
+
+Anthony's spot on.  Even with a release script and PEP 101, it's still  
+pretty labor intensive.  Of course, Python 2.7 and 3.1 still have no  
+official RM <wink> so if you want firsthand experience, the  
+opportunity is available.
+
+- -Barry
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQCVAwUBSOYLY3EjvBPtnXfVAQLR1QP6A4rhYAPQ1BJwRsHPcg9aBB7jKYD7I77f
+T2C0+rn3303mI8zwF/iVQ+0QX7EM5MYzIniu1IReZxh+9jgZ5abyPSj3oqedpeaO
+XKBKzT8v5TN1G6LvdgyiUESQGE29UPSIRdMzRRurdKN0tlMZOBLYr4/nf128cNFL
+cLqg02NHmr4=
+=iLa3
+-----END PGP SIGNATURE-----
+
+From barry at python.org  Fri Oct  3 14:10:44 2008
+From: barry at python.org (Barry Warsaw)
+Date: Fri, 3 Oct 2008 08:10:44 -0400
+Subject: [python-committers] new tarballs
+In-Reply-To: <1afaf6160810021526m43246732kad40bd30a0aa1880@mail.gmail.com>
+References: <7B9B779A-19BE-4CEC-9F46-C57E920AD292@python.org>
+	<729A7243-1B48-43C2-82C2-C20AF1FDC9A9@maya.com>
+	<1afaf6160810021526m43246732kad40bd30a0aa1880@mail.gmail.com>
+Message-ID: <0BFC5608-5FDA-4C4C-B5B3-3F17B4F7E62A@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On Oct 2, 2008, at 6:26 PM, Benjamin Peterson wrote:
+
+> On Thu, Oct 2, 2008 at 4:51 PM, Jeff Senn <senn at maya.com> wrote:
+>>
+>> Is whoever does the OS-X build on this list?  I have problems  
+>> building the
+>> Mac OS-X installer build using the build script in the tarball...
+>>
+>> (Could there be uncommitted changes to Mac/BuildScript/build- 
+>> installer.py?)
+>
+> I had to hack the thing up a bit to get it to work. It's ugly, though,
+> so I'll have to clean it up and commit sometime.
+
+I really appreciate that Benjamin built the OSX installer, but Ronald  
+is the official Mac Expert (as stated in PEP 101).  Ronald, do you  
+want to build a new installer for the download page?
+
+- -Barry
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQCVAwUBSOYLxHEjvBPtnXfVAQJ3+QQAm9iiKk1ZUlUQrixGYzSjzkQqy3FzIpPo
+B2IBPBf2E+KJJJhD79Q2Y+BOqja5sUFQRz6LLhexoUOZP/pLUyBps7XUowCmmDh8
+6LrENZJBkQ0gRYIOcoUBTCrkK8CxnuWNdaj3jPdwcqn6xYg7l/fCaiDYxCXet08J
+cnIhyJr4TVs=
+=WGrB
+-----END PGP SIGNATURE-----
+
+From ronaldoussoren at mac.com  Fri Oct  3 14:31:49 2008
+From: ronaldoussoren at mac.com (Ronald Oussoren)
+Date: Fri, 03 Oct 2008 14:31:49 +0200
+Subject: [python-committers] new tarballs
+In-Reply-To: <0BFC5608-5FDA-4C4C-B5B3-3F17B4F7E62A@python.org>
+References: <7B9B779A-19BE-4CEC-9F46-C57E920AD292@python.org>
+	<729A7243-1B48-43C2-82C2-C20AF1FDC9A9@maya.com>
+	<1afaf6160810021526m43246732kad40bd30a0aa1880@mail.gmail.com>
+	<0BFC5608-5FDA-4C4C-B5B3-3F17B4F7E62A@python.org>
+Message-ID: <105520449654421940351972969072855985499-Webmail2@me.com>
+
+ 
+On Friday, October 03, 2008, at 02:10PM, "Barry Warsaw" <barry at python.org> wrote:
+
+>I really appreciate that Benjamin built the OSX installer, but Ronald  
+>is the official Mac Expert (as stated in PEP 101).  Ronald, do you  
+>want to build a new installer for the download page?
+
+Not unless there are issues with the current installer.  I will try to find some to clean up the build-script for 2.6.1 and the trunk though, we've just decided at work that we'll move several projects to 2.6 which is a valid excuse to do some work on the installer.
+
+Ronald
+
+
+From barry at python.org  Fri Oct  3 14:55:07 2008
+From: barry at python.org (Barry Warsaw)
+Date: Fri, 3 Oct 2008 08:55:07 -0400
+Subject: [python-committers] new tarballs
+In-Reply-To: <105520449654421940351972969072855985499-Webmail2@me.com>
+References: <7B9B779A-19BE-4CEC-9F46-C57E920AD292@python.org>
+	<729A7243-1B48-43C2-82C2-C20AF1FDC9A9@maya.com>
+	<1afaf6160810021526m43246732kad40bd30a0aa1880@mail.gmail.com>
+	<0BFC5608-5FDA-4C4C-B5B3-3F17B4F7E62A@python.org>
+	<105520449654421940351972969072855985499-Webmail2@me.com>
+Message-ID: <0707B5D4-F757-4314-A81A-7DB9FD3764AD@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On Oct 3, 2008, at 8:31 AM, Ronald Oussoren wrote:
+
+>
+> On Friday, October 03, 2008, at 02:10PM, "Barry Warsaw" <barry at python.org 
+> > wrote:
+>
+>> I really appreciate that Benjamin built the OSX installer, but Ronald
+>> is the official Mac Expert (as stated in PEP 101).  Ronald, do you
+>> want to build a new installer for the download page?
+>
+> Not unless there are issues with the current installer.  I will try  
+> to find some to clean up the build-script for 2.6.1 and the trunk  
+> though, we've just decided at work that we'll move several projects  
+> to 2.6 which is a valid excuse to do some work on the installer.
+
+Cool, thanks.
+- -Barry
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQCVAwUBSOYWK3EjvBPtnXfVAQKXdAQAiRxkd9oTftvUna2iUy17hxfzB50bt1FL
+USV2bpb9xOJSaoOD84UaWn+SxAoDLO58S3Hm3VGrLZ2czuL2/z0kAzCgq5fZqUQw
+vodld1nsPtDnZAKdUMx4RU/hdOrZyViXxftZ+qpI50JdXEwLcQX+eCPFf5Dbcfto
+n2HxZmeO5Tg=
+=7uro
+-----END PGP SIGNATURE-----
+
+From musiccomposition at gmail.com  Fri Oct  3 22:55:22 2008
+From: musiccomposition at gmail.com (Benjamin Peterson)
+Date: Fri, 3 Oct 2008 15:55:22 -0500
+Subject: [python-committers] Cutting Python 2.6
+In-Reply-To: <83E65C7F-2D9C-419A-AE5E-4C18476D5905@python.org>
+References: <D4BD3F4E-7F63-48CB-823D-5DEE045BAD71@python.org>
+	<48E3FBA0.8030603@jcea.es>
+	<e69d3ed20810011600x4634d05ocf1bbc2ad4530f7f@mail.gmail.com>
+	<48E4FF4E.9090902@jcea.es> <48E52732.1030201@v.loewis.de>
+	<66d0a6e10810021315h6e4619ecs23a0c417ca4dd6fe@mail.gmail.com>
+	<48E52E2F.5080108@v.loewis.de>
+	<66d0a6e10810021406l19c6a35hfcea48e4e52763d5@mail.gmail.com>
+	<e69d3ed20810022134l5edefe13x582ea0d71c4161f2@mail.gmail.com>
+	<83E65C7F-2D9C-419A-AE5E-4C18476D5905@python.org>
+Message-ID: <1afaf6160810031355u21e9fb34jd71e261bccb39f58@mail.gmail.com>
+
+On Fri, Oct 3, 2008 at 7:09 AM, Barry Warsaw <barry at python.org> wrote:
+> -----BEGIN PGP SIGNED MESSAGE-----
+> Hash: SHA1
+>
+> On Oct 3, 2008, at 12:34 AM, Anthony Baxter wrote:
+>
+>> It's happened a couple of times when I've made releases - the process
+>> I had was to automate it as much as possible, then take the generated
+>> tarball, unpack it freshly and run the full tests, and then check
+>> things like the README and all those other places. Making a release is
+>> still a pretty fiddly process, and things slip through.
+>
+> Anthony's spot on.  Even with a release script and PEP 101, it's still
+> pretty labor intensive.  Of course, Python 2.7 and 3.1 still have no
+> official RM <wink> so if you want firsthand experience, the opportunity is
+> available.
+
+I would actually be interested in this. However, I still am quite
+inexperienced and gladly step aside for anyone who's been around
+longer.
+
+
+
+-- 
+Cheers,
+Benjamin Peterson
+"There's nothing quite as beautiful as an oboe... except a chicken
+stuck in a vacuum cleaner."
+
+From barry at python.org  Tue Oct  7 02:47:57 2008
+From: barry at python.org (Barry Warsaw)
+Date: Mon, 6 Oct 2008 20:47:57 -0400
+Subject: [python-committers] Proposed Python 3.0 schedule
+Message-ID: <2A0F6C99-481A-473B-B1A5-7B9FB5A47D6F@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+So, we need to come up with a new release schedule for Python 3.0.  My  
+suggestion:
+
+15-Oct-2008 3.0 beta 4
+05-Nov-2008 3.0 rc 2
+19-Nov-2008 3.0 rc 3
+03-Dec-2008 3.0 final
+
+Given what still needs to be done, is this a reasonable schedule?  Do  
+we need two more betas?
+
+- -Barry
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQCVAwUBSOqxvnEjvBPtnXfVAQIR5QP/coSi2ltsZSpE2dyUg7Y35QcSk/+4ZbGK
+zF0AgLaOkGs+DFnxRH9vy9kN3JaEkp1MhEpDjkomE7kNpnJB7bWotTrHI67HD9ma
+ZDqqmaCc02IeUtLm7HuELvofjCgh+gryKWvRc71ErRHmn/YxMGr1OcEirPpx4nZ9
+DeDV0OeUtTE=
+=RchU
+-----END PGP SIGNATURE-----
+
+From musiccomposition at gmail.com  Tue Oct  7 02:52:54 2008
+From: musiccomposition at gmail.com (Benjamin Peterson)
+Date: Mon, 6 Oct 2008 19:52:54 -0500
+Subject: [python-committers] [Python-3000] Proposed Python 3.0 schedule
+In-Reply-To: <2A0F6C99-481A-473B-B1A5-7B9FB5A47D6F@python.org>
+References: <2A0F6C99-481A-473B-B1A5-7B9FB5A47D6F@python.org>
+Message-ID: <1afaf6160810061752w390ba174m66baf6646175105d@mail.gmail.com>
+
+On Mon, Oct 6, 2008 at 7:47 PM, Barry Warsaw <barry at python.org> wrote:
+> -----BEGIN PGP SIGNED MESSAGE-----
+> Hash: SHA1
+>
+> So, we need to come up with a new release schedule for Python 3.0.  My
+> suggestion:
+>
+> 15-Oct-2008 3.0 beta 4
+> 05-Nov-2008 3.0 rc 2
+> 19-Nov-2008 3.0 rc 3
+> 03-Dec-2008 3.0 final
+>
+> Given what still needs to be done, is this a reasonable schedule?  Do we
+> need two more betas?
+
+I'm not sure we do. Correct me if I'm wrong, but the "big ticket",
+issue bytes/unicode filepaths, has been resolved. And looking at the
+tracker, I only see 18 release blockers.
+
+
+
+-- 
+Cheers,
+Benjamin Peterson
+"There's nothing quite as beautiful as an oboe... except a chicken
+stuck in a vacuum cleaner."
+
+From python at rcn.com  Tue Oct  7 03:48:18 2008
+From: python at rcn.com (Raymond Hettinger)
+Date: Mon, 6 Oct 2008 18:48:18 -0700
+Subject: [python-committers] [Python-Dev] Proposed Python 3.0 schedule
+References: <2A0F6C99-481A-473B-B1A5-7B9FB5A47D6F@python.org>
+Message-ID: <040FDB9B68C549AE848AC35C0231DD70@RaymondLaptop1>
+
+[Barry Warsaw]
+> So, we need to come up with a new release schedule for Python 3.0.  My  
+> suggestion:
+> 
+> 15-Oct-2008 3.0 beta 4
+> 05-Nov-2008 3.0 rc 2
+> 19-Nov-2008 3.0 rc 3
+> 03-Dec-2008 3.0 final
+> 
+> Given what still needs to be done, is this a reasonable schedule?  Do  
+> we need two more betas?
+
+Yes to both questions.
+
+I'm seeing that people are just starting to download and play with 3.0.
+I expect that we'll start getting more feedback on conversion issues,
+the C API, screwy interactions with operating systems, bytes/text issues,
+unanticipated interactions with other tools, etc.  Each user will stress
+it in new ways and perhaps reveal a bunch of little integration issues
+and documentation issues.  Those little fixups way go a long way toward
+establishing a good first impression and reputation for 3.0 from the outset.
+
+
+Raymond
+
+
+
+From barry at python.org  Tue Oct  7 04:13:06 2008
+From: barry at python.org (Barry Warsaw)
+Date: Mon, 6 Oct 2008 22:13:06 -0400
+Subject: [python-committers] [Python-Dev] Proposed Python 3.0 schedule
+In-Reply-To: <040FDB9B68C549AE848AC35C0231DD70@RaymondLaptop1>
+References: <2A0F6C99-481A-473B-B1A5-7B9FB5A47D6F@python.org>
+	<040FDB9B68C549AE848AC35C0231DD70@RaymondLaptop1>
+Message-ID: <67693931-29C5-4FD7-8E83-D97F892F3BE3@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On Oct 6, 2008, at 9:48 PM, Raymond Hettinger wrote:
+
+> [Barry Warsaw]
+>> So, we need to come up with a new release schedule for Python 3.0.   
+>> My  suggestion:
+>> 15-Oct-2008 3.0 beta 4
+>> 05-Nov-2008 3.0 rc 2
+>> 19-Nov-2008 3.0 rc 3
+>> 03-Dec-2008 3.0 final
+>> Given what still needs to be done, is this a reasonable schedule?   
+>> Do  we need two more betas?
+>
+> Yes to both questions.
+
+I think that's contradictory :).  If we need two betas, then 05-Nov  
+becomes beta 5, 19-Nov is rc 2.  If we don't need another rc then we  
+can still do a final release on 03-Dec, otherwise we probably go 2  
+weeks later.  I don't want to go much later than that though because  
+then we get into the holiday season.
+
+- -Barry
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQCVAwUBSOrFs3EjvBPtnXfVAQJceQP/QJN7oLM4nG+iXmgdb0NmKzOzaE3J89sQ
+UWZnc/hp618QNH4JWC8v2bYApFu+iVg3pcv1Lnmhuql6mOuDhSuKKJVA5jTdR7U2
+2enhAEY2DXtmav/29nn2Fy6PYcWJy9pE2xBsbBW8qXc6tYww0iEBsz9SU68jPzPk
+x5LFC5NqmXo=
+=Kyr4
+-----END PGP SIGNATURE-----
+
+From facundobatista at gmail.com  Tue Oct  7 14:20:23 2008
+From: facundobatista at gmail.com (Facundo Batista)
+Date: Tue, 7 Oct 2008 09:20:23 -0300
+Subject: [python-committers] [Python-3000] [Python-Dev] Proposed Python
+	3.0 schedule
+In-Reply-To: <040FDB9B68C549AE848AC35C0231DD70@RaymondLaptop1>
+References: <2A0F6C99-481A-473B-B1A5-7B9FB5A47D6F@python.org>
+	<040FDB9B68C549AE848AC35C0231DD70@RaymondLaptop1>
+Message-ID: <e04bdf310810070520m7d3d3c49v6aae5ee81d61a59a@mail.gmail.com>
+
+2008/10/6 Raymond Hettinger <python at rcn.com>:
+
+>> 15-Oct-2008 3.0 beta 4
+>> 05-Nov-2008 3.0 rc 2
+>> 19-Nov-2008 3.0 rc 3
+>> 03-Dec-2008 3.0 final
+>>
+>> Given what still needs to be done, is this a reasonable schedule?  Do  we
+>> need two more betas?
+>
+> Yes to both questions.
+
+I agree with you here.
+
+
+> I'm seeing that people are just starting to download and play with 3.0.
+> I expect that we'll start getting more feedback on conversion issues,
+> the C API, screwy interactions with operating systems, bytes/text issues,
+> unanticipated interactions with other tools, etc.  Each user will stress
+> it in new ways and perhaps reveal a bunch of little integration issues
+> and documentation issues.  Those little fixups way go a long way toward
+> establishing a good first impression and reputation for 3.0 from the outset.
+
+And maybe also here, but bounded.
+
+I don't want to keep deferring 3.0 months and months, I prefer to have
+a redesigned schedule now, and stick to it as much as possible, even
+if the 3.0 version is not as robust as we would want.
+
+Regards,
+
+-- 
+.    Facundo
+
+Blog: http://www.taniquetil.com.ar/plog/
+PyAr: http://www.python.org/ar/
+
+From amk at amk.ca  Tue Oct  7 15:03:46 2008
+From: amk at amk.ca (A.M. Kuchling)
+Date: Tue, 7 Oct 2008 09:03:46 -0400
+Subject: [python-committers] Proposed Python 3.0 schedule
+In-Reply-To: <e04bdf310810070520m7d3d3c49v6aae5ee81d61a59a@mail.gmail.com>
+References: <2A0F6C99-481A-473B-B1A5-7B9FB5A47D6F@python.org>
+	<040FDB9B68C549AE848AC35C0231DD70@RaymondLaptop1>
+	<e04bdf310810070520m7d3d3c49v6aae5ee81d61a59a@mail.gmail.com>
+Message-ID: <20081007130346.GA6129@amk-desktop.matrixgroup.net>
+
+On Tue, Oct 07, 2008 at 09:20:23AM -0300, Facundo Batista wrote:
+> I don't want to keep deferring 3.0 months and months, I prefer to have
+> a redesigned schedule now, and stick to it as much as possible, even
+> if the 3.0 version is not as robust as we would want.
+
+Another, related policy issue: must 3.1 be compatible with 3.0?  Or is
+3.0 an experimental version in some respects (for example, the stdlib)
+and 3.1 the 'final' version?
+
+--amk
+
+From mhammond at skippinet.com.au  Tue Oct  7 15:34:15 2008
+From: mhammond at skippinet.com.au (Mark Hammond)
+Date: Wed, 8 Oct 2008 00:34:15 +1100
+Subject: [python-committers] [Python-Dev] Proposed Python 3.0 schedule
+In-Reply-To: <040FDB9B68C549AE848AC35C0231DD70@RaymondLaptop1>
+References: <2A0F6C99-481A-473B-B1A5-7B9FB5A47D6F@python.org>
+	<040FDB9B68C549AE848AC35C0231DD70@RaymondLaptop1>
+Message-ID: <00e001c92881$68ba93c0$3a2fbb40$@com.au>
+
+[when 2 mailing lists are not enough... :-]
+
+> I'm seeing that people are just starting to download and play with 3.0.
+> I expect that we'll start getting more feedback on conversion issues
+
++1 from this direction too.  pywin32 has recently started looking seriously
+at py3k, and while things are in fairly good shape for us who are already
+"on the bandwagon", cleaning up a few rough edges would help people's first
+impressions - and as they say, you only get one chance at a good first
+impression...
+
+More specifically, I think 2to3 is shaping up well.  pywin32 is taking the
+approach of "port where possible, but keep in py2x syntax and convert at
+'setup.py' time" and this is working out fairly well (in fact, with just a
+couple of helpers in pywintypes, I think we can support python 2.3 upwards).
+I believe that many projects may well take a similar approach as it allows
+them to defer a full commitment to py3k, so doing all we can to support this
+might help with that first impression.  My experience is that this could
+best be achieved by addressing the following issues before release:
+ 
+* Almost all open 2to3 issues that aren't truly edge cases should be
+resolved - if 2to3 doesn't work for people, they may be forced to (even
+temporarily) "fork" their project, which will cause concern.  I'll note that
+good recent progress is being made here, but its still worth mentioning...
+
+* Better support for 2to3 in distutils (specifically, the support in
+build_py is stale, plus 'build_scripts' and 'install_data' should convert
+.py files to py3k syntax.)  An 'example' project that uses py2k syntax and
+"just works" on py3k using this strategy might be useful here.
+
+* A standard 'helper script' that allows people to use py3k to execute a
+py2x syntax script by auto-converting the code.  I've a 10ish-line script
+that uses lib2to3 plus exec() to achieve that result, but a helper in 2to3
+for this would be nice.  For a concrete use-case, we want to keep our
+distutils script in py2x syntax, but execute it via py3k.  Its very possible
+this already exists and I've just missed it...
+
+Either way, I'm fairly confident a pywin32 build for py3k will be available
+in the next month or 2 (but as a result, I'm not really in a position to
+help with the above for that period...)
+
+Hopefully-helpfully,
+
+Mark
+
+
+
+From amk at amk.ca  Tue Oct  7 20:14:35 2008
+From: amk at amk.ca (A.M. Kuchling)
+Date: Tue, 7 Oct 2008 14:14:35 -0400
+Subject: [python-committers] Media contact: Alex Handy
+Message-ID: <20081007181435.GA12400@amk-desktop.matrixgroup.net>
+
+I received an e-mail from Alex Handy of SD Times:
+>Hi there. I read your article on the maturation of Python, and I'm
+>looking for contributors to the Python project. I'd love to talk to
+>you on the phone for an SD Times article about the subject. I'd also
+>appreciate any other members of the project you could refer to
+>speaking with.
+
+The subject line of the message was 'Python 3.0', and while I've
+replied, I'm not a good person to talk about 3.0 changes or plans.
+
+Does someone want to talk to them about 3.0?  Please let me know
+privately and I'll pass along Alex's contact info.
+
+--amk
+
+From martin at v.loewis.de  Tue Oct  7 21:40:21 2008
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Tue, 07 Oct 2008 21:40:21 +0200
+Subject: [python-committers] [Python-Dev] Proposed Python 3.0 schedule
+In-Reply-To: <00e001c92881$68ba93c0$3a2fbb40$@com.au>
+References: <2A0F6C99-481A-473B-B1A5-7B9FB5A47D6F@python.org>	<040FDB9B68C549AE848AC35C0231DD70@RaymondLaptop1>
+	<00e001c92881$68ba93c0$3a2fbb40$@com.au>
+Message-ID: <48EBBB25.70609@v.loewis.de>
+
+> More specifically, I think 2to3 is shaping up well.  pywin32 is taking the
+> approach of "port where possible, but keep in py2x syntax and convert at
+> 'setup.py' time" and this is working out fairly well
+
+I can't say how glad I am that you say that. It supports lib2to3 being a
+proper library, despite the problems that this may cause in itself.
+
+> * Better support for 2to3 in distutils (specifically, the support in
+> build_py is stale, plus 'build_scripts' and 'install_data' should convert
+> .py files to py3k syntax.)
+
+Please do create a bug report for that. It sounds like it's easy to fix.
+
+> An 'example' project that uses py2k syntax and
+> "just works" on py3k using this strategy might be useful here.
+
+Perhaps pywin32 :-?
+
+I don't think a demo project would do much good, as it doesn't exercise
+all the issues that may occur.
+
+> * A standard 'helper script' that allows people to use py3k to execute a
+> py2x syntax script by auto-converting the code.  I've a 10ish-line script
+> that uses lib2to3 plus exec() to achieve that result, but a helper in 2to3
+> for this would be nice.  For a concrete use-case, we want to keep our
+> distutils script in py2x syntax, but execute it via py3k.  Its very possible
+> this already exists and I've just missed it...
+
+For the case of setup.py, I was hoping that it could be written in
+compatible syntax even without needing conversion. That worked fine for
+my Django port. Is that not the case for pywin32?
+
+This specific issue might be out of scope for 3.x, IMO.
+
+> Either way, I'm fairly confident a pywin32 build for py3k will be available
+> in the next month or 2 (but as a result, I'm not really in a position to
+> help with the above for that period...)
+
+But please do file bug reports, preferably along with any patches to
+distutils that you already have.
+
+Regards,
+Martin
+
+From python at rcn.com  Tue Oct  7 21:39:59 2008
+From: python at rcn.com (Raymond Hettinger)
+Date: Tue, 7 Oct 2008 12:39:59 -0700
+Subject: [python-committers] Media contact: Alex Handy
+References: <20081007181435.GA12400@amk-desktop.matrixgroup.net>
+Message-ID: <8AE133A5D9A04BBEB250D97FD9662823@RaymondLaptop1>
+
+
+[A.M. Kuchling]
+> Does someone want to talk to them about 3.0?  Please let me know
+> privately and I'll pass along Alex's contact info.
+
+Okay, will send you my info by private email.
+
+
+Raymond
+
+From guido at python.org  Tue Oct  7 22:28:30 2008
+From: guido at python.org (Guido van Rossum)
+Date: Tue, 7 Oct 2008 13:28:30 -0700
+Subject: [python-committers] [Python-3000] Proposed Python 3.0 schedule
+In-Reply-To: <2A0F6C99-481A-473B-B1A5-7B9FB5A47D6F@python.org>
+References: <2A0F6C99-481A-473B-B1A5-7B9FB5A47D6F@python.org>
+Message-ID: <ca471dc20810071328t65ee07faw5e0672be8bdc3fea@mail.gmail.com>
+
+On Mon, Oct 6, 2008 at 5:47 PM, Barry Warsaw <barry at python.org> wrote:
+> So, we need to come up with a new release schedule for Python 3.0.  My
+> suggestion:
+>
+> 15-Oct-2008 3.0 beta 4
+> 05-Nov-2008 3.0 rc 2
+> 19-Nov-2008 3.0 rc 3
+> 03-Dec-2008 3.0 final
+>
+> Given what still needs to be done, is this a reasonable schedule?  Do we
+> need two more betas?
+
+I know I'm contradicting what I said earlier, but perhaps we should
+just forget going back to beta and stick to ever-more-perfect release
+candidates? In other worlds release candidates often contain tons of
+imperfections (I believe I've seen this both for Java and Windows) and
+the label "release candidate" more clearly encourages people to
+download and play with it, which is what we need at this point! Then
+the schedule would be something like
+
+  15-Oct-2008 3.0 rc 2
+  05-Nov-2008 3.0 rc 3
+  19-Nov-2008 3.0 rc 4
+  03-Dec-2008 3.0 final
+
+-- 
+--Guido van Rossum (home page: http://www.python.org/~guido/)
+
+From ncoghlan at gmail.com  Tue Oct  7 23:47:30 2008
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Wed, 08 Oct 2008 07:47:30 +1000
+Subject: [python-committers] [Python-3000] [Python-Dev] Proposed Python
+	3.0 schedule
+In-Reply-To: <67693931-29C5-4FD7-8E83-D97F892F3BE3@python.org>
+References: <2A0F6C99-481A-473B-B1A5-7B9FB5A47D6F@python.org>	<040FDB9B68C549AE848AC35C0231DD70@RaymondLaptop1>
+	<67693931-29C5-4FD7-8E83-D97F892F3BE3@python.org>
+Message-ID: <48EBD8F2.4090802@gmail.com>
+
+Barry Warsaw wrote:
+> On Oct 6, 2008, at 9:48 PM, Raymond Hettinger wrote:
+> 
+>> [Barry Warsaw]
+>>> So, we need to come up with a new release schedule for Python 3.0. 
+>>> My  suggestion:
+>>> 15-Oct-2008 3.0 beta 4
+>>> 05-Nov-2008 3.0 rc 2
+>>> 19-Nov-2008 3.0 rc 3
+>>> 03-Dec-2008 3.0 final
+>>> Given what still needs to be done, is this a reasonable schedule? 
+>>> Do  we need two more betas?
+> 
+>> Yes to both questions.
+> 
+> I think that's contradictory :).  If we need two betas, then 05-Nov
+> becomes beta 5, 19-Nov is rc 2.  If we don't need another rc then we can
+> still do a final release on 03-Dec, otherwise we probably go 2 weeks
+> later.  I don't want to go much later than that though because then we
+> get into the holiday season.
+
+Do we need the full two weeks between rc's? Or is it too much of a pain
+to cut releases 3 weeks in a row?
+
+E.g. something like:
+
+15-Oct-2008 3.0 beta 4
+05-Nov-2008 3.0 beta 5
+19-Nov-2008 3.0 rc 2
+26-Nov-2008 3.0 rc 3 (if needed)
+03-Dec-2008 3.0 final
+
+Cheers,
+Nick.
+
+_______________________________________________
+Python-3000 mailing list
+Python-3000 at python.org
+http://mail.python.org/mailman/listinfo/python-3000
+Unsubscribe:
+http://mail.python.org/mailman/options/python-3000/ncoghlan%40gmail.com
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+---------------------------------------------------------------
+            http://www.boredomandlaziness.org
+
+From martin at v.loewis.de  Tue Oct  7 23:50:48 2008
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Tue, 07 Oct 2008 23:50:48 +0200
+Subject: [python-committers] [Python-3000] [Python-Dev] Proposed Python
+ 3.0 schedule
+In-Reply-To: <48EBD8F2.4090802@gmail.com>
+References: <2A0F6C99-481A-473B-B1A5-7B9FB5A47D6F@python.org>	<040FDB9B68C549AE848AC35C0231DD70@RaymondLaptop1>	<67693931-29C5-4FD7-8E83-D97F892F3BE3@python.org>
+	<48EBD8F2.4090802@gmail.com>
+Message-ID: <48EBD9B8.4040102@v.loewis.de>
+
+> Do we need the full two weeks between rc's?
+
+If they are just other names for betas, yes. If they are true
+release candidates (in the sense of "we really want to release this
+as-is unless somebody tells us why this is a really bad idea"), then
+no.
+
+> Or is it too much of a pain
+> to cut releases 3 weeks in a row?
+
+It's a lot of effort, yes. Also for users, who will have barely
+installed one release candidate when the next one comes out.
+
+Regards,
+Martin
+
+From barry at python.org  Wed Oct  8 00:00:23 2008
+From: barry at python.org (Barry Warsaw)
+Date: Tue, 7 Oct 2008 18:00:23 -0400
+Subject: [python-committers] [Python-3000] Proposed Python 3.0 schedule
+In-Reply-To: <ca471dc20810071328t65ee07faw5e0672be8bdc3fea@mail.gmail.com>
+References: <2A0F6C99-481A-473B-B1A5-7B9FB5A47D6F@python.org>
+	<ca471dc20810071328t65ee07faw5e0672be8bdc3fea@mail.gmail.com>
+Message-ID: <E16A1C28-F7C9-4CC1-836C-E254AFF5AE7E@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On Oct 7, 2008, at 4:28 PM, Guido van Rossum wrote:
+
+> On Mon, Oct 6, 2008 at 5:47 PM, Barry Warsaw <barry at python.org> wrote:
+>> So, we need to come up with a new release schedule for Python 3.0.   
+>> My
+>> suggestion:
+>>
+>> 15-Oct-2008 3.0 beta 4
+>> 05-Nov-2008 3.0 rc 2
+>> 19-Nov-2008 3.0 rc 3
+>> 03-Dec-2008 3.0 final
+>>
+>> Given what still needs to be done, is this a reasonable schedule?   
+>> Do we
+>> need two more betas?
+>
+> I know I'm contradicting what I said earlier, but perhaps we should
+> just forget going back to beta and stick to ever-more-perfect release
+> candidates? In other worlds release candidates often contain tons of
+> imperfections (I believe I've seen this both for Java and Windows) and
+> the label "release candidate" more clearly encourages people to
+> download and play with it, which is what we need at this point! Then
+> the schedule would be something like
+>
+>  15-Oct-2008 3.0 rc 2
+>  05-Nov-2008 3.0 rc 3
+>  19-Nov-2008 3.0 rc 4
+>  03-Dec-2008 3.0 final
+
+I'm okay with that too.  It does seem odd to go back to beta then  
+release another rc.  What's in a name, anyway? <wink>.  And it is good  
+that more people are downloading it now that it's rc.
+
+- -Barry
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQCVAwUBSOvb93EjvBPtnXfVAQJTQAP/cmNdzd/SRymxXvW85EnW2NTHUkh1Auw9
+bGlbSC0BF2p9ArgbDLPh/X4uatB3UaqoNeq5LTWHL2f9iCnsI7lFMPuexGr+3t4l
+Xmld8qN77j4GpU6bXL8uUo3/vlhU4MiG5ETl0kMH30f47srOAAGEGZAqW9jAM92I
+YSkQPSgBdYo=
+=+s9t
+-----END PGP SIGNATURE-----
+
+From barry at python.org  Wed Oct  8 00:01:39 2008
+From: barry at python.org (Barry Warsaw)
+Date: Tue, 7 Oct 2008 18:01:39 -0400
+Subject: [python-committers] [Python-3000] [Python-Dev] Proposed Python
+	3.0 schedule
+In-Reply-To: <48EBD8F2.4090802@gmail.com>
+References: <2A0F6C99-481A-473B-B1A5-7B9FB5A47D6F@python.org>	<040FDB9B68C549AE848AC35C0231DD70@RaymondLaptop1>
+	<67693931-29C5-4FD7-8E83-D97F892F3BE3@python.org>
+	<48EBD8F2.4090802@gmail.com>
+Message-ID: <3F6B0210-EE87-4CE4-B487-DF4AAF733637@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On Oct 7, 2008, at 5:47 PM, Nick Coghlan wrote:
+
+> Barry Warsaw wrote:
+>> On Oct 6, 2008, at 9:48 PM, Raymond Hettinger wrote:
+>>
+>>> [Barry Warsaw]
+>>>> So, we need to come up with a new release schedule for Python 3.0.
+>>>> My  suggestion:
+>>>> 15-Oct-2008 3.0 beta 4
+>>>> 05-Nov-2008 3.0 rc 2
+>>>> 19-Nov-2008 3.0 rc 3
+>>>> 03-Dec-2008 3.0 final
+>>>> Given what still needs to be done, is this a reasonable schedule?
+>>>> Do  we need two more betas?
+>>
+>>> Yes to both questions.
+>>
+>> I think that's contradictory :).  If we need two betas, then 05-Nov
+>> becomes beta 5, 19-Nov is rc 2.  If we don't need another rc then  
+>> we can
+>> still do a final release on 03-Dec, otherwise we probably go 2 weeks
+>> later.  I don't want to go much later than that though because then  
+>> we
+>> get into the holiday season.
+>
+> Do we need the full two weeks between rc's? Or is it too much of a  
+> pain
+> to cut releases 3 weeks in a row?
+>
+> E.g. something like:
+>
+> 15-Oct-2008 3.0 beta 4
+> 05-Nov-2008 3.0 beta 5
+> 19-Nov-2008 3.0 rc 2
+> 26-Nov-2008 3.0 rc 3 (if needed)
+> 03-Dec-2008 3.0 final
+
+I won't be able to cut another release between the 15th and 5th, so at  
+least that one should be 2 weeks.  If we don't need the additional rc,  
+then we can release early, which would put us just before the US  
+Thanksgiving holiday.
+
+- -Barry
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQCVAwUBSOvcQ3EjvBPtnXfVAQK5mwP9GQfw3zNvGhJWiSkZ2gQ1LNr0rnmfVmpF
+WcDePkz3e5nsOjtkwiN0rlYHIQE9ySPfvtqqrInBW8y97y79mTjiM4S32XHLyAsd
+WEWRb0ClcLuZs+JveAb8KF5pO0RlDgX9Dd6puuPr8kGa5aN/rosfsnXra1GrYpj3
+JQghQ89JNkE=
+=+Ymq
+-----END PGP SIGNATURE-----
+
+From barry at python.org  Wed Oct  8 00:15:31 2008
+From: barry at python.org (Barry Warsaw)
+Date: Tue, 7 Oct 2008 18:15:31 -0400
+Subject: [python-committers] [Python-3000] Proposed Python 3.0 schedule
+In-Reply-To: <ca471dc20810071328t65ee07faw5e0672be8bdc3fea@mail.gmail.com>
+References: <2A0F6C99-481A-473B-B1A5-7B9FB5A47D6F@python.org>
+	<ca471dc20810071328t65ee07faw5e0672be8bdc3fea@mail.gmail.com>
+Message-ID: <E5E34408-545F-4D34-9663-15F9B65698F9@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On Oct 7, 2008, at 4:28 PM, Guido van Rossum wrote:
+
+>  15-Oct-2008 3.0 rc 2
+>  05-Nov-2008 3.0 rc 3
+>  19-Nov-2008 3.0 rc 4
+>  03-Dec-2008 3.0 final
+
+I've updated PEP 361 and the Google calendar with this schedule,  
+except that the PEP says that rc3 and rc4 are planned "if needed".
+
+- -Barry
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQCVAwUBSOvfg3EjvBPtnXfVAQKDfwP/Sz9Ioe1tIrKtvD7JPG2cg2F+wfDJrc+9
+vqfh6/eMWiUIOeSKJu6+gye7oXRcHwQXAPivNza3993HesOu0TjudnwXfkAlfsdE
+m09Rh70AXQQiY7JX46etugRC4BwkuNeBo253cvmfo6hPK0ZhOHZSy3H1LkhvvLA6
+Cq56CVqDUgs=
+=i/Km
+-----END PGP SIGNATURE-----
+
+From barry at python.org  Wed Oct  8 00:16:56 2008
+From: barry at python.org (Barry Warsaw)
+Date: Tue, 7 Oct 2008 18:16:56 -0400
+Subject: [python-committers] [Python-Dev] [Python-3000] Proposed Python
+	3.0 schedule
+In-Reply-To: <3F6B0210-EE87-4CE4-B487-DF4AAF733637@python.org>
+References: <2A0F6C99-481A-473B-B1A5-7B9FB5A47D6F@python.org>	<040FDB9B68C549AE848AC35C0231DD70@RaymondLaptop1>
+	<67693931-29C5-4FD7-8E83-D97F892F3BE3@python.org>
+	<48EBD8F2.4090802@gmail.com>
+	<3F6B0210-EE87-4CE4-B487-DF4AAF733637@python.org>
+Message-ID: <AE0C94C8-10F3-4000-A36A-815C5A1CCB40@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On Oct 7, 2008, at 6:01 PM, Barry Warsaw wrote:
+
+> I won't be able to cut another release between the 15th and 5th, so  
+> at least that one should be 2 weeks.  If we don't need the  
+> additional rc, then we can release early, which would put us just  
+> before the US Thanksgiving holiday.
+
+Er, /3/ weeks between rc2 and rc3.
+
+- -Barry
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQCVAwUBSOvf2HEjvBPtnXfVAQJDsQP8DRL2gQDMf1eEvgmmijPtVdbfAypZ1XMY
+huNzPu91v6dpvrogIP5MJbmJnSnka5yk78JIlkbTU4ZHS0ADsQX+IApU5y/SlO9Y
+FDtIqb+NFoVRFj5xQaN/EEqO8kNpq3WPmaEQJ4HHeDUIzcrbsPxfCm+vbePgnGzI
+AwhQqCzmX1I=
+=aQnH
+-----END PGP SIGNATURE-----
+
+From mhammond at skippinet.com.au  Wed Oct  8 03:04:36 2008
+From: mhammond at skippinet.com.au (Mark Hammond)
+Date: Wed, 8 Oct 2008 12:04:36 +1100
+Subject: [python-committers] [Python-Dev] Proposed Python 3.0 schedule
+In-Reply-To: <48EBBB25.70609@v.loewis.de>
+References: <2A0F6C99-481A-473B-B1A5-7B9FB5A47D6F@python.org>	<040FDB9B68C549AE848AC35C0231DD70@RaymondLaptop1>
+	<00e001c92881$68ba93c0$3a2fbb40$@com.au>
+	<48EBBB25.70609@v.loewis.de>
+Message-ID: <014001c928e1$dc13af40$943b0dc0$@com.au>
+
+> > * Better support for 2to3 in distutils (specifically, the support in
+> > build_py is stale, plus 'build_scripts' and 'install_data' should
+> > convert
+> > .py files to py3k syntax.)
+> 
+> Please do create a bug report for that. It sounds like it's easy to
+> fix.
+
+Yeah, build_py is fairly easy to fix, but I also needed to extend the
+support to build_scripts and install_data.  In addition, some already
+reported bugs in 2to3 mean that some files fail to convert, and this breaks
+the entire process - so as a result I ended up duplicating lib2to3's
+'refactor_items()' but with exceptions being logged and ingored rather than
+aborting the process.  Oh - and I deleted the .bak files (a copy of the
+sources are converted, not the sources themselves)
+
+Please see bugs 4072 and 4073  - but as mentioned below, the lack of a test
+case means I didn't supply a tested patch.
+
+> > An 'example' project that uses py2k syntax and
+> > "just works" on py3k using this strategy might be useful here.
+> 
+> Perhaps pywin32 :-?
+> 
+> I don't think a demo project would do much good, as it doesn't exercise
+> all the issues that may occur.
+
+My idea was that the demo project would simply demonstrate the 2to3 concepts
+that such a project could use.  pywin32 isn't a good example as it has a
+very non-trivial setup.py and a large set of C extensions (the demo I had in
+mind could avoid C extensions completely - C developers will already assume
+#ifdef will be their friend, but .py code is the unknown...)
+
+It would basically be a 'distutils demo', could have a single .py module and
+a single .py script.  setup.py would support both 2.x and 3.x and would
+demonstrate how the source is converted to py3k syntax before it is
+installed into the py3k distribution.
+
+It would also provide a useful test case - eg, for the distutils bug above,
+I'm not sure how I can (a) demonstrate it is currently broken and (b)
+demonstrate a patch corrects the problem.
+
+> > * A standard 'helper script' that allows people to use py3k to
+> > execute a py2x syntax script by auto-converting the code.  I've 
+> > a 10ish-line script that uses lib2to3 plus exec() to achieve that 
+> > result, but a helper in 2to3
+> > for this would be nice.  For a concrete use-case, we want to keep our
+> > distutils script in py2x syntax, but execute it via py3k.  Its very
+> > possible this already exists and I've just missed it...
+> 
+> For the case of setup.py, I was hoping that it could be written in
+> compatible syntax even without needing conversion. That worked fine for
+> my Django port. Is that not the case for pywin32?
+
+setup.py catches and examines some exceptions.  Consider the more general
+case though - pywin32 has a number of tests all of which will also be
+maintained in py2x syntax.  It is extremely convenient to be able to
+execute:
+
+% py3k run2.py my_test.py etc
+
+And have 'my_test.py' (which is 2.x syntax) be executed directly by py3k
+without doing a full 'setup.py install' or manually invoking 2to3 via a temp
+file, etc.  As mentioned, 'run2.py' is quite short and just uses
+lib2to3+exec, but I'm not sure everyone will work out how to roll their
+own...
+
+Specifically, I believe that a script with similar capabilities could be
+installed with py3k in the "scripts" directory and it advertised as a
+reasonable way to directly execute your *scripts* which, although py3x
+compatible, are being maintained in py2x syntax.  Below is my quick attempt
+at such a script, which I promptly stopped looking at as soon as it worked
+(ie, I'm not sure if all those options are needed, etc), but it does let me
+execute my tests using py3k directly from the source tree.
+ 
+Cheers,
+
+Mark
+
+---
+# This is a Python 3.x script to execute a python 2.x script by 2to3'ing it.
+import sys
+from lib2to3.refactor import RefactoringTool, get_fixers_from_package
+
+fixers = get_fixers_from_package('lib2to3.fixes')
+options = dict(doctests_only=False, fix=[], list_fixes=[], 
+               print_function=False, verbose=False,
+               write=True)
+r = RefactoringTool(fixers, options)
+script = sys.argv[1]
+data = open(script).read()
+print("Converting...")
+got = r.refactor_string(data, script)
+print("Executing...")
+# nuke ourselves from argv
+del sys.argv[1]
+exec(str(got))
+---
+
+
+From mhammond at skippinet.com.au  Wed Oct  8 03:26:22 2008
+From: mhammond at skippinet.com.au (Mark Hammond)
+Date: Wed, 8 Oct 2008 12:26:22 +1100
+Subject: [python-committers] [Python-Dev] Proposed Python 3.0 schedule
+In-Reply-To: <014001c928e1$dc13af40$943b0dc0$@com.au>
+References: <2A0F6C99-481A-473B-B1A5-7B9FB5A47D6F@python.org>	<040FDB9B68C549AE848AC35C0231DD70@RaymondLaptop1>	<00e001c92881$68ba93c0$3a2fbb40$@com.au>	<48EBBB25.70609@v.loewis.de>
+	<014001c928e1$dc13af40$943b0dc0$@com.au>
+Message-ID: <014201c928e4$e726bd20$b5743760$@com.au>
+
+> at such a script, which I promptly stopped looking at as soon as it
+> worked
+
+Which is quite obvious really given that:
+
+> # nuke ourselves from argv
+> del sys.argv[1]
+
+is removing the wrong value!
+
+Mark
+
+
+From musiccomposition at gmail.com  Wed Oct  8 20:59:38 2008
+From: musiccomposition at gmail.com (Benjamin Peterson)
+Date: Wed, 8 Oct 2008 12:59:38 -0600
+Subject: [python-committers] [Python-Dev] Proposed Python 3.0 schedule
+In-Reply-To: <014001c928e1$dc13af40$943b0dc0$@com.au>
+References: <2A0F6C99-481A-473B-B1A5-7B9FB5A47D6F@python.org>
+	<040FDB9B68C549AE848AC35C0231DD70@RaymondLaptop1>
+	<00e001c92881$68ba93c0$3a2fbb40$@com.au> <48EBBB25.70609@v.loewis.de>
+	<014001c928e1$dc13af40$943b0dc0$@com.au>
+Message-ID: <1afaf6160810081159o18e64e68te95ab94f1198472c@mail.gmail.com>
+
+On 10/7/08, Mark Hammond <mhammond at skippinet.com.au> wrote:
+> # This is a Python 3.x script to execute a python 2.x script by 2to3'ing it.
+> import sys
+> from lib2to3.refactor import RefactoringTool, get_fixers_from_package
+>
+> fixers = get_fixers_from_package('lib2to3.fixes')
+> options = dict(doctests_only=False, fix=[], list_fixes=[],
+>                print_function=False, verbose=False,
+>                write=True)
+
+Note that only the print_function option is used.
+
+> r = RefactoringTool(fixers, options)
+> script = sys.argv[1]
+> data = open(script).read()
+> print("Converting...")
+> got = r.refactor_string(data, script)
+> print("Executing...")
+> # nuke ourselves from argv
+> del sys.argv[1]
+> exec(str(got))
+> ---
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+>
+
+
+-- 
+Cheers,
+Benjamin Peterson
+"There's nothing quite as beautiful as an oboe... except a chicken
+stuck in a vacuum cleaner."
+
+From barry at python.org  Fri Oct 17 20:26:50 2008
+From: barry at python.org (Barry Warsaw)
+Date: Fri, 17 Oct 2008 14:26:50 -0400
+Subject: [python-committers] Cutting Python 2.6
+In-Reply-To: <1afaf6160810031355u21e9fb34jd71e261bccb39f58@mail.gmail.com>
+References: <D4BD3F4E-7F63-48CB-823D-5DEE045BAD71@python.org>
+	<48E3FBA0.8030603@jcea.es>
+	<e69d3ed20810011600x4634d05ocf1bbc2ad4530f7f@mail.gmail.com>
+	<48E4FF4E.9090902@jcea.es> <48E52732.1030201@v.loewis.de>
+	<66d0a6e10810021315h6e4619ecs23a0c417ca4dd6fe@mail.gmail.com>
+	<48E52E2F.5080108@v.loewis.de>
+	<66d0a6e10810021406l19c6a35hfcea48e4e52763d5@mail.gmail.com>
+	<e69d3ed20810022134l5edefe13x582ea0d71c4161f2@mail.gmail.com>
+	<83E65C7F-2D9C-419A-AE5E-4C18476D5905@python.org>
+	<1afaf6160810031355u21e9fb34jd71e261bccb39f58@mail.gmail.com>
+Message-ID: <5DDBAC14-E981-4CDF-A7E0-4745CDD83F8A@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On Oct 3, 2008, at 4:55 PM, Benjamin Peterson wrote:
+
+> On Fri, Oct 3, 2008 at 7:09 AM, Barry Warsaw <barry at python.org> wrote:
+>> -----BEGIN PGP SIGNED MESSAGE-----
+>> Hash: SHA1
+>>
+>> On Oct 3, 2008, at 12:34 AM, Anthony Baxter wrote:
+>>
+>>> It's happened a couple of times when I've made releases - the  
+>>> process
+>>> I had was to automate it as much as possible, then take the  
+>>> generated
+>>> tarball, unpack it freshly and run the full tests, and then check
+>>> things like the README and all those other places. Making a  
+>>> release is
+>>> still a pretty fiddly process, and things slip through.
+>>
+>> Anthony's spot on.  Even with a release script and PEP 101, it's  
+>> still
+>> pretty labor intensive.  Of course, Python 2.7 and 3.1 still have no
+>> official RM <wink> so if you want firsthand experience, the  
+>> opportunity is
+>> available.
+>
+> I would actually be interested in this. However, I still am quite
+> inexperienced and gladly step aside for anyone who's been around
+> longer.
+
+We have our first victi^H^H^H^Holunteer!  :)
+
+Benjamin, you've done some good work on the release.py script and are  
+always available on IRC when I'm doing a release, so I think you'd be  
+a good candidate.  Will you be at PyCon 2009?  It would be nice to  
+cross-sign some gpg keys.
+
+- -Barry
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQCVAwUBSPjY63EjvBPtnXfVAQLGOgP9HQm/bAWGngvMtaCI0OMA8mQGKq9oEm3/
+0McVdy9pSXoEgd+eEBhlUBzRwX+1L6O/8imnDkmP1QraHznmW0u2hB1Ufa37fqli
+2c0AQhMrVMJDK4sd7gNCLdIHDgXY53qLLEMwf9W5yRZF6bTGnfpZJBI1o71HZXKE
+eh1d4qWz6N4=
+=HvdP
+-----END PGP SIGNATURE-----
+
+From musiccomposition at gmail.com  Fri Oct 17 21:56:12 2008
+From: musiccomposition at gmail.com (Benjamin Peterson)
+Date: Fri, 17 Oct 2008 14:56:12 -0500
+Subject: [python-committers] Cutting Python 2.6
+In-Reply-To: <5DDBAC14-E981-4CDF-A7E0-4745CDD83F8A@python.org>
+References: <D4BD3F4E-7F63-48CB-823D-5DEE045BAD71@python.org>
+	<48E4FF4E.9090902@jcea.es> <48E52732.1030201@v.loewis.de>
+	<66d0a6e10810021315h6e4619ecs23a0c417ca4dd6fe@mail.gmail.com>
+	<48E52E2F.5080108@v.loewis.de>
+	<66d0a6e10810021406l19c6a35hfcea48e4e52763d5@mail.gmail.com>
+	<e69d3ed20810022134l5edefe13x582ea0d71c4161f2@mail.gmail.com>
+	<83E65C7F-2D9C-419A-AE5E-4C18476D5905@python.org>
+	<1afaf6160810031355u21e9fb34jd71e261bccb39f58@mail.gmail.com>
+	<5DDBAC14-E981-4CDF-A7E0-4745CDD83F8A@python.org>
+Message-ID: <1afaf6160810171256v30e0e979hda1a04f24975931@mail.gmail.com>
+
+On Fri, Oct 17, 2008 at 1:26 PM, Barry Warsaw <barry at python.org> wrote:
+> -----BEGIN PGP SIGNED MESSAGE-----
+> Hash: SHA1
+>
+> On Oct 3, 2008, at 4:55 PM, Benjamin Peterson wrote:
+>
+>> On Fri, Oct 3, 2008 at 7:09 AM, Barry Warsaw <barry at python.org> wrote:
+>>> Anthony's spot on.  Even with a release script and PEP 101, it's still
+>>> pretty labor intensive.  Of course, Python 2.7 and 3.1 still have no
+>>> official RM <wink> so if you want firsthand experience, the opportunity
+>>> is
+>>> available.
+>>
+>> I would actually be interested in this. However, I still am quite
+>> inexperienced and gladly step aside for anyone who's been around
+>> longer.
+>
+> We have our first victi^H^H^H^Holunteer!  :)
+>
+> Benjamin, you've done some good work on the release.py script and are always
+> available on IRC when I'm doing a release, so I think you'd be a good
+> candidate.  Will you be at PyCon 2009?  It would be nice to cross-sign some
+> gpg keys.
+
+Yes, I plan to be attending PyCon.
+
+
+
+-- 
+Cheers,
+Benjamin Peterson
+"There's nothing quite as beautiful as an oboe... except a chicken
+stuck in a vacuum cleaner."
+

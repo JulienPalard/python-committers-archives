@@ -1,0 +1,1067 @@
+From rdmurray at bitdance.com  Tue Oct  3 16:13:36 2017
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Tue, 03 Oct 2017 16:13:36 -0400
+Subject: [python-committers] Minor followup to the pynvm discussion
+Message-ID: <20171003201337.26D3C1B10002@webabinitio.net>
+
+A link to a possibly-interesting-in-this-context project was just posted
+to the pmem mailing list:
+
+    https://arrow.apache.org/
+
+This is a standard for communicating data structures between processes
+with zero-copy semantics, and is backed by the person who created Python
+Pandas.  I thought Davin in particular might find this interesting if
+he isn't already aware of it.
+
+--David
+
+From nad at python.org  Tue Oct  3 16:06:44 2017
+From: nad at python.org (Ned Deily)
+Date: Tue, 3 Oct 2017 16:06:44 -0400
+Subject: [python-committers] [RELEASE] Python 3.6.3 is now available
+Message-ID: <3D8F5841-F970-4C00-9A49-B4F8FD24CF79@python.org>
+
+On behalf of the Python development community and the Python 3.6
+release team, I am happy to announce the availability of Python 3.6.3,
+the third maintenance release of Python 3.6.  Detailed information
+about the changes made in 3.6.3 can be found in the change log here:
+
+https://docs.python.org/3.6/whatsnew/changelog.html#python-3-6-3-final
+
+Please see "What?s New In Python 3.6" for more information about the
+new features in Python 3.6:
+
+https://docs.python.org/3.6/whatsnew/3.6.html
+
+You can download Python 3.6.3 here:
+
+https://www.python.org/downloads/release/python-363/
+
+The next maintenance release of Python 3.6 is expected to follow in
+about 3 months, around the end of 2017-12.  More information about the
+3.6 release schedule can be found here:
+
+https://www.python.org/dev/peps/pep-0494/
+
+Enjoy!
+
+--
+  Ned Deily
+  nad at python.org -- []
+
+
+From victor.stinner at gmail.com  Wed Oct  4 12:58:19 2017
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Wed, 4 Oct 2017 18:58:19 +0200
+Subject: [python-committers] What is a CPython core developer?
+In-Reply-To: <087620b6-3cfd-4c5b-2964-e3a456184ce2@python.org>
+References: <CAMpsgwbs80YTRQwKoUhkAQ_kG=Y6e-ZPjd6GP0n=fUxfgPLrjA@mail.gmail.com>
+ <087620b6-3cfd-4c5b-2964-e3a456184ce2@python.org>
+Message-ID: <CAMpsgwYOM5hKyttxcQXnrD8rrPg86-67nRuuojCSLyPvyzhstw@mail.gmail.com>
+
+2017-09-22 18:48 GMT+02:00 Antoine Pitrou <antoine at python.org>:
+>> * Long term commitement. (...)
+>
+> Unfortunately we can't evaluate that in advance.  Even the person being
+> promoted often does not known whether they'll still be there in 5 or 10
+> years.  Hopefully that's on their horizon, but many factors can interfere.
+
+To be clear, I disagree with the "long term commitement", but I tried
+to summarize what I heard from other core developers. I think that it
+would be wrong to at least not mention it. If most core developers
+disagree with this requirement, we should remove it. If there is no
+consensus, I prefer to mention it *but* also explains that it's not
+strictly a "requirement", but more a "whish".
+
+I will try to clarify expectations in term of time, evenings, weekends
+and holidays :-)
+
+> I, personally, can only think of a couple of cases where a person being
+> promoted core developer vanished a few months after that.  It's not a
+> big deal in the grand scheme of things, though it *is* frustrating to
+> spend your time mentoring and promoting someone (which also engages your
+> own responsability, since you're the one vouching that they'll be up to
+> the task) only to see that person produce little to no work as a core
+> developer.
+
+While it's sad, I don't think that we can prevent this. It's hard to
+"force" someone to work for free on a free software during nights and
+weekends.
+
+>> * Review patches and pull requests. While we don't require not expect
+>> newcomers to review, we expect that core developers dedicate a part of
+>> their time on reviews.
+>
+> Yes, I believe this is the most important part of being a core
+> developer.  What it means is that core developers care about the quality
+> of the whole code base (and also the non-code parts), not only their own
+> contributions to it.
+
+I completed my list. I'm lazy, I copied/pasted what you wrote (not
+only this paragraph) :-)
+
+https://cpython-core-tutorial.readthedocs.io/en/latest/what_is_a_cpython_core_developer.html
+
+>> * Know the CPython workflow. Be aware of the pre-commit and
+>> post-commits CIs. How ideas are discussed. It's not only about writing
+>> and pushing patches.
+>
+> This part is also required from regular contributors, at least the
+> experienced ones.
+
+Ah yes, I didn't say that these requirements are specific to CPython
+core developers. Most items are "expected" from regular contributors.
+I wrote it explicitly before my list :-)
+
+> Two things I would add:
+>
+> - Know to be nice (...)
+> - Show a bit of humility (...)
+
+Oh, you're right. Thank you for being explicit on these points.
+
+I think that we already expected this from promoted core developers,
+just that it wasn't written down previously.
+
+Victor
+
+From victor.stinner at gmail.com  Wed Oct  4 13:07:59 2017
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Wed, 4 Oct 2017 19:07:59 +0200
+Subject: [python-committers] What is a CPython core developer?
+In-Reply-To: <CADiSq7c+gL2vBvZXF_KDhMbg2i8vSLhypv5tr71c4eic=5eoPQ@mail.gmail.com>
+References: <CAMpsgwbs80YTRQwKoUhkAQ_kG=Y6e-ZPjd6GP0n=fUxfgPLrjA@mail.gmail.com>
+ <CADiSq7c+gL2vBvZXF_KDhMbg2i8vSLhypv5tr71c4eic=5eoPQ@mail.gmail.com>
+Message-ID: <CAMpsgwZs1=6_ebUvCRyTGibzQctkgC71L6Xt_xgHL6uvJ-Uu4A@mail.gmail.com>
+
+2017-09-24 13:05 GMT+02:00 Nick Coghlan <ncoghlan at gmail.com>:
+> I think what we put there really does cover the essence of the role,
+> so the main questions I personally ask about a potential new core
+> developer are:
+>
+> 1. Would gaining core developer privileges improve their ability to
+> contribute effectively (in my opinion or the opinion of another core
+> developer)?
+> 2. Do I (or another core developer that is willing to mentor them)
+> trust their judgment on when things should be escalated for further
+> review & discussion (or even rejected outright) vs just going ahead
+> and merging them?
+
+Nice. I also copy/pasted you in my page :-)
+
+https://cpython-core-tutorial.readthedocs.io/en/latest/what_is_a_cpython_core_developer.html#identify-a-potential-candidate
+
+> An offer of post-promotion mentoring is already noted as part of the
+> nomination process here:
+> https://docs.python.org/devguide/coredev.html#what-it-takes
+
+I'm not sure that proposing a mentor as a result of the vote is a good
+practice. Slowly, I'm trying to propose to mentor some potential
+candidate before even starting discussing a potential promotion. IMHO
+it works better in this way.
+
+Technically, it's "pre-promotion" mentoring :-)
+
+I started to formalize the "Different stages of core developers":
+https://cpython-core-tutorial.readthedocs.io/en/latest/what_is_a_cpython_core_developer.html#different-stages-of-core-developers
+
+* Newcomer
+
+* Contributor: as soon as you post a comment, send an email, ask a
+question, you become an active contributor!
+
+* Permission for bug triage: once peers estimated that your behaviour
+is correct and that you are active, you may be proposed to be promoted
+to ?bug triage?
+
+* Followed by a mentor: spotted active contributors can be asked to
+get a mentor to speedup their learning
+
+* Core developer, allowed to merge a pull request: once other core
+developers consider that a contributor is ready to be promoted, a core
+dev opens a vote on python-committers
+
+
+I would like to introduce *new* formalized steps between "contributor"
+and "core developer". "Bug triage" already existed, but I'm not sure
+that it was explicitly a part of a "long term promotion process".
+
+I added a *new* explicit mentoring stage.
+
+
+> There are some additional responsibilities listed at
+> https://docs.python.org/devguide/coredev.html#responsibilities, but
+> aside from the first paragraph about respecting the CoC, they're more
+> in the nature of FYI's for just-promoted core devs.
+
+I'm working on a new CPython tutorial. I have a "Community" page with:
+
+* Code Of Conduct
+* Diversity
+* CPython Communication Channels
+
+I tried to put this page near the start.
+
+https://cpython-core-tutorial.readthedocs.io/en/latest/community.html
+
+I plan to have a story mode in this tutorial in which you would have
+to validate a step to access new parts of the tutorial. For example,
+you would have to read the Community section before being allowed to
+access the "Open your first issue on bugs.python.org" or "Write your
+first Pull Request" sections. It's a way to make sure that all
+contributors are aware of the code of conduct and diversity statement.
+
+Victor
+
+From p.f.moore at gmail.com  Wed Oct  4 13:11:38 2017
+From: p.f.moore at gmail.com (Paul Moore)
+Date: Wed, 4 Oct 2017 18:11:38 +0100
+Subject: [python-committers] What is a CPython core developer?
+In-Reply-To: <CAMpsgwYOM5hKyttxcQXnrD8rrPg86-67nRuuojCSLyPvyzhstw@mail.gmail.com>
+References: <CAMpsgwbs80YTRQwKoUhkAQ_kG=Y6e-ZPjd6GP0n=fUxfgPLrjA@mail.gmail.com>
+ <087620b6-3cfd-4c5b-2964-e3a456184ce2@python.org>
+ <CAMpsgwYOM5hKyttxcQXnrD8rrPg86-67nRuuojCSLyPvyzhstw@mail.gmail.com>
+Message-ID: <CACac1F_N3kqX7LBiceyaKM=uYLb-So+UTm3xk_c9OU78jJA0Jg@mail.gmail.com>
+
+On 4 October 2017 at 17:58, Victor Stinner <victor.stinner at gmail.com> wrote:
+> 2017-09-22 18:48 GMT+02:00 Antoine Pitrou <antoine at python.org>:
+>>> * Long term commitement. (...)
+>>
+>> Unfortunately we can't evaluate that in advance.  Even the person being
+>> promoted often does not known whether they'll still be there in 5 or 10
+>> years.  Hopefully that's on their horizon, but many factors can interfere.
+>
+> To be clear, I disagree with the "long term commitement", but I tried
+> to summarize what I heard from other core developers. I think that it
+> would be wrong to at least not mention it. If most core developers
+> disagree with this requirement, we should remove it. If there is no
+> consensus, I prefer to mention it *but* also explains that it's not
+> strictly a "requirement", but more a "whish".
+
+To me, it's about caring about the long-term health of the project,
+and not just a short-term interest in scratching your personal itch.
+Sometimes people will only focus on particular areas, and that's fine,
+but they should be prepared to help out anywhere they can be of use.
+Equally, people can find that they don't have the time to commit that
+they used to - again that's OK, but they should care enough to make
+sure their "area" gets handed over, or is covered by others.
+
+Being a core committer is about caring about Python as a whole, and
+for the long haul. But people give their time and skills where they
+can, and to the extent that they can.
+
+> I will try to clarify expectations in term of time, evenings, weekends
+> and holidays :-)
+
+You don't have to write code at the weekend or while you're on
+holiday, but you should be thinking about Python ;-)
+
+Paul
+
+From mariatta.wijaya at gmail.com  Wed Oct  4 13:48:17 2017
+From: mariatta.wijaya at gmail.com (Mariatta Wijaya)
+Date: Wed, 4 Oct 2017 10:48:17 -0700
+Subject: [python-committers] Hacktoberfest
+In-Reply-To: <CAMpsgwYHtix96PB8kQfPeHSDWjY9dtqn4dx4r7mbzXKi9MeLfQ@mail.gmail.com>
+References: <CAGbohnZTcu=Aaf45Y_A6A4sJaqhGdZwtt0Cn=B0abW+SQhsKhw@mail.gmail.com>
+ <CAMpsgwYHtix96PB8kQfPeHSDWjY9dtqn4dx4r7mbzXKi9MeLfQ@mail.gmail.com>
+Message-ID: <CAGbohna3ijmL4VE_Ma0ucMubhA37iuUTJgpAVJVoKwriv=rWog@mail.gmail.com>
+
+One hacktoberfest issue closed!
+https://github.com/python/core-workflow/issues/164
+
+Thanks to Berker who reviewed and merged their PR quickly :)
+
+
+Mariatta Wijaya
+
+On Thu, Sep 28, 2017 at 2:39 PM, Victor Stinner <victor.stinner at gmail.com>
+wrote:
+
+> Hi,
+>
+> 2017-09-28 18:21 GMT+02:00 Mariatta Wijaya <mariatta.wijaya at gmail.com>:
+> > October is hacktoberfest (https://hacktoberfest.digitalocean.com/)
+> > In the month of October, people can sign up and contribute to open source
+> > projects on GitHub. If they make 4 PRs during Hacktoberfest, they'll
+> earn a
+> > limited edition T-Shirt.
+>
+> We never tried it. Maybe it will be a mess, maybe it will be a
+> success. In the worst case, it will be ignored. As least if it's a
+> mess, we would have try and we will learn something.
+>
+> I'm open to try new things, we always look for new contributors :-)
+>
+> Victor
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20171004/b9116919/attachment-0001.html>
+
+From ezio.melotti at gmail.com  Wed Oct  4 17:47:03 2017
+From: ezio.melotti at gmail.com (Ezio Melotti)
+Date: Wed, 4 Oct 2017 23:47:03 +0200
+Subject: [python-committers] What is a CPython core developer?
+In-Reply-To: <CAMpsgwYOM5hKyttxcQXnrD8rrPg86-67nRuuojCSLyPvyzhstw@mail.gmail.com>
+References: <CAMpsgwbs80YTRQwKoUhkAQ_kG=Y6e-ZPjd6GP0n=fUxfgPLrjA@mail.gmail.com>
+ <087620b6-3cfd-4c5b-2964-e3a456184ce2@python.org>
+ <CAMpsgwYOM5hKyttxcQXnrD8rrPg86-67nRuuojCSLyPvyzhstw@mail.gmail.com>
+Message-ID: <CACBhJdHa17gmh+izfnipM1Xn3_hJiXBFUnU-msv-uTg-WGs5hA@mail.gmail.com>
+
+On Wed, Oct 4, 2017 at 6:58 PM, Victor Stinner <victor.stinner at gmail.com>
+wrote:
+
+> 2017-09-22 18:48 GMT+02:00 Antoine Pitrou <antoine at python.org>:
+> >> * Long term commitement. (...)
+> >
+> > Unfortunately we can't evaluate that in advance.  Even the person being
+> > promoted often does not known whether they'll still be there in 5 or 10
+> > years.  Hopefully that's on their horizon, but many factors can
+> interfere.
+>
+> To be clear, I disagree with the "long term commitement", but I tried
+> to summarize what I heard from other core developers. I think that it
+> would be wrong to at least not mention it. If most core developers
+> disagree with this requirement, we should remove it. If there is no
+> consensus, I prefer to mention it *but* also explains that it's not
+> strictly a "requirement", but more a "whish".
+>
+
+I think it really depends on the reason the developer has been given commit
+privileges:
+* generic work on the documentation, tests, or stdlib? several people can
+take over if the dev disappears
+* changed something specific in the language (e.g. import system, Unicode
+representation)? some people can take over
+* added new features to the language (e.g. typing, asyncio) or a new
+module? few people can take over
+
+IOW, the lower the bus factor, the higher are the expectations of long term
+commitment.
+
+In my case I used to do lot of generic work on CPython and when I became
+less active other people took over with not many repercussions.  For more
+specific areas (e.g. html.parser or Unicode) I still try to participate to
+the discussions.  For the bug tracker I have to commit long-term because
+other devs lack the time and/or knowledge required to maintain it.
+
+Best Regards,
+Ezio Melotti
+
+
+
+
+> I will try to clarify expectations in term of time, evenings, weekends
+> and holidays :-)
+>
+> > I, personally, can only think of a couple of cases where a person being
+> > promoted core developer vanished a few months after that.  It's not a
+> > big deal in the grand scheme of things, though it *is* frustrating to
+> > spend your time mentoring and promoting someone (which also engages your
+> > own responsability, since you're the one vouching that they'll be up to
+> > the task) only to see that person produce little to no work as a core
+> > developer.
+>
+> While it's sad, I don't think that we can prevent this. It's hard to
+> "force" someone to work for free on a free software during nights and
+> weekends.
+>
+> >> * Review patches and pull requests. While we don't require not expect
+> >> newcomers to review, we expect that core developers dedicate a part of
+> >> their time on reviews.
+> >
+> > Yes, I believe this is the most important part of being a core
+> > developer.  What it means is that core developers care about the quality
+> > of the whole code base (and also the non-code parts), not only their own
+> > contributions to it.
+>
+> I completed my list. I'm lazy, I copied/pasted what you wrote (not
+> only this paragraph) :-)
+>
+> https://cpython-core-tutorial.readthedocs.io/en/latest/what_
+> is_a_cpython_core_developer.html
+>
+> >> * Know the CPython workflow. Be aware of the pre-commit and
+> >> post-commits CIs. How ideas are discussed. It's not only about writing
+> >> and pushing patches.
+> >
+> > This part is also required from regular contributors, at least the
+> > experienced ones.
+>
+> Ah yes, I didn't say that these requirements are specific to CPython
+> core developers. Most items are "expected" from regular contributors.
+> I wrote it explicitly before my list :-)
+>
+> > Two things I would add:
+> >
+> > - Know to be nice (...)
+> > - Show a bit of humility (...)
+>
+> Oh, you're right. Thank you for being explicit on these points.
+>
+> I think that we already expected this from promoted core developers,
+> just that it wasn't written down previously.
+>
+> Victor
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20171004/05952976/attachment.html>
+
+From p.f.moore at gmail.com  Fri Oct  6 08:16:38 2017
+From: p.f.moore at gmail.com (Paul Moore)
+Date: Fri, 6 Oct 2017 13:16:38 +0100
+Subject: [python-committers] Requesting reviews
+Message-ID: <CACac1F9z5W0MvBBOsVWF4PfXqGzHFHyG9c1qEurSwBqRm37hRg@mail.gmail.com>
+
+I'm seeing a lot of review requests from github, asking for reviews
+from the Windows team. Many of the PRs don't as far as I can see have
+much Windows-specific about them. It doesn't bother me too much (I
+just ignore ones I don't have anything to say on) but I thought the
+idea of having the teams was to ask for specific experts to take a
+look when needed?
+
+As I say, it's not a big deal for me, but I'm curious how others think
+the review teams should be used.
+
+Paul
+
+From tjreedy at udel.edu  Fri Oct  6 11:32:43 2017
+From: tjreedy at udel.edu (Terry Reedy)
+Date: Fri, 6 Oct 2017 11:32:43 -0400
+Subject: [python-committers] Requesting reviews
+In-Reply-To: <CACac1F9z5W0MvBBOsVWF4PfXqGzHFHyG9c1qEurSwBqRm37hRg@mail.gmail.com>
+References: <CACac1F9z5W0MvBBOsVWF4PfXqGzHFHyG9c1qEurSwBqRm37hRg@mail.gmail.com>
+Message-ID: <7dd2351e-7156-e93e-c971-add2ff3b4110@udel.edu>
+
+On 10/6/2017 8:16 AM, Paul Moore wrote:
+> I'm seeing a lot of review requests from github, asking for reviews
+> from the Windows team. Many of the PRs don't as far as I can see have
+> much Windows-specific about them. It doesn't bother me too much (I
+> just ignore ones I don't have anything to say on) but I thought the
+> idea of having the teams was to ask for specific experts to take a
+> look when needed?
+
+Perhaps people are asking for Windows-specific input in addition to 
+input from themselves or other *nix experts, in case there is something 
+they do not know about.  If so, and you look and see nothing, it might 
+be helpful to say so.  Of course, it might help if the requesting person 
+explains such requests.
+
+tjr
+
+
+From zachary.ware+pydev at gmail.com  Fri Oct  6 11:38:17 2017
+From: zachary.ware+pydev at gmail.com (Zachary Ware)
+Date: Fri, 6 Oct 2017 10:38:17 -0500
+Subject: [python-committers] Requesting reviews
+In-Reply-To: <CACac1F9z5W0MvBBOsVWF4PfXqGzHFHyG9c1qEurSwBqRm37hRg@mail.gmail.com>
+References: <CACac1F9z5W0MvBBOsVWF4PfXqGzHFHyG9c1qEurSwBqRm37hRg@mail.gmail.com>
+Message-ID: <CAKJDb-O6Z-j9MyqWDZg+ZY3iOQYrgTk722SsRyMWjd5Dga8gWg@mail.gmail.com>
+
+On Fri, Oct 6, 2017 at 7:16 AM, Paul Moore <p.f.moore at gmail.com> wrote:
+> I'm seeing a lot of review requests from github, asking for reviews
+> from the Windows team. Many of the PRs don't as far as I can see have
+> much Windows-specific about them. It doesn't bother me too much (I
+> just ignore ones I don't have anything to say on) but I thought the
+> idea of having the teams was to ask for specific experts to take a
+> look when needed?
+>
+> As I say, it's not a big deal for me, but I'm curious how others think
+> the review teams should be used.
+
+Do you have some examples of superfluous requests?  I don't think I've
+seen any, other than a rash of bad drive-by PRs that merge a
+maintenance branch into master, which GitHub should be working on
+preventing.  See https://github.com/python/core-workflow/issues/168
+for more on that.
+
+-- 
+Zach
+
+From p.f.moore at gmail.com  Fri Oct  6 11:51:30 2017
+From: p.f.moore at gmail.com (Paul Moore)
+Date: Fri, 6 Oct 2017 16:51:30 +0100
+Subject: [python-committers] Requesting reviews
+In-Reply-To: <CAKJDb-O6Z-j9MyqWDZg+ZY3iOQYrgTk722SsRyMWjd5Dga8gWg@mail.gmail.com>
+References: <CACac1F9z5W0MvBBOsVWF4PfXqGzHFHyG9c1qEurSwBqRm37hRg@mail.gmail.com>
+ <CAKJDb-O6Z-j9MyqWDZg+ZY3iOQYrgTk722SsRyMWjd5Dga8gWg@mail.gmail.com>
+Message-ID: <CACac1F_S_UfEECp3xcoBJ3pJ1-Jkt6_wnHL9xqm7PBAwDPYUfg@mail.gmail.com>
+
+Hmm, as an example, #2858, which seems to be about the AST (which I'm
+not familiar with). I don't particularly want to single this out as a
+problem, but it's an example of the sort of request that confuses me -
+I simply don't know what help I can offer. Maybe there is some
+suspicion that there might be a Windows element - but without some
+guidance, I'm not sure where to look.
+
+Paul
+
+On 6 October 2017 at 16:38, Zachary Ware <zachary.ware+pydev at gmail.com> wrote:
+> On Fri, Oct 6, 2017 at 7:16 AM, Paul Moore <p.f.moore at gmail.com> wrote:
+>> I'm seeing a lot of review requests from github, asking for reviews
+>> from the Windows team. Many of the PRs don't as far as I can see have
+>> much Windows-specific about them. It doesn't bother me too much (I
+>> just ignore ones I don't have anything to say on) but I thought the
+>> idea of having the teams was to ask for specific experts to take a
+>> look when needed?
+>>
+>> As I say, it's not a big deal for me, but I'm curious how others think
+>> the review teams should be used.
+>
+> Do you have some examples of superfluous requests?  I don't think I've
+> seen any, other than a rash of bad drive-by PRs that merge a
+> maintenance branch into master, which GitHub should be working on
+> preventing.  See https://github.com/python/core-workflow/issues/168
+> for more on that.
+>
+> --
+> Zach
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+
+From mariatta.wijaya at gmail.com  Fri Oct  6 12:09:01 2017
+From: mariatta.wijaya at gmail.com (Mariatta Wijaya)
+Date: Fri, 6 Oct 2017 09:09:01 -0700
+Subject: [python-committers] Requesting reviews
+In-Reply-To: <CACac1F_S_UfEECp3xcoBJ3pJ1-Jkt6_wnHL9xqm7PBAwDPYUfg@mail.gmail.com>
+References: <CACac1F9z5W0MvBBOsVWF4PfXqGzHFHyG9c1qEurSwBqRm37hRg@mail.gmail.com>
+ <CAKJDb-O6Z-j9MyqWDZg+ZY3iOQYrgTk722SsRyMWjd5Dga8gWg@mail.gmail.com>
+ <CACac1F_S_UfEECp3xcoBJ3pJ1-Jkt6_wnHL9xqm7PBAwDPYUfg@mail.gmail.com>
+Message-ID: <CAGbohnbOkL_hxReep33bZt1JVqLiUAhZqZfKcNV9FA=U9M7OEQ@mail.gmail.com>
+
+The windows team is notified because the PR includes changes to PCBuild/*
+
+Mariatta Wijaya
+
+On Fri, Oct 6, 2017 at 8:51 AM, Paul Moore <p.f.moore at gmail.com> wrote:
+
+> Hmm, as an example, #2858, which seems to be about the AST (which I'm
+> not familiar with). I don't particularly want to single this out as a
+> problem, but it's an example of the sort of request that confuses me -
+> I simply don't know what help I can offer. Maybe there is some
+> suspicion that there might be a Windows element - but without some
+> guidance, I'm not sure where to look.
+>
+> Paul
+>
+> On 6 October 2017 at 16:38, Zachary Ware <zachary.ware+pydev at gmail.com>
+> wrote:
+> > On Fri, Oct 6, 2017 at 7:16 AM, Paul Moore <p.f.moore at gmail.com> wrote:
+> >> I'm seeing a lot of review requests from github, asking for reviews
+> >> from the Windows team. Many of the PRs don't as far as I can see have
+> >> much Windows-specific about them. It doesn't bother me too much (I
+> >> just ignore ones I don't have anything to say on) but I thought the
+> >> idea of having the teams was to ask for specific experts to take a
+> >> look when needed?
+> >>
+> >> As I say, it's not a big deal for me, but I'm curious how others think
+> >> the review teams should be used.
+> >
+> > Do you have some examples of superfluous requests?  I don't think I've
+> > seen any, other than a rash of bad drive-by PRs that merge a
+> > maintenance branch into master, which GitHub should be working on
+> > preventing.  See https://github.com/python/core-workflow/issues/168
+> > for more on that.
+> >
+> > --
+> > Zach
+> > _______________________________________________
+> > python-committers mailing list
+> > python-committers at python.org
+> > https://mail.python.org/mailman/listinfo/python-committers
+> > Code of Conduct: https://www.python.org/psf/codeofconduct/
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20171006/de3adc17/attachment.html>
+
+From p.f.moore at gmail.com  Fri Oct  6 12:34:29 2017
+From: p.f.moore at gmail.com (Paul Moore)
+Date: Fri, 6 Oct 2017 17:34:29 +0100
+Subject: [python-committers] Requesting reviews
+In-Reply-To: <CAGbohnbOkL_hxReep33bZt1JVqLiUAhZqZfKcNV9FA=U9M7OEQ@mail.gmail.com>
+References: <CACac1F9z5W0MvBBOsVWF4PfXqGzHFHyG9c1qEurSwBqRm37hRg@mail.gmail.com>
+ <CAKJDb-O6Z-j9MyqWDZg+ZY3iOQYrgTk722SsRyMWjd5Dga8gWg@mail.gmail.com>
+ <CACac1F_S_UfEECp3xcoBJ3pJ1-Jkt6_wnHL9xqm7PBAwDPYUfg@mail.gmail.com>
+ <CAGbohnbOkL_hxReep33bZt1JVqLiUAhZqZfKcNV9FA=U9M7OEQ@mail.gmail.com>
+Message-ID: <CACac1F9=F_PMOmLuubFjHVf3+2XTzJRd2wQe3E7bEOT+2KamTQ@mail.gmail.com>
+
+On 6 October 2017 at 17:09, Mariatta Wijaya <mariatta.wijaya at gmail.com> wrote:
+> The windows team is notified because the PR includes changes to PCBuild/*
+
+Ah cool. That explains it then - I hadn't spotted that (and didn't think of it).
+
+Thanks Mariatta
+
+Paul
+
+From rdmurray at bitdance.com  Fri Oct  6 12:58:03 2017
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Fri, 06 Oct 2017 12:58:03 -0400
+Subject: [python-committers] Requesting reviews
+In-Reply-To: <CAGbohnbOkL_hxReep33bZt1JVqLiUAhZqZfKcNV9FA=U9M7OEQ@mail.gmail.com>
+References: <CACac1F9z5W0MvBBOsVWF4PfXqGzHFHyG9c1qEurSwBqRm37hRg@mail.gmail.com>
+ <CAKJDb-O6Z-j9MyqWDZg+ZY3iOQYrgTk722SsRyMWjd5Dga8gWg@mail.gmail.com>
+ <CACac1F_S_UfEECp3xcoBJ3pJ1-Jkt6_wnHL9xqm7PBAwDPYUfg@mail.gmail.com>
+ <CAGbohnbOkL_hxReep33bZt1JVqLiUAhZqZfKcNV9FA=U9M7OEQ@mail.gmail.com>
+Message-ID: <20171006165804.4798B1B10003@webabinitio.net>
+
+On Fri, 06 Oct 2017 09:09:01 -0700, Mariatta Wijaya <mariatta.wijaya at gmail.com> wrote:
+> The windows team is notified because the PR includes changes to PCBuild/*
+
+If you get a review request that says your review was requested "as a
+code owner", then it was an auto-request, it wasn't actually requested
+by the person named in the message (which I agree is confusing).
+
+You can look through the diff to check for changes to PC, PCBuild, msi,
+or nuget to see if there are windows changes you do want to review.
+The config for the auto-review-requests is in .github/CODEOWNERS; the
+current windows team entries are:
+
+    # Windows
+    /PC/                          @python/windows-team
+    /PCBuild/                     @python/windows-team
+
+    # Windows installer packages
+    /Tools/msi/                   @python/windows-team
+    /Tools/nuget/                 @python/windows-team
+
+From p.f.moore at gmail.com  Fri Oct  6 15:35:18 2017
+From: p.f.moore at gmail.com (Paul Moore)
+Date: Fri, 6 Oct 2017 20:35:18 +0100
+Subject: [python-committers] Requesting reviews
+In-Reply-To: <20171006165804.4798B1B10003@webabinitio.net>
+References: <CACac1F9z5W0MvBBOsVWF4PfXqGzHFHyG9c1qEurSwBqRm37hRg@mail.gmail.com>
+ <CAKJDb-O6Z-j9MyqWDZg+ZY3iOQYrgTk722SsRyMWjd5Dga8gWg@mail.gmail.com>
+ <CACac1F_S_UfEECp3xcoBJ3pJ1-Jkt6_wnHL9xqm7PBAwDPYUfg@mail.gmail.com>
+ <CAGbohnbOkL_hxReep33bZt1JVqLiUAhZqZfKcNV9FA=U9M7OEQ@mail.gmail.com>
+ <20171006165804.4798B1B10003@webabinitio.net>
+Message-ID: <CACac1F9hCMEZhex3AZw9-KNRjXZtrmrf1HWgW=03Jd61w3S9wg@mail.gmail.com>
+
+On 6 October 2017 at 17:58, R. David Murray <rdmurray at bitdance.com> wrote:
+> On Fri, 06 Oct 2017 09:09:01 -0700, Mariatta Wijaya <mariatta.wijaya at gmail.com> wrote:
+>> The windows team is notified because the PR includes changes to PCBuild/*
+>
+> If you get a review request that says your review was requested "as a
+> code owner", then it was an auto-request, it wasn't actually requested
+> by the person named in the message (which I agree is confusing).
+
+Ah, right. Yes I had missed that nuance.
+
+Thanks, I'm now much clearer on what's going on here. Thanks all for
+the explanations :-)
+
+Paul
+
+From brett at python.org  Fri Oct  6 17:29:38 2017
+From: brett at python.org (Brett Cannon)
+Date: Fri, 06 Oct 2017 21:29:38 +0000
+Subject: [python-committers] OK to back-fill "awaiting" labels on open
+ issues?
+Message-ID: <CAP1=2W6TPf0wO50aQ3uX4_cHDc9LG+2ukcDJFzdVZGrQ0F-skQ@mail.gmail.com>
+
+I noticed today that out of about 19 pages of issues, only the first 5 have
+"awaiting" labels. Would people object if I back-filled those open issues
+lacking an "awaiting" label? For those that have a "changes requested"
+review a comment that said roughly "we noticed there's a review asking for
+changes; if you already did that then let us know by saying 'I didn't
+expect the Spanish Inquisition' and we will update this pull request
+accordingly" (the other stages don't have potential false-positives).
+
+The reason I'm asking before coding this up and running it is there will be
+some churn in notifications for those issues that get a comment about
+"awaiting changes".
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20171006/fd917c49/attachment-0001.html>
+
+From alex.gaynor at gmail.com  Fri Oct  6 17:36:38 2017
+From: alex.gaynor at gmail.com (Alex Gaynor)
+Date: Fri, 6 Oct 2017 17:36:38 -0400
+Subject: [python-committers] OK to back-fill "awaiting" labels on open
+ issues?
+In-Reply-To: <CAP1=2W6TPf0wO50aQ3uX4_cHDc9LG+2ukcDJFzdVZGrQ0F-skQ@mail.gmail.com>
+References: <CAP1=2W6TPf0wO50aQ3uX4_cHDc9LG+2ukcDJFzdVZGrQ0F-skQ@mail.gmail.com>
+Message-ID: <CAFRnB2XW+cTwukCBRdj7ETJyis3djMqjK-N1re4Ggbh2mtZpwQ@mail.gmail.com>
+
+Can we please use a phrase for re-triggering a review that makes more sense
+like "I've updated the patch, please re-review", rather than magic inside
+baseball language?
+
+Alex
+
+On Fri, Oct 6, 2017 at 5:29 PM, Brett Cannon <brett at python.org> wrote:
+
+> I noticed today that out of about 19 pages of issues, only the first 5
+> have "awaiting" labels. Would people object if I back-filled those open
+> issues lacking an "awaiting" label? For those that have a "changes
+> requested" review a comment that said roughly "we noticed there's a review
+> asking for changes; if you already did that then let us know by saying 'I
+> didn't expect the Spanish Inquisition' and we will update this pull request
+> accordingly" (the other stages don't have potential false-positives).
+>
+> The reason I'm asking before coding this up and running it is there will
+> be some churn in notifications for those issues that get a comment about
+> "awaiting changes".
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+>
+
+
+-- 
+"I disapprove of what you say, but I will defend to the death your right to
+say it." -- Evelyn Beatrice Hall (summarizing Voltaire)
+"The people's good is the highest law." -- Cicero
+GPG Key fingerprint: D1B3 ADC0 E023 8CA6
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20171006/617b1e63/attachment.html>
+
+From donald at stufft.io  Fri Oct  6 17:37:20 2017
+From: donald at stufft.io (Donald Stufft)
+Date: Fri, 6 Oct 2017 17:37:20 -0400
+Subject: [python-committers] OK to back-fill "awaiting" labels on open
+ issues?
+In-Reply-To: <CAFRnB2XW+cTwukCBRdj7ETJyis3djMqjK-N1re4Ggbh2mtZpwQ@mail.gmail.com>
+References: <CAP1=2W6TPf0wO50aQ3uX4_cHDc9LG+2ukcDJFzdVZGrQ0F-skQ@mail.gmail.com>
+ <CAFRnB2XW+cTwukCBRdj7ETJyis3djMqjK-N1re4Ggbh2mtZpwQ@mail.gmail.com>
+Message-ID: <CF26661D-363C-4D98-A653-2586D382F12A@stufft.io>
+
+
+> On Oct 6, 2017, at 5:36 PM, Alex Gaynor <alex.gaynor at gmail.com> wrote:
+> 
+> Can we please use a phrase for re-triggering a review that makes more sense like "I've updated the patch, please re-review", rather than magic inside baseball language?
+> 
+
+
++1
+
+
+From tjreedy at udel.edu  Fri Oct  6 18:50:00 2017
+From: tjreedy at udel.edu (Terry Reedy)
+Date: Fri, 6 Oct 2017 18:50:00 -0400
+Subject: [python-committers] OK to back-fill "awaiting" labels on open
+ issues?
+In-Reply-To: <CAP1=2W6TPf0wO50aQ3uX4_cHDc9LG+2ukcDJFzdVZGrQ0F-skQ@mail.gmail.com>
+References: <CAP1=2W6TPf0wO50aQ3uX4_cHDc9LG+2ukcDJFzdVZGrQ0F-skQ@mail.gmail.com>
+Message-ID: <316af76a-cd21-4b72-d287-bf884b4748c0@udel.edu>
+
+On 10/6/2017 5:29 PM, Brett Cannon wrote:
+> I noticed today that out of about 19 pages of issues, only the first 5 
+> have "awaiting" labels. Would people object if I back-filled those open 
+> issues lacking an "awaiting" label? For those that have a "changes 
+> requested" review a comment that said roughly "we noticed there's a 
+> review asking for changes; if you already did that then let us know by 
+> saying 'I didn't expect the Spanish Inquisition' and we will update this 
+> pull request accordingly" (the other stages don't have potential 
+> false-positives).
+> 
+> The reason I'm asking before coding this up and running it is there will 
+> be some churn in notifications for those issues that get a comment about 
+> "awaiting changes".
+
+Could you do, for instance, a page a day, so people are less likely to 
+be overwhelmed by (and ignore) a big batch?
+
+From brett at python.org  Sat Oct  7 17:32:23 2017
+From: brett at python.org (Brett Cannon)
+Date: Sat, 07 Oct 2017 21:32:23 +0000
+Subject: [python-committers] OK to back-fill "awaiting" labels on open
+ issues?
+In-Reply-To: <CAFRnB2XW+cTwukCBRdj7ETJyis3djMqjK-N1re4Ggbh2mtZpwQ@mail.gmail.com>
+References: <CAP1=2W6TPf0wO50aQ3uX4_cHDc9LG+2ukcDJFzdVZGrQ0F-skQ@mail.gmail.com>
+ <CAFRnB2XW+cTwukCBRdj7ETJyis3djMqjK-N1re4Ggbh2mtZpwQ@mail.gmail.com>
+Message-ID: <CAP1=2W6-gZ=BtMaueeJPEG_hPzfSTvntZJLp+D90uZzUTkNxgg@mail.gmail.com>
+
+This off-topic for this thread. If you want to discuss adding support for
+another trigger phrase you can bring it up on core-workflow.
+
+On Fri, Oct 6, 2017, 14:36 Alex Gaynor, <alex.gaynor at gmail.com> wrote:
+
+> Can we please use a phrase for re-triggering a review that makes more
+> sense like "I've updated the patch, please re-review", rather than magic
+> inside baseball language?
+>
+> Alex
+>
+> On Fri, Oct 6, 2017 at 5:29 PM, Brett Cannon <brett at python.org> wrote:
+>
+>> I noticed today that out of about 19 pages of issues, only the first 5
+>> have "awaiting" labels. Would people object if I back-filled those open
+>> issues lacking an "awaiting" label? For those that have a "changes
+>> requested" review a comment that said roughly "we noticed there's a review
+>> asking for changes; if you already did that then let us know by saying 'I
+>> didn't expect the Spanish Inquisition' and we will update this pull request
+>> accordingly" (the other stages don't have potential false-positives).
+>>
+>> The reason I'm asking before coding this up and running it is there will
+>> be some churn in notifications for those issues that get a comment about
+>> "awaiting changes".
+>>
+>> _______________________________________________
+>> python-committers mailing list
+>> python-committers at python.org
+>> https://mail.python.org/mailman/listinfo/python-committers
+>> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>>
+>>
+>
+>
+> --
+> "I disapprove of what you say, but I will defend to the death your right
+> to say it." -- Evelyn Beatrice Hall (summarizing Voltaire)
+> "The people's good is the highest law." -- Cicero
+> GPG Key fingerprint: D1B3 ADC0 E023 8CA6
+>
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20171007/bedd36d1/attachment.html>
+
+From brett at python.org  Sat Oct  7 17:39:17 2017
+From: brett at python.org (Brett Cannon)
+Date: Sat, 07 Oct 2017 21:39:17 +0000
+Subject: [python-committers] OK to back-fill "awaiting" labels on open
+ issues?
+In-Reply-To: <CAP1=2W6-gZ=BtMaueeJPEG_hPzfSTvntZJLp+D90uZzUTkNxgg@mail.gmail.com>
+References: <CAP1=2W6TPf0wO50aQ3uX4_cHDc9LG+2ukcDJFzdVZGrQ0F-skQ@mail.gmail.com>
+ <CAFRnB2XW+cTwukCBRdj7ETJyis3djMqjK-N1re4Ggbh2mtZpwQ@mail.gmail.com>
+ <CAP1=2W6-gZ=BtMaueeJPEG_hPzfSTvntZJLp+D90uZzUTkNxgg@mail.gmail.com>
+Message-ID: <CAP1=2W6UK4rtV5RNZo6P8BXUtopHy3Wajksrf-Hk-2wj-rVz-g@mail.gmail.com>
+
+And this email was written when heading out the door, so sorry if came off
+as me being short.
+
+On Sat, Oct 7, 2017, 14:32 Brett Cannon, <brett at python.org> wrote:
+
+> This off-topic for this thread. If you want to discuss adding support for
+> another trigger phrase you can bring it up on core-workflow.
+>
+> On Fri, Oct 6, 2017, 14:36 Alex Gaynor, <alex.gaynor at gmail.com> wrote:
+>
+>> Can we please use a phrase for re-triggering a review that makes more
+>> sense like "I've updated the patch, please re-review", rather than magic
+>> inside baseball language?
+>>
+>> Alex
+>>
+>> On Fri, Oct 6, 2017 at 5:29 PM, Brett Cannon <brett at python.org> wrote:
+>>
+>>> I noticed today that out of about 19 pages of issues, only the first 5
+>>> have "awaiting" labels. Would people object if I back-filled those open
+>>> issues lacking an "awaiting" label? For those that have a "changes
+>>> requested" review a comment that said roughly "we noticed there's a review
+>>> asking for changes; if you already did that then let us know by saying 'I
+>>> didn't expect the Spanish Inquisition' and we will update this pull request
+>>> accordingly" (the other stages don't have potential false-positives).
+>>>
+>>> The reason I'm asking before coding this up and running it is there will
+>>> be some churn in notifications for those issues that get a comment about
+>>> "awaiting changes".
+>>>
+>>> _______________________________________________
+>>> python-committers mailing list
+>>> python-committers at python.org
+>>> https://mail.python.org/mailman/listinfo/python-committers
+>>> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>>>
+>>>
+>>
+>>
+>> --
+>> "I disapprove of what you say, but I will defend to the death your right
+>> to say it." -- Evelyn Beatrice Hall (summarizing Voltaire)
+>> "The people's good is the highest law." -- Cicero
+>> GPG Key fingerprint: D1B3 ADC0 E023 8CA6
+>>
+>>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20171007/4734bf5f/attachment.html>
+
+From brett at python.org  Tue Oct 10 14:53:10 2017
+From: brett at python.org (Brett Cannon)
+Date: Tue, 10 Oct 2017 18:53:10 +0000
+Subject: [python-committers] OK to back-fill "awaiting" labels on open
+ issues?
+In-Reply-To: <316af76a-cd21-4b72-d287-bf884b4748c0@udel.edu>
+References: <CAP1=2W6TPf0wO50aQ3uX4_cHDc9LG+2ukcDJFzdVZGrQ0F-skQ@mail.gmail.com>
+ <316af76a-cd21-4b72-d287-bf884b4748c0@udel.edu>
+Message-ID: <CAP1=2W4MNqTxcBQi1kjX=4a3gpir8K=Qtva1apgFdK_yq1rphA@mail.gmail.com>
+
+On Fri, 6 Oct 2017 at 15:50 Terry Reedy <tjreedy at udel.edu> wrote:
+
+> On 10/6/2017 5:29 PM, Brett Cannon wrote:
+> > I noticed today that out of about 19 pages of issues, only the first 5
+> > have "awaiting" labels. Would people object if I back-filled those open
+> > issues lacking an "awaiting" label? For those that have a "changes
+> > requested" review a comment that said roughly "we noticed there's a
+> > review asking for changes; if you already did that then let us know by
+> > saying 'I didn't expect the Spanish Inquisition' and we will update this
+> > pull request accordingly" (the other stages don't have potential
+> > false-positives).
+> >
+> > The reason I'm asking before coding this up and running it is there will
+> > be some churn in notifications for those issues that get a comment about
+> > "awaiting changes".
+>
+> Could you do, for instance, a page a day, so people are less likely to
+> be overwhelmed by (and ignore) a big batch?
+>
+
+Yes, the work could be smeared across multiple days.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20171010/26dda201/attachment.html>
+
+From brett at python.org  Tue Oct 10 14:57:59 2017
+From: brett at python.org (Brett Cannon)
+Date: Tue, 10 Oct 2017 18:57:59 +0000
+Subject: [python-committers] OK to back-fill "awaiting" labels on open
+ issues?
+In-Reply-To: <CF26661D-363C-4D98-A653-2586D382F12A@stufft.io>
+References: <CAP1=2W6TPf0wO50aQ3uX4_cHDc9LG+2ukcDJFzdVZGrQ0F-skQ@mail.gmail.com>
+ <CAFRnB2XW+cTwukCBRdj7ETJyis3djMqjK-N1re4Ggbh2mtZpwQ@mail.gmail.com>
+ <CF26661D-363C-4D98-A653-2586D382F12A@stufft.io>
+Message-ID: <CAP1=2W45Lxk0N8gPHODVLz9FhPwOjW21-EK6BXat5dRp5UQReg@mail.gmail.com>
+
+On Fri, 6 Oct 2017 at 14:37 Donald Stufft <donald at stufft.io> wrote:
+
+>
+> > On Oct 6, 2017, at 5:36 PM, Alex Gaynor <alex.gaynor at gmail.com> wrote:
+> >
+> > Can we please use a phrase for re-triggering a review that makes more
+> sense like "I've updated the patch, please re-review", rather than magic
+> inside baseball language?
+> >
+>
+>
+> +1
+>
+
+I just added support for the trigger phrase of "I have made the requested
+changes; please review again" (which is now what people are asked to say).
+The "I didn't expect the Spanish Inquisition" trigger has stayed as an
+easter egg (whose response is also part of the easter egg). I also left the
+random easter egg on the comment about the required comment.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20171010/1b70f520/attachment.html>
+
+From nad at python.org  Tue Oct 17 15:35:57 2017
+From: nad at python.org (Ned Deily)
+Date: Tue, 17 Oct 2017 15:35:57 -0400
+Subject: [python-committers] [RELEASE] Python 3.7.0a2 is now available for
+ testing
+Message-ID: <77DF3A3A-DC16-46A3-A933-B0CDA771EAB9@python.org>
+
+Python 3.7.0a2 is the second of four planned alpha previews of Python 3.7,
+the next feature release of Python.  During the alpha phase, Python 3.7
+remains under heavy development: additional features will be added
+and existing features may be modified or deleted.  Please keep in mind
+that this is a preview release and its use is not recommended for
+production environments.  The next preview, 3.7.0a3, is planned for
+2017-11-27.  You can find Python 3.7.0a2 and more information here:
+
+   https://www.python.org/downloads/release/python-370a2/
+
+--
+  Ned Deily
+  nad at python.org -- []
+
+
+From antoine at python.org  Sun Oct 22 13:48:12 2017
+From: antoine at python.org (Antoine Pitrou)
+Date: Sun, 22 Oct 2017 19:48:12 +0200
+Subject: [python-committers] Merging a PR with failed CI
+Message-ID: <48b03695-045f-2bcd-b191-122bb7c96a7b@python.org>
+
+
+Hello,
+
+What is the recommended way of merging a PR when Travis-CI failed for
+unrelated reasons? (apparently an external NNTP server is having hiccups)
+
+See https://github.com/python/cpython/pull/4065
+
+Regards
+
+Antoine.
+
+From alex.gaynor at gmail.com  Sun Oct 22 13:56:41 2017
+From: alex.gaynor at gmail.com (Alex Gaynor)
+Date: Sun, 22 Oct 2017 13:56:41 -0400
+Subject: [python-committers] Merging a PR with failed CI
+In-Reply-To: <48b03695-045f-2bcd-b191-122bb7c96a7b@python.org>
+References: <48b03695-045f-2bcd-b191-122bb7c96a7b@python.org>
+Message-ID: <CAFRnB2Wi3AXcj2h=Yj+=hmvUePDT1XjigDfkd49BGjWW65kAzQ@mail.gmail.com>
+
+On other projects I work on, my usual practice is to restart the Travis job
+and wait for it to pass.
+
+Alex
+
+On Sun, Oct 22, 2017 at 1:48 PM, Antoine Pitrou <antoine at python.org> wrote:
+
+>
+> Hello,
+>
+> What is the recommended way of merging a PR when Travis-CI failed for
+> unrelated reasons? (apparently an external NNTP server is having hiccups)
+>
+> See https://github.com/python/cpython/pull/4065
+>
+> Regards
+>
+> Antoine.
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+
+
+
+-- 
+"I disapprove of what you say, but I will defend to the death your right to
+say it." -- Evelyn Beatrice Hall (summarizing Voltaire)
+"The people's good is the highest law." -- Cicero
+GPG Key fingerprint: D1B3 ADC0 E023 8CA6
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20171022/2dec4d20/attachment.html>
+
+From xdegaye at gmail.com  Mon Oct 23 11:41:37 2017
+From: xdegaye at gmail.com (Xavier de Gaye)
+Date: Mon, 23 Oct 2017 17:41:37 +0200
+Subject: [python-committers] Travis stuck forever with "Waiting for status
+ to be reported"
+Message-ID: <d526a642-4abd-ed8e-9e2e-592bbb4c4e90@gmail.com>
+
+This has happened to me at least twice.
+FWIW closing the PR and re-opening it triggers a new sequence of checks and fixes the problem.
+
+Xavier
+

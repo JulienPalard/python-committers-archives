@@ -1,0 +1,1057 @@
+From barry at python.org  Tue Dec  2 21:31:58 2008
+From: barry at python.org (Barry Warsaw)
+Date: Tue, 2 Dec 2008 15:31:58 -0500
+Subject: [python-committers] Tomorrow's releases
+Message-ID: <A55F56A2-6A2C-4578-ACCF-8D24D4DA985F@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+I believe we are on track for releasing Python 3.0 final and 2.6.1  
+tomorrow.  There is just one release blocker for 3.0 left -- Guido  
+needs to finish the What's New for 3.0.
+
+This is bug 2306.
+
+So that Martin can have something to work with when he wakes up  
+tomorrow morning, I would like to tag and branch the tree some time  
+today, Tuesday 02-Dec US/Eastern.  Therefore I am freezing both the  
+2.6 and 3.0 trees, with special dispensation to Guido for the updated  
+What's New.
+
+Ping me on irc @ freenode #python-dev if you have anything else to  
+check in to either tree before then.  As soon as I hear from Guido, or  
+issue 2306 is closed, I'm branching 3.0 and tagging it for release.
+
+Great work everyone, we're almost there!
+- -Barry
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQCVAwUBSTWbPnEjvBPtnXfVAQKtOgP9EZgGkE8/UY1IRn7j0l6vX6uqbPapg+9H
+MlBIZrA6mEbGiaDSvPRiwuo71jP5cg0u/xFRdDlGYl0GAzOEWvKCZVlVsndM4kbh
+7UxHjHfkIOo4MUw4zz1NrJ4GRNgBQa52OOtiOKKkIhr/oMsg+GWv8Y9hRXYA9xue
+s8as2AQe2QU=
+=5j55
+-----END PGP SIGNATURE-----
+
+From barry at python.org  Wed Dec  3 18:27:54 2008
+From: barry at python.org (Barry Warsaw)
+Date: Wed, 3 Dec 2008 12:27:54 -0500
+Subject: [python-committers] Python 3.0 branches ready
+Message-ID: <E0ABA0EA-A795-489A-A484-6B95FF13AF6D@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+I've created the tag for 3.0 final and will now be spinning the  
+tarball.  I plan to make these available for you to sanity check  
+before I make the announcement.  Of course, Martin will now be making  
+the Windows binaries too, and we'll wait for those as well, so the  
+release may not be announced until tomorrow.
+
+Also note that the py3k branch is now open for Python 3.1!  Have fun  
+and see you in 18 months.
+
+I still plan on making a Python 2.6.1 release today as well and will  
+send a follow up when that tag is ready for the binary builds.
+
+- -Barry
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQCVAwUBSTbBmnEjvBPtnXfVAQIdLQP/erH2rJWfhplAILREWG6WGGj53slDab6z
+DuqdhopUneLEhJLZdvB67CvwzlV6veJjbc5jemV81rlf1adtP8MstkXeEfLXZBbF
+bZbOI1OX7eWoS5H658SufQ/L037PSnecaUtZB+4DezVbybDli5CWF/eI4IeaXga8
+9SGKyuohFgs=
+=Aj38
+-----END PGP SIGNATURE-----
+
+From barry at python.org  Wed Dec  3 18:29:52 2008
+From: barry at python.org (Barry Warsaw)
+Date: Wed, 3 Dec 2008 12:29:52 -0500
+Subject: [python-committers] Python 3.0 branches ready
+In-Reply-To: <E0ABA0EA-A795-489A-A484-6B95FF13AF6D@python.org>
+References: <E0ABA0EA-A795-489A-A484-6B95FF13AF6D@python.org>
+Message-ID: <E34F8FF0-5237-4D25-ACD4-D5AE3E93DA21@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On Dec 3, 2008, at 12:27 PM, Barry Warsaw wrote:
+
+> I've created the tag for 3.0 final
+
+Sorry, I had to retag it.  r67506 is the 3.0 tag.
+
+- -Barry
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQCVAwUBSTbCEHEjvBPtnXfVAQK7yAP/ReQZCl2iATUGvPg3/xeTnSxMFkiexLUp
+4PzZ5PSbuiJLWA1Fhg374xXR0SrxC5BcLvTHVHK/QzR2ZADCYunv4Vq/r3hvAlyb
+s78rG8E9WJYOsnpoj2kspwCYGlrAzAetH+O5rn6zNMulHn99e5cHxMmnCwcVa7IB
+V/i+MTNjyTM=
+=PCSe
+-----END PGP SIGNATURE-----
+
+From solipsis at pitrou.net  Wed Dec  3 18:31:01 2008
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Wed, 03 Dec 2008 18:31:01 +0100
+Subject: [python-committers] Python 3.0 branches ready
+In-Reply-To: <E0ABA0EA-A795-489A-A484-6B95FF13AF6D@python.org>
+References: <E0ABA0EA-A795-489A-A484-6B95FF13AF6D@python.org>
+Message-ID: <1228325461.17986.122.camel@localhost>
+
+Le mercredi 03 d?cembre 2008 ? 12:27 -0500, Barry Warsaw a ?crit :
+> Also note that the py3k branch is now open for Python 3.1!  Have fun  
+> and see you in 18 months.
+
+You're not disappearing for 18 months are you? :)
+
+
+
+
+From guido at python.org  Wed Dec  3 18:39:23 2008
+From: guido at python.org (Guido van Rossum)
+Date: Wed, 3 Dec 2008 09:39:23 -0800
+Subject: [python-committers] Python 3.0 branches ready
+In-Reply-To: <1228325461.17986.122.camel@localhost>
+References: <E0ABA0EA-A795-489A-A484-6B95FF13AF6D@python.org>
+	<1228325461.17986.122.camel@localhost>
+Message-ID: <ca471dc20812030939s129188a2hf8eb40dd1c9c7c9b@mail.gmail.com>
+
+On Wed, Dec 3, 2008 at 9:31 AM, Antoine Pitrou <solipsis at pitrou.net> wrote:
+> Le mercredi 03 d?cembre 2008 ? 12:27 -0500, Barry Warsaw a ?crit :
+>> Also note that the py3k branch is now open for Python 3.1!  Have fun
+>> and see you in 18 months.
+>
+> You're not disappearing for 18 months are you? :)
+
+Hm, I might actually consider doing that... :-)
+
+-- 
+--Guido van Rossum (home page: http://www.python.org/~guido/)
+
+From barry at python.org  Wed Dec  3 18:56:33 2008
+From: barry at python.org (Barry Warsaw)
+Date: Wed, 3 Dec 2008 12:56:33 -0500
+Subject: [python-committers] Python 3.0 branches ready
+In-Reply-To: <1228325461.17986.122.camel@localhost>
+References: <E0ABA0EA-A795-489A-A484-6B95FF13AF6D@python.org>
+	<1228325461.17986.122.camel@localhost>
+Message-ID: <06D894B1-5C2C-4630-8F94-D24F6375C28C@python.org>
+
+On Dec 3, 2008, at 12:31 PM, Antoine Pitrou wrote:
+
+> Le mercredi 03 d?cembre 2008 ? 12:27 -0500, Barry Warsaw a ?crit :
+>> Also note that the py3k branch is now open for Python 3.1!  Have fun
+>> and see you in 18 months.
+>
+> You're not disappearing for 18 months are you? :)
+
+I hope not, but there's a black van with the letters PSU written on  
+the side sitting in front of my hou
+
+From barry at python.org  Wed Dec  3 21:14:27 2008
+From: barry at python.org (Barry Warsaw)
+Date: Wed, 3 Dec 2008 15:14:27 -0500
+Subject: [python-committers] 3.0 tarballs and binaries
+Message-ID: <ABD968D6-1CF3-41C8-9FB3-0AD3A68E21AC@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+...are now available on dinsdale.  Please download and verify if  
+possible.  I still need to update the web site and craft the  
+announcement, but barring last minute snafus, it will go out tonight.
+
+Please ping me immediate if you find any problems.
+
+- -Barry
+
+http://www.python.org/ftp/python/3.0/
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQCVAwUBSTbopHEjvBPtnXfVAQJyoAP9Hx9Ddl9pkAKC31wHe7o5icT+iz8WXeYF
+157SCZo9UHmA4VpmRAXWf4HHkHP0JqnMcKlflwHPP0twae4abVTxtfevKQnYXVl3
+AI4EJ/VjdH6sNqw/X3XDPjsGX9fSD7WEmUVhbhIN69gYvTrUPi3BWk4G0RGNtl4R
+4wl9vPSu6yY=
+=Ewz+
+-----END PGP SIGNATURE-----
+
+From anthonybaxter at gmail.com  Thu Dec  4 00:35:50 2008
+From: anthonybaxter at gmail.com (Anthony Baxter)
+Date: Thu, 4 Dec 2008 10:35:50 +1100
+Subject: [python-committers] Python 3.0 branches ready
+Message-ID: <e69d3ed20812031535n4f049febmfb795c96fe8952b5@mail.gmail.com>
+
+
+
+Don't be silly, you don't really think the PSU would go after someone is a 
+release manag
+
+On Dec 4, 2008 4:56 AM, "Barry Warsaw" <barry at python.org> wrote:
+
+On Dec 3, 2008, at 12:31 PM, Antoine Pitrou wrote: > Le mercredi 03 d?cembre 
+2008 ? 12:27 -0500, Ba...
+I hope not, but there's a black van with the letters PSU written on the side 
+sitting in front of my hou
+
+_______________________________________________ python-committers mailing 
+list python-committers at py...
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20081204/5e48cd27/attachment.htm>
+
+From barry at python.org  Thu Dec  4 03:03:54 2008
+From: barry at python.org (Barry Warsaw)
+Date: Wed, 3 Dec 2008 21:03:54 -0500
+Subject: [python-committers] release30-maint branch is thawed
+Message-ID: <0168AAC7-0811-4CF8-9356-D207CD1B3C9D@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Now get cracking on Python 3.0.1 :)
+
+Please consider release26-maint frozen now.  I'm going to tag the tree  
+for Python 2.6.1.
+
+- -Barry
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQCVAwUBSTc6inEjvBPtnXfVAQJxxAQAlN5kFQ/rSONvaVdHJ0oSEx1IjwUdtxDr
+VKwMgAfA+GUnztXn6MMRYM3pf9APFY+RunLB8icEtwovdB42eMkWeBRWNq8LcsCq
+r/UO8cSESTspbL20YWspFbd/a6MdcoTI2dNIq8wVR27+zNp4RBsedmBW2edFmG3V
+Z68ubtGR6iQ=
+=Whjy
+-----END PGP SIGNATURE-----
+
+From solipsis at pitrou.net  Thu Dec  4 15:57:14 2008
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Thu, 04 Dec 2008 15:57:14 +0100
+Subject: [python-committers] release30-maint branch is thawed
+In-Reply-To: <0168AAC7-0811-4CF8-9356-D207CD1B3C9D@python.org>
+References: <0168AAC7-0811-4CF8-9356-D207CD1B3C9D@python.org>
+Message-ID: <1228402634.14360.15.camel@localhost>
+
+
+> Now get cracking on Python 3.0.1 :)
+
+And there's a corresponding Mercurial repo at http://code.python.org/hg/
+
+Antoine.
+
+
+
+From barry at python.org  Fri Dec  5 07:06:12 2008
+From: barry at python.org (Barry Warsaw)
+Date: Fri, 5 Dec 2008 01:06:12 -0500
+Subject: [python-committers] release26-maint branch is thawed
+Message-ID: <8FA24FC9-7216-4710-BC0A-BBC2A0484575@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+2.6.1 is out, thanks everybody!  All branches are now open for commits.
+
+- -Barry
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQCVAwUBSTjE1HEjvBPtnXfVAQK/oQQAowvjZYMQl5zS0j7x8hyzq4R/w1W0NpHv
+iaR4RFXFx3GScDVU1cFBcufwc+y16dPZt/Bga+WGMrCDvCo7FEjUm8cMpmzVSwqh
+l2s1dhsPdJZUnJEMRZz3dpZFZH8TBqlnhXO61xuoho88dH2/jua1KbneuTR5L6ak
+SVlI40+1Too=
+=vbdQ
+-----END PGP SIGNATURE-----
+
+From barry at python.org  Fri Dec  5 14:12:44 2008
+From: barry at python.org (Barry Warsaw)
+Date: Fri, 5 Dec 2008 08:12:44 -0500
+Subject: [python-committers] [Python-Dev] RELEASED Python 3.0 final
+In-Reply-To: <ghaoai$gh7$1@ger.gmane.org>
+References: <A45F9DC2-2114-4B81-9C69-37EAA3A356C9@python.org>	<880dece00812031813t78ec560cy69dd3710fbd4c2a9@mail.gmail.com>	<46FC4EDF-A0A6-4310-A854-4CB5F7A791EE@python.org>	<85b5c3130812040142p9e5ba8cx616604d56add0c19@mail.gmail.com>	<4937B80D.9070309@gmail.com>	<gh8j4g$ol6$1@ger.gmane.org>	<gh8vh2$638$1@ger.gmane.org>
+	<4938660E.9080809@v.loewis.de>
+	<AF6A07DF-C986-4FDE-AE9A-7B679F78A76F@python.org>
+	<ghaoai$gh7$1@ger.gmane.org>
+Message-ID: <389689E1-836E-4D50-9120-F40E3E747D21@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+=> python-committers
+
+On Dec 5, 2008, at 3:21 AM, Georg Brandl wrote:
+
+>> In the meantime, I'll make sure Georg is involved in point releases
+>> moving forward.
+>
+> That's good. Thanks!
+
+I think the way I'd like to handle this is through the python- 
+committers mailing list.  I propose the following workflow:
+
+* PEP 101 is followed up to making the release tag
+* Send a message to p-c indicating the tag revision (probably a  
+forward of the commit msg)
+* Before a) pushing the new web content, b) sending the announcment,  
+wait for the "Go" signal from the following experts: WE, DE (we can  
+amend that list in the future).  The "Go" signal is also sent to p-c.
+
+How does that sounds?  PEP 101 kinda sorta says this but if you're  
+okay with this workflow, I'll make it explicit.
+
+- -Barry
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQCVAwUBSTkozHEjvBPtnXfVAQKkgwQAr/uPXf9XHdToROo/PLt+rmCCCeWCOCDM
+ecOshm8ttHV8KbGfRosPIiKFD7iP/NTsOEfaBI1FJrddsOO5LWptEAei2laY/pkI
+gyNiNYVjIA0PQsejzdm3GQPqRqRLdLWrKswGq9xC5Tpd1r7Cwyqw1J0LgXY9mtsI
+bzlKyP4Vzm0=
+=hCC9
+-----END PGP SIGNATURE-----
+
+From g.brandl at gmx.net  Fri Dec  5 15:40:00 2008
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Fri, 05 Dec 2008 15:40:00 +0100
+Subject: [python-committers] [Python-Dev] RELEASED Python 3.0 final
+In-Reply-To: <389689E1-836E-4D50-9120-F40E3E747D21@python.org>
+References: <A45F9DC2-2114-4B81-9C69-37EAA3A356C9@python.org>	<880dece00812031813t78ec560cy69dd3710fbd4c2a9@mail.gmail.com>	<46FC4EDF-A0A6-4310-A854-4CB5F7A791EE@python.org>	<85b5c3130812040142p9e5ba8cx616604d56add0c19@mail.gmail.com>	<4937B80D.9070309@gmail.com>	<gh8j4g$ol6$1@ger.gmane.org>	<gh8vh2$638$1@ger.gmane.org>	<4938660E.9080809@v.loewis.de>	<AF6A07DF-C986-4FDE-AE9A-7B679F78A76F@python.org>	<ghaoai$gh7$1@ger.gmane.org>
+	<389689E1-836E-4D50-9120-F40E3E747D21@python.org>
+Message-ID: <ghbeh0$rih$1@ger.gmane.org>
+
+Barry Warsaw schrieb:
+> => python-committers
+> 
+> On Dec 5, 2008, at 3:21 AM, Georg Brandl wrote:
+> 
+>>> In the meantime, I'll make sure Georg is involved in point releases
+>>> moving forward.
+> 
+>> That's good. Thanks!
+> 
+> I think the way I'd like to handle this is through the python- 
+> committers mailing list.  I propose the following workflow:
+> 
+> * PEP 101 is followed up to making the release tag
+> * Send a message to p-c indicating the tag revision (probably a  
+> forward of the commit msg)
+> * Before a) pushing the new web content, b) sending the announcment,  
+> wait for the "Go" signal from the following experts: WE, DE (we can  
+> amend that list in the future).  The "Go" signal is also sent to p-c.
+> 
+> How does that sounds?  PEP 101 kinda sorta says this but if you're  
+> okay with this workflow, I'll make it explicit.
+
++1.
+
+Georg
+
+-- 
+Thus spake the Lord: Thou shalt indent with four spaces. No more, no less.
+Four shall be the number of spaces thou shalt indent, and the number of thy
+indenting shall be four. Eight shalt thou not indent, nor either indent thou
+two, excepting that thou then proceed to four. Tabs are right out.
+
+
+From martin at v.loewis.de  Sat Dec  6 00:40:06 2008
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Sat, 06 Dec 2008 00:40:06 +0100
+Subject: [python-committers] [Python-Dev] RELEASED Python 3.0 final
+In-Reply-To: <389689E1-836E-4D50-9120-F40E3E747D21@python.org>
+References: <A45F9DC2-2114-4B81-9C69-37EAA3A356C9@python.org>	<880dece00812031813t78ec560cy69dd3710fbd4c2a9@mail.gmail.com>	<46FC4EDF-A0A6-4310-A854-4CB5F7A791EE@python.org>	<85b5c3130812040142p9e5ba8cx616604d56add0c19@mail.gmail.com>	<4937B80D.9070309@gmail.com>	<gh8j4g$ol6$1@ger.gmane.org>	<gh8vh2$638$1@ger.gmane.org>	<4938660E.9080809@v.loewis.de>	<AF6A07DF-C986-4FDE-AE9A-7B679F78A76F@python.org>	<ghaoai$gh7$1@ger.gmane.org>
+	<389689E1-836E-4D50-9120-F40E3E747D21@python.org>
+Message-ID: <4939BBD6.2080304@v.loewis.de>
+
+> How does that sounds?
+
+Sounds good! Are we also going to produce OSX binaries on a regular basis?
+
+Specifically, who is working on binaries for 3.0 and 2.6.1? Ronald?
+(the 2.6.1 release page claims that they are signed with Benjamin's
+key, but no binary is even available. Before this gets fixed, I
+think we need to agree on who is going to produce the binaries, and
+using what schedule.)
+
+Regards,
+Martin
+
+From brett at python.org  Sat Dec  6 00:52:49 2008
+From: brett at python.org (Brett Cannon)
+Date: Fri, 5 Dec 2008 15:52:49 -0800
+Subject: [python-committers] [Python-Dev] RELEASED Python 3.0 final
+In-Reply-To: <4939BBD6.2080304@v.loewis.de>
+References: <A45F9DC2-2114-4B81-9C69-37EAA3A356C9@python.org>
+	<85b5c3130812040142p9e5ba8cx616604d56add0c19@mail.gmail.com>
+	<4937B80D.9070309@gmail.com> <gh8j4g$ol6$1@ger.gmane.org>
+	<gh8vh2$638$1@ger.gmane.org> <4938660E.9080809@v.loewis.de>
+	<AF6A07DF-C986-4FDE-AE9A-7B679F78A76F@python.org>
+	<ghaoai$gh7$1@ger.gmane.org>
+	<389689E1-836E-4D50-9120-F40E3E747D21@python.org>
+	<4939BBD6.2080304@v.loewis.de>
+Message-ID: <bbaeab100812051552q16c4a613q9b15ef964ce62640@mail.gmail.com>
+
+On Fri, Dec 5, 2008 at 15:40, "Martin v. L?wis" <martin at v.loewis.de> wrote:
+>> How does that sounds?
+>
+> Sounds good! Are we also going to produce OSX binaries on a regular basis?
+>
+> Specifically, who is working on binaries for 3.0 and 2.6.1? Ronald?
+> (the 2.6.1 release page claims that they are signed with Benjamin's
+> key, but no binary is even available. Before this gets fixed, I
+> think we need to agree on who is going to produce the binaries, and
+> using what schedule.)
+>
+
+What we probably should do is outline the steps in PEP 101 for
+building the various binaries. For instance I could cut OS X releases
+but I just don't know the exact steps are.
+
+-Brett
+
+From ronaldoussoren at mac.com  Sat Dec  6 08:35:37 2008
+From: ronaldoussoren at mac.com (Ronald Oussoren)
+Date: Sat, 06 Dec 2008 08:35:37 +0100
+Subject: [python-committers] [Python-Dev] RELEASED Python 3.0 final
+In-Reply-To: <bbaeab100812051552q16c4a613q9b15ef964ce62640@mail.gmail.com>
+References: <A45F9DC2-2114-4B81-9C69-37EAA3A356C9@python.org>
+	<85b5c3130812040142p9e5ba8cx616604d56add0c19@mail.gmail.com>
+	<4937B80D.9070309@gmail.com> <gh8j4g$ol6$1@ger.gmane.org>
+	<gh8vh2$638$1@ger.gmane.org> <4938660E.9080809@v.loewis.de>
+	<AF6A07DF-C986-4FDE-AE9A-7B679F78A76F@python.org>
+	<ghaoai$gh7$1@ger.gmane.org>
+	<389689E1-836E-4D50-9120-F40E3E747D21@python.org>
+	<4939BBD6.2080304@v.loewis.de>
+	<bbaeab100812051552q16c4a613q9b15ef964ce62640@mail.gmail.com>
+Message-ID: <C182541A-2011-449D-9C19-D8567FBB2597@mac.com>
+
+
+On 6 Dec, 2008, at 0:52, Brett Cannon wrote:
+
+> On Fri, Dec 5, 2008 at 15:40, "Martin v. L?wis" <martin at v.loewis.de>  
+> wrote:
+>>> How does that sounds?
+>>
+>> Sounds good! Are we also going to produce OSX binaries on a regular  
+>> basis?
+>>
+>> Specifically, who is working on binaries for 3.0 and 2.6.1? Ronald?
+>> (the 2.6.1 release page claims that they are signed with Benjamin's
+>> key, but no binary is even available. Before this gets fixed, I
+>> think we need to agree on who is going to produce the binaries, and
+>> using what schedule.)
+>>
+>
+> What we probably should do is outline the steps in PEP 101 for
+> building the various binaries. For instance I could cut OS X releases
+> but I just don't know the exact steps are.
+
+For 2.5.x I used to following procedure.
+
+Requirements:
+
+* An Intel Mac running 10.4.x
+
+* Have the latest version of XCode for Tiger systems installed
+
+* Have Tcl/Tk for OSX installed
+   (Needed to make it possible for people to use a newer Tcl/Tk with  
+Tkinter and IDLE
+    without rebuilding _tkinter themselves. The version of _tkinter  
+that's installed
+    by this procedure also works when Tcl/Tk is not installed on a  
+user's machine).
+
+* Make sure /opt/local and /sw do not exist, to avoid contaminating  
+the build with  DarwinPorts/Fink bits
+
+* Use the script in Mac/BuildScript to actually build the installer DMG
+    This will download a number of components (such as sleepycat DB),  
+builds all required software
+     and assembles the installer.
+
+I used to test the installer on a 10.3.9 PPC system, a 10.4 system and  
+a 10.5 system.
+
+Ronald
+
+>
+>
+> -Brett
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: smime.p7s
+Type: application/pkcs7-signature
+Size: 2224 bytes
+Desc: not available
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20081206/a91b42be/attachment.bin>
+
+From ronaldoussoren at mac.com  Sat Dec  6 08:28:57 2008
+From: ronaldoussoren at mac.com (Ronald Oussoren)
+Date: Sat, 06 Dec 2008 08:28:57 +0100
+Subject: [python-committers] [Python-Dev] RELEASED Python 3.0 final
+In-Reply-To: <4939BBD6.2080304@v.loewis.de>
+References: <A45F9DC2-2114-4B81-9C69-37EAA3A356C9@python.org>
+	<880dece00812031813t78ec560cy69dd3710fbd4c2a9@mail.gmail.com>
+	<46FC4EDF-A0A6-4310-A854-4CB5F7A791EE@python.org>
+	<85b5c3130812040142p9e5ba8cx616604d56add0c19@mail.gmail.com>
+	<4937B80D.9070309@gmail.com> <gh8j4g$ol6$1@ger.gmane.org>
+	<gh8vh2$638$1@ger.gmane.org> <4938660E.9080809@v.loewis.de>
+	<AF6A07DF-C986-4FDE-AE9A-7B679F78A76F@python.org>
+	<ghaoai$gh7$1@ger.gmane.org>
+	<389689E1-836E-4D50-9120-F40E3E747D21@python.org>
+	<4939BBD6.2080304@v.loewis.de>
+Message-ID: <4DDA2A5D-691D-49FD-996C-9F4EDBEAD525@mac.com>
+
+
+On 6 Dec, 2008, at 0:40, Martin v. L?wis wrote:
+
+>> How does that sounds?
+>
+> Sounds good! Are we also going to produce OSX binaries on a regular  
+> basis?
+
+I haven't even looked seriously at 3.0 yet and therefore wouldn't be  
+the rigth person to build OSX binaries at the moment.
+
+>
+>
+> Specifically, who is working on binaries for 3.0 and 2.6.1? Ronald?
+
+I'm not working on those. I can hopefully create 2.6.1 binaries on  
+Sunday evening.
+
+Ronald
+
+>
+> (the 2.6.1 release page claims that they are signed with Benjamin's
+> key, but no binary is even available. Before this gets fixed, I
+> think we need to agree on who is going to produce the binaries, and
+> using what schedule.)
+>
+> Regards,
+> Martin
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: smime.p7s
+Type: application/pkcs7-signature
+Size: 2224 bytes
+Desc: not available
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20081206/3f15c4ae/attachment-0001.bin>
+
+From barry at python.org  Sat Dec  6 16:04:11 2008
+From: barry at python.org (Barry Warsaw)
+Date: Sat, 6 Dec 2008 10:04:11 -0500
+Subject: [python-committers] [Python-Dev] RELEASED Python 3.0 final
+In-Reply-To: <4939BBD6.2080304@v.loewis.de>
+References: <A45F9DC2-2114-4B81-9C69-37EAA3A356C9@python.org>	<880dece00812031813t78ec560cy69dd3710fbd4c2a9@mail.gmail.com>	<46FC4EDF-A0A6-4310-A854-4CB5F7A791EE@python.org>	<85b5c3130812040142p9e5ba8cx616604d56add0c19@mail.gmail.com>	<4937B80D.9070309@gmail.com>	<gh8j4g$ol6$1@ger.gmane.org>	<gh8vh2$638$1@ger.gmane.org>	<4938660E.9080809@v.loewis.de>	<AF6A07DF-C986-4FDE-AE9A-7B679F78A76F@python.org>	<ghaoai$gh7$1@ger.gmane.org>
+	<389689E1-836E-4D50-9120-F40E3E747D21@python.org>
+	<4939BBD6.2080304@v.loewis.de>
+Message-ID: <22F6662A-8ED2-448D-A0BA-BCE2F6165753@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On Dec 5, 2008, at 6:40 PM, Martin v. L?wis wrote:
+
+>> How does that sounds?
+>
+> Sounds good! Are we also going to produce OSX binaries on a regular  
+> basis?
+>
+> Specifically, who is working on binaries for 3.0 and 2.6.1? Ronald?
+> (the 2.6.1 release page claims that they are signed with Benjamin's
+> key, but no binary is even available. Before this gets fixed, I
+> think we need to agree on who is going to produce the binaries, and
+> using what schedule.)
+
+If someone (Ronald?) wants to step up and be the official Mac Expert  
+(as per PEP 101) that would be fine with me.  If not, then the Mac  
+binaries can be backfilled after the release is announced.
+
+- -Barry
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQCVAwUBSTqUa3EjvBPtnXfVAQJXhQP/RXqJ/pMOoQ2+cKLS+RG+ISicPF7itCmr
+7o9DuJCyKl5uGpfLSAMBIum+WXnyhrJvigZ1z+Chfjv+tOobe3jsYuHAc5lixhnt
+/LdY7+bSAJil/gu73xseitytC/cwC9ohsTTwQ3wsqwvyPPb7BtLaDP2oWCyYY/w9
+EQ/+4NxMqbQ=
+=Rzgc
+-----END PGP SIGNATURE-----
+
+From barry at python.org  Sat Dec  6 16:04:57 2008
+From: barry at python.org (Barry Warsaw)
+Date: Sat, 6 Dec 2008 10:04:57 -0500
+Subject: [python-committers] [Python-Dev] RELEASED Python 3.0 final
+In-Reply-To: <4DDA2A5D-691D-49FD-996C-9F4EDBEAD525@mac.com>
+References: <A45F9DC2-2114-4B81-9C69-37EAA3A356C9@python.org>
+	<880dece00812031813t78ec560cy69dd3710fbd4c2a9@mail.gmail.com>
+	<46FC4EDF-A0A6-4310-A854-4CB5F7A791EE@python.org>
+	<85b5c3130812040142p9e5ba8cx616604d56add0c19@mail.gmail.com>
+	<4937B80D.9070309@gmail.com> <gh8j4g$ol6$1@ger.gmane.org>
+	<gh8vh2$638$1@ger.gmane.org> <4938660E.9080809@v.loewis.de>
+	<AF6A07DF-C986-4FDE-AE9A-7B679F78A76F@python.org>
+	<ghaoai$gh7$1@ger.gmane.org>
+	<389689E1-836E-4D50-9120-F40E3E747D21@python.org>
+	<4939BBD6.2080304@v.loewis.de>
+	<4DDA2A5D-691D-49FD-996C-9F4EDBEAD525@mac.com>
+Message-ID: <56D6912B-CF12-4C35-B9A8-594097F14326@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On Dec 6, 2008, at 2:28 AM, Ronald Oussoren wrote:
+
+> On 6 Dec, 2008, at 0:40, Martin v. L?wis wrote:
+>
+>>> How does that sounds?
+>>
+>> Sounds good! Are we also going to produce OSX binaries on a regular  
+>> basis?
+>
+> I haven't even looked seriously at 3.0 yet and therefore wouldn't be  
+> the rigth person to build OSX binaries at the moment.
+
+So I think for the time being at least then, I won't put an "all  
+systems go" block on the ME in PEP 101.
+
+- -Barry
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQCVAwUBSTqUmnEjvBPtnXfVAQITWgP+Nifyb/Pic39RwLM2cVq85d8n1wNoTgCW
+jgQikQ2jaQqwNnY7rmPSVeKTgJIMDqXsMsrleV4iiLpRo7Py3QFrKFzWl94LANc8
+j5hjSMHyc6rJRAZ6S1yJO/5LXDjJhITkfuhSAex/wcKDVCNu6VM5LbD2X9Gwssh/
+HQ18msd6JhI=
+=S1Iq
+-----END PGP SIGNATURE-----
+
+From brett at python.org  Sat Dec  6 23:26:11 2008
+From: brett at python.org (Brett Cannon)
+Date: Sat, 6 Dec 2008 14:26:11 -0800
+Subject: [python-committers] [Python-Dev] RELEASED Python 3.0 final
+In-Reply-To: <C182541A-2011-449D-9C19-D8567FBB2597@mac.com>
+References: <A45F9DC2-2114-4B81-9C69-37EAA3A356C9@python.org>
+	<gh8j4g$ol6$1@ger.gmane.org> <gh8vh2$638$1@ger.gmane.org>
+	<4938660E.9080809@v.loewis.de>
+	<AF6A07DF-C986-4FDE-AE9A-7B679F78A76F@python.org>
+	<ghaoai$gh7$1@ger.gmane.org>
+	<389689E1-836E-4D50-9120-F40E3E747D21@python.org>
+	<4939BBD6.2080304@v.loewis.de>
+	<bbaeab100812051552q16c4a613q9b15ef964ce62640@mail.gmail.com>
+	<C182541A-2011-449D-9C19-D8567FBB2597@mac.com>
+Message-ID: <bbaeab100812061426o31818716nb625991c1df34f64@mail.gmail.com>
+
+On Fri, Dec 5, 2008 at 23:35, Ronald Oussoren <ronaldoussoren at mac.com> wrote:
+>
+> On 6 Dec, 2008, at 0:52, Brett Cannon wrote:
+>
+>> On Fri, Dec 5, 2008 at 15:40, "Martin v. L?wis" <martin at v.loewis.de>
+>> wrote:
+>>>>
+>>>> How does that sounds?
+>>>
+>>> Sounds good! Are we also going to produce OSX binaries on a regular
+>>> basis?
+>>>
+>>> Specifically, who is working on binaries for 3.0 and 2.6.1? Ronald?
+>>> (the 2.6.1 release page claims that they are signed with Benjamin's
+>>> key, but no binary is even available. Before this gets fixed, I
+>>> think we need to agree on who is going to produce the binaries, and
+>>> using what schedule.)
+>>>
+>>
+>> What we probably should do is outline the steps in PEP 101 for
+>> building the various binaries. For instance I could cut OS X releases
+>> but I just don't know the exact steps are.
+>
+> For 2.5.x I used to following procedure.
+>
+> Requirements:
+>
+> * An Intel Mac running 10.4.x
+>
+
+That requirement right there take me out for being able to to do the binary.
+
+-Brett
+
+From jnoller at gmail.com  Sat Dec  6 23:45:16 2008
+From: jnoller at gmail.com (Jesse Noller)
+Date: Sat, 6 Dec 2008 17:45:16 -0500
+Subject: [python-committers] [Python-Dev] RELEASED Python 3.0 final
+In-Reply-To: <bbaeab100812061426o31818716nb625991c1df34f64@mail.gmail.com>
+References: <A45F9DC2-2114-4B81-9C69-37EAA3A356C9@python.org>
+	<gh8vh2$638$1@ger.gmane.org> <4938660E.9080809@v.loewis.de>
+	<AF6A07DF-C986-4FDE-AE9A-7B679F78A76F@python.org>
+	<ghaoai$gh7$1@ger.gmane.org>
+	<389689E1-836E-4D50-9120-F40E3E747D21@python.org>
+	<4939BBD6.2080304@v.loewis.de>
+	<bbaeab100812051552q16c4a613q9b15ef964ce62640@mail.gmail.com>
+	<C182541A-2011-449D-9C19-D8567FBB2597@mac.com>
+	<bbaeab100812061426o31818716nb625991c1df34f64@mail.gmail.com>
+Message-ID: <4222a8490812061445g71ebc894tf32d39b070cf1000@mail.gmail.com>
+
+On Sat, Dec 6, 2008 at 5:26 PM, Brett Cannon <brett at python.org> wrote:
+> On Fri, Dec 5, 2008 at 23:35, Ronald Oussoren <ronaldoussoren at mac.com> wrote:
+>>
+>> On 6 Dec, 2008, at 0:52, Brett Cannon wrote:
+>>
+>>> On Fri, Dec 5, 2008 at 15:40, "Martin v. L?wis" <martin at v.loewis.de>
+>>> wrote:
+>>>>>
+>>>>> How does that sounds?
+>>>>
+>>>> Sounds good! Are we also going to produce OSX binaries on a regular
+>>>> basis?
+>>>>
+>>>> Specifically, who is working on binaries for 3.0 and 2.6.1? Ronald?
+>>>> (the 2.6.1 release page claims that they are signed with Benjamin's
+>>>> key, but no binary is even available. Before this gets fixed, I
+>>>> think we need to agree on who is going to produce the binaries, and
+>>>> using what schedule.)
+>>>>
+>>>
+>>> What we probably should do is outline the steps in PEP 101 for
+>>> building the various binaries. For instance I could cut OS X releases
+>>> but I just don't know the exact steps are.
+>>
+>> For 2.5.x I used to following procedure.
+>>
+>> Requirements:
+>>
+>> * An Intel Mac running 10.4.x
+>>
+>
+> That requirement right there take me out for being able to to do the binary.
+>
+> -Brett
+
+I could do binaries for 10.5 and forward. I've got a few macs at my disposal
+
+From skip at pobox.com  Sun Dec  7 02:47:15 2008
+From: skip at pobox.com (skip at pobox.com)
+Date: Sat, 6 Dec 2008 19:47:15 -0600
+Subject: [python-committers] [Python-Dev] RELEASED Python 3.0 final
+In-Reply-To: <4222a8490812061445g71ebc894tf32d39b070cf1000@mail.gmail.com>
+References: <A45F9DC2-2114-4B81-9C69-37EAA3A356C9@python.org>
+	<gh8vh2$638$1@ger.gmane.org> <4938660E.9080809@v.loewis.de>
+	<AF6A07DF-C986-4FDE-AE9A-7B679F78A76F@python.org>
+	<ghaoai$gh7$1@ger.gmane.org>
+	<389689E1-836E-4D50-9120-F40E3E747D21@python.org>
+	<4939BBD6.2080304@v.loewis.de>
+	<bbaeab100812051552q16c4a613q9b15ef964ce62640@mail.gmail.com>
+	<C182541A-2011-449D-9C19-D8567FBB2597@mac.com>
+	<bbaeab100812061426o31818716nb625991c1df34f64@mail.gmail.com>
+	<4222a8490812061445g71ebc894tf32d39b070cf1000@mail.gmail.com>
+Message-ID: <18747.11043.257918.666960@montanaro-dyndns-org.local>
+
+    Ronald> * An Intel Mac running 10.4.x
+
+    Brett> That requirement right there take me out for being able to to do
+    Brett> the binary.
+
+    Jesse> I could do binaries for 10.5 and forward. I've got a few macs at
+    Jesse> my disposal
+
+I thought the PSF had a 10.4 XServe box.  Is it gone?  Was it a G4 perhaps?
+
+Skip
+
+From martin at v.loewis.de  Sun Dec  7 03:01:57 2008
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Sun, 07 Dec 2008 03:01:57 +0100
+Subject: [python-committers] [Python-Dev] RELEASED Python 3.0 final
+In-Reply-To: <18747.11043.257918.666960@montanaro-dyndns-org.local>
+References: <A45F9DC2-2114-4B81-9C69-37EAA3A356C9@python.org>	<gh8vh2$638$1@ger.gmane.org>
+	<4938660E.9080809@v.loewis.de>	<AF6A07DF-C986-4FDE-AE9A-7B679F78A76F@python.org>	<ghaoai$gh7$1@ger.gmane.org>	<389689E1-836E-4D50-9120-F40E3E747D21@python.org>	<4939BBD6.2080304@v.loewis.de>	<bbaeab100812051552q16c4a613q9b15ef964ce62640@mail.gmail.com>	<C182541A-2011-449D-9C19-D8567FBB2597@mac.com>	<bbaeab100812061426o31818716nb625991c1df34f64@mail.gmail.com>	<4222a8490812061445g71ebc894tf32d39b070cf1000@mail.gmail.com>
+	<18747.11043.257918.666960@montanaro-dyndns-org.local>
+Message-ID: <493B2E95.6080902@v.loewis.de>
+
+> I thought the PSF had a 10.4 XServe box.  Is it gone?  
+
+Yes, it's broken.
+
+> Was it a G4 perhaps?
+
+I've now turned it off, so I can't find out anymore.
+
+Regards,
+Martin
+
+From jnoller at gmail.com  Sun Dec  7 03:08:38 2008
+From: jnoller at gmail.com (Jesse Noller)
+Date: Sat, 6 Dec 2008 21:08:38 -0500
+Subject: [python-committers] [Python-Dev] RELEASED Python 3.0 final
+In-Reply-To: <493B2E95.6080902@v.loewis.de>
+References: <A45F9DC2-2114-4B81-9C69-37EAA3A356C9@python.org>
+	<ghaoai$gh7$1@ger.gmane.org>
+	<389689E1-836E-4D50-9120-F40E3E747D21@python.org>
+	<4939BBD6.2080304@v.loewis.de>
+	<bbaeab100812051552q16c4a613q9b15ef964ce62640@mail.gmail.com>
+	<C182541A-2011-449D-9C19-D8567FBB2597@mac.com>
+	<bbaeab100812061426o31818716nb625991c1df34f64@mail.gmail.com>
+	<4222a8490812061445g71ebc894tf32d39b070cf1000@mail.gmail.com>
+	<18747.11043.257918.666960@montanaro-dyndns-org.local>
+	<493B2E95.6080902@v.loewis.de>
+Message-ID: <4222a8490812061808n75c794e1ia35f7bafa9fb7ed2@mail.gmail.com>
+
+On Sat, Dec 6, 2008 at 9:01 PM, "Martin v. L?wis" <martin at v.loewis.de> wrote:
+>> I thought the PSF had a 10.4 XServe box.  Is it gone?
+>
+> Yes, it's broken.
+>
+>> Was it a G4 perhaps?
+>
+> I've now turned it off, so I can't find out anymore.
+>
+> Regards,
+> Martin
+>
+
+My 10.5 buildbot should still be active at very least.
+
+From skip at pobox.com  Sun Dec  7 03:18:21 2008
+From: skip at pobox.com (skip at pobox.com)
+Date: Sat, 6 Dec 2008 20:18:21 -0600
+Subject: [python-committers] [Python-Dev] RELEASED Python 3.0 final
+In-Reply-To: <4222a8490812061808n75c794e1ia35f7bafa9fb7ed2@mail.gmail.com>
+References: <A45F9DC2-2114-4B81-9C69-37EAA3A356C9@python.org>
+	<ghaoai$gh7$1@ger.gmane.org>
+	<389689E1-836E-4D50-9120-F40E3E747D21@python.org>
+	<4939BBD6.2080304@v.loewis.de>
+	<bbaeab100812051552q16c4a613q9b15ef964ce62640@mail.gmail.com>
+	<C182541A-2011-449D-9C19-D8567FBB2597@mac.com>
+	<bbaeab100812061426o31818716nb625991c1df34f64@mail.gmail.com>
+	<4222a8490812061445g71ebc894tf32d39b070cf1000@mail.gmail.com>
+	<18747.11043.257918.666960@montanaro-dyndns-org.local>
+	<493B2E95.6080902@v.loewis.de>
+	<4222a8490812061808n75c794e1ia35f7bafa9fb7ed2@mail.gmail.com>
+Message-ID: <18747.12909.978746.855677@montanaro-dyndns-org.local>
+
+
+    Skip> I thought the PSF had a 10.4 XServe box.  Is it gone?
+
+    Martin> Yes, it's broken.
+
+    Skip> Was it a G4 perhaps?
+
+    Martin> I've now turned it off, so I can't find out anymore.
+
+    Jesse> My 10.5 buildbot should still be active at very least.
+
+I was thinking that maybe it could serve as a machine to build Mac
+installers.
+
+Skip
+
+
+From jnoller at gmail.com  Sun Dec  7 03:22:46 2008
+From: jnoller at gmail.com (Jesse Noller)
+Date: Sat, 6 Dec 2008 21:22:46 -0500
+Subject: [python-committers] [Python-Dev] RELEASED Python 3.0 final
+In-Reply-To: <18747.12909.978746.855677@montanaro-dyndns-org.local>
+References: <A45F9DC2-2114-4B81-9C69-37EAA3A356C9@python.org>
+	<4939BBD6.2080304@v.loewis.de>
+	<bbaeab100812051552q16c4a613q9b15ef964ce62640@mail.gmail.com>
+	<C182541A-2011-449D-9C19-D8567FBB2597@mac.com>
+	<bbaeab100812061426o31818716nb625991c1df34f64@mail.gmail.com>
+	<4222a8490812061445g71ebc894tf32d39b070cf1000@mail.gmail.com>
+	<18747.11043.257918.666960@montanaro-dyndns-org.local>
+	<493B2E95.6080902@v.loewis.de>
+	<4222a8490812061808n75c794e1ia35f7bafa9fb7ed2@mail.gmail.com>
+	<18747.12909.978746.855677@montanaro-dyndns-org.local>
+Message-ID: <4222a8490812061822m4fb5fbc4ye26ff8aa98bc3d92@mail.gmail.com>
+
+On Sat, Dec 6, 2008 at 9:18 PM,  <skip at pobox.com> wrote:
+>
+>    Skip> I thought the PSF had a 10.4 XServe box.  Is it gone?
+>
+>    Martin> Yes, it's broken.
+>
+>    Skip> Was it a G4 perhaps?
+>
+>    Martin> I've now turned it off, so I can't find out anymore.
+>
+>    Jesse> My 10.5 buildbot should still be active at very least.
+>
+> I was thinking that maybe it could serve as a machine to build Mac
+> installers.
+>
+> Skip
+>
+>
+
+I have no problem building them, but as I mentioned before, it's 10.5+
+the build process itself is relatively painless due to
+Mac/BuildScript/...
+
+From musiccomposition at gmail.com  Sun Dec  7 03:26:18 2008
+From: musiccomposition at gmail.com (Benjamin Peterson)
+Date: Sat, 6 Dec 2008 20:26:18 -0600
+Subject: [python-committers] [Python-Dev] RELEASED Python 3.0 final
+In-Reply-To: <4222a8490812061822m4fb5fbc4ye26ff8aa98bc3d92@mail.gmail.com>
+References: <A45F9DC2-2114-4B81-9C69-37EAA3A356C9@python.org>
+	<bbaeab100812051552q16c4a613q9b15ef964ce62640@mail.gmail.com>
+	<C182541A-2011-449D-9C19-D8567FBB2597@mac.com>
+	<bbaeab100812061426o31818716nb625991c1df34f64@mail.gmail.com>
+	<4222a8490812061445g71ebc894tf32d39b070cf1000@mail.gmail.com>
+	<18747.11043.257918.666960@montanaro-dyndns-org.local>
+	<493B2E95.6080902@v.loewis.de>
+	<4222a8490812061808n75c794e1ia35f7bafa9fb7ed2@mail.gmail.com>
+	<18747.12909.978746.855677@montanaro-dyndns-org.local>
+	<4222a8490812061822m4fb5fbc4ye26ff8aa98bc3d92@mail.gmail.com>
+Message-ID: <1afaf6160812061826y5a3c318fh93cd224ccbfcc0c3@mail.gmail.com>
+
+FWIW, I have a 2.6.1 installer here which I've tested on a few machines.
+
+On Sat, Dec 6, 2008 at 8:22 PM, Jesse Noller <jnoller at gmail.com> wrote:
+> On Sat, Dec 6, 2008 at 9:18 PM,  <skip at pobox.com> wrote:
+>>
+>>    Skip> I thought the PSF had a 10.4 XServe box.  Is it gone?
+>>
+>>    Martin> Yes, it's broken.
+>>
+>>    Skip> Was it a G4 perhaps?
+>>
+>>    Martin> I've now turned it off, so I can't find out anymore.
+>>
+>>    Jesse> My 10.5 buildbot should still be active at very least.
+>>
+>> I was thinking that maybe it could serve as a machine to build Mac
+>> installers.
+>>
+>> Skip
+>>
+>>
+>
+> I have no problem building them, but as I mentioned before, it's 10.5+
+> the build process itself is relatively painless due to
+> Mac/BuildScript/...
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+>
+
+
+
+-- 
+Cheers,
+Benjamin Peterson
+"There's nothing quite as beautiful as an oboe... except a chicken
+stuck in a vacuum cleaner."
+
+From ronaldoussoren at mac.com  Sun Dec  7 09:22:43 2008
+From: ronaldoussoren at mac.com (Ronald Oussoren)
+Date: Sun, 07 Dec 2008 09:22:43 +0100
+Subject: [python-committers] [Python-Dev] RELEASED Python 3.0 final
+In-Reply-To: <18747.11043.257918.666960@montanaro-dyndns-org.local>
+References: <A45F9DC2-2114-4B81-9C69-37EAA3A356C9@python.org>
+	<gh8vh2$638$1@ger.gmane.org> <4938660E.9080809@v.loewis.de>
+	<AF6A07DF-C986-4FDE-AE9A-7B679F78A76F@python.org>
+	<ghaoai$gh7$1@ger.gmane.org>
+	<389689E1-836E-4D50-9120-F40E3E747D21@python.org>
+	<4939BBD6.2080304@v.loewis.de>
+	<bbaeab100812051552q16c4a613q9b15ef964ce62640@mail.gmail.com>
+	<C182541A-2011-449D-9C19-D8567FBB2597@mac.com>
+	<bbaeab100812061426o31818716nb625991c1df34f64@mail.gmail.com>
+	<4222a8490812061445g71ebc894tf32d39b070cf1000@mail.gmail.com>
+	<18747.11043.257918.666960@montanaro-dyndns-org.local>
+Message-ID: <BA91852E-B0AB-4927-BD5F-AEEE34F7180C@mac.com>
+
+
+On 7 Dec, 2008, at 2:47, skip at pobox.com wrote:
+
+>    Ronald> * An Intel Mac running 10.4.x
+>
+>    Brett> That requirement right there take me out for being able to  
+> to do
+>    Brett> the binary.
+>
+>    Jesse> I could do binaries for 10.5 and forward. I've got a few  
+> macs at
+>    Jesse> my disposal
+>
+> I thought the PSF had a 10.4 XServe box.  Is it gone?  Was it a G4  
+> perhaps?
+
+It should be possible to use my build script on a 10.5 box, I just  
+haven't gotten
+around to test that yet.
+
+Ronald
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: smime.p7s
+Type: application/pkcs7-signature
+Size: 2224 bytes
+Desc: not available
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20081207/f77d24d0/attachment.bin>
+
+From jnoller at gmail.com  Sun Dec  7 13:59:00 2008
+From: jnoller at gmail.com (Jesse Noller)
+Date: Sun, 7 Dec 2008 07:59:00 -0500
+Subject: [python-committers] [Python-Dev] RELEASED Python 3.0 final
+In-Reply-To: <BA91852E-B0AB-4927-BD5F-AEEE34F7180C@mac.com>
+References: <A45F9DC2-2114-4B81-9C69-37EAA3A356C9@python.org>
+	<ghaoai$gh7$1@ger.gmane.org>
+	<389689E1-836E-4D50-9120-F40E3E747D21@python.org>
+	<4939BBD6.2080304@v.loewis.de>
+	<bbaeab100812051552q16c4a613q9b15ef964ce62640@mail.gmail.com>
+	<C182541A-2011-449D-9C19-D8567FBB2597@mac.com>
+	<bbaeab100812061426o31818716nb625991c1df34f64@mail.gmail.com>
+	<4222a8490812061445g71ebc894tf32d39b070cf1000@mail.gmail.com>
+	<18747.11043.257918.666960@montanaro-dyndns-org.local>
+	<BA91852E-B0AB-4927-BD5F-AEEE34F7180C@mac.com>
+Message-ID: <4222a8490812070459r7773865evb176799194a9d89@mail.gmail.com>
+
+On Sun, Dec 7, 2008 at 3:22 AM, Ronald Oussoren <ronaldoussoren at mac.com> wrote:
+>
+> On 7 Dec, 2008, at 2:47, skip at pobox.com wrote:
+>
+>>   Ronald> * An Intel Mac running 10.4.x
+>>
+>>   Brett> That requirement right there take me out for being able to to do
+>>   Brett> the binary.
+>>
+>>   Jesse> I could do binaries for 10.5 and forward. I've got a few macs at
+>>   Jesse> my disposal
+>>
+>> I thought the PSF had a 10.4 XServe box.  Is it gone?  Was it a G4
+>> perhaps?
+>
+> It should be possible to use my build script on a 10.5 box, I just haven't
+> gotten
+> around to test that yet.
+>
+> Ronald
+>
+>
+
+It does work barring some issues w/ the doc downloading. I do however
+need to do a universal build, so I need to reinstall some of the XCode
+tools
+

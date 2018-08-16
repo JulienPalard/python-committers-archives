@@ -1,0 +1,664 @@
+From g.brandl at gmx.net  Sun Sep  5 10:21:38 2010
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Sun, 05 Sep 2010 10:21:38 +0200
+Subject: [python-committers] 3.2 alpha 2 freeze
+Message-ID: <i5vk4t$52n$1@dough.gmane.org>
+
+Hi,
+
+the py3k branch is now in a "soft freeze" state for the 3.2a2 release.
+Please no commits that could affect stability; doc updates and the like
+are still ok.
+
+Georg
+
+-- 
+Thus spake the Lord: Thou shalt indent with four spaces. No more, no less.
+Four shall be the number of spaces thou shalt indent, and the number of thy
+indenting shall be four. Eight shalt thou not indent, nor either indent thou
+two, excepting that thou then proceed to four. Tabs are right out.
+
+
+From solipsis at pitrou.net  Sun Sep  5 16:43:22 2010
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Sun, 05 Sep 2010 16:43:22 +0200
+Subject: [python-committers] =?utf-8?q?Commit_privileges_for_=C5=81ukasz_L?=
+	=?utf-8?q?anga?=
+Message-ID: <1283697802.3545.6.camel@localhost.localdomain>
+
+
+Hello,
+
+I propose we give commit privileges to ?ukasz Langa. He has submitted
+various non-trivial patches of rather good quality (for example new
+features for ConfigParser), some of which have already been committed;
+it seems that he's motivated to further contribute.
+
+Perhaps other devs want to share their opinion on this.
+
+(for the curious, his tracker id is lukasz.langa)
+
+Regards
+
+Antoine.
+
+
+
+From g.brandl at gmx.net  Sun Sep  5 17:46:30 2010
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Sun, 05 Sep 2010 17:46:30 +0200
+Subject: [python-committers]
+	=?utf-8?q?Commit_privileges_for_=C5=81ukasz_L?= =?utf-8?q?anga?=
+In-Reply-To: <1283697802.3545.6.camel@localhost.localdomain>
+References: <1283697802.3545.6.camel@localhost.localdomain>
+Message-ID: <i60e72$udg$2@dough.gmane.org>
+
+Am 05.09.2010 16:43, schrieb Antoine Pitrou:
+> 
+> Hello,
+> 
+> I propose we give commit privileges to ?ukasz Langa. He has submitted
+> various non-trivial patches of rather good quality (for example new
+> features for ConfigParser), some of which have already been committed;
+> it seems that he's motivated to further contribute.
+> 
+> Perhaps other devs want to share their opinion on this.
+
+>From me, +1; in addition to what Antoine said ?ukasz is very communicative,
+so I would expect a smooth mentoring period.
+
+Georg
+
+-- 
+Thus spake the Lord: Thou shalt indent with four spaces. No more, no less.
+Four shall be the number of spaces thou shalt indent, and the number of thy
+indenting shall be four. Eight shalt thou not indent, nor either indent thou
+two, excepting that thou then proceed to four. Tabs are right out.
+
+
+From michael at voidspace.org.uk  Sun Sep  5 18:02:34 2010
+From: michael at voidspace.org.uk (Michael Foord)
+Date: Sun, 5 Sep 2010 17:02:34 +0100
+Subject: [python-committers]
+ =?utf-8?q?Commit_privileges_for_=C5=81ukasz_L?= =?utf-8?q?anga?=
+In-Reply-To: <1283697802.3545.6.camel@localhost.localdomain>
+References: <1283697802.3545.6.camel@localhost.localdomain>
+Message-ID: <8A193EE5-029F-4322-9672-A82BCE1E9CE3@voidspace.org.uk>
+
+
+
+On 5 Sep 2010, at 15:43, Antoine Pitrou <solipsis at pitrou.net> wrote:
+
+> 
+> Hello,
+> 
+> I propose we give commit privileges to ?ukasz Langa. He has submitted
+> various non-trivial patches of rather good quality (for example new
+> features for ConfigParser), some of which have already been committed;
+> it seems that he's motivated to further contribute.
+> 
+> Perhaps other devs want to share their opinion on this.
+> 
+
++1
+
+He has been mentored by Fred Drake and has been very concerned about topics like Python coding style, backwards compatibility and so on. I think he will be a great addition.
+
+
+Michael Foord
+
+
+
+
+
+> (for the curious, his tracker id is lukasz.langa)
+> 
+> Regards
+> 
+> Antoine.
+> 
+> 
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+
+From jnoller at gmail.com  Sun Sep  5 18:13:20 2010
+From: jnoller at gmail.com (Jesse Noller)
+Date: Sun, 5 Sep 2010 12:13:20 -0400
+Subject: [python-committers]
+	=?utf-8?q?Commit_privileges_for_=C5=81ukasz_L?= =?utf-8?q?anga?=
+In-Reply-To: <8A193EE5-029F-4322-9672-A82BCE1E9CE3@voidspace.org.uk>
+References: <1283697802.3545.6.camel@localhost.localdomain>
+	<8A193EE5-029F-4322-9672-A82BCE1E9CE3@voidspace.org.uk>
+Message-ID: <AANLkTimAA_H_kvezOtvr3-Nc-t+zQKCaQWGiprAfS9iA@mail.gmail.com>
+
+On Sun, Sep 5, 2010 at 12:02 PM, Michael Foord <michael at voidspace.org.uk> wrote:
+>
+>
+> On 5 Sep 2010, at 15:43, Antoine Pitrou <solipsis at pitrou.net> wrote:
+>
+>>
+>> Hello,
+>>
+>> I propose we give commit privileges to ?ukasz Langa. He has submitted
+>> various non-trivial patches of rather good quality (for example new
+>> features for ConfigParser), some of which have already been committed;
+>> it seems that he's motivated to further contribute.
+>>
+>> Perhaps other devs want to share their opinion on this.
+>>
+>
+> +1
+>
+> He has been mentored by Fred Drake and has been very concerned about topics like Python coding style, backwards compatibility and so on. I think he will be a great addition.
+>
+>
+> Michael Foord
+>
+
+If you three vouch for him; I'm definitely a +1
+
+From brian.curtin at gmail.com  Sun Sep  5 18:40:34 2010
+From: brian.curtin at gmail.com (Brian Curtin)
+Date: Sun, 5 Sep 2010 11:40:34 -0500
+Subject: [python-committers]
+	=?utf-8?q?Commit_privileges_for_=C5=81ukasz_L?= =?utf-8?q?anga?=
+In-Reply-To: <1283697802.3545.6.camel@localhost.localdomain>
+References: <1283697802.3545.6.camel@localhost.localdomain>
+Message-ID: <AANLkTiknAMrpGyFF8soZVqJGZTYiwsbkncPjsdj1zZJe@mail.gmail.com>
+
+On Sun, Sep 5, 2010 at 09:43, Antoine Pitrou <solipsis at pitrou.net> wrote:
+
+>
+> Hello,
+>
+> I propose we give commit privileges to ?ukasz Langa. He has submitted
+> various non-trivial patches of rather good quality (for example new
+> features for ConfigParser), some of which have already been committed;
+> it seems that he's motivated to further contribute.
+>
+> Perhaps other devs want to share their opinion on this.
+>
+> (for the curious, his tracker id is lukasz.langa)
+>
+> Regards
+>
+> Antoine.
+
+
++1 from me. The patches I've reviewed from him have been well made and
+thought out. He is also pretty open and receptive to review comments and
+discussion about his work.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20100905/df33ca7d/attachment.html>
+
+From martin at v.loewis.de  Sun Sep  5 19:00:01 2010
+From: martin at v.loewis.de (=?UTF-8?B?Ik1hcnRpbiB2LiBMw7Z3aXMi?=)
+Date: Sun, 05 Sep 2010 19:00:01 +0200
+Subject: [python-committers]
+ =?utf-8?q?Commit_privileges_for_=C5=81ukasz_L?= =?utf-8?q?anga?=
+In-Reply-To: <1283697802.3545.6.camel@localhost.localdomain>
+References: <1283697802.3545.6.camel@localhost.localdomain>
+Message-ID: <4C83CC91.8090202@v.loewis.de>
+
+> I propose we give commit privileges to ?ukasz Langa. He has submitted
+> various non-trivial patches of rather good quality (for example new
+> features for ConfigParser), some of which have already been committed;
+> it seems that he's motivated to further contribute.
+
+So who wants to be his mentor?
+
+Regards,
+Martin
+
+From g.brandl at gmx.net  Sun Sep  5 20:46:51 2010
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Sun, 05 Sep 2010 20:46:51 +0200
+Subject: [python-committers] 3.2 alpha 2 freeze
+In-Reply-To: <i5vk4t$52n$1@dough.gmane.org>
+References: <i5vk4t$52n$1@dough.gmane.org>
+Message-ID: <i60op8$ic9$1@dough.gmane.org>
+
+3.2a2 is tagged!
+
+py3k is now completely frozen in case I mess something up.
+
+Georg
+
+
+-- 
+Thus spake the Lord: Thou shalt indent with four spaces. No more, no less.
+Four shall be the number of spaces thou shalt indent, and the number of thy
+indenting shall be four. Eight shalt thou not indent, nor either indent thou
+two, excepting that thou then proceed to four. Tabs are right out.
+
+
+From g.brandl at gmx.net  Sun Sep  5 23:21:40 2010
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Sun, 05 Sep 2010 23:21:40 +0200
+Subject: [python-committers] 3.2 alpha 2 freeze
+In-Reply-To: <i5vk4t$52n$1@dough.gmane.org>
+References: <i5vk4t$52n$1@dough.gmane.org>
+Message-ID: <i611rh$q74$1@dough.gmane.org>
+
+Am 05.09.2010 10:21, schrieb Georg Brandl:
+> Hi,
+> 
+> the py3k branch is now in a "soft freeze" state for the 3.2a2 release.
+> Please no commits that could affect stability; doc updates and the like
+> are still ok.
+
+The branch is open again!  The official announcement for 3.2a2 will be
+sent out once the Mac installer(s) are ready.
+
+Thanks for your patience,
+Georg
+
+-- 
+Thus spake the Lord: Thou shalt indent with four spaces. No more, no less.
+Four shall be the number of spaces thou shalt indent, and the number of thy
+indenting shall be four. Eight shalt thou not indent, nor either indent thou
+two, excepting that thou then proceed to four. Tabs are right out.
+
+
+From g.brandl at gmx.net  Sun Sep  5 23:22:25 2010
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Sun, 05 Sep 2010 23:22:25 +0200
+Subject: [python-committers]
+	=?utf-8?q?Commit_privileges_for_=C5=81ukasz_L?= =?utf-8?q?anga?=
+In-Reply-To: <4C83CC91.8090202@v.loewis.de>
+References: <1283697802.3545.6.camel@localhost.localdomain>
+	<4C83CC91.8090202@v.loewis.de>
+Message-ID: <i611su$q74$2@dough.gmane.org>
+
+Am 05.09.2010 19:00, schrieb "Martin v. L?wis":
+>> I propose we give commit privileges to ?ukasz Langa. He has submitted
+>> various non-trivial patches of rather good quality (for example new
+>> features for ConfigParser), some of which have already been committed;
+>> it seems that he's motivated to further contribute.
+> 
+> So who wants to be his mentor?
+
+I will do that if nobody else volunteers.
+
+Georg
+
+-- 
+Thus spake the Lord: Thou shalt indent with four spaces. No more, no less.
+Four shall be the number of spaces thou shalt indent, and the number of thy
+indenting shall be four. Eight shalt thou not indent, nor either indent thou
+two, excepting that thou then proceed to four. Tabs are right out.
+
+
+From fdrake at acm.org  Mon Sep  6 02:30:32 2010
+From: fdrake at acm.org (Fred Drake)
+Date: Sun, 5 Sep 2010 20:30:32 -0400
+Subject: [python-committers]
+	=?utf-8?q?Commit_privileges_for_=C5=81ukasz_L?= =?utf-8?q?anga?=
+In-Reply-To: <1283697802.3545.6.camel@localhost.localdomain>
+References: <1283697802.3545.6.camel@localhost.localdomain>
+Message-ID: <AANLkTikEU3ZxHU+jY-zBSJe4aFFoqOLNVjnxyxrQ1ATB@mail.gmail.com>
+
+On Sun, Sep 5, 2010 at 10:43 AM, Antoine Pitrou <solipsis at pitrou.net> wrote:
+> I propose we give commit privileges to ?ukasz Langa. He has submitted
+> various non-trivial patches of rather good quality (for example new
+> features for ConfigParser), some of which have already been committed;
+
++1
+
+
+? -Fred
+
+--
+Fred L. Drake, Jr.? ? <fdrake at gmail.com>
+"A storm broke loose in my mind."? --Albert Einstein
+
+From michael at voidspace.org.uk  Wed Sep  8 11:15:08 2010
+From: michael at voidspace.org.uk (Michael Foord)
+Date: Wed, 08 Sep 2010 10:15:08 +0100
+Subject: [python-committers] Updated ssh key
+Message-ID: <4C87541C.9060304@voidspace.org.uk>
+
+  Hello,
+
+I've had to generate an rsa key for work. Could the rsa key be installed 
+as well? (Both for Python development and for website updates.)
+
+All the best,
+
+Michael
+
+-- 
+http://www.ironpythoninaction.com/
+http://www.voidspace.org.uk/blog
+
+READ CAREFULLY. By accepting and reading this email you agree, on behalf of your employer, to release me from all obligations and waivers arising from any and all NON-NEGOTIATED agreements, licenses, terms-of-service, shrinkwrap, clickwrap, browsewrap, confidentiality, non-disclosure, non-compete and acceptable use policies (?BOGUS AGREEMENTS?) that I have entered into with your employer, its partners, licensors, agents and assigns, in perpetuity, without prejudice to my ongoing rights and privileges. You further represent that you have the authority to release me from any BOGUS AGREEMENTS on behalf of your employer.
+
+
+-------------- next part --------------
+An embedded and charset-unspecified text was scrubbed...
+Name: id_rsa.pub
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20100908/8384eeb4/attachment.ksh>
+
+From brett at python.org  Wed Sep  8 19:09:03 2010
+From: brett at python.org (Brett Cannon)
+Date: Wed, 8 Sep 2010 10:09:03 -0700
+Subject: [python-committers] Updated ssh key
+In-Reply-To: <4C87541C.9060304@voidspace.org.uk>
+References: <4C87541C.9060304@voidspace.org.uk>
+Message-ID: <AANLkTin6+Tosv6iYX-gunfKXfSPTTADBXWozh91s6JQb@mail.gmail.com>
+
+Assuming I didn't botch anything you are good on the core side of things.
+
+On Wed, Sep 8, 2010 at 02:15, Michael Foord <michael at voidspace.org.uk> wrote:
+> ?Hello,
+>
+> I've had to generate an rsa key for work. Could the rsa key be installed as
+> well? (Both for Python development and for website updates.)
+>
+> All the best,
+>
+> Michael
+>
+> --
+> http://www.ironpythoninaction.com/
+> http://www.voidspace.org.uk/blog
+>
+> READ CAREFULLY. By accepting and reading this email you agree, on behalf of
+> your employer, to release me from all obligations and waivers arising from
+> any and all NON-NEGOTIATED agreements, licenses, terms-of-service,
+> shrinkwrap, clickwrap, browsewrap, confidentiality, non-disclosure,
+> non-compete and acceptable use policies (?BOGUS AGREEMENTS?) that I have
+> entered into with your employer, its partners, licensors, agents and
+> assigns, in perpetuity, without prejudice to my ongoing rights and
+> privileges. You further represent that you have the authority to release me
+> from any BOGUS AGREEMENTS on behalf of your employer.
+>
+>
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+>
+>
+
+From michael at voidspace.org.uk  Wed Sep  8 19:32:26 2010
+From: michael at voidspace.org.uk (Michael Foord)
+Date: Wed, 08 Sep 2010 18:32:26 +0100
+Subject: [python-committers] Updated ssh key
+In-Reply-To: <AANLkTin6+Tosv6iYX-gunfKXfSPTTADBXWozh91s6JQb@mail.gmail.com>
+References: <4C87541C.9060304@voidspace.org.uk>
+	<AANLkTin6+Tosv6iYX-gunfKXfSPTTADBXWozh91s6JQb@mail.gmail.com>
+Message-ID: <4C87C8AA.5090900@voidspace.org.uk>
+
+  On 08/09/2010 18:09, Brett Cannon wrote:
+> Assuming I didn't botch anything you are good on the core side of things.
+
+Yeah - looks like that worked. Thanks.
+
+Much appreciated,
+
+Michael Foord
+> On Wed, Sep 8, 2010 at 02:15, Michael Foord<michael at voidspace.org.uk>  wrote:
+>>   Hello,
+>>
+>> I've had to generate an rsa key for work. Could the rsa key be installed as
+>> well? (Both for Python development and for website updates.)
+>>
+>> All the best,
+>>
+>> Michael
+>>
+>> --
+>> http://www.ironpythoninaction.com/
+>> http://www.voidspace.org.uk/blog
+>>
+>> READ CAREFULLY. By accepting and reading this email you agree, on behalf of
+>> your employer, to release me from all obligations and waivers arising from
+>> any and all NON-NEGOTIATED agreements, licenses, terms-of-service,
+>> shrinkwrap, clickwrap, browsewrap, confidentiality, non-disclosure,
+>> non-compete and acceptable use policies (?BOGUS AGREEMENTS?) that I have
+>> entered into with your employer, its partners, licensors, agents and
+>> assigns, in perpetuity, without prejudice to my ongoing rights and
+>> privileges. You further represent that you have the authority to release me
+>> from any BOGUS AGREEMENTS on behalf of your employer.
+>>
+>>
+>>
+>> _______________________________________________
+>> python-committers mailing list
+>> python-committers at python.org
+>> http://mail.python.org/mailman/listinfo/python-committers
+>>
+>>
+
+
+-- 
+http://www.ironpythoninaction.com/
+http://www.voidspace.org.uk/blog
+
+READ CAREFULLY. By accepting and reading this email you agree, on behalf of your employer, to release me from all obligations and waivers arising from any and all NON-NEGOTIATED agreements, licenses, terms-of-service, shrinkwrap, clickwrap, browsewrap, confidentiality, non-disclosure, non-compete and acceptable use policies (?BOGUS AGREEMENTS?) that I have entered into with your employer, its partners, licensors, agents and assigns, in perpetuity, without prejudice to my ongoing rights and privileges. You further represent that you have the authority to release me from any BOGUS AGREEMENTS on behalf of your employer.
+
+
+
+From lukasz at langa.pl  Wed Sep  8 22:01:25 2010
+From: lukasz at langa.pl (=?utf-8?Q?=C5=81ukasz_Langa?=)
+Date: Wed, 8 Sep 2010 22:01:25 +0200
+Subject: [python-committers] Hello fellow committers!
+Message-ID: <C405AC95-2169-4CD3-94D9-95F54D5C15FD@langa.pl>
+
+Hi, just wanted to introduce myself as I just received commit privileges. My name is ?ukasz Langa, I'm a 25 year old Pole currently located in Pozna?, Poland (soon to be Hamburg, Germany).
+
+Most of you don't know me yet. I'm currently playing with configparser for the most part. Beside hacking on Python I'm a father of an amazing 2 year old boy and I play the piano :)
+
+Thanks for your trust, means a lot. I hope you'll find my contributions useful. Cheers!
+
+-- 
+Best regards,
+?ukasz Langa
+tel. +48 791 080 144
+WWW http://lukasz.langa.pl/
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20100908/e3791f31/attachment.html>
+
+From daniel at stutzbachenterprises.com  Thu Sep 16 00:19:30 2010
+From: daniel at stutzbachenterprises.com (Daniel Stutzbach)
+Date: Wed, 15 Sep 2010 17:19:30 -0500
+Subject: [python-committers] Hello fellow committers!
+In-Reply-To: <C405AC95-2169-4CD3-94D9-95F54D5C15FD@langa.pl>
+References: <C405AC95-2169-4CD3-94D9-95F54D5C15FD@langa.pl>
+Message-ID: <AANLkTimyV-HqKvCh7cZ90YKEyHj8fPe323PA4yK8v8y8@mail.gmail.com>
+
+2010/9/8 ?ukasz Langa <lukasz at langa.pl>
+
+> Hi, just wanted to introduce myself as I just received commit privileges.
+> My name is ?ukasz Langa, I'm a 25 year old Pole currently located in Pozna?,
+> Poland (soon to be Hamburg, Germany).
+>
+> Most of you don't know me yet. I'm currently playing with configparser for
+> the most part. Beside hacking on Python I'm a father of an amazing 2 year
+> old boy and I play the piano :)
+>
+
+Welcome,  ?ukasz!
+
+I, too, should introduce myself, as I received my commit privileges less
+than a month ago.  I've interacted with many of you in some fashion over the
+years.  My first commit was in 2002, I have been subscribed to python-dev
+since 2006, and I attended PyCon in 2007 and 2009.  The number of bug
+reports and patches I have been able to contribute has gradually increased,
+particularly over the last few years.  Partly I'm just more familiar with
+the Python codebase, partly I've managed to find more time for it, and
+partly I learned to use git-svn [1] which has made juggling multiple patches
+much easier. ;-)
+
+I am living in Dallas, Texas but will soon be be moving to the San Francisco
+Bay Area where I will begin working for Google starting on November 1st.
+
+Outside of computer programming, I enjoy juggling, board and card games, and
+good food (cooking and consuming).  I am happily married and in addition to
+enjoying games and food together, when we can find time we also enjoying
+hiking and dancing the Tango.
+
+[1]: My personal thanks to the anonymous person(s) who wrote
+http://wiki.python.org/moin/Git
+--
+Daniel Stutzbach
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20100915/dfbbea2b/attachment.html>
+
+From ocean-city at m2.ccsnet.ne.jp  Sun Sep 26 14:29:02 2010
+From: ocean-city at m2.ccsnet.ne.jp (Hirokazu Yamamoto)
+Date: Sun, 26 Sep 2010 21:29:02 +0900
+Subject: [python-committers] Adding file temporary for debugging sake.
+Message-ID: <4C9F3C8E.7080507@m2.ccsnet.ne.jp>
+
+Is it allowed to add one script file temporary into PCBuild or
+Tools/buildbot? Thank you.
+
+From martin at v.loewis.de  Sun Sep 26 15:11:28 2010
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Sun, 26 Sep 2010 15:11:28 +0200
+Subject: [python-committers] Adding file temporary for debugging sake.
+In-Reply-To: <4C9F3C8E.7080507@m2.ccsnet.ne.jp>
+References: <4C9F3C8E.7080507@m2.ccsnet.ne.jp>
+Message-ID: <4C9F4680.3020308@v.loewis.de>
+
+Am 26.09.2010 14:29, schrieb Hirokazu Yamamoto:
+> Is it allowed to add one script file temporary into PCBuild or
+> Tools/buildbot? Thank you.
+
+Sure. For testing out stuff, you can add or remove whatever you want.
+
+If you want to be extra cautious, or plan a series of experiments
+affecting only a single buildbot, it might be best to create a branch,
+and then manually trigger a build of that branch on the build slaves
+that interest you.
+
+Regards,
+Martin
+
+From ocean-city at m2.ccsnet.ne.jp  Sun Sep 26 18:12:21 2010
+From: ocean-city at m2.ccsnet.ne.jp (Hirokazu Yamamoto)
+Date: Mon, 27 Sep 2010 01:12:21 +0900
+Subject: [python-committers] Adding file temporary for debugging sake.
+In-Reply-To: <4C9F4680.3020308@v.loewis.de>
+References: <4C9F3C8E.7080507@m2.ccsnet.ne.jp> <4C9F4680.3020308@v.loewis.de>
+Message-ID: <4C9F70E5.4020205@m2.ccsnet.ne.jp>
+
+On 2010/09/26 22:11, "Martin v. L?wis" wrote:
+> Am 26.09.2010 14:29, schrieb Hirokazu Yamamoto:
+>> Is it allowed to add one script file temporary into PCBuild or
+>> Tools/buildbot? Thank you.
+>
+> Sure. For testing out stuff, you can add or remove whatever you want.
+>
+> If you want to be extra cautious, or plan a series of experiments
+> affecting only a single buildbot, it might be best to create a branch,
+> and then manually trigger a build of that branch on the build slaves
+> that interest you.
+>
+> Regards,
+> Martin
+>
+>
+
+Oh, I didn't know that! I'll try. Thank you very much.
+
+Regards,
+Yamamoto.
+
+From ocean-city at m2.ccsnet.ne.jp  Tue Sep 28 11:02:29 2010
+From: ocean-city at m2.ccsnet.ne.jp (Hirokazu Yamamoto)
+Date: Tue, 28 Sep 2010 18:02:29 +0900
+Subject: [python-committers] Adding file temporary for debugging sake.
+In-Reply-To: <4C9F70E5.4020205@m2.ccsnet.ne.jp>
+References: <4C9F3C8E.7080507@m2.ccsnet.ne.jp> <4C9F4680.3020308@v.loewis.de>
+	<4C9F70E5.4020205@m2.ccsnet.ne.jp>
+Message-ID: <4CA1AF25.4020205@m2.ccsnet.ne.jp>
+
+On 2010/09/27 1:12, Hirokazu Yamamoto wrote:
+> On 2010/09/26 22:11, "Martin v. L?wis" wrote:
+>> Am 26.09.2010 14:29, schrieb Hirokazu Yamamoto:
+>>> Is it allowed to add one script file temporary into PCBuild or
+>>> Tools/buildbot? Thank you.
+>>
+>> Sure. For testing out stuff, you can add or remove whatever you want.
+>>
+>> If you want to be extra cautious, or plan a series of experiments
+>> affecting only a single buildbot, it might be best to create a branch,
+>> and then manually trigger a build of that branch on the build slaves
+>> that interest you.
+>>
+>> Regards,
+>> Martin
+>>
+>>
+>
+> Oh, I didn't know that! I'll try. Thank you very much.
+>
+> Regards,
+> Yamamoto.
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+
+Hmm, I couldn't run buildbot for custom branch. It seems
+svn checkout hangs.
+
+Please see
+ttp://www.python.org/dev/buildbot/all/builders/x86%20XP-5%203.x/builds/1377
+
+# I'll try to commit into branches/py3k temporary.
+
+From ocean-city at m2.ccsnet.ne.jp  Tue Sep 28 11:13:40 2010
+From: ocean-city at m2.ccsnet.ne.jp (Hirokazu Yamamoto)
+Date: Tue, 28 Sep 2010 18:13:40 +0900
+Subject: [python-committers] Adding file temporary for debugging sake.
+In-Reply-To: <4CA1AF25.4020205@m2.ccsnet.ne.jp>
+References: <4C9F3C8E.7080507@m2.ccsnet.ne.jp>
+	<4C9F4680.3020308@v.loewis.de>	<4C9F70E5.4020205@m2.ccsnet.ne.jp>
+	<4CA1AF25.4020205@m2.ccsnet.ne.jp>
+Message-ID: <4CA1B1C4.6070503@m2.ccsnet.ne.jp>
+
+No, "force rebuild" itself didn't run not depends on custom/official
+branch.
+
+From martin at v.loewis.de  Tue Sep 28 19:13:37 2010
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Tue, 28 Sep 2010 19:13:37 +0200
+Subject: [python-committers] Adding file temporary for debugging sake.
+In-Reply-To: <4CA1AF25.4020205@m2.ccsnet.ne.jp>
+References: <4C9F3C8E.7080507@m2.ccsnet.ne.jp> <4C9F4680.3020308@v.loewis.de>
+	<4C9F70E5.4020205@m2.ccsnet.ne.jp>
+	<4CA1AF25.4020205@m2.ccsnet.ne.jp>
+Message-ID: <4CA22241.6010502@v.loewis.de>
+
+> Please see
+> http://www.python.org/dev/buildbot/all/builders/x86%20XP-5%203.x/builds/1377
+
+Please consider the error message:
+
+[Error 32] The process cannot access the file because it is being used
+by another process:
+'C:\\buildslave\\3.x.moore-windows\\build\\build\\test_python_2284'
+
+So there is still a process (most likely from a previous test run)
+that has one of the files open that would need to be deleted.
+Most likely, some popup window is displayed on the machine, and
+clicking it would terminate that process, allowing the files to
+be removed.
+
+You have to get into contact with the slave admin and ask him to
+clean the buildbot before anything can proceed.
+
+Regards,
+Martin
+

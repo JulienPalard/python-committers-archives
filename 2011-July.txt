@@ -1,0 +1,571 @@
+From g.brandl at gmx.net  Sun Jul  3 09:22:42 2011
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Sun, 03 Jul 2011 09:22:42 +0200
+Subject: [python-committers] Python 3.2.1rc2
+Message-ID: <iup5at$eb8$1@dough.gmane.org>
+
+Hi all,
+
+I'm starting to release 3.2.1 rc2 now.  There are two stable buildbot failures
+that look legitimate; if anyone feels like helping find out how to fix them
+join me in #python-dev, otherwise we'll get this handled in time for final.
+
+Georg
+
+
+From victor.stinner at haypocalc.com  Mon Jul  4 03:18:55 2011
+From: victor.stinner at haypocalc.com (Victor Stinner)
+Date: Mon, 04 Jul 2011 03:18:55 +0200
+Subject: [python-committers] Python 3.2.1rc2
+In-Reply-To: <iup5at$eb8$1@dough.gmane.org>
+References: <iup5at$eb8$1@dough.gmane.org>
+Message-ID: <1309742335.2832.4.camel@marge>
+
+> I'm starting to release 3.2.1 rc2 now.  There are two stable buildbot failures
+> that look legitimate
+
+I suppose that one of the failure was the issue #12467. The following
+commit fixed it in the 3.2 branch:
+
+New changeset ac18e70cbe7e by Victor Stinner in branch '3.2':
+Issue #12467: warnings: fix a race condition if a warning is emitted at
+http://hg.python.org/cpython/rev/ac18e70cbe7e
+
+And I suppose that the second failure is the issue #12440. According to
+Antoine Pitrou, it's a problem specific to the buildbot, not a bug in
+Python (see his comment on the issue).
+
+--
+
+It would be nice to have issue #12411 fixed in 3.2.1, but it's not a
+must-have. I just read somewhere that some people are using the cgi
+module to do modern web things like WSGI. I don't know if they use the
+cgi multipart parser (apparently not because the issue was only reported
+few days ago?). I didn't have time to review the patch.
+
+Do you think that it is a really blocker or not?
+
+Victor
+
+
+From g.brandl at gmx.net  Mon Jul  4 08:23:38 2011
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Mon, 04 Jul 2011 08:23:38 +0200
+Subject: [python-committers] Python 3.2.1rc2
+In-Reply-To: <1309742335.2832.4.camel@marge>
+References: <iup5at$eb8$1@dough.gmane.org> <1309742335.2832.4.camel@marge>
+Message-ID: <iurm86$604$1@dough.gmane.org>
+
+Am 04.07.2011 03:18, schrieb Victor Stinner:
+>> I'm starting to release 3.2.1 rc2 now.  There are two stable buildbot failures
+>> that look legitimate
+> 
+> I suppose that one of the failure was the issue #12467. The following
+> commit fixed it in the 3.2 branch:
+> 
+> New changeset ac18e70cbe7e by Victor Stinner in branch '3.2':
+> Issue #12467: warnings: fix a race condition if a warning is emitted at
+> http://hg.python.org/cpython/rev/ac18e70cbe7e
+
+OK, I've transplanted that one into the release branch.
+
+> And I suppose that the second failure is the issue #12440. According to
+> Antoine Pitrou, it's a problem specific to the buildbot, not a bug in
+> Python (see his comment on the issue).
+
+That's non-critical for the release then.
+
+> It would be nice to have issue #12411 fixed in 3.2.1, but it's not a
+> must-have. I just read somewhere that some people are using the cgi
+> module to do modern web things like WSGI. I don't know if they use the
+> cgi multipart parser (apparently not because the issue was only reported
+> few days ago?). I didn't have time to review the patch.
+> 
+> Do you think that it is a really blocker or not?
+
+I don't think it's a blocker.
+
+Georg
+
+
+From georg at python.org  Mon Jul  4 19:48:50 2011
+From: georg at python.org (Georg Brandl)
+Date: Mon, 04 Jul 2011 19:48:50 +0200
+Subject: [python-committers] [RELEASED] Python 3.2.1 rc 2
+Message-ID: <4E11FD02.3040205@python.org>
+
+On behalf of the Python development team, I am pleased to announce the
+second release candidate of Python 3.2.1.
+
+Python 3.2.1 will the first bugfix release for Python 3.2, fixing over 120
+bugs and regressions in Python 3.2.
+
+For an extensive list of changes and features in the 3.2 line, see
+
+    http://docs.python.org/3.2/whatsnew/3.2.html
+
+To download Python 3.2.1 visit:
+
+    http://www.python.org/download/releases/3.2.1/
+
+This is a testing release: Please consider trying Python 3.2.1 with your code
+and reporting any bugs you may notice to:
+
+    http://bugs.python.org/
+
+
+Enjoy!
+
+-- 
+Georg Brandl, Release Manager
+georg at python.org
+(on behalf of the entire python-dev team and 3.2's contributors)
+
+From g.brandl at gmx.net  Mon Jul  4 19:50:42 2011
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Mon, 04 Jul 2011 19:50:42 +0200
+Subject: [python-committers] Python 3.2.1rc2
+In-Reply-To: <iup5at$eb8$1@dough.gmane.org>
+References: <iup5at$eb8$1@dough.gmane.org>
+Message-ID: <iusugc$ir2$1@dough.gmane.org>
+
+Am 03.07.2011 09:22, schrieb Georg Brandl:
+> Hi all,
+> 
+> I'm starting to release 3.2.1 rc2 now.  There are two stable buildbot failures
+> that look legitimate; if anyone feels like helping find out how to fix them
+> join me in #python-dev, otherwise we'll get this handled in time for final.
+
+OK, now this release is out the door, I'll not merge the main 3.2 branch into
+the release clone (hg.python.org/releasing/3.2.1) anymore.  (I will merge the
+release clone into the main repo though, to make the rc2 tag available there.)
+
+IOW: Commit to 3.2 what you like (well, bugfixes only), but it won't make 3.2.1
+unless it's a critical fix and you notify me of it.
+
+Georg
+
+
+
+From solipsis at pitrou.net  Mon Jul  4 21:01:35 2011
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Mon, 04 Jul 2011 21:01:35 +0200
+Subject: [python-committers] Mercurial upgrade
+Message-ID: <1309806095.3688.56.camel@localhost.localdomain>
+
+
+Hello,
+
+I've upgraded the Mercurial version on hg.python.org to 1.9.
+Also, I've enabled the experimental "generaldelta" repository feature on
+the server, which makes the repository smaller (down from ~350 MB to
+~190 MB), regardless of the client version.
+
+Sorry for any inconvenience.
+
+Regards
+
+Antoine.
+
+
+
+From dirkjan at ochtman.nl  Mon Jul  4 22:51:46 2011
+From: dirkjan at ochtman.nl (Dirkjan Ochtman)
+Date: Mon, 4 Jul 2011 22:51:46 +0200
+Subject: [python-committers] Mercurial upgrade
+In-Reply-To: <1309806095.3688.56.camel@localhost.localdomain>
+References: <1309806095.3688.56.camel@localhost.localdomain>
+Message-ID: <CAKmKYaC4ApuQMML7eH5bxYCGCV8MRU8U1FbJquF+4sGGW93ZrA@mail.gmail.com>
+
+On Mon, Jul 4, 2011 at 21:01, Antoine Pitrou <solipsis at pitrou.net> wrote:
+> I've upgraded the Mercurial version on hg.python.org to 1.9.
+> Also, I've enabled the experimental "generaldelta" repository feature on
+> the server, which makes the repository smaller (down from ~350 MB to
+> ~190 MB), regardless of the client version.
+
+Did you ask the hg guys about the generaldelta thing? IIRC it's
+actually experimental, which I wouldn't use on something like the
+production repository python devs use.
+
+OTOH, 1.9 should also come with faster push/pull (much faster in some
+cases), so that should be nice.
+
+Cheers,
+
+Dirkjan
+
+From solipsis at pitrou.net  Mon Jul  4 23:03:33 2011
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Mon, 04 Jul 2011 23:03:33 +0200
+Subject: [python-committers] Mercurial upgrade
+In-Reply-To: <CAKmKYaC4ApuQMML7eH5bxYCGCV8MRU8U1FbJquF+4sGGW93ZrA@mail.gmail.com>
+References: <1309806095.3688.56.camel@localhost.localdomain>
+	<CAKmKYaC4ApuQMML7eH5bxYCGCV8MRU8U1FbJquF+4sGGW93ZrA@mail.gmail.com>
+Message-ID: <1309813413.3688.64.camel@localhost.localdomain>
+
+
+Le lundi 04 juillet 2011 ? 22:51 +0200, Dirkjan Ochtman a ?crit :
+> On Mon, Jul 4, 2011 at 21:01, Antoine Pitrou <solipsis at pitrou.net> wrote:
+> > I've upgraded the Mercurial version on hg.python.org to 1.9.
+> > Also, I've enabled the experimental "generaldelta" repository feature on
+> > the server, which makes the repository smaller (down from ~350 MB to
+> > ~190 MB), regardless of the client version.
+> 
+> Did you ask the hg guys about the generaldelta thing? IIRC it's
+> actually experimental, which I wouldn't use on something like the
+> production repository python devs use.
+
+From my discussions with them the core functionality was pretty much
+stable. I had tried it locally a couple of times when 1.9 was still in
+development.
+I guess we should run "hg verify" on the server from time to time,
+anyway.
+
+Also, it doesn't imply anything on the client side, where generaldelta
+is still disabled by default.
+
+Regards
+
+Antoine.
+
+
+
+From jcea at jcea.es  Tue Jul  5 04:08:11 2011
+From: jcea at jcea.es (Jesus Cea)
+Date: Tue, 05 Jul 2011 04:08:11 +0200
+Subject: [python-committers] Mercurial upgrade
+In-Reply-To: <1309806095.3688.56.camel@localhost.localdomain>
+References: <1309806095.3688.56.camel@localhost.localdomain>
+Message-ID: <4E12720B.9060101@jcea.es>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On 04/07/11 21:01, Antoine Pitrou wrote:
+> I've upgraded the Mercurial version on hg.python.org to 1.9. Also,
+> I've enabled the experimental "generaldelta" repository feature on 
+> the server, which makes the repository smaller (down from ~350 MB to 
+> ~190 MB), regardless of the client version.
+> 
+
+"generaldelta" is marked as "experimental". Is it wise to activate?.
+
+In fact Mercurial 1.9 dropped "experimental" 'parentdelta', so
+"experimental" actually is... quite experimental and not garanteed:).
+
+And yes, I have read your posts to HG development mailinglist in May,
+and I have big hopes for "generaldelta" or something close to it. But I
+will wait until is "official" (luckily activate per default for new
+repositories/network clones).
+
+- -- 
+Jesus Cea Avion                         _/_/      _/_/_/        _/_/_/
+jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+jabber / xmpp:jcea at jabber.org         _/_/    _/_/          _/_/_/_/_/
+.                              _/_/  _/_/    _/_/          _/_/  _/_/
+"Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+"My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+"El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.10 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - http://enigmail.mozdev.org/
+
+iQCVAwUBThJyC5lgi5GaxT1NAQKjuwP8DTgPIVkIuaEgGt5rHDUPZ/I5JK+wiGlN
+oDW1xiZ046jix/NmOtS3Mz2aM3vwDVBtYHnIaqnexsojXVCU4GhIJ5RVGhAj9P57
+FTIWIBaF09GfqmQFclKnWW4yOP5mB8WcAKB3/RskQglSHugE8xg3Slk5Lz6HgOy5
+OSiPpYK0sqM=
+=olmi
+-----END PGP SIGNATURE-----
+
+From g.brandl at gmx.net  Tue Jul  5 08:33:59 2011
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Tue, 05 Jul 2011 08:33:59 +0200
+Subject: [python-committers] Mercurial upgrade
+In-Reply-To: <1309813413.3688.64.camel@localhost.localdomain>
+References: <1309806095.3688.56.camel@localhost.localdomain>
+	<CAKmKYaC4ApuQMML7eH5bxYCGCV8MRU8U1FbJquF+4sGGW93ZrA@mail.gmail.com>
+	<1309813413.3688.64.camel@localhost.localdomain>
+Message-ID: <iuub7i$hlb$1@dough.gmane.org>
+
+Am 04.07.2011 23:03, schrieb Antoine Pitrou:
+> 
+> Le lundi 04 juillet 2011 ? 22:51 +0200, Dirkjan Ochtman a ?crit :
+>> On Mon, Jul 4, 2011 at 21:01, Antoine Pitrou <solipsis at pitrou.net> wrote:
+>> > I've upgraded the Mercurial version on hg.python.org to 1.9.
+>> > Also, I've enabled the experimental "generaldelta" repository feature on
+>> > the server, which makes the repository smaller (down from ~350 MB to
+>> > ~190 MB), regardless of the client version.
+>> 
+>> Did you ask the hg guys about the generaldelta thing? IIRC it's
+>> actually experimental, which I wouldn't use on something like the
+>> production repository python devs use.
+> 
+> From my discussions with them the core functionality was pretty much
+> stable. I had tried it locally a couple of times when 1.9 was still in
+> development.
+> I guess we should run "hg verify" on the server from time to time,
+> anyway.
+> 
+> Also, it doesn't imply anything on the client side, where generaldelta
+> is still disabled by default.
+
+Which means, translated for the less Mercurial-savvy, that we can restore
+the python.org repo by copying any of the developers' local clones to the
+server, should use of this new format indeed corrupt the repo.
+
+Georg
+
+
+From g.brandl at gmx.net  Tue Jul  5 08:36:10 2011
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Tue, 05 Jul 2011 08:36:10 +0200
+Subject: [python-committers] Mercurial upgrade
+In-Reply-To: <4E12720B.9060101@jcea.es>
+References: <1309806095.3688.56.camel@localhost.localdomain>
+	<4E12720B.9060101@jcea.es>
+Message-ID: <iuubbk$hlb$2@dough.gmane.org>
+
+Am 05.07.2011 04:08, schrieb Jesus Cea:
+> -----BEGIN PGP SIGNED MESSAGE-----
+> Hash: SHA1
+> 
+> On 04/07/11 21:01, Antoine Pitrou wrote:
+>> I've upgraded the Mercurial version on hg.python.org to 1.9. Also,
+>> I've enabled the experimental "generaldelta" repository feature on 
+>> the server, which makes the repository smaller (down from ~350 MB to 
+>> ~190 MB), regardless of the client version.
+>> 
+> 
+> "generaldelta" is marked as "experimental". Is it wise to activate?.
+> 
+> In fact Mercurial 1.9 dropped "experimental" 'parentdelta', so
+> "experimental" actually is... quite experimental and not garanteed:).
+
+parentdelta was removed in favor of generaldelta... and you can't really
+get *more* general :)
+
+But even if it was removed, you can always (using clone --pull locally)
+create a clone that doesn't use that format before you upgrade to the
+hypothetical version with generaldelta removed.
+
+> And yes, I have read your posts to HG development mailinglist in May,
+> and I have big hopes for "generaldelta" or something close to it. But I
+> will wait until is "official" (luckily activate per default for new
+> repositories/network clones).
+
+See my other reply to Antoine.
+
+Georg
+
+
+From jcea at jcea.es  Tue Jul  5 15:04:52 2011
+From: jcea at jcea.es (Jesus Cea)
+Date: Tue, 05 Jul 2011 15:04:52 +0200
+Subject: [python-committers] Mercurial upgrade
+In-Reply-To: <iuubbk$hlb$2@dough.gmane.org>
+References: <1309806095.3688.56.camel@localhost.localdomain>
+	<4E12720B.9060101@jcea.es> <iuubbk$hlb$2@dough.gmane.org>
+Message-ID: <4E130BF4.1020405@jcea.es>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On 05/07/11 08:36, Georg Brandl wrote:
+> parentdelta was removed in favor of generaldelta... and you can't
+> really get *more* general :)
+> 
+> But even if it was removed, you can always (using clone --pull
+> locally) create a clone that doesn't use that format before you
+> upgrade to the hypothetical version with generaldelta removed.
+
+I know. It is what users of "parentdelta" must do to convert their
+repositories BEFORE they migrate to HG 1.9, if they are smart enough to
+pay attention to this BEFORE upgrading :).
+
+My question, actually, is why to hurry using "generaldelta". We could
+wait three more months until it is declared "official". Maybe Antoine
+idea, that would make sense, is python.org being a tester to help to
+actually test "generaldelta" to qualify for production.
+
+I am fine with that, if somebody with access takes care to do a "hg
+verify" frequently :).
+
+- -- 
+Jesus Cea Avion                         _/_/      _/_/_/        _/_/_/
+jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+jabber / xmpp:jcea at jabber.org         _/_/    _/_/          _/_/_/_/_/
+.                              _/_/  _/_/    _/_/          _/_/  _/_/
+"Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+"My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+"El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.10 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - http://enigmail.mozdev.org/
+
+iQCVAwUBThML9Jlgi5GaxT1NAQInnQP8D+3k5y/cWnHcSdUEZF9Y7/Bo3+wvekhW
+mXvNa76NZGKe7f1g9ePG7mt+ynMTpeNDkTxVHxMLJ6MhJd58mG4q9i/ijUPEETYc
+3bL4zpeE9Zf/uKxyeSSq7svrTOe66C3TOuqDJhc1c/V21/pHjAXEbWA4shuh8fju
+tevObrTNgQs=
+=4z77
+-----END PGP SIGNATURE-----
+
+From solipsis at pitrou.net  Tue Jul  5 15:12:17 2011
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Tue, 05 Jul 2011 15:12:17 +0200
+Subject: [python-committers] Mercurial upgrade
+In-Reply-To: <4E130BF4.1020405@jcea.es>
+References: <1309806095.3688.56.camel@localhost.localdomain>
+	<4E12720B.9060101@jcea.es> <iuubbk$hlb$2@dough.gmane.org>
+	<4E130BF4.1020405@jcea.es>
+Message-ID: <1309871537.3683.9.camel@localhost.localdomain>
+
+
+> My question, actually, is why to hurry using "generaldelta". We could
+> wait three more months until it is declared "official". Maybe Antoine
+> idea, that would make sense, is python.org being a tester to help to
+> actually test "generaldelta" to qualify for production.
+
+The prime motivation is that it decreases the size of a clone from 350
+to 190 MB, roughly (and presumably also the download size).
+The fact that it can help the hg devs validate generaldelta on a
+widely-used setup is an added benefit, but that couldn't have been the
+sole motivation.
+
+> I am fine with that, if somebody with access takes care to do a "hg
+> verify" frequently :).
+
+As a side note, if there's a problem, the buildbots should tell us very
+quickly (since they pull from the repo).
+
+Regards
+
+Antoine.
+
+
+
+From patcam at python.org  Fri Jul  8 01:35:15 2011
+From: patcam at python.org (Pat Campbell)
+Date: Thu, 7 Jul 2011 19:35:15 -0400
+Subject: [python-committers] Contributor Agreement & PSF bug tracker profile
+Message-ID: <CAFy_4dKFcrHc16tf0Ri1h109eiNTUD=X3U9mVyjM9yrDjVyORg@mail.gmail.com>
+
+Hi Tyler Romeo:
+
+I have received your contributor agreement by fax and I would like to add it
+to the PSF bug tracker. Could you please forward to me your profile
+user name & id number?
+
+Thanks,
+Pat
+
+-- 
+Pat Campbell
+PSF Administrator/Secretary
+patcam at python.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20110707/8de1d428/attachment.html>
+
+From georg at python.org  Mon Jul 11 07:23:32 2011
+From: georg at python.org (Georg Brandl)
+Date: Mon, 11 Jul 2011 07:23:32 +0200
+Subject: [python-committers] [RELEASED] Python 3.2.1
+Message-ID: <4E1A88D4.5070704@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On behalf of the Python development team, I am pleased to announce the
+final release of Python 3.2.1.
+
+Python 3.2.1 is the first bugfix release for Python 3.2, fixing over 120
+bugs and regressions in Python 3.2.
+
+For an extensive list of changes and features in the 3.2 line, see
+
+    http://docs.python.org/3.2/whatsnew/3.2.html
+
+To download Python 3.2.1 visit:
+
+    http://www.python.org/download/releases/3.2.1/
+
+This is a final release: Please report any bugs you may notice to:
+
+    http://bugs.python.org/
+
+
+Enjoy!
+
+- -- 
+Georg Brandl, Release Manager
+georg at python.org
+(on behalf of the entire python-dev team and 3.2's contributors)
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v2.0.17 (GNU/Linux)
+
+iEYEARECAAYFAk4aiNMACgkQN9GcIYhpnLDofwCglfgDQ1/B/TxxwfqtDxK13ksz
+micAn0CVWmNNaYE2a6z0N7+Dz+hCZSj1
+=7Mia
+-----END PGP SIGNATURE-----
+
+From patcam at python.org  Fri Jul 15 20:32:39 2011
+From: patcam at python.org (Pat Campbell)
+Date: Fri, 15 Jul 2011 14:32:39 -0400
+Subject: [python-committers] [PSF-Board] Contributor Agreement
+In-Reply-To: <20110714131011.GC6660@jajo.eggsoft>
+References: <20110714131011.GC6660@jajo.eggsoft>
+Message-ID: <CAFy_4dJBEDsp_ZK3kFRVkMnYe4ZwqRmE7kJNOUZz7_bkz6zW3w@mail.gmail.com>
+
+Hi Jacek:
+
+Thanks for submitting your contributor agreement. It has been added to the
+PSF bug tracker.
+
+Pat
+
+On Thu, Jul 14, 2011 at 9:10 AM, Jacek Konieczny <jajcus at jajcus.net> wrote:
+
+> Hello,
+>
+> Please find the signed Contributor Agreement attached.
+>
+> (now, with the attachment, hopefully)
+>
+> Greets,
+>         Jacek Konieczny
+>
+> _______________________________________________
+> PSF-Board mailing list
+> PSF-Board at python.org
+> http://mail.python.org/mailman/listinfo/psf-board
+>
+>
+
+
+-- 
+Pat Campbell
+PSF Administrator/Secretary
+patcam at python.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20110715/0f86af23/attachment.html>
+
+From ezio.melotti at gmail.com  Sun Jul 31 18:53:00 2011
+From: ezio.melotti at gmail.com (Ezio Melotti)
+Date: Sun, 31 Jul 2011 19:53:00 +0300
+Subject: [python-committers] Committer rights for Sandro Tosi
+Message-ID: <4E35886C.8060701@gmail.com>
+
+Hi,
+I would like to have Sandro added to the list of committers.
+He has been very active on the bug tracker, doing triaging work and 
+contributing a number of patches.
+He also reported more than 40 issues, mainly about the documentation, 
+and most of them have been fixed.
+
+He hasn't submitted the contributor agreement yet but he will do it as 
+soon as he finds a printer/scanner/camera/fax.
+
+Best Regards,
+Ezio Melotti
+

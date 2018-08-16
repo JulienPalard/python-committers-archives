@@ -1,0 +1,2914 @@
+From bcannon at gmail.com  Wed Apr  1 18:09:11 2015
+From: bcannon at gmail.com (Brett Cannon)
+Date: Wed, 01 Apr 2015 16:09:11 +0000
+Subject: [python-committers] Do people prefer pushing feature repos or one
+	massive patch?
+Message-ID: <CAP1=2W4P5SYauvji=5rCMq7dabV9F5RuXpvJr7MWscUcb0hzvg@mail.gmail.com>
+
+The implementation for PEP 488 is basically done (sans Windows installer
+stuff). I did the work in a features repo at
+https://hg.python.org/features/pep-488/ . Once I have addressed reviewer
+comments at http://bugs.python.org/issue23731 , would people prefer I
+simply push the features repo to hg.python.org/cpython and have the more
+granular history but have various "merge default" commits, or would people
+rather I do one massive commit?
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150401/0c12cfa6/attachment.html>
+
+From benjamin at python.org  Wed Apr  1 18:38:15 2015
+From: benjamin at python.org (Benjamin Peterson)
+Date: Wed, 01 Apr 2015 12:38:15 -0400
+Subject: [python-committers] Do people prefer pushing feature repos or
+ one massive patch?
+In-Reply-To: <CAP1=2W4P5SYauvji=5rCMq7dabV9F5RuXpvJr7MWscUcb0hzvg@mail.gmail.com>
+References: <CAP1=2W4P5SYauvji=5rCMq7dabV9F5RuXpvJr7MWscUcb0hzvg@mail.gmail.com>
+Message-ID: <1427906295.1769783.248152237.288472F0@webmail.messagingengine.com>
+
+
+
+On Wed, Apr 1, 2015, at 12:09, Brett Cannon wrote:
+> The implementation for PEP 488 is basically done (sans Windows installer
+> stuff). I did the work in a features repo at
+> https://hg.python.org/features/pep-488/ . Once I have addressed reviewer
+> comments at http://bugs.python.org/issue23731 , would people prefer I
+> simply push the features repo to hg.python.org/cpython and have the more
+> granular history but have various "merge default" commits, or would
+> people
+> rather I do one massive commit?
+
+I tend to prefer the one massive commit especially if there's a lot of
+"in progress" commits in the branch. It makes for cleaner and
+more-transactional history.
+
+From bcannon at gmail.com  Wed Apr  1 18:39:46 2015
+From: bcannon at gmail.com (Brett Cannon)
+Date: Wed, 01 Apr 2015 16:39:46 +0000
+Subject: [python-committers] Do people prefer pushing feature repos or
+ one massive patch?
+In-Reply-To: <1427906295.1769783.248152237.288472F0@webmail.messagingengine.com>
+References: <CAP1=2W4P5SYauvji=5rCMq7dabV9F5RuXpvJr7MWscUcb0hzvg@mail.gmail.com>
+ <1427906295.1769783.248152237.288472F0@webmail.messagingengine.com>
+Message-ID: <CAP1=2W4z32EJWHppDLXHpS8Z0Oa4ocUNkQy4Vq2OheX=4Z_GoA@mail.gmail.com>
+
+On Wed, Apr 1, 2015 at 12:38 PM Benjamin Peterson <benjamin at python.org>
+wrote:
+
+>
+>
+> On Wed, Apr 1, 2015, at 12:09, Brett Cannon wrote:
+> > The implementation for PEP 488 is basically done (sans Windows installer
+> > stuff). I did the work in a features repo at
+> > https://hg.python.org/features/pep-488/ . Once I have addressed reviewer
+> > comments at http://bugs.python.org/issue23731 , would people prefer I
+> > simply push the features repo to hg.python.org/cpython and have the more
+> > granular history but have various "merge default" commits, or would
+> > people
+> > rather I do one massive commit?
+>
+> I tend to prefer the one massive commit especially if there's a lot of
+> "in progress" commits in the branch. It makes for cleaner and
+> more-transactional history.
+>
+
+The commits are actually self-contained so that's not an issue in this
+case. But I do understand the desire for the easy rollback potential.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150401/ee3fef64/attachment.html>
+
+From victor.stinner at gmail.com  Wed Apr  1 18:55:58 2015
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Wed, 1 Apr 2015 18:55:58 +0200
+Subject: [python-committers] Do people prefer pushing feature repos or
+ one massive patch?
+In-Reply-To: <CAP1=2W4P5SYauvji=5rCMq7dabV9F5RuXpvJr7MWscUcb0hzvg@mail.gmail.com>
+References: <CAP1=2W4P5SYauvji=5rCMq7dabV9F5RuXpvJr7MWscUcb0hzvg@mail.gmail.com>
+Message-ID: <CAMpsgwYFXhhsznTfefKyfpJ0-m5z6_vra-Q82Q4iU8JVGYGZ_A@mail.gmail.com>
+
+If you choose to merge, I would prefer that you rebase your changes
+before to avoid multiple merges. IMO the best to avoid merges at all
+:-)
+
+Did someone review your large change?
+
+Victor
+
+2015-04-01 18:09 GMT+02:00 Brett Cannon <bcannon at gmail.com>:
+> The implementation for PEP 488 is basically done (sans Windows installer
+> stuff). I did the work in a features repo at
+> https://hg.python.org/features/pep-488/ . Once I have addressed reviewer
+> comments at http://bugs.python.org/issue23731 , would people prefer I simply
+> push the features repo to hg.python.org/cpython and have the more granular
+> history but have various "merge default" commits, or would people rather I
+> do one massive commit?
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+>
+
+From bcannon at gmail.com  Wed Apr  1 19:50:52 2015
+From: bcannon at gmail.com (Brett Cannon)
+Date: Wed, 01 Apr 2015 17:50:52 +0000
+Subject: [python-committers] Do people prefer pushing feature repos or
+ one massive patch?
+In-Reply-To: <CAMpsgwYFXhhsznTfefKyfpJ0-m5z6_vra-Q82Q4iU8JVGYGZ_A@mail.gmail.com>
+References: <CAP1=2W4P5SYauvji=5rCMq7dabV9F5RuXpvJr7MWscUcb0hzvg@mail.gmail.com>
+ <CAMpsgwYFXhhsznTfefKyfpJ0-m5z6_vra-Q82Q4iU8JVGYGZ_A@mail.gmail.com>
+Message-ID: <CAP1=2W7EZ=V0x2NpnFKwy+01EdZ9-1_7QviuvM-h1RXmf4mNdA@mail.gmail.com>
+
+On Wed, Apr 1, 2015 at 12:56 PM Victor Stinner <victor.stinner at gmail.com>
+wrote:
+
+> If you choose to merge, I would prefer that you rebase your changes
+> before to avoid multiple merges. IMO the best to avoid merges at all
+> :-)
+>
+
+It's sounding like one massive patch is the best option for people.
+
+
+>
+> Did someone review your large change?
+>
+
+It just went up earlier today, so no. It's actually a fairly simple patch,
+it's just there was a lot of files involved that had some comment
+mentioning .pyo files.
+
+-Brett
+
+
+>
+> Victor
+>
+> 2015-04-01 18:09 GMT+02:00 Brett Cannon <bcannon at gmail.com>:
+> > The implementation for PEP 488 is basically done (sans Windows installer
+> > stuff). I did the work in a features repo at
+> > https://hg.python.org/features/pep-488/ . Once I have addressed reviewer
+> > comments at http://bugs.python.org/issue23731 , would people prefer I
+> simply
+> > push the features repo to hg.python.org/cpython and have the more
+> granular
+> > history but have various "merge default" commits, or would people rather
+> I
+> > do one massive commit?
+> >
+> > _______________________________________________
+> > python-committers mailing list
+> > python-committers at python.org
+> > https://mail.python.org/mailman/listinfo/python-committers
+> >
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150401/ea985cf3/attachment.html>
+
+From ethan at stoneleaf.us  Wed Apr  1 20:09:45 2015
+From: ethan at stoneleaf.us (Ethan Furman)
+Date: Wed, 1 Apr 2015 11:09:45 -0700
+Subject: [python-committers] Do people prefer pushing feature repos or
+ one massive patch?
+In-Reply-To: <CAP1=2W4z32EJWHppDLXHpS8Z0Oa4ocUNkQy4Vq2OheX=4Z_GoA@mail.gmail.com>
+References: <CAP1=2W4P5SYauvji=5rCMq7dabV9F5RuXpvJr7MWscUcb0hzvg@mail.gmail.com>
+ <1427906295.1769783.248152237.288472F0@webmail.messagingengine.com>
+ <CAP1=2W4z32EJWHppDLXHpS8Z0Oa4ocUNkQy4Vq2OheX=4Z_GoA@mail.gmail.com>
+Message-ID: <20150401180945.GA21269@stoneleaf.us>
+
+I like one massive patch, myself.  :)
+
+--
+~Ethan~
+
+From doko at ubuntu.com  Wed Apr  1 21:05:16 2015
+From: doko at ubuntu.com (Matthias Klose)
+Date: Wed, 01 Apr 2015 21:05:16 +0200
+Subject: [python-committers] changing the python version on the 2.7 branch
+Message-ID: <551C416C.6010304@ubuntu.com>
+
+We'll have the 2.7.10 release in the coming months. This will be the first
+release with a two digit subminor version number, so please could we prepare for
+that early?  Feature tests in python are unfortunately way too often based on
+version comparisons.  Suggesting to push the following patch to the 2.7 branch.
+
+The patch also changes PY_RELEASE_LEVEL to "beta" quality.  Currently this is a
+value which is not touched on the branches.
+
+Matthias
+
+
+diff -r d444496e714a Include/patchlevel.h
+--- a/Include/patchlevel.h	Wed Apr 01 16:53:53 2015 +0300
++++ b/Include/patchlevel.h	Wed Apr 01 20:56:46 2015 +0200
+@@ -22,12 +22,12 @@
+ /*--start constants--*/
+ #define PY_MAJOR_VERSION	2
+ #define PY_MINOR_VERSION	7
+-#define PY_MICRO_VERSION	9
+-#define PY_RELEASE_LEVEL	PY_RELEASE_LEVEL_FINAL
++#define PY_MICRO_VERSION	10
++#define PY_RELEASE_LEVEL	PY_RELEASE_LEVEL_BETA
+ #define PY_RELEASE_SERIAL	0
+
+ /* Version as a string */
+-#define PY_VERSION      	"2.7.9+"
++#define PY_VERSION      	"2.7.10-"
+ /*--end constants--*/
+
+ /* Subversion Revision number of this file (not of the repository). Empty
+
+From skip.montanaro at gmail.com  Wed Apr  1 21:28:25 2015
+From: skip.montanaro at gmail.com (Skip Montanaro)
+Date: Wed, 1 Apr 2015 14:28:25 -0500
+Subject: [python-committers] changing the python version on the 2.7
+	branch
+In-Reply-To: <551C416C.6010304@ubuntu.com>
+References: <551C416C.6010304@ubuntu.com>
+Message-ID: <CANc-5UzQORsCJiONEx1gZBXWvnNj7xsngo11vUxLUv-pJ_x3pQ@mail.gmail.com>
+
+On Wed, Apr 1, 2015 at 2:05 PM, Matthias Klose <doko at ubuntu.com> wrote:
+> Suggesting to push the following patch to the 2.7 branch.
+
+LGTM. I actively use 2.7 at work so should be able to at least put it
+through its normal paces. Will be interesting to see if any of our
+internal software (which is generally fairly agnostic about Python)
+cringes at the site of a two-digit micro. We do have an internal make
+wrapper written in Python as well. Developers are expected to know
+every arcane nook and cranny of C++, but can't possibly master
+authorship of Makefiles. :rollseyes:
+
+Skip
+
+From ncoghlan at gmail.com  Thu Apr  2 07:35:08 2015
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Thu, 2 Apr 2015 15:35:08 +1000
+Subject: [python-committers] Do people prefer pushing feature repos or
+ one massive patch?
+In-Reply-To: <20150401180945.GA21269@stoneleaf.us>
+References: <CAP1=2W4P5SYauvji=5rCMq7dabV9F5RuXpvJr7MWscUcb0hzvg@mail.gmail.com>
+ <1427906295.1769783.248152237.288472F0@webmail.messagingengine.com>
+ <CAP1=2W4z32EJWHppDLXHpS8Z0Oa4ocUNkQy4Vq2OheX=4Z_GoA@mail.gmail.com>
+ <20150401180945.GA21269@stoneleaf.us>
+Message-ID: <CADiSq7cSMPmKCx=4R9tEn-DB-5OpuHKMS882LOb2ki5HGsy9Rw@mail.gmail.com>
+
+On 2 April 2015 at 04:09, Ethan Furman <ethan at stoneleaf.us> wrote:
+> I like one massive patch, myself.  :)
+
+Aye, I'm also in the "squash for the clean history" approach (FWIW,
+making this less of an either/or question is one of the benefits
+Gerrit offers over other code review systems, since you can combine
+posting a patch series with the "rebase if needed" setting for
+submitting approved changes. It's not a model Kallithea currently
+supports, but it's one I'd like to see it handle at some point in the
+future)
+
+Regards,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+
+From ncoghlan at gmail.com  Thu Apr  2 07:38:56 2015
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Thu, 2 Apr 2015 15:38:56 +1000
+Subject: [python-committers] changing the python version on the 2.7
+	branch
+In-Reply-To: <551C416C.6010304@ubuntu.com>
+References: <551C416C.6010304@ubuntu.com>
+Message-ID: <CADiSq7cydwA7_BvMcmac32yM6+Y17w6n2VfOj=Dekt8dBxATCg@mail.gmail.com>
+
+On 2 April 2015 at 05:05, Matthias Klose <doko at ubuntu.com> wrote:
+> We'll have the 2.7.10 release in the coming months. This will be the first
+> release with a two digit subminor version number, so please could we prepare for
+> that early?  Feature tests in python are unfortunately way too often based on
+> version comparisons.  Suggesting to push the following patch to the 2.7 branch.
+>
+> The patch also changes PY_RELEASE_LEVEL to "beta" quality.  Currently this is a
+> value which is not touched on the branches.
+
+I think this is a good idea, but I'd suggest using "2.7.10b0" as the
+interim version string, rather than "2.7.10-".
+
+Regards,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+
+From jaraco at jaraco.com  Thu Apr  2 14:06:45 2015
+From: jaraco at jaraco.com (Jason R. Coombs)
+Date: Thu, 2 Apr 2015 12:06:45 +0000
+Subject: [python-committers] Do people prefer pushing feature repos or
+ one massive patch?
+In-Reply-To: <CADiSq7cSMPmKCx=4R9tEn-DB-5OpuHKMS882LOb2ki5HGsy9Rw@mail.gmail.com>
+References: <CAP1=2W4P5SYauvji=5rCMq7dabV9F5RuXpvJr7MWscUcb0hzvg@mail.gmail.com>
+ <1427906295.1769783.248152237.288472F0@webmail.messagingengine.com>
+ <CAP1=2W4z32EJWHppDLXHpS8Z0Oa4ocUNkQy4Vq2OheX=4Z_GoA@mail.gmail.com>
+ <20150401180945.GA21269@stoneleaf.us>
+ <CADiSq7cSMPmKCx=4R9tEn-DB-5OpuHKMS882LOb2ki5HGsy9Rw@mail.gmail.com>
+Message-ID: <BY1PR0601MB125636F6FA703AB74046E176B5F20@BY1PR0601MB1256.namprd06.prod.outlook.com>
+
+I'm in the other camp.
+
+The way I see it, a squash of history or massive patch file loses history. It loses details about the thought process of the implementer. It masks mistakes and obscures motivations. It also masks decisions made in the merge operation, further hiding potential problems.
+
+On the other hand, a feature repo (or any separate series of commits), while retaining the history as it happened and thus the fidelity of the development, can always be mechanically reduced to a squashed patch (for review or other considerations, and in fact, the Python bug tracker will produce these squashed patches from feature repos automatically even if they're hosted in another system). Rollback is trivially easy; reverting a merge is as easy as reverting a squashed commit. It has the added benefit that any individual commit can be backed out automatically (in a squashed patch, that's not possible).
+
+In other words, it's straightforward and easy to go from the latter model to the former, and generally impossible to reverse the operation.
+
+In my opinion, it boils down to whether the group wants to restrict the options available for review. I would recommend that a contributor provide (or maintain) a feature repo if convenient.
+
+-----Original Message-----
+From: python-committers [mailto:python-committers-bounces+jaraco=jaraco.com at python.org] On Behalf Of Nick Coghlan
+Sent: Thursday, 02 April, 2015 01:35
+To: python-committers
+Subject: Re: [python-committers] Do people prefer pushing feature repos or one massive patch?
+
+On 2 April 2015 at 04:09, Ethan Furman <ethan at stoneleaf.us> wrote:
+> I like one massive patch, myself.  :)
+
+Aye, I'm also in the "squash for the clean history" approach. 
+
+From barry at python.org  Thu Apr  2 15:31:23 2015
+From: barry at python.org (Barry Warsaw)
+Date: Thu, 2 Apr 2015 09:31:23 -0400
+Subject: [python-committers] Do people prefer pushing feature repos or
+ one massive patch?
+In-Reply-To: <BY1PR0601MB125636F6FA703AB74046E176B5F20@BY1PR0601MB1256.namprd06.prod.outlook.com>
+References: <CAP1=2W4P5SYauvji=5rCMq7dabV9F5RuXpvJr7MWscUcb0hzvg@mail.gmail.com>
+ <1427906295.1769783.248152237.288472F0@webmail.messagingengine.com>
+ <CAP1=2W4z32EJWHppDLXHpS8Z0Oa4ocUNkQy4Vq2OheX=4Z_GoA@mail.gmail.com>
+ <20150401180945.GA21269@stoneleaf.us>
+ <CADiSq7cSMPmKCx=4R9tEn-DB-5OpuHKMS882LOb2ki5HGsy9Rw@mail.gmail.com>
+ <BY1PR0601MB125636F6FA703AB74046E176B5F20@BY1PR0601MB1256.namprd06.prod.outlook.com>
+Message-ID: <20150402093123.1cda15b9@limelight.wooz.org>
+
+On Apr 02, 2015, at 12:06 PM, Jason R. Coombs wrote:
+
+>The way I see it, a squash of history or massive patch file loses history. It
+>loses details about the thought process of the implementer. It masks mistakes
+>and obscures motivations. It also masks decisions made in the merge
+>operation, further hiding potential problems.
+
+In general I agree.  Coming from bzr, it's very rare that merges get rebased
+first, but bzr has a strong "mainline-of-development" view that tends to make
+squash-before-merge unnecessary.  diffs, bisects, logs, etc generally follow
+first-parents by default so you don't see all the subcommits, unless you want
+to, which sometimes you do.
+
+git doesn't really follow this tradition (although some commands have an
+option to follow first parents).  Not sure about hg.
+
+Cheers,
+-Barry
+
+From doko at ubuntu.com  Thu Apr  2 15:59:57 2015
+From: doko at ubuntu.com (Matthias Klose)
+Date: Thu, 02 Apr 2015 15:59:57 +0200
+Subject: [python-committers] changing the python version on the 2.7
+	branch
+In-Reply-To: <CADiSq7cydwA7_BvMcmac32yM6+Y17w6n2VfOj=Dekt8dBxATCg@mail.gmail.com>
+References: <551C416C.6010304@ubuntu.com>
+ <CADiSq7cydwA7_BvMcmac32yM6+Y17w6n2VfOj=Dekt8dBxATCg@mail.gmail.com>
+Message-ID: <551D4B5D.4040902@ubuntu.com>
+
+On 04/02/2015 07:38 AM, Nick Coghlan wrote:
+> On 2 April 2015 at 05:05, Matthias Klose <doko at ubuntu.com> wrote:
+>> We'll have the 2.7.10 release in the coming months. This will be the first
+>> release with a two digit subminor version number, so please could we prepare for
+>> that early?  Feature tests in python are unfortunately way too often based on
+>> version comparisons.  Suggesting to push the following patch to the 2.7 branch.
+>>
+>> The patch also changes PY_RELEASE_LEVEL to "beta" quality.  Currently this is a
+>> value which is not touched on the branches.
+> 
+> I think this is a good idea, but I'd suggest using "2.7.10b0" as the
+> interim version string, rather than "2.7.10-".
+
+now checked, using the "2.7.10b0" string.
+
+
+From guido at python.org  Thu Apr  2 18:31:08 2015
+From: guido at python.org (Guido van Rossum)
+Date: Thu, 2 Apr 2015 09:31:08 -0700
+Subject: [python-committers] Do people prefer pushing feature repos or
+ one massive patch?
+In-Reply-To: <20150402093123.1cda15b9@limelight.wooz.org>
+References: <CAP1=2W4P5SYauvji=5rCMq7dabV9F5RuXpvJr7MWscUcb0hzvg@mail.gmail.com>
+ <1427906295.1769783.248152237.288472F0@webmail.messagingengine.com>
+ <CAP1=2W4z32EJWHppDLXHpS8Z0Oa4ocUNkQy4Vq2OheX=4Z_GoA@mail.gmail.com>
+ <20150401180945.GA21269@stoneleaf.us>
+ <CADiSq7cSMPmKCx=4R9tEn-DB-5OpuHKMS882LOb2ki5HGsy9Rw@mail.gmail.com>
+ <BY1PR0601MB125636F6FA703AB74046E176B5F20@BY1PR0601MB1256.namprd06.prod.outlook.com>
+ <20150402093123.1cda15b9@limelight.wooz.org>
+Message-ID: <CAP7+vJJjBSJode87_yLNV6LOdcMb9UVw_FVtAFnT_uMAZr-hrQ@mail.gmail.com>
+
+Where I come from we always squash. More detailed history is preserved in
+the code review tool (which keeps a snapshot every time you bounce it back
+to the reviewer). Looking at my own sub-commits when I'm working on a
+complex feature or bug fix, they are often checkpoints with no particular
+significance except that the code is syntactically correct, and a common
+reason for doing a sub-commit is when I've got to attend to something else
+(e.g. a meeting).
+
+On Thu, Apr 2, 2015 at 6:31 AM, Barry Warsaw <barry at python.org> wrote:
+
+> On Apr 02, 2015, at 12:06 PM, Jason R. Coombs wrote:
+>
+> >The way I see it, a squash of history or massive patch file loses
+> history. It
+> >loses details about the thought process of the implementer. It masks
+> mistakes
+> >and obscures motivations. It also masks decisions made in the merge
+> >operation, further hiding potential problems.
+>
+> In general I agree.  Coming from bzr, it's very rare that merges get
+> rebased
+> first, but bzr has a strong "mainline-of-development" view that tends to
+> make
+> squash-before-merge unnecessary.  diffs, bisects, logs, etc generally
+> follow
+> first-parents by default so you don't see all the subcommits, unless you
+> want
+> to, which sometimes you do.
+>
+> git doesn't really follow this tradition (although some commands have an
+> option to follow first parents).  Not sure about hg.
+>
+> Cheers,
+> -Barry
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+>
+
+
+
+-- 
+--Guido van Rossum (python.org/~guido)
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150402/765ef787/attachment.html>
+
+From rdmurray at bitdance.com  Thu Apr  2 19:15:00 2015
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Thu, 02 Apr 2015 13:15:00 -0400
+Subject: [python-committers] Do people prefer pushing feature repos or
+	one massive patch?
+In-Reply-To: <CAP7+vJJjBSJode87_yLNV6LOdcMb9UVw_FVtAFnT_uMAZr-hrQ@mail.gmail.com>
+References: <CAP1=2W4P5SYauvji=5rCMq7dabV9F5RuXpvJr7MWscUcb0hzvg@mail.gmail.com>
+ <1427906295.1769783.248152237.288472F0@webmail.messagingengine.com>
+ <CAP1=2W4z32EJWHppDLXHpS8Z0Oa4ocUNkQy4Vq2OheX=4Z_GoA@mail.gmail.com>
+ <20150401180945.GA21269@stoneleaf.us>
+ <CADiSq7cSMPmKCx=4R9tEn-DB-5OpuHKMS882LOb2ki5HGsy9Rw@mail.gmail.com>
+ <BY1PR0601MB125636F6FA703AB74046E176B5F20@BY1PR0601MB1256.namprd06.prod.outlook.com>
+ <20150402093123.1cda15b9@limelight.wooz.org>
+ <CAP7+vJJjBSJode87_yLNV6LOdcMb9UVw_FVtAFnT_uMAZr-hrQ@mail.gmail.com>
+Message-ID: <20150402171500.781F5B14156@webabinitio.net>
+
+On Thu, 02 Apr 2015 09:31:08 -0700, Guido van Rossum <guido at python.org> wrote:
+> Where I come from we always squash. More detailed history is preserved in
+> the code review tool (which keeps a snapshot every time you bounce it back
+> to the reviewer). Looking at my own sub-commits when I'm working on a
+> complex feature or bug fix, they are often checkpoints with no particular
+> significance except that the code is syntactically correct, and a common
+> reason for doing a sub-commit is when I've got to attend to something else
+> (e.g. a meeting).
+
+I think a lot depends on the personal style of the committer.  I don't
+do checkpoint commits, but only (try to do) commits where everything
+works and the tests pass, and the commit is reviewable as a single unit.
+I don't think there's a right or wrong way to do this, I think it
+depends on how the person doing it thinks and organizes their work best.
+I don't see a lot of value in preserving the history of someone who uses
+the checkpoint-commit style, but I do see potential value in preserving
+the history of someone who uses the atomic-commit style.  Perhaps we
+should leave it up to the committer, based on that guideline?  (Given
+our other preferences, I think a rebased commit would be the way to go
+if history is preserved.)
+
+But, if we feel a need to pick just one, I'd pick squashed.
+
+--David
+
+From p.f.moore at gmail.com  Thu Apr  2 22:13:26 2015
+From: p.f.moore at gmail.com (Paul Moore)
+Date: Thu, 2 Apr 2015 21:13:26 +0100
+Subject: [python-committers] Do people prefer pushing feature repos or
+ one massive patch?
+In-Reply-To: <20150402171500.781F5B14156@webabinitio.net>
+References: <CAP1=2W4P5SYauvji=5rCMq7dabV9F5RuXpvJr7MWscUcb0hzvg@mail.gmail.com>
+ <1427906295.1769783.248152237.288472F0@webmail.messagingengine.com>
+ <CAP1=2W4z32EJWHppDLXHpS8Z0Oa4ocUNkQy4Vq2OheX=4Z_GoA@mail.gmail.com>
+ <20150401180945.GA21269@stoneleaf.us>
+ <CADiSq7cSMPmKCx=4R9tEn-DB-5OpuHKMS882LOb2ki5HGsy9Rw@mail.gmail.com>
+ <BY1PR0601MB125636F6FA703AB74046E176B5F20@BY1PR0601MB1256.namprd06.prod.outlook.com>
+ <20150402093123.1cda15b9@limelight.wooz.org>
+ <CAP7+vJJjBSJode87_yLNV6LOdcMb9UVw_FVtAFnT_uMAZr-hrQ@mail.gmail.com>
+ <20150402171500.781F5B14156@webabinitio.net>
+Message-ID: <CACac1F9An6BP9ohXJFtNJoVq6seWb1JUwaCtxa0PxjF+UkVkVQ@mail.gmail.com>
+
+On 2 April 2015 at 18:15, R. David Murray <rdmurray at bitdance.com> wrote:
+> On Thu, 02 Apr 2015 09:31:08 -0700, Guido van Rossum <guido at python.org> wrote:
+>> Where I come from we always squash. More detailed history is preserved in
+>> the code review tool (which keeps a snapshot every time you bounce it back
+>> to the reviewer). Looking at my own sub-commits when I'm working on a
+>> complex feature or bug fix, they are often checkpoints with no particular
+>> significance except that the code is syntactically correct, and a common
+>> reason for doing a sub-commit is when I've got to attend to something else
+>> (e.g. a meeting).
+>
+> I think a lot depends on the personal style of the committer.  I don't
+> do checkpoint commits, but only (try to do) commits where everything
+> works and the tests pass, and the commit is reviewable as a single unit.
+> I don't think there's a right or wrong way to do this, I think it
+> depends on how the person doing it thinks and organizes their work best.
+> I don't see a lot of value in preserving the history of someone who uses
+> the checkpoint-commit style, but I do see potential value in preserving
+> the history of someone who uses the atomic-commit style.  Perhaps we
+> should leave it up to the committer, based on that guideline?  (Given
+> our other preferences, I think a rebased commit would be the way to go
+> if history is preserved.)
+>
+> But, if we feel a need to pick just one, I'd pick squashed.
+
+I tend to develop patches using Mercurial Queues, so I naturally
+produce squashed commits. On the other hand, I very frequently do
+checkpoint-style commits (sometimes even partially-completed work that
+doesn't pass tests) because I move between 2 PCs, and keeping work in
+progress just in the working directory isn't an option in that case.
+
+Generally, I prefer squashed commits in any case.
+Paul
+
+From ncoghlan at gmail.com  Fri Apr  3 10:30:37 2015
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Fri, 3 Apr 2015 18:30:37 +1000
+Subject: [python-committers] Do people prefer pushing feature repos or
+ one massive patch?
+In-Reply-To: <BY1PR0601MB125636F6FA703AB74046E176B5F20@BY1PR0601MB1256.namprd06.prod.outlook.com>
+References: <CAP1=2W4P5SYauvji=5rCMq7dabV9F5RuXpvJr7MWscUcb0hzvg@mail.gmail.com>
+ <1427906295.1769783.248152237.288472F0@webmail.messagingengine.com>
+ <CAP1=2W4z32EJWHppDLXHpS8Z0Oa4ocUNkQy4Vq2OheX=4Z_GoA@mail.gmail.com>
+ <20150401180945.GA21269@stoneleaf.us>
+ <CADiSq7cSMPmKCx=4R9tEn-DB-5OpuHKMS882LOb2ki5HGsy9Rw@mail.gmail.com>
+ <BY1PR0601MB125636F6FA703AB74046E176B5F20@BY1PR0601MB1256.namprd06.prod.outlook.com>
+Message-ID: <CADiSq7ew+_uQ2_qOO6Ra=mrQCJ63XJVj1MA+3G5JMW4gYpCxGg@mail.gmail.com>
+
+On 2 April 2015 at 22:06, Jason R. Coombs <jaraco at jaraco.com> wrote:
+> I'm in the other camp.
+>
+> The way I see it, a squash of history or massive patch file loses history. It loses details about the thought process of the implementer. It masks mistakes and obscures motivations. It also masks decisions made in the merge operation, further hiding potential problems.
+>
+> On the other hand, a feature repo (or any separate series of commits), while retaining the history as it happened and thus the fidelity of the development, can always be mechanically reduced to a squashed patch (for review or other considerations, and in fact, the Python bug tracker will produce these squashed patches from feature repos automatically even if they're hosted in another system). Rollback is trivially easy; reverting a merge is as easy as reverting a squashed commit. It has the added benefit that any individual commit can be backed out automatically (in a squashed patch, that's not possible).
+>
+> In other words, it's straightforward and easy to go from the latter model to the former, and generally impossible to reverse the operation.
+>
+> In my opinion, it boils down to whether the group wants to restrict the options available for review. I would recommend that a contributor provide (or maintain) a feature repo if convenient.
+
+Having a feature repo to *work* on a patch is a great idea, I
+interpreted the question as being about what the mainline history
+should look like. The latter is where I strongly prefer the "atomic
+feature commit" model.
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+
+From victor.stinner at gmail.com  Fri Apr  3 10:59:02 2015
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Fri, 3 Apr 2015 10:59:02 +0200
+Subject: [python-committers] Do people prefer pushing feature repos or
+ one massive patch?
+In-Reply-To: <CAP1=2W4P5SYauvji=5rCMq7dabV9F5RuXpvJr7MWscUcb0hzvg@mail.gmail.com>
+References: <CAP1=2W4P5SYauvji=5rCMq7dabV9F5RuXpvJr7MWscUcb0hzvg@mail.gmail.com>
+Message-ID: <CAMpsgwZU7jVJ9pZyObGm+zfK3O5d28UtHt=HCTYUeYG-9HV9ww@mail.gmail.com>
+
+Hi,
+
+FYI the faulthandler and tracemalloc were both added in a single
+commit, while they added a lot of new code and modified multiple
+files.
+
+The development of faulthandler and tracemalloc started as third party
+projects on PyPI.
+
+I almost rewrote tracemalloc from scratch while its PEP was discussed.
+I didn't want to keep the history, because for such task (update the
+implementation when the PEP changes), I use "hg commit" as I save a
+file in an editor. I don't care of having well formed and atomic
+changes. It's common to have a following "oops, fix ..." commit.
+
+
+tracemalloc :
+
+changeset:   87401:6e2089dbc5ad
+user:        Victor Stinner <victor.stinner at gmail.com>
+date:        Sat Nov 23 12:27:24 2013 +0100
+files:       Doc/library/debug.rst Doc/library/tracemalloc.rst
+Doc/license.rst Doc/using/cmd
+description:
+Issue #18874: Implement the PEP 454 (tracemalloc)
+
+ Doc/library/debug.rst        |     1 +
+ Doc/library/tracemalloc.rst  |   608 +++++++++++++++
+ Doc/license.rst              |    41 +
+ Doc/using/cmdline.rst        |    18 +-
+ Lib/test/support/__init__.py |    19 +
+ Lib/test/test_atexit.py      |     4 +-
+ Lib/test/test_capi.py        |     2 +-
+ Lib/test/test_threading.py   |     4 +-
+ Lib/test/test_tracemalloc.py |   797 ++++++++++++++++++++
+ Lib/tracemalloc.py           |   464 +++++++++++
+ Modules/Setup.dist           |    17 +-
+ Modules/_tracemalloc.c       |  1407 ++++++++++++++++++++++++++++++++++++
+ Modules/hashtable.c          |   518 +++++++++++++
+ Modules/hashtable.h          |   128 +++
+ PC/config.c                  |     2 +
+ PCbuild/pythoncore.vcxproj   |     5 +-
+ Python/pythonrun.c           |     4 +
+ 17 files changed, 4024 insertions(+), 15 deletions(-)
+
+faulthandler:
+
+changeset:   69070:b0680b5a5215
+user:        Victor Stinner <victor.stinner at haypocalc.com>
+date:        Thu Mar 31 01:31:06 2011 +0200
+files:       Doc/library/debug.rst Doc/library/faulthandler.rst Doc/usin
+description:
+Issue #11393: Add the new faulthandler module
+
+ Doc/library/debug.rst         |    3 +-
+ Doc/library/faulthandler.rst  |  129 ++++
+ Doc/using/cmdline.rst         |    7 +
+ Doc/whatsnew/3.3.rst          |    8 +
+ Include/traceback.h           |   40 +
+ Lib/test/regrtest.py          |    5 +
+ Lib/test/script_helper.py     |    5 +-
+ Lib/test/test_faulthandler.py |  469 ++++++++++++++++
+ Misc/NEWS                     |    2 +
+ Modules/Setup.dist            |    3 +
+ Modules/faulthandler.c        |  971 ++++++++++++++++++++++++++++++++++
+ Modules/main.c                |    1 +
+ PC/config.c                   |    2 +
+ PCbuild/pythoncore.vcproj     |    4 +
+ Python/pythonrun.c            |   21 +
+ Python/traceback.c            |  235 ++++++++
+ configure                     |    2 +-
+ configure.in                  |    2 +-
+ pyconfig.h.in                 |    3 +
+ 19 files changed, 1907 insertions(+), 5 deletions(-)
+
+Victor
+
+2015-04-01 18:09 GMT+02:00 Brett Cannon <bcannon at gmail.com>:
+> The implementation for PEP 488 is basically done (sans Windows installer
+> stuff). I did the work in a features repo at
+> https://hg.python.org/features/pep-488/ . Once I have addressed reviewer
+> comments at http://bugs.python.org/issue23731 , would people prefer I simply
+> push the features repo to hg.python.org/cpython and have the more granular
+> history but have various "merge default" commits, or would people rather I
+> do one massive commit?
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+>
+
+From larry at hastings.org  Fri Apr  3 11:56:53 2015
+From: larry at hastings.org (Larry Hastings)
+Date: Fri, 03 Apr 2015 02:56:53 -0700
+Subject: [python-committers] Do we need to sign Windows files with GnuPG?
+Message-ID: <551E63E5.6080805@hastings.org>
+
+
+
+As of Python 3.5 Steve Dower has taken over the Windows builds of Python 
+from Martin van Loewis.  He's also taken over for 2.7--though Martin's 
+still doing builds for 3.4.
+
+For both versions, Steve is using all-new tooling for the build 
+process.  The output is different, too; he's producing .exe installers 
+instead of .msi installers, and he has snazzy new "web-based" installers 
+where the initial download is small, then it downloads the rest dynamically.
+
+Steve's also changed the authentication process.  His new installers 
+rely on a Windows digital signature technology called Authenticode where 
+the signature is built right into the .exe file.  Windows platforms will 
+automatically authenticate executables signed with Authenticode, so this 
+is both secure and convenient.
+
+Martin's build process also digitally signed the files he built, but not 
+using Authenticode (or at least I don't think so).  Like the Mac and 
+source code releases, his automation used GnuPG to produce separate 
+".asc" files containing digital signatures.  This meant authentication 
+was a manual process.
+
+The Authenticode approach sounds great.  But there are advantages to the 
+GnuPG approach too:
+
+  * Using GnuPG means we can authenticate the files from any platform,
+    not just Windows.  If there were a security breach on the Python
+    content delivery network, any developer could get GnuPG for their
+    platform and authenticate that the installers are unmodified.  If we
+    use Authenitcode,
+  * GnuPG is agnostic about the data it digitally signs.  So, for
+    example, Martin's build process digitally signs the Windows help
+    file--the ".chm" file--produced by his build process.  The help file
+    Steve builds is currently completely unsigned; Steve says he can try
+    signing it but he's not sure it'll work.  Note that .chm files
+    actually /can/ contain live code, so this is at least a plausible
+    vector for attack.
+
+
+My Windows development days are firmly behind me.  So I don't really 
+have an opinion here.  So I put it to you, Windows Python developers: do 
+you care about GnuPG signatures on Windows-specific files?  Or do you 
+not care?
+
+
+//arry/
+
+p.s. And, of course, my thanks to both Steve and Martin for their past 
+and continuing service to the Python community!  It's a pleasure working 
+with each of them.  (Both of them?  I forget how English works.)
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150403/c4b8d333/attachment-0001.html>
+
+From mal at egenix.com  Fri Apr  3 12:47:58 2015
+From: mal at egenix.com (M.-A. Lemburg)
+Date: Fri, 03 Apr 2015 12:47:58 +0200
+Subject: [python-committers] Do we need to sign Windows files with GnuPG?
+In-Reply-To: <551E63E5.6080805@hastings.org>
+References: <551E63E5.6080805@hastings.org>
+Message-ID: <551E6FDE.5090801@egenix.com>
+
+On 03.04.2015 11:56, Larry Hastings wrote:
+> My Windows development days are firmly behind me.  So I don't really have an opinion here.  So I put
+> it to you, Windows Python developers: do you care about GnuPG signatures on Windows-specific files? 
+> Or do you not care?
+
+Regardless of target platform, I firmly believe we should (continue to)
+GPG sign all distribution files as well as provide hash files/values
+for them.
+
+This is very useful to detect corrupted downloads or files which
+were not created by the original packagers.
+
+-- 
+Marc-Andre Lemburg
+eGenix.com
+
+Professional Python Services directly from the Source
+>>> Python/Zope Consulting and Support ...        http://www.egenix.com/
+>>> mxODBC.Zope.Database.Adapter ...             http://zope.egenix.com/
+>>> mxODBC, mxDateTime, mxTextTools ...        http://python.egenix.com/
+________________________________________________________________________
+
+::: Try our new mxODBC.Connect Python Database Interface for free ! ::::
+
+
+   eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+    D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+           Registered at Amtsgericht Duesseldorf: HRB 46611
+               http://www.egenix.com/company/contact/
+
+From p.f.moore at gmail.com  Fri Apr  3 14:25:25 2015
+From: p.f.moore at gmail.com (Paul Moore)
+Date: Fri, 3 Apr 2015 13:25:25 +0100
+Subject: [python-committers] [Python-Dev] Do we need to sign Windows
+	files with GnuPG?
+In-Reply-To: <551E63E5.6080805@hastings.org>
+References: <551E63E5.6080805@hastings.org>
+Message-ID: <CACac1F9e4+Q7wU=bOogSxQrYs71y_twagxMoX+te6a3VTg+Aqg@mail.gmail.com>
+
+On 3 April 2015 at 10:56, Larry Hastings <larry at hastings.org> wrote:
+> My Windows development days are firmly behind me.  So I don't really have an
+> opinion here.  So I put it to you, Windows Python developers: do you care
+> about GnuPG signatures on Windows-specific files?  Or do you not care?
+
+I don't have a very strong security background, so take my views with
+a pinch of saly, but I see Authenticode as a way of being sure that
+what I *run* is "OK". Whereas a GPG signature lets me check that the
+content of a file is as intended. So there are benefits to both, and I
+thing we should continue to provide GPG signatures. (Disclaimer: I've
+never in my life actually *checked* a GPG signature for a file...)
+
+Paul
+
+From barry at python.org  Fri Apr  3 15:33:51 2015
+From: barry at python.org (Barry Warsaw)
+Date: Fri, 3 Apr 2015 09:33:51 -0400
+Subject: [python-committers] Do we need to sign Windows files with GnuPG?
+In-Reply-To: <551E63E5.6080805@hastings.org>
+References: <551E63E5.6080805@hastings.org>
+Message-ID: <20150403093351.71ff9751@limelight.wooz.org>
+
+On Apr 03, 2015, at 02:56 AM, Larry Hastings wrote:
+
+>My Windows development days are firmly behind me.  So I don't really have an
+>opinion here.  So I put it to you, Windows Python developers: do you care
+>about GnuPG signatures on Windows-specific files?  Or do you not care?
+
+They're not mutually exclusive, so why not do both?
+
+I think the advantage of being able to verify the files on any platform is
+useful.
+
+Cheers,
+-Barry
+
+From brian at python.org  Fri Apr  3 15:44:36 2015
+From: brian at python.org (Brian Curtin)
+Date: Fri, 3 Apr 2015 08:44:36 -0500
+Subject: [python-committers] [Python-Dev] Do we need to sign Windows
+ files with GnuPG?
+In-Reply-To: <CACac1F9e4+Q7wU=bOogSxQrYs71y_twagxMoX+te6a3VTg+Aqg@mail.gmail.com>
+References: <551E63E5.6080805@hastings.org>
+ <CACac1F9e4+Q7wU=bOogSxQrYs71y_twagxMoX+te6a3VTg+Aqg@mail.gmail.com>
+Message-ID: <CAD+XWwoXQWsBVCcmQ4OsvnuxLn356hrx+0rtX=GpHX778BvU8A@mail.gmail.com>
+
+On Fri, Apr 3, 2015 at 7:25 AM, Paul Moore <p.f.moore at gmail.com> wrote:
+> On 3 April 2015 at 10:56, Larry Hastings <larry at hastings.org> wrote:
+>> My Windows development days are firmly behind me.  So I don't really have an
+>> opinion here.  So I put it to you, Windows Python developers: do you care
+>> about GnuPG signatures on Windows-specific files?  Or do you not care?
+>
+> I don't have a very strong security background, so take my views with
+> a pinch of saly, but I see Authenticode as a way of being sure that
+> what I *run* is "OK". Whereas a GPG signature lets me check that the
+> content of a file is as intended. So there are benefits to both, and I
+> thing we should continue to provide GPG signatures. (Disclaimer: I've
+> never in my life actually *checked* a GPG signature for a file...)
+
+I haven't been on Windows in a bit, but this is my
+understanding/expectation as well.
+
+From Steve.Dower at microsoft.com  Fri Apr  3 19:35:09 2015
+From: Steve.Dower at microsoft.com (Steve Dower)
+Date: Fri, 3 Apr 2015 17:35:09 +0000
+Subject: [python-committers] [Python-Dev] Do we need to sign Windows
+	files with GnuPG?
+In-Reply-To: <551E63E5.6080805@hastings.org>
+References: <551E63E5.6080805@hastings.org>
+Message-ID: <BN3PR03MB146407F02F8765B8A407ACF8F5F10@BN3PR03MB1464.namprd03.prod.outlook.com>
+
+Larry Hastings wrote:
+> Steve's also changed the authentication process. His new installers rely on a
+> Windows digital signature technology called Authenticode where the signature is
+> built right into the .exe file. Windows platforms will automatically
+> authenticate executables signed with Authenticode, so this is both secure and
+> convenient.
+> 
+> Martin's build process also digitally signed the files he built, but not using
+> Authenticode (or at least I don't think so). Like the Mac and source code
+> releases, his automation used GnuPG to produce separate ".asc" files containing
+> digital signatures. This meant authentication was a manual process.
+
+Martin previously only signed the installer with Authenticode, and generated a signature with GnuPG for the installer. My change now signs every binary and MSI in the entire installation with Authenticode, and for now I've stopped creating a GPG signature for the installers. I'm still providing sizes and MD5 hashes for the user-visible downloads (except for the last alpha release, thanks Larry for covering for me).
+
+With the installer also being a downloader, there are now actually 30+ files uploaded for each Windows release. Most of these are never seen by users unless they run the installer with /layout (sorry for not having changed this to /download yet... it's not as easily customizable as I'd hoped, but /layout is the standard name for this command), and if they're being downloaded by the installer then both hashes (embedded in the installer) and Authenticode signatures (embedded in each file) are being checked and will be blocked if they don't match. So verifying the EXE installer should always be sufficient to trust the rest of the installable files.
+
+> The Authenticode approach sounds great. But there are advantages to the GnuPG
+> approach too:
+
+For reference, the main advantage of Authenticode signing is shown at https://technet.microsoft.com/en-us/library/dd835561(v=ws.10).aspx - about halfway down there are screenshots of the various dialogs that are displayed when you run signed vs. unsigned vs. blocked applications.
+
+It also helps bypass SmartScreen, which will block downloaded files until they've developed a minimum level of trust. Simply having an Authenticode signature on the initial download meets this level.
+
+(The summary of my opinion is that these two checks are sufficient for the initial EXE download, and the embedded hashes and signatures are sufficient for the rest. Having python.exe et al signed is a bonus that we've never done in the past.)
+
+> * Using GnuPG means we can authenticate the files from any platform, not just
+> Windows. If there were a security breach on the Python content delivery network,
+> any developer could get GnuPG for their platform and authenticate that the
+> installers are unmodified. If we use Authenitcode,
+
+There are tools out there for validating Authenticode on Linux, though none of them seem to be as complete as on Windows (it really needs the OS certificate store to be completely reliable), so I can certainly see the value in being able to verify these against a signature. My only question is whether/how this is better with GPG compared to say a SHA hash? I don't currently have a GPG key (to my knowledge), so it's not like there's any preexisting trust to build from - or am I misunderstanding how GPG works here?
+
+> * GnuPG is agnostic about the data it digitally signs. So, for example, Martin's
+> build process digitally signs the Windows help file--the ".chm" file--produced
+> by his build process. The help file Steve builds is currently completely
+> unsigned; Steve says he can try signing it but he's not sure it'll work. Note
+> that .chm files actually can contain live code, so this is at least a plausible
+> vector for attack.
+
+Authenticode is not supported for CHM files, unfortunately. If this is the only file that we decide needs GPG, I'd vote to stop offering the download apart from the interpreter :) (Among other things, I'm not supposed to use GPG without specific permission from the lawyers at work because of the license...)
+
+> My Windows development days are firmly behind me. So I don't really have an
+> opinion here. So I put it to you, Windows Python developers: do you care about
+> GnuPG signatures on Windows-specific files? Or do you not care?
+
+The later replies seem to suggest that they are general goodness that nobody on Windows will use. If someone convinces me (or steamrolls me, that's fine too) that the goodness of GPG is better than a hash then I'll look into adding it into the process. Otherwise I'll happily add hash generation into the upload process (which I'm going to do anyway for the ones displayed on the download page).
+
+Cheers,
+Steve
+
+From mal at egenix.com  Fri Apr  3 19:55:41 2015
+From: mal at egenix.com (M.-A. Lemburg)
+Date: Fri, 03 Apr 2015 19:55:41 +0200
+Subject: [python-committers] [Python-Dev] Do we need to sign Windows
+ files with GnuPG?
+In-Reply-To: <BN3PR03MB146407F02F8765B8A407ACF8F5F10@BN3PR03MB1464.namprd03.prod.outlook.com>
+References: <551E63E5.6080805@hastings.org>
+ <BN3PR03MB146407F02F8765B8A407ACF8F5F10@BN3PR03MB1464.namprd03.prod.outlook.com>
+Message-ID: <551ED41D.2070909@egenix.com>
+
+On 03.04.2015 19:35, Steve Dower wrote:
+>> My Windows development days are firmly behind me. So I don't really have an
+>> opinion here. So I put it to you, Windows Python developers: do you care about
+>> GnuPG signatures on Windows-specific files? Or do you not care?
+> 
+> The later replies seem to suggest that they are general goodness that nobody on Windows will use. If someone convinces me (or steamrolls me, that's fine too) that the goodness of GPG is better than a hash then I'll look into adding it into the process. Otherwise I'll happily add hash generation into the upload process (which I'm going to do anyway for the ones displayed on the download page).
+
+FWIW: I regularly check the GPG sigs on all important downloaded
+files, regardless of which platform they target, including the
+Windows installers for Python or any other Windows installers
+I use which provide such sigs.
+
+The reason is simple:
+The signature is a proof of authenticity which is not bound to
+a particular file format or platform and before running .exes
+it's good to know that they were built by the right people and
+not manipulated by trojans, viruses or malicious proxies.
+
+Is that a good enough reason to continue providing the GPG
+sigs or do you need more proof of goodness ? ;-)
+
+-- 
+Marc-Andre Lemburg
+eGenix.com
+
+Professional Python Services directly from the Source
+>>> Python/Zope Consulting and Support ...        http://www.egenix.com/
+>>> mxODBC.Zope.Database.Adapter ...             http://zope.egenix.com/
+>>> mxODBC, mxDateTime, mxTextTools ...        http://python.egenix.com/
+________________________________________________________________________
+
+::: Try our new mxODBC.Connect Python Database Interface for free ! ::::
+
+
+   eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+    D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+           Registered at Amtsgericht Duesseldorf: HRB 46611
+               http://www.egenix.com/company/contact/
+
+From Steve.Dower at microsoft.com  Sat Apr  4 00:14:20 2015
+From: Steve.Dower at microsoft.com (Steve Dower)
+Date: Fri, 3 Apr 2015 22:14:20 +0000
+Subject: [python-committers] [Python-Dev] Do we need to sign Windows
+ files with GnuPG?
+In-Reply-To: <551ED41D.2070909@egenix.com>
+References: <551E63E5.6080805@hastings.org>
+ <BN3PR03MB146407F02F8765B8A407ACF8F5F10@BN3PR03MB1464.namprd03.prod.outlook.com>,
+ <551ED41D.2070909@egenix.com>
+Message-ID: <BN3PR03MB14644E591D73A1769822AC23F5F10@BN3PR03MB1464.namprd03.prod.outlook.com>
+
+The thing is, that's exactly the same goodness as Authenticode gives, except everyone gets that for free and meanwhile you're the only one who has admitted to using GPG on Windows :)
+
+Basically, what I want to hear is that GPG sigs provide significantly better protection than hashes (and I can provide better than MD5 for all files if it's useful), taking into consideration that (I assume) I'd have to obtain a signing key for GPG and unless there's a CA involved like there is for Authenticode, there's no existing trust in that key.
+
+Cheers,
+Steve
+
+Top-posted from my Windows Phone
+________________________________
+From: M.-A. Lemburg<mailto:mal at egenix.com>
+Sent: ?4/?3/?2015 10:55
+To: Steve Dower<mailto:Steve.Dower at microsoft.com>; Larry Hastings<mailto:larry at hastings.org>; Python Dev<mailto:python-dev at python.org>; python-committers<mailto:python-committers at python.org>
+Subject: Re: [python-committers] [Python-Dev] Do we need to sign Windows files with GnuPG?
+
+On 03.04.2015 19:35, Steve Dower wrote:
+>> My Windows development days are firmly behind me. So I don't really have an
+>> opinion here. So I put it to you, Windows Python developers: do you care about
+>> GnuPG signatures on Windows-specific files? Or do you not care?
+>
+> The later replies seem to suggest that they are general goodness that nobody on Windows will use. If someone convinces me (or steamrolls me, that's fine too) that the goodness of GPG is better than a hash then I'll look into adding it into the process. Otherwise I'll happily add hash generation into the upload process (which I'm going to do anyway for the ones displayed on the download page).
+
+FWIW: I regularly check the GPG sigs on all important downloaded
+files, regardless of which platform they target, including the
+Windows installers for Python or any other Windows installers
+I use which provide such sigs.
+
+The reason is simple:
+The signature is a proof of authenticity which is not bound to
+a particular file format or platform and before running .exes
+it's good to know that they were built by the right people and
+not manipulated by trojans, viruses or malicious proxies.
+
+Is that a good enough reason to continue providing the GPG
+sigs or do you need more proof of goodness ? ;-)
+
+--
+Marc-Andre Lemburg
+eGenix.com
+
+Professional Python Services directly from the Source
+>>> Python/Zope Consulting and Support ...        http://www.egenix.com/
+>>> mxODBC.Zope.Database.Adapter ...             http://zope.egenix.com/
+>>> mxODBC, mxDateTime, mxTextTools ...        http://python.egenix.com/
+________________________________________________________________________
+
+::: Try our new mxODBC.Connect Python Database Interface for free ! ::::
+
+
+   eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+    D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+           Registered at Amtsgericht Duesseldorf: HRB 46611
+               http://www.egenix.com/company/contact/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150403/017d0759/attachment.html>
+
+From mal at egenix.com  Sat Apr  4 00:38:08 2015
+From: mal at egenix.com (M.-A. Lemburg)
+Date: Sat, 04 Apr 2015 00:38:08 +0200
+Subject: [python-committers] [Python-Dev] Do we need to sign Windows
+ files with GnuPG?
+In-Reply-To: <BN3PR03MB14644E591D73A1769822AC23F5F10@BN3PR03MB1464.namprd03.prod.outlook.com>
+References: <551E63E5.6080805@hastings.org>	<BN3PR03MB146407F02F8765B8A407ACF8F5F10@BN3PR03MB1464.namprd03.prod.outlook.com>,
+ <551ED41D.2070909@egenix.com>
+ <BN3PR03MB14644E591D73A1769822AC23F5F10@BN3PR03MB1464.namprd03.prod.outlook.com>
+Message-ID: <551F1650.8070808@egenix.com>
+
+On 04.04.2015 00:14, Steve Dower wrote:
+> The thing is, that's exactly the same goodness as Authenticode gives, except everyone gets that for free and meanwhile you're the only one who has admitted to using GPG on Windows :)
+> 
+> Basically, what I want to hear is that GPG sigs provide significantly better protection than hashes (and I can provide better than MD5 for all files if it's useful), taking into consideration that (I assume) I'd have to obtain a signing key for GPG and unless there's a CA involved like there is for Authenticode, there's no existing trust in that key.
+
+Hashes only provide checks against file corruption (and then
+only if you can trust the hash values). GPG provides all the
+benefits of public key encryption on arbitrary files (not just
+code).
+
+The main benefit in case of downloadable installers is to
+be able to make sure that the files are authentic, meaning that
+they were created and signed by the people listed as packagers.
+
+There is no CA infrastructure involved as for SSL certificates
+or Authenticode, but it's easy to get the keys from key servers
+given the key signatures available from python.org's download
+pages.
+
+If you want to sign a package file using GPG, you will need
+to create your own key, upload it to the key servers and then
+place the signature up on the download page.
+
+Relying only on Authenticode for Windows installers would
+result in a break in technology w/r to the downloads we
+make available for Python, since all other files are (usually)
+GPG signed:
+
+https://www.python.org/ftp/python/3.4.3/
+
+Cheers,
+-- 
+Marc-Andre Lemburg
+eGenix.com
+
+Professional Python Services directly from the Source
+>>> Python/Zope Consulting and Support ...        http://www.egenix.com/
+>>> mxODBC.Zope.Database.Adapter ...             http://zope.egenix.com/
+>>> mxODBC, mxDateTime, mxTextTools ...        http://python.egenix.com/
+________________________________________________________________________
+
+::: Try our new mxODBC.Connect Python Database Interface for free ! ::::
+
+
+   eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+    D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+           Registered at Amtsgericht Duesseldorf: HRB 46611
+               http://www.egenix.com/company/contact/
+
+
+> Cheers,
+> Steve
+> 
+> Top-posted from my Windows Phone
+> ________________________________
+> From: M.-A. Lemburg<mailto:mal at egenix.com>
+> Sent: ?4/?3/?2015 10:55
+> To: Steve Dower<mailto:Steve.Dower at microsoft.com>; Larry Hastings<mailto:larry at hastings.org>; Python Dev<mailto:python-dev at python.org>; python-committers<mailto:python-committers at python.org>
+> Subject: Re: [python-committers] [Python-Dev] Do we need to sign Windows files with GnuPG?
+> 
+> On 03.04.2015 19:35, Steve Dower wrote:
+>>> My Windows development days are firmly behind me. So I don't really have an
+>>> opinion here. So I put it to you, Windows Python developers: do you care about
+>>> GnuPG signatures on Windows-specific files? Or do you not care?
+>>
+>> The later replies seem to suggest that they are general goodness that nobody on Windows will use. If someone convinces me (or steamrolls me, that's fine too) that the goodness of GPG is better than a hash then I'll look into adding it into the process. Otherwise I'll happily add hash generation into the upload process (which I'm going to do anyway for the ones displayed on the download page).
+> 
+> FWIW: I regularly check the GPG sigs on all important downloaded
+> files, regardless of which platform they target, including the
+> Windows installers for Python or any other Windows installers
+> I use which provide such sigs.
+> 
+> The reason is simple:
+> The signature is a proof of authenticity which is not bound to
+> a particular file format or platform and before running .exes
+> it's good to know that they were built by the right people and
+> not manipulated by trojans, viruses or malicious proxies.
+> 
+> Is that a good enough reason to continue providing the GPG
+> sigs or do you need more proof of goodness ? ;-)
+> 
+> --
+> Marc-Andre Lemburg
+> eGenix.com
+> 
+> Professional Python Services directly from the Source
+>>>> Python/Zope Consulting and Support ...        http://www.egenix.com/
+>>>> mxODBC.Zope.Database.Adapter ...             http://zope.egenix.com/
+>>>> mxODBC, mxDateTime, mxTextTools ...        http://python.egenix.com/
+> ________________________________________________________________________
+> 
+> ::: Try our new mxODBC.Connect Python Database Interface for free ! ::::
+> 
+> 
+>    eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+>     D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+>            Registered at Amtsgericht Duesseldorf: HRB 46611
+>                http://www.egenix.com/company/contact/
+> 
+
+
+From donald at stufft.io  Sat Apr  4 02:49:09 2015
+From: donald at stufft.io (Donald Stufft)
+Date: Fri, 3 Apr 2015 20:49:09 -0400
+Subject: [python-committers] [Python-Dev] Do we need to sign Windows
+	files with GnuPG?
+In-Reply-To: <551F1650.8070808@egenix.com>
+References: <551E63E5.6080805@hastings.org>
+ <BN3PR03MB146407F02F8765B8A407ACF8F5F10@BN3PR03MB1464.namprd03.prod.outlook.com>
+ <, > <551ED41D.2070909@egenix.com>
+ <BN3PR03MB14644E591D73A1769822AC23F5F10@BN3PR03MB1464.namprd03.prod.outlook.com>
+ <551F1650.8070808@egenix.com>
+Message-ID: <97D7CADF-318A-4FA7-89A6-E27319B99A21@stufft.io>
+
+
+> On Apr 3, 2015, at 6:38 PM, M.-A. Lemburg <mal at egenix.com> wrote:
+> 
+> On 04.04.2015 00:14, Steve Dower wrote:
+>> The thing is, that's exactly the same goodness as Authenticode gives, except everyone gets that for free and meanwhile you're the only one who has admitted to using GPG on Windows :)
+>> 
+>> Basically, what I want to hear is that GPG sigs provide significantly better protection than hashes (and I can provide better than MD5 for all files if it's useful), taking into consideration that (I assume) I'd have to obtain a signing key for GPG and unless there's a CA involved like there is for Authenticode, there's no existing trust in that key.
+> 
+> Hashes only provide checks against file corruption (and then
+> only if you can trust the hash values). GPG provides all the
+> benefits of public key encryption on arbitrary files (not just
+> code).
+> 
+> The main benefit in case of downloadable installers is to
+> be able to make sure that the files are authentic, meaning that
+> they were created and signed by the people listed as packagers.
+> 
+> There is no CA infrastructure involved as for SSL certificates
+> or Authenticode, but it's easy to get the keys from key servers
+> given the key signatures available from python.org's download
+> pages.
+
+FTR if we?re relying on people to get the GPG keys from the download
+pages then there?s no additional benefit over just using a hash
+published on the same page.
+
+In order to get additional benefit we?d need to get Steve?s key
+signed by enough people to get him into the strong set.
+
+> 
+> If you want to sign a package file using GPG, you will need
+> to create your own key, upload it to the key servers and then
+> place the signature up on the download page.
+> 
+> Relying only on Authenticode for Windows installers would
+> result in a break in technology w/r to the downloads we
+> make available for Python, since all other files are (usually)
+> GPG signed:
+> 
+> https://www.python.org/ftp/python/3.4.3/
+> 
+> Cheers,
+> --
+> Marc-Andre Lemburg
+> eGenix.com
+> 
+> Professional Python Services directly from the Source
+>>>> Python/Zope Consulting and Support ...        http://www.egenix.com/
+>>>> mxODBC.Zope.Database.Adapter ...             http://zope.egenix.com/
+>>>> mxODBC, mxDateTime, mxTextTools ...        http://python.egenix.com/
+> ________________________________________________________________________
+> 
+> ::: Try our new mxODBC.Connect Python Database Interface for free ! ::::
+> 
+> 
+>   eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+>    D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+>           Registered at Amtsgericht Duesseldorf: HRB 46611
+>               http://www.egenix.com/company/contact/
+> 
+> 
+>> Cheers,
+>> Steve
+>> 
+>> Top-posted from my Windows Phone
+>> ________________________________
+>> From: M.-A. Lemburg<mailto:mal at egenix.com>
+>> Sent: ?4/?3/?2015 10:55
+>> To: Steve Dower<mailto:Steve.Dower at microsoft.com>; Larry Hastings<mailto:larry at hastings.org>; Python Dev<mailto:python-dev at python.org>; python-committers<mailto:python-committers at python.org>
+>> Subject: Re: [python-committers] [Python-Dev] Do we need to sign Windows files with GnuPG?
+>> 
+>> On 03.04.2015 19:35, Steve Dower wrote:
+>>>> My Windows development days are firmly behind me. So I don't really have an
+>>>> opinion here. So I put it to you, Windows Python developers: do you care about
+>>>> GnuPG signatures on Windows-specific files? Or do you not care?
+>>> 
+>>> The later replies seem to suggest that they are general goodness that nobody on Windows will use. If someone convinces me (or steamrolls me, that's fine too) that the goodness of GPG is better than a hash then I'll look into adding it into the process. Otherwise I'll happily add hash generation into the upload process (which I'm going to do anyway for the ones displayed on the download page).
+>> 
+>> FWIW: I regularly check the GPG sigs on all important downloaded
+>> files, regardless of which platform they target, including the
+>> Windows installers for Python or any other Windows installers
+>> I use which provide such sigs.
+>> 
+>> The reason is simple:
+>> The signature is a proof of authenticity which is not bound to
+>> a particular file format or platform and before running .exes
+>> it's good to know that they were built by the right people and
+>> not manipulated by trojans, viruses or malicious proxies.
+>> 
+>> Is that a good enough reason to continue providing the GPG
+>> sigs or do you need more proof of goodness ? ;-)
+>> 
+>> --
+>> Marc-Andre Lemburg
+>> eGenix.com
+>> 
+>> Professional Python Services directly from the Source
+>>>>> Python/Zope Consulting and Support ...        http://www.egenix.com/
+>>>>> mxODBC.Zope.Database.Adapter ...             http://zope.egenix.com/
+>>>>> mxODBC, mxDateTime, mxTextTools ...        http://python.egenix.com/
+>> ________________________________________________________________________
+>> 
+>> ::: Try our new mxODBC.Connect Python Database Interface for free ! ::::
+>> 
+>> 
+>>   eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+>>    D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+>>           Registered at Amtsgericht Duesseldorf: HRB 46611
+>>               http://www.egenix.com/company/contact/
+>> 
+> 
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+
+---
+Donald Stufft
+PGP: 7C6B 7C5D 5E2B 6356 A926 F04F 6E3C BCE9 3372 DCFA
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 801 bytes
+Desc: Message signed with OpenPGP using GPGMail
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150403/13e80e15/attachment-0001.sig>
+
+From mal at egenix.com  Sat Apr  4 12:02:17 2015
+From: mal at egenix.com (M.-A. Lemburg)
+Date: Sat, 04 Apr 2015 12:02:17 +0200
+Subject: [python-committers] [Python-Dev] Do we need to sign Windows
+ files with GnuPG?
+In-Reply-To: <97D7CADF-318A-4FA7-89A6-E27319B99A21@stufft.io>
+References: <551E63E5.6080805@hastings.org>	<BN3PR03MB146407F02F8765B8A407ACF8F5F10@BN3PR03MB1464.namprd03.prod.outlook.com>	<,
+ >
+ <551ED41D.2070909@egenix.com>	<BN3PR03MB14644E591D73A1769822AC23F5F10@BN3PR03MB1464.namprd03.prod.outlook.com>	<551F1650.8070808@egenix.com>
+ <97D7CADF-318A-4FA7-89A6-E27319B99A21@stufft.io>
+Message-ID: <551FB6A9.2040700@egenix.com>
+
+On 04.04.2015 02:49, Donald Stufft wrote:
+> 
+>> On Apr 3, 2015, at 6:38 PM, M.-A. Lemburg <mal at egenix.com> wrote:
+>>
+>> On 04.04.2015 00:14, Steve Dower wrote:
+>>> The thing is, that's exactly the same goodness as Authenticode gives, except everyone gets that for free and meanwhile you're the only one who has admitted to using GPG on Windows :)
+>>>
+>>> Basically, what I want to hear is that GPG sigs provide significantly better protection than hashes (and I can provide better than MD5 for all files if it's useful), taking into consideration that (I assume) I'd have to obtain a signing key for GPG and unless there's a CA involved like there is for Authenticode, there's no existing trust in that key.
+>>
+>> Hashes only provide checks against file corruption (and then
+>> only if you can trust the hash values). GPG provides all the
+>> benefits of public key encryption on arbitrary files (not just
+>> code).
+>>
+>> The main benefit in case of downloadable installers is to
+>> be able to make sure that the files are authentic, meaning that
+>> they were created and signed by the people listed as packagers.
+>>
+>> There is no CA infrastructure involved as for SSL certificates
+>> or Authenticode, but it's easy to get the keys from key servers
+>> given the key signatures available from python.org's download
+>> pages.
+> 
+> FTR if we?re relying on people to get the GPG keys from the download
+> pages then there?s no additional benefit over just using a hash
+> published on the same page.
+
+Well, it's still better than just the hashes...
+
+> In order to get additional benefit we?d need to get Steve?s key
+> signed by enough people to get him into the strong set.
+
+...but having the key signed by fellow core devs will certainly
+add more goodness :-)
+
+>> If you want to sign a package file using GPG, you will need
+>> to create your own key, upload it to the key servers and then
+>> place the signature up on the download page.
+>>
+>> Relying only on Authenticode for Windows installers would
+>> result in a break in technology w/r to the downloads we
+>> make available for Python, since all other files are (usually)
+>> GPG signed:
+>>
+>> https://www.python.org/ftp/python/3.4.3/
+>>
+>> Cheers,
+>> --
+>> Marc-Andre Lemburg
+>> eGenix.com
+>>
+>> Professional Python Services directly from the Source
+>>>>> Python/Zope Consulting and Support ...        http://www.egenix.com/
+>>>>> mxODBC.Zope.Database.Adapter ...             http://zope.egenix.com/
+>>>>> mxODBC, mxDateTime, mxTextTools ...        http://python.egenix.com/
+>> ________________________________________________________________________
+>>
+>> ::: Try our new mxODBC.Connect Python Database Interface for free ! ::::
+>>
+>>
+>>   eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+>>    D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+>>           Registered at Amtsgericht Duesseldorf: HRB 46611
+>>               http://www.egenix.com/company/contact/
+>>
+>>
+>>> Cheers,
+>>> Steve
+>>>
+>>> Top-posted from my Windows Phone
+>>> ________________________________
+>>> From: M.-A. Lemburg<mailto:mal at egenix.com>
+>>> Sent: ?4/?3/?2015 10:55
+>>> To: Steve Dower<mailto:Steve.Dower at microsoft.com>; Larry Hastings<mailto:larry at hastings.org>; Python Dev<mailto:python-dev at python.org>; python-committers<mailto:python-committers at python.org>
+>>> Subject: Re: [python-committers] [Python-Dev] Do we need to sign Windows files with GnuPG?
+>>>
+>>> On 03.04.2015 19:35, Steve Dower wrote:
+>>>>> My Windows development days are firmly behind me. So I don't really have an
+>>>>> opinion here. So I put it to you, Windows Python developers: do you care about
+>>>>> GnuPG signatures on Windows-specific files? Or do you not care?
+>>>>
+>>>> The later replies seem to suggest that they are general goodness that nobody on Windows will use. If someone convinces me (or steamrolls me, that's fine too) that the goodness of GPG is better than a hash then I'll look into adding it into the process. Otherwise I'll happily add hash generation into the upload process (which I'm going to do anyway for the ones displayed on the download page).
+>>>
+>>> FWIW: I regularly check the GPG sigs on all important downloaded
+>>> files, regardless of which platform they target, including the
+>>> Windows installers for Python or any other Windows installers
+>>> I use which provide such sigs.
+>>>
+>>> The reason is simple:
+>>> The signature is a proof of authenticity which is not bound to
+>>> a particular file format or platform and before running .exes
+>>> it's good to know that they were built by the right people and
+>>> not manipulated by trojans, viruses or malicious proxies.
+>>>
+>>> Is that a good enough reason to continue providing the GPG
+>>> sigs or do you need more proof of goodness ? ;-)
+>>>
+>>> --
+>>> Marc-Andre Lemburg
+>>> eGenix.com
+>>>
+>>> Professional Python Services directly from the Source
+>>>>>> Python/Zope Consulting and Support ...        http://www.egenix.com/
+>>>>>> mxODBC.Zope.Database.Adapter ...             http://zope.egenix.com/
+>>>>>> mxODBC, mxDateTime, mxTextTools ...        http://python.egenix.com/
+>>> ________________________________________________________________________
+>>>
+>>> ::: Try our new mxODBC.Connect Python Database Interface for free ! ::::
+>>>
+>>>
+>>>   eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+>>>    D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+>>>           Registered at Amtsgericht Duesseldorf: HRB 46611
+>>>               http://www.egenix.com/company/contact/
+>>>
+>>
+>> _______________________________________________
+>> python-committers mailing list
+>> python-committers at python.org
+>> https://mail.python.org/mailman/listinfo/python-committers
+> 
+> ---
+> Donald Stufft
+> PGP: 7C6B 7C5D 5E2B 6356 A926 F04F 6E3C BCE9 3372 DCFA
+> 
+> 
+> 
+> _______________________________________________
+> Python-Dev mailing list
+> Python-Dev at python.org
+> https://mail.python.org/mailman/listinfo/python-dev
+> Unsubscribe: https://mail.python.org/mailman/options/python-dev/mal%40egenix.com
+> 
+
+-- 
+Marc-Andre Lemburg
+eGenix.com
+
+Professional Python Services directly from the Source
+>>> Python/Zope Consulting and Support ...        http://www.egenix.com/
+>>> mxODBC.Zope.Database.Adapter ...             http://zope.egenix.com/
+>>> mxODBC, mxDateTime, mxTextTools ...        http://python.egenix.com/
+________________________________________________________________________
+
+::: Try our new mxODBC.Connect Python Database Interface for free ! ::::
+
+
+   eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+    D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+           Registered at Amtsgericht Duesseldorf: HRB 46611
+               http://www.egenix.com/company/contact/
+
+From Steve.Dower at microsoft.com  Sat Apr  4 16:24:46 2015
+From: Steve.Dower at microsoft.com (Steve Dower)
+Date: Sat, 4 Apr 2015 14:24:46 +0000
+Subject: [python-committers] [Python-Dev] Do we need to sign Windows
+ files with GnuPG?
+In-Reply-To: <CACfEFw-FAHa9QYwsutMfCgQdVmy7yuEyLycQz_U85ytY8LgBJw@mail.gmail.com>
+References: <551E63E5.6080805@hastings.org>
+ <BN3PR03MB146407F02F8765B8A407ACF8F5F10@BN3PR03MB1464.namprd03.prod.outlook.com>
+ <551ED41D.2070909@egenix.com>
+ <BN3PR03MB14644E591D73A1769822AC23F5F10@BN3PR03MB1464.namprd03.prod.outlook.com>
+ <551F1650.8070808@egenix.com>,
+ <CACfEFw-FAHa9QYwsutMfCgQdVmy7yuEyLycQz_U85ytY8LgBJw@mail.gmail.com>
+Message-ID: <BY1PR03MB14661E6F85717A898F6F7E93F5F00@BY1PR03MB1466.namprd03.prod.outlook.com>
+
+"Authenticode does not have a PKI"
+
+If you got that from this discussion, I need everyone to at least skim read this:  https://msdn.microsoft.com/en-us/library/ie/ms537361(v=vs.85).aspx
+
+Authenticode uses the same certificate infrastructure as SSL (note: not the same certificates). As I see it, anyone running on Windows has access to verification that is at least as good as GPG, and the only people who would benefit from GPG sigs are those checking Windows files on another OS or those with an existing GPG workflow on Windows (before this thread, I knew nobody who used GPG on Windows for anything, so forgive me for thinking this is very rare).
+
+Cheers,
+Steve
+
+Top-posted from my Windows Phone
+________________________________
+From: Wes Turner<mailto:wes.turner at gmail.com>
+Sent: ?4/?4/?2015 6:42
+To: M. -A. Lemburg<mailto:mal at egenix.com>
+Cc: Python-Dev<mailto:python-dev at python.org>; python-committers<mailto:python-committers at python.org>; Larry Hastings<mailto:larry at hastings.org>; Steve Dower<mailto:Steve.Dower at microsoft.com>
+Subject: Re: [Python-Dev] [python-committers] Do we need to sign Windows files with GnuPG?
+
+
+So, AFAIU from this discussion:
+
+* Authenticode does not have a PKI
+* GPG does have PKI
+* ASC signatures are signed checksums
+
+As far as downstream packaging on Windows (people who should/could be subscribed to release ANNs):
+
+For Choclatey NuGet:
+
+* https://chocolatey.org/packages/python
+* https://chocolatey.org/packages/python.x86
+* https://chocolatey.org/packages/python2
+* https://chocolatey.org/packages/python-x86_32
+* https://chocolatey.org/packages/python3
+
+Python(x,y):
+
+* https://code.google.com/p/pythonxy/
+
+For Anaconda (the MS Azure chosen python distribution):
+
+* http://docs.continuum.io/anaconda/install.html#windows-install
+
+...
+
+These should/could/are checking GPG signatures for Windows packages downstream.
+
+http://www.scipy.org/install.html
+
+On Apr 3, 2015 5:38 PM, "M.-A. Lemburg" <mal at egenix.com<mailto:mal at egenix.com>> wrote:
+On 04.04.2015 00:14, Steve Dower wrote:
+> The thing is, that's exactly the same goodness as Authenticode gives, except everyone gets that for free and meanwhile you're the only one who has admitted to using GPG on Windows :)
+>
+> Basically, what I want to hear is that GPG sigs provide significantly better protection than hashes (and I can provide better than MD5 for all files if it's useful), taking into consideration that (I assume) I'd have to obtain a signing key for GPG and unless there's a CA involved like there is for Authenticode, there's no existing trust in that key.
+
+Hashes only provide checks against file corruption (and then
+only if you can trust the hash values). GPG provides all the
+benefits of public key encryption on arbitrary files (not just
+code).
+
+The main benefit in case of downloadable installers is to
+be able to make sure that the files are authentic, meaning that
+they were created and signed by the people listed as packagers.
+
+There is no CA infrastructure involved as for SSL certificates
+or Authenticode, but it's easy to get the keys from key servers
+given the key signatures available from python.org<http://python.org>'s download
+pages.
+
+If you want to sign a package file using GPG, you will need
+to create your own key, upload it to the key servers and then
+place the signature up on the download page.
+
+Relying only on Authenticode for Windows installers would
+result in a break in technology w/r to the downloads we
+make available for Python, since all other files are (usually)
+GPG signed:
+
+https://www.python.org/ftp/python/3.4.3/
+
+Cheers,
+--
+Marc-Andre Lemburg
+eGenix.com
+
+Professional Python Services directly from the Source
+>>> Python/Zope Consulting and Support ...        http://www.egenix.com/
+>>> mxODBC.Zope.Database.Adapter ...             http://zope.egenix.com/
+>>> mxODBC, mxDateTime, mxTextTools ...        http://python.egenix.com/
+________________________________________________________________________
+
+::: Try our new mxODBC.Connect Python Database Interface for free ! ::::
+
+
+   eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+    D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+           Registered at Amtsgericht Duesseldorf: HRB 46611
+               http://www.egenix.com/company/contact/
+
+
+> Cheers,
+> Steve
+>
+> Top-posted from my Windows Phone
+> ________________________________
+> From: M.-A. Lemburg<mailto:mal at egenix.com<mailto:mal at egenix.com>>
+> Sent: ?4/?3/?2015 10:55
+> To: Steve Dower<mailto:Steve.Dower at microsoft.com<mailto:Steve.Dower at microsoft.com>>; Larry Hastings<mailto:larry at hastings.org<mailto:larry at hastings.org>>; Python Dev<mailto:python-dev at python.org<mailto:python-dev at python.org>>; python-committers<mailto:python-committers at python.org<mailto:python-committers at python.org>>
+> Subject: Re: [python-committers] [Python-Dev] Do we need to sign Windows files with GnuPG?
+>
+> On 03.04.2015 19:35, Steve Dower wrote:
+>>> My Windows development days are firmly behind me. So I don't really have an
+>>> opinion here. So I put it to you, Windows Python developers: do you care about
+>>> GnuPG signatures on Windows-specific files? Or do you not care?
+>>
+>> The later replies seem to suggest that they are general goodness that nobody on Windows will use. If someone convinces me (or steamrolls me, that's fine too) that the goodness of GPG is better than a hash then I'll look into adding it into the process. Otherwise I'll happily add hash generation into the upload process (which I'm going to do anyway for the ones displayed on the download page).
+>
+> FWIW: I regularly check the GPG sigs on all important downloaded
+> files, regardless of which platform they target, including the
+> Windows installers for Python or any other Windows installers
+> I use which provide such sigs.
+>
+> The reason is simple:
+> The signature is a proof of authenticity which is not bound to
+> a particular file format or platform and before running .exes
+> it's good to know that they were built by the right people and
+> not manipulated by trojans, viruses or malicious proxies.
+>
+> Is that a good enough reason to continue providing the GPG
+> sigs or do you need more proof of goodness ? ;-)
+>
+> --
+> Marc-Andre Lemburg
+> eGenix.com
+>
+> Professional Python Services directly from the Source
+>>>> Python/Zope Consulting and Support ...        http://www.egenix.com/
+>>>> mxODBC.Zope.Database.Adapter ...             http://zope.egenix.com/
+>>>> mxODBC, mxDateTime, mxTextTools ...        http://python.egenix.com/
+> ________________________________________________________________________
+>
+> ::: Try our new mxODBC.Connect Python Database Interface for free ! ::::
+>
+>
+>    eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+>     D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+>            Registered at Amtsgericht Duesseldorf: HRB 46611
+>                http://www.egenix.com/company/contact/
+>
+
+_______________________________________________
+Python-Dev mailing list
+Python-Dev at python.org<mailto:Python-Dev at python.org>
+https://mail.python.org/mailman/listinfo/python-dev
+Unsubscribe: https://mail.python.org/mailman/options/python-dev/wes.turner%40gmail.com
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150404/9d318ade/attachment-0001.html>
+
+From Steve.Dower at microsoft.com  Sat Apr  4 16:41:14 2015
+From: Steve.Dower at microsoft.com (Steve Dower)
+Date: Sat, 4 Apr 2015 14:41:14 +0000
+Subject: [python-committers] [Python-Dev] Do we need to sign Windows
+ files with GnuPG?
+In-Reply-To: <551F1650.8070808@egenix.com>
+References: <551E63E5.6080805@hastings.org>
+ <BN3PR03MB146407F02F8765B8A407ACF8F5F10@BN3PR03MB1464.namprd03.prod.outlook.com>,
+ <551ED41D.2070909@egenix.com>
+ <BN3PR03MB14644E591D73A1769822AC23F5F10@BN3PR03MB1464.namprd03.prod.outlook.com>,
+ <551F1650.8070808@egenix.com>
+Message-ID: <BY1PR03MB14668C1DD568239DEABA2350F5F00@BY1PR03MB1466.namprd03.prod.outlook.com>
+
+"Relying only on Authenticode for Windows installers would result in a break in technology w/r to the downloads we make available for Python, since all other files are (usually) GPG signed"
+
+This is the point of this discussion. I'm willing to make such a break because I believe Authenticode is so much more convenient for end users that it isn't worth producing GPG signatures. So far, the responses seem to be:
+
+"I'd use them on Windows" x1
+"I'd consider using them on another OS" x2-3
+"Please don't change" everyone else
+
+At least that's the impression I'm getting, so I hope that helps clarify why I'm still not convinced it's that critical.
+
+Cheers,
+Steve
+
+Top-posted from my Windows Phone
+________________________________
+From: M.-A. Lemburg<mailto:mal at egenix.com>
+Sent: ?4/?3/?2015 15:38
+To: Steve Dower<mailto:Steve.Dower at microsoft.com>; Larry Hastings<mailto:larry at hastings.org>; Python Dev<mailto:python-dev at python.org>; python-committers<mailto:python-committers at python.org>
+Subject: Re: [python-committers] [Python-Dev] Do we need to sign Windows files with GnuPG?
+
+On 04.04.2015 00:14, Steve Dower wrote:
+> The thing is, that's exactly the same goodness as Authenticode gives, except everyone gets that for free and meanwhile you're the only one who has admitted to using GPG on Windows :)
+>
+> Basically, what I want to hear is that GPG sigs provide significantly better protection than hashes (and I can provide better than MD5 for all files if it's useful), taking into consideration that (I assume) I'd have to obtain a signing key for GPG and unless there's a CA involved like there is for Authenticode, there's no existing trust in that key.
+
+Hashes only provide checks against file corruption (and then
+only if you can trust the hash values). GPG provides all the
+benefits of public key encryption on arbitrary files (not just
+code).
+
+The main benefit in case of downloadable installers is to
+be able to make sure that the files are authentic, meaning that
+they were created and signed by the people listed as packagers.
+
+There is no CA infrastructure involved as for SSL certificates
+or Authenticode, but it's easy to get the keys from key servers
+given the key signatures available from python.org's download
+pages.
+
+If you want to sign a package file using GPG, you will need
+to create your own key, upload it to the key servers and then
+place the signature up on the download page.
+
+Relying only on Authenticode for Windows installers would
+result in a break in technology w/r to the downloads we
+make available for Python, since all other files are (usually)
+GPG signed:
+
+https://www.python.org/ftp/python/3.4.3/
+
+Cheers,
+--
+Marc-Andre Lemburg
+eGenix.com
+
+Professional Python Services directly from the Source
+>>> Python/Zope Consulting and Support ...        http://www.egenix.com/
+>>> mxODBC.Zope.Database.Adapter ...             http://zope.egenix.com/
+>>> mxODBC, mxDateTime, mxTextTools ...        http://python.egenix.com/
+________________________________________________________________________
+
+::: Try our new mxODBC.Connect Python Database Interface for free ! ::::
+
+
+   eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+    D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+           Registered at Amtsgericht Duesseldorf: HRB 46611
+               http://www.egenix.com/company/contact/
+
+
+> Cheers,
+> Steve
+>
+> Top-posted from my Windows Phone
+> ________________________________
+> From: M.-A. Lemburg<mailto:mal at egenix.com>
+> Sent: ?4/?3/?2015 10:55
+> To: Steve Dower<mailto:Steve.Dower at microsoft.com>; Larry Hastings<mailto:larry at hastings.org>; Python Dev<mailto:python-dev at python.org>; python-committers<mailto:python-committers at python.org>
+> Subject: Re: [python-committers] [Python-Dev] Do we need to sign Windows files with GnuPG?
+>
+> On 03.04.2015 19:35, Steve Dower wrote:
+>>> My Windows development days are firmly behind me. So I don't really have an
+>>> opinion here. So I put it to you, Windows Python developers: do you care about
+>>> GnuPG signatures on Windows-specific files? Or do you not care?
+>>
+>> The later replies seem to suggest that they are general goodness that nobody on Windows will use. If someone convinces me (or steamrolls me, that's fine too) that the goodness of GPG is better than a hash then I'll look into adding it into the process. Otherwise I'll happily add hash generation into the upload process (which I'm going to do anyway for the ones displayed on the download page).
+>
+> FWIW: I regularly check the GPG sigs on all important downloaded
+> files, regardless of which platform they target, including the
+> Windows installers for Python or any other Windows installers
+> I use which provide such sigs.
+>
+> The reason is simple:
+> The signature is a proof of authenticity which is not bound to
+> a particular file format or platform and before running .exes
+> it's good to know that they were built by the right people and
+> not manipulated by trojans, viruses or malicious proxies.
+>
+> Is that a good enough reason to continue providing the GPG
+> sigs or do you need more proof of goodness ? ;-)
+>
+> --
+> Marc-Andre Lemburg
+> eGenix.com
+>
+> Professional Python Services directly from the Source
+>>>> Python/Zope Consulting and Support ...        http://www.egenix.com/
+>>>> mxODBC.Zope.Database.Adapter ...             http://zope.egenix.com/
+>>>> mxODBC, mxDateTime, mxTextTools ...        http://python.egenix.com/
+> ________________________________________________________________________
+>
+> ::: Try our new mxODBC.Connect Python Database Interface for free ! ::::
+>
+>
+>    eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+>     D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+>            Registered at Amtsgericht Duesseldorf: HRB 46611
+>                http://www.egenix.com/company/contact/
+>
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150404/0c39e0b9/attachment.html>
+
+From mal at egenix.com  Sat Apr  4 18:57:28 2015
+From: mal at egenix.com (M.-A. Lemburg)
+Date: Sat, 04 Apr 2015 18:57:28 +0200
+Subject: [python-committers] [Python-Dev] Do we need to sign Windows
+ files with GnuPG?
+In-Reply-To: <BY1PR03MB14668C1DD568239DEABA2350F5F00@BY1PR03MB1466.namprd03.prod.outlook.com>
+References: <551E63E5.6080805@hastings.org>	<BN3PR03MB146407F02F8765B8A407ACF8F5F10@BN3PR03MB1464.namprd03.prod.outlook.com>,
+ <551ED41D.2070909@egenix.com>	<BN3PR03MB14644E591D73A1769822AC23F5F10@BN3PR03MB1464.namprd03.prod.outlook.com>,
+ <551F1650.8070808@egenix.com>
+ <BY1PR03MB14668C1DD568239DEABA2350F5F00@BY1PR03MB1466.namprd03.prod.outlook.com>
+Message-ID: <552017F8.3060401@egenix.com>
+
+On 04.04.2015 16:41, Steve Dower wrote:
+> "Relying only on Authenticode for Windows installers would result in a break in technology w/r to the downloads we make available for Python, since all other files are (usually) GPG signed"
+> 
+> This is the point of this discussion. I'm willing to make such a break because I believe Authenticode is so much more convenient for end users that it isn't worth producing GPG signatures. So far, the responses seem to be:
+> 
+> "I'd use them on Windows" x1
+> "I'd consider using them on another OS" x2-3
+> "Please don't change" everyone else
+> 
+> At least that's the impression I'm getting, so I hope that helps clarify why I'm still not convinced it's that critical.
+
+Just to clarify:
+
+I have absolutely nothing against using Authenticode on Windows :-)
+
+I'm only trying to convince you that *additionally* providing GPG
+sigs for Windows downloads is a good thing and we should not stop
+doing this, since it makes verification of downloaded files
+easier. It's not hard to do, can be automated and provides additional
+security which can be verified on any platform, not only Windows.
+
+Cheers,
+-- 
+Marc-Andre Lemburg
+eGenix.com
+
+Professional Python Services directly from the Source
+>>> Python/Zope Consulting and Support ...        http://www.egenix.com/
+>>> mxODBC.Zope.Database.Adapter ...             http://zope.egenix.com/
+>>> mxODBC, mxDateTime, mxTextTools ...        http://python.egenix.com/
+________________________________________________________________________
+
+::: Try our new mxODBC.Connect Python Database Interface for free ! ::::
+
+
+   eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+    D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+           Registered at Amtsgericht Duesseldorf: HRB 46611
+               http://www.egenix.com/company/contact/
+
+From Steve.Dower at microsoft.com  Sat Apr  4 16:35:40 2015
+From: Steve.Dower at microsoft.com (Steve Dower)
+Date: Sat, 4 Apr 2015 14:35:40 +0000
+Subject: [python-committers] [Python-Dev] Do we need to sign Windows
+ files with GnuPG?
+In-Reply-To: <BY1PR03MB14661E6F85717A898F6F7E93F5F00@BY1PR03MB1466.namprd03.prod.outlook.com>
+References: <551E63E5.6080805@hastings.org>
+ <BN3PR03MB146407F02F8765B8A407ACF8F5F10@BN3PR03MB1464.namprd03.prod.outlook.com>
+ <551ED41D.2070909@egenix.com>
+ <BN3PR03MB14644E591D73A1769822AC23F5F10@BN3PR03MB1464.namprd03.prod.outlook.com>
+ <551F1650.8070808@egenix.com>,
+ <CACfEFw-FAHa9QYwsutMfCgQdVmy7yuEyLycQz_U85ytY8LgBJw@mail.gmail.com>,
+ <BY1PR03MB14661E6F85717A898F6F7E93F5F00@BY1PR03MB1466.namprd03.prod.outlook.com>
+Message-ID: <BY1PR03MB1466990DF8329C29ECD6D1E7F5F00@BY1PR03MB1466.namprd03.prod.outlook.com>
+
+Small clarification: there certificates *are* the same format as for SSL, and OpenSSL it's able to validate them in the same way as well as generate them (but not extract embedded ones, AFAICT). But generally SSL certificates are not marked as suitable for code signing so you need to buy a separate one.
+
+Both Martin and I have the PSF's code signing cert private key, which is how we can sign with the "Python Software Foundation" name. The public key is embedded into every signed file, just like an SSL cert is attached to a site or an S/MIME cert is embedded in a signed email.
+
+Cheers,
+Steve
+
+Top-posted from my Windows Phone
+________________________________
+From: Steve Dower<mailto:Steve.Dower at microsoft.com>
+Sent: ?4/?4/?2015 7:25
+To: Wes Turner<mailto:wes.turner at gmail.com>; M. -A. Lemburg<mailto:mal at egenix.com>
+Cc: python-committers<mailto:python-committers at python.org>; Python-Dev<mailto:python-dev at python.org>
+Subject: Re: [python-committers] [Python-Dev] Do we need to sign Windows files with GnuPG?
+
+"Authenticode does not have a PKI"
+
+If you got that from this discussion, I need everyone to at least skim read this:  https://msdn.microsoft.com/en-us/library/ie/ms537361(v=vs.85).aspx
+
+Authenticode uses the same certificate infrastructure as SSL (note: not the same certificates). As I see it, anyone running on Windows has access to verification that is at least as good as GPG, and the only people who would benefit from GPG sigs are those checking Windows files on another OS or those with an existing GPG workflow on Windows (before this thread, I knew nobody who used GPG on Windows for anything, so forgive me for thinking this is very rare).
+
+Cheers,
+Steve
+
+Top-posted from my Windows Phone
+________________________________
+From: Wes Turner<mailto:wes.turner at gmail.com>
+Sent: ?4/?4/?2015 6:42
+To: M. -A. Lemburg<mailto:mal at egenix.com>
+Cc: Python-Dev<mailto:python-dev at python.org>; python-committers<mailto:python-committers at python.org>; Larry Hastings<mailto:larry at hastings.org>; Steve Dower<mailto:Steve.Dower at microsoft.com>
+Subject: Re: [Python-Dev] [python-committers] Do we need to sign Windows files with GnuPG?
+
+
+So, AFAIU from this discussion:
+
+* Authenticode does not have a PKI
+* GPG does have PKI
+* ASC signatures are signed checksums
+
+As far as downstream packaging on Windows (people who should/could be subscribed to release ANNs):
+
+For Choclatey NuGet:
+
+* https://chocolatey.org/packages/python
+* https://chocolatey.org/packages/python.x86
+* https://chocolatey.org/packages/python2
+* https://chocolatey.org/packages/python-x86_32
+* https://chocolatey.org/packages/python3
+
+Python(x,y):
+
+* https://code.google.com/p/pythonxy/
+
+For Anaconda (the MS Azure chosen python distribution):
+
+* http://docs.continuum.io/anaconda/install.html#windows-install
+
+...
+
+These should/could/are checking GPG signatures for Windows packages downstream.
+
+http://www.scipy.org/install.html
+
+On Apr 3, 2015 5:38 PM, "M.-A. Lemburg" <mal at egenix.com<mailto:mal at egenix.com>> wrote:
+On 04.04.2015 00:14, Steve Dower wrote:
+> The thing is, that's exactly the same goodness as Authenticode gives, except everyone gets that for free and meanwhile you're the only one who has admitted to using GPG on Windows :)
+>
+> Basically, what I want to hear is that GPG sigs provide significantly better protection than hashes (and I can provide better than MD5 for all files if it's useful), taking into consideration that (I assume) I'd have to obtain a signing key for GPG and unless there's a CA involved like there is for Authenticode, there's no existing trust in that key.
+
+Hashes only provide checks against file corruption (and then
+only if you can trust the hash values). GPG provides all the
+benefits of public key encryption on arbitrary files (not just
+code).
+
+The main benefit in case of downloadable installers is to
+be able to make sure that the files are authentic, meaning that
+they were created and signed by the people listed as packagers.
+
+There is no CA infrastructure involved as for SSL certificates
+or Authenticode, but it's easy to get the keys from key servers
+given the key signatures available from python.org<http://python.org>'s download
+pages.
+
+If you want to sign a package file using GPG, you will need
+to create your own key, upload it to the key servers and then
+place the signature up on the download page.
+
+Relying only on Authenticode for Windows installers would
+result in a break in technology w/r to the downloads we
+make available for Python, since all other files are (usually)
+GPG signed:
+
+https://www.python.org/ftp/python/3.4.3/
+
+Cheers,
+--
+Marc-Andre Lemburg
+eGenix.com
+
+Professional Python Services directly from the Source
+>>> Python/Zope Consulting and Support ...        http://www.egenix.com/
+>>> mxODBC.Zope.Database.Adapter ...             http://zope.egenix.com/
+>>> mxODBC, mxDateTime, mxTextTools ...        http://python.egenix.com/
+________________________________________________________________________
+
+::: Try our new mxODBC.Connect Python Database Interface for free ! ::::
+
+
+   eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+    D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+           Registered at Amtsgericht Duesseldorf: HRB 46611
+               http://www.egenix.com/company/contact/
+
+
+> Cheers,
+> Steve
+>
+> Top-posted from my Windows Phone
+> ________________________________
+> From: M.-A. Lemburg<mailto:mal at egenix.com<mailto:mal at egenix.com>>
+> Sent: ?4/?3/?2015 10:55
+> To: Steve Dower<mailto:Steve.Dower at microsoft.com<mailto:Steve.Dower at microsoft.com>>; Larry Hastings<mailto:larry at hastings.org<mailto:larry at hastings.org>>; Python Dev<mailto:python-dev at python.org<mailto:python-dev at python.org>>; python-committers<mailto:python-committers at python.org<mailto:python-committers at python.org>>
+> Subject: Re: [python-committers] [Python-Dev] Do we need to sign Windows files with GnuPG?
+>
+> On 03.04.2015 19:35, Steve Dower wrote:
+>>> My Windows development days are firmly behind me. So I don't really have an
+>>> opinion here. So I put it to you, Windows Python developers: do you care about
+>>> GnuPG signatures on Windows-specific files? Or do you not care?
+>>
+>> The later replies seem to suggest that they are general goodness that nobody on Windows will use. If someone convinces me (or steamrolls me, that's fine too) that the goodness of GPG is better than a hash then I'll look into adding it into the process. Otherwise I'll happily add hash generation into the upload process (which I'm going to do anyway for the ones displayed on the download page).
+>
+> FWIW: I regularly check the GPG sigs on all important downloaded
+> files, regardless of which platform they target, including the
+> Windows installers for Python or any other Windows installers
+> I use which provide such sigs.
+>
+> The reason is simple:
+> The signature is a proof of authenticity which is not bound to
+> a particular file format or platform and before running .exes
+> it's good to know that they were built by the right people and
+> not manipulated by trojans, viruses or malicious proxies.
+>
+> Is that a good enough reason to continue providing the GPG
+> sigs or do you need more proof of goodness ? ;-)
+>
+> --
+> Marc-Andre Lemburg
+> eGenix.com
+>
+> Professional Python Services directly from the Source
+>>>> Python/Zope Consulting and Support ...        http://www.egenix.com/
+>>>> mxODBC.Zope.Database.Adapter ...             http://zope.egenix.com/
+>>>> mxODBC, mxDateTime, mxTextTools ...        http://python.egenix.com/
+> ________________________________________________________________________
+>
+> ::: Try our new mxODBC.Connect Python Database Interface for free ! ::::
+>
+>
+>    eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+>     D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+>            Registered at Amtsgericht Duesseldorf: HRB 46611
+>                http://www.egenix.com/company/contact/
+>
+
+_______________________________________________
+Python-Dev mailing list
+Python-Dev at python.org<mailto:Python-Dev at python.org>
+https://mail.python.org/mailman/listinfo/python-dev
+Unsubscribe: https://mail.python.org/mailman/options/python-dev/wes.turner%40gmail.com
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150404/d838e2c1/attachment-0001.html>
+
+From kbk at shore.net  Sat Apr  4 21:02:05 2015
+From: kbk at shore.net (Kurt B. Kaiser)
+Date: Sat, 04 Apr 2015 15:02:05 -0400
+Subject: [python-committers] [Python-Dev] Do we need to sign Windows
+ files with GnuPG?
+In-Reply-To: <BY1PR03MB1466990DF8329C29ECD6D1E7F5F00@BY1PR03MB1466.namprd03.prod.outlook.com>
+References: <551E63E5.6080805@hastings.org>
+ <BN3PR03MB146407F02F8765B8A407ACF8F5F10@BN3PR03MB1464.namprd03.prod.outlook.com>
+ <551ED41D.2070909@egenix.com>
+ <BN3PR03MB14644E591D73A1769822AC23F5F10@BN3PR03MB1464.namprd03.prod.outlook.com>
+ <BY1PR03MB14661E6F85717A898F6F7E93F5F00@BY1PR03MB1466.namprd03.prod.outlook.com>
+ <BY1PR03MB1466990DF8329C29ECD6D1E7F5F00@BY1PR03MB1466.namprd03.prod.outlook.com>
+Message-ID: <1428174125.3954963.249326869.58843520@webmail.messagingengine.com>
+
+For the record, that is a Symantec/Verisign code signing certificate. We
+paid $1123 for it last April.  It expires April 2017.
+
+If you don't switch to a different vendor, e.g. startssl, please contact
+me for renewal in 2017.
+
+KBK
+
+On Sat, Apr 4, 2015, at 10:35 AM, Steve Dower wrote:
+> Small clarification: there certificates *are* the same format as for SSL,
+> and OpenSSL it's able to validate them in the same way as well as
+> generate them (but not extract embedded ones, AFAICT). But generally SSL
+> certificates are not marked as suitable for code signing so you need to
+> buy a separate one.
+> 
+> Both Martin and I have the PSF's code signing cert private key, which is
+> how we can sign with the "Python Software Foundation" name. The public
+> key is embedded into every signed file, just like an SSL cert is attached
+> to a site or an S/MIME cert is embedded in a signed email.
+> 
+> Cheers,
+> Steve
+> 
+> Top-posted from my Windows Phone
+> ________________________________
+> From: Steve Dower<mailto:Steve.Dower at microsoft.com>
+> Sent: ?4/?4/?2015 7:25
+> To: Wes Turner<mailto:wes.turner at gmail.com>; M. -A.
+> Lemburg<mailto:mal at egenix.com>
+> Cc: python-committers<mailto:python-committers at python.org>;
+> Python-Dev<mailto:python-dev at python.org>
+> Subject: Re: [python-committers] [Python-Dev] Do we need to sign Windows
+> files with GnuPG?
+> 
+> "Authenticode does not have a PKI"
+> 
+> If you got that from this discussion, I need everyone to at least skim
+> read this: 
+> https://msdn.microsoft.com/en-us/library/ie/ms537361(v=vs.85).aspx
+> 
+> Authenticode uses the same certificate infrastructure as SSL (note: not
+> the same certificates). As I see it, anyone running on Windows has access
+> to verification that is at least as good as GPG, and the only people who
+> would benefit from GPG sigs are those checking Windows files on another
+> OS or those with an existing GPG workflow on Windows (before this thread,
+> I knew nobody who used GPG on Windows for anything, so forgive me for
+> thinking this is very rare).
+> 
+> Cheers,
+> Steve
+> 
+> Top-posted from my Windows Phone
+> ________________________________
+> From: Wes Turner<mailto:wes.turner at gmail.com>
+> Sent: ?4/?4/?2015 6:42
+> To: M. -A. Lemburg<mailto:mal at egenix.com>
+> Cc: Python-Dev<mailto:python-dev at python.org>;
+> python-committers<mailto:python-committers at python.org>; Larry
+> Hastings<mailto:larry at hastings.org>; Steve
+> Dower<mailto:Steve.Dower at microsoft.com>
+> Subject: Re: [Python-Dev] [python-committers] Do we need to sign Windows
+> files with GnuPG?
+> 
+> 
+> So, AFAIU from this discussion:
+> 
+> * Authenticode does not have a PKI
+> * GPG does have PKI
+> * ASC signatures are signed checksums
+> 
+> As far as downstream packaging on Windows (people who should/could be
+> subscribed to release ANNs):
+> 
+> For Choclatey NuGet:
+> 
+> * https://chocolatey.org/packages/python
+> * https://chocolatey.org/packages/python.x86
+> * https://chocolatey.org/packages/python2
+> * https://chocolatey.org/packages/python-x86_32
+> * https://chocolatey.org/packages/python3
+> 
+> Python(x,y):
+> 
+> * https://code.google.com/p/pythonxy/
+> 
+> For Anaconda (the MS Azure chosen python distribution):
+> 
+> * http://docs.continuum.io/anaconda/install.html#windows-install
+> 
+> ...
+> 
+> These should/could/are checking GPG signatures for Windows packages
+> downstream.
+> 
+> http://www.scipy.org/install.html
+> 
+> On Apr 3, 2015 5:38 PM, "M.-A. Lemburg"
+> <mal at egenix.com<mailto:mal at egenix.com>> wrote:
+> On 04.04.2015 00:14, Steve Dower wrote:
+> > The thing is, that's exactly the same goodness as Authenticode gives, except everyone gets that for free and meanwhile you're the only one who has admitted to using GPG on Windows :)
+> >
+> > Basically, what I want to hear is that GPG sigs provide significantly better protection than hashes (and I can provide better than MD5 for all files if it's useful), taking into consideration that (I assume) I'd have to obtain a signing key for GPG and unless there's a CA involved like there is for Authenticode, there's no existing trust in that key.
+> 
+> Hashes only provide checks against file corruption (and then
+> only if you can trust the hash values). GPG provides all the
+> benefits of public key encryption on arbitrary files (not just
+> code).
+> 
+> The main benefit in case of downloadable installers is to
+> be able to make sure that the files are authentic, meaning that
+> they were created and signed by the people listed as packagers.
+> 
+> There is no CA infrastructure involved as for SSL certificates
+> or Authenticode, but it's easy to get the keys from key servers
+> given the key signatures available from python.org<http://python.org>'s
+> download
+> pages.
+> 
+> If you want to sign a package file using GPG, you will need
+> to create your own key, upload it to the key servers and then
+> place the signature up on the download page.
+> 
+> Relying only on Authenticode for Windows installers would
+> result in a break in technology w/r to the downloads we
+> make available for Python, since all other files are (usually)
+> GPG signed:
+> 
+> https://www.python.org/ftp/python/3.4.3/
+> 
+> Cheers,
+> --
+> Marc-Andre Lemburg
+> eGenix.com
+> 
+> Professional Python Services directly from the Source
+> >>> Python/Zope Consulting and Support ...        http://www.egenix.com/
+> >>> mxODBC.Zope.Database.Adapter ...             http://zope.egenix.com/
+> >>> mxODBC, mxDateTime, mxTextTools ...        http://python.egenix.com/
+> ________________________________________________________________________
+> 
+> ::: Try our new mxODBC.Connect Python Database Interface for free ! ::::
+> 
+> 
+>    eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+>     D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+>            Registered at Amtsgericht Duesseldorf: HRB 46611
+>                http://www.egenix.com/company/contact/
+> 
+> 
+> > Cheers,
+> > Steve
+> >
+> > Top-posted from my Windows Phone
+> > ________________________________
+> > From: M.-A. Lemburg<mailto:mal at egenix.com<mailto:mal at egenix.com>>
+> > Sent: ?4/?3/?2015 10:55
+> > To: Steve Dower<mailto:Steve.Dower at microsoft.com<mailto:Steve.Dower at microsoft.com>>; Larry Hastings<mailto:larry at hastings.org<mailto:larry at hastings.org>>; Python Dev<mailto:python-dev at python.org<mailto:python-dev at python.org>>; python-committers<mailto:python-committers at python.org<mailto:python-committers at python.org>>
+> > Subject: Re: [python-committers] [Python-Dev] Do we need to sign Windows files with GnuPG?
+> >
+> > On 03.04.2015 19:35, Steve Dower wrote:
+> >>> My Windows development days are firmly behind me. So I don't really have an
+> >>> opinion here. So I put it to you, Windows Python developers: do you care about
+> >>> GnuPG signatures on Windows-specific files? Or do you not care?
+> >>
+> >> The later replies seem to suggest that they are general goodness that nobody on Windows will use. If someone convinces me (or steamrolls me, that's fine too) that the goodness of GPG is better than a hash then I'll look into adding it into the process. Otherwise I'll happily add hash generation into the upload process (which I'm going to do anyway for the ones displayed on the download page).
+> >
+> > FWIW: I regularly check the GPG sigs on all important downloaded
+> > files, regardless of which platform they target, including the
+> > Windows installers for Python or any other Windows installers
+> > I use which provide such sigs.
+> >
+> > The reason is simple:
+> > The signature is a proof of authenticity which is not bound to
+> > a particular file format or platform and before running .exes
+> > it's good to know that they were built by the right people and
+> > not manipulated by trojans, viruses or malicious proxies.
+> >
+> > Is that a good enough reason to continue providing the GPG
+> > sigs or do you need more proof of goodness ? ;-)
+> >
+> > --
+> > Marc-Andre Lemburg
+> > eGenix.com
+> >
+> > Professional Python Services directly from the Source
+> >>>> Python/Zope Consulting and Support ...        http://www.egenix.com/
+> >>>> mxODBC.Zope.Database.Adapter ...             http://zope.egenix.com/
+> >>>> mxODBC, mxDateTime, mxTextTools ...        http://python.egenix.com/
+> > ________________________________________________________________________
+> >
+> > ::: Try our new mxODBC.Connect Python Database Interface for free ! ::::
+> >
+> >
+> >    eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+> >     D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+> >            Registered at Amtsgericht Duesseldorf: HRB 46611
+> >                http://www.egenix.com/company/contact/
+> >
+> 
+> _______________________________________________
+> Python-Dev mailing list
+> Python-Dev at python.org<mailto:Python-Dev at python.org>
+> https://mail.python.org/mailman/listinfo/python-dev
+> Unsubscribe:
+> https://mail.python.org/mailman/options/python-dev/wes.turner%40gmail.com
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+
+From mal at egenix.com  Sat Apr  4 21:35:09 2015
+From: mal at egenix.com (M.-A. Lemburg)
+Date: Sat, 04 Apr 2015 21:35:09 +0200
+Subject: [python-committers] [Python-Dev] Do we need to sign Windows
+ files with GnuPG?
+In-Reply-To: <1428174125.3954963.249326869.58843520@webmail.messagingengine.com>
+References: <551E63E5.6080805@hastings.org>	<BN3PR03MB146407F02F8765B8A407ACF8F5F10@BN3PR03MB1464.namprd03.prod.outlook.com>	<551ED41D.2070909@egenix.com>	<BN3PR03MB14644E591D73A1769822AC23F5F10@BN3PR03MB1464.namprd03.prod.outlook.com>	<BY1PR03MB14661E6F85717A898F6F7E93F5F00@BY1PR03MB1466.namprd03.prod.outlook.com>	<BY1PR03MB1466990DF8329C29ECD6D1E7F5F00@BY1PR03MB1466.namprd03.prod.outlook.com>
+ <1428174125.3954963.249326869.58843520@webmail.messagingengine.com>
+Message-ID: <55203CED.5030609@egenix.com>
+
+On 04.04.2015 21:02, Kurt B. Kaiser wrote:
+> For the record, that is a Symantec/Verisign code signing certificate. We
+> paid $1123 for it last April.  It expires April 2017.
+> 
+> If you don't switch to a different vendor, e.g. startssl, please contact
+> me for renewal in 2017.
+
+FWIW: The PSF mostly uses StartSSL nowadays and they also support
+code signing certificates. Given that this option is a lot cheaper
+than Verisign, I think we should switch, unless there are
+significant reasons not to. We should revisit this in 2017.
+
+> KBK
+> 
+> On Sat, Apr 4, 2015, at 10:35 AM, Steve Dower wrote:
+>> Small clarification: there certificates *are* the same format as for SSL,
+>> and OpenSSL it's able to validate them in the same way as well as
+>> generate them (but not extract embedded ones, AFAICT). But generally SSL
+>> certificates are not marked as suitable for code signing so you need to
+>> buy a separate one.
+>>
+>> Both Martin and I have the PSF's code signing cert private key, which is
+>> how we can sign with the "Python Software Foundation" name. The public
+>> key is embedded into every signed file, just like an SSL cert is attached
+>> to a site or an S/MIME cert is embedded in a signed email.
+>>
+>> Cheers,
+>> Steve
+>>
+>> Top-posted from my Windows Phone
+>> ________________________________
+>> From: Steve Dower<mailto:Steve.Dower at microsoft.com>
+>> Sent: ?4/?4/?2015 7:25
+>> To: Wes Turner<mailto:wes.turner at gmail.com>; M. -A.
+>> Lemburg<mailto:mal at egenix.com>
+>> Cc: python-committers<mailto:python-committers at python.org>;
+>> Python-Dev<mailto:python-dev at python.org>
+>> Subject: Re: [python-committers] [Python-Dev] Do we need to sign Windows
+>> files with GnuPG?
+>>
+>> "Authenticode does not have a PKI"
+>>
+>> If you got that from this discussion, I need everyone to at least skim
+>> read this: 
+>> https://msdn.microsoft.com/en-us/library/ie/ms537361(v=vs.85).aspx
+>>
+>> Authenticode uses the same certificate infrastructure as SSL (note: not
+>> the same certificates). As I see it, anyone running on Windows has access
+>> to verification that is at least as good as GPG, and the only people who
+>> would benefit from GPG sigs are those checking Windows files on another
+>> OS or those with an existing GPG workflow on Windows (before this thread,
+>> I knew nobody who used GPG on Windows for anything, so forgive me for
+>> thinking this is very rare).
+>>
+>> Cheers,
+>> Steve
+>>
+>> Top-posted from my Windows Phone
+>> ________________________________
+>> From: Wes Turner<mailto:wes.turner at gmail.com>
+>> Sent: ?4/?4/?2015 6:42
+>> To: M. -A. Lemburg<mailto:mal at egenix.com>
+>> Cc: Python-Dev<mailto:python-dev at python.org>;
+>> python-committers<mailto:python-committers at python.org>; Larry
+>> Hastings<mailto:larry at hastings.org>; Steve
+>> Dower<mailto:Steve.Dower at microsoft.com>
+>> Subject: Re: [Python-Dev] [python-committers] Do we need to sign Windows
+>> files with GnuPG?
+>>
+>>
+>> So, AFAIU from this discussion:
+>>
+>> * Authenticode does not have a PKI
+>> * GPG does have PKI
+>> * ASC signatures are signed checksums
+>>
+>> As far as downstream packaging on Windows (people who should/could be
+>> subscribed to release ANNs):
+>>
+>> For Choclatey NuGet:
+>>
+>> * https://chocolatey.org/packages/python
+>> * https://chocolatey.org/packages/python.x86
+>> * https://chocolatey.org/packages/python2
+>> * https://chocolatey.org/packages/python-x86_32
+>> * https://chocolatey.org/packages/python3
+>>
+>> Python(x,y):
+>>
+>> * https://code.google.com/p/pythonxy/
+>>
+>> For Anaconda (the MS Azure chosen python distribution):
+>>
+>> * http://docs.continuum.io/anaconda/install.html#windows-install
+>>
+>> ...
+>>
+>> These should/could/are checking GPG signatures for Windows packages
+>> downstream.
+>>
+>> http://www.scipy.org/install.html
+>>
+>> On Apr 3, 2015 5:38 PM, "M.-A. Lemburg"
+>> <mal at egenix.com<mailto:mal at egenix.com>> wrote:
+>> On 04.04.2015 00:14, Steve Dower wrote:
+>>> The thing is, that's exactly the same goodness as Authenticode gives, except everyone gets that for free and meanwhile you're the only one who has admitted to using GPG on Windows :)
+>>>
+>>> Basically, what I want to hear is that GPG sigs provide significantly better protection than hashes (and I can provide better than MD5 for all files if it's useful), taking into consideration that (I assume) I'd have to obtain a signing key for GPG and unless there's a CA involved like there is for Authenticode, there's no existing trust in that key.
+>>
+>> Hashes only provide checks against file corruption (and then
+>> only if you can trust the hash values). GPG provides all the
+>> benefits of public key encryption on arbitrary files (not just
+>> code).
+>>
+>> The main benefit in case of downloadable installers is to
+>> be able to make sure that the files are authentic, meaning that
+>> they were created and signed by the people listed as packagers.
+>>
+>> There is no CA infrastructure involved as for SSL certificates
+>> or Authenticode, but it's easy to get the keys from key servers
+>> given the key signatures available from python.org<http://python.org>'s
+>> download
+>> pages.
+>>
+>> If you want to sign a package file using GPG, you will need
+>> to create your own key, upload it to the key servers and then
+>> place the signature up on the download page.
+>>
+>> Relying only on Authenticode for Windows installers would
+>> result in a break in technology w/r to the downloads we
+>> make available for Python, since all other files are (usually)
+>> GPG signed:
+>>
+>> https://www.python.org/ftp/python/3.4.3/
+>>
+>> Cheers,
+>> --
+>> Marc-Andre Lemburg
+>> eGenix.com
+>>
+>> Professional Python Services directly from the Source
+>>>>> Python/Zope Consulting and Support ...        http://www.egenix.com/
+>>>>> mxODBC.Zope.Database.Adapter ...             http://zope.egenix.com/
+>>>>> mxODBC, mxDateTime, mxTextTools ...        http://python.egenix.com/
+>> ________________________________________________________________________
+>>
+>> ::: Try our new mxODBC.Connect Python Database Interface for free ! ::::
+>>
+>>
+>>    eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+>>     D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+>>            Registered at Amtsgericht Duesseldorf: HRB 46611
+>>                http://www.egenix.com/company/contact/
+>>
+>>
+>>> Cheers,
+>>> Steve
+>>>
+>>> Top-posted from my Windows Phone
+>>> ________________________________
+>>> From: M.-A. Lemburg<mailto:mal at egenix.com<mailto:mal at egenix.com>>
+>>> Sent: ?4/?3/?2015 10:55
+>>> To: Steve Dower<mailto:Steve.Dower at microsoft.com<mailto:Steve.Dower at microsoft.com>>; Larry Hastings<mailto:larry at hastings.org<mailto:larry at hastings.org>>; Python Dev<mailto:python-dev at python.org<mailto:python-dev at python.org>>; python-committers<mailto:python-committers at python.org<mailto:python-committers at python.org>>
+>>> Subject: Re: [python-committers] [Python-Dev] Do we need to sign Windows files with GnuPG?
+>>>
+>>> On 03.04.2015 19:35, Steve Dower wrote:
+>>>>> My Windows development days are firmly behind me. So I don't really have an
+>>>>> opinion here. So I put it to you, Windows Python developers: do you care about
+>>>>> GnuPG signatures on Windows-specific files? Or do you not care?
+>>>>
+>>>> The later replies seem to suggest that they are general goodness that nobody on Windows will use. If someone convinces me (or steamrolls me, that's fine too) that the goodness of GPG is better than a hash then I'll look into adding it into the process. Otherwise I'll happily add hash generation into the upload process (which I'm going to do anyway for the ones displayed on the download page).
+>>>
+>>> FWIW: I regularly check the GPG sigs on all important downloaded
+>>> files, regardless of which platform they target, including the
+>>> Windows installers for Python or any other Windows installers
+>>> I use which provide such sigs.
+>>>
+>>> The reason is simple:
+>>> The signature is a proof of authenticity which is not bound to
+>>> a particular file format or platform and before running .exes
+>>> it's good to know that they were built by the right people and
+>>> not manipulated by trojans, viruses or malicious proxies.
+>>>
+>>> Is that a good enough reason to continue providing the GPG
+>>> sigs or do you need more proof of goodness ? ;-)
+>>>
+>>> --
+>>> Marc-Andre Lemburg
+>>> eGenix.com
+>>>
+>>> Professional Python Services directly from the Source
+>>>>>> Python/Zope Consulting and Support ...        http://www.egenix.com/
+>>>>>> mxODBC.Zope.Database.Adapter ...             http://zope.egenix.com/
+>>>>>> mxODBC, mxDateTime, mxTextTools ...        http://python.egenix.com/
+>>> ________________________________________________________________________
+>>>
+>>> ::: Try our new mxODBC.Connect Python Database Interface for free ! ::::
+>>>
+>>>
+>>>    eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+>>>     D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+>>>            Registered at Amtsgericht Duesseldorf: HRB 46611
+>>>                http://www.egenix.com/company/contact/
+>>>
+>>
+>> _______________________________________________
+>> Python-Dev mailing list
+>> Python-Dev at python.org<mailto:Python-Dev at python.org>
+>> https://mail.python.org/mailman/listinfo/python-dev
+>> Unsubscribe:
+>> https://mail.python.org/mailman/options/python-dev/wes.turner%40gmail.com
+>> _______________________________________________
+>> python-committers mailing list
+>> python-committers at python.org
+>> https://mail.python.org/mailman/listinfo/python-committers
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> 
+
+-- 
+Marc-Andre Lemburg
+eGenix.com
+
+Professional Python Services directly from the Source
+>>> Python/Zope Consulting and Support ...        http://www.egenix.com/
+>>> mxODBC.Zope.Database.Adapter ...             http://zope.egenix.com/
+>>> mxODBC, mxDateTime, mxTextTools ...        http://python.egenix.com/
+________________________________________________________________________
+
+::: Try our new mxODBC.Connect Python Database Interface for free ! ::::
+
+
+   eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+    D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+           Registered at Amtsgericht Duesseldorf: HRB 46611
+               http://www.egenix.com/company/contact/
+
+From kbk at shore.net  Sat Apr  4 21:49:01 2015
+From: kbk at shore.net (Kurt B. Kaiser)
+Date: Sat, 04 Apr 2015 15:49:01 -0400
+Subject: [python-committers] [Python-Dev] Do we need to sign Windows
+ files with GnuPG?
+In-Reply-To: <55203CED.5030609@egenix.com>
+References: <551E63E5.6080805@hastings.org>
+ <BN3PR03MB146407F02F8765B8A407ACF8F5F10@BN3PR03MB1464.namprd03.prod.outlook.com>
+ <551ED41D.2070909@egenix.com>
+ <BN3PR03MB14644E591D73A1769822AC23F5F10@BN3PR03MB1464.namprd03.prod.outlook.com>
+ <BY1PR03MB14661E6F85717A898F6F7E93F5F00@BY1PR03MB1466.namprd03.prod.outlook.com>
+ <BY1PR03MB1466990DF8329C29ECD6D1E7F5F00@BY1PR03MB1466.namprd03.prod.outlook.com>
+ <1428174125.3954963.249326869.58843520@webmail.messagingengine.com>
+ <55203CED.5030609@egenix.com>
+Message-ID: <1428176941.3962322.249337589.2D987B60@webmail.messagingengine.com>
+
+
+
+On Sat, Apr 4, 2015, at 03:35 PM, M.-A. Lemburg wrote:
+> On 04.04.2015 21:02, Kurt B. Kaiser wrote:
+> > For the record, that is a Symantec/Verisign code signing
+> > certificate. We paid $1123 for it last April.  It expires
+> > April 2017.
+> >
+> > If you don't switch to a different vendor, e.g. startssl, please
+> > contact me for renewal in 2017.
+>
+> FWIW: The PSF mostly uses StartSSL nowadays and they also support code
+> signing certificates. Given that this option is a lot cheaper than
+> Verisign, I think we should switch, unless there are significant
+> reasons not to. We should revisit this in 2017.
+
+Agree - apparently the starlssl process for getting a signing cert is
+complex/obscure, so we should start early.
+
+Let me know if I can help providing PSF organization verification.
+
+KBK
+
+From mal at egenix.com  Sat Apr  4 21:54:28 2015
+From: mal at egenix.com (M.-A. Lemburg)
+Date: Sat, 04 Apr 2015 21:54:28 +0200
+Subject: [python-committers] [Python-Dev] Do we need to sign Windows
+ files with GnuPG?
+In-Reply-To: <1428176941.3962322.249337589.2D987B60@webmail.messagingengine.com>
+References: <551E63E5.6080805@hastings.org>	<BN3PR03MB146407F02F8765B8A407ACF8F5F10@BN3PR03MB1464.namprd03.prod.outlook.com>	<551ED41D.2070909@egenix.com>	<BN3PR03MB14644E591D73A1769822AC23F5F10@BN3PR03MB1464.namprd03.prod.outlook.com>	<BY1PR03MB14661E6F85717A898F6F7E93F5F00@BY1PR03MB1466.namprd03.prod.outlook.com>	<BY1PR03MB1466990DF8329C29ECD6D1E7F5F00@BY1PR03MB1466.namprd03.prod.outlook.com>	<1428174125.3954963.249326869.58843520@webmail.messagingengine.com>	<55203CED.5030609@egenix.com>
+ <1428176941.3962322.249337589.2D987B60@webmail.messagingengine.com>
+Message-ID: <55204174.9010404@egenix.com>
+
+On 04.04.2015 21:49, Kurt B. Kaiser wrote:
+> 
+> 
+> On Sat, Apr 4, 2015, at 03:35 PM, M.-A. Lemburg wrote:
+>> On 04.04.2015 21:02, Kurt B. Kaiser wrote:
+>>> For the record, that is a Symantec/Verisign code signing
+>>> certificate. We paid $1123 for it last April.  It expires
+>>> April 2017.
+>>>
+>>> If you don't switch to a different vendor, e.g. startssl, please
+>>> contact me for renewal in 2017.
+>>
+>> FWIW: The PSF mostly uses StartSSL nowadays and they also support code
+>> signing certificates. Given that this option is a lot cheaper than
+>> Verisign, I think we should switch, unless there are significant
+>> reasons not to. We should revisit this in 2017.
+> 
+> Agree - apparently the starlssl process for getting a signing cert is
+> complex/obscure, so we should start early.
+
+Not really. Once you have the org verification it's really easy.
+
+> Let me know if I can help providing PSF organization verification.
+
+I already completed that for the current cycle.
+
+-- 
+Marc-Andre Lemburg
+eGenix.com
+
+Professional Python Services directly from the Source
+>>> Python/Zope Consulting and Support ...        http://www.egenix.com/
+>>> mxODBC.Zope.Database.Adapter ...             http://zope.egenix.com/
+>>> mxODBC, mxDateTime, mxTextTools ...        http://python.egenix.com/
+________________________________________________________________________
+
+::: Try our new mxODBC.Connect Python Database Interface for free ! ::::
+
+
+   eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+    D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+           Registered at Amtsgericht Duesseldorf: HRB 46611
+               http://www.egenix.com/company/contact/
+
+From kbk at shore.net  Sat Apr  4 22:01:03 2015
+From: kbk at shore.net (Kurt B. Kaiser)
+Date: Sat, 04 Apr 2015 16:01:03 -0400
+Subject: [python-committers] [Python-Dev] Do we need to sign Windows
+ files with GnuPG?
+In-Reply-To: <55204174.9010404@egenix.com>
+References: <551E63E5.6080805@hastings.org>
+ <BN3PR03MB146407F02F8765B8A407ACF8F5F10@BN3PR03MB1464.namprd03.prod.outlook.com>
+ <551ED41D.2070909@egenix.com>
+ <BN3PR03MB14644E591D73A1769822AC23F5F10@BN3PR03MB1464.namprd03.prod.outlook.com>
+ <BY1PR03MB14661E6F85717A898F6F7E93F5F00@BY1PR03MB1466.namprd03.prod.outlook.com>
+ <BY1PR03MB1466990DF8329C29ECD6D1E7F5F00@BY1PR03MB1466.namprd03.prod.outlook.com>
+ <1428174125.3954963.249326869.58843520@webmail.messagingengine.com>
+ <55203CED.5030609@egenix.com>
+ <1428176941.3962322.249337589.2D987B60@webmail.messagingengine.com>
+ <55204174.9010404@egenix.com>
+Message-ID: <1428177663.3964945.249339689.32CCC62D@webmail.messagingengine.com>
+
+
+
+On Sat, Apr 4, 2015, at 03:54 PM, M.-A. Lemburg wrote:
+> On 04.04.2015 21:49, Kurt B. Kaiser wrote:
+> > 
+> > 
+> > On Sat, Apr 4, 2015, at 03:35 PM, M.-A. Lemburg wrote:
+> >> On 04.04.2015 21:02, Kurt B. Kaiser wrote:
+> >>> For the record, that is a Symantec/Verisign code signing
+> >>> certificate. We paid $1123 for it last April.  It expires
+> >>> April 2017.
+> >>>
+> >>> If you don't switch to a different vendor, e.g. startssl, please
+> >>> contact me for renewal in 2017.
+> >>
+> >> FWIW: The PSF mostly uses StartSSL nowadays and they also support code
+> >> signing certificates. Given that this option is a lot cheaper than
+> >> Verisign, I think we should switch, unless there are significant
+> >> reasons not to. We should revisit this in 2017.
+> > 
+> > Agree - apparently the starlssl process for getting a signing cert is
+> > complex/obscure, so we should start early.
+> 
+> Not really. Once you have the org verification it's really easy.
+> 
+> > Let me know if I can help providing PSF organization verification.
+> 
+> I already completed that for the current cycle.
+
+One can hope.  We shall see :-)
+
+KBK
+
+From Steve.Dower at microsoft.com  Sun Apr  5 14:07:53 2015
+From: Steve.Dower at microsoft.com (Steve Dower)
+Date: Sun, 5 Apr 2015 12:07:53 +0000
+Subject: [python-committers] [Python-Dev] Do we need to sign Windows
+ files with GnuPG?
+In-Reply-To: <CAJ3HoZ0350DZGusBViJCZORW27SW2cibUpr7jUpsUjhxA8gNHQ@mail.gmail.com>
+References: <551E63E5.6080805@hastings.org>
+ <BN3PR03MB146407F02F8765B8A407ACF8F5F10@BN3PR03MB1464.namprd03.prod.outlook.com>
+ <551ED41D.2070909@egenix.com>
+ <BN3PR03MB14644E591D73A1769822AC23F5F10@BN3PR03MB1464.namprd03.prod.outlook.com>,
+ <CAJ3HoZ0350DZGusBViJCZORW27SW2cibUpr7jUpsUjhxA8gNHQ@mail.gmail.com>
+Message-ID: <BY1PR03MB1466FB49FECCC11240B3D42EF5FF0@BY1PR03MB1466.namprd03.prod.outlook.com>
+
+"One question, if you will - I don't think this was asked so far - is
+authenticode verifiable from Linux, without Windows? And does it work
+for users of WINE ?"
+
+I've seen some info suggesting that it's verifiable, but you do need to extract the cert and calculate the hash against less than the signed file. Seemed like Mono had a tool for it, but OpenSSL can handle the cert.
+
+Currently the new installer doesn't run on Wine because of missing APIs (since I want to discuss alternate distribution ideas I haven't treated this as a priority), and I've heard they haven't implemented enough crypto yet to handle it, but that could be outdated.
+
+"GPG sigs will provide protection against replay attacks"
+
+How does this work?
+
+Cheers,
+Steve
+
+Top-posted from my Windows Phone
+________________________________
+From: Robert Collins<mailto:robertc at robertcollins.net>
+Sent: ?4/?4/?2015 21:59
+To: Steve Dower<mailto:Steve.Dower at microsoft.com>
+Cc: M.-A. Lemburg<mailto:mal at egenix.com>; Larry Hastings<mailto:larry at hastings.org>; Python Dev<mailto:python-dev at python.org>; python-committers<mailto:python-committers at python.org>
+Subject: Re: [Python-Dev] [python-committers] Do we need to sign Windows files with GnuPG?
+
+On 4 April 2015 at 11:14, Steve Dower <Steve.Dower at microsoft.com> wrote:
+> The thing is, that's exactly the same goodness as Authenticode gives, except
+> everyone gets that for free and meanwhile you're the only one who has
+> admitted to using GPG on Windows :)
+>
+> Basically, what I want to hear is that GPG sigs provide significantly better
+> protection than hashes (and I can provide better than MD5 for all files if
+> it's useful), taking into consideration that (I assume) I'd have to obtain a
+> signing key for GPG and unless there's a CA involved like there is for
+> Authenticode, there's no existing trust in that key.
+
+GPG sigs will provide protection against replay attacks [unless we're
+proposing to revoke signatures on old point releases with known
+security vulnerabilities - something that Window software vendors tend
+not to do because of the dramatic and immediate effect on the deployed
+base...]
+
+This is not relevant for things we're hosting on SSL, but is if anyone
+is mirroring our installers around. They dont' seem to be so perhaps
+its a bit 'meh'.
+
+OTOH I also think there is value in consistency: signing all our
+artifacts makes checking back on them later easier, should we need to.
+
+One question, if you will - I don't think this was asked so far - is
+authenticode verifiable from Linux, without Windows? And does it work
+for users of WINE ?
+
+-Rob
+
+
+--
+Robert Collins <rbtcollins at hp.com>
+Distinguished Technologist
+HP Converged Cloud
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150405/943b2b01/attachment.html>
+
+From martin at v.loewis.de  Thu Apr 16 21:34:42 2015
+From: martin at v.loewis.de (=?windows-1252?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Thu, 16 Apr 2015 21:34:42 +0200
+Subject: [python-committers] [Python-Dev] Do we need to sign Windows
+ files with GnuPG?
+In-Reply-To: <55204174.9010404@egenix.com>
+References: <551E63E5.6080805@hastings.org>	<BN3PR03MB146407F02F8765B8A407ACF8F5F10@BN3PR03MB1464.namprd03.prod.outlook.com>	<551ED41D.2070909@egenix.com>	<BN3PR03MB14644E591D73A1769822AC23F5F10@BN3PR03MB1464.namprd03.prod.outlook.com>	<BY1PR03MB14661E6F85717A898F6F7E93F5F00@BY1PR03MB1466.namprd03.prod.outlook.com>	<BY1PR03MB1466990DF8329C29ECD6D1E7F5F00@BY1PR03MB1466.namprd03.prod.outlook.com>	<1428174125.3954963.249326869.58843520@webmail.messagingengine.com>	<55203CED.5030609@egenix.com>
+ <1428176941.3962322.249337589.2D987B60@webmail.messagingengine.com>
+ <55204174.9010404@egenix.com>
+Message-ID: <55300ED2.8060208@v.loewis.de>
+
+Am 04.04.15 um 21:54 schrieb M.-A. Lemburg:
+>>> FWIW: The PSF mostly uses StartSSL nowadays and they also support code
+>>> signing certificates. Given that this option is a lot cheaper than
+>>> Verisign, I think we should switch, unless there are significant
+>>> reasons not to. We should revisit this in 2017.
+>>
+>> Agree - apparently the starlssl process for getting a signing cert is
+>> complex/obscure, so we should start early.
+> 
+> Not really. Once you have the org verification it's really easy.
+> 
+>> Let me know if I can help providing PSF organization verification.
+> 
+> I already completed that for the current cycle.
+> 
+
+I had asked the PSF for a StartSSL certificate when the previous
+certificate expired, and the PSF was not able to provide one. After
+waiting several weeks for the PSF to provide the certificate, Kurt then
+kindly went to Verisign.
+
+Kind regards,
+Martin
+
+
+From mal at egenix.com  Fri Apr 17 00:46:20 2015
+From: mal at egenix.com (M.-A. Lemburg)
+Date: Fri, 17 Apr 2015 00:46:20 +0200
+Subject: [python-committers] [Python-Dev] Do we need to sign Windows
+ files with GnuPG?
+In-Reply-To: <55300ED2.8060208@v.loewis.de>
+References: <551E63E5.6080805@hastings.org>	<BN3PR03MB146407F02F8765B8A407ACF8F5F10@BN3PR03MB1464.namprd03.prod.outlook.com>	<551ED41D.2070909@egenix.com>	<BN3PR03MB14644E591D73A1769822AC23F5F10@BN3PR03MB1464.namprd03.prod.outlook.com>	<BY1PR03MB14661E6F85717A898F6F7E93F5F00@BY1PR03MB1466.namprd03.prod.outlook.com>	<BY1PR03MB1466990DF8329C29ECD6D1E7F5F00@BY1PR03MB1466.namprd03.prod.outlook.com>	<1428174125.3954963.249326869.58843520@webmail.messagingengine.com>	<55203CED.5030609@egenix.com>	<1428176941.3962322.249337589.2D987B60@webmail.messagingengine.com>	<55204174.9010404@egenix.com>
+ <55300ED2.8060208@v.loewis.de>
+Message-ID: <55303BBC.1050806@egenix.com>
+
+On 16.04.2015 21:34, "Martin v. L?wis" wrote:
+> Am 04.04.15 um 21:54 schrieb M.-A. Lemburg:
+>>>> FWIW: The PSF mostly uses StartSSL nowadays and they also support code
+>>>> signing certificates. Given that this option is a lot cheaper than
+>>>> Verisign, I think we should switch, unless there are significant
+>>>> reasons not to. We should revisit this in 2017.
+>>>
+>>> Agree - apparently the starlssl process for getting a signing cert is
+>>> complex/obscure, so we should start early.
+>>
+>> Not really. Once you have the org verification it's really easy.
+>>
+>>> Let me know if I can help providing PSF organization verification.
+>>
+>> I already completed that for the current cycle.
+>>
+> 
+> I had asked the PSF for a StartSSL certificate when the previous
+> certificate expired, and the PSF was not able to provide one. After
+> waiting several weeks for the PSF to provide the certificate, Kurt then
+> kindly went to Verisign.
+
+When was that ? I never received such a request. The account
+I'm using was created in Dec 2014 and the validation received
+on 2014-12-17. This is valid for about a year:
+
+https://wiki.python.org/psf/PSF%20SSL%20Certificates
+
+Code signing certificates are valid for two years, so switching
+to StartSSL probably doesn't make much sense now, unless perhaps
+we want to switch to SHA2 and longer RSA keys (if that's possible for
+code signing certs - I'd have to check).
+
+-- 
+Marc-Andre Lemburg
+eGenix.com
+
+Professional Python Services directly from the Source  (#1, Apr 17 2015)
+>>> Python Projects, Coaching and Consulting ...  http://www.egenix.com/
+>>> mxODBC Plone/Zope Database Adapter ...       http://zope.egenix.com/
+>>> mxODBC, mxDateTime, mxTextTools ...        http://python.egenix.com/
+________________________________________________________________________
+
+::::: Try our mxODBC.Connect Python Database Interface for free ! ::::::
+
+   eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+    D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+           Registered at Amtsgericht Duesseldorf: HRB 46611
+               http://www.egenix.com/company/contact/
+
+From martin at v.loewis.de  Fri Apr 17 19:31:10 2015
+From: martin at v.loewis.de (=?windows-1252?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Fri, 17 Apr 2015 19:31:10 +0200
+Subject: [python-committers] [Python-Dev] Do we need to sign Windows
+ files with GnuPG?
+In-Reply-To: <55303BBC.1050806@egenix.com>
+References: <551E63E5.6080805@hastings.org>	<BN3PR03MB146407F02F8765B8A407ACF8F5F10@BN3PR03MB1464.namprd03.prod.outlook.com>	<551ED41D.2070909@egenix.com>	<BN3PR03MB14644E591D73A1769822AC23F5F10@BN3PR03MB1464.namprd03.prod.outlook.com>	<BY1PR03MB14661E6F85717A898F6F7E93F5F00@BY1PR03MB1466.namprd03.prod.outlook.com>	<BY1PR03MB1466990DF8329C29ECD6D1E7F5F00@BY1PR03MB1466.namprd03.prod.outlook.com>	<1428174125.3954963.249326869.58843520@webmail.messagingengine.com>	<55203CED.5030609@egenix.com>	<1428176941.3962322.249337589.2D987B60@webmail.messagingengine.com>	<55204174.9010404@egenix.com>
+ <55300ED2.8060208@v.loewis.de> <55303BBC.1050806@egenix.com>
+Message-ID: <5531435E.5070904@v.loewis.de>
+
+Am 17.04.15 um 00:46 schrieb M.-A. Lemburg:
+>> I had asked the PSF for a StartSSL certificate when the previous
+>> certificate expired, and the PSF was not able to provide one. After
+>> waiting several weeks for the PSF to provide the certificate, Kurt then
+>> kindly went to Verisign.
+> 
+> When was that ? I never received such a request. 
+
+I sent the request to Jesse Noller, Noah Kantrowitz and Kurt Kaiser on
+2014-03-17. On 2014-04-15, Jesse indicated that he had given up.
+
+Regards,
+Martin
+
+From mal at egenix.com  Fri Apr 17 19:38:36 2015
+From: mal at egenix.com (M.-A. Lemburg)
+Date: Fri, 17 Apr 2015 19:38:36 +0200
+Subject: [python-committers] [Python-Dev] Do we need to sign Windows
+ files with GnuPG?
+In-Reply-To: <5531435E.5070904@v.loewis.de>
+References: <551E63E5.6080805@hastings.org>	<BN3PR03MB146407F02F8765B8A407ACF8F5F10@BN3PR03MB1464.namprd03.prod.outlook.com>	<551ED41D.2070909@egenix.com>	<BN3PR03MB14644E591D73A1769822AC23F5F10@BN3PR03MB1464.namprd03.prod.outlook.com>	<BY1PR03MB14661E6F85717A898F6F7E93F5F00@BY1PR03MB1466.namprd03.prod.outlook.com>	<BY1PR03MB1466990DF8329C29ECD6D1E7F5F00@BY1PR03MB1466.namprd03.prod.outlook.com>	<1428174125.3954963.249326869.58843520@webmail.messagingengine.com>	<55203CED.5030609@egenix.com>	<1428176941.3962322.249337589.2D987B60@webmail.messagingengine.com>	<55204174.9010404@egenix.com>	<55300ED2.8060208@v.loewis.de>
+ <55303BBC.1050806@egenix.com> <5531435E.5070904@v.loewis.de>
+Message-ID: <5531451C.9030202@egenix.com>
+
+On 17.04.2015 19:31, "Martin v. L?wis" wrote:
+> Am 17.04.15 um 00:46 schrieb M.-A. Lemburg:
+>>> I had asked the PSF for a StartSSL certificate when the previous
+>>> certificate expired, and the PSF was not able to provide one. After
+>>> waiting several weeks for the PSF to provide the certificate, Kurt then
+>>> kindly went to Verisign.
+>>
+>> When was that ? I never received such a request. 
+> 
+> I sent the request to Jesse Noller, Noah Kantrowitz and Kurt Kaiser on
+> 2014-03-17. On 2014-04-15, Jesse indicated that he had given up.
+
+I guess that explains why nothing happened. Jesse owned the StartSSL
+account before I took over in Dec last year.
+
+-- 
+Marc-Andre Lemburg
+eGenix.com
+
+Professional Python Services directly from the Source  (#1, Apr 17 2015)
+>>> Python Projects, Coaching and Consulting ...  http://www.egenix.com/
+>>> mxODBC Plone/Zope Database Adapter ...       http://zope.egenix.com/
+>>> mxODBC, mxDateTime, mxTextTools ...        http://python.egenix.com/
+________________________________________________________________________
+
+::::: Try our mxODBC.Connect Python Database Interface for free ! ::::::
+
+   eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+    D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+           Registered at Amtsgericht Duesseldorf: HRB 46611
+               http://www.egenix.com/company/contact/
+
+From larry at hastings.org  Mon Apr 20 10:16:00 2015
+From: larry at hastings.org (Larry Hastings)
+Date: Mon, 20 Apr 2015 01:16:00 -0700
+Subject: [python-committers] [RELEASED] Python 3.5.0a4 is now available
+Message-ID: <5534B5C0.2030800@hastings.org>
+
+
+
+On behalf of the Python development community and the Python 3.5 release 
+team, I'm thrilled to announce the availability of Python 3.5.0a4.   
+Python 3.5.0a4 is the fourth and alpha release of Python 3.5, which will 
+be the next major release of Python. Python 3.5 is still under 
+development, and is not yet complete.
+
+This is a preview release, and its use is not recommended for production 
+settings.
+
+The next release of Python 3.5 will be 3.5.0b1, the first beta release.  
+Python 3.5 will enter "feature freeze" at this time; no new features 
+will be added to 3.5 after this point.  Python 3.5.0b1 is scheduled to 
+be released May 22, 2015.
+
+Three important notes for Windows users about Python 3.5.0a4:
+
+  * If you have previously installed Python 3.5.0a1, you may need to
+    manually uninstall it before installing Python 3.5.0a4 (issue23612).
+  * If installing Python 3.5.0a4 as a non-privileged user, you may need
+    to escalate to administrator privileges to install an update to your
+    C runtime libraries.
+  * There is now a third type of Windows installer for Python 3.5.  In
+    addition to the conventional installer and the web-based installer,
+    Python 3.5 now has an embeddable installer designed to be run as
+    part of a larger application's installer for apps using or extending
+    Python.
+
+
+You can find Python 3.5.0a4 here:
+
+    https://www.python.org/downloads/release/python-350a4/
+
+Happy hacking,
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150420/41c52b5c/attachment.html>
+
+From tjreedy at udel.edu  Mon Apr 20 22:50:58 2015
+From: tjreedy at udel.edu (Terry Reedy)
+Date: Mon, 20 Apr 2015 16:50:58 -0400
+Subject: [python-committers] [RELEASED] Python 3.5.0a4 is now available
+In-Reply-To: <5534B5C0.2030800@hastings.org>
+References: <5534B5C0.2030800@hastings.org>
+Message-ID: <553566B2.2000901@udel.edu>
+
+On 4/20/2015 4:16 AM, Larry Hastings wrote:
+
+> You can find Python 3.5.0a4 here:
+>
+>     https://www.python.org/downloads/release/python-350a4/
+
+both web installers are labelled "Windows x86 web-based installer".  One 
+is the amd64 web installer
+
+

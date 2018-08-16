@@ -1,0 +1,734 @@
+From victor.stinner at gmail.com  Wed Jun  5 23:17:05 2013
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Wed, 5 Jun 2013 23:17:05 +0200
+Subject: [python-committers] hg clone cpython newrepo aborts
+In-Reply-To: <CAPOVWOSn+Vd73Fgr9h2r7vCGbpN2rvTTAQhBDgKLj-0sYC68OQ@mail.gmail.com>
+References: <CAPOVWOSn+Vd73Fgr9h2r7vCGbpN2rvTTAQhBDgKLj-0sYC68OQ@mail.gmail.com>
+Message-ID: <CAMpsgwb8RA9o+BVnos2MG7=TNb-uUWBGf8R0kpM2XirOC75hmA@mail.gmail.com>
+
+2013/5/28 Senthil Kumaran <senthil at uthcode.com>> While trying to clone
+a cpython repo to a new repo. I am getting this error.
+>
+> getting Lib/idlelib/idle.bat
+> getting Lib/idlelib/idle.py
+> getting Lib/idlelib/idle.pyw
+> getting Lib/idlelib/idle_test/@README.txt
+> abort: data/Lib/idlelib/idle_test/@README.txt.i at 7573717b9e6f: no match
+> found!
+>
+> Is something wrong with the repo?
+
+It's a bug in mercurial. I filled a report upstream:
+http://bz.selenic.com/show_bug.cgi?id=3954
+
+Victor
+
+From g.brandl at gmx.net  Mon Jun 10 10:12:07 2013
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Mon, 10 Jun 2013 10:12:07 +0200
+Subject: [python-committers] 3.2 -> 3.3 merge pending?
+In-Reply-To: <CAPOVWOS8Dod5LZK72D8fp9rdf5NC=+ufRax6Z=KWEJzUPSG1dQ@mail.gmail.com>
+References: <CAPOVWORQWVsmdNHj-2F8QytQLpbkCHVSsdkvgQKLN9riUztb0g@mail.gmail.com>
+	<20130529144104.C20672504B4@webabinitio.net>
+	<CAPOVWOS8Dod5LZK72D8fp9rdf5NC=+ufRax6Z=KWEJzUPSG1dQ@mail.gmail.com>
+Message-ID: <kp41o4$vd6$1@ger.gmane.org>
+
+On 05/29/2013 10:27 PM, Senthil Kumaran wrote:
+> 
+> On Wed, May 29, 2013 at 7:41 AM, R. David Murray <rdmurray at bitdance.com
+> <mailto:rdmurray at bitdance.com>> wrote:
+> 
+> 
+>     I asked about this on IRC and was told that 3.2 is now a standalone branch
+>     like 2.7.  Security fixes will be applied by the release manager only,
+>     and Georg doesn't see any point in null merging the commits.
+> 
+> 
+> Well, there is no harm in merging 3.2 to 3.3. I think, 3.1 remains merged to 3.2
+> even if 3.1 is under security only mode.
+> 
+> It will be our practice that we do not port bug fixes to 3.2. This can be
+> mentioned in the Misc/README. But when it will be a security fix, it will go
+> through 3.2->3.3->default and having them merged may be a good idea.
+
+No, security fixes will be cherry-picked back to the 3.2 branch, which is easier
+in the case of only few standalone commits.
+
+Georg
+
+
+From ezio.melotti at gmail.com  Mon Jun 17 22:54:20 2013
+From: ezio.melotti at gmail.com (Ezio Melotti)
+Date: Mon, 17 Jun 2013 23:54:20 +0300
+Subject: [python-committers] Language Summit at EuroPython
+Message-ID: <CACBhJdHKGFTho4QNxp33B7sq70AQqcUxtfhBHcFAuJ0Xunmh8A@mail.gmail.com>
+
+Hi,
+are there any plans about doing a language summit at EuroPython this year?
+
+Best Regards,
+Ezio Melotti
+
+From michael at voidspace.org.uk  Tue Jun 18 16:09:27 2013
+From: michael at voidspace.org.uk (Michael Foord)
+Date: Tue, 18 Jun 2013 16:09:27 +0200
+Subject: [python-committers] Language Summit at EuroPython
+In-Reply-To: <CACBhJdHKGFTho4QNxp33B7sq70AQqcUxtfhBHcFAuJ0Xunmh8A@mail.gmail.com>
+References: <CACBhJdHKGFTho4QNxp33B7sq70AQqcUxtfhBHcFAuJ0Xunmh8A@mail.gmail.com>
+Message-ID: <7B4EC6C3-95E8-479B-8EBB-E66AFFDA4999@voidspace.org.uk>
+
+Hey Ezio,
+
+There are no plans that I'm aware of to have a language summit at EuroPython, sorry.
+
+All the best,
+
+Michael Foord
+
+On 17 Jun 2013, at 22:54, Ezio Melotti <ezio.melotti at gmail.com> wrote:
+
+> Hi,
+> are there any plans about doing a language summit at EuroPython this year?
+> 
+> Best Regards,
+> Ezio Melotti
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+
+
+--
+http://www.voidspace.org.uk/
+
+
+May you do good and not evil
+May you find forgiveness for yourself and forgive others
+May you share freely, never taking more than you give.
+-- the sqlite blessing 
+http://www.sqlite.org/different.html
+
+
+
+
+
+
+From eliben at gmail.com  Sat Jun 22 21:02:58 2013
+From: eliben at gmail.com (Eli Bendersky)
+Date: Sat, 22 Jun 2013 12:02:58 -0700
+Subject: [python-committers] Policy for committing to 2.7
+Message-ID: <CAF-Rda8N-T1V0J-vBUO-_EgULuh25B20UAVQWwH0mKcgBPn1iQ@mail.gmail.com>
+
+Hello,
+
+I may be missing something, but do we have a policy of what we're supposed
+to commit to the 2.7 branch at this point? I was under the impression that
+it's only bug fixes, documentation, and maybe tests. But it seems that
+there are developers who see it otherwise.
+
+For example, Raymond's changeset 5accb0ac8bfb (which was reverted by
+Benjamin today). Alas, Raymond did not explain the change even when
+challenged by multiple other core devs. Changeset f1dc30a1be72, which he
+committed today, also doesn't appear to belong in a bugfix branch.
+
+It would be great if we could document this somewhere - the 2.7 branch is
+not a usual bugfix-mode branch, I realize, and hence maybe there's some
+special treatment it deserves.
+
+Thanks in advance,
+Eli
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20130622/397a5c28/attachment.html>
+
+From solipsis at pitrou.net  Sat Jun 22 21:11:13 2013
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Sat, 22 Jun 2013 21:11:13 +0200
+Subject: [python-committers] Policy for committing to 2.7
+In-Reply-To: <CAF-Rda8N-T1V0J-vBUO-_EgULuh25B20UAVQWwH0mKcgBPn1iQ@mail.gmail.com>
+References: <CAF-Rda8N-T1V0J-vBUO-_EgULuh25B20UAVQWwH0mKcgBPn1iQ@mail.gmail.com>
+Message-ID: <1371928273.2660.1.camel@fsol>
+
+Le samedi 22 juin 2013 ? 12:02 -0700, Eli Bendersky a ?crit :
+> Hello,
+> 
+> 
+> I may be missing something, but do we have a policy of what we're
+> supposed to commit to the 2.7 branch at this point? I was under the
+> impression that it's only bug fixes, documentation, and maybe tests.
+> But it seems that there are developers who see it otherwise.
+
+For me it's *definitely* bug fixes (and documentation and tests) only.
+The amount of regressions we had in recent 2.7.x bug fix releases makes
+me want to revert anything that doesn't fall in those categories :-)
+
+Regards
+
+Antoine.
+
+
+
+
+From barry at python.org  Sat Jun 22 21:35:41 2013
+From: barry at python.org (Barry Warsaw)
+Date: Sat, 22 Jun 2013 15:35:41 -0400
+Subject: [python-committers] Policy for committing to 2.7
+In-Reply-To: <CAF-Rda8N-T1V0J-vBUO-_EgULuh25B20UAVQWwH0mKcgBPn1iQ@mail.gmail.com>
+References: <CAF-Rda8N-T1V0J-vBUO-_EgULuh25B20UAVQWwH0mKcgBPn1iQ@mail.gmail.com>
+Message-ID: <20130622153541.40516e3b@anarchist>
+
+On Jun 22, 2013, at 12:02 PM, Eli Bendersky wrote:
+
+>I may be missing something, but do we have a policy of what we're supposed
+>to commit to the 2.7 branch at this point? I was under the impression that
+>it's only bug fixes, documentation, and maybe tests. But it seems that
+>there are developers who see it otherwise.
+
+Strongly agree.  One additional allowed category of changes are build system
+fixes, e.g. so that 2.7 can still be built on newer versions of operating
+systems it already supports.
+
+>It would be great if we could document this somewhere - the 2.7 branch is
+>not a usual bugfix-mode branch, I realize, and hence maybe there's some
+>special treatment it deserves.
+
+IMO, Benjamin being the 2.7 RM has ultimate[1] say in the matter.  I'm very
+glad he's conservative in what he allows in the branch.
+
+-Barry
+
+[1] Well, maybe penultimate, but I wouldn't mind seeing the Mercurial
+equivalent of a wrastlin' match between him and the BDFL. :)
+
+From rdmurray at bitdance.com  Sat Jun 22 22:39:52 2013
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Sat, 22 Jun 2013 16:39:52 -0400
+Subject: [python-committers] Policy for committing to 2.7
+In-Reply-To: <20130622153541.40516e3b@anarchist>
+References: <CAF-Rda8N-T1V0J-vBUO-_EgULuh25B20UAVQWwH0mKcgBPn1iQ@mail.gmail.com>
+	<20130622153541.40516e3b@anarchist>
+Message-ID: <20130622203952.F1223250169@webabinitio.net>
+
+On Sat, 22 Jun 2013 15:35:41 -0400, Barry Warsaw <barry at python.org> wrote:
+> On Jun 22, 2013, at 12:02 PM, Eli Bendersky wrote:
+> 
+> >I may be missing something, but do we have a policy of what we're supposed
+> >to commit to the 2.7 branch at this point? I was under the impression that
+> >it's only bug fixes, documentation, and maybe tests. But it seems that
+> >there are developers who see it otherwise.
+> 
+> Strongly agree.  One additional allowed category of changes are build system
+> fixes, e.g. so that 2.7 can still be built on newer versions of operating
+> systems it already supports.
+> 
+> >It would be great if we could document this somewhere - the 2.7 branch is
+> >not a usual bugfix-mode branch, I realize, and hence maybe there's some
+> >special treatment it deserves.
+> 
+> IMO, Benjamin being the 2.7 RM has ultimate[1] say in the matter.  I'm very
+> glad he's conservative in what he allows in the branch.
+
+My understanding is that there is an additional category that we allow
+beyond what Barry mentioned:  things that add support for "stuff" that
+is analogous to the build enhancements:  platform changes we really want
+to support that are trivial to add.  The non-controversial example of
+this is adding mime types.  The somewhat more controversial (but we've
+done it, IIRC) is adding support for new browsers (ie: Chrome) to the
+webbrowser module.
+
+But IMO we should be considering the 2.7 branch to be starting to harden
+into immobility at this point.  The bar for even bug fixes to be applied
+to 2.7 should be higher than for 3.3, and should continue to get higher
+still as time passes.
+
+--David
+
+From eliben at gmail.com  Sat Jun 22 23:49:37 2013
+From: eliben at gmail.com (Eli Bendersky)
+Date: Sat, 22 Jun 2013 14:49:37 -0700
+Subject: [python-committers] Policy for committing to 2.7
+In-Reply-To: <20130622153541.40516e3b@anarchist>
+References: <CAF-Rda8N-T1V0J-vBUO-_EgULuh25B20UAVQWwH0mKcgBPn1iQ@mail.gmail.com>
+	<20130622153541.40516e3b@anarchist>
+Message-ID: <CAF-Rda9Cxw0X-ToWdWm-cvsJSOi_zrDodjCFDjuXTePmvHR75Q@mail.gmail.com>
+
+On Sat, Jun 22, 2013 at 12:35 PM, Barry Warsaw <barry at python.org> wrote:
+
+> On Jun 22, 2013, at 12:02 PM, Eli Bendersky wrote:
+>
+> >I may be missing something, but do we have a policy of what we're supposed
+> >to commit to the 2.7 branch at this point? I was under the impression that
+> >it's only bug fixes, documentation, and maybe tests. But it seems that
+> >there are developers who see it otherwise.
+>
+> Strongly agree.  One additional allowed category of changes are build
+> system
+> fixes, e.g. so that 2.7 can still be built on newer versions of operating
+> systems it already supports.
+>
+
+Yes, this makes sense too.
+
+In general there seems to be an agreement, so it would be great to document
+in some place. Many years will pass before we have another "special"
+release like Python 2.7, so it's worth spending an extra few minutes to
+have this written down. PEP 404 seems to be a reasonable place - any
+objections? Benjamin, what do you think?
+
+Eli
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20130622/ae2d1755/attachment.html>
+
+From guido at python.org  Sat Jun 22 23:57:09 2013
+From: guido at python.org (Guido van Rossum)
+Date: Sat, 22 Jun 2013 14:57:09 -0700
+Subject: [python-committers] Policy for committing to 2.7
+In-Reply-To: <20130622153541.40516e3b@anarchist>
+References: <CAF-Rda8N-T1V0J-vBUO-_EgULuh25B20UAVQWwH0mKcgBPn1iQ@mail.gmail.com>
+	<20130622153541.40516e3b@anarchist>
+Message-ID: <CAP7+vJL=rAq8tY71P0gHxJ9ksVdeREpFEuHjBunt-vZ2cD+YqA@mail.gmail.com>
+
+On Sat, Jun 22, 2013 at 12:35 PM, Barry Warsaw <barry at python.org> wrote:
+> [1] Well, maybe penultimate, but I wouldn't mind seeing the Mercurial
+> equivalent of a wrastlin' match between him and the BDFL. :)
+
+You wouldn't see that this summer though -- I could just tackle him in
+the office. :-)
+
+-- 
+--Guido van Rossum (python.org/~guido)
+
+From anthonybaxter at gmail.com  Sun Jun 23 00:01:46 2013
+From: anthonybaxter at gmail.com (Anthony Baxter)
+Date: Sun, 23 Jun 2013 08:01:46 +1000
+Subject: [python-committers] Policy for committing to 2.7
+In-Reply-To: <CAF-Rda9Cxw0X-ToWdWm-cvsJSOi_zrDodjCFDjuXTePmvHR75Q@mail.gmail.com>
+References: <CAF-Rda8N-T1V0J-vBUO-_EgULuh25B20UAVQWwH0mKcgBPn1iQ@mail.gmail.com>
+	<20130622153541.40516e3b@anarchist>
+	<CAF-Rda9Cxw0X-ToWdWm-cvsJSOi_zrDodjCFDjuXTePmvHR75Q@mail.gmail.com>
+Message-ID: <CANxH2eSBAaEOyC4H1actyZ0mm4zW9K6L-ZhmGUSJ2+GY+terhg@mail.gmail.com>
+
+Maybe time it so when we *would* have released a 2.8 (18 months or so after
+2.7) is when it goes into critical/security fixes only?
+On Jun 22, 2013 11:50 PM, "Eli Bendersky" <eliben at gmail.com> wrote:
+
+>
+>
+>
+> On Sat, Jun 22, 2013 at 12:35 PM, Barry Warsaw <barry at python.org> wrote:
+>
+>> On Jun 22, 2013, at 12:02 PM, Eli Bendersky wrote:
+>>
+>> >I may be missing something, but do we have a policy of what we're
+>> supposed
+>> >to commit to the 2.7 branch at this point? I was under the impression
+>> that
+>> >it's only bug fixes, documentation, and maybe tests. But it seems that
+>> >there are developers who see it otherwise.
+>>
+>> Strongly agree.  One additional allowed category of changes are build
+>> system
+>> fixes, e.g. so that 2.7 can still be built on newer versions of operating
+>> systems it already supports.
+>>
+>
+> Yes, this makes sense too.
+>
+> In general there seems to be an agreement, so it would be great to
+> document in some place. Many years will pass before we have another
+> "special" release like Python 2.7, so it's worth spending an extra few
+> minutes to have this written down. PEP 404 seems to be a reasonable place -
+> any objections? Benjamin, what do you think?
+>
+> Eli
+>
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+>
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20130623/17fad965/attachment.html>
+
+From benjamin at python.org  Sun Jun 23 04:56:27 2013
+From: benjamin at python.org (Benjamin Peterson)
+Date: Sat, 22 Jun 2013 19:56:27 -0700
+Subject: [python-committers] Policy for committing to 2.7
+In-Reply-To: <CAF-Rda9Cxw0X-ToWdWm-cvsJSOi_zrDodjCFDjuXTePmvHR75Q@mail.gmail.com>
+References: <CAF-Rda8N-T1V0J-vBUO-_EgULuh25B20UAVQWwH0mKcgBPn1iQ@mail.gmail.com>
+	<20130622153541.40516e3b@anarchist>
+	<CAF-Rda9Cxw0X-ToWdWm-cvsJSOi_zrDodjCFDjuXTePmvHR75Q@mail.gmail.com>
+Message-ID: <CAPZV6o_1D6mVKeFy+wMfcycL+C9=67RdaRPNTahMMpgxN2EP4Q@mail.gmail.com>
+
+2013/6/22 Eli Bendersky <eliben at gmail.com>:
+> Yes, this makes sense too.
+>
+> In general there seems to be an agreement, so it would be great to document
+> in some place. Many years will pass before we have another "special" release
+> like Python 2.7, so it's worth spending an extra few minutes to have this
+> written down. PEP 404 seems to be a reasonable place - any objections?
+> Benjamin, what do you think?
+
+PEP 373 is better given in that it deals with 2.7 and not a
+non-existent 2.8 release. :)
+
+I agree not every theoretically applicable bugfix needs to land in
+2.7. If it's been broken for all of the 2.x series, it probably
+doesn't need to be fixed now. (The most important bugs to fix are the
+ones we introduced in the last bugfix release.) I'm also open to and
+have been open to build system changes that keep Python compiling even
+though they can break things (see cross-compiling). Even limited
+not-build system "features" like retrofitting bsddb so it could
+compile with a non-ancient version of bsddb can be acceptable.
+
+
+
+--
+Regards,
+Benjamin
+
+From ncoghlan at gmail.com  Sun Jun 23 05:51:28 2013
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Sun, 23 Jun 2013 13:51:28 +1000
+Subject: [python-committers] Policy for committing to 2.7
+In-Reply-To: <CAPZV6o_1D6mVKeFy+wMfcycL+C9=67RdaRPNTahMMpgxN2EP4Q@mail.gmail.com>
+References: <CAF-Rda8N-T1V0J-vBUO-_EgULuh25B20UAVQWwH0mKcgBPn1iQ@mail.gmail.com>
+	<20130622153541.40516e3b@anarchist>
+	<CAF-Rda9Cxw0X-ToWdWm-cvsJSOi_zrDodjCFDjuXTePmvHR75Q@mail.gmail.com>
+	<CAPZV6o_1D6mVKeFy+wMfcycL+C9=67RdaRPNTahMMpgxN2EP4Q@mail.gmail.com>
+Message-ID: <CADiSq7fDTFxyp9F+1vU-dAT23TRvXkdEZZNUp_a=xe--kO1CKw@mail.gmail.com>
+
+On 23 June 2013 12:56, Benjamin Peterson <benjamin at python.org> wrote:
+> 2013/6/22 Eli Bendersky <eliben at gmail.com>:
+>> Yes, this makes sense too.
+>>
+>> In general there seems to be an agreement, so it would be great to document
+>> in some place. Many years will pass before we have another "special" release
+>> like Python 2.7, so it's worth spending an extra few minutes to have this
+>> written down. PEP 404 seems to be a reasonable place - any objections?
+>> Benjamin, what do you think?
+>
+> PEP 373 is better given in that it deals with 2.7 and not a
+> non-existent 2.8 release. :)
+>
+> I agree not every theoretically applicable bugfix needs to land in
+> 2.7. If it's been broken for all of the 2.x series, it probably
+> doesn't need to be fixed now. (The most important bugs to fix are the
+> ones we introduced in the last bugfix release.) I'm also open to and
+> have been open to build system changes that keep Python compiling even
+> though they can break things (see cross-compiling). Even limited
+> not-build system "features" like retrofitting bsddb so it could
+> compile with a non-ancient version of bsddb can be acceptable.
+
+FWIW, this aligns with my understanding of the purpose of the extended
+maintenance period for Python 2.7 - not so much that it receives "new"
+bug fixes, but more that we ensure it keeps building and otherwise
+working reliably as the wider technology ecosystem changes around it
+(for example, the cross-compilation changes to help cope with the rise
+of ARM systems, especially the Raspberry Pi).
+
+Cheers,
+Nick.
+
+--
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+
+From jcea at jcea.es  Mon Jun 24 03:07:47 2013
+From: jcea at jcea.es (Jesus Cea)
+Date: Mon, 24 Jun 2013 03:07:47 +0200
+Subject: [python-committers] Policy for committing to 2.7
+In-Reply-To: <20130622203952.F1223250169@webabinitio.net>
+References: <CAF-Rda8N-T1V0J-vBUO-_EgULuh25B20UAVQWwH0mKcgBPn1iQ@mail.gmail.com>
+	<20130622153541.40516e3b@anarchist>
+	<20130622203952.F1223250169@webabinitio.net>
+Message-ID: <51C79BE3.3090807@jcea.es>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On 22/06/13 22:39, R. David Murray wrote:
+> My understanding is that there is an additional category that we
+> allow beyond what Barry mentioned:  things that add support for
+> "stuff" that is analogous to the build enhancements:  platform
+> changes we really want to support that are trivial to add.  The
+> non-controversial example of this is adding mime types.  The
+> somewhat more controversial (but we've done it, IIRC) is adding
+> support for new browsers (ie: Chrome) to the webbrowser module.
+
+bsddb module was recently updated to compile against current Oracle
+Berkeley DB releases.
+
+http://bugs.python.org/issue17477
+
+Oracle just released Berkeley DB 6.0.19... :-).
+
+- -- 
+Jes?s Cea Avi?n                         _/_/      _/_/_/        _/_/_/
+jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+Twitter: @jcea                        _/_/    _/_/          _/_/_/_/_/
+jabber / xmpp:jcea at jabber.org  _/_/  _/_/    _/_/          _/_/  _/_/
+"Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+"My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+"El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.10 (GNU/Linux)
+Comment: Using GnuPG with Thunderbird - http://www.enigmail.net/
+
+iQCVAwUBUceb45lgi5GaxT1NAQKu2QP+PmSMCM+iqF+MLcV6UNja+cg/LiQ1xCyv
+aoHCwi/W3+PcmI8JbKcBMNrG7BXXbWZ0DadtdTREC71kwBCuFW2O6BZRsVbHMWtE
+k/RA52imheySN7oQjNWoMxvY7GCTnD5bvx8+tL6lZd2GUJckiqEPVSk9YsMZQ3Ix
+kNIG1v/66RA=
+=Gq4N
+-----END PGP SIGNATURE-----
+
+From larry at hastings.org  Wed Jun 26 04:02:13 2013
+From: larry at hastings.org (Larry Hastings)
+Date: Tue, 25 Jun 2013 21:02:13 -0500
+Subject: [python-committers] Language Summit at EuroPython
+In-Reply-To: <7B4EC6C3-95E8-479B-8EBB-E66AFFDA4999@voidspace.org.uk>
+References: <CACBhJdHKGFTho4QNxp33B7sq70AQqcUxtfhBHcFAuJ0Xunmh8A@mail.gmail.com>
+	<7B4EC6C3-95E8-479B-8EBB-E66AFFDA4999@voidspace.org.uk>
+Message-ID: <51CA4BA5.9060104@hastings.org>
+
+On 06/18/2013 09:09 AM, Michael Foord wrote:
+> Hey Ezio,
+>
+> There are no plans that I'm aware of to have a language summit at EuroPython, sorry.
+
+We didn't have one last year because nobody had anything to say.  If 
+you're (gentle reader) going to be at EuroPython and think you have 
+something that needs discussng, please feel free to email me.  If I get 
+a lot of topics I'll inquire about getting a room set aside for a couple 
+of hours.
+
+Cheers,
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20130625/2e6597b9/attachment.html>
+
+From larry at hastings.org  Wed Jun 26 04:10:30 2013
+From: larry at hastings.org (Larry Hastings)
+Date: Tue, 25 Jun 2013 21:10:30 -0500
+Subject: [python-committers] Policy for committing to 2.7
+In-Reply-To: <CAF-Rda8N-T1V0J-vBUO-_EgULuh25B20UAVQWwH0mKcgBPn1iQ@mail.gmail.com>
+References: <CAF-Rda8N-T1V0J-vBUO-_EgULuh25B20UAVQWwH0mKcgBPn1iQ@mail.gmail.com>
+Message-ID: <51CA4D96.1020307@hastings.org>
+
+
+
+Everything I read in this thread says that 2.7 only gets bug fixes, and 
+even at that it has to be a pretty bad bug.  (Benjamin: "If it's been 
+broken for all of the 2.x series, it probably doesn't need to be fixed 
+now.")  I don't see even mild dissent; the replies have been strongly 
+unanimous.
+
+Less than a day ago Benjamin relented on reverting Raymond's 
+deque-block-size changeset.  He has since reapplied the change. 
+Therefore as of now this change will go into 2.7.6.  Although it looks 
+like a fine idea, AFAICT this is not a bug fix--unless a longstanding 
+performance regression can be considered a bug fix. So I don't 
+understand why this change was reapplied.
+
+I'm not questioning the decision--I'm asking, what is the heuristic I 
+can apply in the future to predict whether or not a change will be 
+accepted into the 2.7 branch.  My current heuristic ("only bad bug 
+fixes") seems to be on the fritz.
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20130625/8ef8cc6e/attachment.html>
+
+From ethan at stoneleaf.us  Wed Jun 26 06:43:56 2013
+From: ethan at stoneleaf.us (Ethan Furman)
+Date: Tue, 25 Jun 2013 21:43:56 -0700
+Subject: [python-committers] Policy for committing to 2.7
+In-Reply-To: <51CA4D96.1020307@hastings.org>
+References: <CAF-Rda8N-T1V0J-vBUO-_EgULuh25B20UAVQWwH0mKcgBPn1iQ@mail.gmail.com>
+	<51CA4D96.1020307@hastings.org>
+Message-ID: <51CA718C.9090103@stoneleaf.us>
+
+On 06/25/2013 07:10 PM, Larry Hastings wrote:
+>
+>
+> Everything I read in this thread says that 2.7 only gets bug fixes, and even at that it has to be a pretty bad bug.
+> (Benjamin: "If it's been broken for all of the 2.x series, it probably doesn't need to be fixed now.")  I don't see even
+> mild dissent; the replies have been strongly unanimous.
+>
+> Less than a day ago Benjamin relented on reverting Raymond's deque-block-size changeset.  He has since reapplied the
+> change. Therefore as of now this change will go into 2.7.6.  Although it looks like a fine idea, AFAICT this is not a
+> bug fix--unless a longstanding performance regression can be considered a bug fix. So I don't understand why this change
+> was reapplied.
+>
+> I'm not questioning the decision--I'm asking, what is the heuristic I can apply in the future to predict whether or not
+> a change will be accepted into the 2.7 branch.  My current heuristic ("only bad bug fixes") seems to be on the fritz.
+
++1
+
+--
+~Ethan~
+
+From mal at egenix.com  Wed Jun 26 10:50:59 2013
+From: mal at egenix.com (M.-A. Lemburg)
+Date: Wed, 26 Jun 2013 10:50:59 +0200
+Subject: [python-committers] Policy for committing to 2.7
+In-Reply-To: <51CA4D96.1020307@hastings.org>
+References: <CAF-Rda8N-T1V0J-vBUO-_EgULuh25B20UAVQWwH0mKcgBPn1iQ@mail.gmail.com>
+	<51CA4D96.1020307@hastings.org>
+Message-ID: <51CAAB73.6010305@egenix.com>
+
+On 26.06.2013 04:10, Larry Hastings wrote:
+> 
+> 
+> Everything I read in this thread says that 2.7 only gets bug fixes, and even at that it has to be a
+> pretty bad bug.  (Benjamin: "If it's been broken for all of the 2.x series, it probably doesn't need
+> to be fixed now.")  I don't see even mild dissent; the replies have been strongly unanimous.
+> 
+> Less than a day ago Benjamin relented on reverting Raymond's deque-block-size changeset.  He has
+> since reapplied the change.  Therefore as of now this change will go into 2.7.6.  Although it looks
+> like a fine idea, AFAICT this is not a bug fix--unless a longstanding performance regression can be
+> considered a bug fix.  So I don't understand why this change was reapplied.
+> 
+> I'm not questioning the decision--I'm asking, what is the heuristic I can apply in the future to
+> predict whether or not a change will be accepted into the 2.7 branch.  My current heuristic ("only
+> bad bug fixes") seems to be on the fritz.
+
+Let's not forget that Python 2.7 is the currently most used
+Python version there is. It's being used in production and many
+people rely on it.
+
+I think that bug fixes (including fixes for performance regressions)
+should continue to go into the 2.7 branch, as well as fixes that
+allow compiling Python 2.7 on more recent platforms.
+
+The current schedule is to provide bug fix releases at least
+until 2015:
+
+http://www.python.org/download/releases/2.7/
+http://www.python.org/dev/peps/pep-0373/
+
+Given that the transition to Python 3 is just starting to pick
+up speed this year, we may have to revisit the 2015 end-of-support
+next year.
+
+-- 
+Marc-Andre Lemburg
+eGenix.com
+
+Professional Python Services directly from the Source  (#1, Jun 26 2013)
+>>> Python Projects, Consulting and Support ...   http://www.egenix.com/
+>>> mxODBC.Zope/Plone.Database.Adapter ...       http://zope.egenix.com/
+>>> mxODBC, mxDateTime, mxTextTools ...        http://python.egenix.com/
+________________________________________________________________________
+2013-06-18: Released mxODBC Django DE 1.2.0 ...   http://egenix.com/go47
+2013-07-01: EuroPython 2013, Florence, Italy ...            5 days to go
+2013-07-16: Python Meeting Duesseldorf ...                 20 days to go
+
+   eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+    D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+           Registered at Amtsgericht Duesseldorf: HRB 46611
+               http://www.egenix.com/company/contact/
+
+From benjamin at python.org  Thu Jun 27 02:14:32 2013
+From: benjamin at python.org (Benjamin Peterson)
+Date: Wed, 26 Jun 2013 17:14:32 -0700
+Subject: [python-committers] Policy for committing to 2.7
+In-Reply-To: <51CA4D96.1020307@hastings.org>
+References: <CAF-Rda8N-T1V0J-vBUO-_EgULuh25B20UAVQWwH0mKcgBPn1iQ@mail.gmail.com>
+	<51CA4D96.1020307@hastings.org>
+Message-ID: <CAPZV6o-T_h1AX_iW0M5ksn8f2wR1XwTuSg_bxw5RSeAuNxipSA@mail.gmail.com>
+
+2013/6/25 Larry Hastings <larry at hastings.org>:
+> I'm not questioning the decision--I'm asking, what is the heuristic I can
+> apply in the future to predict whether or not a change will be accepted into
+> the 2.7 branch.  My current heuristic ("only bad bug fixes") seems to be on
+> the fritz.
+
+I realize everyone wants a nice heuristic. Unfortunately, I don't
+think one exists that explains why every change does or does not land
+in 2.7.
+
+
+
+--
+Regards,
+Benjamin
+
+From ncoghlan at gmail.com  Thu Jun 27 10:52:36 2013
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Thu, 27 Jun 2013 18:52:36 +1000
+Subject: [python-committers] Policy for committing to 2.7
+In-Reply-To: <CAPZV6o-T_h1AX_iW0M5ksn8f2wR1XwTuSg_bxw5RSeAuNxipSA@mail.gmail.com>
+References: <CAF-Rda8N-T1V0J-vBUO-_EgULuh25B20UAVQWwH0mKcgBPn1iQ@mail.gmail.com>
+	<51CA4D96.1020307@hastings.org>
+	<CAPZV6o-T_h1AX_iW0M5ksn8f2wR1XwTuSg_bxw5RSeAuNxipSA@mail.gmail.com>
+Message-ID: <CADiSq7c0B8YNTLzfiCL8jbFnw=oHkZyjHteOt1PvoMU7nxKNqg@mail.gmail.com>
+
+On 27 June 2013 10:14, Benjamin Peterson <benjamin at python.org> wrote:
+> 2013/6/25 Larry Hastings <larry at hastings.org>:
+>> I'm not questioning the decision--I'm asking, what is the heuristic I can
+>> apply in the future to predict whether or not a change will be accepted into
+>> the 2.7 branch.  My current heuristic ("only bad bug fixes") seems to be on
+>> the fritz.
+>
+> I realize everyone wants a nice heuristic. Unfortunately, I don't
+> think one exists that explains why every change does or does not land
+> in 2.7.
+
+The best one I have is that simplifying cross-version maintenance and
+addressing issues that arise due to changes in the underlying
+platforms seem to be the two main reasons we do it :)
+
+Cheers,
+Nick.
+
+--
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+
+From ezio.melotti at gmail.com  Thu Jun 27 20:16:08 2013
+From: ezio.melotti at gmail.com (Ezio Melotti)
+Date: Thu, 27 Jun 2013 20:16:08 +0200
+Subject: [python-committers] Language Summit at EuroPython
+In-Reply-To: <51CA4BA5.9060104@hastings.org>
+References: <CACBhJdHKGFTho4QNxp33B7sq70AQqcUxtfhBHcFAuJ0Xunmh8A@mail.gmail.com>
+	<7B4EC6C3-95E8-479B-8EBB-E66AFFDA4999@voidspace.org.uk>
+	<51CA4BA5.9060104@hastings.org>
+Message-ID: <CACBhJdG_Gk77PjuOgYjPWdf=7338Pi-cUj=XpzKmJKzeXtci6A@mail.gmail.com>
+
+Hi,
+
+On Wed, Jun 26, 2013 at 4:02 AM, Larry Hastings <larry at hastings.org> wrote:
+>
+> We didn't have one last year because nobody had anything to say.
+
+OK, I asked because the language summit usually happens the day before
+the beginning of the conference, and I had/have to plan the travel.
+
+>  If you're
+> (gentle reader) going to be at EuroPython and think you have something that
+> needs discussng, please feel free to email me.
+
+I don't have any outstanding issues I need to discuss about, even
+though I would still like to get the regex module included in 3.4.
+This can probably be discussed informally during the conference if
+someone is interested.
+
+Best Regards,
+Ezio Melotti
+
+>  If I get a lot of topics
+> I'll inquire about getting a room set aside for a couple of hours.
+>
+> Cheers,
+>
+>
+> /arry
+

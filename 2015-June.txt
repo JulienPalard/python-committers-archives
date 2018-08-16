@@ -1,0 +1,934 @@
+From larry at hastings.org  Mon Jun  1 06:37:59 2015
+From: larry at hastings.org (Larry Hastings)
+Date: Sun, 31 May 2015 21:37:59 -0700
+Subject: [python-committers] [RELEASED] Python 3.5.0b2 is now available
+Message-ID: <556BE1A7.1090101@hastings.org>
+
+
+
+On behalf of the Python development community and the Python 3.5 release 
+team, I'm relieved to announce the availability of Python 3.5.0b2.  
+Python 3.5.0b1 had a major regression (see 
+http://bugs.python.org/issue24285 for more information) and as such was 
+not suitable for testing Python 3.5. Therefore we've made this extra 
+beta release, only a week later.  Anyone trying Python 3.5.0b1 should 
+switch immediately to testing with Python 3.5.0b2.
+
+Python 3.5 has now entered "feature freeze".  By default new features 
+may no longer be added to Python 3.5.  (However, there are a handful of 
+features that weren't quite ready for Python 3.5.0 beta 2; these were 
+granted exceptions to the freeze, and are scheduled to be added before 
+beta 3.)
+
+This is a preview release, and its use is not recommended for production 
+settings.
+
+Three important notes for Windows users about Python 3.5.0b2:
+
+  * If installing Python 3.5.0b2 as a non-privileged user, you may need
+    to escalate to administrator privileges to install an update to your
+    C runtime libraries.
+  * There is now a third type of Windows build for Python 3.5.  In
+    addition to the conventional installer and the web-based installer,
+    Python 3.5 now has an embeddable release designed to be deployed as
+    part of a larger application's installer for apps using or extending
+    Python.  During the 3.5 alpha releases, this was an executable
+    installer; as of 3.5.0 beta 1 the embeddable build of Python is now
+    shipped in a zip file.
+
+
+You can find Python 3.5.0b2 here:
+
+    https://www.python.org/downloads/release/python-350b2/
+
+Happy hacking,
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150531/74487c9e/attachment.html>
+
+From ncoghlan at gmail.com  Mon Jun  1 09:14:01 2015
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Mon, 1 Jun 2015 17:14:01 +1000
+Subject: [python-committers] [Python-Dev] [RELEASED] Python 3.5.0b2 is
+	now available
+In-Reply-To: <556BE1A7.1090101@hastings.org>
+References: <556BE1A7.1090101@hastings.org>
+Message-ID: <CADiSq7e9vgZYTg+EO1+XdJoquyDbEHBV4+MBHMHTkLdCndj-FQ@mail.gmail.com>
+
+Thanks Larry, and my apologies to the release team for the extra work!
+
+Regards,
+Nick.
+
+From barry at python.org  Mon Jun  1 20:09:03 2015
+From: barry at python.org (Barry Warsaw)
+Date: Mon, 1 Jun 2015 14:09:03 -0400
+Subject: [python-committers] Ned Deily is release manager for Python 3.6
+Message-ID: <20150601140903.5e0579b9@anarchist.wooz.org>
+
+Please welcome Ned Deily as RM for Python 3.6.
+
+https://www.python.org/dev/peps/pep-0494/
+
+Cheers,
+-Barry
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 819 bytes
+Desc: OpenPGP digital signature
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150601/9badebad/attachment.sig>
+
+From ethan at stoneleaf.us  Mon Jun  1 20:15:59 2015
+From: ethan at stoneleaf.us (Ethan Furman)
+Date: Mon, 01 Jun 2015 11:15:59 -0700
+Subject: [python-committers] Ned Deily is release manager for Python 3.6
+In-Reply-To: <20150601140903.5e0579b9@anarchist.wooz.org>
+References: <20150601140903.5e0579b9@anarchist.wooz.org>
+Message-ID: <556CA15F.3020507@stoneleaf.us>
+
+On 06/01/2015 11:09 AM, Barry Warsaw wrote:
+
+> Please welcome Ned Deily as RM for Python 3.6.
+
+Congratulations!  Consolations!  Cheers!
+
+:)
+
+--
+~Ethan~
+
+From larry at hastings.org  Tue Jun  2 01:50:23 2015
+From: larry at hastings.org (Larry Hastings)
+Date: Mon, 01 Jun 2015 16:50:23 -0700
+Subject: [python-committers] Ned Deily is release manager for Python 3.6
+In-Reply-To: <20150601140903.5e0579b9@anarchist.wooz.org>
+References: <20150601140903.5e0579b9@anarchist.wooz.org>
+Message-ID: <556CEFBF.3090605@hastings.org>
+
+On 06/01/2015 11:09 AM, Barry Warsaw wrote:
+> Please welcome Ned Deily as RM for Python 3.6.
+>
+> https://www.python.org/dev/peps/pep-0494/
+
+We're in good hands.  For two versions now Benjamin and Ned have been 
+quietly cleaning up my mistakes after (nearly) every release. My guess 
+is, Ned won't bother making the mistakes in the first place!
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150601/47ab9b5d/attachment.html>
+
+From amk at amk.ca  Tue Jun  2 17:19:07 2015
+From: amk at amk.ca (A.M. Kuchling)
+Date: Tue, 2 Jun 2015 11:19:07 -0400
+Subject: [python-committers] Weak SSH keys
+Message-ID: <20150602151907.GA64176@DATLANDREWK.local>
+
+Someone ran an experiment looking at the SSH keys used on GitHub
+(public keys are accessible through the API):
+
+https://blog.benjojo.co.uk/post/auditing-github-users-keys
+
+Excerpt:
+
+	I remembered back to the May 2008 Debian OpenSSH bug, where
+	the randomness source was compromised to the point where the
+	system could only generate one of 32k keys in a set.
+
+	I used g0tmi1k?s set of keys to compare against what I had in
+	my database, and found a very large amount of users who are
+	still using vulnerable keys, and even worse, have commit
+	access to some really large and wide projects including:
+
+	...
+	Crypto libraries to Python
+	Django
+	Python?s core
+	...
+
+CPython is not officially on github, so committing evil stuff to the
+github mirror may not matter very much, but these users may have the
+same key configured for hg.python.org.  Should we check everyone's SSH
+keys?
+
+--amk
+
+From skip.montanaro at gmail.com  Tue Jun  2 17:40:31 2015
+From: skip.montanaro at gmail.com (Skip Montanaro)
+Date: Tue, 2 Jun 2015 10:40:31 -0500
+Subject: [python-committers] Weak SSH keys
+In-Reply-To: <20150602151907.GA64176@DATLANDREWK.local>
+References: <20150602151907.GA64176@DATLANDREWK.local>
+Message-ID: <CANc-5UzRjt9+V-ijsEnrd7PYmovJ1CX9aEcPsHsY-2RQz+d4ow@mail.gmail.com>
+
+On Tue, Jun 2, 2015 at 10:19 AM, A.M. Kuchling <amk at amk.ca> wrote:
+
+> Should we check everyone's SSH
+> keys?
+>
+
+Makes sense to me. Probably worth doing for all the *.python.org hosts, not
+just the commit boxes like hg.p.o.
+
+Skip
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150602/ff57dddb/attachment.html>
+
+From benjamin at python.org  Tue Jun  2 18:28:09 2015
+From: benjamin at python.org (Benjamin Peterson)
+Date: Tue, 02 Jun 2015 12:28:09 -0400
+Subject: [python-committers] Weak SSH keys
+In-Reply-To: <20150602151907.GA64176@DATLANDREWK.local>
+References: <20150602151907.GA64176@DATLANDREWK.local>
+Message-ID: <1433262489.328992.284875073.13896EA3@webmail.messagingengine.com>
+
+
+
+On Tue, Jun 2, 2015, at 11:19, A.M. Kuchling wrote:
+> Someone ran an experiment looking at the SSH keys used on GitHub
+> (public keys are accessible through the API):
+> 
+> https://blog.benjojo.co.uk/post/auditing-github-users-keys
+> 
+> Excerpt:
+> 
+> 	I remembered back to the May 2008 Debian OpenSSH bug, where
+> 	the randomness source was compromised to the point where the
+> 	system could only generate one of 32k keys in a set.
+> 
+> 	I used g0tmi1k?s set of keys to compare against what I had in
+> 	my database, and found a very large amount of users who are
+> 	still using vulnerable keys, and even worse, have commit
+> 	access to some really large and wide projects including:
+> 
+> 	...
+> 	Crypto libraries to Python
+> 	Django
+> 	Python?s core
+> 	...
+> 
+> CPython is not officially on github, so committing evil stuff to the
+> github mirror may not matter very much, but these users may have the
+> same key configured for hg.python.org.  Should we check everyone's SSH
+> keys?
+
+I believe Martin checked everyone's keys when that vulnerability was
+announced. He certainly emailed me anyway.
+
+Not that it wouldn't hurt to do again.
+
+Also, everyone should use ed25519 keys now. :)
+
+From skip.montanaro at gmail.com  Tue Jun  2 18:35:49 2015
+From: skip.montanaro at gmail.com (Skip Montanaro)
+Date: Tue, 2 Jun 2015 11:35:49 -0500
+Subject: [python-committers] Weak SSH keys
+In-Reply-To: <1433262489.328992.284875073.13896EA3@webmail.messagingengine.com>
+References: <20150602151907.GA64176@DATLANDREWK.local>
+ <1433262489.328992.284875073.13896EA3@webmail.messagingengine.com>
+Message-ID: <CANc-5UyzrwaGV-yzPmQqyT7hJUn8+KRJuUDy45Ehq4ycMEutRQ@mail.gmail.com>
+
+On Tue, Jun 2, 2015 at 11:28 AM, Benjamin Peterson <benjamin at python.org> wrote:
+> Also, everyone should use ed25519 keys now. :)
+
+For people like myself who are behind the curve, can someone point me
+to a primer on generating new, more secure SSH keys?
+
+Skip
+
+From antoine at python.org  Tue Jun  2 18:37:10 2015
+From: antoine at python.org (Antoine Pitrou)
+Date: Tue, 02 Jun 2015 18:37:10 +0200
+Subject: [python-committers] Weak SSH keys
+In-Reply-To: <1433262489.328992.284875073.13896EA3@webmail.messagingengine.com>
+References: <20150602151907.GA64176@DATLANDREWK.local>
+ <1433262489.328992.284875073.13896EA3@webmail.messagingengine.com>
+Message-ID: <556DDBB6.3040702@python.org>
+
+Le 02/06/2015 18:28, Benjamin Peterson a ?crit :
+> 
+> Also, everyone should use ed25519 keys now. :)
+
+Depends if the servers you connect to have all been migrated to a recent
+enough OpenSSH.
+
+Regards
+
+Antoine.
+
+From benjamin at python.org  Tue Jun  2 18:41:56 2015
+From: benjamin at python.org (Benjamin Peterson)
+Date: Tue, 02 Jun 2015 12:41:56 -0400
+Subject: [python-committers] Weak SSH keys
+In-Reply-To: <CANc-5UyzrwaGV-yzPmQqyT7hJUn8+KRJuUDy45Ehq4ycMEutRQ@mail.gmail.com>
+References: <20150602151907.GA64176@DATLANDREWK.local>
+ <1433262489.328992.284875073.13896EA3@webmail.messagingengine.com>
+ <CANc-5UyzrwaGV-yzPmQqyT7hJUn8+KRJuUDy45Ehq4ycMEutRQ@mail.gmail.com>
+Message-ID: <1433263316.332066.284888705.5B1C07A0@webmail.messagingengine.com>
+
+
+
+On Tue, Jun 2, 2015, at 12:35, Skip Montanaro wrote:
+> On Tue, Jun 2, 2015 at 11:28 AM, Benjamin Peterson <benjamin at python.org>
+> wrote:
+> > Also, everyone should use ed25519 keys now. :)
+> 
+> For people like myself who are behind the curve, can someone point me
+> to a primer on generating new, more secure SSH keys?
+
+You just have to pass the right option to ssh-keygen
+
+https://docs.python.org/devguide/faq.html#how-do-i-generate-an-ssh-2-public-key
+
+From benjamin at python.org  Tue Jun  2 18:42:44 2015
+From: benjamin at python.org (Benjamin Peterson)
+Date: Tue, 02 Jun 2015 12:42:44 -0400
+Subject: [python-committers] Weak SSH keys
+In-Reply-To: <556DDBB6.3040702@python.org>
+References: <20150602151907.GA64176@DATLANDREWK.local>
+ <1433262489.328992.284875073.13896EA3@webmail.messagingengine.com>
+ <556DDBB6.3040702@python.org>
+Message-ID: <1433263364.332175.284889369.0A8A4334@webmail.messagingengine.com>
+
+
+
+On Tue, Jun 2, 2015, at 12:37, Antoine Pitrou wrote:
+> Le 02/06/2015 18:28, Benjamin Peterson a ?crit :
+> > 
+> > Also, everyone should use ed25519 keys now. :)
+> 
+> Depends if the servers you connect to have all been migrated to a recent
+> enough OpenSSH.
+
+SSH can use your older keys if you don't delete them.
+
+From antoine at python.org  Wed Jun  3 15:21:42 2015
+From: antoine at python.org (Antoine Pitrou)
+Date: Wed, 03 Jun 2015 15:21:42 +0200
+Subject: [python-committers] Weak SSH keys
+In-Reply-To: <1433263364.332175.284889369.0A8A4334@webmail.messagingengine.com>
+References: <20150602151907.GA64176@DATLANDREWK.local>
+ <1433262489.328992.284875073.13896EA3@webmail.messagingengine.com>
+ <556DDBB6.3040702@python.org>
+ <1433263364.332175.284889369.0A8A4334@webmail.messagingengine.com>
+Message-ID: <556EFF66.50004@python.org>
+
+
+Le 02/06/2015 18:42, Benjamin Peterson a ?crit :
+> 
+> 
+> On Tue, Jun 2, 2015, at 12:37, Antoine Pitrou wrote:
+>> Le 02/06/2015 18:28, Benjamin Peterson a ?crit :
+>>>
+>>> Also, everyone should use ed25519 keys now. :)
+>>
+>> Depends if the servers you connect to have all been migrated to a recent
+>> enough OpenSSH.
+> 
+> SSH can use your older keys if you don't delete them.
+
+Is there a way of debugging which key is actually used? "ssh -v" isn't
+very useful.
+
+Regards
+
+Antoine.
+
+From benjamin at python.org  Wed Jun  3 15:27:51 2015
+From: benjamin at python.org (Benjamin Peterson)
+Date: Wed, 03 Jun 2015 08:27:51 -0500
+Subject: [python-committers] Weak SSH keys
+In-Reply-To: <556EFF66.50004@python.org>
+References: <20150602151907.GA64176@DATLANDREWK.local>
+ <1433262489.328992.284875073.13896EA3@webmail.messagingengine.com>
+ <556DDBB6.3040702@python.org>
+ <1433263364.332175.284889369.0A8A4334@webmail.messagingengine.com>
+ <556EFF66.50004@python.org>
+Message-ID: <1433338071.654455.285735649.5D172C18@webmail.messagingengine.com>
+
+
+
+On Wed, Jun 3, 2015, at 08:21, Antoine Pitrou wrote:
+> 
+> Le 02/06/2015 18:42, Benjamin Peterson a ?crit :
+> > 
+> > 
+> > On Tue, Jun 2, 2015, at 12:37, Antoine Pitrou wrote:
+> >> Le 02/06/2015 18:28, Benjamin Peterson a ?crit :
+> >>>
+> >>> Also, everyone should use ed25519 keys now. :)
+> >>
+> >> Depends if the servers you connect to have all been migrated to a recent
+> >> enough OpenSSH.
+> > 
+> > SSH can use your older keys if you don't delete them.
+> 
+> Is there a way of debugging which key is actually used? "ssh -v" isn't
+> very useful.
+
+Really? I see output from ssh -v like this:
+
+debug1: Offering ED25519 public key: /home/benjamin/.ssh/id_ed25519
+debug1: Authentications that can continue: publickey
+debug1: Offering RSA public key: /home/benjamin/.ssh/id_rsa
+debug1: Authentications that can continue: publickey
+debug1: Offering DSA public key: /home/benjamin/.ssh/id_dsa
+debug1: Server accepts key: pkalg ssh-dss blen 435
+
+From antoine at python.org  Wed Jun  3 15:31:25 2015
+From: antoine at python.org (Antoine Pitrou)
+Date: Wed, 03 Jun 2015 15:31:25 +0200
+Subject: [python-committers] Weak SSH keys
+In-Reply-To: <1433338071.654455.285735649.5D172C18@webmail.messagingengine.com>
+References: <20150602151907.GA64176@DATLANDREWK.local>
+ <1433262489.328992.284875073.13896EA3@webmail.messagingengine.com>
+ <556DDBB6.3040702@python.org>
+ <1433263364.332175.284889369.0A8A4334@webmail.messagingengine.com>
+ <556EFF66.50004@python.org>
+ <1433338071.654455.285735649.5D172C18@webmail.messagingengine.com>
+Message-ID: <556F01AD.1070801@python.org>
+
+
+
+Le 03/06/2015 15:27, Benjamin Peterson a ?crit :
+> 
+> 
+> On Wed, Jun 3, 2015, at 08:21, Antoine Pitrou wrote:
+>>
+>> Le 02/06/2015 18:42, Benjamin Peterson a ?crit :
+>>>
+>>>
+>>> On Tue, Jun 2, 2015, at 12:37, Antoine Pitrou wrote:
+>>>> Le 02/06/2015 18:28, Benjamin Peterson a ?crit :
+>>>>>
+>>>>> Also, everyone should use ed25519 keys now. :)
+>>>>
+>>>> Depends if the servers you connect to have all been migrated to a recent
+>>>> enough OpenSSH.
+>>>
+>>> SSH can use your older keys if you don't delete them.
+>>
+>> Is there a way of debugging which key is actually used? "ssh -v" isn't
+>> very useful.
+> 
+> Really? I see output from ssh -v like this:
+> 
+> debug1: Offering ED25519 public key: /home/benjamin/.ssh/id_ed25519
+> debug1: Authentications that can continue: publickey
+> debug1: Offering RSA public key: /home/benjamin/.ssh/id_rsa
+> debug1: Authentications that can continue: publickey
+> debug1: Offering DSA public key: /home/benjamin/.ssh/id_dsa
+> debug1: Server accepts key: pkalg ssh-dss blen 435
+
+Yes, but why does it try keys in that order? And why is a key accepted
+or not?
+
+Regards
+
+Antoine.
+
+
+From benjamin at python.org  Wed Jun  3 16:59:07 2015
+From: benjamin at python.org (Benjamin Peterson)
+Date: Wed, 03 Jun 2015 09:59:07 -0500
+Subject: [python-committers] Weak SSH keys
+In-Reply-To: <556F01AD.1070801@python.org>
+References: <20150602151907.GA64176@DATLANDREWK.local>
+ <1433262489.328992.284875073.13896EA3@webmail.messagingengine.com>
+ <556DDBB6.3040702@python.org>
+ <1433263364.332175.284889369.0A8A4334@webmail.messagingengine.com>
+ <556EFF66.50004@python.org>
+ <1433338071.654455.285735649.5D172C18@webmail.messagingengine.com>
+ <556F01AD.1070801@python.org>
+Message-ID: <1433343547.679451.285831065.41AACB56@webmail.messagingengine.com>
+
+
+
+On Wed, Jun 3, 2015, at 08:31, Antoine Pitrou wrote:
+> 
+> 
+> Le 03/06/2015 15:27, Benjamin Peterson a ?crit :
+> > 
+> > 
+> > On Wed, Jun 3, 2015, at 08:21, Antoine Pitrou wrote:
+> >>
+> >> Le 02/06/2015 18:42, Benjamin Peterson a ?crit :
+> >>>
+> >>>
+> >>> On Tue, Jun 2, 2015, at 12:37, Antoine Pitrou wrote:
+> >>>> Le 02/06/2015 18:28, Benjamin Peterson a ?crit :
+> >>>>>
+> >>>>> Also, everyone should use ed25519 keys now. :)
+> >>>>
+> >>>> Depends if the servers you connect to have all been migrated to a recent
+> >>>> enough OpenSSH.
+> >>>
+> >>> SSH can use your older keys if you don't delete them.
+> >>
+> >> Is there a way of debugging which key is actually used? "ssh -v" isn't
+> >> very useful.
+> > 
+> > Really? I see output from ssh -v like this:
+> > 
+> > debug1: Offering ED25519 public key: /home/benjamin/.ssh/id_ed25519
+> > debug1: Authentications that can continue: publickey
+> > debug1: Offering RSA public key: /home/benjamin/.ssh/id_rsa
+> > debug1: Authentications that can continue: publickey
+> > debug1: Offering DSA public key: /home/benjamin/.ssh/id_dsa
+> > debug1: Server accepts key: pkalg ssh-dss blen 435
+> 
+> Yes, but why does it try keys in that order? And why is a key accepted
+> or not?
+
+That's just how the SSH auth protocol works. The client offers keys
+until the server finds one acceptable. I'm not sure how the order is
+determined; it's probably arbitrary for OpenSSH.
+
+See https://tools.ietf.org/html/rfc4252
+
+From skip.montanaro at gmail.com  Wed Jun  3 18:34:36 2015
+From: skip.montanaro at gmail.com (Skip Montanaro)
+Date: Wed, 3 Jun 2015 11:34:36 -0500
+Subject: [python-committers] Weak SSH keys
+In-Reply-To: <1433343547.679451.285831065.41AACB56@webmail.messagingengine.com>
+References: <20150602151907.GA64176@DATLANDREWK.local>
+ <1433262489.328992.284875073.13896EA3@webmail.messagingengine.com>
+ <556DDBB6.3040702@python.org>
+ <1433263364.332175.284889369.0A8A4334@webmail.messagingengine.com>
+ <556EFF66.50004@python.org>
+ <1433338071.654455.285735649.5D172C18@webmail.messagingengine.com>
+ <556F01AD.1070801@python.org>
+ <1433343547.679451.285831065.41AACB56@webmail.messagingengine.com>
+Message-ID: <CANc-5UxPXi40XKsH50g3MAEaNWkpCw7b_EEnszQEf82MapO0Hg@mail.gmail.com>
+
+On Wed, Jun 3, 2015 at 9:59 AM, Benjamin Peterson <benjamin at python.org> wrote:
+> I'm not sure how the order is determined; it's probably arbitrary for OpenSSH.
+
+Certainly you wouldn't want it to offer a key generated by a system it
+knows to be weaker before one generated by a known stronger system? I
+would hope the OpenSSH authors had some idea which were relatively
+stronger, so it could offer them first.
+
+Skip
+
+From jcea at jcea.es  Wed Jun  3 19:21:04 2015
+From: jcea at jcea.es (Jesus Cea)
+Date: Wed, 03 Jun 2015 19:21:04 +0200
+Subject: [python-committers] Weak SSH keys
+In-Reply-To: <1433343547.679451.285831065.41AACB56@webmail.messagingengine.com>
+References: <20150602151907.GA64176@DATLANDREWK.local>
+ <1433262489.328992.284875073.13896EA3@webmail.messagingengine.com>
+ <556DDBB6.3040702@python.org>
+ <1433263364.332175.284889369.0A8A4334@webmail.messagingengine.com>
+ <556EFF66.50004@python.org>
+ <1433338071.654455.285735649.5D172C18@webmail.messagingengine.com>
+ <556F01AD.1070801@python.org>
+ <1433343547.679451.285831065.41AACB56@webmail.messagingengine.com>
+Message-ID: <556F3780.2040101@jcea.es>
+
+On 03/06/15 16:59, Benjamin Peterson wrote:
+> That's just how the SSH auth protocol works. The client offers keys
+> until the server finds one acceptable. I'm not sure how the order is
+> determined; it's probably arbitrary for OpenSSH.
+
+The server will accept the first key it can find a public key
+correspondence in its configuration.
+
+The key order the client offers is irrelevant if the server only knows
+about a concrete public key . That key will be accepted and all the
+other offers will be rejected.
+
+-- 
+Jes?s Cea Avi?n                         _/_/      _/_/_/        _/_/_/
+jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+Twitter: @jcea                        _/_/    _/_/          _/_/_/_/_/
+jabber / xmpp:jcea at jabber.org  _/_/  _/_/    _/_/          _/_/  _/_/
+"Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+"My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+"El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 473 bytes
+Desc: OpenPGP digital signature
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150603/c8777da2/attachment.sig>
+
+From ncoghlan at gmail.com  Sat Jun 27 06:47:50 2015
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Sat, 27 Jun 2015 14:47:50 +1000
+Subject: [python-committers] Co-maintainer(s) for contextlib,
+	dis and/or runpy?
+Message-ID: <CADiSq7e89zq5oit68bTO_rQSMAaMiiP6v4cneiHO6NppoaGyGA@mail.gmail.com>
+
+Hi folks,
+
+My available time for the fundamentals of stdlib module maintenance is
+unfortunately pretty limited these days, which means even reviewed
+patches for modules where I'm the sole maintainer aren't necessarily
+getting applied in a timely fashion (Serhiy quite rightly nudged me
+about this recently in relation to a languishing contextlib patch).
+
+Would anyone be interesting in taking up co-maintainership of one or
+more of the affected modules? Timely reviews I can generally manage
+(especially for other core developers), it's timely patch application
+and new module level development work that I struggle to find the time
+for :(
+
+The affected modules:
+
+* contextlib
+* dis
+* runpy
+
+Regards,
+Nick.
+
+P.S. In the specific case of contextlib, I'm also interested in
+finding someone willing to take up maintenance of the contextlib2
+backport: https://pypi.python.org/pypi/contextlib2
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+
+From robertc at robertcollins.net  Sat Jun 27 07:08:04 2015
+From: robertc at robertcollins.net (Robert Collins)
+Date: Sat, 27 Jun 2015 17:08:04 +1200
+Subject: [python-committers] Co-maintainer(s) for contextlib,
+	dis and/or runpy?
+In-Reply-To: <CADiSq7e89zq5oit68bTO_rQSMAaMiiP6v4cneiHO6NppoaGyGA@mail.gmail.com>
+References: <CADiSq7e89zq5oit68bTO_rQSMAaMiiP6v4cneiHO6NppoaGyGA@mail.gmail.com>
+Message-ID: <CAJ3HoZ2SuKeNSqbKww=KwQ9oEoXRHRjd3sxv1f5oRs-K-ySF9w@mail.gmail.com>
+
+I'm happy to provide on demand reviews. I an take on the backporting easily
+enough.
+On 27 Jun 2015 4:47 pm, "Nick Coghlan" <ncoghlan at gmail.com> wrote:
+
+> Hi folks,
+>
+> My available time for the fundamentals of stdlib module maintenance is
+> unfortunately pretty limited these days, which means even reviewed
+> patches for modules where I'm the sole maintainer aren't necessarily
+> getting applied in a timely fashion (Serhiy quite rightly nudged me
+> about this recently in relation to a languishing contextlib patch).
+>
+> Would anyone be interesting in taking up co-maintainership of one or
+> more of the affected modules? Timely reviews I can generally manage
+> (especially for other core developers), it's timely patch application
+> and new module level development work that I struggle to find the time
+> for :(
+>
+> The affected modules:
+>
+> * contextlib
+> * dis
+> * runpy
+>
+> Regards,
+> Nick.
+>
+> P.S. In the specific case of contextlib, I'm also interested in
+> finding someone willing to take up maintenance of the contextlib2
+> backport: https://pypi.python.org/pypi/contextlib2
+>
+> --
+> Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150627/98d4d45c/attachment.html>
+
+From yselivanov.ml at gmail.com  Sat Jun 27 12:42:25 2015
+From: yselivanov.ml at gmail.com (Yury Selivanov)
+Date: Sat, 27 Jun 2015 06:42:25 -0400
+Subject: [python-committers] Co-maintainer(s) for contextlib,
+ dis and/or runpy?
+In-Reply-To: <CADiSq7e89zq5oit68bTO_rQSMAaMiiP6v4cneiHO6NppoaGyGA@mail.gmail.com>
+References: <CADiSq7e89zq5oit68bTO_rQSMAaMiiP6v4cneiHO6NppoaGyGA@mail.gmail.com>
+Message-ID: <558E7E11.8080208@gmail.com>
+
+Hi Nick,
+
+I've added myself to dis & contextlib modules on the experts list.
+
+Yury
+
+On 2015-06-27 12:47 AM, Nick Coghlan wrote:
+> Hi folks,
+>
+> My available time for the fundamentals of stdlib module maintenance is
+> unfortunately pretty limited these days, which means even reviewed
+> patches for modules where I'm the sole maintainer aren't necessarily
+> getting applied in a timely fashion (Serhiy quite rightly nudged me
+> about this recently in relation to a languishing contextlib patch).
+>
+> Would anyone be interesting in taking up co-maintainership of one or
+> more of the affected modules? Timely reviews I can generally manage
+> (especially for other core developers), it's timely patch application
+> and new module level development work that I struggle to find the time
+> for :(
+>
+> The affected modules:
+>
+> * contextlib
+> * dis
+> * runpy
+>
+> Regards,
+> Nick.
+>
+> P.S. In the specific case of contextlib, I'm also interested in
+> finding someone willing to take up maintenance of the contextlib2
+> backport: https://pypi.python.org/pypi/contextlib2
+>
+
+
+From ncoghlan at gmail.com  Sat Jun 27 13:29:48 2015
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Sat, 27 Jun 2015 21:29:48 +1000
+Subject: [python-committers] Co-maintainer(s) for contextlib,
+	dis and/or runpy?
+In-Reply-To: <CAJ3HoZ2SuKeNSqbKww=KwQ9oEoXRHRjd3sxv1f5oRs-K-ySF9w@mail.gmail.com>
+References: <CADiSq7e89zq5oit68bTO_rQSMAaMiiP6v4cneiHO6NppoaGyGA@mail.gmail.com>
+ <CAJ3HoZ2SuKeNSqbKww=KwQ9oEoXRHRjd3sxv1f5oRs-K-ySF9w@mail.gmail.com>
+Message-ID: <CADiSq7c=ZGdPQ0q59o2BzUrEzyLW4ggfuO0abyDTQ5_TbcfJEQ@mail.gmail.com>
+
+On 27 June 2015 at 15:08, Robert Collins <robertc at robertcollins.net> wrote:
+> I'm happy to provide on demand reviews. I an take on the backporting easily
+> enough.
+
+Thanks, I added you to the PyPI project as a co-owner. The source repo
+for the contextlib2 backport is currently at
+https://bitbucket.org/ncoghlan/contextlib2/, but the main problem with
+it is that it's old CI service went away, and I never got around to
+finding a replacement.
+
+Regards,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+
+From ncoghlan at gmail.com  Sat Jun 27 13:35:42 2015
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Sat, 27 Jun 2015 21:35:42 +1000
+Subject: [python-committers] Co-maintainer(s) for contextlib,
+	dis and/or runpy?
+In-Reply-To: <558E7E11.8080208@gmail.com>
+References: <CADiSq7e89zq5oit68bTO_rQSMAaMiiP6v4cneiHO6NppoaGyGA@mail.gmail.com>
+ <558E7E11.8080208@gmail.com>
+Message-ID: <CADiSq7cZgNqdvMeF5Web-OqCqV1DUxtNt9im_yTm9Yw2g1zG=w@mail.gmail.com>
+
+On 27 June 2015 at 20:42, Yury Selivanov <yselivanov.ml at gmail.com> wrote:
+> Hi Nick,
+>
+> I've added myself to dis & contextlib modules on the experts list.
+
+Thanks! I also added you to the nosy list for the contextlib issue
+that Serhiy originally pinged me about :)
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+
+From storchaka at gmail.com  Sat Jun 27 16:47:54 2015
+From: storchaka at gmail.com (Serhiy Storchaka)
+Date: Sat, 27 Jun 2015 17:47:54 +0300
+Subject: [python-committers] Co-maintainer(s) for contextlib,
+	dis and/or runpy?
+In-Reply-To: <CADiSq7cZgNqdvMeF5Web-OqCqV1DUxtNt9im_yTm9Yw2g1zG=w@mail.gmail.com>
+References: <CADiSq7e89zq5oit68bTO_rQSMAaMiiP6v4cneiHO6NppoaGyGA@mail.gmail.com>
+ <558E7E11.8080208@gmail.com>
+ <CADiSq7cZgNqdvMeF5Web-OqCqV1DUxtNt9im_yTm9Yw2g1zG=w@mail.gmail.com>
+Message-ID: <mmmd2r$htu$1@ger.gmane.org>
+
+On 27.06.15 14:35, Nick Coghlan wrote:
+> I also added you to the nosy list for the contextlib issue
+> that Serhiy originally pinged me about :)
+
+The patch already was approved by you. I reviewed the patch and it LGTM 
+too. I pinged you only because the issue is assigned to you. If you 
+trust me, just reassign the issue to me and I'll commit the patch.
+
+
+From meadori at gmail.com  Sun Jun 28 02:04:21 2015
+From: meadori at gmail.com (Meador Inge)
+Date: Sat, 27 Jun 2015 19:04:21 -0500
+Subject: [python-committers] Co-maintainer(s) for contextlib,
+	dis and/or runpy?
+In-Reply-To: <CADiSq7e89zq5oit68bTO_rQSMAaMiiP6v4cneiHO6NppoaGyGA@mail.gmail.com>
+References: <CADiSq7e89zq5oit68bTO_rQSMAaMiiP6v4cneiHO6NppoaGyGA@mail.gmail.com>
+Message-ID: <CAK1Qoork3f5OhirN7kO+4_HrKpFN3GyfkGWpNsh3q2itKrV_Pg@mail.gmail.com>
+
+On Fri, Jun 26, 2015 at 11:47 PM, Nick Coghlan <ncoghlan at gmail.com> wrote:
+
+> Hi folks,
+>
+> My available time for the fundamentals of stdlib module maintenance is
+> unfortunately pretty limited these days, which means even reviewed
+> patches for modules where I'm the sole maintainer aren't necessarily
+> getting applied in a timely fashion (Serhiy quite rightly nudged me
+> about this recently in relation to a languishing contextlib patch).
+>
+> Would anyone be interesting in taking up co-maintainership of one or
+> more of the affected modules? Timely reviews I can generally manage
+> (especially for other core developers), it's timely patch application
+> and new module level development work that I struggle to find the time
+> for :(
+>
+> The affected modules:
+>
+> * contextlib
+> * dis
+
+I am spinning back up on Python volunteer time and am interested in
+helping out with 'dis'.
+
+-- Meador
+
+From ncoghlan at gmail.com  Sun Jun 28 08:27:34 2015
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Sun, 28 Jun 2015 16:27:34 +1000
+Subject: [python-committers] Co-maintainer(s) for contextlib,
+	dis and/or runpy?
+In-Reply-To: <mmmd2r$htu$1@ger.gmane.org>
+References: <CADiSq7e89zq5oit68bTO_rQSMAaMiiP6v4cneiHO6NppoaGyGA@mail.gmail.com>
+ <558E7E11.8080208@gmail.com>
+ <CADiSq7cZgNqdvMeF5Web-OqCqV1DUxtNt9im_yTm9Yw2g1zG=w@mail.gmail.com>
+ <mmmd2r$htu$1@ger.gmane.org>
+Message-ID: <CADiSq7fVqHzHHB1hJ0cQdUFO+V2zhiAyEerCVo6QP_o8bz-G9g@mail.gmail.com>
+
+On 28 June 2015 at 00:47, Serhiy Storchaka <storchaka at gmail.com> wrote:
+> On 27.06.15 14:35, Nick Coghlan wrote:
+>>
+>> I also added you to the nosy list for the contextlib issue
+>> that Serhiy originally pinged me about :)
+>
+> The patch already was approved by you. I reviewed the patch and it LGTM too.
+> I pinged you only because the issue is assigned to you. If you trust me,
+> just reassign the issue to me and I'll commit the patch.
+
+That's a good point - I had a range of issues assigned to me where I'd
+been telling myself "I'll get to that soon" for months, and instead
+kept finding other tasks to work on that I considered higher priority.
+That's a bad thing for me to be doing, as it ends up blocking other
+people from deciding they're interested in working on those issues and
+moving them forward.
+
+I've now reset the assignee on all such issues to accurately reflect
+the fact I'm not currently working on them. (A couple of those are
+test suite refactorings with patches already submitted, so mentors
+willing to pick them up would be greatly appreciated! If anyone has
+more time available than I do, http://bugs.python.org/issue9517 would
+a good place to start for that specific aspect)
+
+I also dropped myself from the issue assignment list in the triaging
+guide - while I'm happy to help out with reviews, actually assigning
+me issues that aren't work or PEP 432 related is currently a good way
+to see them languish indefinitely :(
+
+Regards,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+
+From taleinat at gmail.com  Sun Jun 28 12:57:40 2015
+From: taleinat at gmail.com (Tal Einat)
+Date: Sun, 28 Jun 2015 13:57:40 +0300
+Subject: [python-committers] Co-maintainer(s) for contextlib,
+	dis and/or runpy?
+In-Reply-To: <CADiSq7c=ZGdPQ0q59o2BzUrEzyLW4ggfuO0abyDTQ5_TbcfJEQ@mail.gmail.com>
+References: <CADiSq7e89zq5oit68bTO_rQSMAaMiiP6v4cneiHO6NppoaGyGA@mail.gmail.com>
+ <CAJ3HoZ2SuKeNSqbKww=KwQ9oEoXRHRjd3sxv1f5oRs-K-ySF9w@mail.gmail.com>
+ <CADiSq7c=ZGdPQ0q59o2BzUrEzyLW4ggfuO0abyDTQ5_TbcfJEQ@mail.gmail.com>
+Message-ID: <CALWZvp74T=yoKSKVtd3FWNq=3yPgjAod-CH0AbtXiQ=Nq3Fq7g@mail.gmail.com>
+
+On Sat, Jun 27, 2015 at 2:29 PM, Nick Coghlan <ncoghlan at gmail.com> wrote:
+
+> On 27 June 2015 at 15:08, Robert Collins <robertc at robertcollins.net>
+> wrote:
+> > I'm happy to provide on demand reviews. I an take on the backporting
+> easily
+> > enough.
+>
+> Thanks, I added you to the PyPI project as a co-owner. The source repo
+> for the contextlib2 backport is currently at
+> https://bitbucket.org/ncoghlan/contextlib2/, but the main problem with
+> it is that it's old CI service went away, and I never got around to
+> finding a replacement.
+>
+
+I can help set contextlib2 up with CI, if you like.
+
+Would you prefer using a github mirror and Travis CI, or a CI service which
+support BitBucket directly?
+
+- Tal
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150628/bb415d7b/attachment.html>
+
+From ncoghlan at gmail.com  Sun Jun 28 14:09:59 2015
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Sun, 28 Jun 2015 22:09:59 +1000
+Subject: [python-committers] Co-maintainer(s) for contextlib,
+	dis and/or runpy?
+In-Reply-To: <CALWZvp74T=yoKSKVtd3FWNq=3yPgjAod-CH0AbtXiQ=Nq3Fq7g@mail.gmail.com>
+References: <CADiSq7e89zq5oit68bTO_rQSMAaMiiP6v4cneiHO6NppoaGyGA@mail.gmail.com>
+ <CAJ3HoZ2SuKeNSqbKww=KwQ9oEoXRHRjd3sxv1f5oRs-K-ySF9w@mail.gmail.com>
+ <CADiSq7c=ZGdPQ0q59o2BzUrEzyLW4ggfuO0abyDTQ5_TbcfJEQ@mail.gmail.com>
+ <CALWZvp74T=yoKSKVtd3FWNq=3yPgjAod-CH0AbtXiQ=Nq3Fq7g@mail.gmail.com>
+Message-ID: <CADiSq7cp+EVuqjNXkZO19EQ_wq9r3Pjz4WL0JmaZ65PBZG_7BQ@mail.gmail.com>
+
+On 28 Jun 2015 8:57 pm, "Tal Einat" <taleinat at gmail.com> wrote:
+>
+> On Sat, Jun 27, 2015 at 2:29 PM, Nick Coghlan <ncoghlan at gmail.com> wrote:
+>>
+>> On 27 June 2015 at 15:08, Robert Collins <robertc at robertcollins.net>
+wrote:
+>> > I'm happy to provide on demand reviews. I an take on the backporting
+easily
+>> > enough.
+>>
+>> Thanks, I added you to the PyPI project as a co-owner. The source repo
+>> for the contextlib2 backport is currently at
+>> https://bitbucket.org/ncoghlan/contextlib2/, but the main problem with
+>> it is that it's old CI service went away, and I never got around to
+>> finding a replacement.
+>
+>
+> I can help set contextlib2 up with CI, if you like.
+>
+> Would you prefer using a github mirror and Travis CI, or a CI service
+which support BitBucket directly?
+
+I'll defer answering that to Robert - if he's going to take over the
+backports, then whatever is most convenient for him would make sense (which
+may include migrating away from BitBucket entirely).
+
+Regards,
+Nick.
+
+>
+> - Tal
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150628/20b1d8cf/attachment.html>
+

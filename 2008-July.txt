@@ -1,0 +1,716 @@
+From brett at python.org  Sat Jul 19 02:18:24 2008
+From: brett at python.org (Brett Cannon)
+Date: Fri, 18 Jul 2008 17:18:24 -0700
+Subject: [python-committers] Test
+Message-ID: <bbaeab100807181718k61d5617ambb5b6bf8455c05b1@mail.gmail.com>
+
+Just realized I never tested that emails were even getting through to
+people (my first email has not shown up in the archives). Anyone
+seeing emails from the list?
+
+-Brett
+
+From eric at trueblade.com  Sat Jul 19 02:20:40 2008
+From: eric at trueblade.com (Eric Smith)
+Date: Fri, 18 Jul 2008 20:20:40 -0400
+Subject: [python-committers] Test
+In-Reply-To: <bbaeab100807181718k61d5617ambb5b6bf8455c05b1@mail.gmail.com>
+References: <bbaeab100807181718k61d5617ambb5b6bf8455c05b1@mail.gmail.com>
+Message-ID: <48813358.8000905@trueblade.com>
+
+Brett Cannon wrote:
+> Just realized I never tested that emails were even getting through to
+> people (my first email has not shown up in the archives). Anyone
+> seeing emails from the list?
+> 
+> -Brett
+> 
+
+I've gotten nothing from the list.
+
+Eric.
+
+
+From brett at python.org  Sat Jul 19 00:16:28 2008
+From: brett at python.org (Brett Cannon)
+Date: Fri, 18 Jul 2008 15:16:28 -0700
+Subject: [python-committers] How to handle subscriptions?
+Message-ID: <bbaeab100807181516j165a2c9am2a4fe35aeb8e3a77@mail.gmail.com>
+
+Might as well use the list to discuss this. =)
+
+The question for subscribing people is to either do it en-mass or as
+we come across people's emails.
+
+Eric suggested we set a deadline to get emails (he said this Tuesday),
+and after that we add people individually. That idea is fine with me,
+although I might be out of town this weekend and I leave for
+Pittsburgh for a conference Tuesday and will be in the air most of the
+time. That means it might fall on the shoulders of the rest of you to
+find all the emails. =)
+
+The other option is we set up a form through the Google spreadsheet,
+have people enter their username and email, and then we validate it by
+eye. That way we don't have to enter all the data ourselves. Granted,
+someone could be an ass and enter false emails, but I don't know if we
+are that worried about it.
+
+-Brett
+
+From eric at trueblade.com  Sat Jul 19 03:27:03 2008
+From: eric at trueblade.com (Eric Smith)
+Date: Fri, 18 Jul 2008 21:27:03 -0400
+Subject: [python-committers] How to handle subscriptions?
+In-Reply-To: <bbaeab100807181516j165a2c9am2a4fe35aeb8e3a77@mail.gmail.com>
+References: <bbaeab100807181516j165a2c9am2a4fe35aeb8e3a77@mail.gmail.com>
+Message-ID: <488142E7.1040107@trueblade.com>
+
+Brett Cannon wrote:
+> Might as well use the list to discuss this. =)
+> 
+> The question for subscribing people is to either do it en-mass or as
+> we come across people's emails.
+> 
+> Eric suggested we set a deadline to get emails (he said this Tuesday),
+> and after that we add people individually. That idea is fine with me,
+> although I might be out of town this weekend and I leave for
+> Pittsburgh for a conference Tuesday and will be in the air most of the
+> time. That means it might fall on the shoulders of the rest of you to
+> find all the emails. =)
+> 
+> The other option is we set up a form through the Google spreadsheet,
+> have people enter their username and email, and then we validate it by
+> eye. That way we don't have to enter all the data ourselves. Granted,
+> someone could be an ass and enter false emails, but I don't know if we
+> are that worried about it.
+
+I don't feel strongly one way or the other.  My schedule is that I'm 
+around until next Saturday, the 26th, then away from a computer until 
+Aug. 13.  That will be the longest I've been out of touch in a decade!
+
+I'm not too worried about people putting in bogus info if we use a 
+world-writable spreadsheet.  Everyone can read the archives, and if they 
+post inappropriately we can remove them.
+
+For many of the usernames in the existing committers spreadsheet, can't 
+we match them up to usernames (and therefore addresses) in the 
+bugtracker?  Can we get at that info?  Would that be a helpful way to 
+prime the pump?
+
+Eric.
+
+From guido at python.org  Sat Jul 19 05:59:34 2008
+From: guido at python.org (Guido van Rossum)
+Date: Fri, 18 Jul 2008 20:59:34 -0700
+Subject: [python-committers] How to handle subscriptions?
+In-Reply-To: <488142E7.1040107@trueblade.com>
+References: <bbaeab100807181516j165a2c9am2a4fe35aeb8e3a77@mail.gmail.com>
+	<488142E7.1040107@trueblade.com>
+Message-ID: <ca471dc20807182059l222c9d2fg4c77a2c448956401@mail.gmail.com>
+
+I was hoping there would be a canonical list of committers and their
+emails, and if that list exists, I would strongly recommend to add
+everyone on that list as a member. (If they really want off they can
+unsub themselves.) It seems there isn't though, so we'll need some
+other way of collecting emails. A spreadsheet + form is probably
+better than asking for free-form email... Fake entries are easy to
+remove after the fact.
+
+I would also allow each committer as many aliases as they need, so
+they can post from any alias they happen to be logged in as. Most
+aliases could be members without receiving mail. I'd use this for
+guido at python.org, gvanrossum at gmail.com, and perhaps even
+guido at google.com, but I'd only receive the mail as guido at python.org.
+
+--Guido
+
+On Fri, Jul 18, 2008 at 6:27 PM, Eric Smith <eric at trueblade.com> wrote:
+> Brett Cannon wrote:
+>>
+>> Might as well use the list to discuss this. =)
+>>
+>> The question for subscribing people is to either do it en-mass or as
+>> we come across people's emails.
+>>
+>> Eric suggested we set a deadline to get emails (he said this Tuesday),
+>> and after that we add people individually. That idea is fine with me,
+>> although I might be out of town this weekend and I leave for
+>> Pittsburgh for a conference Tuesday and will be in the air most of the
+>> time. That means it might fall on the shoulders of the rest of you to
+>> find all the emails. =)
+>>
+>> The other option is we set up a form through the Google spreadsheet,
+>> have people enter their username and email, and then we validate it by
+>> eye. That way we don't have to enter all the data ourselves. Granted,
+>> someone could be an ass and enter false emails, but I don't know if we
+>> are that worried about it.
+>
+> I don't feel strongly one way or the other.  My schedule is that I'm around
+> until next Saturday, the 26th, then away from a computer until Aug. 13.
+>  That will be the longest I've been out of touch in a decade!
+>
+> I'm not too worried about people putting in bogus info if we use a
+> world-writable spreadsheet.  Everyone can read the archives, and if they
+> post inappropriately we can remove them.
+>
+> For many of the usernames in the existing committers spreadsheet, can't we
+> match them up to usernames (and therefore addresses) in the bugtracker?  Can
+> we get at that info?  Would that be a helpful way to prime the pump?
+>
+> Eric.
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+>
+
+
+
+-- 
+--Guido van Rossum (home page: http://www.python.org/~guido/)
+
+From georg at python.org  Sat Jul 19 18:40:47 2008
+From: georg at python.org (Georg Brandl)
+Date: Sat, 19 Jul 2008 18:40:47 +0200
+Subject: [python-committers] How to handle subscriptions?
+In-Reply-To: <ca471dc20807182059l222c9d2fg4c77a2c448956401@mail.gmail.com>
+References: <bbaeab100807181516j165a2c9am2a4fe35aeb8e3a77@mail.gmail.com>	<488142E7.1040107@trueblade.com>
+	<ca471dc20807182059l222c9d2fg4c77a2c448956401@mail.gmail.com>
+Message-ID: <4882190F.8060001@python.org>
+
+I've now harvested all addresses from people who wrote to python-dev
+in the time I read it and put them into the spreadsheet. Only a few
+are missing.
+
+We can do a mass invite with this; and also state that commit access
+requires having a subscription to that list, if I understood you
+correctly, Guido.
+
+Georg
+
+Guido van Rossum schrieb:
+> I was hoping there would be a canonical list of committers and their
+> emails, and if that list exists, I would strongly recommend to add
+> everyone on that list as a member. (If they really want off they can
+> unsub themselves.) It seems there isn't though, so we'll need some
+> other way of collecting emails. A spreadsheet + form is probably
+> better than asking for free-form email... Fake entries are easy to
+> remove after the fact.
+> 
+> I would also allow each committer as many aliases as they need, so
+> they can post from any alias they happen to be logged in as. Most
+> aliases could be members without receiving mail. I'd use this for
+> guido at python.org, gvanrossum at gmail.com, and perhaps even
+> guido at google.com, but I'd only receive the mail as guido at python.org.
+> 
+> --Guido
+
+From brett at python.org  Mon Jul 28 23:27:38 2008
+From: brett at python.org (Brett Cannon)
+Date: Mon, 28 Jul 2008 14:27:38 -0700
+Subject: [python-committers] Subscribing people to python-committers
+Message-ID: <bbaeab100807281427n5dd4139l4c7d8db07a0859bc@mail.gmail.com>
+
+Georg, do you still have that list of people you scraped together? If
+so, we should probably load it into Mailman and get this mailing list
+going.
+
+-Brett
+
+From georg at python.org  Tue Jul 29 00:07:29 2008
+From: georg at python.org (Georg Brandl)
+Date: Tue, 29 Jul 2008 00:07:29 +0200
+Subject: [python-committers] Subscribing people to python-committers
+In-Reply-To: <bbaeab100807281427n5dd4139l4c7d8db07a0859bc@mail.gmail.com>
+References: <bbaeab100807281427n5dd4139l4c7d8db07a0859bc@mail.gmail.com>
+Message-ID: <488E4321.5020109@python.org>
+
+Brett Cannon schrieb:
+> Georg, do you still have that list of people you scraped together? If
+> so, we should probably load it into Mailman and get this mailing list
+> going.
+
+They're in the spreadsheet you created. If you want to do the invite,
+it should be a simple copy'n'paste :)
+
+cheers,
+Georg
+
+
+From brett at python.org  Tue Jul 29 00:41:23 2008
+From: brett at python.org (Brett Cannon)
+Date: Mon, 28 Jul 2008 15:41:23 -0700
+Subject: [python-committers] Subscribing people to python-committers
+In-Reply-To: <488E4321.5020109@python.org>
+References: <bbaeab100807281427n5dd4139l4c7d8db07a0859bc@mail.gmail.com>
+	<488E4321.5020109@python.org>
+Message-ID: <bbaeab100807281541v13fdf01cr996ae7613b2f504a@mail.gmail.com>
+
+On Mon, Jul 28, 2008 at 3:07 PM, Georg Brandl <georg at python.org> wrote:
+> Brett Cannon schrieb:
+>>
+>> Georg, do you still have that list of people you scraped together? If
+>> so, we should probably load it into Mailman and get this mailing list
+>> going.
+>
+> They're in the spreadsheet you created. If you want to do the invite,
+> it should be a simple copy'n'paste :)
+>
+
+Well, I probably have to export to CSV and strip it out that way, but
+Python to the rescue for that. =)
+
+OK, I will see if I can do this right now. Then we can ask on
+python-dev to get the email addresses of the people we are missing.
+
+-Brett
+
+From brett at python.org  Tue Jul 29 03:33:02 2008
+From: brett at python.org (Brett Cannon)
+Date: Mon, 28 Jul 2008 18:33:02 -0700
+Subject: [python-committers] Possible welcome message
+Message-ID: <bbaeab100807281833y5783eaaes83c68da4881adbe0@mail.gmail.com>
+
+I extracted the emails Georg plugged into the spreadsheet, but before I send
+it I wanted to pass the welcome message sent in the email to everyone.
+
+----
+
+
+Welcome to python-committers! This publicly-archived but invite-only mailing
+list is for people who have commit privileges for Python to discuss issues
+that do not concern the general public. Example of topics to go to this list
+are release dates, whether a specific patch is a release blocker, etc.
+Essentially anything where public input serves no purpose.
+
+But this list does not replace python-dev! Most things do benefit from
+public input and thus, by default, most discussions should be done on that
+list. Things such as new features, etc., should happen on python-dev (or
+even python-ideas before that) so that the community can contribute.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20080728/8c5caccd/attachment.htm>
+
+From georg at python.org  Tue Jul 29 10:15:20 2008
+From: georg at python.org (Georg Brandl)
+Date: Tue, 29 Jul 2008 10:15:20 +0200
+Subject: [python-committers] Possible welcome message
+In-Reply-To: <bbaeab100807281833y5783eaaes83c68da4881adbe0@mail.gmail.com>
+References: <bbaeab100807281833y5783eaaes83c68da4881adbe0@mail.gmail.com>
+Message-ID: <488ED198.4090308@python.org>
+
+Brett Cannon schrieb:
+> I extracted the emails Georg plugged into the spreadsheet, but before I 
+> send it I wanted to pass the welcome message sent in the email to everyone.
+> 
+> ----
+> 
+> 
+> Welcome to python-committers! This publicly-archived but invite-only 
+> mailing list is for people who have commit privileges for Python to 
+> discuss issues that do not concern the general public. Example of topics 
+> to go to this list are release dates, whether a specific patch is a 
+> release blocker, etc. Essentially anything where public input serves no 
+> purpose.
+> 
+> But this list does not replace python-dev! Most things do benefit from 
+> public input and thus, by default, most discussions should be done on 
+> that list. Things such as new features, etc., should happen on 
+> python-dev (or even python-ideas before that) so that the community can 
+> contribute.
+
+It should be mentioned that every committed should (shall? :) be subscribed.
+
+Georg
+
+From eric at trueblade.com  Tue Jul 29 16:26:43 2008
+From: eric at trueblade.com (Eric Smith)
+Date: Tue, 29 Jul 2008 10:26:43 -0400 (EDT)
+Subject: [python-committers] Possible welcome message
+In-Reply-To: <bbaeab100807281833y5783eaaes83c68da4881adbe0@mail.gmail.com>
+References: <bbaeab100807281833y5783eaaes83c68da4881adbe0@mail.gmail.com>
+Message-ID: <19069.79.131.88.198.1217341603.squirrel@mail.trueblade.com>
+
+I have extremely limited email access here in Greece, so I won't be online
+much.  You can certainly proceed without hearing back from me.
+
+But I think this looks good.
+
+Eric.
+
+> I extracted the emails Georg plugged into the spreadsheet, but before I
+> send
+> it I wanted to pass the welcome message sent in the email to everyone.
+>
+> ----
+>
+>
+> Welcome to python-committers! This publicly-archived but invite-only
+> mailing
+> list is for people who have commit privileges for Python to discuss issues
+> that do not concern the general public. Example of topics to go to this
+> list
+> are release dates, whether a specific patch is a release blocker, etc.
+> Essentially anything where public input serves no purpose.
+>
+> But this list does not replace python-dev! Most things do benefit from
+> public input and thus, by default, most discussions should be done on that
+> list. Things such as new features, etc., should happen on python-dev (or
+> even python-ideas before that) so that the community can contribute.
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+>
+
+
+From brett at python.org  Tue Jul 29 18:50:04 2008
+From: brett at python.org (Brett Cannon)
+Date: Tue, 29 Jul 2008 09:50:04 -0700
+Subject: [python-committers] Possible welcome message
+In-Reply-To: <19069.79.131.88.198.1217341603.squirrel@mail.trueblade.com>
+References: <bbaeab100807281833y5783eaaes83c68da4881adbe0@mail.gmail.com>
+	<19069.79.131.88.198.1217341603.squirrel@mail.trueblade.com>
+Message-ID: <bbaeab100807290950v7eac386ay55cdd0f3941d0a6f@mail.gmail.com>
+
+On Tue, Jul 29, 2008 at 7:26 AM, Eric Smith <eric at trueblade.com> wrote:
+
+> I have extremely limited email access here in Greece, so I won't be online
+> much.  You can certainly proceed without hearing back from me.
+>
+> But I think this looks good.
+>
+
+
+Thanks, Eric. Enjoy Greece!
+
+-Brett
+
+
+
+>
+> Eric.
+>
+> > I extracted the emails Georg plugged into the spreadsheet, but before I
+> > send
+> > it I wanted to pass the welcome message sent in the email to everyone.
+> >
+> > ----
+> >
+> >
+> > Welcome to python-committers! This publicly-archived but invite-only
+> > mailing
+> > list is for people who have commit privileges for Python to discuss
+> issues
+> > that do not concern the general public. Example of topics to go to this
+> > list
+> > are release dates, whether a specific patch is a release blocker, etc.
+> > Essentially anything where public input serves no purpose.
+> >
+> > But this list does not replace python-dev! Most things do benefit from
+> > public input and thus, by default, most discussions should be done on
+> that
+> > list. Things such as new features, etc., should happen on python-dev (or
+> > even python-ideas before that) so that the community can contribute.
+> > _______________________________________________
+> > python-committers mailing list
+> > python-committers at python.org
+> > http://mail.python.org/mailman/listinfo/python-committers
+> >
+>
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20080729/ab2e54b6/attachment.htm>
+
+From brett at python.org  Tue Jul 29 18:50:59 2008
+From: brett at python.org (Brett Cannon)
+Date: Tue, 29 Jul 2008 09:50:59 -0700
+Subject: [python-committers] Possible welcome message
+In-Reply-To: <488ED198.4090308@python.org>
+References: <bbaeab100807281833y5783eaaes83c68da4881adbe0@mail.gmail.com>
+	<488ED198.4090308@python.org>
+Message-ID: <bbaeab100807290950l47de9392y393f6d7200f08c18@mail.gmail.com>
+
+On Tue, Jul 29, 2008 at 1:15 AM, Georg Brandl <georg at python.org> wrote:
+
+> Brett Cannon schrieb:
+>
+>> I extracted the emails Georg plugged into the spreadsheet, but before I
+>> send it I wanted to pass the welcome message sent in the email to everyone.
+>>
+>> ----
+>>
+>>
+>> Welcome to python-committers! This publicly-archived but invite-only
+>> mailing list is for people who have commit privileges for Python to discuss
+>> issues that do not concern the general public. Example of topics to go to
+>> this list are release dates, whether a specific patch is a release blocker,
+>> etc. Essentially anything where public input serves no purpose.
+>>
+>> But this list does not replace python-dev! Most things do benefit from
+>> public input and thus, by default, most discussions should be done on that
+>> list. Things such as new features, etc., should happen on python-dev (or
+>> even python-ideas before that) so that the community can contribute.
+>>
+>
+> It should be mentioned that every committed should (shall? :) be
+> subscribed.
+>
+
+OK, I will add a line and then do the mass subscription.
+
+-Brett
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20080729/2c474672/attachment.htm>
+
+From musiccomposition at gmail.com  Wed Jul 30 14:54:57 2008
+From: musiccomposition at gmail.com (Benjamin Peterson)
+Date: Wed, 30 Jul 2008 07:54:57 -0500
+Subject: [python-committers] Why?
+Message-ID: <1afaf6160807300554x32327832md43407b41931d7fa@mail.gmail.com>
+
+Hi everyone,
+Sorry if this is a naive question, but I was just wondering what the
+purpose of this mailing list would be. I don't think there are often
+python related topics that are only applicable to committers. What
+sort of things will we discuss here?
+
+
+Thanks
+
+-- 
+Cheers,
+Benjamin Peterson
+"There's no place like 127.0.0.1."
+
+From mal at egenix.com  Wed Jul 30 15:41:10 2008
+From: mal at egenix.com (M.-A. Lemburg)
+Date: Wed, 30 Jul 2008 15:41:10 +0200
+Subject: [python-committers] Why?
+In-Reply-To: <1afaf6160807300554x32327832md43407b41931d7fa@mail.gmail.com>
+References: <1afaf6160807300554x32327832md43407b41931d7fa@mail.gmail.com>
+Message-ID: <48906F76.3000808@egenix.com>
+
+On 2008-07-30 14:54, Benjamin Peterson wrote:
+> Hi everyone,
+> Sorry if this is a naive question, but I was just wondering what the
+> purpose of this mailing list would be. I don't think there are often
+> python related topics that are only applicable to committers. What
+> sort of things will we discuss here?
+
+I suppose the list would be useful for notices related to
+a frozen trunk or other admin notices. Filtering those from
+python-dev is not very reliable.
+
+-- 
+Marc-Andre Lemburg
+eGenix.com
+
+Professional Python Services directly from the Source  (#1, Jul 30 2008)
+ >>> Python/Zope Consulting and Support ...        http://www.egenix.com/
+ >>> mxODBC.Zope.Database.Adapter ...             http://zope.egenix.com/
+ >>> mxODBC, mxDateTime, mxTextTools ...        http://python.egenix.com/
+________________________________________________________________________
+
+:::: Try mxODBC.Zope.DA for Windows,Linux,Solaris,MacOSX for free ! ::::
+
+
+    eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+     D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+            Registered at Amtsgericht Duesseldorf: HRB 46611
+
+From brett at python.org  Wed Jul 30 19:38:56 2008
+From: brett at python.org (Brett Cannon)
+Date: Wed, 30 Jul 2008 10:38:56 -0700
+Subject: [python-committers] Why?
+In-Reply-To: <48906F76.3000808@egenix.com>
+References: <1afaf6160807300554x32327832md43407b41931d7fa@mail.gmail.com>
+	<48906F76.3000808@egenix.com>
+Message-ID: <bbaeab100807301038i7a167ca4n3ac2bcab510c16d6@mail.gmail.com>
+
+On Wed, Jul 30, 2008 at 6:41 AM, M.-A. Lemburg <mal at egenix.com> wrote:
+> On 2008-07-30 14:54, Benjamin Peterson wrote:
+>>
+>> Hi everyone,
+>> Sorry if this is a naive question, but I was just wondering what the
+>> purpose of this mailing list would be. I don't think there are often
+>> python related topics that are only applicable to committers. What
+>> sort of things will we discuss here?
+>
+> I suppose the list would be useful for notices related to
+> a frozen trunk or other admin notices. Filtering those from
+> python-dev is not very reliable.
+>
+
+MAL hit it right on the head. Guido's idea was to have a list where
+you should not have to mentally filter out threads because it has
+deteriorated into some competition over what color to paint the
+bikeshed (see the whole unittest method name fiasco for a good
+example). Because we all ignore various threads on python-dev there is
+a chance that something important might get missed. This lowers that
+chance by making sure this list is low-volume and high-quality in
+terms of what all committers need to be aware of.
+
+-Brett
+
+From jnoller at gmail.com  Wed Jul 30 19:41:46 2008
+From: jnoller at gmail.com (Jesse Noller)
+Date: Wed, 30 Jul 2008 13:41:46 -0400
+Subject: [python-committers] Why?
+In-Reply-To: <bbaeab100807301038i7a167ca4n3ac2bcab510c16d6@mail.gmail.com>
+References: <1afaf6160807300554x32327832md43407b41931d7fa@mail.gmail.com>
+	<48906F76.3000808@egenix.com>
+	<bbaeab100807301038i7a167ca4n3ac2bcab510c16d6@mail.gmail.com>
+Message-ID: <4222a8490807301041x3b6b656dhf31931bdb81295b7@mail.gmail.com>
+
+On Wed, Jul 30, 2008 at 1:38 PM, Brett Cannon <brett at python.org> wrote:
+> On Wed, Jul 30, 2008 at 6:41 AM, M.-A. Lemburg <mal at egenix.com> wrote:
+>> On 2008-07-30 14:54, Benjamin Peterson wrote:
+>>>
+>>> Hi everyone,
+>>> Sorry if this is a naive question, but I was just wondering what the
+>>> purpose of this mailing list would be. I don't think there are often
+>>> python related topics that are only applicable to committers. What
+>>> sort of things will we discuss here?
+>>
+>> I suppose the list would be useful for notices related to
+>> a frozen trunk or other admin notices. Filtering those from
+>> python-dev is not very reliable.
+>>
+>
+> MAL hit it right on the head. Guido's idea was to have a list where
+> you should not have to mentally filter out threads because it has
+> deteriorated into some competition over what color to paint the
+> bikeshed (see the whole unittest method name fiasco for a good
+> example). Because we all ignore various threads on python-dev there is
+> a chance that something important might get missed. This lowers that
+> chance by making sure this list is low-volume and high-quality in
+> terms of what all committers need to be aware of.
+>
+> -Brett
+
+This might also be a good place to request code-reviews for sensitive commits
+
+From brett at python.org  Wed Jul 30 19:45:39 2008
+From: brett at python.org (Brett Cannon)
+Date: Wed, 30 Jul 2008 10:45:39 -0700
+Subject: [python-committers] Why?
+In-Reply-To: <4222a8490807301041x3b6b656dhf31931bdb81295b7@mail.gmail.com>
+References: <1afaf6160807300554x32327832md43407b41931d7fa@mail.gmail.com>
+	<48906F76.3000808@egenix.com>
+	<bbaeab100807301038i7a167ca4n3ac2bcab510c16d6@mail.gmail.com>
+	<4222a8490807301041x3b6b656dhf31931bdb81295b7@mail.gmail.com>
+Message-ID: <bbaeab100807301045g32733e6dv94fd0d5e0165940b@mail.gmail.com>
+
+On Wed, Jul 30, 2008 at 10:41 AM, Jesse Noller <jnoller at gmail.com> wrote:
+> On Wed, Jul 30, 2008 at 1:38 PM, Brett Cannon <brett at python.org> wrote:
+>> On Wed, Jul 30, 2008 at 6:41 AM, M.-A. Lemburg <mal at egenix.com> wrote:
+>>> On 2008-07-30 14:54, Benjamin Peterson wrote:
+>>>>
+>>>> Hi everyone,
+>>>> Sorry if this is a naive question, but I was just wondering what the
+>>>> purpose of this mailing list would be. I don't think there are often
+>>>> python related topics that are only applicable to committers. What
+>>>> sort of things will we discuss here?
+>>>
+>>> I suppose the list would be useful for notices related to
+>>> a frozen trunk or other admin notices. Filtering those from
+>>> python-dev is not very reliable.
+>>>
+>>
+>> MAL hit it right on the head. Guido's idea was to have a list where
+>> you should not have to mentally filter out threads because it has
+>> deteriorated into some competition over what color to paint the
+>> bikeshed (see the whole unittest method name fiasco for a good
+>> example). Because we all ignore various threads on python-dev there is
+>> a chance that something important might get missed. This lowers that
+>> chance by making sure this list is low-volume and high-quality in
+>> terms of what all committers need to be aware of.
+>>
+>> -Brett
+>
+> This might also be a good place to request code-reviews for sensitive commits
+>
+
+[re-sending; mouse didn't make it all the way over to "reply to all"
+the first time]
+
+Possibly, although the archive is public, so this is not exactly
+secretive. But yes, if you have some code that needs a committer's
+review (which is practically anything that isn't trivial at this
+point), this list is probably a good place to make the request.
+
+-Brett
+
+From ncoghlan at gmail.com  Thu Jul 31 16:15:49 2008
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Fri, 01 Aug 2008 00:15:49 +1000
+Subject: [python-committers] Why?
+In-Reply-To: <bbaeab100807301045g32733e6dv94fd0d5e0165940b@mail.gmail.com>
+References: <1afaf6160807300554x32327832md43407b41931d7fa@mail.gmail.com>	<48906F76.3000808@egenix.com>	<bbaeab100807301038i7a167ca4n3ac2bcab510c16d6@mail.gmail.com>	<4222a8490807301041x3b6b656dhf31931bdb81295b7@mail.gmail.com>
+	<bbaeab100807301045g32733e6dv94fd0d5e0165940b@mail.gmail.com>
+Message-ID: <4891C915.6090800@gmail.com>
+
+Brett Cannon wrote:
+> On Wed, Jul 30, 2008 at 10:41 AM, Jesse Noller <jnoller at gmail.com> wrote:
+>> On Wed, Jul 30, 2008 at 1:38 PM, Brett Cannon <brett at python.org> wrote:
+>>> On Wed, Jul 30, 2008 at 6:41 AM, M.-A. Lemburg <mal at egenix.com> wrote:
+>>>> On 2008-07-30 14:54, Benjamin Peterson wrote:
+>>>>> Hi everyone,
+>>>>> Sorry if this is a naive question, but I was just wondering what the
+>>>>> purpose of this mailing list would be. I don't think there are often
+>>>>> python related topics that are only applicable to committers. What
+>>>>> sort of things will we discuss here?
+>>>> I suppose the list would be useful for notices related to
+>>>> a frozen trunk or other admin notices. Filtering those from
+>>>> python-dev is not very reliable.
+>>>>
+>>> MAL hit it right on the head. Guido's idea was to have a list where
+>>> you should not have to mentally filter out threads because it has
+>>> deteriorated into some competition over what color to paint the
+>>> bikeshed (see the whole unittest method name fiasco for a good
+>>> example). Because we all ignore various threads on python-dev there is
+>>> a chance that something important might get missed. This lowers that
+>>> chance by making sure this list is low-volume and high-quality in
+>>> terms of what all committers need to be aware of.
+>>>
+>>> -Brett
+>> This might also be a good place to request code-reviews for sensitive commits
+>>
+> 
+> [re-sending; mouse didn't make it all the way over to "reply to all"
+> the first time]
+> 
+> Possibly, although the archive is public, so this is not exactly
+> secretive. But yes, if you have some code that needs a committer's
+> review (which is practically anything that isn't trivial at this
+> point), this list is probably a good place to make the request.
+
+I took Jesse's 'sensitive' there to be more in the sense of "folks this 
+patch is really, really important, but also runs the risk of breaking 
+things if there is something I haven't thought of". For example, if this 
+list had existed before the 2nd beta, I might have pinged it for some 
+additional review of the changes to the implementation of __hash__ 
+inheritance, simply because the handling of slot inheritance in 
+typeobject.c is a fairly complex piece of code (I'm still not completely 
+certain why some of the things I tried when fixing the hash inheritance 
+bug didn't work the way I expected, which tells me I don't understand 
+that code as well as I would like).
+
+Obviously, requesting reviews directly from this is something to be used 
+with restraint (since too much traffic would drown out the main 
+announcements to do with the tree being frozen and unfrozen), but 
+developers that can't exercise appropriate restraint probably aren't 
+going to keep their commit privileges for too long ;)
+
+Making the announcement of the tree status on this list should probably 
+be added to the release PEP though.
+
+Cheers,
+Nick.
+
+--
+New computer, signature returning soon :)
+

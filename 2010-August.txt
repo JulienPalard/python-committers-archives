@@ -1,0 +1,1721 @@
+From jcea at jcea.es  Sun Aug  1 15:49:46 2010
+From: jcea at jcea.es (Jesus Cea)
+Date: Sun, 01 Aug 2010 15:49:46 +0200
+Subject: [python-committers] Mercurial Status?
+Message-ID: <4C557B7A.4060302@jcea.es>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+How is migration to Mercurial going?. Showstoppers?.
+
+- -- 
+Jesus Cea Avion                         _/_/      _/_/_/        _/_/_/
+jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+jabber / xmpp:jcea at jabber.org         _/_/    _/_/          _/_/_/_/_/
+.                              _/_/  _/_/    _/_/          _/_/  _/_/
+"Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+"My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+"El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.10 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - http://enigmail.mozdev.org/
+
+iQCVAwUBTFV7eplgi5GaxT1NAQLDOwP/TjQMZTCFxzqrFu6uTFA/8szH52usn0q3
+BJnT9EpoRptr6LCtptBPrpnBzVs1sDvXyivgXVMe2kPGEDvwbeVesQoIDBgoO/xc
+woIL+p3jjQGzTJZMqlaJnOMIVotNS8AMk93S+TyRDQnrRudYbup1L41kwkAA/mMC
+BPcOkEquhec=
+=d16c
+-----END PGP SIGNATURE-----
+
+From dirkjan at ochtman.nl  Sun Aug  1 16:10:11 2010
+From: dirkjan at ochtman.nl (Dirkjan Ochtman)
+Date: Sun, 1 Aug 2010 16:10:11 +0200
+Subject: [python-committers] Mercurial Status?
+In-Reply-To: <4C557B7A.4060302@jcea.es>
+References: <4C557B7A.4060302@jcea.es>
+Message-ID: <AANLkTikuaywj1hiUWPNmJwxvTs_pU7y3dmmY+cG7-QUA@mail.gmail.com>
+
+On Sun, Aug 1, 2010 at 15:49, Jesus Cea <jcea at jcea.es> wrote:
+> How is migration to Mercurial going?. Showstoppers?.
+
+I've been gone for a week and am just now catching up, but a lot of
+progress has been made on hgsubversion fixes. I have a problem on the
+box where I run the conversion though, and I'm trying to get that
+fixed (I can get a converted repo from someone else, but I'd like to
+be able to run it through myself in order to facilitate further work).
+
+Cheers,
+
+Dirkjan
+
+From g.brandl at gmx.net  Sun Aug  1 16:09:13 2010
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Sun, 01 Aug 2010 16:09:13 +0200
+Subject: [python-committers] Mercurial Status?
+In-Reply-To: <4C557B7A.4060302@jcea.es>
+References: <4C557B7A.4060302@jcea.es>
+Message-ID: <i33vau$6uc$1@dough.gmane.org>
+
+Am 01.08.2010 15:49, schrieb Jesus Cea:
+> How is migration to Mercurial going?. Showstoppers?.
+
+Dirkjan is busy with his thesis for another two months.  Since he's the
+mastermind, nothing much will go forward unless someone else seeks
+to take over his position.
+
+I am also busy with my thesis for these two months, but after it is
+done, I already promised to devote as much time as necessary to the
+switch.
+
+In conclusion, I hope to have everything set up during October, and
+begin a test phase that takes as long as we feel is necessary to get
+acquainted with the new repos and infrastructure before making the
+repositories the main development ones.
+
+Georg
+
+-- 
+Thus spake the Lord: Thou shalt indent with four spaces. No more, no less.
+Four shall be the number of spaces thou shalt indent, and the number of thy
+indenting shall be four. Eight shalt thou not indent, nor either indent thou
+two, excepting that thou then proceed to four. Tabs are right out.
+
+
+From jcea at jcea.es  Sun Aug  1 16:27:27 2010
+From: jcea at jcea.es (Jesus Cea)
+Date: Sun, 01 Aug 2010 16:27:27 +0200
+Subject: [python-committers] Mercurial Status?
+In-Reply-To: <i33vau$6uc$1@dough.gmane.org>
+References: <4C557B7A.4060302@jcea.es> <i33vau$6uc$1@dough.gmane.org>
+Message-ID: <4C55844F.3060305@jcea.es>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On 01/08/10 16:09, Georg Brandl wrote:
+> In conclusion, I hope to have everything set up during October, and
+> begin a test phase that takes as long as we feel is necessary to get
+> acquainted with the new repos and infrastructure before making the
+> repositories the main development ones.
+
+Ok. Thanks for providing a schedule :).
+
+Good luck (and justice!) with your (both) thesis. Uhmmm, what is the
+plural for thesis, in english?. In Spanish it is the same word, changing
+the prefix article: "la tesis"/"las tesis" :).
+
+- -- 
+Jesus Cea Avion                         _/_/      _/_/_/        _/_/_/
+jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+jabber / xmpp:jcea at jabber.org         _/_/    _/_/          _/_/_/_/_/
+.                              _/_/  _/_/    _/_/          _/_/  _/_/
+"Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+"My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+"El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.10 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - http://enigmail.mozdev.org/
+
+iQCVAwUBTFWET5lgi5GaxT1NAQIB1gQAligi/08bqWBr7ZI41sPdeAFuN3sAFp18
+seO9afBG9sQoRn/HSsHi1uLr1l9q5xm759Fni6CafwcWVhTwMrNMV6Sr0vMipq1w
+ZC4Dn1RDnFKNpPJmUXew3A14SolURmk8svX4S4qPAeRtYmij1u3TN0z2PlkV7qfL
+GdKKOr2bMdU=
+=2DVk
+-----END PGP SIGNATURE-----
+
+From alexander.belopolsky at gmail.com  Sun Aug  1 16:56:03 2010
+From: alexander.belopolsky at gmail.com (Alexander Belopolsky)
+Date: Sun, 1 Aug 2010 10:56:03 -0400
+Subject: [python-committers] Mercurial Status?
+In-Reply-To: <4C55844F.3060305@jcea.es>
+References: <4C557B7A.4060302@jcea.es> <i33vau$6uc$1@dough.gmane.org>
+	<4C55844F.3060305@jcea.es>
+Message-ID: <AANLkTimJA7RQE5P1Rn_BkvGwR5EXU3G1440zjiX2Af1S@mail.gmail.com>
+
+On Sun, Aug 1, 2010 at 10:27 AM, Jesus Cea <jcea at jcea.es> wrote:
+..
+> Good luck (and justice!) with your (both) thesis. Uhmmm, what is the
+> plural for thesis, in english?. In Spanish it is the same word, changing
+> the prefix article: "la tesis"/"las tesis" :).
+
+"theses"  - isn't English fun?
+
+From barry at python.org  Mon Aug  2 16:15:01 2010
+From: barry at python.org (Barry Warsaw)
+Date: Mon, 2 Aug 2010 10:15:01 -0400
+Subject: [python-committers] Python 2.6.6 rc 1 planned for today
+Message-ID: <20100802101501.455f173f@heresy>
+
+Hi folks,
+
+Don't forget that I am planning to cut Python 2.6.6 rc 1 later today (probably
+starting at around 2200 UTC).  We have a number of release blockers currently
+reported:
+
+http://bugs.python.org/issue?@columns=title,id,activity,versions,assignee&@sort=activity&@group=priority&@filter=priority,status&@pagesize=50&@startwith=0&priority=1&status=1&@dispname=Showstoppers
+
+Feel free to ping me on irc (freenode @ #python-dev) or follow up here if you
+have any input on these.
+
+I'll send the usually notes out to the committers list when I'm ready to
+freeze the tree.
+
+-Barry
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 836 bytes
+Desc: not available
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20100802/16bfdf1b/attachment.pgp>
+
+From barry at python.org  Mon Aug  2 17:08:10 2010
+From: barry at python.org (Barry Warsaw)
+Date: Mon, 2 Aug 2010 11:08:10 -0400
+Subject: [python-committers] python-checkins Reply-To now set for python-dev
+Message-ID: <20100802110810.06d2b9fd@heresy>
+
+Over in #python-dev, Georg reminded us of a change to the python-checkins
+mailing list that was discussed a few weeks ago:
+
+    http://mail.python.org/pipermail/python-dev/2010-July/101853.html
+
+Despite the mild preference of redirecting python-checkins to
+python-committers, I noticed that the list was already set up to redirect to
+python-dev (but the Reply-To munging was disabled).  I've now re-enabled
+redirects of python-checkins to python-dev.  I think it's better to default to
+more openness and it's not really that much traffic anyway.
+
+If it gets obnoxious we can narrow things, but let's see how it goes.
+
+-Barry
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 836 bytes
+Desc: not available
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20100802/5d076515/attachment.pgp>
+
+From barry at python.org  Tue Aug  3 04:07:34 2010
+From: barry at python.org (Barry Warsaw)
+Date: Mon, 2 Aug 2010 22:07:34 -0400
+Subject: [python-committers] Postponing 2.6.6rc1
+Message-ID: <20100802220734.10669caf@heresy>
+
+For several reasons, I'm postponing 2.6.6rc1 for one day.  Ezio has been doing
+a lot of great work on the test suite, but there are still a few things to
+fix.  On top of that, bugs.python.org crashed and we're waiting for our
+hosting company to wake up and reboot it.
+
+We'll try again, same time tomorrow: 2200 UTC.  Come join us on #python-dev if
+you want to watch the circus. :)
+
+-Barry
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 836 bytes
+Desc: not available
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20100802/d19e1c1e/attachment.pgp>
+
+From ziade.tarek at gmail.com  Tue Aug  3 16:33:10 2010
+From: ziade.tarek at gmail.com (=?ISO-8859-1?Q?Tarek_Ziad=E9?=)
+Date: Tue, 3 Aug 2010 16:33:10 +0200
+Subject: [python-committers] Eric Araujo (merwok) as Distutils commiter
+In-Reply-To: <20100728102135.259be58d@heresy>
+References: <AANLkTimxaz+Oh8HNhTPq+cdT8WAg3fjgErc5XwBCBOFM@mail.gmail.com>
+	<1280224467.3156.4.camel@localhost.localdomain>
+	<AANLkTim1cM8xeFTn6K=VgeQ=vv+awieyU9rifw-jLVw6@mail.gmail.com>
+	<20100727114037.GA10277@remy> <4C4ED246.3070306@voidspace.org.uk>
+	<1280235377.3156.21.camel@localhost.localdomain>
+	<AANLkTimbH5R0Xd-ULy6OrFcaHDJjhxVCTXk8twnVzXF0@mail.gmail.com>
+	<1280240699.3156.28.camel@localhost.localdomain>
+	<F234F0E7-97F3-42A5-9288-AD69A3E6A503@mac.com>
+	<AANLkTim84E5HS3nEak-thANNG=ZCd-HhjOv7-L-JHOfy@mail.gmail.com>
+	<1280254734.3156.33.camel@localhost.localdomain>
+	<AANLkTimvdc43_DZtOWa1odQ=h3mGdPQyK7TiaaHREVV7@mail.gmail.com>
+	<20100728102135.259be58d@heresy>
+Message-ID: <AANLkTikf65Uidb2GOgXb-AB_uAGP_nPGM-efNH3798Ux@mail.gmail.com>
+
+On Wed, Jul 28, 2010 at 4:21 PM, Barry Warsaw <barry at python.org> wrote:
+> On Jul 28, 2010, at 10:23 PM, Nick Coghlan wrote:
+>
+>>If it's just the maintainer issue concerning people, perhaps think of
+>>it as Tarek deputising to Eric - and I think we should allow active
+>>maintainers of modules to deputise people that *they* trust to do a
+>>good job.
+>
+> Excellent way to put in Nick. ?We trust Tarek, Tarek vouches for Eric. ?That's
+> good enough for me.
+
+Thanks :)
+
+So if everyone agrees Eric gets commit access, and works with me on
+Distutils, and I stay the official
+maintainer until the PSU does something bad to me.  I have moved,
+changed my number
+and have placed my kids in a safe place so I sho
+
+From steve at holdenweb.com  Tue Aug  3 16:53:36 2010
+From: steve at holdenweb.com (Steve Holden)
+Date: Tue, 03 Aug 2010 10:53:36 -0400
+Subject: [python-committers] Eric Araujo (merwok) as Distutils commiter
+In-Reply-To: <AANLkTikf65Uidb2GOgXb-AB_uAGP_nPGM-efNH3798Ux@mail.gmail.com>
+References: <AANLkTimxaz+Oh8HNhTPq+cdT8WAg3fjgErc5XwBCBOFM@mail.gmail.com>	<1280224467.3156.4.camel@localhost.localdomain>	<AANLkTim1cM8xeFTn6K=VgeQ=vv+awieyU9rifw-jLVw6@mail.gmail.com>	<20100727114037.GA10277@remy>
+	<4C4ED246.3070306@voidspace.org.uk>	<1280235377.3156.21.camel@localhost.localdomain>	<AANLkTimbH5R0Xd-ULy6OrFcaHDJjhxVCTXk8twnVzXF0@mail.gmail.com>	<1280240699.3156.28.camel@localhost.localdomain>	<F234F0E7-97F3-42A5-9288-AD69A3E6A503@mac.com>	<AANLkTim84E5HS3nEak-thANNG=ZCd-HhjOv7-L-JHOfy@mail.gmail.com>	<1280254734.3156.33.camel@localhost.localdomain>	<AANLkTimvdc43_DZtOWa1odQ=h3mGdPQyK7TiaaHREVV7@mail.gmail.com>	<20100728102135.259be58d@heresy>
+	<AANLkTikf65Uidb2GOgXb-AB_uAGP_nPGM-efNH3798Ux@mail.gmail.com>
+Message-ID: <4C582D70.5020302@holdenweb.com>
+
+On 8/3/2010 10:33 AM, Tarek Ziad? wrote:
+> On Wed, Jul 28, 2010 at 4:21 PM, Barry Warsaw <barry at python.org> wrote:
+>> On Jul 28, 2010, at 10:23 PM, Nick Coghlan wrote:
+>>
+>>> If it's just the maintainer issue concerning people, perhaps think of
+>>> it as Tarek deputising to Eric - and I think we should allow active
+>>> maintainers of modules to deputise people that *they* trust to do a
+>>> good job.
+>>
+>> Excellent way to put in Nick.  We trust Tarek, Tarek vouches for Eric.  That's
+>> good enough for me.
+> 
+> Thanks :)
+> 
+> So if everyone agrees Eric gets commit access, and works with me on
+> Distutils, and I stay the official
+> maintainer until the PSU does something bad to me.  I have moved,
+> changed my number
+> and have placed my kids in a safe place so I sho
+
+I am afraid Tarek has learned the hard way that it simply isn't wise to
+juxtapose the letters "P", "S" and "U" in any email handled by the
+python.org infrastructure. I guess this means we will have to rely on
+Eric for distutils maintenance right away.
+
+there-*is*-no-psu-ly y'rs  - steve
+-- 
+Steve Holden           +1 571 484 6266   +1 800 494 3119
+DjangoCon US September 7-9, 2010    http://djangocon.us/
+See Python Video!       http://python.mirocommunity.org/
+Holden Web LLC                 http://www.holdenweb.com/
+
+From fdrake at acm.org  Tue Aug  3 17:15:48 2010
+From: fdrake at acm.org (Fred Drake)
+Date: Tue, 3 Aug 2010 11:15:48 -0400
+Subject: [python-committers] Eric Araujo (merwok) as Distutils commiter
+In-Reply-To: <AANLkTikf65Uidb2GOgXb-AB_uAGP_nPGM-efNH3798Ux@mail.gmail.com>
+References: <AANLkTimxaz+Oh8HNhTPq+cdT8WAg3fjgErc5XwBCBOFM@mail.gmail.com> 
+	<1280224467.3156.4.camel@localhost.localdomain>
+	<AANLkTim1cM8xeFTn6K=VgeQ=vv+awieyU9rifw-jLVw6@mail.gmail.com> 
+	<20100727114037.GA10277@remy> <4C4ED246.3070306@voidspace.org.uk> 
+	<1280235377.3156.21.camel@localhost.localdomain>
+	<AANLkTimbH5R0Xd-ULy6OrFcaHDJjhxVCTXk8twnVzXF0@mail.gmail.com> 
+	<1280240699.3156.28.camel@localhost.localdomain>
+	<F234F0E7-97F3-42A5-9288-AD69A3E6A503@mac.com> 
+	<AANLkTim84E5HS3nEak-thANNG=ZCd-HhjOv7-L-JHOfy@mail.gmail.com> 
+	<1280254734.3156.33.camel@localhost.localdomain>
+	<AANLkTimvdc43_DZtOWa1odQ=h3mGdPQyK7TiaaHREVV7@mail.gmail.com> 
+	<20100728102135.259be58d@heresy>
+	<AANLkTikf65Uidb2GOgXb-AB_uAGP_nPGM-efNH3798Ux@mail.gmail.com>
+Message-ID: <AANLkTinQAOF+Arx36E_PxyiEK2+iR0=_0T2DB6K-wcev@mail.gmail.com>
+
+On Tue, Aug 3, 2010 at 10:33 AM, Tarek Ziad? <ziade.tarek at gmail.com> wrote:
+> So if everyone agrees Eric gets commit access, and works with me on
+> Distutils, and I stay the official maintainer
+
++1
+
+
+? -Fred
+
+--
+Fred L. Drake, Jr.? ? <fdrake at gmail.com>
+"A storm broke loose in my mind."? --Albert Einstein
+
+From solipsis at pitrou.net  Tue Aug  3 17:23:58 2010
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Tue, 03 Aug 2010 17:23:58 +0200
+Subject: [python-committers] Eric Araujo (merwok) as Distutils commiter
+In-Reply-To: <AANLkTinQAOF+Arx36E_PxyiEK2+iR0=_0T2DB6K-wcev@mail.gmail.com>
+References: <AANLkTimxaz+Oh8HNhTPq+cdT8WAg3fjgErc5XwBCBOFM@mail.gmail.com>
+	<1280224467.3156.4.camel@localhost.localdomain>
+	<AANLkTim1cM8xeFTn6K=VgeQ=vv+awieyU9rifw-jLVw6@mail.gmail.com>
+	<20100727114037.GA10277@remy> <4C4ED246.3070306@voidspace.org.uk>
+	<1280235377.3156.21.camel@localhost.localdomain>
+	<AANLkTimbH5R0Xd-ULy6OrFcaHDJjhxVCTXk8twnVzXF0@mail.gmail.com>
+	<1280240699.3156.28.camel@localhost.localdomain>
+	<F234F0E7-97F3-42A5-9288-AD69A3E6A503@mac.com>
+	<AANLkTim84E5HS3nEak-thANNG=ZCd-HhjOv7-L-JHOfy@mail.gmail.com>
+	<1280254734.3156.33.camel@localhost.localdomain>
+	<AANLkTimvdc43_DZtOWa1odQ=h3mGdPQyK7TiaaHREVV7@mail.gmail.com>
+	<20100728102135.259be58d@heresy>
+	<AANLkTikf65Uidb2GOgXb-AB_uAGP_nPGM-efNH3798Ux@mail.gmail.com>
+	<AANLkTinQAOF+Arx36E_PxyiEK2+iR0=_0T2DB6K-wcev@mail.gmail.com>
+Message-ID: <1280849038.3170.7.camel@localhost.localdomain>
+
+Le mardi 03 ao?t 2010 ? 11:15 -0400, Fred Drake a ?crit :
+> On Tue, Aug 3, 2010 at 10:33 AM, Tarek Ziad? <ziade.tarek at gmail.com> wrote:
+> > So if everyone agrees Eric gets commit access, and works with me on
+> > Distutils, and I stay the official maintainer
+> 
+> +1
+
+Let me point out something fishy: ?Fred Drake? is almost an anagram of
+?Tarek Ziad??.
+
+Regards
+
+Antoine.
+
+
+
+From jnoller at gmail.com  Tue Aug  3 17:25:41 2010
+From: jnoller at gmail.com (Jesse Noller)
+Date: Tue, 3 Aug 2010 11:25:41 -0400
+Subject: [python-committers] Eric Araujo (merwok) as Distutils commiter
+In-Reply-To: <AANLkTinQAOF+Arx36E_PxyiEK2+iR0=_0T2DB6K-wcev@mail.gmail.com>
+References: <AANLkTimxaz+Oh8HNhTPq+cdT8WAg3fjgErc5XwBCBOFM@mail.gmail.com>
+	<1280224467.3156.4.camel@localhost.localdomain>
+	<AANLkTim1cM8xeFTn6K=VgeQ=vv+awieyU9rifw-jLVw6@mail.gmail.com>
+	<20100727114037.GA10277@remy> <4C4ED246.3070306@voidspace.org.uk>
+	<1280235377.3156.21.camel@localhost.localdomain>
+	<AANLkTimbH5R0Xd-ULy6OrFcaHDJjhxVCTXk8twnVzXF0@mail.gmail.com>
+	<1280240699.3156.28.camel@localhost.localdomain>
+	<F234F0E7-97F3-42A5-9288-AD69A3E6A503@mac.com>
+	<AANLkTim84E5HS3nEak-thANNG=ZCd-HhjOv7-L-JHOfy@mail.gmail.com>
+	<1280254734.3156.33.camel@localhost.localdomain>
+	<AANLkTimvdc43_DZtOWa1odQ=h3mGdPQyK7TiaaHREVV7@mail.gmail.com>
+	<20100728102135.259be58d@heresy>
+	<AANLkTikf65Uidb2GOgXb-AB_uAGP_nPGM-efNH3798Ux@mail.gmail.com>
+	<AANLkTinQAOF+Arx36E_PxyiEK2+iR0=_0T2DB6K-wcev@mail.gmail.com>
+Message-ID: <AANLkTinYH7dAiLyffmMrsLmnCYERAt8WCu2MG+iZ9QOK@mail.gmail.com>
+
+On Tue, Aug 3, 2010 at 11:15 AM, Fred Drake <fdrake at acm.org> wrote:
+> On Tue, Aug 3, 2010 at 10:33 AM, Tarek Ziad? <ziade.tarek at gmail.com> wrote:
+>> So if everyone agrees Eric gets commit access, and works with me on
+>> Distutils, and I stay the official maintainer
+>
+> +1
+>
+>
+> ? -Fred
+
++1 as well
+
+From fdrake at acm.org  Tue Aug  3 17:33:35 2010
+From: fdrake at acm.org (Fred Drake)
+Date: Tue, 3 Aug 2010 11:33:35 -0400
+Subject: [python-committers] Eric Araujo (merwok) as Distutils commiter
+In-Reply-To: <1280849038.3170.7.camel@localhost.localdomain>
+References: <AANLkTimxaz+Oh8HNhTPq+cdT8WAg3fjgErc5XwBCBOFM@mail.gmail.com> 
+	<1280224467.3156.4.camel@localhost.localdomain>
+	<AANLkTim1cM8xeFTn6K=VgeQ=vv+awieyU9rifw-jLVw6@mail.gmail.com> 
+	<20100727114037.GA10277@remy> <4C4ED246.3070306@voidspace.org.uk> 
+	<1280235377.3156.21.camel@localhost.localdomain>
+	<AANLkTimbH5R0Xd-ULy6OrFcaHDJjhxVCTXk8twnVzXF0@mail.gmail.com> 
+	<1280240699.3156.28.camel@localhost.localdomain>
+	<F234F0E7-97F3-42A5-9288-AD69A3E6A503@mac.com> 
+	<AANLkTim84E5HS3nEak-thANNG=ZCd-HhjOv7-L-JHOfy@mail.gmail.com> 
+	<1280254734.3156.33.camel@localhost.localdomain>
+	<AANLkTimvdc43_DZtOWa1odQ=h3mGdPQyK7TiaaHREVV7@mail.gmail.com> 
+	<20100728102135.259be58d@heresy>
+	<AANLkTikf65Uidb2GOgXb-AB_uAGP_nPGM-efNH3798Ux@mail.gmail.com> 
+	<AANLkTinQAOF+Arx36E_PxyiEK2+iR0=_0T2DB6K-wcev@mail.gmail.com> 
+	<1280849038.3170.7.camel@localhost.localdomain>
+Message-ID: <AANLkTi=Dhp7KKzhtnVE4yWHHX77GSAP5O08LO06EgCc=@mail.gmail.com>
+
+On Tue, Aug 3, 2010 at 11:23 AM, Antoine Pitrou <solipsis at pitrou.net> wrote:
+> Let me point out something fishy: ?Fred Drake? is almost an anagram of
+> ?Tarek Ziad??.
+
+Shhh!  Nobody's supposed to know that "F" is spelled "qZ" on my birth
+certificate!
+
+
+? -Fred
+
+--
+Fred L. Drake, Jr.? ? <fdrake at gmail.com>
+"A storm broke loose in my mind."? --Albert Einstein
+
+From michael at voidspace.org.uk  Tue Aug  3 17:39:52 2010
+From: michael at voidspace.org.uk (Michael Foord)
+Date: Tue, 03 Aug 2010 16:39:52 +0100
+Subject: [python-committers] Eric Araujo (merwok) as Distutils commiter
+In-Reply-To: <1280849038.3170.7.camel@localhost.localdomain>
+References: <AANLkTimxaz+Oh8HNhTPq+cdT8WAg3fjgErc5XwBCBOFM@mail.gmail.com>	<1280224467.3156.4.camel@localhost.localdomain>	<AANLkTim1cM8xeFTn6K=VgeQ=vv+awieyU9rifw-jLVw6@mail.gmail.com>	<20100727114037.GA10277@remy>
+	<4C4ED246.3070306@voidspace.org.uk>	<1280235377.3156.21.camel@localhost.localdomain>	<AANLkTimbH5R0Xd-ULy6OrFcaHDJjhxVCTXk8twnVzXF0@mail.gmail.com>	<1280240699.3156.28.camel@localhost.localdomain>	<F234F0E7-97F3-42A5-9288-AD69A3E6A503@mac.com>	<AANLkTim84E5HS3nEak-thANNG=ZCd-HhjOv7-L-JHOfy@mail.gmail.com>	<1280254734.3156.33.camel@localhost.localdomain>	<AANLkTimvdc43_DZtOWa1odQ=h3mGdPQyK7TiaaHREVV7@mail.gmail.com>	<20100728102135.259be58d@heresy>	<AANLkTikf65Uidb2GOgXb-AB_uAGP_nPGM-efNH3798Ux@mail.gmail.com>	<AANLkTinQAOF+Arx36E_PxyiEK2+iR0=_0T2DB6K-wcev@mail.gmail.com>
+	<1280849038.3170.7.camel@localhost.localdomain>
+Message-ID: <4C583848.2040007@voidspace.org.uk>
+
+On 03/08/2010 16:23, Antoine Pitrou wrote:
+> Le mardi 03 ao?t 2010 ? 11:15 -0400, Fred Drake a ?crit :
+>    
+>> On Tue, Aug 3, 2010 at 10:33 AM, Tarek Ziad?<ziade.tarek at gmail.com>  wrote:
+>>      
+>>> So if everyone agrees Eric gets commit access, and works with me on
+>>> Distutils, and I stay the official maintainer
+>>>        
+>> +1
+>>      
+> Let me point out something fishy: ?Fred Drake? is almost an anagram of
+> ?Tarek Ziad??.
+>
+>    
+
+Antoine Pitrou however, is an anagram of:
+
+     Urinate Option
+     Unto a pointier
+     Auntie Iron Pot
+     No Petunia Riot
+     I Pure Notation
+     Untie piano rot
+
+Actually your name has to be one of the most annagramable names I have 
+ever seen.
+
+http://wordsmith.org/anagram/anagram.cgi?anagram=Antoine+pitrou&t=1000&a=n 
+<http://wordsmith.org/anagram/anagram.cgi?anagram=Antoine+pitrou&t=1000&a=n>
+
+(oh, and +1)
+
+Michael
+
+
+
+
+> Regards
+>
+> Antoine.
+>
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+>    
+
+
+-- 
+http://www.ironpythoninaction.com/
+http://www.voidspace.org.uk/blog
+
+READ CAREFULLY. By accepting and reading this email you agree, on behalf of your employer, to release me from all obligations and waivers arising from any and all NON-NEGOTIATED agreements, licenses, terms-of-service, shrinkwrap, clickwrap, browsewrap, confidentiality, non-disclosure, non-compete and acceptable use policies (?BOGUS AGREEMENTS?) that I have entered into with your employer, its partners, licensors, agents and assigns, in perpetuity, without prejudice to my ongoing rights and privileges. You further represent that you have the authority to release me from any BOGUS AGREEMENTS on behalf of your employer.
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20100803/0b3589b8/attachment.html>
+
+From ziade.tarek at gmail.com  Tue Aug  3 17:54:21 2010
+From: ziade.tarek at gmail.com (=?ISO-8859-1?Q?Tarek_Ziad=E9?=)
+Date: Tue, 3 Aug 2010 17:54:21 +0200
+Subject: [python-committers] Eric Araujo (merwok) as Distutils commiter
+In-Reply-To: <4C583848.2040007@voidspace.org.uk>
+References: <AANLkTimxaz+Oh8HNhTPq+cdT8WAg3fjgErc5XwBCBOFM@mail.gmail.com>
+	<1280224467.3156.4.camel@localhost.localdomain>
+	<AANLkTim1cM8xeFTn6K=VgeQ=vv+awieyU9rifw-jLVw6@mail.gmail.com>
+	<20100727114037.GA10277@remy> <4C4ED246.3070306@voidspace.org.uk>
+	<1280235377.3156.21.camel@localhost.localdomain>
+	<AANLkTimbH5R0Xd-ULy6OrFcaHDJjhxVCTXk8twnVzXF0@mail.gmail.com>
+	<1280240699.3156.28.camel@localhost.localdomain>
+	<F234F0E7-97F3-42A5-9288-AD69A3E6A503@mac.com>
+	<AANLkTim84E5HS3nEak-thANNG=ZCd-HhjOv7-L-JHOfy@mail.gmail.com>
+	<1280254734.3156.33.camel@localhost.localdomain>
+	<AANLkTimvdc43_DZtOWa1odQ=h3mGdPQyK7TiaaHREVV7@mail.gmail.com>
+	<20100728102135.259be58d@heresy>
+	<AANLkTikf65Uidb2GOgXb-AB_uAGP_nPGM-efNH3798Ux@mail.gmail.com>
+	<AANLkTinQAOF+Arx36E_PxyiEK2+iR0=_0T2DB6K-wcev@mail.gmail.com>
+	<1280849038.3170.7.camel@localhost.localdomain>
+	<4C583848.2040007@voidspace.org.uk>
+Message-ID: <AANLkTikzemBkwkPKJ1-JbvHmVpSD42EyZjMNezCiyuQO@mail.gmail.com>
+
+On Tue, Aug 3, 2010 at 5:39 PM, Michael Foord <michael at voidspace.org.uk> wrote:
+> On 03/08/2010 16:23, Antoine Pitrou wrote:
+>
+> Le mardi 03 ao?t 2010 ? 11:15 -0400, Fred Drake a ?crit :
+>
+>
+> On Tue, Aug 3, 2010 at 10:33 AM, Tarek Ziad? <ziade.tarek at gmail.com> wrote:
+>
+>
+> So if everyone agrees Eric gets commit access, and works with me on
+> Distutils, and I stay the official maintainer
+>
+>
+> +1
+>
+>
+> Let me point out something fishy: ?Fred Drake? is almost an anagram of
+> ?Tarek Ziad??.
+>
+>
+>
+> Antoine Pitrou however, is an anagram of:
+>
+> ??? Urinate Option
+> ??? Unto a pointier
+> ??? Auntie Iron Pot
+> ??? No Petunia Riot
+> ??? I Pure Notation
+> ??? Untie piano rot
+>
+> Actually your name has to be one of the most annagramable names I have ever
+> seen.
+>
+> http://wordsmith.org/anagram/anagram.cgi?anagram=Antoine+pitrou&t=1000&a=n
+
+Love this site.
+
+Guido is : A Doom GNUs Virus   :)
+
+From michael at voidspace.org.uk  Tue Aug  3 18:02:27 2010
+From: michael at voidspace.org.uk (Michael Foord)
+Date: Tue, 03 Aug 2010 17:02:27 +0100
+Subject: [python-committers] Eric Araujo (merwok) as Distutils commiter
+In-Reply-To: <AANLkTikzemBkwkPKJ1-JbvHmVpSD42EyZjMNezCiyuQO@mail.gmail.com>
+References: <AANLkTimxaz+Oh8HNhTPq+cdT8WAg3fjgErc5XwBCBOFM@mail.gmail.com>	<1280224467.3156.4.camel@localhost.localdomain>	<AANLkTim1cM8xeFTn6K=VgeQ=vv+awieyU9rifw-jLVw6@mail.gmail.com>	<20100727114037.GA10277@remy>	<4C4ED246.3070306@voidspace.org.uk>	<1280235377.3156.21.camel@localhost.localdomain>	<AANLkTimbH5R0Xd-ULy6OrFcaHDJjhxVCTXk8twnVzXF0@mail.gmail.com>	<1280240699.3156.28.camel@localhost.localdomain>	<F234F0E7-97F3-42A5-9288-AD69A3E6A503@mac.com>	<AANLkTim84E5HS3nEak-thANNG=ZCd-HhjOv7-L-JHOfy@mail.gmail.com>	<1280254734.3156.33.camel@localhost.localdomain>	<AANLkTimvdc43_DZtOWa1odQ=h3mGdPQyK7TiaaHREVV7@mail.gmail.com>	<20100728102135.259be58d@heresy>	<AANLkTikf65Uidb2GOgXb-AB_uAGP_nPGM-efNH3798Ux@mail.gmail.com>	<AANLkTinQAOF+Arx36E_PxyiEK2+iR0=_0T2DB6K-wcev@mail.gmail.com>	<1280849038.3170.7.camel@localhost.localdomain>	<4C583848.2040007@voidspace.org.uk>
+	<AANLkTikzemBkwkPKJ1-JbvHmVpSD42EyZjMNezCiyuQO@mail.gmail.com>
+Message-ID: <4C583D93.4040306@voidspace.org.uk>
+
+On 03/08/2010 16:54, Tarek Ziad? wrote:
+> On Tue, Aug 3, 2010 at 5:39 PM, Michael Foord<michael at voidspace.org.uk>  wrote:
+>    
+>> On 03/08/2010 16:23, Antoine Pitrou wrote:
+>>
+>> Le mardi 03 ao?t 2010 ? 11:15 -0400, Fred Drake a ?crit :
+>>
+>>
+>> On Tue, Aug 3, 2010 at 10:33 AM, Tarek Ziad?<ziade.tarek at gmail.com>  wrote:
+>>
+>>
+>> So if everyone agrees Eric gets commit access, and works with me on
+>> Distutils, and I stay the official maintainer
+>>
+>>
+>> +1
+>>
+>>
+>> Let me point out something fishy: ?Fred Drake? is almost an anagram of
+>> ?Tarek Ziad??.
+>>
+>>
+>>
+>> Antoine Pitrou however, is an anagram of:
+>>
+>>      Urinate Option
+>>      Unto a pointier
+>>      Auntie Iron Pot
+>>      No Petunia Riot
+>>      I Pure Notation
+>>      Untie piano rot
+>>
+>> Actually your name has to be one of the most annagramable names I have ever
+>> seen.
+>>
+>> http://wordsmith.org/anagram/anagram.cgi?anagram=Antoine+pitrou&t=1000&a=n
+>>      
+> Love this site.
+>
+> Guido is : A Doom GNUs Virus   :)
+>    
+Barry Warsaw is Wary Bra Wars, whilst Steve Holden is Eleventh Sod. Mark 
+Dickinson is Kid Conman Risk, whilst Raymond Hettinger is A Trendy 
+Mothering. Hmm.. the alter egos of our Python super heroes needs work I 
+think.
+
+Naturally I am Firm Cool Head. :-)
+
+Michael
+
+-- 
+http://www.ironpythoninaction.com/
+http://www.voidspace.org.uk/blog
+
+READ CAREFULLY. By accepting and reading this email you agree, on behalf of your employer, to release me from all obligations and waivers arising from any and all NON-NEGOTIATED agreements, licenses, terms-of-service, shrinkwrap, clickwrap, browsewrap, confidentiality, non-disclosure, non-compete and acceptable use policies (?BOGUS AGREEMENTS?) that I have entered into with your employer, its partners, licensors, agents and assigns, in perpetuity, without prejudice to my ongoing rights and privileges. You further represent that you have the authority to release me from any BOGUS AGREEMENTS on behalf of your employer.
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20100803/e2531a6b/attachment.html>
+
+From orsenthil at gmail.com  Tue Aug  3 18:15:12 2010
+From: orsenthil at gmail.com (Senthil Kumaran)
+Date: Tue, 3 Aug 2010 21:45:12 +0530
+Subject: [python-committers] Eric Araujo (merwok) as Distutils commiter
+In-Reply-To: <4C583D93.4040306@voidspace.org.uk>
+References: <AANLkTimxaz+Oh8HNhTPq+cdT8WAg3fjgErc5XwBCBOFM@mail.gmail.com> 
+	<1280224467.3156.4.camel@localhost.localdomain>
+	<AANLkTim1cM8xeFTn6K=VgeQ=vv+awieyU9rifw-jLVw6@mail.gmail.com> 
+	<20100727114037.GA10277@remy> <4C4ED246.3070306@voidspace.org.uk> 
+	<1280235377.3156.21.camel@localhost.localdomain>
+	<AANLkTimbH5R0Xd-ULy6OrFcaHDJjhxVCTXk8twnVzXF0@mail.gmail.com> 
+	<1280240699.3156.28.camel@localhost.localdomain>
+	<F234F0E7-97F3-42A5-9288-AD69A3E6A503@mac.com> 
+	<AANLkTim84E5HS3nEak-thANNG=ZCd-HhjOv7-L-JHOfy@mail.gmail.com> 
+	<1280254734.3156.33.camel@localhost.localdomain>
+	<AANLkTimvdc43_DZtOWa1odQ=h3mGdPQyK7TiaaHREVV7@mail.gmail.com> 
+	<20100728102135.259be58d@heresy>
+	<AANLkTikf65Uidb2GOgXb-AB_uAGP_nPGM-efNH3798Ux@mail.gmail.com> 
+	<AANLkTinQAOF+Arx36E_PxyiEK2+iR0=_0T2DB6K-wcev@mail.gmail.com> 
+	<1280849038.3170.7.camel@localhost.localdomain>
+	<4C583848.2040007@voidspace.org.uk> 
+	<AANLkTikzemBkwkPKJ1-JbvHmVpSD42EyZjMNezCiyuQO@mail.gmail.com> 
+	<4C583D93.4040306@voidspace.org.uk>
+Message-ID: <AANLkTinhtwx58HOD20DM4UBiQMzXhVLWswqeG-fw43-0@mail.gmail.com>
+
+On Tue, Aug 3, 2010 at 9:32 PM, Michael Foord <michael at voidspace.org.uk> wrote:
+> Barry Warsaw is Wary Bra Wars, whilst Steve Holden is Eleventh Sod. Mark
+> Dickinson is Kid Conman Risk, whilst Raymond Hettinger is A Trendy
+> Mothering. Hmm.. the alter egos of our Python super heroes needs work
+
+I would just imagine that Raymond would come up with a ActiveState
+recipe for replacement of that site, of course using the collections
+module.
+
+
+-- 
+Senthil
+
+From barry at python.org  Tue Aug  3 21:30:40 2010
+From: barry at python.org (Barry Warsaw)
+Date: Tue, 3 Aug 2010 15:30:40 -0400
+Subject: [python-committers] release26-maint semi-frozen
+Message-ID: <20100803153040.01dda7ad@heresy>
+
+We're going to go ahead and cut the 2.6.6rc1 release tonight, bugs.python.org
+willing.  We've got a fairly clean test run on local hardware across OS X,
+Linux (Debian, Ubuntu), and Brian is looking at Windows now (the buildbots are
+a sad and sorry story).  Ezio has done a great amount of work on getting 2.6.6
+pretty clean with -3 warnings too.
+
+Please consider the release26-maint tree closed for commits (except svnmerges)
+for the next 2.5 hours.  I'll send another message at about 2200 UTC when I
+freeze the tree for those commits too.  You can request exceptions by pinging
+me on #python-dev or (if you're feeling lucky ;) sending me an email.
+
+-Barry
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 836 bytes
+Desc: not available
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20100803/ba3ccc8f/attachment.pgp>
+
+From barry at python.org  Wed Aug  4 00:00:04 2010
+From: barry at python.org (Barry Warsaw)
+Date: Tue, 3 Aug 2010 18:00:04 -0400
+Subject: [python-committers] release26-maint frozen
+Message-ID: <20100803180004.1d097e53@heresy>
+
+Okay, I'm going ahead with the release.  Please no commits of any kind to the
+release26-maint branch for now.  If you feel you must get something in, come
+to #python-dev and ping me.
+
+-Barry
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 836 bytes
+Desc: not available
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20100803/bc86ca62/attachment.pgp>
+
+From barry at python.org  Wed Aug  4 01:18:00 2010
+From: barry at python.org (Barry Warsaw)
+Date: Tue, 3 Aug 2010 19:18:00 -0400
+Subject: [python-committers] Fw: [Python-checkins] r83692 -
+	python/tags/r266rc1
+Message-ID: <20100803191800.7a81be57@heresy>
+
+Martin, Ronald.  Do your magic!
+-Barry
+
+Begin forwarded message:
+
+Date: Wed,  4 Aug 2010 00:51:58 +0200 (CEST)
+From: barry.warsaw <python-checkins at python.org>
+To: python-checkins at python.org
+Subject: [Python-checkins] r83692 - python/tags/r266rc1
+
+
+Author: barry.warsaw
+Date: Wed Aug  4 00:51:57 2010
+New Revision: 83692
+
+Log:
+Tagging 2.6.6 rc 1
+
+
+
+Added:
+   python/tags/r266rc1/
+      - copied from r83691, /python/branches/release26-maint/
+_______________________________________________
+Python-checkins mailing list
+Python-checkins at python.org
+http://mail.python.org/mailman/listinfo/python-checkins
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 836 bytes
+Desc: not available
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20100803/ee76bcac/attachment.pgp>
+
+From brett at python.org  Wed Aug  4 01:26:47 2010
+From: brett at python.org (Brett Cannon)
+Date: Tue, 3 Aug 2010 16:26:47 -0700
+Subject: [python-committers] New comitter proposal: Terry Reedy
+In-Reply-To: <4C49CA99.8090006@udel.edu>
+References: <AANLkTinXkOlCHN-GG2Oj0q-6dvrIYoId-v5jkxqSFszP@mail.gmail.com> 
+	<AANLkTimnxGxQhD1B1o5hwryo44AscU2ayT5t8Z4Q95=H@mail.gmail.com> 
+	<4C49CA99.8090006@udel.edu>
+Message-ID: <AANLkTik7Rm9Q=Wdww+ySS7bgUOtX+SD0muLb4ZEMtnxf@mail.gmail.com>
+
+On Fri, Jul 23, 2010 at 10:00, Terry Reedy <tjreedy at udel.edu> wrote:
+
+>
+>
+> On 7/23/2010 12:52 PM, Brett Cannon wrote:
+>
+>> Terry, can you email Martin, Georg, or I your SSH key to get commit
+>> privileges?
+>>
+>
+> I will when I get one.
+>
+
+If you need help you can read the dev FAQ or obviously ask. Until then I
+will go ahead and approve your python-committers subscription request.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20100803/19e8535e/attachment.html>
+
+From brett at python.org  Wed Aug  4 01:34:48 2010
+From: brett at python.org (Brett Cannon)
+Date: Tue, 3 Aug 2010 16:34:48 -0700
+Subject: [python-committers] Eric Araujo (merwok) as Distutils commiter
+In-Reply-To: <AANLkTikf65Uidb2GOgXb-AB_uAGP_nPGM-efNH3798Ux@mail.gmail.com>
+References: <AANLkTimxaz+Oh8HNhTPq+cdT8WAg3fjgErc5XwBCBOFM@mail.gmail.com> 
+	<1280224467.3156.4.camel@localhost.localdomain>
+	<AANLkTim1cM8xeFTn6K=VgeQ=vv+awieyU9rifw-jLVw6@mail.gmail.com> 
+	<20100727114037.GA10277@remy> <4C4ED246.3070306@voidspace.org.uk> 
+	<1280235377.3156.21.camel@localhost.localdomain>
+	<AANLkTimbH5R0Xd-ULy6OrFcaHDJjhxVCTXk8twnVzXF0@mail.gmail.com> 
+	<1280240699.3156.28.camel@localhost.localdomain>
+	<F234F0E7-97F3-42A5-9288-AD69A3E6A503@mac.com> 
+	<AANLkTim84E5HS3nEak-thANNG=ZCd-HhjOv7-L-JHOfy@mail.gmail.com> 
+	<1280254734.3156.33.camel@localhost.localdomain>
+	<AANLkTimvdc43_DZtOWa1odQ=h3mGdPQyK7TiaaHREVV7@mail.gmail.com> 
+	<20100728102135.259be58d@heresy>
+	<AANLkTikf65Uidb2GOgXb-AB_uAGP_nPGM-efNH3798Ux@mail.gmail.com>
+Message-ID: <AANLkTinUds5N_4-+bn_hexPG=HqGOnaYYNYo4Cm0auxq@mail.gmail.com>
+
+On Tue, Aug 3, 2010 at 07:33, Tarek Ziad? <ziade.tarek at gmail.com> wrote:
+
+> On Wed, Jul 28, 2010 at 4:21 PM, Barry Warsaw <barry at python.org> wrote:
+> > On Jul 28, 2010, at 10:23 PM, Nick Coghlan wrote:
+> >
+> >>If it's just the maintainer issue concerning people, perhaps think of
+> >>it as Tarek deputising to Eric - and I think we should allow active
+> >>maintainers of modules to deputise people that *they* trust to do a
+> >>good job.
+> >
+> > Excellent way to put in Nick.  We trust Tarek, Tarek vouches for Eric.
+>  That's
+> > good enough for me.
+>
+> Thanks :)
+>
+> So if everyone agrees Eric gets commit access, and works with me on
+> Distutils, and I stay the official
+> maintainer until the PSU does something bad to me.  I have moved,
+> changed my number
+> and have placed my kids in a safe place so I sho
+>
+
+Since no one has disagreed with giving Eric commit privileges, have him
+email his SSH 2 RSA key, his preferred email address for python-committers,
+and the proper spelling of his name in ASCII (along with telling him to read
+python.org/dev/ on what is expected, e.g. subscribing to python-checkins).
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20100803/b0774210/attachment.html>
+
+From barry at python.org  Wed Aug  4 02:01:45 2010
+From: barry at python.org (Barry Warsaw)
+Date: Tue, 3 Aug 2010 20:01:45 -0400
+Subject: [python-committers] release26-maint is semi-thawed
+Message-ID: <20100803200145.777256a5@heresy>
+
+The website is prepped and ready for 2.6.6, so Martin can upload the Windows
+installer for 2.6.6rc1 whenever he's ready.  I have not linked the 2.6.6 page
+into the main site, and won't until 2.6.6 final gets released, but I will add
+an announcement for 2.6.6rc1 to the front page once the Windows installer is
+ready.
+
+The release26-maint branch is thawed for svnmerges.  Please do not commit
+substantive changes to the branch unless you get my approval.  Ideally,
+there'd be a bug at release blocker with your patch attached and myself made
+nosy for any changes you want between now and 2.6.6 final.
+
+Huge thanks to everyone on python-dev who helped out yesterday and today!
+
+-Barry
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 836 bytes
+Desc: not available
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20100803/9a9f2b93/attachment-0001.pgp>
+
+From richard at python.org  Wed Aug  4 13:43:31 2010
+From: richard at python.org (Richard Jones)
+Date: Wed, 4 Aug 2010 21:43:31 +1000
+Subject: [python-committers] [Python-Dev] (Windows) buildbots on 3.x
+In-Reply-To: <AANLkTimK48CRc53_ymurdA+aKo-EDFLM5Nxra5poGWfK@mail.gmail.com>
+References: <AANLkTimK48CRc53_ymurdA+aKo-EDFLM5Nxra5poGWfK@mail.gmail.com>
+Message-ID: <AANLkTi=K55K-Bv6wsfUMs5XYMBcdK50biLTgL74ZuiKw@mail.gmail.com>
+
+On Wed, Aug 4, 2010 at 8:48 PM, Paul Moore <p.f.moore at gmail.com> wrote:
+> On 3 August 2010 20:30, Barry Warsaw <barry at python.org> wrote:
+>> Brian is looking at Windows now (the buildbots are
+>> a sad and sorry story).
+>
+> There seems to be something distinctly wrong with the 3.x buildbots. A
+> lot of test failures and timeouts. At first I assumed it was my
+> buildslave going flaky (again :-() but it only affects the 3.x branch,
+> and it seems to be hitting more than just my slave. From what I'm
+> seeing, it's often test_io that's getting stalled and then sitting
+> round until it times out.
+
+I'm also quite confused by the test_smtpd failures that pop up on some
+of the test runs that I've had absolutely no luck reproducing locally
+under OS X or Solaris.
+
+
+      Richard
+
+From solipsis at pitrou.net  Wed Aug  4 14:05:43 2010
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Wed, 04 Aug 2010 14:05:43 +0200
+Subject: [python-committers] [Python-Dev] (Windows) buildbots on 3.x
+In-Reply-To: <AANLkTi=K55K-Bv6wsfUMs5XYMBcdK50biLTgL74ZuiKw@mail.gmail.com>
+References: <AANLkTimK48CRc53_ymurdA+aKo-EDFLM5Nxra5poGWfK@mail.gmail.com>
+	<AANLkTi=K55K-Bv6wsfUMs5XYMBcdK50biLTgL74ZuiKw@mail.gmail.com>
+Message-ID: <1280923543.3231.0.camel@localhost.localdomain>
+
+Le mercredi 04 ao?t 2010 ? 21:43 +1000, Richard Jones a ?crit :
+> On Wed, Aug 4, 2010 at 8:48 PM, Paul Moore <p.f.moore at gmail.com> wrote:
+> > On 3 August 2010 20:30, Barry Warsaw <barry at python.org> wrote:
+> >> Brian is looking at Windows now (the buildbots are
+> >> a sad and sorry story).
+> >
+> > There seems to be something distinctly wrong with the 3.x buildbots. A
+> > lot of test failures and timeouts. At first I assumed it was my
+> > buildslave going flaky (again :-() but it only affects the 3.x branch,
+> > and it seems to be hitting more than just my slave. From what I'm
+> > seeing, it's often test_io that's getting stalled and then sitting
+> > round until it times out.
+> 
+> I'm also quite confused by the test_smtpd failures that pop up on some
+> of the test runs that I've had absolutely no luck reproducing locally
+> under OS X or Solaris.
+
+It happens when running test_smtplib before test_smtpb:
+
+$./python -m test.regrtest -v test_smtplib test_smtpd
+
+== CPython 3.2a1+ (py3k:83711M, Aug 4 2010, 13:23:20) [GCC 4.4.3]
+==   Linux-2.6.33.5-desktop-2mnb-x86_64-with-mandrake-2010.1-Official
+==   /home/antoine/py3k/__svn__/build/test_python_13320
+[1/2] test_smtplib
+testBasic1 (test.test_smtplib.GeneralTests) ... ok
+testBasic2 (test.test_smtplib.GeneralTests) ... ok
+testLocalHostName (test.test_smtplib.GeneralTests) ... ok
+testTimeoutDefault (test.test_smtplib.GeneralTests) ... ok
+testTimeoutNone (test.test_smtplib.GeneralTests) ... ok
+testTimeoutValue (test.test_smtplib.GeneralTests) ... ok
+testBasic (test.test_smtplib.DebuggingServerTests) ... ok
+testHELP (test.test_smtplib.DebuggingServerTests) ... ok
+testNOOP (test.test_smtplib.DebuggingServerTests) ... ok
+testNotImplemented (test.test_smtplib.DebuggingServerTests) ... ok
+testRSET (test.test_smtplib.DebuggingServerTests) ... ok
+testSecondHELO (test.test_smtplib.DebuggingServerTests) ... ok
+testSend (test.test_smtplib.DebuggingServerTests) ... ok
+testVRFY (test.test_smtplib.DebuggingServerTests) ... ok
+testNonnumericPort (test.test_smtplib.NonConnectingTests) ... ok
+testNotConnected (test.test_smtplib.NonConnectingTests) ... ok
+testFailingHELO (test.test_smtplib.BadHELOServerTests) ... ok
+testAUTH_CRAM_MD5 (test.test_smtplib.SMTPSimTests) ... ok
+testAUTH_LOGIN (test.test_smtplib.SMTPSimTests) ... ok
+testAUTH_PLAIN (test.test_smtplib.SMTPSimTests) ... ok
+testBasic (test.test_smtplib.SMTPSimTests) ... ok
+testEHLO (test.test_smtplib.SMTPSimTests) ... ok
+testEXPN (test.test_smtplib.SMTPSimTests) ... ok
+testVRFY (test.test_smtplib.SMTPSimTests) ... ok
+
+----------------------------------------------------------------------
+Ran 24 tests in 0.107s
+
+OK
+[2/2] test_smtpd
+test_process_message_unimplemented (test.test_smtpd.SMTPDServerTest) ... FAIL
+test_DATA_syntax (test.test_smtpd.SMTPDChannelTest) ... FAIL
+test_EHLO_not_implemented (test.test_smtpd.SMTPDChannelTest) ... FAIL
+test_HELO (test.test_smtpd.SMTPDChannelTest) ... FAIL
+test_HELO_bad_syntax (test.test_smtpd.SMTPDChannelTest) ... FAIL
+test_HELO_duplicate (test.test_smtpd.SMTPDChannelTest) ... FAIL
+test_MAIL_chevrons (test.test_smtpd.SMTPDChannelTest) ... FAIL
+test_MAIL_missing_from (test.test_smtpd.SMTPDChannelTest) ... FAIL
+test_MAIL_syntax (test.test_smtpd.SMTPDChannelTest) ... FAIL
+test_NOOP (test.test_smtpd.SMTPDChannelTest) ... FAIL
+test_NOOP_bad_syntax (test.test_smtpd.SMTPDChannelTest) ... FAIL
+test_QUIT (test.test_smtpd.SMTPDChannelTest) ... FAIL
+test_QUIT_arg_ignored (test.test_smtpd.SMTPDChannelTest) ... FAIL
+test_RCPT_syntax (test.test_smtpd.SMTPDChannelTest) ... FAIL
+test_RSET (test.test_smtpd.SMTPDChannelTest) ... ERROR
+test_RSET_syntax (test.test_smtpd.SMTPDChannelTest) ... FAIL
+test_attribute_deprecations (test.test_smtpd.SMTPDChannelTest) ... ok
+test_bad_state (test.test_smtpd.SMTPDChannelTest) ... ok
+test_broken_connect (test.test_smtpd.SMTPDChannelTest) ... ok
+test_data_dialog (test.test_smtpd.SMTPDChannelTest) ... FAIL
+test_data_transparency_section_4_5_2 (test.test_smtpd.SMTPDChannelTest) ... FAIL
+test_manual_status (test.test_smtpd.SMTPDChannelTest) ... FAIL
+test_missing_data (test.test_smtpd.SMTPDChannelTest) ... FAIL
+test_multiple_RCPT (test.test_smtpd.SMTPDChannelTest) ... ERROR
+test_need_MAIL (test.test_smtpd.SMTPDChannelTest) ... FAIL
+test_need_RCPT (test.test_smtpd.SMTPDChannelTest) ... FAIL
+test_nested_MAIL (test.test_smtpd.SMTPDChannelTest) ... FAIL
+test_server_accept (test.test_smtpd.SMTPDChannelTest) ... ok
+
+======================================================================
+ERROR: test_RSET (test.test_smtpd.SMTPDChannelTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/antoine/py3k/__svn__/Lib/test/test_smtpd.py", line 212, in test_RSET
+    self.assertEqual(self.server.messages[0],
+IndexError: list index out of range
+
+======================================================================
+ERROR: test_multiple_RCPT (test.test_smtpd.SMTPDChannelTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/antoine/py3k/__svn__/Lib/test/test_smtpd.py", line 192, in test_multiple_RCPT
+    self.assertEqual(self.server.messages[-1],
+IndexError: list index out of range
+
+======================================================================
+FAIL: test_process_message_unimplemented (test.test_smtpd.SMTPDServerTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/antoine/py3k/__svn__/Lib/test/test_smtpd.py", line 45, in test_process_message_unimplemented
+    self.assertRaises(NotImplementedError, write_line, b'spam\r\n.\r\n')
+AssertionError: NotImplementedError not raised by write_line
+
+======================================================================
+FAIL: test_DATA_syntax (test.test_smtpd.SMTPDChannelTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/antoine/py3k/__svn__/Lib/test/test_smtpd.py", line 177, in test_DATA_syntax
+    self.assertEqual(self.channel.socket.last, b'501 Syntax: DATA\r\n')
+AssertionError: b'250 Ok\r\n' != b'501 Syntax: DATA\r\n'
+
+======================================================================
+FAIL: test_EHLO_not_implemented (test.test_smtpd.SMTPDChannelTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/antoine/py3k/__svn__/Lib/test/test_smtpd.py", line 80, in test_EHLO_not_implemented
+    b'502 Error: command "EHLO" not implemented\r\n')
+AssertionError: b'502 Error: command "199" not implemented\r\n' != b'502 Error: command "EHLO" not implemented\r\n'
+
+======================================================================
+FAIL: test_HELO (test.test_smtpd.SMTPDChannelTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/antoine/py3k/__svn__/Lib/test/test_smtpd.py", line 86, in test_HELO
+    '250 {}\r\n'.format(name).encode('ascii'))
+AssertionError: b'502 Error: command "199" not implemented\r\n' != b'250 \r\n'
+
+======================================================================
+FAIL: test_HELO_bad_syntax (test.test_smtpd.SMTPDChannelTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/antoine/py3k/__svn__/Lib/test/test_smtpd.py", line 91, in test_HELO_bad_syntax
+    b'501 Syntax: HELO hostname\r\n')
+AssertionError: b'502 Error: command "199" not implemented\r\n' != b'501 Syntax: HELO hostname\r\n'
+
+======================================================================
+FAIL: test_HELO_duplicate (test.test_smtpd.SMTPDChannelTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/antoine/py3k/__svn__/Lib/test/test_smtpd.py", line 97, in test_HELO_duplicate
+    b'503 Duplicate HELO/EHLO\r\n')
+AssertionError: b'250 \r\n' != b'503 Duplicate HELO/EHLO\r\n'
+
+======================================================================
+FAIL: test_MAIL_chevrons (test.test_smtpd.SMTPDChannelTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/antoine/py3k/__svn__/Lib/test/test_smtpd.py", line 139, in test_MAIL_chevrons
+    self.assertEqual(self.channel.socket.last, b'250 Ok\r\n')
+AssertionError: b'502 Error: command "199" not implemented\r\n' != b'250 Ok\r\n'
+
+======================================================================
+FAIL: test_MAIL_missing_from (test.test_smtpd.SMTPDChannelTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/antoine/py3k/__svn__/Lib/test/test_smtpd.py", line 135, in test_MAIL_missing_from
+    b'501 Syntax: MAIL FROM:<address>\r\n')
+AssertionError: b'502 Error: command "199" not implemented\r\n' != b'501 Syntax: MAIL FROM:<address>\r\n'
+
+======================================================================
+FAIL: test_MAIL_syntax (test.test_smtpd.SMTPDChannelTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/antoine/py3k/__svn__/Lib/test/test_smtpd.py", line 130, in test_MAIL_syntax
+    b'501 Syntax: MAIL FROM:<address>\r\n')
+AssertionError: b'502 Error: command "199" not implemented\r\n' != b'501 Syntax: MAIL FROM:<address>\r\n'
+
+======================================================================
+FAIL: test_NOOP (test.test_smtpd.SMTPDChannelTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/antoine/py3k/__svn__/Lib/test/test_smtpd.py", line 101, in test_NOOP
+    self.assertEqual(self.channel.socket.last, b'250 Ok\r\n')
+AssertionError: b'502 Error: command "199" not implemented\r\n' != b'250 Ok\r\n'
+
+======================================================================
+FAIL: test_NOOP_bad_syntax (test.test_smtpd.SMTPDChannelTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/antoine/py3k/__svn__/Lib/test/test_smtpd.py", line 106, in test_NOOP_bad_syntax
+    b'501 Syntax: NOOP\r\n')
+AssertionError: b'502 Error: command "199" not implemented\r\n' != b'501 Syntax: NOOP\r\n'
+
+======================================================================
+FAIL: test_QUIT (test.test_smtpd.SMTPDChannelTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/antoine/py3k/__svn__/Lib/test/test_smtpd.py", line 110, in test_QUIT
+    self.assertEqual(self.channel.socket.last, b'221 Bye\r\n')
+AssertionError: b'502 Error: command "199" not implemented\r\n' != b'221 Bye\r\n'
+
+======================================================================
+FAIL: test_QUIT_arg_ignored (test.test_smtpd.SMTPDChannelTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/antoine/py3k/__svn__/Lib/test/test_smtpd.py", line 114, in test_QUIT_arg_ignored
+    self.assertEqual(self.channel.socket.last, b'221 Bye\r\n')
+AssertionError: b'502 Error: command "199" not implemented\r\n' != b'221 Bye\r\n'
+
+======================================================================
+FAIL: test_RCPT_syntax (test.test_smtpd.SMTPDChannelTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/antoine/py3k/__svn__/Lib/test/test_smtpd.py", line 157, in test_RCPT_syntax
+    b'501 Syntax: RCPT TO: <address>\r\n')
+AssertionError: b'250 Ok\r\n' != b'501 Syntax: RCPT TO: <address>\r\n'
+
+======================================================================
+FAIL: test_RSET_syntax (test.test_smtpd.SMTPDChannelTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/antoine/py3k/__svn__/Lib/test/test_smtpd.py", line 217, in test_RSET_syntax
+    self.assertEqual(self.channel.socket.last, b'501 Syntax: RSET\r\n')
+AssertionError: b'502 Error: command "199" not implemented\r\n' != b'501 Syntax: RSET\r\n'
+
+======================================================================
+FAIL: test_data_dialog (test.test_smtpd.SMTPDChannelTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/antoine/py3k/__svn__/Lib/test/test_smtpd.py", line 161, in test_data_dialog
+    self.assertEqual(self.channel.socket.last, b'250 Ok\r\n')
+AssertionError: b'502 Error: command "199" not implemented\r\n' != b'250 Ok\r\n'
+
+======================================================================
+FAIL: test_data_transparency_section_4_5_2 (test.test_smtpd.SMTPDChannelTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/antoine/py3k/__svn__/Lib/test/test_smtpd.py", line 184, in test_data_transparency_section_4_5_2
+    self.assertEqual(self.channel.received_data, '.')
+AssertionError: '' != '.'
++ .
+
+======================================================================
+FAIL: test_manual_status (test.test_smtpd.SMTPDChannelTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/antoine/py3k/__svn__/Lib/test/test_smtpd.py", line 201, in test_manual_status
+    self.assertEqual(self.channel.socket.last, b'250 Okish\r\n')
+AssertionError: b'354 End data with <CR><LF>.<CR><LF>\r\n' != b'250 Okish\r\n'
+
+======================================================================
+FAIL: test_missing_data (test.test_smtpd.SMTPDChannelTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/antoine/py3k/__svn__/Lib/test/test_smtpd.py", line 75, in test_missing_data
+    b'500 Error: bad syntax\r\n')
+AssertionError: b'502 Error: command "199" not implemented\r\n' != b'500 Error: bad syntax\r\n'
+
+======================================================================
+FAIL: test_need_MAIL (test.test_smtpd.SMTPDChannelTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/antoine/py3k/__svn__/Lib/test/test_smtpd.py", line 125, in test_need_MAIL
+    b'503 Error: need MAIL command\r\n')
+AssertionError: b'502 Error: command "199" not implemented\r\n' != b'503 Error: need MAIL command\r\n'
+
+======================================================================
+FAIL: test_need_RCPT (test.test_smtpd.SMTPDChannelTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/antoine/py3k/__svn__/Lib/test/test_smtpd.py", line 151, in test_need_RCPT
+    b'503 Error: need RCPT command\r\n')
+AssertionError: b'250 Ok\r\n' != b'503 Error: need RCPT command\r\n'
+
+======================================================================
+FAIL: test_nested_MAIL (test.test_smtpd.SMTPDChannelTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/antoine/py3k/__svn__/Lib/test/test_smtpd.py", line 145, in test_nested_MAIL
+    b'503 Error: nested MAIL command\r\n')
+AssertionError: b'250 Ok\r\n' != b'503 Error: nested MAIL command\r\n'
+
+----------------------------------------------------------------------
+Ran 28 tests in 0.013s
+
+FAILED (failures=22, errors=2)
+test test_smtpd failed -- multiple errors occurred
+1 test OK.
+1 test failed:
+    test_smtpd
+
+
+
+From richard at python.org  Wed Aug  4 14:28:09 2010
+From: richard at python.org (Richard Jones)
+Date: Wed, 4 Aug 2010 22:28:09 +1000
+Subject: [python-committers] [Python-Dev] (Windows) buildbots on 3.x
+In-Reply-To: <1280923543.3231.0.camel@localhost.localdomain>
+References: <AANLkTimK48CRc53_ymurdA+aKo-EDFLM5Nxra5poGWfK@mail.gmail.com>
+	<AANLkTi=K55K-Bv6wsfUMs5XYMBcdK50biLTgL74ZuiKw@mail.gmail.com>
+	<1280923543.3231.0.camel@localhost.localdomain>
+Message-ID: <AANLkTinRhDKQNZhCZFJ=_u=N7H5R1q7fFvLf69GGq7mo@mail.gmail.com>
+
+On Wed, Aug 4, 2010 at 10:05 PM, Antoine Pitrou <solipsis at pitrou.net> wrote:
+> It happens when running test_smtplib before test_smtpb:
+
+Aha! Thanks for the clue. I've checked in a fix.
+
+
+      Richard
+
+From jackdied at gmail.com  Wed Aug  4 16:41:17 2010
+From: jackdied at gmail.com (Jack Diederich)
+Date: Wed, 4 Aug 2010 10:41:17 -0400
+Subject: [python-committers] Mercurial Status?
+In-Reply-To: <AANLkTimJA7RQE5P1Rn_BkvGwR5EXU3G1440zjiX2Af1S@mail.gmail.com>
+References: <4C557B7A.4060302@jcea.es> <i33vau$6uc$1@dough.gmane.org>
+	<4C55844F.3060305@jcea.es>
+	<AANLkTimJA7RQE5P1Rn_BkvGwR5EXU3G1440zjiX2Af1S@mail.gmail.com>
+Message-ID: <AANLkTi=UGRFxoAk9tkgUFRa6C6-PpNiweS0y3UxrdghU@mail.gmail.com>
+
+On Sun, Aug 1, 2010 at 10:56 AM, Alexander Belopolsky
+<alexander.belopolsky at gmail.com> wrote:
+> On Sun, Aug 1, 2010 at 10:27 AM, Jesus Cea <jcea at jcea.es> wrote:
+> ..
+>> Good luck (and justice!) with your (both) thesis. Uhmmm, what is the
+>> plural for thesis, in english?. In Spanish it is the same word, changing
+>> the prefix article: "la tesis"/"las tesis" :).
+>
+> "theses" ?- isn't English fun?
+
+I blame Greek.
+
+-Jack
+
+From ncoghlan at gmail.com  Wed Aug  4 23:36:00 2010
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Thu, 5 Aug 2010 07:36:00 +1000
+Subject: [python-committers] Mercurial Status?
+In-Reply-To: <AANLkTi=UGRFxoAk9tkgUFRa6C6-PpNiweS0y3UxrdghU@mail.gmail.com>
+References: <4C557B7A.4060302@jcea.es> <i33vau$6uc$1@dough.gmane.org>
+	<4C55844F.3060305@jcea.es>
+	<AANLkTimJA7RQE5P1Rn_BkvGwR5EXU3G1440zjiX2Af1S@mail.gmail.com>
+	<AANLkTi=UGRFxoAk9tkgUFRa6C6-PpNiweS0y3UxrdghU@mail.gmail.com>
+Message-ID: <AANLkTinZTN3rjgSGbn4xHFrK=a6i30EktmFU7uf_8DNc@mail.gmail.com>
+
+On Thu, Aug 5, 2010 at 12:41 AM, Jack Diederich <jackdied at gmail.com> wrote:
+> On Sun, Aug 1, 2010 at 10:56 AM, Alexander Belopolsky
+> <alexander.belopolsky at gmail.com> wrote:
+>> On Sun, Aug 1, 2010 at 10:27 AM, Jesus Cea <jcea at jcea.es> wrote:
+>> ..
+>>> Good luck (and justice!) with your (both) thesis. Uhmmm, what is the
+>>> plural for thesis, in english?. In Spanish it is the same word, changing
+>>> the prefix article: "la tesis"/"las tesis" :).
+>>
+>> "theses" ?- isn't English fun?
+>
+> I blame Greek.
+
+And Latin, and Germanic... and, well, pretty much every other language
+English speakers and their ancestors have ever encountered ;)
+
+I have a T-shirt which says "English doesn't borrow from other
+languages. It follows them down dark alleys, knocks them down and goes
+through their pockets for loose grammar". It's funny because it's true
+:)
+
+Cheers,
+Nick.
+
+P.S. Other languages may be just as indiscriminate in their evolution,
+but English is the only one I know sufficiently well to comment on the
+way it evolves over time.
+
+-- 
+Nick Coghlan?? |?? ncoghlan at gmail.com?? |?? Brisbane, Australia
+
+From guido at python.org  Wed Aug  4 23:56:08 2010
+From: guido at python.org (Guido van Rossum)
+Date: Wed, 4 Aug 2010 14:56:08 -0700
+Subject: [python-committers] Mercurial Status?
+In-Reply-To: <AANLkTinZTN3rjgSGbn4xHFrK=a6i30EktmFU7uf_8DNc@mail.gmail.com>
+References: <4C557B7A.4060302@jcea.es> <i33vau$6uc$1@dough.gmane.org> 
+	<4C55844F.3060305@jcea.es>
+	<AANLkTimJA7RQE5P1Rn_BkvGwR5EXU3G1440zjiX2Af1S@mail.gmail.com> 
+	<AANLkTi=UGRFxoAk9tkgUFRa6C6-PpNiweS0y3UxrdghU@mail.gmail.com> 
+	<AANLkTinZTN3rjgSGbn4xHFrK=a6i30EktmFU7uf_8DNc@mail.gmail.com>
+Message-ID: <AANLkTi=vpDv1DqB7GygFOj9tjovk6Xhrqb+KDz4w72Gp@mail.gmail.com>
+
+On Wed, Aug 4, 2010 at 2:36 PM, Nick Coghlan <ncoghlan at gmail.com> wrote:
+> On Thu, Aug 5, 2010 at 12:41 AM, Jack Diederich <jackdied at gmail.com> wrote:
+>> On Sun, Aug 1, 2010 at 10:56 AM, Alexander Belopolsky
+>> <alexander.belopolsky at gmail.com> wrote:
+>>> On Sun, Aug 1, 2010 at 10:27 AM, Jesus Cea <jcea at jcea.es> wrote:
+>>> ..
+>>>> Good luck (and justice!) with your (both) thesis. Uhmmm, what is the
+>>>> plural for thesis, in english?. In Spanish it is the same word, changing
+>>>> the prefix article: "la tesis"/"las tesis" :).
+>>>
+>>> "theses" ?- isn't English fun?
+>>
+>> I blame Greek.
+>
+> And Latin, and Germanic... and, well, pretty much every other language
+> English speakers and their ancestors have ever encountered ;)
+>
+> I have a T-shirt which says "English doesn't borrow from other
+> languages. It follows them down dark alleys, knocks them down and goes
+> through their pockets for loose grammar". It's funny because it's true
+> :)
+
+LOL.
+
+> Cheers,
+> Nick.
+>
+> P.S. Other languages may be just as indiscriminate in their evolution,
+> but English is the only one I know sufficiently well to comment on the
+> way it evolves over time.
+
+I think all languages borrow from other languages -- it's natural as
+people travel and cultures commingle. In the current times, most
+languages borrow constantly from English. In 30 years maybe we'll all
+be borrowing from Chinese...
+
+ObPython: Python has borrowed from many other programming languages;
+early on, C was a dominant influence. Nowadays Java seems to be.
+Python is also influencing other languages (e.g. Ruby, Scala,
+JavaScript). Long live cultural diversity!
+
+-- 
+--Guido van Rossum (python.org/~guido)
+
+From barry at python.org  Fri Aug 13 21:29:14 2010
+From: barry at python.org (Barry Warsaw)
+Date: Fri, 13 Aug 2010 15:29:14 -0400
+Subject: [python-committers] Python 2.6.6 status
+Message-ID: <20100813152914.424083c7@heresy>
+
+Hi folks,
+
+I'm liking where we're at for Python 2.6.6.  We have no release blocker issues
+open, and the buildbots look about as green as they get.  I've accounted for
+all the commits since 2.6.6rc1 and I think barring any last minute issues,
+that we're on schedule for 2.6.6 final for this Monday, August 16.
+
+Please, no commits to release26-maint without checking with me first (svnmerge
+blocks are okay).  I plan to tag the release at approximately 2200 UTC Monday
+so that Martin can build the Windows binaries first thing on Tuesday and I can
+announce the release Tuesday afternoon EST.
+
+I'll be hanging out on #python-dev as much as possible over the weekend in
+case anything crops up.
+
+Thanks to everybody who has helped get 2.6.6 to such an awesome state.
+
+-Barry
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 836 bytes
+Desc: not available
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20100813/686a6f7b/attachment.pgp>
+
+From jnoller at gmail.com  Mon Aug 16 19:22:25 2010
+From: jnoller at gmail.com (Jesse Noller)
+Date: Mon, 16 Aug 2010 13:22:25 -0400
+Subject: [python-committers] Commit Privileges for Ask Solem
+Message-ID: <AANLkTi=MTjrGwMZe57zS6GJPinOp7=KabUZgXeXkmSUm@mail.gmail.com>
+
+Does anyone have an issue with me requesting commit privs for Ask
+Solem to help me with the multiprocessing module? He's the author of
+the celery package (http://celeryproject.org/) and one of the biggest
+multiprocessing users I know of. He's also submitted several patches,
+and I consult with him on bigger changes.
+
+As it stands, I've not had the time I need or want to dedicate to
+focusing on fixes, therefore I feel it would be beneficial to pull in
+a second person to help distribute the load. I would of course mentor
+him, and coordinate with him for the foreseeable future.
+
+jesse
+
+From martin at v.loewis.de  Mon Aug 16 22:44:13 2010
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Mon, 16 Aug 2010 22:44:13 +0200
+Subject: [python-committers] Commit Privileges for Ask Solem
+In-Reply-To: <AANLkTi=MTjrGwMZe57zS6GJPinOp7=KabUZgXeXkmSUm@mail.gmail.com>
+References: <AANLkTi=MTjrGwMZe57zS6GJPinOp7=KabUZgXeXkmSUm@mail.gmail.com>
+Message-ID: <4C69A31D.4020307@v.loewis.de>
+
+Am 16.08.2010 19:22, schrieb Jesse Noller:
+> Does anyone have an issue with me requesting commit privs for Ask
+> Solem to help me with the multiprocessing module? He's the author of
+> the celery package (http://celeryproject.org/) and one of the biggest
+> multiprocessing users I know of. He's also submitted several patches,
+> and I consult with him on bigger changes.
+
+I've never heard of him before, so I'd be skeptical giving him blanket
+write privileges.
+
+However, if he restricts himself to multiprocessing, I have no concerns.
+Just make sure he understands what commit policies we have on what
+branches (dead: <=2.4, 3.0, security-only: 2.5, 2.6, bug fixes only:
+2.7, 3.1, new features: 3k)
+
+Unless somebody disagrees, please have him sent me his SSH key, and
+apply for python-committers.
+
+Regards,
+Martin
+
+From jnoller at gmail.com  Mon Aug 16 22:49:42 2010
+From: jnoller at gmail.com (Jesse Noller)
+Date: Mon, 16 Aug 2010 16:49:42 -0400
+Subject: [python-committers] Commit Privileges for Ask Solem
+In-Reply-To: <4C69A31D.4020307@v.loewis.de>
+References: <AANLkTi=MTjrGwMZe57zS6GJPinOp7=KabUZgXeXkmSUm@mail.gmail.com>
+	<4C69A31D.4020307@v.loewis.de>
+Message-ID: <AANLkTi=ZyB_oLFMPeDdDxnKsRiQL9pNp6noFp2=x87Yw@mail.gmail.com>
+
+On Mon, Aug 16, 2010 at 4:44 PM, "Martin v. L?wis" <martin at v.loewis.de> wrote:
+> Am 16.08.2010 19:22, schrieb Jesse Noller:
+>> Does anyone have an issue with me requesting commit privs for Ask
+>> Solem to help me with the multiprocessing module? He's the author of
+>> the celery package (http://celeryproject.org/) and one of the biggest
+>> multiprocessing users I know of. He's also submitted several patches,
+>> and I consult with him on bigger changes.
+>
+> I've never heard of him before, so I'd be skeptical giving him blanket
+> write privileges.
+>
+> However, if he restricts himself to multiprocessing, I have no concerns.
+> Just make sure he understands what commit policies we have on what
+> branches (dead: <=2.4, 3.0, security-only: 2.5, 2.6, bug fixes only:
+> 2.7, 3.1, new features: 3k)
+>
+
+I completely agree, and that was my plan!
+
+> Unless somebody disagrees, please have him sent me his SSH key, and
+> apply for python-committers.
+
+No one has spoken up yet; I will having him ping you if no one has
+spoken out within 24 hours.
+
+jesse
+
+From merwok at netwok.org  Mon Aug 16 23:41:52 2010
+From: merwok at netwok.org (=?UTF-8?B?w4lyaWMgQXJhdWpv?=)
+Date: Mon, 16 Aug 2010 23:41:52 +0200
+Subject: [python-committers] Commit Privileges for Ask Solem
+In-Reply-To: <4C69A31D.4020307@v.loewis.de>
+References: <AANLkTi=MTjrGwMZe57zS6GJPinOp7=KabUZgXeXkmSUm@mail.gmail.com>
+	<4C69A31D.4020307@v.loewis.de>
+Message-ID: <4C69B0A0.60309@netwok.org>
+
+> Just make sure he understands what commit policies we have on what
+> branches (dead: <=2.4, 3.0, security-only: 2.5, 2.6, bug fixes only:
+> 2.7, 3.1, new features: 3k)
+
+I thought 2.5 was dead and 2.6 only got security fixes (and doc
+changes), now that 2.7 is stable. Am I actually mistaken?
+
+Regards
+
+
+From barry at python.org  Tue Aug 17 00:10:26 2010
+From: barry at python.org (Barry Warsaw)
+Date: Mon, 16 Aug 2010 18:10:26 -0400
+Subject: [python-committers] 2.6.6 rc 2
+Message-ID: <20100816181026.73d973d1@heresy>
+
+No commits please.  Time to tag 2.6.6rc2.
+
+-Barry
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 836 bytes
+Desc: not available
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20100816/5c2b879d/attachment.pgp>
+
+From merwok at netwok.org  Mon Aug 16 23:59:10 2010
+From: merwok at netwok.org (=?UTF-8?B?w4lyaWMgQXJhdWpv?=)
+Date: Mon, 16 Aug 2010 23:59:10 +0200
+Subject: [python-committers] Commit Privileges for Ask Solem
+In-Reply-To: <4C69B0A0.60309@netwok.org>
+References: <AANLkTi=MTjrGwMZe57zS6GJPinOp7=KabUZgXeXkmSUm@mail.gmail.com>	<4C69A31D.4020307@v.loewis.de>
+	<4C69B0A0.60309@netwok.org>
+Message-ID: <4C69B4AE.900@netwok.org>
+
+>> Just make sure he understands what commit policies we have on what
+>> branches (dead: <=2.4, 3.0, security-only: 2.5, 2.6, bug fixes only:
+>> 2.7, 3.1, new features: 3k)
+
+Barry confirmed on IRC with this clarification (thanks):
+
+- a stable version does not go into security mode as soon as the new
+stable is out, only some time after, when the last bugfix (i.e. micro)
+release is made;
+
+- an old stable version gets security fixes for five years, even if
+there is another old stable version before this term.
+
+Regards
+
+
+From barry at python.org  Tue Aug 17 01:03:05 2010
+From: barry at python.org (Barry Warsaw)
+Date: Mon, 16 Aug 2010 19:03:05 -0400
+Subject: [python-committers] Fw: [Python-checkins] r84119 -
+	python/tags/r266rc2
+Message-ID: <20100816190305.3645646e@heresy>
+
+Hi Martin, this is the tag to use to build 2.6.6rc2.
+
+Begin forwarded message:
+
+Date: Tue, 17 Aug 2010 00:58:42 +0200 (CEST)
+From: barry.warsaw <python-checkins at python.org>
+To: python-checkins at python.org
+Subject: [Python-checkins] r84119 - python/tags/r266rc2
+
+
+Author: barry.warsaw
+Date: Tue Aug 17 00:58:41 2010
+New Revision: 84119
+
+Log:
+(Re-)tagging 2.6.6rc2.
+
+
+Added:
+   python/tags/r266rc2/
+      - copied from r84118, /python/branches/release26-maint/
+_______________________________________________
+Python-checkins mailing list
+Python-checkins at python.org
+http://mail.python.org/mailman/listinfo/python-checkins
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 836 bytes
+Desc: not available
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20100816/63178b40/attachment-0001.pgp>
+
+From barry at python.org  Tue Aug 17 01:45:54 2010
+From: barry at python.org (Barry Warsaw)
+Date: Mon, 16 Aug 2010 19:45:54 -0400
+Subject: [python-committers] 2.6.6rc2 tagged
+Message-ID: <20100816194554.177fc6c4@heresy>
+
+Python 2.6.6rc2 is tagged and uploaded (source tarballs).  The website's been
+twiddled.  Martin will update with Windows information tomorrow.  I'll then
+send out the wider announcement.
+
+You are going to have to make a very generous FLUFLy offering to commit
+anything new into release26-maint now. :)
+
+-Barry
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 836 bytes
+Desc: not available
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20100816/b6c1d31d/attachment.pgp>
+
+From barry at python.org  Tue Aug 24 00:38:23 2010
+From: barry at python.org (Barry Warsaw)
+Date: Mon, 23 Aug 2010 18:38:23 -0400
+Subject: [python-committers] tagging 2.6.6
+Message-ID: <20100823183823.0bd4447d@heresy>
+
+I will be tagging the 2.6.6 final release in a little while.  I'm sure I don't
+need to say it, but please no commits to release26-maint until further
+notice.  I am on #python-dev for any last minute questions or problems.
+
+-Barry
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 836 bytes
+Desc: not available
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20100823/7cf2e896/attachment.pgp>
+
+From barry at python.org  Tue Aug 24 01:46:08 2010
+From: barry at python.org (Barry Warsaw)
+Date: Mon, 23 Aug 2010 19:46:08 -0400
+Subject: [python-committers] Fw: [Python-checkins] r84293 - python/tags/r266
+Message-ID: <20100823194608.1264a0d5@heresy>
+
+Martin, do your thing!
+-Barry
+
+Begin forwarded message:
+
+Date: Tue, 24 Aug 2010 01:41:00 +0200 (CEST)
+From: barry.warsaw <python-checkins at python.org>
+To: python-checkins at python.org
+Subject: [Python-checkins] r84293 - python/tags/r266
+
+
+Author: barry.warsaw
+Date: Tue Aug 24 01:41:00 2010
+New Revision: 84293
+
+Log:
+Tagging 2.6.6 final.
+
+
+Added:
+   python/tags/r266/
+      - copied from r84292, /python/branches/release26-maint/
+_______________________________________________
+Python-checkins mailing list
+Python-checkins at python.org
+http://mail.python.org/mailman/listinfo/python-checkins
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 836 bytes
+Desc: not available
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20100823/b4aaf41b/attachment.pgp>
+
+From barry at python.org  Tue Aug 24 21:11:43 2010
+From: barry at python.org (Barry Warsaw)
+Date: Tue, 24 Aug 2010 15:11:43 -0400
+Subject: [python-committers] Python 2.6
+Message-ID: <20100824151143.3ff258ef@heresy>
+
+Hi everyone,
+
+The Python 2.6.6 announcement is going out in a few minutes.  First, thanks to
+*everyone* who helped make this a great release.
+
+Second, this is just a reminder that Python 2.6 is now in security-fix-only
+mode.  There will not be another maintenance release, so please, while the
+tree is thawed, only security critical patches to release26-maint are
+allowed[1].  If in doubt, contact me on irc and use the bug tracker (make it a
+release blocker issue as usual).  You can also discuss the issue on
+security at python.org if you need a more private forum.
+
+From now on Python 2.6 will be released source-only.
+
+Thanks again!
+-Barry
+
+[1] svnmerge blocks are of course still allowed, as are Martin's Windows
+bookkeeping updates.
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 836 bytes
+Desc: not available
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20100824/b3f5fa97/attachment.pgp>
+
+From jnoller at gmail.com  Fri Aug 27 15:28:26 2010
+From: jnoller at gmail.com (Jesse Noller)
+Date: Fri, 27 Aug 2010 09:28:26 -0400
+Subject: [python-committers] Bump up tracker privs for asksol
+Message-ID: <AANLkTikmk_+mAoFQV_W8G9pncujSWZ1M+NauVo7Xm0Mt@mail.gmail.com>
+
+Can someone with the power make sure Ask (asksol) has dev-level privs
+on the tracker?
+
+From martin at v.loewis.de  Fri Aug 27 16:13:11 2010
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Fri, 27 Aug 2010 16:13:11 +0200
+Subject: [python-committers] Bump up tracker privs for asksol
+In-Reply-To: <AANLkTikmk_+mAoFQV_W8G9pncujSWZ1M+NauVo7Xm0Mt@mail.gmail.com>
+References: <AANLkTikmk_+mAoFQV_W8G9pncujSWZ1M+NauVo7Xm0Mt@mail.gmail.com>
+Message-ID: <4C77C7F7.9050806@v.loewis.de>
+
+Am 27.08.2010 15:28, schrieb Jesse Noller:
+> Can someone with the power make sure Ask (asksol) has dev-level privs
+> on the tracker?
+
+Benjamin took care of that.
+
+Regards,
+Martin
+
+From jnoller at gmail.com  Fri Aug 27 16:33:04 2010
+From: jnoller at gmail.com (Jesse Noller)
+Date: Fri, 27 Aug 2010 10:33:04 -0400
+Subject: [python-committers] Bump up tracker privs for asksol
+In-Reply-To: <4C77C7F7.9050806@v.loewis.de>
+References: <AANLkTikmk_+mAoFQV_W8G9pncujSWZ1M+NauVo7Xm0Mt@mail.gmail.com>
+	<4C77C7F7.9050806@v.loewis.de>
+Message-ID: <AANLkTinOGyBniq8qMYZT6fhoSM4000CO4+DiWCnDu8nq@mail.gmail.com>
+
+On Fri, Aug 27, 2010 at 10:13 AM, "Martin v. L?wis" <martin at v.loewis.de> wrote:
+> Am 27.08.2010 15:28, schrieb Jesse Noller:
+>> Can someone with the power make sure Ask (asksol) has dev-level privs
+>> on the tracker?
+>
+> Benjamin took care of that.
+>
+> Regards,
+> Martin
+>
+
+Thank you!
+

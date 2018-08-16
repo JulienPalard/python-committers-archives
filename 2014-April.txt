@@ -1,0 +1,499 @@
+From eric at trueblade.com  Tue Apr 15 13:36:43 2014
+From: eric at trueblade.com (Eric V. Smith)
+Date: Tue, 15 Apr 2014 07:36:43 -0400
+Subject: [python-committers] Fwd: CPython repository - changeset not merged
+	into default from 3.4?
+References: <1397557751.91035.YahooMailNeo@web172402.mail.ir2.yahoo.com>
+Message-ID: <B1A8B18A-7B0A-4CDC-9F9B-CFAE5E8E6319@trueblade.com>
+
+I responded to Vinay, but I haven't heard back. I'm forwarding here in case someone else is impacted. 
+
+I meant to make this change on the default branch only, but I accidentally made it on 3.4. If someone could revert it for me, I'd appreciate it. I'm away from a computer all day. I'll fix it when I get back. 
+
+--
+Eric.
+
+Begin forwarded message:
+
+> From: Vinay Sajip <vinay_sajip at yahoo.co.uk>
+> Date: April 15, 2014 at 6:29:11 AM EDT
+> To: Eric Smith <eric at trueblade.com>
+> Subject: CPython repository - changeset not merged into default from 3.4?
+> Reply-To: Vinay Sajip <vinay_sajip at yahoo.co.uk>
+> 
+> Hi Eric,
+> 
+> I made some changes in the Python 3.4 branch which I want to merge into default. I noticed that you made some changes in 3.4 in changeset 16efa8d27e4c which don't appear in default - is this intentional? Your changes are lumped in with mine when I try to merge :-(
+> 
+> Regards,
+> 
+> Vinay Sajip
+> 
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20140415/f9e33cc8/attachment.html>
+
+From senthil at uthcode.com  Tue Apr 15 16:23:08 2014
+From: senthil at uthcode.com (Senthil Kumaran)
+Date: Tue, 15 Apr 2014 10:23:08 -0400
+Subject: [python-committers] Fwd: CPython repository - changeset not
+ merged into default from 3.4?
+In-Reply-To: <B1A8B18A-7B0A-4CDC-9F9B-CFAE5E8E6319@trueblade.com>
+References: <1397557751.91035.YahooMailNeo@web172402.mail.ir2.yahoo.com>
+ <B1A8B18A-7B0A-4CDC-9F9B-CFAE5E8E6319@trueblade.com>
+Message-ID: <CAPOVWOSUfmGvQ_vfUYWv7Md=+kcyJbji8yr1L8Ew8JNK7oHNpg@mail.gmail.com>
+
+Looks like this has been done
+http://hg.python.org/cpython/rev/4c65f8641d89
+http://hg.python.org/cpython/rev/2d33cbf02522
+
+The graph looks OK to me.
+http://hg.python.org/cpython/graph
+
+
+
+On Tue, Apr 15, 2014 at 7:36 AM, Eric V. Smith <eric at trueblade.com> wrote:
+
+> I responded to Vinay, but I haven't heard back. I'm forwarding here in
+> case someone else is impacted.
+>
+> I meant to make this change on the default branch only, but I accidentally
+> made it on 3.4. If someone could revert it for me, I'd appreciate it. I'm
+> away from a computer all day. I'll fix it when I get back.
+>
+> --
+> Eric.
+>
+> Begin forwarded message:
+>
+> *From:* Vinay Sajip <vinay_sajip at yahoo.co.uk>
+> *Date:* April 15, 2014 at 6:29:11 AM EDT
+> *To:* Eric Smith <eric at trueblade.com>
+> *Subject:* *CPython repository - changeset not merged into default from
+> 3.4?*
+> *Reply-To:* Vinay Sajip <vinay_sajip at yahoo.co.uk>
+>
+> Hi Eric,
+>
+> I made some changes in the Python 3.4 branch which I want to merge into
+> default. I noticed that you made some changes in 3.4 in changeset
+> 16efa8d27e4c which don't appear in default - is this intentional? Your
+> changes are lumped in with mine when I try to merge :-(
+>
+> Regards,
+>
+> Vinay Sajip
+>
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+>
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20140415/514666f9/attachment.html>
+
+From rdmurray at bitdance.com  Wed Apr 16 02:55:39 2014
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Tue, 15 Apr 2014 20:55:39 -0400
+Subject: [python-committers] Small change to tracker 'resolution'
+Message-ID: <20140416005540.0B0CA250D36@webabinitio.net>
+
+In a discussion at the sprints today Nick observed that 'invalid' was a
+resolution that carried a rather negative subtext ("your bug report was
+invalid", ie: "you made a mistake") , and that Red Hat used 'not a bug',
+which we all agreed was much more descriptive of the actual resolution.
+
+So, I've changed the text associated with the 'invalid' resolution
+to read 'not a bug' instead.
+
+--David
+
+From ethan at stoneleaf.us  Wed Apr 16 03:45:26 2014
+From: ethan at stoneleaf.us (Ethan Furman)
+Date: Tue, 15 Apr 2014 18:45:26 -0700
+Subject: [python-committers] Small change to tracker 'resolution'
+In-Reply-To: <20140416005540.0B0CA250D36@webabinitio.net>
+References: <20140416005540.0B0CA250D36@webabinitio.net>
+Message-ID: <534DE0B6.2010402@stoneleaf.us>
+
+On 04/15/2014 05:55 PM, R. David Murray wrote:
+>
+> [...] I've changed the text associated with the 'invalid' resolution
+> to read 'not a bug' [...]
+
+Nice.
+
+Any chance of changing the 'committed/rejected' text to something else?  :)
+
+--
+~Ethan~
+
+
+From senthil at uthcode.com  Wed Apr 16 04:37:00 2014
+From: senthil at uthcode.com (Senthil Kumaran)
+Date: Tue, 15 Apr 2014 22:37:00 -0400
+Subject: [python-committers] Small change to tracker 'resolution'
+In-Reply-To: <534DE0B6.2010402@stoneleaf.us>
+References: <20140416005540.0B0CA250D36@webabinitio.net>
+ <534DE0B6.2010402@stoneleaf.us>
+Message-ID: <CAPOVWOSZH4YeJjA_GxrexM5DYx0by+i9A39mdTerS-EO6-1dNA@mail.gmail.com>
+
+On Tue, Apr 15, 2014 at 9:45 PM, Ethan Furman <ethan at stoneleaf.us> wrote:
+
+> Any chance of changing the 'committed/rejected' text to something else?  :)
+>
+
+Good that you brought this up. It always feels confusing to me.
+
+My suggestion is: Let's have committed for stuff that is committed
+
+Not committed for stuff that is not a bug.
+
+:-)
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20140415/eccf7f27/attachment.html>
+
+From ncoghlan at gmail.com  Wed Apr 16 04:48:12 2014
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Tue, 15 Apr 2014 22:48:12 -0400
+Subject: [python-committers] Small change to tracker 'resolution'
+In-Reply-To: <CAPOVWOSZH4YeJjA_GxrexM5DYx0by+i9A39mdTerS-EO6-1dNA@mail.gmail.com>
+References: <20140416005540.0B0CA250D36@webabinitio.net>
+ <534DE0B6.2010402@stoneleaf.us>
+ <CAPOVWOSZH4YeJjA_GxrexM5DYx0by+i9A39mdTerS-EO6-1dNA@mail.gmail.com>
+Message-ID: <CADiSq7cnzxBTqsmC9=E3Zn_k68Y6HGVigrViGkwK1wQAcLtkww@mail.gmail.com>
+
+On 15 Apr 2014 22:37, "Senthil Kumaran" <senthil at uthcode.com> wrote:
+>
+>
+> On Tue, Apr 15, 2014 at 9:45 PM, Ethan Furman <ethan at stoneleaf.us> wrote:
+>>
+>> Any chance of changing the 'committed/rejected' text to something else?
+ :)
+>
+>
+> Good that you brought this up. It always feels confusing to me.
+>
+> My suggestion is: Let's have committed for stuff that is committed
+>
+> Not committed for stuff that is not a bug.
+
+Brett & David are working on a more general review of the tracker
+experience. This was just a quick & easy change to get things started :)
+
+Cheers,
+Nick.
+
+>
+> :-)
+>
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20140415/7e798638/attachment-0001.html>
+
+From tjreedy at udel.edu  Wed Apr 16 05:19:14 2014
+From: tjreedy at udel.edu (Terry Reedy)
+Date: Tue, 15 Apr 2014 23:19:14 -0400
+Subject: [python-committers] Small change to tracker 'resolution'
+In-Reply-To: <20140416005540.0B0CA250D36@webabinitio.net>
+References: <20140416005540.0B0CA250D36@webabinitio.net>
+Message-ID: <534DF6B2.8030003@udel.edu>
+
+On 4/15/2014 8:55 PM, R. David Murray wrote:
+> In a discussion at the sprints today Nick observed that 'invalid' was a
+> resolution that carried a rather negative subtext ("your bug report was
+> invalid", ie: "you made a mistake") , and that Red Hat used 'not a bug',
+> which we all agreed was much more descriptive of the actual resolution.
+>
+> So, I've changed the text associated with the 'invalid' resolution
+> to read 'not a bug' instead.
+
+Thank you. I have usually looked for something else to use ;-).
+
+
+From tjreedy at udel.edu  Wed Apr 16 05:21:41 2014
+From: tjreedy at udel.edu (Terry Reedy)
+Date: Tue, 15 Apr 2014 23:21:41 -0400
+Subject: [python-committers] Small change to tracker 'resolution'
+In-Reply-To: <534DE0B6.2010402@stoneleaf.us>
+References: <20140416005540.0B0CA250D36@webabinitio.net>
+ <534DE0B6.2010402@stoneleaf.us>
+Message-ID: <534DF745.9000206@udel.edu>
+
+On 4/15/2014 9:45 PM, Ethan Furman wrote:
+> On 04/15/2014 05:55 PM, R. David Murray wrote:
+>>
+>> [...] I've changed the text associated with the 'invalid' resolution
+>> to read 'not a bug' [...]
+>
+> Nice.
+>
+> Any chance of changing the 'committed/rejected' text to something else?  :)
+
+Like 'finished'? 'completd'? 'done'? or even 'closed'?
+
+
+From rdmurray at bitdance.com  Wed Apr 16 16:53:53 2014
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Wed, 16 Apr 2014 10:53:53 -0400
+Subject: [python-committers] Small change to tracker 'resolution'
+In-Reply-To: <534DF745.9000206@udel.edu>
+References: <20140416005540.0B0CA250D36@webabinitio.net>
+ <534DE0B6.2010402@stoneleaf.us> <534DF745.9000206@udel.edu>
+Message-ID: <20140416145354.5B34A250D3A@webabinitio.net>
+
+On Tue, 15 Apr 2014 23:21:41 -0400, Terry Reedy <tjreedy at udel.edu> wrote:
+> On 4/15/2014 9:45 PM, Ethan Furman wrote:
+> > On 04/15/2014 05:55 PM, R. David Murray wrote:
+> >>
+> >> [...] I've changed the text associated with the 'invalid' resolution
+> >> to read 'not a bug' [...]
+> >
+> > Nice.
+> >
+> > Any chance of changing the 'committed/rejected' text to something else?  :)
+> 
+> Like 'finished'? 'completd'? 'done'? or even 'closed'?
+
+Yes, dealing with committed/rejected, and indeed the whole stage/status
+workflow, is on the list to be addressed.
+
+It is very redundant to have to set both 'closed' and
+'committed/rejected', so one suggestion, that we could implement right
+away, would be to simply delete that option, and then status gets left
+at 'commit review' when the bug is closed.  (Or if you don't like that
+you could put it back to unset.)  Later I think we may want to merge
+status and stage, but we'll consider that as a part of a bigger review
+of the workflow.
+
+--David
+
+From rdmurray at bitdance.com  Wed Apr 16 22:49:16 2014
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Wed, 16 Apr 2014 16:49:16 -0400
+Subject: [python-committers] New mailing list for workflow/workflow
+	infrastructure discussion/tasks
+Message-ID: <20140416204917.82BE8250D09@webabinitio.net>
+
+Apologies for the cross post, but I want to make sure committers who
+aren't reading python-dev for one reason or another see this:
+
+Based on a number of conversations at PyCon, we've created a new mailing list:
+
+   https://mail.python.org/mailman/listinfo/core-workflow 
+
+The purpose of this list is to facilitate the conversations and coordinate
+the work that needs to happen to improve our development workflow.
+Nick's PEP is one piece of this conversation, but there are many other
+aspects to it as well.
+
+Here is the list description:
+
+    This is a place to discuss and work on improvements to the CPython core
+    development workflow and the infrastructure that supports that workflow.
+    This includes changes to the roundup interface and functionality, rietveld,
+    mercurial, buildbots, and any other infrastructure we may add.  It also
+    includes discussing how we use these tools, and most importantly how we use
+    these tools to integrate the community beyond the core developers into the
+    workflow that gets patches committed to the python repository.  This means
+    that it also includes discussions of the process of bringing in new
+    contributors, including how we use the core-mentorship list, as well as how
+    we organize ticket triage, and how we make use of external resources such
+    as openhatch.  Discussions of documentation and how we organize and
+    maintain the documentation are also appropriate.
+
+Anyone who is interested helping with this, or who wants to keep up with the
+evolution of our thoughts on these topics, are invited to sign up to the
+mailing list.
+
+We will of course check in with python-dev and/or python-committers
+as appropriate.
+
+--David
+
+
+From tjreedy at udel.edu  Thu Apr 17 00:02:31 2014
+From: tjreedy at udel.edu (Terry Reedy)
+Date: Wed, 16 Apr 2014 18:02:31 -0400
+Subject: [python-committers] New mailing list for workflow/workflow
+ infrastructure discussion/tasks
+In-Reply-To: <20140416204917.82BE8250D09@webabinitio.net>
+References: <20140416204917.82BE8250D09@webabinitio.net>
+Message-ID: <534EFDF7.5050500@udel.edu>
+
+On 4/16/2014 4:49 PM, R. David Murray wrote:
+> Apologies for the cross post, but I want to make sure committers who
+> aren't reading python-dev for one reason or another see this:
+>
+> Based on a number of conversations at PyCon, we've created a new mailing list:
+>
+>     https://mail.python.org/mailman/listinfo/core-workflow
+
+Will it be a public list, accessible via gmane, or subcription-only?
+
+
+From rdmurray at bitdance.com  Thu Apr 17 03:07:40 2014
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Wed, 16 Apr 2014 21:07:40 -0400
+Subject: [python-committers] New mailing list for workflow/workflow
+	infrastructure discussion/tasks
+In-Reply-To: <534EFDF7.5050500@udel.edu>
+References: <20140416204917.82BE8250D09@webabinitio.net>
+ <534EFDF7.5050500@udel.edu>
+Message-ID: <20140417010741.491F2250D09@webabinitio.net>
+
+On Wed, 16 Apr 2014 18:02:31 -0400, Terry Reedy <tjreedy at udel.edu> wrote:
+> On 4/16/2014 4:49 PM, R. David Murray wrote:
+> > Apologies for the cross post, but I want to make sure committers who
+> > aren't reading python-dev for one reason or another see this:
+> >
+> > Based on a number of conversations at PyCon, we've created a new mailing list:
+> >
+> >     https://mail.python.org/mailman/listinfo/core-workflow
+> 
+> Will it be a public list, accessible via gmane, or subcription-only?
+
+Public.  Ned has already submitted a request to get it added to gmane.
+
+--David
+
+From ncoghlan at gmail.com  Thu Apr 17 08:36:06 2014
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Thu, 17 Apr 2014 02:36:06 -0400
+Subject: [python-committers] New mailing list for workflow/workflow
+ infrastructure discussion/tasks
+In-Reply-To: <20140417010741.491F2250D09@webabinitio.net>
+References: <20140416204917.82BE8250D09@webabinitio.net>
+ <534EFDF7.5050500@udel.edu>
+ <20140417010741.491F2250D09@webabinitio.net>
+Message-ID: <CADiSq7cpSc5wR8dhU8=f6e=HXbqFxFbbjR_-n8-7a2+fmQHfaw@mail.gmail.com>
+
+On 16 Apr 2014 21:07, "R. David Murray" <rdmurray at bitdance.com> wrote:
+>
+> On Wed, 16 Apr 2014 18:02:31 -0400, Terry Reedy <tjreedy at udel.edu> wrote:
+> > On 4/16/2014 4:49 PM, R. David Murray wrote:
+> > > Apologies for the cross post, but I want to make sure committers who
+> > > aren't reading python-dev for one reason or another see this:
+> > >
+> > > Based on a number of conversations at PyCon, we've created a new
+mailing list:
+> > >
+> > >     https://mail.python.org/mailman/listinfo/core-workflow
+> >
+> > Will it be a public list, accessible via gmane, or subcription-only?
+>
+> Public.  Ned has already submitted a request to get it added to gmane.
+
+Note that the reason for the new list is that we expect it to be a home for
+lots of nitty gritty details related to getting the various tools to play
+nicely together, and expect most folks will find that uninteresting. With a
+new list, python-dev and python-committers threads can focus on planned
+large scale user experience changes, leaving minor tweaks and mechanics for
+the new list. Similarly, the existing infrastructure list can focus more on
+general hosting and sustainability issues, rather than the specifics of the
+workflow tools.
+
+The other advantage is that at least one of the Mercurial devs is planning
+to join the new list to help us work out improved Mercurial usage
+guidelines for both external contributors and core developers. Our current
+recommendations are still largely based on Mercurial as it existed at the
+time of the transition from svn, and things have moved on significantly
+since then.
+
+The final thing the new list will hopefully provide is a better way for
+folks to contribute when they would like to help with core development, but
+find software lifecycles measured in years and decades unbearably slow, and
+aren't particularly excited by the idea of working on the documentation.
+
+Cheers,
+Nick.
+
+>
+> --David
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20140417/cdb267ef/attachment.html>
+
+From rdmurray at bitdance.com  Sat Apr 19 04:31:52 2014
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Fri, 18 Apr 2014 22:31:52 -0400
+Subject: [python-committers] Small change to tracker 'resolution'
+In-Reply-To: <20140416145354.5B34A250D3A@webabinitio.net>
+References: <20140416005540.0B0CA250D36@webabinitio.net>
+ <534DE0B6.2010402@stoneleaf.us> <534DF745.9000206@udel.edu>
+ <20140416145354.5B34A250D3A@webabinitio.net>
+Message-ID: <20140419023152.A07FF250D34@webabinitio.net>
+
+On Wed, 16 Apr 2014 10:53:53 -0400, "R. David Murray" <rdmurray at bitdance.com> wrote:
+> On Tue, 15 Apr 2014 23:21:41 -0400, Terry Reedy <tjreedy at udel.edu> wrote:
+> > On 4/15/2014 9:45 PM, Ethan Furman wrote:
+> > > On 04/15/2014 05:55 PM, R. David Murray wrote:
+> > >>
+> > >> [...] I've changed the text associated with the 'invalid' resolution
+> > >> to read 'not a bug' [...]
+> > >
+> > > Nice.
+> > >
+> > > Any chance of changing the 'committed/rejected' text to something else?  :)
+> > 
+> > Like 'finished'? 'completd'? 'done'? or even 'closed'?
+> 
+> Yes, dealing with committed/rejected, and indeed the whole stage/status
+> workflow, is on the list to be addressed.
+
+As an immediate improvement (pending further work) I've changed
+the label from 'committed/rejected' to 'resolved'.
+
+--David
+
+From ethan at stoneleaf.us  Sat Apr 19 04:42:39 2014
+From: ethan at stoneleaf.us (Ethan Furman)
+Date: Fri, 18 Apr 2014 19:42:39 -0700
+Subject: [python-committers] Small change to tracker 'resolution'
+In-Reply-To: <20140419023152.A07FF250D34@webabinitio.net>
+References: <20140416005540.0B0CA250D36@webabinitio.net>
+ <534DE0B6.2010402@stoneleaf.us> <534DF745.9000206@udel.edu>
+ <20140416145354.5B34A250D3A@webabinitio.net>
+ <20140419023152.A07FF250D34@webabinitio.net>
+Message-ID: <5351E29F.4000001@stoneleaf.us>
+
+On 04/18/2014 07:31 PM, R. David Murray wrote:
+> On Wed, 16 Apr 2014 10:53:53 -0400, "R. David Murray" <rdmurray at bitdance.com> wrote:
+>> On Tue, 15 Apr 2014 23:21:41 -0400, Terry Reedy <tjreedy at udel.edu> wrote:
+>>> On 4/15/2014 9:45 PM, Ethan Furman wrote:
+>>>> On 04/15/2014 05:55 PM, R. David Murray wrote:
+>>>>>
+>>>>> [...] I've changed the text associated with the 'invalid' resolution
+>>>>> to read 'not a bug' [...]
+>>>>
+>>>> Nice.
+>>>>
+>>>> Any chance of changing the 'committed/rejected' text to something else?  :)
+>>>
+>>> Like 'finished'? 'completd'? 'done'? or even 'closed'?
+>>
+>> Yes, dealing with committed/rejected, and indeed the whole stage/status
+>> workflow, is on the list to be addressed.
+>
+> As an immediate improvement (pending further work) I've changed
+> the label from 'committed/rejected' to 'resolved'.
+
+Many thanks!
+
+--
+~Ethan~
+

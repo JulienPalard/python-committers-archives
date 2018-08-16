@@ -1,0 +1,990 @@
+From benjamin at python.org  Sat Apr  4 23:03:03 2009
+From: benjamin at python.org (Benjamin Peterson)
+Date: Sat, 4 Apr 2009 16:03:03 -0500
+Subject: [python-committers] py3k frozen
+Message-ID: <1afaf6160904041403t665ac774pfec940ec2333c6f5@mail.gmail.com>
+
+I'm going to release 3.1a2 now. Please don't commit anything without
+my blessing. I'm on #python-dev on Freenode, and you can always email
+me.
+
+-- 
+Regards,
+Benjamin
+
+From benjamin at python.org  Sun Apr  5 01:17:47 2009
+From: benjamin at python.org (Benjamin Peterson)
+Date: Sat, 4 Apr 2009 18:17:47 -0500
+Subject: [python-committers] py3k now open
+Message-ID: <1afaf6160904041617j2c8064c6iad55f071c02da64@mail.gmail.com>
+
+Happy hacking on beta 1!
+
+-- 
+Regards,
+Benjamin
+
+From doko at debian.org  Mon Apr  6 00:33:03 2009
+From: doko at debian.org (Matthias Klose)
+Date: Mon, 06 Apr 2009 00:33:03 +0200
+Subject: [python-committers] Misc/NEWS entries added to released versions
+Message-ID: <49D9319F.1050506@debian.org>
+
+While looking at the diffs between the 261 release tags and the 26 branch, I
+noticed many items in Misc/NEWS appearing in the 2.6.1 or even 2.6 sections.
+I moved all of these to 2.6.2, after checking some of them, and found all of the
+checked ones be backported after the 2.6.1 release. Is there anything what could
+be done to avoid these wrong merges?
+
+I plan to check the items on the 3.0 branch soon.
+
+  Matthias
+
+From benjamin at python.org  Mon Apr  6 15:56:21 2009
+From: benjamin at python.org (Benjamin Peterson)
+Date: Mon, 6 Apr 2009 08:56:21 -0500
+Subject: [python-committers] Misc/NEWS entries added to released versions
+In-Reply-To: <49D9319F.1050506@debian.org>
+References: <49D9319F.1050506@debian.org>
+Message-ID: <1afaf6160904060656j321a3738m577399439650cd15@mail.gmail.com>
+
+2009/4/5 Matthias Klose <doko at debian.org>:
+> While looking at the diffs between the 261 release tags and the 26 branch, I
+> noticed many items in Misc/NEWS appearing in the 2.6.1 or even 2.6 sections.
+> I moved all of these to 2.6.2, after checking some of them, and found all of the
+> checked ones be backported after the 2.6.1 release. Is there anything what could
+> be done to avoid these wrong merges?
+
+Committers backporting things should be careful to make sure items get
+in the correct section.
+
+>
+> I plan to check the items on the 3.0 branch soon.
+
+Thanks!
+
+
+
+-- 
+Regards,
+Benjamin
+
+From barry at python.org  Mon Apr  6 16:01:35 2009
+From: barry at python.org (Barry Warsaw)
+Date: Mon, 6 Apr 2009 10:01:35 -0400
+Subject: [python-committers] Misc/NEWS entries added to released versions
+In-Reply-To: <49D9319F.1050506@debian.org>
+References: <49D9319F.1050506@debian.org>
+Message-ID: <F26500C7-DA05-43E3-8A31-056BE70DA174@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On Apr 5, 2009, at 6:33 PM, Matthias Klose wrote:
+
+> While looking at the diffs between the 261 release tags and the 26  
+> branch, I
+> noticed many items in Misc/NEWS appearing in the 2.6.1 or even 2.6  
+> sections.
+> I moved all of these to 2.6.2, after checking some of them, and  
+> found all of the
+> checked ones be backported after the 2.6.1 release. Is there  
+> anything what could
+> be done to avoid these wrong merges?
+
+Thanks for cleaning this up Matthias.  I'll have a look later today  
+when I create the 2.6.2c1 release.  I'm still planning to start that  
+at about 2200 UTC today.
+
+Barry
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQCVAwUBSdoLP3EjvBPtnXfVAQLzfgQAj+IWBhzfYgx/tllElP8yrElAkLqGFDrt
+O5qbhoQ/aDR51ktJuW19IZxMtQdAqPBDKwd0GVKzjZ6j2Qmt5Hh1a39EzcHev6WZ
+padVreZbM/FWDc10uqZWTsHBnJwI1KJeWuQM3RgrsHKT1njg22/fT4gEgdaYDnmv
+eViZRDL8Nl8=
+=z8yP
+-----END PGP SIGNATURE-----
+
+From barry at python.org  Tue Apr  7 03:46:20 2009
+From: barry at python.org (Barry Warsaw)
+Date: Mon, 6 Apr 2009 21:46:20 -0400
+Subject: [python-committers] Python 2.6.2 rc 1
+Message-ID: <58D1DE5C-EE35-4577-8601-EBC011D63B05@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Sorry for the delay, but I'm now about to build 2.6.2 rc 1.  Please,  
+no checkins to the 2.6 branch until further notice.  Ping me on irc if  
+necessary.
+
+Barry
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQCVAwUBSdqwbXEjvBPtnXfVAQJRGQQAtRJ4g2D+Gm6kCbGYOAT5wTe7Hz53GQbh
+XuBiKYO5eJOS9xwWGd2HdAixU3j5ZZBUw5RXTKVhXWuC7QGuwo78N86tdDsxVsu/
+iSHLdnAfxX1fAu9QBoO8k8p2pVXYFIVEXF6FmC6WrV+hxs+HLya+q2Qbrxh2D3UA
+b/GFNWSCt5A=
+=XxwC
+-----END PGP SIGNATURE-----
+
+From barry at python.org  Tue Apr  7 03:58:40 2009
+From: barry at python.org (Barry Warsaw)
+Date: Mon, 6 Apr 2009 21:58:40 -0400
+Subject: [python-committers] Fwd: [Python-checkins] r71346 -
+	python/tags/r262c1
+References: <20090407015435.BE3EA1E4021@bag.python.org>
+Message-ID: <864555E0-2955-4E3A-ADBF-82E28A974761@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+The release is tagged.  Martin, can you build the Windows installer?
+Barry
+
+Begin forwarded message:
+
+> From: barry.warsaw <python-checkins at python.org>
+> Date: April 6, 2009 9:54:35 PM EDT
+> To: python-checkins at python.org
+> Subject: [Python-checkins] r71346 - python/tags/r262c1
+> Message-Id: <20090407015435.BE3EA1E4021 at bag.python.org>
+>
+> Author: barry.warsaw
+> Date: Tue Apr  7 03:54:35 2009
+> New Revision: 71346
+>
+> Log:
+> Tag for 2.6.2 candidate 1
+>
+>
+> Added:
+>   python/tags/r262c1/
+>      - copied from r71345, /python/branches/release26-maint/
+> _______________________________________________
+> Python-checkins mailing list
+> Python-checkins at python.org
+> http://mail.python.org/mailman/listinfo/python-checkins
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQCVAwUBSdqzUnEjvBPtnXfVAQKELQP/crKTR6TzuE+S+f3LQwqzB4eQjyR+1YhC
+HV1QNdA3xzn28s846wUD8v+V18a2XGWOD+ZpqmT6UM4B0gk3bLIMvXfTHIJ/P0FD
+F2O/ASVjU71FfwODR13nYy6ndiUEwTv54P/UL894pSzlki+nlwJwCuPMOXIqVefS
+3OWt2FFjWyA=
+=MclH
+-----END PGP SIGNATURE-----
+
+From barry at python.org  Tue Apr  7 04:01:13 2009
+From: barry at python.org (Barry Warsaw)
+Date: Mon, 6 Apr 2009 22:01:13 -0400
+Subject: [python-committers] Fwd: [Python-checkins] r71346 -
+	python/tags/r262c1
+In-Reply-To: <864555E0-2955-4E3A-ADBF-82E28A974761@python.org>
+References: <20090407015435.BE3EA1E4021@bag.python.org>
+	<864555E0-2955-4E3A-ADBF-82E28A974761@python.org>
+Message-ID: <1F02C111-50AB-4F9C-9B4F-156654DD6C4A@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On Apr 6, 2009, at 9:58 PM, Barry Warsaw wrote:
+
+> The release is tagged.  Martin, can you build the Windows installer?
+
+The 2.6 branch is now open for commits.  Please, critical fixes only,  
+and check with me on irc before you check anything else in.  I'm still  
+planning on tagging 2.6.2 final on the 9th so that we can do the  
+release on Friday the 10th.
+
+Barry
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQCVAwUBSdqz6XEjvBPtnXfVAQKA6QP+Lw5Pukrxv1xED8SRHaVaohGtqYbU78yy
+ubK1prqDfe/cRccyrvID4+/5Z4E36vpnbDOWNRAFbBFVJniinHc8om3tkbQ1y/9b
+38qdRrAu4atFY8oPh5e2jFdhRmGu7v6ruPR652WGgehACMFL6pMSO1qzczL3d7Gm
+Qd+r/5Pivm8=
+=DmxX
+-----END PGP SIGNATURE-----
+
+From ocean-city at m2.ccsnet.ne.jp  Tue Apr  7 06:06:19 2009
+From: ocean-city at m2.ccsnet.ne.jp (Hirokazu Yamamoto)
+Date: Tue, 07 Apr 2009 13:06:19 +0900
+Subject: [python-committers] Fwd: [Python-checkins] r71346
+	-	python/tags/r262c1
+In-Reply-To: <1F02C111-50AB-4F9C-9B4F-156654DD6C4A@python.org>
+References: <20090407015435.BE3EA1E4021@bag.python.org>	<864555E0-2955-4E3A-ADBF-82E28A974761@python.org>
+	<1F02C111-50AB-4F9C-9B4F-156654DD6C4A@python.org>
+Message-ID: <49DAD13B.5080601@m2.ccsnet.ne.jp>
+
+
+Barry Warsaw wrote:
+> -----BEGIN PGP SIGNED MESSAGE-----
+> Hash: SHA1
+> 
+> On Apr 6, 2009, at 9:58 PM, Barry Warsaw wrote:
+> 
+>> The release is tagged.  Martin, can you build the Windows installer?
+> 
+> The 2.6 branch is now open for commits.  Please, critical fixes only, 
+> and check with me on irc before you check anything else in.  I'm still 
+> planning on tagging 2.6.2 final on the 9th so that we can do the release 
+> on Friday the 10th.
+> 
+> Barry
+
+Sorry, I was late. Buildbot on release26-maint is all red now.
+See http://www.python.org/dev/buildbot/2.6.stable/
+(Most of them are related to doctest change?)
+I think we should fix them before release.
+
+From amauryfa at gmail.com  Tue Apr  7 09:25:57 2009
+From: amauryfa at gmail.com (Amaury Forgeot d'Arc)
+Date: Tue, 7 Apr 2009 09:25:57 +0200
+Subject: [python-committers] Fwd: [Python-checkins] r71346 -
+	python/tags/r262c1
+In-Reply-To: <49DAD13B.5080601@m2.ccsnet.ne.jp>
+References: <20090407015435.BE3EA1E4021@bag.python.org>
+	<864555E0-2955-4E3A-ADBF-82E28A974761@python.org>
+	<1F02C111-50AB-4F9C-9B4F-156654DD6C4A@python.org>
+	<49DAD13B.5080601@m2.ccsnet.ne.jp>
+Message-ID: <e27efe130904070025t6bb36141sf7cf7bbfde837b58@mail.gmail.com>
+
+On Tue, Apr 7, 2009 at 06:06, Hirokazu Yamamoto
+<ocean-city at m2.ccsnet.ne.jp> wrote:
+>
+> Barry Warsaw wrote:
+>>
+>> -----BEGIN PGP SIGNED MESSAGE-----
+>> Hash: SHA1
+>>
+>> On Apr 6, 2009, at 9:58 PM, Barry Warsaw wrote:
+>>
+>>> The release is tagged. ?Martin, can you build the Windows installer?
+>>
+>> The 2.6 branch is now open for commits. ?Please, critical fixes only, and
+>> check with me on irc before you check anything else in. ?I'm still planning
+>> on tagging 2.6.2 final on the 9th so that we can do the release on Friday
+>> the 10th.
+>>
+>> Barry
+>
+> Sorry, I was late. Buildbot on release26-maint is all red now.
+> See http://www.python.org/dev/buildbot/2.6.stable/
+> (Most of them are related to doctest change?)
+> I think we should fix them before release.
+
+This change
+http://mail.python.org/pipermail/python-checkins/2009-April/081141.html
+broke all these tests, and was backported to 2.6.
+
+Trunk is affected as well, but not 3.1?
+
+-- 
+Amaury Forgeot d'Arc
+
+From barry at python.org  Tue Apr  7 15:52:51 2009
+From: barry at python.org (Barry Warsaw)
+Date: Tue, 7 Apr 2009 09:52:51 -0400
+Subject: [python-committers] Fwd: [Python-checkins] r71346 -
+	python/tags/r262c1
+In-Reply-To: <e27efe130904070025t6bb36141sf7cf7bbfde837b58@mail.gmail.com>
+References: <20090407015435.BE3EA1E4021@bag.python.org>
+	<864555E0-2955-4E3A-ADBF-82E28A974761@python.org>
+	<1F02C111-50AB-4F9C-9B4F-156654DD6C4A@python.org>
+	<49DAD13B.5080601@m2.ccsnet.ne.jp>
+	<e27efe130904070025t6bb36141sf7cf7bbfde837b58@mail.gmail.com>
+Message-ID: <873CDD4A-705F-441E-B51C-1F459B19F8F8@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On Apr 7, 2009, at 3:25 AM, Amaury Forgeot d'Arc wrote:
+
+> On Tue, Apr 7, 2009 at 06:06, Hirokazu Yamamoto
+> <ocean-city at m2.ccsnet.ne.jp> wrote:
+>>
+>> Barry Warsaw wrote:
+>>>
+>>> -----BEGIN PGP SIGNED MESSAGE-----
+>>> Hash: SHA1
+>>>
+>>> On Apr 6, 2009, at 9:58 PM, Barry Warsaw wrote:
+>>>
+>>>> The release is tagged.  Martin, can you build the Windows  
+>>>> installer?
+>>>
+>>> The 2.6 branch is now open for commits.  Please, critical fixes  
+>>> only, and
+>>> check with me on irc before you check anything else in.  I'm still  
+>>> planning
+>>> on tagging 2.6.2 final on the 9th so that we can do the release on  
+>>> Friday
+>>> the 10th.
+>>>
+>>> Barry
+>>
+>> Sorry, I was late. Buildbot on release26-maint is all red now.
+>> See http://www.python.org/dev/buildbot/2.6.stable/
+>> (Most of them are related to doctest change?)
+>> I think we should fix them before release.
+>
+> This change
+> http://mail.python.org/pipermail/python-checkins/2009-April/ 
+> 081141.html
+> broke all these tests, and was backported to 2.6.
+>
+> Trunk is affected as well, but not 3.1?
+
+Would one of you be able to revert this change on the 2.6 branch?  I'm  
+rather swamped at work at the moment.  If not, I'll try to get to it  
+tonight.
+
+Martin et al, let's not cut 2.6.2c1 from this tag.  Once this  
+regression is fixed, I'll retag rc1.
+
+Barry
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQCVAwUBSdtatHEjvBPtnXfVAQKv3AQAj/B8U6fJIn/EJJUoT4srJwejBEHP+0Lb
+XLVBRD76EYlVG/n3EOnCnS4cRvNqqGDTViYXYwCH9mCMAJy6bNHRjT473DE/QJvV
+iwLvrsr4YZ3rWXK4cpDvfhu7T0sP/7xYPeHnJN8I4kv3xbH1vYCic/kS1VXdR66e
+7qWW3WjeCGg=
+=yeJN
+-----END PGP SIGNATURE-----
+
+From ocean-city at m2.ccsnet.ne.jp  Tue Apr  7 16:34:55 2009
+From: ocean-city at m2.ccsnet.ne.jp (Hirokazu Yamamoto)
+Date: Tue, 07 Apr 2009 23:34:55 +0900
+Subject: [python-committers] Fwd: [Python-checkins] r71346 -
+	python/tags/r262c1
+In-Reply-To: <873CDD4A-705F-441E-B51C-1F459B19F8F8@python.org>
+References: <20090407015435.BE3EA1E4021@bag.python.org>
+	<864555E0-2955-4E3A-ADBF-82E28A974761@python.org>
+	<1F02C111-50AB-4F9C-9B4F-156654DD6C4A@python.org>
+	<49DAD13B.5080601@m2.ccsnet.ne.jp>
+	<e27efe130904070025t6bb36141sf7cf7bbfde837b58@mail.gmail.com>
+	<873CDD4A-705F-441E-B51C-1F459B19F8F8@python.org>
+Message-ID: <49DB648F.4080701@m2.ccsnet.ne.jp>
+
+
+Barry Warsaw wrote:
+
+> Would one of you be able to revert this change on the 2.6 branch?  I'm 
+> rather swamped at work at the moment.  If not, I'll try to get to it 
+> tonight.
+
+Done in r71358.
+
+From barry at python.org  Tue Apr  7 17:18:06 2009
+From: barry at python.org (Barry Warsaw)
+Date: Tue, 7 Apr 2009 11:18:06 -0400
+Subject: [python-committers] Fwd: [Python-checkins] r71346 -
+	python/tags/r262c1
+In-Reply-To: <49DB648F.4080701@m2.ccsnet.ne.jp>
+References: <20090407015435.BE3EA1E4021@bag.python.org>
+	<864555E0-2955-4E3A-ADBF-82E28A974761@python.org>
+	<1F02C111-50AB-4F9C-9B4F-156654DD6C4A@python.org>
+	<49DAD13B.5080601@m2.ccsnet.ne.jp>
+	<e27efe130904070025t6bb36141sf7cf7bbfde837b58@mail.gmail.com>
+	<873CDD4A-705F-441E-B51C-1F459B19F8F8@python.org>
+	<49DB648F.4080701@m2.ccsnet.ne.jp>
+Message-ID: <6A7B3080-A2D8-4C7A-97B8-B7B02148D33F@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On Apr 7, 2009, at 10:34 AM, Hirokazu Yamamoto wrote:
+
+> Barry Warsaw wrote:
+>
+>> Would one of you be able to revert this change on the 2.6 branch?   
+>> I'm rather swamped at work at the moment.  If not, I'll try to get  
+>> to it tonight.
+>
+> Done in r71358.
+
+Thanks very much!  I've updated the NEWS file and retagged.  The tests  
+pass locally, so let's see how the buildbots do.
+
+Barry
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQCVAwUBSdturnEjvBPtnXfVAQJfNgP/Vt5z0kv08ltu8/xH1psT5PdWkqfdEEzX
+KNf+oVhkKq9WIMJQ3C/eKxARf9EmjspIVDaMTW9zf31KeQ7VnYdTtU1Lk95BMSTp
+s/S4h1O6Ymi72wqT56fdET7FLkQ/str2hOPC8MLEkbGUtRy6MMJ+epWK1Upc3u2l
+DwFuLkeXsH0=
+=bFC5
+-----END PGP SIGNATURE-----
+
+From g.brandl at gmx.net  Tue Apr  7 20:48:09 2009
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Tue, 07 Apr 2009 20:48:09 +0200
+Subject: [python-committers] Fwd: [Python-checkins] r71346 -
+	python/tags/r262c1
+In-Reply-To: <e27efe130904070025t6bb36141sf7cf7bbfde837b58@mail.gmail.com>
+References: <20090407015435.BE3EA1E4021@bag.python.org>	<864555E0-2955-4E3A-ADBF-82E28A974761@python.org>	<1F02C111-50AB-4F9C-9B4F-156654DD6C4A@python.org>	<49DAD13B.5080601@m2.ccsnet.ne.jp>
+	<e27efe130904070025t6bb36141sf7cf7bbfde837b58@mail.gmail.com>
+Message-ID: <grg6os$ipn$1@ger.gmane.org>
+
+Amaury Forgeot d'Arc schrieb:
+> On Tue, Apr 7, 2009 at 06:06, Hirokazu Yamamoto
+> <ocean-city at m2.ccsnet.ne.jp> wrote:
+>>
+>> Barry Warsaw wrote:
+>>>
+>>> -----BEGIN PGP SIGNED MESSAGE-----
+>>> Hash: SHA1
+>>>
+>>> On Apr 6, 2009, at 9:58 PM, Barry Warsaw wrote:
+>>>
+>>>> The release is tagged.  Martin, can you build the Windows installer?
+>>>
+>>> The 2.6 branch is now open for commits.  Please, critical fixes only, and
+>>> check with me on irc before you check anything else in.  I'm still planning
+>>> on tagging 2.6.2 final on the 9th so that we can do the release on Friday
+>>> the 10th.
+>>>
+>>> Barry
+>>
+>> Sorry, I was late. Buildbot on release26-maint is all red now.
+>> See http://www.python.org/dev/buildbot/2.6.stable/
+>> (Most of them are related to doctest change?)
+>> I think we should fix them before release.
+> 
+> This change
+> http://mail.python.org/pipermail/python-checkins/2009-April/081141.html
+> broke all these tests, and was backported to 2.6.
+> 
+> Trunk is affected as well, but not 3.1?
+
+Sorry about that. Seems I ran the test over the wrong checkout *shame*.
+That's the problem when you need more than one checkout in order to
+work on more than one patch at the same time.
+I'd like to say it wouldn't have happened with Mercurial, but I'm not
+that convinced ;)
+
+Georg
+
+
+From g.brandl at gmx.net  Fri Apr 10 09:08:29 2009
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Fri, 10 Apr 2009 09:08:29 +0200
+Subject: [python-committers] bug in svnmerge w.r.t. new files
+Message-ID: <grmr9e$6vt$1@ger.gmane.org>
+
+I just wanted to merge a series of commits to py3k where the first
+added a new file, and the others changed it.  Output was:
+
+property 'svnmerge-integrated' deleted from '.'.
+
+
+
+property 'svnmerge-blocked' deleted from '.'.
+
+--- Merging r71409 into '.':
+A    Doc/tools/sphinxext/static/basic.css
+
+svnmerge: command execution failed (exit code: 1)
+svn --non-interactive propdel "svnmerge-integrated" "."
+svn: Attempting to delete nonexistent property 'svnmerge-integrated'
+
+
+As the error message indicates, the svnmerge properties are *deleted*
+in this case.  Committing will delete them in the repo as well.
+Doing an "svn revert -R .", deleting the added file(s) and starting
+over, going through the revisions one by one, seems to work.
+
+Georg
+
+
+From g.brandl at gmx.net  Fri Apr 10 09:19:57 2009
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Fri, 10 Apr 2009 09:19:57 +0200
+Subject: [python-committers] bug in svnmerge w.r.t. new files
+In-Reply-To: <grmr9e$6vt$1@ger.gmane.org>
+References: <grmr9e$6vt$1@ger.gmane.org>
+Message-ID: <grmrut$8ec$1@ger.gmane.org>
+
+Georg Brandl schrieb:
+> I just wanted to merge a series of commits to py3k where the first
+> added a new file, and the others changed it.  Output was:
+> 
+> property 'svnmerge-integrated' deleted from '.'.
+> 
+> 
+> 
+> property 'svnmerge-blocked' deleted from '.'.
+> 
+> --- Merging r71409 into '.':
+> A    Doc/tools/sphinxext/static/basic.css
+> 
+> svnmerge: command execution failed (exit code: 1)
+> svn --non-interactive propdel "svnmerge-integrated" "."
+> svn: Attempting to delete nonexistent property 'svnmerge-integrated'
+
+PS: Updating svnmerge from
+
+http://svn.collab.net/viewvc/svn/trunk/contrib/client-side/svnmerge/svnmerge.py
+
+seems to have fixed this particular problem.
+
+Georg
+
+
+From barry at python.org  Tue Apr 14 14:24:29 2009
+From: barry at python.org (Barry Warsaw)
+Date: Tue, 14 Apr 2009 08:24:29 -0400
+Subject: [python-committers] Python 2.6.2
+Message-ID: <B822085F-8FC4-42D9-8462-7D1AAD5477DF@python.org>
+
+Finally, I am going to tag Python 2.6.2... final. ;)
+
+-Barry
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: PGP.sig
+Type: application/pgp-signature
+Size: 304 bytes
+Desc: This is a digitally signed message part
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20090414/500101f3/attachment.pgp>
+
+From barry at python.org  Tue Apr 14 15:19:02 2009
+From: barry at python.org (Barry Warsaw)
+Date: Tue, 14 Apr 2009 09:19:02 -0400
+Subject: [python-committers] Fwd: [Python-checkins] r71601 - python/tags/r262
+References: <20090414131730.A8B6F1E4018@bag.python.org>
+Message-ID: <650BD052-9164-4E04-9B84-9F241513AB9E@python.org>
+
+2.6.2 final is tagged.  I'll do the release whenever Martin uploads  
+the Windows installers.
+
+Begin forwarded message:
+
+> From: barry.warsaw <python-checkins at python.org>
+> Date: April 14, 2009 9:17:30 AM EDT
+> To: python-checkins at python.org
+> Subject: [Python-checkins] r71601 - python/tags/r262
+> Message-Id: <20090414131730.A8B6F1E4018 at bag.python.org>
+>
+> Author: barry.warsaw
+> Date: Tue Apr 14 15:17:30 2009
+> New Revision: 71601
+>
+> Log:
+> Tagging 2.6.2 (final)
+>
+>
+> Added:
+>   python/tags/r262/
+>      - copied from r71600, /python/branches/release26-maint/
+> _______________________________________________
+> Python-checkins mailing list
+> Python-checkins at python.org
+> http://mail.python.org/mailman/listinfo/python-checkins
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: PGP.sig
+Type: application/pgp-signature
+Size: 304 bytes
+Desc: This is a digitally signed message part
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20090414/e8477349/attachment.pgp>
+
+From barry at python.org  Wed Apr 15 02:41:03 2009
+From: barry at python.org (Barry Warsaw)
+Date: Tue, 14 Apr 2009 20:41:03 -0400
+Subject: [python-committers] Python 2.6.2
+Message-ID: <21FDAA92-7F5D-446F-92B2-A092EA585705@python.org>
+
+Everything's in place and ready to go.  Georg, can you update the  
+documentation links on the web site?  As soon as that's ready I'll  
+make the announcement.
+
+Thanks everyone.
+-Barry
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: PGP.sig
+Type: application/pgp-signature
+Size: 304 bytes
+Desc: This is a digitally signed message part
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20090414/a062ea5d/attachment.pgp>
+
+From ocean-city at m2.ccsnet.ne.jp  Thu Apr 16 05:40:37 2009
+From: ocean-city at m2.ccsnet.ne.jp (Hirokazu Yamamoto)
+Date: Thu, 16 Apr 2009 12:40:37 +0900
+Subject: [python-committers] Python 2.6.2
+In-Reply-To: <21FDAA92-7F5D-446F-92B2-A092EA585705@python.org>
+References: <21FDAA92-7F5D-446F-92B2-A092EA585705@python.org>
+Message-ID: <49E6A8B5.7040202@m2.ccsnet.ne.jp>
+
+Hello. HtmlHelp(windows) in Python2.6.2 seems to be broken. I didn't 
+notice this. :-(
+
+http://bugs.python.org/issue5764
+
+This happens because r71380 was not backported. (Documents under Doc/ 
+require Sphinx 0.6.1 now)
+
+I've merged this into release26-maint in r71639. But in order to update 
+Python2.6.2 binary, I think Martin's help is needed. Could you?
+
+From martin at v.loewis.de  Thu Apr 16 06:34:26 2009
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Thu, 16 Apr 2009 06:34:26 +0200
+Subject: [python-committers] Python 2.6.2
+In-Reply-To: <49E6A8B5.7040202@m2.ccsnet.ne.jp>
+References: <21FDAA92-7F5D-446F-92B2-A092EA585705@python.org>
+	<49E6A8B5.7040202@m2.ccsnet.ne.jp>
+Message-ID: <49E6B552.9040602@v.loewis.de>
+
+> I've merged this into release26-maint in r71639. But in order to update
+> Python2.6.2 binary, I think Martin's help is needed. Could you?
+
+I won't be re-releasing 2.6.2. We should make a 2.6.3 release instead.
+
+Regards,
+Martin
+
+From martin at v.loewis.de  Thu Apr 16 07:05:23 2009
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Thu, 16 Apr 2009 07:05:23 +0200
+Subject: [python-committers] Python 2.6.2
+In-Reply-To: <49E6A8B5.7040202@m2.ccsnet.ne.jp>
+References: <21FDAA92-7F5D-446F-92B2-A092EA585705@python.org>
+	<49E6A8B5.7040202@m2.ccsnet.ne.jp>
+Message-ID: <49E6BC93.50203@v.loewis.de>
+
+> This happens because r71380 was not backported.
+
+This can't possibly be the problem. I don't use make.bat to build the
+html documentation.
+
+To build the documentation, I had checked out the trunk of sphinx,
+r68598.
+
+Since 2.6.2, I never did "make checkout", but only "make update";
+I guess this was incorrect.
+
+Regards,
+Martin
+
+From barry at python.org  Thu Apr 16 14:33:01 2009
+From: barry at python.org (Barry Warsaw)
+Date: Thu, 16 Apr 2009 08:33:01 -0400
+Subject: [python-committers] Python 2.6.2
+In-Reply-To: <49E6B552.9040602@v.loewis.de>
+References: <21FDAA92-7F5D-446F-92B2-A092EA585705@python.org>
+	<49E6A8B5.7040202@m2.ccsnet.ne.jp> <49E6B552.9040602@v.loewis.de>
+Message-ID: <C748A4F3-8396-42AE-AB5F-894F0553D45C@python.org>
+
+On Apr 16, 2009, at 12:34 AM, Martin v. L?wis wrote:
+
+>> I've merged this into release26-maint in r71639. But in order to  
+>> update
+>> Python2.6.2 binary, I think Martin's help is needed. Could you?
+>
+> I won't be re-releasing 2.6.2. We should make a 2.6.3 release instead.
+
+Agreed.  If necessary, and when we resolve the problem, we can do a  
+2.6.3 release.  This can happen soon if the current situation is a  
+problem for Windows users.
+
+-Barry
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: PGP.sig
+Type: application/pgp-signature
+Size: 304 bytes
+Desc: This is a digitally signed message part
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20090416/b338faa1/attachment.pgp>
+
+From barry at python.org  Thu Apr 16 14:58:16 2009
+From: barry at python.org (Barry Warsaw)
+Date: Thu, 16 Apr 2009 08:58:16 -0400
+Subject: [python-committers] Python 2.6.2
+In-Reply-To: <BD1AF711-4F05-415C-A816-22048DFED657@mac.com>
+References: <21FDAA92-7F5D-446F-92B2-A092EA585705@python.org>
+	<49E6A8B5.7040202@m2.ccsnet.ne.jp> <49E6B552.9040602@v.loewis.de>
+	<C748A4F3-8396-42AE-AB5F-894F0553D45C@python.org>
+	<BD1AF711-4F05-415C-A816-22048DFED657@mac.com>
+Message-ID: <042B1D52-C8B1-45F7-B0C3-10F5F817690E@python.org>
+
+On Apr 16, 2009, at 8:46 AM, Ronald Oussoren wrote:
+
+> On 16 Apr, 2009, at 14:33, Barry Warsaw wrote:
+>
+>> On Apr 16, 2009, at 12:34 AM, Martin v. L?wis wrote:
+>>
+>>>> I've merged this into release26-maint in r71639. But in order to  
+>>>> update
+>>>> Python2.6.2 binary, I think Martin's help is needed. Could you?
+>>>
+>>> I won't be re-releasing 2.6.2. We should make a 2.6.3 release  
+>>> instead.
+>>
+>> Agreed.  If necessary, and when we resolve the problem, we can do a  
+>> 2.6.3 release.  This can happen soon if the current situation is a  
+>> problem for Windows users.
+>
+> Could "soon" at least be after this weekend?  We found a small  
+> configure issue at PyCon that forces me to build the installers on  
+> 10.4 and I'd like to fix that before a next release and don't have  
+> time to seriously look into that before sunday.
+
+Yes definitely.  I won't have time until next week at the earliest  
+anyway.
+
+> FWIW. The issue is that printf("%zd") works correctly on OSX 10.5,  
+> but fails to print negative numbers correctly on 10.4. If you build  
+> the installer on 10.4 the resulting binary works fine on all OSX  
+> systems, if you build the installer on 10.5 the repr of  
+> itertools.count(-1) is wrong on 10.4 systems.
+
+Do you have an issue number for this?  Either way, please make sure  
+there's a release blocker issue on 2.6 for this problem.
+
+-Barry
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: PGP.sig
+Type: application/pgp-signature
+Size: 304 bytes
+Desc: This is a digitally signed message part
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20090416/a9e26929/attachment.pgp>
+
+From ronaldoussoren at mac.com  Thu Apr 16 14:46:13 2009
+From: ronaldoussoren at mac.com (Ronald Oussoren)
+Date: Thu, 16 Apr 2009 14:46:13 +0200
+Subject: [python-committers] Python 2.6.2
+In-Reply-To: <C748A4F3-8396-42AE-AB5F-894F0553D45C@python.org>
+References: <21FDAA92-7F5D-446F-92B2-A092EA585705@python.org>
+	<49E6A8B5.7040202@m2.ccsnet.ne.jp> <49E6B552.9040602@v.loewis.de>
+	<C748A4F3-8396-42AE-AB5F-894F0553D45C@python.org>
+Message-ID: <BD1AF711-4F05-415C-A816-22048DFED657@mac.com>
+
+
+On 16 Apr, 2009, at 14:33, Barry Warsaw wrote:
+
+> On Apr 16, 2009, at 12:34 AM, Martin v. L?wis wrote:
+>
+>>> I've merged this into release26-maint in r71639. But in order to  
+>>> update
+>>> Python2.6.2 binary, I think Martin's help is needed. Could you?
+>>
+>> I won't be re-releasing 2.6.2. We should make a 2.6.3 release  
+>> instead.
+>
+> Agreed.  If necessary, and when we resolve the problem, we can do a  
+> 2.6.3 release.  This can happen soon if the current situation is a  
+> problem for Windows users.
+
+Could "soon" at least be after this weekend?  We found a small  
+configure issue at PyCon that forces me to build the installers on  
+10.4 and I'd like to fix that before a next release and don't have  
+time to seriously look into that before sunday.
+
+FWIW. The issue is that printf("%zd") works correctly on OSX 10.5, but  
+fails to print negative numbers correctly on 10.4. If you build the  
+installer on 10.4 the resulting binary works fine on all OSX systems,  
+if you build the installer on 10.5 the repr of itertools.count(-1) is  
+wrong on 10.4 systems.
+
+Ronald
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: smime.p7s
+Type: application/pkcs7-signature
+Size: 2224 bytes
+Desc: not available
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20090416/63dd8bc9/attachment.bin>
+
+From martin at v.loewis.de  Thu Apr 16 23:03:25 2009
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Thu, 16 Apr 2009 23:03:25 +0200
+Subject: [python-committers] Python 2.6.2
+In-Reply-To: <C748A4F3-8396-42AE-AB5F-894F0553D45C@python.org>
+References: <21FDAA92-7F5D-446F-92B2-A092EA585705@python.org>
+	<49E6A8B5.7040202@m2.ccsnet.ne.jp> <49E6B552.9040602@v.loewis.de>
+	<C748A4F3-8396-42AE-AB5F-894F0553D45C@python.org>
+Message-ID: <49E79D1D.2050008@v.loewis.de>
+
+Barry Warsaw wrote:
+> On Apr 16, 2009, at 12:34 AM, Martin v. L?wis wrote:
+> 
+>>> I've merged this into release26-maint in r71639. But in order to update
+>>> Python2.6.2 binary, I think Martin's help is needed. Could you?
+>>
+>> I won't be re-releasing 2.6.2. We should make a 2.6.3 release instead.
+> 
+> Agreed.  If necessary, and when we resolve the problem, we can do a
+> 2.6.3 release.  This can happen soon if the current situation is a
+> problem for Windows users.
+
+Meanwhile, I thought that it might be sufficient to upload a fixed
+version of the CHM file separately. Maybe that is good enough for people
+running into the problem.
+
+Regards,
+Martin
+
+From python-committers-list at trentnelson.com  Tue Apr 28 00:34:40 2009
+From: python-committers-list at trentnelson.com (Trent Nelson)
+Date: Mon, 27 Apr 2009 22:34:40 +0000
+Subject: [python-committers] Snakebite buildbot slaves: opinions wanted
+Message-ID: <20090427223440.GG56496@wind.teleri.net>
+
+Howdy,
+
+    I'm as ready as I'll ever be -- it's time to start setting up some
+    Python buildbot slaves on Snakebite.  I wanted to reach out and see
+    if anyone had any particularly strong opinions on how the slaves
+    should be set up.
+
+    We've got two main options: use the existing Python buildbot master
+    and just create new slaves for Snakebite hosts, or, set up a new
+    Snakebite-specific buildbot master for now, keeping it completely
+    separate from the existing infrastructure.
+
+    I think for at least the first couple of months it's best to assume
+    the Snakebite slaves will be wildly unstable/unavailable, or at the
+    very least, that's how I'd like everyone to view them, just so expe-
+    ctations aren't set too high.
+
+    FWIW, I presented the same option to the Twisted folk, and they said
+    they'd prefer to use their existing buildbot master, claiming that
+    they're used to unreliable buildbots and false-positive e-mail noti-
+    fication, and noting that they have something similar to our own
+    'stable' buildbot view that slaves are promoted to once they've dem-
+    onstrated they're not falling over every other commit.
+
+    (Additionally, we agreed that we could set up a 'snakebite' buildbot
+    view for all the Snakebite slaves, which has numerous benefits; we
+    could do this for Python as well.)
+
+    Thoughts?
+
+        Trent.
+
+From python-committers-list at trentnelson.com  Tue Apr 28 00:59:47 2009
+From: python-committers-list at trentnelson.com (Trent Nelson)
+Date: Mon, 27 Apr 2009 22:59:47 +0000
+Subject: [python-committers] How to get your Snakebite account
+Message-ID: <20090427225947.GI56496@wind.teleri.net>
+
+    ....and in the same vein of being as ready as I'll ever be: it's
+    time to set up Snakebite accounts for everyone!  As I've alluded
+    to in the past, Python language implementation committers get ac-
+    cess by default.
+
+    Can you please e-mail accounts at lists.snakebite.org and provide
+    the following details:
+
+        - Full name (first, last)
+        - Preferred login name   [1]
+        - Contact e-mail address [2]
+        - SSH key (RSA or DSA is fine): I can't enforce this, but
+          please make sure you use suitably secured keys, either 
+          via passphrases or storing the private key on encrypted
+          media.  I'd prefer the key in the OpenSSH format as it
+          saves me having to convert it.
+
+    [1]: The original plan to use <first>.<last> login names lasted
+         about a day; unfortunately, we're at the mercy of NIS on the
+         UNIX side of things, and login names <= 8 characters with no
+         special characters (i.e. only a-z) are the lowest common den-
+         ominator.  So, you can have whatever login name you want, as
+         long as it conforms to <= 8 a-z characters.  For a list of
+         logins already taken: wiki.snakebite.org/accounts.
+
+    [2]: This e-mail address will be added to members at lists.snakebite-
+         .org; a private e-mail list explicitly for Snakebite account
+         holders (analogous to python-committers@ in a way).
+
+    Regards,
+
+        Trent.
+
+From barry at python.org  Tue Apr 28 01:21:13 2009
+From: barry at python.org (Barry Warsaw)
+Date: Mon, 27 Apr 2009 19:21:13 -0400
+Subject: [python-committers] Snakebite buildbot slaves: opinions wanted
+In-Reply-To: <20090427223440.GG56496@wind.teleri.net>
+References: <20090427223440.GG56496@wind.teleri.net>
+Message-ID: <54085F16-CAE6-4833-97BB-4463DC63E621@python.org>
+
+On Apr 27, 2009, at 6:34 PM, Trent Nelson wrote:
+
+>    FWIW, I presented the same option to the Twisted folk, and they  
+> said
+>    they'd prefer to use their existing buildbot master, claiming that
+>    they're used to unreliable buildbots and false-positive e-mail  
+> noti-
+>    fication, and noting that they have something similar to our own
+>    'stable' buildbot view that slaves are promoted to once they've  
+> dem-
+>    onstrated they're not falling over every other commit.
+>
+>    (Additionally, we agreed that we could set up a 'snakebite'  
+> buildbot
+>    view for all the Snakebite slaves, which has numerous benefits; we
+>    could do this for Python as well.)
+
+That seems like a wise precedence to follow.  +1 for us doing the same.
+
+-Barry
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: PGP.sig
+Type: application/pgp-signature
+Size: 304 bytes
+Desc: This is a digitally signed message part
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20090427/454c67d5/attachment.pgp>
+
+From python-committers-list at trentnelson.com  Tue Apr 28 04:32:13 2009
+From: python-committers-list at trentnelson.com (Trent Nelson)
+Date: Tue, 28 Apr 2009 02:32:13 +0000
+Subject: [python-committers] Snakebite buildbot slaves: opinions wanted
+In-Reply-To: <20090427223440.GG56496@wind.teleri.net>
+References: <20090427223440.GG56496@wind.teleri.net>
+Message-ID: <20090428023213.GM56496@wind.teleri.net>
+
+On Mon, Apr 27, 2009 at 10:34:40PM +0000, Trent Nelson wrote:
+
+>     I think for at least the first couple of months it's best to assume
+>     the Snakebite slaves will be wildly unstable/unavailable, or at the
+>     very least, that's how I'd like everyone to view them, just so expe-
+>     ctations aren't set too high.
+
+    Ugh, talk about jinxing things.  I think an air conditioner has 
+    failed in the lab, all the systems seemed to be well on their 
+    way to melting :/
+    
+        http://wiki.snakebite.org/ged-is-melting
+        
+    I've powered everything down for now until someone @ MSU can take 
+    a looksie.  I don't want to risk any long-term heat damage.
+
+    *sigh*, ghetto server room strikes again.    
+
+        Trent.
+

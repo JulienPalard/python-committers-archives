@@ -1,0 +1,621 @@
+From barry at python.org  Tue Sep  3 20:51:05 2013
+From: barry at python.org (Barry Warsaw)
+Date: Tue, 3 Sep 2013 14:51:05 -0400
+Subject: [python-committers] Python 2.6 to end support with 2.6.9 in October
+	2013
+Message-ID: <20130903145105.76944e79@anarchist>
+
+Hello Pythonistas,
+
+Python 2.6.9 is the last planned release of the 2.6.x series.  This will be a
+security-only source-only release.  It is currently scheduled for October
+2013, and after this Python 2.6 will have reached its end-of-life and the
+branch will be retired.
+
+http://www.python.org/dev/peps/pep-0361/
+
+I would like to release 2.6.9rc1 on Monday, September 30th, and 2.6.9 final on
+Monday, October 28th.  I've added both dates to the Python calendar.
+
+Here are the list of candidates still to be fixed for 2.6.9:
+
+- 18747 - Re-seed OpenSSL's PRNG after fork
+- 16037 - httplib: header parsing is not delimited
+- 16038 - ftplib: unlimited readline() from connection
+- 16039 - imaplib: unlimited readline() from connection
+- 16040 - nntplib: unlimited readline() from connection
+- 16041 - poplib: unlimited readline() from connection
+- 16042 - smtplib: unlimited readline() from connection
+- 16043 - xmlrpc: gzip_decode has unlimited read()
+
+These were the ones I previously had on my list, and I've now marked these all
+as release blockers for 2.6.9... for now.
+
+If you know of any others that I should be aware of, please let me know.
+
+If you can contribute to 2.6.9 by reviewing, testing, developing, or
+commenting, that would be greatly appreciated.  I will be spending some time
+triaging these and any other issues that get identified as possible 2.6.9
+candidates.
+
+If you have any questions regarding 2.6.9, please contact me via mailing list
+or IRC.
+
+Cheers,
+-Barry
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 836 bytes
+Desc: not available
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20130903/d62efb81/attachment.sig>
+
+From larry at hastings.org  Fri Sep  6 13:06:07 2013
+From: larry at hastings.org (Larry Hastings)
+Date: Fri, 06 Sep 2013 23:06:07 +1200
+Subject: [python-committers] Reminder: 3.4a2 to be tagged soon
+Message-ID: <5229B71F.9030109@hastings.org>
+
+
+It's been pretty quiet, and there aren't any genuine release blockers 
+(everything marked release blocker and 3.4 is actually for 2.6.9).  I 
+expect to tag Saturday evening, New Zealand time.
+
+Cheers,
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20130906/5aee1a5a/attachment.html>
+
+From theller at ctypes.org  Fri Sep  6 15:24:25 2013
+From: theller at ctypes.org (Thomas Heller)
+Date: Fri, 06 Sep 2013 15:24:25 +0200
+Subject: [python-committers] Reminder: 3.4a2 to be tagged soon
+In-Reply-To: <5229B71F.9030109@hastings.org>
+References: <5229B71F.9030109@hastings.org>
+Message-ID: <5229D789.3040006@ctypes.org>
+
+Am 06.09.2013 13:06, schrieb Larry Hastings:
+>
+> It's been pretty quiet, and there aren't any genuine release blockers
+> (everything marked release blocker and 3.4 is actually for 2.6.9).  I
+> expect to tag Saturday evening, New Zealand time.
+
+IMO, http://bugs.python.org/issue18852 should be made a release blocker;
+it requires me to either uninstall pyreadline or patch site.py otherwise
+there are errors starting python 3.4.
+
+Thomas
+
+From theller at ctypes.org  Fri Sep  6 21:26:36 2013
+From: theller at ctypes.org (Thomas Heller)
+Date: Fri, 06 Sep 2013 21:26:36 +0200
+Subject: [python-committers] Reminder: 3.4a2 to be tagged soon
+In-Reply-To: <5229D789.3040006@ctypes.org>
+References: <5229B71F.9030109@hastings.org> <5229D789.3040006@ctypes.org>
+Message-ID: <522A2C6C.50705@ctypes.org>
+
+Am 06.09.2013 15:24, schrieb Thomas Heller:
+> IMO, http://bugs.python.org/issue18852 should be made a release blocker;
+> it requires me to either uninstall pyreadline or patch site.py otherwise
+> there are errors starting python 3.4.
+
+Thanks to anyone involved for fixing this.
+
+Thomas
+
+
+
+From solipsis at pitrou.net  Sat Sep  7 02:03:49 2013
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Sat, 07 Sep 2013 02:03:49 +0200
+Subject: [python-committers] Temporary revert to vanilla hg
+Message-ID: <1378512229.2498.3.camel@fsol>
+
+
+Hello,
+
+I've temporarily reverted hg.python.org to a vanilla Mercurial
+installation (non-modified) in order to try and eliminate a recent
+performance problem. This means that server-side clones, and our
+magnificent logo, have disappeared for the moment.
+
+Hopefully I'll be able to reinstall our modifications tomorrow.
+
+Regards
+
+Antoine.
+
+
+
+From antoine at python.org  Sat Sep  7 04:30:52 2013
+From: antoine at python.org (Antoine Pitrou)
+Date: Sat, 07 Sep 2013 04:30:52 +0200
+Subject: [python-committers] Temporary revert to vanilla hg
+In-Reply-To: <1378512229.2498.3.camel@fsol>
+References: <1378512229.2498.3.camel@fsol>
+Message-ID: <1378521052.2498.11.camel@fsol>
+
+Le samedi 07 septembre 2013 ? 02:03 +0200, Antoine Pitrou a ?crit :
+> Hello,
+> 
+> I've temporarily reverted hg.python.org to a vanilla Mercurial
+> installation (non-modified) in order to try and eliminate a recent
+> performance problem. This means that server-side clones, and our
+> magnificent logo, have disappeared for the moment.
+
+I've identified the source of the problem:
+http://bz.selenic.com/show_bug.cgi?id=4031
+
+I've now downgraded the Mercurial installation to 2.6.3 and re-applied
+our scrumptious modifications.
+
+Regards
+
+Antoine.
+
+
+
+From greg at krypto.org  Sat Sep  7 07:49:15 2013
+From: greg at krypto.org (Gregory P. Smith)
+Date: Fri, 6 Sep 2013 22:49:15 -0700
+Subject: [python-committers] Temporary revert to vanilla hg
+In-Reply-To: <1378521052.2498.11.camel@fsol>
+References: <1378512229.2498.3.camel@fsol> <1378521052.2498.11.camel@fsol>
+Message-ID: <CAGE7PNJch1XWo9VBH5HuTrKzyxeaPsBT3yoptmkrWsZhCeWJqQ@mail.gmail.com>
+
+On Fri, Sep 6, 2013 at 7:30 PM, Antoine Pitrou <antoine at python.org> wrote:
+
+> Le samedi 07 septembre 2013 ? 02:03 +0200, Antoine Pitrou a ?crit :
+> > Hello,
+> >
+> > I've temporarily reverted hg.python.org to a vanilla Mercurial
+> > installation (non-modified) in order to try and eliminate a recent
+> > performance problem. This means that server-side clones, and our
+> > magnificent logo, have disappeared for the moment.
+>
+> I've identified the source of the problem:
+> http://bz.selenic.com/show_bug.cgi?id=4031
+>
+> I've now downgraded the Mercurial installation to 2.6.3 and re-applied
+> our scrumptious modifications.
+>
+
+any chance mercurial would accept our scrumptious modifications upstream?
+ server side clones at least seems like a feature many hg users would like.
+
+-gps
+
+
+> Regards
+>
+> Antoine.
+>
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20130906/e7e422e2/attachment.html>
+
+From antoine at python.org  Sat Sep  7 11:31:40 2013
+From: antoine at python.org (Antoine Pitrou)
+Date: Sat, 07 Sep 2013 11:31:40 +0200
+Subject: [python-committers] Temporary revert to vanilla hg
+In-Reply-To: <CAGE7PNJch1XWo9VBH5HuTrKzyxeaPsBT3yoptmkrWsZhCeWJqQ@mail.gmail.com>
+References: <1378512229.2498.3.camel@fsol> <1378521052.2498.11.camel@fsol>
+ <CAGE7PNJch1XWo9VBH5HuTrKzyxeaPsBT3yoptmkrWsZhCeWJqQ@mail.gmail.com>
+Message-ID: <1378546300.2572.5.camel@fsol>
+
+Le vendredi 06 septembre 2013 ? 22:49 -0700, Gregory P. Smith a ?crit :
+> 
+> On Fri, Sep 6, 2013 at 7:30 PM, Antoine Pitrou <antoine at python.org>
+> wrote:
+>         Le samedi 07 septembre 2013 ? 02:03 +0200, Antoine Pitrou a
+>         ?crit :
+>         > Hello,
+>         >
+>         > I've temporarily reverted hg.python.org to a vanilla
+>         Mercurial
+>         > installation (non-modified) in order to try and eliminate a
+>         recent
+>         > performance problem. This means that server-side clones, and
+>         our
+>         > magnificent logo, have disappeared for the moment.
+>         
+>         
+>         I've identified the source of the problem:
+>         http://bz.selenic.com/show_bug.cgi?id=4031
+>         
+>         I've now downgraded the Mercurial installation to 2.6.3 and
+>         re-applied
+>         our scrumptious modifications.
+> 
+> any chance mercurial would accept our scrumptious modifications
+> upstream?  server side clones at least seems like a feature many hg
+> users would like.
+
+I must admit I don't like Mercurial's contribution workflow very much
+(you have to e-mail patches on a mailing-list:
+http://mercurial.selenic.com/wiki/ContributingChanges). Still, I tried
+to contribute back our memory consumption patch:
+http://selenic.com/pipermail/mercurial-devel/2012-July/042334.html
+
+Also see http://bz.selenic.com/show_bug.cgi?id=3208
+
+Server-side clones have been discussed a bit here:
+http://selenic.com/pipermail/mercurial/2011-March/037306.html
+
+Regards
+
+Antoine.
+
+
+
+From larry at hastings.org  Sat Sep  7 13:11:40 2013
+From: larry at hastings.org (Larry Hastings)
+Date: Sat, 07 Sep 2013 23:11:40 +1200
+Subject: [python-committers] 3.4a2 now being tagged and built
+Message-ID: <522B09EC.5070206@hastings.org>
+
+
+
+The last revision that made it in is 98f82b124c7d from Victor.  The 
+buildbots are all green, it's been a quiet day... you folks are making 
+this easy!
+
+Hope to get the release out tomorrow,
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20130907/9b31c557/attachment.html>
+
+From victor.stinner at gmail.com  Sun Sep  8 01:17:44 2013
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Sun, 8 Sep 2013 01:17:44 +0200
+Subject: [python-committers] Temporary revert to vanilla hg
+In-Reply-To: <1378546300.2572.5.camel@fsol>
+References: <1378512229.2498.3.camel@fsol> <1378521052.2498.11.camel@fsol>
+ <CAGE7PNJch1XWo9VBH5HuTrKzyxeaPsBT3yoptmkrWsZhCeWJqQ@mail.gmail.com>
+ <1378546300.2572.5.camel@fsol>
+Message-ID: <CAMpsgwZ8FSyRJC3300ySMz_h5am6_tBqbSqNQB8EvsSb26GY+Q@mail.gmail.com>
+
+Le 7 sept. 2013 11:31, "Antoine Pitrou" <antoine at python.org> a ?crit :
+> Still, I tried
+> to contribute back our memory consumption patch:
+> http://selenic.com/pipermail/mercurial-devel/2012-July/042334.html
+
+If someone is interested to investigate the issue, pytracemalloc can now be
+used. It works on python 2.7, but need to recompile python and maybe also
+extensions.
+
+https://pypi.python.org/pypi/pytracemalloc
+
+Victor
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20130908/b877ab20/attachment.html>
+
+From larry at hastings.org  Mon Sep  9 14:02:27 2013
+From: larry at hastings.org (Larry Hastings)
+Date: Mon, 09 Sep 2013 21:02:27 +0900
+Subject: [python-committers] [RELEASED] Python 3.4.0a2
+Message-ID: <522DB8D3.1030803@hastings.org>
+
+
+On behalf of the Python development team, I'm chuffed to announce the
+second alpha release of Python 3.4.
+
+This is a preview release, and its use is not recommended for
+production settings.
+
+Python 3.4 includes a range of improvements of the 3.x series, including
+hundreds of small improvements and bug fixes.  Major new features and
+changes in the 3.4 release series so far include:
+
+* PEP 435, a standardized "enum" module
+* PEP 442, improved semantics for object finalization
+* PEP 443, adding single-dispatch generic functions to the standard library
+* PEP 445, a new C API for implementing custom memory allocators
+* PEP 446, changing file descriptors to not be inherited by default
+            in subprocesses
+* PEP 447, a new magic method for metaclasses (``__typelookup__``)
+* PEP 448, making automatic sequence unpacking more general
+
+
+To download Python 3.4.0a2 visit:
+
+     http://www.python.org/download/releases/3.4.0/
+
+
+Please consider trying Python 3.4.0a2 with your code and reporting any
+issues you notice to:
+
+      http://bugs.python.org/
+
+
+Enjoy!
+
+--
+Larry Hastings, Release Manager
+larry at hastings.org
+(on behalf of the entire python-dev team and 3.4's contributors)
+
+From brett at python.org  Mon Sep  9 14:16:06 2013
+From: brett at python.org (Brett Cannon)
+Date: Mon, 9 Sep 2013 08:16:06 -0400
+Subject: [python-committers] [RELEASED] Python 3.4.0a2
+In-Reply-To: <522DB8D3.1030803@hastings.org>
+References: <522DB8D3.1030803@hastings.org>
+Message-ID: <CAP1=2W4HNkPodjskLXtT=RvaC0DXhtmQbggRJYgQX_4VG-axXw@mail.gmail.com>
+
+On Mon, Sep 9, 2013 at 8:02 AM, Larry Hastings <larry at hastings.org> wrote:
+
+>
+> On behalf of the Python development team, I'm chuffed to announce the
+> second alpha release of Python 3.4.
+>
+> This is a preview release, and its use is not recommended for
+> production settings.
+>
+> Python 3.4 includes a range of improvements of the 3.x series, including
+> hundreds of small improvements and bug fixes.  Major new features and
+> changes in the 3.4 release series so far include:
+>
+> * PEP 435, a standardized "enum" module
+> * PEP 442, improved semantics for object finalization
+> * PEP 443, adding single-dispatch generic functions to the standard library
+> * PEP 445, a new C API for implementing custom memory allocators
+> * PEP 446, changing file descriptors to not be inherited by default
+>            in subprocesses
+> * PEP 447, a new magic method for metaclasses (``__typelookup__``)
+> * PEP 448, making automatic sequence unpacking more general
+>
+
+Those last two PEPs are still in draft form and not accepted nor have any
+committed code yet.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20130909/4ccde394/attachment.html>
+
+From victor.stinner at gmail.com  Mon Sep  9 14:30:50 2013
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Mon, 9 Sep 2013 14:30:50 +0200
+Subject: [python-committers] [RELEASED] Python 3.4.0a2
+In-Reply-To: <522DB8D3.1030803@hastings.org>
+References: <522DB8D3.1030803@hastings.org>
+Message-ID: <CAMpsgwZ3Ltsc4dKRnN5zBVvcSF4WFX4YQRcG9oaq_iMvx0NjvQ@mail.gmail.com>
+
+2013/9/9 Larry Hastings <larry at hastings.org>:
+> Python 3.4 includes a range of improvements of the 3.x series, including
+> hundreds of small improvements and bug fixes.  Major new features and
+> changes in the 3.4 release series so far include:
+>
+> * PEP 446, changing file descriptors to not be inherited by default
+>            in subprocesses
+
+The title of the PEP is "Make newly created file descriptors
+non-inheritable". It has an impact on all functions creating files and
+sockets not only the subprocess module.
+
+You can also add a link to the nice What?s New In Python 3.4 document:
+http://docs.python.org/dev/whatsnew/3.4.html
+
+Victor
+
+From solipsis at pitrou.net  Mon Sep  9 14:45:51 2013
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Mon, 9 Sep 2013 14:45:51 +0200
+Subject: [python-committers] [RELEASED] Python 3.4.0a2
+References: <522DB8D3.1030803@hastings.org>
+ <CAMpsgwZ3Ltsc4dKRnN5zBVvcSF4WFX4YQRcG9oaq_iMvx0NjvQ@mail.gmail.com>
+Message-ID: <20130909144551.76b84640@pitrou.net>
+
+Le Mon, 9 Sep 2013 14:30:50 +0200,
+Victor Stinner <victor.stinner at gmail.com> a ?crit :
+> 2013/9/9 Larry Hastings <larry at hastings.org>:
+> > Python 3.4 includes a range of improvements of the 3.x series,
+> > including hundreds of small improvements and bug fixes.  Major new
+> > features and changes in the 3.4 release series so far include:
+> >
+> > * PEP 446, changing file descriptors to not be inherited by default
+> >            in subprocesses
+> 
+> The title of the PEP is "Make newly created file descriptors
+> non-inheritable". It has an impact on all functions creating files and
+> sockets not only the subprocess module.
+
+I don't think Larry's description is wrong. "Non-inheritable" is a
+shorthand for "non-inheritable in subprocesses" with "subprocesses"
+taken in the general sense (i.e. not only created with the subprocess
+module).
+
+Regards
+
+Antoine.
+
+
+
+From ncoghlan at gmail.com  Mon Sep  9 16:24:14 2013
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Tue, 10 Sep 2013 00:24:14 +1000
+Subject: [python-committers] [RELEASED] Python 3.4.0a2
+In-Reply-To: <522DB8D3.1030803@hastings.org>
+References: <522DB8D3.1030803@hastings.org>
+Message-ID: <CADiSq7c8Ue=rjA28Dy0FaJhb8bT2jF3SR-GHAnAk7qgfaW4iRA@mail.gmail.com>
+
+Thanks for that! (although, as Brett noted, there are a couple of fibs in
+the PEP list)
+
+Cheers,
+Nick.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20130910/e7793626/attachment.html>
+
+From rdmurray at bitdance.com  Mon Sep  9 16:54:22 2013
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Mon, 09 Sep 2013 10:54:22 -0400
+Subject: [python-committers] [RELEASED] Python 3.4.0a2
+In-Reply-To: <20130909144551.76b84640@pitrou.net>
+References: <522DB8D3.1030803@hastings.org>
+ <CAMpsgwZ3Ltsc4dKRnN5zBVvcSF4WFX4YQRcG9oaq_iMvx0NjvQ@mail.gmail.com>
+ <20130909144551.76b84640@pitrou.net>
+Message-ID: <20130909145422.B5689250166@webabinitio.net>
+
+On Mon, 09 Sep 2013 14:45:51 +0200, Antoine Pitrou <solipsis at pitrou.net> wrote:
+> Le Mon, 9 Sep 2013 14:30:50 +0200,
+> Victor Stinner <victor.stinner at gmail.com> a ??crit :
+> > 2013/9/9 Larry Hastings <larry at hastings.org>:
+> > > Python 3.4 includes a range of improvements of the 3.x series,
+> > > including hundreds of small improvements and bug fixes.  Major new
+> > > features and changes in the 3.4 release series so far include:
+> > >
+> > > * PEP 446, changing file descriptors to not be inherited by default
+> > >            in subprocesses
+> > 
+> > The title of the PEP is "Make newly created file descriptors
+> > non-inheritable". It has an impact on all functions creating files and
+> > sockets not only the subprocess module.
+> 
+> I don't think Larry's description is wrong. "Non-inheritable" is a
+> shorthand for "non-inheritable in subprocesses" with "subprocesses"
+> taken in the general sense (i.e. not only created with the subprocess
+> module).
+
+Not wrong, but definitely confusing.  It is worth clarifying *somehow*
+that this does not apply only to the subprocess module, which is what
+a naive (or fast) reader will assume.
+
+--David
+
+From victor.stinner at gmail.com  Mon Sep  9 21:51:46 2013
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Mon, 9 Sep 2013 21:51:46 +0200
+Subject: [python-committers] [RELEASED] Python 3.4.0a2
+In-Reply-To: <20130909144551.76b84640@pitrou.net>
+References: <522DB8D3.1030803@hastings.org>
+ <CAMpsgwZ3Ltsc4dKRnN5zBVvcSF4WFX4YQRcG9oaq_iMvx0NjvQ@mail.gmail.com>
+ <20130909144551.76b84640@pitrou.net>
+Message-ID: <CAMpsgwZFuAKe+VKCXaXf6aU1wz_3+p3s=0-QMLEwgBEBLgVf0g@mail.gmail.com>
+
+2013/9/9 Antoine Pitrou <solipsis at pitrou.net>:
+> Le Mon, 9 Sep 2013 14:30:50 +0200,
+> Victor Stinner <victor.stinner at gmail.com> a ?crit :
+>> 2013/9/9 Larry Hastings <larry at hastings.org>:
+>> > Python 3.4 includes a range of improvements of the 3.x series,
+>> > including hundreds of small improvements and bug fixes.  Major new
+>> > features and changes in the 3.4 release series so far include:
+>> >
+>> > * PEP 446, changing file descriptors to not be inherited by default
+>> >            in subprocesses
+>>
+>> The title of the PEP is "Make newly created file descriptors
+>> non-inheritable". It has an impact on all functions creating files and
+>> sockets not only the subprocess module.
+>
+> I don't think Larry's description is wrong. "Non-inheritable" is a
+> shorthand for "non-inheritable in subprocesses" with "subprocesses"
+> taken in the general sense (i.e. not only created with the subprocess
+> module).
+
+Oh, I misunderstood "in subprocesses", I read "in the subprocess module".
+
+The definition of FD inheritance is tricky. For example, on UNIX
+"non-inheritable" file descriptors are still inherited at fork :-)
+
+I hope that the documentation is explicit enough:
+http://docs.python.org/dev/library/os.html#inheritance-of-file-descriptors
+
+Victor
+
+From barry at python.org  Sun Sep 29 20:11:01 2013
+From: barry at python.org (Barry Warsaw)
+Date: Sun, 29 Sep 2013 14:11:01 -0400
+Subject: [python-committers] 2.6.9rc1
+Message-ID: <20130929141101.6d48bdae@anarchist>
+
+Just a quick reminder that I intend to cut 2.6.9rc1 tomorrow.
+
+Here are the open issues still on my list:
+
+- 16040 - nntplib: unlimited readline() from connection
+
+  This one is waiting for a patch, but TBH if it doesn't make it into 2.6.9 I
+  won't care too much.  I also don't mind reviewing and applying a patch
+  between 2.6.9rc1 and 2.6.9 final.
+
+- 16041 - poplib: unlimited readline() from connection
+
+  This one has a patch for 2.7 which does not apply cleanly to 2.6.  I'm of a
+  similar mind as with #16040 - if we can get a clean patch after 2.6.9rc1,
+  then fine, but otherwise I'm okay with this one not making it into 2.6.9
+  final.
+
+All other related issues have been fixed in the 2.6 branch.
+
+If anyone knows of any other issues that should be on the 2.6.9 radar, please
+let me know asap.  Remember, 2.6.9 final is currently scheduled for October
+28, and it will be the last official 2.6 release of the series.  After this,
+we are retiring the 2.6 branch.  Speak now or forever hold your peace.
+
+Cheers,
+-Barry
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 836 bytes
+Desc: not available
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20130929/83d998e1/attachment.sig>
+
+From larry at hastings.org  Mon Sep 30 02:04:45 2013
+From: larry at hastings.org (Larry Hastings)
+Date: Mon, 30 Sep 2013 01:04:45 +0100
+Subject: [python-committers] [RELEASED] Python 3.4.0a3
+Message-ID: <5248C01D.7060701@hastings.org>
+
+On behalf of the Python development team, I'm pleased to announce the
+third alpha release of Python 3.4.
+
+This is a preview release, and its use is not recommended for
+production settings.
+
+Python 3.4 includes a range of improvements of the 3.x series, including
+hundreds of small improvements and bug fixes.  Major new features and
+changes in the 3.4 release series so far include:
+
+* PEP 435, a standardized "enum" module
+* PEP 442, improved semantics for object finalization
+* PEP 443, adding single-dispatch generic functions to the standard library
+* PEP 445, a new C API for implementing custom memory allocators
+* PEP 446, changing file descriptors to not be inherited by default
+            in subprocesses
+
+
+To download Python 3.4.0a3 visit:
+
+     http://www.python.org/download/releases/3.4.0/
+
+
+Please consider trying Python 3.4.0a3 with your code and reporting any
+issues you notice to:
+
+      http://bugs.python.org/
+
+
+Enjoy!
+
+--
+Larry Hastings, Release Manager
+larry at hastings.org
+(on behalf of the entire python-dev team and 3.4's contributors)
+

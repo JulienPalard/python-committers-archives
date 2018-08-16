@@ -1,0 +1,2017 @@
+From brett at python.org  Tue Aug  1 16:59:51 2017
+From: brett at python.org (Brett Cannon)
+Date: Tue, 01 Aug 2017 20:59:51 +0000
+Subject: [python-committers] mention-bot is dead,
+ long live the (misnamed) CODEOWNERS file!
+Message-ID: <CAP1=2W68H9cJT6rGUz8BoGf6=AHjr3mYxbUrLnsTUHfB_PrC6Q@mail.gmail.com>
+
+For those of you who have not noticed, mention-bot is no more. We were
+using the free instance that Facebook provided, but it seems to have fallen
+over and it doesn't look like it's going to get fixed soon (
+https://github.com/facebook/mention-bot/issues/230).
+
+But while mention-bot was down, GitHub launched a new feature that serves a
+related purpose. While mention-bot tried to guess who should review a PR
+based on who has committed (which led some of us to get mentioned a lot
+simply from having touched a bunch of files), that didn't guarantee people
+got listed as a reviewer when they specifically wanted to be (e.g.
+Christian wanting to know about PRs touching our hashing or SSL code).
+
+But GitHub launched CODEOWNERS to cover that latter case (
+https://help.github.com/articles/about-codeowners/ ). Now the filename is
+misleading since it doesn't necessarily mean someone owns the code (there's
+an option to make it feel like that, but we will never flip that on), but
+basically what the file does is let us specify who should automatically be
+added as a review of a pull request when files changed by the PR match one
+of the rules in CODEOWNERS. We have now created the file thanks to Mariatta
+(https://github.com/python/cpython/blob/master/.github/CODEOWNERS) and
+started with what we had in our .mention-bot file (which was just some
+rules for Christian). But if there are any files you want to automatically
+be listed as a reviewer on automatically, then please add an appropriate
+rule to that file (remember that being listed as a reviewer doesn't require
+that you review else you block a PR from being merged, so don't view it as
+some major commitment).
+
+Now to start we can specify individual people. But if there end up being
+groups of people who want to be added to reviews on certain topics (e.g.
+Eric, Nick, and myself for importlib stuff), then we can create sub-teams
+on GitHub of the Python Core team and then that team can be listed for the
+rule. To create a team just tell me who is on the team -- all of whom will
+be made admins so teams are self-organized post-creation -- and what the
+team name should be (e.g. importlib-team). Then you can reference the team
+by e.g. @python/importlib-team (I think team names, even when nested, are
+not nested when mentioning so we will probably want to have a "-team"
+suffix for all teams to make it clear it's a subteam and not to clash with
+higher-level teams like @python/asyncio or @python/typing).
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170801/295f6658/attachment.html>
+
+From christian at python.org  Tue Aug  1 17:09:22 2017
+From: christian at python.org (Christian Heimes)
+Date: Tue, 1 Aug 2017 23:09:22 +0200
+Subject: [python-committers] mention-bot is dead,
+ long live the (misnamed) CODEOWNERS file!
+In-Reply-To: <CAP1=2W68H9cJT6rGUz8BoGf6=AHjr3mYxbUrLnsTUHfB_PrC6Q@mail.gmail.com>
+References: <CAP1=2W68H9cJT6rGUz8BoGf6=AHjr3mYxbUrLnsTUHfB_PrC6Q@mail.gmail.com>
+Message-ID: <e02f2f20-0f00-cf4b-9968-f8df66501502@python.org>
+
+On 2017-08-01 22:59, Brett Cannon wrote:
+> For those of you who have not noticed, mention-bot is no more. We were
+> using the free instance that Facebook provided, but it seems to have
+> fallen over and it doesn't look like it's going to get fixed soon
+> (https://github.com/facebook/mention-bot/issues/230).
+> 
+> But while mention-bot was down, GitHub launched a new feature that
+> serves a related purpose. While mention-bot tried to guess who should
+> review a PR based on who has committed (which led some of us to get
+> mentioned a lot simply from having touched a bunch of files), that
+> didn't guarantee people got listed as a reviewer when they specifically
+> wanted to be (e.g. Christian wanting to know about PRs touching our
+> hashing or SSL code).
+> 
+> But GitHub launched CODEOWNERS to cover that latter case
+> (https://help.github.com/articles/about-codeowners/ ). Now the filename
+> is misleading since it doesn't necessarily mean someone owns the code
+> (there's an option to make it feel like that, but we will never flip
+> that on), but basically what the file does is let us specify who should
+> automatically be added as a review of a pull request when files changed
+> by the PR match one of the rules in CODEOWNERS. We have now created the
+> file thanks to Mariatta
+> (https://github.com/python/cpython/blob/master/.github/CODEOWNERS) and
+> started with what we had in our .mention-bot file (which was just some
+> rules for Christian). But if there are any files you want to
+> automatically be listed as a reviewer on automatically, then please add
+> an appropriate rule to that file (remember that being listed as a
+> reviewer doesn't require that you review else you block a PR from being
+> merged, so don't view it as some major commitment).
+> 
+> Now to start we can specify individual people. But if there end up being
+> groups of people who want to be added to reviews on certain topics (e.g.
+> Eric, Nick, and myself for importlib stuff), then we can create
+> sub-teams on GitHub of the Python Core team and then that team can be
+> listed for the rule. To create a team just tell me who is on the team --
+> all of whom will be made admins so teams are self-organized
+> post-creation -- and what the team name should be (e.g. importlib-team).
+> Then you can reference the team by e.g. @python/importlib-team (I think
+> team names, even when nested, are not nested when mentioning so we will
+> probably want to have a "-team" suffix for all teams to make it clear
+> it's a subteam and not to clash with higher-level teams like
+> @python/asyncio or @python/typing).
+
+Marietta, Brett, thanks for your work!
+
+I suggested teams to make the file a bit easier to maintain. The rule
+format works differently than the old mentionbot format. In the old
+format we had a relationship user -> files. The new CODEOWNERS format
+has files -> users mapping with last rules trumps all semantic. We have
+to be careful to not override parts of a previous rules. I believe teams
+reduce the burden.
+
+Christian
+
+From barry at python.org  Tue Aug  1 18:23:36 2017
+From: barry at python.org (Barry Warsaw)
+Date: Tue, 1 Aug 2017 18:23:36 -0400
+Subject: [python-committers] mention-bot is dead,
+ long live the (misnamed) CODEOWNERS file!
+In-Reply-To: <e02f2f20-0f00-cf4b-9968-f8df66501502@python.org>
+References: <CAP1=2W68H9cJT6rGUz8BoGf6=AHjr3mYxbUrLnsTUHfB_PrC6Q@mail.gmail.com>
+ <e02f2f20-0f00-cf4b-9968-f8df66501502@python.org>
+Message-ID: <9E082305-FEFE-46B1-81F1-C2EDAAD826A3@python.org>
+
+On Aug 1, 2017, at 17:09, Christian Heimes <christian at python.org> wrote:
+
+> Marietta, Brett, thanks for your work!
+
+Indeed!
+
+> I suggested teams to make the file a bit easier to maintain. The rule
+> format works differently than the old mentionbot format. In the old
+> format we had a relationship user -> files. The new CODEOWNERS format
+> has files -> users mapping with last rules trumps all semantic. We have
+> to be careful to not override parts of a previous rules. I believe teams
+> reduce the burden.
+
+Using teams would also reduce conflicts on changes to CODEOWNERS.  We?d need only specify the teams and then can use the GH u/i to manage team membership.
+
+-Barry
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 833 bytes
+Desc: Message signed with OpenPGP
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170801/a4c21f0d/attachment.sig>
+
+From alex.gaynor at gmail.com  Tue Aug  1 18:24:32 2017
+From: alex.gaynor at gmail.com (Alex Gaynor)
+Date: Tue, 1 Aug 2017 18:24:32 -0400
+Subject: [python-committers] mention-bot is dead,
+ long live the (misnamed) CODEOWNERS file!
+In-Reply-To: <9E082305-FEFE-46B1-81F1-C2EDAAD826A3@python.org>
+References: <CAP1=2W68H9cJT6rGUz8BoGf6=AHjr3mYxbUrLnsTUHfB_PrC6Q@mail.gmail.com>
+ <e02f2f20-0f00-cf4b-9968-f8df66501502@python.org>
+ <9E082305-FEFE-46B1-81F1-C2EDAAD826A3@python.org>
+Message-ID: <CAFRnB2Wc2Rmhtt6oOZY=K2LDAQxUXfhKak6Kk+E_Pt48OxA5hg@mail.gmail.com>
+
+The other big advantage to using teams is that they'll automatically apply
+to all branches.
+
+Alex
+
+On Tue, Aug 1, 2017 at 6:23 PM, Barry Warsaw <barry at python.org> wrote:
+
+> On Aug 1, 2017, at 17:09, Christian Heimes <christian at python.org> wrote:
+>
+> > Marietta, Brett, thanks for your work!
+>
+> Indeed!
+>
+> > I suggested teams to make the file a bit easier to maintain. The rule
+> > format works differently than the old mentionbot format. In the old
+> > format we had a relationship user -> files. The new CODEOWNERS format
+> > has files -> users mapping with last rules trumps all semantic. We have
+> > to be careful to not override parts of a previous rules. I believe teams
+> > reduce the burden.
+>
+> Using teams would also reduce conflicts on changes to CODEOWNERS.  We?d
+> need only specify the teams and then can use the GH u/i to manage team
+> membership.
+>
+> -Barry
+>
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+>
+
+
+-- 
+"I disapprove of what you say, but I will defend to the death your right to
+say it." -- Evelyn Beatrice Hall (summarizing Voltaire)
+"The people's good is the highest law." -- Cicero
+GPG Key fingerprint: D1B3 ADC0 E023 8CA6
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170801/0b3645ef/attachment-0001.html>
+
+From ncoghlan at gmail.com  Wed Aug  2 10:37:01 2017
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Thu, 3 Aug 2017 00:37:01 +1000
+Subject: [python-committers] mention-bot is dead,
+ long live the (misnamed) CODEOWNERS file!
+In-Reply-To: <e02f2f20-0f00-cf4b-9968-f8df66501502@python.org>
+References: <CAP1=2W68H9cJT6rGUz8BoGf6=AHjr3mYxbUrLnsTUHfB_PrC6Q@mail.gmail.com>
+ <e02f2f20-0f00-cf4b-9968-f8df66501502@python.org>
+Message-ID: <CADiSq7dt2G1O0jo2iOWh8DHKxbTpN6H0p8XFK82RRfG17bL0Xw@mail.gmail.com>
+
+On 2 August 2017 at 07:09, Christian Heimes <christian at python.org> wrote:
+> I suggested teams to make the file a bit easier to maintain. The rule
+> format works differently than the old mentionbot format. In the old
+> format we had a relationship user -> files. The new CODEOWNERS format
+> has files -> users mapping with last rules trumps all semantic. We have
+> to be careful to not override parts of a previous rules. I believe teams
+> reduce the burden.
+
++1 for setting up teams, and +1 for an importlib-team :)
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+
+From tjreedy at udel.edu  Wed Aug  2 14:20:34 2017
+From: tjreedy at udel.edu (Terry Reedy)
+Date: Wed, 2 Aug 2017 14:20:34 -0400
+Subject: [python-committers] mention-bot is dead,
+ long live the (misnamed) CODEOWNERS file!
+In-Reply-To: <CADiSq7dt2G1O0jo2iOWh8DHKxbTpN6H0p8XFK82RRfG17bL0Xw@mail.gmail.com>
+References: <CAP1=2W68H9cJT6rGUz8BoGf6=AHjr3mYxbUrLnsTUHfB_PrC6Q@mail.gmail.com>
+ <e02f2f20-0f00-cf4b-9968-f8df66501502@python.org>
+ <CADiSq7dt2G1O0jo2iOWh8DHKxbTpN6H0p8XFK82RRfG17bL0Xw@mail.gmail.com>
+Message-ID: <715b472e-4bde-f420-db79-0c3ab875871b@udel.edu>
+
+On 8/2/2017 10:37 AM, Nick Coghlan wrote:
+> On 2 August 2017 at 07:09, Christian Heimes <christian at python.org> wrote:
+>> I suggested teams to make the file a bit easier to maintain. The rule
+>> format works differently than the old mentionbot format. In the old
+>> format we had a relationship user -> files. The new CODEOWNERS format
+>> has files -> users mapping with last rules trumps all semantic. We have
+>> to be careful to not override parts of a previous rules. I believe teams
+>> reduce the burden.
+> 
+> +1 for setting up teams, and +1 for an importlib-team :)
+
+Do people on a team have to be core-developers?
+
+Terry
+
+
+From steve.dower at python.org  Wed Aug  2 17:47:50 2017
+From: steve.dower at python.org (Steve Dower)
+Date: Wed, 2 Aug 2017 14:47:50 -0700
+Subject: [python-committers] mention-bot is dead,
+ long live the (misnamed) CODEOWNERS file!
+In-Reply-To: <715b472e-4bde-f420-db79-0c3ab875871b@udel.edu>
+References: <CAP1=2W68H9cJT6rGUz8BoGf6=AHjr3mYxbUrLnsTUHfB_PrC6Q@mail.gmail.com>
+ <e02f2f20-0f00-cf4b-9968-f8df66501502@python.org>
+ <CADiSq7dt2G1O0jo2iOWh8DHKxbTpN6H0p8XFK82RRfG17bL0Xw@mail.gmail.com>
+ <715b472e-4bde-f420-db79-0c3ab875871b@udel.edu>
+Message-ID: <E1dd2dp-0005rd-HL@se2-syd.hostedmail.net.au>
+
+Should we seed the teams from the experts list?
+
+I have no strong opinion about core vs non-core dev, but I think part of the point of the distinction is reflected here. Why would we notify someone about every PR in an area if we don?t want them to be committers?
+
+Top-posted from my Windows phone
+
+From: Terry Reedy
+Sent: Wednesday, August 2, 2017 11:21
+To: python-committers at python.org
+Subject: Re: [python-committers] mention-bot is dead,long live the (misnamed) CODEOWNERS file!
+
+On 8/2/2017 10:37 AM, Nick Coghlan wrote:
+> On 2 August 2017 at 07:09, Christian Heimes <christian at python.org> wrote:
+>> I suggested teams to make the file a bit easier to maintain. The rule
+>> format works differently than the old mentionbot format. In the old
+>> format we had a relationship user -> files. The new CODEOWNERS format
+>> has files -> users mapping with last rules trumps all semantic. We have
+>> to be careful to not override parts of a previous rules. I believe teams
+>> reduce the burden.
+> 
+> +1 for setting up teams, and +1 for an importlib-team :)
+
+Do people on a team have to be core-developers?
+
+Terry
+
+_______________________________________________
+python-committers mailing list
+python-committers at python.org
+https://mail.python.org/mailman/listinfo/python-committers
+Code of Conduct: https://www.python.org/psf/codeofconduct/
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170802/1e394af3/attachment.html>
+
+From senthil at uthcode.com  Wed Aug  2 19:06:43 2017
+From: senthil at uthcode.com (Senthil Kumaran)
+Date: Wed, 2 Aug 2017 16:06:43 -0700
+Subject: [python-committers] mention-bot is dead,
+ long live the (misnamed) CODEOWNERS file!
+In-Reply-To: <E1dd2dp-0005rd-HL@se2-syd.hostedmail.net.au>
+References: <CAP1=2W68H9cJT6rGUz8BoGf6=AHjr3mYxbUrLnsTUHfB_PrC6Q@mail.gmail.com>
+ <e02f2f20-0f00-cf4b-9968-f8df66501502@python.org>
+ <CADiSq7dt2G1O0jo2iOWh8DHKxbTpN6H0p8XFK82RRfG17bL0Xw@mail.gmail.com>
+ <715b472e-4bde-f420-db79-0c3ab875871b@udel.edu>
+ <E1dd2dp-0005rd-HL@se2-syd.hostedmail.net.au>
+Message-ID: <CAPOVWOR0ExhxCGanZX7RjtW=FLqyPsrtGfDYk1z6oiTQtSYYtg@mail.gmail.com>
+
+Only committers can merge stuff. So, that would make a requirement that
+reviewers  (and @team-of-reviwers)should be core-dev / committers.
+
+On Wed, Aug 2, 2017 at 2:47 PM, Steve Dower <steve.dower at python.org> wrote:
+
+> Should we seed the teams from the experts list?
+>
+>
+>
+> I have no strong opinion about core vs non-core dev, but I think part of
+> the point of the distinction is reflected here. Why would we notify someone
+> about every PR in an area if we don?t want them to be committers?
+>
+>
+>
+> Top-posted from my Windows phone
+>
+>
+>
+> *From: *Terry Reedy <tjreedy at udel.edu>
+> *Sent: *Wednesday, August 2, 2017 11:21
+> *To: *python-committers at python.org
+> *Subject: *Re: [python-committers] mention-bot is dead,long live the
+> (misnamed) CODEOWNERS file!
+>
+>
+>
+> On 8/2/2017 10:37 AM, Nick Coghlan wrote:
+>
+> > On 2 August 2017 at 07:09, Christian Heimes <christian at python.org>
+> wrote:
+>
+> >> I suggested teams to make the file a bit easier to maintain. The rule
+>
+> >> format works differently than the old mentionbot format. In the old
+>
+> >> format we had a relationship user -> files. The new CODEOWNERS format
+>
+> >> has files -> users mapping with last rules trumps all semantic. We have
+>
+> >> to be careful to not override parts of a previous rules. I believe teams
+>
+> >> reduce the burden.
+>
+> >
+>
+> > +1 for setting up teams, and +1 for an importlib-team :)
+>
+>
+>
+> Do people on a team have to be core-developers?
+>
+>
+>
+> Terry
+>
+>
+>
+> _______________________________________________
+>
+> python-committers mailing list
+>
+> python-committers at python.org
+>
+> https://mail.python.org/mailman/listinfo/python-committers
+>
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+>
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170802/87ddbb69/attachment.html>
+
+From tjreedy at udel.edu  Wed Aug  2 23:01:59 2017
+From: tjreedy at udel.edu (Terry Reedy)
+Date: Wed, 2 Aug 2017 23:01:59 -0400
+Subject: [python-committers] mention-bot is dead,
+ long live the (misnamed) CODEOWNERS file!
+In-Reply-To: <CAPOVWOR0ExhxCGanZX7RjtW=FLqyPsrtGfDYk1z6oiTQtSYYtg@mail.gmail.com>
+References: <CAP1=2W68H9cJT6rGUz8BoGf6=AHjr3mYxbUrLnsTUHfB_PrC6Q@mail.gmail.com>
+ <e02f2f20-0f00-cf4b-9968-f8df66501502@python.org>
+ <CADiSq7dt2G1O0jo2iOWh8DHKxbTpN6H0p8XFK82RRfG17bL0Xw@mail.gmail.com>
+ <715b472e-4bde-f420-db79-0c3ab875871b@udel.edu>
+ <E1dd2dp-0005rd-HL@se2-syd.hostedmail.net.au>
+ <CAPOVWOR0ExhxCGanZX7RjtW=FLqyPsrtGfDYk1z6oiTQtSYYtg@mail.gmail.com>
+Message-ID: <4a3d9112-6055-5c20-e94d-8ca0fda457ab@udel.edu>
+
+Rearranging things in order. I asked
+ >     Do people on a team have to be core-developers?
+
+The broader question is whether active people who want notifications 
+have to be a committer to get automatic notifications of a PR and in 
+particular a review request.  It appears that anyone with a github 
+account can review python PRs and that anyone who does submit a review, 
+as opposed to comments, gets listed under Reviews.
+
+Moreover, we *want* more reviews from non-committer contributors.  To 
+encourage this, Martin Loewis once offered to review any patch in 
+exchange for 5 reviews by such people, even if brief.  I understood that 
+the hope of getting more such reviews was one of the reasons for the switch.
+
+> On Wed, Aug 2, 2017 at 2:47 PM, Steve Dower <steve.dower at python.org 
+> <mailto:steve.dower at python.org>> wrote:
+
+>     I have no strong opinion about core vs non-core dev, but I think
+>     part of the point of the distinction is reflected here. Why would we
+>     notify someone about every PR in an area if we don?t want them to be
+>     committers?
+
+I not sure what 'them' you are speaking of.  I am thinking about active 
+contributors who are potential committers.  Part of becoming a committer 
+is demonstrating the ability to do committer-qualify reviews.
+
+On 8/2/2017 7:06 PM, Senthil Kumaran wrote:
+ > Only committers can merge stuff. So, that would make a requirement that
+ > reviewers  (and @team-of-reviwers)should be core-dev / committers.
+
+If we were using the list as an actual 'code owner' list, I would not 
+have asked.  But it was said that we are not using it that way and that 
+there is no plan to turn on the 'owner' feature.
+
+--
+Terry Jan Reedy
+
+
+
+From storchaka at gmail.com  Thu Aug  3 02:47:31 2017
+From: storchaka at gmail.com (Serhiy Storchaka)
+Date: Thu, 3 Aug 2017 09:47:31 +0300
+Subject: [python-committers] Please edit the commit message when merge a
+ PR
+In-Reply-To: <CAP1=2W5Rw1W0P-DQQjd0i7gRoj2oj1nXw_S=ec8Jvgy8bbwuNg@mail.gmail.com>
+References: <ojvuiu$ud7$1@blaine.gmane.org>
+ <CAF4280LbrismGSsvDe3mo19gyj80oQEEpcuK9HXi1RE7qHm0xg@mail.gmail.com>
+ <CAP1=2W5Rw1W0P-DQQjd0i7gRoj2oj1nXw_S=ec8Jvgy8bbwuNg@mail.gmail.com>
+Message-ID: <olugtu$192$1@blaine.gmane.org>
+
+11.07.17 19:39, Brett Cannon ????:
+> There's isn't a way to block a merge at that stage. But one thing I've 
+> been thinking about is adding a check to Bedevere post-merge that sees 
+> if the commit message was left unchanged (not quite sure  if I can come 
+> up with a reliable heuristic, though). In instances where the committers 
+> forgot, Bedevere would simply leave a message saying something like, 
+> "Hey, thanks for taking the time to merge a PR, but please don't forget 
+> to clean up the commit message before merging." Basically a friendly 
+> reminder to not forget next time (I'm also thinking of doing something 
+> similar for the formatting of the PR title after merging).
+
++1 for adding a post-merge check and a friendly reminder. I still see 
+merged commits containing messages from all intermediate changes. I'm 
+afraid that it would be rough from my side to remind about this every 
+time, but the bot is impartial.
+
+
+From steve.dower at python.org  Thu Aug  3 12:31:08 2017
+From: steve.dower at python.org (Steve Dower)
+Date: Thu, 3 Aug 2017 09:31:08 -0700
+Subject: [python-committers] mention-bot is dead,
+ long live the (misnamed) CODEOWNERS file!
+In-Reply-To: <4a3d9112-6055-5c20-e94d-8ca0fda457ab@udel.edu>
+References: <CAP1=2W68H9cJT6rGUz8BoGf6=AHjr3mYxbUrLnsTUHfB_PrC6Q@mail.gmail.com>
+ <e02f2f20-0f00-cf4b-9968-f8df66501502@python.org>
+ <CADiSq7dt2G1O0jo2iOWh8DHKxbTpN6H0p8XFK82RRfG17bL0Xw@mail.gmail.com>
+ <715b472e-4bde-f420-db79-0c3ab875871b@udel.edu>
+ <E1dd2dp-0005rd-HL@se2-syd.hostedmail.net.au>
+ <CAPOVWOR0ExhxCGanZX7RjtW=FLqyPsrtGfDYk1z6oiTQtSYYtg@mail.gmail.com>
+ <4a3d9112-6055-5c20-e94d-8ca0fda457ab@udel.edu>
+Message-ID: <54412d6a-3910-a756-dc2b-4c61aaa4132e@python.org>
+
+On 02Aug2017 2001, Terry Reedy wrote:
+>> On Wed, Aug 2, 2017 at 2:47 PM, Steve Dower <steve.dower at python.org 
+>> <mailto:steve.dower at python.org>> wrote:
+> 
+>>     I have no strong opinion about core vs non-core dev, but I think
+>>     part of the point of the distinction is reflected here. Why would we
+>>     notify someone about every PR in an area if we don?t want them to be
+>>     committers?
+> 
+> I not sure what 'them' you are speaking of.  I am thinking about active 
+> contributors who are potential committers.  Part of becoming a committer 
+> is demonstrating the ability to do committer-qualify reviews.
+
+Agreed, and perhaps this is similar to when we give someone triage 
+permissions on b.p.o without making them a committer?
+
+My thoughts here are:
+* would we add someone to the codeowners file who *hadn't* demonstrated 
+the ability to do committer-quality reviews?
+* if someone has demonstrated the ability to do committer-quality 
+reviews, why aren't they made a committer?
+
+I think the answer to the first is clearly no, but the answer to the 
+second is more complicated, which is why we probably will end up 
+treating this as "you've demonstrated useful reviews already so here's a 
+way to help you demonstrate more until we decide to also let you click 
+merge".
+
+Cheers,
+Steve
+
+From brett at python.org  Thu Aug  3 14:28:41 2017
+From: brett at python.org (Brett Cannon)
+Date: Thu, 03 Aug 2017 18:28:41 +0000
+Subject: [python-committers] mention-bot is dead,
+ long live the (misnamed) CODEOWNERS file!
+In-Reply-To: <715b472e-4bde-f420-db79-0c3ab875871b@udel.edu>
+References: <CAP1=2W68H9cJT6rGUz8BoGf6=AHjr3mYxbUrLnsTUHfB_PrC6Q@mail.gmail.com>
+ <e02f2f20-0f00-cf4b-9968-f8df66501502@python.org>
+ <CADiSq7dt2G1O0jo2iOWh8DHKxbTpN6H0p8XFK82RRfG17bL0Xw@mail.gmail.com>
+ <715b472e-4bde-f420-db79-0c3ab875871b@udel.edu>
+Message-ID: <CAP1=2W4MaX_g9XwTXQXhzjFh61Jp-hErV4=GYUB1Sw83eoJE1Q@mail.gmail.com>
+
+On Wed, 2 Aug 2017 at 11:20 Terry Reedy <tjreedy at udel.edu> wrote:
+
+> On 8/2/2017 10:37 AM, Nick Coghlan wrote:
+> > On 2 August 2017 at 07:09, Christian Heimes <christian at python.org>
+> wrote:
+> >> I suggested teams to make the file a bit easier to maintain. The rule
+> >> format works differently than the old mentionbot format. In the old
+> >> format we had a relationship user -> files. The new CODEOWNERS format
+> >> has files -> users mapping with last rules trumps all semantic. We have
+> >> to be careful to not override parts of a previous rules. I believe teams
+> >> reduce the burden.
+> >
+> > +1 for setting up teams, and +1 for an importlib-team :)
+>
+> Do people on a team have to be core-developers?
+>
+
+To be part of a team, yes. To just be manually listed, I don't think so.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170803/fe7d95d8/attachment.html>
+
+From brett at python.org  Thu Aug  3 14:31:47 2017
+From: brett at python.org (Brett Cannon)
+Date: Thu, 03 Aug 2017 18:31:47 +0000
+Subject: [python-committers] mention-bot is dead,
+ long live the (misnamed) CODEOWNERS file!
+In-Reply-To: <E1dd2dp-0005rd-HL@se2-syd.hostedmail.net.au>
+References: <CAP1=2W68H9cJT6rGUz8BoGf6=AHjr3mYxbUrLnsTUHfB_PrC6Q@mail.gmail.com>
+ <e02f2f20-0f00-cf4b-9968-f8df66501502@python.org>
+ <CADiSq7dt2G1O0jo2iOWh8DHKxbTpN6H0p8XFK82RRfG17bL0Xw@mail.gmail.com>
+ <715b472e-4bde-f420-db79-0c3ab875871b@udel.edu>
+ <E1dd2dp-0005rd-HL@se2-syd.hostedmail.net.au>
+Message-ID: <CAP1=2W7PLzRUkhONg6y9rTgxtQQJks80jJKyi_xR+WHjAjf5gA@mail.gmail.com>
+
+On Wed, 2 Aug 2017 at 16:01 Steve Dower <steve.dower at python.org> wrote:
+
+> Should we seed the teams from the experts list?
+>
+
+I thought about it and decided not to because (a) the experts list is keyed
+on bugs.python.org account names and so I didn't want to have to look up
+details, (b) this is much more automated than being manually nosied on an
+issue and so people might not want as much GH notification traffic as
+compared to issues, (c) I didn't want to botch the file path rules for
+someone by improperly assuming what people wanted to be notified on, (d) I
+don't wanna spend the time to do it when we all can edit the CODEOWNERS
+file easily enough. :)
+
+-Brett
+
+
+>
+>
+> I have no strong opinion about core vs non-core dev, but I think part of
+> the point of the distinction is reflected here. Why would we notify someone
+> about every PR in an area if we don?t want them to be committers?
+>
+>
+>
+> Top-posted from my Windows phone
+>
+>
+>
+> *From: *Terry Reedy <tjreedy at udel.edu>
+> *Sent: *Wednesday, August 2, 2017 11:21
+> *To: *python-committers at python.org
+> *Subject: *Re: [python-committers] mention-bot is dead,long live the
+> (misnamed) CODEOWNERS file!
+>
+>
+>
+> On 8/2/2017 10:37 AM, Nick Coghlan wrote:
+>
+> > On 2 August 2017 at 07:09, Christian Heimes <christian at python.org>
+> wrote:
+>
+> >> I suggested teams to make the file a bit easier to maintain. The rule
+>
+> >> format works differently than the old mentionbot format. In the old
+>
+> >> format we had a relationship user -> files. The new CODEOWNERS format
+>
+> >> has files -> users mapping with last rules trumps all semantic. We have
+>
+> >> to be careful to not override parts of a previous rules. I believe teams
+>
+> >> reduce the burden.
+>
+> >
+>
+> > +1 for setting up teams, and +1 for an importlib-team :)
+>
+>
+>
+> Do people on a team have to be core-developers?
+>
+>
+>
+> Terry
+>
+>
+>
+> _______________________________________________
+>
+> python-committers mailing list
+>
+> python-committers at python.org
+>
+> https://mail.python.org/mailman/listinfo/python-committers
+>
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170803/0fe460ff/attachment.html>
+
+From brett at python.org  Fri Aug  4 16:40:39 2017
+From: brett at python.org (Brett Cannon)
+Date: Fri, 04 Aug 2017 20:40:39 +0000
+Subject: [python-committers] Created the import-team on GitHub
+Message-ID: <CAP1=2W53c1430+kEJLs+ME8sA=WxK0RM9gDncbTFBtr0V6U7VA@mail.gmail.com>
+
+https://github.com/orgs/python/teams/import-team/members
+
+If anyone else wants to be on the team to be notified for import-related
+PRs then please just let any of us know and we can add you (I'm making
+everyone who's a member of a team an admin for that team so we don't have
+unnecessary bottlenecks).
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170804/50d0d35b/attachment.html>
+
+From larry at hastings.org  Tue Aug  8 06:58:55 2017
+From: larry at hastings.org (Larry Hastings)
+Date: Tue, 8 Aug 2017 03:58:55 -0700
+Subject: [python-committers] [RELEASED] Python 3.5.4 is now available
+Message-ID: <86871e7f-2117-f05f-7c55-c3a7ddab920d@hastings.org>
+
+
+On behalf of the Python development community and the Python 3.5 release 
+team, I'm pleased to announce the availability of Python 3.5.4.
+
+Python 3.5.4 is the final 3.5 release in "bug fix" mode.   The Python 
+3.5 branch has now transitioned into "security fixes mode"; all future 
+improvements in the 3.5 branch will be security fixes only, and no 
+conventional bug fixes will be merged.
+
+
+You can find Python 3.5.4 here:
+
+    https://www.python.org/downloads/release/python-354/
+
+
+Python 3.4.7 final will be released later today.
+
+
+Happy Pythoning,
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170808/17caed1c/attachment.html>
+
+From larry at hastings.org  Tue Aug  8 07:22:30 2017
+From: larry at hastings.org (Larry Hastings)
+Date: Tue, 8 Aug 2017 04:22:30 -0700
+Subject: [python-committers] Python 3.5 has now transitioned to "security
+ fixes only" mode
+Message-ID: <6bf6b31d-0afd-a1bb-a5ae-ae0650fb842c@hastings.org>
+
+
+
+The Python 3.5 branch has now entered "security fixes only" mode. No 
+more bugfixes will be accepted into the 3.5 branch.
+
+In keeping with our modern workflow, I have changed the permissions on 
+the 3.5 branch on Github so that only release managers can accept PRs 
+into the branch.  Please add me to your 3.5 security fix PRs, as I'm the 
+one responsible for accepting them.  (This was already true for the 3.4 
+branch, too.)
+
+I neglected to mention it in the release announcement, but this 
+transition also means no more binary installers for 3.5 releases. This 
+signals the end of my interactions with macOS Platform Expert Ned Deily 
+and Windows Platform Expert Steve Dower when making releases.  I just 
+wanted to mention what a pleasure it has been working with those two 
+gentlemen for the two Python releases I've RM'd for.  They've made me 
+look good every time.
+
+
+Cheers,
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170808/9bda4b2f/attachment.html>
+
+From larry at hastings.org  Wed Aug  9 03:31:12 2017
+From: larry at hastings.org (Larry Hastings)
+Date: Wed, 9 Aug 2017 00:31:12 -0700
+Subject: [python-committers] [RELEASED] Python 3.4.7 is now available
+Message-ID: <513e80d5-170f-21f8-1429-de86a6752169@hastings.org>
+
+
+On behalf of the Python development community and the Python 3.4 release 
+team, I'm pleased to announce the availability of Python 3.4.7.
+
+Python 3.4 is now in "security fixes only" mode.  This is the final 
+stage of support for Python 3.4.  Python 3.4 now only receives security 
+fixes, not bug fixes, and Python 3.4 releases are source code only--no 
+more official binary installers will be produced.
+
+
+You can find Python 3.4.7 here:
+
+    https://www.python.org/downloads/release/python-347/
+
+
+
+Happy Pythoning,
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170809/278f1d50/attachment.html>
+
+From victor.stinner at gmail.com  Wed Aug  9 04:54:39 2017
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Wed, 9 Aug 2017 10:54:39 +0200
+Subject: [python-committers] GitHub: remove the "needs backport to 3.5"
+ label?
+Message-ID: <CAMpsgwbt0cF8_j0any+vfOen175hBe54X+-Ay4nRbGqSzsP8Wg@mail.gmail.com>
+
+Hi,
+
+Python 3.5 entered security fix only mode. Should we now remove the
+"needs backport to 3.5" label? Other security only branches don't have
+this label neither (3.3 and 3.4).
+
+Victor
+
+From brett at python.org  Wed Aug  9 15:20:00 2017
+From: brett at python.org (Brett Cannon)
+Date: Wed, 09 Aug 2017 19:20:00 +0000
+Subject: [python-committers] GitHub: remove the "needs backport to 3.5"
+ label?
+In-Reply-To: <CAMpsgwbt0cF8_j0any+vfOen175hBe54X+-Ay4nRbGqSzsP8Wg@mail.gmail.com>
+References: <CAMpsgwbt0cF8_j0any+vfOen175hBe54X+-Ay4nRbGqSzsP8Wg@mail.gmail.com>
+Message-ID: <CAP1=2W4AYr3_KKFMQkvrXYCjA-2vGDJvvMWCtMEup7HFZGOi6Q@mail.gmail.com>
+
+On Wed, 9 Aug 2017 at 01:55 Victor Stinner <victor.stinner at gmail.com> wrote:
+
+> Hi,
+>
+> Python 3.5 entered security fix only mode. Should we now remove the
+> "needs backport to 3.5" label? Other security only branches don't have
+> this label neither (3.3 and 3.4).
+>
+
+Seems reasonable to me since you will need to get Larry's attention and
+approval anyway for 3.5 changes now so the label isn't that useful. If
+there isn't a consensus to not do this I will remove the label probably
+Friday.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170809/68f95324/attachment.html>
+
+From victor.stinner at gmail.com  Fri Aug 11 08:37:23 2017
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Fri, 11 Aug 2017 14:37:23 +0200
+Subject: [python-committers] UPDATE 1: Core sprint 2017 - Sep 4 - Sep 9,
+ Menlo Park, California
+In-Reply-To: <216145AA-1D2B-401A-867A-DCF354494038@langa.pl>
+References: <BC2653E3-39AF-4905-8EDC-67047157924B@langa.pl>
+ <216145AA-1D2B-401A-867A-DCF354494038@langa.pl>
+Message-ID: <CAMpsgwZ5K2syPDVEScqcMnJbCeOKjL7vbf05LLSOCCNkdcTA7A@mail.gmail.com>
+
+I created https://public.etherpad-mozilla.org/p/cpython-dev-sprint-2017
+etherpad to organize the sprint. Feel free to write whatever you want about
+the sprint there ;-) I started to list project ideas.
+
+Victor
+
+2017-07-12 13:55 GMT+02:00 ?ukasz Langa <lukasz at langa.pl>:
+
+> Update: the sprint is on!
+>
+> *Good news*: Facebook is covering the venue, food and hotel costs. This
+> is confirmed. I'm working on getting a PSF grant for flights like last year.
+>
+> *Please book your* *airplane tickets* as soon as possible. Like last
+> year, we can reimburse up to *$500* for domestic roundtrip flights and up
+> to *$1500* for international roundtrip flights. If that?s not enough to
+> get you to California and back, let me know and we?ll figure something out.
+> Send me the receipts my way, you should get your money back before the
+> event, preferably as soon as I get the grant wired. For sums smaller than
+> $500, provide me with a PayPal e-mail. For larger ones, I will need your
+> details to set up a wire transfer. I will use TransferWise for the latter
+> to cut down the wire costs. * I recommend flying in on Sunday and flying
+> out on Saturday.*
+>
+> *Please DO NOT book hotels*, Facebook is covering this, preferably in the
+> same hotel as close to Facebook HQ as possible. NOTE: I cannot confirm your
+> hotel room until I have your flight information.
+>
+> *Full list of confirmed attendance:*
+> zware
+> ned-deily
+> ncoghlan
+> warsaw
+> benjaminp
+> tiran
+> ericvsmith
+> 1st1
+> larryhastings
+> ericsnowcurrently
+> Mariatta
+> ezio-melotti
+> applio
+> nascheme
+> bitdancer
+> gvanrossum
+> gpshead
+> zooba
+> haypo
+> rhettinger
+>
+> If for any reason you can no longer come, *please let me know immediately*
+> .
+>
+> - ?
+>
+>
+>
+> On Jun 13, 2017, at 1:04 AM, Lukasz Langa <lukasz at langa.pl> wrote:
+>
+> Hello fellow committers!
+> I'm organizing another core sprint this year to make Python 3.7 the best
+> release possible.
+>
+> *WHY*:
+> 1. *Community*.  The sprints at the end of PyCon are great but they
+> mostly get the same people in the room year after year.  Many of the most
+> active contributors never attend conferences.  My goal with this sprint is
+> to bring together many core devs who rarely if ever meet!
+> 2. *Focus*.  When we have sprints at the end of a conference, many of us
+> are pretty tired and less productive than we could have been without the
+> late dinners, endless hallway sessions, and so on.  Some of the sprinters
+> are preoccupied with tutoring newcomers.  This sprint won't be after a
+> major conference, and it's only for seasoned CPython core devs--so get to
+> work!
+> 3. *Communication*. There are tremendous benefits to getting everyone
+> together in one big room.  Conversations that drag on on python-dev can be
+> solved quickly in person.  Even contentious debates become faster, easier,
+> and more civil.  And meeting face-to-face helps us all feel more connected
+> to our community.
+>
+> *WHY THE BAY AREA*: We have a large population of core contributors
+> here.  Also, I can arrange for Facebook to provide us a "war room" for the
+> whole week, with full access to the campus during the sprints. That
+> includes free food for breakfast, lunch, dinner, and snacks, compatible
+> with almost any dietary restrictions.
+>
+> *WHY EARLY SEPTEMBER*: It's almost impossible to find a time that doesn't
+> overlap with a PyCon. This week worked well last year so we're redoing it
+> that way. Monday September 4 is Labor Day in the US, which may make it
+> easier for employees of US companies to attend, as they'd only be taking
+> off four days instead of five.
+>
+> *HOW LONG*: A full week Monday, Sep 4 to Friday, Sep 8 evening. You can
+> check into your hotel the day before the sprint (Sunday, Sep 3) and check
+> out the day after (Saturday, Sep 9).
+>
+> *HOW BIG*: No fewer than 10, no more than 20.  More than 20 people would
+> be great but it'd be hard for me to organize a sprint that big.
+>
+> *WHO PAYS*: The venue, hotels, and food are provided by Facebook. I'm
+> working on getting flight reimbursements. Last year they were provided by
+> the Python Software Foundation. Anybody is free to waive their
+> reimbursement.
+>
+> *PLEASE REPLY*: If you're interested in attending and have the commit bit
+> on GitHub's python/cpython, fill out this Google Form:
+> https://goo.gl/forms/MzrNtRe0NAmzvGwF2
+>
+> *DISCLAIMER*: I'd like to be able to host everybody. However, if I
+> receive more than 20 applications, this is not going to be possible. In
+> this case, the following will happen:
+>
+> 1. I will look at your current level of involvement in CPython
+> development. This includes metrics like commits / PRs, activity on the bug
+> tracker and python-dev, special role (release manager, infrastructure dev,
+> etc.).
+> 2. I will look at your sprint plan and ability to participate in the
+> entire sprint (per answers to the questions above).
+> 3. I will gather all this data and leave the final decision to our
+> Benevolent Dictator (who is also attending the sprint). This is one of
+> those occasions where having a dictator is useful.
+>
+> *DON'T WAIT*: September is closer than you think! Please let me know as
+> soon as possible so we can start setting up the event. I'm going to close
+> the sign-up form on June 23rd.
+>
+> Organizational-ly yours,
+> ?
+> Vice-Minister of Silly Sprints
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+>
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170811/eed77414/attachment.html>
+
+From barry at python.org  Fri Aug 11 11:22:20 2017
+From: barry at python.org (Barry Warsaw)
+Date: Fri, 11 Aug 2017 08:22:20 -0700
+Subject: [python-committers] UPDATE 1: Core sprint 2017 - Sep 4 - Sep 9,
+ Menlo Park, California
+In-Reply-To: <CACBhJdGG+EbeH9RAJ9XLQytpxWTef0NcBR6WEam_9GkkyprTCA@mail.gmail.com>
+References: <BC2653E3-39AF-4905-8EDC-67047157924B@langa.pl>
+ <216145AA-1D2B-401A-867A-DCF354494038@langa.pl>
+ <CACBhJdGG+EbeH9RAJ9XLQytpxWTef0NcBR6WEam_9GkkyprTCA@mail.gmail.com>
+Message-ID: <79616491-5A6B-4620-8A0B-4145A8B02AEE@python.org>
+
+On Jul 12, 2017, at 12:00, Ezio Melotti <ezio.melotti at gmail.com> wrote:
+
+> Both the SFO and SJC airports seem to be close to Menlo Park. Is there any preference on the airport? Does the hotel provide any shuttle service?
+
+Personally, I prefer SJC.  It works out great for me because there are reasonably timed direct flights from BWI to SJC, and SJC is a fairly easy airport to navigate.  It?s closer to Menlo Park too (though when I come to the area, I go to Sunnyvale).  I?m not sure about shuttle service.
+
+-Barry
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 833 bytes
+Desc: Message signed with OpenPGP
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170811/fd231160/attachment.sig>
+
+From ezio.melotti at gmail.com  Fri Aug 11 12:47:28 2017
+From: ezio.melotti at gmail.com (Ezio Melotti)
+Date: Fri, 11 Aug 2017 18:47:28 +0200
+Subject: [python-committers] UPDATE 1: Core sprint 2017 - Sep 4 - Sep 9,
+ Menlo Park, California
+In-Reply-To: <79616491-5A6B-4620-8A0B-4145A8B02AEE@python.org>
+References: <BC2653E3-39AF-4905-8EDC-67047157924B@langa.pl>
+ <216145AA-1D2B-401A-867A-DCF354494038@langa.pl>
+ <CACBhJdGG+EbeH9RAJ9XLQytpxWTef0NcBR6WEam_9GkkyprTCA@mail.gmail.com>
+ <79616491-5A6B-4620-8A0B-4145A8B02AEE@python.org>
+Message-ID: <CACBhJdF_FVENC+1XrDCV=PZTeqAWuadr33eeMk6OTqgYO00N=g@mail.gmail.com>
+
+On Fri, Aug 11, 2017 at 5:22 PM, Barry Warsaw <barry at python.org> wrote:
+
+> On Jul 12, 2017, at 12:00, Ezio Melotti <ezio.melotti at gmail.com> wrote:
+>
+> > Both the SFO and SJC airports seem to be close to Menlo Park. Is there
+> any preference on the airport? Does the hotel provide any shuttle service?
+>
+> Personally, I prefer SJC.  It works out great for me because there are
+> reasonably timed direct flights from BWI to SJC, and SJC is a fairly easy
+> airport to navigate.  It?s closer to Menlo Park too (though when I come to
+> the area, I go to Sunnyvale).  I?m not sure about shuttle service.
+>
+>
+Thanks both for the replies.  I ended up booking a flight to SFO, since
+flights to SJC were either not available or too expensive compared to SFO.
+
+I haven't heard anything yet about the hotel bookings and whether or not
+the hotel offers a shuttle service from/to the airport(s).
+If not, and if any of you lands in SFO on Sunday afternoon, we could meet
+up at the airport and share a cab/uber/other.
+
+Also thanks to Victor for setting up the etherpad!
+
+Best Regards,
+Ezio Melotti
+
+
+
+> -Barry
+>
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170811/fa378939/attachment.html>
+
+From brett at python.org  Fri Aug 11 15:02:29 2017
+From: brett at python.org (Brett Cannon)
+Date: Fri, 11 Aug 2017 19:02:29 +0000
+Subject: [python-committers] GitHub: remove the "needs backport to 3.5"
+ label?
+In-Reply-To: <CAP1=2W4AYr3_KKFMQkvrXYCjA-2vGDJvvMWCtMEup7HFZGOi6Q@mail.gmail.com>
+References: <CAMpsgwbt0cF8_j0any+vfOen175hBe54X+-Ay4nRbGqSzsP8Wg@mail.gmail.com>
+ <CAP1=2W4AYr3_KKFMQkvrXYCjA-2vGDJvvMWCtMEup7HFZGOi6Q@mail.gmail.com>
+Message-ID: <CAP1=2W5Tu63EpQ2JuKxJJN6mScedCr=fUj9PG=d+LpPUv-2Tyw@mail.gmail.com>
+
+No one has said anything, so I will delete the label sometime today.
+
+On Wed, 9 Aug 2017 at 12:20 Brett Cannon <brett at python.org> wrote:
+
+> On Wed, 9 Aug 2017 at 01:55 Victor Stinner <victor.stinner at gmail.com>
+> wrote:
+>
+>> Hi,
+>>
+>> Python 3.5 entered security fix only mode. Should we now remove the
+>> "needs backport to 3.5" label? Other security only branches don't have
+>> this label neither (3.3 and 3.4).
+>>
+>
+> Seems reasonable to me since you will need to get Larry's attention and
+> approval anyway for 3.5 changes now so the label isn't that useful. If
+> there isn't a consensus to not do this I will remove the label probably
+> Friday.
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170811/d93ebe28/attachment.html>
+
+From mariatta.wijaya at gmail.com  Fri Aug 11 17:04:59 2017
+From: mariatta.wijaya at gmail.com (Mariatta Wijaya)
+Date: Fri, 11 Aug 2017 14:04:59 -0700
+Subject: [python-committers] GitHub: remove the "needs backport to 3.5"
+ label?
+In-Reply-To: <CAP1=2W5Tu63EpQ2JuKxJJN6mScedCr=fUj9PG=d+LpPUv-2Tyw@mail.gmail.com>
+References: <CAMpsgwbt0cF8_j0any+vfOen175hBe54X+-Ay4nRbGqSzsP8Wg@mail.gmail.com>
+ <CAP1=2W4AYr3_KKFMQkvrXYCjA-2vGDJvvMWCtMEup7HFZGOi6Q@mail.gmail.com>
+ <CAP1=2W5Tu63EpQ2JuKxJJN6mScedCr=fUj9PG=d+LpPUv-2Tyw@mail.gmail.com>
+Message-ID: <CAGbohnb=VsqMdBZKx4iVmY+eVs8ZK_CnKUiNq6qY6_9+C7UgCQ@mail.gmail.com>
+
+Just catching up with emails.
++1 to removing the label.
+
+
+On Aug 11, 2017 12:04 PM, "Brett Cannon" <brett at python.org> wrote:
+
+> No one has said anything, so I will delete the label sometime today.
+>
+> On Wed, 9 Aug 2017 at 12:20 Brett Cannon <brett at python.org> wrote:
+>
+>> On Wed, 9 Aug 2017 at 01:55 Victor Stinner <victor.stinner at gmail.com>
+>> wrote:
+>>
+>>> Hi,
+>>>
+>>> Python 3.5 entered security fix only mode. Should we now remove the
+>>> "needs backport to 3.5" label? Other security only branches don't have
+>>> this label neither (3.3 and 3.4).
+>>>
+>>
+>> Seems reasonable to me since you will need to get Larry's attention and
+>> approval anyway for 3.5 changes now so the label isn't that useful. If
+>> there isn't a consensus to not do this I will remove the label probably
+>> Friday.
+>>
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170811/5d2b0a9a/attachment.html>
+
+From mariatta.wijaya at gmail.com  Fri Aug 11 17:08:48 2017
+From: mariatta.wijaya at gmail.com (Mariatta Wijaya)
+Date: Fri, 11 Aug 2017 14:08:48 -0700
+Subject: [python-committers] UPDATE 1: Core sprint 2017 - Sep 4 - Sep 9,
+ Menlo Park, California
+In-Reply-To: <CACBhJdF_FVENC+1XrDCV=PZTeqAWuadr33eeMk6OTqgYO00N=g@mail.gmail.com>
+References: <BC2653E3-39AF-4905-8EDC-67047157924B@langa.pl>
+ <216145AA-1D2B-401A-867A-DCF354494038@langa.pl>
+ <CACBhJdGG+EbeH9RAJ9XLQytpxWTef0NcBR6WEam_9GkkyprTCA@mail.gmail.com>
+ <79616491-5A6B-4620-8A0B-4145A8B02AEE@python.org>
+ <CACBhJdF_FVENC+1XrDCV=PZTeqAWuadr33eeMk6OTqgYO00N=g@mail.gmail.com>
+Message-ID: <CAGbohnbCGaNubPcJ9-hv-6=6oUn0uZnLVjPN2PNJRgmPosAUhQ@mail.gmail.com>
+
+Thanks ?ukasz for organizing the sprint, and Victor for setting up etherpad.
+I added my own sprint plan there.
+I saw that some of you are wanting to chat with me during the sprint.
+I'll only be at the sprint Monday-Wednesday, so let's plan accordingly and
+make the most out of it :)
+
+Looking forward to sprint with y'all in a few weeks.
+
+Thanks.
+
+Mariatta Wijaya
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170811/8f39978c/attachment-0001.html>
+
+From brett at python.org  Fri Aug 11 17:49:29 2017
+From: brett at python.org (Brett Cannon)
+Date: Fri, 11 Aug 2017 21:49:29 +0000
+Subject: [python-committers] GitHub: remove the "needs backport to 3.5"
+ label?
+In-Reply-To: <CAGbohnb=VsqMdBZKx4iVmY+eVs8ZK_CnKUiNq6qY6_9+C7UgCQ@mail.gmail.com>
+References: <CAMpsgwbt0cF8_j0any+vfOen175hBe54X+-Ay4nRbGqSzsP8Wg@mail.gmail.com>
+ <CAP1=2W4AYr3_KKFMQkvrXYCjA-2vGDJvvMWCtMEup7HFZGOi6Q@mail.gmail.com>
+ <CAP1=2W5Tu63EpQ2JuKxJJN6mScedCr=fUj9PG=d+LpPUv-2Tyw@mail.gmail.com>
+ <CAGbohnb=VsqMdBZKx4iVmY+eVs8ZK_CnKUiNq6qY6_9+C7UgCQ@mail.gmail.com>
+Message-ID: <CAP1=2W4wmxaY-7WtVmScKUk54b23sDS5455bRpehCeYCEME95w@mail.gmail.com>
+
+I just deleted the "backport to 3.5" label. I checked that no PRs only had
+that label before doing so (they all at least had a "backport to 3.6"
+label).
+
+On Fri, 11 Aug 2017 at 14:05 Mariatta Wijaya <mariatta.wijaya at gmail.com>
+wrote:
+
+> Just catching up with emails.
+> +1 to removing the label.
+>
+>
+> On Aug 11, 2017 12:04 PM, "Brett Cannon" <brett at python.org> wrote:
+>
+>> No one has said anything, so I will delete the label sometime today.
+>>
+>> On Wed, 9 Aug 2017 at 12:20 Brett Cannon <brett at python.org> wrote:
+>>
+>>> On Wed, 9 Aug 2017 at 01:55 Victor Stinner <victor.stinner at gmail.com>
+>>> wrote:
+>>>
+>>>> Hi,
+>>>>
+>>>> Python 3.5 entered security fix only mode. Should we now remove the
+>>>> "needs backport to 3.5" label? Other security only branches don't have
+>>>> this label neither (3.3 and 3.4).
+>>>>
+>>>
+>>> Seems reasonable to me since you will need to get Larry's attention and
+>>> approval anyway for 3.5 changes now so the label isn't that useful. If
+>>> there isn't a consensus to not do this I will remove the label probably
+>>> Friday.
+>>>
+>>
+>> _______________________________________________
+>> python-committers mailing list
+>> python-committers at python.org
+>> https://mail.python.org/mailman/listinfo/python-committers
+>> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>>
+>>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170811/9b306b1d/attachment.html>
+
+From victor.stinner at gmail.com  Fri Aug 11 18:15:01 2017
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Sat, 12 Aug 2017 00:15:01 +0200
+Subject: [python-committers] GitHub: remove the "needs backport to 3.5"
+ label?
+In-Reply-To: <CAP1=2W4wmxaY-7WtVmScKUk54b23sDS5455bRpehCeYCEME95w@mail.gmail.com>
+References: <CAMpsgwbt0cF8_j0any+vfOen175hBe54X+-Ay4nRbGqSzsP8Wg@mail.gmail.com>
+ <CAP1=2W4AYr3_KKFMQkvrXYCjA-2vGDJvvMWCtMEup7HFZGOi6Q@mail.gmail.com>
+ <CAP1=2W5Tu63EpQ2JuKxJJN6mScedCr=fUj9PG=d+LpPUv-2Tyw@mail.gmail.com>
+ <CAGbohnb=VsqMdBZKx4iVmY+eVs8ZK_CnKUiNq6qY6_9+C7UgCQ@mail.gmail.com>
+ <CAP1=2W4wmxaY-7WtVmScKUk54b23sDS5455bRpehCeYCEME95w@mail.gmail.com>
+Message-ID: <CAMpsgwaZw8ZYzE4uTp6Z+=0USj++mQAdcbEMYJ0QBaiuYPM3OA@mail.gmail.com>
+
+Thank you ;-) Welcome to a new world where only 2 backports are needed for
+bug fixes ;-)
+
+Victor
+
+Le 11 ao?t 2017 23:49, "Brett Cannon" <brett at python.org> a ?crit :
+
+> I just deleted the "backport to 3.5" label. I checked that no PRs only had
+> that label before doing so (they all at least had a "backport to 3.6"
+> label).
+>
+> On Fri, 11 Aug 2017 at 14:05 Mariatta Wijaya <mariatta.wijaya at gmail.com>
+> wrote:
+>
+>> Just catching up with emails.
+>> +1 to removing the label.
+>>
+>>
+>> On Aug 11, 2017 12:04 PM, "Brett Cannon" <brett at python.org> wrote:
+>>
+>>> No one has said anything, so I will delete the label sometime today.
+>>>
+>>> On Wed, 9 Aug 2017 at 12:20 Brett Cannon <brett at python.org> wrote:
+>>>
+>>>> On Wed, 9 Aug 2017 at 01:55 Victor Stinner <victor.stinner at gmail.com>
+>>>> wrote:
+>>>>
+>>>>> Hi,
+>>>>>
+>>>>> Python 3.5 entered security fix only mode. Should we now remove the
+>>>>> "needs backport to 3.5" label? Other security only branches don't have
+>>>>> this label neither (3.3 and 3.4).
+>>>>>
+>>>>
+>>>> Seems reasonable to me since you will need to get Larry's attention and
+>>>> approval anyway for 3.5 changes now so the label isn't that useful. If
+>>>> there isn't a consensus to not do this I will remove the label probably
+>>>> Friday.
+>>>>
+>>>
+>>> _______________________________________________
+>>> python-committers mailing list
+>>> python-committers at python.org
+>>> https://mail.python.org/mailman/listinfo/python-committers
+>>> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>>>
+>>>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170812/261547cd/attachment.html>
+
+From brett at python.org  Mon Aug 14 18:01:06 2017
+From: brett at python.org (Brett Cannon)
+Date: Mon, 14 Aug 2017 22:01:06 +0000
+Subject: [python-committers] new status check for a news entry
+Message-ID: <CAP1=2W6WtQnqAZCycJFNbkHBnJrEdjFt4PjcHscAdu4vos=0vg@mail.gmail.com>
+
+Now that all branches support blurb, I have added a status check for a news
+entry. If a PR doesn't require a news entry then simply set the "skip news"
+label and the status check will then pass. When there is no news entry the
+Details link of the failing status check points to the appropriate part of
+the devguide so hopefully some contributors will self-discover the need for
+a news entry and create the appropriate file without being prompted for it.
+
+I'm going to wait a little while -- probably end of the week -- to verify I
+didn't botch the code before I make this a required status check like with
+the issue number check (I've already had to push out an emergency fix once
+already today so it has validated that waiting is good :) .
+
+And with this I am taking a break from coding new workflow tooling for a
+little while and switching to feature work for Python 3.7. :)
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170814/b3dec65a/attachment.html>
+
+From brett at python.org  Mon Aug 14 18:22:04 2017
+From: brett at python.org (Brett Cannon)
+Date: Mon, 14 Aug 2017 22:22:04 +0000
+Subject: [python-committers] Taking the month of September off from Python
+ volunteering
+Message-ID: <CAP1=2W5W3N-k3vR5vvP0Xmr3wKbcAYBiPmZD2pi6horCDL=8aw@mail.gmail.com>
+
+Last year I took the month of October off from volunteering on Python to
+prevent burn-out and to just take some time to reflect. It turned out to be
+a great decision as I came out of the break feeling much better about
+volunteering to work on Python and what I needed to do to stay grounded (it
+has even led to a new talk topic that I will be testing out at JupyterCon
+and talking about for the next 12 months whenever I speak at conferences on
+how to try and re-adjust everyone's view of  open source to prevent
+burn-out and frustration for everyone involved).
+
+Since I was so happy with the result last year I'm repeating it again this
+year, but in September (it overlaps with my vacation so it actually scales
+back the amount of absolute time I take off). Just like last year this
+means I'm only looking at critical Python emails weekly and completely
+ignoring non-critical ones until the month is out. I will continue to work
+on Python in September, but only on work time and not personal time so it
+will be highly constrained to pretty much only working hours on Fridays
+when I typically do my paid open source thanks to Microsoft.
+
+The  reason I'm making this announcement now is I know this coincides with
+the core sprint next month so if anyone has anything they want to ask me
+before that, now is the time. Workflow stuff should all have a bus factor
+greater than 1, so if you can think of something that doesn't then please
+let me know so I can fix it.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170814/29cdbb95/attachment.html>
+
+From brett at python.org  Tue Aug 15 12:22:08 2017
+From: brett at python.org (Brett Cannon)
+Date: Tue, 15 Aug 2017 16:22:08 +0000
+Subject: [python-committers] Windows team created on GitHub
+Message-ID: <CAP1=2W543atumJVNb7GN+n6SJYtEEkQk+qXEpzAsi1LDFAXtpg@mail.gmail.com>
+
+FYI https://github.com/orgs/python/teams/windows-team/members . Steve is
+working on a PR for automatic notification for the team at
+https://github.com/python/cpython/pull/3089 .
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170815/9ca29e4c/attachment.html>
+
+From antoine at python.org  Wed Aug 16 14:32:18 2017
+From: antoine at python.org (Antoine Pitrou)
+Date: Wed, 16 Aug 2017 20:32:18 +0200
+Subject: [python-committers] AppVeyor failure on test_asyncgen?
+Message-ID: <46e63ab2-8ae8-b51e-cf32-1cbe42d2ebb4@python.org>
+
+
+Hello,
+
+One of my PR builds got an AppVeyor failure in test_asyncgen
+and I really doubt it is due to the PR itself:
+https://ci.appveyor.com/project/python/cpython/build/3.7.0a0.5366#L682
+
+======================================================================
+FAIL: test_async_gen_asyncio_gc_aclose_09 (test.test_asyncgen.AsyncGenAsyncioTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\projects\cpython\lib\test\test_asyncgen.py", line 627, in test_async_gen_asyncio_gc_aclose_09
+    self.assertEqual(DONE, 1)
+AssertionError: 0 != 1
+
+
+Regards
+
+Antoine.
+
+From tjreedy at udel.edu  Wed Aug 16 15:03:14 2017
+From: tjreedy at udel.edu (Terry Reedy)
+Date: Wed, 16 Aug 2017 15:03:14 -0400
+Subject: [python-committers] AppVeyor failure on test_asyncgen?
+In-Reply-To: <46e63ab2-8ae8-b51e-cf32-1cbe42d2ebb4@python.org>
+References: <46e63ab2-8ae8-b51e-cf32-1cbe42d2ebb4@python.org>
+Message-ID: <977d9487-ee58-8366-7be8-c81f9188a009@udel.edu>
+
+On 8/16/2017 2:32 PM, Antoine Pitrou wrote:
+
+> One of my PR builds got an AppVeyor failure in test_asyncgen
+> and I really doubt it is due to the PR itself:
+> https://ci.appveyor.com/project/python/cpython/build/3.7.0a0.5366#L682
+
+The first failure message:
+
+test_async_gen_asyncio_gc_aclose_09 
+(test.test_asyncgen.AsyncGenAsyncioTest) ... Task was destroyed but it 
+is pending!
+task: <Task pending coro=<async_generator_athrow()> wait_for=<Future 
+finished result=None>>
+FAIL
+
+> ======================================================================
+> FAIL: test_async_gen_asyncio_gc_aclose_09 (test.test_asyncgen.AsyncGenAsyncioTest)
+> ----------------------------------------------------------------------
+> Traceback (most recent call last):
+>    File "C:\projects\cpython\lib\test\test_asyncgen.py", line 627, in test_async_gen_asyncio_gc_aclose_09
+>      self.assertEqual(DONE, 1)
+> AssertionError: 0 != 1
+
+It passed on the retest:
+test_async_gen_asyncio_gc_aclose_09 
+(test.test_asyncgen.AsyncGenAsyncioTest) ... ok
+
+I have seen obviously unrelated intermittent failures like this too.  If 
+it were to happen on Travis on the retest also, and I wanted to merge, I 
+would try to unblock the merge by making an innocuous change in the 
+blurb or some comment or docstring with the web editor.
+
+tjr
+
+From brett at python.org  Thu Aug 17 14:31:40 2017
+From: brett at python.org (Brett Cannon)
+Date: Thu, 17 Aug 2017 18:31:40 +0000
+Subject: [python-committers] AppVeyor failure on test_asyncgen?
+In-Reply-To: <977d9487-ee58-8366-7be8-c81f9188a009@udel.edu>
+References: <46e63ab2-8ae8-b51e-cf32-1cbe42d2ebb4@python.org>
+ <977d9487-ee58-8366-7be8-c81f9188a009@udel.edu>
+Message-ID: <CAP1=2W50XA5-D_9FRUyjzJsqjo+nwfOkLZAU1fizTPS+Ym=m1A@mail.gmail.com>
+
+On Wed, 16 Aug 2017 at 12:03 Terry Reedy <tjreedy at udel.edu> wrote:
+
+> On 8/16/2017 2:32 PM, Antoine Pitrou wrote:
+>
+> > One of my PR builds got an AppVeyor failure in test_asyncgen
+> > and I really doubt it is due to the PR itself:
+> > https://ci.appveyor.com/project/python/cpython/build/3.7.0a0.5366#L682
+>
+> The first failure message:
+>
+> test_async_gen_asyncio_gc_aclose_09
+> (test.test_asyncgen.AsyncGenAsyncioTest) ... Task was destroyed but it
+> is pending!
+> task: <Task pending coro=<async_generator_athrow()> wait_for=<Future
+> finished result=None>>
+> FAIL
+>
+> > ======================================================================
+> > FAIL: test_async_gen_asyncio_gc_aclose_09
+> (test.test_asyncgen.AsyncGenAsyncioTest)
+> > ----------------------------------------------------------------------
+> > Traceback (most recent call last):
+> >    File "C:\projects\cpython\lib\test\test_asyncgen.py", line 627, in
+> test_async_gen_asyncio_gc_aclose_09
+> >      self.assertEqual(DONE, 1)
+> > AssertionError: 0 != 1
+>
+> It passed on the retest:
+> test_async_gen_asyncio_gc_aclose_09
+> (test.test_asyncgen.AsyncGenAsyncioTest) ... ok
+>
+> I have seen obviously unrelated intermittent failures like this too.  If
+> it were to happen on Travis on the retest also, and I wanted to merge, I
+> would try to unblock the merge by making an innocuous change in the
+> blurb or some comment or docstring with the web editor.
+>
+
+I think as a core dev you can manually re-run the build on Travis. The
+other option is to close and then open again the PR as that will re-trigger
+Travis.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170817/61ecfee9/attachment.html>
+
+From larry at hastings.org  Thu Aug 17 18:28:16 2017
+From: larry at hastings.org (Larry Hastings)
+Date: Thu, 17 Aug 2017 15:28:16 -0700
+Subject: [python-committers] Taking the month of September off from
+ Python volunteering
+In-Reply-To: <CAP1=2W5W3N-k3vR5vvP0Xmr3wKbcAYBiPmZD2pi6horCDL=8aw@mail.gmail.com>
+References: <CAP1=2W5W3N-k3vR5vvP0Xmr3wKbcAYBiPmZD2pi6horCDL=8aw@mail.gmail.com>
+Message-ID: <c89f5c1c-5c63-128b-940c-04f2e6e380b5@hastings.org>
+
+
+
+On 08/14/2017 03:22 PM, Brett Cannon wrote:
+> The reason I'm making this announcement now is I know this coincides 
+> with the core sprint next month so if anyone has anything they want to 
+> ask me before that, now is the time.
+
+So, this means you're skipping the core dev sprint?
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170817/98dd87fd/attachment.html>
+
+From chris.jerdonek at gmail.com  Thu Aug 17 20:52:58 2017
+From: chris.jerdonek at gmail.com (Chris Jerdonek)
+Date: Thu, 17 Aug 2017 17:52:58 -0700
+Subject: [python-committers] AppVeyor failure on test_asyncgen?
+In-Reply-To: <CAP1=2W50XA5-D_9FRUyjzJsqjo+nwfOkLZAU1fizTPS+Ym=m1A@mail.gmail.com>
+References: <46e63ab2-8ae8-b51e-cf32-1cbe42d2ebb4@python.org>
+ <977d9487-ee58-8366-7be8-c81f9188a009@udel.edu>
+ <CAP1=2W50XA5-D_9FRUyjzJsqjo+nwfOkLZAU1fizTPS+Ym=m1A@mail.gmail.com>
+Message-ID: <CAOTb1weYGJ=j-LOzb2g+Tzses0tbNApzKq4-eUFbu7KJfjEjuw@mail.gmail.com>
+
+Even on projects I don't have access to, I've also found that running--
+
+    git commit --amend
+
+with no changes and then force-pushing (git push -f) works to
+re-trigger Travis CI. I believe it updates the date of the last commit
+but otherwise leaves everything the same (so no need to edit files).
+
+--Chris
+
+On Thu, Aug 17, 2017 at 11:31 AM, Brett Cannon <brett at python.org> wrote:
+>
+>
+>
+> On Wed, 16 Aug 2017 at 12:03 Terry Reedy <tjreedy at udel.edu> wrote:
+>>
+>> On 8/16/2017 2:32 PM, Antoine Pitrou wrote:
+>>
+>> > One of my PR builds got an AppVeyor failure in test_asyncgen
+>> > and I really doubt it is due to the PR itself:
+>> > https://ci.appveyor.com/project/python/cpython/build/3.7.0a0.5366#L682
+>>
+>> The first failure message:
+>>
+>> test_async_gen_asyncio_gc_aclose_09
+>> (test.test_asyncgen.AsyncGenAsyncioTest) ... Task was destroyed but it
+>> is pending!
+>> task: <Task pending coro=<async_generator_athrow()> wait_for=<Future
+>> finished result=None>>
+>> FAIL
+>>
+>> > ======================================================================
+>> > FAIL: test_async_gen_asyncio_gc_aclose_09 (test.test_asyncgen.AsyncGenAsyncioTest)
+>> > ----------------------------------------------------------------------
+>> > Traceback (most recent call last):
+>> >    File "C:\projects\cpython\lib\test\test_asyncgen.py", line 627, in test_async_gen_asyncio_gc_aclose_09
+>> >      self.assertEqual(DONE, 1)
+>> > AssertionError: 0 != 1
+>>
+>> It passed on the retest:
+>> test_async_gen_asyncio_gc_aclose_09
+>> (test.test_asyncgen.AsyncGenAsyncioTest) ... ok
+>>
+>> I have seen obviously unrelated intermittent failures like this too.  If
+>> it were to happen on Travis on the retest also, and I wanted to merge, I
+>> would try to unblock the merge by making an innocuous change in the
+>> blurb or some comment or docstring with the web editor.
+>
+>
+> I think as a core dev you can manually re-run the build on Travis. The other option is to close and then open again the PR as that will re-trigger Travis.
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+
+From brett at python.org  Fri Aug 18 13:58:11 2017
+From: brett at python.org (Brett Cannon)
+Date: Fri, 18 Aug 2017 17:58:11 +0000
+Subject: [python-committers] Taking the month of September off from
+ Python volunteering
+In-Reply-To: <c89f5c1c-5c63-128b-940c-04f2e6e380b5@hastings.org>
+References: <CAP1=2W5W3N-k3vR5vvP0Xmr3wKbcAYBiPmZD2pi6horCDL=8aw@mail.gmail.com>
+ <c89f5c1c-5c63-128b-940c-04f2e6e380b5@hastings.org>
+Message-ID: <CAP1=2W7Q56y1m=ibOv4-2vx7iUYKJGWL9_uzp9mNEAnL5nfCwA@mail.gmail.com>
+
+On Thu, 17 Aug 2017 at 15:28 Larry Hastings <larry at hastings.org> wrote:
+
+>
+>
+> On 08/14/2017 03:22 PM, Brett Cannon wrote:
+>
+> The reason I'm making this announcement now is I know this coincides with
+> the core sprint next month so if anyone has anything they want to ask me
+> before that, now is the time.
+>
+>
+> So, this means you're skipping the core dev sprint?
+>
+
+Yep, unfortunately, as it has always conflicted with vacation dates that
+Andrea can't shift. If the decision is made that Labour Day week is when
+this will always happen then I can plan for it ahead of time (although if
+we ever do this in Europe I don't know if that week still makes sense).
+
+And you were on a private email back in June where I said I wouldn't be
+attending, so this shouldn't be a shock to you. ;)
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170818/418d1f2f/attachment.html>
+
+From p.f.moore at gmail.com  Sun Aug 20 09:07:11 2017
+From: p.f.moore at gmail.com (Paul Moore)
+Date: Sun, 20 Aug 2017 14:07:11 +0100
+Subject: [python-committers] Flood of Github review mails?
+Message-ID: <CACac1F_5tTAump+uzwAZ5V4JTsaQZOntiPLn-ZZyxP8aGYHYBA@mail.gmail.com>
+
+I've just recently (within the last week I guess) started getting a
+large number of additional mails from github. For example, I'm getting
+notifications on https://github.com/python/cpython/pull/3066 which I
+haven't commented on or been mentioned in, nor am I nosy on the
+underlying bug.
+
+What's changed to cause this to start happening, and how do I make it
+stop? I've nowhere near enough time to review all the mails I'm now
+getting, and I'd rather avoid them so I don't miss notifications that
+I *do* need to see :-(
+
+Thanks,
+Paul
+
+From steve.dower at python.org  Sun Aug 20 10:06:25 2017
+From: steve.dower at python.org (Steve Dower)
+Date: Sun, 20 Aug 2017 07:06:25 -0700
+Subject: [python-committers] Flood of Github review mails?
+In-Reply-To: <CACac1F_5tTAump+uzwAZ5V4JTsaQZOntiPLn-ZZyxP8aGYHYBA@mail.gmail.com>
+References: <CACac1F_5tTAump+uzwAZ5V4JTsaQZOntiPLn-ZZyxP8aGYHYBA@mail.gmail.com>
+Message-ID: <E1djRCV-0005p6-PZ@se2-syd.hostedmail.net.au>
+
+We created a Windows team on github and signed it up for notifications of changes to PC, PCBuild and the installer folders. If the notifications are for files in those folders, that?ll be it. (Though I haven?t noticed any similar increase, so it may be something else.)
+
+Feel free to remove yourself from the team if it looks like that?ll help.
+
+Top-posted from my Windows phone
+
+From: Paul Moore
+Sent: Sunday, August 20, 2017 6:08
+To: python-committers
+Subject: [python-committers] Flood of Github review mails?
+
+I've just recently (within the last week I guess) started getting a
+large number of additional mails from github. For example, I'm getting
+notifications on https://github.com/python/cpython/pull/3066 which I
+haven't commented on or been mentioned in, nor am I nosy on the
+underlying bug.
+
+What's changed to cause this to start happening, and how do I make it
+stop? I've nowhere near enough time to review all the mails I'm now
+getting, and I'd rather avoid them so I don't miss notifications that
+I *do* need to see :-(
+
+Thanks,
+Paul
+_______________________________________________
+python-committers mailing list
+python-committers at python.org
+https://mail.python.org/mailman/listinfo/python-committers
+Code of Conduct: https://www.python.org/psf/codeofconduct/
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170820/e7f0da22/attachment.html>
+
+From zachary.ware+pydev at gmail.com  Sun Aug 20 17:28:23 2017
+From: zachary.ware+pydev at gmail.com (Zachary Ware)
+Date: Sun, 20 Aug 2017 16:28:23 -0500
+Subject: [python-committers] Flood of Github review mails?
+In-Reply-To: <E1djRCV-0005p6-PZ@se2-syd.hostedmail.net.au>
+References: <CACac1F_5tTAump+uzwAZ5V4JTsaQZOntiPLn-ZZyxP8aGYHYBA@mail.gmail.com>
+ <E1djRCV-0005p6-PZ@se2-syd.hostedmail.net.au>
+Message-ID: <CAKJDb-M2wu-BPaFVtMFA45+k_-eMqV=YJiCBeEAFFkii_rgSLw@mail.gmail.com>
+
+Being added to the team caused me to be 'watching' the repo again, even
+though I'd previously 'unwatched'. Paul, you may need to unwatch again as
+well.
+
+--
+Zach
+(On a phone)
+
+On Aug 20, 2017 09:28, "Steve Dower" <steve.dower at python.org> wrote:
+
+> We created a Windows team on github and signed it up for notifications of
+> changes to PC, PCBuild and the installer folders. If the notifications are
+> for files in those folders, that?ll be it. (Though I haven?t noticed any
+> similar increase, so it may be something else.)
+>
+>
+>
+> Feel free to remove yourself from the team if it looks like that?ll help.
+>
+>
+>
+> Top-posted from my Windows phone
+>
+>
+>
+> *From: *Paul Moore <p.f.moore at gmail.com>
+> *Sent: *Sunday, August 20, 2017 6:08
+> *To: *python-committers <python-committers at python.org>
+> *Subject: *[python-committers] Flood of Github review mails?
+>
+>
+>
+> I've just recently (within the last week I guess) started getting a
+>
+> large number of additional mails from github. For example, I'm getting
+>
+> notifications on https://github.com/python/cpython/pull/3066 which I
+>
+> haven't commented on or been mentioned in, nor am I nosy on the
+>
+> underlying bug.
+>
+>
+>
+> What's changed to cause this to start happening, and how do I make it
+>
+> stop? I've nowhere near enough time to review all the mails I'm now
+>
+> getting, and I'd rather avoid them so I don't miss notifications that
+>
+> I *do* need to see :-(
+>
+>
+>
+> Thanks,
+>
+> Paul
+>
+> _______________________________________________
+>
+> python-committers mailing list
+>
+> python-committers at python.org
+>
+> https://mail.python.org/mailman/listinfo/python-committers
+>
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+>
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170820/5bec4552/attachment.html>
+
+From p.f.moore at gmail.com  Sun Aug 20 18:46:38 2017
+From: p.f.moore at gmail.com (Paul Moore)
+Date: Sun, 20 Aug 2017 23:46:38 +0100
+Subject: [python-committers] Flood of Github review mails?
+In-Reply-To: <CAKJDb-NCnPy0encFQOOXAZ0fSHz+27+AEPo6512zSfu0O9uSPw@mail.gmail.com>
+References: <CACac1F_5tTAump+uzwAZ5V4JTsaQZOntiPLn-ZZyxP8aGYHYBA@mail.gmail.com>
+ <E1djRCV-0005p6-PZ@se2-syd.hostedmail.net.au>
+ <CAKJDb-NCnPy0encFQOOXAZ0fSHz+27+AEPo6512zSfu0O9uSPw@mail.gmail.com>
+Message-ID: <CACac1F_zz_73q22OhENwZzrBZXk8ZN8oTkSfW0Lrcob7GzTtSA@mail.gmail.com>
+
+Yeah, looks like that was it. Thanks.
+Paul
+
+On 20 August 2017 at 22:23, Zachary Ware <zachary.ware at gmail.com> wrote:
+> Being added to the team caused me to be 'watching' the repo again, even
+> though I'd previously 'unwatched'. Paul, you may need to unwatch again as
+> well.
+>
+> --
+> Zach
+> (On a phone)
+>
+> On Aug 20, 2017 09:28, "Steve Dower" <steve.dower at python.org> wrote:
+>>
+>> We created a Windows team on github and signed it up for notifications of
+>> changes to PC, PCBuild and the installer folders. If the notifications are
+>> for files in those folders, that?ll be it. (Though I haven?t noticed any
+>> similar increase, so it may be something else.)
+>>
+>>
+>>
+>> Feel free to remove yourself from the team if it looks like that?ll help.
+>>
+>>
+>>
+>> Top-posted from my Windows phone
+>>
+>>
+>>
+>> From: Paul Moore
+>> Sent: Sunday, August 20, 2017 6:08
+>> To: python-committers
+>> Subject: [python-committers] Flood of Github review mails?
+>>
+>>
+>>
+>> I've just recently (within the last week I guess) started getting a
+>>
+>> large number of additional mails from github. For example, I'm getting
+>>
+>> notifications on https://github.com/python/cpython/pull/3066 which I
+>>
+>> haven't commented on or been mentioned in, nor am I nosy on the
+>>
+>> underlying bug.
+>>
+>>
+>>
+>> What's changed to cause this to start happening, and how do I make it
+>>
+>> stop? I've nowhere near enough time to review all the mails I'm now
+>>
+>> getting, and I'd rather avoid them so I don't miss notifications that
+>>
+>> I *do* need to see :-(
+>>
+>>
+>>
+>> Thanks,
+>>
+>> Paul
+>>
+>> _______________________________________________
+>>
+>> python-committers mailing list
+>>
+>> python-committers at python.org
+>>
+>> https://mail.python.org/mailman/listinfo/python-committers
+>>
+>> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>>
+>>
+>>
+>>
+>> _______________________________________________
+>> python-committers mailing list
+>> python-committers at python.org
+>> https://mail.python.org/mailman/listinfo/python-committers
+>> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>>
+>
+
+From christian at python.org  Mon Aug 21 09:28:37 2017
+From: christian at python.org (Christian Heimes)
+Date: Mon, 21 Aug 2017 15:28:37 +0200
+Subject: [python-committers] UPDATE 1: Core sprint 2017 - Sep 4 - Sep 9,
+ Menlo Park, California
+In-Reply-To: <216145AA-1D2B-401A-867A-DCF354494038@langa.pl>
+References: <BC2653E3-39AF-4905-8EDC-67047157924B@langa.pl>
+ <216145AA-1D2B-401A-867A-DCF354494038@langa.pl>
+Message-ID: <303af686-3263-c993-cc5b-2c3734eb467e@python.org>
+
+On 2017-07-12 13:55, ?ukasz Langa wrote:
+> Update: the sprint is on!
+> 
+> *Good news*: Facebook is covering the venue, food and hotel costs. This
+> is confirmed. I'm working on getting a PSF grant for flights like last year.
+> 
+> *Please book your* *airplane tickets* as soon as possible. Like last
+> year, we can reimburse up to *$500* for domestic roundtrip flights and
+> up to *$1500* for international roundtrip flights. If that?s not enough
+> to get you to California and back, let me know and we?ll figure
+> something out. Send me the receipts my way, you should get your money
+> back before the event, preferably as soon as I get the grant wired. For
+> sums smaller than $500, provide me with a PayPal e-mail. For larger
+> ones, I will need your details to set up a wire transfer. I will use
+> TransferWise for the latter to cut down the wire costs. * I recommend
+> flying in on Sunday and flying out on Saturday.*
+> 
+> *Please DO NOT book hotels*, Facebook is covering this, preferably in
+> the same hotel as close to Facebook HQ as possible. NOTE: I cannot
+> confirm your hotel room until I have your flight information.
+
+Hi ?ukasz,
+
+do you have any news on the hotel?
+
+Several attendees including me use ESTA to travel into the US. We are
+required to provide Advanced Passenger Information (API) a couple of
+days up front. API also include the location of the first accommodation.
+As far as I remember, I have to provide the name and address of the
+hotel by the end of the week.
+
+Regards,
+Christian
+
+From lukasz at langa.pl  Mon Aug 21 17:50:10 2017
+From: lukasz at langa.pl (Lukasz Langa)
+Date: Mon, 21 Aug 2017 14:50:10 -0700
+Subject: [python-committers] Travis CI build on python/cpython passes in
+ error
+Message-ID: <048A7B70-7C5A-4C38-A1BB-D6A322A42715@langa.pl>
+
+I don't know if this is specific to my pull request but on PR #2558 I'm seeing:
+
+fatal: Invalid symmetric difference expression 49f6449ef4b81537c19b82329caaf60596c516c2...7b634956246bc6112a16ba11ff9f721342e750e6
+ <>Only docs were updated, stopping build process.
+
+The build is subsequently marked as green. This is invalid, there were code changes in the pull request.
+
+- ?
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170821/27d5d2d8/attachment.html>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 842 bytes
+Desc: Message signed with OpenPGP
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170821/27d5d2d8/attachment.sig>
+
+From victor.stinner at gmail.com  Mon Aug 21 18:04:53 2017
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Tue, 22 Aug 2017 00:04:53 +0200
+Subject: [python-committers] Travis CI build on python/cpython passes in
+ error
+In-Reply-To: <048A7B70-7C5A-4C38-A1BB-D6A322A42715@langa.pl>
+References: <048A7B70-7C5A-4C38-A1BB-D6A322A42715@langa.pl>
+Message-ID: <CAMpsgwaPMgOV8P+8FM33XCTG4xiGBLrS6Qwu24SaBM5nkuhkyQ@mail.gmail.com>
+
+The Travis CI config runs the command:
+
+git diff --name-only
+49f6449ef4b81537c19b82329caaf60596c516c2...d0c822cded495409b68432fa10f9573417ca1fb7
+
+Git fails with "fatal: Invalid symmetric difference expression (...)"
+if it doesn't know one or both sha1.
+
+The first problem is that 49f6449ef4b81537c19b82329caaf60596c516c2 is
+"old" (Date: Sun Jul 16 07:29:16 2017), whereas Travis CI only gets
+the 50 latest commits:
+
+git clone --depth=50 https://github.com/python/cpython.git python/cpython
+
+I tested: 50 is not enough to get this commit.
+
+haypo at selma$ git clone --depth=50
+https://github.com/python/cpython.git python/cpython
+haypo at selma$ cd python/cpython/
+haypo at selma$ git show 49f6449ef4b81537c19b82329caaf60596c516c2
+fatal: bad object 49f6449ef4b81537c19b82329caaf60596c516c2
+
+If "git diff" fails, we should simply run all tests.
+
+Victor
+
+From lukasz at langa.pl  Tue Aug 22 19:10:56 2017
+From: lukasz at langa.pl (Lukasz Langa)
+Date: Tue, 22 Aug 2017 16:10:56 -0700
+Subject: [python-committers] UPDATE 1: Core sprint 2017 - Sep 4 - Sep 9,
+ Menlo Park, California
+In-Reply-To: <303af686-3263-c993-cc5b-2c3734eb467e@python.org>
+References: <BC2653E3-39AF-4905-8EDC-67047157924B@langa.pl>
+ <216145AA-1D2B-401A-867A-DCF354494038@langa.pl>
+ <303af686-3263-c993-cc5b-2c3734eb467e@python.org>
+Message-ID: <1CA2A6E3-5044-4C38-8868-91B0BC423D94@langa.pl>
+
+We prefer you put the FB address there:
+
+Facebook Inc.
+1 Hacker Way
+Menlo Park CA 94025
+
+
+> On Aug 21, 2017, at 6:28 AM, Christian Heimes <christian at python.org> wrote:
+> 
+> On 2017-07-12 13:55, ?ukasz Langa wrote:
+>> Update: the sprint is on!
+>> 
+>> *Good news*: Facebook is covering the venue, food and hotel costs. This
+>> is confirmed. I'm working on getting a PSF grant for flights like last year.
+>> 
+>> *Please book your* *airplane tickets* as soon as possible. Like last
+>> year, we can reimburse up to *$500* for domestic roundtrip flights and
+>> up to *$1500* for international roundtrip flights. If that?s not enough
+>> to get you to California and back, let me know and we?ll figure
+>> something out. Send me the receipts my way, you should get your money
+>> back before the event, preferably as soon as I get the grant wired. For
+>> sums smaller than $500, provide me with a PayPal e-mail. For larger
+>> ones, I will need your details to set up a wire transfer. I will use
+>> TransferWise for the latter to cut down the wire costs. * I recommend
+>> flying in on Sunday and flying out on Saturday.*
+>> 
+>> *Please DO NOT book hotels*, Facebook is covering this, preferably in
+>> the same hotel as close to Facebook HQ as possible. NOTE: I cannot
+>> confirm your hotel room until I have your flight information.
+> 
+> Hi ?ukasz,
+> 
+> do you have any news on the hotel?
+> 
+> Several attendees including me use ESTA to travel into the US. We are
+> required to provide Advanced Passenger Information (API) a couple of
+> days up front. API also include the location of the first accommodation.
+> As far as I remember, I have to provide the name and address of the
+> hotel by the end of the week.
+> 
+> Regards,
+> Christian
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170822/ccd58dd8/attachment.html>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 842 bytes
+Desc: Message signed with OpenPGP
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170822/ccd58dd8/attachment.sig>
+

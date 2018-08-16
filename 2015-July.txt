@@ -1,0 +1,3048 @@
+From larry at hastings.org  Sun Jul  5 19:20:07 2015
+From: larry at hastings.org (Larry Hastings)
+Date: Sun, 05 Jul 2015 10:20:07 -0700
+Subject: [python-committers] [RELEASED] Python 3.5.0b3 is now available
+Message-ID: <55996747.2030203@hastings.org>
+
+
+
+On behalf of the Python development community and the Python 3.5 release 
+team, I'm relieved to announce the availability of Python 3.5.0b3.
+
+Python 3.5 has now entered "feature freeze".  By default new features 
+may no longer be added to Python 3.5.
+
+This is a preview release, and its use is not recommended for production 
+settings.
+
+An important reminder for Windows users about Python 3.5.0b3: if 
+installing Python 3.5.0b2 as a non-privileged user, you may need to 
+escalate to administrator privileges to install an update to your C 
+runtime libraries.
+
+
+You can find Python 3.5.0b2 here:
+
+    https://www.python.org/downloads/release/python-350b3/
+
+Happy hacking,
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150705/1a61b21a/attachment.html>
+
+From zachary.ware+pydev at gmail.com  Tue Jul  7 21:20:15 2015
+From: zachary.ware+pydev at gmail.com (Zachary Ware)
+Date: Tue, 7 Jul 2015 14:20:15 -0500
+Subject: [python-committers] New buildbots active
+Message-ID: <CAKJDb-NbYkheE09OFsM=nybejdkew0EEhEoWrG6L81p=nODipQ@mail.gmail.com>
+
+Hi folks,
+
+Just wanted to let you know in case you hadn't seen them that there
+are a couple of new buildbots in service: one that builds on Windows
+in Release configuration [1] and one that builds the documentation and
+runs a couple of style checks on it [2].  Both are currently in the
+'unstable' set, but I expect both of them to graduate to 'stable'
+status soon after an audit of the stability of the whole fleet.
+
+[1] http://buildbot.python.org/all/buildslaves/ware-win81-release
+[2] http://buildbot.python.org/all/buildslaves/ware-gentoo
+
+If anyone has suggestions for improvements to the Docs bot, I'm all
+ears.  Eventually, I'd like to add a doctest step, but there's a lot
+of work that needs to go into fixing the doctests before I do that.
+
+Regards,
+-- 
+Zach
+
+P.S.: for those receiving this message on python-committers, you may
+notice that it is also cross-posted to python-buildbots, a list that
+was recently set up for discussion of our buildbot fleet, mostly
+between buildslave and buildmaster operators.  If you're interested,
+subscription is open [3] and the list is mirrored on Gmane [4].
+
+[3] https://mail.python.org/mailman/listinfo/python-buildbots
+[4] http://dir.gmane.org/gmane.comp.python.devel.buildbots
+
+From ncoghlan at gmail.com  Wed Jul 15 04:29:52 2015
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Wed, 15 Jul 2015 12:29:52 +1000
+Subject: [python-committers] More explicit Code of Conduct for the issue
+	tracker & core mailing lists?
+Message-ID: <CADiSq7cC_9nOOu043qGMPtoynVc16kR66e=w+ytJD6nX_pC8Fg@mail.gmail.com>
+
+Hi folks,
+
+The FreeBSD community recently posted their Code of Conduct guidelines
+for technical discussions at
+https://www.freebsd.org/internal/code-of-conduct.html
+
+I think their guidelines align pretty well with the way we try to run
+the CPython issue tracker and the core mailing lists, but we don't
+currently spell out those expectations for newcomers (or potential
+newcomers) as clearly as they have.
+
+Would folks mind if I drafted a CPython Code of Conduct inspired by
+their example, and proposed it for inclusion in the Developer's Guide?
+
+Regards,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+
+From ethan at stoneleaf.us  Wed Jul 15 04:37:38 2015
+From: ethan at stoneleaf.us (Ethan Furman)
+Date: Tue, 14 Jul 2015 19:37:38 -0700
+Subject: [python-committers] More explicit Code of Conduct for the issue
+ tracker & core mailing lists?
+In-Reply-To: <CADiSq7cC_9nOOu043qGMPtoynVc16kR66e=w+ytJD6nX_pC8Fg@mail.gmail.com>
+References: <CADiSq7cC_9nOOu043qGMPtoynVc16kR66e=w+ytJD6nX_pC8Fg@mail.gmail.com>
+Message-ID: <55A5C772.1020203@stoneleaf.us>
+
+On 07/14/2015 07:29 PM, Nick Coghlan wrote:
+
+> Would folks mind if I drafted a CPython Code of Conduct inspired by
+> their example, and proposed it for inclusion in the Developer's Guide?
+
+Sounds good to me.
+
+--
+~Ethan~
+
+From alexander.belopolsky at gmail.com  Wed Jul 15 04:48:56 2015
+From: alexander.belopolsky at gmail.com (Alexander Belopolsky)
+Date: Tue, 14 Jul 2015 22:48:56 -0400
+Subject: [python-committers] More explicit Code of Conduct for the issue
+ tracker & core mailing lists?
+In-Reply-To: <CADiSq7cC_9nOOu043qGMPtoynVc16kR66e=w+ytJD6nX_pC8Fg@mail.gmail.com>
+References: <CADiSq7cC_9nOOu043qGMPtoynVc16kR66e=w+ytJD6nX_pC8Fg@mail.gmail.com>
+Message-ID: <CAP7h-xZf5zKAp0LorsxGOCYknK4=S696as+HkSJnBrbvFXugYQ@mail.gmail.com>
+
+On Tue, Jul 14, 2015 at 10:29 PM, Nick Coghlan <ncoghlan at gmail.com> wrote:
+
+> Would folks mind if I drafted a CPython Code of Conduct inspired by
+> their example, and proposed it for inclusion in the Developer's Guide?
+>
+
+The language of the FreeBSD Code of Conduct is a pretty heavy CYA-style
+corporate legalese, but the overall message sounds right.
+
++1
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150714/8b5ad701/attachment.html>
+
+From p.f.moore at gmail.com  Wed Jul 15 10:06:14 2015
+From: p.f.moore at gmail.com (Paul Moore)
+Date: Wed, 15 Jul 2015 09:06:14 +0100
+Subject: [python-committers] More explicit Code of Conduct for the issue
+ tracker & core mailing lists?
+In-Reply-To: <CADiSq7cC_9nOOu043qGMPtoynVc16kR66e=w+ytJD6nX_pC8Fg@mail.gmail.com>
+References: <CADiSq7cC_9nOOu043qGMPtoynVc16kR66e=w+ytJD6nX_pC8Fg@mail.gmail.com>
+Message-ID: <CACac1F83FApL5UZVCgwh8xm3_dUsiJVHsQ7cahncWW3GQfjy7Q@mail.gmail.com>
+
+On 15 July 2015 at 03:29, Nick Coghlan <ncoghlan at gmail.com> wrote:
+> Would folks mind if I drafted a CPython Code of Conduct inspired by
+> their example, and proposed it for inclusion in the Developer's Guide?
+
++1.
+
+I particularly like their point "Try not to take offense where no
+offense was intended. Not everyone speaks or writes English fluently.
+Not everyone can express themselves clearly. Give people the benefit
+of the doubt. Even if the intent was to provoke, do not rise to it."
+We should aim to be tolerant and forgiving as well as open and
+inclusive.
+
+Paul
+
+From barry at python.org  Wed Jul 15 15:37:53 2015
+From: barry at python.org (Barry Warsaw)
+Date: Wed, 15 Jul 2015 09:37:53 -0400
+Subject: [python-committers] More explicit Code of Conduct for the issue
+ tracker & core mailing lists?
+In-Reply-To: <CADiSq7cC_9nOOu043qGMPtoynVc16kR66e=w+ytJD6nX_pC8Fg@mail.gmail.com>
+References: <CADiSq7cC_9nOOu043qGMPtoynVc16kR66e=w+ytJD6nX_pC8Fg@mail.gmail.com>
+Message-ID: <20150715093753.1241b948@anarchist.wooz.org>
+
+On Jul 15, 2015, at 12:29 PM, Nick Coghlan wrote:
+
+>The FreeBSD community recently posted their Code of Conduct guidelines
+>for technical discussions at
+>https://www.freebsd.org/internal/code-of-conduct.html
+
+I wouldn't mind something shorter, perhaps a happy middle ground between that
+and the PSF CoC?  In any case, +1 though...
+
+>Would folks mind if I drafted a CPython Code of Conduct inspired by
+>their example, and proposed it for inclusion in the Developer's Guide?
+
+Why not put it in a low-numbered informational PEP?
+
+Cheers,
+-Barry
+
+From anthonybaxter at gmail.com  Wed Jul 15 15:47:39 2015
+From: anthonybaxter at gmail.com (Anthony Baxter)
+Date: Wed, 15 Jul 2015 23:47:39 +1000
+Subject: [python-committers] More explicit Code of Conduct for the issue
+ tracker & core mailing lists?
+In-Reply-To: <20150715093753.1241b948@anarchist.wooz.org>
+References: <CADiSq7cC_9nOOu043qGMPtoynVc16kR66e=w+ytJD6nX_pC8Fg@mail.gmail.com>
+ <20150715093753.1241b948@anarchist.wooz.org>
+Message-ID: <CANxH2eTuQOpvLNS3kXxAD_agTj5i2Dr1CJxTdJy+nrwkm4e_ig@mail.gmail.com>
+
+I approve of this. I wonder if we can't radically simplify it?
+
+Don't be awful. If someone says 'hey um that makes me uncomfortable'
+perhaps reconsider what you said. Perhaps say "oh oops, sorry". Don't be an
+awful person.
+
+Codes of conduct are awesome, but it depresses me that we need to write
+down rules of basic human decency.
+On 15 Jul 2015 11:38 pm, "Barry Warsaw" <barry at python.org> wrote:
+
+> On Jul 15, 2015, at 12:29 PM, Nick Coghlan wrote:
+>
+> >The FreeBSD community recently posted their Code of Conduct guidelines
+> >for technical discussions at
+> >https://www.freebsd.org/internal/code-of-conduct.html
+>
+> I wouldn't mind something shorter, perhaps a happy middle ground between
+> that
+> and the PSF CoC?  In any case, +1 though...
+>
+> >Would folks mind if I drafted a CPython Code of Conduct inspired by
+> >their example, and proposed it for inclusion in the Developer's Guide?
+>
+> Why not put it in a low-numbered informational PEP?
+>
+> Cheers,
+> -Barry
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150715/be83a640/attachment.html>
+
+From antoine at python.org  Wed Jul 15 16:08:52 2015
+From: antoine at python.org (Antoine Pitrou)
+Date: Wed, 15 Jul 2015 16:08:52 +0200
+Subject: [python-committers] More explicit Code of Conduct for the issue
+ tracker & core mailing lists?
+In-Reply-To: <CADiSq7cC_9nOOu043qGMPtoynVc16kR66e=w+ytJD6nX_pC8Fg@mail.gmail.com>
+References: <CADiSq7cC_9nOOu043qGMPtoynVc16kR66e=w+ytJD6nX_pC8Fg@mail.gmail.com>
+Message-ID: <55A66974.7040208@python.org>
+
+
+Le 15/07/2015 04:29, Nick Coghlan a ?crit :
+> Hi folks,
+> 
+> The FreeBSD community recently posted their Code of Conduct guidelines
+> for technical discussions at
+> https://www.freebsd.org/internal/code-of-conduct.html
+
+This looks good, except that the "In Case of Conflict" part doesn't seem
+to be really a CoC thing, and their policy there needn't align with ours
+(although ours would deserve clarifying too).
+
+Regards
+
+Antoine.
+
+From brett at python.org  Wed Jul 15 19:59:46 2015
+From: brett at python.org (Brett Cannon)
+Date: Wed, 15 Jul 2015 17:59:46 +0000
+Subject: [python-committers] More explicit Code of Conduct for the issue
+ tracker & core mailing lists?
+In-Reply-To: <20150715093753.1241b948@anarchist.wooz.org>
+References: <CADiSq7cC_9nOOu043qGMPtoynVc16kR66e=w+ytJD6nX_pC8Fg@mail.gmail.com>
+ <20150715093753.1241b948@anarchist.wooz.org>
+Message-ID: <CAP1=2W7D5vpvrpyb5SAGo6NO7yx+FNQxswfabK-bZjdj0U96og@mail.gmail.com>
+
+On Wed, Jul 15, 2015 at 6:38 AM Barry Warsaw <barry at python.org> wrote:
+
+> On Jul 15, 2015, at 12:29 PM, Nick Coghlan wrote:
+>
+> >The FreeBSD community recently posted their Code of Conduct guidelines
+> >for technical discussions at
+> >https://www.freebsd.org/internal/code-of-conduct.html
+>
+> I wouldn't mind something shorter, perhaps a happy middle ground between
+> that
+> and the PSF CoC?  In any case, +1 though...
+>
+> >Would folks mind if I drafted a CPython Code of Conduct inspired by
+> >their example, and proposed it for inclusion in the Developer's Guide?
+>
+> Why not put it in a low-numbered informational PEP?
+>
+>
++1 on the idea and on making it a PEP that the devguide can reference since
+it will essentially be a procedural doc.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150715/934858b0/attachment.html>
+
+From mal at egenix.com  Wed Jul 15 22:40:15 2015
+From: mal at egenix.com (M.-A. Lemburg)
+Date: Wed, 15 Jul 2015 22:40:15 +0200
+Subject: [python-committers] More explicit Code of Conduct for the issue
+ tracker & core mailing lists?
+In-Reply-To: <CADiSq7cC_9nOOu043qGMPtoynVc16kR66e=w+ytJD6nX_pC8Fg@mail.gmail.com>
+References: <CADiSq7cC_9nOOu043qGMPtoynVc16kR66e=w+ytJD6nX_pC8Fg@mail.gmail.com>
+Message-ID: <55A6C52F.3040903@egenix.com>
+
+On 15.07.2015 04:29, Nick Coghlan wrote:
+> Hi folks,
+> 
+> The FreeBSD community recently posted their Code of Conduct guidelines
+> for technical discussions at
+> https://www.freebsd.org/internal/code-of-conduct.html
+
+Looks like a good start, but as others have mentioned, I think
+we ought to simplify this a lot and use it as extension to the
+CoC we already have rather than as replacement.
+
+> I think their guidelines align pretty well with the way we try to run
+> the CPython issue tracker and the core mailing lists, but we don't
+> currently spell out those expectations for newcomers (or potential
+> newcomers) as clearly as they have.
+> 
+> Would folks mind if I drafted a CPython Code of Conduct inspired by
+> their example, and proposed it for inclusion in the Developer's Guide?
+
+-- 
+Marc-Andre Lemburg
+eGenix.com
+
+Professional Python Services directly from the Source
+>>> Python Projects, Coaching and Consulting ...  http://www.egenix.com/
+>>> mxODBC Plone/Zope Database Adapter ...       http://zope.egenix.com/
+>>> mxODBC, mxDateTime, mxTextTools ...        http://python.egenix.com/
+________________________________________________________________________
+
+::::: Try our mxODBC.Connect Python Database Interface for free ! ::::::
+
+   eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+    D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+           Registered at Amtsgericht Duesseldorf: HRB 46611
+               http://www.egenix.com/company/contact/
+
+From steve at pearwood.info  Thu Jul 16 06:16:18 2015
+From: steve at pearwood.info (Steven D'Aprano)
+Date: Thu, 16 Jul 2015 14:16:18 +1000
+Subject: [python-committers] More explicit Code of Conduct for the issue
+	tracker & core mailing lists?
+In-Reply-To: <CADiSq7cC_9nOOu043qGMPtoynVc16kR66e=w+ytJD6nX_pC8Fg@mail.gmail.com>
+References: <CADiSq7cC_9nOOu043qGMPtoynVc16kR66e=w+ytJD6nX_pC8Fg@mail.gmail.com>
+Message-ID: <20150716041618.GE21874@ando.pearwood.info>
+
+On Wed, Jul 15, 2015 at 12:29:52PM +1000, Nick Coghlan wrote:
+[...]
+> I think their guidelines align pretty well with the way we try to run
+> the CPython issue tracker and the core mailing lists, but we don't
+> currently spell out those expectations for newcomers (or potential
+> newcomers) as clearly as they have.
+> 
+> Would folks mind if I drafted a CPython Code of Conduct inspired by
+> their example, and proposed it for inclusion in the Developer's Guide?
+
+Is there an actual social problem you are trying to solve here, or have 
+you just run out of things to do? :-)
+
+The PFS has had a CoC for over a year now. I haven't seen any reduction 
+in "bad behaviour" (it was so low that it would be hard to go any 
+lower), but in my opinion it seems that people are even less inclined to 
+express unpopular viewpoints and more inclined to stay silent. I don't 
+know if that is due to the CoC. I haven't seen anyone directly threated 
+by it for voicing an unpopular opinion, but I know that its at the back 
+of my mind whenever I think about posting. If people don't like what I 
+have to say, can they use the CoC to threaten me? That makes me 
+self-censor all the time, and I don't mean "Am I being a dick?". I mean 
+"How unpopular will this opinion be?"
+
+I spent a *long* time thinking about whether or not I should send this 
+and go against the multitude of +1s, and I'm not sure that people aren't 
+going to hold it against me. (What sort of monster must I be to be 
+against a CoC and in favour of trolls and abuse?) I know of other 
+forums, not Python related, where what I am saying certainly would be 
+held against me for being "disruptive".
+
+To me, a CoC has a definite chilling effect when it comes to voicing 
+opinions that go against the majority. It's hard enough to swim against 
+the tide of popular opinion even in the absense of formal rules that can 
+be used against you. If there was a genuine problem with trolls and 
+abuse on the tracker, then I would consider stronger measures than what 
+we already have in place (i.e. social disapproval, and the ability to 
+close people's account on the tracker). You don't need a CoC to say to 
+somebody "There's no call for that, you went to far, you crossed a 
+line."
+
+
+
+-- 
+Steve
+
+From brett at python.org  Thu Jul 16 07:34:15 2015
+From: brett at python.org (Brett Cannon)
+Date: Thu, 16 Jul 2015 05:34:15 +0000
+Subject: [python-committers] More explicit Code of Conduct for the issue
+ tracker & core mailing lists?
+In-Reply-To: <20150716041618.GE21874@ando.pearwood.info>
+References: <CADiSq7cC_9nOOu043qGMPtoynVc16kR66e=w+ytJD6nX_pC8Fg@mail.gmail.com>
+ <20150716041618.GE21874@ando.pearwood.info>
+Message-ID: <CAP1=2W7QRk8wMqv9C3UbDROAR6mg2bANpuHMjUu5LSYfK=zr_Q@mail.gmail.com>
+
+Three things. One, I won't hold this view against you, Steven, nor should
+anyone else. You expressed an opinion politely and it wasn't somehow
+prejudiced against a group of people. You should never worry about
+expressing an unpopular opinion as long as it's done with respect and not
+flat-out evil like being racist or something. The whole point of CoCs is to
+make it so people feel welcome to express themselves.
+
+Two, the PSF CoC is not retroactively applied to all things. For instance,
+this list does not fall under the CoC (notice no mention in the footer nor
+at https://mail.python.org/mailman/listinfo/python-committers). So deciding
+to apply the PSF CoC to all things related to the development of Python
+would require something like a PEP.
+
+And three, we need a CoC. Not to explicitly call anyone out, but in the
+past week or so I have heard peoples' ideas called "ridiculous" and been
+told to "shut up" on various mailing lists. I have met people at PyCon
+numerous times who have viewed at least python-dev as at minimum cold and
+possibly hostile to people, and that's simply not the kind of environment I
+would like to foster. I honestly think all of us -- including me -- have
+been way too tolerant of core devs having bad attitudes and not calling
+them out on it, especially when they simply got too passionate and lost
+their composure (the magic of email is we can think before we send so
+tolerating outbursts of any regularity really shouldn't happen). Part of
+this tolerance for bad attitudes has been cultural, but having a CoC would
+help to start changing that by making people feel comfortable in standing
+up and stating they thought someone had been rude.
+
+Anyway, that's why I support having a CoC that applies to everything
+involving Python's development.
+
+-Brett from a tablet
+
+On Wed, Jul 15, 2015, 21:21 Steven D'Aprano <steve at pearwood.info> wrote:
+
+> On Wed, Jul 15, 2015 at 12:29:52PM +1000, Nick Coghlan wrote:
+> [...]
+> > I think their guidelines align pretty well with the way we try to run
+> > the CPython issue tracker and the core mailing lists, but we don't
+> > currently spell out those expectations for newcomers (or potential
+> > newcomers) as clearly as they have.
+> >
+> > Would folks mind if I drafted a CPython Code of Conduct inspired by
+> > their example, and proposed it for inclusion in the Developer's Guide?
+>
+> Is there an actual social problem you are trying to solve here, or have
+> you just run out of things to do? :-)
+>
+> The PFS has had a CoC for over a year now. I haven't seen any reduction
+> in "bad behaviour" (it was so low that it would be hard to go any
+> lower), but in my opinion it seems that people are even less inclined to
+> express unpopular viewpoints and more inclined to stay silent. I don't
+> know if that is due to the CoC. I haven't seen anyone directly threated
+> by it for voicing an unpopular opinion, but I know that its at the back
+> of my mind whenever I think about posting. If people don't like what I
+> have to say, can they use the CoC to threaten me? That makes me
+> self-censor all the time, and I don't mean "Am I being a dick?". I mean
+> "How unpopular will this opinion be?"
+>
+> I spent a *long* time thinking about whether or not I should send this
+> and go against the multitude of +1s, and I'm not sure that people aren't
+> going to hold it against me. (What sort of monster must I be to be
+> against a CoC and in favour of trolls and abuse?) I know of other
+> forums, not Python related, where what I am saying certainly would be
+> held against me for being "disruptive".
+>
+> To me, a CoC has a definite chilling effect when it comes to voicing
+> opinions that go against the majority. It's hard enough to swim against
+> the tide of popular opinion even in the absense of formal rules that can
+> be used against you. If there was a genuine problem with trolls and
+> abuse on the tracker, then I would consider stronger measures than what
+> we already have in place (i.e. social disapproval, and the ability to
+> close people's account on the tracker). You don't need a CoC to say to
+> somebody "There's no call for that, you went to far, you crossed a
+> line."
+>
+>
+>
+> --
+> Steve
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150716/fb6913e8/attachment.html>
+
+From antoine at python.org  Thu Jul 16 12:28:41 2015
+From: antoine at python.org (Antoine Pitrou)
+Date: Thu, 16 Jul 2015 12:28:41 +0200
+Subject: [python-committers] More explicit Code of Conduct for the issue
+ tracker & core mailing lists?
+In-Reply-To: <CAP1=2W7QRk8wMqv9C3UbDROAR6mg2bANpuHMjUu5LSYfK=zr_Q@mail.gmail.com>
+References: <CADiSq7cC_9nOOu043qGMPtoynVc16kR66e=w+ytJD6nX_pC8Fg@mail.gmail.com>
+ <20150716041618.GE21874@ando.pearwood.info>
+ <CAP1=2W7QRk8wMqv9C3UbDROAR6mg2bANpuHMjUu5LSYfK=zr_Q@mail.gmail.com>
+Message-ID: <55A78759.3080708@python.org>
+
+
+Le 16/07/2015 07:34, Brett Cannon a ?crit :
+> And three, we need a CoC. Not to explicitly call anyone out, but in the
+> past week or so I have heard peoples' ideas called "ridiculous" and been
+> told to "shut up" on various mailing lists.
+
+Which mailing-lists? AFAIK, the CoC would be for python-dev and
+python-ideas so, if any other MLs are under discussion, it would be good
+to know.
+
+> I have met people at PyCon
+> numerous times who have viewed at least python-dev as at minimum cold
+> and possibly hostile to people,
+
+Each time someone voices such an opinion, it would be nice to get an
+example from them, and how they feel the welcome should have been like
+instead. Otherwise it will be hard to make any rational progress.
+Propagating such opinions could further defeat the purpose
+(self-reinforcing opinions, or "memes", abound).
+
+Regards
+
+Antoine.
+
+
+
+> and that's simply not the kind of
+> environment I would like to foster. I honestly think all of us --
+> including me -- have been way too tolerant of core devs having bad
+> attitudes and not calling them out on it, especially when they simply
+> got too passionate and lost their composure (the magic of email is we
+> can think before we send so tolerating outbursts of any regularity
+> really shouldn't happen). Part of this tolerance for bad attitudes has
+> been cultural, but having a CoC would help to start changing that by
+> making people feel comfortable in standing up and stating they thought
+> someone had been rude.
+> 
+> Anyway, that's why I support having a CoC that applies to everything
+> involving Python's development.
+> 
+> -Brett from a tablet
+
+From antoine at python.org  Thu Jul 16 12:38:08 2015
+From: antoine at python.org (Antoine Pitrou)
+Date: Thu, 16 Jul 2015 12:38:08 +0200
+Subject: [python-committers] More explicit Code of Conduct for the issue
+ tracker & core mailing lists?
+In-Reply-To: <CAP1=2W7QRk8wMqv9C3UbDROAR6mg2bANpuHMjUu5LSYfK=zr_Q@mail.gmail.com>
+References: <CADiSq7cC_9nOOu043qGMPtoynVc16kR66e=w+ytJD6nX_pC8Fg@mail.gmail.com>
+ <20150716041618.GE21874@ando.pearwood.info>
+ <CAP1=2W7QRk8wMqv9C3UbDROAR6mg2bANpuHMjUu5LSYfK=zr_Q@mail.gmail.com>
+Message-ID: <55A78990.5080703@python.org>
+
+
+Le 16/07/2015 07:34, Brett Cannon a ?crit :
+> 
+> I have met people at PyCon
+> numerous times who have viewed at least python-dev as at minimum cold
+> and possibly hostile to people, and that's simply not the kind of
+> environment I would like to foster.
+
+For the record, the last time someone said something like that, it was
+on the PSF-members ML. When it was questioned by several people, I think
+nobody gave any example or fact to back that opinion.
+
+Regards
+
+Antoine.
+
+From ncoghlan at gmail.com  Thu Jul 16 17:08:27 2015
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Fri, 17 Jul 2015 01:08:27 +1000
+Subject: [python-committers] More explicit Code of Conduct for the issue
+ tracker & core mailing lists?
+In-Reply-To: <20150716041618.GE21874@ando.pearwood.info>
+References: <CADiSq7cC_9nOOu043qGMPtoynVc16kR66e=w+ytJD6nX_pC8Fg@mail.gmail.com>
+ <20150716041618.GE21874@ando.pearwood.info>
+Message-ID: <CADiSq7eJK80P2yxRZcgdmc-z=0WwF9=o4dX3xWxWaYGyiQbOjA@mail.gmail.com>
+
+On 16 July 2015 at 14:16, Steven D'Aprano <steve at pearwood.info> wrote:
+> On Wed, Jul 15, 2015 at 12:29:52PM +1000, Nick Coghlan wrote:
+> [...]
+>> I think their guidelines align pretty well with the way we try to run
+>> the CPython issue tracker and the core mailing lists, but we don't
+>> currently spell out those expectations for newcomers (or potential
+>> newcomers) as clearly as they have.
+>>
+>> Would folks mind if I drafted a CPython Code of Conduct inspired by
+>> their example, and proposed it for inclusion in the Developer's Guide?
+>
+> Is there an actual social problem you are trying to solve here, or have
+> you just run out of things to do? :-)
+
+There are some practical aspects I'd like to address in a more easily
+referenced form.
+
+That would primarily be about clarifying ways of handle certain
+recurring confrontational tasks respectfully:
+
+* redirecting requests for help on either python-dev or python-ideas
+to Stack Overflow or python-list
+* redirecting threads for insufficiently fleshed out suggestions from
+python-dev to python-ideas
+* suggesting that particular ideas may be better suited to a third
+party package or a personal utility module
+* pointing out when an idea has already been considered (and rejected)
+in the past
+* when raising concerns about an already landed change, being clear on
+the difference between asking for the change to be reverted vs asking
+for clarification or further improvement
+
+That last one is actually an area where I *dis*agree with the FreeBSD
+guidelines - I see asking for someone to revert a change as a big
+deal, as it means we're laying claim to a non-trivial amount of their
+time. A non-urgent request for clarification is a different story, but
+I also see us occasionally repeating a pattern where long before the
+person that actually made a change has a chance to respond to a
+thread, there'll be half a dozen or more people jumping in saying
+"Yeah, I want an answer too!".
+
+Given the global nature of the lists, I think we should be giving
+folks *at least* 24 hours to reply to a question before assuming
+they're not going to respond, and given that only some of us get to
+count reading and replying to python-dev threads as work time, a few
+days leeway would be better (perhaps even a week to account for folks
+that are busy with other things during the week and mostly contribute
+on weekends). Those of us that *do* get paid for this also need to try
+to remember to account for that asymmetry in available time for
+participation.
+
+The general Python CoC is good as far as it goes, but actually putting
+openness, respect and kindness into practice on a public international
+mailing list that now mixes paid contributors with volunteers is a
+genuinely hard task that could likely benefit from a few pragmatic
+tips :)
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+
+From meadori at gmail.com  Thu Jul 16 17:49:13 2015
+From: meadori at gmail.com (Meador Inge)
+Date: Thu, 16 Jul 2015 10:49:13 -0500
+Subject: [python-committers] More explicit Code of Conduct for the issue
+ tracker & core mailing lists?
+In-Reply-To: <CADiSq7eJK80P2yxRZcgdmc-z=0WwF9=o4dX3xWxWaYGyiQbOjA@mail.gmail.com>
+References: <CADiSq7cC_9nOOu043qGMPtoynVc16kR66e=w+ytJD6nX_pC8Fg@mail.gmail.com>
+ <20150716041618.GE21874@ando.pearwood.info>
+ <CADiSq7eJK80P2yxRZcgdmc-z=0WwF9=o4dX3xWxWaYGyiQbOjA@mail.gmail.com>
+Message-ID: <CAK1QooqO-ywDPpQpZF=5Ew6cc+0Fv+4aCoKFh+8Vj3WyCPN-Dw@mail.gmail.com>
+
+On Thu, Jul 16, 2015 at 10:08 AM, Nick Coghlan <ncoghlan at gmail.com> wrote:
+
+> That last one is actually an area where I *dis*agree with the FreeBSD
+> guidelines - I see asking for someone to revert a change as a big
+> deal, as it means we're laying claim to a non-trivial amount of their
+> time. A non-urgent request for clarification is a different story, but
+> I also see us occasionally repeating a pattern where long before the
+> person that actually made a change has a chance to respond to a
+> thread, there'll be half a dozen or more people jumping in saying
+> "Yeah, I want an answer too!".
+
+I have seen a couple of these too.  Sometimes it is a pile on, but
+other times it is a very reasonable question to python-dev that goes
+completely unanswered.  Those cases (which are admittedly
+few) are unfortunate b/c if one person has a question about a
+commit, then others probably to do.  When the question goes
+unanswered, then we miss out on learning something.
+
+For example, I remember a case from a few months ago where someone
+(don't remember who off the top of my head) made a micro-optimization
+and there were post-commit questions about it.  As far as I can tell, the
+question went unanswered and I sincerely was curious what the rationale
+for the change was.  I felt like there was something we all could have
+learned from the potential discussion around the question that was asked.
+
+> Given the global nature of the lists, I think we should be giving
+> folks *at least* 24 hours to reply to a question before assuming
+> they're not going to respond, and given that only some of us get to
+> count reading and replying to python-dev threads as work time, a few
+> days leeway would be better (perhaps even a week to account for folks
+> that are busy with other things during the week and mostly contribute
+> on weekends). Those of us that *do* get paid for this also need to try
+> to remember to account for that asymmetry in available time for
+> participation.
+
+To me this depends on why the change is being questioned.  If there is
+a question about why a change was made or a minor bug was found in
+post-commit review*, then I agree it can wait a few days.  On the other
+hand, if someone commits a change that turns all the build-bots red and
+doesn't respond for several hours, then I would think that is fair game
+to revert.
+
+So, I do think reverting changes is a very reasonable course of action at
+times.  It should just be used judiciously.
+
+-- Meador
+
+* Ideally these kinds of things would be caught in pre-commit review, but
+I understand that it is not always practical to expect that everyone gets
+a chance for pre-commit review for every change or that every bug is
+caught in pre-commit review.
+
+From ncoghlan at gmail.com  Fri Jul 17 09:05:04 2015
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Fri, 17 Jul 2015 17:05:04 +1000
+Subject: [python-committers] More explicit Code of Conduct for the issue
+ tracker & core mailing lists?
+In-Reply-To: <CAK1QooqO-ywDPpQpZF=5Ew6cc+0Fv+4aCoKFh+8Vj3WyCPN-Dw@mail.gmail.com>
+References: <CADiSq7cC_9nOOu043qGMPtoynVc16kR66e=w+ytJD6nX_pC8Fg@mail.gmail.com>
+ <20150716041618.GE21874@ando.pearwood.info>
+ <CADiSq7eJK80P2yxRZcgdmc-z=0WwF9=o4dX3xWxWaYGyiQbOjA@mail.gmail.com>
+ <CAK1QooqO-ywDPpQpZF=5Ew6cc+0Fv+4aCoKFh+8Vj3WyCPN-Dw@mail.gmail.com>
+Message-ID: <CADiSq7cu=7dLjta3F9DQh+Yv+mz9=nctTMMGH3XqD5sqBi4k+Q@mail.gmail.com>
+
+On 17 July 2015 at 01:49, Meador Inge <meadori at gmail.com> wrote:
+> On Thu, Jul 16, 2015 at 10:08 AM, Nick Coghlan <ncoghlan at gmail.com> wrote:
+>> Given the global nature of the lists, I think we should be giving
+>> folks *at least* 24 hours to reply to a question before assuming
+>> they're not going to respond, and given that only some of us get to
+>> count reading and replying to python-dev threads as work time, a few
+>> days leeway would be better (perhaps even a week to account for folks
+>> that are busy with other things during the week and mostly contribute
+>> on weekends). Those of us that *do* get paid for this also need to try
+>> to remember to account for that asymmetry in available time for
+>> participation.
+>
+> To me this depends on why the change is being questioned.  If there is
+> a question about why a change was made or a minor bug was found in
+> post-commit review*, then I agree it can wait a few days.  On the other
+> hand, if someone commits a change that turns all the build-bots red and
+> doesn't respond for several hours, then I would think that is fair game
+> to revert.
+>
+> So, I do think reverting changes is a very reasonable course of action at
+> times.  It should just be used judiciously.
+
+I agree. The problem at the moment is that the norms around various
+things (particularly relating to pre-commit and post-commit review)
+are not only largely unwritten but have also changed over time, so we
+sometimes get mismatched expectations.
+
+Longer term, there are actually some real tooling problems worth
+fixing (hence the forge.python.org proposals, and the core workflow
+GSoC projects), but a bit more clarity in our expectations wouldn't
+hurt in the meantime.
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+
+From senthil at uthcode.com  Fri Jul 17 18:21:49 2015
+From: senthil at uthcode.com (Senthil Kumaran)
+Date: Fri, 17 Jul 2015 09:21:49 -0700
+Subject: [python-committers] 2.7 compilation problem on Mac 10.10.4 -
+	Failure with mac specific modules
+Message-ID: <CAPOVWOS1_WMpJkcDVc37g4sewr+O1tM5yQ9C2Xey7fi3-nLGiw@mail.gmail.com>
+
+This failure happens only in 2.7 branch in the source tree.
+
+[localhost 2.7]$ hg branch
+2.7
+
+[localhost 2.7]$ hg head 2.7
+changeset:   96916:ca78b9449e04
+branch:      2.7
+user:        Zachary Ware <zachary.ware at gmail.com>
+date:        Thu Jul 16 00:24:48 2015 -0500
+
+$./configure
+
+is OK
+
+$ make
+/opt/twitter/bin/gcc-4.2 -c -fno-strict-aliasing -g -O2 -DNDEBUG -g -fwrapv
+-O3 -Wall -Wstrict-prototypes  -I. -IInclude -I./Include   -DPy_BUILD_CORE
+-o Python/mactoolboxglue.o Python/mactoolboxglue.c
+In file included from
+/System/Library/Frameworks/CoreServices.framework/Headers/CoreServices.h:55,
+                 from
+/System/Library/Frameworks/Carbon.framework/Headers/Carbon.h:20,
+                 from Include/pymactoolbox.h:10,
+                 from Python/mactoolboxglue.c:27:
+/System/Library/Frameworks/CoreServices.framework/Frameworks/FSEvents.framework/Headers/FSEvents.h:486:
+error: expected ?,? or ?}? before ?__attribute__?
+make: *** [Python/mactoolboxglue.o] Error 1
+
+
+If I disable Mac specific modules
+
+$ ./configure --disable-toolbox-glue
+$ make is fine.
+
+Has any else observed this? I am trying to determine if this a bug or an
+incompatibility of Mac Command Line Tools I have with the 2.7 sources, most
+likely it is the later.
+
+-- 
+Senthil
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150717/206bb466/attachment.html>
+
+From nad at acm.org  Fri Jul 17 18:44:16 2015
+From: nad at acm.org (Ned Deily)
+Date: Fri, 17 Jul 2015 10:44:16 -0600
+Subject: [python-committers] 2.7 compilation problem on Mac 10.10.4 -
+	Failure with mac specific modules
+In-Reply-To: <CAPOVWOS1_WMpJkcDVc37g4sewr+O1tM5yQ9C2Xey7fi3-nLGiw@mail.gmail.com>
+References: <CAPOVWOS1_WMpJkcDVc37g4sewr+O1tM5yQ9C2Xey7fi3-nLGiw@mail.gmail.com>
+Message-ID: <6FBEEC18-681C-4CAE-892D-9FC4C415C72E@acm.org>
+
+On the road in the wilds of the Rockies at the moment I can check tonight but it should work. What version of OS X and Xcode :(xcodebuild -version)?
+
+  --
+    Ned Deily
+
+
+> On Jul 17, 2015, at 10:21, Senthil Kumaran <senthil at uthcode.com> wrote:
+> 
+> This failure happens only in 2.7 branch in the source tree.
+> 
+> [localhost 2.7]$ hg branch
+> 2.7
+> 
+> [localhost 2.7]$ hg head 2.7
+> changeset:   96916:ca78b9449e04
+> branch:      2.7
+> user:        Zachary Ware <zachary.ware at gmail.com>
+> date:        Thu Jul 16 00:24:48 2015 -0500
+> 
+> $./configure
+> 
+> is OK
+> 
+> $ make
+> /opt/twitter/bin/gcc-4.2 -c -fno-strict-aliasing -g -O2 -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes  -I. -IInclude -I./Include   -DPy_BUILD_CORE -o Python/mactoolboxglue.o Python/mactoolboxglue.c
+> In file included from /System/Library/Frameworks/CoreServices.framework/Headers/CoreServices.h:55,
+>                  from /System/Library/Frameworks/Carbon.framework/Headers/Carbon.h:20,
+>                  from Include/pymactoolbox.h:10,
+>                  from Python/mactoolboxglue.c:27:
+> /System/Library/Frameworks/CoreServices.framework/Frameworks/FSEvents.framework/Headers/FSEvents.h:486: error: expected ?,? or ?}? before ?__attribute__?
+> make: *** [Python/mactoolboxglue.o] Error 1
+> 
+> 
+> If I disable Mac specific modules
+> 
+> $ ./configure --disable-toolbox-glue
+> $ make is fine.
+> 
+> Has any else observed this? I am trying to determine if this a bug or an incompatibility of Mac Command Line Tools I have with the 2.7 sources, most likely it is the later. 
+> 
+> -- 
+> Senthil
+> 
+> 
+> 
+> 
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150717/99d4f39f/attachment.html>
+
+From senthil at uthcode.com  Fri Jul 17 19:22:54 2015
+From: senthil at uthcode.com (Senthil Kumaran)
+Date: Fri, 17 Jul 2015 10:22:54 -0700
+Subject: [python-committers] 2.7 compilation problem on Mac 10.10.4 -
+ Failure with mac specific modules
+In-Reply-To: <6FBEEC18-681C-4CAE-892D-9FC4C415C72E@acm.org>
+References: <CAPOVWOS1_WMpJkcDVc37g4sewr+O1tM5yQ9C2Xey7fi3-nLGiw@mail.gmail.com>
+ <6FBEEC18-681C-4CAE-892D-9FC4C415C72E@acm.org>
+Message-ID: <CAPOVWOR=SaAKC6br-szwX_H7vMA89O3viVopLva6Dt3G7QrLVw@mail.gmail.com>
+
+I am on 10.10.4 - Yosemite
+
+$ xcodebuild -version
+Xcode 6.1.1
+Build version 6A2008a
+
+
+On Fri, Jul 17, 2015 at 9:44 AM, Ned Deily <nad at acm.org> wrote:
+
+> On the road in the wilds of the Rockies at the moment I can check tonight
+> but it should work. What version of OS X and Xcode :(xcodebuild -version)?
+>
+>   --
+>     Ned Deily
+>
+>
+> On Jul 17, 2015, at 10:21, Senthil Kumaran <senthil at uthcode.com> wrote:
+>
+> This failure happens only in 2.7 branch in the source tree.
+>
+> [localhost 2.7]$ hg branch
+> 2.7
+>
+> [localhost 2.7]$ hg head 2.7
+> changeset:   96916:ca78b9449e04
+> branch:      2.7
+> user:        Zachary Ware <zachary.ware at gmail.com>
+> date:        Thu Jul 16 00:24:48 2015 -0500
+>
+> $./configure
+>
+> is OK
+>
+> $ make
+> /opt/twitter/bin/gcc-4.2 -c -fno-strict-aliasing -g -O2 -DNDEBUG -g
+> -fwrapv -O3 -Wall -Wstrict-prototypes  -I. -IInclude -I./Include
+> -DPy_BUILD_CORE -o Python/mactoolboxglue.o Python/mactoolboxglue.c
+> In file included from
+> /System/Library/Frameworks/CoreServices.framework/Headers/CoreServices.h:55,
+>                  from
+> /System/Library/Frameworks/Carbon.framework/Headers/Carbon.h:20,
+>                  from Include/pymactoolbox.h:10,
+>                  from Python/mactoolboxglue.c:27:
+> /System/Library/Frameworks/CoreServices.framework/Frameworks/FSEvents.framework/Headers/FSEvents.h:486:
+> error: expected ?,? or ?}? before ?__attribute__?
+> make: *** [Python/mactoolboxglue.o] Error 1
+>
+>
+> If I disable Mac specific modules
+>
+> $ ./configure --disable-toolbox-glue
+> $ make is fine.
+>
+> Has any else observed this? I am trying to determine if this a bug or an
+> incompatibility of Mac Command Line Tools I have with the 2.7 sources, most
+> likely it is the later.
+>
+> --
+> Senthil
+>
+>
+>
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+>
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150717/7c50451f/attachment.html>
+
+From meadori at gmail.com  Fri Jul 17 20:26:04 2015
+From: meadori at gmail.com (Meador Inge)
+Date: Fri, 17 Jul 2015 13:26:04 -0500
+Subject: [python-committers] 2.7 compilation problem on Mac 10.10.4 -
+ Failure with mac specific modules
+In-Reply-To: <CAPOVWOS1_WMpJkcDVc37g4sewr+O1tM5yQ9C2Xey7fi3-nLGiw@mail.gmail.com>
+References: <CAPOVWOS1_WMpJkcDVc37g4sewr+O1tM5yQ9C2Xey7fi3-nLGiw@mail.gmail.com>
+Message-ID: <CAK1QoooF8Lh4S1yEgiJ2OP00tb7yCMuhP2ZcPW35xn2Ap+_jqA@mail.gmail.com>
+
+On Fri, Jul 17, 2015 at 11:21 AM, Senthil Kumaran <senthil at uthcode.com> wrote:
+> This failure happens only in 2.7 branch in the source tree.
+>
+> [localhost 2.7]$ hg branch
+> 2.7
+>
+> [localhost 2.7]$ hg head 2.7
+> changeset:   96916:ca78b9449e04
+> branch:      2.7
+> user:        Zachary Ware <zachary.ware at gmail.com>
+> date:        Thu Jul 16 00:24:48 2015 -0500
+>
+> $./configure
+>
+> is OK
+>
+> $ make
+> /opt/twitter/bin/gcc-4.2 -c -fno-strict-aliasing -g -O2 -DNDEBUG -g -fwrapv
+> -O3 -Wall -Wstrict-prototypes  -I. -IInclude -I./Include   -DPy_BUILD_CORE
+> -o Python/mactoolboxglue.o Python/mactoolboxglue.c
+> In file included from
+> /System/Library/Frameworks/CoreServices.framework/Headers/CoreServices.h:55,
+>                  from
+> /System/Library/Frameworks/Carbon.framework/Headers/Carbon.h:20,
+>                  from Include/pymactoolbox.h:10,
+>                  from Python/mactoolboxglue.c:27:
+> /System/Library/Frameworks/CoreServices.framework/Frameworks/FSEvents.framework/Headers/FSEvents.h:486:
+> error: expected ?,? or ?}? before ?__attribute__?
+> make: *** [Python/mactoolboxglue.o] Error 1
+
+Are you really meaning to use GCC 4.2 (that is ancient)?
+
+I can reproduce your problem, but only with gcc-4.2.
+Clang works just fine.
+Here are the compiler versions I am using:
+
+drago:llvm meadori$ gcc-4.2 --version
+couldn't understand kern.osversion `14.3.0'
+i686-apple-darwin11-gcc-4.2.1 (GCC) 4.2.1 (Apple Inc. build 5666) (dot 3)
+Copyright (C) 2007 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+drago:llvm meadori$ gcc --version
+Configured with:
+--prefix=/Applications/Xcode.app/Contents/Developer/usr
+--with-gxx-include-dir=/usr/include/c++/4.2.1
+Apple LLVM version 6.0 (clang-600.0.56) (based on LLVM 3.5svn)
+Target: x86_64-apple-darwin14.3.0
+Thread model: posix
+
+Hope that helps,
+
+-- Meador
+
+From antoine at python.org  Sat Jul 18 01:57:27 2015
+From: antoine at python.org (Antoine Pitrou)
+Date: Sat, 18 Jul 2015 01:57:27 +0200
+Subject: [python-committers] More explicit Code of Conduct for the issue
+ tracker & core mailing lists?
+In-Reply-To: <CADiSq7cC_9nOOu043qGMPtoynVc16kR66e=w+ytJD6nX_pC8Fg@mail.gmail.com>
+References: <CADiSq7cC_9nOOu043qGMPtoynVc16kR66e=w+ytJD6nX_pC8Fg@mail.gmail.com>
+Message-ID: <55A99667.8070809@python.org>
+
+
+Hi Nick,
+
+Given the amount of ludicrous babble that goes on on python-dev and the
+like, I've unsubscribed from those lists, so I don't have much interest
+in this discussion anymore.
+
+I hope you can make them a better place anyway.
+
+Regards
+
+Antoine.
+
+
+Le 15/07/2015 04:29, Nick Coghlan a ?crit :
+> Hi folks,
+> 
+> The FreeBSD community recently posted their Code of Conduct guidelines
+> for technical discussions at
+> https://www.freebsd.org/internal/code-of-conduct.html
+> 
+> I think their guidelines align pretty well with the way we try to run
+> the CPython issue tracker and the core mailing lists, but we don't
+> currently spell out those expectations for newcomers (or potential
+> newcomers) as clearly as they have.
+> 
+> Would folks mind if I drafted a CPython Code of Conduct inspired by
+> their example, and proposed it for inclusion in the Developer's Guide?
+> 
+> Regards,
+> Nick.
+> 
+
+From nad at acm.org  Sat Jul 18 05:26:37 2015
+From: nad at acm.org (Ned Deily)
+Date: Fri, 17 Jul 2015 22:26:37 -0500
+Subject: [python-committers] 2.7 compilation problem on Mac 10.10.4 -
+	Failure with mac specific modules
+In-Reply-To: <CAK1QoooF8Lh4S1yEgiJ2OP00tb7yCMuhP2ZcPW35xn2Ap+_jqA@mail.gmail.com>
+References: <CAPOVWOS1_WMpJkcDVc37g4sewr+O1tM5yQ9C2Xey7fi3-nLGiw@mail.gmail.com>
+ <CAK1QoooF8Lh4S1yEgiJ2OP00tb7yCMuhP2ZcPW35xn2Ap+_jqA@mail.gmail.com>
+Message-ID: <AEA6A481-529B-4A72-91AF-E0BE2EC6C26E@acm.org>
+
+On Jul 17, 2015, at 13:26, Meador Inge <meadori at gmail.com> wrote:
+> On Fri, Jul 17, 2015 at 11:21 AM, Senthil Kumaran <senthil at uthcode.com> wrote:
+>> This failure happens only in 2.7 branch in the source tree.
+>> 
+>> [localhost 2.7]$ hg branch
+>> 2.7
+>> 
+>> [localhost 2.7]$ hg head 2.7
+>> changeset:   96916:ca78b9449e04
+>> branch:      2.7
+>> user:        Zachary Ware <zachary.ware at gmail.com>
+>> date:        Thu Jul 16 00:24:48 2015 -0500
+>> 
+>> $./configure
+>> 
+>> is OK
+>> 
+>> $ make
+>> /opt/twitter/bin/gcc-4.2 -c -fno-strict-aliasing -g -O2 -DNDEBUG -g -fwrapv
+>> -O3 -Wall -Wstrict-prototypes  -I. -IInclude -I./Include   -DPy_BUILD_CORE
+>> -o Python/mactoolboxglue.o Python/mactoolboxglue.c
+>> In file included from
+>> /System/Library/Frameworks/CoreServices.framework/Headers/CoreServices.h:55,
+>>                 from
+>> /System/Library/Frameworks/Carbon.framework/Headers/Carbon.h:20,
+>>                 from Include/pymactoolbox.h:10,
+>>                 from Python/mactoolboxglue.c:27:
+>> /System/Library/Frameworks/CoreServices.framework/Frameworks/FSEvents.framework/Headers/FSEvents.h:486:
+>> error: expected ?,? or ?}? before ?__attribute__?
+>> make: *** [Python/mactoolboxglue.o] Error 1
+> 
+> Are you really meaning to use GCC 4.2 (that is ancient)?
+> 
+> I can reproduce your problem, but only with gcc-4.2.
+> Clang works just fine.
+> Here are the compiler versions I am using:
+> 
+> drago:llvm meadori$ gcc-4.2 --version
+> couldn't understand kern.osversion `14.3.0'
+> i686-apple-darwin11-gcc-4.2.1 (GCC) 4.2.1 (Apple Inc. build 5666) (dot 3)
+> Copyright (C) 2007 Free Software Foundation, Inc.
+> This is free software; see the source for copying conditions.  There is NO
+> warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+> 
+> drago:llvm meadori$ gcc --version
+> Configured with:
+> --prefix=/Applications/Xcode.app/Contents/Developer/usr
+> --with-gxx-include-dir=/usr/include/c++/4.2.1
+> Apple LLVM version 6.0 (clang-600.0.56) (based on LLVM 3.5svn)
+> Target: x86_64-apple-darwin14.3.0
+> Thread model: posix
+> 
+> Hope that helps,
+
+Meador's right.  Don't use the old gcc-4.2 with the current SDK / Command Line Tools.  Let CC default to "cc" or set it to "clang"; presumably something is setting the CC environment variable to /opt/twitter/bin/gcc-4.2.
+
+--
+  Ned Deily
+  nad at acm.org -- []
+
+
+
+From larry at hastings.org  Sat Jul 18 12:24:21 2015
+From: larry at hastings.org (Larry Hastings)
+Date: Sat, 18 Jul 2015 03:24:21 -0700
+Subject: [python-committers] Reminder: Python 3.5 beta 4 is tagged in one
+	week
+Message-ID: <55AA2955.8030404@hastings.org>
+
+
+
+Approximately a week from when I post this, I'll be tagging Python 3.5 
+beta 4, which is the last beta before we go to release candidates.  
+Please wind up all your bug fixes soon, I'd really like checkins to 3.5 
+to stop soon.
+
+And a minor reminder: when we hit Release Candidate 1, I'll be switching 
+the canonical repo for 3.5 to a public Bitbucket repo. Any bug fixes 
+that go in between RC 1 and final will only be merged using Bitbucket 
+"pull requests".
+
+The new workflow experiment continues,
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150718/786fe9b2/attachment.html>
+
+From senthil at uthcode.com  Sun Jul 19 06:49:08 2015
+From: senthil at uthcode.com (Senthil Kumaran)
+Date: Sat, 18 Jul 2015 21:49:08 -0700
+Subject: [python-committers] 2.7 compilation problem on Mac 10.10.4 -
+ Failure with mac specific modules
+In-Reply-To: <AEA6A481-529B-4A72-91AF-E0BE2EC6C26E@acm.org>
+References: <CAPOVWOS1_WMpJkcDVc37g4sewr+O1tM5yQ9C2Xey7fi3-nLGiw@mail.gmail.com>
+ <CAK1QoooF8Lh4S1yEgiJ2OP00tb7yCMuhP2ZcPW35xn2Ap+_jqA@mail.gmail.com>
+ <AEA6A481-529B-4A72-91AF-E0BE2EC6C26E@acm.org>
+Message-ID: <CAPOVWOQttL6XGDJuPsHPppJO=tmDEe6-E1dYU4ga19dOz1TxBg@mail.gmail.com>
+
+On Fri, Jul 17, 2015 at 8:26 PM, Ned Deily <nad at acm.org> wrote:
+
+> Meador's right.  Don't use the old gcc-4.2 with the current SDK / Command
+> Line Tools.  Let CC default to "cc" or set it to "clang"; presumably
+> something is setting the CC environment variable to
+> /opt/twitter/bin/gcc-4.2.
+
+
+Thank you for your help. The old gcc escaped my attention. 3.x compiling
+fine with old gcc didn't make me suspect that. But it was indeed the case.
+I set the CC envvar to the gcc provided by Apple and it was alright.
+
+Thank you,
+Senthil
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150718/c75334cf/attachment.html>
+
+From rdmurray at bitdance.com  Tue Jul 21 16:06:54 2015
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Tue, 21 Jul 2015 10:06:54 -0400
+Subject: [python-committers] Speaking of noticing tracker activity
+Message-ID: <20150721140654.E6EEDB14150@webabinitio.net>
+
+In the recent thread on python-dev Nick mentioned our dependence on
+people noticing active contributors on the tracker.  In that regard I'd
+like to recommend people take a look at the work of Martin Panter
+(vadmium).
+
+--David
+
+From storchaka at gmail.com  Tue Jul 21 17:28:57 2015
+From: storchaka at gmail.com (Serhiy Storchaka)
+Date: Tue, 21 Jul 2015 18:28:57 +0300
+Subject: [python-committers] Speaking of noticing tracker activity
+In-Reply-To: <20150721140654.E6EEDB14150@webabinitio.net>
+References: <20150721140654.E6EEDB14150@webabinitio.net>
+Message-ID: <molofp$r18$1@ger.gmane.org>
+
+On 21.07.15 17:06, R. David Murray wrote:
+> In the recent thread on python-dev Nick mentioned our dependence on
+> people noticing active contributors on the tracker.  In that regard I'd
+> like to recommend people take a look at the work of Martin Panter
+> (vadmium).
+
+Me too. Martin starts contributing patches about a year ago. About 
+half-year ago he increased his activity and patches become less trivial. 
+I have counted about 46 committed patches authored by Martin (16 of them 
+were committed by me). But he also was well known as helpful patch 
+reviewer and participant of discussions on the tracker for a long time 
+before that. I would like to offer granting Martin commit privileges if 
+he is interesting in this.
+
+
+From senthil at uthcode.com  Tue Jul 21 18:09:45 2015
+From: senthil at uthcode.com (Senthil Kumaran)
+Date: Tue, 21 Jul 2015 09:09:45 -0700
+Subject: [python-committers] Speaking of noticing tracker activity
+In-Reply-To: <molofp$r18$1@ger.gmane.org>
+References: <20150721140654.E6EEDB14150@webabinitio.net>
+ <molofp$r18$1@ger.gmane.org>
+Message-ID: <CAPOVWOTAWMdTdz3r6KEwv90RFU-Pr6m-nsimzX1A7M3o1Yu+vQ@mail.gmail.com>
+
+On Tue, Jul 21, 2015 at 8:28 AM, Serhiy Storchaka <storchaka at gmail.com>
+wrote:
+
+> I would like to offer granting Martin commit privileges if he is
+> interesting in this.
+
+
++1  vote from me too. I have noticed number of comments, helpful reviews
+and patches from Martin Panter.
+
+-- 
+Senthil
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150721/48e2f7f2/attachment.html>
+
+From robertc at robertcollins.net  Tue Jul 21 18:35:29 2015
+From: robertc at robertcollins.net (Robert Collins)
+Date: Wed, 22 Jul 2015 04:35:29 +1200
+Subject: [python-committers] [Python-Dev] Reminder: Python 3.5 beta 4 is
+	tagged in one week
+In-Reply-To: <55AA2955.8030404@hastings.org>
+References: <55AA2955.8030404@hastings.org>
+Message-ID: <CAJ3HoZ0W8n61XhtCR8jaz=nBmkqLQK7puVdgFLQQtZDY9Kq55g@mail.gmail.com>
+
+Cool. http://bugs.python.org/issue21750 is in a bad state right now.
+
+I landed a patch to fix it, which when exposed to users had some
+defects. I'm working on a better patch now, but need to either roll
+the prior patch completely back, or get the new one landed before the
+next beta. I hope to have that up for review later today {fingers
+crossed} - will that be soon enough, or should I look up how to easily
+revert stuff out with hg?
+
+-Rob
+
+On 18 July 2015 at 22:24, Larry Hastings <larry at hastings.org> wrote:
+>
+>
+> Approximately a week from when I post this, I'll be tagging Python 3.5 beta
+> 4, which is the last beta before we go to release candidates.  Please wind
+> up all your bug fixes soon, I'd really like checkins to 3.5 to stop soon.
+>
+> And a minor reminder: when we hit Release Candidate 1, I'll be switching the
+> canonical repo for 3.5 to a public Bitbucket repo.  Any bug fixes that go in
+> between RC 1 and final will only be merged using Bitbucket "pull requests".
+>
+> The new workflow experiment continues,
+>
+>
+> /arry
+>
+> _______________________________________________
+> Python-Dev mailing list
+> Python-Dev at python.org
+> https://mail.python.org/mailman/listinfo/python-dev
+> Unsubscribe:
+> https://mail.python.org/mailman/options/python-dev/robertc%40robertcollins.net
+>
+
+
+
+-- 
+Robert Collins <rbtcollins at hp.com>
+Distinguished Technologist
+HP Converged Cloud
+
+From larry at hastings.org  Tue Jul 21 19:08:41 2015
+From: larry at hastings.org (Larry Hastings)
+Date: Tue, 21 Jul 2015 19:08:41 +0200
+Subject: [python-committers] [Python-Dev] Reminder: Python 3.5 beta 4 is
+	tagged in one week
+In-Reply-To: <CAJ3HoZ0W8n61XhtCR8jaz=nBmkqLQK7puVdgFLQQtZDY9Kq55g@mail.gmail.com>
+References: <55AA2955.8030404@hastings.org>
+ <CAJ3HoZ0W8n61XhtCR8jaz=nBmkqLQK7puVdgFLQQtZDY9Kq55g@mail.gmail.com>
+Message-ID: <55AE7C99.6020801@hastings.org>
+
+
+
+On 07/21/2015 06:35 PM, Robert Collins wrote:
+> Cool. http://bugs.python.org/issue21750 is in a bad state right now.
+>
+> I landed a patch to fix it, which when exposed to users had some
+> defects. I'm working on a better patch now, but need to either roll
+> the prior patch completely back, or get the new one landed before the
+> next beta. I hope to have that up for review later today {fingers
+> crossed} - will that be soon enough, or should I look up how to easily
+> revert stuff out with hg?
+
+If you want to undo it, "hg backout" is the command you want.  In 
+general it's best to not check in broken stuff.
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150721/fbc92ad6/attachment.html>
+
+From robertc at robertcollins.net  Tue Jul 21 22:07:25 2015
+From: robertc at robertcollins.net (Robert Collins)
+Date: Wed, 22 Jul 2015 08:07:25 +1200
+Subject: [python-committers] [Python-Dev] Reminder: Python 3.5 beta 4 is
+	tagged in one week
+In-Reply-To: <55AE7C99.6020801@hastings.org>
+References: <55AA2955.8030404@hastings.org>
+ <CAJ3HoZ0W8n61XhtCR8jaz=nBmkqLQK7puVdgFLQQtZDY9Kq55g@mail.gmail.com>
+ <55AE7C99.6020801@hastings.org>
+Message-ID: <CAJ3HoZ2euStKc=60br0Yho+4UqauPc7kSDXiiwAdC-fKO=+VNg@mail.gmail.com>
+
+On 22 July 2015 at 05:08, Larry Hastings <larry at hastings.org> wrote:
+>
+>
+> On 07/21/2015 06:35 PM, Robert Collins wrote:
+>
+> Cool. http://bugs.python.org/issue21750 is in a bad state right now.
+>
+> I landed a patch to fix it, which when exposed to users had some
+> defects. I'm working on a better patch now, but need to either roll
+> the prior patch completely back, or get the new one landed before the
+> next beta. I hope to have that up for review later today {fingers
+> crossed} - will that be soon enough, or should I look up how to easily
+> revert stuff out with hg?
+>
+>
+> If you want to undo it, "hg backout" is the command you want.  In general
+> it's best to not check in broken stuff.
+
+Thanks. And yes, naturally - we didn't realise it was broken. Passing
+tests != fit for purpose.
+
+-Rob
+
+-- 
+Robert Collins <rbtcollins at hp.com>
+Distinguished Technologist
+HP Converged Cloud
+
+From ncoghlan at gmail.com  Wed Jul 22 06:14:20 2015
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Wed, 22 Jul 2015 14:14:20 +1000
+Subject: [python-committers] Speaking of noticing tracker activity
+In-Reply-To: <CAPOVWOTAWMdTdz3r6KEwv90RFU-Pr6m-nsimzX1A7M3o1Yu+vQ@mail.gmail.com>
+References: <20150721140654.E6EEDB14150@webabinitio.net>
+ <molofp$r18$1@ger.gmane.org>
+ <CAPOVWOTAWMdTdz3r6KEwv90RFU-Pr6m-nsimzX1A7M3o1Yu+vQ@mail.gmail.com>
+Message-ID: <CADiSq7d49Fi3+Ou2iNwTMWjDpTYx03YgCFdONERnbc3yKsywKg@mail.gmail.com>
+
+On 22 July 2015 at 02:09, Senthil Kumaran <senthil at uthcode.com> wrote:
+>
+> On Tue, Jul 21, 2015 at 8:28 AM, Serhiy Storchaka <storchaka at gmail.com>
+> wrote:
+>>
+>> I would like to offer granting Martin commit privileges if he is
+>> interesting in this.
+>
+> +1  vote from me too. I have noticed number of comments, helpful reviews and
+> patches from Martin Panter.
+
++1 from me as well. I was actually thinking of Martin when I wrote the
+comment David referenced, but hadn't done the research to look into
+his wider involvement in tracker discussions.
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+
+From berker.peksag at gmail.com  Wed Jul 22 18:23:16 2015
+From: berker.peksag at gmail.com (=?UTF-8?Q?Berker_Peksa=C4=9F?=)
+Date: Wed, 22 Jul 2015 19:23:16 +0300
+Subject: [python-committers] Speaking of noticing tracker activity
+In-Reply-To: <molofp$r18$1@ger.gmane.org>
+References: <20150721140654.E6EEDB14150@webabinitio.net>
+ <molofp$r18$1@ger.gmane.org>
+Message-ID: <CAF4280K-e0ArU0XSjnxCykg3Q3mst05VYgx=TNDTW1x1CJ6SjA@mail.gmail.com>
+
+On Tue, Jul 21, 2015 at 6:28 PM, Serhiy Storchaka <storchaka at gmail.com> wrote:
+> On 21.07.15 17:06, R. David Murray wrote:
+>>
+>> In the recent thread on python-dev Nick mentioned our dependence on
+>> people noticing active contributors on the tracker.  In that regard I'd
+>> like to recommend people take a look at the work of Martin Panter
+>> (vadmium).
+>
+>
+> Me too. Martin starts contributing patches about a year ago. About half-year
+> ago he increased his activity and patches become less trivial. I have
+> counted about 46 committed patches authored by Martin (16 of them were
+> committed by me). But he also was well known as helpful patch reviewer and
+> participant of discussions on the tracker for a long time before that. I
+> would like to offer granting Martin commit privileges if he is interesting
+> in this.
+
++1
+
+I think I've committed most of the remaining ones :) I was ask Ezio to
+give him developer privileges on the tracker a couple months ago. I'm
+also willing to mentor if needed.
+
+--Berker
+
+From brian at python.org  Wed Jul 22 18:35:51 2015
+From: brian at python.org (Brian Curtin)
+Date: Wed, 22 Jul 2015 11:35:51 -0500
+Subject: [python-committers] MSDN subscriptions, Intel ICC licenses
+Message-ID: <CAD+XWwoG1ONkwFNObMC9_qfe8gOzXh-0Ww0uHP39LNgi6byHkA@mail.gmail.com>
+
+It's that time again: a batch of MSDN subscriptions are expiring, and
+I've already heard from a few of you, so in order to make it easier on
+the Microsoft end, I'll put together another batch of us to be renewed
+all at once.
+
+If you would like a renewal, I need the email address associated with
+your account as well as your subscriber ID. You can find the ID in the
+top left of https://msdn.microsoft.com/en-us/subscriptions/manage
+
+If you would like a first time subscription, I need your postal
+address and the email address you'd like to use for the account.
+
+We also now have a contact at Intel who can provide our developers
+with licenses for Intel ICC compilers. I don't know exactly what
+information they're going to need from you, but let me know if this is
+something you'd like to make use of.
+
+Brian
+
+From brett at python.org  Wed Jul 22 19:19:44 2015
+From: brett at python.org (Brett Cannon)
+Date: Wed, 22 Jul 2015 17:19:44 +0000
+Subject: [python-committers] Speaking of noticing tracker activity
+In-Reply-To: <CAF4280K-e0ArU0XSjnxCykg3Q3mst05VYgx=TNDTW1x1CJ6SjA@mail.gmail.com>
+References: <20150721140654.E6EEDB14150@webabinitio.net>
+ <molofp$r18$1@ger.gmane.org>
+ <CAF4280K-e0ArU0XSjnxCykg3Q3mst05VYgx=TNDTW1x1CJ6SjA@mail.gmail.com>
+Message-ID: <CAP1=2W7aC=mhwMgDmGesAFHSM7UUpjbZ7VwdN_oW2uLyPgZZTA@mail.gmail.com>
+
+It sounds like enough people support Martin getting commit privileges. I'll
+let Berker and David decide if they want to joint mentor Martin or not and
+then they can reach out to him about the offer for commit privileges and
+the next steps.
+
+On Wed, Jul 22, 2015 at 9:23 AM Berker Peksa? <berker.peksag at gmail.com>
+wrote:
+
+> On Tue, Jul 21, 2015 at 6:28 PM, Serhiy Storchaka <storchaka at gmail.com>
+> wrote:
+> > On 21.07.15 17:06, R. David Murray wrote:
+> >>
+> >> In the recent thread on python-dev Nick mentioned our dependence on
+> >> people noticing active contributors on the tracker.  In that regard I'd
+> >> like to recommend people take a look at the work of Martin Panter
+> >> (vadmium).
+> >
+> >
+> > Me too. Martin starts contributing patches about a year ago. About
+> half-year
+> > ago he increased his activity and patches become less trivial. I have
+> > counted about 46 committed patches authored by Martin (16 of them were
+> > committed by me). But he also was well known as helpful patch reviewer
+> and
+> > participant of discussions on the tracker for a long time before that. I
+> > would like to offer granting Martin commit privileges if he is
+> interesting
+> > in this.
+>
+> +1
+>
+> I think I've committed most of the remaining ones :) I was ask Ezio to
+> give him developer privileges on the tracker a couple months ago. I'm
+> also willing to mentor if needed.
+>
+> --Berker
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150722/125d0fd0/attachment.html>
+
+From bcannon at gmail.com  Wed Jul 22 19:23:10 2015
+From: bcannon at gmail.com (Brett Cannon)
+Date: Wed, 22 Jul 2015 17:23:10 +0000
+Subject: [python-committers] getting help with the hgaccounts alias
+Message-ID: <CAP1=2W5XwGSeg9LH9yMVz_eeyMmdNiNOpA7evniZPek147Nu2A@mail.gmail.com>
+
+I think the only people on it are Antoine, Georg, and myself. Antoine has
+said he has left python-dev, Georg is often busy with school, and I'm on a
+temp machine for a few weeks so I can't add any SSH keys for a while (heck
+I'll probably need new ones installed on my behalf once I have a permanent
+machine).
+
+Is anyone up for helping with adding SSH keys for people? It's basically
+taking someone's key as an attachment in an email, making sure it's RSA and
+not DSA, and then either creating a new file in a specific repo for them or
+appending it to their existing key file.
+
+P.S.: And I don't even remember how to get people added to the group of
+people who can add keys, so I probably need to find that out as well if
+anyone steps forward. =)
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150722/a55c1ade/attachment.html>
+
+From bcannon at gmail.com  Wed Jul 22 19:29:25 2015
+From: bcannon at gmail.com (Brett Cannon)
+Date: Wed, 22 Jul 2015 17:29:25 +0000
+Subject: [python-committers] getting help with the hgaccounts alias
+In-Reply-To: <6C4AEFC5-B3CE-4346-8BF3-291BEE18A3F6@mac.com>
+References: <CAP1=2W5XwGSeg9LH9yMVz_eeyMmdNiNOpA7evniZPek147Nu2A@mail.gmail.com>
+ <6C4AEFC5-B3CE-4346-8BF3-291BEE18A3F6@mac.com>
+Message-ID: <CAP1=2W4qE9uNAj-KzgpEAZZ_2s0gVn46S2Pnd8QVd3X5zEXrSw@mail.gmail.com>
+
+Maybe once a month, if that. But there have been times when people have
+sent in keys and it has taken a week or so to get them set up which seems
+too long.
+
+On Wed, Jul 22, 2015 at 10:28 AM Ronald Oussoren <ronaldoussoren at mac.com>
+wrote:
+
+>
+> > On 22 Jul 2015, at 19:23, Brett Cannon <bcannon at gmail.com> wrote:
+> >
+> > I think the only people on it are Antoine, Georg, and myself. Antoine
+> has said he has left python-dev, Georg is often busy with school, and I'm
+> on a temp machine for a few weeks so I can't add any SSH keys for a while
+> (heck I'll probably need new ones installed on my behalf once I have a
+> permanent machine).
+> >
+> > Is anyone up for helping with adding SSH keys for people? It's basically
+> taking someone's key as an attachment in an email, making sure it's RSA and
+> not DSA, and then either creating a new file in a specific repo for them or
+> appending it to their existing key file.
+> >
+> > P.S.: And I don't even remember how to get people added to the group of
+> people who can add keys, so I probably need to find that out as well if
+> anyone steps forward. =)
+>
+> How often does this come up?  This doesn?t sound like something that
+> requires a lot of time to do.
+>
+> Ronald
+>
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150722/b2deaddc/attachment.html>
+
+From p.f.moore at gmail.com  Wed Jul 22 19:30:04 2015
+From: p.f.moore at gmail.com (Paul Moore)
+Date: Wed, 22 Jul 2015 18:30:04 +0100
+Subject: [python-committers] MSDN subscriptions, Intel ICC licenses
+In-Reply-To: <CAD+XWwoG1ONkwFNObMC9_qfe8gOzXh-0Ww0uHP39LNgi6byHkA@mail.gmail.com>
+References: <CAD+XWwoG1ONkwFNObMC9_qfe8gOzXh-0Ww0uHP39LNgi6byHkA@mail.gmail.com>
+Message-ID: <CACac1F9YU5SRuPMbx6t3rXPTsKi-pah=bKRhXg389oqNSq0YgQ@mail.gmail.com>
+
+Brian,
+My email is p.f.moore at gmail.com and subscriber ID is 600644185. I may
+be a little out of sync - my subscription page says "Expires on
+11/1/2016" (I'm assuming that's Jan 2016, UK format date).
+
+I would definitely be interested in an ICC compiler license, if possible.
+Paul
+
+On 22 July 2015 at 17:35, Brian Curtin <brian at python.org> wrote:
+> It's that time again: a batch of MSDN subscriptions are expiring, and
+> I've already heard from a few of you, so in order to make it easier on
+> the Microsoft end, I'll put together another batch of us to be renewed
+> all at once.
+>
+> If you would like a renewal, I need the email address associated with
+> your account as well as your subscriber ID. You can find the ID in the
+> top left of https://msdn.microsoft.com/en-us/subscriptions/manage
+>
+> If you would like a first time subscription, I need your postal
+> address and the email address you'd like to use for the account.
+>
+> We also now have a contact at Intel who can provide our developers
+> with licenses for Intel ICC compilers. I don't know exactly what
+> information they're going to need from you, but let me know if this is
+> something you'd like to make use of.
+>
+> Brian
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+
+From kushaldas at gmail.com  Wed Jul 22 19:35:58 2015
+From: kushaldas at gmail.com (Kushal Das)
+Date: Wed, 22 Jul 2015 23:05:58 +0530
+Subject: [python-committers] getting help with the hgaccounts alias
+In-Reply-To: <CAP1=2W5XwGSeg9LH9yMVz_eeyMmdNiNOpA7evniZPek147Nu2A@mail.gmail.com>
+References: <CAP1=2W5XwGSeg9LH9yMVz_eeyMmdNiNOpA7evniZPek147Nu2A@mail.gmail.com>
+Message-ID: <CAAzeMbxA_ZAwjs-8SPa3h98Nv_8M_46VWPX8TqNVjyDx5ftthg@mail.gmail.com>
+
+On Wed, Jul 22, 2015 at 10:53 PM, Brett Cannon <bcannon at gmail.com> wrote:
+> I think the only people on it are Antoine, Georg, and myself. Antoine has
+> said he has left python-dev, Georg is often busy with school, and I'm on a
+> temp machine for a few weeks so I can't add any SSH keys for a while (heck
+> I'll probably need new ones installed on my behalf once I have a permanent
+> machine).
+>
+> Is anyone up for helping with adding SSH keys for people? It's basically
+> taking someone's key as an attachment in an email, making sure it's RSA and
+> not DSA, and then either creating a new file in a specific repo for them or
+> appending it to their existing key file.
+>
+> P.S.: And I don't even remember how to get people added to the group of
+> people who can add keys, so I probably need to find that out as well if
+> anyone steps forward. =)
+>
+I can volunteer for this.
+
+
+Kushal
+-- 
+Fedora Cloud Engineer
+CPython Core Developer
+http://kushaldas.in
+
+From rdmurray at bitdance.com  Wed Jul 22 19:41:07 2015
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Wed, 22 Jul 2015 13:41:07 -0400
+Subject: [python-committers] getting help with the hgaccounts alias
+In-Reply-To: <CAP1=2W4qE9uNAj-KzgpEAZZ_2s0gVn46S2Pnd8QVd3X5zEXrSw@mail.gmail.com>
+References: <CAP1=2W5XwGSeg9LH9yMVz_eeyMmdNiNOpA7evniZPek147Nu2A@mail.gmail.com>
+ <6C4AEFC5-B3CE-4346-8BF3-291BEE18A3F6@mac.com>
+ <CAP1=2W4qE9uNAj-KzgpEAZZ_2s0gVn46S2Pnd8QVd3X5zEXrSw@mail.gmail.com>
+Message-ID: <20150722174107.D0E46250F9A@webabinitio.net>
+
+I'm willing to volunteer for this.  I understand how this stuff works,
+and no, it doesn't take much time per request...
+
+On Wed, 22 Jul 2015 17:29:25 -0000, Brett Cannon <bcannon at gmail.com> wrote:
+> Maybe once a month, if that. But there have been times when people have
+> sent in keys and it has taken a week or so to get them set up which seems
+> too long.
+> 
+> On Wed, Jul 22, 2015 at 10:28 AM Ronald Oussoren <ronaldoussoren at mac.com>
+> wrote:
+> 
+> >
+> > > On 22 Jul 2015, at 19:23, Brett Cannon <bcannon at gmail.com> wrote:
+> > >
+> > > I think the only people on it are Antoine, Georg, and myself. Antoine
+> > has said he has left python-dev, Georg is often busy with school, and I'm
+> > on a temp machine for a few weeks so I can't add any SSH keys for a while
+> > (heck I'll probably need new ones installed on my behalf once I have a
+> > permanent machine).
+> > >
+> > > Is anyone up for helping with adding SSH keys for people? It's basically
+> > taking someone's key as an attachment in an email, making sure it's RSA and
+> > not DSA, and then either creating a new file in a specific repo for them or
+> > appending it to their existing key file.
+> > >
+> > > P.S.: And I don't even remember how to get people added to the group of
+> > people who can add keys, so I probably need to find that out as well if
+> > anyone steps forward. =)
+> >
+> > How often does this come up?  This doesn???t sound like something that
+> > requires a lot of time to do.
+> >
+> > Ronald
+> >
+> >
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+
+From ronaldoussoren at mac.com  Wed Jul 22 19:27:59 2015
+From: ronaldoussoren at mac.com (Ronald Oussoren)
+Date: Wed, 22 Jul 2015 19:27:59 +0200
+Subject: [python-committers] getting help with the hgaccounts alias
+In-Reply-To: <CAP1=2W5XwGSeg9LH9yMVz_eeyMmdNiNOpA7evniZPek147Nu2A@mail.gmail.com>
+References: <CAP1=2W5XwGSeg9LH9yMVz_eeyMmdNiNOpA7evniZPek147Nu2A@mail.gmail.com>
+Message-ID: <6C4AEFC5-B3CE-4346-8BF3-291BEE18A3F6@mac.com>
+
+
+> On 22 Jul 2015, at 19:23, Brett Cannon <bcannon at gmail.com> wrote:
+> 
+> I think the only people on it are Antoine, Georg, and myself. Antoine has said he has left python-dev, Georg is often busy with school, and I'm on a temp machine for a few weeks so I can't add any SSH keys for a while (heck I'll probably need new ones installed on my behalf once I have a permanent machine).
+> 
+> Is anyone up for helping with adding SSH keys for people? It's basically taking someone's key as an attachment in an email, making sure it's RSA and not DSA, and then either creating a new file in a specific repo for them or appending it to their existing key file.
+> 
+> P.S.: And I don't even remember how to get people added to the group of people who can add keys, so I probably need to find that out as well if anyone steps forward. =)
+
+How often does this come up?  This doesn?t sound like something that requires a lot of time to do. 
+
+Ronald
+
+
+From jcea at jcea.es  Thu Jul 23 00:18:38 2015
+From: jcea at jcea.es (Jesus Cea)
+Date: Thu, 23 Jul 2015 00:18:38 +0200
+Subject: [python-committers] getting help with the hgaccounts alias
+In-Reply-To: <CAP1=2W5XwGSeg9LH9yMVz_eeyMmdNiNOpA7evniZPek147Nu2A@mail.gmail.com>
+References: <CAP1=2W5XwGSeg9LH9yMVz_eeyMmdNiNOpA7evniZPek147Nu2A@mail.gmail.com>
+Message-ID: <55B016BE.3000809@jcea.es>
+
+On 22/07/15 19:23, Brett Cannon wrote:
+> Is anyone up for helping with adding SSH keys for people? It's basically
+> taking someone's key as an attachment in an email, making sure it's RSA
+> and not DSA, and then either creating a new file in a specific repo for
+> them or appending it to their existing key file.
+
+I volunteer if there is a checklist or tutorial for that somewhere.
+
+-- 
+Jes?s Cea Avi?n                         _/_/      _/_/_/        _/_/_/
+jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+Twitter: @jcea                        _/_/    _/_/          _/_/_/_/_/
+jabber / xmpp:jcea at jabber.org  _/_/  _/_/    _/_/          _/_/  _/_/
+"Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+"My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+"El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 473 bytes
+Desc: OpenPGP digital signature
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150723/19000588/attachment.sig>
+
+From jcea at jcea.es  Thu Jul 23 00:14:52 2015
+From: jcea at jcea.es (Jesus Cea)
+Date: Thu, 23 Jul 2015 00:14:52 +0200
+Subject: [python-committers] MSDN subscriptions, Intel ICC licenses
+In-Reply-To: <CAD+XWwoG1ONkwFNObMC9_qfe8gOzXh-0Ww0uHP39LNgi6byHkA@mail.gmail.com>
+References: <CAD+XWwoG1ONkwFNObMC9_qfe8gOzXh-0Ww0uHP39LNgi6byHkA@mail.gmail.com>
+Message-ID: <55B015DC.8060601@jcea.es>
+
+I wonder if we could arrange something similar with Oracle?. Python
+support on Solaris is important, I guess... :-).
+
+Not a lot of hope, thought. I have fighting them to get a Solaris
+license for years because of my free work on Python's Oracle Berkeley DB
+bindings. No luck so far. I surrendered... :)
+
+Does PSF has any kind of leverage with Oracle?.
+
+-- 
+Jes?s Cea Avi?n                         _/_/      _/_/_/        _/_/_/
+jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+Twitter: @jcea                        _/_/    _/_/          _/_/_/_/_/
+jabber / xmpp:jcea at jabber.org  _/_/  _/_/    _/_/          _/_/  _/_/
+"Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+"My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+"El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 473 bytes
+Desc: OpenPGP digital signature
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150723/7c77b719/attachment.sig>
+
+From brett at python.org  Thu Jul 23 16:37:16 2015
+From: brett at python.org (Brett Cannon)
+Date: Thu, 23 Jul 2015 14:37:16 +0000
+Subject: [python-committers] getting help with the hgaccounts alias
+In-Reply-To: <20150722174107.D0E46250F9A@webabinitio.net>
+References: <CAP1=2W5XwGSeg9LH9yMVz_eeyMmdNiNOpA7evniZPek147Nu2A@mail.gmail.com>
+ <6C4AEFC5-B3CE-4346-8BF3-291BEE18A3F6@mac.com>
+ <CAP1=2W4qE9uNAj-KzgpEAZZ_2s0gVn46S2Pnd8QVd3X5zEXrSw@mail.gmail.com>
+ <20150722174107.D0E46250F9A@webabinitio.net>
+Message-ID: <CAP1=2W4-KhoEDPnN=9T3q2KstZDBS679XzykwTCajEuRrEVO+Q@mail.gmail.com>
+
+Thanks to David, Eric, and Kushal for volunteering (and Jesus for willing
+to but there is no tutorial). I have asked the infrastructure team how to
+grant you all access to the needed hg repo and get you on the hgaccounts
+email alias.
+
+On Wed, Jul 22, 2015 at 10:41 AM R. David Murray <rdmurray at bitdance.com>
+wrote:
+
+> I'm willing to volunteer for this.  I understand how this stuff works,
+> and no, it doesn't take much time per request...
+>
+> On Wed, 22 Jul 2015 17:29:25 -0000, Brett Cannon <bcannon at gmail.com>
+> wrote:
+> > Maybe once a month, if that. But there have been times when people have
+> > sent in keys and it has taken a week or so to get them set up which seems
+> > too long.
+> >
+> > On Wed, Jul 22, 2015 at 10:28 AM Ronald Oussoren <ronaldoussoren at mac.com
+> >
+> > wrote:
+> >
+> > >
+> > > > On 22 Jul 2015, at 19:23, Brett Cannon <bcannon at gmail.com> wrote:
+> > > >
+> > > > I think the only people on it are Antoine, Georg, and myself. Antoine
+> > > has said he has left python-dev, Georg is often busy with school, and
+> I'm
+> > > on a temp machine for a few weeks so I can't add any SSH keys for a
+> while
+> > > (heck I'll probably need new ones installed on my behalf once I have a
+> > > permanent machine).
+> > > >
+> > > > Is anyone up for helping with adding SSH keys for people? It's
+> basically
+> > > taking someone's key as an attachment in an email, making sure it's
+> RSA and
+> > > not DSA, and then either creating a new file in a specific repo for
+> them or
+> > > appending it to their existing key file.
+> > > >
+> > > > P.S.: And I don't even remember how to get people added to the group
+> of
+> > > people who can add keys, so I probably need to find that out as well if
+> > > anyone steps forward. =)
+> > >
+> > > How often does this come up?  This doesn?t sound like something that
+> > > requires a lot of time to do.
+> > >
+> > > Ronald
+> > >
+> > >
+> > _______________________________________________
+> > python-committers mailing list
+> > python-committers at python.org
+> > https://mail.python.org/mailman/listinfo/python-committers
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150723/605b5d0c/attachment.html>
+
+From brett at python.org  Thu Jul 23 16:35:58 2015
+From: brett at python.org (Brett Cannon)
+Date: Thu, 23 Jul 2015 14:35:58 +0000
+Subject: [python-committers] getting help with the hgaccounts alias
+In-Reply-To: <55B016BE.3000809@jcea.es>
+References: <CAP1=2W5XwGSeg9LH9yMVz_eeyMmdNiNOpA7evniZPek147Nu2A@mail.gmail.com>
+ <55B016BE.3000809@jcea.es>
+Message-ID: <CAP1=2W4KpHtM5=inHEsrprF=m1CqkZ8DBNNNsKB0XJg4KF5T3Q@mail.gmail.com>
+
+On Wed, Jul 22, 2015 at 3:18 PM Jesus Cea <jcea at jcea.es> wrote:
+
+> On 22/07/15 19:23, Brett Cannon wrote:
+> > Is anyone up for helping with adding SSH keys for people? It's basically
+> > taking someone's key as an attachment in an email, making sure it's RSA
+> > and not DSA, and then either creating a new file in a specific repo for
+> > them or appending it to their existing key file.
+>
+> I volunteer if there is a checklist or tutorial for that somewhere.
+>
+
+Unfortunately not.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150723/7fabbf2e/attachment.html>
+
+From jcea at jcea.es  Thu Jul 23 17:38:10 2015
+From: jcea at jcea.es (Jesus Cea)
+Date: Thu, 23 Jul 2015 17:38:10 +0200
+Subject: [python-committers] getting help with the hgaccounts alias
+In-Reply-To: <CAP1=2W4-KhoEDPnN=9T3q2KstZDBS679XzykwTCajEuRrEVO+Q@mail.gmail.com>
+References: <CAP1=2W5XwGSeg9LH9yMVz_eeyMmdNiNOpA7evniZPek147Nu2A@mail.gmail.com>
+ <6C4AEFC5-B3CE-4346-8BF3-291BEE18A3F6@mac.com>
+ <CAP1=2W4qE9uNAj-KzgpEAZZ_2s0gVn46S2Pnd8QVd3X5zEXrSw@mail.gmail.com>
+ <20150722174107.D0E46250F9A@webabinitio.net>
+ <CAP1=2W4-KhoEDPnN=9T3q2KstZDBS679XzykwTCajEuRrEVO+Q@mail.gmail.com>
+Message-ID: <55B10A62.7010206@jcea.es>
+
+On 23/07/15 16:37, Brett Cannon wrote:
+> Thanks to David, Eric, and Kushal for volunteering (and Jesus for
+> willing to but there is no tutorial). I have asked the infrastructure
+> team how to grant you all access to the needed hg repo and get you on
+> the hgaccounts email alias.
+
+I am well versed in sysadmin (20 years in the trenches). For me a
+tutorial is "you have to commit this key file in this repository, and
+then update that other indexfile. Verify that everything is OK doing that".
+
+:-)
+
+Anyway, three new volunteer for a monthly 10 minutes action looks enough
+to me O:-).
+
+I wonder about the new PSF "infraestructure/programming volunteers".
+Never heard of them and I am more than willing to help out.
+
+-- 
+Jes?s Cea Avi?n                         _/_/      _/_/_/        _/_/_/
+jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+Twitter: @jcea                        _/_/    _/_/          _/_/_/_/_/
+jabber / xmpp:jcea at jabber.org  _/_/  _/_/    _/_/          _/_/  _/_/
+"Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+"My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+"El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 473 bytes
+Desc: OpenPGP digital signature
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150723/d7bbe86e/attachment.sig>
+
+From robertc at robertcollins.net  Thu Jul 23 18:30:45 2015
+From: robertc at robertcollins.net (Robert Collins)
+Date: Fri, 24 Jul 2015 04:30:45 +1200
+Subject: [python-committers] [Python-Dev] Reminder: Python 3.5 beta 4 is
+	tagged in one week
+In-Reply-To: <CAJ3HoZ2euStKc=60br0Yho+4UqauPc7kSDXiiwAdC-fKO=+VNg@mail.gmail.com>
+References: <55AA2955.8030404@hastings.org>
+ <CAJ3HoZ0W8n61XhtCR8jaz=nBmkqLQK7puVdgFLQQtZDY9Kq55g@mail.gmail.com>
+ <55AE7C99.6020801@hastings.org>
+ <CAJ3HoZ2euStKc=60br0Yho+4UqauPc7kSDXiiwAdC-fKO=+VNg@mail.gmail.com>
+Message-ID: <CAJ3HoZ3_TXiHBuSK5J8XYK_ZAL0np9nZ0aSQjtReVnt=dBvWdg@mail.gmail.com>
+
+On 22 July 2015 at 08:07, Robert Collins <robertc at robertcollins.net> wrote:
+> On 22 July 2015 at 05:08, Larry Hastings <larry at hastings.org> wrote:
+>>
+>>
+>> On 07/21/2015 06:35 PM, Robert Collins wrote:
+>>
+>> Cool. http://bugs.python.org/issue21750 is in a bad state right now.
+>>
+>> I landed a patch to fix it, which when exposed to users had some
+>> defects. I'm working on a better patch now, but need to either roll
+>> the prior patch completely back, or get the new one landed before the
+>> next beta. I hope to have that up for review later today {fingers
+>> crossed} - will that be soon enough, or should I look up how to easily
+>> revert stuff out with hg?
+>>
+>>
+>> If you want to undo it, "hg backout" is the command you want.  In general
+>> it's best to not check in broken stuff.
+>
+> Thanks. And yes, naturally - we didn't realise it was broken. Passing
+> tests != fit for purpose.
+
+21750 is now sorted out in the cpython repo.
+
+I have a separate question for you - issue2091 has a good patch on it,
+but would you like it added to 3.5?
+
+It makes a broken combination of file modes - rU+ - a clean error, and
+tweaks the existing exception text for U + writing modes.
+
+-Rob
+
+
+
+
+-- 
+Robert Collins <rbtcollins at hp.com>
+Distinguished Technologist
+HP Converged Cloud
+
+From ncoghlan at gmail.com  Fri Jul 24 10:59:46 2015
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Fri, 24 Jul 2015 18:59:46 +1000
+Subject: [python-committers] getting help with the hgaccounts alias
+In-Reply-To: <55B10A62.7010206@jcea.es>
+References: <CAP1=2W5XwGSeg9LH9yMVz_eeyMmdNiNOpA7evniZPek147Nu2A@mail.gmail.com>
+ <6C4AEFC5-B3CE-4346-8BF3-291BEE18A3F6@mac.com>
+ <CAP1=2W4qE9uNAj-KzgpEAZZ_2s0gVn46S2Pnd8QVd3X5zEXrSw@mail.gmail.com>
+ <20150722174107.D0E46250F9A@webabinitio.net>
+ <CAP1=2W4-KhoEDPnN=9T3q2KstZDBS679XzykwTCajEuRrEVO+Q@mail.gmail.com>
+ <55B10A62.7010206@jcea.es>
+Message-ID: <CADiSq7e4irRDLPwctsze_v5=YO72BUjAgx-TYS7JfaJmJZHs6A@mail.gmail.com>
+
+On 24 Jul 2015 01:38, "Jesus Cea" <jcea at jcea.es> wrote:
+>
+> I wonder about the new PSF "infraestructure/programming volunteers".
+> Never heard of them and I am more than willing to help out.
+
+The infra team handles the back end servers for PyPI, PyCon, python.org, et
+al.
+
+Folks with the "keys to the kingdom" are listed at
+http://psf-salt.readthedocs.org/en/latest/overview/ (along with a good
+overview of the extent of the kingdom), while
+https://mail.python.org/mailman/listinfo/infrastructure is the general
+infra mailing list.
+
+Cheers,
+Nick.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150724/81d9d134/attachment-0001.html>
+
+From jcea at jcea.es  Fri Jul 24 13:19:32 2015
+From: jcea at jcea.es (Jesus Cea)
+Date: Fri, 24 Jul 2015 13:19:32 +0200
+Subject: [python-committers] getting help with the hgaccounts alias
+In-Reply-To: <CADiSq7e4irRDLPwctsze_v5=YO72BUjAgx-TYS7JfaJmJZHs6A@mail.gmail.com>
+References: <CAP1=2W5XwGSeg9LH9yMVz_eeyMmdNiNOpA7evniZPek147Nu2A@mail.gmail.com>
+ <6C4AEFC5-B3CE-4346-8BF3-291BEE18A3F6@mac.com>
+ <CAP1=2W4qE9uNAj-KzgpEAZZ_2s0gVn46S2Pnd8QVd3X5zEXrSw@mail.gmail.com>
+ <20150722174107.D0E46250F9A@webabinitio.net>
+ <CAP1=2W4-KhoEDPnN=9T3q2KstZDBS679XzykwTCajEuRrEVO+Q@mail.gmail.com>
+ <55B10A62.7010206@jcea.es>
+ <CADiSq7e4irRDLPwctsze_v5=YO72BUjAgx-TYS7JfaJmJZHs6A@mail.gmail.com>
+Message-ID: <55B21F44.7050709@jcea.es>
+
+On 24/07/15 10:59, Nick Coghlan wrote:
+> 
+> On 24 Jul 2015 01:38, "Jesus Cea" <jcea at jcea.es <mailto:jcea at jcea.es>>
+> wrote:
+>>
+>> I wonder about the new PSF "infraestructure/programming volunteers".
+>> Never heard of them and I am more than willing to help out.
+> 
+> The infra team handles the back end servers for PyPI, PyCon, python.org
+> <http://python.org>, et al.
+> 
+> Folks with the "keys to the kingdom" are listed at
+> http://psf-salt.readthedocs.org/en/latest/overview/ (along with a good
+> overview of the extent of the kingdom), while
+> https://mail.python.org/mailman/listinfo/infrastructure is the general
+> infra mailing list.
+
+This is getting a bit offtopic :).
+
+I am talking about option 4 and 5 in
+<https://www.python.org/psf/membership/#what-membership-classes-are-there>.
+
+-- 
+Jes?s Cea Avi?n                         _/_/      _/_/_/        _/_/_/
+jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+Twitter: @jcea                        _/_/    _/_/          _/_/_/_/_/
+jabber / xmpp:jcea at jabber.org  _/_/  _/_/    _/_/          _/_/  _/_/
+"Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+"My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+"El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 473 bytes
+Desc: OpenPGP digital signature
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150724/462dc144/attachment.sig>
+
+From larry at hastings.org  Sun Jul 26 16:37:20 2015
+From: larry at hastings.org (Larry Hastings)
+Date: Sun, 26 Jul 2015 16:37:20 +0200
+Subject: [python-committers] [RELEASED] Python 3.5.0b4 is now available
+Message-ID: <CAOBd=7mj5gLt7bNMQ0sZV_Jx1iJH1cPEgEq+85fzNk+OjQ7RFw@mail.gmail.com>
+
+On behalf of the Python development community and the Python 3.5 release
+team, I'm delighted to announce the availability of Python 3.5.0b4.  Python
+3.5.0b4 is scheduled to be the last beta release; the next release will be
+Python 3.5.0rc1, or Release Candidate 1.
+
+Python 3.5 has now entered "feature freeze".  By default new features may
+no longer be added to Python 3.5.
+
+This is a preview release, and its use is not recommended for production
+settings.
+
+An important reminder for Windows users about Python 3.5.0b4: if installing
+Python 3.5.0b4 as a non-privileged user, you may need to escalate to
+administrator privileges to install an update to your C runtime libraries.
+
+
+You can find Python 3.5.0b4 here:
+
+https://www.python.org/downloads/release/python-350b4/
+
+Happy hacking,
+
+
+*/arry*
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150726/7e0777e4/attachment.html>
+
+From jcea at jcea.es  Wed Jul 29 18:06:55 2015
+From: jcea at jcea.es (Jesus Cea)
+Date: Wed, 29 Jul 2015 18:06:55 +0200
+Subject: [python-committers] "Gratuitous"? incompatibilities in the "fix
+	only" releases
+Message-ID: <55B8FA1F.8070702@jcea.es>
+
+Yesterday I upgraded one of my computer to 2.7.10 and a program working
+for years failed.
+
+The problem is this:
+
+"""
+http=httplib.HTTPConnection("127.0.0.1",8081)
+http.request("GET","/XXXXX/%f" %last_t, "", \
+  {"Authorization":"Basic %s" %base64.encodestring("%s:%s" %(a,b))})
+"""
+
+base64.encodestring() creates base64 encoding with a final '\n'. This
+used to work until 2.7.9 but 2.7.10 if failing now with an exception
+about an "illegal character" in a header.
+
+I know that that code is faulty and I should drop the final '\n' or just
+use "base64.b64encode()" (my current fix). The point, thought, it that
+this code used to work in previous 2.7 releases but it is failing under
+2.7.10.
+
+This incompatible change will be released in 3.4.4 too.
+
+I agree that new code is better, no argument here. My program was
+incorrect, sure. But I was under the impression that backwards
+incompatible code was forbidden in minor releases, except for very
+critical reasons (like the HTTPS security default backported to 2.7). I
+think that breaking working code during minor updates is risky and
+breaks user/programmer expectations.
+
+The change was done in <https://bugs.python.org/issue22928>.
+
+I think the change is the way to go, I don't ask for a revert (since
+2.7.10 is already in the wild I want to keep it too in future 3.4.4) but
+I am interested in knowing the official statement of committers about
+backwards incompatible changes in minor releases for my own future
+reference.
+
+Sorry if this email seems confrontational. Not my intention, but my
+English is getting worse by the day :-). This is an inquiry about
+policy, not an attack.
+
+Thanks!
+
+-- 
+Jes?s Cea Avi?n                         _/_/      _/_/_/        _/_/_/
+jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+Twitter: @jcea                        _/_/    _/_/          _/_/_/_/_/
+jabber / xmpp:jcea at jabber.org  _/_/  _/_/    _/_/          _/_/  _/_/
+"Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+"My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+"El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 473 bytes
+Desc: OpenPGP digital signature
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150729/ec1a6a50/attachment.sig>
+
+From guido at python.org  Wed Jul 29 18:50:27 2015
+From: guido at python.org (Guido van Rossum)
+Date: Wed, 29 Jul 2015 18:50:27 +0200
+Subject: [python-committers] "Gratuitous"? incompatibilities in the "fix
+ only" releases
+In-Reply-To: <55B8FA1F.8070702@jcea.es>
+References: <55B8FA1F.8070702@jcea.es>
+Message-ID: <CAP7+vJJvaJ-J2F5m6FLAWuMjeQfRT5m5jf4Tn6gXAwjEfua0=w@mail.gmail.com>
+
+I believe that in this particular case, the bug was fixed (by tightening
+the requirements for headers) because the bug can lead to security
+vulnerabilities. I think you can find more by Googling for keywords like
+"http header injection". The more recent Python 2.7 bugfix releases have
+specific exemptions from the backwards compatibility requirements for
+security fixes -- because their lifespan will still be many years (EOL of
+2.7 is summer 2020).
+
+On Wed, Jul 29, 2015 at 6:06 PM, Jesus Cea <jcea at jcea.es> wrote:
+
+> Yesterday I upgraded one of my computer to 2.7.10 and a program working
+> for years failed.
+>
+> The problem is this:
+>
+> """
+> http=httplib.HTTPConnection("127.0.0.1",8081)
+> http.request("GET","/XXXXX/%f" %last_t, "", \
+>   {"Authorization":"Basic %s" %base64.encodestring("%s:%s" %(a,b))})
+> """
+>
+> base64.encodestring() creates base64 encoding with a final '\n'. This
+> used to work until 2.7.9 but 2.7.10 if failing now with an exception
+> about an "illegal character" in a header.
+>
+> I know that that code is faulty and I should drop the final '\n' or just
+> use "base64.b64encode()" (my current fix). The point, thought, it that
+> this code used to work in previous 2.7 releases but it is failing under
+> 2.7.10.
+>
+> This incompatible change will be released in 3.4.4 too.
+>
+> I agree that new code is better, no argument here. My program was
+> incorrect, sure. But I was under the impression that backwards
+> incompatible code was forbidden in minor releases, except for very
+> critical reasons (like the HTTPS security default backported to 2.7). I
+> think that breaking working code during minor updates is risky and
+> breaks user/programmer expectations.
+>
+> The change was done in <https://bugs.python.org/issue22928>.
+>
+> I think the change is the way to go, I don't ask for a revert (since
+> 2.7.10 is already in the wild I want to keep it too in future 3.4.4) but
+> I am interested in knowing the official statement of committers about
+> backwards incompatible changes in minor releases for my own future
+> reference.
+>
+> Sorry if this email seems confrontational. Not my intention, but my
+> English is getting worse by the day :-). This is an inquiry about
+> policy, not an attack.
+>
+> Thanks!
+>
+> --
+> Jes?s Cea Avi?n                         _/_/      _/_/_/        _/_/_/
+> jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+> Twitter: @jcea                        _/_/    _/_/          _/_/_/_/_/
+> jabber / xmpp:jcea at jabber.org  _/_/  _/_/    _/_/          _/_/  _/_/
+> "Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+> "My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+> "El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+>
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+>
+>
+
+
+-- 
+--Guido van Rossum (python.org/~guido)
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150729/dc0763c7/attachment.html>
+
+From robertc at robertcollins.net  Wed Jul 29 19:01:12 2015
+From: robertc at robertcollins.net (Robert Collins)
+Date: Thu, 30 Jul 2015 05:01:12 +1200
+Subject: [python-committers] "Gratuitous"? incompatibilities in the "fix
+ only" releases
+In-Reply-To: <CAP7+vJJvaJ-J2F5m6FLAWuMjeQfRT5m5jf4Tn6gXAwjEfua0=w@mail.gmail.com>
+References: <55B8FA1F.8070702@jcea.es>
+ <CAP7+vJJvaJ-J2F5m6FLAWuMjeQfRT5m5jf4Tn6gXAwjEfua0=w@mail.gmail.com>
+Message-ID: <CAJ3HoZ2HF+q1h3JNovUO6W9_u8Awt9myUE_qgQ3WV2UQ5a5jBw@mail.gmail.com>
+
+On 30 July 2015 at 04:50, Guido van Rossum <guido at python.org> wrote:
+> I believe that in this particular case, the bug was fixed (by tightening the
+> requirements for headers) because the bug can lead to security
+> vulnerabilities. I think you can find more by Googling for keywords like
+> "http header injection". The more recent Python 2.7 bugfix releases have
+> specific exemptions from the backwards compatibility requirements for
+> security fixes -- because their lifespan will still be many years (EOL of
+> 2.7 is summer 2020).
+
+Yeah - this is a security issue, and unfortunately its one that can
+break programs [or rather, expose how they were broken already at an
+earlier and less susceptible point].
+
+As a new committer, I'd like to double check my understanding of the policy:
+
+https://docs.python.org/devguide/devcycle.html#maintenance-branches
+"...
+The only changes allowed to occur in a maintenance branch without
+debate are bug fixes. Also, a general rule for maintenance branches is
+that compatibility must not be broken at any point between sibling
+minor releases (3.4.1, 3.4.2, etc.). For both rules, only rare
+exceptions are accepted and must be discussed first."
+
+Where should these things be discussed? I've been discussing with
+other committers on the issues in the issue tracker. Is this
+sufficient? What is the social norm?
+
+https://docs.python.org/devguide/devcycle.html#security-branches
+"...The only changes made to a security branch are those fixing issues
+exploitable by attackers such as crashes, privilege escalation and,
+optionally, other issues such as denial of service attacks. Any other
+changes are not considered a security risk and thus not backported to
+a security branch."
+
+This page doesn't specify the exception for 2.7, and by my poor
+reading of it the http issue wouldn't pass muster - but I think it was
+appropriate to apply. So I'm confused. Help :).
+
+-Rob
+
+From ericsnowcurrently at gmail.com  Wed Jul 29 19:20:43 2015
+From: ericsnowcurrently at gmail.com (Eric Snow)
+Date: Wed, 29 Jul 2015 11:20:43 -0600
+Subject: [python-committers] "Gratuitous"? incompatibilities in the "fix
+ only" releases
+In-Reply-To: <CAJ3HoZ2HF+q1h3JNovUO6W9_u8Awt9myUE_qgQ3WV2UQ5a5jBw@mail.gmail.com>
+References: <55B8FA1F.8070702@jcea.es>
+ <CAP7+vJJvaJ-J2F5m6FLAWuMjeQfRT5m5jf4Tn6gXAwjEfua0=w@mail.gmail.com>
+ <CAJ3HoZ2HF+q1h3JNovUO6W9_u8Awt9myUE_qgQ3WV2UQ5a5jBw@mail.gmail.com>
+Message-ID: <CALFfu7CUn5qZ5LKjxr7i2Pe+RqBp4wB_HvjsAZ4pjBKVunpM+w@mail.gmail.com>
+
+On Jul 29, 2015 11:08 AM, "Robert Collins" <robertc at robertcollins.net>
+wrote:
+>
+> On 30 July 2015 at 04:50, Guido van Rossum <guido at python.org> wrote:
+> > The more recent Python 2.7 bugfix releases have
+> > specific exemptions from the backwards compatibility requirements for
+> > security fixes -- because their lifespan will still be many years (EOL
+of
+> > 2.7 is summer 2020).
+> [snip]
+> https://docs.python.org/devguide/devcycle.html#security-branches
+> "...The only changes made to a security branch are those fixing issues
+> exploitable by attackers such as crashes, privilege escalation and,
+> optionally, other issues such as denial of service attacks. Any other
+> changes are not considered a security risk and thus not backported to
+> a security branch."
+>
+> This page doesn't specify the exception for 2.7, and by my poor
+> reading of it the http issue wouldn't pass muster - but I think it was
+> appropriate to apply. So I'm confused. Help :).
+
+See PEP 466.
+
+https://www.python.org/dev/peps/pep-0466/
+
+-eric
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150729/955ae167/attachment-0001.html>
+
+From robertc at robertcollins.net  Wed Jul 29 19:31:42 2015
+From: robertc at robertcollins.net (Robert Collins)
+Date: Thu, 30 Jul 2015 05:31:42 +1200
+Subject: [python-committers] "Gratuitous"? incompatibilities in the "fix
+ only" releases
+In-Reply-To: <CALFfu7CUn5qZ5LKjxr7i2Pe+RqBp4wB_HvjsAZ4pjBKVunpM+w@mail.gmail.com>
+References: <55B8FA1F.8070702@jcea.es>
+ <CAP7+vJJvaJ-J2F5m6FLAWuMjeQfRT5m5jf4Tn6gXAwjEfua0=w@mail.gmail.com>
+ <CAJ3HoZ2HF+q1h3JNovUO6W9_u8Awt9myUE_qgQ3WV2UQ5a5jBw@mail.gmail.com>
+ <CALFfu7CUn5qZ5LKjxr7i2Pe+RqBp4wB_HvjsAZ4pjBKVunpM+w@mail.gmail.com>
+Message-ID: <CAJ3HoZ1EX=iGD+q2BDmZCy117BuRO=+w6WLHrhayrU5T04tzcw@mail.gmail.com>
+
+On 30 July 2015 at 05:20, Eric Snow <ericsnowcurrently at gmail.com> wrote:
+>
+> On Jul 29, 2015 11:08 AM, "Robert Collins" <robertc at robertcollins.net>
+> wrote:
+>>
+>> On 30 July 2015 at 04:50, Guido van Rossum <guido at python.org> wrote:
+>> > The more recent Python 2.7 bugfix releases have
+>> > specific exemptions from the backwards compatibility requirements for
+>> > security fixes -- because their lifespan will still be many years (EOL
+>> > of
+>> > 2.7 is summer 2020).
+>> [snip]
+>> https://docs.python.org/devguide/devcycle.html#security-branches
+>> "...The only changes made to a security branch are those fixing issues
+>> exploitable by attackers such as crashes, privilege escalation and,
+>> optionally, other issues such as denial of service attacks. Any other
+>> changes are not considered a security risk and thus not backported to
+>> a security branch."
+>>
+>> This page doesn't specify the exception for 2.7, and by my poor
+>> reading of it the http issue wouldn't pass muster - but I think it was
+>> appropriate to apply. So I'm confused. Help :).
+>
+> See PEP 466.
+>
+> https://www.python.org/dev/peps/pep-0466/
+
+Thanks - but that doesn't cover the 22928 fix as far as I can tell. It
+explicitly says in fact that its not carte blanch, and that things
+still need to be discussed....
+
+and I'm still not clear where we should discuss them :)
+
+-Rob
+
+-- 
+Robert Collins <rbtcollins at hp.com>
+Distinguished Technologist
+HP Converged Cloud
+
+From guido at python.org  Wed Jul 29 19:50:14 2015
+From: guido at python.org (Guido van Rossum)
+Date: Wed, 29 Jul 2015 19:50:14 +0200
+Subject: [python-committers] "Gratuitous"? incompatibilities in the "fix
+ only" releases
+In-Reply-To: <CAJ3HoZ1EX=iGD+q2BDmZCy117BuRO=+w6WLHrhayrU5T04tzcw@mail.gmail.com>
+References: <55B8FA1F.8070702@jcea.es>
+ <CAP7+vJJvaJ-J2F5m6FLAWuMjeQfRT5m5jf4Tn6gXAwjEfua0=w@mail.gmail.com>
+ <CAJ3HoZ2HF+q1h3JNovUO6W9_u8Awt9myUE_qgQ3WV2UQ5a5jBw@mail.gmail.com>
+ <CALFfu7CUn5qZ5LKjxr7i2Pe+RqBp4wB_HvjsAZ4pjBKVunpM+w@mail.gmail.com>
+ <CAJ3HoZ1EX=iGD+q2BDmZCy117BuRO=+w6WLHrhayrU5T04tzcw@mail.gmail.com>
+Message-ID: <CAP7+vJJVfq2hO9aRPvocxv9mcyi2hcN0GYSOdCt4CqPhnqJ4SQ@mail.gmail.com>
+
+When in doubt, such discussions should be escalated to python-dev. I don't
+know if this one was, though I vaguely recall seeing it discussed
+somewhere. Anyway, since it's been released, it should stay in.
+
+On Wed, Jul 29, 2015 at 7:31 PM, Robert Collins <robertc at robertcollins.net>
+wrote:
+
+> On 30 July 2015 at 05:20, Eric Snow <ericsnowcurrently at gmail.com> wrote:
+> >
+> > On Jul 29, 2015 11:08 AM, "Robert Collins" <robertc at robertcollins.net>
+> > wrote:
+> >>
+> >> On 30 July 2015 at 04:50, Guido van Rossum <guido at python.org> wrote:
+> >> > The more recent Python 2.7 bugfix releases have
+> >> > specific exemptions from the backwards compatibility requirements for
+> >> > security fixes -- because their lifespan will still be many years (EOL
+> >> > of
+> >> > 2.7 is summer 2020).
+> >> [snip]
+> >> https://docs.python.org/devguide/devcycle.html#security-branches
+> >> "...The only changes made to a security branch are those fixing issues
+> >> exploitable by attackers such as crashes, privilege escalation and,
+> >> optionally, other issues such as denial of service attacks. Any other
+> >> changes are not considered a security risk and thus not backported to
+> >> a security branch."
+> >>
+> >> This page doesn't specify the exception for 2.7, and by my poor
+> >> reading of it the http issue wouldn't pass muster - but I think it was
+> >> appropriate to apply. So I'm confused. Help :).
+> >
+> > See PEP 466.
+> >
+> > https://www.python.org/dev/peps/pep-0466/
+>
+> Thanks - but that doesn't cover the 22928 fix as far as I can tell. It
+> explicitly says in fact that its not carte blanch, and that things
+> still need to be discussed....
+>
+> and I'm still not clear where we should discuss them :)
+>
+> -Rob
+>
+> --
+> Robert Collins <rbtcollins at hp.com>
+> Distinguished Technologist
+> HP Converged Cloud
+>
+
+
+
+-- 
+--Guido van Rossum (python.org/~guido)
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150729/75eafe4b/attachment.html>
+
+From tjreedy at udel.edu  Wed Jul 29 19:41:09 2015
+From: tjreedy at udel.edu (Terry Reedy)
+Date: Wed, 29 Jul 2015 13:41:09 -0400
+Subject: [python-committers] "Gratuitous"? incompatibilities in the "fix
+ only" releases
+In-Reply-To: <CAJ3HoZ2HF+q1h3JNovUO6W9_u8Awt9myUE_qgQ3WV2UQ5a5jBw@mail.gmail.com>
+References: <55B8FA1F.8070702@jcea.es>
+ <CAP7+vJJvaJ-J2F5m6FLAWuMjeQfRT5m5jf4Tn6gXAwjEfua0=w@mail.gmail.com>
+ <CAJ3HoZ2HF+q1h3JNovUO6W9_u8Awt9myUE_qgQ3WV2UQ5a5jBw@mail.gmail.com>
+Message-ID: <55B91035.2010202@udel.edu>
+
+On 7/29/2015 1:01 PM, Robert Collins wrote:
+> On 30 July 2015 at 04:50, Guido van Rossum <guido at python.org> wrote:
+>> I believe that in this particular case, the bug was fixed (by tightening the
+>> requirements for headers) because the bug can lead to security
+>> vulnerabilities. I think you can find more by Googling for keywords like
+>> "http header injection". The more recent Python 2.7 bugfix releases have
+>> specific exemptions from the backwards compatibility requirements for
+>> security fixes -- because their lifespan will still be many years (EOL of
+>> 2.7 is summer 2020).
+>
+> Yeah - this is a security issue, and unfortunately its one that can
+> break programs [or rather, expose how they were broken already at an
+> earlier and less susceptible point].
+>
+> As a new committer, I'd like to double check my understanding of the policy:
+>
+> https://docs.python.org/devguide/devcycle.html#maintenance-branches
+> "...
+> The only changes allowed to occur in a maintenance branch without
+> debate are bug fixes. Also, a general rule for maintenance branches is
+> that compatibility must not be broken at any point between sibling
+> minor releases (3.4.1, 3.4.2, etc.).
+
+Since bug fixes break code that depends on the bug (as happened in this 
+case), the second rule appears to be written too strongly.  It really 
+needs a short paragraph.  Bug fixes should only break code depending on 
+the bug. Bug fixes must not change existing non-buggy features and 
+should not introduce new features.  Non-security bug fixes that break 
+too much code deemed to be reasonable are sometimes deferred to the next 
+release.
+
+ > For both rules, only rare
+> exceptions are accepted and must be discussed first."
+>
+> Where should these things be discussed? I've been discussing with
+> other committers on the issues in the issue tracker. Is this
+> sufficient? What is the social norm?
+
+Feature additions like adding a new parameter to fix a bug should be 
+discussed on pydev.  For instance, difflib.SequenceMatcher gained the 
+autojunk parameter in 2.7.1.  I believe the pydev discussion included 
+"Is the issue a bug?" (yes) and "Does it need fixing in the current 
+release?" (yes, it generated multiple bug reports). I believe being 
+early in the long 2.7.x series and the last change to fix in 2.x played 
+a role.
+
+Terry
+
+
+From jaraco at jaraco.com  Wed Jul 29 20:57:17 2015
+From: jaraco at jaraco.com (Jason R. Coombs)
+Date: Wed, 29 Jul 2015 18:57:17 +0000
+Subject: [python-committers] "Gratuitous"? incompatibilities in the
+	"fix	only" releases
+In-Reply-To: <55B8FA1F.8070702@jcea.es>
+References: <55B8FA1F.8070702@jcea.es>
+Message-ID: <0573196B-6D1A-4C60-9E72-1B68C11C7DFF@jaraco.com>
+
+For reference, a similar bug fix also introduced incompatibilities with the Chishop service: http://bugs.python.org/issue23899
+
+
+On Jul 29, 2015, at 12:06, Jesus Cea <jcea at jcea.es<mailto:jcea at jcea.es>> wrote:
+
+Yesterday I upgraded one of my computer to 2.7.10 and a program working
+for years failed.
+
+The problem is this:
+
+"""
+http=httplib.HTTPConnection("127.0.0.1",8081)
+http.request("GET","/XXXXX/%f" %last_t, "", \
+ {"Authorization":"Basic %s" %base64.encodestring("%s:%s" %(a,b))})
+"""
+
+base64.encodestring() creates base64 encoding with a final '\n'. This
+used to work until 2.7.9 but 2.7.10 if failing now with an exception
+about an "illegal character" in a header.
+
+I know that that code is faulty and I should drop the final '\n' or just
+use "base64.b64encode()" (my current fix). The point, thought, it that
+this code used to work in previous 2.7 releases but it is failing under
+2.7.10.
+
+This incompatible change will be released in 3.4.4 too.
+
+I agree that new code is better, no argument here. My program was
+incorrect, sure. But I was under the impression that backwards
+incompatible code was forbidden in minor releases, except for very
+critical reasons (like the HTTPS security default backported to 2.7). I
+think that breaking working code during minor updates is risky and
+breaks user/programmer expectations.
+
+The change was done in <https://bugs.python.org/issue22928>.
+
+I think the change is the way to go, I don't ask for a revert (since
+2.7.10 is already in the wild I want to keep it too in future 3.4.4) but
+I am interested in knowing the official statement of committers about
+backwards incompatible changes in minor releases for my own future
+reference.
+
+Sorry if this email seems confrontational. Not my intention, but my
+English is getting worse by the day :-). This is an inquiry about
+policy, not an attack.
+
+Thanks!
+
+--
+Jes?s Cea Avi?n                         _/_/      _/_/_/        _/_/_/
+jcea at jcea.es<mailto:jcea at jcea.es> - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+Twitter: @jcea                        _/_/    _/_/          _/_/_/_/_/
+jabber / xmpp:jcea at jabber.org  _/_/  _/_/    _/_/          _/_/  _/_/
+"Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+"My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+"El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+
+_______________________________________________
+python-committers mailing list
+python-committers at python.org<mailto:python-committers at python.org>
+https://mail.python.org/mailman/listinfo/python-committers
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150729/b1a4dd45/attachment-0001.html>
+
+From rdmurray at bitdance.com  Wed Jul 29 21:12:52 2015
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Wed, 29 Jul 2015 15:12:52 -0400
+Subject: [python-committers] "Gratuitous"? incompatibilities in the "fix
+	only" releases
+In-Reply-To: <55B91035.2010202@udel.edu>
+References: <55B8FA1F.8070702@jcea.es>
+ <CAP7+vJJvaJ-J2F5m6FLAWuMjeQfRT5m5jf4Tn6gXAwjEfua0=w@mail.gmail.com>
+ <CAJ3HoZ2HF+q1h3JNovUO6W9_u8Awt9myUE_qgQ3WV2UQ5a5jBw@mail.gmail.com>
+ <55B91035.2010202@udel.edu>
+Message-ID: <20150729191252.E3874B9007D@webabinitio.net>
+
+On Wed, 29 Jul 2015 13:41:09 -0400, Terry Reedy <tjreedy at udel.edu> wrote:
+> On 7/29/2015 1:01 PM, Robert Collins wrote:
+> > On 30 July 2015 at 04:50, Guido van Rossum <guido at python.org> wrote:
+> >> I believe that in this particular case, the bug was fixed (by tightening the
+> >> requirements for headers) because the bug can lead to security
+> >> vulnerabilities. I think you can find more by Googling for keywords like
+> >> "http header injection". The more recent Python 2.7 bugfix releases have
+> >> specific exemptions from the backwards compatibility requirements for
+> >> security fixes -- because their lifespan will still be many years (EOL of
+> >> 2.7 is summer 2020).
+> >
+> > Yeah - this is a security issue, and unfortunately its one that can
+> > break programs [or rather, expose how they were broken already at an
+> > earlier and less susceptible point].
+> >
+> > As a new committer, I'd like to double check my understanding of the policy:
+> >
+> > https://docs.python.org/devguide/devcycle.html#maintenance-branches
+> > "...
+> > The only changes allowed to occur in a maintenance branch without
+> > debate are bug fixes. Also, a general rule for maintenance branches is
+> > that compatibility must not be broken at any point between sibling
+> > minor releases (3.4.1, 3.4.2, etc.).
+> 
+> Since bug fixes break code that depends on the bug (as happened in this 
+> case), the second rule appears to be written too strongly.  It really 
+> needs a short paragraph.  Bug fixes should only break code depending on 
+> the bug. Bug fixes must not change existing non-buggy features and 
+> should not introduce new features.  Non-security bug fixes that break 
+> too much code deemed to be reasonable are sometimes deferred to the next 
+> release.
+
+No, I don't think it is too strong.  Normally even code that depends on
+the bug should not be broken.
+
+The calculus is necessarily a work of art:  how likely is this bug fix
+to break working code?  If the bug fixes something that previously
+raised an error, it is (usually) a no-brainer.  If it fixes an erroneous
+result it is a judgement call based on how likely fixing it is to break
+working code, but usually it would get fixed.  If it fixes an erroneous
+behavior it is again a judgement call, but weighted toward not going in
+to a maintenance release.  Bugs judged too likely to break working code
+get fixed in feature releases (and mentioned in What's New).
+
+>  > For both rules, only rare
+> > exceptions are accepted and must be discussed first."
+> >
+> > Where should these things be discussed? I've been discussing with
+> > other committers on the issues in the issue tracker. Is this
+> > sufficient? What is the social norm?
+
+Usually the bug tracker is enough, with escalation to python-dev if
+there is a core-committer disagreement.  For security issues, the
+security team should get involved in any decision, and their decision is
+pretty much final.  I believe they automatically get notified if
+'security' is selected for behavior...if not we should make it so.
+
+> Feature additions like adding a new parameter to fix a bug should be 
+> discussed on pydev.  For instance, difflib.SequenceMatcher gained the 
+> autojunk parameter in 2.7.1.  I believe the pydev discussion included 
+> "Is the issue a bug?" (yes) and "Does it need fixing in the current 
+> release?" (yes, it generated multiple bug reports). I believe being 
+> early in the long 2.7.x series and the last change to fix in 2.x played 
+> a role.
+
+This would be a very exceptional case.  I remember a discussion, I don't
+remember the approval of an API change.  Changing the API in a minor
+release *except* for security issues is not normally acceptable.
+I'd be curious to read the reasoning behind this one.
+
+So, the rule in the devguide is accurate, except that it should note
+that exceptions are made for fixing security related issues.  That is,
+the calculus about not breaking working code is given a lot less weight,
+because the goal of the bug fix is to patch a security hole.  We find
+it OK to break working code in order to make that code less vulnerable
+to a known attack.  Although still try very hard *not* to break working
+code, if at all possible.
+
+--David
+
+From jcea at jcea.es  Thu Jul 30 00:11:53 2015
+From: jcea at jcea.es (Jesus Cea)
+Date: Thu, 30 Jul 2015 00:11:53 +0200
+Subject: [python-committers] "Gratuitous"? incompatibilities in the "fix
+ only" releases
+In-Reply-To: <CAP7+vJJvaJ-J2F5m6FLAWuMjeQfRT5m5jf4Tn6gXAwjEfua0=w@mail.gmail.com>
+References: <55B8FA1F.8070702@jcea.es>
+ <CAP7+vJJvaJ-J2F5m6FLAWuMjeQfRT5m5jf4Tn6gXAwjEfua0=w@mail.gmail.com>
+Message-ID: <55B94FA9.7080204@jcea.es>
+
+On 29/07/15 18:50, Guido van Rossum wrote:
+> I believe that in this particular case, the bug was fixed (by tightening
+> the requirements for headers) because the bug can lead to security
+> vulnerabilities. I think you can find more by Googling for keywords like
+> "http header injection". The more recent Python 2.7 bugfix releases have
+> specific exemptions from the backwards compatibility requirements for
+> security fixes -- because their lifespan will still be many years (EOL
+> of 2.7 is summer 2020).
+
+That argument is valuable but it fails when considering that this fix
+will be present in 3.4.4 too, with a normal EOL. I am OK with that,
+though. As I said, I sent my first message for policy verification and
+to raise awareness.
+
+:-).
+
+PS: I rarely read python-dev. Too much traffic for me :-(.
+
+-- 
+Jes?s Cea Avi?n                         _/_/      _/_/_/        _/_/_/
+jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+Twitter: @jcea                        _/_/    _/_/          _/_/_/_/_/
+jabber / xmpp:jcea at jabber.org  _/_/  _/_/    _/_/          _/_/  _/_/
+"Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+"My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+"El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 473 bytes
+Desc: OpenPGP digital signature
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150730/8bf43e18/attachment.sig>
+
+From rdmurray at bitdance.com  Thu Jul 30 01:24:55 2015
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Wed, 29 Jul 2015 19:24:55 -0400
+Subject: [python-committers] "Gratuitous"? incompatibilities in the "fix
+	only" releases
+In-Reply-To: <55B94FA9.7080204@jcea.es>
+References: <55B8FA1F.8070702@jcea.es>
+ <CAP7+vJJvaJ-J2F5m6FLAWuMjeQfRT5m5jf4Tn6gXAwjEfua0=w@mail.gmail.com>
+ <55B94FA9.7080204@jcea.es>
+Message-ID: <20150729232455.BE927B30002@webabinitio.net>
+
+On Thu, 30 Jul 2015 00:11:53 +0200, Jesus Cea <jcea at jcea.es> wrote:
+> On 29/07/15 18:50, Guido van Rossum wrote:
+> > I believe that in this particular case, the bug was fixed (by tightening
+> > the requirements for headers) because the bug can lead to security
+> > vulnerabilities. I think you can find more by Googling for keywords like
+> > "http header injection". The more recent Python 2.7 bugfix releases have
+> > specific exemptions from the backwards compatibility requirements for
+> > security fixes -- because their lifespan will still be many years (EOL
+> > of 2.7 is summer 2020).
+> 
+> That argument is valuable but it fails when considering that this fix
+> will be present in 3.4.4 too, with a normal EOL. I am OK with that,
+> though. As I said, I sent my first message for policy verification and
+> to raise awareness.
+
+No, the security bug fix conditional exception applies to all
+maintenance releases.  The big (PEP required) exception for 2.7 was that
+the *API* changed in 2.7 in certain ways.
+
+--David
+
+From Steve.Dower at microsoft.com  Thu Jul 30 00:52:43 2015
+From: Steve.Dower at microsoft.com (Steve Dower)
+Date: Wed, 29 Jul 2015 22:52:43 +0000
+Subject: [python-committers] [RELEASED] Python 3.5.0b4 is now available
+In-Reply-To: <CAOBd=7mj5gLt7bNMQ0sZV_Jx1iJH1cPEgEq+85fzNk+OjQ7RFw@mail.gmail.com>
+References: <CAOBd=7mj5gLt7bNMQ0sZV_Jx1iJH1cPEgEq+85fzNk+OjQ7RFw@mail.gmail.com>
+Message-ID: <BLUPR0301MB1652E15DBF1A2B2B4CBE485EF58C0@BLUPR0301MB1652.namprd03.prod.outlook.com>
+
+I finally just got to reading the release page and noticed two notes that should be updated:
+
+
+?         Windows users: If installing Python 3.5.0b1 as a non-privileged user, you may need to escalate to administrator privileges to install an update to your C runtime libraries.
+Should be ?3.5.0b4?, but can probably just say ?3.5? as this requirement is not going to go away (but note ?you may? ? it only occurs at most once per machine).
+
+
+?         Windows users: The Windows binaries were built with Microsoft Visual Studio 2015, which is not yet officially released. (It's currently offered in "Preview" mode, which is akin to a "beta".) It is our intention to ship Python 3.5 using VS2015, although right now VS2015's final release date is unclear.
+The latest build used VS 2015 final. The What?s New page calls out the new compiler, so this point can probably just disappear unless we want to specially call out the changed compiler on the download page.
+
+Cheers,
+Steve
+
+From: python-committers [mailto:python-committers-bounces+steve.dower=microsoft.com at python.org] On Behalf Of Larry Hastings
+Sent: Sunday, July 26, 2015 0737
+To: Python-Dev <python-dev at python.org>; python-committers <python-committers at python.org>; python-announce at python.org; python-list at python.org
+Subject: [python-committers] [RELEASED] Python 3.5.0b4 is now available
+
+
+On behalf of the Python development community and the Python 3.5 release team, I'm delighted to announce the availability of Python 3.5.0b4.  Python 3.5.0b4 is scheduled to be the last beta release; the next release will be Python 3.5.0rc1, or Release Candidate 1.
+
+Python 3.5 has now entered "feature freeze".  By default new features may no longer be added to Python 3.5.
+
+This is a preview release, and its use is not recommended for production settings.
+
+An important reminder for Windows users about Python 3.5.0b4: if installing Python 3.5.0b4 as a non-privileged user, you may need to escalate to administrator privileges to install an update to your C runtime libraries.
+
+
+You can find Python 3.5.0b4 here:
+https://www.python.org/downloads/release/python-350b4/
+Happy hacking,
+
+
+/arry
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150729/53e690cd/attachment-0001.html>
+
+From ncoghlan at gmail.com  Thu Jul 30 09:15:00 2015
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Thu, 30 Jul 2015 17:15:00 +1000
+Subject: [python-committers] "Gratuitous"? incompatibilities in the "fix
+ only" releases
+In-Reply-To: <CAP7+vJJVfq2hO9aRPvocxv9mcyi2hcN0GYSOdCt4CqPhnqJ4SQ@mail.gmail.com>
+References: <55B8FA1F.8070702@jcea.es>
+ <CAP7+vJJvaJ-J2F5m6FLAWuMjeQfRT5m5jf4Tn6gXAwjEfua0=w@mail.gmail.com>
+ <CAJ3HoZ2HF+q1h3JNovUO6W9_u8Awt9myUE_qgQ3WV2UQ5a5jBw@mail.gmail.com>
+ <CALFfu7CUn5qZ5LKjxr7i2Pe+RqBp4wB_HvjsAZ4pjBKVunpM+w@mail.gmail.com>
+ <CAJ3HoZ1EX=iGD+q2BDmZCy117BuRO=+w6WLHrhayrU5T04tzcw@mail.gmail.com>
+ <CAP7+vJJVfq2hO9aRPvocxv9mcyi2hcN0GYSOdCt4CqPhnqJ4SQ@mail.gmail.com>
+Message-ID: <CADiSq7cZrk3+4LQDZj80G8pqUQW7yEy1Z0oOOdN8cQ369CfG4A@mail.gmail.com>
+
+On 30 July 2015 at 03:50, Guido van Rossum <guido at python.org> wrote:
+> When in doubt, such discussions should be escalated to python-dev. I don't
+> know if this one was, though I vaguely recall seeing it discussed somewhere.
+> Anyway, since it's been released, it should stay in.
+
+>From a communications perspective, we may want to expand the
+https://docs.python.org/dev/whatsnew/2.7.html#new-features-added-to-python-2-7-maintenance-releases
+backport documentation idea to also cover this kind of change that
+closes a network security hole, but may result in an exception in code
+that previously appeared to be doing the right thing.
+
+Regards,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+
+From brett at python.org  Thu Jul 30 19:37:06 2015
+From: brett at python.org (Brett Cannon)
+Date: Thu, 30 Jul 2015 17:37:06 +0000
+Subject: [python-committers] getting help with the hgaccounts alias
+In-Reply-To: <55B21F44.7050709@jcea.es>
+References: <CAP1=2W5XwGSeg9LH9yMVz_eeyMmdNiNOpA7evniZPek147Nu2A@mail.gmail.com>
+ <6C4AEFC5-B3CE-4346-8BF3-291BEE18A3F6@mac.com>
+ <CAP1=2W4qE9uNAj-KzgpEAZZ_2s0gVn46S2Pnd8QVd3X5zEXrSw@mail.gmail.com>
+ <20150722174107.D0E46250F9A@webabinitio.net>
+ <CAP1=2W4-KhoEDPnN=9T3q2KstZDBS679XzykwTCajEuRrEVO+Q@mail.gmail.com>
+ <55B10A62.7010206@jcea.es>
+ <CADiSq7e4irRDLPwctsze_v5=YO72BUjAgx-TYS7JfaJmJZHs6A@mail.gmail.com>
+ <55B21F44.7050709@jcea.es>
+Message-ID: <CAP1=2W7v7rKUX4F-USNMdLxg8EMOKrfFj6pHS-cpAR0KjXAtFw@mail.gmail.com>
+
+Thanks to Benjamin, we now have instructions in the devguide on how to help
+out with adding SSH keys for people:
+https://docs.python.org/devguide/developers.html#altering-access . For
+those of you who expressed interest in helping out, now you can!
+
+On Fri, Jul 24, 2015 at 4:19 AM Jesus Cea <jcea at jcea.es> wrote:
+
+> On 24/07/15 10:59, Nick Coghlan wrote:
+> >
+> > On 24 Jul 2015 01:38, "Jesus Cea" <jcea at jcea.es <mailto:jcea at jcea.es>>
+> > wrote:
+> >>
+> >> I wonder about the new PSF "infraestructure/programming volunteers".
+> >> Never heard of them and I am more than willing to help out.
+> >
+> > The infra team handles the back end servers for PyPI, PyCon, python.org
+> > <http://python.org>, et al.
+> >
+> > Folks with the "keys to the kingdom" are listed at
+> > http://psf-salt.readthedocs.org/en/latest/overview/ (along with a good
+> > overview of the extent of the kingdom), while
+> > https://mail.python.org/mailman/listinfo/infrastructure is the general
+> > infra mailing list.
+>
+> This is getting a bit offtopic :).
+>
+> I am talking about option 4 and 5 in
+> <https://www.python.org/psf/membership/#what-membership-classes-are-there
+> >.
+>
+> --
+> Jes?s Cea Avi?n                         _/_/      _/_/_/        _/_/_/
+> jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+> Twitter: @jcea                        _/_/    _/_/          _/_/_/_/_/
+> jabber / xmpp:jcea at jabber.org  _/_/  _/_/    _/_/          _/_/  _/_/
+> "Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+> "My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+> "El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150730/cae0a315/attachment.html>
+
+From jcea at jcea.es  Thu Jul 30 19:51:03 2015
+From: jcea at jcea.es (Jesus Cea)
+Date: Thu, 30 Jul 2015 19:51:03 +0200
+Subject: [python-committers] getting help with the hgaccounts alias
+In-Reply-To: <CAP1=2W7v7rKUX4F-USNMdLxg8EMOKrfFj6pHS-cpAR0KjXAtFw@mail.gmail.com>
+References: <CAP1=2W5XwGSeg9LH9yMVz_eeyMmdNiNOpA7evniZPek147Nu2A@mail.gmail.com>
+ <6C4AEFC5-B3CE-4346-8BF3-291BEE18A3F6@mac.com>
+ <CAP1=2W4qE9uNAj-KzgpEAZZ_2s0gVn46S2Pnd8QVd3X5zEXrSw@mail.gmail.com>
+ <20150722174107.D0E46250F9A@webabinitio.net>
+ <CAP1=2W4-KhoEDPnN=9T3q2KstZDBS679XzykwTCajEuRrEVO+Q@mail.gmail.com>
+ <55B10A62.7010206@jcea.es>
+ <CADiSq7e4irRDLPwctsze_v5=YO72BUjAgx-TYS7JfaJmJZHs6A@mail.gmail.com>
+ <55B21F44.7050709@jcea.es>
+ <CAP1=2W7v7rKUX4F-USNMdLxg8EMOKrfFj6pHS-cpAR0KjXAtFw@mail.gmail.com>
+Message-ID: <55BA6407.6090508@jcea.es>
+
+On 30/07/15 19:37, Brett Cannon wrote:
+> Thanks to Benjamin, we now have instructions in the devguide on how to
+> help out with adding SSH keys for
+> people: https://docs.python.org/devguide/developers.html#altering-access
+> . For those of you who expressed interest in helping out, now you can!
+
+"""
+jcea at ubuntu:~/hg/python$ hg clone ssh://hgaccounts at hg.python.org/repo
+remote: Received disconnect from 104.130.43.97: 2: Too many
+authentication failures for hgaccounts
+abort: no suitable response from remote hg!
+"""
+
+-- 
+Jes?s Cea Avi?n                         _/_/      _/_/_/        _/_/_/
+jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+Twitter: @jcea                        _/_/    _/_/          _/_/_/_/_/
+jabber / xmpp:jcea at jabber.org  _/_/  _/_/    _/_/          _/_/  _/_/
+"Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+"My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+"El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 473 bytes
+Desc: OpenPGP digital signature
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150730/dffa1620/attachment.sig>
+
+From brett at python.org  Thu Jul 30 20:11:17 2015
+From: brett at python.org (Brett Cannon)
+Date: Thu, 30 Jul 2015 18:11:17 +0000
+Subject: [python-committers] getting help with the hgaccounts alias
+In-Reply-To: <55BA6407.6090508@jcea.es>
+References: <CAP1=2W5XwGSeg9LH9yMVz_eeyMmdNiNOpA7evniZPek147Nu2A@mail.gmail.com>
+ <6C4AEFC5-B3CE-4346-8BF3-291BEE18A3F6@mac.com>
+ <CAP1=2W4qE9uNAj-KzgpEAZZ_2s0gVn46S2Pnd8QVd3X5zEXrSw@mail.gmail.com>
+ <20150722174107.D0E46250F9A@webabinitio.net>
+ <CAP1=2W4-KhoEDPnN=9T3q2KstZDBS679XzykwTCajEuRrEVO+Q@mail.gmail.com>
+ <55B10A62.7010206@jcea.es>
+ <CADiSq7e4irRDLPwctsze_v5=YO72BUjAgx-TYS7JfaJmJZHs6A@mail.gmail.com>
+ <55B21F44.7050709@jcea.es>
+ <CAP1=2W7v7rKUX4F-USNMdLxg8EMOKrfFj6pHS-cpAR0KjXAtFw@mail.gmail.com>
+ <55BA6407.6090508@jcea.es>
+Message-ID: <CAP1=2W7GaiZrtZJVVyz1Jhyr25HK+b-qsFs7KcQ-==T62PJ4FQ@mail.gmail.com>
+
+On Thu, Jul 30, 2015 at 10:51 AM Jesus Cea <jcea at jcea.es> wrote:
+
+> On 30/07/15 19:37, Brett Cannon wrote:
+> > Thanks to Benjamin, we now have instructions in the devguide on how to
+> > help out with adding SSH keys for
+> > people: https://docs.python.org/devguide/developers.html#altering-access
+> > . For those of you who expressed interest in helping out, now you can!
+>
+> """
+> jcea at ubuntu:~/hg/python$ hg clone ssh://hgaccounts at hg.python.org/repo
+> remote: Received disconnect from 104.130.43.97: 2: Too many
+> authentication failures for hgaccounts
+> abort: no suitable response from remote hg!
+> """
+>
+
+You might need to be added to admin the repo before it will authenticate
+your checkout.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150730/5f7187d8/attachment.html>
+
+From barry at python.org  Fri Jul 31 18:23:30 2015
+From: barry at python.org (Barry Warsaw)
+Date: Fri, 31 Jul 2015 12:23:30 -0400
+Subject: [python-committers] getting help with the hgaccounts alias
+In-Reply-To: <55BA6407.6090508@jcea.es>
+References: <CAP1=2W5XwGSeg9LH9yMVz_eeyMmdNiNOpA7evniZPek147Nu2A@mail.gmail.com>
+ <6C4AEFC5-B3CE-4346-8BF3-291BEE18A3F6@mac.com>
+ <CAP1=2W4qE9uNAj-KzgpEAZZ_2s0gVn46S2Pnd8QVd3X5zEXrSw@mail.gmail.com>
+ <20150722174107.D0E46250F9A@webabinitio.net>
+ <CAP1=2W4-KhoEDPnN=9T3q2KstZDBS679XzykwTCajEuRrEVO+Q@mail.gmail.com>
+ <55B10A62.7010206@jcea.es>
+ <CADiSq7e4irRDLPwctsze_v5=YO72BUjAgx-TYS7JfaJmJZHs6A@mail.gmail.com>
+ <55B21F44.7050709@jcea.es>
+ <CAP1=2W7v7rKUX4F-USNMdLxg8EMOKrfFj6pHS-cpAR0KjXAtFw@mail.gmail.com>
+ <55BA6407.6090508@jcea.es>
+Message-ID: <20150731122330.4ffdb500@limelight.wooz.org>
+
+On Jul 30, 2015, at 07:51 PM, Jesus Cea wrote:
+
+>jcea at ubuntu:~/hg/python$ hg clone ssh://hgaccounts at hg.python.org/repo
+>remote: Received disconnect from 104.130.43.97: 2: Too many
+>authentication failures for hgaccounts
+>abort: no suitable response from remote hg!
+
+This is likely an ssh problem on your end, not an hg problem.
+
+http://superuser.com/questions/187779/too-many-authentication-failures-for-username
+
+Cheers,
+-Barry
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 819 bytes
+Desc: OpenPGP digital signature
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150731/2e234447/attachment.sig>
+

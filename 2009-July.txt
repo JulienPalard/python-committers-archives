@@ -1,0 +1,2464 @@
+From jcea at jcea.es  Thu Jul  2 16:39:50 2009
+From: jcea at jcea.es (Jesus Cea)
+Date: Thu, 02 Jul 2009 16:39:50 +0200
+Subject: [python-committers] Why r69846 is not merged to "release26-maint"?
+Message-ID: <4A4CC6B6.90202@jcea.es>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+I have found a few flaws in 2.6 documentation. I was going to correct
+them when I found they are already solved in trunk in r69846, done by
+mark.dickinson in february.
+
+Is there any reason for that commit not to be merged to 2.6 branch?. Am
+I missing anything?.
+
+- --
+Jesus Cea Avion                         _/_/      _/_/_/        _/_/_/
+jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+jabber / xmpp:jcea at jabber.org         _/_/    _/_/          _/_/_/_/_/
+.                              _/_/  _/_/    _/_/          _/_/  _/_/
+"Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+"My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+"El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.8 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - http://enigmail.mozdev.org
+
+iQCVAwUBSkzGsJlgi5GaxT1NAQIJBwP8C5nnSw5wKjlM/2y5UtS96kbvGipC6EFV
+9cbxF3s6vJOGbDqKdgm6VMz82DNIsIw7YhUDw2ACB9Q/HGAwno5u56/eVXCfA53N
+uDGYyQ76Ebty2HqbEdcve3n5UH6/2O5Yd3koFpaBm0/UrA/DayFSNAKyqGL3pNZq
+To6p6r/0ots=
+=jMbT
+-----END PGP SIGNATURE-----
+
+From benjamin at python.org  Thu Jul  2 16:43:19 2009
+From: benjamin at python.org (Benjamin Peterson)
+Date: Thu, 2 Jul 2009 09:43:19 -0500
+Subject: [python-committers] Why r69846 is not merged to
+	"release26-maint"?
+In-Reply-To: <4A4CC6B6.90202@jcea.es>
+References: <4A4CC6B6.90202@jcea.es>
+Message-ID: <1afaf6160907020743r147c1e1fs7651e8ab68f6cc64@mail.gmail.com>
+
+2009/7/2 Jesus Cea <jcea at jcea.es>:
+> -----BEGIN PGP SIGNED MESSAGE-----
+> Hash: SHA1
+>
+> I have found a few flaws in 2.6 documentation. I was going to correct
+> them when I found they are already solved in trunk in r69846, done by
+> mark.dickinson in february.
+>
+> Is there any reason for that commit not to be merged to 2.6 branch?. Am
+> I missing anything?.
+
+People usually don't merge documentation changes because it's more
+trouble than it's worth. You can merge that one, though.
+
+
+
+-- 
+Regards,
+Benjamin
+
+From anthonybaxter at gmail.com  Thu Jul  2 16:58:24 2009
+From: anthonybaxter at gmail.com (Anthony Baxter)
+Date: Fri, 3 Jul 2009 00:58:24 +1000
+Subject: [python-committers] Why r69846 is not merged to
+	"release26-maint"?
+In-Reply-To: <1afaf6160907020743r147c1e1fs7651e8ab68f6cc64@mail.gmail.com>
+References: <4A4CC6B6.90202@jcea.es>
+	<1afaf6160907020743r147c1e1fs7651e8ab68f6cc64@mail.gmail.com>
+Message-ID: <e69d3ed20907020758o141cbc4fpf2c4d890433a391@mail.gmail.com>
+
+Speaking as a past release manager, the reason that things like that didn't
+get merged is because... drumroll... no-one merged them.
+It's another tree to checkout and patch. Personally, I was always of the
+belief that if someone wanted to fix docs (or comments, or other things like
+that) in a maintenance branch, more power to them.
+
+
+
+On Fri, Jul 3, 2009 at 12:43 AM, Benjamin Peterson <benjamin at python.org>wrote:
+
+> 2009/7/2 Jesus Cea <jcea at jcea.es>:
+> > -----BEGIN PGP SIGNED MESSAGE-----
+> > Hash: SHA1
+> >
+> > I have found a few flaws in 2.6 documentation. I was going to correct
+> > them when I found they are already solved in trunk in r69846, done by
+> > mark.dickinson in february.
+> >
+> > Is there any reason for that commit not to be merged to 2.6 branch?. Am
+> > I missing anything?.
+>
+> People usually don't merge documentation changes because it's more
+> trouble than it's worth. You can merge that one, though.
+>
+>
+>
+> --
+> Regards,
+> Benjamin
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20090703/1b65039e/attachment.htm>
+
+From rdmurray at bitdance.com  Thu Jul  2 17:06:50 2009
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Thu, 2 Jul 2009 11:06:50 -0400 (EDT)
+Subject: [python-committers] Why r69846 is not merged
+	to	"release26-maint"?
+In-Reply-To: <e69d3ed20907020758o141cbc4fpf2c4d890433a391@mail.gmail.com>
+References: <4A4CC6B6.90202@jcea.es>
+	<1afaf6160907020743r147c1e1fs7651e8ab68f6cc64@mail.gmail.com>
+	<e69d3ed20907020758o141cbc4fpf2c4d890433a391@mail.gmail.com>
+Message-ID: <Pine.LNX.4.64.0907021103460.6306@kimball.webabinitio.net>
+
+On Fri, 3 Jul 2009 at 00:58, Anthony Baxter wrote:
+> Speaking as a past release manager, the reason that things like that didn't
+> get merged is because... drumroll... no-one merged them.
+> It's another tree to checkout and patch. Personally, I was always of the
+> belief that if someone wanted to fix docs (or comments, or other things like
+> that) in a maintenance branch, more power to them.
+
+What I do is accumulate a list of doc fixes I've made, and when the
+list gets to some undefined size or age, I merge them all in one
+svnmerge batch.  I think Georg does something similar.
+
+--David
+
+From jcea at jcea.es  Thu Jul  2 17:15:16 2009
+From: jcea at jcea.es (Jesus Cea)
+Date: Thu, 02 Jul 2009 17:15:16 +0200
+Subject: [python-committers] Why r69846 is not merged
+	to	"release26-maint"?
+In-Reply-To: <e69d3ed20907020758o141cbc4fpf2c4d890433a391@mail.gmail.com>
+References: <4A4CC6B6.90202@jcea.es>	<1afaf6160907020743r147c1e1fs7651e8ab68f6cc64@mail.gmail.com>
+	<e69d3ed20907020758o141cbc4fpf2c4d890433a391@mail.gmail.com>
+Message-ID: <4A4CCF04.4050701@jcea.es>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Anthony Baxter wrote:
+> Speaking as a past release manager, the reason that things like that
+> didn't get merged is because... drumroll... no-one merged them.
+
+Ughhh. This is actually a good reason to migrate to mercurial, were
+merges are painless :-).
+
+> It's another tree to checkout and patch. Personally, I was always of the
+> belief that if someone wanted to fix docs (or comments, or other things
+> like that) in a maintenance branch, more power to them.
+
+I already have the checkouts for the maintained branches. I will try to
+merge that patch, although it is old and will probably generate a ton of
+conflicts. Let's see...
+
+- --
+Jesus Cea Avion                         _/_/      _/_/_/        _/_/_/
+jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+jabber / xmpp:jcea at jabber.org         _/_/    _/_/          _/_/_/_/_/
+.                              _/_/  _/_/    _/_/          _/_/  _/_/
+"Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+"My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+"El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.8 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - http://enigmail.mozdev.org
+
+iQCVAwUBSkzO+5lgi5GaxT1NAQLUFwP/QfS/U20tSS1Xd6P9nm3V2OADxOs9aFSK
+TEpluTRSZ3o3E8GoXGjx1BBns3rffM7+VSIIvnlzujzTF9r4nUxy26TNjDKBnZ9j
+aByQAtJVY2FY3nYYIxZ1SJn1w4HWBtueckZV5fCZmMRpLWEQSwfbVFIq3+6IHwC2
+xCVByx9x+yI=
+=SvWZ
+-----END PGP SIGNATURE-----
+
+From asmodai at in-nomine.org  Thu Jul  2 17:22:27 2009
+From: asmodai at in-nomine.org (Jeroen Ruigrok van der Werven)
+Date: Thu, 2 Jul 2009 17:22:27 +0200
+Subject: [python-committers] Why r69846 is not merged to
+ "release26-maint"?
+In-Reply-To: <4A4CCF04.4050701@jcea.es>
+References: <4A4CC6B6.90202@jcea.es>
+	<1afaf6160907020743r147c1e1fs7651e8ab68f6cc64@mail.gmail.com>
+	<e69d3ed20907020758o141cbc4fpf2c4d890433a391@mail.gmail.com>
+	<4A4CCF04.4050701@jcea.es>
+Message-ID: <20090702152227.GL65921@nexus.in-nomine.org>
+
+-On [20090702 17:15], Jesus Cea (jcea at jcea.es) wrote:
+>Ughhh. This is actually a good reason to migrate to mercurial, were
+>merges are painless :-).
+
+For all I know Mercurial doesn't make the issue of resolving content merges
+easier, so that would make your comment moot.
+
+-- 
+Jeroen Ruigrok van der Werven <asmodai(-at-)in-nomine.org> / asmodai
+????? ?????? ??? ?? ??????
+http://www.in-nomine.org/ | http://www.rangaku.org/ | GPG: 2EAC625B
+When you do something, you should burn yourself completely, like a good
+bonfire, leaving no trace of yourself...
+
+From benjamin at python.org  Thu Jul  2 17:23:41 2009
+From: benjamin at python.org (Benjamin Peterson)
+Date: Thu, 2 Jul 2009 10:23:41 -0500
+Subject: [python-committers] Why r69846 is not merged to
+	"release26-maint"?
+In-Reply-To: <20090702152227.GL65921@nexus.in-nomine.org>
+References: <4A4CC6B6.90202@jcea.es>
+	<1afaf6160907020743r147c1e1fs7651e8ab68f6cc64@mail.gmail.com>
+	<e69d3ed20907020758o141cbc4fpf2c4d890433a391@mail.gmail.com>
+	<4A4CCF04.4050701@jcea.es>
+	<20090702152227.GL65921@nexus.in-nomine.org>
+Message-ID: <1afaf6160907020823k2d93a84rf50cdad50fd4d038@mail.gmail.com>
+
+2009/7/2 Jeroen Ruigrok van der Werven <asmodai at in-nomine.org>:
+> -On [20090702 17:15], Jesus Cea (jcea at jcea.es) wrote:
+>>Ughhh. This is actually a good reason to migrate to mercurial, were
+>>merges are painless :-).
+>
+> For all I know Mercurial doesn't make the issue of resolving content merges
+> easier, so that would make your comment moot.
+
+They're about 2^987987979 times faster, though than with svnmerge.py.
+
+
+
+-- 
+Regards,
+Benjamin
+
+From jcea at jcea.es  Thu Jul  2 17:40:56 2009
+From: jcea at jcea.es (Jesus Cea)
+Date: Thu, 02 Jul 2009 17:40:56 +0200
+Subject: [python-committers] Why r69846 is not merged
+	to	"release26-maint"?
+In-Reply-To: <1afaf6160907020823k2d93a84rf50cdad50fd4d038@mail.gmail.com>
+References: <4A4CC6B6.90202@jcea.es>	<1afaf6160907020743r147c1e1fs7651e8ab68f6cc64@mail.gmail.com>	<e69d3ed20907020758o141cbc4fpf2c4d890433a391@mail.gmail.com>	<4A4CCF04.4050701@jcea.es>	<20090702152227.GL65921@nexus.in-nomine.org>
+	<1afaf6160907020823k2d93a84rf50cdad50fd4d038@mail.gmail.com>
+Message-ID: <4A4CD508.6030901@jcea.es>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Benjamin Peterson wrote:
+> 2009/7/2 Jeroen Ruigrok van der Werven <asmodai at in-nomine.org>:
+>> -On [20090702 17:15], Jesus Cea (jcea at jcea.es) wrote:
+>>> Ughhh. This is actually a good reason to migrate to mercurial, were
+>>> merges are painless :-).
+>> For all I know Mercurial doesn't make the issue of resolving content merges
+>> easier, so that would make your comment moot.
+> 
+> They're about 2^987987979 times faster, though than with svnmerge.py.
+
+And you don't forget any merge, because you commit to the maintenance
+and then merge to the trunk.
+
+- --
+Jesus Cea Avion                         _/_/      _/_/_/        _/_/_/
+jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+jabber / xmpp:jcea at jabber.org         _/_/    _/_/          _/_/_/_/_/
+.                              _/_/  _/_/    _/_/          _/_/  _/_/
+"Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+"My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+"El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.8 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - http://enigmail.mozdev.org
+
+iQCVAwUBSkzVBJlgi5GaxT1NAQLXrQP/atOdGpe5bidVWexezSOQAq9Zzkgf8pd6
+4lDzQqxvDF8K2TeMNT7s4EXib0OQGLxP/jjtp+Tupb/e0oMu8t9wFNrdhJsatNyR
+SCyLlfvk/lr5aAFeFGwwZOkMcudqfhPXbq3CEmz3g0dchnITqEqSN1xv2K6YUZJe
+qdIoBOCUt4U=
+=OYEB
+-----END PGP SIGNATURE-----
+
+From anthonybaxter at gmail.com  Thu Jul  2 18:13:17 2009
+From: anthonybaxter at gmail.com (Anthony Baxter)
+Date: Fri, 3 Jul 2009 02:13:17 +1000
+Subject: [python-committers] Why r69846 is not merged to
+	"release26-maint"?
+In-Reply-To: <20090702152227.GL65921@nexus.in-nomine.org>
+References: <4A4CC6B6.90202@jcea.es>
+	<1afaf6160907020743r147c1e1fs7651e8ab68f6cc64@mail.gmail.com>
+	<e69d3ed20907020758o141cbc4fpf2c4d890433a391@mail.gmail.com>
+	<4A4CCF04.4050701@jcea.es>
+	<20090702152227.GL65921@nexus.in-nomine.org>
+Message-ID: <e69d3ed20907020913m18e6acf4r64aeddd5559dc193@mail.gmail.com>
+
+The particulars of the revision control system don't matter as much as the
+discipline of teaching people to commit fixes. Right now, we have 2.6.x,
+3.0.x and 3.1.x.
+
+On Fri, Jul 3, 2009 at 1:22 AM, Jeroen Ruigrok van der Werven <
+asmodai at in-nomine.org> wrote:
+
+> -On [20090702 17:15], Jesus Cea (jcea at jcea.es) wrote:
+> >Ughhh. This is actually a good reason to migrate to mercurial, were
+> >merges are painless :-).
+>
+> For all I know Mercurial doesn't make the issue of resolving content merges
+> easier, so that would make your comment moot.
+>
+> --
+> Jeroen Ruigrok van der Werven <asmodai(-at-)in-nomine.org> / asmodai
+> ????? ?????? ??? ?? ??????
+> http://www.in-nomine.org/ | http://www.rangaku.org/ | GPG: 2EAC625B
+> When you do something, you should burn yourself completely, like a good
+> bonfire, leaving no trace of yourself...
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20090703/49c0f91b/attachment.htm>
+
+From brett at python.org  Thu Jul  2 19:56:43 2009
+From: brett at python.org (Brett Cannon)
+Date: Thu, 2 Jul 2009 10:56:43 -0700
+Subject: [python-committers] Why r69846 is not merged to
+	"release26-maint"?
+In-Reply-To: <e69d3ed20907020913m18e6acf4r64aeddd5559dc193@mail.gmail.com>
+References: <4A4CC6B6.90202@jcea.es>
+	<1afaf6160907020743r147c1e1fs7651e8ab68f6cc64@mail.gmail.com> 
+	<e69d3ed20907020758o141cbc4fpf2c4d890433a391@mail.gmail.com> 
+	<4A4CCF04.4050701@jcea.es> <20090702152227.GL65921@nexus.in-nomine.org>
+	<e69d3ed20907020913m18e6acf4r64aeddd5559dc193@mail.gmail.com>
+Message-ID: <bbaeab100907021056i6685a707hb41179ae28ea04b3@mail.gmail.com>
+
+2009/7/2 Anthony Baxter <anthonybaxter at gmail.com>
+
+> The particulars of the revision control system don't matter as much as the
+> discipline of teaching people to commit fixes. Right now, we have 2.6.x,
+> 3.0.x and 3.1.x.
+>
+
+If I remember correctly I believe we decided at the language summit that 3.0
+is just dead now that 3.1 is out and we shouldn't even bother with another
+point release since 3.1 followed 3.0 so closely and didn't introduce any new
+syntax or tweak semantics.
+
+
+>
+>
+> On Fri, Jul 3, 2009 at 1:22 AM, Jeroen Ruigrok van der Werven <
+> asmodai at in-nomine.org> wrote:
+>
+>> -On [20090702 17:15], Jesus Cea (jcea at jcea.es) wrote:
+>> >Ughhh. This is actually a good reason to migrate to mercurial, were
+>> >merges are painless :-).
+>>
+>> For all I know Mercurial doesn't make the issue of resolving content
+>> merges
+>> easier, so that would make your comment moot.
+>>
+>> --
+>> Jeroen Ruigrok van der Werven <asmodai(-at-)in-nomine.org> / asmodai
+>> ????? ?????? ??? ?? ??????
+>> http://www.in-nomine.org/ | http://www.rangaku.org/ | GPG: 2EAC625B
+>> When you do something, you should burn yourself completely, like a good
+>> bonfire, leaving no trace of yourself...
+>> _______________________________________________
+>> python-committers mailing list
+>> python-committers at python.org
+>> http://mail.python.org/mailman/listinfo/python-committers
+>>
+>
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+>
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20090702/5b21cce7/attachment.htm>
+
+From barry at python.org  Thu Jul  2 20:24:48 2009
+From: barry at python.org (Barry Warsaw)
+Date: Thu, 2 Jul 2009 14:24:48 -0400
+Subject: [python-committers] Why r69846 is not merged to
+	"release26-maint"?
+In-Reply-To: <bbaeab100907021056i6685a707hb41179ae28ea04b3@mail.gmail.com>
+References: <4A4CC6B6.90202@jcea.es>
+	<1afaf6160907020743r147c1e1fs7651e8ab68f6cc64@mail.gmail.com>
+	<e69d3ed20907020758o141cbc4fpf2c4d890433a391@mail.gmail.com>
+	<4A4CCF04.4050701@jcea.es>
+	<20090702152227.GL65921@nexus.in-nomine.org>
+	<e69d3ed20907020913m18e6acf4r64aeddd5559dc193@mail.gmail.com>
+	<bbaeab100907021056i6685a707hb41179ae28ea04b3@mail.gmail.com>
+Message-ID: <0BD5AB60-E040-49D0-AC10-46C5FA003C67@python.org>
+
+On Jul 2, 2009, at 1:56 PM, Brett Cannon wrote:
+
+> If I remember correctly I believe we decided at the language summit  
+> that 3.0
+> is just dead now that 3.1 is out and we shouldn't even bother with  
+> another
+> point release since 3.1 followed 3.0 so closely and didn't introduce  
+> any new
+> syntax or tweak semantics.
+
+Right.  There have been rumblings of wanting a 3.0.2, and I could do  
+it if the clamor were loud enough, but I still think we don't need one.
+
+-Barry
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: PGP.sig
+Type: application/pgp-signature
+Size: 832 bytes
+Desc: This is a digitally signed message part
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20090702/94df2404/attachment.pgp>
+
+From anthonybaxter at gmail.com  Thu Jul  2 20:29:25 2009
+From: anthonybaxter at gmail.com (Anthony Baxter)
+Date: Fri, 3 Jul 2009 04:29:25 +1000
+Subject: [python-committers] Why r69846 is not merged to
+	"release26-maint"?
+In-Reply-To: <0BD5AB60-E040-49D0-AC10-46C5FA003C67@python.org>
+References: <4A4CC6B6.90202@jcea.es>
+	<1afaf6160907020743r147c1e1fs7651e8ab68f6cc64@mail.gmail.com>
+	<e69d3ed20907020758o141cbc4fpf2c4d890433a391@mail.gmail.com>
+	<4A4CCF04.4050701@jcea.es>
+	<20090702152227.GL65921@nexus.in-nomine.org>
+	<e69d3ed20907020913m18e6acf4r64aeddd5559dc193@mail.gmail.com>
+	<bbaeab100907021056i6685a707hb41179ae28ea04b3@mail.gmail.com>
+	<0BD5AB60-E040-49D0-AC10-46C5FA003C67@python.org>
+Message-ID: <e69d3ed20907021129j5e0096cfo4cc3c583acc08b9f@mail.gmail.com>
+
+I think Barry should totally cut a completely pointless 3.0.2 release. We
+can call it the "homage to 1.6" release.
+<god-I've-been-involved-with-python-too-long/>
+Anthony
+
+
+On Fri, Jul 3, 2009 at 4:24 AM, Barry Warsaw <barry at python.org> wrote:
+
+> On Jul 2, 2009, at 1:56 PM, Brett Cannon wrote:
+>
+>  If I remember correctly I believe we decided at the language summit that
+>> 3.0
+>> is just dead now that 3.1 is out and we shouldn't even bother with another
+>> point release since 3.1 followed 3.0 so closely and didn't introduce any
+>> new
+>> syntax or tweak semantics.
+>>
+>
+> Right.  There have been rumblings of wanting a 3.0.2, and I could do it if
+> the clamor were loud enough, but I still think we don't need one.
+>
+> -Barry
+>
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20090703/7e26be9d/attachment-0001.htm>
+
+From rdmurray at bitdance.com  Thu Jul  2 20:34:38 2009
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Thu, 2 Jul 2009 14:34:38 -0400 (EDT)
+Subject: [python-committers] Why r69846 is not merged
+	to	"release26-maint"?
+In-Reply-To: <e69d3ed20907020913m18e6acf4r64aeddd5559dc193@mail.gmail.com>
+References: <4A4CC6B6.90202@jcea.es>
+	<1afaf6160907020743r147c1e1fs7651e8ab68f6cc64@mail.gmail.com>
+	<e69d3ed20907020758o141cbc4fpf2c4d890433a391@mail.gmail.com>
+	<4A4CCF04.4050701@jcea.es>
+	<20090702152227.GL65921@nexus.in-nomine.org>
+	<e69d3ed20907020913m18e6acf4r64aeddd5559dc193@mail.gmail.com>
+Message-ID: <Pine.LNX.4.64.0907021431300.6306@kimball.webabinitio.net>
+
+On Fri, 3 Jul 2009 at 02:13, Anthony Baxter wrote:
+> The particulars of the revision control system don't matter as much as the
+> discipline of teaching people to commit fixes. Right now, we have 2.6.x,
+> 3.0.x and 3.1.x.
+
+No, we have 2.7, 2.6, 3.2, and 3.1.
+
+Using svnmerge to commit to three branches in addition to trunk
+is...painful.  Because of the (lack of) speed.
+
+--David
+
+From barry at python.org  Thu Jul  2 20:42:23 2009
+From: barry at python.org (Barry Warsaw)
+Date: Thu, 2 Jul 2009 14:42:23 -0400
+Subject: [python-committers] Why r69846 is not merged to
+	"release26-maint"?
+In-Reply-To: <e69d3ed20907021129j5e0096cfo4cc3c583acc08b9f@mail.gmail.com>
+References: <4A4CC6B6.90202@jcea.es>
+	<1afaf6160907020743r147c1e1fs7651e8ab68f6cc64@mail.gmail.com>
+	<e69d3ed20907020758o141cbc4fpf2c4d890433a391@mail.gmail.com>
+	<4A4CCF04.4050701@jcea.es>
+	<20090702152227.GL65921@nexus.in-nomine.org>
+	<e69d3ed20907020913m18e6acf4r64aeddd5559dc193@mail.gmail.com>
+	<bbaeab100907021056i6685a707hb41179ae28ea04b3@mail.gmail.com>
+	<0BD5AB60-E040-49D0-AC10-46C5FA003C67@python.org>
+	<e69d3ed20907021129j5e0096cfo4cc3c583acc08b9f@mail.gmail.com>
+Message-ID: <20F1835E-5BB0-4C86-AC65-373B3B52DDC3@python.org>
+
+On Jul 2, 2009, at 2:29 PM, Anthony Baxter wrote:
+
+> I think Barry should totally cut a completely pointless 3.0.2  
+> release. We
+> can call it the "homage to 1.6" release.
+
+We can code name it "Here Comes Another One" (guess that reference!)
+
+> <god-I've-been-involved-with-python-too-long/>
+
+too-much-monty-python-as-a-child-ly y'rs,
+-Barry
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: PGP.sig
+Type: application/pgp-signature
+Size: 832 bytes
+Desc: This is a digitally signed message part
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20090702/60a21772/attachment.pgp>
+
+From brett at python.org  Thu Jul  2 20:43:48 2009
+From: brett at python.org (Brett Cannon)
+Date: Thu, 2 Jul 2009 11:43:48 -0700
+Subject: [python-committers] Why r69846 is not merged to
+	"release26-maint"?
+In-Reply-To: <20F1835E-5BB0-4C86-AC65-373B3B52DDC3@python.org>
+References: <4A4CC6B6.90202@jcea.es>
+	<1afaf6160907020743r147c1e1fs7651e8ab68f6cc64@mail.gmail.com> 
+	<e69d3ed20907020758o141cbc4fpf2c4d890433a391@mail.gmail.com> 
+	<4A4CCF04.4050701@jcea.es> <20090702152227.GL65921@nexus.in-nomine.org>
+	<e69d3ed20907020913m18e6acf4r64aeddd5559dc193@mail.gmail.com> 
+	<bbaeab100907021056i6685a707hb41179ae28ea04b3@mail.gmail.com> 
+	<0BD5AB60-E040-49D0-AC10-46C5FA003C67@python.org>
+	<e69d3ed20907021129j5e0096cfo4cc3c583acc08b9f@mail.gmail.com> 
+	<20F1835E-5BB0-4C86-AC65-373B3B52DDC3@python.org>
+Message-ID: <bbaeab100907021143x62454691p41384bec9c93797b@mail.gmail.com>
+
+On Thu, Jul 2, 2009 at 11:42, Barry Warsaw <barry at python.org> wrote:
+
+> On Jul 2, 2009, at 2:29 PM, Anthony Baxter wrote:
+>
+>  I think Barry should totally cut a completely pointless 3.0.2 release. We
+>> can call it the "homage to 1.6" release.
+>>
+>
+> We can code name it "Here Comes Another One" (guess that reference!)
+>
+>  <god-I've-been-involved-with-python-too-long/>
+>>
+>
+> too-much-monty-python-as-a-child-ly y'rs
+
+
+Considering Georg just discovered Fawlty Towers I think we might need to
+have required British humour training for all core committers.
+
+-Brett
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20090702/8e1abc61/attachment.htm>
+
+From amk at amk.ca  Thu Jul  2 20:46:42 2009
+From: amk at amk.ca (A.M. Kuchling)
+Date: Thu, 2 Jul 2009 14:46:42 -0400
+Subject: [python-committers] Why r69846 is not merged
+	to	"release26-maint"?
+In-Reply-To: <Pine.LNX.4.64.0907021431300.6306@kimball.webabinitio.net>
+References: <4A4CC6B6.90202@jcea.es>
+	<1afaf6160907020743r147c1e1fs7651e8ab68f6cc64@mail.gmail.com>
+	<e69d3ed20907020758o141cbc4fpf2c4d890433a391@mail.gmail.com>
+	<4A4CCF04.4050701@jcea.es>
+	<20090702152227.GL65921@nexus.in-nomine.org>
+	<e69d3ed20907020913m18e6acf4r64aeddd5559dc193@mail.gmail.com>
+	<Pine.LNX.4.64.0907021431300.6306@kimball.webabinitio.net>
+Message-ID: <20090702184642.GA12354@amk-desktop.matrixgroup.net>
+
+On Thu, Jul 02, 2009 at 02:34:38PM -0400, R. David Murray wrote:
+> On Fri, 3 Jul 2009 at 02:13, Anthony Baxter wrote:
+> Using svnmerge to commit to three branches in addition to trunk
+> is...painful.  Because of the (lack of) speed.
+
+Should we push the Mercurial transition higher on the priority list,
+then?
+
+--amk
+
+From rdmurray at bitdance.com  Thu Jul  2 20:56:17 2009
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Thu, 2 Jul 2009 14:56:17 -0400 (EDT)
+Subject: [python-committers] Why r69846 is not merged to
+	"release26-maint"?
+In-Reply-To: <bbaeab100907021143x62454691p41384bec9c93797b@mail.gmail.com>
+References: <4A4CC6B6.90202@jcea.es>
+	<1afaf6160907020743r147c1e1fs7651e8ab68f6cc64@mail.gmail.com>
+	<e69d3ed20907020758o141cbc4fpf2c4d890433a391@mail.gmail.com> 
+	<4A4CCF04.4050701@jcea.es> <20090702152227.GL65921@nexus.in-nomine.org>
+	<e69d3ed20907020913m18e6acf4r64aeddd5559dc193@mail.gmail.com> 
+	<bbaeab100907021056i6685a707hb41179ae28ea04b3@mail.gmail.com> 
+	<0BD5AB60-E040-49D0-AC10-46C5FA003C67@python.org>
+	<e69d3ed20907021129j5e0096cfo4cc3c583acc08b9f@mail.gmail.com> 
+	<20F1835E-5BB0-4C86-AC65-373B3B52DDC3@python.org>
+	<bbaeab100907021143x62454691p41384bec9c93797b@mail.gmail.com>
+Message-ID: <Pine.LNX.4.64.0907021450360.6306@kimball.webabinitio.net>
+
+On Thu, 2 Jul 2009 at 11:43, Brett Cannon wrote:
+> On Thu, Jul 2, 2009 at 11:42, Barry Warsaw <barry at python.org> wrote:
+>
+>> On Jul 2, 2009, at 2:29 PM, Anthony Baxter wrote:
+>>
+>>  I think Barry should totally cut a completely pointless 3.0.2 release. We
+>>> can call it the "homage to 1.6" release.
+>>>
+>>
+>> We can code name it "Here Comes Another One" (guess that reference!)
+>>
+>>  <god-I've-been-involved-with-python-too-long/>
+>>>
+>>
+>> too-much-monty-python-as-a-child-ly y'rs
+>
+>
+> Considering Georg just discovered Fawlty Towers I think we might need to
+> have required British humour training for all core committers.
+
+I can see it now...the TV and movie track at PyCon 2010,
+with attendance mandatory for anyone wanting to participate
+in the Core sprint...
+
+--David
+
+From brett at python.org  Thu Jul  2 21:03:03 2009
+From: brett at python.org (Brett Cannon)
+Date: Thu, 2 Jul 2009 12:03:03 -0700
+Subject: [python-committers] Why r69846 is not merged to
+	"release26-maint"?
+In-Reply-To: <20090702184642.GA12354@amk-desktop.matrixgroup.net>
+References: <4A4CC6B6.90202@jcea.es>
+	<1afaf6160907020743r147c1e1fs7651e8ab68f6cc64@mail.gmail.com> 
+	<e69d3ed20907020758o141cbc4fpf2c4d890433a391@mail.gmail.com> 
+	<4A4CCF04.4050701@jcea.es> <20090702152227.GL65921@nexus.in-nomine.org>
+	<e69d3ed20907020913m18e6acf4r64aeddd5559dc193@mail.gmail.com> 
+	<Pine.LNX.4.64.0907021431300.6306@kimball.webabinitio.net> 
+	<20090702184642.GA12354@amk-desktop.matrixgroup.net>
+Message-ID: <bbaeab100907021203k6ba9ab2cy698126de1639292c@mail.gmail.com>
+
+On Thu, Jul 2, 2009 at 11:46, A.M. Kuchling <amk at amk.ca> wrote:
+
+> On Thu, Jul 02, 2009 at 02:34:38PM -0400, R. David Murray wrote:
+> > On Fri, 3 Jul 2009 at 02:13, Anthony Baxter wrote:
+> > Using svnmerge to commit to three branches in addition to trunk
+> > is...painful.  Because of the (lack of) speed.
+>
+> Should we push the Mercurial transition higher on the priority list,
+> then?
+
+
+I thought it was already high on the priority list and that Dirkjan was
+actively working on the transition.
+
+-Brett
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20090702/c0a8feba/attachment.htm>
+
+From goodger at python.org  Thu Jul  2 21:03:54 2009
+From: goodger at python.org (David Goodger)
+Date: Thu, 2 Jul 2009 15:03:54 -0400
+Subject: [python-committers] Why r69846 is not merged to
+	"release26-maint"?
+In-Reply-To: <Pine.LNX.4.64.0907021450360.6306@kimball.webabinitio.net>
+References: <4A4CC6B6.90202@jcea.es> <4A4CCF04.4050701@jcea.es> 
+	<20090702152227.GL65921@nexus.in-nomine.org>
+	<e69d3ed20907020913m18e6acf4r64aeddd5559dc193@mail.gmail.com> 
+	<bbaeab100907021056i6685a707hb41179ae28ea04b3@mail.gmail.com> 
+	<0BD5AB60-E040-49D0-AC10-46C5FA003C67@python.org>
+	<e69d3ed20907021129j5e0096cfo4cc3c583acc08b9f@mail.gmail.com> 
+	<20F1835E-5BB0-4C86-AC65-373B3B52DDC3@python.org>
+	<bbaeab100907021143x62454691p41384bec9c93797b@mail.gmail.com> 
+	<Pine.LNX.4.64.0907021450360.6306@kimball.webabinitio.net>
+Message-ID: <4335d2c40907021203m3421125dsa3b5cc1bacd7b62b@mail.gmail.com>
+
+On Thu, Jul 2, 2009 at 14:56, R. David Murray<rdmurray at bitdance.com> wrote:
+> I can see it now...the TV and movie track at PyCon 2010,
+> with attendance mandatory for anyone wanting to participate
+> in the Core sprint...
+
+We actually had a room or two for evening videos at a PyCon (both?) in
+Dallas. Somebody brought the boxed set of the Flying Circus show and
+had it running. I fondly recall processing email while chuckling...
+
+It wasn't very well attended though.
+
+-- 
+David Goodger <http://python.net/~goodger>
+
+From martin at v.loewis.de  Thu Jul  2 21:04:34 2009
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Thu, 02 Jul 2009 21:04:34 +0200
+Subject: [python-committers] Why r69846 is not
+	merged	to	"release26-maint"?
+In-Reply-To: <20090702184642.GA12354@amk-desktop.matrixgroup.net>
+References: <4A4CC6B6.90202@jcea.es>	<1afaf6160907020743r147c1e1fs7651e8ab68f6cc64@mail.gmail.com>	<e69d3ed20907020758o141cbc4fpf2c4d890433a391@mail.gmail.com>	<4A4CCF04.4050701@jcea.es>	<20090702152227.GL65921@nexus.in-nomine.org>	<e69d3ed20907020913m18e6acf4r64aeddd5559dc193@mail.gmail.com>	<Pine.LNX.4.64.0907021431300.6306@kimball.webabinitio.net>
+	<20090702184642.GA12354@amk-desktop.matrixgroup.net>
+Message-ID: <4A4D04C2.4010601@v.loewis.de>
+
+>> Using svnmerge to commit to three branches in addition to trunk
+>> is...painful.  Because of the (lack of) speed.
+> 
+> Should we push the Mercurial transition higher on the priority list,
+> then?
+
+That's one of the typical "we" questions... Currently, there is a single
+person working on that transition, so progress is naturally slow.
+
+Regards,
+Martin
+
+From martin at v.loewis.de  Thu Jul  2 21:01:35 2009
+From: martin at v.loewis.de (=?UTF-8?B?Ik1hcnRpbiB2LiBMw7Z3aXMi?=)
+Date: Thu, 02 Jul 2009 21:01:35 +0200
+Subject: [python-committers] Why r69846 is not merged
+	to	"release26-maint"?
+In-Reply-To: <bbaeab100907021056i6685a707hb41179ae28ea04b3@mail.gmail.com>
+References: <4A4CC6B6.90202@jcea.es>	<1afaf6160907020743r147c1e1fs7651e8ab68f6cc64@mail.gmail.com>
+	<e69d3ed20907020758o141cbc4fpf2c4d890433a391@mail.gmail.com>
+	<4A4CCF04.4050701@jcea.es>
+	<20090702152227.GL65921@nexus.in-nomine.org>	<e69d3ed20907020913m18e6acf4r64aeddd5559dc193@mail.gmail.com>
+	<bbaeab100907021056i6685a707hb41179ae28ea04b3@mail.gmail.com>
+Message-ID: <4A4D040F.3060702@v.loewis.de>
+
+>     The particulars of the revision control system don't matter as much
+>     as the discipline of teaching people to commit fixes. Right now, we
+>     have 2.6.x, 3.0.x and 3.1.x. 
+> 
+> 
+> If I remember correctly I believe we decided at the language summit that
+> 3.0 is just dead now that 3.1 is out and we shouldn't even bother with
+> another point release since 3.1 followed 3.0 so closely and didn't
+> introduce any new syntax or tweak semantics.
+
+Unfortunately, that decision was never communicated to the committers,
+or, for that matter, to people present at the language summit :-(
+
+So people have continued to merge to 3.0. I think they deserve a 3.0.2
+release.
+
+Regards,
+Martin
+
+From brett at python.org  Thu Jul  2 22:09:49 2009
+From: brett at python.org (Brett Cannon)
+Date: Thu, 2 Jul 2009 13:09:49 -0700
+Subject: [python-committers] Why r69846 is not merged to
+	"release26-maint"?
+In-Reply-To: <4A4D040F.3060702@v.loewis.de>
+References: <4A4CC6B6.90202@jcea.es>
+	<1afaf6160907020743r147c1e1fs7651e8ab68f6cc64@mail.gmail.com> 
+	<e69d3ed20907020758o141cbc4fpf2c4d890433a391@mail.gmail.com> 
+	<4A4CCF04.4050701@jcea.es> <20090702152227.GL65921@nexus.in-nomine.org>
+	<e69d3ed20907020913m18e6acf4r64aeddd5559dc193@mail.gmail.com> 
+	<bbaeab100907021056i6685a707hb41179ae28ea04b3@mail.gmail.com> 
+	<4A4D040F.3060702@v.loewis.de>
+Message-ID: <bbaeab100907021309x755df140r607c2eb515fd3597@mail.gmail.com>
+
+On Thu, Jul 2, 2009 at 12:01, "Martin v. L?wis" <martin at v.loewis.de> wrote:
+
+> >     The particulars of the revision control system don't matter as much
+> >     as the discipline of teaching people to commit fixes. Right now, we
+> >     have 2.6.x, 3.0.x and 3.1.x.
+> >
+> >
+> > If I remember correctly I believe we decided at the language summit that
+> > 3.0 is just dead now that 3.1 is out and we shouldn't even bother with
+> > another point release since 3.1 followed 3.0 so closely and didn't
+> > introduce any new syntax or tweak semantics.
+>
+> Unfortunately, that decision was never communicated to the committers,
+> or, for that matter, to people present at the language summit :-(
+>
+
+Sorry about that.
+
+
+>
+> So people have continued to merge to 3.0. I think they deserve a 3.0.2
+> release.
+
+
+If Barry is up for it I am not against it, but if we do go with it I think
+it should be a quickie release and then retire 3.0.x completely.
+
+-Brett
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20090702/c4e3389e/attachment.htm>
+
+From barry at python.org  Thu Jul  2 22:19:29 2009
+From: barry at python.org (Barry Warsaw)
+Date: Thu, 2 Jul 2009 16:19:29 -0400
+Subject: [python-committers] Why r69846 is not merged to
+	"release26-maint"?
+In-Reply-To: <bbaeab100907021309x755df140r607c2eb515fd3597@mail.gmail.com>
+References: <4A4CC6B6.90202@jcea.es>
+	<1afaf6160907020743r147c1e1fs7651e8ab68f6cc64@mail.gmail.com>
+	<e69d3ed20907020758o141cbc4fpf2c4d890433a391@mail.gmail.com>
+	<4A4CCF04.4050701@jcea.es>
+	<20090702152227.GL65921@nexus.in-nomine.org>
+	<e69d3ed20907020913m18e6acf4r64aeddd5559dc193@mail.gmail.com>
+	<bbaeab100907021056i6685a707hb41179ae28ea04b3@mail.gmail.com>
+	<4A4D040F.3060702@v.loewis.de>
+	<bbaeab100907021309x755df140r607c2eb515fd3597@mail.gmail.com>
+Message-ID: <C8448202-DD24-4A1A-BB47-83705796811E@python.org>
+
+On Jul 2, 2009, at 4:09 PM, Brett Cannon wrote:
+
+> If Barry is up for it I am not against it, but if we do go with it I  
+> think it should be a quickie release and then retire 3.0.x completely.
+
+It's not difficult to actually cut the release.  What is a pain is  
+managing all the bugs leading up to it.  If we announce that we're  
+going to do a 3.0.2, people who thought 3.0 was dead may ask for their  
+favorite bug fix to be backported, etc.
+
+If we're going to do one, then we'll need to schedule it and give  
+people a chance to actually commit to it for a few weeks.  We may even  
+need to do release candidates.
+
+TBH, I'm not sure there's enough interest in doing it.  We're not  
+recommending people actually /use/ 3.0, and I know for one data point  
+that Ubuntu doesn't care.
+
+-Barry
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: PGP.sig
+Type: application/pgp-signature
+Size: 832 bytes
+Desc: This is a digitally signed message part
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20090702/fb948868/attachment.pgp>
+
+From martin at v.loewis.de  Thu Jul  2 22:47:34 2009
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Thu, 02 Jul 2009 22:47:34 +0200
+Subject: [python-committers] Why r69846 is not merged to
+	"release26-maint"?
+In-Reply-To: <C8448202-DD24-4A1A-BB47-83705796811E@python.org>
+References: <4A4CC6B6.90202@jcea.es>
+	<1afaf6160907020743r147c1e1fs7651e8ab68f6cc64@mail.gmail.com>
+	<e69d3ed20907020758o141cbc4fpf2c4d890433a391@mail.gmail.com>
+	<4A4CCF04.4050701@jcea.es>
+	<20090702152227.GL65921@nexus.in-nomine.org>
+	<e69d3ed20907020913m18e6acf4r64aeddd5559dc193@mail.gmail.com>
+	<bbaeab100907021056i6685a707hb41179ae28ea04b3@mail.gmail.com>
+	<4A4D040F.3060702@v.loewis.de>
+	<bbaeab100907021309x755df140r607c2eb515fd3597@mail.gmail.com>
+	<C8448202-DD24-4A1A-BB47-83705796811E@python.org>
+Message-ID: <4A4D1CE6.4080005@v.loewis.de>
+
+> TBH, I'm not sure there's enough interest in doing it.
+
+Then announce, to the widest public possible, that there will not
+be a 3.0.2 release ever. It's just that the status quo is unsatisfying.
+
+Regards,
+Martin
+
+From dickinsm at gmail.com  Thu Jul  2 22:49:06 2009
+From: dickinsm at gmail.com (Mark Dickinson)
+Date: Thu, 2 Jul 2009 21:49:06 +0100
+Subject: [python-committers] Why r69846 is not merged to
+	"release26-maint"?
+In-Reply-To: <4A4D040F.3060702@v.loewis.de>
+References: <4A4CC6B6.90202@jcea.es>
+	<1afaf6160907020743r147c1e1fs7651e8ab68f6cc64@mail.gmail.com>
+	<e69d3ed20907020758o141cbc4fpf2c4d890433a391@mail.gmail.com>
+	<4A4CCF04.4050701@jcea.es>
+	<20090702152227.GL65921@nexus.in-nomine.org>
+	<e69d3ed20907020913m18e6acf4r64aeddd5559dc193@mail.gmail.com>
+	<bbaeab100907021056i6685a707hb41179ae28ea04b3@mail.gmail.com>
+	<4A4D040F.3060702@v.loewis.de>
+Message-ID: <5c6f2a5d0907021349w4a5522c7j94271d48b1ac9b83@mail.gmail.com>
+
+On Thu, Jul 2, 2009 at 8:01 PM, "Martin v. L?wis"<martin at v.loewis.de> wrote:
+> [Brett]
+>> If I remember correctly I believe we decided at the language summit that
+>> 3.0 is just dead now that 3.1 is out and we shouldn't even bother with
+>> another point release since 3.1 followed 3.0 so closely and didn't
+>> introduce any new syntax or tweak semantics.
+>
+> Unfortunately, that decision was never communicated to the committers,
+> or, for that matter, to people present at the language summit :-(
+>
+> So people have continued to merge to 3.0. I think they deserve a 3.0.2
+> release.
+
+Speaking as one of the people who occasionally remembers to backport
+to 3.0 (though clearly I failed with r69846), it wouldn't bother me at all
+if there were no 3.0.2.  I can't speak for any of the other backporters, of
+course.
+
+I'm not really sure who 3.0.2 would be useful for.
+
+Mark
+
+From ncoghlan at gmail.com  Thu Jul  2 23:13:03 2009
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Fri, 03 Jul 2009 07:13:03 +1000
+Subject: [python-committers] Why r69846 is not merged
+	to	"release26-maint"?
+In-Reply-To: <5c6f2a5d0907021349w4a5522c7j94271d48b1ac9b83@mail.gmail.com>
+References: <4A4CC6B6.90202@jcea.es>	<1afaf6160907020743r147c1e1fs7651e8ab68f6cc64@mail.gmail.com>	<e69d3ed20907020758o141cbc4fpf2c4d890433a391@mail.gmail.com>	<4A4CCF04.4050701@jcea.es>	<20090702152227.GL65921@nexus.in-nomine.org>	<e69d3ed20907020913m18e6acf4r64aeddd5559dc193@mail.gmail.com>	<bbaeab100907021056i6685a707hb41179ae28ea04b3@mail.gmail.com>	<4A4D040F.3060702@v.loewis.de>
+	<5c6f2a5d0907021349w4a5522c7j94271d48b1ac9b83@mail.gmail.com>
+Message-ID: <4A4D22DF.6080203@gmail.com>
+
+Mark Dickinson wrote:
+> Speaking as one of the people who occasionally remembers to backport
+> to 3.0 (though clearly I failed with r69846), it wouldn't bother me at all
+> if there were no 3.0.2.  I can't speak for any of the other backporters, of
+> course.
+> 
+> I'm not really sure who 3.0.2 would be useful for.
+
+I agree with what Mark has said above (it also means I can just svn
+switch my 3.0 checkout to 3.1 rather than adding a 5th local working copy).
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+---------------------------------------------------------------
+
+From python at rcn.com  Fri Jul  3 00:21:19 2009
+From: python at rcn.com (Raymond Hettinger)
+Date: Thu, 2 Jul 2009 15:21:19 -0700
+Subject: [python-committers] Why r69846 is not merged
+	to"release26-maint"?
+References: <4A4CC6B6.90202@jcea.es><1afaf6160907020743r147c1e1fs7651e8ab68f6cc64@mail.gmail.com>
+	<e69d3ed20907020758o141cbc4fpf2c4d890433a391@mail.gmail.com>
+	<4A4CCF04.4050701@jcea.es>
+	<20090702152227.GL65921@nexus.in-nomine.org><e69d3ed20907020913m18e6acf4r64aeddd5559dc193@mail.gmail.com>
+	<bbaeab100907021056i6685a707hb41179ae28ea04b3@mail.gmail.com>
+	<4A4D040F.3060702@v.loewis.de>
+	<bbaeab100907021309x755df140r607c2eb515fd3597@mail.gmail.com>
+Message-ID: <C37143DBFB2A4805A6D3EAE4128012B1@RaymondLaptop1>
+
+
+> So people have continued to merge to 3.0. I think they deserve a 3.0.2 release.
+
+I'm one of those people who have backported fixes to 3.0, but I do not want
+a 3.0.2 to go out now thet 3.1 has been released.  The latest version should
+not get upstaged.  Essentially, 3.1 is what 3.0.x should have been.  The 3.0.x series 
+is defective and needs to die-off and be forgotten.
+
+So, not only would 3.0.2 be a waste of Barry's time, it would be a step backwards.
+A while ago, Barry said that 3.0.2 would not happen, so at that point several of
+us stopped backporting fixes.  So, 3.0.2 still has known bugs and I think it would 
+be a mistake to release it.
+
+
+Raymond
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20090702/6234e74d/attachment.htm>
+
+From brett at python.org  Fri Jul  3 00:23:57 2009
+From: brett at python.org (Brett Cannon)
+Date: Thu, 2 Jul 2009 15:23:57 -0700
+Subject: [python-committers] Why r69846 is not merged
+	to"release26-maint"?
+In-Reply-To: <C37143DBFB2A4805A6D3EAE4128012B1@RaymondLaptop1>
+References: <4A4CC6B6.90202@jcea.es>
+	<1afaf6160907020743r147c1e1fs7651e8ab68f6cc64@mail.gmail.com> 
+	<e69d3ed20907020758o141cbc4fpf2c4d890433a391@mail.gmail.com> 
+	<4A4CCF04.4050701@jcea.es> <20090702152227.GL65921@nexus.in-nomine.org>
+	<e69d3ed20907020913m18e6acf4r64aeddd5559dc193@mail.gmail.com> 
+	<bbaeab100907021056i6685a707hb41179ae28ea04b3@mail.gmail.com> 
+	<4A4D040F.3060702@v.loewis.de>
+	<bbaeab100907021309x755df140r607c2eb515fd3597@mail.gmail.com> 
+	<C37143DBFB2A4805A6D3EAE4128012B1@RaymondLaptop1>
+Message-ID: <bbaeab100907021523y5c013b6ch705d28aea86200e1@mail.gmail.com>
+
+On Thu, Jul 2, 2009 at 15:21, Raymond Hettinger <python at rcn.com> wrote:
+
+>
+> > So people have continued to merge to 3.0. I think they deserve a 3.0.2
+> release.
+>
+> I'm one of those people who have backported fixes to 3.0, but I do not want
+> a 3.0.2 to go out now thet 3.1 has been released.  The latest version
+> should
+> not get upstaged.  Essentially, 3.1 is what 3.0.x should have been.  The
+> 3.0.x series
+> is defective and needs to die-off and be forgotten.
+>
+> So, not only would 3.0.2 be a waste of Barry's time, it would be a step
+> backwards.
+> A while ago, Barry said that 3.0.2 would not happen, so at that point
+> several of
+> us stopped backporting fixes.  So, 3.0.2 still has known bugs and I think
+> it would
+> be a mistake to release it.
+>
+
+Sounds like general consensus that 3.0.2 isn't worth it. Is an announcement
+on c.l.p.a and something on www.python.org enough to get the word out that
+3.0.2 is not going to happen and 3.0 users should migrate to 3.1?
+
+-Brett
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20090702/3d5812b8/attachment.htm>
+
+From barry at python.org  Fri Jul  3 00:26:44 2009
+From: barry at python.org (Barry Warsaw)
+Date: Thu, 2 Jul 2009 18:26:44 -0400
+Subject: [python-committers] Why r69846 is not merged
+	to"release26-maint"?
+In-Reply-To: <bbaeab100907021523y5c013b6ch705d28aea86200e1@mail.gmail.com>
+References: <4A4CC6B6.90202@jcea.es>
+	<1afaf6160907020743r147c1e1fs7651e8ab68f6cc64@mail.gmail.com>
+	<e69d3ed20907020758o141cbc4fpf2c4d890433a391@mail.gmail.com>
+	<4A4CCF04.4050701@jcea.es>
+	<20090702152227.GL65921@nexus.in-nomine.org>
+	<e69d3ed20907020913m18e6acf4r64aeddd5559dc193@mail.gmail.com>
+	<bbaeab100907021056i6685a707hb41179ae28ea04b3@mail.gmail.com>
+	<4A4D040F.3060702@v.loewis.de>
+	<bbaeab100907021309x755df140r607c2eb515fd3597@mail.gmail.com>
+	<C37143DBFB2A4805A6D3EAE4128012B1@RaymondLaptop1>
+	<bbaeab100907021523y5c013b6ch705d28aea86200e1@mail.gmail.com>
+Message-ID: <AD6239DD-33A8-458C-BD48-3274B2955F26@python.org>
+
+On Jul 2, 2009, at 6:23 PM, Brett Cannon wrote:
+
+> Sounds like general consensus that 3.0.2 isn't worth it. Is an  
+> announcement on c.l.p.a and something on www.python.org enough to  
+> get the word out that 3.0.2 is not going to happen and 3.0 users  
+> should migrate to 3.1?
+
+I will announce this to py-list, py-ann, and update the 3.0 download  
+pages.
+
+There will be no 3.0.2.
+-Barry
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: PGP.sig
+Type: application/pgp-signature
+Size: 832 bytes
+Desc: This is a digitally signed message part
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20090702/480c3f57/attachment.pgp>
+
+From rdmurray at bitdance.com  Fri Jul  3 00:35:45 2009
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Thu, 2 Jul 2009 18:35:45 -0400 (EDT)
+Subject: [python-committers] Why r69846 is not
+	merged	to"release26-maint"?
+In-Reply-To: <AD6239DD-33A8-458C-BD48-3274B2955F26@python.org>
+References: <4A4CC6B6.90202@jcea.es>
+	<1afaf6160907020743r147c1e1fs7651e8ab68f6cc64@mail.gmail.com>
+	<e69d3ed20907020758o141cbc4fpf2c4d890433a391@mail.gmail.com>
+	<4A4CCF04.4050701@jcea.es>
+	<20090702152227.GL65921@nexus.in-nomine.org>
+	<e69d3ed20907020913m18e6acf4r64aeddd5559dc193@mail.gmail.com>
+	<bbaeab100907021056i6685a707hb41179ae28ea04b3@mail.gmail.com>
+	<4A4D040F.3060702@v.loewis.de>
+	<bbaeab100907021309x755df140r607c2eb515fd3597@mail.gmail.com>
+	<C37143DBFB2A4805A6D3EAE4128012B1@RaymondLaptop1>
+	<bbaeab100907021523y5c013b6ch705d28aea86200e1@mail.gmail.com>
+	<AD6239DD-33A8-458C-BD48-3274B2955F26@python.org>
+Message-ID: <Pine.LNX.4.64.0907021834390.6306@kimball.webabinitio.net>
+
+On Thu, 2 Jul 2009 at 18:26, Barry Warsaw wrote:
+> On Jul 2, 2009, at 6:23 PM, Brett Cannon wrote:
+>
+>> Sounds like general consensus that 3.0.2 isn't worth it. Is an announcement 
+>> on c.l.p.a and something on www.python.org enough to get the word out that 
+>> 3.0.2 is not going to happen and 3.0 users should migrate to 3.1?
+>
+> I will announce this to py-list, py-ann, and update the 3.0 download pages.
+>
+> There will be no 3.0.2.
+
++1
+
+(I'm one of the other people who was backporting things until recently.)
+
+--David
+
+From christian at cheimes.de  Fri Jul  3 01:14:28 2009
+From: christian at cheimes.de (Christian Heimes)
+Date: Fri, 03 Jul 2009 01:14:28 +0200
+Subject: [python-committers] Why r69846 is not
+	merged	to"release26-maint"?
+In-Reply-To: <AD6239DD-33A8-458C-BD48-3274B2955F26@python.org>
+References: <4A4CC6B6.90202@jcea.es>	<1afaf6160907020743r147c1e1fs7651e8ab68f6cc64@mail.gmail.com>	<e69d3ed20907020758o141cbc4fpf2c4d890433a391@mail.gmail.com>	<4A4CCF04.4050701@jcea.es>	<20090702152227.GL65921@nexus.in-nomine.org>	<e69d3ed20907020913m18e6acf4r64aeddd5559dc193@mail.gmail.com>	<bbaeab100907021056i6685a707hb41179ae28ea04b3@mail.gmail.com>	<4A4D040F.3060702@v.loewis.de>	<bbaeab100907021309x755df140r607c2eb515fd3597@mail.gmail.com>	<C37143DBFB2A4805A6D3EAE4128012B1@RaymondLaptop1>	<bbaeab100907021523y5c013b6ch705d28aea86200e1@mail.gmail.com>
+	<AD6239DD-33A8-458C-BD48-3274B2955F26@python.org>
+Message-ID: <4A4D3F54.7090606@cheimes.de>
+
+Barry Warsaw wrote:
+> I will announce this to py-list, py-ann, and update the 3.0 download pages.
+> 
+> There will be no 3.0.2.
+
++1 for your decision.
+
+Are there any known incompatibilities that could break a Python 3.0
+script on 3.1?
+
+From benjamin at python.org  Fri Jul  3 01:30:39 2009
+From: benjamin at python.org (Benjamin Peterson)
+Date: Thu, 2 Jul 2009 18:30:39 -0500
+Subject: [python-committers] Why r69846 is not merged
+	to"release26-maint"?
+In-Reply-To: <4A4D3F54.7090606@cheimes.de>
+References: <4A4CC6B6.90202@jcea.es>
+	<20090702152227.GL65921@nexus.in-nomine.org>
+	<e69d3ed20907020913m18e6acf4r64aeddd5559dc193@mail.gmail.com>
+	<bbaeab100907021056i6685a707hb41179ae28ea04b3@mail.gmail.com>
+	<4A4D040F.3060702@v.loewis.de>
+	<bbaeab100907021309x755df140r607c2eb515fd3597@mail.gmail.com>
+	<C37143DBFB2A4805A6D3EAE4128012B1@RaymondLaptop1>
+	<bbaeab100907021523y5c013b6ch705d28aea86200e1@mail.gmail.com>
+	<AD6239DD-33A8-458C-BD48-3274B2955F26@python.org>
+	<4A4D3F54.7090606@cheimes.de>
+Message-ID: <1afaf6160907021630j35a53750lafe731ec1161c51e@mail.gmail.com>
+
+2009/7/2 Christian Heimes <christian at cheimes.de>:
+> Barry Warsaw wrote:
+>> I will announce this to py-list, py-ann, and update the 3.0 download pages.
+>>
+>> There will be no 3.0.2.
+>
+> +1 for your decision.
+>
+> Are there any known incompatibilities that could break a Python 3.0
+> script on 3.1?
+
+This is the short list:
+http://docs.python.org/dev/py3k/whatsnew/3.1.html#porting-to-python-3-1
+
+I'm sure there's a variety of py3k transition problem fixes that break
+strict compatibility, though.
+
+
+
+-- 
+Regards,
+Benjamin
+
+From steve at holdenweb.com  Fri Jul  3 02:56:13 2009
+From: steve at holdenweb.com (Steve Holden)
+Date: Thu, 02 Jul 2009 20:56:13 -0400
+Subject: [python-committers] Why r69846 is not merged
+	to	"release26-maint"?
+In-Reply-To: <bbaeab100907021143x62454691p41384bec9c93797b@mail.gmail.com>
+References: <4A4CC6B6.90202@jcea.es>	<1afaf6160907020743r147c1e1fs7651e8ab68f6cc64@mail.gmail.com>
+	<e69d3ed20907020758o141cbc4fpf2c4d890433a391@mail.gmail.com>
+	<4A4CCF04.4050701@jcea.es>
+	<20090702152227.GL65921@nexus.in-nomine.org>	<e69d3ed20907020913m18e6acf4r64aeddd5559dc193@mail.gmail.com>
+	<bbaeab100907021056i6685a707hb41179ae28ea04b3@mail.gmail.com>
+	<0BD5AB60-E040-49D0-AC10-46C5FA003C67@python.org>	<e69d3ed20907021129j5e0096cfo4cc3c583acc08b9f@mail.gmail.com>
+	<20F1835E-5BB0-4C86-AC65-373B3B52DDC3@python.org>
+	<bbaeab100907021143x62454691p41384bec9c93797b@mail.gmail.com>
+Message-ID: <4A4D572D.6030301@holdenweb.com>
+
+Brett Cannon wrote:
+> 
+> 
+> On Thu, Jul 2, 2009 at 11:42, Barry Warsaw <barry at python.org
+> <mailto:barry at python.org>> wrote:
+> 
+>     On Jul 2, 2009, at 2:29 PM, Anthony Baxter wrote:
+> 
+>         I think Barry should totally cut a completely pointless 3.0.2
+>         release. We
+>         can call it the "homage to 1.6" release.
+> 
+> 
+>     We can code name it "Here Comes Another One" (guess that reference!)
+> 
+> 
+>         <god-I've-been-involved-with-python-too-long/>
+> 
+> 
+>     too-much-monty-python-as-a-child-ly y'rs
+> 
+> 
+> Considering Georg just discovered Fawlty Towers I think we might need to
+> have required British humour training for all core committers.
+> 
+It was kind of thrust in our faces at the EuroPython meeting this week.
+At dinner the table I was sitting on was entitled "Ministry of Silly
+Walks". If ever there's a Python certification it should definitely
+involve knowing *something* about that series ;-)
+
+regards
+ Steve
+-- 
+Steve Holden           +1 571 484 6266   +1 800 494 3119
+Holden Web LLC                 http://www.holdenweb.com/
+Watch PyCon on video now!          http://pycon.blip.tv/
+
+
+From steve at holdenweb.com  Fri Jul  3 02:59:59 2009
+From: steve at holdenweb.com (Steve Holden)
+Date: Thu, 02 Jul 2009 20:59:59 -0400
+Subject: [python-committers] Why r69846 is not
+	merged	to"release26-maint"?
+In-Reply-To: <C37143DBFB2A4805A6D3EAE4128012B1@RaymondLaptop1>
+References: <4A4CC6B6.90202@jcea.es><1afaf6160907020743r147c1e1fs7651e8ab68f6cc64@mail.gmail.com>	<e69d3ed20907020758o141cbc4fpf2c4d890433a391@mail.gmail.com>	<4A4CCF04.4050701@jcea.es>	<20090702152227.GL65921@nexus.in-nomine.org><e69d3ed20907020913m18e6acf4r64aeddd5559dc193@mail.gmail.com>	<bbaeab100907021056i6685a707hb41179ae28ea04b3@mail.gmail.com>	<4A4D040F.3060702@v.loewis.de>	<bbaeab100907021309x755df140r607c2eb515fd3597@mail.gmail.com>
+	<C37143DBFB2A4805A6D3EAE4128012B1@RaymondLaptop1>
+Message-ID: <4A4D580F.1060500@holdenweb.com>
+
+Raymond Hettinger wrote:
+> 
+>> So people have continued to merge to 3.0. I think they deserve a 3.0.2
+> release.
+> 
+> I'm one of those people who have backported fixes to 3.0, but I do not want
+> a 3.0.2 to go out now thet 3.1 has been released.  The latest version should
+> not get upstaged.  Essentially, 3.1 is what 3.0.x should have been.  The
+> 3.0.x series
+> is defective and needs to die-off and be forgotten.
+>  
+> So, not only would 3.0.2 be a waste of Barry's time, it would be a step
+> backwards.
+> A while ago, Barry said that 3.0.2 would not happen, so at that point
+> several of
+> us stopped backporting fixes.  So, 3.0.2 still has known bugs and I
+> think it would
+> be a mistake to release it.
+>  
+>  
+
+Suggested text for press release:
+
+"""
+3.0 is dead. It is pushing up the daisies. It has ceased to be. It is no
+more. It has joined the choir invisible. It is an ex-release.
+"""
+
+regards
+ Steve
+-- 
+Steve Holden           +1 571 484 6266   +1 800 494 3119
+Holden Web LLC                 http://www.holdenweb.com/
+Watch PyCon on video now!          http://pycon.blip.tv/
+
+
+From ziade.tarek at gmail.com  Fri Jul  3 10:20:32 2009
+From: ziade.tarek at gmail.com (=?ISO-8859-1?Q?Tarek_Ziad=E9?=)
+Date: Fri, 3 Jul 2009 10:20:32 +0200
+Subject: [python-committers] Why r69846 is not merged
+	to"release26-maint"?
+In-Reply-To: <Pine.LNX.4.64.0907021834390.6306@kimball.webabinitio.net>
+References: <4A4CC6B6.90202@jcea.es>
+	<20090702152227.GL65921@nexus.in-nomine.org>
+	<e69d3ed20907020913m18e6acf4r64aeddd5559dc193@mail.gmail.com>
+	<bbaeab100907021056i6685a707hb41179ae28ea04b3@mail.gmail.com>
+	<4A4D040F.3060702@v.loewis.de>
+	<bbaeab100907021309x755df140r607c2eb515fd3597@mail.gmail.com>
+	<C37143DBFB2A4805A6D3EAE4128012B1@RaymondLaptop1>
+	<bbaeab100907021523y5c013b6ch705d28aea86200e1@mail.gmail.com>
+	<AD6239DD-33A8-458C-BD48-3274B2955F26@python.org>
+	<Pine.LNX.4.64.0907021834390.6306@kimball.webabinitio.net>
+Message-ID: <94bdd2610907030120p349e5cc5s675250dd57217d9e@mail.gmail.com>
+
+On Fri, Jul 3, 2009 at 12:35 AM, R. David Murray<rdmurray at bitdance.com> wrote:
+> On Thu, 2 Jul 2009 at 18:26, Barry Warsaw wrote:
+>>
+>> On Jul 2, 2009, at 6:23 PM, Brett Cannon wrote:
+>>
+>>> Sounds like general consensus that 3.0.2 isn't worth it. Is an
+>>> announcement on c.l.p.a and something on www.python.org enough to get the
+>>> word out that 3.0.2 is not going to happen and 3.0 users should migrate to
+>>> 3.1?
+>>
+>> I will announce this to py-list, py-ann, and update the 3.0 download
+>> pages.
+>>
+>> There will be no 3.0.2.
+>
+> +1
+>
+> (I'm one of the other people who was backporting things until recently.)
+
++1 too, looking forward to Mercurial too ;)
+
+
+Tarek
+
+From g.brandl at gmx.net  Fri Jul  3 11:54:28 2009
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Fri, 03 Jul 2009 11:54:28 +0200
+Subject: [python-committers] Why r69846 is not merged to
+	"release26-maint"?
+In-Reply-To: <4335d2c40907021203m3421125dsa3b5cc1bacd7b62b@mail.gmail.com>
+References: <4A4CC6B6.90202@jcea.es> <4A4CCF04.4050701@jcea.es>
+	<20090702152227.GL65921@nexus.in-nomine.org>	<e69d3ed20907020913m18e6acf4r64aeddd5559dc193@mail.gmail.com>
+	<bbaeab100907021056i6685a707hb41179ae28ea04b3@mail.gmail.com>
+	<0BD5AB60-E040-49D0-AC10-46C5FA003C67@python.org>	<e69d3ed20907021129j5e0096cfo4cc3c583acc08b9f@mail.gmail.com>
+	<20F1835E-5BB0-4C86-AC65-373B3B52DDC3@python.org>	<bbaeab100907021143x62454691p41384bec9c93797b@mail.gmail.com>
+	<Pine.LNX.4.64.0907021450360.6306@kimball.webabinitio.net>
+	<4335d2c40907021203m3421125dsa3b5cc1bacd7b62b@mail.gmail.com>
+Message-ID: <h2kkh6$7e2$1@ger.gmane.org>
+
+David Goodger schrieb:
+> On Thu, Jul 2, 2009 at 14:56, R. David Murray<rdmurray at bitdance.com> wrote:
+>> I can see it now...the TV and movie track at PyCon 2010,
+>> with attendance mandatory for anyone wanting to participate
+>> in the Core sprint...
+> 
+> We actually had a room or two for evening videos at a PyCon (both?) in
+> Dallas. Somebody brought the boxed set of the Flying Circus show and
+> had it running. I fondly recall processing email while chuckling...
+> 
+> It wasn't very well attended though.
+
+There is a slight chance that EuroPython 2011 might come to Germany --
+in this case, some kind of Monty Python showing must be arranged.  As
+you all know, we really can use the education.
+
+Georg
+
+-- 
+Thus spake the Lord: Thou shalt indent with four spaces. No more, no less.
+Four shall be the number of spaces thou shalt indent, and the number of thy
+indenting shall be four. Eight shalt thou not indent, nor either indent thou
+two, excepting that thou then proceed to four. Tabs are right out.
+
+
+From christian at cheimes.de  Fri Jul  3 12:18:17 2009
+From: christian at cheimes.de (Christian Heimes)
+Date: Fri, 03 Jul 2009 12:18:17 +0200
+Subject: [python-committers] Why r69846 is not merged
+	to	"release26-maint"?
+In-Reply-To: <h2kkh6$7e2$1@ger.gmane.org>
+References: <4A4CC6B6.90202@jcea.es>
+	<4A4CCF04.4050701@jcea.es>	<20090702152227.GL65921@nexus.in-nomine.org>	<e69d3ed20907020913m18e6acf4r64aeddd5559dc193@mail.gmail.com>	<bbaeab100907021056i6685a707hb41179ae28ea04b3@mail.gmail.com>	<0BD5AB60-E040-49D0-AC10-46C5FA003C67@python.org>	<e69d3ed20907021129j5e0096cfo4cc3c583acc08b9f@mail.gmail.com>	<20F1835E-5BB0-4C86-AC65-373B3B52DDC3@python.org>	<bbaeab100907021143x62454691p41384bec9c93797b@mail.gmail.com>	<Pine.LNX.4.64.0907021450360.6306@kimball.webabinitio.net>	<4335d2c40907021203m3421125dsa3b5cc1bacd7b62b@mail.gmail.com>
+	<h2kkh6$7e2$1@ger.gmane.org>
+Message-ID: <4A4DDAE9.4090600@cheimes.de>
+
+Georg Brandl schrieb:
+> David Goodger schrieb:
+>> On Thu, Jul 2, 2009 at 14:56, R. David Murray<rdmurray at bitdance.com> wrote:
+>>> I can see it now...the TV and movie track at PyCon 2010,
+>>> with attendance mandatory for anyone wanting to participate
+>>> in the Core sprint...
+>> We actually had a room or two for evening videos at a PyCon (both?) in
+>> Dallas. Somebody brought the boxed set of the Flying Circus show and
+>> had it running. I fondly recall processing email while chuckling...
+>>
+>> It wasn't very well attended though.
+> 
+> There is a slight chance that EuroPython 2011 might come to Germany --
+> in this case, some kind of Monty Python showing must be arranged.  As
+> you all know, we really can use the education.
+
+Georg, I suggest that you get a head start by watching these youtube
+clips: http://www.youtube.com/user/MontyPython
+
+Are there already plans in which city EP11 might be hosted? You know
+Spamalot is playing in Cologne, too. :)
+
+Christian
+
+From amk at amk.ca  Fri Jul  3 21:12:06 2009
+From: amk at amk.ca (A.M. Kuchling)
+Date: Fri, 3 Jul 2009 15:12:06 -0400
+Subject: [python-committers] Mysterious uidNNN committers
+Message-ID: <20090703191206.GB8240@andrew-kuchlings-macbook.local>
+
+I've been analyzing how much of the Python code is covered
+by the contributor agreements in the PSF's possession.
+
+The logs show four mysterious IDs of the form uidNNNN; I'd like to
+figure out who two of those IDs were.  (Two of the IDs are gone in
+3.1-trunk, so I don't care about them.)
+
+uid26747 has one commit that only affected
+Lib/test/test_generators.py.  To me this reads like a Tim Peters
+commit message.  Tim, does this seem familiar?
+
+--------------------------------------------------
+r21474 | uid26747 | 2001-07-04 18:11:22 -0400 (Wed, 04 Jul 2001) | 11 lines
+
+Added a non-recursive implementation of conjoin(), and a Knight's Tour
+solver.  In conjunction, they easily found a tour of a 200x200 board:
+that's 200**2 == 40,000 levels of backtracking.  Explicitly resumable
+generators allow that to be coded as easily as a recursive solver (easier,
+actually, because different levels can use level-customized algorithms
+without pain), but without blowing the stack.  Indeed, I've never written
+an exhaustive Tour solver in any language before that can handle boards so
+large ("exhaustive" == guaranteed to find a solution if one exists, as
+opposed to probabilistic heuristic approaches; of course, the age of the
+universe may be a blip in the time needed!).
+--------------------------------------------------
+
+uid56795's commit is to Lib/idlelib/Debugger.py.  Most of the commits
+to idlelib around this time are by Kurt Kaiser, but there are a few by
+Chui Tey.  (In either case, both of them have signed agreements, so
+the code is likely covered.)
+
+r27482 | uid56795 | 2002-07-05 18:05:24 -0400 (Fri, 05 Jul 2002) | 5 lines
+
+Combine OldStackViewer.py with Debugger.py, removing dead code.
+M Debugger.py       : Incorporate StackViewer, NamespaceViewer classes
+M StackViewer.py    : remove import OldStackViewer
+U OldStackViewer.py : remove file
+--------------------------------------------------
+
+uid35364 cleaned up two bare except: clauses in Lib/mhlib.py and
+rfc822.py.  No idea who this was -- IIRC, Skip did a lot of cleanup
+like this -- but the change is hardly the stuff of intellectual
+property litigation.
+
+r21470 | uid35364 | 2001-07-04 03:01:29 -0400 (Wed, 04 Jul 2001) | 3 lines
+
+Clean up a bare except: clause.
+
+r21471 | uid35364 | 2001-07-04 03:07:33 -0400 (Wed, 04 Jul 2001) | 3 lines
+
+Clean up a bare except: clause.
+--------------------------------------------------
+
+uid28957's one commit is a regex tweak.  The mention of an SF bug
+lets me identify this as probably by Sjoerd Mullender.
+
+r21472 | uid28957 | 2001-07-04 06:15:58 -0400 (Wed, 04 Jul 2001) | 5 lines
+
+Fix for SF bug #425868.
+We should not depend on two spaces between words, so use the white
+space after the to-be-encoded word only as lookahead and don't
+actually consume it in the regular expression.
+--------------------------------------------------
+
+--amk
+
+
+
+From tim.peters at gmail.com  Fri Jul  3 23:19:42 2009
+From: tim.peters at gmail.com (Tim Peters)
+Date: Fri, 3 Jul 2009 17:19:42 -0400
+Subject: [python-committers] [PSF-Board] Mysterious uidNNN committers
+In-Reply-To: <20090703191206.GB8240@andrew-kuchlings-macbook.local>
+References: <20090703191206.GB8240@andrew-kuchlings-macbook.local>
+Message-ID: <1f7befae0907031419s73f2a26fgaabdfa0de37dc1ea@mail.gmail.com>
+
+[A.M. Kuchling]
+> I've been analyzing how much of the Python code is covered
+> by the contributor agreements in the PSF's possession.
+>
+> The logs show four mysterious IDs of the form uidNNNN; I'd like to
+> figure out who two of those IDs were. ?(Two of the IDs are gone in
+> 3.1-trunk, so I don't care about them.)
+>
+> uid26747 has one commit that only affected
+> Lib/test/test_generators.py. ?To me this reads like a Tim Peters
+> commit message. ?Tim, does this seem familiar?
+>
+> --------------------------------------------------
+> r21474 | uid26747 | 2001-07-04 18:11:22 -0400 (Wed, 04 Jul 2001) | 11 lines
+>
+> Added a non-recursive implementation of conjoin(), and a Knight's Tour
+> solver. ...
+
+100% sure that was indeed me.  No idea how it showed up as "uid26747",
+though -- that rings no bells at all.
+
+Another mystery, probably related:  there's no record of this checkin
+in the pipermail July 2001 python-checkins archive.
+
+> ...
+
+From martin at v.loewis.de  Fri Jul  3 23:55:24 2009
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Fri, 03 Jul 2009 23:55:24 +0200
+Subject: [python-committers] [PSF-Board] Mysterious uidNNN committers
+In-Reply-To: <1f7befae0907031419s73f2a26fgaabdfa0de37dc1ea@mail.gmail.com>
+References: <20090703191206.GB8240@andrew-kuchlings-macbook.local>
+	<1f7befae0907031419s73f2a26fgaabdfa0de37dc1ea@mail.gmail.com>
+Message-ID: <4A4E7E4C.9090605@v.loewis.de>
+
+>> r21474 | uid26747 | 2001-07-04 18:11:22 -0400 (Wed, 04 Jul 2001) | 11 lines
+>>
+>> Added a non-recursive implementation of conjoin(), and a Knight's Tour
+>> solver. ...
+> 
+> 100% sure that was indeed me.  No idea how it showed up as "uid26747",
+> though -- that rings no bells at all.
+
+Try logging into shell.sf.net. You'll need to do
+
+ ssh tim_one,python at shell.sf.net create
+
+these days first. Then run id(1); my guess that it gives
+you this number.
+
+Unfortunately, it's difficult to find out what the Unix UIDs
+are of the various Python committers, since SF has stopped
+using NIS, or any network user database, for that matter.
+
+Regards,
+Martin
+
+From jcea at jcea.es  Sat Jul  4 00:25:25 2009
+From: jcea at jcea.es (Jesus Cea)
+Date: Sat, 04 Jul 2009 00:25:25 +0200
+Subject: [python-committers] Why r69846 is not merged
+	to	"release26-maint"?
+In-Reply-To: <e69d3ed20907020913m18e6acf4r64aeddd5559dc193@mail.gmail.com>
+References: <4A4CC6B6.90202@jcea.es>	<1afaf6160907020743r147c1e1fs7651e8ab68f6cc64@mail.gmail.com>	<e69d3ed20907020758o141cbc4fpf2c4d890433a391@mail.gmail.com>	<4A4CCF04.4050701@jcea.es>	<20090702152227.GL65921@nexus.in-nomine.org>
+	<e69d3ed20907020913m18e6acf4r64aeddd5559dc193@mail.gmail.com>
+Message-ID: <4A4E8555.8010303@jcea.es>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Anthony Baxter wrote:
+> The particulars of the revision control system don't matter as much as
+> the discipline of teaching people to commit fixes. Right now, we have
+> 2.6.x, 3.0.x and 3.1.x. 
+
+And trunk and py3k.
+
+Having the right technology helps. The merge features of SVN 1.5 are
+limited but blessing.
+
+But I don't want to start a flamewar. The issue is already settled.
+
+- --
+Jesus Cea Avion                         _/_/      _/_/_/        _/_/_/
+jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+jabber / xmpp:jcea at jabber.org         _/_/    _/_/          _/_/_/_/_/
+.                              _/_/  _/_/    _/_/          _/_/  _/_/
+"Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+"My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+"El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.8 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - http://enigmail.mozdev.org
+
+iQCVAwUBSk6FUJlgi5GaxT1NAQKo1wP8DTqberDUsVi8MsauiUFzZdKD8gKNfT0h
+OOENt+ardwYdj5h/xw7e2j//h01lBbJEn/fKHumVFBMC4vS2NyuRILgtbjCLFgx0
+rj1AVv3lDGtSQdJcffZMTUl0xyRmiHG1K8MXGxnGJe65qv9Uhc0OEI7c6Lk5xeOF
+Iq/J8Fw2KEU=
+=AO5E
+-----END PGP SIGNATURE-----
+
+From jcea at jcea.es  Sat Jul  4 00:27:22 2009
+From: jcea at jcea.es (Jesus Cea)
+Date: Sat, 04 Jul 2009 00:27:22 +0200
+Subject: [python-committers] Why r69846 is not merged
+	to	"release26-maint"?
+In-Reply-To: <bbaeab100907021056i6685a707hb41179ae28ea04b3@mail.gmail.com>
+References: <4A4CC6B6.90202@jcea.es>	<1afaf6160907020743r147c1e1fs7651e8ab68f6cc64@mail.gmail.com>
+	<e69d3ed20907020758o141cbc4fpf2c4d890433a391@mail.gmail.com>
+	<4A4CCF04.4050701@jcea.es>
+	<20090702152227.GL65921@nexus.in-nomine.org>	<e69d3ed20907020913m18e6acf4r64aeddd5559dc193@mail.gmail.com>
+	<bbaeab100907021056i6685a707hb41179ae28ea04b3@mail.gmail.com>
+Message-ID: <4A4E85CA.5010709@jcea.es>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Brett Cannon wrote:
+> If I remember correctly I believe we decided at the language summit that
+> 3.0 is just dead now that 3.1 is out and we shouldn't even bother with
+> another point release since 3.1 followed 3.0 so closely and didn't
+> introduce any new syntax or tweak semantics.
+
+If that is true (I agree with that policy, btw), please confirm
+"officially". Can we forget about 3.0 branch?. Can I delete that
+checkout from my system?.
+
+- --
+Jesus Cea Avion                         _/_/      _/_/_/        _/_/_/
+jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+jabber / xmpp:jcea at jabber.org         _/_/    _/_/          _/_/_/_/_/
+.                              _/_/  _/_/    _/_/          _/_/  _/_/
+"Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+"My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+"El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.8 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - http://enigmail.mozdev.org
+
+iQCVAwUBSk6FyZlgi5GaxT1NAQLeugQAmZxcoRkPBSQD1GK722Rz8d18+z5zH7Di
+ZfCYJ0T0EFoJQkefmAQKbstcGPglFGahRE4ZvzjhPPKq3KayRlPKdoAQuWWFVgpR
+tYPbLNhcmhn+TtfrMFZJvkqahw/VmfRJvA6HiyQFw77iUjTDfPL8Vwa+zfMqZBSF
+4+Zzsn8e/I8=
+=WsHl
+-----END PGP SIGNATURE-----
+
+From goodger at python.org  Sat Jul  4 00:32:52 2009
+From: goodger at python.org (David Goodger)
+Date: Fri, 3 Jul 2009 18:32:52 -0400
+Subject: [python-committers] Why r69846 is not merged to
+	"release26-maint"?
+In-Reply-To: <4A4E85CA.5010709@jcea.es>
+References: <4A4CC6B6.90202@jcea.es>
+	<1afaf6160907020743r147c1e1fs7651e8ab68f6cc64@mail.gmail.com> 
+	<e69d3ed20907020758o141cbc4fpf2c4d890433a391@mail.gmail.com> 
+	<4A4CCF04.4050701@jcea.es> <20090702152227.GL65921@nexus.in-nomine.org>
+	<e69d3ed20907020913m18e6acf4r64aeddd5559dc193@mail.gmail.com> 
+	<bbaeab100907021056i6685a707hb41179ae28ea04b3@mail.gmail.com> 
+	<4A4E85CA.5010709@jcea.es>
+Message-ID: <4335d2c40907031532p79a27503t9df5745165f3eae7@mail.gmail.com>
+
+On Fri, Jul 3, 2009 at 18:27, Jesus Cea<jcea at jcea.es> wrote:
+> -----BEGIN PGP SIGNED MESSAGE-----
+> Hash: SHA1
+>
+> Brett Cannon wrote:
+>> If I remember correctly I believe we decided at the language summit that
+>> 3.0 is just dead now that 3.1 is out and we shouldn't even bother with
+>> another point release since 3.1 followed 3.0 so closely and didn't
+>> introduce any new syntax or tweak semantics.
+>
+> If that is true (I agree with that policy, btw), please confirm
+> "officially".
+
+Barry announced it as officially as possible:
+http://mail.python.org/pipermail/python-list/2009-July/718561.html
+
+I followed up with a python.org front-page news item & PSF blog entry
+(both linking to that message on python-list).
+
+> Can we forget about 3.0 branch?. Can I delete that
+> checkout from my system?.
+
+Seems so.
+
+-- 
+David Goodger <http://python.net/~goodger>
+
+From jcea at jcea.es  Sat Jul  4 00:34:16 2009
+From: jcea at jcea.es (Jesus Cea)
+Date: Sat, 04 Jul 2009 00:34:16 +0200
+Subject: [python-committers] Why r69846 is not
+	merged	to	"release26-maint"?
+In-Reply-To: <20090702184642.GA12354@amk-desktop.matrixgroup.net>
+References: <4A4CC6B6.90202@jcea.es>	<1afaf6160907020743r147c1e1fs7651e8ab68f6cc64@mail.gmail.com>	<e69d3ed20907020758o141cbc4fpf2c4d890433a391@mail.gmail.com>	<4A4CCF04.4050701@jcea.es>	<20090702152227.GL65921@nexus.in-nomine.org>	<e69d3ed20907020913m18e6acf4r64aeddd5559dc193@mail.gmail.com>	<Pine.LNX.4.64.0907021431300.6306@kimball.webabinitio.net>
+	<20090702184642.GA12354@amk-desktop.matrixgroup.net>
+Message-ID: <4A4E8768.9000706@jcea.es>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Please, somebody fix the reply-to :)
+
+A.M. Kuchling wrote:
+> On Thu, Jul 02, 2009 at 02:34:38PM -0400, R. David Murray wrote:
+>> On Fri, 3 Jul 2009 at 02:13, Anthony Baxter wrote:
+>> Using svnmerge to commit to three branches in addition to trunk
+>> is...painful.  Because of the (lack of) speed.
+> 
+> Should we push the Mercurial transition higher on the priority list,
+> then?
+
+Please, do. I can't wait, and my activity is pretty low... (to change soon)
+
+I already asked for the mercurial transition status a few days ago, with
+*no* (zero) answers. How is it going?. Can I help in any way?.
+
+- --
+Jesus Cea Avion                         _/_/      _/_/_/        _/_/_/
+jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+jabber / xmpp:jcea at jabber.org         _/_/    _/_/          _/_/_/_/_/
+.                              _/_/  _/_/    _/_/          _/_/  _/_/
+"Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+"My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+"El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.8 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - http://enigmail.mozdev.org
+
+iQCVAwUBSk6HaJlgi5GaxT1NAQIw7wP/a4JoGH1cPuQHOHE2NBHhIXdQwrnmkNEv
+a5k3tX5UN6PmEMsko45ukLREMPVelINb6TatiQpqWGFLcasElQGlMoBOk95LKuiu
+VTNVkRfxpaO5BdDo6sz3bnHWanfYanBxD8khXju7K9IR94mzr6NSo01TA1oylEJT
+Lz51PJUlq+M=
+=WCBo
+-----END PGP SIGNATURE-----
+
+From brett at python.org  Sat Jul  4 00:34:00 2009
+From: brett at python.org (Brett Cannon)
+Date: Fri, 3 Jul 2009 15:34:00 -0700
+Subject: [python-committers] Why r69846 is not merged to
+	"release26-maint"?
+In-Reply-To: <4A4E85CA.5010709@jcea.es>
+References: <4A4CC6B6.90202@jcea.es>
+	<1afaf6160907020743r147c1e1fs7651e8ab68f6cc64@mail.gmail.com> 
+	<e69d3ed20907020758o141cbc4fpf2c4d890433a391@mail.gmail.com> 
+	<4A4CCF04.4050701@jcea.es> <20090702152227.GL65921@nexus.in-nomine.org>
+	<e69d3ed20907020913m18e6acf4r64aeddd5559dc193@mail.gmail.com> 
+	<bbaeab100907021056i6685a707hb41179ae28ea04b3@mail.gmail.com> 
+	<4A4E85CA.5010709@jcea.es>
+Message-ID: <bbaeab100907031534l54f4c500q57620001cbe7d5e0@mail.gmail.com>
+
+On Fri, Jul 3, 2009 at 15:27, Jesus Cea <jcea at jcea.es> wrote:
+
+> -----BEGIN PGP SIGNED MESSAGE-----
+> Hash: SHA1
+>
+> Brett Cannon wrote:
+> > If I remember correctly I believe we decided at the language summit that
+> > 3.0 is just dead now that 3.1 is out and we shouldn't even bother with
+> > another point release since 3.1 followed 3.0 so closely and didn't
+> > introduce any new syntax or tweak semantics.
+>
+> If that is true (I agree with that policy, btw), please confirm
+> "officially". Can we forget about 3.0 branch?. Can I delete that
+> checkout from my system?.
+
+
+It's official.
+
+-Brett
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20090703/ec443c1a/attachment.htm>
+
+From brett at python.org  Sat Jul  4 00:42:03 2009
+From: brett at python.org (Brett Cannon)
+Date: Fri, 3 Jul 2009 15:42:03 -0700
+Subject: [python-committers] Why r69846 is not merged to
+	"release26-maint"?
+In-Reply-To: <4A4E8768.9000706@jcea.es>
+References: <4A4CC6B6.90202@jcea.es>
+	<1afaf6160907020743r147c1e1fs7651e8ab68f6cc64@mail.gmail.com> 
+	<e69d3ed20907020758o141cbc4fpf2c4d890433a391@mail.gmail.com> 
+	<4A4CCF04.4050701@jcea.es> <20090702152227.GL65921@nexus.in-nomine.org>
+	<e69d3ed20907020913m18e6acf4r64aeddd5559dc193@mail.gmail.com> 
+	<Pine.LNX.4.64.0907021431300.6306@kimball.webabinitio.net> 
+	<20090702184642.GA12354@amk-desktop.matrixgroup.net>
+	<4A4E8768.9000706@jcea.es>
+Message-ID: <bbaeab100907031542s49eb89edwe3b7e3e94547dfc@mail.gmail.com>
+
+On Fri, Jul 3, 2009 at 15:34, Jesus Cea <jcea at jcea.es> wrote:
+
+> -----BEGIN PGP SIGNED MESSAGE-----
+> Hash: SHA1
+>
+> Please, somebody fix the reply-to :)
+>
+> A.M. Kuchling wrote:
+> > On Thu, Jul 02, 2009 at 02:34:38PM -0400, R. David Murray wrote:
+> >> On Fri, 3 Jul 2009 at 02:13, Anthony Baxter wrote:
+> >> Using svnmerge to commit to three branches in addition to trunk
+> >> is...painful.  Because of the (lack of) speed.
+> >
+> > Should we push the Mercurial transition higher on the priority list,
+> > then?
+>
+> Please, do. I can't wait, and my activity is pretty low... (to change soon)
+>
+> I already asked for the mercurial transition status a few days ago, with
+> *no* (zero) answers. How is it going?. Can I help in any way?.
+
+
+It's being discussed on pyhon-dev. Dirkjan is the person to talk to if you
+want to help out.
+
+-Brett
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20090703/1082eb48/attachment.htm>
+
+From barry at python.org  Sat Jul  4 03:58:44 2009
+From: barry at python.org (Barry Warsaw)
+Date: Fri, 3 Jul 2009 21:58:44 -0400
+Subject: [python-committers] Why r69846 is not merged to
+	"release26-maint"?
+In-Reply-To: <4335d2c40907031532p79a27503t9df5745165f3eae7@mail.gmail.com>
+References: <4A4CC6B6.90202@jcea.es>
+	<1afaf6160907020743r147c1e1fs7651e8ab68f6cc64@mail.gmail.com>
+	<e69d3ed20907020758o141cbc4fpf2c4d890433a391@mail.gmail.com>
+	<4A4CCF04.4050701@jcea.es>
+	<20090702152227.GL65921@nexus.in-nomine.org>
+	<e69d3ed20907020913m18e6acf4r64aeddd5559dc193@mail.gmail.com>
+	<bbaeab100907021056i6685a707hb41179ae28ea04b3@mail.gmail.com>
+	<4A4E85CA.5010709@jcea.es>
+	<4335d2c40907031532p79a27503t9df5745165f3eae7@mail.gmail.com>
+Message-ID: <741B5871-6928-4720-A4AD-88CDE4F31C63@python.org>
+
+On Jul 3, 2009, at 6:32 PM, David Goodger wrote:
+
+> I followed up with a python.org front-page news item & PSF blog entry
+> (both linking to that message on python-list).
+
+I added some text to the Python 3.0.1 download page and added a link  
+to Python 3.1.
+
+-Barry
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: PGP.sig
+Type: application/pgp-signature
+Size: 832 bytes
+Desc: This is a digitally signed message part
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20090703/a7ce908c/attachment.pgp>
+
+From solipsis at pitrou.net  Sat Jul  4 16:37:25 2009
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Sat, 04 Jul 2009 16:37:25 +0200
+Subject: [python-committers] Why r69846 is not merged to
+ "release26-maint"?
+In-Reply-To: <bbaeab100907021143x62454691p41384bec9c93797b@mail.gmail.com>
+References: <4A4CC6B6.90202@jcea.es>
+	<1afaf6160907020743r147c1e1fs7651e8ab68f6cc64@mail.gmail.com>
+	<e69d3ed20907020758o141cbc4fpf2c4d890433a391@mail.gmail.com>
+	<4A4CCF04.4050701@jcea.es> <20090702152227.GL65921@nexus.in-nomine.org>
+	<e69d3ed20907020913m18e6acf4r64aeddd5559dc193@mail.gmail.com>
+	<bbaeab100907021056i6685a707hb41179ae28ea04b3@mail.gmail.com>
+	<0BD5AB60-E040-49D0-AC10-46C5FA003C67@python.org>
+	<e69d3ed20907021129j5e0096cfo4cc3c583acc08b9f@mail.gmail.com>
+	<20F1835E-5BB0-4C86-AC65-373B3B52DDC3@python.org>
+	<bbaeab100907021143x62454691p41384bec9c93797b@mail.gmail.com>
+Message-ID: <1246718245.7085.4.camel@localhost>
+
+Le jeudi 02 juillet 2009 ? 11:43 -0700, Brett Cannon a ?crit :
+> 
+> Considering Georg just discovered Fawlty Towers I think we might need
+> to have required British humour training for all core committers.
+
+I object to the British humour monopoly. I know as a fact that Georg
+likes French humour a lot -- actually I'm sure he's still launghing.
+
+Regards
+
+Antoine.
+
+
+
+From g.brandl at gmx.net  Sun Jul  5 11:20:58 2009
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Sun, 05 Jul 2009 11:20:58 +0200
+Subject: [python-committers] Why r69846 is not merged to
+	"release26-maint"?
+In-Reply-To: <4A4DDAE9.4090600@cheimes.de>
+References: <4A4CC6B6.90202@jcea.es>	<4A4CCF04.4050701@jcea.es>	<20090702152227.GL65921@nexus.in-nomine.org>	<e69d3ed20907020913m18e6acf4r64aeddd5559dc193@mail.gmail.com>	<bbaeab100907021056i6685a707hb41179ae28ea04b3@mail.gmail.com>	<0BD5AB60-E040-49D0-AC10-46C5FA003C67@python.org>	<e69d3ed20907021129j5e0096cfo4cc3c583acc08b9f@mail.gmail.com>	<20F1835E-5BB0-4C86-AC65-373B3B52DDC3@python.org>	<bbaeab100907021143x62454691p41384bec9c93797b@mail.gmail.com>	<Pine.LNX.4.64.0907021450360.6306@kimball.webabinitio.net>	<4335d2c40907021203m3421125dsa3b5cc1bacd7b62b@mail.gmail.com>	<h2kkh6$7e2$1@ger.gmane.org>
+	<4A4DDAE9.4090600@cheimes.de>
+Message-ID: <h2prah$c0q$1@ger.gmane.org>
+
+Christian Heimes schrieb:
+> Georg Brandl schrieb:
+>> David Goodger schrieb:
+>>> On Thu, Jul 2, 2009 at 14:56, R. David Murray<rdmurray at bitdance.com> wrote:
+>>>> I can see it now...the TV and movie track at PyCon 2010,
+>>>> with attendance mandatory for anyone wanting to participate
+>>>> in the Core sprint...
+>>> We actually had a room or two for evening videos at a PyCon (both?) in
+>>> Dallas. Somebody brought the boxed set of the Flying Circus show and
+>>> had it running. I fondly recall processing email while chuckling...
+>>>
+>>> It wasn't very well attended though.
+>> 
+>> There is a slight chance that EuroPython 2011 might come to Germany --
+>> in this case, some kind of Monty Python showing must be arranged.  As
+>> you all know, we really can use the education.
+> 
+> Georg, I suggest that you get a head start by watching these youtube
+> clips: http://www.youtube.com/user/MontyPython
+
+Oh, myself I'm already quite familiar with the classics.  But can you
+imagine people walking the streets out there not knowing anything about
+dead parrots?
+
+> Are there already plans in which city EP11 might be hosted? You know
+> Spamalot is playing in Cologne, too. :)
+
+Cologne is exactly where one group is planning to make it happen.  I
+assume a discussion and planning list, whether for EP or for a smaller
+German unconference, is going to be created soon.
+
+Georg
+
+-- 
+Thus spake the Lord: Thou shalt indent with four spaces. No more, no less.
+Four shall be the number of spaces thou shalt indent, and the number of thy
+indenting shall be four. Eight shalt thou not indent, nor either indent thou
+two, excepting that thou then proceed to four. Tabs are right out.
+
+
+From barry at python.org  Sun Jul  5 16:40:15 2009
+From: barry at python.org (Barry Warsaw)
+Date: Sun, 5 Jul 2009 10:40:15 -0400
+Subject: [python-committers] Why r69846 is not merged to
+	"release26-maint"?
+In-Reply-To: <h2prah$c0q$1@ger.gmane.org>
+References: <4A4CC6B6.90202@jcea.es>	<4A4CCF04.4050701@jcea.es>	<20090702152227.GL65921@nexus.in-nomine.org>	<e69d3ed20907020913m18e6acf4r64aeddd5559dc193@mail.gmail.com>	<bbaeab100907021056i6685a707hb41179ae28ea04b3@mail.gmail.com>	<0BD5AB60-E040-49D0-AC10-46C5FA003C67@python.org>	<e69d3ed20907021129j5e0096cfo4cc3c583acc08b9f@mail.gmail.com>	<20F1835E-5BB0-4C86-AC65-373B3B52DDC3@python.org>	<bbaeab100907021143x62454691p41384bec9c93797b@mail.gmail.com>	<Pine.LNX.4.64.0907021450360.6306@kimball.webabinitio.net>	<4335d2c40907021203m3421125dsa3b5cc1bacd7b62b@mail.gmail.com>	<h2kkh6$7e2$1@ger.gmane.org>
+	<4A4DDAE9.4090600@cheimes.de> <h2prah$c0q$1@ger.gmane.org>
+Message-ID: <0D5C9CE7-B0B3-4D8A-AAE4-CCBA4E36EF0E@python.org>
+
+On Jul 5, 2009, at 5:20 AM, Georg Brandl wrote:
+
+> Oh, myself I'm already quite familiar with the classics.  But can you
+> imagine people walking the streets out there not knowing anything  
+> about
+> dead parrots?
+
+I think we need a server side Mercurial plugin to reject any revision  
+that doesn't quote MP in its commit message.
+
+-Barry
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: PGP.sig
+Type: application/pgp-signature
+Size: 832 bytes
+Desc: This is a digitally signed message part
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20090705/390323e9/attachment.pgp>
+
+From g.brandl at gmx.net  Tue Jul  7 21:48:24 2009
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Tue, 07 Jul 2009 21:48:24 +0200
+Subject: [python-committers] r73807 - python/branches/py3k/setup.py
+In-Reply-To: <20851.5821410858$1246627417@news.gmane.org>
+References: <20851.5821410858$1246627417@news.gmane.org>
+Message-ID: <h308pe$5de$1@ger.gmane.org>
+
+I think this should be reverted -- the support code is not for the
+bsddb module, but for building the dbm module with bsddb.
+
+Georg
+
+benjamin.peterson schrieb:
+> Author: benjamin.peterson
+> Date: Fri Jul  3 15:22:00 2009
+> New Revision: 73807
+> 
+> Log:
+> rip out bsddb support code
+> 
+> Modified:
+>    python/branches/py3k/setup.py
+> 
+> Modified: python/branches/py3k/setup.py
+> ==============================================================================
+> --- python/branches/py3k/setup.py	(original)
+> +++ python/branches/py3k/setup.py	Fri Jul  3 15:22:00 2009
+> @@ -363,6 +363,7 @@
+>              inc_dirs += os.getenv('C_INCLUDE_PATH', '').split(os.pathsep)
+>  
+>          # OSF/1 and Unixware have some stuff in /usr/ccs/lib (like -ldb)
+> +        # XXX db is not needed anymore, should this be removed?
+>          if platform in ['osf1', 'unixware7', 'openunix8']:
+>              lib_dirs += ['/usr/ccs/lib']
+>  
+> @@ -625,179 +626,6 @@
+>              exts.append( Extension('_md5', ['md5module.c']) )
+>              exts.append( Extension('_sha1', ['sha1module.c']) )
+>  
+> -        # Modules that provide persistent dictionary-like semantics.  You will
+> -        # probably want to arrange for at least one of them to be available on
+> -        # your machine, though none are defined by default because of library
+> -        # dependencies.  The Python module dbm/__init__.py provides an
+> -        # implementation independent wrapper for these; dbm/dumb.py provides
+> -        # similar functionality (but slower of course) implemented in Python.
+> -
+> -        # Sleepycat^WOracle Berkeley DB interface.
+> -        #  http://www.oracle.com/database/berkeley-db/db/index.html
+> -        #
+> -        # This requires the Sleepycat^WOracle DB code. The supported versions
+> -        # are set below.  Visit the URL above to download
+> -        # a release.  Most open source OSes come with one or more
+> -        # versions of BerkeleyDB already installed.
+> -
+> -        max_db_ver = (4, 7)
+> -        min_db_ver = (3, 3)
+> -        db_setup_debug = False   # verbose debug prints from this script?
+> -
+> -        def allow_db_ver(db_ver):
+> -            """Returns a boolean if the given BerkeleyDB version is acceptable.
+> -
+> -            Args:
+> -              db_ver: A tuple of the version to verify.
+> -            """
+> -            if not (min_db_ver <= db_ver <= max_db_ver):
+> -                return False
+> -            return True
+> -
+> -        def gen_db_minor_ver_nums(major):
+> -            if major == 4:
+> -                for x in range(max_db_ver[1]+1):
+> -                    if allow_db_ver((4, x)):
+> -                        yield x
+> -            elif major == 3:
+> -                for x in (3,):
+> -                    if allow_db_ver((3, x)):
+> -                        yield x
+> -            else:
+> -                raise ValueError("unknown major BerkeleyDB version", major)
+> -
+> -        # construct a list of paths to look for the header file in on
+> -        # top of the normal inc_dirs.
+> -        db_inc_paths = [
+> -            '/usr/include/db4',
+> -            '/usr/local/include/db4',
+> -            '/opt/sfw/include/db4',
+> -            '/usr/include/db3',
+> -            '/usr/local/include/db3',
+> -            '/opt/sfw/include/db3',
+> -            # Fink defaults (http://fink.sourceforge.net/)
+> -            '/sw/include/db4',
+> -            '/sw/include/db3',
+> -        ]
+> -        # 4.x minor number specific paths
+> -        for x in gen_db_minor_ver_nums(4):
+> -            db_inc_paths.append('/usr/include/db4%d' % x)
+> -            db_inc_paths.append('/usr/include/db4.%d' % x)
+> -            db_inc_paths.append('/usr/local/BerkeleyDB.4.%d/include' % x)
+> -            db_inc_paths.append('/usr/local/include/db4%d' % x)
+> -            db_inc_paths.append('/pkg/db-4.%d/include' % x)
+> -            db_inc_paths.append('/opt/db-4.%d/include' % x)
+> -            # MacPorts default (http://www.macports.org/)
+> -            db_inc_paths.append('/opt/local/include/db4%d' % x)
+> -        # 3.x minor number specific paths
+> -        for x in gen_db_minor_ver_nums(3):
+> -            db_inc_paths.append('/usr/include/db3%d' % x)
+> -            db_inc_paths.append('/usr/local/BerkeleyDB.3.%d/include' % x)
+> -            db_inc_paths.append('/usr/local/include/db3%d' % x)
+> -            db_inc_paths.append('/pkg/db-3.%d/include' % x)
+> -            db_inc_paths.append('/opt/db-3.%d/include' % x)
+> -
+> -        # Add some common subdirectories for Sleepycat DB to the list,
+> -        # based on the standard include directories. This way DB3/4 gets
+> -        # picked up when it is installed in a non-standard prefix and
+> -        # the user has added that prefix into inc_dirs.
+> -        std_variants = []
+> -        for dn in inc_dirs:
+> -            std_variants.append(os.path.join(dn, 'db3'))
+> -            std_variants.append(os.path.join(dn, 'db4'))
+> -            for x in gen_db_minor_ver_nums(4):
+> -                std_variants.append(os.path.join(dn, "db4%d"%x))
+> -                std_variants.append(os.path.join(dn, "db4.%d"%x))
+> -            for x in gen_db_minor_ver_nums(3):
+> -                std_variants.append(os.path.join(dn, "db3%d"%x))
+> -                std_variants.append(os.path.join(dn, "db3.%d"%x))
+> -
+> -        db_inc_paths = std_variants + db_inc_paths
+> -        db_inc_paths = [p for p in db_inc_paths if os.path.exists(p)]
+> -
+> -        db_ver_inc_map = {}
+> -
+> -        class db_found(Exception): pass
+> -        try:
+> -            # See whether there is a Sleepycat header in the standard
+> -            # search path.
+> -            for d in inc_dirs + db_inc_paths:
+> -                f = os.path.join(d, "db.h")
+> -                if db_setup_debug: print("db: looking for db.h in", f)
+> -                if os.path.exists(f):
+> -                    f = open(f).read()
+> -                    m = re.search(r"#define\WDB_VERSION_MAJOR\W(\d+)", f)
+> -                    if m:
+> -                        db_major = int(m.group(1))
+> -                        m = re.search(r"#define\WDB_VERSION_MINOR\W(\d+)", f)
+> -                        db_minor = int(m.group(1))
+> -                        db_ver = (db_major, db_minor)
+> -
+> -                        # Avoid 4.6 prior to 4.6.21 due to a BerkeleyDB bug
+> -                        if db_ver == (4, 6):
+> -                            m = re.search(r"#define\WDB_VERSION_PATCH\W(\d+)", f)
+> -                            db_patch = int(m.group(1))
+> -                            if db_patch < 21:
+> -                                print("db.h:", db_ver, "patch", db_patch,
+> -                                      "being ignored (4.6.x must be >= 4.6.21)")
+> -                                continue
+> -
+> -                        if ( (db_ver not in db_ver_inc_map) and
+> -                            allow_db_ver(db_ver) ):
+> -                            # save the include directory with the db.h version
+> -                            # (first occurrence only)
+> -                            db_ver_inc_map[db_ver] = d
+> -                            if db_setup_debug:
+> -                                print("db.h: found", db_ver, "in", d)
+> -                        else:
+> -                            # we already found a header for this library version
+> -                            if db_setup_debug: print("db.h: ignoring", d)
+> -                    else:
+> -                        # ignore this header, it didn't contain a version number
+> -                        if db_setup_debug:
+> -                            print("db.h: no version number version in", d)
+> -
+> -            db_found_vers = list(db_ver_inc_map.keys())
+> -            db_found_vers.sort()
+> -
+> -            while db_found_vers:
+> -                db_ver = db_found_vers.pop()
+> -                db_incdir = db_ver_inc_map[db_ver]
+> -
+> -                # check lib directories parallel to the location of the header
+> -                db_dirs_to_check = [
+> -                    db_incdir.replace("include", 'lib64'),
+> -                    db_incdir.replace("include", 'lib'),
+> -                ]
+> -                db_dirs_to_check = list(filter(os.path.isdir, db_dirs_to_check))
+> -
+> -                # Look for a version specific db-X.Y before an ambiguoius dbX
+> -                # XXX should we -ever- look for a dbX name?  Do any
+> -                # systems really not name their library by version and
+> -                # symlink to more general names?
+> -                for dblib in (('db-%d.%d' % db_ver),
+> -                              ('db%d%d' % db_ver),
+> -                              ('db%d' % db_ver[0])):
+> -                    dblib_file = self.compiler.find_library_file(
+> -                                    db_dirs_to_check + lib_dirs, dblib )
+> -                    if dblib_file:
+> -                        dblib_dir = [ os.path.abspath(os.path.dirname(dblib_file)) ]
+> -                        raise db_found
+> -                    else:
+> -                        if db_setup_debug: print("db lib: ", dblib, "not found")
+> -
+> -        except db_found:
+> -            if db_setup_debug:
+> -                print("bsddb using BerkeleyDB lib:", db_ver, dblib)
+> -                print("bsddb lib dir:", dblib_dir, " inc dir:", db_incdir)
+> -            db_incs = [db_incdir]
+> -            dblibs = [dblib]
+> -        else:
+> -            if db_setup_debug: print("db: no appropriate library found")
+> -            db_incs = None
+> -            dblibs = []
+> -            dblib_dir = None
+> -
+>          # The sqlite interface
+>          sqlite_setup_debug = False   # verbose debug prints from this script?
+>  
+> @@ -902,7 +730,7 @@
+>              if dbm_args:
+>                  dbm_order = dbm_args[-1].split(":")
+>              else:
+> -                dbm_order = "ndbm:gdbm:bdb".split(":")
+> +                dbm_order = "ndbm:gdbm".split(":")
+>              dbmext = None
+>              for cand in dbm_order:
+>                  if cand == "ndbm":
+> @@ -943,18 +771,6 @@
+>                                      ],
+>                                  libraries = gdbm_libs)
+>                              break
+> -                elif cand == "bdb":
+> -                    if db_incs is not None:
+> -                        print("building dbm using bdb")
+> -                        dbmext = Extension('_dbm', ['_dbmmodule.c'],
+> -                                           library_dirs=dblib_dir,
+> -                                           runtime_library_dirs=dblib_dir,
+> -                                           include_dirs=db_incs,
+> -                                           define_macros=[
+> -                                               ('HAVE_BERKDB_H', None),
+> -                                               ('DB_DBM_HSEARCH', None),
+> -                                               ],
+> -                                           libraries=dblibs)
+>                          break
+>              if dbmext is not None:
+>                  exts.append(dbmext)
+
+
+
+From benjamin at python.org  Wed Jul  8 04:10:39 2009
+From: benjamin at python.org (Benjamin Peterson)
+Date: Tue, 7 Jul 2009 21:10:39 -0500
+Subject: [python-committers] r73807 - python/branches/py3k/setup.py
+In-Reply-To: <h308pe$5de$1@ger.gmane.org>
+References: <20851.5821410858$1246627417@news.gmane.org>
+	<h308pe$5de$1@ger.gmane.org>
+Message-ID: <1afaf6160907071910p5b39be43sbbcf15dcb4685ae5@mail.gmail.com>
+
+2009/7/7 Georg Brandl <g.brandl at gmx.net>:
+> I think this should be reverted -- the support code is not for the
+> bsddb module, but for building the dbm module with bsddb.
+
+Would you mind doing the honors? I'm on holiday.:)
+
+
+
+-- 
+Regards,
+Benjamin
+
+From jcea at jcea.es  Wed Jul  8 14:49:45 2009
+From: jcea at jcea.es (Jesus Cea)
+Date: Wed, 08 Jul 2009 14:49:45 +0200
+Subject: [python-committers] Berkeley DB (Was: Re: r73807 -
+	python/branches/py3k/setup.py)
+In-Reply-To: <h308pe$5de$1@ger.gmane.org>
+References: <20851.5821410858$1246627417@news.gmane.org>
+	<h308pe$5de$1@ger.gmane.org>
+Message-ID: <4A5495E9.8050306@jcea.es>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Georg Brandl wrote:
+> I think this should be reverted -- the support code is not for the
+> bsddb module, but for building the dbm module with bsddb.
+
+I pretend to ask for re-inclusion of BerkeleyDB in Python 3.x branch in
+the future (maybe around christmas), now that it is under control, very
+solid, and a needed storage option in the standard lib.
+
+It has a pretty number of downloads in PYPI, so people is interested in
+it, and having a "good" storage option in the standard lib is mandatory
+(ACID, distributed transactions, replication...).
+
+But I don't want to open-fire just now... O:-).
+
+- --
+Jesus Cea Avion                         _/_/      _/_/_/        _/_/_/
+jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+jabber / xmpp:jcea at jabber.org         _/_/    _/_/          _/_/_/_/_/
+.                              _/_/  _/_/    _/_/          _/_/  _/_/
+"Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+"My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+"El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.8 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - http://enigmail.mozdev.org
+
+iQCVAwUBSlSV5Zlgi5GaxT1NAQILoAQAhLQ/yChYYDMKCcH9M+hPXCqHPX+jRP77
+tpzA6S2bfTuLOaiKCdyQmkW69tTGNNM8L8veSF18ngJF1nWJQnFQTSO8O23653GI
+mEA4eSi1S+a6BMQV0w8/mJSUPGPQk/EW6e+FVn29ZDK7kR9SAR8skP3H15BvOn2M
+0QgIsP/hKxw=
+=cAZ3
+-----END PGP SIGNATURE-----
+
+From kbk at shore.net  Thu Jul  9 23:27:19 2009
+From: kbk at shore.net (Kurt B. Kaiser)
+Date: Thu, 09 Jul 2009 17:27:19 -0400
+Subject: [python-committers] Mysterious uidNNN committers
+In-Reply-To: <20090703191206.GB8240@andrew-kuchlings-macbook.local>
+References: <20090703191206.GB8240@andrew-kuchlings-macbook.local>
+Message-ID: <1247174839.32661.1324336135@webmail.messagingengine.com>
+
+
+On Fri, 3 Jul 2009 15:12:06 -0400, "A.M. Kuchling" <amk at amk.ca> said:
+> I've been analyzing how much of the Python code is covered
+> by the contributor agreements in the PSF's possession.
+> 
+> The logs show four mysterious IDs of the form uidNNNN; I'd like to
+> figure out who two of those IDs were.  (Two of the IDs are gone in
+> 3.1-trunk, so I don't care about them.)
+> 
+[...]
+
+> 
+> uid56795's commit is to Lib/idlelib/Debugger.py.  Most of the commits
+> to idlelib around this time are by Kurt Kaiser, but there are a few by
+> Chui Tey.  (In either case, both of them have signed agreements, so
+> the code is likely covered.)
+> 
+> r27482 | uid56795 | 2002-07-05 18:05:24 -0400 (Fri, 05 Jul 2002) | 5
+> lines
+> 
+> Combine OldStackViewer.py with Debugger.py, removing dead code.
+> M Debugger.py       : Incorporate StackViewer, NamespaceViewer classes
+> M StackViewer.py    : remove import OldStackViewer
+> U OldStackViewer.py : remove file
+> --------------------------------------------------
+
+
+That's clearly my code.  I think what happened was the SF system was
+broken for a short time and didn't resolve the uid to kbk.
+
+So one more down.
+
+-- 
+KBK
+
+
+From kbk at shore.net  Thu Jul  9 23:36:14 2009
+From: kbk at shore.net (Kurt B. Kaiser)
+Date: Thu, 09 Jul 2009 17:36:14 -0400
+Subject: [python-committers] [PSF-Board] Mysterious uidNNN committers
+In-Reply-To: <4A4E7E4C.9090605@v.loewis.de>
+References: <20090703191206.GB8240@andrew-kuchlings-macbook.local>
+	<1f7befae0907031419s73f2a26fgaabdfa0de37dc1ea@mail.gmail.com>
+	<4A4E7E4C.9090605@v.loewis.de>
+Message-ID: <1247175374.1873.1324337249@webmail.messagingengine.com>
+
+
+On Fri, 03 Jul 2009 23:55:24 +0200, ""Martin v. L?wis""
+<martin at v.loewis.de> said:
+> >> r21474 | uid26747 | 2001-07-04 18:11:22 -0400 (Wed, 04 Jul 2001) | 11 lines
+> >>
+> >> Added a non-recursive implementation of conjoin(), and a Knight's Tour
+> >> solver. ...
+> > 
+> > 100% sure that was indeed me.  No idea how it showed up as "uid26747",
+> > though -- that rings no bells at all.
+> 
+> Try logging into shell.sf.net. You'll need to do
+> 
+>  ssh tim_one,python at shell.sf.net create
+> 
+> these days first. Then run id(1); my guess that it gives
+> you this number.
+
+Good one, Martin.  I confirmed that I'm one of the mysterious ones.
+
+-bash-3.2$ id
+uid=56795(kbk) gid=10579(idlefork) groups=10579(idlefork)
+-bash-3.2$ 
+
+-- 
+KBK
+
+
+From rdmurray at bitdance.com  Fri Jul 10 23:29:26 2009
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Fri, 10 Jul 2009 17:29:26 -0400 (EDT)
+Subject: [python-committers] Berkeley DB (Was: Re: r73807 -
+	python/branches/py3k/setup.py)
+Message-ID: <Pine.LNX.4.64.0907101719380.6306@kimball.webabinitio.net>
+
+Jesus Cea wrote:
+>Georg Brandl wrote:
+>> I think this should be reverted -- the support code is not for the
+>> bsddb module, but for building the dbm module with bsddb.
+>
+>I pretend to ask for re-inclusion of BerkeleyDB in Python 3.x branch in
+>the future (maybe around christmas), now that it is under control, very
+>solid, and a needed storage option in the standard lib.
+
+It seems to me (though I admit I haven't been watching closely recently)
+that the buildbots still report bsddb errors on trunk on a fairly regular
+basis. If I'm not imagining things is there any chance you could take
+a look at that?
+
+--David
+
+From jcea at jcea.es  Sat Jul 11 02:41:32 2009
+From: jcea at jcea.es (Jesus Cea)
+Date: Sat, 11 Jul 2009 02:41:32 +0200
+Subject: [python-committers] Berkeley DB (Was: Re: r73807
+	-	python/branches/py3k/setup.py)
+In-Reply-To: <Pine.LNX.4.64.0907101719380.6306@kimball.webabinitio.net>
+References: <Pine.LNX.4.64.0907101719380.6306@kimball.webabinitio.net>
+Message-ID: <4A57DFBC.7090900@jcea.es>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+R. David Murray wrote:
+> It seems to me (though I admit I haven't been watching closely recently)
+> that the buildbots still report bsddb errors on trunk on a fairly regular
+> basis. If I'm not imagining things is there any chance you could take
+> a look at that?
+
+I am not aware of that. I only check buildbots after doing commits. If
+somebody has a buildbot reference, please share. I promise to work to
+solve it.
+
+- --
+Jesus Cea Avion                         _/_/      _/_/_/        _/_/_/
+jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+jabber / xmpp:jcea at jabber.org         _/_/    _/_/          _/_/_/_/_/
+.                              _/_/  _/_/    _/_/          _/_/  _/_/
+"Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+"My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+"El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.8 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - http://enigmail.mozdev.org
+
+iQCVAwUBSlfftplgi5GaxT1NAQJvvQP+PWhnPveJ7HK48DvortGaZAbQUS+8AoGX
+MDfZCNuOjxm8qFyu25tEaOEwrasAh8M3yS7pNj1RHsXBUaUDZc9AUy3VMJ3H22px
+AzgrnKGjx+axzTbObSGslpsEw8lbdGWWZt5gZnEvg+taIQU6k6wndPNoHrVRXhxa
+Uo0NgCK4oB0=
+=sgcn
+-----END PGP SIGNATURE-----
+
+From ocean-city at m2.ccsnet.ne.jp  Sat Jul 11 04:12:11 2009
+From: ocean-city at m2.ccsnet.ne.jp (Hirokazu Yamamoto)
+Date: Sat, 11 Jul 2009 11:12:11 +0900
+Subject: [python-committers] Berkeley DB (Was: Re:
+	r73807	-	python/branches/py3k/setup.py)
+In-Reply-To: <4A57DFBC.7090900@jcea.es>
+References: <Pine.LNX.4.64.0907101719380.6306@kimball.webabinitio.net>
+	<4A57DFBC.7090900@jcea.es>
+Message-ID: <4A57F4FB.8060407@m2.ccsnet.ne.jp>
+
+
+Jesus Cea wrote:
+> -----BEGIN PGP SIGNED MESSAGE-----
+> Hash: SHA1
+> 
+> R. David Murray wrote:
+>> It seems to me (though I admit I haven't been watching closely recently)
+>> that the buildbots still report bsddb errors on trunk on a fairly regular
+>> basis. If I'm not imagining things is there any chance you could take
+>> a look at that?
+> 
+> I am not aware of that. I only check buildbots after doing commits. If
+> somebody has a buildbot reference, please share. I promise to work to
+> solve it.
+
+I often see timeout problem on windows buildbot.
+Please see http://bugs.python.org/issue3892
+
+
+From rdmurray at bitdance.com  Sat Jul 11 04:51:11 2009
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Fri, 10 Jul 2009 22:51:11 -0400 (EDT)
+Subject: [python-committers] Berkeley DB (Was: Re: r73807	-
+ python/branches/py3k/setup.py)
+In-Reply-To: <4A57DFBC.7090900@jcea.es>
+References: <Pine.LNX.4.64.0907101719380.6306@kimball.webabinitio.net>
+	<4A57DFBC.7090900@jcea.es>
+Message-ID: <Pine.LNX.4.64.0907102249130.6306@kimball.webabinitio.net>
+
+On Sat, 11 Jul 2009 at 02:41, Jesus Cea wrote:
+> R. David Murray wrote:
+>> It seems to me (though I admit I haven't been watching closely recently)
+>> that the buildbots still report bsddb errors on trunk on a fairly regular
+>> basis. If I'm not imagining things is there any chance you could take
+>> a look at that?
+>
+> I am not aware of that. I only check buildbots after doing commits. If
+> somebody has a buildbot reference, please share. I promise to work to
+> solve it.
+
+Well, the most recent one is here:
+
+     http://www.python.org/dev/buildbot/trunk.stable/amd64%20gentoo%20trunk/builds/284/step-test/0
+
+It may not be an error per se, but there is a traceback in the log that
+the buildbot reports.
+
+--David
+
+From benjamin at python.org  Mon Jul 13 01:57:21 2009
+From: benjamin at python.org (Benjamin Peterson)
+Date: Sun, 12 Jul 2009 18:57:21 -0500
+Subject: [python-committers] encoding of Misc/NEWS and Misc/ACKS
+Message-ID: <1afaf6160907121657g263bccdbj23e6eddd99304d4e@mail.gmail.com>
+
+Since we are living in 2009 now, I've changed the encodings of
+Misc/ACKS and Misc/NEWS to UTF-8 from latin-1.
+
+-- 
+Regards,
+Benjamin
+

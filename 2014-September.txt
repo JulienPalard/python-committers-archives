@@ -1,0 +1,903 @@
+From benjamin at python.org  Sat Sep 13 02:34:48 2014
+From: benjamin at python.org (Benjamin Peterson)
+Date: Fri, 12 Sep 2014 20:34:48 -0400
+Subject: [python-committers] new hg.python.org server
+Message-ID: <1410568488.3502994.166945269.219D0D6F@webmail.messagingengine.com>
+
+I just switched hg.python.org from a OSUOSL VM to a Rackspace VM. The
+new VM is a bit beefier and has what I think is better network
+connectivity, so hopefully that will improving the speed of repository
+operations. We also now support HTTPS for repository browsing and
+cloning, so update all your links to https://hg.python.org! IPv6 support
+has also returned for those who like that sort of thing.
+
+Note the host keys changed, so you'll probably have to futz with
+known_hosts to quiet ssh down. I apologize, but I noticed that that the
+current RSA host key is 1024 bits, so I decided to upgrade it to 2048
+during the transition.
+
+Thanks to Donald Stufft for helping me set this up.
+
+From raymond.hettinger at gmail.com  Sat Sep 13 03:02:42 2014
+From: raymond.hettinger at gmail.com (Raymond Hettinger)
+Date: Fri, 12 Sep 2014 18:02:42 -0700
+Subject: [python-committers] new hg.python.org server
+In-Reply-To: <1410568488.3502994.166945269.219D0D6F@webmail.messagingengine.com>
+References: <1410568488.3502994.166945269.219D0D6F@webmail.messagingengine.com>
+Message-ID: <020FC186-AD45-46D0-AFF4-5E84FF70CCD9@gmail.com>
+
+On Sep 12, 2014, at 5:34 PM, Benjamin Peterson <benjamin at python.org> wrote:
+
+>  The
+> new VM is a bit beefier and has what I think is better network
+> connectivity, so hopefully that will improving the speed of repository
+> operations.
+
+Thanks Benjamin, the repo is noticeably faster.
+
+
+Raymond
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20140912/1a2e0c4e/attachment.html>
+
+From tjreedy at udel.edu  Sat Sep 13 03:41:32 2014
+From: tjreedy at udel.edu (Terry Reedy)
+Date: Fri, 12 Sep 2014 21:41:32 -0400
+Subject: [python-committers] new hg.python.org server
+In-Reply-To: <1410568488.3502994.166945269.219D0D6F@webmail.messagingengine.com>
+References: <1410568488.3502994.166945269.219D0D6F@webmail.messagingengine.com>
+Message-ID: <lv07cs$jnl$1@ger.gmane.org>
+
+On 9/12/2014 8:34 PM, Benjamin Peterson wrote:
+> I just switched hg.python.org from a OSUOSL VM to a Rackspace VM. The
+> new VM is a bit beefier and has what I think is better network
+> connectivity, so hopefully that will improving the speed of repository
+> operations. We also now support HTTPS for repository browsing and
+> cloning, so update all your links to https://hg.python.org! IPv6 support
+> has also returned for those who like that sort of thing.
+>
+> Note the host keys changed, so you'll probably have to futz with
+> known_hosts to quiet ssh down. I apologize, but I noticed that that the
+> current RSA host key is 1024 bits, so I decided to upgrade it to 2048
+> during the transition.
+
+putty just asks whether the host key change is expected or not, and just 
+takes care of its list if one answers 'yes'.
+
+> Thanks to Donald Stufft for helping me set this up.
+>
+
+
+-- 
+Terry Jan Reedy
+
+
+From benjamin at python.org  Sat Sep 13 04:15:33 2014
+From: benjamin at python.org (Benjamin Peterson)
+Date: Fri, 12 Sep 2014 22:15:33 -0400
+Subject: [python-committers] [Python-Dev]  new hg.python.org server
+In-Reply-To: <CANk+dkPdQtZHW7PVm=COBtjdemH4L_AYpaxoWQEuGYegODOc_w@mail.gmail.com>
+References: <1410568488.3502994.166945269.219D0D6F@webmail.messagingengine.com>
+ <020FC186-AD45-46D0-AFF4-5E84FF70CCD9@gmail.com>
+ <CANk+dkPdQtZHW7PVm=COBtjdemH4L_AYpaxoWQEuGYegODOc_w@mail.gmail.com>
+Message-ID: <1410574533.3522004.166962429.2D7D7CC6@webmail.messagingengine.com>
+
+
+
+On Fri, Sep 12, 2014, at 21:52, Shorya Raj wrote:
+> Just wondering - are there any sys-adminy sort of tasks that could be
+> completed? I mean, I have some (note, some) experience doing this, and I
+> wouldn't mind helping out (I inquired in the buildbot thread as well, but
+> there wasn't much of a response).
+
+Well, hg.python.org is basically done now. The main thing now is
+understanding how other services (planet.python.org, bugs.python.org)
+are setup and moving them to config management.
+
+From jcea at jcea.es  Thu Sep 18 16:58:26 2014
+From: jcea at jcea.es (Jesus Cea)
+Date: Thu, 18 Sep 2014 16:58:26 +0200
+Subject: [python-committers] new hg.python.org server
+In-Reply-To: <1410568488.3502994.166945269.219D0D6F@webmail.messagingengine.com>
+References: <1410568488.3502994.166945269.219D0D6F@webmail.messagingengine.com>
+Message-ID: <541AF312.5030404@jcea.es>
+
+On 13/09/14 02:34, Benjamin Peterson wrote:
+> I just switched hg.python.org from a OSUOSL VM to a Rackspace VM. The
+> new VM is a bit beefier and has what I think is better network
+> connectivity, so hopefully that will improving the speed of repository
+> operations. We also now support HTTPS for repository browsing and
+> cloning, so update all your links to https://hg.python.org! IPv6 support
+> has also returned for those who like that sort of thing.
+> 
+> Note the host keys changed, so you'll probably have to futz with
+> known_hosts to quiet ssh down. I apologize, but I noticed that that the
+> current RSA host key is 1024 bits, so I decided to upgrade it to 2048
+> during the transition.
+> 
+> Thanks to Donald Stufft for helping me set this up.
+
+I see this fingerprint for HTTPS:
+
+f4:21:58:34:4e:26:dd:55:16:51:2e:ce:6e:58:a8:92:6e:32:c8:50
+
+I see this fingerprint for SSH:
+
+a0:12:52:50:4a:4b:db:43:ac:65:26:b6:6f:0a:f7:b8
+
+-- 
+Jes?s Cea Avi?n                         _/_/      _/_/_/        _/_/_/
+jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+Twitter: @jcea                        _/_/    _/_/          _/_/_/_/_/
+jabber / xmpp:jcea at jabber.org  _/_/  _/_/    _/_/          _/_/  _/_/
+"Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+"My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+"El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 473 bytes
+Desc: OpenPGP digital signature
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20140918/e31499c8/attachment.sig>
+
+From donald at stufft.io  Thu Sep 18 22:53:32 2014
+From: donald at stufft.io (Donald Stufft)
+Date: Thu, 18 Sep 2014 16:53:32 -0400
+Subject: [python-committers] new hg.python.org server
+In-Reply-To: <541AF312.5030404@jcea.es>
+References: <1410568488.3502994.166945269.219D0D6F@webmail.messagingengine.com>
+ <541AF312.5030404@jcea.es>
+Message-ID: <28C6888F-298F-42AD-BAB9-246FE4554C5E@stufft.io>
+
+
+> On Sep 18, 2014, at 10:58 AM, Jesus Cea <jcea at jcea.es> wrote:
+> 
+> On 13/09/14 02:34, Benjamin Peterson wrote:
+>> I just switched hg.python.org from a OSUOSL VM to a Rackspace VM. The
+>> new VM is a bit beefier and has what I think is better network
+>> connectivity, so hopefully that will improving the speed of repository
+>> operations. We also now support HTTPS for repository browsing and
+>> cloning, so update all your links to https://hg.python.org! IPv6 support
+>> has also returned for those who like that sort of thing.
+>> 
+>> Note the host keys changed, so you'll probably have to futz with
+>> known_hosts to quiet ssh down. I apologize, but I noticed that that the
+>> current RSA host key is 1024 bits, so I decided to upgrade it to 2048
+>> during the transition.
+>> 
+>> Thanks to Donald Stufft for helping me set this up.
+> 
+> I see this fingerprint for HTTPS:
+> 
+> f4:21:58:34:4e:26:dd:55:16:51:2e:ce:6e:58:a8:92:6e:32:c8:50
+> 
+> I see this fingerprint for SSH:
+> 
+> a0:12:52:50:4a:4b:db:43:ac:65:26:b6:6f:0a:f7:b8
+> 
+
+For the record, here are the SSH host keys on the hg box:
+
+$ find /etc/ssh -name 'ssh_host_*_key.pub' -exec ssh-keygen -lf {} \;
+256 1d:02:d1:d2:7b:a1:cb:e0:51:65:25:d7:19:dd:4e:74 /etc/ssh/ssh_host_ed25519_key.pub (ED25519)
+256 f1:53:9d:09:a1:42:8e:33:61:62:64:b1:ef:e9:02:ae /etc/ssh/ssh_host_ecdsa_key.pub (ECDSA)
+1024 0e:69:7b:9c:f3:d8:d8:83:81:8a:f4:2b:41:51:ab:bb /etc/ssh/ssh_host_dsa_key.pub (DSA)
+2048 a0:12:52:50:4a:4b:db:43:ac:65:26:b6:6f:0a:f7:b8 /etc/ssh/ssh_host_rsa_key.pub (RSA)
+
+Here?s the HTTPS certificate for hg.python.org:
+
+$ openssl x509 -in /etc/ssl/private/hg.python.org.pem -noout -fingerprint
+SHA1 Fingerprint=F4:21:58:34:4E:26:DD:55:16:51:2E:CE:6E:58:A8:92:6E:32:C8:50
+
+$ openssl x509 -in /etc/ssl/private/hg.python.org.pem -noout -fingerprint -sha256
+SHA256 Fingerprint=B2:F7:DD:60:14:CE:F4:EE:B5:46:13:CD:DB:CA:54:B5:24:F1:94:D8:53:91:CD:87:AF:A4:F1:53:29:ED:82:46
+
+---
+Donald Stufft
+PGP: 7C6B 7C5D 5E2B 6356 A926 F04F 6E3C BCE9 3372 DCFA
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20140918/652d033c/attachment.html>
+
+From donald at stufft.io  Thu Sep 18 23:34:07 2014
+From: donald at stufft.io (Donald Stufft)
+Date: Thu, 18 Sep 2014 17:34:07 -0400
+Subject: [python-committers] new hg.python.org server
+In-Reply-To: <28C6888F-298F-42AD-BAB9-246FE4554C5E@stufft.io>
+References: <1410568488.3502994.166945269.219D0D6F@webmail.messagingengine.com>
+ <541AF312.5030404@jcea.es> <28C6888F-298F-42AD-BAB9-246FE4554C5E@stufft.io>
+Message-ID: <922E08DB-8E24-4615-8949-7963AB52A3E0@stufft.io>
+
+
+> On Sep 18, 2014, at 4:53 PM, Donald Stufft <donald at stufft.io> wrote:
+> 
+>> 
+>> On Sep 18, 2014, at 10:58 AM, Jesus Cea <jcea at jcea.es <mailto:jcea at jcea.es>> wrote:
+>> 
+>> On 13/09/14 02:34, Benjamin Peterson wrote:
+>>> I just switched hg.python.org <http://hg.python.org/> from a OSUOSL VM to a Rackspace VM. The
+>>> new VM is a bit beefier and has what I think is better network
+>>> connectivity, so hopefully that will improving the speed of repository
+>>> operations. We also now support HTTPS for repository browsing and
+>>> cloning, so update all your links to https://hg.python.org <https://hg.python.org/>! IPv6 support
+>>> has also returned for those who like that sort of thing.
+>>> 
+>>> Note the host keys changed, so you'll probably have to futz with
+>>> known_hosts to quiet ssh down. I apologize, but I noticed that that the
+>>> current RSA host key is 1024 bits, so I decided to upgrade it to 2048
+>>> during the transition.
+>>> 
+>>> Thanks to Donald Stufft for helping me set this up.
+>> 
+>> I see this fingerprint for HTTPS:
+>> 
+>> f4:21:58:34:4e:26:dd:55:16:51:2e:ce:6e:58:a8:92:6e:32:c8:50
+>> 
+>> I see this fingerprint for SSH:
+>> 
+>> a0:12:52:50:4a:4b:db:43:ac:65:26:b6:6f:0a:f7:b8
+>> 
+> 
+> For the record, here are the SSH host keys on the hg box:
+> 
+> $ find /etc/ssh -name 'ssh_host_*_key.pub' -exec ssh-keygen -lf {} \;
+> 256 1d:02:d1:d2:7b:a1:cb:e0:51:65:25:d7:19:dd:4e:74 /etc/ssh/ssh_host_ed25519_key.pub (ED25519)
+> 256 f1:53:9d:09:a1:42:8e:33:61:62:64:b1:ef:e9:02:ae /etc/ssh/ssh_host_ecdsa_key.pub (ECDSA)
+> 1024 0e:69:7b:9c:f3:d8:d8:83:81:8a:f4:2b:41:51:ab:bb /etc/ssh/ssh_host_dsa_key.pub (DSA)
+> 2048 a0:12:52:50:4a:4b:db:43:ac:65:26:b6:6f:0a:f7:b8 /etc/ssh/ssh_host_rsa_key.pub (RSA)
+> 
+> Here?s the HTTPS certificate for hg.python.org <http://hg.python.org/>:
+> 
+> $ openssl x509 -in /etc/ssl/private/hg.python.org.pem -noout -fingerprint
+> SHA1 Fingerprint=F4:21:58:34:4E:26:DD:55:16:51:2E:CE:6E:58:A8:92:6E:32:C8:50
+> 
+> $ openssl x509 -in /etc/ssl/private/hg.python.org.pem -noout -fingerprint -sha256
+> SHA256 Fingerprint=B2:F7:DD:60:14:CE:F4:EE:B5:46:13:CD:DB:CA:54:B5:24:F1:94:D8:53:91:CD:87:AF:A4:F1:53:29:ED:82:46
+> 
+> ---
+> Donald Stufft
+> PGP: 7C6B 7C5D 5E2B 6356 A926 F04F 6E3C BCE9 3372 DCFA
+> 
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org <mailto:python-committers at python.org>
+> https://mail.python.org/mailman/listinfo/python-committers <https://mail.python.org/mailman/listinfo/python-committers>
+
+
+Just a FYI, I dropped the DSA keys since they were only 1024 bit which
+is no longer secure against computationally powerful attackers.
+
+---
+Donald Stufft
+PGP: 7C6B 7C5D 5E2B 6356 A926 F04F 6E3C BCE9 3372 DCFA
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20140918/62be0b83/attachment-0001.html>
+
+From michael at voidspace.org.uk  Mon Sep 22 11:51:27 2014
+From: michael at voidspace.org.uk (Michael Foord)
+Date: Mon, 22 Sep 2014 10:51:27 +0100
+Subject: [python-committers] Commit rights for Robert Collins
+Message-ID: <541FF11F.9040409@voidspace.org.uk>
+
+Hello all,
+
+Robert Collins is volunteering to help with maintenance and improvement 
+of unittest. He's probably known to many of you, but Robert is the 
+creator of subunit, testtools and many Python libraries particularly in 
+the area of testing.
+
+I'd like Robert to have commit rights for this purpose. He's already 
+submitted quite a few fixes and patches. Most recently issue 16662.
+
+http://bugs.python.org/issue16662
+
+Robert is an experienced and accomplished Python developer, so won't 
+need much mentoring beyond learning our development processes (which 
+branches to merge to, when a bug fix can be backported etc). In as much 
+as he needs any mentoring I'm more than happy to work with Robert.
+
+Improvements to unittest, and design discussions around new APIs and API 
+changes, will continue to happen on python-dev and on the tracker.
+
+All the best,
+
+Michael Foord
+
+From barry at python.org  Mon Sep 22 15:12:12 2014
+From: barry at python.org (Barry Warsaw)
+Date: Mon, 22 Sep 2014 09:12:12 -0400
+Subject: [python-committers] Commit rights for Robert Collins
+In-Reply-To: <541FF11F.9040409@voidspace.org.uk>
+References: <541FF11F.9040409@voidspace.org.uk>
+Message-ID: <20140922091212.0dbf372d@anarchist.wooz.org>
+
+On Sep 22, 2014, at 10:51 AM, Michael Foord wrote:
+
+>Robert Collins is volunteering to help with maintenance and improvement of
+>unittest. He's probably known to many of you, but Robert is the creator of
+>subunit, testtools and many Python libraries particularly in the area of
+>testing.
+>
+>I'd like Robert to have commit rights for this purpose. He's already
+>submitted quite a few fixes and patches. Most recently issue 16662.
+
++1
+
+-Barry
+
+From larry at hastings.org  Mon Sep 22 16:15:51 2014
+From: larry at hastings.org (Larry Hastings)
+Date: Mon, 22 Sep 2014 15:15:51 +0100
+Subject: [python-committers] [RELEASE] Python 3.4.2rc1 is now available
+Message-ID: <54202F17.3010008@hastings.org>
+
+
+
+On behalf of the Python development community and the Python 3.4 release 
+team, I'm chuffed to announce the availability of Python 3.4.2rc1. 
+Python 3.4.2 has many bugfixes and other small improvements over 3.4.1.  
+One new feature for Mac OS X users: the OS X installers are now 
+distributed as signed installer package files compatible with the OS X 
+Gatekeeper security feature.
+
+You can download it here:
+
+    https://www.python.org/download/releases/3.4.2
+
+
+Be seeing you,
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20140922/d7c6b5aa/attachment.html>
+
+From victor.stinner at gmail.com  Mon Sep 22 16:58:50 2014
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Mon, 22 Sep 2014 16:58:50 +0200
+Subject: [python-committers] [RELEASE] Python 3.4.2rc1 is now available
+In-Reply-To: <54202F17.3010008@hastings.org>
+References: <54202F17.3010008@hastings.org>
+Message-ID: <CAMpsgwaG=R81cYH59qKjKpPn3gF8tcee68L3HysXbw_tjrwZgQ@mail.gmail.com>
+
+Someone broke test_pydoc. Example:
+http://buildbot.python.org/all/builders/AMD64%20FreeBSD%2010.0%203.4/builds/481/steps/test/logs/stdio
+
+Victor
+
+2014-09-22 16:15 GMT+02:00 Larry Hastings <larry at hastings.org>:
+>
+>
+> On behalf of the Python development community and the Python 3.4 release
+> team, I'm chuffed to announce the availability of Python 3.4.2rc1.   Python
+> 3.4.2 has many bugfixes and other small improvements over 3.4.1.  One new
+> feature for Mac OS X users: the OS X installers are now distributed as
+> signed installer package files compatible with the OS X Gatekeeper security
+> feature.
+>
+> You can download it here:
+>
+> https://www.python.org/download/releases/3.4.2
+>
+>
+> Be seeing you,
+>
+>
+> /arry
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+>
+
+From rdmurray at bitdance.com  Mon Sep 22 17:15:06 2014
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Mon, 22 Sep 2014 11:15:06 -0400
+Subject: [python-committers] [Python-Dev] [RELEASE] Python 3.4.2rc1 is
+	now available
+In-Reply-To: <CAMpsgwaG=R81cYH59qKjKpPn3gF8tcee68L3HysXbw_tjrwZgQ@mail.gmail.com>
+References: <54202F17.3010008@hastings.org>
+ <CAMpsgwaG=R81cYH59qKjKpPn3gF8tcee68L3HysXbw_tjrwZgQ@mail.gmail.com>
+Message-ID: <20140922151507.87787250DF7@webabinitio.net>
+
+(Trimmed CC)
+
+I couldn't reproduce this, nor did I see it in any of the stable
+buildbots when Larry reported he had an issue with it.  Now that he's
+pushed his branch, the buildbots are red with it.  So...Larry broke
+it, but it is not obvious how.  Could it be something wrong with the
+pydoc topics update for the release?
+
+On Mon, 22 Sep 2014 16:58:50 +0200, Victor Stinner <victor.stinner at gmail.com> wrote:
+> Someone broke test_pydoc. Example:
+> http://buildbot.python.org/all/builders/AMD64%20FreeBSD%2010.0%203.4/builds/481/steps/test/logs/stdio
+> 
+> Victor
+> 
+> 2014-09-22 16:15 GMT+02:00 Larry Hastings <larry at hastings.org>:
+> >
+> >
+> > On behalf of the Python development community and the Python 3.4 release
+> > team, I'm chuffed to announce the availability of Python 3.4.2rc1.   Python
+> > 3.4.2 has many bugfixes and other small improvements over 3.4.1.  One new
+> > feature for Mac OS X users: the OS X installers are now distributed as
+> > signed installer package files compatible with the OS X Gatekeeper security
+> > feature.
+> >
+> > You can download it here:
+> >
+> > https://www.python.org/download/releases/3.4.2
+> >
+> >
+> > Be seeing you,
+> >
+> >
+> > /arry
+> >
+> > _______________________________________________
+> > python-committers mailing list
+> > python-committers at python.org
+> > https://mail.python.org/mailman/listinfo/python-committers
+> >
+> _______________________________________________
+> Python-Dev mailing list
+> Python-Dev at python.org
+> https://mail.python.org/mailman/listinfo/python-dev
+> Unsubscribe: https://mail.python.org/mailman/options/python-dev/rdmurray%40bitdance.com
+
+From tjreedy at udel.edu  Mon Sep 22 19:02:00 2014
+From: tjreedy at udel.edu (Terry Reedy)
+Date: Mon, 22 Sep 2014 13:02:00 -0400
+Subject: [python-committers] [RELEASE] Python 3.4.2rc1 is now available
+In-Reply-To: <54202F17.3010008@hastings.org>
+References: <54202F17.3010008@hastings.org>
+Message-ID: <lvpkn3$mb4$1@ger.gmane.org>
+
+On 9/22/2014 10:15 AM, Larry Hastings wrote:
+>
+>
+> On behalf of the Python development community and the Python 3.4 release
+> team, I'm chuffed to announce the availability of Python 3.4.2rc1.
+> Python 3.4.2 has many bugfixes and other small improvements over 3.4.1.
+> One new feature for Mac OS X users: the OS X installers are now
+> distributed as signed installer package files compatible with the OS X
+> Gatekeeper security feature.
+>
+> You can download it here:
+>
+>     https://www.python.org/download/releases/3.4.2
+
+Unfortunately, I cannot. This actually links to
+https://www.python.org/download/releases/3.4.1
+
+This page, in spite of its name, does not have downloads.
+Instead it has
+"Please proceed to the download page for the download."
+with 'download page' linked to this same page that does not have 
+downloads.  Something seems messed up on the site.
+
+If I manually go to
+https://www.python.org/downloads/release/python-342/
+I get a similar page with no downloads.  It has the same sentence as 
+above that links to the 341 page with no downloads.
+
+---
+Terry Jan Reedy
+
+
+From zachary.ware+pycommit at gmail.com  Mon Sep 22 19:39:39 2014
+From: zachary.ware+pycommit at gmail.com (Zachary Ware)
+Date: Mon, 22 Sep 2014 12:39:39 -0500
+Subject: [python-committers] [Python-Dev] [RELEASE] Python 3.4.2rc1 is
+	now available
+In-Reply-To: <20140922151507.87787250DF7@webabinitio.net>
+References: <54202F17.3010008@hastings.org>
+ <CAMpsgwaG=R81cYH59qKjKpPn3gF8tcee68L3HysXbw_tjrwZgQ@mail.gmail.com>
+ <20140922151507.87787250DF7@webabinitio.net>
+Message-ID: <CAKJDb-P0qV-o0EFJNGNZUfsiA9erv_HgXPBdg1-njbmbugRbUA@mail.gmail.com>
+
+On Mon, Sep 22, 2014 at 10:15 AM, R. David Murray <rdmurray at bitdance.com> wrote:
+> On Mon, 22 Sep 2014 16:58:50 +0200, Victor Stinner <victor.stinner at gmail.com> wrote:
+>> Someone broke test_pydoc. Example:
+>> http://buildbot.python.org/all/builders/AMD64%20FreeBSD%2010.0%203.4/builds/481/steps/test/logs/stdio
+>>
+> I couldn't reproduce this, nor did I see it in any of the stable
+> buildbots when Larry reported he had an issue with it.  Now that he's
+> pushed his branch, the buildbots are red with it.  So...Larry broke
+> it, but it is not obvious how.  Could it be something wrong with the
+> pydoc topics update for the release?
+
+It is indeed the pydoc-topics update at fault.  Further discussion in
+http://bugs.python.org/issue22461.
+
+--
+Zach
+
+From nad at acm.org  Mon Sep 22 20:12:44 2014
+From: nad at acm.org (Ned Deily)
+Date: Mon, 22 Sep 2014 11:12:44 -0700
+Subject: [python-committers] [RELEASE] Python 3.4.2rc1 is now available
+References: <54202F17.3010008@hastings.org> <lvpkn3$mb4$1@ger.gmane.org>
+Message-ID: <nad-CFF9C5.11124422092014@news.gmane.org>
+
+In article <lvpkn3$mb4$1 at ger.gmane.org>, Terry Reedy <tjreedy at udel.edu> 
+wrote:
+
+> On 9/22/2014 10:15 AM, Larry Hastings wrote:
+> >
+> >
+> > On behalf of the Python development community and the Python 3.4 release
+> > team, I'm chuffed to announce the availability of Python 3.4.2rc1.
+> > Python 3.4.2 has many bugfixes and other small improvements over 3.4.1.
+> > One new feature for Mac OS X users: the OS X installers are now
+> > distributed as signed installer package files compatible with the OS X
+> > Gatekeeper security feature.
+> >
+> > You can download it here:
+> >
+> >     https://www.python.org/download/releases/3.4.2
+> 
+> Unfortunately, I cannot. This actually links to
+> https://www.python.org/download/releases/3.4.1
+> 
+> This page, in spite of its name, does not have downloads.
+> Instead it has
+> "Please proceed to the download page for the download."
+> with 'download page' linked to this same page that does not have 
+> downloads.  Something seems messed up on the site.
+> 
+> If I manually go to
+> https://www.python.org/downloads/release/python-342/
+> I get a similar page with no downloads.  It has the same sentence as 
+> above that links to the 341 page with no downloads.
+
+The links should be OK now.
+
+-- 
+ Ned Deily,
+ nad at acm.org
+
+
+From larry at hastings.org  Tue Sep 23 00:12:38 2014
+From: larry at hastings.org (Larry Hastings)
+Date: Mon, 22 Sep 2014 23:12:38 +0100
+Subject: [python-committers] [RELEASE] Python 3.4.2rc1 is now available
+In-Reply-To: <CAMpsgwaG=R81cYH59qKjKpPn3gF8tcee68L3HysXbw_tjrwZgQ@mail.gmail.com>
+References: <54202F17.3010008@hastings.org>
+ <CAMpsgwaG=R81cYH59qKjKpPn3gF8tcee68L3HysXbw_tjrwZgQ@mail.gmail.com>
+Message-ID: <54209ED6.30608@hastings.org>
+
+
+On 09/22/2014 03:58 PM, Victor Stinner wrote:
+> Someone broke test_pydoc. Example:
+> http://buildbot.python.org/all/builders/AMD64%20FreeBSD%2010.0%203.4/builds/481/steps/test/logs/stdio
+
+I broke it while making the release.  Known bug, happened before, for 
+3.4.1rc1.
+
+    http://bugs.python.org/issue21431
+
+We'll get it right for 3.4.2 final.  I don't think we need to respin 
+3.4.2rc1 / add a 3.4.2rc2 for this.
+
+
+
+On 09/22/2014 06:02 PM, Terry Reedy wrote:
+> On 9/22/2014 10:15 AM, Larry Hastings wrote:
+>> You can download it here:
+>>
+>>     https://www.python.org/download/releases/3.4.2
+> Unfortunately, I cannot. This actually links to
+> https://www.python.org/download/releases/3.4.1
+
+WFM.  I'm guessing this was a CDN caching problem--I forgot to manually 
+purge the cache.  Does it work for you now?
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20140922/19904714/attachment.html>
+
+From tjreedy at udel.edu  Tue Sep 23 01:10:03 2014
+From: tjreedy at udel.edu (Terry Reedy)
+Date: Mon, 22 Sep 2014 19:10:03 -0400
+Subject: [python-committers] [RELEASE] Python 3.4.2rc1 is now available
+In-Reply-To: <nad-CFF9C5.11124422092014@news.gmane.org>
+References: <54202F17.3010008@hastings.org> <lvpkn3$mb4$1@ger.gmane.org>
+ <nad-CFF9C5.11124422092014@news.gmane.org>
+Message-ID: <5420AC4B.3090701@udel.edu>
+
+On 9/22/2014 2:12 PM, Ned Deily wrote:
+> In article <lvpkn3$mb4$1 at ger.gmane.org>, Terry Reedy <tjreedy at udel.edu>
+> wrote:
+>
+>> On 9/22/2014 10:15 AM, Larry Hastings wrote:
+>>>
+>>>
+>>> On behalf of the Python development community and the Python 3.4 release
+>>> team, I'm chuffed to announce the availability of Python 3.4.2rc1.
+>>> Python 3.4.2 has many bugfixes and other small improvements over 3.4.1.
+>>> One new feature for Mac OS X users: the OS X installers are now
+>>> distributed as signed installer package files compatible with the OS X
+>>> Gatekeeper security feature.
+>>>
+>>> You can download it here:
+>>>
+>>>      https://www.python.org/download/releases/3.4.2
+>>
+>> Unfortunately, I cannot. This actually links to
+>> https://www.python.org/download/releases/3.4.1
+>>
+>> This page, in spite of its name, does not have downloads.
+>> Instead it has
+>> "Please proceed to the download page for the download."
+>> with 'download page' linked to this same page that does not have
+>> downloads.  Something seems messed up on the site.
+>>
+>> If I manually go to
+>> https://www.python.org/downloads/release/python-342/
+>> I get a similar page with no downloads.  It has the same sentence as
+>> above that links to the 341 page with no downloads.
+>
+> The links should be OK now.
+
+This page still has this misleading section and sentence
+"Download Please proceed to the download page for the download." but it 
+now links to itself rather than the 341 page.  This should be removed.
+
+The actual download files are now further down the page.
+
+
+From theller at ctypes.org  Tue Sep 23 09:54:48 2014
+From: theller at ctypes.org (Thomas Heller)
+Date: Tue, 23 Sep 2014 09:54:48 +0200
+Subject: [python-committers] [RELEASE] Python 3.4.2rc1 is now available
+In-Reply-To: <5420AC4B.3090701@udel.edu>
+References: <54202F17.3010008@hastings.org> <lvpkn3$mb4$1@ger.gmane.org>
+ <nad-CFF9C5.11124422092014@news.gmane.org> <5420AC4B.3090701@udel.edu>
+Message-ID: <54212748.7040607@ctypes.org>
+
+Am 23.09.2014 um 01:10 schrieb Terry Reedy:
+> On 9/22/2014 2:12 PM, Ned Deily wrote:
+> This page still has this misleading section and sentence
+> "Download Please proceed to the download page for the download." but it
+> now links to itself rather than the 341 page.  This should be removed.
+>
+> The actual download files are now further down the page.
+
+On the download page
+   https://www.python.org/downloads/release/python-342/
+
+the link 'Changelog for this release' points to the 3.4.1 entry, not 
+3.4.2rc1 entry:
+
+   https://docs.python.org/3.4/whatsnew/changelog.html#python-3-4-1
+
+Thomas
+
+From nad at acm.org  Tue Sep 23 10:17:19 2014
+From: nad at acm.org (Ned Deily)
+Date: Tue, 23 Sep 2014 01:17:19 -0700
+Subject: [python-committers] [RELEASE] Python 3.4.2rc1 is now available
+In-Reply-To: <54212748.7040607@ctypes.org>
+References: <54202F17.3010008@hastings.org> <lvpkn3$mb4$1@ger.gmane.org>
+ <nad-CFF9C5.11124422092014@news.gmane.org> <5420AC4B.3090701@udel.edu>
+ <54212748.7040607@ctypes.org>
+Message-ID: <B39D3DA5-49BA-4BD5-B60D-C71200664C76@acm.org>
+
+
+> On Sep 23, 2014, at 00:54, Thomas Heller <theller at ctypes.org> wrote:
+> 
+> On the download page
+>  https://www.python.org/downloads/release/python-342/
+> 
+> the link 'Changelog for this release' points to the 3.4.1 entry, not 3.4.2rc1 entry:
+> 
+ https://docs.python.org/3.4/whatsnew/changelog.html#python-3-4-1
+
+Thanks, fixed. 
+
+  --
+    Ned Deily
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20140923/bb9a5da7/attachment.html>
+
+From ncoghlan at gmail.com  Tue Sep 23 10:30:55 2014
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Tue, 23 Sep 2014 18:30:55 +1000
+Subject: [python-committers] Commit rights for Robert Collins
+In-Reply-To: <20140922091212.0dbf372d@anarchist.wooz.org>
+References: <541FF11F.9040409@voidspace.org.uk>
+ <20140922091212.0dbf372d@anarchist.wooz.org>
+Message-ID: <CADiSq7d4N0T_C=Zhnw9GS7X8QYjHpo6jOtzuaY9w41HN=v9CBQ@mail.gmail.com>
+
+On 22 September 2014 23:12, Barry Warsaw <barry at python.org> wrote:
+> On Sep 22, 2014, at 10:51 AM, Michael Foord wrote:
+>
+>>Robert Collins is volunteering to help with maintenance and improvement of
+>>unittest. He's probably known to many of you, but Robert is the creator of
+>>subunit, testtools and many Python libraries particularly in the area of
+>>testing.
+>>
+>>I'd like Robert to have commit rights for this purpose. He's already
+>>submitted quite a few fixes and patches. Most recently issue 16662.
+>
+> +1
+
++1 from me too (Disclosure: I actually suggested to Robert that he ask
+Michael about this idea)
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+
+From antoine at python.org  Tue Sep 23 20:02:08 2014
+From: antoine at python.org (Antoine Pitrou)
+Date: Tue, 23 Sep 2014 20:02:08 +0200
+Subject: [python-committers] Commit rights for Robert Collins
+In-Reply-To: <541FF11F.9040409@voidspace.org.uk>
+References: <541FF11F.9040409@voidspace.org.uk>
+Message-ID: <5421B5A0.10904@python.org>
+
+
+Le 22/09/2014 11:51, Michael Foord a ?crit :
+> Hello all,
+> 
+> Robert Collins is volunteering to help with maintenance and improvement 
+> of unittest. He's probably known to many of you, but Robert is the 
+> creator of subunit, testtools and many Python libraries particularly in 
+> the area of testing.
+> 
+> I'd like Robert to have commit rights for this purpose. He's already 
+> submitted quite a few fixes and patches. Most recently issue 16662.
+> 
+> http://bugs.python.org/issue16662
+> 
+> Robert is an experienced and accomplished Python developer, so won't 
+> need much mentoring beyond learning our development processes (which 
+> branches to merge to, when a bug fix can be backported etc). In as much 
+> as he needs any mentoring I'm more than happy to work with Robert.
+> 
+> Improvements to unittest, and design discussions around new APIs and API 
+> changes, will continue to happen on python-dev and on the tracker.
+
+This sounds ok to me.
+
+Regards
+
+Antoine.
+
+From rdmurray at bitdance.com  Tue Sep 23 20:31:45 2014
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Tue, 23 Sep 2014 14:31:45 -0400
+Subject: [python-committers] Commit rights for Robert Collins
+In-Reply-To: <541FF11F.9040409@voidspace.org.uk>
+References: <541FF11F.9040409@voidspace.org.uk>
+Message-ID: <20140923183146.2F9EB250DE6@webabinitio.net>
+
+On Mon, 22 Sep 2014 10:51:27 +0100, Michael Foord <michael at voidspace.org.uk> wrote:
+> Robert Collins is volunteering to help with maintenance and improvement 
+> of unittest. He's probably known to many of you, but Robert is the 
+> creator of subunit, testtools and many Python libraries particularly in 
+> the area of testing.
+> 
+> I'd like Robert to have commit rights for this purpose. He's already 
+> submitted quite a few fixes and patches. Most recently issue 16662.
+> 
+> http://bugs.python.org/issue16662
+> 
+> Robert is an experienced and accomplished Python developer, so won't 
+> need much mentoring beyond learning our development processes (which 
+> branches to merge to, when a bug fix can be backported etc). In as much 
+> as he needs any mentoring I'm more than happy to work with Robert.
+
++1
+
+--David
+
+From g.brandl at gmx.net  Tue Sep 30 14:50:17 2014
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Tue, 30 Sep 2014 14:50:17 +0200
+Subject: [python-committers] 3.2.6, 3.3.6 planned for weekend
+Message-ID: <m0e8ua$49r$1@ger.gmane.org>
+
+Hi all,
+
+I'm planning to tag 3.2 and 3.3 branch security releases on the weekend.
+No binary packages will need to be produced.
+
+Please let me know if there is any security-level fix you'd want to fit
+in before.
+
+cheers,
+Georg
+
+
+From guido at python.org  Tue Sep 30 17:35:04 2014
+From: guido at python.org (Guido van Rossum)
+Date: Tue, 30 Sep 2014 08:35:04 -0700
+Subject: [python-committers] 3.2.6, 3.3.6 planned for weekend
+In-Reply-To: <m0e8ua$49r$1@ger.gmane.org>
+References: <m0e8ua$49r$1@ger.gmane.org>
+Message-ID: <CAP7+vJ+7_rmgmivmjphbALUdrVaBvVOQ=_BkYN=dQrLEcDaFBA@mail.gmail.com>
+
+Did the cookie fix get ported to these?
+On Sep 30, 2014 5:50 AM, "Georg Brandl" <g.brandl at gmx.net> wrote:
+
+> Hi all,
+>
+> I'm planning to tag 3.2 and 3.3 branch security releases on the weekend.
+> No binary packages will need to be produced.
+>
+> Please let me know if there is any security-level fix you'd want to fit
+> in before.
+>
+> cheers,
+> Georg
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20140930/be53db08/attachment.html>
+
+From g.brandl at gmx.net  Tue Sep 30 17:39:46 2014
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Tue, 30 Sep 2014 17:39:46 +0200
+Subject: [python-committers] 3.2.6, 3.3.6 planned for weekend
+In-Reply-To: <CAP7+vJ+7_rmgmivmjphbALUdrVaBvVOQ=_BkYN=dQrLEcDaFBA@mail.gmail.com>
+References: <m0e8ua$49r$1@ger.gmane.org>
+ <CAP7+vJ+7_rmgmivmjphbALUdrVaBvVOQ=_BkYN=dQrLEcDaFBA@mail.gmail.com>
+Message-ID: <m0eis2$bb9$1@ger.gmane.org>
+
+If you mean https://hg.python.org/cpython/rev/9e765e65e5cb, then yes: it was
+already on 3.3, and I ported it to 3.2 among other fixes today.
+
+cheers,
+Georg
+
+
+On 09/30/2014 05:35 PM, Guido van Rossum wrote:
+> Did the cookie fix get ported to these?
+> 
+> On Sep 30, 2014 5:50 AM, "Georg Brandl" <g.brandl at gmx.net
+> <mailto:g.brandl at gmx.net>> wrote:
+> 
+>     Hi all,
+> 
+>     I'm planning to tag 3.2 and 3.3 branch security releases on the weekend.
+>     No binary packages will need to be produced.
+> 
+>     Please let me know if there is any security-level fix you'd want to fit
+>     in before.
+> 
+>     cheers,
+>     Georg
+> 
+>     _______________________________________________
+>     python-committers mailing list
+>     python-committers at python.org <mailto:python-committers at python.org>
+>     https://mail.python.org/mailman/listinfo/python-committers
+> 
+> 
+> 
+
+
+

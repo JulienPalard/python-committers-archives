@@ -1,0 +1,2819 @@
+From solipsis at pitrou.net  Sun Apr  3 17:17:43 2011
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Sun, 03 Apr 2011 17:17:43 +0200
+Subject: [python-committers] Committer rights for Nadeem Vawda
+Message-ID: <1301843863.3512.3.camel@localhost.localdomain>
+
+
+Hello,
+
+I'd like to propose giving committer rights to Nadeem Vawda.
+He has submitted a number of patches since the beginning of the year,
+culminating with a complete rewrite of BZ2File in pure Python allowing
+to add new features (such as the support for arbitrary file-like
+objects) and maintain the code much more easily.
+
+His name appears on 11 commits in the default branch.
+
+Regards
+
+Antoine.
+
+
+
+From orsenthil at gmail.com  Sun Apr  3 17:27:20 2011
+From: orsenthil at gmail.com (Senthil Kumaran)
+Date: Sun, 3 Apr 2011 23:27:20 +0800
+Subject: [python-committers] Committer rights for Nadeem Vawda
+In-Reply-To: <1301843863.3512.3.camel@localhost.localdomain>
+References: <1301843863.3512.3.camel@localhost.localdomain>
+Message-ID: <BANLkTinuTpbaSbqD9T5gB2dEc40N965paQ@mail.gmail.com>
+
+On Sun, Apr 3, 2011 at 11:17 PM, Antoine Pitrou <solipsis at pitrou.net> wrote:
+> I'd like to propose giving committer rights to Nadeem Vawda.
+
++1 to this proposal. Please ensure that Nadeem Vawda is "interested" too.
+
+
+-- 
+Senthil
+
+From victor.stinner at haypocalc.com  Sun Apr  3 18:28:31 2011
+From: victor.stinner at haypocalc.com (Victor Stinner)
+Date: Sun, 03 Apr 2011 18:28:31 +0200
+Subject: [python-committers] Committer rights for Nadeem Vawda
+In-Reply-To: <1301843863.3512.3.camel@localhost.localdomain>
+References: <1301843863.3512.3.camel@localhost.localdomain>
+Message-ID: <1301848111.9400.2.camel@marge>
+
+Hi,
+
+Le dimanche 03 avril 2011 ? 17:17 +0200, Antoine Pitrou a ?crit :
+> I'd like to propose giving committer rights to Nadeem Vawda.
+> He has submitted a number of patches since the beginning of the year,
+> culminating with a complete rewrite of BZ2File in pure Python allowing
+> to add new features (such as the support for arbitrary file-like
+> objects) and maintain the code much more easily.
+
+Oh. I realized that I forgot to add him for his work on #10512 (and
+other related issues): fix ResourceWarning (unclosed files and sockets)
+in some tests, and sometimes in modules. Sorry for that.
+
++1 to give him the committer right.
+
+Victor
+
+
+From tjreedy at udel.edu  Sun Apr  3 19:35:52 2011
+From: tjreedy at udel.edu (Terry Reedy)
+Date: Sun, 03 Apr 2011 13:35:52 -0400
+Subject: [python-committers] Committer rights for Nadeem Vawda
+In-Reply-To: <1301843863.3512.3.camel@localhost.localdomain>
+References: <1301843863.3512.3.camel@localhost.localdomain>
+Message-ID: <4D98AFF8.5020205@udel.edu>
+
+On 4/3/2011 11:17 AM, Antoine Pitrou wrote:
+> I'd like to propose giving committer rights to Nadeem Vawda.
+> He has submitted a number of patches since the beginning of the year,
+> culminating with a complete rewrite of BZ2File in pure Python allowing
+> to add new features (such as the support for arbitrary file-like
+> objects) and maintain the code much more easily.
+
+Upon seeing the patch, I read the issue log, skimmed through the patch, 
+and was duly impressed. The patch showed competence with .c, .py, and 
+.rst files. Since you just added Nadeem to ACKS, I thought we should 
+encourage more contributions.
+
+> His name appears on 11 commits in the default branch.
+
+Given that more have already been made, I agree:
++1
+
+Terry
+
+
+From raymond.hettinger at gmail.com  Sun Apr  3 20:51:04 2011
+From: raymond.hettinger at gmail.com (Raymond Hettinger)
+Date: Sun, 3 Apr 2011 11:51:04 -0700
+Subject: [python-committers] Committer rights for Nadeem Vawda
+In-Reply-To: <BANLkTinuTpbaSbqD9T5gB2dEc40N965paQ@mail.gmail.com>
+References: <1301843863.3512.3.camel@localhost.localdomain>
+	<BANLkTinuTpbaSbqD9T5gB2dEc40N965paQ@mail.gmail.com>
+Message-ID: <6EFCC319-E70E-419B-B411-8D7522E81AC4@gmail.com>
+
+
+On Apr 3, 2011, at 8:27 AM, Senthil Kumaran wrote:
+
+> On Sun, Apr 3, 2011 at 11:17 PM, Antoine Pitrou <solipsis at pitrou.net> wrote:
+>> I'd like to propose giving committer rights to Nadeem Vawda.
+> 
+> +1 to this proposal. Please ensure that Nadeem Vawda is "interested" too.
+> 
+
+... and that he's interested in being a long-term contributor.
+
+We don't benefit from having a large number of people
+with rarely used commit rights or folks that check-in a
+bunch of code and then disappear.
+
+
+Raymond
+
+
+From guido at python.org  Sun Apr  3 21:04:49 2011
+From: guido at python.org (Guido van Rossum)
+Date: Sun, 3 Apr 2011 12:04:49 -0700
+Subject: [python-committers] Committer rights for Nadeem Vawda
+In-Reply-To: <6EFCC319-E70E-419B-B411-8D7522E81AC4@gmail.com>
+References: <1301843863.3512.3.camel@localhost.localdomain>
+	<BANLkTinuTpbaSbqD9T5gB2dEc40N965paQ@mail.gmail.com>
+	<6EFCC319-E70E-419B-B411-8D7522E81AC4@gmail.com>
+Message-ID: <AANLkTike6wKQmQNJgFYN=Z0gNNvBJ5RQddtR+8yrJL5V@mail.gmail.com>
+
+On Sun, Apr 3, 2011 at 11:51 AM, Raymond Hettinger
+<raymond.hettinger at gmail.com> wrote:
+>
+> On Apr 3, 2011, at 8:27 AM, Senthil Kumaran wrote:
+>
+>> On Sun, Apr 3, 2011 at 11:17 PM, Antoine Pitrou <solipsis at pitrou.net> wrote:
+>>> I'd like to propose giving committer rights to Nadeem Vawda.
+>>
+>> +1 to this proposal. Please ensure that Nadeem Vawda is "interested" too.
+>>
+>
+> ... and that he's interested in being a long-term contributor.
+>
+> We don't benefit from having a large number of people
+> with rarely used commit rights or folks that check-in a
+> bunch of code and then disappear.
+
+OTOH I don't see much of a cost either to having folks with
+rarely-used commit rights (I am one myself :-), and I do see a risk in
+placing the bar for commit rights too high (I don't want the Python
+committers to be "growing old together"). So I think that it's enough
+to require that someone is interested (always assuming we trust them).
+
+I don't know Nadeem or his work so I'd abstain on this specific vote,
+but the number of +1 votes (and lack of counter-votes) from people I
+trust is enough for me.
+
+-- 
+--Guido van Rossum (python.org/~guido)
+
+From solipsis at pitrou.net  Sun Apr  3 21:17:10 2011
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Sun, 03 Apr 2011 21:17:10 +0200
+Subject: [python-committers] Committer rights for Nadeem Vawda
+In-Reply-To: <6EFCC319-E70E-419B-B411-8D7522E81AC4@gmail.com>
+References: <1301843863.3512.3.camel@localhost.localdomain>
+	<BANLkTinuTpbaSbqD9T5gB2dEc40N965paQ@mail.gmail.com>
+	<6EFCC319-E70E-419B-B411-8D7522E81AC4@gmail.com>
+Message-ID: <1301858230.3512.22.camel@localhost.localdomain>
+
+Le dimanche 03 avril 2011 ? 11:51 -0700, Raymond Hettinger a ?crit :
+> On Apr 3, 2011, at 8:27 AM, Senthil Kumaran wrote:
+> 
+> > On Sun, Apr 3, 2011 at 11:17 PM, Antoine Pitrou <solipsis at pitrou.net> wrote:
+> >> I'd like to propose giving committer rights to Nadeem Vawda.
+> > 
+> > +1 to this proposal. Please ensure that Nadeem Vawda is "interested" too.
+> > 
+> 
+> ... and that he's interested in being a long-term contributor.
+
+Nadeem told me he was interested in getting commit rights.
+
+I deliberately don't ask about "being a long-term contributor", since
+participating in a FLOSS project is not like entering a marital
+relationship, and demanding such commitment would be, IMHO, misled. The
+mechanics of contribution are such that many of us probably didn't know
+they wanted to be long-term contributors by the time they started
+posting patches.
+
+(what can be expected is some kind of reactivity if you come to be the
+dedicated maintainer of a piece of code, but that's not what we are
+discussing here)
+
+A pragmatic reason for adding new developers is also that it relieves us
+existing developers of some of the work (of studying and committing
+patches from trusted people).
+
+Regards
+
+Antoine.
+
+
+
+From tjreedy at udel.edu  Sun Apr  3 22:05:50 2011
+From: tjreedy at udel.edu (Terry Reedy)
+Date: Sun, 03 Apr 2011 16:05:50 -0400
+Subject: [python-committers] Committer rights for Nadeem Vawda
+In-Reply-To: <1301858230.3512.22.camel@localhost.localdomain>
+References: <1301843863.3512.3.camel@localhost.localdomain>
+	<BANLkTinuTpbaSbqD9T5gB2dEc40N965paQ@mail.gmail.com>
+	<6EFCC319-E70E-419B-B411-8D7522E81AC4@gmail.com>
+	<1301858230.3512.22.camel@localhost.localdomain>
+Message-ID: <4D98D31E.7080409@udel.edu>
+
+On 4/3/2011 3:17 PM, Antoine Pitrou wrote:
+
+> A pragmatic reason for adding new developers is also that it relieves us
+> existing developers of some of the work (of studying and committing
+> patches from trusted people).
+
+Right. This particular large and somewhat complex patch needed (greatly 
+benefited from) your review, but for some easy bugfix patches, 
+committing to multiple versions is more work than the patch itself.
+
+Terry
+
+From steve at holdenweb.com  Mon Apr  4 00:08:10 2011
+From: steve at holdenweb.com (Steve Holden)
+Date: Sun, 3 Apr 2011 18:08:10 -0400
+Subject: [python-committers] Committer rights for Nadeem Vawda
+In-Reply-To: <4D98D31E.7080409@udel.edu>
+References: <1301843863.3512.3.camel@localhost.localdomain>
+	<BANLkTinuTpbaSbqD9T5gB2dEc40N965paQ@mail.gmail.com>
+	<6EFCC319-E70E-419B-B411-8D7522E81AC4@gmail.com>
+	<1301858230.3512.22.camel@localhost.localdomain>
+	<4D98D31E.7080409@udel.edu>
+Message-ID: <8761070A-054F-44D4-A659-24CA16B20366@holdenweb.com>
+
+On Apr 3, 2011, at 4:05 PM, Terry Reedy wrote:
+
+> On 4/3/2011 3:17 PM, Antoine Pitrou wrote:
+> 
+>> A pragmatic reason for adding new developers is also that it relieves us
+>> existing developers of some of the work (of studying and committing
+>> patches from trusted people).
+> 
+> Right. This particular large and somewhat complex patch needed (greatly benefited from) your review, but for some easy bugfix patches, committing to multiple versions is more work than the patch itself.
+> 
+> Terry
+
+I haven't seen anyone yet suggesting that we obtain a signed contributor agreement from Nadeem, but it's beginning to sound like that's the next step.
+
+regards
+ Steve
+-- 
+Steve Holden
+steve at holdenweb.com
+
+
+
+
+From solipsis at pitrou.net  Mon Apr  4 00:15:49 2011
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Mon, 04 Apr 2011 00:15:49 +0200
+Subject: [python-committers] Committer rights for Nadeem Vawda
+In-Reply-To: <8761070A-054F-44D4-A659-24CA16B20366@holdenweb.com>
+References: <1301843863.3512.3.camel@localhost.localdomain>
+	<BANLkTinuTpbaSbqD9T5gB2dEc40N965paQ@mail.gmail.com>
+	<6EFCC319-E70E-419B-B411-8D7522E81AC4@gmail.com>
+	<1301858230.3512.22.camel@localhost.localdomain>
+	<4D98D31E.7080409@udel.edu>
+	<8761070A-054F-44D4-A659-24CA16B20366@holdenweb.com>
+Message-ID: <1301868949.3512.24.camel@localhost.localdomain>
+
+Le dimanche 03 avril 2011 ? 18:08 -0400, Steve Holden a ?crit :
+> On Apr 3, 2011, at 4:05 PM, Terry Reedy wrote:
+> 
+> > On 4/3/2011 3:17 PM, Antoine Pitrou wrote:
+> > 
+> >> A pragmatic reason for adding new developers is also that it relieves us
+> >> existing developers of some of the work (of studying and committing
+> >> patches from trusted people).
+> > 
+> > Right. This particular large and somewhat complex patch needed (greatly benefited from) your review, but for some easy bugfix patches, committing to multiple versions is more work than the patch itself.
+> > 
+> > Terry
+> 
+> I haven't seen anyone yet suggesting that we obtain a signed
+> contributor agreement from Nadeem, but it's beginning to sound like
+> that's the next step.
+
+We already have it (see below).
+
+cheers
+
+Antoine.
+
+
+-------- Message transf?r? --------
+De: Pat Campbell <patcam at python.org>
+?: PSF Members <psf-members at python.org>, PSF Board <psf at python.org>
+Sujet: [PSF-Members] Contributor Agreement - Nadeem Vawda
+Date: Wed, 30 Mar 2011 12:19:28 -0400
+
+We received a contributor agreement from Nadeem Vawda by fax.
+ 
+Thanks,
+Pat
+
+-- 
+Pat Campbell
+PSF Administrator/Secretary
+patcam at python.org
+
+
+
+From barry at python.org  Tue Apr  5 21:07:15 2011
+From: barry at python.org (Barry Warsaw)
+Date: Tue, 5 Apr 2011 15:07:15 -0400
+Subject: [python-committers] Keyword expansion in online PEPs
+Message-ID: <20110405150715.60d69b10@limelight.wooz.org>
+
+I'm still a little confused about keyword expansion for PEPs.  Georg says
+here:
+
+http://mail.python.org/pipermail/python-committers/2011-March/001572.html
+
+that he's enabled the extension "locally", but I don't quite understand if
+that means he did it only in his copy of the repo, or on python.org.  Clearly,
+keywords are not getting expanded in the online version of the PEP:
+
+http://www.python.org/dev/peps/pep-0396/
+
+and while I'm not sure if .hg/hgrc is version controlled in
+ssh://hg at hg.python.org/peps, the file there definitely does not have the
+keyword extension enabled.  This pages recommends it be enabled only per-repo,
+not globally:
+
+http://mercurial.selenic.com/wiki/KeywordExtension
+
+I think we want keywords to be expanded in the online version of the PEPs.
+How can we make that happen and what do PEP authors need to do?
+
+-Barry
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 836 bytes
+Desc: not available
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20110405/30c7e865/attachment.pgp>
+
+From mal at egenix.com  Tue Apr  5 21:28:03 2011
+From: mal at egenix.com (M.-A. Lemburg)
+Date: Tue, 05 Apr 2011 21:28:03 +0200
+Subject: [python-committers] Keyword expansion in online PEPs
+In-Reply-To: <20110405150715.60d69b10@limelight.wooz.org>
+References: <20110405150715.60d69b10@limelight.wooz.org>
+Message-ID: <4D9B6D43.8070103@egenix.com>
+
+Barry Warsaw wrote:
+> I'm still a little confused about keyword expansion for PEPs.  Georg says
+> here:
+> 
+> http://mail.python.org/pipermail/python-committers/2011-March/001572.html
+> 
+> that he's enabled the extension "locally", but I don't quite understand if
+> that means he did it only in his copy of the repo, or on python.org.  Clearly,
+> keywords are not getting expanded in the online version of the PEP:
+> 
+> http://www.python.org/dev/peps/pep-0396/
+> 
+> and while I'm not sure if .hg/hgrc is version controlled in
+> ssh://hg at hg.python.org/peps, the file there definitely does not have the
+> keyword extension enabled.  This pages recommends it be enabled only per-repo,
+> not globally:
+> 
+> http://mercurial.selenic.com/wiki/KeywordExtension
+> 
+> I think we want keywords to be expanded in the online version of the PEPs.
+> How can we make that happen and what do PEP authors need to do?
+
+Related to this, I think that the website cronjob updating the PEP
+is no longer running, or at least it appears so...
+
+Several PEPs still have links to the SVN repo and some of them
+give a 404 when trying to fetch the .txt file:
+
+http://www.python.org/dev/peps/pep-0001/ (SVN, Last-modified link works)
+http://www.python.org/dev/peps/pep-0385/ (SVN, Last-modified link works)
+http://www.python.org/dev/peps/pep-0396/ (SVN, 404)
+
+Others point to the HG repo, like probably all PEPs pages should:
+
+http://www.python.org/dev/peps/pep-0100/ (HG)
+http://www.python.org/dev/peps/ (HG, but gives an error)
+
+-- 
+Marc-Andre Lemburg
+eGenix.com
+
+Professional Python Services directly from the Source  (#1, Apr 05 2011)
+>>> Python/Zope Consulting and Support ...        http://www.egenix.com/
+>>> mxODBC.Zope.Database.Adapter ...             http://zope.egenix.com/
+>>> mxODBC, mxDateTime, mxTextTools ...        http://python.egenix.com/
+________________________________________________________________________
+
+::: Try our new mxODBC.Connect Python Database Interface for free ! ::::
+
+
+   eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+    D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+           Registered at Amtsgericht Duesseldorf: HRB 46611
+               http://www.egenix.com/company/contact/
+
+From g.brandl at gmx.net  Tue Apr  5 22:37:58 2011
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Tue, 05 Apr 2011 22:37:58 +0200
+Subject: [python-committers] Keyword expansion in online PEPs
+In-Reply-To: <4D9B6D43.8070103@egenix.com>
+References: <20110405150715.60d69b10@limelight.wooz.org>
+	<4D9B6D43.8070103@egenix.com>
+Message-ID: <infuji$j8p$1@dough.gmane.org>
+
+Am 05.04.2011 21:28, schrieb M.-A. Lemburg:
+> Barry Warsaw wrote:
+>> I'm still a little confused about keyword expansion for PEPs.  Georg says
+>> here:
+>> 
+>> http://mail.python.org/pipermail/python-committers/2011-March/001572.html
+>> 
+>> that he's enabled the extension "locally", but I don't quite understand if
+>> that means he did it only in his copy of the repo, or on python.org.
+
+The latter.
+
+>>  Clearly,
+>> keywords are not getting expanded in the online version of the PEP:
+>> 
+>> http://www.python.org/dev/peps/pep-0396/
+
+They seem to be now (but I don't know who or what changed).
+
+>> and while I'm not sure if .hg/hgrc is version controlled in
+>> ssh://hg at hg.python.org/peps, the file there definitely does not have the
+>> keyword extension enabled.
+
+Yes, because that's not the clone where the PEPs are built; that one is in
+/data/website-build/build/peps, and it has the keyword ext enabled.
+
+>>  This pages recommends it be enabled only per-repo,
+>> not globally:
+>> 
+>> http://mercurial.selenic.com/wiki/KeywordExtension
+>> 
+>> I think we want keywords to be expanded in the online version of the PEPs.
+>> How can we make that happen and what do PEP authors need to do?
+
+There shouldn't be anything necessary for PEP authors.
+
+> Related to this, I think that the website cronjob updating the PEP
+> is no longer running, or at least it appears so...
+> 
+> Several PEPs still have links to the SVN repo and some of them
+> give a 404 when trying to fetch the .txt file:
+> 
+> http://www.python.org/dev/peps/pep-0001/ (SVN, Last-modified link works)
+> http://www.python.org/dev/peps/pep-0385/ (SVN, Last-modified link works)
+> http://www.python.org/dev/peps/pep-0396/ (SVN, 404)
+> 
+> Others point to the HG repo, like probably all PEPs pages should:
+> 
+> http://www.python.org/dev/peps/pep-0100/ (HG)
+> http://www.python.org/dev/peps/ (HG, but gives an error)
+
+Not sure why, especially not why it's like that for PEP 396, which only was
+added after the switch and therefore the SVN link is broken.
+
+The website build is such a horrid twisty maze of hooks, suid binaries,
+scripts, cronjobs and scripts again that I gave up trying to force a full
+rebuild of all PEPs, which I thought would have replaced all  At one point I assu
+
+
+From g.brandl at gmx.net  Tue Apr  5 22:42:05 2011
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Tue, 05 Apr 2011 22:42:05 +0200
+Subject: [python-committers] Keyword expansion in online PEPs
+In-Reply-To: <infuji$j8p$1@dough.gmane.org>
+References: <20110405150715.60d69b10@limelight.wooz.org>	<4D9B6D43.8070103@egenix.com>
+	<infuji$j8p$1@dough.gmane.org>
+Message-ID: <infur8$j8p$2@dough.gmane.org>
+
+Am 05.04.2011 22:37, schrieb Georg Brandl:
+> Am 05.04.2011 21:28, schrieb M.-A. Lemburg:
+>> Barry Warsaw wrote:
+>>> I'm still a little confused about keyword expansion for PEPs.  Georg says
+>>> here:
+>>> 
+>>> http://mail.python.org/pipermail/python-committers/2011-March/001572.html
+>>> 
+>>> that he's enabled the extension "locally", but I don't quite understand if
+>>> that means he did it only in his copy of the repo, or on python.org.
+> 
+> The latter.
+> 
+>>>  Clearly,
+>>> keywords are not getting expanded in the online version of the PEP:
+>>> 
+>>> http://www.python.org/dev/peps/pep-0396/
+> 
+> They seem to be now (but I don't know who or what changed).
+> 
+>>> and while I'm not sure if .hg/hgrc is version controlled in
+>>> ssh://hg at hg.python.org/peps, the file there definitely does not have the
+>>> keyword extension enabled.
+> 
+> Yes, because that's not the clone where the PEPs are built; that one is in
+> /data/website-build/build/peps, and it has the keyword ext enabled.
+> 
+>>>  This pages recommends it be enabled only per-repo,
+>>> not globally:
+>>> 
+>>> http://mercurial.selenic.com/wiki/KeywordExtension
+>>> 
+>>> I think we want keywords to be expanded in the online version of the PEPs.
+>>> How can we make that happen and what do PEP authors need to do?
+> 
+> There shouldn't be anything necessary for PEP authors.
+> 
+>> Related to this, I think that the website cronjob updating the PEP
+>> is no longer running, or at least it appears so...
+>> 
+>> Several PEPs still have links to the SVN repo and some of them
+>> give a 404 when trying to fetch the .txt file:
+>> 
+>> http://www.python.org/dev/peps/pep-0001/ (SVN, Last-modified link works)
+>> http://www.python.org/dev/peps/pep-0385/ (SVN, Last-modified link works)
+>> http://www.python.org/dev/peps/pep-0396/ (SVN, 404)
+>> 
+>> Others point to the HG repo, like probably all PEPs pages should:
+>> 
+>> http://www.python.org/dev/peps/pep-0100/ (HG)
+>> http://www.python.org/dev/peps/ (HG, but gives an error)
+> 
+> Not sure why, especially not why it's like that for PEP 396, which only was
+> added after the switch and therefore the SVN link is broken.
+> 
+> The website build is such a horrid twisty maze of hooks, suid binaries,
+> scripts, cronjobs and scripts again that I gave up trying to force a full
+> rebuild of all PEPs, which I thought would have replaced all  
+
+Sorry, sent too soon.  Here's the full sentence:
+
+The website build is such a horrid twisty maze of hooks, suid binaries,
+scripts, cronjobs and scripts again that I gave up trying to force a full
+rebuild of all PEPs, which I thought would have replaced all the SVN
+links.  Since they were still working (and as long as the PEPs didn't
+change, at which point they would be rebuilt, point to the correct source),
+I just let it be.
+
+But clearly, there's something more amiss here -- I'd appreciate if someone
+else could have a look and fix it.   (I doubt it: my last request to
+pydotorg about my half-assed fixing of the website build in the aftermath of
+the server OS upgrade wasn't answered at all.)
+
+Georg
+
+
+From barry at python.org  Tue Apr  5 22:53:01 2011
+From: barry at python.org (Barry Warsaw)
+Date: Tue, 5 Apr 2011 16:53:01 -0400
+Subject: [python-committers] Keyword expansion in online PEPs
+In-Reply-To: <infuji$j8p$1@dough.gmane.org>
+References: <20110405150715.60d69b10@limelight.wooz.org>
+	<4D9B6D43.8070103@egenix.com> <infuji$j8p$1@dough.gmane.org>
+Message-ID: <20110405165301.6ca97305@neurotica.wooz.org>
+
+On Apr 05, 2011, at 10:37 PM, Georg Brandl wrote:
+
+>>>  Clearly,
+>>> keywords are not getting expanded in the online version of the PEP:
+>>> 
+>>> http://www.python.org/dev/peps/pep-0396/
+>
+>They seem to be now (but I don't know who or what changed).
+
+But not correctly.
+
+PEP:	396
+Title:	Module Version Numbers
+Version:	65628
+Last-Modified:	2008-08-10 09:59:20 -0400 (Sun, 10 Aug 2008)
+
+>>> and while I'm not sure if .hg/hgrc is version controlled in
+>>> ssh://hg at hg.python.org/peps, the file there definitely does not have the
+>>> keyword extension enabled.
+>
+>Yes, because that's not the clone where the PEPs are built; that one is in
+>/data/website-build/build/peps, and it has the keyword ext enabled.
+
+I see, cool.
+
+>>>  This pages recommends it be enabled only per-repo,
+>>> not globally:
+>>> 
+>>> http://mercurial.selenic.com/wiki/KeywordExtension
+>>> 
+>>> I think we want keywords to be expanded in the online version of the PEPs.
+>>> How can we make that happen and what do PEP authors need to do?
+>
+>There shouldn't be anything necessary for PEP authors.
+
+Sounds good.
+
+>> Related to this, I think that the website cronjob updating the PEP
+>> is no longer running, or at least it appears so...
+>> 
+>> Several PEPs still have links to the SVN repo and some of them
+>> give a 404 when trying to fetch the .txt file:
+>> 
+>> http://www.python.org/dev/peps/pep-0001/ (SVN, Last-modified link works)
+>> http://www.python.org/dev/peps/pep-0385/ (SVN, Last-modified link works)
+>> http://www.python.org/dev/peps/pep-0396/ (SVN, 404)
+>> 
+>> Others point to the HG repo, like probably all PEPs pages should:
+>> 
+>> http://www.python.org/dev/peps/pep-0100/ (HG)
+>> http://www.python.org/dev/peps/ (HG, but gives an error)
+>
+>Not sure why, especially not why it's like that for PEP 396, which only was
+>added after the switch and therefore the SVN link is broken.
+>
+>The website build is such a horrid twisty maze of hooks, suid binaries,
+>scripts, cronjobs and scripts again that I gave up trying to force a full
+>rebuild of all PEPs, which I thought would have replaced all At one point I
+>assu
+
+The PSU does *not* exist.
+
+-Barry
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 836 bytes
+Desc: not available
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20110405/d3253bb9/attachment-0001.pgp>
+
+From solipsis at pitrou.net  Tue Apr  5 23:53:06 2011
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Tue, 05 Apr 2011 23:53:06 +0200
+Subject: [python-committers] Keyword expansion in online PEPs
+In-Reply-To: <20110405165301.6ca97305@neurotica.wooz.org>
+References: <20110405150715.60d69b10@limelight.wooz.org>
+	<4D9B6D43.8070103@egenix.com> <infuji$j8p$1@dough.gmane.org>
+	<20110405165301.6ca97305@neurotica.wooz.org>
+Message-ID: <1302040386.3510.6.camel@localhost.localdomain>
+
+
+> >Not sure why, especially not why it's like that for PEP 396, which only was
+> >added after the switch and therefore the SVN link is broken.
+> >
+> >The website build is such a horrid twisty maze of hooks, suid binaries,
+> >scripts, cronjobs and scripts again that I gave up trying to force a full
+> >rebuild of all PEPs, which I thought would have replaced all At one point I
+> >assu
+> 
+> The PSU does *not* exist.
+
+You mean those /usr/lib/psu-x86_64/ directories don't exist in Ubuntu
+Neurasthenic Negligent Neutral Northern Nailed Nagging Naked Nosy Newt?
+
+Regards
+
+Antoine.
+
+
+
+From orsenthil at gmail.com  Wed Apr  6 09:07:22 2011
+From: orsenthil at gmail.com (Senthil Kumaran)
+Date: Wed, 6 Apr 2011 15:07:22 +0800
+Subject: [python-committers] Fwd: [Python-checkins] cpython (merge 2.7 ->
+ 2.7): hg pull/merge - Changes to accomodate.
+In-Reply-To: <E1Q7MUi-0008K3-TL@dinsdale.python.org>
+References: <E1Q7MUi-0008K3-TL@dinsdale.python.org>
+Message-ID: <BANLkTi==VzJstmOyB67Yrieg=tMoGQ8shw@mail.gmail.com>
+
+The below changes were from Alexander Belopolsky. When I tried to push
+my changes, my changes resulted in multiple heads in 2.7, so I had to
+go back 2.7 branch, merge 2.7 and then commit and push. This resulted
+in both my changes as well as merged changes being pushed. I
+understand that the second part should not happen, like merging an
+already available change and then pushing it again.
+
+I have a script which kind of traverses all the local directories of
+branches and does a hg pull; hg update before I start making changes
+and I thought that was enough. How could the push would resulted in
+two heads here and why I did have merge ? ( I am unable to traceback
+the steps) and if there is anything I should know, or change in the
+workflow when doing changes to 2.7, please let me know.
+
+Thanks,
+Senthil
+
+
+
+---------- Forwarded message ----------
+From: senthil.kumaran <python-checkins at python.org>
+Date: Wed, Apr 6, 2011 at 2:45 PM
+Subject: [Python-checkins] cpython (merge 2.7 -> 2.7): hg pull/merge -
+Changes to accomodate.
+To: python-checkins at python.org
+
+
+http://hg.python.org/cpython/rev/da212fa62fea
+changeset: ? 69170:da212fa62fea
+branch: ? ? ?2.7
+parent: ? ? ?69169:1320f29bcf98
+parent: ? ? ?69165:202a9feb1fd6
+user: ? ? ? ?Senthil Kumaran <orsenthil at gmail.com>
+date: ? ? ? ?Wed Apr 06 14:41:42 2011 +0800
+summary:
+?hg pull/merge - Changes to accomodate.
+
+files:
+?Lib/test/test_datetime.py | ? 7 +++++++
+?Modules/datetimemodule.c ?| ?15 ++++++++-------
+?2 files changed, 15 insertions(+), 7 deletions(-)
+
+
+diff --git a/Lib/test/test_datetime.py b/Lib/test/test_datetime.py
+--- a/Lib/test/test_datetime.py
++++ b/Lib/test/test_datetime.py
+@@ -231,6 +231,13 @@
+? ? ? ? eq(a//10, td(0, 7*24*360))
+? ? ? ? eq(a//3600000, td(0, 0, 7*24*1000))
+
++ ? ? ? ?# Issue #11576
++ ? ? ? ?eq(td(999999999, 86399, 999999) - td(999999999, 86399, 999998),
++ ? ? ? ? ? td(0, 0, 1))
++ ? ? ? ?eq(td(999999999, 1, 1) - td(999999999, 1, 0),
++ ? ? ? ? ? td(0, 0, 1))
++
++
+? ? def test_disallowed_computations(self):
+? ? ? ? a = timedelta(42)
+
+diff --git a/Modules/datetimemodule.c b/Modules/datetimemodule.c
+--- a/Modules/datetimemodule.c
++++ b/Modules/datetimemodule.c
+@@ -1737,13 +1737,14 @@
+
+? ? if (PyDelta_Check(left) && PyDelta_Check(right)) {
+? ? ? ? /* delta - delta */
+- ? ? ? ?PyObject *minus_right = PyNumber_Negative(right);
+- ? ? ? ?if (minus_right) {
+- ? ? ? ? ? ?result = delta_add(left, minus_right);
+- ? ? ? ? ? ?Py_DECREF(minus_right);
+- ? ? ? ?}
+- ? ? ? ?else
+- ? ? ? ? ? ?result = NULL;
++ ? ? ? ?/* The C-level additions can't overflow because of the
++ ? ? ? ? * invariant bounds.
++ ? ? ? ? */
++ ? ? ? ?int days = GET_TD_DAYS(left) - GET_TD_DAYS(right);
++ ? ? ? ?int seconds = GET_TD_SECONDS(left) - GET_TD_SECONDS(right);
++ ? ? ? ?int microseconds = GET_TD_MICROSECONDS(left) -
++ ? ? ? ? ? ? ? ? ? ? ? ? ? GET_TD_MICROSECONDS(right);
++ ? ? ? ?result = new_delta(days, seconds, microseconds, 1);
+? ? }
+
+? ? if (result == Py_NotImplemented)
+
+--
+Repository URL: http://hg.python.org/cpython
+
+_______________________________________________
+Python-checkins mailing list
+Python-checkins at python.org
+http://mail.python.org/mailman/listinfo/python-checkins
+
+
+
+
+-- 
+Senthil
+
+From solipsis at pitrou.net  Wed Apr  6 16:08:34 2011
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Wed, 06 Apr 2011 16:08:34 +0200
+Subject: [python-committers] Fwd: [Python-checkins] cpython (merge 2.7
+ -> 2.7): hg pull/merge - Changes to accomodate.
+In-Reply-To: <BANLkTi==VzJstmOyB67Yrieg=tMoGQ8shw@mail.gmail.com>
+References: <E1Q7MUi-0008K3-TL@dinsdale.python.org>
+	<BANLkTi==VzJstmOyB67Yrieg=tMoGQ8shw@mail.gmail.com>
+Message-ID: <1302098914.3700.7.camel@localhost.localdomain>
+
+Le mercredi 06 avril 2011 ? 15:07 +0800, Senthil Kumaran a ?crit :
+> The below changes were from Alexander Belopolsky. When I tried to push
+> my changes, my changes resulted in multiple heads in 2.7, so I had to
+> go back 2.7 branch, merge 2.7 and then commit and push. This resulted
+> in both my changes as well as merged changes being pushed.
+
+Well, this is normal. Do understand that history with a DVCS is not
+linear. You have based your changes on an earlier revision (for whatever
+reason - for example someone pushed a new revision in-between), and so
+you had to merge - reconcile - your changes with the latest upstream
+changes. This is normal practice.
+
+I guess you have been surprised by the diff in the notification e-mail,
+which makes it look like that the datetime changes have been committed
+"twice". The diff displays the differences between the merge changeset
+and one of its parents (the first one, probably). So, it will reflect
+the changes made necessary to one of its two parents in order to
+reconcile it with the other; it "appears" (due to the diff) that some
+changes have been committed twice, but it's only so if you consider
+history linear as in SVN.
+
+I think the representation of merges as a diff against one of the
+parents is indeed sub-optimal. OTOH, it's not easy to come up with
+something better.
+
+> I have a script which kind of traverses all the local directories of
+> branches and does a hg pull; hg update before I start making changes
+> and I thought that was enough.
+
+It should be enough, but perhaps other changes were pushed in-between.
+
+Regards
+
+Antoine.
+
+
+
+From dirkjan at ochtman.nl  Wed Apr  6 16:12:47 2011
+From: dirkjan at ochtman.nl (Dirkjan Ochtman)
+Date: Wed, 6 Apr 2011 16:12:47 +0200
+Subject: [python-committers] Fwd: [Python-checkins] cpython (merge 2.7
+ -> 2.7): hg pull/merge - Changes to accomodate.
+In-Reply-To: <1302098914.3700.7.camel@localhost.localdomain>
+References: <E1Q7MUi-0008K3-TL@dinsdale.python.org>
+	<BANLkTi==VzJstmOyB67Yrieg=tMoGQ8shw@mail.gmail.com>
+	<1302098914.3700.7.camel@localhost.localdomain>
+Message-ID: <BANLkTikEQ6sziAP_Yu1XeeNZz2k6CBqMHA@mail.gmail.com>
+
+On Wed, Apr 6, 2011 at 16:08, Antoine Pitrou <solipsis at pitrou.net> wrote:
+> I think the representation of merges as a diff against one of the
+> parents is indeed sub-optimal. OTOH, it's not easy to come up with
+> something better.
+
+This might be of interest: https://bitbucket.org/wolever/hg-mergediff/.
+
+Cheers,
+
+Dirkjan
+
+From ezio.melotti at gmail.com  Wed Apr  6 22:45:51 2011
+From: ezio.melotti at gmail.com (Ezio Melotti)
+Date: Wed, 06 Apr 2011 23:45:51 +0300
+Subject: [python-committers] Fwd: [Python-checkins] cpython (merge 2.7
+ -> 2.7): hg pull/merge - Changes to accomodate.
+In-Reply-To: <1302098914.3700.7.camel@localhost.localdomain>
+References: <E1Q7MUi-0008K3-TL@dinsdale.python.org>	<BANLkTi==VzJstmOyB67Yrieg=tMoGQ8shw@mail.gmail.com>
+	<1302098914.3700.7.camel@localhost.localdomain>
+Message-ID: <4D9CD0FF.3050707@gmail.com>
+
+On 06/04/2011 17.08, Antoine Pitrou wrote:
+> Le mercredi 06 avril 2011 ? 15:07 +0800, Senthil Kumaran a ?crit :
+>> The below changes were from Alexander Belopolsky. When I tried to push
+>> my changes, my changes resulted in multiple heads in 2.7, so I had to
+>> go back 2.7 branch, merge 2.7 and then commit and push. This resulted
+>> in both my changes as well as merged changes being pushed.
+> Well, this is normal. Do understand that history with a DVCS is not
+> linear. You have based your changes on an earlier revision (for whatever
+> reason - for example someone pushed a new revision in-between), and so
+> you had to merge - reconcile - your changes with the latest upstream
+> changes. This is normal practice.
+>
+> I guess you have been surprised by the diff in the notification e-mail,
+> which makes it look like that the datetime changes have been committed
+> "twice". The diff displays the differences between the merge changeset
+> and one of its parents (the first one, probably). So, it will reflect
+> the changes made necessary to one of its two parents in order to
+> reconcile it with the other; it "appears" (due to the diff) that some
+> changes have been committed twice, but it's only so if you consider
+> history linear as in SVN.
+>
+> I think the representation of merges as a diff against one of the
+> parents is indeed sub-optimal. OTOH, it's not easy to come up with
+> something better.
+
+FWIW I've been trying to tweak the mail hook to show only the chunks 
+that are actually changing something on hg.python.org (h.p.o).
+In a merge on the same branch (e.g. 2.7 -> 2.7), the diff in the mail 
+shows the pulled changes.  So if Senthil commits something, pulls 
+Alexander changes and merges, the diff will show Alexander changes.  
+That's correct from Senthil repo's point of view.  The problem is that 
+the mail hook does the same and shows us Alexander changes again instead 
+of making a new diff from h.p.o points of view.
+
+Technically same-branch merges could be ignored, because we already got 
+mails for both the parents (i.e. Senthil and Alexander changes).  Who 
+makes the merge might change something in the meanwhile though, so we 
+want to extract these extra changes from the merge to see and review them.
+This turned out to be quite complicated, and I couldn't find any 
+approach that works reliably in all the cases.
+
+The easiest solution I found to see only what changed on h.p.o is to use 
+a changegroup hook instead of an incoming hook, in order to get all the 
+commits at once (when a committer pushes) and make a single diff.
+The "whole diff" mail could be sent only when the push includes a 
+same-branch merge (in addition or instead the per-commit ones), and have 
+the same per-commit mails when there are no same-branch merges.
+
+Another way to find changes is to make crossed checks, but that doesn't 
+work too well in complex cases.
+This means:
+
+   /-> A -\
+-P        M
+   \-> S -/
+
+(P=parent, A=Alexander, S=Senthil, M=merge)
+
+Assume that Alexander committed his change in A and Senthil committed 
+his change in S, then:
+   * the diff from A and M should be equal to the diff from P and S, and
+   * the diff from S and M should be equal to the diff from P and A.
+If both the diffs are not equal, something else changed.
+
+This is similar to the algorithm used b the MergediffExtension, and can 
+be extended to work in this case too:
+
+   /-> A1 -> A2 -> A3 -\
+-P                     M
+   \-> S1 -> S2 -> S3 -/
+
+but if the case is like this it starts to get complicated:
+
+   /-> A1 -> A2 -> A3 -> A4 -\
+-P            \              M1
+   \---> S1 --> M0 --> S2 ---/
+
+(i.e. Senthil does some changes (S1), pulls and merges what Alexander 
+pushed on h.p.o (A1/A2), does more changes (S2), pulls and merges 
+another set of changes pushed by Alexander (A3/A4) -- this might be 
+common with long-term feature branches.)
+
+I'm not sure the mergediff extension can handle all this cases and, even 
+if it can, we need to adapt it to be used from the mail hook.
+
+Best Regards,
+Ezio Melotti
+
+>> I have a script which kind of traverses all the local directories of
+>> branches and does a hg pull; hg update before I start making changes
+>> and I thought that was enough.
+> It should be enough, but perhaps other changes were pushed in-between.
+>
+> Regards
+>
+> Antoine.
+>
+
+
+From tjreedy at udel.edu  Thu Apr  7 01:45:33 2011
+From: tjreedy at udel.edu (Terry Reedy)
+Date: Wed, 06 Apr 2011 19:45:33 -0400
+Subject: [python-committers] Fwd: [Python-checkins] cpython (merge 2.7
+ -> 2.7): hg pull/merge - Changes to accomodate.
+In-Reply-To: <4D9CD0FF.3050707@gmail.com>
+References: <E1Q7MUi-0008K3-TL@dinsdale.python.org>
+	<BANLkTi==VzJstmOyB67Yrieg=tMoGQ8shw@mail.gmail.com>
+	<1302098914.3700.7.camel@localhost.localdomain>
+	<4D9CD0FF.3050707@gmail.com>
+Message-ID: <4D9CFB1D.2080309@udel.edu>
+
+
+
+On 4/6/2011 4:45 PM, Ezio Melotti wrote:
+> On 06/04/2011 17.08, Antoine Pitrou wrote:
+>> Le mercredi 06 avril 2011 ? 15:07 +0800, Senthil Kumaran a ?crit :
+>>> The below changes were from Alexander Belopolsky. When I tried to push
+>>> my changes, my changes resulted in multiple heads in 2.7, so I had to
+>>> go back 2.7 branch, merge 2.7 and then commit and push. This resulted
+>>> in both my changes as well as merged changes being pushed.
+>> Well, this is normal. Do understand that history with a DVCS is not
+>> linear. You have based your changes on an earlier revision (for whatever
+>> reason - for example someone pushed a new revision in-between), and so
+>> you had to merge - reconcile - your changes with the latest upstream
+>> changes. This is normal practice.
+>>
+>> I guess you have been surprised by the diff in the notification e-mail,
+>> which makes it look like that the datetime changes have been committed
+>> "twice". The diff displays the differences between the merge changeset
+>> and one of its parents (the first one, probably). So, it will reflect
+>> the changes made necessary to one of its two parents in order to
+>> reconcile it with the other; it "appears" (due to the diff) that some
+>> changes have been committed twice, but it's only so if you consider
+>> history linear as in SVN.
+>>
+>> I think the representation of merges as a diff against one of the
+>> parents is indeed sub-optimal. OTOH, it's not easy to come up with
+>> something better.
+>
+> FWIW I've been trying to tweak the mail hook to show only the chunks
+> that are actually changing something on hg.python.org (h.p.o).
+> In a merge on the same branch (e.g. 2.7 -> 2.7), the diff in the mail
+> shows the pulled changes. So if Senthil commits something, pulls
+> Alexander changes and merges, the diff will show Alexander changes.
+> That's correct from Senthil repo's point of view. The problem is that
+> the mail hook does the same and shows us Alexander changes again instead
+> of making a new diff from h.p.o points of view.
+>
+> Technically same-branch merges could be ignored, because we already got
+> mails for both the parents (i.e. Senthil and Alexander changes). Who
+> makes the merge might change something in the meanwhile though, so we
+> want to extract these extra changes from the merge to see and review them.
+> This turned out to be quite complicated, and I couldn't find any
+> approach that works reliably in all the cases.
+>
+> The easiest solution I found to see only what changed on h.p.o is to use
+> a changegroup hook instead of an incoming hook, in order to get all the
+> commits at once (when a committer pushes) and make a single diff.
+> The "whole diff" mail could be sent only when the push includes a
+> same-branch merge (in addition or instead the per-commit ones), and have
+> the same per-commit mails when there are no same-branch merges.
+>
+> Another way to find changes is to make crossed checks, but that doesn't
+> work too well in complex cases.
+> This means:
+>
+> /-> A -\
+> -P M
+> \-> S -/
+>
+> (P=parent, A=Alexander, S=Senthil, M=merge)
+>
+> Assume that Alexander committed his change in A and Senthil committed
+> his change in S, then:
+> * the diff from A and M should be equal to the diff from P and S, and
+> * the diff from S and M should be equal to the diff from P and A.
+> If both the diffs are not equal, something else changed.
+
+Like Senthil, I have been puzzled by the duplicate diffs. think it might 
+help other hg newcomers if something like the above were in the dev docs.
+
+>
+> This is similar to the algorithm used b the MergediffExtension, and can
+> be extended to work in this case too:
+>
+> /-> A1 -> A2 -> A3 -\
+> -P M
+> \-> S1 -> S2 -> S3 -/
+>
+> but if the case is like this it starts to get complicated:
+>
+> /-> A1 -> A2 -> A3 -> A4 -\
+> -P \ M1
+> \---> S1 --> M0 --> S2 ---/
+>
+> (i.e. Senthil does some changes (S1), pulls and merges what Alexander
+> pushed on h.p.o (A1/A2), does more changes (S2), pulls and merges
+> another set of changes pushed by Alexander (A3/A4) -- this might be
+> common with long-term feature branches.)
+>
+
+
+Terry
+
+
+From solipsis at pitrou.net  Thu Apr  7 15:11:09 2011
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Thu, 07 Apr 2011 15:11:09 +0200
+Subject: [python-committers] Committer rights for Nadeem Vawda
+In-Reply-To: <1301843863.3512.3.camel@localhost.localdomain>
+References: <1301843863.3512.3.camel@localhost.localdomain>
+Message-ID: <1302181869.3630.4.camel@localhost.localdomain>
+
+
+So, nobody seems to disagree and Nadeem's contributor agreement has been
+received some time ago. What is needed for this to go forward?
+
+Regards
+
+Antoine.
+
+
+
+Le dimanche 03 avril 2011 ? 17:17 +0200, Antoine Pitrou a ?crit :
+> Hello,
+> 
+> I'd like to propose giving committer rights to Nadeem Vawda.
+> He has submitted a number of patches since the beginning of the year,
+> culminating with a complete rewrite of BZ2File in pure Python allowing
+> to add new features (such as the support for arbitrary file-like
+> objects) and maintain the code much more easily.
+> 
+> His name appears on 11 commits in the default branch.
+> 
+> Regards
+> 
+> Antoine.
+> 
+> 
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+> 
+
+
+
+From jnoller at gmail.com  Thu Apr  7 15:26:08 2011
+From: jnoller at gmail.com (Jesse Noller)
+Date: Thu, 7 Apr 2011 09:26:08 -0400
+Subject: [python-committers] Committer rights for Nadeem Vawda
+In-Reply-To: <1302181869.3630.4.camel@localhost.localdomain>
+References: <1301843863.3512.3.camel@localhost.localdomain>
+	<1302181869.3630.4.camel@localhost.localdomain>
+Message-ID: <BANLkTi=0yGjQRcLCB_cqsCyqO=Og4WbFag@mail.gmail.com>
+
+I just think we need to put the ssh key on the server. I know Brett can do it.
+
+On Thu, Apr 7, 2011 at 9:11 AM, Antoine Pitrou <solipsis at pitrou.net> wrote:
+>
+> So, nobody seems to disagree and Nadeem's contributor agreement has been
+> received some time ago. What is needed for this to go forward?
+>
+> Regards
+>
+> Antoine.
+>
+>
+>
+> Le dimanche 03 avril 2011 ? 17:17 +0200, Antoine Pitrou a ?crit :
+>> Hello,
+>>
+>> I'd like to propose giving committer rights to Nadeem Vawda.
+>> He has submitted a number of patches since the beginning of the year,
+>> culminating with a complete rewrite of BZ2File in pure Python allowing
+>> to add new features (such as the support for arbitrary file-like
+>> objects) and maintain the code much more easily.
+>>
+>> His name appears on 11 commits in the default branch.
+>>
+>> Regards
+>>
+>> Antoine.
+>>
+>>
+>> _______________________________________________
+>> python-committers mailing list
+>> python-committers at python.org
+>> http://mail.python.org/mailman/listinfo/python-committers
+>>
+>
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+>
+
+From brett at python.org  Thu Apr  7 19:27:51 2011
+From: brett at python.org (Brett Cannon)
+Date: Thu, 7 Apr 2011 10:27:51 -0700
+Subject: [python-committers] Committer rights for Nadeem Vawda
+In-Reply-To: <1302181869.3630.4.camel@localhost.localdomain>
+References: <1301843863.3512.3.camel@localhost.localdomain>
+	<1302181869.3630.4.camel@localhost.localdomain>
+Message-ID: <BANLkTi=_xOfvqJYbe8Xp9hF6zuXrXWF7Zw@mail.gmail.com>
+
+The devguide knows all: http://docs.python.org/devguide/coredev.html
+
+On Thu, Apr 7, 2011 at 06:11, Antoine Pitrou <solipsis at pitrou.net> wrote:
+
+>
+> So, nobody seems to disagree and Nadeem's contributor agreement has been
+> received some time ago. What is needed for this to go forward?
+>
+> Regards
+>
+> Antoine.
+>
+>
+>
+> Le dimanche 03 avril 2011 ? 17:17 +0200, Antoine Pitrou a ?crit :
+> > Hello,
+> >
+> > I'd like to propose giving committer rights to Nadeem Vawda.
+> > He has submitted a number of patches since the beginning of the year,
+> > culminating with a complete rewrite of BZ2File in pure Python allowing
+> > to add new features (such as the support for arbitrary file-like
+> > objects) and maintain the code much more easily.
+> >
+> > His name appears on 11 commits in the default branch.
+> >
+> > Regards
+> >
+> > Antoine.
+> >
+> >
+> > _______________________________________________
+> > python-committers mailing list
+> > python-committers at python.org
+> > http://mail.python.org/mailman/listinfo/python-committers
+> >
+>
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20110407/680d1b4c/attachment.html>
+
+From solipsis at pitrou.net  Thu Apr  7 22:41:00 2011
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Thu, 07 Apr 2011 22:41:00 +0200
+Subject: [python-committers] Committer rights for Nadeem Vawda
+In-Reply-To: <BANLkTi=_xOfvqJYbe8Xp9hF6zuXrXWF7Zw@mail.gmail.com>
+References: <1301843863.3512.3.camel@localhost.localdomain>
+	<1302181869.3630.4.camel@localhost.localdomain>
+	<BANLkTi=_xOfvqJYbe8Xp9hF6zuXrXWF7Zw@mail.gmail.com>
+Message-ID: <1302208860.3532.1.camel@localhost.localdomain>
+
+Le jeudi 07 avril 2011 ? 10:27 -0700, Brett Cannon a ?crit :
+> The devguide knows all: http://docs.python.org/devguide/coredev.html
+
+Hmmm so I assume Nadeem should send his SSH key to pydotorg at python.org?
+Or?
+
+Thanks
+
+Antoine.
+
+> 
+> On Thu, Apr 7, 2011 at 06:11, Antoine Pitrou <solipsis at pitrou.net>
+> wrote:
+>         
+>         So, nobody seems to disagree and Nadeem's contributor
+>         agreement has been
+>         received some time ago. What is needed for this to go forward?
+>         
+>         Regards
+>         
+>         Antoine.
+
+
+
+
+From jcea at jcea.es  Fri Apr  8 03:09:22 2011
+From: jcea at jcea.es (Jesus Cea)
+Date: Fri, 08 Apr 2011 03:09:22 +0200
+Subject: [python-committers] Committer rights for Nadeem Vawda
+In-Reply-To: <1302208860.3532.1.camel@localhost.localdomain>
+References: <1301843863.3512.3.camel@localhost.localdomain>	<1302181869.3630.4.camel@localhost.localdomain>	<BANLkTi=_xOfvqJYbe8Xp9hF6zuXrXWF7Zw@mail.gmail.com>
+	<1302208860.3532.1.camel@localhost.localdomain>
+Message-ID: <4D9E6042.20305@jcea.es>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On 07/04/11 22:41, Antoine Pitrou wrote:
+> Le jeudi 07 avril 2011 ? 10:27 -0700, Brett Cannon a ?crit :
+>> The devguide knows all: http://docs.python.org/devguide/coredev.html
+> 
+> Hmmm so I assume Nadeem should send his SSH key to pydotorg at python.org?
+> Or?
+
+What is preventing me to send a fake SSH key to that acount, from a
+gmail address, saying "hi, this is Nadeem. You are waiting for this" ;-).
+
+- -- 
+Jesus Cea Avion                         _/_/      _/_/_/        _/_/_/
+jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+jabber / xmpp:jcea at jabber.org         _/_/    _/_/          _/_/_/_/_/
+.                              _/_/  _/_/    _/_/          _/_/  _/_/
+"Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+"My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+"El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.10 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - http://enigmail.mozdev.org/
+
+iQCVAwUBTZ5gQplgi5GaxT1NAQLKIQP9E/Qu+Jqc1xFZrSubhJEQgv94etE37+2x
+sOtH6FLF/h5VEMNcvQsz45WY6c2Vp/pGfJFOyDmkEd0uTOdSrjS+AShAAK+gmyd4
+EUd/kpgXM8JJWRV1Y1bg4cPnFM7epTzuVo0YkjTr+hDXxaHcfEtVmFyI5cEfFkVT
+7OMhZqUFfLY=
+=GnGq
+-----END PGP SIGNATURE-----
+
+From benjamin at python.org  Fri Apr  8 04:25:45 2011
+From: benjamin at python.org (Benjamin Peterson)
+Date: Thu, 7 Apr 2011 21:25:45 -0500
+Subject: [python-committers] Committer rights for Nadeem Vawda
+In-Reply-To: <4D9E6042.20305@jcea.es>
+References: <1301843863.3512.3.camel@localhost.localdomain>
+	<1302181869.3630.4.camel@localhost.localdomain>
+	<BANLkTi=_xOfvqJYbe8Xp9hF6zuXrXWF7Zw@mail.gmail.com>
+	<1302208860.3532.1.camel@localhost.localdomain>
+	<4D9E6042.20305@jcea.es>
+Message-ID: <BANLkTikmQu3ab9Uuvj-xYSUBYLFUESRnLg@mail.gmail.com>
+
+2011/4/7 Jesus Cea <jcea at jcea.es>:
+> -----BEGIN PGP SIGNED MESSAGE-----
+> Hash: SHA1
+>
+> On 07/04/11 22:41, Antoine Pitrou wrote:
+>> Le jeudi 07 avril 2011 ? 10:27 -0700, Brett Cannon a ?crit :
+>>> The devguide knows all: http://docs.python.org/devguide/coredev.html
+>>
+>> Hmmm so I assume Nadeem should send his SSH key to pydotorg at python.org?
+>> Or?
+>
+> What is preventing me to send a fake SSH key to that acount, from a
+> gmail address, saying "hi, this is Nadeem. You are waiting for this" ;-).
+
+Well, that would be fairly pointless considering you already have
+commit privs...
+
+
+
+-- 
+Regards,
+Benjamin
+
+From jcea at jcea.es  Fri Apr  8 04:33:24 2011
+From: jcea at jcea.es (Jesus Cea)
+Date: Fri, 08 Apr 2011 04:33:24 +0200
+Subject: [python-committers] Committer rights for Nadeem Vawda
+In-Reply-To: <BANLkTikmQu3ab9Uuvj-xYSUBYLFUESRnLg@mail.gmail.com>
+References: <1301843863.3512.3.camel@localhost.localdomain>	<1302181869.3630.4.camel@localhost.localdomain>	<BANLkTi=_xOfvqJYbe8Xp9hF6zuXrXWF7Zw@mail.gmail.com>	<1302208860.3532.1.camel@localhost.localdomain>	<4D9E6042.20305@jcea.es>
+	<BANLkTikmQu3ab9Uuvj-xYSUBYLFUESRnLg@mail.gmail.com>
+Message-ID: <4D9E73F4.2020301@jcea.es>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On 08/04/11 04:25, Benjamin Peterson wrote:
+>> What is preventing me to send a fake SSH key to that acount, from a
+>> gmail address, saying "hi, this is Nadeem. You are waiting for this" ;-).
+> 
+> Well, that would be fairly pointless considering you already have
+> commit privs...
+
+When I -slowly and sneaky- trojanize socket module and, additionally,
+add all the buildbots to my spambot network, I will not use my own SSH key.
+
+I promise :).
+
+I should quit IT security and grow vegetables somewhere... :-p
+
+- -- 
+Jesus Cea Avion                         _/_/      _/_/_/        _/_/_/
+jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+jabber / xmpp:jcea at jabber.org         _/_/    _/_/          _/_/_/_/_/
+.                              _/_/  _/_/    _/_/          _/_/  _/_/
+"Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+"My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+"El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.10 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - http://enigmail.mozdev.org/
+
+iQCVAwUBTZ5z9Jlgi5GaxT1NAQLF6gP/Q2CV8lLCKojyMzHqbl8HLMHPPBREKUzC
+2Wbs8zRK4LmoTclgIADQE142p0F24eDwzz0+/LGX8DWpKhy3HKyYFkKXHdu+27dZ
+wkOiBmyyVicQiqDOtluLk6qkJo6Cb9tGCUSqlG58/e6G17dff5BJLtqsyaTfZVt2
+eP42Qoh9vlI=
+=1qnn
+-----END PGP SIGNATURE-----
+
+From brett at python.org  Fri Apr  8 04:36:04 2011
+From: brett at python.org (Brett Cannon)
+Date: Thu, 7 Apr 2011 19:36:04 -0700
+Subject: [python-committers] Committer rights for Nadeem Vawda
+In-Reply-To: <1302208860.3532.1.camel@localhost.localdomain>
+References: <1301843863.3512.3.camel@localhost.localdomain>
+	<1302181869.3630.4.camel@localhost.localdomain>
+	<BANLkTi=_xOfvqJYbe8Xp9hF6zuXrXWF7Zw@mail.gmail.com>
+	<1302208860.3532.1.camel@localhost.localdomain>
+Message-ID: <BANLkTint_L7=+ChurqLoHOATvi+LYw3H0Q@mail.gmail.com>
+
+On Thu, Apr 7, 2011 at 13:41, Antoine Pitrou <solipsis at pitrou.net> wrote:
+
+> Le jeudi 07 avril 2011 ? 10:27 -0700, Brett Cannon a ?crit :
+> > The devguide knows all: http://docs.python.org/devguide/coredev.html
+>
+> Hmmm so I assume Nadeem should send his SSH key to pydotorg at python.org?
+> Or?
+>
+
+Nope, he can send them here to python-committers (you scared me the page
+actually said pydotorg at python.org).
+
+
+>
+> Thanks
+>
+> Antoine.
+>
+> >
+> > On Thu, Apr 7, 2011 at 06:11, Antoine Pitrou <solipsis at pitrou.net>
+> > wrote:
+> >
+> >         So, nobody seems to disagree and Nadeem's contributor
+> >         agreement has been
+> >         received some time ago. What is needed for this to go forward?
+> >
+> >         Regards
+> >
+> >         Antoine.
+>
+>
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20110407/058153bb/attachment.html>
+
+From brett at python.org  Fri Apr  8 04:36:52 2011
+From: brett at python.org (Brett Cannon)
+Date: Thu, 7 Apr 2011 19:36:52 -0700
+Subject: [python-committers] Committer rights for Nadeem Vawda
+In-Reply-To: <4D9E73F4.2020301@jcea.es>
+References: <1301843863.3512.3.camel@localhost.localdomain>
+	<1302181869.3630.4.camel@localhost.localdomain>
+	<BANLkTi=_xOfvqJYbe8Xp9hF6zuXrXWF7Zw@mail.gmail.com>
+	<1302208860.3532.1.camel@localhost.localdomain>
+	<4D9E6042.20305@jcea.es>
+	<BANLkTikmQu3ab9Uuvj-xYSUBYLFUESRnLg@mail.gmail.com>
+	<4D9E73F4.2020301@jcea.es>
+Message-ID: <BANLkTimpeW0dcA+o=_6uRxbiAbeF-ucwGA@mail.gmail.com>
+
+On Thu, Apr 7, 2011 at 19:33, Jesus Cea <jcea at jcea.es> wrote:
+
+> -----BEGIN PGP SIGNED MESSAGE-----
+> Hash: SHA1
+>
+> On 08/04/11 04:25, Benjamin Peterson wrote:
+> >> What is preventing me to send a fake SSH key to that acount, from a
+> >> gmail address, saying "hi, this is Nadeem. You are waiting for this"
+> ;-).
+> >
+> > Well, that would be fairly pointless considering you already have
+> > commit privs...
+>
+> When I -slowly and sneaky- trojanize socket module and, additionally,
+> add all the buildbots to my spambot network, I will not use my own SSH key.
+>
+> I promise :).
+>
+> I should quit IT security and grow vegetables somewhere... :-p
+>
+
+As someone who did some security stuff as part of his PhD, I totally agree
+with that; get out of security or else it will make you paranoid.
+
+-Brett
+
+
+>
+> - --
+> Jesus Cea Avion                         _/_/      _/_/_/        _/_/_/
+> jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+> jabber / xmpp:jcea at jabber.org         _/_/    _/_/          _/_/_/_/_/
+> .                              _/_/  _/_/    _/_/          _/_/  _/_/
+> "Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+> "My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+> "El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+> -----BEGIN PGP SIGNATURE-----
+> Version: GnuPG v1.4.10 (GNU/Linux)
+> Comment: Using GnuPG with Mozilla - http://enigmail.mozdev.org/
+>
+> iQCVAwUBTZ5z9Jlgi5GaxT1NAQLF6gP/Q2CV8lLCKojyMzHqbl8HLMHPPBREKUzC
+> 2Wbs8zRK4LmoTclgIADQE142p0F24eDwzz0+/LGX8DWpKhy3HKyYFkKXHdu+27dZ
+> wkOiBmyyVicQiqDOtluLk6qkJo6Cb9tGCUSqlG58/e6G17dff5BJLtqsyaTfZVt2
+> eP42Qoh9vlI=
+> =1qnn
+> -----END PGP SIGNATURE-----
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20110407/97a1e634/attachment.html>
+
+From jcea at jcea.es  Fri Apr  8 04:48:59 2011
+From: jcea at jcea.es (Jesus Cea)
+Date: Fri, 08 Apr 2011 04:48:59 +0200
+Subject: [python-committers] Committer rights for Nadeem Vawda
+In-Reply-To: <BANLkTimpeW0dcA+o=_6uRxbiAbeF-ucwGA@mail.gmail.com>
+References: <1301843863.3512.3.camel@localhost.localdomain>	<1302181869.3630.4.camel@localhost.localdomain>	<BANLkTi=_xOfvqJYbe8Xp9hF6zuXrXWF7Zw@mail.gmail.com>	<1302208860.3532.1.camel@localhost.localdomain>	<4D9E6042.20305@jcea.es>	<BANLkTikmQu3ab9Uuvj-xYSUBYLFUESRnLg@mail.gmail.com>	<4D9E73F4.2020301@jcea.es>
+	<BANLkTimpeW0dcA+o=_6uRxbiAbeF-ucwGA@mail.gmail.com>
+Message-ID: <4D9E779B.3020204@jcea.es>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On 08/04/11 04:36, Brett Cannon wrote:
+>> I should quit IT security and grow vegetables somewhere... :-p
+>
+> As someone who did some security stuff as part of his PhD, I totally
+> agree with that; get out of security or else it will make you paranoid.
+
+Too late. Being in the field for the last ~15 years cualifies me as
+"please, don't ask me what I do for a living in your party, if you
+expect to sleep comfy tonight".
+
+Another side effect is the compulsory need to read everything
+tangentially related to security. Where can I find your PhD online? :).
+
+(Congrats for your recent PhD!)
+
+- -- 
+Jesus Cea Avion                         _/_/      _/_/_/        _/_/_/
+jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+jabber / xmpp:jcea at jabber.org         _/_/    _/_/          _/_/_/_/_/
+.                              _/_/  _/_/    _/_/          _/_/  _/_/
+"Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+"My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+"El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.10 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - http://enigmail.mozdev.org/
+
+iQCVAwUBTZ53m5lgi5GaxT1NAQLLBQP/eWl0PpXBznyRvlkgvydiru56G6mn297m
+B/aq403nHwMNt+mgOE/kGdUpHskXslLnhbtMJgYFxSZuaQzp8tkTVzJDqwzbdQ8L
+hksa1O8SsMwIXjDssXTegLGVAGuMV5BHtmgFGxIDxGPD2/bT7x9b8ZMky4s5ESgW
+fim5FJ9pUQU=
+=aoJg
+-----END PGP SIGNATURE-----
+
+From jcea at jcea.es  Fri Apr  8 04:51:54 2011
+From: jcea at jcea.es (Jesus Cea)
+Date: Fri, 08 Apr 2011 04:51:54 +0200
+Subject: [python-committers] Committer rights for Nadeem Vawda
+In-Reply-To: <4D9E779B.3020204@jcea.es>
+References: <1301843863.3512.3.camel@localhost.localdomain>	<1302181869.3630.4.camel@localhost.localdomain>	<BANLkTi=_xOfvqJYbe8Xp9hF6zuXrXWF7Zw@mail.gmail.com>	<1302208860.3532.1.camel@localhost.localdomain>	<4D9E6042.20305@jcea.es>	<BANLkTikmQu3ab9Uuvj-xYSUBYLFUESRnLg@mail.gmail.com>	<4D9E73F4.2020301@jcea.es>	<BANLkTimpeW0dcA+o=_6uRxbiAbeF-ucwGA@mail.gmail.com>
+	<4D9E779B.3020204@jcea.es>
+Message-ID: <4D9E784A.1070806@jcea.es>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On 08/04/11 04:48, Jesus Cea wrote:
+> Too late. Being in the field for the last ~15 years cualifies me as
+> "please, don't ask me what I do for a living in your party, if you
+> expect to sleep comfy tonight".
+
+Do not ask me either why I am awake and using a computer at 04:50 AM
+Spanish time. Would be not nice to your blood pressure.
+
+- -- 
+Jesus Cea Avion                         _/_/      _/_/_/        _/_/_/
+jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+jabber / xmpp:jcea at jabber.org         _/_/    _/_/          _/_/_/_/_/
+.                              _/_/  _/_/    _/_/          _/_/  _/_/
+"Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+"My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+"El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.10 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - http://enigmail.mozdev.org/
+
+iQCVAwUBTZ54Splgi5GaxT1NAQIlVAP/Z6ID1guO1IhrCgixXjCN9BgzpbqL9xtX
+D5VlRsJlc+FLJrsugsWA3nxqT8Qh+zlKz131wdav7Rntbn66ng9nTJH1mt2xD5b4
+9IuLrvy0tHODnG4fGrPT0ONbegAL3EM94i8hJZ9VVd+ixwWuRrI7WmpfXiews2Jx
+dY+WjurGUsM=
+=0emZ
+-----END PGP SIGNATURE-----
+
+From ncoghlan at gmail.com  Fri Apr  8 14:29:13 2011
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Fri, 8 Apr 2011 22:29:13 +1000
+Subject: [python-committers] Committer rights for Nadeem Vawda
+In-Reply-To: <BANLkTimpeW0dcA+o=_6uRxbiAbeF-ucwGA@mail.gmail.com>
+References: <1301843863.3512.3.camel@localhost.localdomain>
+	<1302181869.3630.4.camel@localhost.localdomain>
+	<BANLkTi=_xOfvqJYbe8Xp9hF6zuXrXWF7Zw@mail.gmail.com>
+	<1302208860.3532.1.camel@localhost.localdomain>
+	<4D9E6042.20305@jcea.es>
+	<BANLkTikmQu3ab9Uuvj-xYSUBYLFUESRnLg@mail.gmail.com>
+	<4D9E73F4.2020301@jcea.es>
+	<BANLkTimpeW0dcA+o=_6uRxbiAbeF-ucwGA@mail.gmail.com>
+Message-ID: <BANLkTi=Ju-tfZXPhfM-0tOqC2tAVPX9QoQ@mail.gmail.com>
+
+On Fri, Apr 8, 2011 at 12:36 PM, Brett Cannon <brett at python.org> wrote:
+> As someone who did some security stuff as part of his PhD, I totally agree
+> with that; get out of security or else it will make you paranoid.
+
+Nah, it just makes you very familiar with the concept of "calculated
+assumption of risk". You see the security risks and decide they're
+acceptable, given the degree of hassle involved in attempting to close
+or avoid them.
+
+But don't *talk* about the risks to people that don't think the same
+way, or they'll start to look at you very strangely :)
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan?? |?? ncoghlan at gmail.com?? |?? Brisbane, Australia
+
+From solipsis at pitrou.net  Sat Apr  9 13:20:08 2011
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Sat, 09 Apr 2011 13:20:08 +0200
+Subject: [python-committers] Committer rights for Nadeem Vawda
+In-Reply-To: <BANLkTint_L7=+ChurqLoHOATvi+LYw3H0Q@mail.gmail.com>
+References: <1301843863.3512.3.camel@localhost.localdomain>
+	<1302181869.3630.4.camel@localhost.localdomain>
+	<BANLkTi=_xOfvqJYbe8Xp9hF6zuXrXWF7Zw@mail.gmail.com>
+	<1302208860.3532.1.camel@localhost.localdomain>
+	<BANLkTint_L7=+ChurqLoHOATvi+LYw3H0Q@mail.gmail.com>
+Message-ID: <1302348008.3537.0.camel@localhost.localdomain>
+
+Le jeudi 07 avril 2011 ? 19:36 -0700, Brett Cannon a ?crit :
+>         
+>         Hmmm so I assume Nadeem should send his SSH key to
+>         pydotorg at python.org?
+>         Or?
+> 
+> Nope, he can send them here to python-committers (you scared me the
+> page actually said pydotorg at python.org).
+
+Can someone (Georg, Brett, Eric?) act on Nadeem's subscription to
+python-committers? Otherwise his e-mails get bounced.
+
+Thank you
+
+Antoine.
+
+
+
+From eric at trueblade.com  Sat Apr  9 15:52:50 2011
+From: eric at trueblade.com (Eric Smith)
+Date: Sat, 09 Apr 2011 09:52:50 -0400
+Subject: [python-committers] Committer rights for Nadeem Vawda
+In-Reply-To: <1302348008.3537.0.camel@localhost.localdomain>
+References: <1301843863.3512.3.camel@localhost.localdomain>	<1302181869.3630.4.camel@localhost.localdomain>	<BANLkTi=_xOfvqJYbe8Xp9hF6zuXrXWF7Zw@mail.gmail.com>	<1302208860.3532.1.camel@localhost.localdomain>	<BANLkTint_L7=+ChurqLoHOATvi+LYw3H0Q@mail.gmail.com>
+	<1302348008.3537.0.camel@localhost.localdomain>
+Message-ID: <4DA064B2.9080002@trueblade.com>
+
+On 04/09/2011 07:20 AM, Antoine Pitrou wrote:
+> Le jeudi 07 avril 2011 ? 19:36 -0700, Brett Cannon a ?crit :
+>>         
+>>         Hmmm so I assume Nadeem should send his SSH key to
+>>         pydotorg at python.org?
+>>         Or?
+>>
+>> Nope, he can send them here to python-committers (you scared me the
+>> page actually said pydotorg at python.org).
+> 
+> Can someone (Georg, Brett, Eric?) act on Nadeem's subscription to
+> python-committers? Otherwise his e-mails get bounced.
+
+[Not sure if my first response got sent]
+
+I usually wait for a commit message saying he's been added for a
+developer (which used to be developers.txt, I think). I haven't seen
+that yet. But assuming it's all a work in progress or the process has
+changed, I can okay his subscription when I get back to a real computer
+later today.
+
+Eric.
+
+From solipsis at pitrou.net  Sat Apr  9 16:09:19 2011
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Sat, 09 Apr 2011 16:09:19 +0200
+Subject: [python-committers] Committer rights for Nadeem Vawda
+In-Reply-To: <4DA064B2.9080002@trueblade.com>
+References: <1301843863.3512.3.camel@localhost.localdomain>
+	<1302181869.3630.4.camel@localhost.localdomain>
+	<BANLkTi=_xOfvqJYbe8Xp9hF6zuXrXWF7Zw@mail.gmail.com>
+	<1302208860.3532.1.camel@localhost.localdomain>
+	<BANLkTint_L7=+ChurqLoHOATvi+LYw3H0Q@mail.gmail.com>
+	<1302348008.3537.0.camel@localhost.localdomain>
+	<4DA064B2.9080002@trueblade.com>
+Message-ID: <1302358159.3537.3.camel@localhost.localdomain>
+
+Le samedi 09 avril 2011 ? 09:52 -0400, Eric Smith a ?crit :
+> On 04/09/2011 07:20 AM, Antoine Pitrou wrote:
+> > Le jeudi 07 avril 2011 ? 19:36 -0700, Brett Cannon a ?crit :
+> >>         
+> >>         Hmmm so I assume Nadeem should send his SSH key to
+> >>         pydotorg at python.org?
+> >>         Or?
+> >>
+> >> Nope, he can send them here to python-committers (you scared me the
+> >> page actually said pydotorg at python.org).
+> > 
+> > Can someone (Georg, Brett, Eric?) act on Nadeem's subscription to
+> > python-committers? Otherwise his e-mails get bounced.
+> 
+> [Not sure if my first response got sent]
+> 
+> I usually wait for a commit message saying he's been added for a
+> developer (which used to be developers.txt, I think).
+
+Well, it's a bit circular: people are added to developers.txt when they
+have sent an SSH key. But the key is to be sent to python-committers,
+for which subscription depends on being added to developers.txt (and
+messages by non-subcribers are rejected).
+
+I'm a bit mystified by the process too. It looks like there's no defined
+procedure.
+
+Regards
+
+Antoine.
+
+
+
+From g.brandl at gmx.net  Sat Apr  9 20:49:33 2011
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Sat, 09 Apr 2011 20:49:33 +0200
+Subject: [python-committers] Committer rights for Nadeem Vawda
+In-Reply-To: <1302358159.3537.3.camel@localhost.localdomain>
+References: <1301843863.3512.3.camel@localhost.localdomain>
+	<1302181869.3630.4.camel@localhost.localdomain>
+	<BANLkTi=_xOfvqJYbe8Xp9hF6zuXrXWF7Zw@mail.gmail.com>
+	<1302208860.3532.1.camel@localhost.localdomain>
+	<BANLkTint_L7=+ChurqLoHOATvi+LYw3H0Q@mail.gmail.com>
+	<1302348008.3537.0.camel@localhost.localdomain>
+	<4DA064B2.9080002@trueblade.com>
+	<1302358159.3537.3.camel@localhost.localdomain>
+Message-ID: <inq9nt$ln1$1@dough.gmane.org>
+
+On 09.04.2011 16:09, Antoine Pitrou wrote:
+> Le samedi 09 avril 2011 ? 09:52 -0400, Eric Smith a ?crit :
+>> On 04/09/2011 07:20 AM, Antoine Pitrou wrote:
+>> > Le jeudi 07 avril 2011 ? 19:36 -0700, Brett Cannon a ?crit :
+>> >>         
+>> >>         Hmmm so I assume Nadeem should send his SSH key to
+>> >>         pydotorg at python.org?
+>> >>         Or?
+>> >>
+>> >> Nope, he can send them here to python-committers (you scared me the
+>> >> page actually said pydotorg at python.org).
+>> > 
+>> > Can someone (Georg, Brett, Eric?) act on Nadeem's subscription to
+>> > python-committers? Otherwise his e-mails get bounced.
+>> 
+>> [Not sure if my first response got sent]
+>> 
+>> I usually wait for a commit message saying he's been added for a
+>> developer (which used to be developers.txt, I think).
+> 
+> Well, it's a bit circular: people are added to developers.txt when they
+> have sent an SSH key. But the key is to be sent to python-committers,
+> for which subscription depends on being added to developers.txt (and
+> messages by non-subcribers are rejected).
+> 
+> I'm a bit mystified by the process too. It looks like there's no defined
+> procedure.
+
+The procedure isn't clearly defined, yes.  But in the past I've never seen
+such a big thread about it.
+
+Proposal:  create a keymanagement at python.org (or maybe just keys at python.org)
+alias that forwards to all current key managers (other than myself, these are
+Brett, Martin and a few others who haven't used the privilege recently).
+
+Georg
+
+
+From martin at v.loewis.de  Sat Apr  9 21:05:56 2011
+From: martin at v.loewis.de (=?UTF-8?B?Ik1hcnRpbiB2LiBMw7Z3aXMi?=)
+Date: Sat, 09 Apr 2011 21:05:56 +0200
+Subject: [python-committers] Committer rights for Nadeem Vawda
+In-Reply-To: <inq9nt$ln1$1@dough.gmane.org>
+References: <1301843863.3512.3.camel@localhost.localdomain>	<1302181869.3630.4.camel@localhost.localdomain>	<BANLkTi=_xOfvqJYbe8Xp9hF6zuXrXWF7Zw@mail.gmail.com>	<1302208860.3532.1.camel@localhost.localdomain>	<BANLkTint_L7=+ChurqLoHOATvi+LYw3H0Q@mail.gmail.com>	<1302348008.3537.0.camel@localhost.localdomain>	<4DA064B2.9080002@trueblade.com>	<1302358159.3537.3.camel@localhost.localdomain>
+	<inq9nt$ln1$1@dough.gmane.org>
+Message-ID: <4DA0AE14.2010602@v.loewis.de>
+
+> Proposal:  create a keymanagement at python.org (or maybe just keys at python.org)
+> alias that forwards to all current key managers (other than myself, these are
+> Brett, Martin and a few others who haven't used the privilege recently).
+
+I had meant to create such a list for the past five years, and never got
+around to actually doing it. I think it would be very useful to have
+that address, though. Bikesheddingly, consider calling it hgaccounts at ...
+
+Regards,
+Martin
+
+From eric at trueblade.com  Sun Apr 10 00:46:15 2011
+From: eric at trueblade.com (Eric Smith)
+Date: Sat, 09 Apr 2011 18:46:15 -0400
+Subject: [python-committers] Committer rights for Nadeem Vawda
+In-Reply-To: <4DA064B2.9080002@trueblade.com>
+References: <1301843863.3512.3.camel@localhost.localdomain>	<1302181869.3630.4.camel@localhost.localdomain>	<BANLkTi=_xOfvqJYbe8Xp9hF6zuXrXWF7Zw@mail.gmail.com>	<1302208860.3532.1.camel@localhost.localdomain>	<BANLkTint_L7=+ChurqLoHOATvi+LYw3H0Q@mail.gmail.com>	<1302348008.3537.0.camel@localhost.localdomain>
+	<4DA064B2.9080002@trueblade.com>
+Message-ID: <4DA0E1B7.5030101@trueblade.com>
+
+On 4/9/2011 9:52 AM, Eric Smith wrote:
+> On 04/09/2011 07:20 AM, Antoine Pitrou wrote:
+>> Le jeudi 07 avril 2011 ? 19:36 -0700, Brett Cannon a ?crit :
+>>>         
+>>>         Hmmm so I assume Nadeem should send his SSH key to
+>>>         pydotorg at python.org?
+>>>         Or?
+>>>
+>>> Nope, he can send them here to python-committers (you scared me the
+>>> page actually said pydotorg at python.org).
+>>
+>> Can someone (Georg, Brett, Eric?) act on Nadeem's subscription to
+>> python-committers? Otherwise his e-mails get bounced.
+
+I just approved him.
+
+Eric.
+
+From nadeem.vawda at gmail.com  Sun Apr 10 01:07:51 2011
+From: nadeem.vawda at gmail.com (Nadeem Vawda)
+Date: Sun, 10 Apr 2011 01:07:51 +0200
+Subject: [python-committers] Committer rights for Nadeem Vawda
+In-Reply-To: <4DA0E1B7.5030101@trueblade.com>
+References: <1301843863.3512.3.camel@localhost.localdomain>
+	<1302181869.3630.4.camel@localhost.localdomain>
+	<BANLkTi=_xOfvqJYbe8Xp9hF6zuXrXWF7Zw@mail.gmail.com>
+	<1302208860.3532.1.camel@localhost.localdomain>
+	<BANLkTint_L7=+ChurqLoHOATvi+LYw3H0Q@mail.gmail.com>
+	<1302348008.3537.0.camel@localhost.localdomain>
+	<4DA064B2.9080002@trueblade.com> <4DA0E1B7.5030101@trueblade.com>
+Message-ID: <BANLkTik4B_XiB3x5BQXECR6eDYo34YwNOQ@mail.gmail.com>
+
+Thanks, Eric. My SSH key is attached.
+
+Regards,
+Nadeem
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: id_rsa.pub
+Type: application/octet-stream
+Size: 395 bytes
+Desc: not available
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20110410/e9181f68/attachment-0001.obj>
+
+From g.brandl at gmx.net  Sun Apr 10 08:16:03 2011
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Sun, 10 Apr 2011 08:16:03 +0200
+Subject: [python-committers] Committer rights for Nadeem Vawda
+In-Reply-To: <BANLkTik4B_XiB3x5BQXECR6eDYo34YwNOQ@mail.gmail.com>
+References: <1301843863.3512.3.camel@localhost.localdomain>
+	<1302181869.3630.4.camel@localhost.localdomain>
+	<BANLkTi=_xOfvqJYbe8Xp9hF6zuXrXWF7Zw@mail.gmail.com>
+	<1302208860.3532.1.camel@localhost.localdomain>
+	<BANLkTint_L7=+ChurqLoHOATvi+LYw3H0Q@mail.gmail.com>
+	<1302348008.3537.0.camel@localhost.localdomain>
+	<4DA064B2.9080002@trueblade.com> <4DA0E1B7.5030101@trueblade.com>
+	<BANLkTik4B_XiB3x5BQXECR6eDYo34YwNOQ@mail.gmail.com>
+Message-ID: <inrhv3$mdb$1@dough.gmane.org>
+
+On 10.04.2011 01:07, Nadeem Vawda wrote:
+> Thanks, Eric. My SSH key is attached.
+
+And should be installed now.
+
+Georg
+
+
+From g.brandl at gmx.net  Sun Apr 10 09:04:35 2011
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Sun, 10 Apr 2011 09:04:35 +0200
+Subject: [python-committers] Committer rights for Nadeem Vawda
+In-Reply-To: <4DA0AE14.2010602@v.loewis.de>
+References: <1301843863.3512.3.camel@localhost.localdomain>	<1302181869.3630.4.camel@localhost.localdomain>	<BANLkTi=_xOfvqJYbe8Xp9hF6zuXrXWF7Zw@mail.gmail.com>	<1302208860.3532.1.camel@localhost.localdomain>	<BANLkTint_L7=+ChurqLoHOATvi+LYw3H0Q@mail.gmail.com>	<1302348008.3537.0.camel@localhost.localdomain>	<4DA064B2.9080002@trueblade.com>	<1302358159.3537.3.camel@localhost.localdomain>
+	<inq9nt$ln1$1@dough.gmane.org> <4DA0AE14.2010602@v.loewis.de>
+Message-ID: <inrkq4$q4$1@dough.gmane.org>
+
+On 09.04.2011 21:05, "Martin v. L?wis" wrote:
+>> Proposal:  create a keymanagement at python.org (or maybe just keys at python.org)
+>> alias that forwards to all current key managers (other than myself, these are
+>> Brett, Martin and a few others who haven't used the privilege recently).
+> 
+> I had meant to create such a list for the past five years, and never got
+> around to actually doing it. I think it would be very useful to have
+> that address, though. Bikesheddingly, consider calling it hgaccounts at ...
+
+OK, this is now created and I've updated the devguide accordingly.
+
+At the moment, the alias forwards to Brett, Antoine and myself.  If anyone
+else feels like he'd like to update SSH keys, please tell me.
+
+Georg
+
+
+From kbk at shore.net  Sun Apr 10 17:04:38 2011
+From: kbk at shore.net (Kurt B. Kaiser)
+Date: Sun, 10 Apr 2011 11:04:38 -0400
+Subject: [python-committers] Contributor Agreement - Clemens
+Message-ID: <1302447878.28155.1439487257@webmail.messagingengine.com>
+
+We received a contributor agreement from William Edward Stuart Clemens
+by postal mail.
+
+I am mailing it to our Secretary.
+
+-- 
+KBK
+
+
+From michael at voidspace.org.uk  Sat Apr 16 17:04:02 2011
+From: michael at voidspace.org.uk (Michael Foord)
+Date: Sat, 16 Apr 2011 16:04:02 +0100
+Subject: [python-committers] Python Language Summit at EuroPython: 19th June
+Message-ID: <4DA9AFE2.4050802@voidspace.org.uk>
+
+Hello all,
+
+This is an invite to all core-python developers, and developers of 
+alternative implementations, to attend the Python Language Summit at 
+EuroPython. The summit will be on June 19th and EuroPython this year 
+will be held at the beautiful city of Florence in Italy.
+
+     http://ep2011.europython.eu/
+
+If you are not a core-Python developer but would like to attend then 
+please email me privately and I will let you know if spaces are 
+available. If you are a core developer, or you have received a direct 
+invitation, then please respond by private email to let me know if you 
+are able to attend. A maybe is fine, you can always change your mind 
+later. Attending for only part of the day is fine.
+
+We expect the summit to run from 10am - 4pm with appropriate breaks.
+
+Like previous language summits it is an opportunity to discuss topics 
+like, Python 3 adoption, PEPs and changes for Python 3.3, the future of 
+Python 2.7, documentation, package index, web site, etc.
+
+If you have topics you'd like to discuss at the language summit please 
+let me know.
+
+Volunteers for taking notes at the language summit, for posting to 
+Python-dev and the Python Insiders blog after the event, would be much 
+appreciated.
+
+All the best,
+
+Michael Foord
+
+N.B. Due to my impending doom (oops, I mean impending fatherhood) I am 
+not yet 100% certain I will be able to attend. If I can't I will arrange 
+for someone else to chair.
+
+-- 
+http://www.voidspace.org.uk/
+
+May you do good and not evil
+May you find forgiveness for yourself and forgive others
+May you share freely, never taking more than you give.
+-- the sqlite blessing http://www.sqlite.org/different.html
+
+From alexander.belopolsky at gmail.com  Mon Apr 25 19:46:01 2011
+From: alexander.belopolsky at gmail.com (Alexander Belopolsky)
+Date: Mon, 25 Apr 2011 13:46:01 -0400
+Subject: [python-committers] History lost in svn to hg conversion
+Message-ID: <BANLkTikurbm4QatznA-E6fPiUpJe1aEoCw@mail.gmail.com>
+
+I am not sure where to report such issues, so I'll post it here.
+Please advise if another list is more appropriate.
+
+When I committed Lib/datetime.py to svn, I made sure that it was done
+in a way that preserved the history of that file going back to 2002.
+However, hg log of this file starts with my commit about a year ago.
+Is it possible to re-add the old history?  The history of datetime.py
+is very helpful for understanding various design decisions implemented
+in that module.  This history is discussed in various issues on the
+tracker (see for example, issue2267) and these discussions now have
+broken links.
+
+From solipsis at pitrou.net  Mon Apr 25 20:00:37 2011
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Mon, 25 Apr 2011 20:00:37 +0200
+Subject: [python-committers] History lost in svn to hg conversion
+Message-ID: <1303754437.3537.7.camel@localhost.localdomain>
+
+
+Sorry, reply initially sent off-list.
+
+
+-------- Message transf?r? --------
+De: Antoine Pitrou <solipsis at pitrou.net>
+?: Alexander Belopolsky <alexander.belopolsky at gmail.com>
+Sujet: Re: [python-committers] History lost in svn to hg conversion
+Date: Mon, 25 Apr 2011 19:58:50 +0200
+
+> When I committed Lib/datetime.py to svn, I made sure that it was done
+> in a way that preserved the history of that file going back to 2002.
+
+Can you be more precise? How did you do that?
+
+> However, hg log of this file starts with my commit about a year ago.
+> Is it possible to re-add the old history?
+
+We cannot "add" any past history in any case.
+
+> The history of datetime.py
+> is very helpful for understanding various design decisions implemented
+> in that module.
+
+I would advise to document design decisions in source code comments or
+in a separate file. Having to dig in VCS logs, or read many tracker
+entries, is IMO too tedious.
+
+
+
+
+
+From steve at holdenweb.com  Mon Apr 25 20:29:29 2011
+From: steve at holdenweb.com (Steve Holden)
+Date: Mon, 25 Apr 2011 14:29:29 -0400
+Subject: [python-committers] History lost in svn to hg conversion
+In-Reply-To: <1303754437.3537.7.camel@localhost.localdomain>
+References: <1303754437.3537.7.camel@localhost.localdomain>
+Message-ID: <7EBE38A0-094B-4C9C-B91F-B044D2E9CB9B@holdenweb.com>
+
+On Apr 25, 2011, at 2:00 PM, Antoine Pitrou wrote:
+
+>> The history of datetime.py
+>> is very helpful for understanding various design decisions implemented
+>> in that module.
+> 
+> I would advise to document design decisions in source code comments or
+> in a separate file. Having to dig in VCS logs, or read many tracker
+> entries, is IMO too tedious.
+> 
+
+
+Great advice for the future, Antoine. Now can you help with the Hg issue?
+
+I had understood that *all* history was going to be retained. Did I misremember or was I incorrectly advised?
+
+regards
+ Steve
+-- 
+Steve Holden
+steve at holdenweb.com
+
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20110425/3c90af0b/attachment.html>
+
+From solipsis at pitrou.net  Mon Apr 25 20:47:11 2011
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Mon, 25 Apr 2011 20:47:11 +0200
+Subject: [python-committers] History lost in svn to hg conversion
+In-Reply-To: <7EBE38A0-094B-4C9C-B91F-B044D2E9CB9B@holdenweb.com>
+References: <1303754437.3537.7.camel@localhost.localdomain>
+	<7EBE38A0-094B-4C9C-B91F-B044D2E9CB9B@holdenweb.com>
+Message-ID: <1303757231.3537.16.camel@localhost.localdomain>
+
+Le lundi 25 avril 2011 ? 14:29 -0400, Steve Holden a ?crit :
+> 
+> Great advice for the future, Antoine. Now can you help with the Hg
+> issue?
+
+As far as I understand it, this is not so much an hg issue than a
+migration issue.
+
+> I had understood that *all* history was going to be retained. Did I
+> misremember or was I incorrectly advised?
+
+All mainline history has been kept, as well as "active" feature branches
+(feature branches someone asked to be kept) (*). I don't know if
+Alexander's changesets are part of that, since he didn't precise where
+they were made in the SVN repos (if they were made in the sandbox,
+chances are they weren't).
+
+(*) Look at "history management" for more information:
+http://www.python.org/dev/peps/pep-0385/#history-management
+
+
+Also, there are some kind of things that are possible in SVN land (for
+example, copying some files from one branch/revision, other files from
+another one, etc.) which cannot be expressed in hg terms. The migration
+would have converted these changesets to a "dumber" form - without
+losing the actual contents of the files.
+
+Regards
+
+Antoine.
+
+
+
+From martin at v.loewis.de  Mon Apr 25 20:57:02 2011
+From: martin at v.loewis.de (=?UTF-8?B?Ik1hcnRpbiB2LiBMw7Z3aXMi?=)
+Date: Mon, 25 Apr 2011 20:57:02 +0200
+Subject: [python-committers] History lost in svn to hg conversion
+In-Reply-To: <1303754437.3537.7.camel@localhost.localdomain>
+References: <1303754437.3537.7.camel@localhost.localdomain>
+Message-ID: <4DB5C3FE.8020809@v.loewis.de>
+
+> Can you be more precise? How did you do that?
+
+See the example that he gave, e.g. r82065. The changes are in
+/sandbox/branches/py3k-datetime.
+
+>> However, hg log of this file starts with my commit about a year ago.
+>> Is it possible to re-add the old history?
+> 
+> We cannot "add" any past history in any case.
+
+I propose that the redirector (hg.../lookup) redirects to the subversion
+viewer if it can't find a matching hg revision.
+
+Regards,
+Martin
+
+From steve at holdenweb.com  Mon Apr 25 21:31:44 2011
+From: steve at holdenweb.com (Steve Holden)
+Date: Mon, 25 Apr 2011 15:31:44 -0400
+Subject: [python-committers] History lost in svn to hg conversion
+In-Reply-To: <1303757231.3537.16.camel@localhost.localdomain>
+References: <1303754437.3537.7.camel@localhost.localdomain>
+	<7EBE38A0-094B-4C9C-B91F-B044D2E9CB9B@holdenweb.com>
+	<1303757231.3537.16.camel@localhost.localdomain>
+Message-ID: <868EFD99-8FA9-40ED-9132-F320DBEA75B8@holdenweb.com>
+
+On Apr 25, 2011, at 2:47 PM, Antoine Pitrou wrote:
+
+> Le lundi 25 avril 2011 ? 14:29 -0400, Steve Holden a ?crit :
+>> 
+>> Great advice for the future, Antoine. Now can you help with the Hg
+>> issue?
+> 
+> As far as I understand it, this is not so much an hg issue than a
+> migration issue.
+> 
+>> I had understood that *all* history was going to be retained. Did I
+>> misremember or was I incorrectly advised?
+> 
+> All mainline history has been kept, as well as "active" feature branches
+> (feature branches someone asked to be kept) (*). I don't know if
+> Alexander's changesets are part of that, since he didn't precise where
+> they were made in the SVN repos (if they were made in the sandbox,
+> chances are they weren't).
+> 
+> (*) Look at "history management" for more information:
+> http://www.python.org/dev/peps/pep-0385/#history-management
+> 
+> 
+> Also, there are some kind of things that are possible in SVN land (for
+> example, copying some files from one branch/revision, other files from
+> another one, etc.) which cannot be expressed in hg terms. The migration
+> would have converted these changesets to a "dumber" form - without
+> losing the actual contents of the files.
+> 
+
+Thanks for your detailed comments and feedback. I was clearly over-simplifying the situation.
+
+regards
+ Steve
+-- 
+Steve Holden
+steve at holdenweb.com
+
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20110425/6fdfe2c8/attachment-0001.html>
+
+From steve at holdenweb.com  Mon Apr 25 21:34:28 2011
+From: steve at holdenweb.com (Steve Holden)
+Date: Mon, 25 Apr 2011 15:34:28 -0400
+Subject: [python-committers] History lost in svn to hg conversion
+In-Reply-To: <4DB5C3FE.8020809@v.loewis.de>
+References: <1303754437.3537.7.camel@localhost.localdomain>
+	<4DB5C3FE.8020809@v.loewis.de>
+Message-ID: <3203B0F8-8994-4F6F-898F-9C57F9170B29@holdenweb.com>
+
+On Apr 25, 2011, at 2:57 PM, Martin v. L?wis wrote:
+
+> I propose that the redirector (hg.../lookup) redirects to the subversion
+> viewer if it can't find a matching hg revision.
+
+
+That sounds like an extremely user-friendly solution.
+
+regards
+ Steve
+-- 
+Steve Holden
+steve at holdenweb.com
+
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20110425/e600be39/attachment.html>
+
+From tjreedy at udel.edu  Mon Apr 25 21:44:18 2011
+From: tjreedy at udel.edu (Terry Reedy)
+Date: Mon, 25 Apr 2011 15:44:18 -0400
+Subject: [python-committers] English 'precise' is only an adjective,
+	not a verb.
+In-Reply-To: <1303757231.3537.16.camel@localhost.localdomain>
+References: <1303754437.3537.7.camel@localhost.localdomain>
+	<7EBE38A0-094B-4C9C-B91F-B044D2E9CB9B@holdenweb.com>
+	<1303757231.3537.16.camel@localhost.localdomain>
+Message-ID: <4DB5CF12.2080104@udel.edu>
+
+
+> Alexander's changesets are part of that, since he didn't precise where
+
+For the benefit of people who are not native-English speakers and who 
+wish to write literate English: The English word 'precise' is only an 
+adjective, and not a verb, so the above does not work as an English 
+sentence.
+
+This mistake, which I have seen before, has an understandable reason. 
+'Precise' is derived (borrowed) from the French "pre'cis" which is at 
+least a verb and noun. "Pre'cis" comes from the Latin 'praecisus' and 
+'praecidere'. Spanish has the same verb in the form 'precisar'. So 
+native Romance speakers have a tendency to over-generalize the usage of 
+this restricted English cognate. English speakers learning other 
+languages so the same sort of thing. The closest English verbs to 
+"pre'cis" are 'abstract', 'summarize', and 'specify'.
+
+Terry
+
+
+
+
+
+From alexander.belopolsky at gmail.com  Mon Apr 25 22:45:39 2011
+From: alexander.belopolsky at gmail.com (Alexander Belopolsky)
+Date: Mon, 25 Apr 2011 16:45:39 -0400
+Subject: [python-committers] History lost in svn to hg conversion
+In-Reply-To: <4DB5C3FE.8020809@v.loewis.de>
+References: <1303754437.3537.7.camel@localhost.localdomain>
+	<4DB5C3FE.8020809@v.loewis.de>
+Message-ID: <BANLkTinyMx9_13ptV+SnWudOCKFPDe7QMw@mail.gmail.com>
+
+On Mon, Apr 25, 2011 at 2:57 PM, "Martin v. L?wis" <martin at v.loewis.de> wrote:
+>> Can you be more precise? How did you do that?
+>
+> See the example that he gave, e.g. r82065. The changes are in
+> /sandbox/branches/py3k-datetime.
+
+Martin mostly answered Antoine's question for me.    You can get more
+details by comparing the history of Lib/datetime.py in hg and svn.
+
+The annotated view is completely inaccurate as a result:
+
+$ svn blame -v Lib/datetime.py | awk '{print $2}'| sort | uniq -c
+ 664 alexander.belopolsky
+   2 bcannon
+ 319 gvanrossum
+1123 tim_one
+
+$ hg blame -vu Lib/datetime.py | awk '{print $1,$2}'| sort | uniq -c
+2112 Alexander Belopolsky
+
+It looks like this history survived the cvs to svn migration, but was
+lost in migration to hg.
+
+From alexander.belopolsky at gmail.com  Mon Apr 25 23:00:21 2011
+From: alexander.belopolsky at gmail.com (Alexander Belopolsky)
+Date: Mon, 25 Apr 2011 17:00:21 -0400
+Subject: [python-committers] History lost in svn to hg conversion
+In-Reply-To: <1303757231.3537.16.camel@localhost.localdomain>
+References: <1303754437.3537.7.camel@localhost.localdomain>
+	<7EBE38A0-094B-4C9C-B91F-B044D2E9CB9B@holdenweb.com>
+	<1303757231.3537.16.camel@localhost.localdomain>
+Message-ID: <BANLkTimb186E0C44i=69YL8kM2ix+b54-w@mail.gmail.com>
+
+On Mon, Apr 25, 2011 at 2:47 PM, Antoine Pitrou <solipsis at pitrou.net> wrote:
+..
+> All mainline history has been kept, as well as "active" feature branches
+> (feature branches someone asked to be kept) (*). I don't know if
+> Alexander's changesets are part of that, since he didn't precise where
+> they were made in the SVN repos (if they were made in the sandbox,
+> chances are they weren't).
+>
+> (*) Look at "history management" for more information:
+> http://www.python.org/dev/peps/pep-0385/#history-management
+
+It is possible that I did not pay enough attention during hg migration
+discussions, but I don't remember seeing any call for feature branches
+to be preserved.   Did anyone ever post a list of feature branches to
+be dropped during hg migration?  How would developers know that they
+would need to "opt-in" for their work to be preserved?  Given the
+unforgiving nature of hg when it comes to altering history, I don't
+think sufficient notice was given when the decision to trim the
+history was made.
+
+From rdmurray at bitdance.com  Mon Apr 25 23:43:45 2011
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Mon, 25 Apr 2011 17:43:45 -0400
+Subject: [python-committers] History lost in svn to hg conversion
+In-Reply-To: <BANLkTimb186E0C44i=69YL8kM2ix+b54-w@mail.gmail.com>
+References: <1303754437.3537.7.camel@localhost.localdomain>
+	<7EBE38A0-094B-4C9C-B91F-B044D2E9CB9B@holdenweb.com>
+	<1303757231.3537.16.camel@localhost.localdomain>
+	<BANLkTimb186E0C44i=69YL8kM2ix+b54-w@mail.gmail.com>
+Message-ID: <20110425214348.BC31E2505A7@mailhost.webabinitio.net>
+
+On Mon, 25 Apr 2011 17:00:21 -0400, Alexander Belopolsky <alexander.belopolsky at gmail.com> wrote:
+> On Mon, Apr 25, 2011 at 2:47 PM, Antoine Pitrou <solipsis at pitrou.net> wrote:
+> ..
+> > All mainline history has been kept, as well as "active" feature branches
+> > (feature branches someone asked to be kept) (*). I don't know if
+> > Alexander's changesets are part of that, since he didn't precise where
+> > they were made in the SVN repos (if they were made in the sandbox,
+> > chances are they weren't).
+> >
+> > (*) Look at "history management" for more information:
+> > http://www.python.org/dev/peps/pep-0385/#history-management
+> 
+> It is possible that I did not pay enough attention during hg migration
+> discussions, but I don't remember seeing any call for feature branches
+> to be preserved.   Did anyone ever post a list of feature branches to
+> be dropped during hg migration?  How would developers know that they
+> would need to "opt-in" for their work to be preserved?  Given the
+> unforgiving nature of hg when it comes to altering history, I don't
+> think sufficient notice was given when the decision to trim the
+> history was made.
+
+I remember a (brief) discussion and at least one call for nominating
+branches to preserve (I believe there was more than one call), which
+included a list that the poster (Antoine? Djirkan?) was planning to keep
+and the kinds of things he was planning to drop.  I think it happened on
+python-dev rather than here, though.  (Since I didn't have any branches
+at the time I didn't pay much attention to it.)  I'm pretty sure it
+was mentioned again just pre-conversion, but I don't think any details
+were given at that time.
+
+--
+R. David Murray           http://www.bitdance.com
+
+From solipsis at pitrou.net  Mon Apr 25 23:56:47 2011
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Mon, 25 Apr 2011 23:56:47 +0200
+Subject: [python-committers] History lost in svn to hg conversion
+In-Reply-To: <20110425214348.BC31E2505A7@mailhost.webabinitio.net>
+References: <1303754437.3537.7.camel@localhost.localdomain>
+	<7EBE38A0-094B-4C9C-B91F-B044D2E9CB9B@holdenweb.com>
+	<1303757231.3537.16.camel@localhost.localdomain>
+	<BANLkTimb186E0C44i=69YL8kM2ix+b54-w@mail.gmail.com>
+	<20110425214348.BC31E2505A7@mailhost.webabinitio.net>
+Message-ID: <1303768607.3537.22.camel@localhost.localdomain>
+
+Le lundi 25 avril 2011 ? 17:43 -0400, R. David Murray a ?crit :
+> On Mon, 25 Apr 2011 17:00:21 -0400, Alexander Belopolsky <alexander.belopolsky at gmail.com> wrote:
+> > On Mon, Apr 25, 2011 at 2:47 PM, Antoine Pitrou <solipsis at pitrou.net> wrote:
+> > ..
+> > > All mainline history has been kept, as well as "active" feature branches
+> > > (feature branches someone asked to be kept) (*). I don't know if
+> > > Alexander's changesets are part of that, since he didn't precise where
+> > > they were made in the SVN repos (if they were made in the sandbox,
+> > > chances are they weren't).
+> > >
+> > > (*) Look at "history management" for more information:
+> > > http://www.python.org/dev/peps/pep-0385/#history-management
+> > 
+> > It is possible that I did not pay enough attention during hg migration
+> > discussions, but I don't remember seeing any call for feature branches
+> > to be preserved.   Did anyone ever post a list of feature branches to
+> > be dropped during hg migration?  How would developers know that they
+> > would need to "opt-in" for their work to be preserved?  Given the
+> > unforgiving nature of hg when it comes to altering history, I don't
+> > think sufficient notice was given when the decision to trim the
+> > history was made.
+> 
+> I remember a (brief) discussion and at least one call for nominating
+> branches to preserve (I believe there was more than one call), which
+> included a list that the poster (Antoine? Djirkan?) was planning to keep
+> and the kinds of things he was planning to drop.  I think it happened on
+> python-dev rather than here, though.
+
+A quick search found the following message by Dirkjan, but it is likely
+earlier messages on the subject had been posted too:
+http://mail.python.org/pipermail/python-dev/2009-July/090325.html
+
+By the way, the "pymigr" repository where the "all-branches.txt" file is
+stored is now only accessible through the ssh:// URLs, as someone
+complained that unmangled e-mail addresses of former committers were
+given out by the Web UI (in the "author-map" file).
+
+Regardless, since Alexander's previous work was in the sandbox repo (not
+the python repo), I don't think it would have been possible to integrate
+it during the hg migration.
+
+Regards
+
+Antoine.
+
+
+
+From solipsis at pitrou.net  Tue Apr 26 00:06:34 2011
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Tue, 26 Apr 2011 00:06:34 +0200
+Subject: [python-committers] English 'precise' is only an adjective,
+ not a verb.
+In-Reply-To: <4DB5CF12.2080104@udel.edu>
+References: <1303754437.3537.7.camel@localhost.localdomain>
+	<7EBE38A0-094B-4C9C-B91F-B044D2E9CB9B@holdenweb.com>
+	<1303757231.3537.16.camel@localhost.localdomain>
+	<4DB5CF12.2080104@udel.edu>
+Message-ID: <1303769194.3537.24.camel@localhost.localdomain>
+
+Le lundi 25 avril 2011 ? 15:44 -0400, Terry Reedy a ?crit :
+> > Alexander's changesets are part of that, since he didn't precise where
+> 
+> For the benefit of people who are not native-English speakers and who 
+> wish to write literate English: The English word 'precise' is only an 
+> adjective, and not a verb, so the above does not work as an English 
+> sentence.
+> 
+> This mistake, which I have seen before, has an understandable reason. 
+> 'Precise' is derived (borrowed) from the French "pre'cis" which is at 
+> least a verb and noun. "Pre'cis" comes from the Latin 'praecisus' and 
+> 'praecidere'. Spanish has the same verb in the form 'precisar'. So 
+> native Romance speakers have a tendency to over-generalize the usage of 
+> this restricted English cognate. English speakers learning other 
+> languages so the same sort of thing. The closest English verbs to 
+> "pre'cis" are 'abstract', 'summarize', and 'specify'.
+
+Thanks. "Specify" would do the trick :)
+
+Regards
+
+Antoine.
+
+
+
+From martin at v.loewis.de  Tue Apr 26 00:18:04 2011
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Tue, 26 Apr 2011 00:18:04 +0200
+Subject: [python-committers] History lost in svn to hg conversion
+In-Reply-To: <BANLkTinyMx9_13ptV+SnWudOCKFPDe7QMw@mail.gmail.com>
+References: <1303754437.3537.7.camel@localhost.localdomain>	<4DB5C3FE.8020809@v.loewis.de>
+	<BANLkTinyMx9_13ptV+SnWudOCKFPDe7QMw@mail.gmail.com>
+Message-ID: <4DB5F31C.7030706@v.loewis.de>
+
+> It looks like this history survived the cvs to svn migration, but was
+> lost in migration to hg.
+
+It's not there anymore, but it isn't lost, either - you can still get it
+from svn if you want to (and should still be able to do so twenty years
+from now if you care - just as you can still get the original CVS
+repository if you want to).
+
+In any case, this part of the history has not been converted, and there
+is no way to fix it now - less so in Mercurial than there might have
+been in CVS. Changing the history would require to come up with
+completely new revision "numbers", which would be unrelated to the
+revision numbers in all the clones out there. So anybody pushing changes
+would bring back all these "incorrect" revisions. That's
+why people say that changing history is futile in DVCSs one the
+genie is out of the bottle.
+
+So just accept that apparently, you wrote datetime.py all on your own :-)
+
+If you wonder what precisely has gone wrong: you shouldn't have created
+a branch in /sandbox, but in python/branches. /sandbox shouldn't have
+been used for anything whose history is of any interest. The hg
+conversion didn't consider anything outside /python, so it couldn't
+track the copying of the file.
+
+It might be that the svn-to-hg conversion algorithm could do better
+with files that are copied from within the same repository, but from
+outside the converted subtree. This is tricky to implement, though,
+since you can't give reasonable file path names to such files. OTOH,
+our approach to svn (i.e. multiple projects in one repository) is
+so uncommon that the Mercurial people are likely to ignore problems
+arising out of it.
+
+Regards,
+Martin
+
+From martin at v.loewis.de  Tue Apr 26 00:20:40 2011
+From: martin at v.loewis.de (=?UTF-8?B?Ik1hcnRpbiB2LiBMw7Z3aXMi?=)
+Date: Tue, 26 Apr 2011 00:20:40 +0200
+Subject: [python-committers] History lost in svn to hg conversion
+In-Reply-To: <1303768607.3537.22.camel@localhost.localdomain>
+References: <1303754437.3537.7.camel@localhost.localdomain>	<7EBE38A0-094B-4C9C-B91F-B044D2E9CB9B@holdenweb.com>	<1303757231.3537.16.camel@localhost.localdomain>	<BANLkTimb186E0C44i=69YL8kM2ix+b54-w@mail.gmail.com>	<20110425214348.BC31E2505A7@mailhost.webabinitio.net>
+	<1303768607.3537.22.camel@localhost.localdomain>
+Message-ID: <4DB5F3B8.9080500@v.loewis.de>
+
+> Regardless, since Alexander's previous work was in the sandbox repo (not
+> the python repo), I don't think it would have been possible to integrate
+> it during the hg migration.
+
+See the message I just sent - it's *not* a separate repository (else
+subversion would not be able to reconstruct the full history). So it
+might have been possible to deal with it, had it been noticed.
+
+Regards,
+Martin
+
+From alexander.belopolsky at gmail.com  Tue Apr 26 00:25:33 2011
+From: alexander.belopolsky at gmail.com (Alexander Belopolsky)
+Date: Mon, 25 Apr 2011 18:25:33 -0400
+Subject: [python-committers] History lost in svn to hg conversion
+In-Reply-To: <1303768607.3537.22.camel@localhost.localdomain>
+References: <1303754437.3537.7.camel@localhost.localdomain>
+	<7EBE38A0-094B-4C9C-B91F-B044D2E9CB9B@holdenweb.com>
+	<1303757231.3537.16.camel@localhost.localdomain>
+	<BANLkTimb186E0C44i=69YL8kM2ix+b54-w@mail.gmail.com>
+	<20110425214348.BC31E2505A7@mailhost.webabinitio.net>
+	<1303768607.3537.22.camel@localhost.localdomain>
+Message-ID: <BANLkTimwtAcDz4LDMQ9ticB2e9cGt2NYHw@mail.gmail.com>
+
+On Mon, Apr 25, 2011 at 5:56 PM, Antoine Pitrou <solipsis at pitrou.net> wrote:
+..
+> A quick search found the following message by Dirkjan, but it is likely
+> earlier messages on the subject had been posted too:
+> http://mail.python.org/pipermail/python-dev/2009-July/090325.html
+>
+
+No wonder I missed that.  I assume you are referring to this part of a
+multi-page post:
+
+"""
+* Get agreement on branch strategy and branch processing (list of
+branches + proposed handling at
+http://hg.python.org/pymigr/file/tip/all-branches.txt) <--- PLEASE
+REVIEW
+"""
+
+Even now, this does not sound to me like "WARNING: We are going to
+drop substantial chunks of history during hg migration.  If you want
+to see the history of work you did in your feature branches preserved,
+please speak up."
+
+> By the way, the "pymigr" repository where the "all-branches.txt" file is
+> stored is now only accessible through the ssh:// URLs, as someone
+> complained that unmangled e-mail addresses of former committers were
+> given out by the Web UI (in the "author-map" file).
+>
+
+How do I access this file now?  I tried
+
+$ hg cat ssh://hg at hg.python.org/pymigr/file/tip/all-branches.txt
+ssh:/hg at hg.python.org/pymigr/file/tip/all-branches.txt: No such file
+in rev 39047f8bd1d1
+
+
+> Regardless, since Alexander's previous work was in the sandbox repo (not
+> the python repo),
+
+See issue7989 for the details on how Lib/datetime.py was developed.
+
+> I don't think it would have been possible to integrate
+> it during the hg migration.
+
+Since I understand that the current plan is to preserve read-only SVN
+repository indefinitely, I don't think anything needs to be done other
+than making tracker smarter a Martin suggested.  However, if
+maintaining an SVN server becomes a burden, maybe the complete SVN
+history should be converted to an Hg instance  using some lossless
+process.
+
+From martin at v.loewis.de  Tue Apr 26 00:29:25 2011
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Tue, 26 Apr 2011 00:29:25 +0200
+Subject: [python-committers] English 'precise' is only an adjective,
+ not a verb.
+In-Reply-To: <4DB5CF12.2080104@udel.edu>
+References: <1303754437.3537.7.camel@localhost.localdomain>	<7EBE38A0-094B-4C9C-B91F-B044D2E9CB9B@holdenweb.com>	<1303757231.3537.16.camel@localhost.localdomain>
+	<4DB5CF12.2080104@udel.edu>
+Message-ID: <4DB5F5C5.2070004@v.loewis.de>
+
+> For the benefit of people who are not native-English speakers and who
+> wish to write literate English: The English word 'precise' is only an
+> adjective, and not a verb, so the above does not work as an English
+> sentence.
+> 
+> This mistake, which I have seen before, has an understandable reason.
+> 'Precise' is derived (borrowed) from the French "pre'cis" which is at
+> least a verb and noun. "Pre'cis" comes from the Latin 'praecisus' and
+> 'praecidere'. Spanish has the same verb in the form 'precisar'.
+
+FWIW, we have "pr?zisieren", supposedly imported from the French word
+in the 19th century. Too bad the Englishmen failed to accept that import
+:-( The best the dictionaries come up with (besides "to specify")
+is "to state more precisely", "to render more precisely".
+
+Regards,
+Martin
+
+From solipsis at pitrou.net  Tue Apr 26 00:33:37 2011
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Tue, 26 Apr 2011 00:33:37 +0200
+Subject: [python-committers] History lost in svn to hg conversion
+In-Reply-To: <BANLkTimwtAcDz4LDMQ9ticB2e9cGt2NYHw@mail.gmail.com>
+References: <1303754437.3537.7.camel@localhost.localdomain>
+	<7EBE38A0-094B-4C9C-B91F-B044D2E9CB9B@holdenweb.com>
+	<1303757231.3537.16.camel@localhost.localdomain>
+	<BANLkTimb186E0C44i=69YL8kM2ix+b54-w@mail.gmail.com>
+	<20110425214348.BC31E2505A7@mailhost.webabinitio.net>
+	<1303768607.3537.22.camel@localhost.localdomain>
+	<BANLkTimwtAcDz4LDMQ9ticB2e9cGt2NYHw@mail.gmail.com>
+Message-ID: <1303770817.3537.27.camel@localhost.localdomain>
+
+Le lundi 25 avril 2011 ? 18:25 -0400, Alexander Belopolsky a ?crit :
+> On Mon, Apr 25, 2011 at 5:56 PM, Antoine Pitrou <solipsis at pitrou.net> wrote:
+> ..
+> > A quick search found the following message by Dirkjan, but it is likely
+> > earlier messages on the subject had been posted too:
+> > http://mail.python.org/pipermail/python-dev/2009-July/090325.html
+> >
+> 
+> No wonder I missed that.  I assume you are referring to this part of a
+> multi-page post:
+
+Ok, I've found a later message:
+http://mail.python.org/pipermail/python-dev/2009-August/090959.html
+
+> How do I access this file now?  I tried
+> 
+> $ hg cat ssh://hg at hg.python.org/pymigr/file/tip/all-branches.txt
+> ssh:/hg at hg.python.org/pymigr/file/tip/all-branches.txt: No such file
+> in rev 39047f8bd1d1
+
+Apparently "hg cat" can't work on remote URLs. Just
+"hg clone ssh://hg at hg.python.org/pymigr" to get the whole repo (it's
+small).
+
+Regards
+
+Antoine.
+
+
+
+From alexander.belopolsky at gmail.com  Tue Apr 26 00:49:04 2011
+From: alexander.belopolsky at gmail.com (Alexander Belopolsky)
+Date: Mon, 25 Apr 2011 18:49:04 -0400
+Subject: [python-committers] History lost in svn to hg conversion
+In-Reply-To: <1303770817.3537.27.camel@localhost.localdomain>
+References: <1303754437.3537.7.camel@localhost.localdomain>
+	<7EBE38A0-094B-4C9C-B91F-B044D2E9CB9B@holdenweb.com>
+	<1303757231.3537.16.camel@localhost.localdomain>
+	<BANLkTimb186E0C44i=69YL8kM2ix+b54-w@mail.gmail.com>
+	<20110425214348.BC31E2505A7@mailhost.webabinitio.net>
+	<1303768607.3537.22.camel@localhost.localdomain>
+	<BANLkTimwtAcDz4LDMQ9ticB2e9cGt2NYHw@mail.gmail.com>
+	<1303770817.3537.27.camel@localhost.localdomain>
+Message-ID: <BANLkTikCNt6fAWQfjptiuMZFDHeE9SYuig@mail.gmail.com>
+
+On Mon, Apr 25, 2011 at 6:33 PM, Antoine Pitrou <solipsis at pitrou.net> wrote:
+..
+> Ok, I've found a later message:
+> http://mail.python.org/pipermail/python-dev/2009-August/090959.html
+>
+
+This post precedes the creation of py3k-datetime branch, so no wonder
+that it was not mentioned.  I wonder, though why sandbox was not
+mentioned.  Tim Peters' work was in sandbox/datetime and I don't think
+it could be preserved without preserving the sandbox.
+
+From alexander.belopolsky at gmail.com  Tue Apr 26 01:01:12 2011
+From: alexander.belopolsky at gmail.com (Alexander Belopolsky)
+Date: Mon, 25 Apr 2011 19:01:12 -0400
+Subject: [python-committers] English 'precise' is only an adjective,
+	not a verb.
+In-Reply-To: <4DB5F5C5.2070004@v.loewis.de>
+References: <1303754437.3537.7.camel@localhost.localdomain>
+	<7EBE38A0-094B-4C9C-B91F-B044D2E9CB9B@holdenweb.com>
+	<1303757231.3537.16.camel@localhost.localdomain>
+	<4DB5CF12.2080104@udel.edu> <4DB5F5C5.2070004@v.loewis.de>
+Message-ID: <BANLkTinUx2ZXFjVUHuKMQ+ADuPkzh5X8KQ@mail.gmail.com>
+
+On Mon, Apr 25, 2011 at 6:29 PM, "Martin v. L?wis" <martin at v.loewis.de> wrote:
+>> For the benefit of people who are not native-English speakers and who
+>> wish to write literate English: The English word 'precise' is only an
+>> adjective, and not a verb, so the above does not work as an English
+>> sentence.
+>>
+
+I find it peculiar that in international forums "literate English" is
+not always the most effective form of communication.  I had no problem
+understanding what Antoine wrote.  In fact, Russian, just as French
+and German, has a verb form of the word "precise".
+
+I still appreciate Terry's and other native speakers' comments on
+English usage.  As Edsger Dijkstra once wrote, "Besides a mathematical
+inclination, an exceptionally good mastery of one's native tongue is
+the most vital asset of a competent programmer."
+
+http://www.cs.utexas.edu/users/EWD/transcriptions/EWD04xx/EWD498.html
+
+>> This mistake, which I have seen before, has an understandable reason.
+>> 'Precise' is derived (borrowed) from the French "pre'cis" which is at
+>> least a verb and noun. "Pre'cis" comes from the Latin 'praecisus' and
+>> 'praecidere'. Spanish has the same verb in the form 'precisar'.
+>
+> FWIW, we have "pr?zisieren", supposedly imported from the French word
+> in the 19th century. Too bad the Englishmen failed to accept that import
+> :-( The best the dictionaries come up with (besides "to specify")
+> is "to state more precisely", "to render more precisely".
+>
+> Regards,
+> Martin
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+>
+
+From jcea at jcea.es  Tue Apr 26 01:30:14 2011
+From: jcea at jcea.es (Jesus Cea)
+Date: Tue, 26 Apr 2011 01:30:14 +0200
+Subject: [python-committers] English 'precise' is only an adjective,
+ not a verb.
+In-Reply-To: <4DB5CF12.2080104@udel.edu>
+References: <1303754437.3537.7.camel@localhost.localdomain>	<7EBE38A0-094B-4C9C-B91F-B044D2E9CB9B@holdenweb.com>	<1303757231.3537.16.camel@localhost.localdomain>
+	<4DB5CF12.2080104@udel.edu>
+Message-ID: <4DB60406.30607@jcea.es>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On 25/04/11 21:44, Terry Reedy wrote:
+> This mistake, which I have seen before, has an understandable reason.
+> 'Precise' is derived (borrowed) from the French "pre'cis" which is at
+
+Thanks for the nice explanation. I find interesting that english, being
+so used to interchange verbs, adjetives and nouns, is so picky here :).
+
+For instance, in Spanish we have a translation for "searcher", but not
+for "finder". It is a non-word in spanish :). English is usually so
+liberal, in comparison... :)
+
+Don't ask me for the plural of "virus" in different lenguajes :-p.
+
+- -- 
+Jesus Cea Avion                         _/_/      _/_/_/        _/_/_/
+jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+jabber / xmpp:jcea at jabber.org         _/_/    _/_/          _/_/_/_/_/
+.                              _/_/  _/_/    _/_/          _/_/  _/_/
+"Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+"My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+"El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.10 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - http://enigmail.mozdev.org/
+
+iQCVAwUBTbYEBplgi5GaxT1NAQL44QP8DeRyJlRjTcoUeWGSpb1JlGNihK0pH7RP
+VenF5t9WlhzjiEyYhhtVsr0wNV9sg9TmWqDfgWkHozYsKrK7A5aydKUc1BxGkOkf
+GXVebe5uUL5ZR/BwGAYAURi+B0lpkCLlButi9XEA6W76kGrjF/UI+Y5RWU/b7aCQ
+EqYAVuQavks=
+=KOEH
+-----END PGP SIGNATURE-----
+
+From ncoghlan at gmail.com  Tue Apr 26 06:01:02 2011
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Tue, 26 Apr 2011 14:01:02 +1000
+Subject: [python-committers] English 'precise' is only an adjective,
+	not a verb.
+In-Reply-To: <4DB60406.30607@jcea.es>
+References: <1303754437.3537.7.camel@localhost.localdomain>
+	<7EBE38A0-094B-4C9C-B91F-B044D2E9CB9B@holdenweb.com>
+	<1303757231.3537.16.camel@localhost.localdomain>
+	<4DB5CF12.2080104@udel.edu> <4DB60406.30607@jcea.es>
+Message-ID: <BANLkTinhcsL7rWiXW=-EZ9UWOjwQk6NxkQ@mail.gmail.com>
+
+On Tue, Apr 26, 2011 at 9:30 AM, Jesus Cea <jcea at jcea.es> wrote:
+> Thanks for the nice explanation. I find interesting that english, being
+> so used to interchange verbs, adjetives and nouns, is so picky here :).
+
+I have a T-shirt that says "English doesn't borrow from other
+languages. English follows other languages down dark alleys, knocks
+them down and goes through their pockets for loose grammar." (it's a
+paraphrase of an older quote, but I forget the original). When native
+English speakers view our language that way, I'm constantly amazed
+that non-native speakers manage to figure it out was well as they do
+:)
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan?? |?? ncoghlan at gmail.com?? |?? Brisbane, Australia
+
+From amk at amk.ca  Tue Apr 26 14:12:58 2011
+From: amk at amk.ca (A.M. Kuchling)
+Date: Tue, 26 Apr 2011 08:12:58 -0400
+Subject: [python-committers] English 'precise' is only an adjective,
+ not a verb.
+In-Reply-To: <BANLkTinhcsL7rWiXW=-EZ9UWOjwQk6NxkQ@mail.gmail.com>
+References: <1303754437.3537.7.camel@localhost.localdomain>
+	<7EBE38A0-094B-4C9C-B91F-B044D2E9CB9B@holdenweb.com>
+	<1303757231.3537.16.camel@localhost.localdomain>
+	<4DB5CF12.2080104@udel.edu> <4DB60406.30607@jcea.es>
+	<BANLkTinhcsL7rWiXW=-EZ9UWOjwQk6NxkQ@mail.gmail.com>
+Message-ID: <20110426121258.GA2576@amk-desktop.matrixgroup.net>
+
+On Tue, Apr 26, 2011 at 02:01:02PM +1000, Nick Coghlan wrote:
+> I have a T-shirt that says "English doesn't borrow from other
+> languages. English follows other languages down dark alleys, knocks
+> them down and goes through their pockets for loose grammar." (it's a
+> paraphrase of an older quote, but I forget the original). When native
+
+The original is from 1990 on Usenet:
+http://en.wikipedia.org/wiki/James_Nicoll#.22The_Purity_of_the_English_Language.22
+
+--amk
+

@@ -1,0 +1,1666 @@
+From jcea at jcea.es  Mon Oct  1 04:29:31 2012
+From: jcea at jcea.es (Jesus Cea)
+Date: Mon, 01 Oct 2012 04:29:31 +0200
+Subject: [python-committers] Branches support status (Re: 3.3 branch created
+ in main repository)
+In-Reply-To: <k46bsh$cfm$1@ger.gmane.org>
+References: <k46bsh$cfm$1@ger.gmane.org>
+Message-ID: <5069000B.50306@jcea.es>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On 29/09/12 10:35, Georg Brandl wrote:
+> Until the last ordinary 3.2 bugfix release is done (which will be
+> soon), the usual procedure for 3.x will be to check into 3.2, merge
+> into 3.3, and then merge into default, except of course for a)
+> fixes of 3.3-only features and b) trivial things like typos that
+> you don't feel have to be in 3.2.4.
+> 
+> default is now Python 3.4, and new features can be committed
+> there.
+
+So, if I understand correctly, the current situation is this:
+
+2.6: Security fixes only
+2.7, 3.2, 3.3: Bugfixes only
+2.3, 2.4, 2.5, 3.0, 3.1: Dead
+
+After 3.2.4 is published ("soon"), 3.2 would move to "security fixes
+only". Am I right?
+
+I wonder if we have a deadline for supporting 2.6 yet. How about 2.7?.
+
+- -- 
+Jes?s Cea Avi?n                         _/_/      _/_/_/        _/_/_/
+jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+jabber / xmpp:jcea at jabber.org         _/_/    _/_/          _/_/_/_/_/
+.                              _/_/  _/_/    _/_/          _/_/  _/_/
+"Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+"My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+"El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.10 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - http://www.enigmail.net/
+
+iQCVAwUBUGkACplgi5GaxT1NAQKKCgP/Te1AZgjtr2YAg3fq5NmtOZhkL5KYfodt
+xhFpTShdC7ELc/PpdAI67UdnpwL0PoceKpQ65Bidei/EUG9oJAuHiKdaCDPBzGDN
+Z6r9eRwozMia8rT/7w2WiGH88LWHloimErQsLjeJTmymKOViRHjEeMOeYmyYclJd
+LzGQJaEW20M=
+=eX2O
+-----END PGP SIGNATURE-----
+
+From tjreedy at udel.edu  Mon Oct  1 04:44:17 2012
+From: tjreedy at udel.edu (Terry Reedy)
+Date: Sun, 30 Sep 2012 22:44:17 -0400
+Subject: [python-committers] Branches support status (Re: 3.3 branch
+ created in main repository)
+In-Reply-To: <5069000B.50306@jcea.es>
+References: <k46bsh$cfm$1@ger.gmane.org> <5069000B.50306@jcea.es>
+Message-ID: <50690381.7020703@udel.edu>
+
+
+
+On 9/30/2012 10:29 PM, Jesus Cea wrote:
+
+> So, if I understand correctly, the current situation is this:
+>
+> 2.6: Security fixes only
+> 2.7, 3.2, 3.3: Bugfixes only
+> 2.3, 2.4, 2.5, 3.0, 3.1: Dead
+>
+> After 3.2.4 is published ("soon"), 3.2 would move to "security fixes
+> only". Am I right?
+>
+> I wonder if we have a deadline for supporting 2.6 yet. How about 2.7?.
+
+Is there a PEP with end-of-life info?
+
+From benjamin at python.org  Mon Oct  1 06:20:43 2012
+From: benjamin at python.org (Benjamin Peterson)
+Date: Mon, 1 Oct 2012 00:20:43 -0400
+Subject: [python-committers] Branches support status (Re: 3.3 branch
+ created in main repository)
+In-Reply-To: <5069000B.50306@jcea.es>
+References: <k46bsh$cfm$1@ger.gmane.org>
+	<5069000B.50306@jcea.es>
+Message-ID: <CAPZV6o8fJhKpFRY2TvpArrDUDe9RJ+C1-WwJa8_cwiW7Q+MJ3Q@mail.gmail.com>
+
+2012/9/30 Jesus Cea <jcea at jcea.es>:
+> -----BEGIN PGP SIGNED MESSAGE-----
+> Hash: SHA1
+>
+> On 29/09/12 10:35, Georg Brandl wrote:
+>> Until the last ordinary 3.2 bugfix release is done (which will be
+>> soon), the usual procedure for 3.x will be to check into 3.2, merge
+>> into 3.3, and then merge into default, except of course for a)
+>> fixes of 3.3-only features and b) trivial things like typos that
+>> you don't feel have to be in 3.2.4.
+>>
+>> default is now Python 3.4, and new features can be committed
+>> there.
+>
+> So, if I understand correctly, the current situation is this:
+>
+> 2.6: Security fixes only
+> 2.7, 3.2, 3.3: Bugfixes only
+> 2.3, 2.4, 2.5, 3.0, 3.1: Dead
+
+3.1 still recieves security fixes.
+
+>
+> After 3.2.4 is published ("soon"), 3.2 would move to "security fixes
+> only". Am I right?
+>
+> I wonder if we have a deadline for supporting 2.6 yet. How about 2.7?.
+
+2.7 will get at least 5 years of support.
+
+
+-- 
+Regards,
+Benjamin
+
+From g.brandl at gmx.net  Mon Oct  1 07:02:06 2012
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Mon, 01 Oct 2012 07:02:06 +0200
+Subject: [python-committers] Branches support status (Re: 3.3 branch
+	created in main repository)
+In-Reply-To: <5069000B.50306@jcea.es>
+References: <k46bsh$cfm$1@ger.gmane.org> <5069000B.50306@jcea.es>
+Message-ID: <k4b84c$6c0$1@ger.gmane.org>
+
+On 10/01/2012 04:29 AM, Jesus Cea wrote:
+> -----BEGIN PGP SIGNED MESSAGE-----
+> Hash: SHA1
+>
+> On 29/09/12 10:35, Georg Brandl wrote:
+>> Until the last ordinary 3.2 bugfix release is done (which will be
+>> soon), the usual procedure for 3.x will be to check into 3.2, merge
+>> into 3.3, and then merge into default, except of course for a)
+>> fixes of 3.3-only features and b) trivial things like typos that
+>> you don't feel have to be in 3.2.4.
+>>
+>> default is now Python 3.4, and new features can be committed
+>> there.
+>
+> So, if I understand correctly, the current situation is this:
+>
+> 2.6: Security fixes only
+> 2.7, 3.2, 3.3: Bugfixes only
+> 2.3, 2.4, 2.5, 3.0, 3.1: Dead
+>
+> After 3.2.4 is published ("soon"), 3.2 would move to "security fixes
+> only". Am I right?
+
+Correct, except for 3.1 in the "security fixes" category.
+
+You are right that we should have information about bugfix/security mode and
+about end-of-life; I propose to put them in the respective release schedule
+PEPs.
+
+Georg
+
+
+From martin at v.loewis.de  Mon Oct  1 13:30:24 2012
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Mon, 01 Oct 2012 13:30:24 +0200
+Subject: [python-committers] Branches support status (Re: 3.3 branch
+ created in main repository)
+In-Reply-To: <50690381.7020703@udel.edu>
+References: <k46bsh$cfm$1@ger.gmane.org> <5069000B.50306@jcea.es>
+	<50690381.7020703@udel.edu>
+Message-ID: <50697ED0.9000300@v.loewis.de>
+
+> Is there a PEP with end-of-life info?
+
+I had meant to write a PEP on security releases for several
+years now. Since this still doesn't exist, here is the outline
+of the procedures that maintainers have agreed upon:
+- bug fix releases are made until the next feature release is
+   out (with 2.7 being an exception from that rule)
+- security fixes are being provided until 5 years after the initial
+   release of the feature release
+   * for 2.6, this will be until Oct 1, 2013
+   * for 3.1, this will be until July 27, 2014
+   * for 3.2, this will be until Feb 20, 2016
+   The 5 years horizon is based on requests of system packagers
+   (Linux distributions in particular), who often also have 5-year
+   cycles for long-term support.
+- security releases are made whenever maintainers deem it necessary;
+   the two options are
+   * commit fixes into source repository only, and release whenever
+     enough time has passed, or enough changes have accumulated, or
+   * release right after a security issue has been resolved
+   Which of these to take depends on the nature of the fix, of course.
+   The former is intended for system packagers of Python - they can
+   incorporate fixes that are official already despite not having been
+   released yet.
+
+I'm not aware of a formal policy for 2.7. I guess it will end its life
+by BDFL pronouncement; giving it a 5 year bug fix period (which would
+end on July 3, 2015) seems a bit long to me - I'd favor to stop bug
+fixing along with the 3.4 release. The last BDFL decision (that I'm
+aware of) is that 2.7 should be supported "indefinitely", which is
+not "infinitely".
+
+Regards,
+Martin
+
+From g.brandl at gmx.net  Mon Oct  1 14:23:13 2012
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Mon, 01 Oct 2012 14:23:13 +0200
+Subject: [python-committers] Branches support status (Re: 3.3 branch
+	created in main repository)
+In-Reply-To: <50697ED0.9000300@v.loewis.de>
+References: <k46bsh$cfm$1@ger.gmane.org> <5069000B.50306@jcea.es>
+	<50690381.7020703@udel.edu> <50697ED0.9000300@v.loewis.de>
+Message-ID: <k4c1vg$nml$1@ger.gmane.org>
+
+On 10/01/2012 01:30 PM, "Martin v. L?wis" wrote:
+>> Is there a PEP with end-of-life info?
+>
+> I had meant to write a PEP on security releases for several
+> years now. Since this still doesn't exist, here is the outline
+> of the procedures that maintainers have agreed upon:
+> - bug fix releases are made until the next feature release is
+>     out (with 2.7 being an exception from that rule)
+> - security fixes are being provided until 5 years after the initial
+>     release of the feature release
+>     * for 2.6, this will be until Oct 1, 2013
+>     * for 3.1, this will be until July 27, 2014
+>     * for 3.2, this will be until Feb 20, 2016
+>     The 5 years horizon is based on requests of system packagers
+>     (Linux distributions in particular), who often also have 5-year
+>     cycles for long-term support.
+> - security releases are made whenever maintainers deem it necessary;
+>     the two options are
+>     * commit fixes into source repository only, and release whenever
+>       enough time has passed, or enough changes have accumulated, or
+>     * release right after a security issue has been resolved
+>     Which of these to take depends on the nature of the fix, of course.
+>     The former is intended for system packagers of Python - they can
+>     incorporate fixes that are official already despite not having been
+>     released yet.
+>
+> I'm not aware of a formal policy for 2.7. I guess it will end its life
+> by BDFL pronouncement; giving it a 5 year bug fix period (which would
+> end on July 3, 2015) seems a bit long to me - I'd favor to stop bug
+> fixing along with the 3.4 release. The last BDFL decision (that I'm
+> aware of) is that 2.7 should be supported "indefinitely", which is
+> not "infinitely".
+
+I've now added lifespan information to the 3.2 and 3.3 release schedule
+PEPs, perhaps Barry and Benjamin could do the same for 2.6 to 3.1.
+
+Georg
+
+
+From solipsis at pitrou.net  Mon Oct  1 14:44:59 2012
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Mon, 01 Oct 2012 14:44:59 +0200
+Subject: [python-committers] Branches support status (Re: 3.3 branch
+ created in main repository)
+In-Reply-To: <50697ED0.9000300@v.loewis.de>
+References: <k46bsh$cfm$1@ger.gmane.org> <5069000B.50306@jcea.es>
+	<50690381.7020703@udel.edu>  <50697ED0.9000300@v.loewis.de>
+Message-ID: <1349095499.3443.7.camel@localhost.localdomain>
+
+Le lundi 01 octobre 2012 ? 13:30 +0200, "Martin v. L?wis" a ?crit :
+> I'm not aware of a formal policy for 2.7. I guess it will end its life
+> by BDFL pronouncement; giving it a 5 year bug fix period (which would
+> end on July 3, 2015) seems a bit long to me - I'd favor to stop bug
+> fixing along with the 3.4 release.
+
+"5 years" was once recorded in the 2.7 release page:
+http://mail.python.org/pipermail/python-list/2010-April/573621.html
+
+... although it isn't anymore:
+?Python 2.7 is scheduled to be the last major version in the 2.x series
+before it moves into an extended maintenance period.?
+http://www.python.org/download/releases/2.7/
+
+Benjamin is the 2.7 release manager (good choice on his part ;-)), and
+on this thread he seems to be of the advice that 5 years is the number.
+
+Perhaps we can relax the 2.7 bugfix policy a bit: bugfix releases are
+made for 5 years, but core developers are free not to port minor
+bugfixes if they want to save up some time.
+
+Regards
+
+Antoine.
+
+
+-- 
+Software development and contracting: http://pro.pitrou.net
+
+
+
+From kbk at shore.net  Mon Oct  1 15:58:24 2012
+From: kbk at shore.net (Kurt B. Kaiser)
+Date: Mon, 01 Oct 2012 09:58:24 -0400
+Subject: [python-committers] contributor forms (was Re: contributor form
+ for Alexander Belopolsky)
+In-Reply-To: <CAOTb1wfZ=Msw_kPwNAc2rowaaC1R8jLCuz48gDcXwoj--DOM=A@mail.gmail.com>
+References: <CAOTb1wfZ=Msw_kPwNAc2rowaaC1R8jLCuz48gDcXwoj--DOM=A@mail.gmail.com>
+Message-ID: <1349099904.10413.140661134965905.201F7FB1@webmail.messagingengine.com>
+
+Unfortunately, the list of core developers with the form flag set
+doesn't match the actual forms on file.  For example, I did not find my
+form in the files sent to me by the previous Administrator.
+
+I'm currently in the process of having all the forms scanned.  I'll then
+check them into the PSF repository, along with the ones received by fax
+over the past couple of years.
+
+Once that's done, we can address any missing forms.
+
+KBK
+
+On Sat, Sep 29, 2012, at 12:51 PM, Chris Jerdonek wrote:
+> On Fri, Sep 21, 2012, Jes?s Cea Avi?n wrote:
+> >
+> > Alexander Belopolsky is a core developer but the bugtracker doesn't [edit: but now does]
+> > have a "contributor form received" flag for him?
+> 
+> FWIW, you can see a list of all such core developers using this URL:
+> 
+> http://bugs.python.org/user?iscommitter=1&contrib_form=0&@action=search&@sort=username&@pagesize=300
+> 
+> There are currently 35 without a contributor form (though I realize
+> that many of them may not currently be active).
+> 
+> --Chris
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+> 
+
+From barry at python.org  Mon Oct  1 16:36:57 2012
+From: barry at python.org (Barry Warsaw)
+Date: Mon, 1 Oct 2012 10:36:57 -0400
+Subject: [python-committers] Branches support status (Re: 3.3 branch
+ created in main repository)
+In-Reply-To: <k4c1vg$nml$1@ger.gmane.org>
+References: <k46bsh$cfm$1@ger.gmane.org> <5069000B.50306@jcea.es>
+	<50690381.7020703@udel.edu> <50697ED0.9000300@v.loewis.de>
+	<k4c1vg$nml$1@ger.gmane.org>
+Message-ID: <20121001103657.6ff9a8e1@limelight.wooz.org>
+
+On Oct 01, 2012, at 02:23 PM, Georg Brandl wrote:
+
+>I've now added lifespan information to the 3.2 and 3.3 release schedule
+>PEPs, perhaps Barry and Benjamin could do the same for 2.6 to 3.1.
+
+Done for PEP 361, which actually covers both the 2.6 and 3.0 releases.  I've
+described Python 3.0 as not being maintained for any purpose.
+
+Cheers,
+-Barry
+
+
+From barry at python.org  Mon Oct  1 16:39:35 2012
+From: barry at python.org (Barry Warsaw)
+Date: Mon, 1 Oct 2012 10:39:35 -0400
+Subject: [python-committers] Branches support status (Re: 3.3 branch
+ created in main repository)
+In-Reply-To: <50697ED0.9000300@v.loewis.de>
+References: <k46bsh$cfm$1@ger.gmane.org> <5069000B.50306@jcea.es>
+	<50690381.7020703@udel.edu> <50697ED0.9000300@v.loewis.de>
+Message-ID: <20121001103935.419f1d83@limelight.wooz.org>
+
+On Oct 01, 2012, at 01:30 PM, Martin v. L?wis wrote:
+
+>I had meant to write a PEP on security releases for several
+>years now.
+
++1
+
+>Since this still doesn't exist, here is the outline
+>of the procedures that maintainers have agreed upon:
+>- bug fix releases are made until the next feature release is
+>   out (with 2.7 being an exception from that rule)
+>- security fixes are being provided until 5 years after the initial
+>   release of the feature release
+>   * for 2.6, this will be until Oct 1, 2013
+>   * for 3.1, this will be until July 27, 2014
+>   * for 3.2, this will be until Feb 20, 2016
+>   The 5 years horizon is based on requests of system packagers
+>   (Linux distributions in particular), who often also have 5-year
+>   cycles for long-term support.
+>- security releases are made whenever maintainers deem it necessary;
+>   the two options are
+>   * commit fixes into source repository only, and release whenever
+>     enough time has passed, or enough changes have accumulated, or
+>   * release right after a security issue has been resolved
+>   Which of these to take depends on the nature of the fix, of course.
+>   The former is intended for system packagers of Python - they can
+>   incorporate fixes that are official already despite not having been
+>   released yet.
+
+The only thing missing is whether releases are made source-only or with binary
+packages for Windows and Mac.  My understanding is that once a release goes
+into security-only mode, binary releases cease.
+
+Cheers,
+-Barry
+
+From barry at python.org  Mon Oct  1 16:42:50 2012
+From: barry at python.org (Barry Warsaw)
+Date: Mon, 1 Oct 2012 10:42:50 -0400
+Subject: [python-committers] Branches support status (Re: 3.3 branch
+ created in main repository)
+In-Reply-To: <1349095499.3443.7.camel@localhost.localdomain>
+References: <k46bsh$cfm$1@ger.gmane.org> <5069000B.50306@jcea.es>
+	<50690381.7020703@udel.edu> <50697ED0.9000300@v.loewis.de>
+	<1349095499.3443.7.camel@localhost.localdomain>
+Message-ID: <20121001104250.5d3e5a55@limelight.wooz.org>
+
+On Oct 01, 2012, at 02:44 PM, Antoine Pitrou wrote:
+
+>"5 years" was once recorded in the 2.7 release page:
+>http://mail.python.org/pipermail/python-list/2010-April/573621.html
+>
+>... although it isn't anymore:
+>?Python 2.7 is scheduled to be the last major version in the 2.x series
+>before it moves into an extended maintenance period.?
+>http://www.python.org/download/releases/2.7/
+>
+>Benjamin is the 2.7 release manager (good choice on his part ;-)), and
+>on this thread he seems to be of the advice that 5 years is the number.
+>
+>Perhaps we can relax the 2.7 bugfix policy a bit: bugfix releases are
+>made for 5 years, but core developers are free not to port minor
+>bugfixes if they want to save up some time.
+
+I think we should make a formal commitment to 2.7's lifespan, whatever that
+would be.  When discussions about Python 2's ultimate demise come up, we
+should be able to point to the PEP for the official declaration, since once
+Python 2.7 maintenance ends, so does effectively Python 2's lifespan.
+
+the-champagne-is-cooling-as-we-speak-ly y'rs,
+-Barry
+
+From tjreedy at udel.edu  Mon Oct  1 17:03:23 2012
+From: tjreedy at udel.edu (Terry Reedy)
+Date: Mon, 01 Oct 2012 11:03:23 -0400
+Subject: [python-committers] Branches support status (Re: 3.3 branch
+ created in main repository)
+In-Reply-To: <k4c1vg$nml$1@ger.gmane.org>
+References: <k46bsh$cfm$1@ger.gmane.org> <5069000B.50306@jcea.es>
+	<50690381.7020703@udel.edu> <50697ED0.9000300@v.loewis.de>
+	<k4c1vg$nml$1@ger.gmane.org>
+Message-ID: <5069B0BB.7030504@udel.edu>
+
+On 10/1/2012 8:23 AM, Georg Brandl wrote:
+> On 10/01/2012 01:30 PM, "Martin v. L?wis" wrote:
+>>> Is there a PEP with end-of-life info?
+>>
+>> I had meant to write a PEP on security releases for several
+>> years now. Since this still doesn't exist, here is the outline
+>> of the procedures that maintainers have agreed upon:
+>> - bug fix releases are made until the next feature release is
+>>     out (with 2.7 being an exception from that rule)
+>> - security fixes are being provided until 5 years after the initial
+>>     release of the feature release
+>>     * for 2.6, this will be until Oct 1, 2013
+>>     * for 3.1, this will be until July 27, 2014
+>>     * for 3.2, this will be until Feb 20, 2016
+>>     The 5 years horizon is based on requests of system packagers
+>>     (Linux distributions in particular), who often also have 5-year
+>>     cycles for long-term support.
+>> - security releases are made whenever maintainers deem it necessary;
+>>     the two options are
+>>     * commit fixes into source repository only, and release whenever
+>>       enough time has passed, or enough changes have accumulated, or
+>>     * release right after a security issue has been resolved
+>>     Which of these to take depends on the nature of the fix, of course.
+>>     The former is intended for system packagers of Python - they can
+>>     incorporate fixes that are official already despite not having been
+>>     released yet.
+>>
+>> I'm not aware of a formal policy for 2.7. I guess it will end its life
+>> by BDFL pronouncement; giving it a 5 year bug fix period (which would
+>> end on July 3, 2015) seems a bit long to me - I'd favor to stop bug
+>> fixing along with the 3.4 release. The last BDFL decision (that I'm
+>> aware of) is that 2.7 should be supported "indefinitely", which is
+>> not "infinitely".
+>
+> I've now added lifespan information to the 3.2 and 3.3 release schedule
+> PEPs, perhaps Barry and Benjamin could do the same for 2.6 to 3.1.
+
+Someone recently said they could not find life-cycle information on 
+python.org. I think it would be good to have one PEP or website page 
+that has the general policy, given above by Martin, the exception for 
+2.7, and a summary table with one line per release (back to say, 2.5), 
+giving number and date for
+
+Initial release      Last bug fix release      Last security release
+...
+3.3.0  2012 Sep 30   (2014 ???)                (2017 Sep)
+
+(tentative dates in parens)
+
+Terry
+
+
+From tjreedy at udel.edu  Mon Oct  1 16:57:45 2012
+From: tjreedy at udel.edu (Terry Reedy)
+Date: Mon, 01 Oct 2012 10:57:45 -0400
+Subject: [python-committers] 3.3.1 two months away?
+In-Reply-To: <k4b84c$6c0$1@ger.gmane.org>
+References: <k46bsh$cfm$1@ger.gmane.org> <5069000B.50306@jcea.es>
+	<k4b84c$6c0$1@ger.gmane.org>
+Message-ID: <5069AF69.1000605@udel.edu>
+
+On 10/1/2012 1:02 AM, Georg Brandl wrote:
+
+> You are right that we should have information about bugfix/security mode
+> and
+> about end-of-life; I propose to put them in the respective release schedule
+> PEPs.
+
+ From the commit:
+
+ > +3.3 will receive bugfix updates approximately every 4-6 months until
+
+ > +3.3.1 schedule
+ > +--------------
+ > +
+ > +- 3.3.1 beta 1: planned for Oct/Nov 2012
+
+I presume you see a number of little fixes coming that should not too 
+long. I almost missed this ;-).
+
+Terry
+
+
+From rdmurray at bitdance.com  Mon Oct  1 18:13:35 2012
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Mon, 01 Oct 2012 12:13:35 -0400
+Subject: [python-committers] 3.3.1 two months away?
+In-Reply-To: <5069AF69.1000605@udel.edu>
+References: <k46bsh$cfm$1@ger.gmane.org> <5069000B.50306@jcea.es>
+	<k4b84c$6c0$1@ger.gmane.org> <5069AF69.1000605@udel.edu>
+Message-ID: <20121001161336.3CD162500FA@webabinitio.net>
+
+On Mon, 01 Oct 2012 10:57:45 -0400, Terry Reedy <tjreedy at udel.edu> wrote:
+> On 10/1/2012 1:02 AM, Georg Brandl wrote:
+> 
+> > You are right that we should have information about bugfix/security mode
+> > and
+> > about end-of-life; I propose to put them in the respective release schedule
+> > PEPs.
+> 
+>  From the commit:
+> 
+>  > +3.3 will receive bugfix updates approximately every 4-6 months until
+> 
+>  > +3.3.1 schedule
+>  > +--------------
+>  > +
+>  > +- 3.3.1 beta 1: planned for Oct/Nov 2012
+> 
+> I presume you see a number of little fixes coming that should not too 
+> long. I almost missed this ;-).
+
+I believe Georg is basing this on past experience, both ours and the
+general software community...the users *always* find nasty bugs only
+after the first production release :)
+
+I have some hope we did a little better this time, though.  Judging by
+the bug reports we got a bunch of pre-testing from both the Gentoo team
+and Ubuntu, and I'm pretty sure their testing has been more extensive
+this time than it was for previous 3.x releases.
+
+On the other hand, Gentoo (Arfrever) already found one crasher
+post-release...but fortunately it only happens in debug builds (although
+that could mean there is a behavior bug in non-debug builds).
+
+--David
+
+From g.brandl at gmx.net  Mon Oct  1 18:37:02 2012
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Mon, 01 Oct 2012 18:37:02 +0200
+Subject: [python-committers] 3.3.1 two months away?
+In-Reply-To: <5069AF69.1000605@udel.edu>
+References: <k46bsh$cfm$1@ger.gmane.org> <5069000B.50306@jcea.es>
+	<k4b84c$6c0$1@ger.gmane.org> <5069AF69.1000605@udel.edu>
+Message-ID: <k4cgrc$3hu$1@ger.gmane.org>
+
+On 10/01/2012 04:57 PM, Terry Reedy wrote:
+> On 10/1/2012 1:02 AM, Georg Brandl wrote:
+>
+>> You are right that we should have information about bugfix/security mode
+>> and
+>> about end-of-life; I propose to put them in the respective release schedule
+>> PEPs.
+>
+>   From the commit:
+>
+>   > +3.3 will receive bugfix updates approximately every 4-6 months until
+>
+>   > +3.3.1 schedule
+>   > +--------------
+>   > +
+>   > +- 3.3.1 beta 1: planned for Oct/Nov 2012
+>
+> I presume you see a number of little fixes coming that should not too
+> long. I almost missed this ;-).
+
+No, in fact we have a security fix in the pipeline; the point releases for
+all branches will come out when the respective patch is finished.
+
+That we can quickly fix not-so-critical but annoying bugs found by users
+in 3.3.0 is a nice side-effect.
+
+cheers,
+Georg
+
+
+From benjamin at python.org  Mon Oct  1 19:30:40 2012
+From: benjamin at python.org (Benjamin Peterson)
+Date: Mon, 1 Oct 2012 13:30:40 -0400
+Subject: [python-committers] 3.3.1 two months away?
+In-Reply-To: <20121001161336.3CD162500FA@webabinitio.net>
+References: <k46bsh$cfm$1@ger.gmane.org> <5069000B.50306@jcea.es>
+	<k4b84c$6c0$1@ger.gmane.org> <5069AF69.1000605@udel.edu>
+	<20121001161336.3CD162500FA@webabinitio.net>
+Message-ID: <CAPZV6o9mLND_HwXWy=OmSvGKD4ev0JP895ix-a5dhv5x-OunVA@mail.gmail.com>
+
+2012/10/1 R. David Murray <rdmurray at bitdance.com>:
+> On the other hand, Gentoo (Arfrever) already found one crasher
+> post-release...but fortunately it only happens in debug builds (although
+> that could mean there is a behavior bug in non-debug builds).
+
+It definitely happens in release builds.
+
+
+-- 
+Regards,
+Benjamin
+
+From g.brandl at gmx.net  Mon Oct  1 19:42:17 2012
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Mon, 01 Oct 2012 19:42:17 +0200
+Subject: [python-committers] 3.3.1 two months away?
+In-Reply-To: <CAPZV6o9mLND_HwXWy=OmSvGKD4ev0JP895ix-a5dhv5x-OunVA@mail.gmail.com>
+References: <k46bsh$cfm$1@ger.gmane.org> <5069000B.50306@jcea.es>
+	<k4b84c$6c0$1@ger.gmane.org> <5069AF69.1000605@udel.edu>
+	<20121001161336.3CD162500FA@webabinitio.net>
+	<CAPZV6o9mLND_HwXWy=OmSvGKD4ev0JP895ix-a5dhv5x-OunVA@mail.gmail.com>
+Message-ID: <k4cklo$7u5$2@ger.gmane.org>
+
+On 10/01/2012 07:30 PM, Benjamin Peterson wrote:
+> 2012/10/1 R. David Murray <rdmurray at bitdance.com>:
+>> On the other hand, Gentoo (Arfrever) already found one crasher
+>> post-release...but fortunately it only happens in debug builds (although
+>> that could mean there is a behavior bug in non-debug builds).
+>
+> It definitely happens in release builds.
+
+I guess you're talking about the *second* crasher :|
+
+Georg
+
+
+From benjamin at python.org  Mon Oct  1 19:50:59 2012
+From: benjamin at python.org (Benjamin Peterson)
+Date: Mon, 1 Oct 2012 13:50:59 -0400
+Subject: [python-committers] Branches support status (Re: 3.3 branch
+ created in main repository)
+In-Reply-To: <k4c1vg$nml$1@ger.gmane.org>
+References: <k46bsh$cfm$1@ger.gmane.org> <5069000B.50306@jcea.es>
+	<50690381.7020703@udel.edu> <50697ED0.9000300@v.loewis.de>
+	<k4c1vg$nml$1@ger.gmane.org>
+Message-ID: <CAPZV6o8N=4CJXB-E01SrSJcAgZ8LYAHeFpaayMGB4F8g542KGw@mail.gmail.com>
+
+2012/10/1 Georg Brandl <g.brandl at gmx.net>:
+> I've now added lifespan information to the 3.2 and 3.3 release schedule
+> PEPs, perhaps Barry and Benjamin could do the same for 2.6 to 3.1.
+
+I just updated the 3.1 and 2.7 schedules.
+
+
+-- 
+Regards,
+Benjamin
+
+From jcea at jcea.es  Tue Oct  2 01:41:25 2012
+From: jcea at jcea.es (Jesus Cea)
+Date: Tue, 02 Oct 2012 01:41:25 +0200
+Subject: [python-committers] Branches support status (Re: 3.3 branch
+ created in main repository)
+In-Reply-To: <k4c1vg$nml$1@ger.gmane.org>
+References: <k46bsh$cfm$1@ger.gmane.org> <5069000B.50306@jcea.es>
+	<50690381.7020703@udel.edu> <50697ED0.9000300@v.loewis.de>
+	<k4c1vg$nml$1@ger.gmane.org>
+Message-ID: <506A2A25.8080103@jcea.es>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On 01/10/12 14:23, Georg Brandl wrote:
+> I've now added lifespan information to the 3.2 and 3.3 release 
+> schedule PEPs, perhaps Barry and Benjamin could do the same for
+> 2.6 to 3.1.
+
+http://python.org/dev/peps/pep-0398/
+
+"""
+3.3 Lifespan
+
+3.3 will receive bugfix updates approximately every 4-6 months until
+one release after the release of 3.4.0 final. After that, security
+updates (source only) will be released until 5 years after the release
+of 3.3.0 final, which will be September 2017.
+"""
+
+I am not a native english speaker, but I guess the intention is to do
+a final bugfix release for 3.3 after 3.4.0 is out, before moving 3.3
+to "security fixes only". Could you possibly clarify the wording in
+the PEP?.
+
+Sorry if I am being a pain :).
+
+- -- 
+Jes?s Cea Avi?n                         _/_/      _/_/_/        _/_/_/
+jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+jabber / xmpp:jcea at jabber.org         _/_/    _/_/          _/_/_/_/_/
+.                              _/_/  _/_/    _/_/          _/_/  _/_/
+"Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+"My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+"El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.10 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - http://www.enigmail.net/
+
+iQCVAwUBUGoqJZlgi5GaxT1NAQKYkwP/VLbum1YCj6aTxPQdFUMem+M6J/s/RcBD
+89xYq9Ll5B1km2P+xDJqf4P6HnLObtOr9jflWui4LwLVt3uOzCb77f8jUQ9/7IVR
+AU6QwhIgcmPnlxZgROSXUHvJ3abgXtK6tqyniGxQRs9s1Ao6At5wniZnDYChvfrV
+KQA4+uq7u/o=
+=/11g
+-----END PGP SIGNATURE-----
+
+From rdmurray at bitdance.com  Tue Oct  2 02:25:11 2012
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Mon, 01 Oct 2012 20:25:11 -0400
+Subject: [python-committers] Branches support status (Re: 3.3 branch
+	created in main repository)
+In-Reply-To: <506A2A25.8080103@jcea.es>
+References: <k46bsh$cfm$1@ger.gmane.org> <5069000B.50306@jcea.es>
+	<50690381.7020703@udel.edu> <50697ED0.9000300@v.loewis.de>
+	<k4c1vg$nml$1@ger.gmane.org> <506A2A25.8080103@jcea.es>
+Message-ID: <20121002002512.425F92500FB@webabinitio.net>
+
+On Tue, 02 Oct 2012 01:41:25 +0200, Jesus Cea <jcea at jcea.es> wrote:
+> On 01/10/12 14:23, Georg Brandl wrote:
+> > I've now added lifespan information to the 3.2 and 3.3 release 
+> > schedule PEPs, perhaps Barry and Benjamin could do the same for
+> > 2.6 to 3.1.
+> 
+> http://python.org/dev/peps/pep-0398/
+> 
+> """
+> 3.3 Lifespan
+> 
+> 3.3 will receive bugfix updates approximately every 4-6 months until
+> one release after the release of 3.4.0 final. After that, security
+> updates (source only) will be released until 5 years after the release
+> of 3.3.0 final, which will be September 2017.
+> """
+> 
+> I am not a native english speaker, but I guess the intention is to do
+> a final bugfix release for 3.3 after 3.4.0 is out, before moving 3.3
+> to "security fixes only". Could you possibly clarify the wording in
+> the PEP?.
+
+As a native English speaker it is not immediately obvious to me how
+to make that clearer.  Is it that the antecedent of "one release" isn't
+clear?
+
+--David
+
+From jcea at jcea.es  Tue Oct  2 02:37:10 2012
+From: jcea at jcea.es (Jesus Cea)
+Date: Tue, 02 Oct 2012 02:37:10 +0200
+Subject: [python-committers] Branches support status (Re: 3.3 branch
+ created in main repository)
+In-Reply-To: <20121002002512.425F92500FB@webabinitio.net>
+References: <k46bsh$cfm$1@ger.gmane.org> <5069000B.50306@jcea.es>
+	<50690381.7020703@udel.edu> <50697ED0.9000300@v.loewis.de>
+	<k4c1vg$nml$1@ger.gmane.org> <506A2A25.8080103@jcea.es>
+	<20121002002512.425F92500FB@webabinitio.net>
+Message-ID: <506A3736.7050703@jcea.es>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On 02/10/12 02:25, R. David Murray wrote:
+>> 3.3 will receive bugfix updates approximately every 4-6 months
+>> until one release after the release of 3.4.0 final. After that,
+>> security
+[...]
+
+> As a native English speaker it is not immediately obvious to me
+> how to make that clearer.  Is it that the antecedent of "one
+> release" isn't clear?
+
+I naivelly interpret "until one release after the release of 3.4.0" as
+talking about doing another 3.4 release. I find it ambiguous about
+what branch we are talking about.
+
+Maybe something in the line of "the last bugfix release of 3.3 will be
+done after 3.4.0 is published". Or "After 3.4.0 is released, we will
+release a final bugfix release of 3.3".
+
+- -- 
+Jes?s Cea Avi?n                         _/_/      _/_/_/        _/_/_/
+jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+jabber / xmpp:jcea at jabber.org         _/_/    _/_/          _/_/_/_/_/
+.                              _/_/  _/_/    _/_/          _/_/  _/_/
+"Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+"My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+"El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.10 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - http://www.enigmail.net/
+
+iQCVAwUBUGo3Nplgi5GaxT1NAQLl+AP/b3WMlDD6StHE9QCya5GTdz6pukBCXXf+
+y+c9/lXVI+6ORFX0z+cp9DwOX9PhHP47JDJaryog/s7tAhQQ9/eCrvjM3iaXRwtM
+hPby1nZNfnXU54vyGKvNJCrMHSYw70vOyV3hhCOGDgBz7OsF7C3dXGTLEoPBUEz+
+OSmrFcYhADU=
+=3CrX
+-----END PGP SIGNATURE-----
+
+From g.brandl at gmx.net  Tue Oct  2 08:26:58 2012
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Tue, 02 Oct 2012 08:26:58 +0200
+Subject: [python-committers] Branches support status (Re: 3.3 branch
+	created in main repository)
+In-Reply-To: <506A3736.7050703@jcea.es>
+References: <k46bsh$cfm$1@ger.gmane.org> <5069000B.50306@jcea.es>
+	<50690381.7020703@udel.edu> <50697ED0.9000300@v.loewis.de>
+	<k4c1vg$nml$1@ger.gmane.org> <506A2A25.8080103@jcea.es>
+	<20121002002512.425F92500FB@webabinitio.net>
+	<506A3736.7050703@jcea.es>
+Message-ID: <k4e1fh$a7l$1@ger.gmane.org>
+
+On 10/02/2012 02:37 AM, Jesus Cea wrote:
+> -----BEGIN PGP SIGNED MESSAGE-----
+> Hash: SHA1
+>
+> On 02/10/12 02:25, R. David Murray wrote:
+>>> 3.3 will receive bugfix updates approximately every 4-6 months
+>>> until one release after the release of 3.4.0 final. After that,
+>>> security
+> [...]
+>
+>> As a native English speaker it is not immediately obvious to me
+>> how to make that clearer.  Is it that the antecedent of "one
+>> release" isn't clear?
+>
+> I naivelly interpret "until one release after the release of 3.4.0" as
+> talking about doing another 3.4 release. I find it ambiguous about
+> what branch we are talking about.
+>
+> Maybe something in the line of "the last bugfix release of 3.3 will be
+> done after 3.4.0 is published". Or "After 3.4.0 is released, we will
+> release a final bugfix release of 3.3".
+
+I've tried to reword it now.
+
+Georg
+
+
+From tjreedy at udel.edu  Tue Oct  2 08:49:36 2012
+From: tjreedy at udel.edu (Terry Reedy)
+Date: Tue, 02 Oct 2012 02:49:36 -0400
+Subject: [python-committers] Branches support status (Re: 3.3 branch
+ created in main repository)
+In-Reply-To: <506A3736.7050703@jcea.es>
+References: <k46bsh$cfm$1@ger.gmane.org> <5069000B.50306@jcea.es>
+	<50690381.7020703@udel.edu> <50697ED0.9000300@v.loewis.de>
+	<k4c1vg$nml$1@ger.gmane.org> <506A2A25.8080103@jcea.es>
+	<20121002002512.425F92500FB@webabinitio.net> <506A3736.7050703@jcea.es>
+Message-ID: <506A8E80.2070704@udel.edu>
+
+
+
+On 10/1/2012 8:37 PM, Jesus Cea wrote:
+> -----BEGIN PGP SIGNED MESSAGE-----
+> Hash: SHA1
+>
+> On 02/10/12 02:25, R. David Murray wrote:
+>>> 3.3 will receive bugfix updates approximately every 4-6 months
+>>> until one release after the release of 3.4.0 final.
+
+This is a bit weird, as it can be read as implying after 3.4.1.
+
+> I naivelly interpret "until one release after the release of 3.4.0" as
+> talking about doing another 3.4 release. I find it ambiguous about
+> what branch we are talking about.
+>
+> Maybe something in the line of "the last bugfix release of 3.3 will be
+> done after 3.4.0 is published". Or "After 3.4.0 is released, we will
+> release a final bugfix release of 3.3".
+
+3.3 will receive bugfix updates approximately every 4-6 months until the 
+final bugfix release soon after the release of 3.4.0.
+
+Is that clearer?
+
+tjr
+
+
+From victor.stinner at gmail.com  Tue Oct  2 11:47:49 2012
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Tue, 2 Oct 2012 11:47:49 +0200
+Subject: [python-committers] Branches support status (Re: 3.3 branch
+ created in main repository)
+In-Reply-To: <5069000B.50306@jcea.es>
+References: <k46bsh$cfm$1@ger.gmane.org> <5069000B.50306@jcea.es>
+Message-ID: <CAMpsgwYyMfyJ=taabxRiY8YVVEaMutnFMhd6hR6LUWy2ANesGA@mail.gmail.com>
+
+> So, if I understand correctly, the current situation is this:
+>
+> 2.6: Security fixes only
+> 2.7, 3.2, 3.3: Bugfixes only
+> 2.3, 2.4, 2.5, 3.0, 3.1: Dead
+
+Would it be possible to write this status in the devguide (and also
+maintain it!)?
+
+Victor
+
+From martin at v.loewis.de  Tue Oct  2 14:23:30 2012
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Tue, 02 Oct 2012 14:23:30 +0200
+Subject: [python-committers] Branches support status (Re: 3.3 branch
+ created in main repository)
+In-Reply-To: <CAMpsgwYyMfyJ=taabxRiY8YVVEaMutnFMhd6hR6LUWy2ANesGA@mail.gmail.com>
+References: <k46bsh$cfm$1@ger.gmane.org> <5069000B.50306@jcea.es>
+	<CAMpsgwYyMfyJ=taabxRiY8YVVEaMutnFMhd6hR6LUWy2ANesGA@mail.gmail.com>
+Message-ID: <506ADCC2.3060207@v.loewis.de>
+
+Am 02.10.12 11:47, schrieb Victor Stinner:
+>> So, if I understand correctly, the current situation is this:
+>>
+>> 2.6: Security fixes only
+>> 2.7, 3.2, 3.3: Bugfixes only
+>> 2.3, 2.4, 2.5, 3.0, 3.1: Dead
+>
+> Would it be possible to write this status in the devguide (and also
+> maintain it!)?
+
+Putting it there is surely possible. Keeping it maintained is absolutely
+impossible, if you expect an update to happen as part of the release
+process. The release process is already complex enough, so there 
+shouldn't be any additional steps in the release process.
+
+Instead, having people point out inconsistencies and them somebody
+fixing them is something that could work.
+
+Regards,
+Martin
+
+
+From g.brandl at gmx.net  Tue Oct  2 17:13:17 2012
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Tue, 02 Oct 2012 17:13:17 +0200
+Subject: [python-committers] Branches support status (Re: 3.3 branch
+	created in main repository)
+In-Reply-To: <CAMpsgwYyMfyJ=taabxRiY8YVVEaMutnFMhd6hR6LUWy2ANesGA@mail.gmail.com>
+References: <k46bsh$cfm$1@ger.gmane.org> <5069000B.50306@jcea.es>
+	<CAMpsgwYyMfyJ=taabxRiY8YVVEaMutnFMhd6hR6LUWy2ANesGA@mail.gmail.com>
+Message-ID: <k4f0ac$ngq$1@ger.gmane.org>
+
+On 10/02/2012 11:47 AM, Victor Stinner wrote:
+>> So, if I understand correctly, the current situation is this:
+>>
+>> 2.6: Security fixes only
+>> 2.7, 3.2, 3.3: Bugfixes only
+>> 2.3, 2.4, 2.5, 3.0, 3.1: Dead
+>
+> Would it be possible to write this status in the devguide (and also
+> maintain it!)?
+
+I would support putting links to the release schedule PEPs in the
+devguide somewhere.
+
+Georg
+
+
+From chris.jerdonek at gmail.com  Wed Oct 10 09:30:31 2012
+From: chris.jerdonek at gmail.com (Chris Jerdonek)
+Date: Wed, 10 Oct 2012 00:30:31 -0700
+Subject: [python-committers] custom/sandbox repositories
+Message-ID: <CAOTb1wfhY-xeq51bJ-VQXZnz6nv5-EFrF+nnzgTf1MUdV9yXpA@mail.gmail.com>
+
+Antoine pointed out to me the possibility of using a custom repository
+for testing purposes:
+
+http://docs.python.org/devguide/buildbots.html#custom-builders
+
+Is the standard procedure for a developer to create and use their own
+sandbox repository under http://hg.python.org/sandbox/?  Or should we
+use an existing sandbox repository (e.g. perhaps by creating a new
+head so as to decrease inteference)?  Is the sandbox repository
+something we can create on our own, or do we need to request it?
+
+--Chris
+
+From ncoghlan at gmail.com  Wed Oct 10 10:51:15 2012
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Wed, 10 Oct 2012 14:21:15 +0530
+Subject: [python-committers] custom/sandbox repositories
+In-Reply-To: <CAOTb1wfhY-xeq51bJ-VQXZnz6nv5-EFrF+nnzgTf1MUdV9yXpA@mail.gmail.com>
+References: <CAOTb1wfhY-xeq51bJ-VQXZnz6nv5-EFrF+nnzgTf1MUdV9yXpA@mail.gmail.com>
+Message-ID: <CADiSq7cuLm=rebJBo6JQ6CJep5UcFu5xTuCAYGQ=MSu8tqxB0Q@mail.gmail.com>
+
+On Wed, Oct 10, 2012 at 1:00 PM, Chris Jerdonek
+<chris.jerdonek at gmail.com> wrote:
+> Antoine pointed out to me the possibility of using a custom repository
+> for testing purposes:
+>
+> http://docs.python.org/devguide/buildbots.html#custom-builders
+>
+> Is the standard procedure for a developer to create and use their own
+> sandbox repository under http://hg.python.org/sandbox/?  Or should we
+> use an existing sandbox repository (e.g. perhaps by creating a new
+> head so as to decrease inteference)?
+
+Create our own sandbox. I actually keep my sandbox on Bitbucket, but I
+still have one on hg.python.org as well in case I want to try
+something out on the buildbots.
+
+For collaboration on particular features, a feature clone under
+/features can be a good idea.
+
+> Is the sandbox repository
+> something we can create on our own, or do we need to request it?
+
+You can just use the "server-side clone" link when looking at
+http://hg.python.org/cpython/
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+
+From chris.jerdonek at gmail.com  Sun Oct 14 07:15:35 2012
+From: chris.jerdonek at gmail.com (Chris Jerdonek)
+Date: Sat, 13 Oct 2012 22:15:35 -0700
+Subject: [python-committers] custom/sandbox repositories
+In-Reply-To: <CADiSq7cuLm=rebJBo6JQ6CJep5UcFu5xTuCAYGQ=MSu8tqxB0Q@mail.gmail.com>
+References: <CAOTb1wfhY-xeq51bJ-VQXZnz6nv5-EFrF+nnzgTf1MUdV9yXpA@mail.gmail.com>
+	<CADiSq7cuLm=rebJBo6JQ6CJep5UcFu5xTuCAYGQ=MSu8tqxB0Q@mail.gmail.com>
+Message-ID: <CAOTb1wdXV1MPMXDjvNLge+XUQpTfbEvg07ZRWd8Kyqez3vj6zA@mail.gmail.com>
+
+On Wed, Oct 10, 2012 at 1:51 AM, Nick Coghlan <ncoghlan at gmail.com> wrote:
+> On Wed, Oct 10, 2012 at 1:00 PM, Chris Jerdonek
+> <chris.jerdonek at gmail.com> wrote:
+>> Is the sandbox repository
+>> something we can create on our own, or do we need to request it?
+>
+> You can just use the "server-side clone" link when looking at
+> http://hg.python.org/cpython/
+
+Am I right that the server-side clone feature isn't documented in the
+devguide?  Also, is it okay to specify a three-level name for the
+"target repo name" like "sandbox/cjerdonek/cpython"?
+
+--Chris
+
+From nad at acm.org  Sun Oct 14 07:28:43 2012
+From: nad at acm.org (Ned Deily)
+Date: Sat, 13 Oct 2012 22:28:43 -0700
+Subject: [python-committers] custom/sandbox repositories
+References: <CAOTb1wfhY-xeq51bJ-VQXZnz6nv5-EFrF+nnzgTf1MUdV9yXpA@mail.gmail.com>
+	<CADiSq7cuLm=rebJBo6JQ6CJep5UcFu5xTuCAYGQ=MSu8tqxB0Q@mail.gmail.com>
+	<CAOTb1wdXV1MPMXDjvNLge+XUQpTfbEvg07ZRWd8Kyqez3vj6zA@mail.gmail.com>
+Message-ID: <nad-5B1D6C.22284313102012@news.gmane.org>
+
+In article 
+<CAOTb1wdXV1MPMXDjvNLge+XUQpTfbEvg07ZRWd8Kyqez3vj6zA at mail.gmail.com>,
+ Chris Jerdonek <chris.jerdonek at gmail.com> wrote:
+> On Wed, Oct 10, 2012 at 1:51 AM, Nick Coghlan <ncoghlan at gmail.com> wrote:
+> > On Wed, Oct 10, 2012 at 1:00 PM, Chris Jerdonek
+> > <chris.jerdonek at gmail.com> wrote:
+> >> Is the sandbox repository
+> >> something we can create on our own, or do we need to request it?
+> >
+> > You can just use the "server-side clone" link when looking at
+> > http://hg.python.org/cpython/
+> 
+> Am I right that the server-side clone feature isn't documented in the
+> devguide?  Also, is it okay to specify a three-level name for the
+> "target repo name" like "sandbox/cjerdonek/cpython"?
+
+http://docs.python.org/devguide/committing.html#long-term-development-of-
+features
+
+-- 
+ Ned Deily,
+ nad at acm.org
+
+
+From chris.jerdonek at gmail.com  Sun Oct 14 07:33:22 2012
+From: chris.jerdonek at gmail.com (Chris Jerdonek)
+Date: Sat, 13 Oct 2012 22:33:22 -0700
+Subject: [python-committers] custom/sandbox repositories
+In-Reply-To: <nad-5B1D6C.22284313102012@news.gmane.org>
+References: <CAOTb1wfhY-xeq51bJ-VQXZnz6nv5-EFrF+nnzgTf1MUdV9yXpA@mail.gmail.com>
+	<CADiSq7cuLm=rebJBo6JQ6CJep5UcFu5xTuCAYGQ=MSu8tqxB0Q@mail.gmail.com>
+	<CAOTb1wdXV1MPMXDjvNLge+XUQpTfbEvg07ZRWd8Kyqez3vj6zA@mail.gmail.com>
+	<nad-5B1D6C.22284313102012@news.gmane.org>
+Message-ID: <CAOTb1wdKcqFdxjXsYNYe7oayYjL=tVb_uTqFuvy8C22-_h6RBA@mail.gmail.com>
+
+On Sat, Oct 13, 2012 at 10:28 PM, Ned Deily <nad at acm.org> wrote:
+> In article
+> <CAOTb1wdXV1MPMXDjvNLge+XUQpTfbEvg07ZRWd8Kyqez3vj6zA at mail.gmail.com>,
+>  Chris Jerdonek <chris.jerdonek at gmail.com> wrote:
+>> On Wed, Oct 10, 2012 at 1:51 AM, Nick Coghlan <ncoghlan at gmail.com> wrote:
+>> > On Wed, Oct 10, 2012 at 1:00 PM, Chris Jerdonek
+>> > <chris.jerdonek at gmail.com> wrote:
+>> >> Is the sandbox repository
+>> >> something we can create on our own, or do we need to request it?
+>> >
+>> > You can just use the "server-side clone" link when looking at
+>> > http://hg.python.org/cpython/
+>>
+>> Am I right that the server-side clone feature isn't documented in the
+>> devguide?  Also, is it okay to specify a three-level name for the
+>> "target repo name" like "sandbox/cjerdonek/cpython"?
+>
+> http://docs.python.org/devguide/committing.html#long-term-development-of-
+> features
+
+Thanks.  It's odd that searching neither for "clone" nor "server-side"
+pulls that up (using the guide's "Quick Search" box).
+
+--Chris
+
+From chris.jerdonek at gmail.com  Sun Oct 14 08:50:47 2012
+From: chris.jerdonek at gmail.com (Chris Jerdonek)
+Date: Sat, 13 Oct 2012 23:50:47 -0700
+Subject: [python-committers] custom/sandbox repositories
+In-Reply-To: <CAOTb1wdXV1MPMXDjvNLge+XUQpTfbEvg07ZRWd8Kyqez3vj6zA@mail.gmail.com>
+References: <CAOTb1wfhY-xeq51bJ-VQXZnz6nv5-EFrF+nnzgTf1MUdV9yXpA@mail.gmail.com>
+	<CADiSq7cuLm=rebJBo6JQ6CJep5UcFu5xTuCAYGQ=MSu8tqxB0Q@mail.gmail.com>
+	<CAOTb1wdXV1MPMXDjvNLge+XUQpTfbEvg07ZRWd8Kyqez3vj6zA@mail.gmail.com>
+Message-ID: <CAOTb1weCn+X7SjRh3=_VjRSEVWwcXz=1xOUC872wh+DHvjwtxQ@mail.gmail.com>
+
+On Sat, Oct 13, 2012 at 10:15 PM, Chris Jerdonek
+<chris.jerdonek at gmail.com> wrote:
+> On Wed, Oct 10, 2012 at 1:51 AM, Nick Coghlan <ncoghlan at gmail.com> wrote:
+>> On Wed, Oct 10, 2012 at 1:00 PM, Chris Jerdonek
+>> <chris.jerdonek at gmail.com> wrote:
+>>> Is the sandbox repository
+>>> something we can create on our own, or do we need to request it?
+>>
+>> You can just use the "server-side clone" link when looking at
+>> http://hg.python.org/cpython/
+>
+> Am I right that the server-side clone feature isn't documented in the
+> devguide?  Also, is it okay to specify a three-level name for the
+> "target repo name" like "sandbox/cjerdonek/cpython"?
+
+To answer my own question, the answer is no. :)
+
+    'Please use a secondary level path such as "sandbox/cpython"'
+
+--Chris
+
+From eliben at gmail.com  Tue Oct 16 15:32:41 2012
+From: eliben at gmail.com (Eli Bendersky)
+Date: Tue, 16 Oct 2012 06:32:41 -0700
+Subject: [python-committers] Googler Python committers
+Message-ID: <CAF-Rda9dnop_d_nNJ6u6iykwi0H5XXk7SwfqG9e_355YJMvotg@mail.gmail.com>
+
+Hello,
+
+I had the privilege of joining Google's Mountain View office yesterday, and
+was wondering who else from the core development team works there, or in
+Google in general (in addition to Guido, of course). It could be great to
+meet for lunch now and then and discuss issues of common interest.
+
+Eli
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20121016/f06a2c74/attachment.html>
+
+From chris.jerdonek at gmail.com  Tue Oct 16 16:44:36 2012
+From: chris.jerdonek at gmail.com (Chris Jerdonek)
+Date: Tue, 16 Oct 2012 07:44:36 -0700
+Subject: [python-committers] Googler Python committers
+In-Reply-To: <CAF-Rda9dnop_d_nNJ6u6iykwi0H5XXk7SwfqG9e_355YJMvotg@mail.gmail.com>
+References: <CAF-Rda9dnop_d_nNJ6u6iykwi0H5XXk7SwfqG9e_355YJMvotg@mail.gmail.com>
+Message-ID: <CAOTb1weF=Vg=Z+XGHtWs-ZRfBVxDr2Xbx9oy6DDpwvh4Q_F9TA@mail.gmail.com>
+
+On Tue, Oct 16, 2012 at 6:32 AM, Eli Bendersky <eliben at gmail.com> wrote:
+>
+> I had the privilege of joining Google's Mountain View office yesterday, and
+> was wondering who else from the core development team works there, or in
+> Google in general (in addition to Guido, of course).
+
+Congrats, Eli!  This may not be complete or accurate, but (and this
+tip can be useful to everybody), the list of committers here has a
+column that in some cases shows a company.  Several people from Google
+are listed:
+
+http://bugs.python.org/user?iscommitter=1&@action=search&@sort=username&@pagesize=300
+
+(IIRC, you need to be logged in to the tracker to see the page.)
+
+--Chris
+
+From greg at krypto.org  Tue Oct 16 19:11:39 2012
+From: greg at krypto.org (Gregory P. Smith)
+Date: Tue, 16 Oct 2012 10:11:39 -0700
+Subject: [python-committers] Googler Python committers
+In-Reply-To: <CAOTb1weF=Vg=Z+XGHtWs-ZRfBVxDr2Xbx9oy6DDpwvh4Q_F9TA@mail.gmail.com>
+References: <CAF-Rda9dnop_d_nNJ6u6iykwi0H5XXk7SwfqG9e_355YJMvotg@mail.gmail.com>
+	<CAOTb1weF=Vg=Z+XGHtWs-ZRfBVxDr2Xbx9oy6DDpwvh4Q_F9TA@mail.gmail.com>
+Message-ID: <CAGE7PNLnkfRQz0eAqT2VMLTJ+HQYkmD0HQFQ1hdT63FM0Y8--w@mail.gmail.com>
+
+On Tue, Oct 16, 2012 at 7:44 AM, Chris Jerdonek <chris.jerdonek at gmail.com>wrote:
+
+> On Tue, Oct 16, 2012 at 6:32 AM, Eli Bendersky <eliben at gmail.com> wrote:
+> >
+> > I had the privilege of joining Google's Mountain View office yesterday,
+> and
+> > was wondering who else from the core development team works there, or in
+> > Google in general (in addition to Guido, of course).
+>
+> Congrats, Eli!  This may not be complete or accurate, but (and this
+> tip can be useful to everybody), the list of committers here has a
+> column that in some cases shows a company.  Several people from Google
+> are listed:
+>
+>
+> http://bugs.python.org/user?iscommitter=1&@action=search&@sort=username&@pagesize=300
+
+
+That isn't up to date and users cannot edit their own information (at least
+it tells _me_ I'm not authorized when I submit the edit form on my own
+info) so I wouldn't trust that page.  Yet another silly profile to maintain
+in yet another location.  sigh.
+
+There are many Google committers though not all are active.
+
+-gps
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20121016/b47aa6e8/attachment.html>
+
+From barry at python.org  Tue Oct 16 20:05:34 2012
+From: barry at python.org (Barry Warsaw)
+Date: Tue, 16 Oct 2012 14:05:34 -0400
+Subject: [python-committers] Googler Python committers
+In-Reply-To: <CAGE7PNLnkfRQz0eAqT2VMLTJ+HQYkmD0HQFQ1hdT63FM0Y8--w@mail.gmail.com>
+References: <CAF-Rda9dnop_d_nNJ6u6iykwi0H5XXk7SwfqG9e_355YJMvotg@mail.gmail.com>
+	<CAOTb1weF=Vg=Z+XGHtWs-ZRfBVxDr2Xbx9oy6DDpwvh4Q_F9TA@mail.gmail.com>
+	<CAGE7PNLnkfRQz0eAqT2VMLTJ+HQYkmD0HQFQ1hdT63FM0Y8--w@mail.gmail.com>
+Message-ID: <20121016140534.0d3996e7@limelight.wooz.org>
+
+On Oct 16, 2012, at 10:11 AM, Gregory P. Smith wrote:
+
+>That isn't up to date and users cannot edit their own information (at least
+>it tells _me_ I'm not authorized when I submit the edit form on my own
+>info) so I wouldn't trust that page.  Yet another silly profile to maintain
+>in yet another location.  sigh.
+
+I was able to update my own information.
+
+Cheers,
+-Barry
+
+
+From rdmurray at bitdance.com  Tue Oct 16 20:34:01 2012
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Tue, 16 Oct 2012 14:34:01 -0400
+Subject: [python-committers] Googler Python committers
+In-Reply-To: <20121016140534.0d3996e7@limelight.wooz.org>
+References: <CAF-Rda9dnop_d_nNJ6u6iykwi0H5XXk7SwfqG9e_355YJMvotg@mail.gmail.com>
+	<CAOTb1weF=Vg=Z+XGHtWs-ZRfBVxDr2Xbx9oy6DDpwvh4Q_F9TA@mail.gmail.com>
+	<CAGE7PNLnkfRQz0eAqT2VMLTJ+HQYkmD0HQFQ1hdT63FM0Y8--w@mail.gmail.com>
+	<20121016140534.0d3996e7@limelight.wooz.org>
+Message-ID: <20121016183401.86DEE2500FA@webabinitio.net>
+
+On Tue, 16 Oct 2012 14:05:34 -0400, Barry Warsaw <barry at python.org> wrote:
+> On Oct 16, 2012, at 10:11 AM, Gregory P. Smith wrote:
+> 
+> >That isn't up to date and users cannot edit their own information (at least
+> >it tells _me_ I'm not authorized when I submit the edit form on my own
+> >info) so I wouldn't trust that page.  Yet another silly profile to maintain
+> >in yet another location.  sigh.
+> 
+> I was able to update my own information.
+
+Barry, you have Coordinator role as well as Developer.  Greg, you seem to
+have two accounts, gps and gregory.p.smith.  gps doesn't have Developer
+role (I added it before I realized you had the other account too, then
+removed it :)  Which one were you trying to edit?  Users are supposed
+to be able to edit their own info (well, most of it anyway), so maybe
+there is a field level permissions bug in the tracker.
+
+--David
+
+From anthonybaxter at gmail.com  Wed Oct 17 02:06:09 2012
+From: anthonybaxter at gmail.com (Anthony Baxter)
+Date: Wed, 17 Oct 2012 11:06:09 +1100
+Subject: [python-committers] Googler Python committers
+In-Reply-To: <CAGE7PNLnkfRQz0eAqT2VMLTJ+HQYkmD0HQFQ1hdT63FM0Y8--w@mail.gmail.com>
+References: <CAF-Rda9dnop_d_nNJ6u6iykwi0H5XXk7SwfqG9e_355YJMvotg@mail.gmail.com>
+	<CAOTb1weF=Vg=Z+XGHtWs-ZRfBVxDr2Xbx9oy6DDpwvh4Q_F9TA@mail.gmail.com>
+	<CAGE7PNLnkfRQz0eAqT2VMLTJ+HQYkmD0HQFQ1hdT63FM0Y8--w@mail.gmail.com>
+Message-ID: <CANxH2eSkMj2-M87HrT7XP6Y5YR6_+dTL9h3HtmnJcFyPJikUjQ@mail.gmail.com>
+
+Yep. People tend to stop being so active when they join Google (including
+me) :-(
+
+There's a fair number of current or ex Python dev folks at Google. Guido,
+Jeremy H, Alex M, Neal N, Thomas W off the top of my head, I am certain
+there's a bunch more...
+On Oct 17, 2012 4:12 AM, "Gregory P. Smith" <greg at krypto.org> wrote:
+
+>
+> On Tue, Oct 16, 2012 at 7:44 AM, Chris Jerdonek <chris.jerdonek at gmail.com>wrote:
+>
+>> On Tue, Oct 16, 2012 at 6:32 AM, Eli Bendersky <eliben at gmail.com> wrote:
+>> >
+>> > I had the privilege of joining Google's Mountain View office yesterday,
+>> and
+>> > was wondering who else from the core development team works there, or in
+>> > Google in general (in addition to Guido, of course).
+>>
+>> Congrats, Eli!  This may not be complete or accurate, but (and this
+>> tip can be useful to everybody), the list of committers here has a
+>> column that in some cases shows a company.  Several people from Google
+>> are listed:
+>>
+>>
+>> http://bugs.python.org/user?iscommitter=1&@action=search&@sort=username&@pagesize=300
+>
+>
+> That isn't up to date and users cannot edit their own information (at
+> least it tells _me_ I'm not authorized when I submit the edit form on my
+> own info) so I wouldn't trust that page.  Yet another silly profile to
+> maintain in yet another location.  sigh.
+>
+> There are many Google committers though not all are active.
+>
+> -gps
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+>
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20121017/52943d8a/attachment-0001.html>
+
+From greg at krypto.org  Wed Oct 17 02:33:13 2012
+From: greg at krypto.org (Gregory P. Smith)
+Date: Tue, 16 Oct 2012 17:33:13 -0700
+Subject: [python-committers] Googler Python committers
+In-Reply-To: <CANxH2eSkMj2-M87HrT7XP6Y5YR6_+dTL9h3HtmnJcFyPJikUjQ@mail.gmail.com>
+References: <CAF-Rda9dnop_d_nNJ6u6iykwi0H5XXk7SwfqG9e_355YJMvotg@mail.gmail.com>
+	<CAOTb1weF=Vg=Z+XGHtWs-ZRfBVxDr2Xbx9oy6DDpwvh4Q_F9TA@mail.gmail.com>
+	<CAGE7PNLnkfRQz0eAqT2VMLTJ+HQYkmD0HQFQ1hdT63FM0Y8--w@mail.gmail.com>
+	<CANxH2eSkMj2-M87HrT7XP6Y5YR6_+dTL9h3HtmnJcFyPJikUjQ@mail.gmail.com>
+Message-ID: <CAGE7PNK6fPsQY-u8JO5u9+EbocRCrjWtP1pUGiVYiA6jvnOZXA@mail.gmail.com>
+
+On Tue, Oct 16, 2012 at 5:06 PM, Anthony Baxter <anthonybaxter at gmail.com>wrote:
+
+> Yep. People tend to stop being so active when they join Google (including
+> me) :-(
+>
+My activity increased.  I would not make that statement.
+
+-gps
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20121016/c796cae5/attachment.html>
+
+From anthonybaxter at gmail.com  Wed Oct 17 03:13:31 2012
+From: anthonybaxter at gmail.com (Anthony Baxter)
+Date: Wed, 17 Oct 2012 12:13:31 +1100
+Subject: [python-committers] Googler Python committers
+In-Reply-To: <CAGE7PNK6fPsQY-u8JO5u9+EbocRCrjWtP1pUGiVYiA6jvnOZXA@mail.gmail.com>
+References: <CAF-Rda9dnop_d_nNJ6u6iykwi0H5XXk7SwfqG9e_355YJMvotg@mail.gmail.com>
+	<CAOTb1weF=Vg=Z+XGHtWs-ZRfBVxDr2Xbx9oy6DDpwvh4Q_F9TA@mail.gmail.com>
+	<CAGE7PNLnkfRQz0eAqT2VMLTJ+HQYkmD0HQFQ1hdT63FM0Y8--w@mail.gmail.com>
+	<CANxH2eSkMj2-M87HrT7XP6Y5YR6_+dTL9h3HtmnJcFyPJikUjQ@mail.gmail.com>
+	<CAGE7PNK6fPsQY-u8JO5u9+EbocRCrjWtP1pUGiVYiA6jvnOZXA@mail.gmail.com>
+Message-ID: <CANxH2eQqyAKXH6g2+_QG84E5QxmPH=PTotC0ruO7GaspdA-XMg@mail.gmail.com>
+
+Fair enough - I did say "tend". :)
+
+
+On Wed, Oct 17, 2012 at 11:33 AM, Gregory P. Smith <greg at krypto.org> wrote:
+>
+> On Tue, Oct 16, 2012 at 5:06 PM, Anthony Baxter <anthonybaxter at gmail.com>
+> wrote:
+>>
+>> Yep. People tend to stop being so active when they join Google (including
+>> me) :-(
+>
+> My activity increased.  I would not make that statement.
+>
+> -gps
+
+From andrew.svetlov at gmail.com  Wed Oct 17 23:15:11 2012
+From: andrew.svetlov at gmail.com (Andrew Svetlov)
+Date: Thu, 18 Oct 2012 00:15:11 +0300
+Subject: [python-committers] New core developer
+In-Reply-To: <5043B53F.4060106@ox.cx>
+References: <1345678341.3346.1.camel@localhost.localdomain>
+	<5043B53F.4060106@ox.cx>
+Message-ID: <CAL3CFcWRs10-ws56ObA+eKRUvmuLmxo4B55K6cgC2JWURsoZLQ@mail.gmail.com>
+
+I would to pick up the question.
+
+Serhiy Storchaka is responsible man and is very active.
+His patches are good enough, often covering the matter out of view
+from other Core Devs.
+He is also receptive to comments/reviews as Antonie said (and I'm
+agree with Antonie).
+
+Serhiy can make a big value to Python as committer than as just a contributor.
+
+I'm +1.
+
+I really will to make a second poll pass.
+>From my perspective first one had lack of activity due pre-release state.
+
+Sorry if I'm wrong.
+
+
+On Sun, Sep 2, 2012 at 10:36 PM, Hynek Schlawack <hs at ox.cx> wrote:
+> I can?t really judge his responsiveness as he mostly hacks in areas I don?t.
+>
+> But judging from the issue lists he seems to be one of the most active
+> current developers ATM with the curse of working on subsystems that are
+> maintained by people that aren?t very prone to suggest new committers.
+>
+> So if you think he?s adequate, I?m sure he is. Probably overdue.
+>
+> +1
+>
+> Antoine Pitrou schrieb:
+>> Hello,
+>>
+>> I'd like to propose Serhiy Storchaka as a new core developer. He has
+>> made numerous contributions, and has proven receptive to comments and
+>> reviews. He's also interested in becoming a core developer.
+>>
+>> What do you think?
+>>
+>> Regards
+>>
+>> Antoine.
+>>
+>>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+
+
+
+-- 
+Thanks,
+Andrew Svetlov
+
+From solipsis at pitrou.net  Wed Oct 17 23:28:21 2012
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Wed, 17 Oct 2012 23:28:21 +0200
+Subject: [python-committers] New core developer
+In-Reply-To: <CAL3CFcWRs10-ws56ObA+eKRUvmuLmxo4B55K6cgC2JWURsoZLQ@mail.gmail.com>
+References: <1345678341.3346.1.camel@localhost.localdomain>
+	<5043B53F.4060106@ox.cx>
+	<CAL3CFcWRs10-ws56ObA+eKRUvmuLmxo4B55K6cgC2JWURsoZLQ@mail.gmail.com>
+Message-ID: <1350509301.3364.14.camel@localhost.localdomain>
+
+
+Hello,
+
+Le jeudi 18 octobre 2012 ? 00:15 +0300, Andrew Svetlov a ?crit :
+> I would to pick up the question.
+> 
+> Serhiy Storchaka is responsible man and is very active.
+> His patches are good enough, often covering the matter out of view
+> from other Core Devs.
+> He is also receptive to comments/reviews as Antonie said (and I'm
+> agree with Antonie).
+> 
+> Serhiy can make a big value to Python as committer than as just a contributor.
+
+Serhiy preferred to decline since some core devs were lukewarn towards
+his becoming a core dev. Of course he can still candidate again later.
+
+Regards
+
+Antoine (not ? Antonie ?, by the way :-)).
+
+> 
+> I'm +1.
+> 
+> I really will to make a second poll pass.
+> From my perspective first one had lack of activity due pre-release state.
+> 
+> Sorry if I'm wrong.
+> 
+> 
+> On Sun, Sep 2, 2012 at 10:36 PM, Hynek Schlawack <hs at ox.cx> wrote:
+> > I can?t really judge his responsiveness as he mostly hacks in areas I don?t.
+> >
+> > But judging from the issue lists he seems to be one of the most active
+> > current developers ATM with the curse of working on subsystems that are
+> > maintained by people that aren?t very prone to suggest new committers.
+> >
+> > So if you think he?s adequate, I?m sure he is. Probably overdue.
+> >
+> > +1
+> >
+> > Antoine Pitrou schrieb:
+> >> Hello,
+> >>
+> >> I'd like to propose Serhiy Storchaka as a new core developer. He has
+> >> made numerous contributions, and has proven receptive to comments and
+> >> reviews. He's also interested in becoming a core developer.
+> >>
+> >> What do you think?
+> >>
+> >> Regards
+> >>
+> >> Antoine.
+> >>
+> >>
+> > _______________________________________________
+> > python-committers mailing list
+> > python-committers at python.org
+> > http://mail.python.org/mailman/listinfo/python-committers
+
+
+
+From andrew.svetlov at gmail.com  Thu Oct 18 00:36:35 2012
+From: andrew.svetlov at gmail.com (Andrew Svetlov)
+Date: Thu, 18 Oct 2012 01:36:35 +0300
+Subject: [python-committers] New core developer
+In-Reply-To: <1350509301.3364.14.camel@localhost.localdomain>
+References: <1345678341.3346.1.camel@localhost.localdomain>
+	<5043B53F.4060106@ox.cx>
+	<CAL3CFcWRs10-ws56ObA+eKRUvmuLmxo4B55K6cgC2JWURsoZLQ@mail.gmail.com>
+	<1350509301.3364.14.camel@localhost.localdomain>
+Message-ID: <CAL3CFcVru4p-ojDcoyieAh7Rr5J7Oa3wgTBvaXe=rtcx-QUQag@mail.gmail.com>
+
+On Thu, Oct 18, 2012 at 12:28 AM, Antoine Pitrou <solipsis at pitrou.net> wrote:
+>
+> Hello,
+>
+> Le jeudi 18 octobre 2012 ? 00:15 +0300, Andrew Svetlov a ?crit :
+>> I would to pick up the question.
+>>
+>> Serhiy Storchaka is responsible man and is very active.
+>> His patches are good enough, often covering the matter out of view
+>> from other Core Devs.
+>> He is also receptive to comments/reviews as Antonie said (and I'm
+>> agree with Antonie).
+>>
+>> Serhiy can make a big value to Python as committer than as just a contributor.
+>
+> Serhiy preferred to decline since some core devs were lukewarn towards
+> his becoming a core dev. Of course he can still candidate again later.
+>
+> Regards
+>
+
+
+> Antoine (not ? Antonie ?, by the way :-)).
+>
+Sorry, Antoine. In my land Anton is common name, but Antoine was known
+me only as Antoine de Saint-Exup?ry in Russian notation.
+I will never again make this mistake.
+
+
+>>
+>> I'm +1.
+>>
+>> I really will to make a second poll pass.
+>> From my perspective first one had lack of activity due pre-release state.
+>>
+>> Sorry if I'm wrong.
+>>
+>>
+>> On Sun, Sep 2, 2012 at 10:36 PM, Hynek Schlawack <hs at ox.cx> wrote:
+>> > I can?t really judge his responsiveness as he mostly hacks in areas I don?t.
+>> >
+>> > But judging from the issue lists he seems to be one of the most active
+>> > current developers ATM with the curse of working on subsystems that are
+>> > maintained by people that aren?t very prone to suggest new committers.
+>> >
+>> > So if you think he?s adequate, I?m sure he is. Probably overdue.
+>> >
+>> > +1
+>> >
+>> > Antoine Pitrou schrieb:
+>> >> Hello,
+>> >>
+>> >> I'd like to propose Serhiy Storchaka as a new core developer. He has
+>> >> made numerous contributions, and has proven receptive to comments and
+>> >> reviews. He's also interested in becoming a core developer.
+>> >>
+>> >> What do you think?
+>> >>
+>> >> Regards
+>> >>
+>> >> Antoine.
+>> >>
+>> >>
+>> > _______________________________________________
+>> > python-committers mailing list
+>> > python-committers at python.org
+>> > http://mail.python.org/mailman/listinfo/python-committers
+>
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+
+
+
+-- 
+Thanks,
+Andrew Svetlov
+
+From trent at snakebite.org  Sun Oct 28 01:36:18 2012
+From: trent at snakebite.org (Trent Nelson)
+Date: Sat, 27 Oct 2012 19:36:18 -0400
+Subject: [python-committers] Remote access to Snakebite Windows boxes
+Message-ID: <20121027233617.GA17527@snakebite.org>
+
+    Just noticed some chatter on #python-dev earlier today regarding
+    access to Windows boxes, and wanted to let you know the Snakebite
+    Windows boxes are definitely available for remote login...
+
+    ....sort of.  Remote desktop login is a bit trickier than ssh as
+    you need to enter the password for the cpython account.  I have
+    built the relevant gpg infrastructure to pipe account passwords
+    to you via the existing ~/.snakebite stuff... it just needs a
+    first-windows-remote-login guinea pig to tweak how everything
+    works.
+
+    So, if you want to be the guinea pig, ping me on #python-dev!
+    (Or e-mail if my idle time on IRC seems excessive.)
+
+        Trent.
+

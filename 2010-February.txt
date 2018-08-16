@@ -1,0 +1,370 @@
+From benjamin at python.org  Sat Feb  6 17:35:29 2010
+From: benjamin at python.org (Benjamin Peterson)
+Date: Sat, 6 Feb 2010 10:35:29 -0600
+Subject: [python-committers] 2.7 alpha 3
+Message-ID: <1afaf6161002060835l1046c051mc8b973a5ab5025e6@mail.gmail.com>
+
+Please no checkins to the trunk while I do the release.
+
+-- 
+Regards,
+Benjamin
+
+From benjamin at python.org  Sat Feb  6 18:57:33 2010
+From: benjamin at python.org (Benjamin Peterson)
+Date: Sat, 6 Feb 2010 11:57:33 -0600
+Subject: [python-committers] trunk open
+Message-ID: <1afaf6161002060957x683faadue3dfd413be3fc4ea@mail.gmail.com>
+
+2.7a3 is out, so feel free to commit again.
+
+-- 
+Regards,
+Benjamin
+
+From jyasskin at gmail.com  Sat Feb 20 18:32:09 2010
+From: jyasskin at gmail.com (Jeffrey Yasskin)
+Date: Sat, 20 Feb 2010 17:32:09 +0000
+Subject: [python-committers] Commit access for David Malcolm
+Message-ID: <5d44f72f1002200932w1f53130cy75f853f47a7d712a@mail.gmail.com>
+
+Hi all,
+
+David Malcolm is the Fedora maintainer for the Python package and has
+written a gdb plugin to replace and dramatically improve our old
+Misc/gdbinit file using the new python scripting support in gdb-7. You
+can see it in action at
+http://fedoraproject.org/wiki/Features/EasierPythonDebugging#User_Experience.
+I'd like to get this into our repository asap, but he's also going to
+be improving it fairly quickly. So it'd be nice if he could commit his
+improvements directly.
+
+Do you guys think we should give him commit access so he can make gdb
+and packaging-related changes?
+
+Jeffrey
+
+From benjamin at python.org  Sat Feb 20 18:39:03 2010
+From: benjamin at python.org (Benjamin Peterson)
+Date: Sat, 20 Feb 2010 11:39:03 -0600
+Subject: [python-committers] Commit access for David Malcolm
+In-Reply-To: <5d44f72f1002200932w1f53130cy75f853f47a7d712a@mail.gmail.com>
+References: <5d44f72f1002200932w1f53130cy75f853f47a7d712a@mail.gmail.com>
+Message-ID: <1afaf6161002200939h1eb036d8h20b870aa50396121@mail.gmail.com>
+
+2010/2/20 Jeffrey Yasskin <jyasskin at gmail.com>:
+> Hi all,
+>
+> David Malcolm is the Fedora maintainer for the Python package and has
+> written a gdb plugin to replace and dramatically improve our old
+> Misc/gdbinit file using the new python scripting support in gdb-7. You
+> can see it in action at
+> http://fedoraproject.org/wiki/Features/EasierPythonDebugging#User_Experience.
+> I'd like to get this into our repository asap, but he's also going to
+> be improving it fairly quickly. So it'd be nice if he could commit his
+> improvements directly.
+>
+> Do you guys think we should give him commit access so he can make gdb
+> and packaging-related changes?
+
+While I'm not opposed to this, perhaps the plugin should stabilize
+before it is added to the tree?
+
+
+
+-- 
+Regards,
+Benjamin
+
+From guido at python.org  Sat Feb 20 19:15:55 2010
+From: guido at python.org (Guido van Rossum)
+Date: Sat, 20 Feb 2010 13:15:55 -0500
+Subject: [python-committers] Commit access for David Malcolm
+In-Reply-To: <1afaf6161002200939h1eb036d8h20b870aa50396121@mail.gmail.com>
+References: <5d44f72f1002200932w1f53130cy75f853f47a7d712a@mail.gmail.com> 
+	<1afaf6161002200939h1eb036d8h20b870aa50396121@mail.gmail.com>
+Message-ID: <ca471dc21002201015o35b90147oac16a2936f0bec0a@mail.gmail.com>
+
+On Sat, Feb 20, 2010 at 12:39 PM, Benjamin Peterson <benjamin at python.org> wrote:
+> 2010/2/20 Jeffrey Yasskin <jyasskin at gmail.com>:
+>> David Malcolm is the Fedora maintainer for the Python package and has
+>> written a gdb plugin to replace and dramatically improve our old
+>> Misc/gdbinit file using the new python scripting support in gdb-7. You
+>> can see it in action at
+>> http://fedoraproject.org/wiki/Features/EasierPythonDebugging#User_Experience.
+>> I'd like to get this into our repository asap, but he's also going to
+>> be improving it fairly quickly. So it'd be nice if he could commit his
+>> improvements directly.
+>>
+>> Do you guys think we should give him commit access so he can make gdb
+>> and packaging-related changes?
+>
+> While I'm not opposed to this, perhaps the plugin should stabilize
+> before it is added to the tree?
+
+Assuming it's new optional functionality that doesn't affect the core
+at all, I think we can let it in before it stabilizes.
+
+-- 
+--Guido van Rossum (python.org/~guido)
+
+From skip at pobox.com  Sat Feb 20 19:28:14 2010
+From: skip at pobox.com (skip at pobox.com)
+Date: Sat, 20 Feb 2010 12:28:14 -0600
+Subject: [python-committers] Commit access for David Malcolm
+In-Reply-To: <5d44f72f1002200932w1f53130cy75f853f47a7d712a@mail.gmail.com>
+References: <5d44f72f1002200932w1f53130cy75f853f47a7d712a@mail.gmail.com>
+Message-ID: <19328.10686.304815.103731@montanaro.dyndns.org>
+
+
+    Jeffrey> David Malcolm is the Fedora maintainer for the Python package
+    Jeffrey> and has written a gdb plugin to replace and dramatically
+    Jeffrey> improve our old Misc/gdbinit file using the new python
+    Jeffrey> scripting support in gdb-7....
+
+I'm fine with adding such a plugin as long is Misc/gdbinit isn't replaced.
+Not everyone runs gdb 7.  Also, since it's support code and not part of
+Python proper adding such a plugin before it's nice and stable is no big
+deal.  (Maybe it belongs in Tools/gdb, not Misc?)
+
+Skip
+
+From martin at v.loewis.de  Sat Feb 20 19:44:11 2010
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Sat, 20 Feb 2010 19:44:11 +0100
+Subject: [python-committers] Commit access for David Malcolm
+In-Reply-To: <5d44f72f1002200932w1f53130cy75f853f47a7d712a@mail.gmail.com>
+References: <5d44f72f1002200932w1f53130cy75f853f47a7d712a@mail.gmail.com>
+Message-ID: <4B802D7B.8020402@v.loewis.de>
+
+> Do you guys think we should give him commit access so he can make gdb
+> and packaging-related changes?
+
+Ask him to submit patches and assign them to me, and I'll form an
+opinion. Also ask him to complain to you if I don't act on the patches
+in a reasonable amount of time.
+
+Also, ask him to submit a contributor agreement.
+
+Regards,
+Martin
+
+From greg at krypto.org  Sat Feb 20 19:48:49 2010
+From: greg at krypto.org (Gregory P. Smith)
+Date: Sat, 20 Feb 2010 13:48:49 -0500
+Subject: [python-committers] Commit access for David Malcolm
+In-Reply-To: <5d44f72f1002200932w1f53130cy75f853f47a7d712a@mail.gmail.com>
+References: <5d44f72f1002200932w1f53130cy75f853f47a7d712a@mail.gmail.com>
+Message-ID: <52dc1c821002201048va108a99r518fe043ca6f62ce@mail.gmail.com>
+
+On Sat, Feb 20, 2010 at 12:32 PM, Jeffrey Yasskin <jyasskin at gmail.com> wrote:
+> Hi all,
+>
+> David Malcolm is the Fedora maintainer for the Python package and has
+> written a gdb plugin to replace and dramatically improve our old
+> Misc/gdbinit file using the new python scripting support in gdb-7. You
+> can see it in action at
+> http://fedoraproject.org/wiki/Features/EasierPythonDebugging#User_Experience.
+> I'd like to get this into our repository asap, but he's also going to
+> be improving it fairly quickly. So it'd be nice if he could commit his
+> improvements directly.
+>
+> Do you guys think we should give him commit access so he can make gdb
+> and packaging-related changes?
+
++1
+
+From jnoller at gmail.com  Sat Feb 20 20:13:49 2010
+From: jnoller at gmail.com (Jesse Noller)
+Date: Sat, 20 Feb 2010 14:13:49 -0500
+Subject: [python-committers] Commit access for David Malcolm
+In-Reply-To: <52dc1c821002201048va108a99r518fe043ca6f62ce@mail.gmail.com>
+References: <5d44f72f1002200932w1f53130cy75f853f47a7d712a@mail.gmail.com>
+	<52dc1c821002201048va108a99r518fe043ca6f62ce@mail.gmail.com>
+Message-ID: <4222a8491002201113q7e2c9e30te868a35349717237@mail.gmail.com>
+
+On Sat, Feb 20, 2010 at 1:48 PM, Gregory P. Smith <greg at krypto.org> wrote:
+> On Sat, Feb 20, 2010 at 12:32 PM, Jeffrey Yasskin <jyasskin at gmail.com> wrote:
+>> Hi all,
+>>
+>> David Malcolm is the Fedora maintainer for the Python package and has
+>> written a gdb plugin to replace and dramatically improve our old
+>> Misc/gdbinit file using the new python scripting support in gdb-7. You
+>> can see it in action at
+>> http://fedoraproject.org/wiki/Features/EasierPythonDebugging#User_Experience.
+>> I'd like to get this into our repository asap, but he's also going to
+>> be improving it fairly quickly. So it'd be nice if he could commit his
+>> improvements directly.
+>>
+>> Do you guys think we should give him commit access so he can make gdb
+>> and packaging-related changes?
+>
+> +1
+
+I am also +1; but I don't see anything wrong with Martin's proposed path.
+
+jesse
+
+From jyasskin at gmail.com  Sat Feb 20 20:55:08 2010
+From: jyasskin at gmail.com (Jeffrey Yasskin)
+Date: Sat, 20 Feb 2010 19:55:08 +0000
+Subject: [python-committers] Commit access for David Malcolm
+In-Reply-To: <4B802D7B.8020402@v.loewis.de>
+References: <5d44f72f1002200932w1f53130cy75f853f47a7d712a@mail.gmail.com>
+	<4B802D7B.8020402@v.loewis.de>
+Message-ID: <5d44f72f1002201155u6e63f018ra7ca6062af816e9b@mail.gmail.com>
+
+On Sat, Feb 20, 2010 at 6:44 PM, "Martin v. L?wis" <martin at v.loewis.de> wrote:
+>> Do you guys think we should give him commit access so he can make gdb
+>> and packaging-related changes?
+>
+> Ask him to submit patches and assign them to me, and I'll form an
+> opinion. Also ask him to complain to you if I don't act on the patches
+> in a reasonable amount of time.
+>
+> Also, ask him to submit a contributor agreement.
+
+Thanks, will do.
+
+From doko at ubuntu.com  Sun Feb 21 05:16:50 2010
+From: doko at ubuntu.com (Matthias Klose)
+Date: Sun, 21 Feb 2010 05:16:50 +0100
+Subject: [python-committers] Commit access for David Malcolm
+In-Reply-To: <4B802D7B.8020402@v.loewis.de>
+References: <5d44f72f1002200932w1f53130cy75f853f47a7d712a@mail.gmail.com>
+	<4B802D7B.8020402@v.loewis.de>
+Message-ID: <4B80B3B2.7090605@ubuntu.com>
+
+On 20.02.2010 19:44, "Martin v. L?wis" wrote:
+>> Do you guys think we should give him commit access so he can make gdb
+>> and packaging-related changes?
+>
+> Ask him to submit patches and assign them to me, and I'll form an
+> opinion. Also ask him to complain to you if I don't act on the patches
+> in a reasonable amount of time.
+
+having spoken to him at Pycon, I think it's a good idea to get him access. If I 
+qualify to review packaging-related patches, I might be able to assist with 
+patch review.
+
+   Matthias
+
+From doko at debian.org  Wed Feb 24 01:44:09 2010
+From: doko at debian.org (Matthias Klose)
+Date: Wed, 24 Feb 2010 01:44:09 +0100
+Subject: [python-committers] updating libffi to 3.0.9?
+Message-ID: <4B847659.6040001@debian.org>
+
+I would like to update the internal copy of libffi from the 3.0.5 release to 
+3.0.9 (plus an ARM specific patch checked in after the 3.0.9 release).  Is this 
+ok for the trunk and the py3kbranch?  I only can check linux targets and watch 
+the buildds, so I would like to ask for tests on other targets.
+
+The libffi subdirectories for testsuite, doc and man are currently not checked 
+in. Should these be kept out, or should the complete libffi release be checked in?
+
+Thanks, Matthias
+
+From theller at ctypes.org  Wed Feb 24 08:20:22 2010
+From: theller at ctypes.org (Thomas Heller)
+Date: Wed, 24 Feb 2010 08:20:22 +0100
+Subject: [python-committers] updating libffi to 3.0.9?
+In-Reply-To: <4B847659.6040001@debian.org>
+References: <4B847659.6040001@debian.org>
+Message-ID: <4B84D336.1070204@ctypes.org>
+
+Matthias Klose schrieb:
+> I would like to update the internal copy of libffi from the 3.0.5 release to 
+> 3.0.9 (plus an ARM specific patch checked in after the 3.0.9 release).  Is this 
+> ok for the trunk and the py3kbranch?  I only can check linux targets and watch 
+> the buildds, so I would like to ask for tests on other targets.
+
+Obviously I don't do a good job maintaining the 'Python libffi fork', so
+I have nothing against you or other people doing my work ;-).
+
+On the other hand:
+Things have changed since the first inclusion of ctypes into the Python
+distribution.  There were no 'official' libffi releases at that time;
+now there are regular releases.  Should the Python distribution be changed
+to use the system libffi by default - the '--with-system-ffi' configure option?
+Is a system libffi library available on OS X?  On other systems?
+The windows fork must probably stay...
+
+> The libffi subdirectories for testsuite, doc and man are currently not checked 
+> in. Should these be kept out, or should the complete libffi release be checked in?
+
+Depends on the answer to your first question, of course.  The libffi testsuite requires
+dejagnus.  I know there once was a Python script, written by Ronald Ossouren, which
+was able to execute the tests.
+
+-- 
+Thanks,
+Thomas
+
+From ronaldoussoren at mac.com  Wed Feb 24 16:35:35 2010
+From: ronaldoussoren at mac.com (Ronald Oussoren)
+Date: Wed, 24 Feb 2010 16:35:35 +0100
+Subject: [python-committers] updating libffi to 3.0.9?
+In-Reply-To: <4B84D336.1070204@ctypes.org>
+References: <4B847659.6040001@debian.org> <4B84D336.1070204@ctypes.org>
+Message-ID: <108799013716724176261426540813616212075-Webmail@me.com>
+
+ 
+On Wednesday, February 24, 2010, at 08:20AM, "Thomas Heller" <theller at ctypes.org> wrote:
+>Matthias Klose schrieb:
+>> I would like to update the internal copy of libffi from the 3.0.5 release to 
+>> 3.0.9 (plus an ARM specific patch checked in after the 3.0.9 release).  Is this 
+>> ok for the trunk and the py3kbranch?  I only can check linux targets and watch 
+>> the buildds, so I would like to ask for tests on other targets.
+>
+>Obviously I don't do a good job maintaining the 'Python libffi fork', so
+>I have nothing against you or other people doing my work ;-).
+>
+>On the other hand:
+>Things have changed since the first inclusion of ctypes into the Python
+>distribution.  There were no 'official' libffi releases at that time;
+>now there are regular releases.  Should the Python distribution be changed
+>to use the system libffi by default - the '--with-system-ffi' configure option?
+>Is a system libffi library available on OS X?  On other systems?
+>The windows fork must probably stay...
+
+OSX has a system libffi on OSX 10.5 or later. The binary installers cannot use that because libffi is not present on 10.4, and I'm also not 100% sure that libffi on 10.5 is fully binary compatible with that on 10.6.
+
+>
+>> The libffi subdirectories for testsuite, doc and man are currently not checked 
+>> in. Should these be kept out, or should the complete libffi release be checked in?
+>
+>Depends on the answer to your first question, of course.  The libffi testsuite requires
+>dejagnus.  I know there once was a Python script, written by Ronald Ossouren, which
+>was able to execute the tests.
+
+I have a testrunner in pyobjc that is able to run the libffi tests without dejagnu. I'm willing to contribute that to python.
+
+Ronald
+>
+>-- 
+>Thanks,
+>Thomas
+>_______________________________________________
+>python-committers mailing list
+>python-committers at python.org
+>http://mail.python.org/mailman/listinfo/python-committers
+>
+>
+
+From barry at python.org  Sat Feb 27 00:18:24 2010
+From: barry at python.org (Barry Warsaw)
+Date: Fri, 26 Feb 2010 18:18:24 -0500
+Subject: [python-committers] Python 2.6.5 rc 1
+Message-ID: <64F69FF4-1DFA-4C7A-A4CD-2F653A834BD2@python.org>
+
+Hello everybody!  I hope you all had as great a time at Pycon 2010 as I did.  No time to begin recovering though, we're on to Python 2.6.5 rc 1, which I would like to release on Monday.   We have one showstopper still open, and I'll try to respond to that asap.
+
+http://bugs.python.org/issue7250
+
+If there is anything else that absolutely should go into 2.6.5, now's the time to let me know.  If there are no patches ready to be reviewed and landed though, you're probably running out of time.  I will be very conservative about landing patches after rc1.
+
+Cheers,
+-Barry
+
+

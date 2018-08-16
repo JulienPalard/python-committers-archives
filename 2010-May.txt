@@ -1,0 +1,1288 @@
+From jcea at jcea.es  Wed May  5 18:48:03 2010
+From: jcea at jcea.es (Jesus Cea)
+Date: Wed, 05 May 2010 18:48:03 +0200
+Subject: [python-committers] branches and merging
+In-Reply-To: <4B970031.2080002@jcea.es>
+References: <d11dcfba1003010044t5452a59fy72950de462a663f6@mail.gmail.com>	<4B8B85F9.8060002@trueblade.com>	<52dc1c821003010922s17e967d2v52837ad98980c2a9@mail.gmail.com>	<4B8BF9E1.4060306@trueblade.com>	<bbaeab101003011240u63e9b3a4m7863a8ebc7b6f7f@mail.gmail.com>	<4B8C2D33.8030001@v.loewis.de>	<bbaeab101003011406t446e8a11nc34b3c3bfce42cc6@mail.gmail.com>	<20100301172415.0eece13b@freewill.wooz.org>	<4B8C87CA.6070501@jcea.es>	<20100302132122.GA6678@amk-desktop.matrixgroup.net>
+	<4B970031.2080002@jcea.es>
+Message-ID: <4BE1A143.6090500@jcea.es>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On 10/03/10 03:13, Jesus Cea wrote:
+> On 03/02/2010 02:21 PM, A.M. Kuchling wrote:
+>> On Tue, Mar 02, 2010 at 04:36:42AM +0100, Jesus Cea wrote:
+>>> I can't wait for HG. I have read the main cutprit for the delay is the
+>>> line-ending issue with MS Windows developers. Is there anything else
+>>> holding us back?.
+> 
+>> Note that, if you'd just like to use Mercurial for your own
+>> convenience while developing, the mirrored repositories at
+>> http://hg.python.org/ are up-to-date; you just can't push changes
+>> back.  I have a regex patch that was developed using an hg checkout of
+>> the Python source tree, with my changes layered atop it using the mq
+>> extension.
+> 
+> This is a really excellent suggestion, and the perfect excuse to get
+> familiar with MQ, that I haven't tried yet.
+> 
+> I have a strange error:
+> 
+> """
+> [jcea at babylon5 home]$ hg clone http://hg.python.org/cpython/
+> destination directory: cpython
+> requesting all changes
+> abort: HTTP Error 414: Request-URI Too Large
+> """
+
+Two months later...
+
+I can confirm I can clone now http://hg.python.org/cpython/ , using the
+new Mercurial 1.5.2. If the repository was not overhaulted, this is GOOD.
+
+The repository has 443 heads. Half a gig. Uffffffffffff.
+
+- -- 
+Jesus Cea Avion                         _/_/      _/_/_/        _/_/_/
+jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+jabber / xmpp:jcea at jabber.org         _/_/    _/_/          _/_/_/_/_/
+.                              _/_/  _/_/    _/_/          _/_/  _/_/
+"Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+"My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+"El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - http://enigmail.mozdev.org/
+
+iQCVAwUBS+GhQ5lgi5GaxT1NAQLT3gP9GcU5Es1fq4vmdyBdVvUjcWnaGqzpmlDy
+ngm3MxZ+Sp/jIonI6u66Vw/r2astZ4JTDQ1i9g/y6fRGazkOkxnAM4rMkBSxDHVR
+2usDRcyjPo0q49p+NQ1UMZNBylJ4Dj/XR2fNjz89zwTSOfAZkQqH85rEOp2v7Igd
+V6gB7Vp6XOY=
+=BoKZ
+-----END PGP SIGNATURE-----
+
+From solipsis at pitrou.net  Wed May  5 18:59:39 2010
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Wed, 05 May 2010 18:59:39 +0200
+Subject: [python-committers] branches and merging
+In-Reply-To: <4BE1A143.6090500@jcea.es>
+References: <d11dcfba1003010044t5452a59fy72950de462a663f6@mail.gmail.com>
+	<4B8B85F9.8060002@trueblade.com>
+	<52dc1c821003010922s17e967d2v52837ad98980c2a9@mail.gmail.com>
+	<4B8BF9E1.4060306@trueblade.com>
+	<bbaeab101003011240u63e9b3a4m7863a8ebc7b6f7f@mail.gmail.com>
+	<4B8C2D33.8030001@v.loewis.de>
+	<bbaeab101003011406t446e8a11nc34b3c3bfce42cc6@mail.gmail.com>
+	<20100301172415.0eece13b@freewill.wooz.org>	<4B8C87CA.6070501@jcea.es>
+	<20100302132122.GA6678@amk-desktop.matrixgroup.net>
+	<4B970031.2080002@jcea.es>  <4BE1A143.6090500@jcea.es>
+Message-ID: <1273078779.3501.1.camel@localhost.localdomain>
+
+
+> Two months later...
+> 
+> I can confirm I can clone now http://hg.python.org/cpython/ , using the
+> new Mercurial 1.5.2. If the repository was not overhaulted, this is GOOD.
+> 
+> The repository has 443 heads. Half a gig. Uffffffffffff.
+
+For daily work, I suggest you use http://code.python.org/hg instead. It
+is much more lightweight (a separate repo for each branch) and, since it
+isn't meant to test the conversion, the changeset IDs won't change.
+
+
+
+
+From jcea at jcea.es  Wed May  5 19:07:47 2010
+From: jcea at jcea.es (Jesus Cea)
+Date: Wed, 05 May 2010 19:07:47 +0200
+Subject: [python-committers] branches and merging
+In-Reply-To: <1273078779.3501.1.camel@localhost.localdomain>
+References: <d11dcfba1003010044t5452a59fy72950de462a663f6@mail.gmail.com>	<4B8B85F9.8060002@trueblade.com>	<52dc1c821003010922s17e967d2v52837ad98980c2a9@mail.gmail.com>	<4B8BF9E1.4060306@trueblade.com>	<bbaeab101003011240u63e9b3a4m7863a8ebc7b6f7f@mail.gmail.com>	<4B8C2D33.8030001@v.loewis.de>	<bbaeab101003011406t446e8a11nc34b3c3bfce42cc6@mail.gmail.com>	<20100301172415.0eece13b@freewill.wooz.org>	<4B8C87CA.6070501@jcea.es>	<20100302132122.GA6678@amk-desktop.matrixgroup.net>	<4B970031.2080002@jcea.es>
+	<4BE1A143.6090500@jcea.es>
+	<1273078779.3501.1.camel@localhost.localdomain>
+Message-ID: <4BE1A5E3.5030209@jcea.es>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On 05/05/10 18:59, Antoine Pitrou wrote:
+> 
+>> Two months later...
+>>
+>> I can confirm I can clone now http://hg.python.org/cpython/ , using the
+>> new Mercurial 1.5.2. If the repository was not overhaulted, this is GOOD.
+>>
+>> The repository has 443 heads. Half a gig. Uffffffffffff.
+> 
+> For daily work, I suggest you use http://code.python.org/hg instead. It
+> is much more lightweight (a separate repo for each branch) and, since it
+> isn't meant to test the conversion, the changeset IDs won't change.
+
+I know. It is what I do daily. I can not pass without Mercurial Queues
+:). I dream every night with the day I can use Mercurial natively :-pp.
+
+I was just confirming that the "issue" I had with mercurial two months
+ago (trying to clone a repository with a lot of heads) is solved in HG
+1.5.2, just released.
+
+- -- 
+Jesus Cea Avion                         _/_/      _/_/_/        _/_/_/
+jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+jabber / xmpp:jcea at jabber.org         _/_/    _/_/          _/_/_/_/_/
+.                              _/_/  _/_/    _/_/          _/_/  _/_/
+"Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+"My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+"El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - http://enigmail.mozdev.org/
+
+iQCVAwUBS+Gl45lgi5GaxT1NAQI3YwP/eLqEWUoFdDOP+X+7B/G24nM/gnoXnPQP
+YumeWpN5/ijxGuBhyACSl1vkRrAzEtJaORWmqeB15pBtIuEigNZc+oS8QdKoH/X7
+Y2PgvKmRPCfNCrwR3m6G1fULA6j4KjZns86BOAZOX06dul9RINi5rzR+Zppmtxes
+oNmGmyAvEls=
+=ydC5
+-----END PGP SIGNATURE-----
+
+From benjamin at python.org  Sat May  8 19:02:51 2010
+From: benjamin at python.org (Benjamin Peterson)
+Date: Sat, 8 May 2010 12:02:51 -0500
+Subject: [python-committers] 2.7 beta 2
+Message-ID: <k2l1afaf6161005081002r1e1ff9afk6b8a572c48450fe2@mail.gmail.com>
+
+I'm going to release 2.7 beta 2 now, so the trunk is frozen until that's done.
+
+-- 
+Regards,
+Benjamin
+
+From benjamin at python.org  Sat May  8 20:58:06 2010
+From: benjamin at python.org (Benjamin Peterson)
+Date: Sat, 8 May 2010 13:58:06 -0500
+Subject: [python-committers] trunk open
+Message-ID: <r2h1afaf6161005081158n6b0cc8dbmbbc6ccf388d59578@mail.gmail.com>
+
+With 2.7b2 done, the trunk is open for commits. Keep in mind that the
+next release will be a release candidate.
+
+-- 
+Regards,
+Benjamin
+
+From solipsis at pitrou.net  Sun May  9 15:39:00 2010
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Sun, 09 May 2010 15:39:00 +0200
+Subject: [python-committers] Untabifying the C codebase
+Message-ID: <1273412340.3234.4.camel@localhost.localdomain>
+
+
+Hello,
+
+Following discussion on python-dev, I plan to untabify the C codebase
+this afternoon. It would probably be better if nobody modified any C files
+in the meantime (except those that already use 4 space indents).
+
+I expect the whole operation to take a couple of hours.
+
+Regards
+
+Antoine.
+
+
+
+
+
+From dickinsm at gmail.com  Sun May  9 16:07:30 2010
+From: dickinsm at gmail.com (Mark Dickinson)
+Date: Sun, 9 May 2010 15:07:30 +0100
+Subject: [python-committers] Untabifying the C codebase
+In-Reply-To: <1273412340.3234.4.camel@localhost.localdomain>
+References: <1273412340.3234.4.camel@localhost.localdomain>
+Message-ID: <s2h5c6f2a5d1005090707nb51e2a57ke7cd86ea4bb0861d@mail.gmail.com>
+
+On Sun, May 9, 2010 at 2:39 PM, Antoine Pitrou <solipsis at pitrou.net> wrote:
+>
+> Following discussion on python-dev, I plan to untabify the C codebase
+> this afternoon. It would probably be better if nobody modified any C files
+> in the meantime (except those that already use 4 space indents).
+
+Are you brave, or mad, or both?
+
+Just joking :)  No objections from me.
+
+> I expect the whole operation to take a couple of hours.
+
+In which case it might be advisable for anyone who doesn't enjoy
+receiving half-million line emails to turn off python-checkins
+delivery for a couple of hours...
+
+Mark
+
+From solipsis at pitrou.net  Sun May  9 18:56:27 2010
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Sun, 09 May 2010 18:56:27 +0200
+Subject: [python-committers] Untabifying the C codebase
+In-Reply-To: <1273412340.3234.4.camel@localhost.localdomain>
+References: <1273412340.3234.4.camel@localhost.localdomain>
+Message-ID: <1273424187.3234.29.camel@localhost.localdomain>
+
+> Following discussion on python-dev, I plan to untabify the C codebase
+> this afternoon. It would probably be better if nobody modified any C files
+> in the meantime (except those that already use 4 space indents).
+> 
+> I expect the whole operation to take a couple of hours.
+
+This was done in r81029 (trunk), r81031 (2.6), r81032 (3.x) and r81033
+(3.1). I'm mentioning the revision numbers because it seems
+python-checkins blocked the diffs, sensibly enough.
+
+There may be a couple of places where formatting was slightly worsened
+(especially comments). Most of the files look totally fine, though. I've
+done some visual inspection, but I could not examine each of the 500000
+diff lines in each branch.
+
+There was one file that I didn't touch: Modules/_cursesmodule.c
+Indentation is so uncommon there that interested people should reformat
+it themselves, if desired.
+
+If you have patches pending and they don't apply cleanly anymore, you
+can either:
+ - use "patch -l", and then reformat the modified lines manually
+ - use "untabify.py -p" on your patch
+(http://svn.python.org/view/*checkout*/sandbox/trunk/untabify/untabify.py)
+
+Regards
+
+Antoine.
+
+
+
+
+
+
+From victor.stinner at haypocalc.com  Sun May  9 22:04:43 2010
+From: victor.stinner at haypocalc.com (Victor Stinner)
+Date: Sun, 9 May 2010 22:04:43 +0200
+Subject: [python-committers] Untabifying the C codebase
+In-Reply-To: <1273424187.3234.29.camel@localhost.localdomain>
+References: <1273412340.3234.4.camel@localhost.localdomain>
+	<1273424187.3234.29.camel@localhost.localdomain>
+Message-ID: <201005092204.43903.victor.stinner@haypocalc.com>
+
+Le dimanche 09 mai 2010 18:56:27, Antoine Pitrou a ?crit :
+> This was done in r81029 (trunk), r81031 (2.6), r81032 (3.x) and r81033
+> (3.1). I'm mentioning the revision numbers because it seems
+> python-checkins blocked the diffs, sensibly enough.
+
+Does "make patchcheck" detect tab indentation and trailing spaces regressions?
+
+> If you have patches pending and they don't apply cleanly anymore, you
+> can either:
+>  - use "patch -l", and then reformat the modified lines manually
+>  - use "untabify.py -p" on your patch
+> (http://svn.python.org/view/*checkout*/sandbox/trunk/untabify/untabify.py)
+
+Is it documented somewhere? In the developer FAQ?
+
+-- 
+Victor Stinner
+http://www.haypocalc.com/
+
+From solipsis at pitrou.net  Sun May  9 22:22:03 2010
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Sun, 09 May 2010 22:22:03 +0200
+Subject: [python-committers] Untabifying the C codebase
+In-Reply-To: <201005092204.43903.victor.stinner@haypocalc.com>
+References: <1273412340.3234.4.camel@localhost.localdomain>
+	<1273424187.3234.29.camel@localhost.localdomain>
+	<201005092204.43903.victor.stinner@haypocalc.com>
+Message-ID: <1273436523.3234.33.camel@localhost.localdomain>
+
+Le dimanche 09 mai 2010 ? 22:04 +0200, Victor Stinner a ?crit :
+> Le dimanche 09 mai 2010 18:56:27, Antoine Pitrou a ?crit :
+> > This was done in r81029 (trunk), r81031 (2.6), r81032 (3.x) and r81033
+> > (3.1). I'm mentioning the revision numbers because it seems
+> > python-checkins blocked the diffs, sensibly enough.
+> 
+> Does "make patchcheck" detect tab indentation and trailing spaces regressions?
+
+No. As a matter of fact, I've never used "make patchcheck" and therefore
+always forget about its existence. Do you want to propose a patch for
+this?
+
+> > If you have patches pending and they don't apply cleanly anymore, you
+> > can either:
+> >  - use "patch -l", and then reformat the modified lines manually
+> >  - use "untabify.py -p" on your patch
+> > (http://svn.python.org/view/*checkout*/sandbox/trunk/untabify/untabify.py)
+> 
+> Is it documented somewhere? In the developer FAQ?
+
+I don't think it should go into the developer FAQ, since it's only a
+temporary situation. IMHO it's sufficient to tell people about it when
+they ask on the tracker, or even to do the reformatting ourselves.
+
+(I don't think there are many patches pending on the set of modified
+files, but I could be mistaken)
+
+Regards
+
+Antoine.
+
+
+
+From greg at krypto.org  Sun May  9 23:30:10 2010
+From: greg at krypto.org (Gregory P. Smith)
+Date: Sun, 9 May 2010 14:30:10 -0700
+Subject: [python-committers] Untabifying the C codebase
+In-Reply-To: <1273436523.3234.33.camel@localhost.localdomain>
+References: <1273412340.3234.4.camel@localhost.localdomain> 
+	<1273424187.3234.29.camel@localhost.localdomain>
+	<201005092204.43903.victor.stinner@haypocalc.com> 
+	<1273436523.3234.33.camel@localhost.localdomain>
+Message-ID: <s2o52dc1c821005091430l938c447az19df7b702ca28a0f@mail.gmail.com>
+
+On Sun, May 9, 2010 at 1:22 PM, Antoine Pitrou <solipsis at pitrou.net> wrote:
+> Le dimanche 09 mai 2010 ? 22:04 +0200, Victor Stinner a ?crit :
+>> Le dimanche 09 mai 2010 18:56:27, Antoine Pitrou a ?crit :
+>> > This was done in r81029 (trunk), r81031 (2.6), r81032 (3.x) and r81033
+>> > (3.1). I'm mentioning the revision numbers because it seems
+>> > python-checkins blocked the diffs, sensibly enough.
+>>
+>> Does "make patchcheck" detect tab indentation and trailing spaces regressions?
+>
+> No. As a matter of fact, I've never used "make patchcheck" and therefore
+> always forget about its existence. Do you want to propose a patch for
+> this?
+>
+>> > If you have patches pending and they don't apply cleanly anymore, you
+>> > can either:
+>> > ?- use "patch -l", and then reformat the modified lines manually
+>> > ?- use "untabify.py -p" on your patch
+>> > (http://svn.python.org/view/*checkout*/sandbox/trunk/untabify/untabify.py)
+>>
+>> Is it documented somewhere? In the developer FAQ?
+>
+> I don't think it should go into the developer FAQ, since it's only a
+> temporary situation. IMHO it's sufficient to tell people about it when
+> they ask on the tracker, or even to do the reformatting ourselves.
+>
+> (I don't think there are many patches pending on the set of modified
+> files, but I could be mistaken)
+>
+> Regards
+>
+> Antoine.
+
+fwiw, untabify.py seemed to work fine to keep the change I had in my
+svn client in shape across this update.
+
+ svn diff Modules/threadmodule.c >foo.diff
+ svn revert Modules/threadmodule.c
+ svn up  # update past the untabify changes
+ ../untabify.py <foo.diff >foo-untabbed.diff
+ patch -p0 <foo-untabbed.diff
+
+Thanks for doing this Antoine (belated +1 from me).  It may cause some
+temporary pain today and while dealing with existing patches on the
+tracker (anyone want to script walking the tracker and
+auto-untabifying patches that touch .c/.h files?) but it is worth it
+for the future health of the code base.
+
+-gps
+
+From amk at amk.ca  Mon May 10 03:01:11 2010
+From: amk at amk.ca (A.M. Kuchling)
+Date: Sun, 9 May 2010 21:01:11 -0400
+Subject: [python-committers] Untabifying the C codebase
+In-Reply-To: <1273424187.3234.29.camel@localhost.localdomain>
+References: <1273412340.3234.4.camel@localhost.localdomain>
+	<1273424187.3234.29.camel@localhost.localdomain>
+Message-ID: <20100510010111.GA62721@andrew-kuchlings-macbook.local>
+
+On Sun, May 09, 2010 at 06:56:27PM +0200, Antoine Pitrou wrote:
+> There was one file that I didn't touch: Modules/_cursesmodule.c
+> Indentation is so uncommon there that interested people should reformat
+> it themselves, if desired.
+
+I'm happy to see the curses module re-indented.  Does anyone have a
+set of settings for Emacs or for GNU indent for Python's C indentation
+style?
+
+--amk
+
+From alexandre at peadrop.com  Mon May 10 03:31:08 2010
+From: alexandre at peadrop.com (Alexandre Vassalotti)
+Date: Sun, 9 May 2010 18:31:08 -0700
+Subject: [python-committers] Untabifying the C codebase
+In-Reply-To: <20100510010111.GA62721@andrew-kuchlings-macbook.local>
+References: <1273412340.3234.4.camel@localhost.localdomain> 
+	<1273424187.3234.29.camel@localhost.localdomain>
+	<20100510010111.GA62721@andrew-kuchlings-macbook.local>
+Message-ID: <AANLkTimS-tS2a5MwieeFfQtIj3xM-YKS0WCKgreG3CPF@mail.gmail.com>
+
+On Sun, May 9, 2010 at 6:01 PM, A.M. Kuchling <amk at amk.ca> wrote:
+> I'm happy to see the curses module re-indented. ?Does anyone have a
+> set of settings for Emacs or for GNU indent for Python's C indentation
+> style?
+>
+
+This invocation of GNU indent should work reasonably well:
+
+indent \
+  --no-tabs \
+  --indent-level8 \
+  --blank-lines-after-procedures \
+  --no-blank-lines-after-declarations \
+  --no-comment-delimiters-on-blank-lines \
+  --start-left-side-of-comments \
+  --braces-on-if-line \
+  --dont-cuddle-else \
+  --cuddle-do-while \
+  --case-indentation0 \
+  --dont-space-special-semicolon \
+  --no-space-after-function-call-names \
+  --space-after-for \
+  --space-after-if \
+  --space-after-while \
+  --no-blank-lines-after-commas \
+  --declaration-indentation1 \
+  --braces-on-struct-decl-line \
+  --procnames-start-lines \
+  --continue-at-parentheses \
+  --preprocessor-indentation0 \
+  --break-after-boolean-operator
+
+-- Alexandre
+
+From ggpolo at gmail.com  Mon May 10 04:04:28 2010
+From: ggpolo at gmail.com (Guilherme Polo)
+Date: Sun, 9 May 2010 23:04:28 -0300
+Subject: [python-committers] Untabifying the C codebase
+In-Reply-To: <AANLkTimS-tS2a5MwieeFfQtIj3xM-YKS0WCKgreG3CPF@mail.gmail.com>
+References: <1273412340.3234.4.camel@localhost.localdomain> 
+	<1273424187.3234.29.camel@localhost.localdomain>
+	<20100510010111.GA62721@andrew-kuchlings-macbook.local> 
+	<AANLkTimS-tS2a5MwieeFfQtIj3xM-YKS0WCKgreG3CPF@mail.gmail.com>
+Message-ID: <g2mac2200131005091904ve8472f1ap77043516caf22d44@mail.gmail.com>
+
+2010/5/9 Alexandre Vassalotti <alexandre at peadrop.com>:
+> On Sun, May 9, 2010 at 6:01 PM, A.M. Kuchling <amk at amk.ca> wrote:
+>> I'm happy to see the curses module re-indented. ?Does anyone have a
+>> set of settings for Emacs or for GNU indent for Python's C indentation
+>> style?
+>>
+>
+> This invocation of GNU indent should work reasonably well:
+>
+> indent \
+> ?--no-tabs \
+> ?--indent-level8 \
+> ?--blank-lines-after-procedures \
+> ?--no-blank-lines-after-declarations \
+> ?--no-comment-delimiters-on-blank-lines \
+> ?--start-left-side-of-comments \
+> ?--braces-on-if-line \
+> ?--dont-cuddle-else \
+> ?--cuddle-do-while \
+> ?--case-indentation0 \
+> ?--dont-space-special-semicolon \
+> ?--no-space-after-function-call-names \
+> ?--space-after-for \
+> ?--space-after-if \
+> ?--space-after-while \
+> ?--no-blank-lines-after-commas \
+> ?--declaration-indentation1 \
+> ?--braces-on-struct-decl-line \
+> ?--procnames-start-lines \
+> ?--continue-at-parentheses \
+> ?--preprocessor-indentation0 \
+> ?--break-after-boolean-operator
+>
+
+And from the manpage:
+
+...
+BUGS
+     indent has even more switches than ls(1).
+...
+
+> -- Alexandre
+
+
+-- 
+-- Guilherme H. Polo Goncalves
+
+From barry at python.org  Mon May 10 09:11:36 2010
+From: barry at python.org (Barry Warsaw)
+Date: Mon, 10 May 2010 09:11:36 +0200
+Subject: [python-committers] Untabifying the C codebase
+In-Reply-To: <1273412340.3234.4.camel@localhost.localdomain>
+References: <1273412340.3234.4.camel@localhost.localdomain>
+Message-ID: <20100510091136.64d28780@heresy>
+
+On May 09, 2010, at 03:39 PM, Antoine Pitrou wrote:
+
+>Following discussion on python-dev, I plan to untabify the C codebase
+>this afternoon. It would probably be better if nobody modified any C files
+>in the meantime (except those that already use 4 space indents).
+
+Thanks for doing something we've only been talking about for at least 10
+years. :)
+
+You are my new best friend.
+
+-Barry
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 836 bytes
+Desc: not available
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20100510/086faf21/attachment.pgp>
+
+From barry at python.org  Mon May 10 15:25:05 2010
+From: barry at python.org (Barry Warsaw)
+Date: Mon, 10 May 2010 15:25:05 +0200
+Subject: [python-committers] Untabifying the C codebase
+In-Reply-To: <20100510010111.GA62721@andrew-kuchlings-macbook.local>
+References: <1273412340.3234.4.camel@localhost.localdomain>
+	<1273424187.3234.29.camel@localhost.localdomain>
+	<20100510010111.GA62721@andrew-kuchlings-macbook.local>
+Message-ID: <20100510152505.00adae5b@heresy>
+
+On May 09, 2010, at 09:01 PM, A.M. Kuchling wrote:
+
+>On Sun, May 09, 2010 at 06:56:27PM +0200, Antoine Pitrou wrote:
+>> There was one file that I didn't touch: Modules/_cursesmodule.c
+>> Indentation is so uncommon there that interested people should reformat
+>> it themselves, if desired.
+>
+>I'm happy to see the curses module re-indented.  Does anyone have a
+>set of settings for Emacs or for GNU indent for Python's C indentation
+>style?
+
+In Emacs, visit a C file and type:
+
+C-c . python RET
+
+'python' is a standard c-mode indentation style, however it's set up to use
+tabs.  It should be updated, maybe to a 'python3' style?  Here's a quick and
+dirty hack:
+
+(c-add-style "python3" '("python"
+                         (indent-tabs-mode . nil)
+                         (c-basic-offset . 4)
+                         ))
+
+-Barry
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 836 bytes
+Desc: not available
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20100510/56d8fd4d/attachment.pgp>
+
+From dickinsm at gmail.com  Mon May 10 16:02:23 2010
+From: dickinsm at gmail.com (Mark Dickinson)
+Date: Mon, 10 May 2010 15:02:23 +0100
+Subject: [python-committers] Untabifying the C codebase
+In-Reply-To: <20100510152505.00adae5b@heresy>
+References: <1273412340.3234.4.camel@localhost.localdomain>
+	<1273424187.3234.29.camel@localhost.localdomain>
+	<20100510010111.GA62721@andrew-kuchlings-macbook.local>
+	<20100510152505.00adae5b@heresy>
+Message-ID: <AANLkTiltWUBmzjS7k6XzpPqSbsvnajPQRw2swYcugwM4@mail.gmail.com>
+
+On Mon, May 10, 2010 at 2:25 PM, Barry Warsaw <barry at python.org> wrote:
+> On May 09, 2010, at 09:01 PM, A.M. Kuchling wrote:
+>>I'm happy to see the curses module re-indented. ?Does anyone have a
+>>set of settings for Emacs or for GNU indent for Python's C indentation
+>>style?
+>
+> In Emacs, visit a C file and type:
+>
+> C-c . python RET
+>
+> 'python' is a standard c-mode indentation style, however it's set up to use
+> tabs. ?It should be updated, maybe to a 'python3' style? ?Here's a quick and
+> dirty hack:
+>
+> (c-add-style "python3" '("python"
+> ? ? ? ? ? ? ? ? ? ? ? ? (indent-tabs-mode . nil)
+> ? ? ? ? ? ? ? ? ? ? ? ? (c-basic-offset . 4)
+> ? ? ? ? ? ? ? ? ? ? ? ? ))
+
+See also
+
+http://wiki.python.org/moin/EmacsEditor
+
+where there's a 'python-new' style that can be added to an .emacs file.
+
+Mark
+
+From amk at amk.ca  Mon May 10 22:15:03 2010
+From: amk at amk.ca (A.M. Kuchling)
+Date: Mon, 10 May 2010 16:15:03 -0400
+Subject: [python-committers] Untabifying the C codebase
+In-Reply-To: <20100510152505.00adae5b@heresy>
+References: <1273412340.3234.4.camel@localhost.localdomain>
+	<1273424187.3234.29.camel@localhost.localdomain>
+	<20100510010111.GA62721@andrew-kuchlings-macbook.local>
+	<20100510152505.00adae5b@heresy>
+Message-ID: <20100510201503.GA15066@amk-desktop.matrixgroup.net>
+
+On Mon, May 10, 2010 at 03:25:05PM +0200, Barry Warsaw wrote:
+> 'python' is a standard c-mode indentation style, however it's set up to use
+> tabs.  It should be updated, maybe to a 'python3' style?  Here's a quick and
+> dirty hack:
+
+Thanks!  I've carried out a re-indentation and whitespace cleanup in
+the sandbox/curses/ directory; it still compiles & passes its tests,
+such as they are.  Does someone want to take a brief glance at the
+resulting code to double-check?
+
+http://svn.python.org/view/sandbox/trunk/curses/_cursesmodule.c?revision=81054&view=markup
+
+I can commit this to trunk.  Presumably merging this change to 3.x
+would fail horribly; for 3.x, should I just carry out the same set of
+steps (apply some small coding cleanups that could probably be merged
+from trunk, then re-indent using Emacs)?
+
+--amk
+
+From brett at python.org  Mon May 10 23:03:30 2010
+From: brett at python.org (Brett Cannon)
+Date: Mon, 10 May 2010 14:03:30 -0700
+Subject: [python-committers] Untabifying the C codebase
+In-Reply-To: <AANLkTiltWUBmzjS7k6XzpPqSbsvnajPQRw2swYcugwM4@mail.gmail.com>
+References: <1273412340.3234.4.camel@localhost.localdomain> 
+	<1273424187.3234.29.camel@localhost.localdomain>
+	<20100510010111.GA62721@andrew-kuchlings-macbook.local> 
+	<20100510152505.00adae5b@heresy>
+	<AANLkTiltWUBmzjS7k6XzpPqSbsvnajPQRw2swYcugwM4@mail.gmail.com>
+Message-ID: <AANLkTikqQFa2DRjQQduLn-rJxHSyJsmUHlw8U7TT8q2Z@mail.gmail.com>
+
+On Mon, May 10, 2010 at 07:02, Mark Dickinson <dickinsm at gmail.com> wrote:
+
+> On Mon, May 10, 2010 at 2:25 PM, Barry Warsaw <barry at python.org> wrote:
+> > On May 09, 2010, at 09:01 PM, A.M. Kuchling wrote:
+> >>I'm happy to see the curses module re-indented.  Does anyone have a
+> >>set of settings for Emacs or for GNU indent for Python's C indentation
+> >>style?
+> >
+> > In Emacs, visit a C file and type:
+> >
+> > C-c . python RET
+> >
+> > 'python' is a standard c-mode indentation style, however it's set up to
+> use
+> > tabs.  It should be updated, maybe to a 'python3' style?  Here's a quick
+> and
+> > dirty hack:
+> >
+> > (c-add-style "python3" '("python"
+> >                         (indent-tabs-mode . nil)
+> >                         (c-basic-offset . 4)
+> >                         ))
+>
+> See also
+>
+> http://wiki.python.org/moin/EmacsEditor
+>
+> where there's a 'python-new' style that can be added to an .emacs file.
+
+
+And for those of you using the python.vim file from Misc/Vim, you have been
+covered automatically. =)
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20100510/a5ede688/attachment.html>
+
+From ncoghlan at gmail.com  Tue May 11 14:20:40 2010
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Tue, 11 May 2010 22:20:40 +1000
+Subject: [python-committers] Untabifying the C codebase
+In-Reply-To: <20100510091136.64d28780@heresy>
+References: <1273412340.3234.4.camel@localhost.localdomain>
+	<20100510091136.64d28780@heresy>
+Message-ID: <4BE94B98.4020500@gmail.com>
+
+Barry Warsaw wrote:
+> On May 09, 2010, at 03:39 PM, Antoine Pitrou wrote:
+> 
+>> Following discussion on python-dev, I plan to untabify the C codebase
+>> this afternoon. It would probably be better if nobody modified any C files
+>> in the meantime (except those that already use 4 space indents).
+> 
+> Thanks for doing something we've only been talking about for at least 10
+> years. :)
+
+Indeed :)
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+---------------------------------------------------------------
+
+From steve at holdenweb.com  Tue May 11 14:48:30 2010
+From: steve at holdenweb.com (Steve Holden)
+Date: Tue, 11 May 2010 08:48:30 -0400
+Subject: [python-committers] Untabifying the C codebase
+In-Reply-To: <4BE94B98.4020500@gmail.com>
+References: <1273412340.3234.4.camel@localhost.localdomain>	<20100510091136.64d28780@heresy>
+	<4BE94B98.4020500@gmail.com>
+Message-ID: <4BE9521E.6010703@holdenweb.com>
+
+Nick Coghlan wrote:
+> Barry Warsaw wrote:
+>> On May 09, 2010, at 03:39 PM, Antoine Pitrou wrote:
+>>
+>>> Following discussion on python-dev, I plan to untabify the C codebase
+>>> this afternoon. It would probably be better if nobody modified any C files
+>>> in the meantime (except those that already use 4 space indents).
+>> Thanks for doing something we've only been talking about for at least 10
+>> years. :)
+> 
+> Indeed :)
+> 
+> Cheers,
+> Nick.
+> 
+And ever afterwards that time was known as the Epoch of the Great
+Untabification; and children heard stories of what programmers they had
+been.
+
+fanciful-ly y'rs  - steve
+-- 
+Steve Holden           +1 571 484 6266   +1 800 494 3119
+See Python Video!       http://python.mirocommunity.org/
+Holden Web LLC                 http://www.holdenweb.com/
+UPCOMING EVENTS:        http://holdenweb.eventbrite.com/
+"All I want for my birthday is another birthday" -
+                                     Ian Dury, 1942-2000
+
+From barry at python.org  Tue May 11 15:25:58 2010
+From: barry at python.org (Barry Warsaw)
+Date: Tue, 11 May 2010 15:25:58 +0200
+Subject: [python-committers] Untabifying the C codebase
+In-Reply-To: <4BE9521E.6010703@holdenweb.com>
+References: <1273412340.3234.4.camel@localhost.localdomain>
+	<20100510091136.64d28780@heresy> <4BE94B98.4020500@gmail.com>
+	<4BE9521E.6010703@holdenweb.com>
+Message-ID: <20100511152558.3e612597@heresy>
+
+On May 11, 2010, at 08:48 AM, Steve Holden wrote:
+
+>Nick Coghlan wrote:
+>> Barry Warsaw wrote:
+>>> On May 09, 2010, at 03:39 PM, Antoine Pitrou wrote:
+>>>
+>>>> Following discussion on python-dev, I plan to untabify the C codebase
+>>>> this afternoon. It would probably be better if nobody modified any C files
+>>>> in the meantime (except those that already use 4 space indents).
+>>> Thanks for doing something we've only been talking about for at least 10
+>>> years. :)
+>> 
+>> Indeed :)
+>> 
+>> Cheers,
+>> Nick.
+>> 
+>And ever afterwards that time was known as the Epoch of the Great
+>Untabification; and children heard stories of what programmers they had
+>been.
+>
+>fanciful-ly y'rs  - steve
+
+Who remembers the Great Renaming? :)
+
+-Barry
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 836 bytes
+Desc: not available
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20100511/f64dfc58/attachment.pgp>
+
+From fdrake at acm.org  Tue May 11 19:13:40 2010
+From: fdrake at acm.org (Fred Drake)
+Date: Tue, 11 May 2010 13:13:40 -0400
+Subject: [python-committers] Untabifying the C codebase
+In-Reply-To: <20100511152558.3e612597@heresy>
+References: <1273412340.3234.4.camel@localhost.localdomain> 
+	<20100510091136.64d28780@heresy> <4BE94B98.4020500@gmail.com> 
+	<4BE9521E.6010703@holdenweb.com> <20100511152558.3e612597@heresy>
+Message-ID: <AANLkTimIgCQA4UHBvpyNiVcvemKw4XEEs50707DISmXx@mail.gmail.com>
+
+On Tue, May 11, 2010 at 9:25 AM, Barry Warsaw <barry at python.org> wrote:
+> Who remembers the Great Renaming? :)
+
+Oooh!   Oooh!  I know that one!   :-)
+
+
+  -Fred
+
+-- 
+Fred L. Drake, Jr.    <fdrake at gmail.com>
+"Chaos is the score upon which reality is written." --Henry Miller
+
+From guido at python.org  Tue May 11 20:15:49 2010
+From: guido at python.org (Guido van Rossum)
+Date: Tue, 11 May 2010 11:15:49 -0700
+Subject: [python-committers] Untabifying the C codebase
+In-Reply-To: <AANLkTimIgCQA4UHBvpyNiVcvemKw4XEEs50707DISmXx@mail.gmail.com>
+References: <1273412340.3234.4.camel@localhost.localdomain> 
+	<20100510091136.64d28780@heresy> <4BE94B98.4020500@gmail.com> 
+	<4BE9521E.6010703@holdenweb.com> <20100511152558.3e612597@heresy> 
+	<AANLkTimIgCQA4UHBvpyNiVcvemKw4XEEs50707DISmXx@mail.gmail.com>
+Message-ID: <AANLkTikBHYxeId_ilVn8f5SN7s1jivVLneHqQJjEogHS@mail.gmail.com>
+
+On Tue, May 11, 2010 at 10:13 AM, Fred Drake <fdrake at acm.org> wrote:
+> On Tue, May 11, 2010 at 9:25 AM, Barry Warsaw <barry at python.org> wrote:
+>> Who remembers the Great Renaming? :)
+>
+> Oooh! ? Oooh! ?I know that one! ? :-)
+>
+>
+> ?-Fred
+
+http://python-history.blogspot.com/2009/03/great-or-grand-renaming.html
+
+-- 
+--Guido van Rossum (python.org/~guido)
+
+From martin at v.loewis.de  Tue May 11 21:20:30 2010
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Tue, 11 May 2010 21:20:30 +0200
+Subject: [python-committers] Untabifying the C codebase
+In-Reply-To: <20100511152558.3e612597@heresy>
+References: <1273412340.3234.4.camel@localhost.localdomain>	<20100510091136.64d28780@heresy>
+	<4BE94B98.4020500@gmail.com>	<4BE9521E.6010703@holdenweb.com>
+	<20100511152558.3e612597@heresy>
+Message-ID: <4BE9ADFE.5020405@v.loewis.de>
+
+Barry Warsaw wrote:
+> On May 11, 2010, at 08:48 AM, Steve Holden wrote:
+> 
+>> Nick Coghlan wrote:
+>>> Barry Warsaw wrote:
+>>>> On May 09, 2010, at 03:39 PM, Antoine Pitrou wrote:
+>>>>
+>>>>> Following discussion on python-dev, I plan to untabify the C codebase
+>>>>> this afternoon. It would probably be better if nobody modified any C files
+>>>>> in the meantime (except those that already use 4 space indents).
+>>>> Thanks for doing something we've only been talking about for at least 10
+>>>> years. :)
+>>> Indeed :)
+>>>
+>>> Cheers,
+>>> Nick.
+>>>
+>> And ever afterwards that time was known as the Epoch of the Great
+>> Untabification; and children heard stories of what programmers they had
+>> been.
+>>
+>> fanciful-ly y'rs  - steve
+> 
+> Who remembers the Great Renaming? :)
+
+Wasn't it the /Grand/ Renaming?
+
+Regards,
+Martin
+
+From barry at python.org  Tue May 11 21:37:50 2010
+From: barry at python.org (Barry Warsaw)
+Date: Tue, 11 May 2010 21:37:50 +0200
+Subject: [python-committers] Untabifying the C codebase
+In-Reply-To: <4BE9ADFE.5020405@v.loewis.de>
+References: <1273412340.3234.4.camel@localhost.localdomain>
+	<20100510091136.64d28780@heresy> <4BE94B98.4020500@gmail.com>
+	<4BE9521E.6010703@holdenweb.com> <20100511152558.3e612597@heresy>
+	<4BE9ADFE.5020405@v.loewis.de>
+Message-ID: <20100511213750.705a956b@heresy>
+
+On May 11, 2010, at 09:20 PM, Martin v. L?wis wrote:
+
+>Barry Warsaw wrote:
+
+>> Who remembers the Great Renaming? :)
+>
+>Wasn't it the /Grand/ Renaming?
+
+See Guido's link!  (btw, what a great blog :).
+
+-Barry
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 836 bytes
+Desc: not available
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20100511/72a65bf5/attachment-0001.pgp>
+
+From martin at v.loewis.de  Tue May 11 21:53:45 2010
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Tue, 11 May 2010 21:53:45 +0200
+Subject: [python-committers] Untabifying the C codebase
+In-Reply-To: <20100511213750.705a956b@heresy>
+References: <1273412340.3234.4.camel@localhost.localdomain>	<20100510091136.64d28780@heresy>	<4BE94B98.4020500@gmail.com>	<4BE9521E.6010703@holdenweb.com>	<20100511152558.3e612597@heresy>	<4BE9ADFE.5020405@v.loewis.de>
+	<20100511213750.705a956b@heresy>
+Message-ID: <4BE9B5C9.3000503@v.loewis.de>
+
+Barry Warsaw wrote:
+> On May 11, 2010, at 09:20 PM, Martin v. L?wis wrote:
+> 
+>> Barry Warsaw wrote:
+> 
+>>> Who remembers the Great Renaming? :)
+>> Wasn't it the /Grand/ Renaming?
+> 
+> See Guido's link!  (btw, what a great blog :).
+
+While studying this history, I ran into
+
+http://www.rmi.net/~lutz/errata-book-fixes.html
+
+Mark Lutz calls it *both* Great and Grand renaming on a single page :-)
+
+Regards,
+Martin
+
+From steve at holdenweb.com  Tue May 11 21:55:32 2010
+From: steve at holdenweb.com (Steve Holden)
+Date: Tue, 11 May 2010 15:55:32 -0400
+Subject: [python-committers] Untabifying the C codebase
+In-Reply-To: <4BE9B5C9.3000503@v.loewis.de>
+References: <1273412340.3234.4.camel@localhost.localdomain>	<20100510091136.64d28780@heresy>	<4BE94B98.4020500@gmail.com>	<4BE9521E.6010703@holdenweb.com>	<20100511152558.3e612597@heresy>	<4BE9ADFE.5020405@v.loewis.de>
+	<20100511213750.705a956b@heresy> <4BE9B5C9.3000503@v.loewis.de>
+Message-ID: <4BE9B634.90402@holdenweb.com>
+
+Martin v. L?wis wrote:
+> Barry Warsaw wrote:
+>> On May 11, 2010, at 09:20 PM, Martin v. L?wis wrote:
+>>
+>>> Barry Warsaw wrote:
+>>>> Who remembers the Great Renaming? :)
+>>> Wasn't it the /Grand/ Renaming?
+>> See Guido's link!  (btw, what a great blog :).
+> 
+> While studying this history, I ran into
+> 
+> http://www.rmi.net/~lutz/errata-book-fixes.html
+> 
+> Mark Lutz calls it *both* Great and Grand renaming on a single page :-)
+> 
+Exceptionally pythonic.
+
+regards
+ Steve
+-- 
+Steve Holden           +1 571 484 6266   +1 800 494 3119
+See Python Video!       http://python.mirocommunity.org/
+Holden Web LLC                 http://www.holdenweb.com/
+UPCOMING EVENTS:        http://holdenweb.eventbrite.com/
+"All I want for my birthday is another birthday" -
+                                     Ian Dury, 1942-2000
+
+From fdrake at acm.org  Tue May 11 22:27:18 2010
+From: fdrake at acm.org (Fred Drake)
+Date: Tue, 11 May 2010 16:27:18 -0400
+Subject: [python-committers] Untabifying the C codebase
+In-Reply-To: <4BE9ADFE.5020405@v.loewis.de>
+References: <1273412340.3234.4.camel@localhost.localdomain> 
+	<20100510091136.64d28780@heresy> <4BE94B98.4020500@gmail.com> 
+	<4BE9521E.6010703@holdenweb.com> <20100511152558.3e612597@heresy> 
+	<4BE9ADFE.5020405@v.loewis.de>
+Message-ID: <AANLkTikOqbZYNWYLQBy7w_Rmw_TPNci84vVFdS-p8jR4@mail.gmail.com>
+
+On Tue, May 11, 2010 at 3:20 PM, "Martin v. L?wis" <martin at v.loewis.de> wrote:
+> Wasn't it the /Grand/ Renaming?
+
+Rest assured, the Grand Renaming was a Great and Wondrous Event.
+
+
+  -Fred
+
+-- 
+Fred L. Drake, Jr.    <fdrake at gmail.com>
+"Chaos is the score upon which reality is written." --Henry Miller
+
+From ncoghlan at gmail.com  Wed May 12 00:39:11 2010
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Wed, 12 May 2010 08:39:11 +1000
+Subject: [python-committers] Untabifying the C codebase
+In-Reply-To: <20100511152558.3e612597@heresy>
+References: <1273412340.3234.4.camel@localhost.localdomain>	<20100510091136.64d28780@heresy>	<4BE94B98.4020500@gmail.com>	<4BE9521E.6010703@holdenweb.com>
+	<20100511152558.3e612597@heresy>
+Message-ID: <4BE9DC8F.5050801@gmail.com>
+
+Barry Warsaw wrote:
+>> And ever afterwards that time was known as the Epoch of the Great
+>> Untabification; and children heard stories of what programmers they had
+>> been.
+>>
+>> fanciful-ly y'rs  - steve
+> 
+> Who remembers the Great Renaming? :)
+
+Heh, I almost responded to Steve with "In before someone mentions the
+Great/Grand Renaming" (I wasn't here for it, but I did hear mention of it).
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+---------------------------------------------------------------
+
+From victor.stinner at haypocalc.com  Wed May 12 13:44:10 2010
+From: victor.stinner at haypocalc.com (Victor Stinner)
+Date: Wed, 12 May 2010 13:44:10 +0200
+Subject: [python-committers] Untabifying the C codebase
+In-Reply-To: <AANLkTikBHYxeId_ilVn8f5SN7s1jivVLneHqQJjEogHS@mail.gmail.com>
+References: <1273412340.3234.4.camel@localhost.localdomain>
+	<AANLkTimIgCQA4UHBvpyNiVcvemKw4XEEs50707DISmXx@mail.gmail.com>
+	<AANLkTikBHYxeId_ilVn8f5SN7s1jivVLneHqQJjEogHS@mail.gmail.com>
+Message-ID: <201005121344.11093.victor.stinner@haypocalc.com>
+
+Le mardi 11 mai 2010 20:15:49, Guido van Rossum a ?crit :
+> http://python-history.blogspot.com/2009/03/great-or-grand-renaming.html
+
+"Great or Grand Renamings are often traumatic events for software developer 
+communities ... and complicate the integration of patches created before the 
+renaming but applied after. (This is especially problematic when unrenamed 
+branches exist.)"
+
+Antoine patched the 4 most important branches. Do we you have other active 
+branches?
+
+Victor
+
+From martin at v.loewis.de  Wed May 12 14:00:23 2010
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Wed, 12 May 2010 14:00:23 +0200
+Subject: [python-committers] Untabifying the C codebase
+In-Reply-To: <201005121344.11093.victor.stinner@haypocalc.com>
+References: <1273412340.3234.4.camel@localhost.localdomain>	<AANLkTimIgCQA4UHBvpyNiVcvemKw4XEEs50707DISmXx@mail.gmail.com>	<AANLkTikBHYxeId_ilVn8f5SN7s1jivVLneHqQJjEogHS@mail.gmail.com>
+	<201005121344.11093.victor.stinner@haypocalc.com>
+Message-ID: <4BEA9857.502@v.loewis.de>
+
+> Antoine patched the 4 most important branches. Do we you have other active 
+> branches?
+
+Define "active". The 2.5 maintenance branch will have further releases
+made from it.
+
+Regards,
+Martin
+
+From ncoghlan at gmail.com  Wed May 12 15:00:54 2010
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Wed, 12 May 2010 23:00:54 +1000
+Subject: [python-committers] Untabifying the C codebase
+In-Reply-To: <201005121344.11093.victor.stinner@haypocalc.com>
+References: <1273412340.3234.4.camel@localhost.localdomain>	<AANLkTimIgCQA4UHBvpyNiVcvemKw4XEEs50707DISmXx@mail.gmail.com>	<AANLkTikBHYxeId_ilVn8f5SN7s1jivVLneHqQJjEogHS@mail.gmail.com>
+	<201005121344.11093.victor.stinner@haypocalc.com>
+Message-ID: <4BEAA686.40303@gmail.com>
+
+Victor Stinner wrote:
+> Antoine patched the 4 most important branches. Do we you have other active 
+> branches?
+
+Any other active feature branches (such as c-decimal and the branch for
+the signal work) should pick up the tab changes next time they do an
+svnmerge (or the moral equivalent for Tarek's hg branch).
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+---------------------------------------------------------------
+
+From victor.stinner at haypocalc.com  Sun May 16 02:40:48 2010
+From: victor.stinner at haypocalc.com (Victor Stinner)
+Date: Sun, 16 May 2010 02:40:48 +0200
+Subject: [python-committers] Untabifying the C codebase
+In-Reply-To: <20100510010111.GA62721@andrew-kuchlings-macbook.local>
+References: <1273412340.3234.4.camel@localhost.localdomain>
+	<1273424187.3234.29.camel@localhost.localdomain>
+	<20100510010111.GA62721@andrew-kuchlings-macbook.local>
+Message-ID: <201005160240.49166.victor.stinner@haypocalc.com>
+
+Le lundi 10 mai 2010 03:01:11, A.M. Kuchling a ?crit :
+> On Sun, May 09, 2010 at 06:56:27PM +0200, Antoine Pitrou wrote:
+> > There was one file that I didn't touch: Modules/_cursesmodule.c
+> > Indentation is so uncommon there that interested people should reformat
+> > it themselves, if desired.
+> 
+> I'm happy to see the curses module re-indented.  Does anyone have a
+> set of settings for Emacs or for GNU indent for Python's C indentation
+> style?
+
+Done: revisions 81213, 81214-81216
+
+I used untabify.py + emacs (python3 mode) + manual edit for 
+Py_BEGIN_ALLOW_THREADS / Py_END_ALLOW_THREADS.
+
+-- 
+Victor Stinner
+http://www.haypocalc.com/
+
+From dickinsm at gmail.com  Thu May 20 22:28:38 2010
+From: dickinsm at gmail.com (Mark Dickinson)
+Date: Thu, 20 May 2010 21:28:38 +0100
+Subject: [python-committers] New committer proposal: Alexander Belopolsky
+Message-ID: <AANLkTimbbRJ-P3A1C0R2r7jrJdgTk5D9b1Zly9jisEMD@mail.gmail.com>
+
+I propose that Alexander Belopolsky be given svn commit access.  I've
+already checked with him that he's interested (he is), and I'm
+prepared to mentor him while he's learning the ropes.
+
+A brief history: Alexander's been contributing patches for almost
+seven years (I think http://bugs.python.org/issue798269 is the first);
+in that time he's provided numerous patches, comments, and patch
+reviews.  Just as a guide, a quick search on bugs.python.org shows
+that he's nosy on over 200 issues.  I've recently worked closely with
+him on a couple of patches, and think he's ready for commit rights.
+
+In particular, I think it would be great to have his help with the
+datetime module, which is in currently need of some care and
+attention.
+
+Any objections or comments?
+
+Mark
+
+From rdmurray at bitdance.com  Fri May 21 01:37:21 2010
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Thu, 20 May 2010 19:37:21 -0400
+Subject: [python-committers] New committer proposal: Alexander Belopolsky
+In-Reply-To: <AANLkTimbbRJ-P3A1C0R2r7jrJdgTk5D9b1Zly9jisEMD@mail.gmail.com>
+References: <AANLkTimbbRJ-P3A1C0R2r7jrJdgTk5D9b1Zly9jisEMD@mail.gmail.com>
+Message-ID: <20100520233721.E4F8B20DAF7@kimball.webabinitio.net>
+
+On Thu, 20 May 2010 21:28:38 +0100, Mark Dickinson <dickinsm at gmail.com> wrote:
+> I propose that Alexander Belopolsky be given svn commit access.  I've
+> already checked with him that he's interested (he is), and I'm
+> prepared to mentor him while he's learning the ropes.
+> 
+> A brief history: Alexander's been contributing patches for almost
+> seven years (I think http://bugs.python.org/issue798269 is the first);
+> in that time he's provided numerous patches, comments, and patch
+> reviews.  Just as a guide, a quick search on bugs.python.org shows
+> that he's nosy on over 200 issues.  I've recently worked closely with
+> him on a couple of patches, and think he's ready for commit rights.
+> 
+> In particular, I think it would be great to have his help with the
+> datetime module, which is in currently need of some care and
+> attention.
+> 
+> Any objections or comments?
+
++1
+
+He's also expressed interest in memoryviews, which I suspect
+will make Antoine, at least, happy :)
+
+--
+R. David Murray                                      www.bitdance.com
+
+From brian.curtin at gmail.com  Fri May 21 02:45:57 2010
+From: brian.curtin at gmail.com (Brian Curtin)
+Date: Thu, 20 May 2010 19:45:57 -0500
+Subject: [python-committers] New committer proposal: Alexander Belopolsky
+In-Reply-To: <AANLkTimbbRJ-P3A1C0R2r7jrJdgTk5D9b1Zly9jisEMD@mail.gmail.com>
+References: <AANLkTimbbRJ-P3A1C0R2r7jrJdgTk5D9b1Zly9jisEMD@mail.gmail.com>
+Message-ID: <AANLkTilsJVSYCaKEgN7hKQ6F8TgKyjVPQEt03RsAzQiW@mail.gmail.com>
+
+On Thu, May 20, 2010 at 15:28, Mark Dickinson <dickinsm at gmail.com> wrote:
+
+> I propose that Alexander Belopolsky be given svn commit access.
+>
+
++1. Although I'm a relative newcomer I've seen his name on a lot of issues,
+most often associated with a quality patch or thorough review.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20100520/2f171fd0/attachment.html>
+
+From greg at krypto.org  Fri May 21 16:54:20 2010
+From: greg at krypto.org (Gregory P. Smith)
+Date: Fri, 21 May 2010 07:54:20 -0700
+Subject: [python-committers] New committer proposal: Alexander Belopolsky
+In-Reply-To: <AANLkTimbbRJ-P3A1C0R2r7jrJdgTk5D9b1Zly9jisEMD@mail.gmail.com>
+References: <AANLkTimbbRJ-P3A1C0R2r7jrJdgTk5D9b1Zly9jisEMD@mail.gmail.com>
+Message-ID: <AANLkTinGheqJgHGEKi12sZWCSAMwlp-kyxwzAqOx9LzW@mail.gmail.com>
+
++1
+
+On May 20, 2010 1:28 PM, "Mark Dickinson" <dickinsm at gmail.com> wrote:
+
+I propose that Alexander Belopolsky be given svn commit access.  I've
+already checked with him that he's interested (he is), and I'm
+prepared to mentor him while he's learning the ropes.
+
+A brief history: Alexander's been contributing patches for almost
+seven years (I think http://bugs.python.org/issue798269 is the first);
+in that time he's provided numerous patches, comments, and patch
+reviews.  Just as a guide, a quick search on bugs.python.org shows
+that he's nosy on over 200 issues.  I've recently worked closely with
+him on a couple of patches, and think he's ready for commit rights.
+
+In particular, I think it would be great to have his help with the
+datetime module, which is in currently need of some care and
+attention.
+
+Any objections or comments?
+
+Mark
+_______________________________________________
+python-committers mailing list
+python-committers at python.org
+http://mail.python.org/mailman/listinfo/python-committers
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20100521/eeb71047/attachment.html>
+
+From alexandre at peadrop.com  Fri May 21 18:46:28 2010
+From: alexandre at peadrop.com (Alexandre Vassalotti)
+Date: Fri, 21 May 2010 09:46:28 -0700
+Subject: [python-committers] New committer proposal: Alexander Belopolsky
+In-Reply-To: <AANLkTimbbRJ-P3A1C0R2r7jrJdgTk5D9b1Zly9jisEMD@mail.gmail.com>
+References: <AANLkTimbbRJ-P3A1C0R2r7jrJdgTk5D9b1Zly9jisEMD@mail.gmail.com>
+Message-ID: <AANLkTinkHliN0psurBLbBtIA560lhmPhbWShxUsP-n3O@mail.gmail.com>
+
++1
+
+-- Alexandre
+
+On Thu, May 20, 2010 at 1:28 PM, Mark Dickinson <dickinsm at gmail.com> wrote:
+> I propose that Alexander Belopolsky be given svn commit access. ?I've
+> already checked with him that he's interested (he is), and I'm
+> prepared to mentor him while he's learning the ropes.
+>
+> A brief history: Alexander's been contributing patches for almost
+> seven years (I think http://bugs.python.org/issue798269 is the first);
+> in that time he's provided numerous patches, comments, and patch
+> reviews. ?Just as a guide, a quick search on bugs.python.org shows
+> that he's nosy on over 200 issues. ?I've recently worked closely with
+> him on a couple of patches, and think he's ready for commit rights.
+>
+> In particular, I think it would be great to have his help with the
+> datetime module, which is in currently need of some care and
+> attention.
+>
+> Any objections or comments?
+>
+> Mark
+

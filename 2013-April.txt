@@ -1,0 +1,327 @@
+From solipsis at pitrou.net  Thu Apr  4 18:30:15 2013
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Thu, 4 Apr 2013 18:30:15 +0200 (CEST)
+Subject: [python-committers] Relicensing source code for inclusion in Python
+Message-ID: <9ceb8454f281a41397cd7a7f979e4d5c.squirrel@webmail.nerim.net>
+
+
+Hello,
+
+In http://bugs.python.org/issue17618, I proposed adding a base85
+implementation to Python. Mercurial already has one (under the GPL), so
+I wrote to the authors (Brendan Cully and Mads Kiilerich) and got their
+informal approval for relicensing and inclusion in Python.
+
+My question is the following: does anything formal need to be done to
+validate the relicensing? If yes, what?
+
+Thank you
+
+Antoine.
+
+
+
+From mal at egenix.com  Thu Apr  4 18:53:23 2013
+From: mal at egenix.com (M.-A. Lemburg)
+Date: Thu, 04 Apr 2013 18:53:23 +0200
+Subject: [python-committers] Relicensing source code for inclusion in
+ Python
+In-Reply-To: <9ceb8454f281a41397cd7a7f979e4d5c.squirrel@webmail.nerim.net>
+References: <9ceb8454f281a41397cd7a7f979e4d5c.squirrel@webmail.nerim.net>
+Message-ID: <515DB003.9030105@egenix.com>
+
+On 04.04.2013 18:30, Antoine Pitrou wrote:
+> 
+> Hello,
+> 
+> In http://bugs.python.org/issue17618, I proposed adding a base85
+> implementation to Python. Mercurial already has one (under the GPL), so
+> I wrote to the authors (Brendan Cully and Mads Kiilerich) and got their
+> informal approval for relicensing and inclusion in Python.
+> 
+> My question is the following: does anything formal need to be done to
+> validate the relicensing? If yes, what?
+
+They need to sign a contributor agreement and add the corrsponding
+note to the source code file(s). That's all that's needed.
+
+-- 
+Marc-Andre Lemburg
+eGenix.com
+
+Professional Python Services directly from the Source  (#1, Apr 04 2013)
+>>> Python Projects, Consulting and Support ...   http://www.egenix.com/
+>>> mxODBC.Zope/Plone.Database.Adapter ...       http://zope.egenix.com/
+>>> mxODBC, mxDateTime, mxTextTools ...        http://python.egenix.com/
+________________________________________________________________________
+2013-04-02: Released mxODBC Zope DA 2.1.1 ...     http://egenix.com/go41
+2013-03-25: Released mxODBC 3.2.2 ...             http://egenix.com/go40
+2013-04-10: Python Meeting Duesseldorf ...                  6 days to go
+
+   eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+    D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+           Registered at Amtsgericht Duesseldorf: HRB 46611
+               http://www.egenix.com/company/contact/
+
+From barry at python.org  Thu Apr  4 19:03:14 2013
+From: barry at python.org (Barry Warsaw)
+Date: Thu, 4 Apr 2013 13:03:14 -0400
+Subject: [python-committers] Relicensing source code for inclusion in
+ Python
+In-Reply-To: <9ceb8454f281a41397cd7a7f979e4d5c.squirrel@webmail.nerim.net>
+References: <9ceb8454f281a41397cd7a7f979e4d5c.squirrel@webmail.nerim.net>
+Message-ID: <20130404130314.1d3569c4@anarchist>
+
+On Apr 04, 2013, at 06:30 PM, Antoine Pitrou wrote:
+
+>In http://bugs.python.org/issue17618, I proposed adding a base85
+>implementation to Python. Mercurial already has one (under the GPL), so
+>I wrote to the authors (Brendan Cully and Mads Kiilerich) and got their
+>informal approval for relicensing and inclusion in Python.
+>
+>My question is the following: does anything formal need to be done to
+>validate the relicensing? If yes, what?
+
+That's a good question.  In optimism for a positive pronouncement, I'm
+preparing a 4.0 version of flufl.enum, which is currently LGPLv3+.  I intend
+to do the next release under an ASLv2.0 license in order to be compatible with
+the contributor agreement.  It's too much of a PITA for me to do dual licenses
+and since ASLv2.0 is GPL-compatible, that seems fine enough for me.
+
+Is that enough for contribution to Python?
+
+-Barry
+
+From michael at voidspace.org.uk  Thu Apr  4 19:08:27 2013
+From: michael at voidspace.org.uk (Michael Foord)
+Date: Thu, 4 Apr 2013 18:08:27 +0100
+Subject: [python-committers] Relicensing source code for inclusion in
+	Python
+In-Reply-To: <20130404130314.1d3569c4@anarchist>
+References: <9ceb8454f281a41397cd7a7f979e4d5c.squirrel@webmail.nerim.net>
+	<20130404130314.1d3569c4@anarchist>
+Message-ID: <4253F2CB-6E40-4B78-AFDC-CA049C526771@voidspace.org.uk>
+
+
+On 4 Apr 2013, at 18:03, Barry Warsaw <barry at python.org> wrote:
+
+> On Apr 04, 2013, at 06:30 PM, Antoine Pitrou wrote:
+> 
+>> In http://bugs.python.org/issue17618, I proposed adding a base85
+>> implementation to Python. Mercurial already has one (under the GPL), so
+>> I wrote to the authors (Brendan Cully and Mads Kiilerich) and got their
+>> informal approval for relicensing and inclusion in Python.
+>> 
+>> My question is the following: does anything formal need to be done to
+>> validate the relicensing? If yes, what?
+> 
+> That's a good question.  In optimism for a positive pronouncement, I'm
+> preparing a 4.0 version of flufl.enum, which is currently LGPLv3+.  I intend
+> to do the next release under an ASLv2.0 license in order to be compatible with
+> the contributor agreement.  It's too much of a PITA for me to do dual licenses
+> and since ASLv2.0 is GPL-compatible, that seems fine enough for me.
+> 
+> Is that enough for contribution to Python?
+> 
+
+
+If the copyright is owned by you then you can donate the code to Python under the Apache license (as per the contributor agreement) *and* release it separately under *whatever* license you want. No need to change the license.
+
+Michael
+
+> -Barry
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+
+
+--
+http://www.voidspace.org.uk/
+
+
+May you do good and not evil
+May you find forgiveness for yourself and forgive others
+May you share freely, never taking more than you give.
+-- the sqlite blessing 
+http://www.sqlite.org/different.html
+
+
+
+
+
+
+From barry at python.org  Thu Apr  4 19:38:58 2013
+From: barry at python.org (Barry Warsaw)
+Date: Thu, 4 Apr 2013 13:38:58 -0400
+Subject: [python-committers] Relicensing source code for inclusion in
+ Python
+In-Reply-To: <4253F2CB-6E40-4B78-AFDC-CA049C526771@voidspace.org.uk>
+References: <9ceb8454f281a41397cd7a7f979e4d5c.squirrel@webmail.nerim.net>
+	<20130404130314.1d3569c4@anarchist>
+	<4253F2CB-6E40-4B78-AFDC-CA049C526771@voidspace.org.uk>
+Message-ID: <20130404133858.6833eedb@anarchist>
+
+On Apr 04, 2013, at 06:08 PM, Michael Foord wrote:
+
+>If the copyright is owned by you then you can donate the code to Python under
+>the Apache license (as per the contributor agreement) *and* release it
+>separately under *whatever* license you want. No need to change the license.
+
+Cool.  Thanks.
+-Barry
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 836 bytes
+Desc: not available
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20130404/b4bb1ed9/attachment.pgp>
+
+From jcea at jcea.es  Thu Apr  4 21:07:29 2013
+From: jcea at jcea.es (Jesus Cea)
+Date: Thu, 04 Apr 2013 21:07:29 +0200
+Subject: [python-committers] Relicensing source code for inclusion in
+ Python
+In-Reply-To: <9ceb8454f281a41397cd7a7f979e4d5c.squirrel@webmail.nerim.net>
+References: <9ceb8454f281a41397cd7a7f979e4d5c.squirrel@webmail.nerim.net>
+Message-ID: <515DCF71.60606@jcea.es>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On 04/04/13 18:30, Antoine Pitrou wrote:
+> I wrote to the authors (Brendan Cully and Mads Kiilerich) and got
+> their informal approval for relicensing and inclusion in Python.
+
+They could sign the contributor agreement and then propose a patch for
+inclusion in Python.
+
+- -- 
+Jes?s Cea Avi?n                         _/_/      _/_/_/        _/_/_/
+jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+Twitter: @jcea                        _/_/    _/_/          _/_/_/_/_/
+jabber / xmpp:jcea at jabber.org  _/_/  _/_/    _/_/          _/_/  _/_/
+"Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+"My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+"El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.10 (GNU/Linux)
+Comment: Using GnuPG with Thunderbird - http://www.enigmail.net/
+
+iQCVAwUBUV3PcZlgi5GaxT1NAQJzqwP/XMfTfRH24Hmiw/jJvCDwDx8rw8QNtaEM
+otdofz8Mi51E979occ7PQYkVoN0kl3kgbXwF1EW+jTmbjY7TWbegWYlccmIXOLgF
+SXvTjbTEImdztBkwP2gMLaqlOQWlLSFiD8BHZVYuc3Cj9YYCRtfzEhIQ6FQLOEiE
+TABg40strgI=
+=5n/x
+-----END PGP SIGNATURE-----
+
+From tjreedy at udel.edu  Thu Apr  4 21:39:22 2013
+From: tjreedy at udel.edu (Terry Reedy)
+Date: Thu, 04 Apr 2013 15:39:22 -0400
+Subject: [python-committers] Relicensing source code for inclusion in
+	Python
+In-Reply-To: <515DB003.9030105@egenix.com>
+References: <9ceb8454f281a41397cd7a7f979e4d5c.squirrel@webmail.nerim.net>
+	<515DB003.9030105@egenix.com>
+Message-ID: <515DD6EA.1030803@udel.edu>
+
+On 4/4/2013 12:53 PM, M.-A. Lemburg wrote:
+> On 04.04.2013 18:30, Antoine Pitrou wrote:
+>> Hello,
+>>
+>> In http://bugs.python.org/issue17618, I proposed adding a base85
+>> implementation to Python. Mercurial already has one (under the GPL), so
+>> I wrote to the authors (Brendan Cully and Mads Kiilerich) and got their
+>> informal approval for relicensing and inclusion in Python.
+>>
+>> My question is the following: does anything formal need to be done to
+>> validate the relicensing? If yes, what?
+> They need to sign a contributor agreement and add the corrsponding
+> note to the source code file(s). That's all that's needed.
+>
+I believe license questions can also be directed to the new legal-sig list
+http://mail.python.org/mailman/listinfo/python-legal-sig
+
+From solipsis at pitrou.net  Thu Apr  4 21:45:48 2013
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Thu, 04 Apr 2013 21:45:48 +0200
+Subject: [python-committers] Relicensing source code for inclusion in
+ Python
+In-Reply-To: <515DD6EA.1030803@udel.edu>
+References: <9ceb8454f281a41397cd7a7f979e4d5c.squirrel@webmail.nerim.net>
+	<515DB003.9030105@egenix.com>  <515DD6EA.1030803@udel.edu>
+Message-ID: <1365104748.5674.0.camel@localhost.localdomain>
+
+Le jeudi 04 avril 2013 ? 15:39 -0400, Terry Reedy a ?crit :
+> On 4/4/2013 12:53 PM, M.-A. Lemburg wrote:
+> > On 04.04.2013 18:30, Antoine Pitrou wrote:
+> >> Hello,
+> >>
+> >> In http://bugs.python.org/issue17618, I proposed adding a base85
+> >> implementation to Python. Mercurial already has one (under the GPL), so
+> >> I wrote to the authors (Brendan Cully and Mads Kiilerich) and got their
+> >> informal approval for relicensing and inclusion in Python.
+> >>
+> >> My question is the following: does anything formal need to be done to
+> >> validate the relicensing? If yes, what?
+> > They need to sign a contributor agreement and add the corrsponding
+> > note to the source code file(s). That's all that's needed.
+> >
+> I believe license questions can also be directed to the new legal-sig list
+> http://mail.python.org/mailman/listinfo/python-legal-sig
+
+Thanks, I had forgotten about that.
+
+Regards
+
+Antoine.
+
+
+
+From georg at python.org  Sat Apr  6 22:43:11 2013
+From: georg at python.org (Georg Brandl)
+Date: Sat, 06 Apr 2013 22:43:11 +0200
+Subject: [python-committers] [RELEASED] Python 3.2.4 and Python 3.3.1
+Message-ID: <516088DF.5050303@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On behalf of the Python development team, I am pleased to announce the
+final releases of Python 3.2.4 and 3.3.1.
+
+Python 3.2.4 is the final regular maintenance release for the Python 3.2
+series, while Python 3.3.1 is the first maintenance release for the 3.3
+series.  Both releases include hundreds of bugfixes.
+
+There has recently been a lot of discussion about XML-based denial of service
+attacks. Specifically, certain XML files can cause XML parsers, including ones
+in the Python stdlib, to consume gigabytes of RAM and swamp the CPU. These
+releases do not include any changes in Python XML code to address these issues.
+Interested parties should examine the defusedxml package on PyPI:
+https://pypi.python.org/pypi/defusedxml
+
+To download Python 3.2.4 or Python 3.3.1, visit:
+
+    http://www.python.org/download/releases/3.2.4/  or
+    http://www.python.org/download/releases/3.3.1/
+
+respectively.  As always, please report bugs to
+
+    http://bugs.python.org/
+
+Enjoy!
+
+- -- 
+Georg Brandl, Release Manager
+georg at python.org
+(on behalf of the entire python-dev team and all contributors)
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v2.0.19 (GNU/Linux)
+
+iEYEARECAAYFAlFgiN8ACgkQN9GcIYhpnLAXxQCdHAd2lECpYfmYM4Wbd3I01es4
+898AoKBDvHtgecD/PeVRKUrdQRSWGPJg
+=K8RQ
+-----END PGP SIGNATURE-----
+

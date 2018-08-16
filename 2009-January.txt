@@ -1,0 +1,2553 @@
+From g.brandl at gmx.net  Mon Jan  5 00:22:41 2009
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Mon, 05 Jan 2009 00:22:41 +0100
+Subject: [python-committers] SVN pre-comit hook extended
+Message-ID: <gjrgcr$a4r$1@ger.gmane.org>
+
+Quick note:
+
+I've extended the pre-commit hook to also check documentation files (*.rst)
+for trailing whitespace and tabs.
+
+If you find a bug that doesn't let you commit legitimate content, please
+notify me.
+
+Thanks,
+Georg
+
+-- 
+Thus spake the Lord: Thou shalt indent with four spaces. No more, no less.
+Four shall be the number of spaces thou shalt indent, and the number of thy
+indenting shall be four. Eight shalt thou not indent, nor either indent thou
+two, excepting that thou then proceed to four. Tabs are right out.
+
+
+From benjamin at python.org  Mon Jan  5 00:28:59 2009
+From: benjamin at python.org (Benjamin Peterson)
+Date: Sun, 4 Jan 2009 17:28:59 -0600
+Subject: [python-committers] SVN pre-comit hook extended
+In-Reply-To: <gjrgcr$a4r$1@ger.gmane.org>
+References: <gjrgcr$a4r$1@ger.gmane.org>
+Message-ID: <1afaf6160901041528p1a9f524dq4fc8da40d45718d9@mail.gmail.com>
+
+On Sun, Jan 4, 2009 at 5:22 PM, Georg Brandl <g.brandl at gmx.net> wrote:
+> Quick note:
+>
+> I've extended the pre-commit hook to also check documentation files (*.rst)
+> for trailing whitespace and tabs.
+
+Does "make patchcheck" also run the whitespace checker?
+
+
+-- 
+Regards,
+Benjamin
+
+From guido at python.org  Sun Jan 25 18:12:37 2009
+From: guido at python.org (Guido van Rossum)
+Date: Sun, 25 Jan 2009 09:12:37 -0800
+Subject: [python-committers] Luke Kenneth
+Message-ID: <ca471dc20901250912v204e6025o2ec0cd92b17bd937@mail.gmail.com>
+
+Is anyone else frustrated by Luke Kenneth Casson Leighton's rants in
+python-dev? It seems he is living on another planet to me. Or am I
+seeing it all wrong?
+
+-- 
+--Guido van Rossum (home page: http://www.python.org/~guido/)
+
+From steve at holdenweb.com  Sun Jan 25 18:15:43 2009
+From: steve at holdenweb.com (Steve Holden)
+Date: Sun, 25 Jan 2009 12:15:43 -0500
+Subject: [python-committers] Luke Kenneth
+In-Reply-To: <ca471dc20901250912v204e6025o2ec0cd92b17bd937@mail.gmail.com>
+References: <ca471dc20901250912v204e6025o2ec0cd92b17bd937@mail.gmail.com>
+Message-ID: <497C9E3F.3030400@holdenweb.com>
+
+Guido van Rossum wrote:
+> Is anyone else frustrated by Luke Kenneth Casson Leighton's rants in
+> python-dev? It seems he is living on another planet to me. Or am I
+> seeing it all wrong?
+> 
+He seems rather misguided, and is being treated with great tolerance. I
+believe many of his posts also appear on comp.lang.python (where they
+appear to be mostly ignored).
+
+He's aiming at a worthy goal, but appears to be climbing up the learning
+curve rather tediously.
+
+regards
+ Steve
+-- 
+Steve Holden        +1 571 484 6266   +1 800 494 3119
+Holden Web LLC              http://www.holdenweb.com/
+
+
+From benjamin at python.org  Sun Jan 25 18:20:24 2009
+From: benjamin at python.org (Benjamin Peterson)
+Date: Sun, 25 Jan 2009 11:20:24 -0600
+Subject: [python-committers] Luke Kenneth
+In-Reply-To: <ca471dc20901250912v204e6025o2ec0cd92b17bd937@mail.gmail.com>
+References: <ca471dc20901250912v204e6025o2ec0cd92b17bd937@mail.gmail.com>
+Message-ID: <1afaf6160901250920r41564ca5s5d3dcd6e1c070991@mail.gmail.com>
+
+On Sun, Jan 25, 2009 at 11:12 AM, Guido van Rossum <guido at python.org> wrote:
+> Is anyone else frustrated by Luke Kenneth Casson Leighton's rants in
+> python-dev? It seems he is living on another planet to me. Or am I
+> seeing it all wrong?
+
+He also has annoying habit of "reopening" issues by duplicating
+another one when he disagrees with original's closure.
+
+
+
+-- 
+Regards,
+Benjamin
+
+From steve at holdenweb.com  Sun Jan 25 18:26:03 2009
+From: steve at holdenweb.com (Steve Holden)
+Date: Sun, 25 Jan 2009 12:26:03 -0500
+Subject: [python-committers] Luke Kenneth
+In-Reply-To: <497C9E3F.3030400@holdenweb.com>
+References: <ca471dc20901250912v204e6025o2ec0cd92b17bd937@mail.gmail.com>
+	<497C9E3F.3030400@holdenweb.com>
+Message-ID: <497CA0AB.8090308@holdenweb.com>
+
+Steve Holden wrote:
+> Guido van Rossum wrote:
+>> Is anyone else frustrated by Luke Kenneth Casson Leighton's rants in
+>> python-dev? It seems he is living on another planet to me. Or am I
+>> seeing it all wrong?
+>>
+> He seems rather misguided, and is being treated with great tolerance.
+
+And naturally as soon as I said this I saw that Matthieu Brucher had
+bitten his head off on the list.
+-- 
+Steve Holden        +1 571 484 6266   +1 800 494 3119
+Holden Web LLC              http://www.holdenweb.com/
+
+
+From lists at cheimes.de  Sun Jan 25 19:04:32 2009
+From: lists at cheimes.de (Christian Heimes)
+Date: Sun, 25 Jan 2009 19:04:32 +0100
+Subject: [python-committers] Luke Kenneth
+In-Reply-To: <ca471dc20901250912v204e6025o2ec0cd92b17bd937@mail.gmail.com>
+References: <ca471dc20901250912v204e6025o2ec0cd92b17bd937@mail.gmail.com>
+Message-ID: <497CA9B0.4020702@cheimes.de>
+
+Guido van Rossum schrieb:
+> Is anyone else frustrated by Luke Kenneth Casson Leighton's rants in
+> python-dev? It seems he is living on another planet to me. Or am I
+> seeing it all wrong?
+
+You are seeing it perfectly right. I'm astonished that nobody has
+reacted and kicked him from the list so far. I like to establish a
+police that comparing something to the Nazi regime has the same effect
+as using the word Jehova. Who likes to throw the first stone? :)
+
+Christian
+
+From guido at python.org  Sun Jan 25 19:26:44 2009
+From: guido at python.org (Guido van Rossum)
+Date: Sun, 25 Jan 2009 10:26:44 -0800
+Subject: [python-committers] Luke Kenneth
+In-Reply-To: <497C9E3F.3030400@holdenweb.com>
+References: <ca471dc20901250912v204e6025o2ec0cd92b17bd937@mail.gmail.com>
+	<497C9E3F.3030400@holdenweb.com>
+Message-ID: <ca471dc20901251026p1dc0eb6fmc9178ea6d5a00a7b@mail.gmail.com>
+
+On Sun, Jan 25, 2009 at 9:15 AM, Steve Holden <steve at holdenweb.com> wrote:
+> Guido van Rossum wrote:
+>> Is anyone else frustrated by Luke Kenneth Casson Leighton's rants in
+>> python-dev? It seems he is living on another planet to me. Or am I
+>> seeing it all wrong?
+>>
+> He seems rather misguided, and is being treated with great tolerance. I
+> believe many of his posts also appear on comp.lang.python (where they
+> appear to be mostly ignored).
+>
+> He's aiming at a worthy goal, but appears to be climbing up the learning
+> curve rather tediously.
+
+He's been on the learning curve forever. I don't think he's actually
+making progress.
+
+Anyone who feels like biting his head off, go for it.
+
+-- 
+--Guido van Rossum (home page: http://www.python.org/~guido/)
+
+From martin at v.loewis.de  Sun Jan 25 20:18:38 2009
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Sun, 25 Jan 2009 20:18:38 +0100
+Subject: [python-committers] Luke Kenneth
+In-Reply-To: <ca471dc20901251026p1dc0eb6fmc9178ea6d5a00a7b@mail.gmail.com>
+References: <ca471dc20901250912v204e6025o2ec0cd92b17bd937@mail.gmail.com>	<497C9E3F.3030400@holdenweb.com>
+	<ca471dc20901251026p1dc0eb6fmc9178ea6d5a00a7b@mail.gmail.com>
+Message-ID: <497CBB0E.7040800@v.loewis.de>
+
+> Anyone who feels like biting his head off, go for it.
+
+I think as a starting point, I'll revoke his access to the tracker
+(although I guess he'll create a new account in response).
+
+Regards,
+Martin
+
+From alexandre at peadrop.com  Sun Jan 25 20:29:52 2009
+From: alexandre at peadrop.com (Alexandre Vassalotti)
+Date: Sun, 25 Jan 2009 14:29:52 -0500
+Subject: [python-committers] Luke Kenneth
+In-Reply-To: <497CBB0E.7040800@v.loewis.de>
+References: <ca471dc20901250912v204e6025o2ec0cd92b17bd937@mail.gmail.com>
+	<497C9E3F.3030400@holdenweb.com>
+	<ca471dc20901251026p1dc0eb6fmc9178ea6d5a00a7b@mail.gmail.com>
+	<497CBB0E.7040800@v.loewis.de>
+Message-ID: <acd65fa20901251129l5079fdfh967142dfddce7aa9@mail.gmail.com>
+
+On Sun, Jan 25, 2009 at 2:18 PM, "Martin v. L?wis" <martin at v.loewis.de> wrote:
+>> Anyone who feels like biting his head off, go for it.
+>
+> I think as a starting point, I'll revoke his access to the tracker
+> (although I guess he'll create a new account in response).
+>
+
+Well. Maybe, it would be better to first explain him that he disturbs
+the project and to ask him nicely to stop. If that fails, then go
+ahead with the less friendly approach.
+
+-- Alexandre
+
+From martin at v.loewis.de  Sun Jan 25 20:41:55 2009
+From: martin at v.loewis.de (=?UTF-8?B?Ik1hcnRpbiB2LiBMw7Z3aXMi?=)
+Date: Sun, 25 Jan 2009 20:41:55 +0100
+Subject: [python-committers] Luke Kenneth
+In-Reply-To: <acd65fa20901251129l5079fdfh967142dfddce7aa9@mail.gmail.com>
+References: <ca471dc20901250912v204e6025o2ec0cd92b17bd937@mail.gmail.com>	
+	<497C9E3F.3030400@holdenweb.com>	
+	<ca471dc20901251026p1dc0eb6fmc9178ea6d5a00a7b@mail.gmail.com>	
+	<497CBB0E.7040800@v.loewis.de>
+	<acd65fa20901251129l5079fdfh967142dfddce7aa9@mail.gmail.com>
+Message-ID: <497CC083.1040008@v.loewis.de>
+
+Alexandre Vassalotti wrote:
+> On Sun, Jan 25, 2009 at 2:18 PM, "Martin v. L?wis" <martin at v.loewis.de> wrote:
+>>> Anyone who feels like biting his head off, go for it.
+>> I think as a starting point, I'll revoke his access to the tracker
+>> (although I guess he'll create a new account in response).
+>>
+> 
+> Well. Maybe, it would be better to first explain him that he disturbs
+> the project and to ask him nicely to stop. If that fails, then go
+> ahead with the less friendly approach.
+
+I've done that (in private mail). We'll see how it works out.
+
+Regards,
+Martin
+
+From doko at ubuntu.com  Sun Jan 25 14:40:07 2009
+From: doko at ubuntu.com (Matthias Klose)
+Date: Sun, 25 Jan 2009 14:40:07 +0100
+Subject: [python-committers] build dependency on the branches on sphinx
+	trunk necessary?
+Message-ID: <497C6BB7.8040008@ubuntu.com>
+
+Hi,
+
+the requirement to build the documentation using a sphinx version from the trunk
+was merged to at least the 2.6 branch. This is clearly not a bug fix. Is it
+really necessary to rely on a trunk/unreleased version? Would it be possible to
+revert this change?
+
+Background: The Debian distribution requires distribution of files which can be
+edited in the preferred format, which excludes generated documentation. I can
+pre-build the 2.6 documentation, and then include it in the so called "contrib"
+section of the archive, but I would like to see it available in the "main"
+section. Including a copy of the sphinx trunk in the python package uploaded to
+the distribution would be a hack around this (it is unlikely that the sphinx
+trunk version will be available in Debian).
+
+For python-2.5, Debian was not able to put the docs in the "main" section,
+because a build tool with (in the eyes of Debian) "non-free" license was used to
+build the docs. It is nice that this is fixed now, but for now one reason is
+exchanged by another one why we cannot move the docs to Debian's "main" section
+of the archive.
+
+  Matthias
+
+From g.brandl at gmx.net  Sun Jan 25 23:26:09 2009
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Sun, 25 Jan 2009 23:26:09 +0100
+Subject: [python-committers] Luke Kenneth
+In-Reply-To: <497CA9B0.4020702@cheimes.de>
+References: <ca471dc20901250912v204e6025o2ec0cd92b17bd937@mail.gmail.com>
+	<497CA9B0.4020702@cheimes.de>
+Message-ID: <gliou4$aih$1@ger.gmane.org>
+
+Christian Heimes schrieb:
+> Guido van Rossum schrieb:
+>> Is anyone else frustrated by Luke Kenneth Casson Leighton's rants in
+>> python-dev? It seems he is living on another planet to me. Or am I
+>> seeing it all wrong?
+> 
+> You are seeing it perfectly right. I'm astonished that nobody has
+> reacted and kicked him from the list so far. I like to establish a
+> police that comparing something to the Nazi regime has the same effect
+> as using the word Jehova. Who likes to throw the first stone? :)
+
+I'd never have expected the necessity of implementing Godwin's law on
+python-dev...
+
+:-)
+
+Georg
+
+
+-- 
+Thus spake the Lord: Thou shalt indent with four spaces. No more, no less.
+Four shall be the number of spaces thou shalt indent, and the number of thy
+indenting shall be four. Eight shalt thou not indent, nor either indent thou
+two, excepting that thou then proceed to four. Tabs are right out.
+
+
+From guido at python.org  Sun Jan 25 23:58:23 2009
+From: guido at python.org (Guido van Rossum)
+Date: Sun, 25 Jan 2009 14:58:23 -0800
+Subject: [python-committers] Luke Kenneth
+In-Reply-To: <gliou4$aih$1@ger.gmane.org>
+References: <ca471dc20901250912v204e6025o2ec0cd92b17bd937@mail.gmail.com>
+	<497CA9B0.4020702@cheimes.de> <gliou4$aih$1@ger.gmane.org>
+Message-ID: <ca471dc20901251458w644fa43kc5241193572c4fda@mail.gmail.com>
+
+Luke's tracker access has now been revoked, and he's been told
+multiple times by different people both publicly and privately that
+he's not welcome. I've warned him that if he keeps going on we'll have
+to invoke the Nazis.
+
+I certainly don't expect that he'll stop right away, but the best
+response in this case is none. Let's just delete his mail and
+eventually he'll go away. It'll be difficult -- he's already trying to
+make us feel guilty for not supporting free software enough. Arguing
+with him is like getting involved with quicksand, so let's just all
+ignore him, and it will tide over.
+
+-- 
+--Guido van Rossum (home page: http://www.python.org/~guido/)
+
+From skip at pobox.com  Mon Jan 26 03:46:30 2009
+From: skip at pobox.com (skip at pobox.com)
+Date: Sun, 25 Jan 2009 20:46:30 -0600
+Subject: [python-committers] Luke Kenneth
+In-Reply-To: <ca471dc20901251458w644fa43kc5241193572c4fda@mail.gmail.com>
+References: <ca471dc20901250912v204e6025o2ec0cd92b17bd937@mail.gmail.com>
+	<497CA9B0.4020702@cheimes.de> <gliou4$aih$1@ger.gmane.org>
+	<ca471dc20901251458w644fa43kc5241193572c4fda@mail.gmail.com>
+Message-ID: <18813.9222.662215.697899@montanaro.dyndns.org>
+
+
+    Guido> It'll be difficult -- he's already trying to make us feel guilty
+    Guido> for not supporting free software enough. Arguing with him is like
+    Guido> getting involved with quicksand, so let's just all ignore him,
+    Guido> and it will tide over.
+
+It's open source.  If he's so all-fired determined the current developers
+are doing everything wrong he's obviously welcome to fork the project.
+LPython anyone? <wink>
+
+Skip
+
+From ncoghlan at gmail.com  Mon Jan 26 13:39:54 2009
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Mon, 26 Jan 2009 22:39:54 +1000
+Subject: [python-committers] Luke Kenneth
+In-Reply-To: <ca471dc20901251458w644fa43kc5241193572c4fda@mail.gmail.com>
+References: <ca471dc20901250912v204e6025o2ec0cd92b17bd937@mail.gmail.com>	<497CA9B0.4020702@cheimes.de>
+	<gliou4$aih$1@ger.gmane.org>
+	<ca471dc20901251458w644fa43kc5241193572c4fda@mail.gmail.com>
+Message-ID: <497DAF1A.60106@gmail.com>
+
+Guido van Rossum wrote:
+> Arguing
+> with him is like getting involved with quicksand, so let's just all
+> ignore him, and it will tide over.
+
+While that's no doubt very good advice, I still couldn't resist
+commenting on the (to me) bizarre notion that supporting a non-free
+platform with free tools is somehow inherently better than using the
+native non-free tools appropriate to the platform...
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+---------------------------------------------------------------
+
+From steve at holdenweb.com  Mon Jan 26 13:58:06 2009
+From: steve at holdenweb.com (Steve Holden)
+Date: Mon, 26 Jan 2009 07:58:06 -0500
+Subject: [python-committers] Luke Kenneth
+In-Reply-To: <497DAF1A.60106@gmail.com>
+References: <ca471dc20901250912v204e6025o2ec0cd92b17bd937@mail.gmail.com>	<497CA9B0.4020702@cheimes.de>	<gliou4$aih$1@ger.gmane.org>	<ca471dc20901251458w644fa43kc5241193572c4fda@mail.gmail.com>
+	<497DAF1A.60106@gmail.com>
+Message-ID: <497DB35E.20104@holdenweb.com>
+
+Nick Coghlan wrote:
+> Guido van Rossum wrote:
+>> Arguing
+>> with him is like getting involved with quicksand, so let's just all
+>> ignore him, and it will tide over.
+> 
+> While that's no doubt very good advice, I still couldn't resist
+> commenting on the (to me) bizarre notion that supporting a non-free
+> platform with free tools is somehow inherently better than using the
+> native non-free tools appropriate to the platform...
+> 
+At least it won't make you go blind ...
+-- 
+Steve Holden        +1 571 484 6266   +1 800 494 3119
+Holden Web LLC              http://www.holdenweb.com/
+
+
+From guido at python.org  Mon Jan 26 18:57:26 2009
+From: guido at python.org (Guido van Rossum)
+Date: Mon, 26 Jan 2009 09:57:26 -0800
+Subject: [python-committers] build dependency on the branches on sphinx
+	trunk necessary?
+In-Reply-To: <497C6BB7.8040008@ubuntu.com>
+References: <497C6BB7.8040008@ubuntu.com>
+Message-ID: <ca471dc20901260957s7c4fdb75s9d02c2f0df59ae01@mail.gmail.com>
+
+I'm not sure I understand your request. Is it okay to build docs using
+a version of sphinx that is included in the distro? Is there a
+specific revision that you would like to see rolled back, or do you
+have a specific fix in mind? I suspect few people here understand the
+(apparently largely political) ins and outs of the rules that guard
+inclusion into Debian -- I certainly don't, and I don't have the time
+to become an expert in them. So rather than trying to explain the
+rules to us, could you make a specific suggestion of something we
+could *do* to fix your problem?
+
+--Guido
+
+On Sun, Jan 25, 2009 at 5:40 AM, Matthias Klose <doko at ubuntu.com> wrote:
+> Hi,
+>
+> the requirement to build the documentation using a sphinx version from the trunk
+> was merged to at least the 2.6 branch. This is clearly not a bug fix. Is it
+> really necessary to rely on a trunk/unreleased version? Would it be possible to
+> revert this change?
+>
+> Background: The Debian distribution requires distribution of files which can be
+> edited in the preferred format, which excludes generated documentation. I can
+> pre-build the 2.6 documentation, and then include it in the so called "contrib"
+> section of the archive, but I would like to see it available in the "main"
+> section. Including a copy of the sphinx trunk in the python package uploaded to
+> the distribution would be a hack around this (it is unlikely that the sphinx
+> trunk version will be available in Debian).
+>
+> For python-2.5, Debian was not able to put the docs in the "main" section,
+> because a build tool with (in the eyes of Debian) "non-free" license was used to
+> build the docs. It is nice that this is fixed now, but for now one reason is
+> exchanged by another one why we cannot move the docs to Debian's "main" section
+> of the archive.
+>
+>  Matthias
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+>
+
+
+
+-- 
+--Guido van Rossum (home page: http://www.python.org/~guido/)
+
+From guido at python.org  Mon Jan 26 22:49:21 2009
+From: guido at python.org (Guido van Rossum)
+Date: Mon, 26 Jan 2009 13:49:21 -0800
+Subject: [python-committers] build dependency on the branches on sphinx
+	trunk necessary?
+In-Reply-To: <497E2AD6.7080201@ubuntu.com>
+References: <497C6BB7.8040008@ubuntu.com>
+	<ca471dc20901260957s7c4fdb75s9d02c2f0df59ae01@mail.gmail.com>
+	<497E2AD6.7080201@ubuntu.com>
+Message-ID: <ca471dc20901261349j16db7e31xcde8d4e13acd6d0e@mail.gmail.com>
+
+On Mon, Jan 26, 2009 at 1:27 PM, Matthias Klose <doko at ubuntu.com> wrote:
+> Guido van Rossum schrieb:
+>> I'm not sure I understand your request. Is it okay to build docs using
+>> a version of sphinx that is included in the distro? Is there a
+>> specific revision that you would like to see rolled back, or do you
+>> have a specific fix in mind?
+>
+> the specific change was committed in r68428. I didn't check if reverting this
+> causes regressions in building the docs.
+>
+> A safe approach would be to only use build dependencies on a branch which were
+> released before the first release of the branch. I assume in this case, the
+> branch should stick with sphinx-0.5 and not rely on newer sphinx versions (or
+> sphinx dependencies which were released after the python-2.6.0 release).
+
+This seems rather restrictive. It would mean that if we found a bug in
+sphinx-0.5 that was fixed later in sphinx development we couldn't
+depend on the bug being fixed for the lifetime of Python 2.6, to
+satisfy this requirement. Ditto for new sphinx features that might
+make life easier for the doc authors, or in some cases enable new
+types of markup that would clarify the docs. It would make backporting
+doc-fixes from 2.7 harder too.
+
+I could live with "only depend on released versions of anything" but I
+don't think I could live with "don't depend on anything released after
+2.6.0 was released" (which IIUC is what you are proposing here).
+
+>> I suspect few people here understand the
+>> (apparently largely political) ins and outs of the rules that guard
+>> inclusion into Debian -- I certainly don't, and I don't have the time
+>> to become an expert in them. So rather than trying to explain the
+>> rules to us, could you make a specific suggestion of something we
+>> could *do* to fix your problem?
+>
+> please see the proposals above. I'm not sure about the best approach how to make
+> backporting to the branch as easy as possible.
+>
+>  Matthias
+>
+>> --Guido
+>>
+>> On Sun, Jan 25, 2009 at 5:40 AM, Matthias Klose <doko at ubuntu.com> wrote:
+>>> Hi,
+>>>
+>>> the requirement to build the documentation using a sphinx version from the trunk
+>>> was merged to at least the 2.6 branch. This is clearly not a bug fix. Is it
+>>> really necessary to rely on a trunk/unreleased version? Would it be possible to
+>>> revert this change?
+>>>
+>>> Background: The Debian distribution requires distribution of files which can be
+>>> edited in the preferred format, which excludes generated documentation. I can
+>>> pre-build the 2.6 documentation, and then include it in the so called "contrib"
+>>> section of the archive, but I would like to see it available in the "main"
+>>> section. Including a copy of the sphinx trunk in the python package uploaded to
+>>> the distribution would be a hack around this (it is unlikely that the sphinx
+>>> trunk version will be available in Debian).
+>>>
+>>> For python-2.5, Debian was not able to put the docs in the "main" section,
+>>> because a build tool with (in the eyes of Debian) "non-free" license was used to
+>>> build the docs. It is nice that this is fixed now, but for now one reason is
+>>> exchanged by another one why we cannot move the docs to Debian's "main" section
+>>> of the archive.
+>
+>
+
+
+
+-- 
+--Guido van Rossum (home page: http://www.python.org/~guido/)
+
+From doko at ubuntu.com  Mon Jan 26 22:27:50 2009
+From: doko at ubuntu.com (Matthias Klose)
+Date: Mon, 26 Jan 2009 22:27:50 +0100
+Subject: [python-committers] build dependency on the branches on sphinx
+ trunk necessary?
+In-Reply-To: <ca471dc20901260957s7c4fdb75s9d02c2f0df59ae01@mail.gmail.com>
+References: <497C6BB7.8040008@ubuntu.com>
+	<ca471dc20901260957s7c4fdb75s9d02c2f0df59ae01@mail.gmail.com>
+Message-ID: <497E2AD6.7080201@ubuntu.com>
+
+Guido van Rossum schrieb:
+> I'm not sure I understand your request. Is it okay to build docs using
+> a version of sphinx that is included in the distro? Is there a
+> specific revision that you would like to see rolled back, or do you
+> have a specific fix in mind?
+
+the specific change was committed in r68428. I didn't check if reverting this
+causes regressions in building the docs.
+
+A safe approach would be to only use build dependencies on a branch which were
+released before the first release of the branch. I assume in this case, the
+branch should stick with sphinx-0.5 and not rely on newer sphinx versions (or
+sphinx dependencies which were released after the python-2.6.0 release).
+
+> I suspect few people here understand the
+> (apparently largely political) ins and outs of the rules that guard
+> inclusion into Debian -- I certainly don't, and I don't have the time
+> to become an expert in them. So rather than trying to explain the
+> rules to us, could you make a specific suggestion of something we
+> could *do* to fix your problem?
+
+please see the proposals above. I'm not sure about the best approach how to make
+backporting to the branch as easy as possible.
+
+  Matthias
+
+> --Guido
+> 
+> On Sun, Jan 25, 2009 at 5:40 AM, Matthias Klose <doko at ubuntu.com> wrote:
+>> Hi,
+>>
+>> the requirement to build the documentation using a sphinx version from the trunk
+>> was merged to at least the 2.6 branch. This is clearly not a bug fix. Is it
+>> really necessary to rely on a trunk/unreleased version? Would it be possible to
+>> revert this change?
+>>
+>> Background: The Debian distribution requires distribution of files which can be
+>> edited in the preferred format, which excludes generated documentation. I can
+>> pre-build the 2.6 documentation, and then include it in the so called "contrib"
+>> section of the archive, but I would like to see it available in the "main"
+>> section. Including a copy of the sphinx trunk in the python package uploaded to
+>> the distribution would be a hack around this (it is unlikely that the sphinx
+>> trunk version will be available in Debian).
+>>
+>> For python-2.5, Debian was not able to put the docs in the "main" section,
+>> because a build tool with (in the eyes of Debian) "non-free" license was used to
+>> build the docs. It is nice that this is fixed now, but for now one reason is
+>> exchanged by another one why we cannot move the docs to Debian's "main" section
+>> of the archive.
+
+
+From doko at ubuntu.com  Mon Jan 26 22:59:40 2009
+From: doko at ubuntu.com (Matthias Klose)
+Date: Mon, 26 Jan 2009 22:59:40 +0100
+Subject: [python-committers] build dependency on the branches on sphinx
+ trunk necessary?
+In-Reply-To: <ca471dc20901261349j16db7e31xcde8d4e13acd6d0e@mail.gmail.com>
+References: <497C6BB7.8040008@ubuntu.com>	
+	<ca471dc20901260957s7c4fdb75s9d02c2f0df59ae01@mail.gmail.com>	
+	<497E2AD6.7080201@ubuntu.com>
+	<ca471dc20901261349j16db7e31xcde8d4e13acd6d0e@mail.gmail.com>
+Message-ID: <497E324C.7030901@ubuntu.com>
+
+Guido van Rossum schrieb:
+> On Mon, Jan 26, 2009 at 1:27 PM, Matthias Klose <doko at ubuntu.com> wrote:
+>> Guido van Rossum schrieb:
+>>> I'm not sure I understand your request. Is it okay to build docs using
+>>> a version of sphinx that is included in the distro? Is there a
+>>> specific revision that you would like to see rolled back, or do you
+>>> have a specific fix in mind?
+>> the specific change was committed in r68428. I didn't check if reverting this
+>> causes regressions in building the docs.
+>>
+>> A safe approach would be to only use build dependencies on a branch which were
+>> released before the first release of the branch. I assume in this case, the
+>> branch should stick with sphinx-0.5 and not rely on newer sphinx versions (or
+>> sphinx dependencies which were released after the python-2.6.0 release).
+> 
+> This seems rather restrictive. It would mean that if we found a bug in
+> sphinx-0.5 that was fixed later in sphinx development we couldn't
+> depend on the bug being fixed for the lifetime of Python 2.6, to
+> satisfy this requirement. Ditto for new sphinx features that might
+> make life easier for the doc authors, or in some cases enable new
+> types of markup that would clarify the docs. It would make backporting
+> doc-fixes from 2.7 harder too.
+
+the rationale for this proposal is that when a Linux distribution does freeze
+for a release, only bug fixes are allowed during the freeze until the release.
+If you do consider a new release on the branch as a bug fix release which can be
+allowed during a freeze, but it depends on a new upstream release of it's build
+dependencies we still cannot include it because of the tightened build dependency.
+
+> I could live with "only depend on released versions of anything" but I
+> don't think I could live with "don't depend on anything released after
+> 2.6.0 was released" (which IIUC is what you are proposing here).
+
+I could live with a "don't depend on anything released after 2.6.0 was released,
+unless it is a bug fix release", e.g. allowing sphinx-0.5.x releases (assuming
+these don't have new features).
+
+I don't know of any other open source software which allows unlimited changes on
+the build requirements in this way on a release branch.
+
+  Matthias
+
+>>> I suspect few people here understand the
+>>> (apparently largely political) ins and outs of the rules that guard
+>>> inclusion into Debian -- I certainly don't, and I don't have the time
+>>> to become an expert in them. So rather than trying to explain the
+>>> rules to us, could you make a specific suggestion of something we
+>>> could *do* to fix your problem?
+>> please see the proposals above. I'm not sure about the best approach how to make
+>> backporting to the branch as easy as possible.
+>>
+>>  Matthias
+>>
+>>> --Guido
+>>>
+>>> On Sun, Jan 25, 2009 at 5:40 AM, Matthias Klose <doko at ubuntu.com> wrote:
+>>>> Hi,
+>>>>
+>>>> the requirement to build the documentation using a sphinx version from the trunk
+>>>> was merged to at least the 2.6 branch. This is clearly not a bug fix. Is it
+>>>> really necessary to rely on a trunk/unreleased version? Would it be possible to
+>>>> revert this change?
+>>>>
+>>>> Background: The Debian distribution requires distribution of files which can be
+>>>> edited in the preferred format, which excludes generated documentation. I can
+>>>> pre-build the 2.6 documentation, and then include it in the so called "contrib"
+>>>> section of the archive, but I would like to see it available in the "main"
+>>>> section. Including a copy of the sphinx trunk in the python package uploaded to
+>>>> the distribution would be a hack around this (it is unlikely that the sphinx
+>>>> trunk version will be available in Debian).
+>>>>
+>>>> For python-2.5, Debian was not able to put the docs in the "main" section,
+>>>> because a build tool with (in the eyes of Debian) "non-free" license was used to
+>>>> build the docs. It is nice that this is fixed now, but for now one reason is
+>>>> exchanged by another one why we cannot move the docs to Debian's "main" section
+>>>> of the archive.
+>>
+> 
+> 
+> 
+
+
+From guido at python.org  Mon Jan 26 23:05:59 2009
+From: guido at python.org (Guido van Rossum)
+Date: Mon, 26 Jan 2009 14:05:59 -0800
+Subject: [python-committers] build dependency on the branches on sphinx
+	trunk necessary?
+In-Reply-To: <497E324C.7030901@ubuntu.com>
+References: <497C6BB7.8040008@ubuntu.com>
+	<ca471dc20901260957s7c4fdb75s9d02c2f0df59ae01@mail.gmail.com>
+	<497E2AD6.7080201@ubuntu.com>
+	<ca471dc20901261349j16db7e31xcde8d4e13acd6d0e@mail.gmail.com>
+	<497E324C.7030901@ubuntu.com>
+Message-ID: <ca471dc20901261405v3e5e1268t4ad053c89aebf18c@mail.gmail.com>
+
+On Mon, Jan 26, 2009 at 1:59 PM, Matthias Klose <doko at ubuntu.com> wrote:
+> Guido van Rossum schrieb:
+>> On Mon, Jan 26, 2009 at 1:27 PM, Matthias Klose <doko at ubuntu.com> wrote:
+>>> Guido van Rossum schrieb:
+>>>> I'm not sure I understand your request. Is it okay to build docs using
+>>>> a version of sphinx that is included in the distro? Is there a
+>>>> specific revision that you would like to see rolled back, or do you
+>>>> have a specific fix in mind?
+>>> the specific change was committed in r68428. I didn't check if reverting this
+>>> causes regressions in building the docs.
+>>>
+>>> A safe approach would be to only use build dependencies on a branch which were
+>>> released before the first release of the branch. I assume in this case, the
+>>> branch should stick with sphinx-0.5 and not rely on newer sphinx versions (or
+>>> sphinx dependencies which were released after the python-2.6.0 release).
+>>
+>> This seems rather restrictive. It would mean that if we found a bug in
+>> sphinx-0.5 that was fixed later in sphinx development we couldn't
+>> depend on the bug being fixed for the lifetime of Python 2.6, to
+>> satisfy this requirement. Ditto for new sphinx features that might
+>> make life easier for the doc authors, or in some cases enable new
+>> types of markup that would clarify the docs. It would make backporting
+>> doc-fixes from 2.7 harder too.
+>
+> the rationale for this proposal is that when a Linux distribution does freeze
+> for a release, only bug fixes are allowed during the freeze until the release.
+> If you do consider a new release on the branch as a bug fix release which can be
+> allowed during a freeze, but it depends on a new upstream release of it's build
+> dependencies we still cannot include it because of the tightened build dependency.
+>
+>> I could live with "only depend on released versions of anything" but I
+>> don't think I could live with "don't depend on anything released after
+>> 2.6.0 was released" (which IIUC is what you are proposing here).
+>
+> I could live with a "don't depend on anything released after 2.6.0 was released,
+> unless it is a bug fix release", e.g. allowing sphinx-0.5.x releases (assuming
+> these don't have new features).
+>
+> I don't know of any other open source software which allows unlimited changes on
+> the build requirements in this way on a release branch.
+
+I would agree with you if it was for stuff that matters to the runtime
+environment. But IMO this strict requirement doesn't make sense for
+documentation in micro-releases -- changes to the documentation don't
+matter for the runtime backwards compatibility. AFAIK we also don't
+block performance improvements in micro-releases (though you'd have to
+ask a release manager for the exact policy).
+
+Would it help if we started bundling the required version of sphinx with Python?
+
+In general I expect that you're not going to get a lot of help with
+this issue, since it sounds like typical "business as usual" in the
+weird and wonderful world that is Debian politics, and we have limited
+patience for that. We're all volunteers here too, and we're not really
+looking for more work. If Debian wants to ship with an outdated
+version of Python, it is free to do so.
+
+--Guido
+
+>  Matthias
+>
+>>>> I suspect few people here understand the
+>>>> (apparently largely political) ins and outs of the rules that guard
+>>>> inclusion into Debian -- I certainly don't, and I don't have the time
+>>>> to become an expert in them. So rather than trying to explain the
+>>>> rules to us, could you make a specific suggestion of something we
+>>>> could *do* to fix your problem?
+>>> please see the proposals above. I'm not sure about the best approach how to make
+>>> backporting to the branch as easy as possible.
+>>>
+>>>  Matthias
+>>>
+>>>> --Guido
+>>>>
+>>>> On Sun, Jan 25, 2009 at 5:40 AM, Matthias Klose <doko at ubuntu.com> wrote:
+>>>>> Hi,
+>>>>>
+>>>>> the requirement to build the documentation using a sphinx version from the trunk
+>>>>> was merged to at least the 2.6 branch. This is clearly not a bug fix. Is it
+>>>>> really necessary to rely on a trunk/unreleased version? Would it be possible to
+>>>>> revert this change?
+>>>>>
+>>>>> Background: The Debian distribution requires distribution of files which can be
+>>>>> edited in the preferred format, which excludes generated documentation. I can
+>>>>> pre-build the 2.6 documentation, and then include it in the so called "contrib"
+>>>>> section of the archive, but I would like to see it available in the "main"
+>>>>> section. Including a copy of the sphinx trunk in the python package uploaded to
+>>>>> the distribution would be a hack around this (it is unlikely that the sphinx
+>>>>> trunk version will be available in Debian).
+>>>>>
+>>>>> For python-2.5, Debian was not able to put the docs in the "main" section,
+>>>>> because a build tool with (in the eyes of Debian) "non-free" license was used to
+>>>>> build the docs. It is nice that this is fixed now, but for now one reason is
+>>>>> exchanged by another one why we cannot move the docs to Debian's "main" section
+>>>>> of the archive.
+>>>
+>>
+>>
+>>
+>
+>
+
+
+
+-- 
+--Guido van Rossum (home page: http://www.python.org/~guido/)
+
+From doko at debian.org  Mon Jan 26 23:26:46 2009
+From: doko at debian.org (Matthias Klose)
+Date: Mon, 26 Jan 2009 23:26:46 +0100
+Subject: [python-committers] build dependency on the branches on sphinx
+ trunk necessary?
+In-Reply-To: <ca471dc20901261405v3e5e1268t4ad053c89aebf18c@mail.gmail.com>
+References: <497C6BB7.8040008@ubuntu.com>	
+	<ca471dc20901260957s7c4fdb75s9d02c2f0df59ae01@mail.gmail.com>	
+	<497E2AD6.7080201@ubuntu.com>	
+	<ca471dc20901261349j16db7e31xcde8d4e13acd6d0e@mail.gmail.com>	
+	<497E324C.7030901@ubuntu.com>
+	<ca471dc20901261405v3e5e1268t4ad053c89aebf18c@mail.gmail.com>
+Message-ID: <497E38A6.5060104@debian.org>
+
+Guido van Rossum schrieb:
+> On Mon, Jan 26, 2009 at 1:59 PM, Matthias Klose <doko at ubuntu.com> wrote:
+>> Guido van Rossum schrieb:
+>>> On Mon, Jan 26, 2009 at 1:27 PM, Matthias Klose <doko at ubuntu.com> wrote:
+>>>> Guido van Rossum schrieb:
+>>>>> I'm not sure I understand your request. Is it okay to build docs using
+>>>>> a version of sphinx that is included in the distro? Is there a
+>>>>> specific revision that you would like to see rolled back, or do you
+>>>>> have a specific fix in mind?
+>>>> the specific change was committed in r68428. I didn't check if reverting this
+>>>> causes regressions in building the docs.
+>>>>
+>>>> A safe approach would be to only use build dependencies on a branch which were
+>>>> released before the first release of the branch. I assume in this case, the
+>>>> branch should stick with sphinx-0.5 and not rely on newer sphinx versions (or
+>>>> sphinx dependencies which were released after the python-2.6.0 release).
+>>> This seems rather restrictive. It would mean that if we found a bug in
+>>> sphinx-0.5 that was fixed later in sphinx development we couldn't
+>>> depend on the bug being fixed for the lifetime of Python 2.6, to
+>>> satisfy this requirement. Ditto for new sphinx features that might
+>>> make life easier for the doc authors, or in some cases enable new
+>>> types of markup that would clarify the docs. It would make backporting
+>>> doc-fixes from 2.7 harder too.
+>> the rationale for this proposal is that when a Linux distribution does freeze
+>> for a release, only bug fixes are allowed during the freeze until the release.
+>> If you do consider a new release on the branch as a bug fix release which can be
+>> allowed during a freeze, but it depends on a new upstream release of it's build
+>> dependencies we still cannot include it because of the tightened build dependency.
+>>
+>>> I could live with "only depend on released versions of anything" but I
+>>> don't think I could live with "don't depend on anything released after
+>>> 2.6.0 was released" (which IIUC is what you are proposing here).
+>> I could live with a "don't depend on anything released after 2.6.0 was released,
+>> unless it is a bug fix release", e.g. allowing sphinx-0.5.x releases (assuming
+>> these don't have new features).
+>>
+>> I don't know of any other open source software which allows unlimited changes on
+>> the build requirements in this way on a release branch.
+> 
+> I would agree with you if it was for stuff that matters to the runtime
+> environment. But IMO this strict requirement doesn't make sense for
+> documentation in micro-releases -- changes to the documentation don't
+> matter for the runtime backwards compatibility. AFAIK we also don't
+> block performance improvements in micro-releases (though you'd have to
+> ask a release manager for the exact policy).
+> 
+> Would it help if we started bundling the required version of sphinx with Python?
+
+yes, it definitely would help, including the dependencies needed by sphinx.
+
+> In general I expect that you're not going to get a lot of help with
+> this issue, since it sounds like typical "business as usual" in the
+> weird and wonderful world that is Debian politics, and we have limited
+> patience for that.
+
+you may call it politics, I call it reproducabilty of the build with a set of
+requirements. the limitation on "runtime backwards compatibility" could allow
+changes of the test environment as well, which might introduce noise in the
+testsuite, having to investigate about a regression in the runtime or the
+testsuite. I do see your point, but from the Debian point of view I do disagree.
+
+> We're all volunteers here too, and we're not really
+> looking for more work. If Debian wants to ship with an outdated
+> version of Python, it is free to do so.
+
+your conclusion is wrong. Debian does want to ship with the most recent Python
+version released before a Debian freeze.
+
+  Matthias
+
+> --Guido
+> 
+>>  Matthias
+>>
+>>>>> I suspect few people here understand the
+>>>>> (apparently largely political) ins and outs of the rules that guard
+>>>>> inclusion into Debian -- I certainly don't, and I don't have the time
+>>>>> to become an expert in them. So rather than trying to explain the
+>>>>> rules to us, could you make a specific suggestion of something we
+>>>>> could *do* to fix your problem?
+>>>> please see the proposals above. I'm not sure about the best approach how to make
+>>>> backporting to the branch as easy as possible.
+>>>>
+>>>>  Matthias
+>>>>
+>>>>> --Guido
+>>>>>
+>>>>> On Sun, Jan 25, 2009 at 5:40 AM, Matthias Klose <doko at ubuntu.com> wrote:
+>>>>>> Hi,
+>>>>>>
+>>>>>> the requirement to build the documentation using a sphinx version from the trunk
+>>>>>> was merged to at least the 2.6 branch. This is clearly not a bug fix. Is it
+>>>>>> really necessary to rely on a trunk/unreleased version? Would it be possible to
+>>>>>> revert this change?
+>>>>>>
+>>>>>> Background: The Debian distribution requires distribution of files which can be
+>>>>>> edited in the preferred format, which excludes generated documentation. I can
+>>>>>> pre-build the 2.6 documentation, and then include it in the so called "contrib"
+>>>>>> section of the archive, but I would like to see it available in the "main"
+>>>>>> section. Including a copy of the sphinx trunk in the python package uploaded to
+>>>>>> the distribution would be a hack around this (it is unlikely that the sphinx
+>>>>>> trunk version will be available in Debian).
+>>>>>>
+>>>>>> For python-2.5, Debian was not able to put the docs in the "main" section,
+>>>>>> because a build tool with (in the eyes of Debian) "non-free" license was used to
+>>>>>> build the docs. It is nice that this is fixed now, but for now one reason is
+>>>>>> exchanged by another one why we cannot move the docs to Debian's "main" section
+>>>>>> of the archive.
+>>>
+>>>
+>>
+> 
+> 
+> 
+
+
+From guido at python.org  Mon Jan 26 23:49:00 2009
+From: guido at python.org (Guido van Rossum)
+Date: Mon, 26 Jan 2009 14:49:00 -0800
+Subject: [python-committers] build dependency on the branches on sphinx
+	trunk necessary?
+In-Reply-To: <497E38A6.5060104@debian.org>
+References: <497C6BB7.8040008@ubuntu.com>
+	<ca471dc20901260957s7c4fdb75s9d02c2f0df59ae01@mail.gmail.com>
+	<497E2AD6.7080201@ubuntu.com>
+	<ca471dc20901261349j16db7e31xcde8d4e13acd6d0e@mail.gmail.com>
+	<497E324C.7030901@ubuntu.com>
+	<ca471dc20901261405v3e5e1268t4ad053c89aebf18c@mail.gmail.com>
+	<497E38A6.5060104@debian.org>
+Message-ID: <ca471dc20901261449r3e53db95g457c29e5364ceea0@mail.gmail.com>
+
+On Mon, Jan 26, 2009 at 2:26 PM, Matthias Klose <doko at debian.org> wrote:
+> Guido van Rossum schrieb:
+>> On Mon, Jan 26, 2009 at 1:59 PM, Matthias Klose <doko at ubuntu.com> wrote:
+>>> Guido van Rossum schrieb:
+>>>> On Mon, Jan 26, 2009 at 1:27 PM, Matthias Klose <doko at ubuntu.com> wrote:
+>>>>> Guido van Rossum schrieb:
+>>>>>> I'm not sure I understand your request. Is it okay to build docs using
+>>>>>> a version of sphinx that is included in the distro? Is there a
+>>>>>> specific revision that you would like to see rolled back, or do you
+>>>>>> have a specific fix in mind?
+>>>>> the specific change was committed in r68428. I didn't check if reverting this
+>>>>> causes regressions in building the docs.
+>>>>>
+>>>>> A safe approach would be to only use build dependencies on a branch which were
+>>>>> released before the first release of the branch. I assume in this case, the
+>>>>> branch should stick with sphinx-0.5 and not rely on newer sphinx versions (or
+>>>>> sphinx dependencies which were released after the python-2.6.0 release).
+>>>> This seems rather restrictive. It would mean that if we found a bug in
+>>>> sphinx-0.5 that was fixed later in sphinx development we couldn't
+>>>> depend on the bug being fixed for the lifetime of Python 2.6, to
+>>>> satisfy this requirement. Ditto for new sphinx features that might
+>>>> make life easier for the doc authors, or in some cases enable new
+>>>> types of markup that would clarify the docs. It would make backporting
+>>>> doc-fixes from 2.7 harder too.
+>>> the rationale for this proposal is that when a Linux distribution does freeze
+>>> for a release, only bug fixes are allowed during the freeze until the release.
+>>> If you do consider a new release on the branch as a bug fix release which can be
+>>> allowed during a freeze, but it depends on a new upstream release of it's build
+>>> dependencies we still cannot include it because of the tightened build dependency.
+>>>
+>>>> I could live with "only depend on released versions of anything" but I
+>>>> don't think I could live with "don't depend on anything released after
+>>>> 2.6.0 was released" (which IIUC is what you are proposing here).
+>>> I could live with a "don't depend on anything released after 2.6.0 was released,
+>>> unless it is a bug fix release", e.g. allowing sphinx-0.5.x releases (assuming
+>>> these don't have new features).
+>>>
+>>> I don't know of any other open source software which allows unlimited changes on
+>>> the build requirements in this way on a release branch.
+>>
+>> I would agree with you if it was for stuff that matters to the runtime
+>> environment. But IMO this strict requirement doesn't make sense for
+>> documentation in micro-releases -- changes to the documentation don't
+>> matter for the runtime backwards compatibility. AFAIK we also don't
+>> block performance improvements in micro-releases (though you'd have to
+>> ask a release manager for the exact policy).
+>>
+>> Would it help if we started bundling the required version of sphinx with Python?
+>
+> yes, it definitely would help, including the dependencies needed by sphinx.
+
+Let's see if Georg has any comments on that.
+
+>> In general I expect that you're not going to get a lot of help with
+>> this issue, since it sounds like typical "business as usual" in the
+>> weird and wonderful world that is Debian politics, and we have limited
+>> patience for that.
+>
+> you may call it politics, I call it reproducabilty of the build with a set of
+> requirements. the limitation on "runtime backwards compatibility" could allow
+> changes of the test environment as well, which might introduce noise in the
+> testsuite, having to investigate about a regression in the runtime or the
+> testsuite. I do see your point, but from the Debian point of view I do disagree.
+
+Too bad.
+
+>> We're all volunteers here too, and we're not really
+>> looking for more work. If Debian wants to ship with an outdated
+>> version of Python, it is free to do so.
+>
+> your conclusion is wrong. Debian does want to ship with the most recent Python
+> version released before a Debian freeze.
+
+What conclusion? My use of "if" clearly indicated that I was speaking
+hypothetically.
+
+>  Matthias
+>
+>> --Guido
+>>
+>>>  Matthias
+>>>
+>>>>>> I suspect few people here understand the
+>>>>>> (apparently largely political) ins and outs of the rules that guard
+>>>>>> inclusion into Debian -- I certainly don't, and I don't have the time
+>>>>>> to become an expert in them. So rather than trying to explain the
+>>>>>> rules to us, could you make a specific suggestion of something we
+>>>>>> could *do* to fix your problem?
+>>>>> please see the proposals above. I'm not sure about the best approach how to make
+>>>>> backporting to the branch as easy as possible.
+>>>>>
+>>>>>  Matthias
+>>>>>
+>>>>>> --Guido
+>>>>>>
+>>>>>> On Sun, Jan 25, 2009 at 5:40 AM, Matthias Klose <doko at ubuntu.com> wrote:
+>>>>>>> Hi,
+>>>>>>>
+>>>>>>> the requirement to build the documentation using a sphinx version from the trunk
+>>>>>>> was merged to at least the 2.6 branch. This is clearly not a bug fix. Is it
+>>>>>>> really necessary to rely on a trunk/unreleased version? Would it be possible to
+>>>>>>> revert this change?
+>>>>>>>
+>>>>>>> Background: The Debian distribution requires distribution of files which can be
+>>>>>>> edited in the preferred format, which excludes generated documentation. I can
+>>>>>>> pre-build the 2.6 documentation, and then include it in the so called "contrib"
+>>>>>>> section of the archive, but I would like to see it available in the "main"
+>>>>>>> section. Including a copy of the sphinx trunk in the python package uploaded to
+>>>>>>> the distribution would be a hack around this (it is unlikely that the sphinx
+>>>>>>> trunk version will be available in Debian).
+>>>>>>>
+>>>>>>> For python-2.5, Debian was not able to put the docs in the "main" section,
+>>>>>>> because a build tool with (in the eyes of Debian) "non-free" license was used to
+>>>>>>> build the docs. It is nice that this is fixed now, but for now one reason is
+>>>>>>> exchanged by another one why we cannot move the docs to Debian's "main" section
+>>>>>>> of the archive.
+>>>>
+>>>>
+>>>
+>>
+>>
+>>
+>
+>
+
+
+
+-- 
+--Guido van Rossum (home page: http://www.python.org/~guido/)
+
+From g.brandl at gmx.net  Tue Jan 27 00:08:34 2009
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Tue, 27 Jan 2009 00:08:34 +0100
+Subject: [python-committers] build dependency on the branches on sphinx
+	trunk necessary?
+In-Reply-To: <497E2AD6.7080201@ubuntu.com>
+References: <497C6BB7.8040008@ubuntu.com>	<ca471dc20901260957s7c4fdb75s9d02c2f0df59ae01@mail.gmail.com>
+	<497E2AD6.7080201@ubuntu.com>
+Message-ID: <gllfpi$dgf$1@ger.gmane.org>
+
+Matthias Klose schrieb:
+> Guido van Rossum schrieb:
+>> I'm not sure I understand your request. Is it okay to build docs using
+>> a version of sphinx that is included in the distro? Is there a
+>> specific revision that you would like to see rolled back, or do you
+>> have a specific fix in mind?
+> 
+> the specific change was committed in r68428. I didn't check if reverting this
+> causes regressions in building the docs.
+
+It doesn't; I've successfully built the docs with Sphinx 0.5.1+ after
+reintroducing the try/except guards, so I've committed that as r68984.
+
+> A safe approach would be to only use build dependencies on a branch which were
+> released before the first release of the branch. I assume in this case, the
+> branch should stick with sphinx-0.5 and not rely on newer sphinx versions (or
+> sphinx dependencies which were released after the python-2.6.0 release).
+
+Since I can't guarantee that everyone will keep to 0.5 compatibility,
+it would be great if you could feel responsible for checking that it is
+still given from time to time.
+
+Georg
+
+
+From greg at krypto.org  Tue Jan 27 00:47:29 2009
+From: greg at krypto.org (Gregory P. Smith)
+Date: Mon, 26 Jan 2009 15:47:29 -0800
+Subject: [python-committers] build dependency on the branches on sphinx
+	trunk necessary?
+In-Reply-To: <497E324C.7030901@ubuntu.com>
+References: <497C6BB7.8040008@ubuntu.com>
+	<ca471dc20901260957s7c4fdb75s9d02c2f0df59ae01@mail.gmail.com>
+	<497E2AD6.7080201@ubuntu.com>
+	<ca471dc20901261349j16db7e31xcde8d4e13acd6d0e@mail.gmail.com>
+	<497E324C.7030901@ubuntu.com>
+Message-ID: <52dc1c820901261547k396470acuf0060ed6d86f3413@mail.gmail.com>
+
+On Mon, Jan 26, 2009 at 1:59 PM, Matthias Klose <doko at ubuntu.com> wrote:
+
+> Guido van Rossum schrieb:
+> > On Mon, Jan 26, 2009 at 1:27 PM, Matthias Klose <doko at ubuntu.com> wrote:
+> >> Guido van Rossum schrieb:
+> >>> I'm not sure I understand your request. Is it okay to build docs using
+> >>> a version of sphinx that is included in the distro? Is there a
+> >>> specific revision that you would like to see rolled back, or do you
+> >>> have a specific fix in mind?
+> >> the specific change was committed in r68428. I didn't check if reverting
+> this
+> >> causes regressions in building the docs.
+> >>
+> >> A safe approach would be to only use build dependencies on a branch
+> which were
+> >> released before the first release of the branch. I assume in this case,
+> the
+> >> branch should stick with sphinx-0.5 and not rely on newer sphinx
+> versions (or
+> >> sphinx dependencies which were released after the python-2.6.0 release).
+> >
+> > This seems rather restrictive. It would mean that if we found a bug in
+> > sphinx-0.5 that was fixed later in sphinx development we couldn't
+> > depend on the bug being fixed for the lifetime of Python 2.6, to
+> > satisfy this requirement. Ditto for new sphinx features that might
+> > make life easier for the doc authors, or in some cases enable new
+> > types of markup that would clarify the docs. It would make backporting
+> > doc-fixes from 2.7 harder too.
+>
+> the rationale for this proposal is that when a Linux distribution does
+> freeze
+> for a release, only bug fixes are allowed during the freeze until the
+> release.
+> If you do consider a new release on the branch as a bug fix release which
+> can be
+> allowed during a freeze, but it depends on a new upstream release of it's
+> build
+> dependencies we still cannot include it because of the tightened build
+> dependency.
+
+
+Chances are very high that if you grab a copy of sphinx from svn on the date
+of the python X.Y release in question that the docs for any updates to that
+.Y release will always build using that sphinx.  If not, its up to you as
+the interested party to fix/patch them.  I doubt that'll be much work.
+
+
+>
+> > I could live with "only depend on released versions of anything" but I
+> > don't think I could live with "don't depend on anything released after
+> > 2.6.0 was released" (which IIUC is what you are proposing here).
+>
+> I could live with a "don't depend on anything released after 2.6.0 was
+> released,
+> unless it is a bug fix release", e.g. allowing sphinx-0.5.x releases
+> (assuming
+> these don't have new features).
+>
+> I don't know of any other open source software which allows unlimited
+> changes on
+> the build requirements in this way on a release branch.
+
+
+As a developer I don't consider the documentation to be a critical part of
+the build since it isn't strictly tied to a particular release of python,
+afaict they're only -guaranteed- to build using a sphinx available at the
+time of any given release because that is what was used to make the release.
+ Nothing else.
+
+Bundling the required version of sphinx with future Python releases as Guido
+suggests is not a bad idea.
+
+If you want to pick a sphinx version to use with a particular python build,
+find the date of the release tag for that python version and sync to sphinx
+at that date.  It'll be up to you (debian package maintainers) to make sure
+that the docs keep building with that version of sphinx within that release
+branch.  That could involve patches if someone commits something that breaks
+your assumption.  But lets be realistic: documentation changes post-release
+are rare.  It won't be much, if any, work for the debian package maintainer.
+
+-Greg
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20090126/9635039b/attachment-0001.htm>
+
+From python-committers-list at trentnelson.com  Tue Jan 27 00:32:46 2009
+From: python-committers-list at trentnelson.com (Trent Nelson)
+Date: Mon, 26 Jan 2009 23:32:46 +0000
+Subject: [python-committers] I've got a surprise for you!
+Message-ID: <20090126233246.GA37662@wind.teleri.net>
+
+    Catchy subject eh?  Unless, of course, you've seen Forgetting Sarah
+    Marshall, in which case, it's probably a tad disturbing.
+
+    Nevertheless, I do have a surprise for everyone.  I spent a lot of
+    time early last year trying to keep the buildbots green, especially
+    the x64 Windows ones.  This was quite enjoyable, at least initially.
+
+    By the time I got back to London after PyCon last year, the buildbot
+    honeymoon was wearing off.  As there's usually only one person that
+    has access to a given buildbot, and that person is rarely you, it 
+    can be a right pain in the ass trying to debug problems you can't
+    reproduce on platforms you don't have access to (especially if all
+    you've got is an error message that doesn't make sense).  
+
+    I was convinced there must be a better way.
+
+    Around mid-April, the buildbot on my FreeBSD 6.x box I had recently
+    set up kept failing on on setitimer tests.  I received an email from
+    a chap named Guilherme Polo who had seen the buildbot test failures
+    and wanted to assist.  I was swamped with client work at the time; I
+    wasn't able to run any of the test scripts he sent me, but, hey, he
+    seemed like a nice chap, so I thought what the hell, and just gave
+    him an account on the box and checked out a copy of trunk in his
+    home directory.
+
+    Now, mind you, this was before Guilherme was a committer; I didn't
+    know the guy from a bar of soap.  For all I knew, he could have been
+    using the shell account to launch a massive DDoS or phishing scam.
+
+    However, no more than five minutes after I created his account, he'd
+    diagnosed the problem, replicated the behaviour in a C program, and,
+    with a bit of googling, figured out what was wrong and proposed a
+    fix.
+
+    And that's when it hit me.  Buildbots are fine when everything is
+    running smoothly, but nothing compares to actually having access to
+    a system when you're trying to debug something. 
+    
+    So, I thought to myself, why not buy a couple of clunky old boxes
+    off eBay and donate them to the PSF, such that all developers had
+    access to them?  I dropped a note to Guido and Neal, they put me
+    in touch with Titus, who had just accepted a position at Michigan
+    State, and, well...
+
+    Ten months, seven trips to MSU, six blown fuses and about $60,000
+    later, I'm proud to introduce you all to Snakebite: The Open Network!
+    A network of around 37-ish servers of all different shapes and sizes, 
+    spread over three sites, specifically geared towards the needs of
+    open source projects like Python.
+
+    Every CPython, Jython, IronPython and PyPy committer will have access 
+    to every development server on the network.  I've also extended the
+    offer to prominent Python projects like Django and Twisted.
+    
+    Eventually, I'll invite other open source projects to participate
+    (Apache, Subversion, MySQL, Postgres, etc), but the network is my 
+    gift to All Things Python, first and foremost, so Python projects
+    will always get preferential treatment.
+    
+    Support for the initiative so far has been nothing short of sublime.
+
+    Microsoft jumped on board and provided unlimited MSDN licenses in
+    less time than it took me to write them an e-mail asking for stuff.
+
+    I sent HP an e-mail asking if they could spare a Tru64 license, and
+    maybe 2GB of RAM for an extremely crappy Itanium box I bought off
+    eBay.  They saw my Tru64 license request and raised with media and
+    licenses to the latest version of HP-UX.
+    
+    Unfortunately, it was too much trouble for them to try and source
+    2GB of RAM for the Itanium I bought.  So, instead, they shipped two
+    massive quad Itanium 2 RX-5670s, chock full of 73GB 15k disks and
+    no less than 78GB of RAM between the two servers; 32GB in one and
+    46GB in the other.  Well then.
+    
+    (I'd hate to think what would have turned up had I asked them for
+    two quad Itanium monsters.)
+
+    Sun, Google and Canonical have also expressed a lot of interest in
+    the project -- I stopped asking for hardware a while back though as
+    we've literally run out of space to host it all.
+
+    The website is live, but the content is a bit sparse at the moment,
+    excluding the poorly worded front page and the reasonably accurate
+    network page:
+        http://www.snakebite.org
+        http://www.snakebite.org/network
+
+    It'll probably be a few weeks before you can start logging in and
+    doing stuff.  The HPCC/CSE server room at MSU is about to have walls
+    knocked in and ramps built in order to accommodate a giant PDU that
+    has been sitting outside it for about six months; the Snakebite rack
+    is going to get shuffled around a bit so I figure there's not much
+    point going live before that's taken care of.
+
+    Other than that, I'm just happy to get this off my chest, ten months
+    is a freakin' long time to try and keep something like this a secret
+    ;-)
+
+    Thanks to everyone who has contributed so far.  Titus, Bill, Adam,
+    Kelly, George: Snakebite wouldn't be anything more than a twinkle
+    in my eye if it weren't for the support MSU has thrown behind the
+    project, thank you for all your efforts to date.  Hank, Garrett and
+    Sam: having the support of Microsoft from very early on has been a
+    huge boost and the MSDN licenses have already been invaluable.  Bob,
+    well, what can I say, there was a period there where every e-mail
+    thread between us seemed to result in something being shipped from
+    HP to MSU; thanks to you and HP's open source labs.
+
+    And last but not least, thanks to Guido and all the Python committers
+    for their tireless efforts to date.  Although the sheer elegance of
+    the language is what initially attracted me to Python, it was the 
+    developer community that made me want to stick around.
+
+    Snakebite is my gift to you! 
+
+
+        Trent.
+
+From hjanssen at microsoft.com  Tue Jan 27 00:41:00 2009
+From: hjanssen at microsoft.com (Hank Janssen)
+Date: Mon, 26 Jan 2009 15:41:00 -0800
+Subject: [python-committers] I've got a surprise for you!
+In-Reply-To: <20090126233246.GA37662@wind.teleri.net>
+References: <20090126233246.GA37662@wind.teleri.net>
+Message-ID: <CCE395E9AD75B84DB3DAEC199504F36B3CF9DF301B@NA-EXMSG-C102.redmond.corp.microsoft.com>
+
+
+
+Trent,
+
+Congrats on the current state of the project, you went quite a ways in a very short amount of time.
+
+And I am glad we were able to assist you.
+
+Thanks,
+
+
+Hank Janssen
+Principal Group Program Manager/Director
+Microsoft Open Source Technology Center
+Desk: 425-706-2305
+hjanssen at microsoft.com
+http://port25.technet.com
+
+
+
+
+-----Original Message-----
+From: Trent Nelson [mailto:python-committers-list at trentnelson.com] 
+Sent: Monday, January 26, 2009 3:33 PM
+To: python-committers at python.org
+Cc: bob.gobeille at hp.com; titus at idyll.org; glynn.foster at sun.com; jim.walker at sun.com; ted.leung at sun.com; Frank.Wierzbicki at Sun.COM; Hank Janssen; Garrett Serack; punch at cse.msu.edu; Sam Ramji; Chip Norkus; Dino Viehland; Jimmy Schementi; Dave Fugate; stockman at cse.msu.edu; pitcher2 at cse.msu.edu; tnelson at onresolve.com; mark at canonical.com; exarkun at divmod.com; gylph at divmod.com; lhawthorn at google.com; doko at ubuntu.com; fuzzyman at voidspace.org.uk; oubiwann at divmod.com; jacob.kaplanmoss at gmail.com; psf at python.org; climber at cse.msu.edu
+Subject: I've got a surprise for you!
+
+    Catchy subject eh?  Unless, of course, you've seen Forgetting Sarah
+    Marshall, in which case, it's probably a tad disturbing.
+
+    Nevertheless, I do have a surprise for everyone.  I spent a lot of
+    time early last year trying to keep the buildbots green, especially
+    the x64 Windows ones.  This was quite enjoyable, at least initially.
+
+    By the time I got back to London after PyCon last year, the buildbot
+    honeymoon was wearing off.  As there's usually only one person that
+    has access to a given buildbot, and that person is rarely you, it 
+    can be a right pain in the ass trying to debug problems you can't
+    reproduce on platforms you don't have access to (especially if all
+    you've got is an error message that doesn't make sense).  
+
+    I was convinced there must be a better way.
+
+    Around mid-April, the buildbot on my FreeBSD 6.x box I had recently
+    set up kept failing on on setitimer tests.  I received an email from
+    a chap named Guilherme Polo who had seen the buildbot test failures
+    and wanted to assist.  I was swamped with client work at the time; I
+    wasn't able to run any of the test scripts he sent me, but, hey, he
+    seemed like a nice chap, so I thought what the hell, and just gave
+    him an account on the box and checked out a copy of trunk in his
+    home directory.
+
+    Now, mind you, this was before Guilherme was a committer; I didn't
+    know the guy from a bar of soap.  For all I knew, he could have been
+    using the shell account to launch a massive DDoS or phishing scam.
+
+    However, no more than five minutes after I created his account, he'd
+    diagnosed the problem, replicated the behaviour in a C program, and,
+    with a bit of googling, figured out what was wrong and proposed a
+    fix.
+
+    And that's when it hit me.  Buildbots are fine when everything is
+    running smoothly, but nothing compares to actually having access to
+    a system when you're trying to debug something. 
+    
+    So, I thought to myself, why not buy a couple of clunky old boxes
+    off eBay and donate them to the PSF, such that all developers had
+    access to them?  I dropped a note to Guido and Neal, they put me
+    in touch with Titus, who had just accepted a position at Michigan
+    State, and, well...
+
+    Ten months, seven trips to MSU, six blown fuses and about $60,000
+    later, I'm proud to introduce you all to Snakebite: The Open Network!
+    A network of around 37-ish servers of all different shapes and sizes, 
+    spread over three sites, specifically geared towards the needs of
+    open source projects like Python.
+
+    Every CPython, Jython, IronPython and PyPy committer will have access 
+    to every development server on the network.  I've also extended the
+    offer to prominent Python projects like Django and Twisted.
+    
+    Eventually, I'll invite other open source projects to participate
+    (Apache, Subversion, MySQL, Postgres, etc), but the network is my 
+    gift to All Things Python, first and foremost, so Python projects
+    will always get preferential treatment.
+    
+    Support for the initiative so far has been nothing short of sublime.
+
+    Microsoft jumped on board and provided unlimited MSDN licenses in
+    less time than it took me to write them an e-mail asking for stuff.
+
+    I sent HP an e-mail asking if they could spare a Tru64 license, and
+    maybe 2GB of RAM for an extremely crappy Itanium box I bought off
+    eBay.  They saw my Tru64 license request and raised with media and
+    licenses to the latest version of HP-UX.
+    
+    Unfortunately, it was too much trouble for them to try and source
+    2GB of RAM for the Itanium I bought.  So, instead, they shipped two
+    massive quad Itanium 2 RX-5670s, chock full of 73GB 15k disks and
+    no less than 78GB of RAM between the two servers; 32GB in one and
+    46GB in the other.  Well then.
+    
+    (I'd hate to think what would have turned up had I asked them for
+    two quad Itanium monsters.)
+
+    Sun, Google and Canonical have also expressed a lot of interest in
+    the project -- I stopped asking for hardware a while back though as
+    we've literally run out of space to host it all.
+
+    The website is live, but the content is a bit sparse at the moment,
+    excluding the poorly worded front page and the reasonably accurate
+    network page:
+        http://www.snakebite.org
+        http://www.snakebite.org/network
+
+    It'll probably be a few weeks before you can start logging in and
+    doing stuff.  The HPCC/CSE server room at MSU is about to have walls
+    knocked in and ramps built in order to accommodate a giant PDU that
+    has been sitting outside it for about six months; the Snakebite rack
+    is going to get shuffled around a bit so I figure there's not much
+    point going live before that's taken care of.
+
+    Other than that, I'm just happy to get this off my chest, ten months
+    is a freakin' long time to try and keep something like this a secret
+    ;-)
+
+    Thanks to everyone who has contributed so far.  Titus, Bill, Adam,
+    Kelly, George: Snakebite wouldn't be anything more than a twinkle
+    in my eye if it weren't for the support MSU has thrown behind the
+    project, thank you for all your efforts to date.  Hank, Garrett and
+    Sam: having the support of Microsoft from very early on has been a
+    huge boost and the MSDN licenses have already been invaluable.  Bob,
+    well, what can I say, there was a period there where every e-mail
+    thread between us seemed to result in something being shipped from
+    HP to MSU; thanks to you and HP's open source labs.
+
+    And last but not least, thanks to Guido and all the Python committers
+    for their tireless efforts to date.  Although the sheer elegance of
+    the language is what initially attracted me to Python, it was the 
+    developer community that made me want to stick around.
+
+    Snakebite is my gift to you! 
+
+
+        Trent.
+
+
+From brett at python.org  Tue Jan 27 00:56:04 2009
+From: brett at python.org (Brett Cannon)
+Date: Mon, 26 Jan 2009 15:56:04 -0800
+Subject: [python-committers] [PSF-Board] I've got a surprise for you!
+In-Reply-To: <20090126233246.GA37662@wind.teleri.net>
+References: <20090126233246.GA37662@wind.teleri.net>
+Message-ID: <bbaeab100901261556q1ea8f90eh3b8c48738d3d0de@mail.gmail.com>
+
+[SNIP - Trent finally gets to announce Snakebite publicly]
+
+Thanks for spear-heading this, Trent, and to everyone who helped along
+the way! This is an amazing project. It makes me actually want to try
+to fix a bug just to give it a go. This is definitely going to help
+keep Python ahead of the pack when it comes to cross-platform support
+and code quality.
+
+I only have two questions at this point. One, is it cool to blog about
+this? And two, are there plans to have buildbots running on the
+machines at all so we know exactly which ones are triggering failures?
+Because it would be beyond cool to have a massive buildbot page where
+if I see something red on it I can just SSH directly into that machine
+and get the thing green.
+
+-Brett
+
+From Frank.Wierzbicki at Sun.COM  Tue Jan 27 00:52:22 2009
+From: Frank.Wierzbicki at Sun.COM (Frank Wierzbicki)
+Date: Mon, 26 Jan 2009 18:52:22 -0500
+Subject: [python-committers] I've got a surprise for you!
+In-Reply-To: <20090126233246.GA37662@wind.teleri.net>
+References: <20090126233246.GA37662@wind.teleri.net>
+Message-ID: <E9D27415-DEF7-46C3-B825-AEB7E6D91A0E@Sun.COM>
+
+
+On Jan 26, 2009, at 6:32 PM, Trent Nelson wrote:
+>    Snakebite is my gift to you!
+Wow, this will be an amazing resource.  Congratulations on pulling all  
+of this together, and thanks.  Can I mention this to the other Jython  
+committers or would you prefer I wait on that?
+
+-Frank
+
+From jnoller at gmail.com  Tue Jan 27 01:06:08 2009
+From: jnoller at gmail.com (Jesse Noller)
+Date: Mon, 26 Jan 2009 19:06:08 -0500
+Subject: [python-committers] I've got a surprise for you!
+In-Reply-To: <20090126233246.GA37662@wind.teleri.net>
+References: <20090126233246.GA37662@wind.teleri.net>
+Message-ID: <4222a8490901261606i3e3ab8deybb48c47d556b12a7@mail.gmail.com>
+
+On Mon, Jan 26, 2009 at 6:32 PM, Trent Nelson
+<python-committers-list at trentnelson.com> wrote:
+... snip
+>    Snakebite is my gift to you!
+>
+>
+>        Trent.
+
+Wow, thank you Trent - this really rocks.
+
+-jesse
+
+From steve at holdenweb.com  Tue Jan 27 02:21:31 2009
+From: steve at holdenweb.com (Steve Holden)
+Date: Mon, 26 Jan 2009 20:21:31 -0500
+Subject: [python-committers] I've got a surprise for you!
+In-Reply-To: <20090126233246.GA37662@wind.teleri.net>
+References: <20090126233246.GA37662@wind.teleri.net>
+Message-ID: <497E619B.3000203@holdenweb.com>
+
+Trent Nelson wrote:
+>     Thanks to everyone who has contributed so far.  Titus, Bill, Adam,
+>     Kelly, George: Snakebite wouldn't be anything more than a twinkle
+>     in my eye if it weren't for the support MSU has thrown behind the
+>     project, thank you for all your efforts to date.  Hank, Garrett and
+>     Sam: having the support of Microsoft from very early on has been a
+>     huge boost and the MSDN licenses have already been invaluable.  Bob,
+>     well, what can I say, there was a period there where every e-mail
+>     thread between us seemed to result in something being shipped from
+>     HP to MSU; thanks to you and HP's open source labs.
+> 
+>     And last but not least, thanks to Guido and all the Python committers
+>     for their tireless efforts to date.  Although the sheer elegance of
+>     the language is what initially attracted me to Python, it was the 
+>     developer community that made me want to stick around.
+> 
+>     Snakebite is my gift to you! 
+
+Trent:
+
+May I second all those thanks on behalf of the whole Python community.
+It's heart-warming to see support like this from so many directions.
+
+A fantastic culmination to almost a year of hard work. Glad we don't
+have to keep it secret any more!
+
+Thanks very much. I can't wait to start logging in ...
+
+regards
+ Steve
+-- 
+Steve Holden        +1 571 484 6266   +1 800 494 3119
+Chairman, Python Software Foundation   www.python.org
+
+
+From g.brandl at gmx.net  Tue Jan 27 07:38:35 2009
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Tue, 27 Jan 2009 07:38:35 +0100
+Subject: [python-committers] I've got a surprise for you!
+In-Reply-To: <20090126233246.GA37662@wind.teleri.net>
+References: <20090126233246.GA37662@wind.teleri.net>
+Message-ID: <glma5b$8o9$1@ger.gmane.org>
+
+Trent Nelson schrieb:
+
+>     And last but not least, thanks to Guido and all the Python committers
+>     for their tireless efforts to date.  Although the sheer elegance of
+>     the language is what initially attracted me to Python, it was the 
+>     developer community that made me want to stick around.
+> 
+>     Snakebite is my gift to you! 
+
+And what a gift it is! Add me to the list of speechless congratulators.
+
+Georg
+
+
+From dickinsm at gmail.com  Tue Jan 27 11:38:45 2009
+From: dickinsm at gmail.com (Mark Dickinson)
+Date: Tue, 27 Jan 2009 10:38:45 +0000
+Subject: [python-committers] I've got a surprise for you!
+In-Reply-To: <20090126233246.GA37662@wind.teleri.net>
+References: <20090126233246.GA37662@wind.teleri.net>
+Message-ID: <5c6f2a5d0901270238n2ad82304qfa27bfca13a413f1@mail.gmail.com>
+
+On Mon, Jan 26, 2009 at 11:32 PM, Trent Nelson
+<python-committers-list at trentnelson.com> wrote:
+
+>    Nevertheless, I do have a surprise for everyone.
+
+A surprise, indeed!  Golly!  I can already think of several ways to use
+such a fantastic resource.  Some of them might even be legal.  :-)
+
+Thank you, Trent and all involved.
+
+Just one question:  who is Sarah Marshall, and is it safe to Google
+for her while at work?
+
+Mark
+
+From fredrik at pythonware.com  Tue Jan 27 11:52:14 2009
+From: fredrik at pythonware.com (Fredrik Lundh)
+Date: Tue, 27 Jan 2009 11:52:14 +0100
+Subject: [python-committers] I've got a surprise for you!
+In-Reply-To: <5c6f2a5d0901270238n2ad82304qfa27bfca13a413f1@mail.gmail.com>
+References: <20090126233246.GA37662@wind.teleri.net>
+	<5c6f2a5d0901270238n2ad82304qfa27bfca13a413f1@mail.gmail.com>
+Message-ID: <368a5cd50901270252n17802650g566a74ed33fb6f7f@mail.gmail.com>
+
+It's an R rated romantic comedy from the Apatow team, so I guess that
+depends on your employer ;-)
+
+</F>
+
+On Tue, Jan 27, 2009 at 11:38 AM, Mark Dickinson <dickinsm at gmail.com> wrote:
+> On Mon, Jan 26, 2009 at 11:32 PM, Trent Nelson
+> <python-committers-list at trentnelson.com> wrote:
+>
+>>    Nevertheless, I do have a surprise for everyone.
+>
+> A surprise, indeed!  Golly!  I can already think of several ways to use
+> such a fantastic resource.  Some of them might even be legal.  :-)
+>
+> Thank you, Trent and all involved.
+>
+> Just one question:  who is Sarah Marshall, and is it safe to Google
+> for her while at work?
+>
+> Mark
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+>
+
+From barry at python.org  Tue Jan 27 02:47:55 2009
+From: barry at python.org (Barry Warsaw)
+Date: Mon, 26 Jan 2009 20:47:55 -0500
+Subject: [python-committers] I've got a surprise for you!
+In-Reply-To: <20090126233246.GA37662@wind.teleri.net>
+References: <20090126233246.GA37662@wind.teleri.net>
+Message-ID: <A6635889-128C-42D0-920A-2D8E62174D04@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On Jan 26, 2009, at 6:32 PM, Trent Nelson wrote:
+
+>    Ten months, seven trips to MSU, six blown fuses and about $60,000
+>    later, I'm proud to introduce you all to Snakebite: The Open  
+> Network!
+>    A network of around 37-ish servers of all different shapes and  
+> sizes,
+>    spread over three sites, specifically geared towards the needs of
+>    open source projects like Python.
+
+Congratulations Trent!  I'm glad to see this finally come to fruition  
+and I can't wait to get a login :)
+
+- -Barry
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQCVAwUBSX5ny3EjvBPtnXfVAQIKfwP9HnrL9//KaW8BCr+L7zC5pDfteTnau8gt
+scGKT5hWtrFgPKVZqzXus7qNKUynt3Lc39GbTn/SN+YfQmgyWY2LN2T8Y3cE2SA/
+9YjHKSQRkbezeD34JU2Lnl0a9CT9bnmvftg0q7HEB1l9PJaa/b0taCL4nzeI6RUY
+Vv+THFZZMlg=
+=BYYI
+-----END PGP SIGNATURE-----
+
+From lists at cheimes.de  Tue Jan 27 02:51:30 2009
+From: lists at cheimes.de (Christian Heimes)
+Date: Tue, 27 Jan 2009 02:51:30 +0100
+Subject: [python-committers] I've got a surprise for you!
+In-Reply-To: <20090126233246.GA37662@wind.teleri.net>
+References: <20090126233246.GA37662@wind.teleri.net>
+Message-ID: <497E68A2.4000108@cheimes.de>
+
+Trent Nelson schrieb:
+>     Catchy subject eh?  Unless, of course, you've seen Forgetting Sarah
+>     Marshall, in which case, it's probably a tad disturbing.
+> 
+>     Nevertheless, I do have a surprise for everyone.  I spent a lot of
+>     time early last year trying to keep the buildbots green, especially
+>     the x64 Windows ones.  This was quite enjoyable, at least initially.
+
+Wow! :)
+I can barely find the words to express my feelings. You did an amazing
+job! Thank you very, *VERY* much!
+
+Christian
+
+From skip at pobox.com  Tue Jan 27 03:07:19 2009
+From: skip at pobox.com (skip at pobox.com)
+Date: Mon, 26 Jan 2009 20:07:19 -0600
+Subject: [python-committers] I've got a surprise for you!
+In-Reply-To: <20090126233246.GA37662@wind.teleri.net>
+References: <20090126233246.GA37662@wind.teleri.net>
+Message-ID: <18814.27735.284885.997108@montanaro.dyndns.org>
+
+
+    Trent>     Ten months, seven trips to MSU, six blown fuses and about
+    Trent>     $60,000 later, I'm proud to introduce you all to Snakebite:
+    Trent>     The Open Network!  A network of around 37-ish servers of all
+    Trent>     different shapes and sizes, spread over three sites,
+    Trent>     specifically geared towards the needs of open source projects
+    Trent>     like Python.
+
+Wow!  A great resource no doubt.
+
+I do notice that there is no Apple hardware or Mac OS X running on
+anything.  Any chance of adding a XServe or something?
+
+-- 
+Skip Montanaro - skip at pobox.com - http://smontanaro.dyndns.org/
+
+From alexandre at peadrop.com  Tue Jan 27 03:12:05 2009
+From: alexandre at peadrop.com (Alexandre Vassalotti)
+Date: Mon, 26 Jan 2009 21:12:05 -0500
+Subject: [python-committers] I've got a surprise for you!
+In-Reply-To: <20090126233246.GA37662@wind.teleri.net>
+References: <20090126233246.GA37662@wind.teleri.net>
+Message-ID: <acd65fa20901261812j33ff15d4uc0b4c1094683ab42@mail.gmail.com>
+
+[SNIP: Trent announces his awesome secret project]
+
+There is only one word I can say: wow! And to everyone who was
+involved, thank you!
+
+This massive buildbot network is really going to help us toward making
+Python a top-class platform in term of portability. I am sure that
+having SSH access to the buildbots will encourage everyone to fix bugs
+quickly.
+
+Finally, I have one question. Will these buildbots be open for general
+development work? It would be great to have access to them for
+creating new cross-platform libraries for Python.
+
+-- Alexandre
+
+From steve at holdenweb.com  Tue Jan 27 04:13:56 2009
+From: steve at holdenweb.com (Steve Holden)
+Date: Mon, 26 Jan 2009 22:13:56 -0500
+Subject: [python-committers] [PSF-Board]  I've got a surprise for you!
+In-Reply-To: <18814.27735.284885.997108@montanaro.dyndns.org>
+References: <20090126233246.GA37662@wind.teleri.net>
+	<18814.27735.284885.997108@montanaro.dyndns.org>
+Message-ID: <497E7BF4.7020807@holdenweb.com>
+
+skip at pobox.com wrote:
+>     Trent>     Ten months, seven trips to MSU, six blown fuses and about
+>     Trent>     $60,000 later, I'm proud to introduce you all to Snakebite:
+>     Trent>     The Open Network!  A network of around 37-ish servers of all
+>     Trent>     different shapes and sizes, spread over three sites,
+>     Trent>     specifically geared towards the needs of open source projects
+>     Trent>     like Python.
+> 
+> Wow!  A great resource no doubt.
+> 
+> I do notice that there is no Apple hardware or Mac OS X running on
+> anything.  Any chance of adding a XServe or something?
+> 
+Time we started making friends at Apple ...
+
+regards
+ Steve
+-- 
+Steve Holden        +1 571 484 6266   +1 800 494 3119
+Holden Web LLC              http://www.holdenweb.com/
+
+
+From James.Walker at Sun.COM  Tue Jan 27 05:52:48 2009
+From: James.Walker at Sun.COM (Jim Walker)
+Date: Mon, 26 Jan 2009 21:52:48 -0700
+Subject: [python-committers] I've got a surprise for you!
+In-Reply-To: <20090126233246.GA37662@wind.teleri.net>
+References: <20090126233246.GA37662@wind.teleri.net>
+Message-ID: <497E9320.2030404@sun.com>
+
+Trent Nelson wrote:
+> 
+>     Sun, Google and Canonical have also expressed a lot of interest in
+>     the project -- I stopped asking for hardware a while back though as
+>     we've literally run out of space to host it all.
+> 
+>     The website is live, but the content is a bit sparse at the moment,
+>     excluding the poorly worded front page and the reasonably accurate
+>     network page:
+>         http://www.snakebite.org
+>         http://www.snakebite.org/network
+> 
+>     It'll probably be a few weeks before you can start logging in and
+>     doing stuff.  The HPCC/CSE server room at MSU is about to have walls
+>     knocked in and ramps built in order to accommodate a giant PDU that
+>     has been sitting outside it for about six months; the Snakebite rack
+>     is going to get shuffled around a bit so I figure there's not much
+>     point going live before that's taken care of.
+> 
+>     Other than that, I'm just happy to get this off my chest, ten months
+>     is a freakin' long time to try and keep something like this a secret
+>     ;-)
+
+Great stuff Trent! I was wondering how you were doing.
+
+I really appreciate what it takes to put these open resources
+together ;) There's a lot of moving parts :)
+
+Cheers,
+Jim
+
+BTW.
+
+We now have zone servers in the OpenSolaris test farm, and
+I plan to add guest os servers in the next few weeks using
+ldoms (sparc) and xvm (x64). The zone servers provide whole
+root zones, which should be a good development environment
+for most projects. Check it out:
+
+http://test.opensolaris.org/testfarm
+http://www.opensolaris.org/os/community/testing/testfarm/zones/
+
+Let me know if there is interest from the python community to
+manage one of the test farm servers for python development.
+Besides the general use machines, the php community is already
+managing a T2000 server.
+
+From ggpolo at gmail.com  Tue Jan 27 14:07:34 2009
+From: ggpolo at gmail.com (Guilherme Polo)
+Date: Tue, 27 Jan 2009 11:07:34 -0200
+Subject: [python-committers] I've got a surprise for you!
+In-Reply-To: <20090126233246.GA37662@wind.teleri.net>
+References: <20090126233246.GA37662@wind.teleri.net>
+Message-ID: <ac2200130901270507o739b8db5h97959e91b3fe8e16@mail.gmail.com>
+
+On Mon, Jan 26, 2009 at 9:32 PM, Trent Nelson
+<python-committers-list at trentnelson.com> wrote:
+> .
+> .
+>
+>    Ten months, seven trips to MSU, six blown fuses and about $60,000
+>    later, I'm proud to introduce you all to Snakebite: The Open Network!
+>    A network of around 37-ish servers of all different shapes and sizes,
+>    spread over three sites, specifically geared towards the needs of
+>    open source projects like Python.
+>
+>    Every CPython, Jython, IronPython and PyPy committer will have access
+>    to every development server on the network.  I've also extended the
+>    offer to prominent Python projects like Django and Twisted.
+>
+>    Eventually, I'll invite other open source projects to participate
+>    (Apache, Subversion, MySQL, Postgres, etc), but the network is my
+>    gift to All Things Python, first and foremost, so Python projects
+>    will always get preferential treatment.
+>
+>    Support for the initiative so far has been nothing short of sublime.
+>
+>    Microsoft jumped on board and provided unlimited MSDN licenses in
+>    less time than it took me to write them an e-mail asking for stuff.
+>
+>    I sent HP an e-mail asking if they could spare a Tru64 license, and
+>    maybe 2GB of RAM for an extremely crappy Itanium box I bought off
+>    eBay.  They saw my Tru64 license request and raised with media and
+>    licenses to the latest version of HP-UX.
+>
+>    Unfortunately, it was too much trouble for them to try and source
+>    2GB of RAM for the Itanium I bought.  So, instead, they shipped two
+>    massive quad Itanium 2 RX-5670s, chock full of 73GB 15k disks and
+>    no less than 78GB of RAM between the two servers; 32GB in one and
+>    46GB in the other.  Well then.
+>
+>    (I'd hate to think what would have turned up had I asked them for
+>    two quad Itanium monsters.)
+>
+>    Sun, Google and Canonical have also expressed a lot of interest in
+>    the project -- I stopped asking for hardware a while back though as
+>    we've literally run out of space to host it all.
+>
+>    The website is live, but the content is a bit sparse at the moment,
+>    excluding the poorly worded front page and the reasonably accurate
+>    network page:
+>        http://www.snakebite.org
+>        http://www.snakebite.org/network
+>
+>    It'll probably be a few weeks before you can start logging in and
+>    doing stuff.  The HPCC/CSE server room at MSU is about to have walls
+>    knocked in and ramps built in order to accommodate a giant PDU that
+>    has been sitting outside it for about six months; the Snakebite rack
+>    is going to get shuffled around a bit so I figure there's not much
+>    point going live before that's taken care of.
+>
+>    Other than that, I'm just happy to get this off my chest, ten months
+>    is a freakin' long time to try and keep something like this a secret
+>    ;-)
+>
+> .
+> .
+
+Very very nice Trent :)
+
+I remember when you raised the idea last year and it seemed awesome,
+but it turned out to be better than awesome! It is just incredible how
+people like you are able to donate so much time and effort to open
+source projects.
+
+Looks like the season for snake mites, six-spotted tiger beetle, and
+what not, is now open.
+
+Regards,
+
+-- 
+-- Guilherme H. Polo Goncalves
+
+From barry at python.org  Tue Jan 27 17:03:52 2009
+From: barry at python.org (Barry Warsaw)
+Date: Tue, 27 Jan 2009 11:03:52 -0500
+Subject: [python-committers] [PSF-Board]  I've got a surprise for you!
+In-Reply-To: <497E7BF4.7020807@holdenweb.com>
+References: <20090126233246.GA37662@wind.teleri.net>
+	<18814.27735.284885.997108@montanaro.dyndns.org>
+	<497E7BF4.7020807@holdenweb.com>
+Message-ID: <0884AA9F-6D26-4DD7-B67A-56F2E879FBDD@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On Jan 26, 2009, at 10:13 PM, Steve Holden wrote:
+
+> skip at pobox.com wrote:
+>>    Trent>     Ten months, seven trips to MSU, six blown fuses and  
+>> about
+>>    Trent>     $60,000 later, I'm proud to introduce you all to  
+>> Snakebite:
+>>    Trent>     The Open Network!  A network of around 37-ish servers  
+>> of all
+>>    Trent>     different shapes and sizes, spread over three sites,
+>>    Trent>     specifically geared towards the needs of open source  
+>> projects
+>>    Trent>     like Python.
+>>
+>> Wow!  A great resource no doubt.
+>>
+>> I do notice that there is no Apple hardware or Mac OS X running on
+>> anything.  Any chance of adding a XServe or something?
+>>
+> Time we started making friends at Apple ...
+
+Ed Moy was the Apple/Python contact I last spoke to.  His email  
+address is:
+
+emoy at apple.com
+
+Barry
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQCVAwUBSX8waHEjvBPtnXfVAQLtNQQApeBKE/VxEGxFWND4ozh77wRoSVL6WUdl
+ri+eGwGpzSNDsrNtpXu1AhtOK4L7cayJYvpAg1DoHcLX6Lg6S4lgdEGrhz1Qh09n
++oLSbB5k5Nh+TK391rSQDUCUe2ZRkczJ8yYtf3Lfn9l91IlScJeIzsIIQqBU0CWT
+K1ugaZcN1oU=
+=s6Jg
+-----END PGP SIGNATURE-----
+
+From amk at amk.ca  Tue Jan 27 17:11:36 2009
+From: amk at amk.ca (A.M. Kuchling)
+Date: Tue, 27 Jan 2009 11:11:36 -0500
+Subject: [python-committers] I've got a surprise for you!
+In-Reply-To: <18814.27735.284885.997108@montanaro.dyndns.org>
+References: <20090126233246.GA37662@wind.teleri.net>
+	<18814.27735.284885.997108@montanaro.dyndns.org>
+Message-ID: <20090127161136.GA10107@amk-desktop.matrixgroup.net>
+
+On Mon, Jan 26, 2009 at 08:07:19PM -0600, skip at pobox.com wrote:
+> I do notice that there is no Apple hardware or Mac OS X running on
+> anything.  Any chance of adding a XServe or something?
+
+Didn't Apple already give the PSF an XServe that's now at XS4ALL, but
+currently unused?
+
+--amk
+
+From aleaxit at gmail.com  Tue Jan 27 17:20:55 2009
+From: aleaxit at gmail.com (Alex Martelli)
+Date: Tue, 27 Jan 2009 08:20:55 -0800
+Subject: [python-committers] I've got a surprise for you!
+In-Reply-To: <acd65fa20901261812j33ff15d4uc0b4c1094683ab42@mail.gmail.com>
+References: <20090126233246.GA37662@wind.teleri.net>
+	<acd65fa20901261812j33ff15d4uc0b4c1094683ab42@mail.gmail.com>
+Message-ID: <e8a0972d0901270820j10ec4a6ajadf7be81d84a58d9@mail.gmail.com>
+
+On Mon, Jan 26, 2009 at 6:12 PM, Alexandre Vassalotti
+<alexandre at peadrop.com> wrote:
+> [SNIP: Trent announces his awesome secret project]
+>
+> There is only one word I can say: wow! And to everyone who was
+> involved, thank you!
+>
+> This massive buildbot network is really going to help us toward making
+> Python a top-class platform in term of portability. I am sure that
+> having SSH access to the buildbots will encourage everyone to fix bugs
+> quickly.
+>
+> Finally, I have one question. Will these buildbots be open for general
+> development work? It would be great to have access to them for
+> creating new cross-platform libraries for Python.
+
+Yep, I for example would love to use this resource to ensure that gmpy
+builds and runs well on more platforms than the usual
+mac/windows/linux set I have easy personal access to, and I suspect
+most other maintainers of third party Python add-ons feel similarly.
+I'm sure the line must be drawn somewhere, however, as there will
+never be enough computing resources in the "buildbot cloud" to support
+the thousands of Python add-ons that are not part of the Python
+distribution itself.  A criterion such as "only 3rd party add ons
+whose maintainers are also Python committers" (even though it would
+favor gmpy) might be a tad arbitrary.
+
+
+Alex
+
+From ctb at msu.edu  Tue Jan 27 17:36:41 2009
+From: ctb at msu.edu (C. Titus Brown)
+Date: Tue, 27 Jan 2009 08:36:41 -0800
+Subject: [python-committers] I've got a surprise for you!
+In-Reply-To: <e8a0972d0901270820j10ec4a6ajadf7be81d84a58d9@mail.gmail.com>
+References: <20090126233246.GA37662@wind.teleri.net>
+	<acd65fa20901261812j33ff15d4uc0b4c1094683ab42@mail.gmail.com>
+	<e8a0972d0901270820j10ec4a6ajadf7be81d84a58d9@mail.gmail.com>
+Message-ID: <20090127163641.GA5116@idyll.org>
+
+On Tue, Jan 27, 2009 at 08:20:55AM -0800, Alex Martelli wrote:
+-> On Mon, Jan 26, 2009 at 6:12 PM, Alexandre Vassalotti
+-> <alexandre at peadrop.com> wrote:
+-> > [SNIP: Trent announces his awesome secret project]
+-> >
+-> > There is only one word I can say: wow! And to everyone who was
+-> > involved, thank you!
+-> >
+-> > This massive buildbot network is really going to help us toward making
+-> > Python a top-class platform in term of portability. I am sure that
+-> > having SSH access to the buildbots will encourage everyone to fix bugs
+-> > quickly.
+-> >
+-> > Finally, I have one question. Will these buildbots be open for general
+-> > development work? It would be great to have access to them for
+-> > creating new cross-platform libraries for Python.
+-> 
+-> Yep, I for example would love to use this resource to ensure that gmpy
+-> builds and runs well on more platforms than the usual
+-> mac/windows/linux set I have easy personal access to, and I suspect
+-> most other maintainers of third party Python add-ons feel similarly.
+-> I'm sure the line must be drawn somewhere, however, as there will
+-> never be enough computing resources in the "buildbot cloud" to support
+-> the thousands of Python add-ons that are not part of the Python
+-> distribution itself.  A criterion such as "only 3rd party add ons
+-> whose maintainers are also Python committers" (even though it would
+-> favor gmpy) might be a tad arbitrary.
+
+Hi all,
+
+<delurk>
+
+I don't expect any problem with people using this for whatever they
+want.  If it becomes massively popular, well, then we'll just have to
+ramp up the resources...!
+
+Right now, though, I'm more interested in recruiting "good citizens",
+people who can reasonably be expected to not kvetch too much as we
+develop out the infrastructure.  I don't see any problem with extending
+the invitation to any long-term member of the Python community, and
+eventually anyone who writes a polite e-mail.
+
+That having been said, I also don't have any problem with limiting
+access somewhat arbitrarily to people we "like".  Gotta start somewhere!
+
+On that front, incidentally, I hope to make the machines available to
+GSoC and GHOP students, and I will be involving MSU undergrads in their
+care and maintenance.  I am also working to develop a more flexible and
+simple set of continuous build software; more on that at PyCon.
+
+cheers,
+--titus
+-- 
+C. Titus Brown, ctb at msu.edu
+
+From python-committers-list at trentnelson.com  Tue Jan 27 17:25:29 2009
+From: python-committers-list at trentnelson.com (Trent Nelson)
+Date: Tue, 27 Jan 2009 16:25:29 +0000
+Subject: [python-committers] [PSF-Board]  I've got a surprise for you!
+In-Reply-To: <497E7BF4.7020807@holdenweb.com>
+References: <20090126233246.GA37662@wind.teleri.net>
+	<18814.27735.284885.997108@montanaro.dyndns.org>
+	<497E7BF4.7020807@holdenweb.com>
+Message-ID: <20090127162529.GD37589@wind.teleri.net>
+
+On Mon, Jan 26, 2009 at 10:13:56PM -0500, Steve Holden wrote:
+> skip at pobox.com wrote:
+> >     Trent>     Ten months, seven trips to MSU, six blown fuses and about
+> >     Trent>     $60,000 later, I'm proud to introduce you all to Snakebite:
+> >     Trent>     The Open Network!  A network of around 37-ish servers of all
+> >     Trent>     different shapes and sizes, spread over three sites,
+> >     Trent>     specifically geared towards the needs of open source projects
+> >     Trent>     like Python.
+> > 
+> > Wow!  A great resource no doubt.
+> > 
+> > I do notice that there is no Apple hardware or Mac OS X running on
+> > anything.  Any chance of adding a XServe or something?
+
+    The only reason there isn't any Apple hardware yet is 'cause it's
+    expensive ;-)  (In comparison to your average price for a server
+    off eBay, that is.  I picked up six quad Opterons for $999 at one
+    point.)
+
+> Time we started making friends at Apple ...
+
+    I'll give Jordan Hubbard a bell.  He was the driving force behind
+    FreeBSD in the early days, but moved to Apple in early 2000.  I
+    believe he's now the Director of Unix Technology now at Apple.
+
+    Actually, might as well just CC him now, no time like the present
+    ;-)
+
+    Hi Jordan!  I'll follow up in private and fill you in.
+
+        Trent.
+
+
+From steve at holdenweb.com  Tue Jan 27 18:05:20 2009
+From: steve at holdenweb.com (Steve Holden)
+Date: Tue, 27 Jan 2009 12:05:20 -0500
+Subject: [python-committers] [PSF-Board]  I've got a surprise for you!
+In-Reply-To: <20090127163641.GA5116@idyll.org>
+References: <20090126233246.GA37662@wind.teleri.net>	<acd65fa20901261812j33ff15d4uc0b4c1094683ab42@mail.gmail.com>	<e8a0972d0901270820j10ec4a6ajadf7be81d84a58d9@mail.gmail.com>
+	<20090127163641.GA5116@idyll.org>
+Message-ID: <497F3ED0.9030703@holdenweb.com>
+
+C. Titus Brown wrote:
+> On Tue, Jan 27, 2009 at 08:20:55AM -0800, Alex Martelli wrote:
+> -> On Mon, Jan 26, 2009 at 6:12 PM, Alexandre Vassalotti
+[...]
+> -> > Finally, I have one question. Will these buildbots be open for general
+> -> > development work? It would be great to have access to them for
+> -> > creating new cross-platform libraries for Python.
+> -> 
+> -> Yep, I for example would love to use this resource to ensure that gmpy
+[understandable special pleading]
+> 
+> Hi all,
+> 
+> <delurk>
+> 
+> I don't expect any problem with people using this for whatever they
+> want.  If it becomes massively popular, well, then we'll just have to
+> ramp up the resources...!
+> 
+That's the spirit! Demand is evidence of the need to supply!
+
+> Right now, though, I'm more interested in recruiting "good citizens",
+> people who can reasonably be expected to not kvetch too much as we
+> develop out the infrastructure.  I don't see any problem with extending
+> the invitation to any long-term member of the Python community, and
+> eventually anyone who writes a polite e-mail.
+> 
+So that will eliminate about 25% of the community right there ;-)
+
+> That having been said, I also don't have any problem with limiting
+> access somewhat arbitrarily to people we "like".  Gotta start somewhere!
+> 
+> On that front, incidentally, I hope to make the machines available to
+> GSoC and GHOP students, and I will be involving MSU undergrads in their
+> care and maintenance.  I am also working to develop a more flexible and
+> simple set of continuous build software; more on that at PyCon.
+> 
+I'm looking forward to that.
+
+regards
+ Steve
+-- 
+Steve Holden        +1 571 484 6266   +1 800 494 3119
+Holden Web LLC              http://www.holdenweb.com/
+
+
+From sramji at microsoft.com  Tue Jan 27 18:30:58 2009
+From: sramji at microsoft.com (Sam Ramji)
+Date: Tue, 27 Jan 2009 09:30:58 -0800
+Subject: [python-committers] I've got a surprise for you!
+In-Reply-To: <20090126233246.GA37662@wind.teleri.net>
+References: <20090126233246.GA37662@wind.teleri.net>
+Message-ID: <66D5CB5D6AB0694592FAF5487C50368B299A1D5F4C@NA-EXMSG-C111.redmond.corp.microsoft.com>
+
+Congratulations, Trent.  Thank you for your leadership and giving us the chance to participate.  This project has captured the imagination of the Open Source Technology Center at Microsoft and we look forward to doing more to support the project in the future.
+
+Best regards,
+
+Sam
+
+Sam Ramji | Sr. Director, Platform Strategy | Microsoft Corporation | +1 510 913 6495 | sramji at microsoft.com
+
+-----Original Message-----
+From: Trent Nelson [mailto:python-committers-list at trentnelson.com]
+Sent: Monday, January 26, 2009 3:33 PM
+To: python-committers at python.org
+Cc: bob.gobeille at hp.com; titus at idyll.org; glynn.foster at sun.com; jim.walker at sun.com; ted.leung at sun.com; Frank.Wierzbicki at Sun.COM; Hank Janssen; Garrett Serack; punch at cse.msu.edu; Sam Ramji; Chip Norkus; Dino Viehland; Jimmy Schementi; Dave Fugate; stockman at cse.msu.edu; pitcher2 at cse.msu.edu; tnelson at onresolve.com; mark at canonical.com; exarkun at divmod.com; gylph at divmod.com; lhawthorn at google.com; doko at ubuntu.com; fuzzyman at voidspace.org.uk; oubiwann at divmod.com; jacob.kaplanmoss at gmail.com; psf at python.org; climber at cse.msu.edu
+Subject: I've got a surprise for you!
+
+    Catchy subject eh?  Unless, of course, you've seen Forgetting Sarah
+    Marshall, in which case, it's probably a tad disturbing.
+
+    Nevertheless, I do have a surprise for everyone.  I spent a lot of
+    time early last year trying to keep the buildbots green, especially
+    the x64 Windows ones.  This was quite enjoyable, at least initially.
+
+    By the time I got back to London after PyCon last year, the buildbot
+    honeymoon was wearing off.  As there's usually only one person that
+    has access to a given buildbot, and that person is rarely you, it
+    can be a right pain in the ass trying to debug problems you can't
+    reproduce on platforms you don't have access to (especially if all
+    you've got is an error message that doesn't make sense).
+
+    I was convinced there must be a better way.
+
+    Around mid-April, the buildbot on my FreeBSD 6.x box I had recently
+    set up kept failing on on setitimer tests.  I received an email from
+    a chap named Guilherme Polo who had seen the buildbot test failures
+    and wanted to assist.  I was swamped with client work at the time; I
+    wasn't able to run any of the test scripts he sent me, but, hey, he
+    seemed like a nice chap, so I thought what the hell, and just gave
+    him an account on the box and checked out a copy of trunk in his
+    home directory.
+
+    Now, mind you, this was before Guilherme was a committer; I didn't
+    know the guy from a bar of soap.  For all I knew, he could have been
+    using the shell account to launch a massive DDoS or phishing scam.
+
+    However, no more than five minutes after I created his account, he'd
+    diagnosed the problem, replicated the behaviour in a C program, and,
+    with a bit of googling, figured out what was wrong and proposed a
+    fix.
+
+    And that's when it hit me.  Buildbots are fine when everything is
+    running smoothly, but nothing compares to actually having access to
+    a system when you're trying to debug something.
+
+    So, I thought to myself, why not buy a couple of clunky old boxes
+    off eBay and donate them to the PSF, such that all developers had
+    access to them?  I dropped a note to Guido and Neal, they put me
+    in touch with Titus, who had just accepted a position at Michigan
+    State, and, well...
+
+    Ten months, seven trips to MSU, six blown fuses and about $60,000
+    later, I'm proud to introduce you all to Snakebite: The Open Network!
+    A network of around 37-ish servers of all different shapes and sizes,
+    spread over three sites, specifically geared towards the needs of
+    open source projects like Python.
+
+    Every CPython, Jython, IronPython and PyPy committer will have access
+    to every development server on the network.  I've also extended the
+    offer to prominent Python projects like Django and Twisted.
+
+    Eventually, I'll invite other open source projects to participate
+    (Apache, Subversion, MySQL, Postgres, etc), but the network is my
+    gift to All Things Python, first and foremost, so Python projects
+    will always get preferential treatment.
+
+    Support for the initiative so far has been nothing short of sublime.
+
+    Microsoft jumped on board and provided unlimited MSDN licenses in
+    less time than it took me to write them an e-mail asking for stuff.
+
+    I sent HP an e-mail asking if they could spare a Tru64 license, and
+    maybe 2GB of RAM for an extremely crappy Itanium box I bought off
+    eBay.  They saw my Tru64 license request and raised with media and
+    licenses to the latest version of HP-UX.
+
+    Unfortunately, it was too much trouble for them to try and source
+    2GB of RAM for the Itanium I bought.  So, instead, they shipped two
+    massive quad Itanium 2 RX-5670s, chock full of 73GB 15k disks and
+    no less than 78GB of RAM between the two servers; 32GB in one and
+    46GB in the other.  Well then.
+
+    (I'd hate to think what would have turned up had I asked them for
+    two quad Itanium monsters.)
+
+    Sun, Google and Canonical have also expressed a lot of interest in
+    the project -- I stopped asking for hardware a while back though as
+    we've literally run out of space to host it all.
+
+    The website is live, but the content is a bit sparse at the moment,
+    excluding the poorly worded front page and the reasonably accurate
+    network page:
+        http://www.snakebite.org
+        http://www.snakebite.org/network
+
+    It'll probably be a few weeks before you can start logging in and
+    doing stuff.  The HPCC/CSE server room at MSU is about to have walls
+    knocked in and ramps built in order to accommodate a giant PDU that
+    has been sitting outside it for about six months; the Snakebite rack
+    is going to get shuffled around a bit so I figure there's not much
+    point going live before that's taken care of.
+
+    Other than that, I'm just happy to get this off my chest, ten months
+    is a freakin' long time to try and keep something like this a secret
+    ;-)
+
+    Thanks to everyone who has contributed so far.  Titus, Bill, Adam,
+    Kelly, George: Snakebite wouldn't be anything more than a twinkle
+    in my eye if it weren't for the support MSU has thrown behind the
+    project, thank you for all your efforts to date.  Hank, Garrett and
+    Sam: having the support of Microsoft from very early on has been a
+    huge boost and the MSDN licenses have already been invaluable.  Bob,
+    well, what can I say, there was a period there where every e-mail
+    thread between us seemed to result in something being shipped from
+    HP to MSU; thanks to you and HP's open source labs.
+
+    And last but not least, thanks to Guido and all the Python committers
+    for their tireless efforts to date.  Although the sheer elegance of
+    the language is what initially attracted me to Python, it was the
+    developer community that made me want to stick around.
+
+    Snakebite is my gift to you!
+
+
+        Trent.
+
+
+From martin at v.loewis.de  Tue Jan 27 18:57:22 2009
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Tue, 27 Jan 2009 18:57:22 +0100
+Subject: [python-committers] I've got a surprise for you!
+In-Reply-To: <20090127161136.GA10107@amk-desktop.matrixgroup.net>
+References: <20090126233246.GA37662@wind.teleri.net>	<18814.27735.284885.997108@montanaro.dyndns.org>
+	<20090127161136.GA10107@amk-desktop.matrixgroup.net>
+Message-ID: <497F4B02.2050604@v.loewis.de>
+
+A.M. Kuchling wrote:
+> On Mon, Jan 26, 2009 at 08:07:19PM -0600, skip at pobox.com wrote:
+>> I do notice that there is no Apple hardware or Mac OS X running on
+>> anything.  Any chance of adding a XServe or something?
+> 
+> Didn't Apple already give the PSF an XServe that's now at XS4ALL, but
+> currently unused?
+
+Worse than that: it is broken. It can't stay up for more than 30
+seconds, before some watchdog mechanism reboots it - too short for
+me to find out what the problem is.
+
+Regards,
+Martin
+
+From trent.nelson at snakebite.org  Tue Jan 27 21:01:38 2009
+From: trent.nelson at snakebite.org (Trent Nelson)
+Date: Tue, 27 Jan 2009 20:01:38 +0000
+Subject: [python-committers] [snakebite] I've got a surprise for you!
+In-Reply-To: <20090126233246.GA37662@wind.teleri.net>
+References: <20090126233246.GA37662@wind.teleri.net>
+Message-ID: <20090127200138.GA51052@wind.teleri.net>
+
+    I've just set up a mailing list for those that want to carry on with
+    discussions; this CC list is getting a bit unwieldy.  Subscription
+    URL: http://groups.google.com/group/snakebite-list. E-mail address 
+    is snakebite-list at googlegroups.com.
+
+    I'll be sending the rest of my replies there after this e-mail.
+
+        Trent.
+
+From mal at egenix.com  Wed Jan 28 17:51:30 2009
+From: mal at egenix.com (M.-A. Lemburg)
+Date: Wed, 28 Jan 2009 17:51:30 +0100
+Subject: [python-committers] [snakebite] I've got a surprise for you!
+In-Reply-To: <20090127200138.GA51052@wind.teleri.net>
+References: <20090126233246.GA37662@wind.teleri.net>
+	<20090127200138.GA51052@wind.teleri.net>
+Message-ID: <49808D12.8000009@egenix.com>
+
+On 2009-01-27 21:01, Trent Nelson wrote:
+>     I've just set up a mailing list for those that want to carry on with
+>     discussions; this CC list is getting a bit unwieldy.  Subscription
+>     URL: http://groups.google.com/group/snakebite-list. E-mail address 
+>     is snakebite-list at googlegroups.com.
+> 
+>     I'll be sending the rest of my replies there after this e-mail.
+
+Would it be possible to have such a mailing list setup on python.org ?
+Or perhaps have Mailman running on snakebite.org ?
+
+Thanks,
+-- 
+Marc-Andre Lemburg
+eGenix.com
+
+Professional Python Services directly from the Source  (#1, Jan 28 2009)
+>>> Python/Zope Consulting and Support ...        http://www.egenix.com/
+>>> mxODBC.Zope.Database.Adapter ...             http://zope.egenix.com/
+>>> mxODBC, mxDateTime, mxTextTools ...        http://python.egenix.com/
+________________________________________________________________________
+
+::: Try our new mxODBC.Connect Python Database Interface for free ! ::::
+
+
+   eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+    D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+           Registered at Amtsgericht Duesseldorf: HRB 46611
+               http://www.egenix.com/company/contact/
+
+From barry at python.org  Wed Jan 28 19:29:21 2009
+From: barry at python.org (Barry Warsaw)
+Date: Wed, 28 Jan 2009 13:29:21 -0500
+Subject: [python-committers] [snakebite] I've got a surprise for you!
+In-Reply-To: <49808D12.8000009@egenix.com>
+References: <20090126233246.GA37662@wind.teleri.net>
+	<20090127200138.GA51052@wind.teleri.net>
+	<49808D12.8000009@egenix.com>
+Message-ID: <D778B477-30BD-48B8-A181-4FFC159158CA@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On Jan 28, 2009, at 11:51 AM, M.-A. Lemburg wrote:
+
+> On 2009-01-27 21:01, Trent Nelson wrote:
+>>    I've just set up a mailing list for those that want to carry on  
+>> with
+>>    discussions; this CC list is getting a bit unwieldy.  Subscription
+>>    URL: http://groups.google.com/group/snakebite-list. E-mail address
+>>    is snakebite-list at googlegroups.com.
+>>
+>>    I'll be sending the rest of my replies there after this e-mail.
+>
+> Would it be possible to have such a mailing list setup on python.org ?
+> Or perhaps have Mailman running on snakebite.org ?
+
++1 for either.  Send a message to postmaster at python.org if you want  
+the former.  It should definitely be approved.
+
+Barry
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQCVAwUBSYCkAXEjvBPtnXfVAQLlxgP9F/14phSrD+HXsOLcgaBaymORuILxFpFp
+AXVH7o1tebi7oOXamB/2dMJaUkVAz7Sf8rtnv4tP0l/Z/1kHJFZrRZQaLTS3KxYh
+6ooBVHkzokPGtmOS5Ms8ijuMiI3e3OBHL90/gkVf3O3G1+ELM3CTeqp5HgHD6/J/
+DY7nYkvJfS4=
+=6wKo
+-----END PGP SIGNATURE-----
+
+From jcea at jcea.es  Thu Jan 29 23:33:56 2009
+From: jcea at jcea.es (Jesus Cea)
+Date: Thu, 29 Jan 2009 23:33:56 +0100
+Subject: [python-committers] Luke Kenneth
+In-Reply-To: <ca471dc20901251458w644fa43kc5241193572c4fda@mail.gmail.com>
+References: <ca471dc20901250912v204e6025o2ec0cd92b17bd937@mail.gmail.com>	<497CA9B0.4020702@cheimes.de>
+	<gliou4$aih$1@ger.gmane.org>
+	<ca471dc20901251458w644fa43kc5241193572c4fda@mail.gmail.com>
+Message-ID: <49822ED4.30808@jcea.es>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Guido van Rossum wrote:
+> I certainly don't expect that he'll stop right away, but the best
+> response in this case is none. Let's just delete his mail and
+> eventually he'll go away.
+
+In fact, I had to review my old email to check who was that "Luke
+Kenneth" :-).
+
+- --
+Jesus Cea Avion                         _/_/      _/_/_/        _/_/_/
+jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+jabber / xmpp:jcea at jabber.org         _/_/    _/_/          _/_/_/_/_/
+.                              _/_/  _/_/    _/_/          _/_/  _/_/
+"Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+"My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+"El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.8 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - http://enigmail.mozdev.org
+
+iQCVAwUBSYIuzplgi5GaxT1NAQLxnQP/S/Bqp+Iuwf+MwOpie/o4jlKJL+dZSxfr
+FAYsX0XYvIZfAu09X34vdXozczlTwb3uU8cF5Y7pMV2EfAfK3Gc9VpUrCi37awVP
+1NFQHEvfdXsMsGTCGoBYyh/Js6Z/lzi53vbKRFYq56FTBwdpSyAq+dI+RBdaFWhZ
+CRImEKdUQqo=
+=jsN8
+-----END PGP SIGNATURE-----
+

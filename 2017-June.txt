@@ -1,0 +1,4322 @@
+From victor.stinner at gmail.com  Fri Jun  2 05:23:29 2017
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Fri, 2 Jun 2017 11:23:29 +0200
+Subject: [python-committers] Please stop fixing easy issues right now! Leave
+ them as exercices to newcomes
+Message-ID: <CAMpsgwYLF8x1sjHJMrqqZYJwD1Kzb3t8yTW9Wz3Hq5CGJKHn2w@mail.gmail.com>
+
+Hi,
+
+I discussed with Mariatta and Carol at Pycon US about new contributors
+and the difficulty to find "easy issues" to start contributing to
+CPython. The thing is that easy issues usually are fixed in less than
+24 hours which doesn't give the opportunity to newcomers to fix them.
+
+*Many* people ask me regulary "how to find easy Python issues", and
+the last 3 years, I always failed to find such issues... Many "easy
+issues" are older than 3 years old, have more than 20 comments and no
+compromise has been found how to fix the "easy" issue...
+
+I propose a new policy for core developers: stop fixing really easy
+issues! I suggest to follow Brett Cannon's example. Instead of fixing
+importlib bugs, Brett told me that he started to describe the bug and
+explain how to fix it. According to his own experience, it works well
+and is very valuable!
+
+The plan is to recruit new contributors and mentor them to grow our
+team. More contributors = more people to review changes = more
+diversity = less bugs = etc. (long win-win list ;-))
+
+I started with 4 issues on reference leaks found by new Zachary's
+"Refleak" Gentoo and Windows buildbots. I used a script that I wrote
+to identify one test leaking references, but I didn't write the fix.
+Usually, writing the fix is the simplest task: the boring and complex
+task is more to isolate the leaking test method. Hum, the next step is
+to explain how to fix such issue, I may do that on the core
+menthorship mailing list.
+
+http://bugs.python.org/issue30547
+http://bugs.python.org/issue30546
+http://bugs.python.org/issue30542
+http://bugs.python.org/issue30536
+
+I added [EASY] in the issue title to advertise these issues and used
+the "easy (C)" keyword. Since the proposal rule asking core dev is
+new, I also write a comment to explain my plan ;-)
+
+More generally, I now suggest to spend more time on mentoring
+newcomers and review changes instead of writing new changes. This idea
+is not mine, it's just a very good advice that Mariatta gave me ;-)
+
+Since I know that it's a very different job and can be seen as less
+interesting, it's not mandatory at all! It's just an advice if you
+want to try "something new" ;-)
+
+I will also try to spend more time next weeks on our core menthorship
+mailing list.
+
+What do you think?
+
+Victor
+
+From antoine at python.org  Fri Jun  2 05:28:42 2017
+From: antoine at python.org (Antoine Pitrou)
+Date: Fri, 2 Jun 2017 11:28:42 +0200
+Subject: [python-committers] Please stop fixing easy issues right now!
+ Leave them as exercices to newcomes
+In-Reply-To: <CAMpsgwYLF8x1sjHJMrqqZYJwD1Kzb3t8yTW9Wz3Hq5CGJKHn2w@mail.gmail.com>
+References: <CAMpsgwYLF8x1sjHJMrqqZYJwD1Kzb3t8yTW9Wz3Hq5CGJKHn2w@mail.gmail.com>
+Message-ID: <616cb8c4-4b7c-8f4e-ef89-73ab216dae9d@python.org>
+
+
+Hi,
+
+Le 02/06/2017 ? 11:23, Victor Stinner a ?crit :
+> 
+> *Many* people ask me regulary "how to find easy Python issues", and
+> the last 3 years, I always failed to find such issues... Many "easy
+> issues" are older than 3 years old, have more than 20 comments and no
+> compromise has been found how to fix the "easy" issue...
+
+In that case, it's probably reasonable to remove the "easy" tag ;-)
+
+> I propose a new policy for core developers: stop fixing really easy
+> issues!
+
+That's a good policy.  I remember doing so some years ago.  Of course,
+if some "easy" issue you care about hasn't been fixed for 6 months,
+perhaps you can fix it yourself after all.
+
+Also, if some such issues are still unfixed at the eve of a release,
+better fix them yourself too.
+
+Regards
+
+Antoine.
+
+From victor.stinner at gmail.com  Fri Jun  2 05:49:10 2017
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Fri, 2 Jun 2017 11:49:10 +0200
+Subject: [python-committers] Please stop fixing easy issues right now!
+ Leave them as exercices to newcomes
+In-Reply-To: <616cb8c4-4b7c-8f4e-ef89-73ab216dae9d@python.org>
+References: <CAMpsgwYLF8x1sjHJMrqqZYJwD1Kzb3t8yTW9Wz3Hq5CGJKHn2w@mail.gmail.com>
+ <616cb8c4-4b7c-8f4e-ef89-73ab216dae9d@python.org>
+Message-ID: <CAMpsgwaY20dpgBtYtLH=0swDURQGrqAP1O_EwSsHmjY=4bLjSQ@mail.gmail.com>
+
+2017-06-02 11:28 GMT+02:00 Antoine Pitrou <antoine at python.org>:
+> In that case, it's probably reasonable to remove the "easy" tag ;-)
+
+Right, we need to cleanup this old list to "easy" issues.
+
+
+> That's a good policy.  I remember doing so some years ago.  Of course,
+> if some "easy" issue you care about hasn't been fixed for 6 months,
+> perhaps you can fix it yourself after all.
+>
+> Also, if some such issues are still unfixed at the eve of a release,
+> better fix them yourself too.
+
+Sure. But we are closer to the beginning of the 3.7 cycle than the
+end, so it should be ok. Moreover, I noticed more active contributors
+since we migrated to GitHub. So I don't worry at all :-)
+
+Victor
+
+From berker.peksag at gmail.com  Fri Jun  2 07:50:11 2017
+From: berker.peksag at gmail.com (=?UTF-8?Q?Berker_Peksa=C4=9F?=)
+Date: Fri, 2 Jun 2017 14:50:11 +0300
+Subject: [python-committers] Please stop fixing easy issues right now!
+ Leave them as exercices to newcomes
+In-Reply-To: <CAMpsgwYLF8x1sjHJMrqqZYJwD1Kzb3t8yTW9Wz3Hq5CGJKHn2w@mail.gmail.com>
+References: <CAMpsgwYLF8x1sjHJMrqqZYJwD1Kzb3t8yTW9Wz3Hq5CGJKHn2w@mail.gmail.com>
+Message-ID: <CAF4280LBEd+yV9NrX6m73BJpM8PqCLyWsL3gfz=ABtV2tYxvgw@mail.gmail.com>
+
+On Fri, Jun 2, 2017 at 12:23 PM, Victor Stinner
+<victor.stinner at gmail.com> wrote:
+> *Many* people ask me regulary "how to find easy Python issues", and
+> the last 3 years, I always failed to find such issues... Many "easy
+> issues" are older than 3 years old, have more than 20 comments and no
+> compromise has been found how to fix the "easy" issue...
+
+See http://psf.upfronthosting.co.za/roundup/meta/issue605 for the
+previous discussion on easy issues. I re-triaged some of them (the
+initial list is at
+http://psf.upfronthosting.co.za/roundup/meta/msg3169) in the past
+year, but that's not something I want to do in my free time anymore
+(and unsurprisingly, companies aren't interested to fund issue
+triaging work)
+
+> I added [EASY] in the issue title to advertise these issues and used
+> the "easy (C)" keyword.
+
+Please consider not using prefixes in issue titles. Setting
+appropriate fields in the issue detail page should be enough. There is
+no need to duplicate the information in the title.
+
+--Berker
+
+From brett at python.org  Fri Jun  2 12:47:33 2017
+From: brett at python.org (Brett Cannon)
+Date: Fri, 02 Jun 2017 16:47:33 +0000
+Subject: [python-committers] I have blocked Wes Turner from the Python
+ org on GitHub
+In-Reply-To: <CAP1=2W5=ukka=32n4cUdRLs=tn059Nb9St_J-P2VR4u9Jo2E7g@mail.gmail.com>
+References: <CAP1=2W5=ukka=32n4cUdRLs=tn059Nb9St_J-P2VR4u9Jo2E7g@mail.gmail.com>
+Message-ID: <CAP1=2W6hUE_g5dkiUJAk-B3Xe9N_9X4+XkkZ7wj7+O8W2tRWDA@mail.gmail.com>
+
+I just wanted to quickly let people know I lifted Wes' two-month ban and
+emailed him to notify him of the lifting.
+
+On Fri, 31 Mar 2017 at 14:40 Brett Cannon <brett at python.org> wrote:
+
+> In the (long) discussion of
+> https://github.com/python/core-workflow/issues/6, Wes Turner began to do
+> his usual posting of lists. People pointed out he was stepping out of line
+> by being somewhat off-topic and seemingly lecturing folks. He posted some
+> of his lists again and then I warned him that if he did it again I would
+> block him for a CoC violation since he did not want to respect anyone's
+> time by taking the time to edit what amount to dumping his personal notes
+> on GitHub. (This is a long-standing issue, BTW, with Wes where he has been
+> warned in other settings like distutils-sig about his posting behaviour.)
+>
+> Unfortunately he did it again for
+> https://github.com/python/core-workflow/issues/66. Since GitHub only has
+> organization-level blocks I have blocked him at that level (I've also
+> already received some +1s from core devs while writing this email for my
+> move, so I know others who have interacted with him also support this
+> decision).
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170602/d2901351/attachment.html>
+
+From antoine at python.org  Fri Jun  2 12:52:55 2017
+From: antoine at python.org (Antoine Pitrou)
+Date: Fri, 2 Jun 2017 18:52:55 +0200
+Subject: [python-committers] I have blocked Wes Turner from the Python
+ org on GitHub
+In-Reply-To: <CAP1=2W6hUE_g5dkiUJAk-B3Xe9N_9X4+XkkZ7wj7+O8W2tRWDA@mail.gmail.com>
+References: <CAP1=2W5=ukka=32n4cUdRLs=tn059Nb9St_J-P2VR4u9Jo2E7g@mail.gmail.com>
+ <CAP1=2W6hUE_g5dkiUJAk-B3Xe9N_9X4+XkkZ7wj7+O8W2tRWDA@mail.gmail.com>
+Message-ID: <5c771af8-8ba3-69fd-e658-b208a5511532@python.org>
+
+
+How did he react to the whole thing?  Did he give signs of wanting to
+improve his behaviour?
+
+Regards
+
+Antoine.
+
+
+Le 02/06/2017 ? 18:47, Brett Cannon a ?crit :
+> I just wanted to quickly let people know I lifted Wes' two-month ban and
+> emailed him to notify him of the lifting.
+> 
+> On Fri, 31 Mar 2017 at 14:40 Brett Cannon <brett at python.org
+> <mailto:brett at python.org>> wrote:
+> 
+>     In the (long) discussion
+>     of https://github.com/python/core-workflow/issues/6, Wes Turner
+>     began to do his usual posting of lists. People pointed out he was
+>     stepping out of line by being somewhat off-topic and seemingly
+>     lecturing folks. He posted some of his lists again and then I warned
+>     him that if he did it again I would block him for a CoC violation
+>     since he did not want to respect anyone's time by taking the time to
+>     edit what amount to dumping his personal notes on GitHub. (This is a
+>     long-standing issue, BTW, with Wes where he has been warned in other
+>     settings like distutils-sig about his posting behaviour.)
+> 
+>     Unfortunately he did it again
+>     for https://github.com/python/core-workflow/issues/66. Since GitHub
+>     only has organization-level blocks I have blocked him at that level
+>     (I've also already received some +1s from core devs while writing
+>     this email for my move, so I know others who have interacted with
+>     him also support this decision).
+> 
+> 
+> 
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+> 
+
+From brett at python.org  Fri Jun  2 13:41:27 2017
+From: brett at python.org (Brett Cannon)
+Date: Fri, 02 Jun 2017 17:41:27 +0000
+Subject: [python-committers] I have blocked Wes Turner from the Python
+ org on GitHub
+In-Reply-To: <5c771af8-8ba3-69fd-e658-b208a5511532@python.org>
+References: <CAP1=2W5=ukka=32n4cUdRLs=tn059Nb9St_J-P2VR4u9Jo2E7g@mail.gmail.com>
+ <CAP1=2W6hUE_g5dkiUJAk-B3Xe9N_9X4+XkkZ7wj7+O8W2tRWDA@mail.gmail.com>
+ <5c771af8-8ba3-69fd-e658-b208a5511532@python.org>
+Message-ID: <CAP1=2W4riM2Ke80ih-D=4GMMWu7dbsVMaHx4-i881ZXLSfq7QQ@mail.gmail.com>
+
+I just sent the email an hour ago and have not heard anything from him as
+of yet.
+
+On Fri, 2 Jun 2017 at 09:55 Antoine Pitrou <antoine at python.org> wrote:
+
+>
+> How did he react to the whole thing?  Did he give signs of wanting to
+> improve his behaviour?
+>
+> Regards
+>
+> Antoine.
+>
+>
+> Le 02/06/2017 ? 18:47, Brett Cannon a ?crit :
+> > I just wanted to quickly let people know I lifted Wes' two-month ban and
+> > emailed him to notify him of the lifting.
+> >
+> > On Fri, 31 Mar 2017 at 14:40 Brett Cannon <brett at python.org
+> > <mailto:brett at python.org>> wrote:
+> >
+> >     In the (long) discussion
+> >     of https://github.com/python/core-workflow/issues/6, Wes Turner
+> >     began to do his usual posting of lists. People pointed out he was
+> >     stepping out of line by being somewhat off-topic and seemingly
+> >     lecturing folks. He posted some of his lists again and then I warned
+> >     him that if he did it again I would block him for a CoC violation
+> >     since he did not want to respect anyone's time by taking the time to
+> >     edit what amount to dumping his personal notes on GitHub. (This is a
+> >     long-standing issue, BTW, with Wes where he has been warned in other
+> >     settings like distutils-sig about his posting behaviour.)
+> >
+> >     Unfortunately he did it again
+> >     for https://github.com/python/core-workflow/issues/66. Since GitHub
+> >     only has organization-level blocks I have blocked him at that level
+> >     (I've also already received some +1s from core devs while writing
+> >     this email for my move, so I know others who have interacted with
+> >     him also support this decision).
+> >
+> >
+> >
+> > _______________________________________________
+> > python-committers mailing list
+> > python-committers at python.org
+> > https://mail.python.org/mailman/listinfo/python-committers
+> > Code of Conduct: https://www.python.org/psf/codeofconduct/
+> >
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170602/e90c7924/attachment.html>
+
+From brett at python.org  Sat Jun  3 13:39:45 2017
+From: brett at python.org (Brett Cannon)
+Date: Sat, 03 Jun 2017 17:39:45 +0000
+Subject: [python-committers] macOS builds conditionally turned on for Travis
+Message-ID: <CAP1=2W5+pcy+ZHJcVJocKTQCd7i_KZ-3PV5rVBbWeQbag1Tb1w@mail.gmail.com>
+
+I have turned on macOS builds on Travis for all active branches, but for
+now the builds are allowed to fail. The latter detail is so that we can be
+sure that the tests are stable on Travis before blocking on it as well as
+see if the added build time is acceptable for blocking a PR on. If the
+tests end up being stable for at least a week and the added time is deemed
+acceptable then we can make the macOS builds required for Travis to be
+considered passing.
+
+I'm using https://github.com/python/core-workflow/issues/91 to track the
+requirements discussion.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170603/2844b6ba/attachment.html>
+
+From mariatta.wijaya at gmail.com  Thu Jun  8 12:39:48 2017
+From: mariatta.wijaya at gmail.com (Mariatta Wijaya)
+Date: Thu, 8 Jun 2017 09:39:48 -0700
+Subject: [python-committers] Windows License for a core dev
+Message-ID: <CAGbohnYODAoEMD_4oxx4dQDcckeXKAMze3ERanGFR1AvaRXSng@mail.gmail.com>
+
+Hi,
+
+During the language summit I overheard that as a core developer, I can get
+free Windows License. Is this true?
+If so, how can I get one, and will it work with VirtualBox on mac?
+
+Thanks.
+
+Mariatta Wijaya
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170608/e5d0c084/attachment.html>
+
+From brian at python.org  Thu Jun  8 12:47:48 2017
+From: brian at python.org (Brian Curtin)
+Date: Thu, 8 Jun 2017 12:47:48 -0400
+Subject: [python-committers] Windows License for a core dev
+In-Reply-To: <CAGbohnYODAoEMD_4oxx4dQDcckeXKAMze3ERanGFR1AvaRXSng@mail.gmail.com>
+References: <CAGbohnYODAoEMD_4oxx4dQDcckeXKAMze3ERanGFR1AvaRXSng@mail.gmail.com>
+Message-ID: <CAD+XWwqmOEUTnEU9AD_CHdg=6qHz8ueRyX8iOcyqzTuQsN_Hig@mail.gmail.com>
+
+I think you're asking about an MSDN subscription, which gives you access to
+various Microsoft products including Windows, and yes you can have one. I
+just need the following details:
+
+First Name:
+Last Name:
+Email Address:
+Project/Company: Python Software Foundation
+Complete Mailing Address:
+Phone Number:
+
+As for VirtualBox on Mac, I have no idea, but probably? You can download
+ISOs from MSDN and I think that's all you need.
+
+Brian
+
+On Thu, Jun 8, 2017 at 12:39 PM, Mariatta Wijaya <mariatta.wijaya at gmail.com>
+wrote:
+
+> Hi,
+>
+> During the language summit I overheard that as a core developer, I can get
+> free Windows License. Is this true?
+> If so, how can I get one, and will it work with VirtualBox on mac?
+>
+> Thanks.
+>
+> Mariatta Wijaya
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170608/803388d1/attachment.html>
+
+From zachary.ware+pydev at gmail.com  Thu Jun  8 12:53:09 2017
+From: zachary.ware+pydev at gmail.com (Zachary Ware)
+Date: Thu, 8 Jun 2017 11:53:09 -0500
+Subject: [python-committers] Windows License for a core dev
+In-Reply-To: <CAGbohnYODAoEMD_4oxx4dQDcckeXKAMze3ERanGFR1AvaRXSng@mail.gmail.com>
+References: <CAGbohnYODAoEMD_4oxx4dQDcckeXKAMze3ERanGFR1AvaRXSng@mail.gmail.com>
+Message-ID: <CAKJDb-NhBpNr5ciO1c5y-NKxAWLy_Egk5z9EaLGGA-tvkCgioQ@mail.gmail.com>
+
+On Thu, Jun 8, 2017 at 11:39 AM, Mariatta Wijaya
+<mariatta.wijaya at gmail.com> wrote:
+>  and will it work with VirtualBox on mac?
+
+Yes, very well :).  That (and Azure, to which you get a monthly credit
+with MSDN subscription) is the only way I've been able to run Windows
+for some time now.
+
+-- 
+Zach
+
+From nad at python.org  Thu Jun  8 23:34:45 2017
+From: nad at python.org (Ned Deily)
+Date: Thu, 8 Jun 2017 23:34:45 -0400
+Subject: [python-committers] IMPORTANT: Python 3.6.2 Maintenance Release
+ Release Candidate in 3+ days (Monday 2017-06-12 12:00 UTC)
+Message-ID: <9F658EB5-9DF3-4E1F-87A4-41ECF303924F@python.org>
+
+We are approaching the end of the second calendar quarter of 2017 and, according to PEP 494, it's time to start producing the second maintenance release for the 3.6 series.  The schedule calls for the release candidate to be produced on Monday 2017-06-12 UTC.  As was the case with previous 3.6.x releases, the plan is for the release candidate to be the same as the final release, that is, no additional changes go in after the release candidate except for any showstopper critical problems that might be discovered with rc1.  So please plan to get any security fixes, bug fixes, and documentation changes you think should be in 3.6.2 merged in ASAP.  The 3.6.2 final is planned for two weeks following rc1, that is, on 2017-06-26.  The next 3.6 maintenance release (3.6.3) is planned to follow about 3 months later, so most likely in 2017-09.
+
+A reminder that the 3.6 branch will remain open for checkins throughout the 3.6.2rc and final cycle.  Once 3.6.2rc1 is tagged, new commits to the 3.6 branch will release with 3.6.3.  As always, if you find any problem in 3.6.2rc1 that you may believe should be corrected in 3.6.2, please ensure the problem is documented in a new or existing open issue on bugs.python.org, ensure that the Priority field of the issue is set to "release blocker", and that "Python 3.6" is included in the selected Versions.  Comments or tags on github Pull Requests are NOT sufficient!
+
+Thanks again for all of your efforts in bringing 3.6 into the world and for helping now to make it even better!
+
+https://www.python.org/dev/peps/pep-0494/
+http://cpython-devguide.readthedocs.io
+
+--
+  Ned Deily
+  nad at python.org -- []
+
+
+From victor.stinner at gmail.com  Fri Jun  9 07:30:51 2017
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Fri, 9 Jun 2017 13:30:51 +0200
+Subject: [python-committers] IMPORTANT: Python 3.6.2 Maintenance Release
+ Release Candidate in 3+ days (Monday 2017-06-12 12:00 UTC)
+In-Reply-To: <9F658EB5-9DF3-4E1F-87A4-41ECF303924F@python.org>
+References: <9F658EB5-9DF3-4E1F-87A4-41ECF303924F@python.org>
+Message-ID: <CAMpsgwa1fttTS3rFtyE9JS-+u-syX2JiRfb6uohRWW=FO=kXxw@mail.gmail.com>
+
+Oh, about very annoying 3.6 bug, there was a regression caused by
+FASTCALL optimizations. It's now fixed in the 3.6 branch:
+https://github.com/python/cpython/commit/f0ff849adc6b4a01f9d1f08d9ad0f1511ff84541
+
+Victor
+
+
+
+2017-06-09 5:34 GMT+02:00 Ned Deily <nad at python.org>:
+> We are approaching the end of the second calendar quarter of 2017 and, according to PEP 494, it's time to start producing the second maintenance release for the 3.6 series.  The schedule calls for the release candidate to be produced on Monday 2017-06-12 UTC.  As was the case with previous 3.6.x releases, the plan is for the release candidate to be the same as the final release, that is, no additional changes go in after the release candidate except for any showstopper critical problems that might be discovered with rc1.  So please plan to get any security fixes, bug fixes, and documentation changes you think should be in 3.6.2 merged in ASAP.  The 3.6.2 final is planned for two weeks following rc1, that is, on 2017-06-26.  The next 3.6 maintenance release (3.6.3) is planned to follow about 3 months later, so most likely in 2017-09.
+>
+> A reminder that the 3.6 branch will remain open for checkins throughout the 3.6.2rc and final cycle.  Once 3.6.2rc1 is tagged, new commits to the 3.6 branch will release with 3.6.3.  As always, if you find any problem in 3.6.2rc1 that you may believe should be corrected in 3.6.2, please ensure the problem is documented in a new or existing open issue on bugs.python.org, ensure that the Priority field of the issue is set to "release blocker", and that "Python 3.6" is included in the selected Versions.  Comments or tags on github Pull Requests are NOT sufficient!
+>
+> Thanks again for all of your efforts in bringing 3.6 into the world and for helping now to make it even better!
+>
+> https://www.python.org/dev/peps/pep-0494/
+> http://cpython-devguide.readthedocs.io
+>
+> --
+>   Ned Deily
+>   nad at python.org -- []
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+
+From antoine at python.org  Mon Jun 12 13:50:37 2017
+From: antoine at python.org (Antoine Pitrou)
+Date: Mon, 12 Jun 2017 19:50:37 +0200
+Subject: [python-committers] Sporadic failures in
+ test_multiprocessing_main_handling?
+Message-ID: <b4900c6b-7fcd-5b4f-e140-df098ec70432@python.org>
+
+
+Hello all,
+
+Are we aware of sporadic failures in test_multiprocessing_main_handling?
+I got a hang here and I'm wondering if it's due to my changes:
+https://travis-ci.org/python/cpython/jobs/242108490#L2211
+
+Thanks & Regards
+
+Antoine.
+
+From antoine at python.org  Mon Jun 12 13:58:49 2017
+From: antoine at python.org (Antoine Pitrou)
+Date: Mon, 12 Jun 2017 19:58:49 +0200
+Subject: [python-committers] Sporadic failures in
+ test_multiprocessing_main_handling?
+In-Reply-To: <b4900c6b-7fcd-5b4f-e140-df098ec70432@python.org>
+References: <b4900c6b-7fcd-5b4f-e140-df098ec70432@python.org>
+Message-ID: <2cdbc47b-eb97-5bc0-f104-599c27a10f98@python.org>
+
+
+I manage to reproduce.  Sorry for the noise here.
+
+Regards
+
+Antoine.
+
+
+
+Le 12/06/2017 ? 19:50, Antoine Pitrou a ?crit :
+> 
+> Hello all,
+> 
+> Are we aware of sporadic failures in test_multiprocessing_main_handling?
+> I got a hang here and I'm wondering if it's due to my changes:
+> https://travis-ci.org/python/cpython/jobs/242108490#L2211
+> 
+> Thanks & Regards
+> 
+> Antoine.
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+> 
+
+From lukasz at langa.pl  Mon Jun 12 19:04:33 2017
+From: lukasz at langa.pl (Lukasz Langa)
+Date: Mon, 12 Jun 2017 16:04:33 -0700
+Subject: [python-committers] Core sprint 2017 - Sep 4 - Sep 9, Menlo Park,
+ California
+Message-ID: <BC2653E3-39AF-4905-8EDC-67047157924B@langa.pl>
+
+Hello fellow committers!
+I'm organizing another core sprint this year to make Python 3.7 the best release possible.
+
+WHY:
+1. Community.  The sprints at the end of PyCon are great but they mostly get the same people in the room year after year.  Many of the most active contributors never attend conferences.  My goal with this sprint is to bring together many core devs who rarely if ever meet!
+2. Focus.  When we have sprints at the end of a conference, many of us are pretty tired and less productive than we could have been without the late dinners, endless hallway sessions, and so on.  Some of the sprinters are preoccupied with tutoring newcomers.  This sprint won't be after a major conference, and it's only for seasoned CPython core devs--so get to work!
+3. Communication. There are tremendous benefits to getting everyone together in one big room.  Conversations that drag on on python-dev can be solved quickly in person.  Even contentious debates become faster, easier, and more civil.  And meeting face-to-face helps us all feel more connected to our community.
+
+WHY THE BAY AREA: We have a large population of core contributors here.  Also, I can arrange for Facebook to provide us a "war room" for the whole week, with full access to the campus during the sprints. That includes free food for breakfast, lunch, dinner, and snacks, compatible with almost any dietary restrictions.
+
+WHY EARLY SEPTEMBER: It's almost impossible to find a time that doesn't overlap with a PyCon. This week worked well last year so we're redoing it that way. Monday September 4 is Labor Day in the US, which may make it easier for employees of US companies to attend, as they'd only be taking off four days instead of five.
+
+HOW LONG: A full week Monday, Sep 4 to Friday, Sep 8 evening. You can check into your hotel the day before the sprint (Sunday, Sep 3) and check out the day after (Saturday, Sep 9).
+
+HOW BIG: No fewer than 10, no more than 20.  More than 20 people would be great but it'd be hard for me to organize a sprint that big.
+
+WHO PAYS: The venue, hotels, and food are provided by Facebook. I'm working on getting flight reimbursements. Last year they were provided by the Python Software Foundation. Anybody is free to waive their reimbursement.
+
+PLEASE REPLY: If you're interested in attending and have the commit bit on GitHub's python/cpython, fill out this Google Form:
+https://goo.gl/forms/MzrNtRe0NAmzvGwF2 <https://goo.gl/forms/MzrNtRe0NAmzvGwF2>
+
+DISCLAIMER: I'd like to be able to host everybody. However, if I receive more than 20 applications, this is not going to be possible. In this case, the following will happen:
+
+1. I will look at your current level of involvement in CPython development. This includes metrics like commits / PRs, activity on the bug tracker and python-dev, special role (release manager, infrastructure dev, etc.).
+2. I will look at your sprint plan and ability to participate in the entire sprint (per answers to the questions above).
+3. I will gather all this data and leave the final decision to our Benevolent Dictator (who is also attending the sprint). This is one of those occasions where having a dictator is useful.
+
+DON'T WAIT: September is closer than you think! Please let me know as soon as possible so we can start setting up the event. I'm going to close the sign-up form on June 23rd.
+
+Organizational-ly yours,
+?
+Vice-Minister of Silly Sprints
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170612/1f09f357/attachment.html>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 842 bytes
+Desc: Message signed with OpenPGP
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170612/1f09f357/attachment.sig>
+
+From nad at python.org  Tue Jun 13 00:09:04 2017
+From: nad at python.org (Ned Deily)
+Date: Tue, 13 Jun 2017 00:09:04 -0400
+Subject: [python-committers] IMPORTANT: Python 3.6.2 Maintenance Release
+ Release Candidate in 3+ days (Monday 2017-06-12 12:00 UTC)
+In-Reply-To: <9F658EB5-9DF3-4E1F-87A4-41ECF303924F@python.org>
+References: <9F658EB5-9DF3-4E1F-87A4-41ECF303924F@python.org>
+Message-ID: <542D74F2-85FF-4B5F-A5D7-553A394BE6F5@python.org>
+
+An update on 3.6.2rc1: we have been working through a few critical and release blocker issues that needed to be fixed for 3.6.2.  Thanks to everyone who has helped with them!  At the moment, we have one security-related release blocker (http://bugs.python.org/issue29591) which I think we need to get addressed in 3.6.2.  So, I'm delaying 3.6.2rc1 until we can get that resolved.  That means that, for the moment, changes going into the 3.6 branch will likely make in into 3.6.2.  I'll let you know when we are ready to tag.
+
+Thanks!
+--Ned
+
+
+On Jun 8, 2017, at 23:34, Ned Deily <nad at python.org> wrote:
+> We are approaching the end of the second calendar quarter of 2017 and, according to PEP 494, it's time to start producing the second maintenance release for the 3.6 series.  The schedule calls for the release candidate to be produced on Monday 2017-06-12 UTC.  As was the case with previous 3.6.x releases, the plan is for the release candidate to be the same as the final release, that is, no additional changes go in after the release candidate except for any showstopper critical problems that might be discovered with rc1.  So please plan to get any security fixes, bug fixes, and documentation changes you think should be in 3.6.2 merged in ASAP.  The 3.6.2 final is planned for two weeks following rc1, that is, on 2017-06-26.  The next 3.6 maintenance release (3.6.3) is planned to follow about 3 months later, so most likely in 2017-09.
+> 
+> A reminder that the 3.6 branch will remain open for checkins throughout the 3.6.2rc and final cycle.  Once 3.6.2rc1 is tagged, new commits to the 3.6 branch will release with 3.6.3.  As always, if you find any problem in 3.6.2rc1 that you may believe should be corrected in 3.6.2, please ensure the problem is documented in a new or existing open issue on bugs.python.org, ensure that the Priority field of the issue is set to "release blocker", and that "Python 3.6" is included in the selected Versions.  Comments or tags on github Pull Requests are NOT sufficient!
+> 
+> Thanks again for all of your efforts in bringing 3.6 into the world and for helping now to make it even better!
+> 
+> https://www.python.org/dev/peps/pep-0494/
+> http://cpython-devguide.readthedocs.io
+
+--
+  Ned Deily
+  nad at python.org -- []
+
+
+From victor.stinner at gmail.com  Tue Jun 13 02:42:06 2017
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Tue, 13 Jun 2017 08:42:06 +0200
+Subject: [python-committers] Sporadic failures in
+ test_multiprocessing_main_handling?
+In-Reply-To: <b4900c6b-7fcd-5b4f-e140-df098ec70432@python.org>
+References: <b4900c6b-7fcd-5b4f-e140-df098ec70432@python.org>
+Message-ID: <CAMpsgwYWbu8sF1hBCAi9FPgoXEM9fAWsm7oeKzcdWP6TGgpYOQ@mail.gmail.com>
+
+Hi Antoine,
+
+Buildbots got a new coloor last month: orange. It means that we
+detected "warnings", one of these warnings are tests which failed once
+but then passed when run a second time. I started to open an issue for
+each CI failure and for each unstable test (fail then pass).
+
+For multiprocessing, I already have 4 open issues:
+
+http://bugs.python.org/issue30595
+http://bugs.python.org/issue30356
+http://bugs.python.org/issue30339
+http://bugs.python.org/issue30333
+
+See also by "buildbot report" emails to python-dev.
+
+Victor
+
+2017-06-12 19:50 GMT+02:00 Antoine Pitrou <antoine at python.org>:
+>
+> Hello all,
+>
+> Are we aware of sporadic failures in test_multiprocessing_main_handling?
+> I got a hang here and I'm wondering if it's due to my changes:
+> https://travis-ci.org/python/cpython/jobs/242108490#L2211
+>
+> Thanks & Regards
+>
+> Antoine.
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+
+From victor.stinner at gmail.com  Tue Jun 13 02:47:13 2017
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Tue, 13 Jun 2017 08:47:13 +0200
+Subject: [python-committers] Sporadic failures in
+ test_multiprocessing_main_handling?
+In-Reply-To: <CAMpsgwYWbu8sF1hBCAi9FPgoXEM9fAWsm7oeKzcdWP6TGgpYOQ@mail.gmail.com>
+References: <b4900c6b-7fcd-5b4f-e140-df098ec70432@python.org>
+ <CAMpsgwYWbu8sF1hBCAi9FPgoXEM9fAWsm7oeKzcdWP6TGgpYOQ@mail.gmail.com>
+Message-ID: <CAMpsgwYfe7EGy5Pb+f_v+8BTGpWndpZzRUHN1cA6NEyBpv789Q@mail.gmail.com>
+
+typo:
+
+2017-06-13 8:42 GMT+02:00 Victor Stinner <victor.stinner at gmail.com>:
+> See also *my* "buildbot report" emails to python-dev.
+
+Oh, it seems like you bug you saw is not in the bug tracker. I opened
+this issue:
+http://bugs.python.org/issue30643
+
+You can use it to track your progress on that one, since it sems like
+you are able to reproduce it (good!).
+
+Victor
+
+From victor.stinner at gmail.com  Tue Jun 13 03:03:50 2017
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Tue, 13 Jun 2017 09:03:50 +0200
+Subject: [python-committers] Promote Julien Palards as Committers on
+ docsbuild-scripts
+Message-ID: <CAMpsgwb18mDYabxfTwrS2ZJkJDfHGhDa1TxrzzSW2hmvkTUQcQ@mail.gmail.com>
+
+Hi,
+
+Would it be possible to give the commit bit to Julien Palards on the
+following project (only on this project)?
+
+  https://github.com/python/docsbuild-scripts/pulls
+
+His GitHub account is "JulienPalard":
+
+  https://github.com/JulienPalard
+
+Thanks to the migration to GitHub, we are now able to give access to
+someone to a single repository, no?
+
+He wrote the documentation translation which has been accepted by Guido in May:
+
+  https://www.python.org/dev/peps/pep-0545/
+
+Julien needs to make minor changes to the documentation build system
+to support translations, see his pull request:
+
+  https://github.com/python/docsbuild-scripts/pull/11
+
+The Git repository of docsbuild-scripts has 41 commits and 7 of them
+(17%) are already written by Julien :-)
+
+Victor
+
+From zachary.ware+pydev at gmail.com  Tue Jun 13 09:03:47 2017
+From: zachary.ware+pydev at gmail.com (Zachary Ware)
+Date: Tue, 13 Jun 2017 08:03:47 -0500
+Subject: [python-committers] Promote Julien Palards as Committers on
+ docsbuild-scripts
+In-Reply-To: <CAMpsgwb18mDYabxfTwrS2ZJkJDfHGhDa1TxrzzSW2hmvkTUQcQ@mail.gmail.com>
+References: <CAMpsgwb18mDYabxfTwrS2ZJkJDfHGhDa1TxrzzSW2hmvkTUQcQ@mail.gmail.com>
+Message-ID: <CAKJDb-NwfxaNL1zX++Nmu6WKcXFCpgQiPh1Cuk9Rz2k--ACzpg@mail.gmail.com>
+
++1
+
+--
+Zach
+(On a phone)
+
+On Jun 13, 2017 02:17, "Victor Stinner" <victor.stinner at gmail.com> wrote:
+
+Hi,
+
+Would it be possible to give the commit bit to Julien Palards on the
+following project (only on this project)?
+
+  https://github.com/python/docsbuild-scripts/pulls
+
+His GitHub account is "JulienPalard":
+
+  https://github.com/JulienPalard
+
+Thanks to the migration to GitHub, we are now able to give access to
+someone to a single repository, no?
+
+He wrote the documentation translation which has been accepted by Guido in
+May:
+
+  https://www.python.org/dev/peps/pep-0545/
+
+Julien needs to make minor changes to the documentation build system
+to support translations, see his pull request:
+
+  https://github.com/python/docsbuild-scripts/pull/11
+
+The Git repository of docsbuild-scripts has 41 commits and 7 of them
+(17%) are already written by Julien :-)
+
+Victor
+_______________________________________________
+python-committers mailing list
+python-committers at python.org
+https://mail.python.org/mailman/listinfo/python-committers
+Code of Conduct: https://www.python.org/psf/codeofconduct/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170613/67b22d06/attachment.html>
+
+From willingc at gmail.com  Tue Jun 13 11:22:07 2017
+From: willingc at gmail.com (Carol Willing)
+Date: Tue, 13 Jun 2017 08:22:07 -0700
+Subject: [python-committers] Promote Julien Palards as Committers on
+ docsbuild-scripts
+In-Reply-To: <CAMpsgwb18mDYabxfTwrS2ZJkJDfHGhDa1TxrzzSW2hmvkTUQcQ@mail.gmail.com>
+References: <CAMpsgwb18mDYabxfTwrS2ZJkJDfHGhDa1TxrzzSW2hmvkTUQcQ@mail.gmail.com>
+Message-ID: <5469D749-069A-4776-8917-BE858AF38D8D@gmail.com>
+
++1
+
+
+> On Jun 13, 2017, at 12:03 AM, Victor Stinner <victor.stinner at gmail.com> wrote:
+> 
+> Hi,
+> 
+> Would it be possible to give the commit bit to Julien Palards on the
+> following project (only on this project)?
+> 
+>  https://github.com/python/docsbuild-scripts/pulls
+> 
+> His GitHub account is "JulienPalard":
+> 
+>  https://github.com/JulienPalard
+> 
+> Thanks to the migration to GitHub, we are now able to give access to
+> someone to a single repository, no?
+> 
+> He wrote the documentation translation which has been accepted by Guido in May:
+> 
+>  https://www.python.org/dev/peps/pep-0545/
+> 
+> Julien needs to make minor changes to the documentation build system
+> to support translations, see his pull request:
+> 
+>  https://github.com/python/docsbuild-scripts/pull/11
+> 
+> The Git repository of docsbuild-scripts has 41 commits and 7 of them
+> (17%) are already written by Julien :-)
+> 
+> Victor
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 842 bytes
+Desc: Message signed with OpenPGP
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170613/c001d8b8/attachment-0001.sig>
+
+From brett at python.org  Tue Jun 13 18:29:00 2017
+From: brett at python.org (Brett Cannon)
+Date: Tue, 13 Jun 2017 22:29:00 +0000
+Subject: [python-committers] Promote Julien Palards as Committers on
+ docsbuild-scripts
+In-Reply-To: <CAMpsgwb18mDYabxfTwrS2ZJkJDfHGhDa1TxrzzSW2hmvkTUQcQ@mail.gmail.com>
+References: <CAMpsgwb18mDYabxfTwrS2ZJkJDfHGhDa1TxrzzSW2hmvkTUQcQ@mail.gmail.com>
+Message-ID: <CAP1=2W6eYz5UbrKShs4A6H9hdBNfeBUzeN81UO14hr0VrQTZeQ@mail.gmail.com>
+
+On Tue, 13 Jun 2017 at 00:17 Victor Stinner <victor.stinner at gmail.com>
+wrote:
+
+> Hi,
+>
+> Would it be possible to give the commit bit to Julien Palards on the
+> following project (only on this project)?
+>
+>   https://github.com/python/docsbuild-scripts/pulls
+>
+> His GitHub account is "JulienPalard":
+>
+>   https://github.com/JulienPalard
+>
+> Thanks to the migration to GitHub, we are now able to give access to
+> someone to a single repository, no?
+>
+
+It is, but the infrastructure team owns that repo, not Python core.
+
+-Bret
+
+
+>
+> He wrote the documentation translation which has been accepted by Guido in
+> May:
+>
+>   https://www.python.org/dev/peps/pep-0545/
+>
+> Julien needs to make minor changes to the documentation build system
+> to support translations, see his pull request:
+>
+>   https://github.com/python/docsbuild-scripts/pull/11
+>
+> The Git repository of docsbuild-scripts has 41 commits and 7 of them
+> (17%) are already written by Julien :-)
+>
+> Victor
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170613/4eff3d53/attachment.html>
+
+From victor.stinner at gmail.com  Tue Jun 13 18:36:53 2017
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Wed, 14 Jun 2017 00:36:53 +0200
+Subject: [python-committers] Promote Julien Palards as Committers on
+ docsbuild-scripts
+In-Reply-To: <CAP1=2W6eYz5UbrKShs4A6H9hdBNfeBUzeN81UO14hr0VrQTZeQ@mail.gmail.com>
+References: <CAMpsgwb18mDYabxfTwrS2ZJkJDfHGhDa1TxrzzSW2hmvkTUQcQ@mail.gmail.com>
+ <CAP1=2W6eYz5UbrKShs4A6H9hdBNfeBUzeN81UO14hr0VrQTZeQ@mail.gmail.com>
+Message-ID: <CAMpsgwberuHkhoenZLDKZqxWRTT7rqE+AJVXiwY7e2OeC5sKkw@mail.gmail.com>
+
+Le 14 juin 2017 00:29, "Brett Cannon" <brett at python.org> a ?crit :
+
+It is, but the infrastructure team owns that repo, not Python core.
+
+-Brett
+
+
+Oh, I didn't know. Is it possible to see who owns a GitHub Python project
+at https://github.com/python/?
+
+If not, do you think that it would be worth it to document it somewhere?
+Like in the devguide?
+
+Victor
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170614/61cf624d/attachment.html>
+
+From victor.stinner at gmail.com  Wed Jun 14 10:40:41 2017
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Wed, 14 Jun 2017 16:40:41 +0200
+Subject: [python-committers] Revert changes which break too many buildbots
+Message-ID: <CAMpsgwaRYo0whRJHSKLoGos_du=5p4-AZSO_QKNXTh0xw3irgQ@mail.gmail.com>
+
+Hi,
+
+The CPython workflow was enhanced to get pre-commit CI checks. That's
+a huge win, thank you for that... But, sometimes, a change can still
+break many buildbots, bugs which weren't catched by pre-commit checks
+(Travis CI/Linux and AppVeyor/Windows). Buildbots cover much more
+different architectures and platforms.
+
+I spend a significant amount of time to maintain the sanity of our
+buildbots. Sometimes, it can take me up to 3 days on a week (of 5
+working days). It's annoying to see new regressions while I'm trying
+hard to fix old ones :-(
+
+So I would like to set a new rule: if I'm unable to fix buildbots
+failures caused by a recent change quickly (say, in less than 2
+hours), I propose to revert the change.
+
+It doesn't mean that the commit is bad and must not be merged ever.
+No. It would just mean that we need time to work on fixing the issue,
+and it shouldn't impact other pending changes, to keep a sane master
+branch.
+
+What do you think? Would you be ok with such rule?
+
+A recent example is Nick Coghlan's implementation of the PEP 538:
+basically, it broke all buildbots... except of Linux and Windows :-)
+And it will take a few more days to fix all failures. Well, we are
+working on fixing these issues, so I don't want to revert this change.
+It's just an example of a single change which broke many buildbots.
+The PEP 538 depends a lot on the platform, so I'm not surprised to see
+different failures per platforms ;-)
+
+By "buildbot failure", I mean a red buildbot failing because of
+compilation error or failed test suite. But I would prefer to ignore
+failures of the Refleak buildbots since these ones are not stable
+(even if there are less and less ref leaks in master, and these
+buildbots already catched recent regressions!).
+
+If the rule is approved, I plan to announce it on python-dev to be transparent.
+
+Victor
+
+From storchaka at gmail.com  Wed Jun 14 12:38:32 2017
+From: storchaka at gmail.com (Serhiy Storchaka)
+Date: Wed, 14 Jun 2017 19:38:32 +0300
+Subject: [python-committers] Revert changes which break too many
+ buildbots
+In-Reply-To: <CAMpsgwaRYo0whRJHSKLoGos_du=5p4-AZSO_QKNXTh0xw3irgQ@mail.gmail.com>
+References: <CAMpsgwaRYo0whRJHSKLoGos_du=5p4-AZSO_QKNXTh0xw3irgQ@mail.gmail.com>
+Message-ID: <CAAuNNr49p9Ym76OU=s_CrhPXaYQO-qj5SK-e3Cp2EUNmzKAGcQ@mail.gmail.com>
+
+2017-06-14 17:40 GMT+03:00 Victor Stinner <victor.stinner at gmail.com>:
+> So I would like to set a new rule: if I'm unable to fix buildbots
+> failures caused by a recent change quickly (say, in less than 2
+> hours), I propose to revert the change.
+>
+> It doesn't mean that the commit is bad and must not be merged ever.
+> No. It would just mean that we need time to work on fixing the issue,
+> and it shouldn't impact other pending changes, to keep a sane master
+> branch.
+>
+> What do you think? Would you be ok with such rule?
+
+I think we first should make buildbots notifying the author of a
+commit that broke tests or building, so his can either quickly fix the
+failure or revert his commit.
+
+From victor.stinner at gmail.com  Wed Jun 14 12:42:56 2017
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Wed, 14 Jun 2017 18:42:56 +0200
+Subject: [python-committers] Revert changes which break too many
+ buildbots
+In-Reply-To: <CAAuNNr49p9Ym76OU=s_CrhPXaYQO-qj5SK-e3Cp2EUNmzKAGcQ@mail.gmail.com>
+References: <CAMpsgwaRYo0whRJHSKLoGos_du=5p4-AZSO_QKNXTh0xw3irgQ@mail.gmail.com>
+ <CAAuNNr49p9Ym76OU=s_CrhPXaYQO-qj5SK-e3Cp2EUNmzKAGcQ@mail.gmail.com>
+Message-ID: <CAMpsgwbFt-Pmao6yeVyaK+cy7nXt4qjrmiq0Y1oocgHTdxyLxw@mail.gmail.com>
+
+2017-06-14 18:38 GMT+02:00 Serhiy Storchaka <storchaka at gmail.com>:
+>> What do you think? Would you be ok with such rule?
+>
+> I think we first should make buildbots notifying the author of a
+> commit that broke tests or building, so his can either quickly fix the
+> failure or revert his commit.
+
+One or two months ago, I created a new buildbot-status mailing list
+which gets notifications of buildbot failures:
+https://mail.python.org/mm3/mailman3/lists/buildbot-status.python.org/
+
+I'm happy because we get less and less random failures, but I don't
+feel confortable yet to spam the author of changes when a buildbot
+fails for an unrelated reason like a network issue.
+
+Analyzing buildbot failures is still a manual step, so I propose to
+make a compromise here ;-)
+
+Reading buildbot logs is a boring task, I don't expect that everyone
+do it. I cannot require that all contributors take care of the CI. But
+I consider that it's part of my job, I'm fine with that ;-)
+
+Victor
+
+From brett at python.org  Wed Jun 14 16:40:08 2017
+From: brett at python.org (Brett Cannon)
+Date: Wed, 14 Jun 2017 20:40:08 +0000
+Subject: [python-committers] Promote Julien Palards as Committers on
+ docsbuild-scripts
+In-Reply-To: <CAMpsgwberuHkhoenZLDKZqxWRTT7rqE+AJVXiwY7e2OeC5sKkw@mail.gmail.com>
+References: <CAMpsgwb18mDYabxfTwrS2ZJkJDfHGhDa1TxrzzSW2hmvkTUQcQ@mail.gmail.com>
+ <CAP1=2W6eYz5UbrKShs4A6H9hdBNfeBUzeN81UO14hr0VrQTZeQ@mail.gmail.com>
+ <CAMpsgwberuHkhoenZLDKZqxWRTT7rqE+AJVXiwY7e2OeC5sKkw@mail.gmail.com>
+Message-ID: <CAP1=2W7iNjsaehF-S2_Knhn+dViH9Nq9thxvdQUM0k2uEXKd9g@mail.gmail.com>
+
+On Tue, 13 Jun 2017 at 15:37 Victor Stinner <victor.stinner at gmail.com>
+wrote:
+
+> Le 14 juin 2017 00:29, "Brett Cannon" <brett at python.org> a ?crit :
+>
+> It is, but the infrastructure team owns that repo, not Python core.
+>
+> -Brett
+>
+>
+> Oh, I didn't know. Is it possible to see who owns a GitHub Python project
+> at https://github.com/python/?
+>
+
+If you can see https://github.com/orgs/python/teams/python-core/repositories
+then
+yes. :)
+
+
+>
+> If not, do you think that it would be worth it to document it somewhere?
+> Like in the devguide?
+>
+
+I don't think it's worth it as it doesn't come up often enough and it would
+just end up out-of-date.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170614/c0cc9fbc/attachment.html>
+
+From brett at python.org  Wed Jun 14 16:43:53 2017
+From: brett at python.org (Brett Cannon)
+Date: Wed, 14 Jun 2017 20:43:53 +0000
+Subject: [python-committers] Revert changes which break too many
+ buildbots
+In-Reply-To: <CAMpsgwaRYo0whRJHSKLoGos_du=5p4-AZSO_QKNXTh0xw3irgQ@mail.gmail.com>
+References: <CAMpsgwaRYo0whRJHSKLoGos_du=5p4-AZSO_QKNXTh0xw3irgQ@mail.gmail.com>
+Message-ID: <CAP1=2W5=YBz3Vnmo9_39eJvhwMjuUBAVT4Kka7KoYOJNUyiiZg@mail.gmail.com>
+
+On Wed, 14 Jun 2017 at 07:46 Victor Stinner <victor.stinner at gmail.com>
+wrote:
+
+> Hi,
+>
+> The CPython workflow was enhanced to get pre-commit CI checks. That's
+> a huge win, thank you for that... But, sometimes, a change can still
+> break many buildbots, bugs which weren't catched by pre-commit checks
+> (Travis CI/Linux and AppVeyor/Windows). Buildbots cover much more
+> different architectures and platforms.
+>
+
+There's also macOS if you look at the Travis results manually.
+
+
+>
+> I spend a significant amount of time to maintain the sanity of our
+> buildbots. Sometimes, it can take me up to 3 days on a week (of 5
+> working days). It's annoying to see new regressions while I'm trying
+> hard to fix old ones :-(
+>
+> So I would like to set a new rule: if I'm unable to fix buildbots
+> failures caused by a recent change quickly (say, in less than 2
+> hours), I propose to revert the change.
+>
+> It doesn't mean that the commit is bad and must not be merged ever.
+> No. It would just mean that we need time to work on fixing the issue,
+> and it shouldn't impact other pending changes, to keep a sane master
+> branch.
+>
+> What do you think? Would you be ok with such rule?
+>
+
+I'm +1 on it. We have always expected people to watch the buildbots after a
+commit to make sure nothing horrible happened. And leaving a branch broken
+just makes fixing it harder due to code change and it masks potential
+failures from subsequent commits that happen to manifest themselves as a
+similar failure.
+
+-Brett
+
+
+>
+> A recent example is Nick Coghlan's implementation of the PEP 538:
+> basically, it broke all buildbots... except of Linux and Windows :-)
+> And it will take a few more days to fix all failures. Well, we are
+> working on fixing these issues, so I don't want to revert this change.
+> It's just an example of a single change which broke many buildbots.
+> The PEP 538 depends a lot on the platform, so I'm not surprised to see
+> different failures per platforms ;-)
+>
+> By "buildbot failure", I mean a red buildbot failing because of
+> compilation error or failed test suite. But I would prefer to ignore
+> failures of the Refleak buildbots since these ones are not stable
+> (even if there are less and less ref leaks in master, and these
+> buildbots already catched recent regressions!).
+>
+> If the rule is approved, I plan to announce it on python-dev to be
+> transparent.
+>
+> Victor
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170614/78bbd443/attachment-0001.html>
+
+From victor.stinner at gmail.com  Wed Jun 14 16:53:11 2017
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Wed, 14 Jun 2017 22:53:11 +0200
+Subject: [python-committers] Promote Julien Palards as Committers on
+ docsbuild-scripts
+In-Reply-To: <CAP1=2W7iNjsaehF-S2_Knhn+dViH9Nq9thxvdQUM0k2uEXKd9g@mail.gmail.com>
+References: <CAMpsgwb18mDYabxfTwrS2ZJkJDfHGhDa1TxrzzSW2hmvkTUQcQ@mail.gmail.com>
+ <CAP1=2W6eYz5UbrKShs4A6H9hdBNfeBUzeN81UO14hr0VrQTZeQ@mail.gmail.com>
+ <CAMpsgwberuHkhoenZLDKZqxWRTT7rqE+AJVXiwY7e2OeC5sKkw@mail.gmail.com>
+ <CAP1=2W7iNjsaehF-S2_Knhn+dViH9Nq9thxvdQUM0k2uEXKd9g@mail.gmail.com>
+Message-ID: <CAMpsgwYU7zzyrfEU9R1OaycNaVfOBkWoyDFwRiWMJ4cc8ernvQ@mail.gmail.com>
+
+2017-06-14 22:40 GMT+02:00 Brett Cannon <brett at python.org>:
+>> Oh, I didn't know. Is it possible to see who owns a GitHub Python project
+>> at https://github.com/python/?
+>
+> If you can see https://github.com/orgs/python/teams/python-core/repositories
+> then yes. :)
+
+About this list, there was a question on the buildmaster-config
+repository. Mariatta Wijaya's message:
+"""
+I didn't know about buildmaster-config repo.
+
+It's not listed as one of the projects for the Python Core team :)
+
+https://github.com/orgs/python/teams/python-core/repositories
+
+Should it be?
+"""
+
+http://bugs.python.org/issue30658#msg296018
+
+Victor
+
+From victor.stinner at gmail.com  Wed Jun 14 17:00:19 2017
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Wed, 14 Jun 2017 23:00:19 +0200
+Subject: [python-committers] Revert changes which break too many
+ buildbots
+In-Reply-To: <CAAuNNr49p9Ym76OU=s_CrhPXaYQO-qj5SK-e3Cp2EUNmzKAGcQ@mail.gmail.com>
+References: <CAMpsgwaRYo0whRJHSKLoGos_du=5p4-AZSO_QKNXTh0xw3irgQ@mail.gmail.com>
+ <CAAuNNr49p9Ym76OU=s_CrhPXaYQO-qj5SK-e3Cp2EUNmzKAGcQ@mail.gmail.com>
+Message-ID: <CAMpsgwbviqZQ46HANcnN6icVmm25vP2U-EJtTYrQC=os+w4GjA@mail.gmail.com>
+
+2017-06-14 18:38 GMT+02:00 Serhiy Storchaka <storchaka at gmail.com>:
+> I think we first should make buildbots notifying the author of a
+> commit that broke tests or building, so his can either quickly fix the
+> failure or revert his commit.
+
+Hum, I think that I should elaborate my previous email.
+
+It's usually easy to identify a commit which introduced regressions if
+you compare 2 or 3 failing buildbots and their list of changes. So
+when I identify the commit, if I cannot fix the issue immediately,
+usually I leave a message on the issue (bugs.python.org). So the
+author but also other people who worked on the issue are well aware of
+the regression.
+
+In my experiemnce, it's rare that I get any feedback in less than 24h,
+while slowly more and more buildbots become red. It depends on the
+availability of the commiter.
+
+Since I'm trying to always keep the highest number of green buildbots,
+I prefer to try to fix the bug myself.
+
+My question is what to do if I'm unable to fix the issue and the
+author is not available. Keep a broken CI for hours, sometimes for
+days. Or revert the change to reduce the pressure and get more time to
+write a *proper* fix?
+
+I propose to revert to get more people at the issue to find the best
+option, rather than urging to push a quick & dirty fix.
+
+Hopefully, in most cases, the bug is trivial and I consider that the
+fix doesn't require a review, so I push it directly.
+
+Victor
+
+From donald at stufft.io  Wed Jun 14 17:07:20 2017
+From: donald at stufft.io (Donald Stufft)
+Date: Wed, 14 Jun 2017 17:07:20 -0400
+Subject: [python-committers] Revert changes which break too many
+ buildbots
+In-Reply-To: <CAMpsgwbviqZQ46HANcnN6icVmm25vP2U-EJtTYrQC=os+w4GjA@mail.gmail.com>
+References: <CAMpsgwaRYo0whRJHSKLoGos_du=5p4-AZSO_QKNXTh0xw3irgQ@mail.gmail.com>
+ <CAAuNNr49p9Ym76OU=s_CrhPXaYQO-qj5SK-e3Cp2EUNmzKAGcQ@mail.gmail.com>
+ <CAMpsgwbviqZQ46HANcnN6icVmm25vP2U-EJtTYrQC=os+w4GjA@mail.gmail.com>
+Message-ID: <058369F5-E46F-4944-9A41-26FED5276661@stufft.io>
+
+I?m +1 on reverting the change, I?d even go so far to say I?d be +1 on doing it as a first response. It?s always possible to revert the revert once the person who committed the patch has time to investigate the failure and recommit the patch with a fix.
+
+> On Jun 14, 2017, at 5:00 PM, Victor Stinner <victor.stinner at gmail.com> wrote:
+> 
+> 2017-06-14 18:38 GMT+02:00 Serhiy Storchaka <storchaka at gmail.com>:
+>> I think we first should make buildbots notifying the author of a
+>> commit that broke tests or building, so his can either quickly fix the
+>> failure or revert his commit.
+> 
+> Hum, I think that I should elaborate my previous email.
+> 
+> It's usually easy to identify a commit which introduced regressions if
+> you compare 2 or 3 failing buildbots and their list of changes. So
+> when I identify the commit, if I cannot fix the issue immediately,
+> usually I leave a message on the issue (bugs.python.org). So the
+> author but also other people who worked on the issue are well aware of
+> the regression.
+> 
+> In my experiemnce, it's rare that I get any feedback in less than 24h,
+> while slowly more and more buildbots become red. It depends on the
+> availability of the commiter.
+> 
+> Since I'm trying to always keep the highest number of green buildbots,
+> I prefer to try to fix the bug myself.
+> 
+> My question is what to do if I'm unable to fix the issue and the
+> author is not available. Keep a broken CI for hours, sometimes for
+> days. Or revert the change to reduce the pressure and get more time to
+> write a *proper* fix?
+> 
+> I propose to revert to get more people at the issue to find the best
+> option, rather than urging to push a quick & dirty fix.
+> 
+> Hopefully, in most cases, the bug is trivial and I consider that the
+> fix doesn't require a review, so I push it directly.
+> 
+> Victor
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+
+
+?
+Donald Stufft
+
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170614/2b1952eb/attachment.html>
+
+From ethan at stoneleaf.us  Wed Jun 14 20:35:04 2017
+From: ethan at stoneleaf.us (Ethan Furman)
+Date: Wed, 14 Jun 2017 17:35:04 -0700
+Subject: [python-committers] Revert changes which break too many
+ buildbots
+In-Reply-To: <058369F5-E46F-4944-9A41-26FED5276661@stufft.io>
+References: <CAMpsgwaRYo0whRJHSKLoGos_du=5p4-AZSO_QKNXTh0xw3irgQ@mail.gmail.com>
+ <CAAuNNr49p9Ym76OU=s_CrhPXaYQO-qj5SK-e3Cp2EUNmzKAGcQ@mail.gmail.com>
+ <CAMpsgwbviqZQ46HANcnN6icVmm25vP2U-EJtTYrQC=os+w4GjA@mail.gmail.com>
+ <058369F5-E46F-4944-9A41-26FED5276661@stufft.io>
+Message-ID: <5941D638.7040209@stoneleaf.us>
+
+On 06/14/2017 02:07 PM, Donald Stufft wrote:
+
+> I?m +1 on reverting the change, I?d even go so far to say I?d be +1 on doing it as a first response. It?s always
+> possible to revert the revert once the person who committed the patch has time to investigate the failure and recommit
+> the patch with a fix.
+
+I would rather have the revert be the first response.  Without a thorough understanding of the bug/feature being 
+addressed it is entirely possible to introduce a new bug or change the semantics of the original patch.
+
+--
+~Ethan~
+
+
+From barry at python.org  Wed Jun 14 23:15:05 2017
+From: barry at python.org (Barry Warsaw)
+Date: Wed, 14 Jun 2017 20:15:05 -0700
+Subject: [python-committers] Revert changes which break too many
+ buildbots
+In-Reply-To: <CAMpsgwbviqZQ46HANcnN6icVmm25vP2U-EJtTYrQC=os+w4GjA@mail.gmail.com>
+References: <CAMpsgwaRYo0whRJHSKLoGos_du=5p4-AZSO_QKNXTh0xw3irgQ@mail.gmail.com>
+ <CAAuNNr49p9Ym76OU=s_CrhPXaYQO-qj5SK-e3Cp2EUNmzKAGcQ@mail.gmail.com>
+ <CAMpsgwbviqZQ46HANcnN6icVmm25vP2U-EJtTYrQC=os+w4GjA@mail.gmail.com>
+Message-ID: <20170614201505.71d8f2fa@presto>
+
+On Jun 14, 2017, at 11:00 PM, Victor Stinner wrote:
+
+>Since I'm trying to always keep the highest number of green buildbots,
+>I prefer to try to fix the bug myself.
+>
+>My question is what to do if I'm unable to fix the issue and the
+>author is not available. Keep a broken CI for hours, sometimes for
+>days. Or revert the change to reduce the pressure and get more time to
+>write a *proper* fix?
+>
+>I propose to revert to get more people at the issue to find the best
+>option, rather than urging to push a quick & dirty fix.
+>
+>Hopefully, in most cases, the bug is trivial and I consider that the
+>fix doesn't require a review, so I push it directly.
+
+I agree with you that if it's easy to fix, JFDI.  If not, revert it to keep
+the buildbots green and inform the author about the problem.  For now that can
+be to update the issue or PR so the author gets a mention, but later it can be
+an autonag email.
+
+-Barry
+
+From ncoghlan at gmail.com  Wed Jun 14 23:31:39 2017
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Thu, 15 Jun 2017 13:31:39 +1000
+Subject: [python-committers] Revert changes which break too many
+ buildbots
+In-Reply-To: <CAMpsgwaRYo0whRJHSKLoGos_du=5p4-AZSO_QKNXTh0xw3irgQ@mail.gmail.com>
+References: <CAMpsgwaRYo0whRJHSKLoGos_du=5p4-AZSO_QKNXTh0xw3irgQ@mail.gmail.com>
+Message-ID: <CADiSq7eWy6VsdGZVK2SnqmX4+Nx0BtHzopwscLDm--dnY6Q8zg@mail.gmail.com>
+
+On 15 June 2017 at 00:40, Victor Stinner <victor.stinner at gmail.com> wrote:
+> Hi,
+>
+> The CPython workflow was enhanced to get pre-commit CI checks. That's
+> a huge win, thank you for that... But, sometimes, a change can still
+> break many buildbots, bugs which weren't catched by pre-commit checks
+> (Travis CI/Linux and AppVeyor/Windows). Buildbots cover much more
+> different architectures and platforms.
+>
+> I spend a significant amount of time to maintain the sanity of our
+> buildbots. Sometimes, it can take me up to 3 days on a week (of 5
+> working days). It's annoying to see new regressions while I'm trying
+> hard to fix old ones :-(
+>
+> So I would like to set a new rule: if I'm unable to fix buildbots
+> failures caused by a recent change quickly (say, in less than 2
+> hours), I propose to revert the change.
+
+I'm not necessarily opposed to such a policy change, but if folks
+really want guaranteed green post-merge buildbots for all platforms
+(rather than just guaranteed green for Linux & Windows, sometimes red
+for everything else), then I think a better place to focus effort
+would be in making it easier for us to test things across the full
+BuildBot fleet in pre-merge CI.
+
+For example, something that would be genuinely helpful would be a bot
+monitoring PR comments that could automate the "custom-build" dance
+for core developers (i.e. we'd be able to write something like
+"BuildBot: test custom build", and it would go away, kick off a custom
+BuildBot run by pushing the PR to the "custom-build" branch, and then
+report back the links for failed builds like
+http://buildbot.python.org/all/builders/x86%20Tiger%20custom/builds/5
+)
+
+That way, the reversion process would be:
+
+1. Revert the change
+2. Post a "BuildBot: test custom build" comment on the offending PR
+3. Original PR author, committer, and anyone else interested continues
+the issue resolution process based on the specific links posted back
+by the helper bot
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+
+From nad at python.org  Thu Jun 15 01:27:00 2017
+From: nad at python.org (Ned Deily)
+Date: Thu, 15 Jun 2017 01:27:00 -0400
+Subject: [python-committers] UPDATE: Python 3.6.2rc1 cutoff now scheduled
+ for 2017-06-16 12:00 UTC
+In-Reply-To: <542D74F2-85FF-4B5F-A5D7-553A394BE6F5@python.org>
+References: <9F658EB5-9DF3-4E1F-87A4-41ECF303924F@python.org>
+ <542D74F2-85FF-4B5F-A5D7-553A394BE6F5@python.org>
+Message-ID: <2D8BD598-4579-4EAD-AEA0-1A2916B02698@python.org>
+
+The security-related release blocker (bpo-29591) has been resolved; my thanks to Victor for leading the effort.
+
+As of now, I'm not aware of any other release blocker issues for the 3.6.2 release candidate so I'm rescheduling the code cutoff for 2017-06-16 12:00 UTC, approximately 30 hours from now.  That gives you one last opportunity to get important fixes in for 3.6.2.  As always, if you know of issues that you think need to be resolved before the 3.6.2 release, please ensure there is an open tracker issue for it on bugs.python.org and mark the issue as "release blocker".  To still give 2 weeks of exposure for the rc, the new target release date for 3.6.2 final will be 2017-06-30.
+
+--Ned
+
+On Jun 13, 2017, at 00:09, Ned Deily <nad at python.org> wrote:
+> An update on 3.6.2rc1: we have been working through a few critical and release blocker issues that needed to be fixed for 3.6.2.  Thanks to everyone who has helped with them!  At the moment, we have one security-related release blocker (http://bugs.python.org/issue29591) which I think we need to get addressed in 3.6.2.  So, I'm delaying 3.6.2rc1 until we can get that resolved.  That means that, for the moment, changes going into the 3.6 branch will likely make in into 3.6.2.  I'll let you know when we are ready to tag.
+> 
+> On Jun 8, 2017, at 23:34, Ned Deily <nad at python.org> wrote:
+>> We are approaching the end of the second calendar quarter of 2017 and, according to PEP 494, it's time to start producing the second maintenance release for the 3.6 series.  The schedule calls for the release candidate to be produced on Monday 2017-06-12 UTC.  As was the case with previous 3.6.x releases, the plan is for the release candidate to be the same as the final release, that is, no additional changes go in after the release candidate except for any showstopper critical problems that might be discovered with rc1.  So please plan to get any security fixes, bug fixes, and documentation changes you think should be in 3.6.2 merged in ASAP.  The 3.6.2 final is planned for two weeks following rc1, that is, on 2017-06-26.  The next 3.6 maintenance release (3.6.3) is planned to follow about 3 months later, so most likely in 2017-09.
+>> 
+>> A reminder that the 3.6 branch will remain open for checkins throughout the 3.6.2rc and final cycle.  Once 3.6.2rc1 is tagged, new commits to the 3.6 branch will release with 3.6.3.  As always, if you find any problem in 3.6.2rc1 that you may believe should be corrected in 3.6.2, please ensure the problem is documented in a new or existing open issue on bugs.python.org, ensure that the Priority field of the issue is set to "release blocker", and that "Python 3.6" is included in the selected Versions.  Comments or tags on github Pull Requests are NOT sufficient!
+>> 
+>> Thanks again for all of your efforts in bringing 3.6 into the world and for helping now to make it even better!
+>> 
+>> https://www.python.org/dev/peps/pep-0494/
+>> http://cpython-devguide.readthedocs.io
+
+--
+  Ned Deily
+  nad at python.org -- []
+
+
+From ncoghlan at gmail.com  Thu Jun 15 05:35:54 2017
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Thu, 15 Jun 2017 19:35:54 +1000
+Subject: [python-committers] Revert changes which break too many
+ buildbots
+In-Reply-To: <CAMpsgwaRYo0whRJHSKLoGos_du=5p4-AZSO_QKNXTh0xw3irgQ@mail.gmail.com>
+References: <CAMpsgwaRYo0whRJHSKLoGos_du=5p4-AZSO_QKNXTh0xw3irgQ@mail.gmail.com>
+Message-ID: <CADiSq7eye5+tT5=z=wObYyJcj76veONzYiSUpWat36OYK_fxpw@mail.gmail.com>
+
+On 15 June 2017 at 00:40, Victor Stinner <victor.stinner at gmail.com> wrote:
+> A recent example is Nick Coghlan's implementation of the PEP 538:
+> basically, it broke all buildbots... except of Linux and Windows :-)
+> And it will take a few more days to fix all failures. Well, we are
+> working on fixing these issues, so I don't want to revert this change.
+> It's just an example of a single change which broke many buildbots.
+> The PEP 538 depends a lot on the platform, so I'm not surprised to see
+> different failures per platforms ;-)
+
+Status update on this specific change: Mac OS X should be back to
+green now [1] (with some anomalous cases being skipped [2])
+
+The tests are currently still failing on C-locale-only platforms (see
+[3]), and on FreeBSD specifically (see [4])
+
+Cheers,
+Nick.
+
+[1] http://buildbot.python.org/all/builders/x86%20Tiger%20custom/builds/7
+[2] https://bugs.python.org/issue30672
+[3] https://bugs.python.org/issue30565#msg296006
+[4] https://bugs.python.org/issue30647
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+
+From rdmurray at bitdance.com  Thu Jun 15 09:15:35 2017
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Thu, 15 Jun 2017 09:15:35 -0400
+Subject: [python-committers] Revert changes which break too many
+ buildbots
+In-Reply-To: <CADiSq7eWy6VsdGZVK2SnqmX4+Nx0BtHzopwscLDm--dnY6Q8zg@mail.gmail.com>
+References: <CAMpsgwaRYo0whRJHSKLoGos_du=5p4-AZSO_QKNXTh0xw3irgQ@mail.gmail.com>
+ <CADiSq7eWy6VsdGZVK2SnqmX4+Nx0BtHzopwscLDm--dnY6Q8zg@mail.gmail.com>
+Message-ID: <20170615131536.36EE61B10006@webabinitio.net>
+
+On Thu, 15 Jun 2017 13:31:39 +1000, Nick Coghlan <ncoghlan at gmail.com> wrote:
+> On 15 June 2017 at 00:40, Victor Stinner <victor.stinner at gmail.com> wrote:
+> > So I would like to set a new rule: if I'm unable to fix buildbots
+> > failures caused by a recent change quickly (say, in less than 2
+> > hours), I propose to revert the change.
+> 
+> I'm not necessarily opposed to such a policy change, but if folks
+> really want guaranteed green post-merge buildbots for all platforms
+> (rather than just guaranteed green for Linux & Windows, sometimes red
+> for everything else), then I think a better place to focus effort
+> would be in making it easier for us to test things across the full
+> BuildBot fleet in pre-merge CI.
+
+I've long thought that reversion should be the policy.
+
+I'm all in favor of making it easier to run the custom builders on a PR,
+of course, but I think the policy change is orthogonal to that.  It's not
+like that change represents effort that would otherwise be devoted to
+making using the custom build easier...Victor is putting out the effort
+to monitor the buildbots already and clearly intends to continue to do
+so regardless.  Being able to revert will make the job he has taken on
+(thank you Victor!) easier.
+
+--David
+
+From victor.stinner at gmail.com  Thu Jun 15 09:38:58 2017
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Thu, 15 Jun 2017 15:38:58 +0200
+Subject: [python-committers] Revert changes which break too many
+ buildbots
+In-Reply-To: <CADiSq7eWy6VsdGZVK2SnqmX4+Nx0BtHzopwscLDm--dnY6Q8zg@mail.gmail.com>
+References: <CAMpsgwaRYo0whRJHSKLoGos_du=5p4-AZSO_QKNXTh0xw3irgQ@mail.gmail.com>
+ <CADiSq7eWy6VsdGZVK2SnqmX4+Nx0BtHzopwscLDm--dnY6Q8zg@mail.gmail.com>
+Message-ID: <CAMpsgwaUXkvO02+nc0Y=aVu71CFhH_yU5aWrpXG+PTP7kZajzw@mail.gmail.com>
+
+2017-06-15 5:31 GMT+02:00 Nick Coghlan <ncoghlan at gmail.com>:
+> I'm not necessarily opposed to such a policy change, but if folks
+> really want guaranteed green post-merge buildbots for all platforms
+> (rather than just guaranteed green for Linux & Windows, sometimes red
+> for everything else), then I think a better place to focus effort
+> would be in making it easier for us to test things across the full
+> BuildBot fleet in pre-merge CI.
+>
+> For example, something that would be genuinely helpful would be a bot
+> monitoring PR comments that could automate the "custom-build" dance
+> for core developers (i.e. we'd be able to write something like
+> "BuildBot: test custom build", and it would go away, kick off a custom
+> BuildBot run by pushing the PR to the "custom-build" branch, and then
+> report back the links for failed builds like
+> http://buildbot.python.org/all/builders/x86%20Tiger%20custom/builds/5
+> )
+
+I don't think that buildbots have enough resources to run tests on
+each PR. We get too many PR and each PR is updated regulary. On some
+buildbots, a single build can take 1 hour (or longer)... Moreover,
+that's an idea, but we need "someone" to do the job. I don't know
+anyone available to do it.
+
+I'm proposing a pragmatic solution to a concrete issue. I'm just to do
+by best with our limited resources (human and CPU time). Again,
+failures on random platforms not catched by our pre-commit CI occur,
+but are -hopefully- rare!
+
+I dislike having a long list of "nice to have" list for our infra. I
+prefer to focus on the existing bricks and don't put too much pressure
+on people who give their time to care of our tooling and infra ;-)
+
+(Yes, I would also prefer to have a fleet of buildbots at the
+pre-commit stage if I can get it for free :-))
+
+Victor
+
+From brett at python.org  Thu Jun 15 16:35:58 2017
+From: brett at python.org (Brett Cannon)
+Date: Thu, 15 Jun 2017 20:35:58 +0000
+Subject: [python-committers] Revert changes which break too many
+ buildbots
+In-Reply-To: <CAMpsgwaUXkvO02+nc0Y=aVu71CFhH_yU5aWrpXG+PTP7kZajzw@mail.gmail.com>
+References: <CAMpsgwaRYo0whRJHSKLoGos_du=5p4-AZSO_QKNXTh0xw3irgQ@mail.gmail.com>
+ <CADiSq7eWy6VsdGZVK2SnqmX4+Nx0BtHzopwscLDm--dnY6Q8zg@mail.gmail.com>
+ <CAMpsgwaUXkvO02+nc0Y=aVu71CFhH_yU5aWrpXG+PTP7kZajzw@mail.gmail.com>
+Message-ID: <CAP1=2W7pOJk13SBatdTtnyWcoVRdO=gGjgUGvZ_K8b0bhZ=W_A@mail.gmail.com>
+
+On Thu, 15 Jun 2017 at 06:39 Victor Stinner <victor.stinner at gmail.com>
+wrote:
+
+> 2017-06-15 5:31 GMT+02:00 Nick Coghlan <ncoghlan at gmail.com>:
+> > I'm not necessarily opposed to such a policy change, but if folks
+> > really want guaranteed green post-merge buildbots for all platforms
+> > (rather than just guaranteed green for Linux & Windows, sometimes red
+> > for everything else), then I think a better place to focus effort
+> > would be in making it easier for us to test things across the full
+> > BuildBot fleet in pre-merge CI.
+> >
+> > For example, something that would be genuinely helpful would be a bot
+> > monitoring PR comments that could automate the "custom-build" dance
+> > for core developers (i.e. we'd be able to write something like
+> > "BuildBot: test custom build", and it would go away, kick off a custom
+> > BuildBot run by pushing the PR to the "custom-build" branch, and then
+> > report back the links for failed builds like
+> > http://buildbot.python.org/all/builders/x86%20Tiger%20custom/builds/5
+> > )
+>
+> I don't think that buildbots have enough resources to run tests on
+> each PR. We get too many PR and each PR is updated regularly. On some
+> buildbots, a single build can take 1 hour (or longer)... Moreover,
+> that's an idea, but we need "someone" to do the job. I don't know
+> anyone available to do it.
+>
+> I'm proposing a pragmatic solution to a concrete issue. I'm just to do
+> by best with our limited resources (human and CPU time). Again,
+> failures on random platforms not caught by our pre-commit CI occur,
+> but are -hopefully- rare!
+>
+> I dislike having a long list of "nice to have" list for our infra. I
+> prefer to focus on the existing bricks and don't put too much pressure
+> on people who give their time to care of our tooling and infra ;-)
+>
+
+I at least appreciate that. :)
+
+
+>
+> (Yes, I would also prefer to have a fleet of buildbots at the
+> pre-commit stage if I can get it for free :-))
+>
+
+Yes, that would definitely be nice, especially if we could get it working
+in the cloud to handle load and a wider range of OSs. But this is all
+orthogonal to the question of "revert immediately or not?". It's also not
+worth discussing here as it's totally wishful thinking for the foreseeable
+future (that's what the core-workflow issue tracker is for ;) .
+
+-Brett
+
+
+>
+> Victor
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170615/67642f9c/attachment.html>
+
+From brett at python.org  Thu Jun 15 16:40:12 2017
+From: brett at python.org (Brett Cannon)
+Date: Thu, 15 Jun 2017 20:40:12 +0000
+Subject: [python-committers] Promote Julien Palards as Committers on
+ docsbuild-scripts
+In-Reply-To: <CAMpsgwYU7zzyrfEU9R1OaycNaVfOBkWoyDFwRiWMJ4cc8ernvQ@mail.gmail.com>
+References: <CAMpsgwb18mDYabxfTwrS2ZJkJDfHGhDa1TxrzzSW2hmvkTUQcQ@mail.gmail.com>
+ <CAP1=2W6eYz5UbrKShs4A6H9hdBNfeBUzeN81UO14hr0VrQTZeQ@mail.gmail.com>
+ <CAMpsgwberuHkhoenZLDKZqxWRTT7rqE+AJVXiwY7e2OeC5sKkw@mail.gmail.com>
+ <CAP1=2W7iNjsaehF-S2_Knhn+dViH9Nq9thxvdQUM0k2uEXKd9g@mail.gmail.com>
+ <CAMpsgwYU7zzyrfEU9R1OaycNaVfOBkWoyDFwRiWMJ4cc8ernvQ@mail.gmail.com>
+Message-ID: <CAP1=2W6Zo7aC8T0Fxo073GPq7+Z16P6BRt=s_Ay-JEVmi5e-nw@mail.gmail.com>
+
+I've made Python core able to read the buildmaster-config repo.
+
+On Wed, 14 Jun 2017 at 13:53 Victor Stinner <victor.stinner at gmail.com>
+wrote:
+
+> 2017-06-14 22:40 GMT+02:00 Brett Cannon <brett at python.org>:
+> >> Oh, I didn't know. Is it possible to see who owns a GitHub Python
+> project
+> >> at https://github.com/python/?
+> >
+> > If you can see
+> https://github.com/orgs/python/teams/python-core/repositories
+> > then yes. :)
+>
+> About this list, there was a question on the buildmaster-config
+> repository. Mariatta Wijaya's message:
+> """
+> I didn't know about buildmaster-config repo.
+>
+> It's not listed as one of the projects for the Python Core team :)
+>
+> https://github.com/orgs/python/teams/python-core/repositories
+>
+> Should it be?
+> """
+>
+> http://bugs.python.org/issue30658#msg296018
+>
+> Victor
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170615/2e0533b1/attachment.html>
+
+From victor.stinner at gmail.com  Thu Jun 15 17:23:12 2017
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Thu, 15 Jun 2017 23:23:12 +0200
+Subject: [python-committers] Promote Julien Palards as Committers on
+ docsbuild-scripts
+In-Reply-To: <CAP1=2W6Zo7aC8T0Fxo073GPq7+Z16P6BRt=s_Ay-JEVmi5e-nw@mail.gmail.com>
+References: <CAMpsgwb18mDYabxfTwrS2ZJkJDfHGhDa1TxrzzSW2hmvkTUQcQ@mail.gmail.com>
+ <CAP1=2W6eYz5UbrKShs4A6H9hdBNfeBUzeN81UO14hr0VrQTZeQ@mail.gmail.com>
+ <CAMpsgwberuHkhoenZLDKZqxWRTT7rqE+AJVXiwY7e2OeC5sKkw@mail.gmail.com>
+ <CAP1=2W7iNjsaehF-S2_Knhn+dViH9Nq9thxvdQUM0k2uEXKd9g@mail.gmail.com>
+ <CAMpsgwYU7zzyrfEU9R1OaycNaVfOBkWoyDFwRiWMJ4cc8ernvQ@mail.gmail.com>
+ <CAP1=2W6Zo7aC8T0Fxo073GPq7+Z16P6BRt=s_Ay-JEVmi5e-nw@mail.gmail.com>
+Message-ID: <CAMpsgwY4AfD8HB9U9awDBpTVZu1mk7sNZtNrLLXGQ585GXyY2g@mail.gmail.com>
+
+Oh nice, thanks to your change, it's now listed in the list!
+https://github.com/orgs/python/teams/python-core/repositories
+
+Victor
+
+2017-06-15 22:40 GMT+02:00 Brett Cannon <brett at python.org>:
+> I've made Python core able to read the buildmaster-config repo.
+>
+> On Wed, 14 Jun 2017 at 13:53 Victor Stinner <victor.stinner at gmail.com>
+> wrote:
+>>
+>> 2017-06-14 22:40 GMT+02:00 Brett Cannon <brett at python.org>:
+>> >> Oh, I didn't know. Is it possible to see who owns a GitHub Python
+>> >> project
+>> >> at https://github.com/python/?
+>> >
+>> > If you can see
+>> > https://github.com/orgs/python/teams/python-core/repositories
+>> > then yes. :)
+>>
+>> About this list, there was a question on the buildmaster-config
+>> repository. Mariatta Wijaya's message:
+>> """
+>> I didn't know about buildmaster-config repo.
+>>
+>> It's not listed as one of the projects for the Python Core team :)
+>>
+>> https://github.com/orgs/python/teams/python-core/repositories
+>>
+>> Should it be?
+>> """
+>>
+>> http://bugs.python.org/issue30658#msg296018
+>>
+>> Victor
+
+From ncoghlan at gmail.com  Fri Jun 16 04:37:20 2017
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Fri, 16 Jun 2017 18:37:20 +1000
+Subject: [python-committers] Revert changes which break too many
+ buildbots
+In-Reply-To: <CAMpsgwaUXkvO02+nc0Y=aVu71CFhH_yU5aWrpXG+PTP7kZajzw@mail.gmail.com>
+References: <CAMpsgwaRYo0whRJHSKLoGos_du=5p4-AZSO_QKNXTh0xw3irgQ@mail.gmail.com>
+ <CADiSq7eWy6VsdGZVK2SnqmX4+Nx0BtHzopwscLDm--dnY6Q8zg@mail.gmail.com>
+ <CAMpsgwaUXkvO02+nc0Y=aVu71CFhH_yU5aWrpXG+PTP7kZajzw@mail.gmail.com>
+Message-ID: <CADiSq7dqK-Z5e-_wfKV+3uzYN5GeywQNjPxAa4BAtTK3UCVNuQ@mail.gmail.com>
+
+On 15 June 2017 at 23:38, Victor Stinner <victor.stinner at gmail.com> wrote:
+> 2017-06-15 5:31 GMT+02:00 Nick Coghlan <ncoghlan at gmail.com>:
+>> For example, something that would be genuinely helpful would be a bot
+>> monitoring PR comments that could automate the "custom-build" dance
+>> for core developers (i.e. we'd be able to write something like
+>> "BuildBot: test custom build", and it would go away, kick off a custom
+>> BuildBot run by pushing the PR to the "custom-build" branch, and then
+>> report back the links for failed builds like
+>> http://buildbot.python.org/all/builders/x86%20Tiger%20custom/builds/5
+>> )
+>
+> I don't think that buildbots have enough resources to run tests on
+> each PR. We get too many PR and each PR is updated regulary. On some
+> buildbots, a single build can take 1 hour (or longer)...
+
+I wasn't proposing running every PR through BuildBot, I was suggesting
+having a more straightforward way of triggering custom builds directly
+from the PR we want to test after post-merge CI has indicated it's
+necessary.
+
+However, I think there's a way of handling that which doesn't require
+any new automation code to be written. Instead, we can have the policy
+be to post a link to
+https://docs.python.org/devguide/buildbots.html#custom-builders on the
+PR that is being reverted.
+
+That way, even if folks didn't notice the problem with the buildbots themselves:
+
+1. They get a ping on a PR that they're necessarily following
+2. They get a reminder of how to test the revised PR across the
+buildbot fleet prior to merging it again
+
+Hopefully reversions will continue to be rare (since relatively few
+changes are likely to be as platform dependent as PEP 538, and
+Windows/*nix differences are already covered in pre-merge CI), but
+when they do come up, the reminder of how to manually trigger
+pre-merge cross-platform CI is likely to be useful, and doesn't
+require much additional effort on the part of the folks doing the
+reversion.
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+
+From victor.stinner at gmail.com  Fri Jun 16 06:40:21 2017
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Fri, 16 Jun 2017 12:40:21 +0200
+Subject: [python-committers] Revert changes which break too many
+ buildbots
+In-Reply-To: <CADiSq7dqK-Z5e-_wfKV+3uzYN5GeywQNjPxAa4BAtTK3UCVNuQ@mail.gmail.com>
+References: <CAMpsgwaRYo0whRJHSKLoGos_du=5p4-AZSO_QKNXTh0xw3irgQ@mail.gmail.com>
+ <CADiSq7eWy6VsdGZVK2SnqmX4+Nx0BtHzopwscLDm--dnY6Q8zg@mail.gmail.com>
+ <CAMpsgwaUXkvO02+nc0Y=aVu71CFhH_yU5aWrpXG+PTP7kZajzw@mail.gmail.com>
+ <CADiSq7dqK-Z5e-_wfKV+3uzYN5GeywQNjPxAa4BAtTK3UCVNuQ@mail.gmail.com>
+Message-ID: <CAMpsgwasuVFVbszgcN_10VpZnBpoeN9FHWDa-BT9z4uNWzhFkg@mail.gmail.com>
+
+2017-06-16 10:37 GMT+02:00 Nick Coghlan <ncoghlan at gmail.com>:
+> Hopefully reversions will continue to be rare (since relatively few
+> changes are likely to be as platform dependent as PEP 538, and
+> Windows/*nix differences are already covered in pre-merge CI), but
+> when they do come up, the reminder of how to manually trigger
+> pre-merge cross-platform CI is likely to be useful, and doesn't
+> require much additional effort on the part of the folks doing the
+> reversion.
+
+I'm also tolerant. A regression on macOS Tiger matters me less than a
+regression on most Linux buildbots. I tried to focus on recent
+versions of Windows, Linux, macOS and FreeBSD.
+
+AIX, OpenIndiana/Solaris, OpenBSD, etc. are broken for month. It's ok,
+I can live with that :-) But regulary, I propose to drop support for
+these platforms ;-) For AIX, I tried to skip a few tests known to fail
+on AIX. For OpenIndiana, we should simply remove this buildbot and
+replace it with a new IllumOS buildbot.
+
+Victor
+
+From brett at python.org  Fri Jun 16 12:48:56 2017
+From: brett at python.org (Brett Cannon)
+Date: Fri, 16 Jun 2017 16:48:56 +0000
+Subject: [python-committers] Revert changes which break too many
+ buildbots
+In-Reply-To: <CAMpsgwasuVFVbszgcN_10VpZnBpoeN9FHWDa-BT9z4uNWzhFkg@mail.gmail.com>
+References: <CAMpsgwaRYo0whRJHSKLoGos_du=5p4-AZSO_QKNXTh0xw3irgQ@mail.gmail.com>
+ <CADiSq7eWy6VsdGZVK2SnqmX4+Nx0BtHzopwscLDm--dnY6Q8zg@mail.gmail.com>
+ <CAMpsgwaUXkvO02+nc0Y=aVu71CFhH_yU5aWrpXG+PTP7kZajzw@mail.gmail.com>
+ <CADiSq7dqK-Z5e-_wfKV+3uzYN5GeywQNjPxAa4BAtTK3UCVNuQ@mail.gmail.com>
+ <CAMpsgwasuVFVbszgcN_10VpZnBpoeN9FHWDa-BT9z4uNWzhFkg@mail.gmail.com>
+Message-ID: <CAP1=2W4tGCaW4v8t64=RYLjR-RH1n19N16HV9jJQUOaUoBDP5A@mail.gmail.com>
+
+On Fri, 16 Jun 2017 at 03:40 Victor Stinner <victor.stinner at gmail.com>
+wrote:
+
+> 2017-06-16 10:37 GMT+02:00 Nick Coghlan <ncoghlan at gmail.com>:
+> > Hopefully reversions will continue to be rare (since relatively few
+> > changes are likely to be as platform dependent as PEP 538, and
+> > Windows/*nix differences are already covered in pre-merge CI), but
+> > when they do come up, the reminder of how to manually trigger
+> > pre-merge cross-platform CI is likely to be useful, and doesn't
+> > require much additional effort on the part of the folks doing the
+> > reversion.
+>
+> I'm also tolerant. A regression on macOS Tiger matters me less than a
+> regression on most Linux buildbots. I tried to focus on recent
+> versions of Windows, Linux, macOS and FreeBSD.
+>
+> AIX, OpenIndiana/Solaris, OpenBSD, etc. are broken for month. It's ok,
+> I can live with that :-) But regulary, I propose to drop support for
+> these platforms ;-) For AIX, I tried to skip a few tests known to fail
+> on AIX. For OpenIndiana, we should simply remove this buildbot and
+> replace it with a new IllumOS buildbot.
+>
+
+https://www.python.org/dev/peps/pep-0011/ backs you up in dropping support
+if we can't get a buildbot *and* someone to maintain the support (and it
+sounds like we don't have the latter ATM for those platforms). Maybe we
+should amend PEP 11 to say that whomever volunteers to maintain a platform
+must make sure that platform's buildbot is not red for longer than a month
+(to give volunteers some time to notice the fail and fix it in case it
+happens while they are e.g. on vacation)? Otherwise we will consider the
+platform unsupported.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170616/fbe1b3d6/attachment.html>
+
+From ethan at stoneleaf.us  Fri Jun 16 16:24:54 2017
+From: ethan at stoneleaf.us (Ethan Furman)
+Date: Fri, 16 Jun 2017 13:24:54 -0700
+Subject: [python-committers] Revert changes which break too many
+ buildbots
+In-Reply-To: <CAP1=2W4tGCaW4v8t64=RYLjR-RH1n19N16HV9jJQUOaUoBDP5A@mail.gmail.com>
+References: <CAMpsgwaRYo0whRJHSKLoGos_du=5p4-AZSO_QKNXTh0xw3irgQ@mail.gmail.com>
+ <CADiSq7eWy6VsdGZVK2SnqmX4+Nx0BtHzopwscLDm--dnY6Q8zg@mail.gmail.com>
+ <CAMpsgwaUXkvO02+nc0Y=aVu71CFhH_yU5aWrpXG+PTP7kZajzw@mail.gmail.com>
+ <CADiSq7dqK-Z5e-_wfKV+3uzYN5GeywQNjPxAa4BAtTK3UCVNuQ@mail.gmail.com>
+ <CAMpsgwasuVFVbszgcN_10VpZnBpoeN9FHWDa-BT9z4uNWzhFkg@mail.gmail.com>
+ <CAP1=2W4tGCaW4v8t64=RYLjR-RH1n19N16HV9jJQUOaUoBDP5A@mail.gmail.com>
+Message-ID: <59443E96.9070006@stoneleaf.us>
+
+On 06/16/2017 09:48 AM, Brett Cannon wrote:
+
+> Maybe we should amend PEP 11 to say that whomever volunteers to maintain a platform
+ > must make sure that platform's buildbot is not red for longer than a month [...]
+
+How about three?  Some life changes need more than a month to recover from... (death in the family, life in the family, 
+job loss, etc.)
+
+--
+~Ethan~
+
+
+From brett at python.org  Fri Jun 16 16:30:15 2017
+From: brett at python.org (Brett Cannon)
+Date: Fri, 16 Jun 2017 20:30:15 +0000
+Subject: [python-committers] Bedevere now automatically removes "needs
+ backport to *" labels
+Message-ID: <CAP1=2W46qvF_9koMZA9fnBOzU+VvShVq6Qb1zWctkzuH3z5L8g@mail.gmail.com>
+
+When you create a backport PR, if the title is formatted as, e.g. "[3.6]
+stuff that changed (GH-1234)", then Bedevere will remove the "needs
+backport to 3.6" label on the GH-1234 PR and leave a comment linking to the
+backport PR that triggered the label removal.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170616/ba082569/attachment.html>
+
+From brett at python.org  Fri Jun 16 16:26:12 2017
+From: brett at python.org (Brett Cannon)
+Date: Fri, 16 Jun 2017 20:26:12 +0000
+Subject: [python-committers] Revert changes which break too many
+ buildbots
+In-Reply-To: <59443E96.9070006@stoneleaf.us>
+References: <CAMpsgwaRYo0whRJHSKLoGos_du=5p4-AZSO_QKNXTh0xw3irgQ@mail.gmail.com>
+ <CADiSq7eWy6VsdGZVK2SnqmX4+Nx0BtHzopwscLDm--dnY6Q8zg@mail.gmail.com>
+ <CAMpsgwaUXkvO02+nc0Y=aVu71CFhH_yU5aWrpXG+PTP7kZajzw@mail.gmail.com>
+ <CADiSq7dqK-Z5e-_wfKV+3uzYN5GeywQNjPxAa4BAtTK3UCVNuQ@mail.gmail.com>
+ <CAMpsgwasuVFVbszgcN_10VpZnBpoeN9FHWDa-BT9z4uNWzhFkg@mail.gmail.com>
+ <CAP1=2W4tGCaW4v8t64=RYLjR-RH1n19N16HV9jJQUOaUoBDP5A@mail.gmail.com>
+ <59443E96.9070006@stoneleaf.us>
+Message-ID: <CAP1=2W4qR0s+HK93_y8frH0kJytJgCT5JKCneJPX7HjPfdWCHQ@mail.gmail.com>
+
+On Fri, 16 Jun 2017 at 13:24 Ethan Furman <ethan at stoneleaf.us> wrote:
+
+> On 06/16/2017 09:48 AM, Brett Cannon wrote:
+>
+> > Maybe we should amend PEP 11 to say that whomever volunteers to maintain
+> a platform
+>  > must make sure that platform's buildbot is not red for longer than a
+> month [...]
+>
+> How about three?  Some life changes need more than a month to recover
+> from... (death in the family, life in the family,
+> job loss, etc.)
+>
+
+True. I guess as long as we are upfront that the platform's buildbot is
+known to be failing and the clock has started (so we all know to ignore the
+failure), then I'm fine with 3 months.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170616/c9666b13/attachment.html>
+
+From ncoghlan at gmail.com  Sat Jun 17 11:01:49 2017
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Sun, 18 Jun 2017 01:01:49 +1000
+Subject: [python-committers] Bedevere now automatically removes "needs
+ backport to *" labels
+In-Reply-To: <CAP1=2W46qvF_9koMZA9fnBOzU+VvShVq6Qb1zWctkzuH3z5L8g@mail.gmail.com>
+References: <CAP1=2W46qvF_9koMZA9fnBOzU+VvShVq6Qb1zWctkzuH3z5L8g@mail.gmail.com>
+Message-ID: <CADiSq7fxTQ8sQ-xkT=LnbqtMM6q++FEJ6KPoJ9xa1tjwMMz4jw@mail.gmail.com>
+
+On 17 June 2017 at 06:30, Brett Cannon <brett at python.org> wrote:
+> When you create a backport PR, if the title is formatted as, e.g. "[3.6]
+> stuff that changed (GH-1234)", then Bedevere will remove the "needs backport
+> to 3.6" label on the GH-1234 PR and leave a comment linking to the backport
+> PR that triggered the label removal.
+
+Very cool, thank you!
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+
+From ncoghlan at gmail.com  Sat Jun 17 11:07:15 2017
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Sun, 18 Jun 2017 01:07:15 +1000
+Subject: [python-committers] Revert changes which break too many
+ buildbots
+In-Reply-To: <CAP1=2W4qR0s+HK93_y8frH0kJytJgCT5JKCneJPX7HjPfdWCHQ@mail.gmail.com>
+References: <CAMpsgwaRYo0whRJHSKLoGos_du=5p4-AZSO_QKNXTh0xw3irgQ@mail.gmail.com>
+ <CADiSq7eWy6VsdGZVK2SnqmX4+Nx0BtHzopwscLDm--dnY6Q8zg@mail.gmail.com>
+ <CAMpsgwaUXkvO02+nc0Y=aVu71CFhH_yU5aWrpXG+PTP7kZajzw@mail.gmail.com>
+ <CADiSq7dqK-Z5e-_wfKV+3uzYN5GeywQNjPxAa4BAtTK3UCVNuQ@mail.gmail.com>
+ <CAMpsgwasuVFVbszgcN_10VpZnBpoeN9FHWDa-BT9z4uNWzhFkg@mail.gmail.com>
+ <CAP1=2W4tGCaW4v8t64=RYLjR-RH1n19N16HV9jJQUOaUoBDP5A@mail.gmail.com>
+ <59443E96.9070006@stoneleaf.us>
+ <CAP1=2W4qR0s+HK93_y8frH0kJytJgCT5JKCneJPX7HjPfdWCHQ@mail.gmail.com>
+Message-ID: <CADiSq7d8LWi=OqJKqLy6FuTikvjVky1bn+5HNeV3wu7R6G7rNQ@mail.gmail.com>
+
+On 17 June 2017 at 06:26, Brett Cannon <brett at python.org> wrote:
+> On Fri, 16 Jun 2017 at 13:24 Ethan Furman <ethan at stoneleaf.us> wrote:
+>> On 06/16/2017 09:48 AM, Brett Cannon wrote:
+>> > Maybe we should amend PEP 11 to say that whomever volunteers to maintain
+>> > a platform
+>>  > must make sure that platform's buildbot is not red for longer than a
+>> month [...]
+>> How about three?  Some life changes need more than a month to recover
+>> from... (death in the family, life in the family,
+>> job loss, etc.)
+>
+> True. I guess as long as we are upfront that the platform's buildbot is
+> known to be failing and the clock has started (so we all know to ignore the
+> failure), then I'm fine with 3 months.
+
+It's also the case of that being the time period to ping
+python-committers with a notification to say "Hey, my availability is
+likely to be intermittent for a while, so the buildbot for <platform>
+may be unreliable until <future date>".
+
+That way, other folks that care about the platform may be more alert
+to resolving platform specific issues during that time (and may even
+be able to take over the lead platform support role).
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+
+From nad at python.org  Sat Jun 17 22:31:05 2017
+From: nad at python.org (Ned Deily)
+Date: Sat, 17 Jun 2017 22:31:05 -0400
+Subject: [python-committers] [RELEASE] Python 3.6.2rc1 is now available for
+ testing
+Message-ID: <FC162837-238B-4052-9106-8F0ADF6F05F1@python.org>
+
+On behalf of the Python development community and the Python 3.6 release team, I would like to announce the availability of Python 3.6.2rc1. 3.6.2rc1 is the first release candidate for Python 3.6.2, the next maintenance release of Python 3.6. While 3.6.2rc1 is a preview release and, thus, not intended for production environments, we encourage you to explore it and provide feedback via the Python bug tracker (https://bugs.python.org).
+
+Please see "What?s New In Python 3.6" for more information:
+
+https://docs.python.org/3.6/whatsnew/3.6.html
+
+You can find Python 3.6.2rc1 here:
+
+https://www.python.org/downloads/release/python-362rc1/
+
+and its change log here:
+
+https://docs.python.org/3.6/whatsnew/changelog.html#python-3-6-2-release-candidate-1
+
+3.6.2 is planned for final release on 2017-06-30 with the next maintenance release expected to follow in about 3 months. More information about the 3.6 release schedule can be found here:
+
+https://www.python.org/dev/peps/pep-0494/
+
+--
+  Ned Deily
+  nad at python.org -- []
+
+
+From ncoghlan at gmail.com  Sat Jun 17 22:53:45 2017
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Sun, 18 Jun 2017 12:53:45 +1000
+Subject: [python-committers] Revert changes which break too many
+ buildbots
+In-Reply-To: <CADiSq7eye5+tT5=z=wObYyJcj76veONzYiSUpWat36OYK_fxpw@mail.gmail.com>
+References: <CAMpsgwaRYo0whRJHSKLoGos_du=5p4-AZSO_QKNXTh0xw3irgQ@mail.gmail.com>
+ <CADiSq7eye5+tT5=z=wObYyJcj76veONzYiSUpWat36OYK_fxpw@mail.gmail.com>
+Message-ID: <CADiSq7ezqGVK7wsSsw_S2z6xLwTT3RTF5PtWVg855wcsKz0Qmg@mail.gmail.com>
+
+On 15 June 2017 at 19:35, Nick Coghlan <ncoghlan at gmail.com> wrote:
+> On 15 June 2017 at 00:40, Victor Stinner <victor.stinner at gmail.com> wrote:
+>> A recent example is Nick Coghlan's implementation of the PEP 538:
+>> basically, it broke all buildbots... except of Linux and Windows :-)
+>> And it will take a few more days to fix all failures. Well, we are
+>> working on fixing these issues, so I don't want to revert this change.
+>> It's just an example of a single change which broke many buildbots.
+>> The PEP 538 depends a lot on the platform, so I'm not surprised to see
+>> different failures per platforms ;-)
+>
+> Status update on this specific change: Mac OS X should be back to
+> green now [1] (with some anomalous cases being skipped [2])
+
+I've just merged the change to turn off the locale coercion and
+compatibility warnings by default, which also included changes to:
+
+1. Temporarily disable UTF-8 as a locale coercion target (as it can
+break nl_langinfo on FreeBSD)
+2. Temporarily skip testing behaviour in the POSIX locale (as it isn't
+a simple alias for the C locale on *BSD systems)
+
+So from a buildbot fleet perspective, the PEP 538 fallout should now
+be contained, and the above two checks will only be restored after
+they're passing on the custom buildbot fleet (I'm pretty sure I know
+how to get them both working, but it will take some experimenting with
+the custom build branch to confirm that).
+
+>From a local Linux development perspective, "LANG=C python3.7 ..." is
+now functionally equivalent to doing "LANG=C LC_CTYPE=C.UTF-8
+python3.7 ..." - you have to add "PYTHONCOERCECLOCALE=warn" to see the
+warnings that were previously emitted by default.
+
+Cheers,
+Nick.
+
+P.S. For the benefit of future readers of PEP 538 itself, I also added
+an "Implementation Notes" section pointing out that we ended up *not*
+implementing the PEP as written, since it proved unworkable in
+practice.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+
+From victor.stinner at gmail.com  Tue Jun 20 10:17:53 2017
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Tue, 20 Jun 2017 16:17:53 +0200
+Subject: [python-committers] Bedevere now automatically removes "needs
+ backport to *" labels
+In-Reply-To: <CAP1=2W46qvF_9koMZA9fnBOzU+VvShVq6Qb1zWctkzuH3z5L8g@mail.gmail.com>
+References: <CAP1=2W46qvF_9koMZA9fnBOzU+VvShVq6Qb1zWctkzuH3z5L8g@mail.gmail.com>
+Message-ID: <CAMpsgwZzgDe4afZbsSLyUMwyE-KsWDeG5skS+fjw7340DfiF1w@mail.gmail.com>
+
+Does it allow catch for 3.3 and 3.4 branches? I got notifications for
+3.6, 3.5 and 2.7 backports of
+https://github.com/python/cpython/pull/1849 but not for the 3.3 and
+3.4 backports:
+https://github.com/python/cpython/pull/2291
+https://github.com/python/cpython/pull/2292
+
+These two backports have the same format: title ending with " #2291"
+and "(cherry picked from commit 90e01e5)" in the description.
+
+Victor
+
+2017-06-16 22:30 GMT+02:00 Brett Cannon <brett at python.org>:
+> When you create a backport PR, if the title is formatted as, e.g. "[3.6]
+> stuff that changed (GH-1234)", then Bedevere will remove the "needs backport
+> to 3.6" label on the GH-1234 PR and leave a comment linking to the backport
+> PR that triggered the label removal.
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+
+From mariatta.wijaya at gmail.com  Tue Jun 20 10:56:36 2017
+From: mariatta.wijaya at gmail.com (Mariatta Wijaya)
+Date: Tue, 20 Jun 2017 07:56:36 -0700
+Subject: [python-committers] Bedevere now automatically removes "needs
+ backport to *" labels
+In-Reply-To: <CAMpsgwZzgDe4afZbsSLyUMwyE-KsWDeG5skS+fjw7340DfiF1w@mail.gmail.com>
+References: <CAP1=2W46qvF_9koMZA9fnBOzU+VvShVq6Qb1zWctkzuH3z5L8g@mail.gmail.com>
+ <CAMpsgwZzgDe4afZbsSLyUMwyE-KsWDeG5skS+fjw7340DfiF1w@mail.gmail.com>
+Message-ID: <CAGbohnZt6m+kj5V0KZDDs-Xx8X7Zk8Ekd63NxLdMT90P+dWjqQ@mail.gmail.com>
+
+I think it's because there was no 'needs backport to 3.4' label from PR
+1849, so it doesn't make the comment about 3.4 backport PR.
+
+Mariatta Wijaya
+
+On Tue, Jun 20, 2017 at 7:17 AM, Victor Stinner <victor.stinner at gmail.com>
+wrote:
+
+> Does it allow catch for 3.3 and 3.4 branches? I got notifications for
+> 3.6, 3.5 and 2.7 backports of
+> https://github.com/python/cpython/pull/1849 but not for the 3.3 and
+> 3.4 backports:
+> https://github.com/python/cpython/pull/2291
+> https://github.com/python/cpython/pull/2292
+>
+> These two backports have the same format: title ending with " #2291"
+> and "(cherry picked from commit 90e01e5)" in the description.
+>
+> Victor
+>
+> 2017-06-16 22:30 GMT+02:00 Brett Cannon <brett at python.org>:
+> > When you create a backport PR, if the title is formatted as, e.g. "[3.6]
+> > stuff that changed (GH-1234)", then Bedevere will remove the "needs
+> backport
+> > to 3.6" label on the GH-1234 PR and leave a comment linking to the
+> backport
+> > PR that triggered the label removal.
+> >
+> > _______________________________________________
+> > python-committers mailing list
+> > python-committers at python.org
+> > https://mail.python.org/mailman/listinfo/python-committers
+> > Code of Conduct: https://www.python.org/psf/codeofconduct/
+> >
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170620/930954e8/attachment.html>
+
+From victor.stinner at gmail.com  Tue Jun 20 11:36:38 2017
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Tue, 20 Jun 2017 17:36:38 +0200
+Subject: [python-committers] Bedevere now automatically removes "needs
+ backport to *" labels
+In-Reply-To: <CAGbohnZt6m+kj5V0KZDDs-Xx8X7Zk8Ekd63NxLdMT90P+dWjqQ@mail.gmail.com>
+References: <CAP1=2W46qvF_9koMZA9fnBOzU+VvShVq6Qb1zWctkzuH3z5L8g@mail.gmail.com>
+ <CAMpsgwZzgDe4afZbsSLyUMwyE-KsWDeG5skS+fjw7340DfiF1w@mail.gmail.com>
+ <CAGbohnZt6m+kj5V0KZDDs-Xx8X7Zk8Ekd63NxLdMT90P+dWjqQ@mail.gmail.com>
+Message-ID: <CAMpsgwY=64m79g7ERJxk_k-XQBbS+3t-m1AtW-bjFxg+PZFeXQ@mail.gmail.com>
+
+2017-06-20 16:56 GMT+02:00 Mariatta Wijaya <mariatta.wijaya at gmail.com>:
+> I think it's because there was no 'needs backport to 3.4' label from PR
+> 1849, so it doesn't make the comment about 3.4 backport PR.
+
+Oh, I see. These labels don't exist :-) Maybe we should add them, but
+only security changes should be backported to 3.3 and 3.4. I can do
+the bot job for these specific backports ;-)
+
+Victor
+
+From tjreedy at udel.edu  Tue Jun 20 12:11:07 2017
+From: tjreedy at udel.edu (Terry Reedy)
+Date: Tue, 20 Jun 2017 12:11:07 -0400
+Subject: [python-committers] Bedevere now automatically removes "needs
+ backport to *" labels
+In-Reply-To: <CAMpsgwY=64m79g7ERJxk_k-XQBbS+3t-m1AtW-bjFxg+PZFeXQ@mail.gmail.com>
+References: <CAP1=2W46qvF_9koMZA9fnBOzU+VvShVq6Qb1zWctkzuH3z5L8g@mail.gmail.com>
+ <CAMpsgwZzgDe4afZbsSLyUMwyE-KsWDeG5skS+fjw7340DfiF1w@mail.gmail.com>
+ <CAGbohnZt6m+kj5V0KZDDs-Xx8X7Zk8Ekd63NxLdMT90P+dWjqQ@mail.gmail.com>
+ <CAMpsgwY=64m79g7ERJxk_k-XQBbS+3t-m1AtW-bjFxg+PZFeXQ@mail.gmail.com>
+Message-ID: <99657365-07f1-9e1d-2554-3c40201b80e2@udel.edu>
+
+On 6/20/2017 11:36 AM, Victor Stinner wrote:
+> 2017-06-20 16:56 GMT+02:00 Mariatta Wijaya <mariatta.wijaya at gmail.com>:
+>> I think it's because there was no 'needs backport to 3.4' label from PR
+>> 1849, so it doesn't make the comment about 3.4 backport PR.
+> 
+> Oh, I see. These labels don't exist :-) Maybe we should add them,
+
+I would rather we don't,
+
+> but only security changes should be backported to 3.3 and 3.4.
+
+and these will hopefully remain rare.
+
+> I can do the bot job for these specific backports ;-)
+
+In the future, 'needs backport to x.y' will mean 'attempt to do the 
+backport automatically'.  (The labels should then be changed to 
+"Backport to x.y")  Backports to older versions are more likely to have 
+merge conflicts and need manual intervention or even pre-commit testing 
+anyway.
+
+tjr
+
+
+
+From victor.stinner at gmail.com  Wed Jun 21 10:20:12 2017
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Wed, 21 Jun 2017 16:20:12 +0200
+Subject: [python-committers] Fun fact,
+ The Knights Who Say "Ni" (bot) complained about CLA on
+ Modules/expat/
+Message-ID: <CAMpsgwajNeCKjMwNruQuGDwdaKadu3Xx_GBgSuMGL97+MahhBw@mail.gmail.com>
+
+Hi,
+
+Fun fact: I cherry-picked a change from libexpat into Modules/expat
+(VS2008 fix for stdint.h), and I kept the author. Then The Knights Who
+Say "Ni" (bot) complained that Sebastian Pipping
+<sebastian at pipping.org> didn't sign the CLA :-)
+https://github.com/python/cpython/pull/2312#issuecomment-310091014
+
+I fixed the issue by replacing the author with me :-/ Well, I already
+took the ownership of most lines of Modules/expat/ since I upgraded
+libexpat from 2.1.1 to 2.2.0, and today to 2.2.1. So I don't think
+that it's a new issue.
+
+I just wanted to share this story with you: the bot works as expected :-)
+
+Note: libexpat is distributed under the MIT license.
+
+Victor
+
+From brett at python.org  Wed Jun 21 12:49:51 2017
+From: brett at python.org (Brett Cannon)
+Date: Wed, 21 Jun 2017 16:49:51 +0000
+Subject: [python-committers] Bedevere now automatically removes "needs
+ backport to *" labels
+In-Reply-To: <CAMpsgwY=64m79g7ERJxk_k-XQBbS+3t-m1AtW-bjFxg+PZFeXQ@mail.gmail.com>
+References: <CAP1=2W46qvF_9koMZA9fnBOzU+VvShVq6Qb1zWctkzuH3z5L8g@mail.gmail.com>
+ <CAMpsgwZzgDe4afZbsSLyUMwyE-KsWDeG5skS+fjw7340DfiF1w@mail.gmail.com>
+ <CAGbohnZt6m+kj5V0KZDDs-Xx8X7Zk8Ekd63NxLdMT90P+dWjqQ@mail.gmail.com>
+ <CAMpsgwY=64m79g7ERJxk_k-XQBbS+3t-m1AtW-bjFxg+PZFeXQ@mail.gmail.com>
+Message-ID: <CAP1=2W7emW3p8XpqqAGx1r-bpx1570MJoBu4rS+erfjpq9Wh7A@mail.gmail.com>
+
+On Tue, 20 Jun 2017 at 08:37 Victor Stinner <victor.stinner at gmail.com>
+wrote:
+
+> 2017-06-20 16:56 GMT+02:00 Mariatta Wijaya <mariatta.wijaya at gmail.com>:
+> > I think it's because there was no 'needs backport to 3.4' label from PR
+> > 1849, so it doesn't make the comment about 3.4 backport PR.
+>
+> Oh, I see. These labels don't exist :-) Maybe we should add them, but
+> only security changes should be backported to 3.3 and 3.4. I can do
+> the bot job for these specific backports ;-)
+>
+
+Mariatta's right that the lack of label short-circuited leaving a comment
+to avoid messing up with the detection of a backport PR. Basically if the
+label doesn't exist then the assumption is the PR isn't actually a backport.
+
+As for adding 3.3 and 3.4 labels, I'm somewhat with Terry that those should
+be so rare to use that I don't' know if they are worth it. Plus we don't
+want core devs forgetting that they shouldn't backport to those versions (I
+know I wouldn't remember that Larry plans another 3.5 release if it wasn't
+for the labels).
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170621/8e3b83ad/attachment.html>
+
+From ethan at stoneleaf.us  Wed Jun 21 12:58:49 2017
+From: ethan at stoneleaf.us (Ethan Furman)
+Date: Wed, 21 Jun 2017 09:58:49 -0700
+Subject: [python-committers] link from github to bpo?
+Message-ID: <594AA5C9.4070307@stoneleaf.us>
+
+My apologies if this has been discussed/answered before, but is there a link from the github side to the bpo side?  For 
+example, I'm looking at https://github.com/python/cpython/pull/2304 and it would be great if such a link existed to take 
+me directly to the bpo issue.
+
+--
+~Ethan~
+
+From mariatta.wijaya at gmail.com  Wed Jun 21 13:02:58 2017
+From: mariatta.wijaya at gmail.com (Mariatta Wijaya)
+Date: Wed, 21 Jun 2017 10:02:58 -0700
+Subject: [python-committers] link from github to bpo?
+In-Reply-To: <594AA5C9.4070307@stoneleaf.us>
+References: <594AA5C9.4070307@stoneleaf.us>
+Message-ID: <CAGbohna6Tf7EjempSEuYoM3EvZvxZBwTeTr6nxw_Sjg4=5y6FQ@mail.gmail.com>
+
+Yes, for that PR, scroll down and click the "View Details" button.
+Click the Details link next to bedevere/issue number status check.
+It will take you to the issue in bpo.
+
+
+There is also an open issue in bedevere, where the link will be added at
+the bottom of the PR message.
+https://github.com/python/bedevere/issues/3 (I believe Brett is working on
+it :)  )
+
+
+
+Mariatta Wijaya
+
+On Wed, Jun 21, 2017 at 9:58 AM, Ethan Furman <ethan at stoneleaf.us> wrote:
+
+> My apologies if this has been discussed/answered before, but is there a
+> link from the github side to the bpo side?  For example, I'm looking at
+> https://github.com/python/cpython/pull/2304 and it would be great if such
+> a link existed to take me directly to the bpo issue.
+>
+> --
+> ~Ethan~
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170621/9fe11785/attachment.html>
+
+From rdmurray at bitdance.com  Wed Jun 21 16:21:53 2017
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Wed, 21 Jun 2017 16:21:53 -0400
+Subject: [python-committers] link from github to bpo?
+In-Reply-To: <CAGbohna6Tf7EjempSEuYoM3EvZvxZBwTeTr6nxw_Sjg4=5y6FQ@mail.gmail.com>
+References: <594AA5C9.4070307@stoneleaf.us>
+ <CAGbohna6Tf7EjempSEuYoM3EvZvxZBwTeTr6nxw_Sjg4=5y6FQ@mail.gmail.com>
+Message-ID: <20170621202154.34DCF1B10002@webabinitio.net>
+
+On Wed, 21 Jun 2017 10:02:58 -0700, Mariatta Wijaya <mariatta.wijaya at gmail.com> wrote:
+> Yes, for that PR, scroll down and click the "View Details" button.
+> Click the Details link next to bedevere/issue number status check.
+> It will take you to the issue in bpo.
+
+Note that this will only exist if the PR is still open (not closed, not
+merged).
+
+> There is also an open issue in bedevere, where the link will be added at
+> the bottom of the PR message.
+> https://github.com/python/bedevere/issues/3 (I believe Brett is working on
+> it :)  )
+
+And this should fix the problem mentioned above :)
+
+--David
+
+From mariatta.wijaya at gmail.com  Wed Jun 21 16:37:22 2017
+From: mariatta.wijaya at gmail.com (Mariatta Wijaya)
+Date: Wed, 21 Jun 2017 13:37:22 -0700
+Subject: [python-committers] link from github to bpo?
+In-Reply-To: <20170621202154.34DCF1B10002@webabinitio.net>
+References: <594AA5C9.4070307@stoneleaf.us>
+ <CAGbohna6Tf7EjempSEuYoM3EvZvxZBwTeTr6nxw_Sjg4=5y6FQ@mail.gmail.com>
+ <20170621202154.34DCF1B10002@webabinitio.net>
+Message-ID: <CAGbohnY=zRCkHPDbxVBsvA4SePUtQjPt6i3z30-thJNV9asCOQ@mail.gmail.com>
+
+PR 2304 is merged. "View Details" still exists (scroll all the way down).
+
+When the PR is not yet merged (e.g.
+https://github.com/python/cpython/pull/2316), the UI looks different.
+Click 'Show all checks' to get the link back to bpo.
+
+
+Mariatta Wijaya
+
+On Wed, Jun 21, 2017 at 1:21 PM, R. David Murray <rdmurray at bitdance.com>
+wrote:
+
+> On Wed, 21 Jun 2017 10:02:58 -0700, Mariatta Wijaya <
+> mariatta.wijaya at gmail.com> wrote:
+> > Yes, for that PR, scroll down and click the "View Details" button.
+> > Click the Details link next to bedevere/issue number status check.
+> > It will take you to the issue in bpo.
+>
+> Note that this will only exist if the PR is still open (not closed, not
+> merged).
+>
+> > There is also an open issue in bedevere, where the link will be added at
+> > the bottom of the PR message.
+> > https://github.com/python/bedevere/issues/3 (I believe Brett is working
+> on
+> > it :)  )
+>
+> And this should fix the problem mentioned above :)
+>
+> --David
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170621/b3cf054a/attachment-0001.html>
+
+From larry at hastings.org  Wed Jun 21 22:58:13 2017
+From: larry at hastings.org (Larry Hastings)
+Date: Wed, 21 Jun 2017 19:58:13 -0700
+Subject: [python-committers] Proposed release schedule for Python 3.5.4
+Message-ID: <adeed23f-7e82-5757-5b35-c4d951fbfc2c@hastings.org>
+
+
+
+It's time to start planning the next 3.5 release, 3.5.4.  Note that this 
+will be the last 3.5 "bugfix" release; after 3.5.4, the 3.5 branch will 
+only be open for security fixes.  3.5.4 will also be the last release of 
+3.5 with binary installers.
+
+I propose to tag and release 3.5.4 on these dates:
+
+3.5.4rc1
+     tag Sat July 22 2017
+     release Sun July 23 2017
+
+3.5.4 final
+     tag Sun Aug 6 2017
+     release Mon Aug 7 2017
+
+Thus rc1 would be tagged in just over four weeks.
+
+
+As for 3.4--
+
+Lately I've been releasing new versions of 3.5 and 3.4 at the same 
+time.  But I'm not sure it's worth the effort to release another 3.4 
+right now.  There have only been two (2) checkins into the 3.4 branch 
+since 3.4.6 was released back in January:
+
+    f37b0cb230069481609b0bb06891b5dd26320504
+         bpo-25008: Deprecate smtpd and point to aiosmtpd
+
+    fa53dbdec818b0f2a0e22ca12a49d83ec948fc91
+         Issues #27850 and #27766: Remove 3DES from ssl
+         default cipher list and add ChaCha20 Poly1305.
+
+
+The first was a documentation-only change which is already live on 
+docs.python.org.  The second changes the _DEFAULT_CIPHERS and 
+_RESTRICTED_SERVER_CIPHERS constants in Lib/ssl.py.  A reasonable 
+change, but minor.  I'm not convinced it's worth spending the time of 
+many people in the community at large to update 3.4 just for this.
+
+If you have any feedback / concerns about this schedule, or if you think 
+it's important that I release 3.4.7 with these minor changes, please 
+reply here.  If I don't hear anything back in a day or two I'll go ahead 
+and make this the official schedule.
+
+
+Your friendly neighborhood release manager,
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170621/166287dd/attachment.html>
+
+From storchaka at gmail.com  Thu Jun 22 01:07:51 2017
+From: storchaka at gmail.com (Serhiy Storchaka)
+Date: Thu, 22 Jun 2017 08:07:51 +0300
+Subject: [python-committers] Proposed release schedule for Python 3.5.4
+In-Reply-To: <adeed23f-7e82-5757-5b35-c4d951fbfc2c@hastings.org>
+References: <adeed23f-7e82-5757-5b35-c4d951fbfc2c@hastings.org>
+Message-ID: <CAAuNNr4cOmkCSgh7=bD6D_LpTLrKigJ75YAacQP2BgdwHP_=Sg@mail.gmail.com>
+
+2017-06-22 5:58 GMT+03:00 Larry Hastings <larry at hastings.org>:
+> There have only been two (2) checkins into the 3.4 branch since 3.4.6 was
+> released back in January:
+>
+> f37b0cb230069481609b0bb06891b5dd26320504
+>     bpo-25008: Deprecate smtpd and point to aiosmtpd
+>
+> fa53dbdec818b0f2a0e22ca12a49d83ec948fc91
+>     Issues #27850 and #27766: Remove 3DES from ssl
+>     default cipher list and add ChaCha20 Poly1305.
+
+Please look also at issue30484. The PR is blocked, seems only the RM
+can merge it. Maybe this is a cause of small number of changes in 3.4
+since moving to GitHub?
+
+https://bugs.python.org/issue30484
+
+There were several security issues fixed recent times. Perhaps the
+fixes should be backported to 3.4?
+
+From victor.stinner at gmail.com  Thu Jun 22 04:04:01 2017
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Thu, 22 Jun 2017 10:04:01 +0200
+Subject: [python-committers] Proposed release schedule for Python 3.5.4
+In-Reply-To: <adeed23f-7e82-5757-5b35-c4d951fbfc2c@hastings.org>
+References: <adeed23f-7e82-5757-5b35-c4d951fbfc2c@hastings.org>
+Message-ID: <CAMpsgwbT-kxNrSdwsWuzsWwqH8X8NaubPc59QdXsBsQQY3_Jeg@mail.gmail.com>
+
+For 3.4, please review my pending security fixes :-) There are more of them.
+
+About the cipher list in ssl, the change itself is simple but it's to
+blacklist DES and 3DES since it has been proved that these ciphers are
+really too weak nowadays:
+http://python-security.readthedocs.io/vuln/cve-2016-2183_sweet32_attack_des_3des.html
+
+By the way, is Larry the only one to be able to merge changes in 3.4?
+Before GitHub, all core dev were technically allowed to push in
+security-only branches.
+
+I would be interested to be allowed to push my own security fixes, but also
+to enable Travis CI and maybe AppVeyor on the 3.4 and 3.3 branches.
+
+Victor
+
+Le 22 juin 2017 04:58, "Larry Hastings" <larry at hastings.org> a ?crit :
+
+>
+>
+> It's time to start planning the next 3.5 release, 3.5.4.  Note that this
+> will be the last 3.5 "bugfix" release; after 3.5.4, the 3.5 branch will
+> only be open for security fixes.  3.5.4 will also be the last release of
+> 3.5 with binary installers.
+>
+> I propose to tag and release 3.5.4 on these dates:
+>
+> 3.5.4rc1
+>     tag Sat July 22 2017
+>     release Sun July 23 2017
+>
+> 3.5.4 final
+>     tag Sun Aug 6 2017
+>     release Mon Aug 7 2017
+>
+> Thus rc1 would be tagged in just over four weeks.
+>
+>
+> As for 3.4--
+>
+> Lately I've been releasing new versions of 3.5 and 3.4 at the same time.
+> But I'm not sure it's worth the effort to release another 3.4 right now.
+> There have only been two (2) checkins into the 3.4 branch since 3.4.6 was
+> released back in January:
+>
+> f37b0cb230069481609b0bb06891b5dd26320504
+>     bpo-25008: Deprecate smtpd and point to aiosmtpd
+>
+> fa53dbdec818b0f2a0e22ca12a49d83ec948fc91
+>     Issues #27850 and #27766: Remove 3DES from ssl
+>     default cipher list and add ChaCha20 Poly1305.
+>
+>
+> The first was a documentation-only change which is already live on
+> docs.python.org.  The second changes the _DEFAULT_CIPHERS and
+> _RESTRICTED_SERVER_CIPHERS constants in Lib/ssl.py.  A reasonable change,
+> but minor.  I'm not convinced it's worth spending the time of many people
+> in the community at large to update 3.4 just for this.
+>
+> If you have any feedback / concerns about this schedule, or if you think
+> it's important that I release 3.4.7 with these minor changes, please reply
+> here.  If I don't hear anything back in a day or two I'll go ahead and make
+> this the official schedule.
+>
+>
+> Your friendly neighborhood release manager,
+>
+>
+> */arry*
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170622/bd1dc069/attachment.html>
+
+From larry at hastings.org  Thu Jun 22 05:31:31 2017
+From: larry at hastings.org (Larry Hastings)
+Date: Thu, 22 Jun 2017 02:31:31 -0700
+Subject: [python-committers] Proposed release schedule for Python 3.5.4
+In-Reply-To: <CAMpsgwbT-kxNrSdwsWuzsWwqH8X8NaubPc59QdXsBsQQY3_Jeg@mail.gmail.com>
+References: <adeed23f-7e82-5757-5b35-c4d951fbfc2c@hastings.org>
+ <CAMpsgwbT-kxNrSdwsWuzsWwqH8X8NaubPc59QdXsBsQQY3_Jeg@mail.gmail.com>
+Message-ID: <edb073f1-c1df-98a4-9340-7d43582ed057@hastings.org>
+
+
+
+On 06/22/2017 01:04 AM, Victor Stinner wrote:
+> About the cipher list in ssl, the change itself is simple but it's to 
+> blacklist DES and 3DES since it has been proved that these ciphers are 
+> really too weak nowadays:
+> http://python-security.readthedocs.io/vuln/cve-2016-2183_sweet32_attack_des_3des.html
+
+Not "blacklist"--IIUC the user can still manually specify whatever 
+cipher suites they like.  And not DES... who knows how long ago that was 
+removed from the list.
+
+This change in 3.4 removes 3DES from the /default/ permissible cipher 
+list, changing those entries to use "HIGH cipher suites" instead 
+(OpenSSL's term for "cipher suites with key sizes >= 128 bytes").  It 
+also adds ChaCha20 to the default cipher list.
+
+
+> By the way, is Larry the only one to be able to merge changes in 3.4? 
+> Before GitHub, all core dev were technically allowed to push in 
+> security-only branches.
+
+Oh?  Am I? **insert evil laugh** Ladies and gentlemen, get out your 
+checkbooks!  3.4 is about to get... expensive.
+
+Seriously, though, I was mostly hoping other people would handle the 
+security stuff and just keep me informed.  If I'm the only one permitted 
+to accept PRs into 3.4 (and soon 3.5), okay, I can work with that.  I'm 
+still probably gonna delegate the actual judgment of the validity of the 
+PRs.  But obviously it'll mean I'll have to be more hands-on, where so 
+far I was assuming I could just let other people handle it.
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170622/4b713053/attachment-0001.html>
+
+From brett at python.org  Thu Jun 22 11:56:29 2017
+From: brett at python.org (Brett Cannon)
+Date: Thu, 22 Jun 2017 15:56:29 +0000
+Subject: [python-committers] [Python-Dev] Proposed release schedule for
+ Python 3.5.4
+In-Reply-To: <edb073f1-c1df-98a4-9340-7d43582ed057@hastings.org>
+References: <adeed23f-7e82-5757-5b35-c4d951fbfc2c@hastings.org>
+ <CAMpsgwbT-kxNrSdwsWuzsWwqH8X8NaubPc59QdXsBsQQY3_Jeg@mail.gmail.com>
+ <edb073f1-c1df-98a4-9340-7d43582ed057@hastings.org>
+Message-ID: <CAP1=2W5JjAE1Y7Ftmzo1uvf-03tzzOchR+xTcAWaL3CXdOBC1A@mail.gmail.com>
+
+On Thu, 22 Jun 2017 at 02:32 Larry Hastings <larry at hastings.org> wrote:
+
+>
+>
+> On 06/22/2017 01:04 AM, Victor Stinner wrote:
+>
+> About the cipher list in ssl, the change itself is simple but it's to
+> blacklist DES and 3DES since it has been proved that these ciphers are
+> really too weak nowadays:
+>
+> http://python-security.readthedocs.io/vuln/cve-2016-2183_sweet32_attack_des_3des.html
+>
+>
+> Not "blacklist"--IIUC the user can still manually specify whatever cipher
+> suites they like.  And not DES... who knows how long ago that was removed
+> from the list.
+>
+> This change in 3.4 removes 3DES from the *default* permissible cipher
+> list, changing those entries to use "HIGH cipher suites" instead (OpenSSL's
+> term for "cipher suites with key sizes >= 128 bytes").  It also adds
+> ChaCha20 to the default cipher list.
+>
+>
+>
+> By the way, is Larry the only one to be able to merge changes in 3.4?
+> Before GitHub, all core dev were technically allowed to push in
+> security-only branches.
+>
+>
+> Oh?  Am I? **insert evil laugh** Ladies and gentlemen, get out your
+> checkbooks!  3.4 is about to get... expensive.
+>
+> Seriously, though, I was mostly hoping other people would handle the
+> security stuff and just keep me informed.  If I'm the only one permitted to
+> accept PRs into 3.4 (and soon 3.5), okay, I can work with that.  I'm still
+> probably gonna delegate the actual judgment of the validity of the PRs.
+> But obviously it'll mean I'll have to be more hands-on, where so far I was
+> assuming I could just let other people handle it.
+>
+
+Currently the security-only branches are set so that only release managers
+can merge PRs since they technically are on the hook if some compatibility
+breaks due to some patch (e.g. I expect Ned to use this for 3.7 once we hit
+rc to really control what goes in last minute). It's easy enough to turn
+this protection off, though, if people want.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170622/44505744/attachment.html>
+
+From brett at python.org  Thu Jun 22 11:59:47 2017
+From: brett at python.org (Brett Cannon)
+Date: Thu, 22 Jun 2017 15:59:47 +0000
+Subject: [python-committers] Fun fact,
+ The Knights Who Say "Ni" (bot) complained about CLA on
+ Modules/expat/
+In-Reply-To: <CAMpsgwajNeCKjMwNruQuGDwdaKadu3Xx_GBgSuMGL97+MahhBw@mail.gmail.com>
+References: <CAMpsgwajNeCKjMwNruQuGDwdaKadu3Xx_GBgSuMGL97+MahhBw@mail.gmail.com>
+Message-ID: <CAP1=2W7CKxJM17T7ZqRXqty6V4nU8VqRc6uEpLQr4E=rcATbsg@mail.gmail.com>
+
+I hope the bot works as expected! I worked hard to make it appropriately
+paranoid to make Van and other lawyers happy! ;)
+
+On Wed, 21 Jun 2017 at 11:03 Victor Stinner <victor.stinner at gmail.com>
+wrote:
+
+> Hi,
+>
+> Fun fact: I cherry-picked a change from libexpat into Modules/expat
+> (VS2008 fix for stdint.h), and I kept the author. Then The Knights Who
+> Say "Ni" (bot) complained that Sebastian Pipping
+> <sebastian at pipping.org> didn't sign the CLA :-)
+> https://github.com/python/cpython/pull/2312#issuecomment-310091014
+>
+> I fixed the issue by replacing the author with me :-/ Well, I already
+> took the ownership of most lines of Modules/expat/ since I upgraded
+> libexpat from 2.1.1 to 2.2.0, and today to 2.2.1. So I don't think
+> that it's a new issue.
+>
+> I just wanted to share this story with you: the bot works as expected :-)
+>
+> Note: libexpat is distributed under the MIT license.
+>
+> Victor
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170622/13b1ad9c/attachment.html>
+
+From brett at python.org  Thu Jun 22 11:58:49 2017
+From: brett at python.org (Brett Cannon)
+Date: Thu, 22 Jun 2017 15:58:49 +0000
+Subject: [python-committers] link from github to bpo?
+In-Reply-To: <CAGbohnY=zRCkHPDbxVBsvA4SePUtQjPt6i3z30-thJNV9asCOQ@mail.gmail.com>
+References: <594AA5C9.4070307@stoneleaf.us>
+ <CAGbohna6Tf7EjempSEuYoM3EvZvxZBwTeTr6nxw_Sjg4=5y6FQ@mail.gmail.com>
+ <20170621202154.34DCF1B10002@webabinitio.net>
+ <CAGbohnY=zRCkHPDbxVBsvA4SePUtQjPt6i3z30-thJNV9asCOQ@mail.gmail.com>
+Message-ID: <CAP1=2W5742Ei2r3mm=Uqb1vKERFQyp+vcF_z=n7hvOVjubVBow@mail.gmail.com>
+
+If people would like to see the bpo link be automatically appended to the
+original PR message, feel free to help with
+https://github.com/python/bedevere/issues/3 :)
+
+On Wed, 21 Jun 2017 at 13:38 Mariatta Wijaya <mariatta.wijaya at gmail.com>
+wrote:
+
+> PR 2304 is merged. "View Details" still exists (scroll all the way down).
+>
+> When the PR is not yet merged (e.g.
+> https://github.com/python/cpython/pull/2316), the UI looks different.
+> Click 'Show all checks' to get the link back to bpo.
+>
+>
+> Mariatta Wijaya
+>
+> On Wed, Jun 21, 2017 at 1:21 PM, R. David Murray <rdmurray at bitdance.com>
+> wrote:
+>
+>> On Wed, 21 Jun 2017 10:02:58 -0700, Mariatta Wijaya <
+>> mariatta.wijaya at gmail.com> wrote:
+>> > Yes, for that PR, scroll down and click the "View Details" button.
+>> > Click the Details link next to bedevere/issue number status check.
+>> > It will take you to the issue in bpo.
+>>
+>> Note that this will only exist if the PR is still open (not closed, not
+>> merged).
+>>
+>> > There is also an open issue in bedevere, where the link will be added at
+>> > the bottom of the PR message.
+>> > https://github.com/python/bedevere/issues/3 (I believe Brett is
+>> working on
+>> > it :)  )
+>>
+>> And this should fix the problem mentioned above :)
+>>
+>> --David
+>> _______________________________________________
+>> python-committers mailing list
+>> python-committers at python.org
+>> https://mail.python.org/mailman/listinfo/python-committers
+>> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>>
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170622/f03e0f78/attachment.html>
+
+From victor.stinner at gmail.com  Fri Jun 23 04:55:57 2017
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Fri, 23 Jun 2017 10:55:57 +0200
+Subject: [python-committers] [Python-Dev] Proposed release schedule for
+ Python 3.5.4
+In-Reply-To: <CAP1=2W5JjAE1Y7Ftmzo1uvf-03tzzOchR+xTcAWaL3CXdOBC1A@mail.gmail.com>
+References: <adeed23f-7e82-5757-5b35-c4d951fbfc2c@hastings.org>
+ <CAMpsgwbT-kxNrSdwsWuzsWwqH8X8NaubPc59QdXsBsQQY3_Jeg@mail.gmail.com>
+ <edb073f1-c1df-98a4-9340-7d43582ed057@hastings.org>
+ <CAP1=2W5JjAE1Y7Ftmzo1uvf-03tzzOchR+xTcAWaL3CXdOBC1A@mail.gmail.com>
+Message-ID: <CAMpsgwZitdo=sN+eELSavQtur36uJiJWBSxUr6_=26cQ+yr=bg@mail.gmail.com>
+
+2017-06-22 17:56 GMT+02:00 Brett Cannon <brett at python.org>:
+> On Thu, 22 Jun 2017 at 02:32 Larry Hastings <larry at hastings.org> wrote:
+>> Seriously, though, I was mostly hoping other people would handle the
+>> security stuff and just keep me informed.  If I'm the only one permitted to
+>> accept PRs into 3.4 (and soon 3.5), okay, I can work with that.  I'm still
+>> probably gonna delegate the actual judgment of the validity of the PRs.  But
+>> obviously it'll mean I'll have to be more hands-on, where so far I was
+>> assuming I could just let other people handle it.
+>
+> Currently the security-only branches are set so that only release managers
+> can merge PRs since they technically are on the hook if some compatibility
+> breaks due to some patch (e.g. I expect Ned to use this for 3.7 once we hit
+> rc to really control what goes in last minute). It's easy enough to turn
+> this protection off, though, if people want.
+
+Larry: would you be ok to turn this protection off on the 3.4 branch?
+Or would you feel more confortable if only a few people would be
+allowed to push to the 3.4 branch, so add me a whitelist group or
+something like that?
+
+As I wrote, my plan is not only to merge my security fixes, but also
+to work on a CI. I would feel more confortable to see the Travis CI
+test result on my security PRs.
+
+Victor
+
+From larry at hastings.org  Fri Jun 23 09:19:45 2017
+From: larry at hastings.org (Larry Hastings)
+Date: Fri, 23 Jun 2017 06:19:45 -0700
+Subject: [python-committers] [Python-Dev] Proposed release schedule for
+ Python 3.5.4
+In-Reply-To: <CAMpsgwZitdo=sN+eELSavQtur36uJiJWBSxUr6_=26cQ+yr=bg@mail.gmail.com>
+References: <adeed23f-7e82-5757-5b35-c4d951fbfc2c@hastings.org>
+ <CAMpsgwbT-kxNrSdwsWuzsWwqH8X8NaubPc59QdXsBsQQY3_Jeg@mail.gmail.com>
+ <edb073f1-c1df-98a4-9340-7d43582ed057@hastings.org>
+ <CAP1=2W5JjAE1Y7Ftmzo1uvf-03tzzOchR+xTcAWaL3CXdOBC1A@mail.gmail.com>
+ <CAMpsgwZitdo=sN+eELSavQtur36uJiJWBSxUr6_=26cQ+yr=bg@mail.gmail.com>
+Message-ID: <e4443010-1898-5bd6-6a69-8404389a6f29@hastings.org>
+
+On 06/23/2017 01:55 AM, Victor Stinner wrote:
+> Larry: would you be ok to turn this protection off on the 3.4 branch?
+> Or would you feel more confortable if only a few people would be
+> allowed to push to the 3.4 branch, so add me a whitelist group or
+> something like that?
+
+Actually I kind of like the idea of the branch being restricted. Let's 
+try it for now and see if it works.
+
+
+> As I wrote, my plan is not only to merge my security fixes, but also
+> to work on a CI. I would feel more confortable to see the Travis CI
+> test result on my security PRs.
+
+Do you need write access to the branch in order to get Travis CI working?
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170623/20c3669d/attachment.html>
+
+From larry at hastings.org  Fri Jun 23 09:20:35 2017
+From: larry at hastings.org (Larry Hastings)
+Date: Fri, 23 Jun 2017 06:20:35 -0700
+Subject: [python-committers] Proposed release schedule for Python 3.5.4
+In-Reply-To: <adeed23f-7e82-5757-5b35-c4d951fbfc2c@hastings.org>
+References: <adeed23f-7e82-5757-5b35-c4d951fbfc2c@hastings.org>
+Message-ID: <25b2e757-9598-91af-2cea-d369ba060236@hastings.org>
+
+On 06/21/2017 07:58 PM, Larry Hastings wrote:
+> If you have any feedback / concerns about this schedule, or if you 
+> think it's important that I release 3.4.7 with these minor changes, 
+> please reply here.  If I don't hear anything back in a day or two I'll 
+> go ahead and make this the official schedule.
+
+I haven't heard any concerns, so I'm declaring that the official 
+schedule for 3.5.4, and I'm not scheduling 3.4.7 at this time.
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170623/dbb21d8b/attachment-0001.html>
+
+From victor.stinner at gmail.com  Fri Jun 23 09:24:18 2017
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Fri, 23 Jun 2017 15:24:18 +0200
+Subject: [python-committers] [Python-Dev] Proposed release schedule for
+ Python 3.5.4
+In-Reply-To: <e4443010-1898-5bd6-6a69-8404389a6f29@hastings.org>
+References: <adeed23f-7e82-5757-5b35-c4d951fbfc2c@hastings.org>
+ <CAMpsgwbT-kxNrSdwsWuzsWwqH8X8NaubPc59QdXsBsQQY3_Jeg@mail.gmail.com>
+ <edb073f1-c1df-98a4-9340-7d43582ed057@hastings.org>
+ <CAP1=2W5JjAE1Y7Ftmzo1uvf-03tzzOchR+xTcAWaL3CXdOBC1A@mail.gmail.com>
+ <CAMpsgwZitdo=sN+eELSavQtur36uJiJWBSxUr6_=26cQ+yr=bg@mail.gmail.com>
+ <e4443010-1898-5bd6-6a69-8404389a6f29@hastings.org>
+Message-ID: <CAMpsgwb3rG7U17baC4Oejzxs9E5FPwu7ccsqw5Oovz7h0mnk9Q@mail.gmail.com>
+
+2017-06-23 15:19 GMT+02:00 Larry Hastings <larry at hastings.org>:
+> Do you need write access to the branch in order to get Travis CI working?
+
+As soon as someone reviews my proposed 3.4 patches, no :-) I will work on a PR.
+
+Victor
+
+From rdmurray at bitdance.com  Fri Jun 23 12:28:26 2017
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Fri, 23 Jun 2017 12:28:26 -0400
+Subject: [python-committers] link from github to bpo?
+In-Reply-To: <CAGbohnY=zRCkHPDbxVBsvA4SePUtQjPt6i3z30-thJNV9asCOQ@mail.gmail.com>
+References: <594AA5C9.4070307@stoneleaf.us>
+ <CAGbohna6Tf7EjempSEuYoM3EvZvxZBwTeTr6nxw_Sjg4=5y6FQ@mail.gmail.com>
+ <20170621202154.34DCF1B10002@webabinitio.net>
+ <CAGbohnY=zRCkHPDbxVBsvA4SePUtQjPt6i3z30-thJNV9asCOQ@mail.gmail.com>
+Message-ID: <20170623162826.E2BCC1B10004@webabinitio.net>
+
+On Wed, 21 Jun 2017 13:37:22 -0700, Mariatta Wijaya <mariatta.wijaya at gmail.com> wrote:
+> PR 2304 is merged. "View Details" still exists (scroll all the way down).
+> 
+> When the PR is not yet merged (e.g.
+> https://github.com/python/cpython/pull/2316), the UI looks different.
+> Click 'Show all checks' to get the link back to bpo.
+
+Odd, I don't see a 'show all checks' on that PR.  And I usually have to
+click 'show all checks' on open PRs (at least if the checks have all
+passed) in order to get to the bedevere link.
+
+--David
+
+From guido at python.org  Fri Jun 23 13:54:41 2017
+From: guido at python.org (Guido van Rossum)
+Date: Fri, 23 Jun 2017 10:54:41 -0700
+Subject: [python-committers] Reminder! Today's the last day for core sprint
+ sign-ups!
+Message-ID: <CAP7+vJLN4a7YgOfWLotY1=h9+UbSAixtKFaPB+57H0Roacx16w@mail.gmail.com>
+
+[Was:  Core sprint 2017 - Sep 4 - Sep 9, Menlo Park, California]
+
+On Mon, Jun 12, 2017 at 4:04 PM, Lukasz Langa <lukasz at langa.pl> wrote:
+
+> Hello fellow committers!
+> I'm organizing another core sprint this year to make Python 3.7 the best
+> release possible.
+>
+> *WHY*:
+> 1. *Community*.  The sprints at the end of PyCon are great but they
+> mostly get the same people in the room year after year.  Many of the most
+> active contributors never attend conferences.  My goal with this sprint is
+> to bring together many core devs who rarely if ever meet!
+> 2. *Focus*.  When we have sprints at the end of a conference, many of us
+> are pretty tired and less productive than we could have been without the
+> late dinners, endless hallway sessions, and so on.  Some of the sprinters
+> are preoccupied with tutoring newcomers.  This sprint won't be after a
+> major conference, and it's only for seasoned CPython core devs--so get to
+> work!
+> 3. *Communication*. There are tremendous benefits to getting everyone
+> together in one big room.  Conversations that drag on on python-dev can be
+> solved quickly in person.  Even contentious debates become faster, easier,
+> and more civil.  And meeting face-to-face helps us all feel more connected
+> to our community.
+>
+> *WHY THE BAY AREA*: We have a large population of core contributors
+> here.  Also, I can arrange for Facebook to provide us a "war room" for the
+> whole week, with full access to the campus during the sprints. That
+> includes free food for breakfast, lunch, dinner, and snacks, compatible
+> with almost any dietary restrictions.
+>
+> *WHY EARLY SEPTEMBER*: It's almost impossible to find a time that doesn't
+> overlap with a PyCon. This week worked well last year so we're redoing it
+> that way. Monday September 4 is Labor Day in the US, which may make it
+> easier for employees of US companies to attend, as they'd only be taking
+> off four days instead of five.
+>
+> *HOW LONG*: A full week Monday, Sep 4 to Friday, Sep 8 evening. You can
+> check into your hotel the day before the sprint (Sunday, Sep 3) and check
+> out the day after (Saturday, Sep 9).
+>
+> *HOW BIG*: No fewer than 10, no more than 20.  More than 20 people would
+> be great but it'd be hard for me to organize a sprint that big.
+>
+> *WHO PAYS*: The venue, hotels, and food are provided by Facebook. I'm
+> working on getting flight reimbursements. Last year they were provided by
+> the Python Software Foundation. Anybody is free to waive their
+> reimbursement.
+>
+> *PLEASE REPLY*: If you're interested in attending and have the commit bit
+> on GitHub's python/cpython, fill out this Google Form:
+> https://goo.gl/forms/MzrNtRe0NAmzvGwF2
+>
+> *DISCLAIMER*: I'd like to be able to host everybody. However, if I
+> receive more than 20 applications, this is not going to be possible. In
+> this case, the following will happen:
+>
+> 1. I will look at your current level of involvement in CPython
+> development. This includes metrics like commits / PRs, activity on the bug
+> tracker and python-dev, special role (release manager, infrastructure dev,
+> etc.).
+> 2. I will look at your sprint plan and ability to participate in the
+> entire sprint (per answers to the questions above).
+> 3. I will gather all this data and leave the final decision to our
+> Benevolent Dictator (who is also attending the sprint). This is one of
+> those occasions where having a dictator is useful.
+>
+> *DON'T WAIT*: September is closer than you think! Please let me know as
+> soon as possible so we can start setting up the event. I'm going to close
+> the sign-up form on June 23rd.
+>
+> Organizational-ly yours,
+> ?
+> Vice-Minister of Silly Sprints
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+>
+
+
+-- 
+--Guido van Rossum (python.org/~guido <http://python.org/%7Eguido>)
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170623/388d7161/attachment.html>
+
+From brett at python.org  Fri Jun 23 20:33:13 2017
+From: brett at python.org (Brett Cannon)
+Date: Sat, 24 Jun 2017 00:33:13 +0000
+Subject: [python-committers] link from github to bpo?
+In-Reply-To: <20170623162826.E2BCC1B10004@webabinitio.net>
+References: <594AA5C9.4070307@stoneleaf.us>
+ <CAGbohna6Tf7EjempSEuYoM3EvZvxZBwTeTr6nxw_Sjg4=5y6FQ@mail.gmail.com>
+ <20170621202154.34DCF1B10002@webabinitio.net>
+ <CAGbohnY=zRCkHPDbxVBsvA4SePUtQjPt6i3z30-thJNV9asCOQ@mail.gmail.com>
+ <20170623162826.E2BCC1B10004@webabinitio.net>
+Message-ID: <CAP1=2W6VDWJLQAgJtkm6DmOPRPsRStSbQdLZhqmWRrF_PJH9Pw@mail.gmail.com>
+
+On Fri, 23 Jun 2017 at 09:28 R. David Murray <rdmurray at bitdance.com> wrote:
+
+> On Wed, 21 Jun 2017 13:37:22 -0700, Mariatta Wijaya <
+> mariatta.wijaya at gmail.com> wrote:
+> > PR 2304 is merged. "View Details" still exists (scroll all the way down).
+> >
+> > When the PR is not yet merged (e.g.
+> > https://github.com/python/cpython/pull/2316), the UI looks different.
+> > Click 'Show all checks' to get the link back to bpo.
+>
+> Odd, I don't see a 'show all checks' on that PR.  And I usually have to
+> click 'show all checks' on open PRs (at least if the checks have all
+> passed) in order to get to the bedevere link.
+>
+
+Go to the entry representing Larry's merge and click on the "View details"
+button. That will expand to show all of the status checks that were done
+when the PR was merged (in this instance there was no issue number so you
+won't see a "Details" link for the bedevere/issue-number check).
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170624/ae1d5193/attachment.html>
+
+From larry at hastings.org  Fri Jun 23 23:24:05 2017
+From: larry at hastings.org (Larry Hastings)
+Date: Fri, 23 Jun 2017 20:24:05 -0700
+Subject: [python-committers] New workflow change: Welcome to blurb
+Message-ID: <dcd71545-abf7-53b4-9995-dd5329167f1c@hastings.org>
+
+
+
+One minor but ongoing problem we've had in CPython core development has 
+been the mess of updating Misc/NEWS.  Day-to-day developers may have a 
+conflict if they lose a push race, which means a little editing.  You'll 
+have a similar, if slightly worse, problem when cherry-picking a fix 
+between versions.  Worst of all used to be the manual merges necessary 
+after cutting a release--this was the bane of a CPython release 
+manager's existence.  (Though the new git-based workflow may have 
+obviated the worst of this.)
+
+The real problem is that we have one central file that everybody 
+continually edits in a haphazard way.  We aren't actually editing the 
+same information, we aren't actually changing the same lines. But our 
+revision control systems and diff algorithms don't understand the 
+structure of Misc/NEWS and so they get confused. And for what? It's not 
+like there's a tremendous benefit to having this central file everyone's 
+fighting over.
+
+We've been talking about addressing this for years.  Fixing this was one 
+of the goals of the new workflow.  And finally, as of right now, the 
+future is here.  Ladies and gentlemen, I present: blurb.
+
+    https://github.com/python/core-workflow/tree/master/blurb
+
+
+blurb is an interactive command-line tool that helps you write Misc/NEWS 
+entries.  You simply run blurb from anywhere inside a CPython repo.  
+blurb runs an editor for you with a template open. You fill in these 
+three pieces of information:
+
+  * the bugs.python.org or "bpo" issue number,
+  * what "section" of Misc/NEWS this entry should go in (by uncommenting
+    the correct line), and
+  * the text of the Misc/NEWS entry, in ReST format.
+
+You save and exit and you're done.  blurb even stages the Misc/NEWS 
+entry in git for you!
+
+
+Behind the scenes, blurb writes your information here:
+
+    Misc/NEWS.d/next/<section-name>/<filename>
+
+The "<section-name>" is the name of the section in Misc/NEWS where your 
+entry should go.  <filename> contains the current date and time, the bpo 
+number, and a nonce to prevent collisions.
+
+These "next" files get merged together into a single aggregate .rst file 
+by the release manager when cutting a release (using "blurb release").  
+One nice feature of this approach: when you cherry-pick a change, its 
+Misc/NEWS entry in "next" gets cherry-picked along with it.
+
+
+One important change: Misc/NEWS will no longer be checked in. It'll 
+still be present in CPython tarballs; it will be generated by the 
+release manager as part of cutting a release.  But as a repository of 
+information, it's been superseded by the various blurb data files.  And 
+by regenerating it from data files, we ensure that we'll never ever have 
+a Misc/NEWS conflict ever again!
+
+The plan is to leave Misc/NEWS in the CPython repo for maybe another 
+week, to let the current crop of PRs get merged.  But new work should 
+switch to using blurb immediately.
+
+
+You can install blurb from pip:
+
+    % pip3.6 install blurb
+
+In fact--please do!
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170623/87db6489/attachment-0001.html>
+
+From steve.dower at python.org  Sat Jun 24 01:18:28 2017
+From: steve.dower at python.org (Steve Dower)
+Date: Fri, 23 Jun 2017 22:18:28 -0700
+Subject: [python-committers] [Python-Dev] New workflow change: Welcome
+ to blurb
+In-Reply-To: <dcd71545-abf7-53b4-9995-dd5329167f1c@hastings.org>
+References: <dcd71545-abf7-53b4-9995-dd5329167f1c@hastings.org>
+Message-ID: <E1dOdSp-0002Yi-Kg@se2-syd.hostedmail.net.au>
+
+One quick heads up ? the NEWS file is included in the docs build (if not in the html docs, certainly in the CHM for Windows releases). You may have to do some extra work to keep that from breaking when you remove it. We might also include it as plain text in the installers, I forget right now.
+
+Is blurb going to be embedded in the main repository? Not necessarily a problem if not, but I'd rather not have the build process depend on pip. Though I guess Sphinx is dependency already, so perhaps I should just integrate it better into the build?
+
+Top-posted from my Windows phone
+
+From: Larry Hastings
+Sent: Friday, June 23, 2017 20:26
+To: Python Dev; python-committers
+Subject: [Python-Dev] New workflow change: Welcome to blurb
+
+
+
+One minor but ongoing problem we've had in CPython core development has been the mess of updating Misc/NEWS.? Day-to-day developers may have a conflict if they lose a push race, which means a little editing.? You'll have a similar, if slightly worse, problem when cherry-picking a fix between versions.? Worst of all used to be the manual merges necessary after cutting a release--this was the bane of a CPython release manager's existence.? (Though the new git-based workflow may have obviated the worst of this.)
+
+The real problem is that we have one central file that everybody continually edits in a haphazard way.? We aren't actually editing the same information, we aren't actually changing the same lines.? But our revision control systems and diff algorithms don't understand the structure of Misc/NEWS and so they get confused.? And for what? It's not like there's a tremendous benefit to having this central file everyone's fighting over.
+
+We've been talking about addressing this for years.? Fixing this was one of the goals of the new workflow.? And finally, as of right now, the future is here.? Ladies and gentlemen, I present: blurb.
+https://github.com/python/core-workflow/tree/master/blurb
+
+blurb is an interactive command-line tool that helps you write Misc/NEWS entries.? You simply run blurb from anywhere inside a CPython repo.? blurb runs an editor for you with a template open.? You fill in these three pieces of information:
+? the bugs.python.org or "bpo" issue number,
+? what "section" of Misc/NEWS this entry should go in (by uncommenting the correct line), and
+? the text of the Misc/NEWS entry, in ReST format.
+You save and exit and you're done.? blurb even stages the Misc/NEWS entry in git for you!
+
+
+Behind the scenes, blurb writes your information here:
+Misc/NEWS.d/next/<section-name>/<filename>
+The "<section-name>" is the name of the section in Misc/NEWS where your entry should go.? <filename> contains the current date and time, the bpo number, and a nonce to prevent collisions.
+
+These "next" files get merged together into a single aggregate .rst file by the release manager when cutting a release (using "blurb release").? One nice feature of this approach: when you cherry-pick a change, its Misc/NEWS entry in "next" gets cherry-picked along with it.
+
+
+One important change: Misc/NEWS will no longer be checked in.? It'll still be present in CPython tarballs; it will be generated by the release manager as part of cutting a release.? But as a repository of information, it's been superseded by the various blurb data files.? And by regenerating it from data files, we ensure that we'll never ever have a Misc/NEWS conflict ever again!
+
+The plan is to leave Misc/NEWS in the CPython repo for maybe another week, to let the current crop of PRs get merged.? But new work should switch to using blurb immediately.
+
+
+You can install blurb from pip:
+% pip3.6 install blurb
+In fact--please do!
+
+
+/arry
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170623/801ae4e5/attachment.html>
+
+From ncoghlan at gmail.com  Sat Jun 24 01:48:01 2017
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Sat, 24 Jun 2017 15:48:01 +1000
+Subject: [python-committers] New workflow change: Welcome to blurb
+In-Reply-To: <dcd71545-abf7-53b4-9995-dd5329167f1c@hastings.org>
+References: <dcd71545-abf7-53b4-9995-dd5329167f1c@hastings.org>
+Message-ID: <CADiSq7cWCJTAFrMFqkn3TXs9=6uepb-YTcEQX0Dj+x+dD+92Zg@mail.gmail.com>
+
+On 24 June 2017 at 13:24, Larry Hastings <larry at hastings.org> wrote:
+>
+>
+> One minor but ongoing problem we've had in CPython core development has been
+> the mess of updating Misc/NEWS.  Day-to-day developers may have a conflict
+> if they lose a push race, which means a little editing.  You'll have a
+> similar, if slightly worse, problem when cherry-picking a fix between
+> versions.  Worst of all used to be the manual merges necessary after cutting
+> a release--this was the bane of a CPython release manager's existence.
+> (Though the new git-based workflow may have obviated the worst of this.)
+>
+> The real problem is that we have one central file that everybody continually
+> edits in a haphazard way.  We aren't actually editing the same information,
+> we aren't actually changing the same lines.  But our revision control
+> systems and diff algorithms don't understand the structure of Misc/NEWS and
+> so they get confused.  And for what? It's not like there's a tremendous
+> benefit to having this central file everyone's fighting over.
+>
+> We've been talking about addressing this for years.  Fixing this was one of
+> the goals of the new workflow.  And finally, as of right now, the future is
+> here.  Ladies and gentlemen, I present: blurb.
+>
+> https://github.com/python/core-workflow/tree/master/blurb
+
+Thanks Larry, great to see this go live!
+
+> Behind the scenes, blurb writes your information here:
+>
+> Misc/NEWS.d/next/<section-name>/<filename>
+>
+> The "<section-name>" is the name of the section in Misc/NEWS where your
+> entry should go.  <filename> contains the current date and time, the bpo
+> number, and a nonce to prevent collisions.
+
+Folks are also free to handcraft these files if they really want to do
+so. The Developer Guide has the necessary details:
+https://docs.python.org/devguide/committing.html#what-s-new-and-news-entries
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+
+From ncoghlan at gmail.com  Sat Jun 24 01:55:55 2017
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Sat, 24 Jun 2017 15:55:55 +1000
+Subject: [python-committers] [Python-Dev] New workflow change: Welcome
+ to blurb
+In-Reply-To: <CAG=rPVezt-ajOmmkoHAhSC3gEt2M6ZgunzCMh88aLRvRsbFj9A@mail.gmail.com>
+References: <dcd71545-abf7-53b4-9995-dd5329167f1c@hastings.org>
+ <CAG=rPVezt-ajOmmkoHAhSC3gEt2M6ZgunzCMh88aLRvRsbFj9A@mail.gmail.com>
+Message-ID: <CADiSq7ejrgTgNktFwnETqV75cz_Rkxw6nz4rkH-4tT4hnmC2XQ@mail.gmail.com>
+
+On 24 June 2017 at 14:01, Craig Rodrigues <rodrigc at freebsd.org> wrote:
+> On Fri, Jun 23, 2017 at 8:24 PM, Larry Hastings <larry at hastings.org> wrote:
+>>
+>>
+>>
+>> We've been talking about addressing this for years.  Fixing this was one
+>> of the goals of the new workflow.  And finally, as of right now, the future
+>> is here.  Ladies and gentlemen, I present: blurb.
+>>
+>> https://github.com/python/core-workflow/tree/master/blurb
+>
+>
+> Yes, when you have a single NEWS file that needs to get updated,
+> the process begins  to fall apart when you have a pull request type of
+> workflow
+> which results in many merge conflicts to the single NEWS file.
+>
+> Twisted and Buildbot use towncrier ( https://github.com/hawkowl/towncrier )
+> which tries
+> to solve the same problem as blurb.
+
+Aye, towncrier and OpenStack's reno were the two main alternatives we
+looked at in addition to Larry's offer of creating a tool specifically
+for CPython: https://github.com/python/core-workflow/issues/6
+
+We ultimately settled on blurb mainly because we wanted to be able to
+customise various details differently from the way towncrier works,
+and we figure they're close enough in spirit that folks familiar with
+one won't have any problems adapting to the other.
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+
+From storchaka at gmail.com  Sat Jun 24 02:25:16 2017
+From: storchaka at gmail.com (Serhiy Storchaka)
+Date: Sat, 24 Jun 2017 09:25:16 +0300
+Subject: [python-committers] New workflow change: Welcome to blurb
+In-Reply-To: <dcd71545-abf7-53b4-9995-dd5329167f1c@hastings.org>
+References: <dcd71545-abf7-53b4-9995-dd5329167f1c@hastings.org>
+Message-ID: <CAAuNNr5Jh1WtWJuXQA1aMPNRx=9O+PPBCnEK9XMUkfVnWiT8DA@mail.gmail.com>
+
+2017-06-24 6:24 GMT+03:00 Larry Hastings <larry at hastings.org>:
+> One minor but ongoing problem we've had in CPython core development has been
+> the mess of updating Misc/NEWS.  Day-to-day developers may have a conflict
+> if they lose a push race, which means a little editing.  You'll have a
+> similar, if slightly worse, problem when cherry-picking a fix between
+> versions.  Worst of all used to be the manual merges necessary after cutting
+> a release--this was the bane of a CPython release manager's existence.
+> (Though the new git-based workflow may have obviated the worst of this.)
+
+Thanks Larry! With the old hg-based workflow this was only slightly
+annoying, but the new git-based workflow turned this into a hell. If
+you have several PRs that updates the same Misc/NEWS section you
+needed to spent many time for just resolving conflicts one by one and
+waiting CI tests. And be lucky if other core developer trying to do
+the same withis PRs at the same time.
+
+> You can install blurb from pip:
+>
+> % pip3.6 install blurb
+>
+> In fact--please do!
+
+I have installed it, but how to use it?
+
+$ python3 -m pip install --user blurb
+Collecting blurb
+  Using cached blurb-1.0-py3-none-any.whl
+Installing collected packages: blurb
+Successfully installed blurb-1.0
+$ python3 -m blurb
+/usr/bin/python3: No module named blurb
+
+From antoine at python.org  Sat Jun 24 11:05:19 2017
+From: antoine at python.org (Antoine Pitrou)
+Date: Sat, 24 Jun 2017 17:05:19 +0200
+Subject: [python-committers] How does GitHub count contributors?
+Message-ID: <e678c89c-f325-9251-665d-5e71a3141c6d@python.org>
+
+
+Hello,
+
+This is a bit of a futile question, but I realize I'm nowhere to be seen
+in https://github.com/python/cpython/graphs/contributors
+
+Is there some map file somewhere that I must update to match my commit
+e-mail to my GitHub account?
+
+Regards
+
+Antoine.
+
+From larry at hastings.org  Sat Jun 24 11:53:50 2017
+From: larry at hastings.org (Larry Hastings)
+Date: Sat, 24 Jun 2017 08:53:50 -0700
+Subject: [python-committers] [Python-Dev] New workflow change: Welcome
+ to blurb
+In-Reply-To: <CADiSq7ejrgTgNktFwnETqV75cz_Rkxw6nz4rkH-4tT4hnmC2XQ@mail.gmail.com>
+References: <dcd71545-abf7-53b4-9995-dd5329167f1c@hastings.org>
+ <CAG=rPVezt-ajOmmkoHAhSC3gEt2M6ZgunzCMh88aLRvRsbFj9A@mail.gmail.com>
+ <CADiSq7ejrgTgNktFwnETqV75cz_Rkxw6nz4rkH-4tT4hnmC2XQ@mail.gmail.com>
+Message-ID: <b2d0bc00-4816-aea6-ff13-605d44c5d9fd@hastings.org>
+
+On 06/23/2017 10:55 PM, Nick Coghlan wrote:
+> Aye, towncrier and OpenStack's reno were the two main alternatives we
+> looked at in addition to Larry's offer of creating a tool specifically
+> for CPython: https://github.com/python/core-workflow/issues/6
+
+Fun fact: all three tools started at about the same time, at least 
+according to publicly visible commits.  Towncrier started December 2015, 
+reno in August 2015, and my first commits to "mergenews" (which 
+eventually became blurb) were in September of 2015.
+
+We'd actually been discussing it on bpo since at least September 2013:
+
+    https://bugs.python.org/issue18967
+
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170624/37e4211f/attachment.html>
+
+From tjreedy at udel.edu  Sat Jun 24 12:05:38 2017
+From: tjreedy at udel.edu (Terry Reedy)
+Date: Sat, 24 Jun 2017 12:05:38 -0400
+Subject: [python-committers] How does GitHub count contributors?
+In-Reply-To: <e678c89c-f325-9251-665d-5e71a3141c6d@python.org>
+References: <e678c89c-f325-9251-665d-5e71a3141c6d@python.org>
+Message-ID: <6f26b574-af46-0a61-55e5-55528c7a04d3@udel.edu>
+
+On 6/24/2017 11:05 AM, Antoine Pitrou wrote:
+> 
+> Hello,
+> 
+> This is a bit of a futile question, but I realize I'm nowhere to be seen
+> in https://github.com/python/cpython/graphs/contributors
+> 
+> Is there some map file somewhere that I must update to match my commit
+> e-mail to my GitHub account?
+
+All I did was to a) create a github account and b) add the GitHub Name 
+to my bpo profile page. You appear to have done the same.  Brett Cannon 
+'added' coredevs to github.com/python, and you appear to have been 
+included since you have already made github commits.  I use the same 
+email for both github and bpo.  I can't see if your github email is the 
+same as your primary bpo email and I don't know if that makes any 
+difference.
+
+Brett Cannon is the most likely one to help you any further.
+
+tjr
+
+
+
+From antoine at python.org  Sat Jun 24 12:22:22 2017
+From: antoine at python.org (Antoine Pitrou)
+Date: Sat, 24 Jun 2017 18:22:22 +0200
+Subject: [python-committers] How does GitHub count contributors?
+In-Reply-To: <6f26b574-af46-0a61-55e5-55528c7a04d3@udel.edu>
+References: <e678c89c-f325-9251-665d-5e71a3141c6d@python.org>
+ <6f26b574-af46-0a61-55e5-55528c7a04d3@udel.edu>
+Message-ID: <7fa3f73b-8be4-8acb-00f8-a587fa151b59@python.org>
+
+
+Le 24/06/2017 ? 18:05, Terry Reedy a ?crit :
+> 
+> I use the same 
+> email for both github and bpo.  I can't see if your github email is the 
+> same as your primary bpo email and I don't know if that makes any 
+> difference.
+
+I added a secondary e-mail to my GitHub account (matching the e-mail I
+used for most commits) and it seems to be much better now!
+
+Regards
+
+Antoine.
+
+From brett at python.org  Sat Jun 24 12:23:21 2017
+From: brett at python.org (Brett Cannon)
+Date: Sat, 24 Jun 2017 16:23:21 +0000
+Subject: [python-committers] How does GitHub count contributors?
+In-Reply-To: <7fa3f73b-8be4-8acb-00f8-a587fa151b59@python.org>
+References: <e678c89c-f325-9251-665d-5e71a3141c6d@python.org>
+ <6f26b574-af46-0a61-55e5-55528c7a04d3@udel.edu>
+ <7fa3f73b-8be4-8acb-00f8-a587fa151b59@python.org>
+Message-ID: <CAP1=2W7C6WJJQvEMRvoe4mJQzt51Gn_TxWhFx_dP410jJBP4Dw@mail.gmail.com>
+
+On Sat, 24 Jun 2017 at 09:22 Antoine Pitrou <antoine at python.org> wrote:
+
+>
+> Le 24/06/2017 ? 18:05, Terry Reedy a ?crit :
+> >
+> > I use the same
+> > email for both github and bpo.  I can't see if your github email is the
+> > same as your primary bpo email and I don't know if that makes any
+> > difference.
+>
+> I added a secondary e-mail to my GitHub account (matching the e-mail I
+> used for most commits) and it seems to be much better now!
+>
+
+Yep, just keep adding email addresses until you get all your commits. :)
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170624/7d245272/attachment.html>
+
+From donald at stufft.io  Sat Jun 24 12:23:38 2017
+From: donald at stufft.io (Donald Stufft)
+Date: Sat, 24 Jun 2017 12:23:38 -0400
+Subject: [python-committers] How does GitHub count contributors?
+In-Reply-To: <e678c89c-f325-9251-665d-5e71a3141c6d@python.org>
+References: <e678c89c-f325-9251-665d-5e71a3141c6d@python.org>
+Message-ID: <9624B386-1DEC-4865-8A15-3C377DB04287@stufft.io>
+
+
+> On Jun 24, 2017, at 11:05 AM, Antoine Pitrou <antoine at python.org> wrote:
+> 
+> 
+> Hello,
+> 
+> This is a bit of a futile question, but I realize I'm nowhere to be seen
+> in https://github.com/python/cpython/graphs/contributors
+> 
+> Is there some map file somewhere that I must update to match my commit
+> e-mail to my GitHub account?
+
+
+
+That?s interesting, have you used multiple email addresses with the Python VCS history by any chance? If so you can add them all to your Github account and it should associate all of them with you. 
+
+?
+Donald Stufft
+
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170624/1c2f5e2b/attachment.html>
+
+From larry at hastings.org  Sat Jun 24 12:38:05 2017
+From: larry at hastings.org (Larry Hastings)
+Date: Sat, 24 Jun 2017 09:38:05 -0700
+Subject: [python-committers] New workflow change: Welcome to blurb
+In-Reply-To: <CAAuNNr5Jh1WtWJuXQA1aMPNRx=9O+PPBCnEK9XMUkfVnWiT8DA@mail.gmail.com>
+References: <dcd71545-abf7-53b4-9995-dd5329167f1c@hastings.org>
+ <CAAuNNr5Jh1WtWJuXQA1aMPNRx=9O+PPBCnEK9XMUkfVnWiT8DA@mail.gmail.com>
+Message-ID: <a3f485fc-1566-bcd5-70fb-ae676da84a3c@hastings.org>
+
+On 06/23/2017 11:25 PM, Serhiy Storchaka wrote:
+> I have installed it, but how to use it?
+>
+> $ python3 -m pip install --user blurb
+> Collecting blurb
+>    Using cached blurb-1.0-py3-none-any.whl
+> Installing collected packages: blurb
+> Successfully installed blurb-1.0
+> $ python3 -m blurb
+> /usr/bin/python3: No module named blurb
+
+It's on your path.  Just run
+
+    % blurb
+
+from inside a CPython repo.
+
+I'm amazed that your first thought was "python -m blurb".
+
+
+//arry/
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170624/ead0f70a/attachment-0001.html>
+
+From tjreedy at udel.edu  Sat Jun 24 12:40:38 2017
+From: tjreedy at udel.edu (Terry Reedy)
+Date: Sat, 24 Jun 2017 12:40:38 -0400
+Subject: [python-committers] New workflow change: Welcome to blurb
+In-Reply-To: <dcd71545-abf7-53b4-9995-dd5329167f1c@hastings.org>
+References: <dcd71545-abf7-53b4-9995-dd5329167f1c@hastings.org>
+Message-ID: <154d618d-f72e-25cd-efdf-dd278d87e73b@udel.edu>
+
+On 6/23/2017 11:24 PM, Larry Hastings wrote:
+
+ > You can install blurb from pip:
+ >
+ >     % pip3.6 install blurb
+
+This does not seem to work right.  On Windows:
+
+C:\Users\Terry>py -3 -m pip install blurb
+Collecting blurb
+   Downloading blurb-1.0-py3-none-any.whl
+Installing collected packages: blurb
+Successfully installed blurb-1.0
+
+Explorer shows that 3.6 site-packages has a 'blurb-1.0.dist-info'
+directory but neither blurb.py nor 'blurb/' is present.  So the 
+following are to be expected.
+
+C:\Users\Terry>py -3 -m blurb
+C:\Programs\Python36\python.exe: No module named blurb
+
+ > py -3
+ >>> import blurb
+...
+ModuleNotFoundError: No module named 'blurb'
+
+Serhiy reported a similar problem on, I presume, some flavor of Linux.
+
+tjr
+
+
+
+From larry at hastings.org  Sat Jun 24 12:45:41 2017
+From: larry at hastings.org (Larry Hastings)
+Date: Sat, 24 Jun 2017 09:45:41 -0700
+Subject: [python-committers] New workflow change: Welcome to blurb
+In-Reply-To: <154d618d-f72e-25cd-efdf-dd278d87e73b@udel.edu>
+References: <dcd71545-abf7-53b4-9995-dd5329167f1c@hastings.org>
+ <154d618d-f72e-25cd-efdf-dd278d87e73b@udel.edu>
+Message-ID: <84adf4d7-8e3e-3b58-3e45-71f7c6135083@hastings.org>
+
+On 06/24/2017 09:40 AM, Terry Reedy wrote:
+> On 6/23/2017 11:24 PM, Larry Hastings wrote:
+>
+> > You can install blurb from pip:
+> >
+> >     % pip3.6 install blurb
+>
+> This does not seem to work right.  On Windows:
+>
+> C:\Users\Terry>py -3 -m pip install blurb
+> Collecting blurb
+>   Downloading blurb-1.0-py3-none-any.whl
+> Installing collected packages: blurb
+> Successfully installed blurb-1.0
+>
+> Explorer shows that 3.6 site-packages has a 'blurb-1.0.dist-info'
+> directory but neither blurb.py nor 'blurb/' is present.  So the 
+> following are to be expected.
+>
+> C:\Users\Terry>py -3 -m blurb
+> C:\Programs\Python36\python.exe: No module named blurb
+>
+> > py -3
+> >>> import blurb
+> ...
+> ModuleNotFoundError: No module named 'blurb'
+>
+> Serhiy reported a similar problem on, I presume, some flavor of Linux.
+
+I replied to Serhiy; it's just "blurb", it's a command-line tool, it's 
+not a package or a module.  It should be a command on your path.
+
+TBH I don't know if installation of a command-line tool like that works 
+on Windows.  The tool itself was ported to Windows by Zach at the PyCon 
+core dev sprints last month, though that predates the PyPI work, and in 
+any case I could have broken the Windows support since then.  
+Unfortunately I'm no longer a qualified Windows developer, so if it 
+doesn't work on Windows I fear someone will have to send me a PR.
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170624/d40b84de/attachment.html>
+
+From brett at python.org  Sat Jun 24 12:54:59 2017
+From: brett at python.org (Brett Cannon)
+Date: Sat, 24 Jun 2017 16:54:59 +0000
+Subject: [python-committers] [Python-Dev] New workflow change: Welcome
+ to blurb
+In-Reply-To: <84adf4d7-8e3e-3b58-3e45-71f7c6135083@hastings.org>
+References: <dcd71545-abf7-53b4-9995-dd5329167f1c@hastings.org>
+ <154d618d-f72e-25cd-efdf-dd278d87e73b@udel.edu>
+ <84adf4d7-8e3e-3b58-3e45-71f7c6135083@hastings.org>
+Message-ID: <CAP1=2W7m8MMMr5zYQHhtaUvN6T1WyHnhuSOAUWi44=LWBy6r9w@mail.gmail.com>
+
+On Sat, 24 Jun 2017 at 09:46 Larry Hastings <larry at hastings.org> wrote:
+
+> On 06/24/2017 09:40 AM, Terry Reedy wrote:
+>
+> On 6/23/2017 11:24 PM, Larry Hastings wrote:
+>
+> > You can install blurb from pip:
+> >
+> >     % pip3.6 install blurb
+>
+> This does not seem to work right.  On Windows:
+>
+> C:\Users\Terry>py -3 -m pip install blurb
+> Collecting blurb
+>   Downloading blurb-1.0-py3-none-any.whl
+> Installing collected packages: blurb
+> Successfully installed blurb-1.0
+>
+> Explorer shows that 3.6 site-packages has a 'blurb-1.0.dist-info'
+> directory but neither blurb.py nor 'blurb/' is present.  So the following
+> are to be expected.
+>
+> C:\Users\Terry>py -3 -m blurb
+> C:\Programs\Python36\python.exe: No module named blurb
+>
+> > py -3
+> >>> import blurb
+> ...
+> ModuleNotFoundError: No module named 'blurb'
+>
+> Serhiy reported a similar problem on, I presume, some flavor of Linux.
+>
+>
+> I replied to Serhiy; it's just "blurb", it's a command-line tool, it's not
+> a package or a module.  It should be a command on your path.
+>
+> TBH I don't know if installation of a command-line tool like that works on
+> Windows.  The tool itself was ported to Windows by Zach at the PyCon core
+> dev sprints last month, though that predates the PyPI work, and in any case
+> I could have broken the Windows support since then.  Unfortunately I'm no
+> longer a qualified Windows developer, so if it doesn't work on Windows I
+> fear someone will have to send me a PR.
+>
+
+One of the great perks of `python3 -m blurb` is it avoids needing to care
+about your PATH on any platform.
+
+Anyway, the next release of blurb -- whether that's 1.0.0.post1 or a bigger
+release -- will have a blurb.py as well as the entry point giving people
+the `blurb` command. And people can also use pipsi if they want to install
+blurb as more of a self-contained command-line app (at least on UNIX; don't
+know about its support on Windows).
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170624/1e6bb040/attachment.html>
+
+From brett at python.org  Sat Jun 24 12:59:51 2017
+From: brett at python.org (Brett Cannon)
+Date: Sat, 24 Jun 2017 16:59:51 +0000
+Subject: [python-committers] [Python-Dev] New workflow change: Welcome
+ to blurb
+In-Reply-To: <CAP1=2W7m8MMMr5zYQHhtaUvN6T1WyHnhuSOAUWi44=LWBy6r9w@mail.gmail.com>
+References: <dcd71545-abf7-53b4-9995-dd5329167f1c@hastings.org>
+ <154d618d-f72e-25cd-efdf-dd278d87e73b@udel.edu>
+ <84adf4d7-8e3e-3b58-3e45-71f7c6135083@hastings.org>
+ <CAP1=2W7m8MMMr5zYQHhtaUvN6T1WyHnhuSOAUWi44=LWBy6r9w@mail.gmail.com>
+Message-ID: <CAP1=2W4y=1ByCy=_akuVxutFewNQmT8wT-Swto-ErgWRJZgdhw@mail.gmail.com>
+
+I just pushed blurb 1.0.0.post1 which re-packages everything using flit so
+there's a blurb.py and an entry point for the `blurb` command. That should
+meet everyone's needs for launching the tool.
+
+On Sat, 24 Jun 2017 at 09:54 Brett Cannon <brett at python.org> wrote:
+
+> On Sat, 24 Jun 2017 at 09:46 Larry Hastings <larry at hastings.org> wrote:
+>
+>> On 06/24/2017 09:40 AM, Terry Reedy wrote:
+>>
+>> On 6/23/2017 11:24 PM, Larry Hastings wrote:
+>>
+>> > You can install blurb from pip:
+>> >
+>> >     % pip3.6 install blurb
+>>
+>> This does not seem to work right.  On Windows:
+>>
+>> C:\Users\Terry>py -3 -m pip install blurb
+>> Collecting blurb
+>>   Downloading blurb-1.0-py3-none-any.whl
+>> Installing collected packages: blurb
+>> Successfully installed blurb-1.0
+>>
+>> Explorer shows that 3.6 site-packages has a 'blurb-1.0.dist-info'
+>> directory but neither blurb.py nor 'blurb/' is present.  So the following
+>> are to be expected.
+>>
+>> C:\Users\Terry>py -3 -m blurb
+>> C:\Programs\Python36\python.exe: No module named blurb
+>>
+>> > py -3
+>> >>> import blurb
+>> ...
+>> ModuleNotFoundError: No module named 'blurb'
+>>
+>> Serhiy reported a similar problem on, I presume, some flavor of Linux.
+>>
+>>
+>> I replied to Serhiy; it's just "blurb", it's a command-line tool, it's
+>> not a package or a module.  It should be a command on your path.
+>>
+>> TBH I don't know if installation of a command-line tool like that works
+>> on Windows.  The tool itself was ported to Windows by Zach at the PyCon
+>> core dev sprints last month, though that predates the PyPI work, and in any
+>> case I could have broken the Windows support since then.  Unfortunately I'm
+>> no longer a qualified Windows developer, so if it doesn't work on Windows I
+>> fear someone will have to send me a PR.
+>>
+>
+> One of the great perks of `python3 -m blurb` is it avoids needing to care
+> about your PATH on any platform.
+>
+> Anyway, the next release of blurb -- whether that's 1.0.0.post1 or a
+> bigger release -- will have a blurb.py as well as the entry point giving
+> people the `blurb` command. And people can also use pipsi if they want to
+> install blurb as more of a self-contained command-line app (at least on
+> UNIX; don't know about its support on Windows).
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170624/f8f0b847/attachment-0001.html>
+
+From tjreedy at udel.edu  Sat Jun 24 13:30:45 2017
+From: tjreedy at udel.edu (Terry Reedy)
+Date: Sat, 24 Jun 2017 13:30:45 -0400
+Subject: [python-committers] New workflow change: Welcome to blurb
+In-Reply-To: <84adf4d7-8e3e-3b58-3e45-71f7c6135083@hastings.org>
+References: <dcd71545-abf7-53b4-9995-dd5329167f1c@hastings.org>
+ <154d618d-f72e-25cd-efdf-dd278d87e73b@udel.edu>
+ <84adf4d7-8e3e-3b58-3e45-71f7c6135083@hastings.org>
+Message-ID: <d5a35dbd-6165-14c7-f75d-7216776cd243@udel.edu>
+
+On 6/24/2017 12:45 PM, Larry Hastings wrote:
+> On 06/24/2017 09:40 AM, Terry Reedy wrote:
+>> On 6/23/2017 11:24 PM, Larry Hastings wrote:
+>>
+>> > You can install blurb from pip:
+>> >
+>> >     % pip3.6 install blurb
+>>
+>> This does not seem to work right.  On Windows:
+>>
+>> C:\Users\Terry>py -3 -m pip install blurb
+>> Collecting blurb
+>>   Downloading blurb-1.0-py3-none-any.whl
+>> Installing collected packages: blurb
+>> Successfully installed blurb-1.0
+>>
+>> Explorer shows that 3.6 site-packages has a 'blurb-1.0.dist-info'
+>> directory but neither blurb.py nor 'blurb/' is present.  So the 
+>> following are to be expected.
+>>
+>> C:\Users\Terry>py -3 -m blurb
+>> C:\Programs\Python36\python.exe: No module named blurb
+>>
+>> > py -3
+>> >>> import blurb
+>> ...
+>> ModuleNotFoundError: No module named 'blurb'
+>>
+>> Serhiy reported a similar problem on, I presume, some flavor of Linux.
+> 
+> I replied to Serhiy; it's just "blurb", it's a command-line tool, it's 
+> not a package or a module.  It should be a command on your path.
+
+The reason I tried "<something> -m blurb" is because that is the 
+standard and recommended way to run installed scripts on Windows.  That 
+is how I run pip and cherry_picker, for instance.
+
+I found 'blurb' in <36dir>/Scripts/.  The name and location are errors.
+1. On Windows, python files need the .py extension.
+2. That directory is not currently on the path on my machine.  I believe 
+it once was, but installing 3.5.3 replaced it with the 3.5 /Scripts. 
+On Windows, 3rd party installers must not presume that any /Scripts 
+directory is on the path.  By default, none are.
+
+Solution: name the file blurb.py and put it in site-packages.  This is 
+standard and what is done by all other pip-installs that I have run. 
+Put a copy in /Scripts if you want, but that is really optional and only 
+sometimes effective.
+
+> TBH I don't know if installation of a command-line tool like that works 
+> on Windows.  The tool itself was ported to Windows by Zach at the PyCon 
+> core dev sprints last month, though that predates the PyPI work, and in 
+> any case I could have broken the Windows support since then.  
+> Unfortunately I'm no longer a qualified Windows developer, so if it 
+> doesn't work on Windows I fear someone will have to send me a PR.
+
+I only know what the end result should be.  Pip-installed Cherry_picker 
+works on Windows, so copy from the spec files for that, or ask whoever 
+wrote the pip-upload.
+
+From larry at hastings.org  Sat Jun 24 18:15:54 2017
+From: larry at hastings.org (Larry Hastings)
+Date: Sat, 24 Jun 2017 15:15:54 -0700
+Subject: [python-committers] New workflow change: Welcome to blurb
+In-Reply-To: <d5a35dbd-6165-14c7-f75d-7216776cd243@udel.edu>
+References: <dcd71545-abf7-53b4-9995-dd5329167f1c@hastings.org>
+ <154d618d-f72e-25cd-efdf-dd278d87e73b@udel.edu>
+ <84adf4d7-8e3e-3b58-3e45-71f7c6135083@hastings.org>
+ <d5a35dbd-6165-14c7-f75d-7216776cd243@udel.edu>
+Message-ID: <e0ddd7a3-2d5e-16d4-cdb9-cc0a950acfd5@hastings.org>
+
+
+
+On 06/24/2017 10:30 AM, Terry Reedy wrote:
+> Solution: name the file blurb.py and put it in site-packages.  This is 
+> standard and what is done by all other pip-installs that I have run. 
+> Put a copy in /Scripts if you want, but that is really optional and 
+> only sometimes effective.
+
+Brett redid the installer with "flit" and pushed, and he says you should 
+now be able to run blurb via "python3 -m blurb".  Please update blurb 
+(via pip3.6) and let us know if it now works for you on Windows.
+
+Cheers,
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170624/6f5f6329/attachment.html>
+
+From brett at python.org  Sat Jun 24 21:05:08 2017
+From: brett at python.org (Brett Cannon)
+Date: Sun, 25 Jun 2017 01:05:08 +0000
+Subject: [python-committers] Travis now checks for whitespace issues in PRs
+Message-ID: <CAP1=2W4n7phx97iCBvX1p9PfpYfa=oLuGUHJ+wUJK+6D2daopw@mail.gmail.com>
+
+I just pushed a change to master, 3.6, and 3.5 where
+Tools/scripts/patchcheck.py now has a --travis option which will run the
+whitespace fixers from `make patchcheck` but trigger a Travis build failure
+if any changes were necessary. This only runs on Linux so it is a PR
+blocker, but also so it isn't done more than once per PR.
+
+This was not backported to 2.7 because I honestly didn't want to do the
+work to fix the merge conflicts.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170625/762105bf/attachment.html>
+
+From rdmurray at bitdance.com  Sun Jun 25 09:59:54 2017
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Sun, 25 Jun 2017 09:59:54 -0400
+Subject: [python-committers] link from github to bpo?
+In-Reply-To: <CAP1=2W6VDWJLQAgJtkm6DmOPRPsRStSbQdLZhqmWRrF_PJH9Pw@mail.gmail.com>
+References: <594AA5C9.4070307@stoneleaf.us>
+ <CAGbohna6Tf7EjempSEuYoM3EvZvxZBwTeTr6nxw_Sjg4=5y6FQ@mail.gmail.com>
+ <20170621202154.34DCF1B10002@webabinitio.net>
+ <CAGbohnY=zRCkHPDbxVBsvA4SePUtQjPt6i3z30-thJNV9asCOQ@mail.gmail.com>
+ <20170623162826.E2BCC1B10004@webabinitio.net>
+ <CAP1=2W6VDWJLQAgJtkm6DmOPRPsRStSbQdLZhqmWRrF_PJH9Pw@mail.gmail.com>
+Message-ID: <20170625135954.A54041B10013@webabinitio.net>
+
+On Sat, 24 Jun 2017 00:33:13 -0000, Brett Cannon <brett at python.org> wrote:
+> On Fri, 23 Jun 2017 at 09:28 R. David Murray <rdmurray at bitdance.com> wrote:
+> 
+> > On Wed, 21 Jun 2017 13:37:22 -0700, Mariatta Wijaya <
+> > mariatta.wijaya at gmail.com> wrote:
+> > > PR 2304 is merged. "View Details" still exists (scroll all the way down).
+> > >
+> > > When the PR is not yet merged (e.g.
+> > > https://github.com/python/cpython/pull/2316), the UI looks different.
+> > > Click 'Show all checks' to get the link back to bpo.
+> >
+> > Odd, I don't see a 'show all checks' on that PR.  And I usually have to
+> > click 'show all checks' on open PRs (at least if the checks have all
+> > passed) in order to get to the bedevere link.
+> >
+> 
+> Go to the entry representing Larry's merge and click on the "View details"
+> button. That will expand to show all of the status checks that were done
+> when the PR was merged (in this instance there was no issue number so you
+> won't see a "Details" link for the bedevere/issue-number check).
+
+Ah, thank you, now I understand.  Obviously, this was not..obvious :)
+
+--David
+
+From brett at python.org  Sun Jun 25 12:13:02 2017
+From: brett at python.org (Brett Cannon)
+Date: Sun, 25 Jun 2017 16:13:02 +0000
+Subject: [python-committers] link from github to bpo?
+In-Reply-To: <20170625135954.A54041B10013@webabinitio.net>
+References: <594AA5C9.4070307@stoneleaf.us>
+ <CAGbohna6Tf7EjempSEuYoM3EvZvxZBwTeTr6nxw_Sjg4=5y6FQ@mail.gmail.com>
+ <20170621202154.34DCF1B10002@webabinitio.net>
+ <CAGbohnY=zRCkHPDbxVBsvA4SePUtQjPt6i3z30-thJNV9asCOQ@mail.gmail.com>
+ <20170623162826.E2BCC1B10004@webabinitio.net>
+ <CAP1=2W6VDWJLQAgJtkm6DmOPRPsRStSbQdLZhqmWRrF_PJH9Pw@mail.gmail.com>
+ <20170625135954.A54041B10013@webabinitio.net>
+Message-ID: <CAP1=2W6OaesdyCbFWW_wPWMTFq2hYKa0P-E52PDi3Q2dnOPSDA@mail.gmail.com>
+
+On Sun, Jun 25, 2017, 07:00 R. David Murray, <rdmurray at bitdance.com> wrote:
+
+> On Sat, 24 Jun 2017 00:33:13 -0000, Brett Cannon <brett at python.org> wrote:
+> > On Fri, 23 Jun 2017 at 09:28 R. David Murray <rdmurray at bitdance.com>
+> wrote:
+> >
+> > > On Wed, 21 Jun 2017 13:37:22 -0700, Mariatta Wijaya <
+> > > mariatta.wijaya at gmail.com> wrote:
+> > > > PR 2304 is merged. "View Details" still exists (scroll all the way
+> down).
+> > > >
+> > > > When the PR is not yet merged (e.g.
+> > > > https://github.com/python/cpython/pull/2316), the UI looks
+> different.
+> > > > Click 'Show all checks' to get the link back to bpo.
+> > >
+> > > Odd, I don't see a 'show all checks' on that PR.  And I usually have to
+> > > click 'show all checks' on open PRs (at least if the checks have all
+> > > passed) in order to get to the bedevere link.
+> > >
+> >
+> > Go to the entry representing Larry's merge and click on the "View
+> details"
+> > button. That will expand to show all of the status checks that were done
+> > when the PR was merged (in this instance there was no issue number so you
+> > won't see a "Details" link for the bedevere/issue-number check).
+>
+> Ah, thank you, now I understand.  Obviously, this was not..obvious :)
+>
+
+Hence why the change to append the link is on the Todo list. ??
+
+-brett
+
+
+> --David
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170625/e142b8f8/attachment.html>
+
+From victor.stinner at gmail.com  Mon Jun 26 09:57:12 2017
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Mon, 26 Jun 2017 15:57:12 +0200
+Subject: [python-committers] macOS Travis CI job became mandatory?
+Message-ID: <CAMpsgwbUuynHTZ=TW1+_7umowK6k_3OoPoCgZWPicCEmYHBLSg@mail.gmail.com>
+
+Hi,
+
+I was waiting for the result of Travis CI: 3 jobs already completed,
+but the macOS job was still running. The macOS job is marked as
+"allowed failure". I cancelled the job, but then the Travis CI was
+marked as failed in the PR :-/ So I restarted the job.
+
+Is it normal to have to wait for the slow macOS job to be able to merge a PR?
+
+It's a recent change, no?
+
+Victor
+
+From victor.stinner at gmail.com  Mon Jun 26 10:46:04 2017
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Mon, 26 Jun 2017 16:46:04 +0200
+Subject: [python-committers] macOS Travis CI job became mandatory?
+In-Reply-To: <CAMpsgwbUuynHTZ=TW1+_7umowK6k_3OoPoCgZWPicCEmYHBLSg@mail.gmail.com>
+References: <CAMpsgwbUuynHTZ=TW1+_7umowK6k_3OoPoCgZWPicCEmYHBLSg@mail.gmail.com>
+Message-ID: <CAMpsgwYBWORmCS7GEtpjF3a8GX1m=aWaW8uMF1ZySnucpG1YVQ@mail.gmail.com>
+
+48 minutes later: the macOS is running for 33 minutes, but Travis CI
+fails to retrieve the logs :-/
+https://travis-ci.org/python/cpython/jobs/247090627
+
+Victor
+
+2017-06-26 15:57 GMT+02:00 Victor Stinner <victor.stinner at gmail.com>:
+> Hi,
+>
+> I was waiting for the result of Travis CI: 3 jobs already completed,
+> but the macOS job was still running. The macOS job is marked as
+> "allowed failure". I cancelled the job, but then the Travis CI was
+> marked as failed in the PR :-/ So I restarted the job.
+>
+> Is it normal to have to wait for the slow macOS job to be able to merge a PR?
+>
+> It's a recent change, no?
+>
+> Victor
+
+From antoine at python.org  Mon Jun 26 10:47:53 2017
+From: antoine at python.org (Antoine Pitrou)
+Date: Mon, 26 Jun 2017 16:47:53 +0200
+Subject: [python-committers] macOS Travis CI job became mandatory?
+In-Reply-To: <CAMpsgwYBWORmCS7GEtpjF3a8GX1m=aWaW8uMF1ZySnucpG1YVQ@mail.gmail.com>
+References: <CAMpsgwbUuynHTZ=TW1+_7umowK6k_3OoPoCgZWPicCEmYHBLSg@mail.gmail.com>
+ <CAMpsgwYBWORmCS7GEtpjF3a8GX1m=aWaW8uMF1ZySnucpG1YVQ@mail.gmail.com>
+Message-ID: <0d5f0355-18b4-d365-6d31-b70e32be28cb@python.org>
+
+
+
+Le 26/06/2017 ? 16:46, Victor Stinner a ?crit :
+> 48 minutes later: the macOS is running for 33 minutes, but Travis CI
+> fails to retrieve the logs :-/
+> https://travis-ci.org/python/cpython/jobs/247090627
+
+Just kill the job :-)
+
+From victor.stinner at gmail.com  Mon Jun 26 10:56:44 2017
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Mon, 26 Jun 2017 16:56:44 +0200
+Subject: [python-committers] macOS Travis CI job became mandatory?
+In-Reply-To: <0d5f0355-18b4-d365-6d31-b70e32be28cb@python.org>
+References: <CAMpsgwbUuynHTZ=TW1+_7umowK6k_3OoPoCgZWPicCEmYHBLSg@mail.gmail.com>
+ <CAMpsgwYBWORmCS7GEtpjF3a8GX1m=aWaW8uMF1ZySnucpG1YVQ@mail.gmail.com>
+ <0d5f0355-18b4-d365-6d31-b70e32be28cb@python.org>
+Message-ID: <CAMpsgwbPakXt-M7ftRnD5GD0=e9cWnwFiNrqG9FS6nR1dNwedw@mail.gmail.com>
+
+2017-06-26 16:47 GMT+02:00 Antoine Pitrou <antoine at python.org>:
+> Just kill the job :-)
+
+See my first email: first, I killed the macOS job, and then Travis CI
+was marked as failed on PR, and so my PR couldn't be merged...
+
+Victor
+
+From victor.stinner at gmail.com  Mon Jun 26 11:22:24 2017
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Mon, 26 Jun 2017 17:22:24 +0200
+Subject: [python-committers] macOS Travis CI job became mandatory?
+In-Reply-To: <CAMpsgwYBWORmCS7GEtpjF3a8GX1m=aWaW8uMF1ZySnucpG1YVQ@mail.gmail.com>
+References: <CAMpsgwbUuynHTZ=TW1+_7umowK6k_3OoPoCgZWPicCEmYHBLSg@mail.gmail.com>
+ <CAMpsgwYBWORmCS7GEtpjF3a8GX1m=aWaW8uMF1ZySnucpG1YVQ@mail.gmail.com>
+Message-ID: <CAMpsgwYYXub_UUBJ=LLoRo5LDc51gSimJfd67aNLQBrKNBiPrw@mail.gmail.com>
+
+End of the funny story: the macOS job was killed by Travis CI:
+"The job exceeded the maximum time limit for jobs, and has been terminated."
+
+Thanks to that, the whole Travis CI job on the PR became green...
+
+I would suggest to remove the *pre-commit* macOS job. We have enough
+macOS post-commit jobs on buildbots, no?
+
+Victor
+
+2017-06-26 16:46 GMT+02:00 Victor Stinner <victor.stinner at gmail.com>:
+> 48 minutes later: the macOS is running for 33 minutes, but Travis CI
+> fails to retrieve the logs :-/
+> https://travis-ci.org/python/cpython/jobs/247090627
+>
+> Victor
+>
+> 2017-06-26 15:57 GMT+02:00 Victor Stinner <victor.stinner at gmail.com>:
+>> Hi,
+>>
+>> I was waiting for the result of Travis CI: 3 jobs already completed,
+>> but the macOS job was still running. The macOS job is marked as
+>> "allowed failure". I cancelled the job, but then the Travis CI was
+>> marked as failed in the PR :-/ So I restarted the job.
+>>
+>> Is it normal to have to wait for the slow macOS job to be able to merge a PR?
+>>
+>> It's a recent change, no?
+>>
+>> Victor
+
+From antoine at python.org  Mon Jun 26 11:25:21 2017
+From: antoine at python.org (Antoine Pitrou)
+Date: Mon, 26 Jun 2017 17:25:21 +0200
+Subject: [python-committers] macOS Travis CI job became mandatory?
+In-Reply-To: <CAMpsgwYYXub_UUBJ=LLoRo5LDc51gSimJfd67aNLQBrKNBiPrw@mail.gmail.com>
+References: <CAMpsgwbUuynHTZ=TW1+_7umowK6k_3OoPoCgZWPicCEmYHBLSg@mail.gmail.com>
+ <CAMpsgwYBWORmCS7GEtpjF3a8GX1m=aWaW8uMF1ZySnucpG1YVQ@mail.gmail.com>
+ <CAMpsgwYYXub_UUBJ=LLoRo5LDc51gSimJfd67aNLQBrKNBiPrw@mail.gmail.com>
+Message-ID: <beaa4bb9-0b41-9266-5bd2-9cc6db59df65@python.org>
+
+
+Le 26/06/2017 ? 17:22, Victor Stinner a ?crit :
+> End of the funny story: the macOS job was killed by Travis CI:
+> "The job exceeded the maximum time limit for jobs, and has been terminated."
+> 
+> Thanks to that, the whole Travis CI job on the PR became green...
+> 
+> I would suggest to remove the *pre-commit* macOS job. We have enough
+> macOS post-commit jobs on buildbots, no?
+
+Given that it doesn't hurt to keep it, I would rather keep it.  It
+allows to quickly test for OS X-specific issues.
+
+Regards
+
+Antoine.
+
+From victor.stinner at gmail.com  Mon Jun 26 12:21:26 2017
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Mon, 26 Jun 2017 18:21:26 +0200
+Subject: [python-committers] macOS Travis CI job became mandatory?
+In-Reply-To: <beaa4bb9-0b41-9266-5bd2-9cc6db59df65@python.org>
+References: <CAMpsgwbUuynHTZ=TW1+_7umowK6k_3OoPoCgZWPicCEmYHBLSg@mail.gmail.com>
+ <CAMpsgwYBWORmCS7GEtpjF3a8GX1m=aWaW8uMF1ZySnucpG1YVQ@mail.gmail.com>
+ <CAMpsgwYYXub_UUBJ=LLoRo5LDc51gSimJfd67aNLQBrKNBiPrw@mail.gmail.com>
+ <beaa4bb9-0b41-9266-5bd2-9cc6db59df65@python.org>
+Message-ID: <CAMpsgwZQHA3Kh5fGQBwHuARKv71Fa=PD4E1Yp005s1Yn9_-ArA@mail.gmail.com>
+
+2017-06-26 17:25 GMT+02:00 Antoine Pitrou <antoine at python.org>:
+> Given that it doesn't hurt to keep it, I would rather keep it.  It
+> allows to quickly test for OS X-specific issues.
+
+According to my bad experience of today, it took longer than 1h30 to
+get the [Merge] button... Before, it took around 20 min.
+
+Well, it only happed me once. Maybe macOS doesn't like Monday?
+
+Victor
+
+From brett at python.org  Mon Jun 26 15:49:22 2017
+From: brett at python.org (Brett Cannon)
+Date: Mon, 26 Jun 2017 19:49:22 +0000
+Subject: [python-committers] macOS Travis CI job became mandatory?
+In-Reply-To: <CAMpsgwZQHA3Kh5fGQBwHuARKv71Fa=PD4E1Yp005s1Yn9_-ArA@mail.gmail.com>
+References: <CAMpsgwbUuynHTZ=TW1+_7umowK6k_3OoPoCgZWPicCEmYHBLSg@mail.gmail.com>
+ <CAMpsgwYBWORmCS7GEtpjF3a8GX1m=aWaW8uMF1ZySnucpG1YVQ@mail.gmail.com>
+ <CAMpsgwYYXub_UUBJ=LLoRo5LDc51gSimJfd67aNLQBrKNBiPrw@mail.gmail.com>
+ <beaa4bb9-0b41-9266-5bd2-9cc6db59df65@python.org>
+ <CAMpsgwZQHA3Kh5fGQBwHuARKv71Fa=PD4E1Yp005s1Yn9_-ArA@mail.gmail.com>
+Message-ID: <CAP1=2W5MuJe_KvPwDEcyspr0OqTzM795mHqwonEP3rXCG5RBAQ@mail.gmail.com>
+
+On Mon, 26 Jun 2017 at 09:22 Victor Stinner <victor.stinner at gmail.com>
+wrote:
+
+> 2017-06-26 17:25 GMT+02:00 Antoine Pitrou <antoine at python.org>:
+> > Given that it doesn't hurt to keep it, I would rather keep it.  It
+> > allows to quickly test for OS X-specific issues.
+>
+> According to my bad experience of today, it took longer than 1h30 to
+> get the [Merge] button... Before, it took around 20 min.
+>
+> Well, it only happed me once. Maybe macOS doesn't like Monday?
+>
+
+Anything in the Allowed Failures section, which is the macOS build and
+coverage, are totally optional and will not block you from merging. While
+they may keep the button from being green just to let you know some other
+things are still running, they won't block you from merging completely
+(that only happens if the docs or the main test run fail).
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20170626/adbe5f77/attachment.html>
+
+From antoine at python.org  Tue Jun 27 12:33:11 2017
+From: antoine at python.org (Antoine Pitrou)
+Date: Tue, 27 Jun 2017 18:33:11 +0200
+Subject: [python-committers] macOS Travis CI job became mandatory?
+In-Reply-To: <CAMpsgwbUuynHTZ=TW1+_7umowK6k_3OoPoCgZWPicCEmYHBLSg@mail.gmail.com>
+References: <CAMpsgwbUuynHTZ=TW1+_7umowK6k_3OoPoCgZWPicCEmYHBLSg@mail.gmail.com>
+Message-ID: <9ef16e81-669b-c6d1-d9a6-e061aa0aadc7@python.org>
+
+
+Le 26/06/2017 ? 15:57, Victor Stinner a ?crit :
+> Hi,
+> 
+> I was waiting for the result of Travis CI: 3 jobs already completed,
+> but the macOS job was still running. The macOS job is marked as
+> "allowed failure". I cancelled the job, but then the Travis CI was
+> marked as failed in the PR :-/ So I restarted the job.
+> 
+> Is it normal to have to wait for the slow macOS job to be able to merge a PR?
+> 
+> It's a recent change, no?
+
+I see this sporadically on another project.  There was no configuration
+change, it just seems Travis-CI is misbehaving.
+
+Regards
+
+Antoine.
+
+From victor.stinner at gmail.com  Tue Jun 27 12:40:46 2017
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Tue, 27 Jun 2017 18:40:46 +0200
+Subject: [python-committers] macOS Travis CI job became mandatory?
+In-Reply-To: <9ef16e81-669b-c6d1-d9a6-e061aa0aadc7@python.org>
+References: <CAMpsgwbUuynHTZ=TW1+_7umowK6k_3OoPoCgZWPicCEmYHBLSg@mail.gmail.com>
+ <9ef16e81-669b-c6d1-d9a6-e061aa0aadc7@python.org>
+Message-ID: <CAMpsgwaC57R1T9b2RsmFeC72rDsTQRmmcUNqwAzZ7jPPXjyE0w@mail.gmail.com>
+
+2017-06-27 18:33 GMT+02:00 Antoine Pitrou <antoine at python.org>:
+> I see this sporadically on another project.  There was no configuration
+> change, it just seems Travis-CI is misbehaving.
+
+Oh ok. It's fine in that case.
+
+Today, I didn't see this issue anymore :-) I was usually able to merge
+in less than 30 min, sometimes less than 20 min.
+
+Victor
+
+From victor.stinner at gmail.com  Wed Jun 28 12:09:04 2017
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Wed, 28 Jun 2017 18:09:04 +0200
+Subject: [python-committers] Travis now checks for whitespace issues in
+ PRs
+In-Reply-To: <CAP1=2W4n7phx97iCBvX1p9PfpYfa=oLuGUHJ+wUJK+6D2daopw@mail.gmail.com>
+References: <CAP1=2W4n7phx97iCBvX1p9PfpYfa=oLuGUHJ+wUJK+6D2daopw@mail.gmail.com>
+Message-ID: <CAMpsgwbHXAFanTeLAfZvN8MC1ZGbgrJxKS3wvBFAx0wFxNQAPw@mail.gmail.com>
+
+FYI PC/pyconfig.h couldn't be modified in the master branch, because
+it contains tabs. See https://github.com/python/cpython/pull/2476
+failure. I created https://github.com/python/cpython/pull/2477 which
+contains a "make patchcheck" run to reformat PC/pyconfig.h.
+
+Maybe we should fix spaces of all files in all branches to prevent
+such annoying issue?
+
+Victor
+
+2017-06-25 3:05 GMT+02:00 Brett Cannon <brett at python.org>:
+> I just pushed a change to master, 3.6, and 3.5 where
+> Tools/scripts/patchcheck.py now has a --travis option which will run the
+> whitespace fixers from `make patchcheck` but trigger a Travis build failure
+> if any changes were necessary. This only runs on Linux so it is a PR
+> blocker, but also so it isn't done more than once per PR.
+>
+> This was not backported to 2.7 because I honestly didn't want to do the work
+> to fix the merge conflicts.
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+

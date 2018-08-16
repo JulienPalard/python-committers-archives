@@ -1,0 +1,2402 @@
+From tjreedy at udel.edu  Sun Jan  9 00:09:48 2011
+From: tjreedy at udel.edu (Terry Reedy)
+Date: Sat, 08 Jan 2011 18:09:48 -0500
+Subject: [python-committers] Commit privileges for Eli Bendersky
+Message-ID: <4D28EEBC.8060705@udel.edu>
+
+Two years ago, Eli Bendersky submitted to the tracker one of several 
+duplicate reports about problems with difflib.SequenceMatcher. After I 
+consolidated and closed all issues but one, he wrote me, said he wanted 
+to get more involved in Python development, and offered to help with 
+that and other issues. Since then he has actively participated in 34 
+issues, submitting 1 or more patches to 20 issues, listed below. Of 
+those, 14 are closed. I believe his work always or nearly always 
+contributed to the commit. Another has been committed to 3.2 and is only 
+open for backports and possible tweaks. Another is waiting for 3.3, 
+another for my response. His activity has covered core, library, and doc 
+issues. He can work on C, Python, and .rst code and text He has shown 
+himself to be a careful reader of both code and text. He has also 
+participated a bit on pydev.
+
+I believe he said last September, in private email in response to my 
+query, that he would like full developer privileges 'someday'. Before I 
+reviewed his tracker activity, I was merely going to recommend that we 
+'start thinking about' a promotion. But then I discovered that he had 
+done much I did not know about, as several developers (me, Alexander B, 
+Georg B. Eric A, Michael F., ...) have done commits involving his 
+patches. So I now think, 'why wait?' I am confident that he will start 
+with whatever cautions he is given, with issues that are either trivial 
+or that have been reviewed by others.
+
+http://bugs.python.org/issue9132
+http://bugs.python.org/issue9282
+http://bugs.python.org/issue9214
+http://bugs.python.org/issue1397474 needs comment from me
+http://bugs.python.org/issue9323
+http://bugs.python.org/issue9315
+http://bugs.python.org/issue9317 open
+http://bugs.python.org/issue10439
+http://bugs.python.org/issue10470
+http://bugs.python.org/issue9222
+http://bugs.python.org/issue10468
+http://bugs.python.org/issue766910 open
+http://bugs.python.org/issue10534
+http://bugs.python.org/issue10693
+http://bugs.python.org/issue9312
+http://bugs.python.org/issue9264 open for backport
+http://bugs.python.org/issue10461
+http://bugs.python.org/issue10801
+http://bugs.python.org/issue10516 waiting for 3.3
+http://bugs.python.org/issue10594
+-- 
+
+Terry Jan Reedy
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20110108/b51aa528/attachment.html>
+
+From raymond.hettinger at gmail.com  Sun Jan  9 00:11:32 2011
+From: raymond.hettinger at gmail.com (Raymond Hettinger)
+Date: Sat, 8 Jan 2011 15:11:32 -0800
+Subject: [python-committers] Commit privileges for Eli Bendersky
+In-Reply-To: <4D28EEBC.8060705@udel.edu>
+References: <4D28EEBC.8060705@udel.edu>
+Message-ID: <AC3C5B52-AB88-4BE9-8D85-368C9A79F282@gmail.com>
+
++1
+
+
+On Jan 8, 2011, at 3:09 PM, Terry Reedy wrote:
+
+> Two years ago, Eli Bendersky submitted to the tracker one of several duplicate reports about problems with difflib.SequenceMatcher. After I consolidated and closed all issues but one, he wrote me, said he wanted to get more involved in Python development, and offered to help with that and other issues. Since then he has actively participated in 34 issues, submitting 1 or more patches to 20 issues, listed below. Of those, 14 are closed. I believe his work always or nearly always contributed to the commit. Another has been committed to 3.2 and is only open for backports and possible tweaks. Another is waiting for 3.3, another for my response. His activity has covered core, library, and doc issues. He can work on C, Python, and .rst code and text He has shown himself to be a careful reader of both code and text. He has also participated a bit on pydev.
+> 
+> I believe he said last September, in private email in response to my query, that he would like full developer privileges 'someday'. Before I reviewed his tracker activity, I was merely going to recommend that we 'start thinking about' a promotion. But then I discovered that he had done much I did not know about, as several developers (me, Alexander B, Georg B. Eric A, Michael F., ...) have done commits involving his patches. So I now think, 'why wait?' I am confident that he will start with whatever cautions he is given, with issues that are either trivial or that have been reviewed by others.
+> 
+> http://bugs.python.org/issue9132
+> http://bugs.python.org/issue9282
+> http://bugs.python.org/issue9214
+> http://bugs.python.org/issue1397474 needs comment from me
+> http://bugs.python.org/issue9323
+> http://bugs.python.org/issue9315
+> http://bugs.python.org/issue9317 open
+> http://bugs.python.org/issue10439
+> http://bugs.python.org/issue10470
+> http://bugs.python.org/issue9222
+> http://bugs.python.org/issue10468
+> http://bugs.python.org/issue766910 open
+> http://bugs.python.org/issue10534
+> http://bugs.python.org/issue10693
+> http://bugs.python.org/issue9312
+> http://bugs.python.org/issue9264 open for backport
+> http://bugs.python.org/issue10461
+> http://bugs.python.org/issue10801
+> http://bugs.python.org/issue10516 waiting for 3.3
+> http://bugs.python.org/issue10594
+> -- 
+> Terry Jan Reedy
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20110108/301fe144/attachment.html>
+
+From solipsis at pitrou.net  Sun Jan  9 00:50:47 2011
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Sun, 09 Jan 2011 00:50:47 +0100
+Subject: [python-committers] Commit rights for Ned Deily
+Message-ID: <1294530647.3637.4.camel@localhost.localdomain>
+
+
+Hello,
+
+Based on his work to diagnose and fix many issues related to OS X and/or
+IDLE/tk, I would like to propose that we give Ned Deily commit rights.
+He seems to already have developer rights on the tracker.
+
+Regards
+
+Antoine.
+
+
+
+From martin at v.loewis.de  Sun Jan  9 01:19:37 2011
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Sun, 09 Jan 2011 01:19:37 +0100
+Subject: [python-committers] Commit rights for Ned Deily
+In-Reply-To: <1294530647.3637.4.camel@localhost.localdomain>
+References: <1294530647.3637.4.camel@localhost.localdomain>
+Message-ID: <4D28FF19.6000308@v.loewis.de>
+
+> Based on his work to diagnose and fix many issues related to OS X and/or
+> IDLE/tk, I would like to propose that we give Ned Deily commit rights.
+> He seems to already have developer rights on the tracker.
+
+Are you willing to mentor him (where necessary)? If so, please make him
+send his SSH key and subscribe to the committers list, and give any
+instructions you deem necessary.
+
+Regards,
+Martin
+
+From raymond.hettinger at gmail.com  Sun Jan  9 01:52:15 2011
+From: raymond.hettinger at gmail.com (Raymond Hettinger)
+Date: Sat, 8 Jan 2011 16:52:15 -0800
+Subject: [python-committers] Commit rights for Ned Deily
+In-Reply-To: <1294530647.3637.4.camel@localhost.localdomain>
+References: <1294530647.3637.4.camel@localhost.localdomain>
+Message-ID: <A607B536-22C5-4C4D-BEA0-F19DBC018F43@gmail.com>
+
++1
+
+On Jan 8, 2011, at 3:50 PM, Antoine Pitrou wrote:
+
+> 
+> Hello,
+> 
+> Based on his work to diagnose and fix many issues related to OS X and/or
+> IDLE/tk, I would like to propose that we give Ned Deily commit rights.
+> He seems to already have developer rights on the tracker.
+> 
+> Regards
+> 
+> Antoine.
+> 
+> 
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+
+
+From alexander.belopolsky at gmail.com  Sun Jan  9 02:29:08 2011
+From: alexander.belopolsky at gmail.com (Alexander Belopolsky)
+Date: Sat, 8 Jan 2011 20:29:08 -0500
+Subject: [python-committers] Commit privileges for Eli Bendersky
+In-Reply-To: <AC3C5B52-AB88-4BE9-8D85-368C9A79F282@gmail.com>
+References: <4D28EEBC.8060705@udel.edu>
+	<AC3C5B52-AB88-4BE9-8D85-368C9A79F282@gmail.com>
+Message-ID: <4DB55E41-EA65-4E93-BD92-3562022A7DFA@gmail.com>
+
++1
+
+
+
+On Jan 8, 2011, at 6:11 PM, Raymond Hettinger <raymond.hettinger at gmail.com> wrote:
+
+> +1
+> 
+> 
+> On Jan 8, 2011, at 3:09 PM, Terry Reedy wrote:
+> 
+>> Two years ago, Eli Bendersky submitted to the tracker one of several duplicate reports about problems with difflib.SequenceMatcher. After I consolidated and closed all issues but one, he wrote me, said he wanted to get more involved in Python development, and offered to help with that and other issues. Since then he has actively participated in 34 issues, submitting 1 or more patches to 20 issues, listed below. Of those, 14 are closed. I believe his work always or nearly always contributed to the commit. Another has been committed to 3.2 and is only open for backports and possible tweaks. Another is waiting for 3.3, another for my response. His activity has covered core, library, and doc issues. He can work on C, Python, and .rst code and text He has shown himself to be a careful reader of both code and text. He has also participated a bit on pydev.
+>> 
+>> I believe he said last September, in private email in response to my query, that he would like full developer privileges 'someday'. Before I reviewed his tracker activity, I was merely going to recommend that we 'start thinking about' a promotion. But then I discovered that he had done much I did not know about, as several developers (me, Alexander B, Georg B. Eric A, Michael F., ...) have done commits involving his patches. So I now think, 'why wait?' I am confident that he will start with whatever cautions he is given, with issues that are either trivial or that have been reviewed by others.
+>> 
+>> http://bugs.python.org/issue9132
+>> http://bugs.python.org/issue9282
+>> http://bugs.python.org/issue9214
+>> http://bugs.python.org/issue1397474 needs comment from me
+>> http://bugs.python.org/issue9323
+>> http://bugs.python.org/issue9315
+>> http://bugs.python.org/issue9317 open
+>> http://bugs.python.org/issue10439
+>> http://bugs.python.org/issue10470
+>> http://bugs.python.org/issue9222
+>> http://bugs.python.org/issue10468
+>> http://bugs.python.org/issue766910 open
+>> http://bugs.python.org/issue10534
+>> http://bugs.python.org/issue10693
+>> http://bugs.python.org/issue9312
+>> http://bugs.python.org/issue9264 open for backport
+>> http://bugs.python.org/issue10461
+>> http://bugs.python.org/issue10801
+>> http://bugs.python.org/issue10516 waiting for 3.3
+>> http://bugs.python.org/issue10594
+>> -- 
+>> Terry Jan Reedy
+>> _______________________________________________
+>> python-committers mailing list
+>> python-committers at python.org
+>> http://mail.python.org/mailman/listinfo/python-committers
+> 
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20110108/26447e87/attachment.html>
+
+From victor.stinner at haypocalc.com  Sun Jan  9 03:18:44 2011
+From: victor.stinner at haypocalc.com (Victor Stinner)
+Date: Sun, 09 Jan 2011 03:18:44 +0100
+Subject: [python-committers] Partial commit privileges
+Message-ID: <1294539524.14757.19.camel@marge>
+
+Hi,
+
+The process to gain the commit priviledges is long, and it is sometimes
+difficult to decide if someone should have it or not. Would it be
+possible to have different "levels" of commit priviledes to simplify the
+process? Eg. first only be able to commit on a specific module, and then
+maybe more modules, to finally be able to commit everywhere. It doesn't
+need to be a technical limitation.
+
+The idea is to imply more people in the Python development and recognize
+their work.
+
+I remember that a rule to imply someone into the Python development is
+that we look for people in the long-term. Is the artial commit privilege
+compatible with this rule?
+
+What do you think? Would it be dangerous?
+
+As the current process, we should have mentors, maybe more than one
+mentor for one new developer.
+
+I would be happy to be the mentor of someone even if I don't have
+suggestion currently.
+
+Victor
+
+
+From jcea at jcea.es  Sun Jan  9 03:23:28 2011
+From: jcea at jcea.es (Jesus Cea)
+Date: Sun, 09 Jan 2011 03:23:28 +0100
+Subject: [python-committers] Partial commit privileges
+In-Reply-To: <1294539524.14757.19.camel@marge>
+References: <1294539524.14757.19.camel@marge>
+Message-ID: <4D291C20.2040106@jcea.es>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On 09/01/11 03:18, Victor Stinner wrote:
+> The process to gain the commit priviledges is long, and it is sometimes
+> difficult to decide if someone should have it or not. Would it be
+> possible to have different "levels" of commit priviledes to simplify the
+> process? Eg. first only be able to commit on a specific module, and then
+> maybe more modules, to finally be able to commit everywhere. It doesn't
+> need to be a technical limitation.
+
+I would say that mercurial deployment will change the workflow, and the
+difference between core committers and external developers will diffuse.
+
+- -- 
+Jesus Cea Avion                         _/_/      _/_/_/        _/_/_/
+jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+jabber / xmpp:jcea at jabber.org         _/_/    _/_/          _/_/_/_/_/
+.                              _/_/  _/_/    _/_/          _/_/  _/_/
+"Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+"My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+"El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.10 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - http://enigmail.mozdev.org/
+
+iQCVAwUBTSkcH5lgi5GaxT1NAQI5KgP+MDJSDiMFO+MAnoIwn/sfgxIYG+BCX4Ox
+FfUwHSARXcPzOGoGely1zJGFWROF9wRdNygmNn7Jkbg2Xk8O3+aFl877oNOLvE8Y
+fhwUhlmVqp4CeWiLpFAm1PFdIDkXSzmxWIGc8SR3rcbSPrBVlk1bntbrKf5SdZ35
+2OFVw743z+E=
+=Ee7X
+-----END PGP SIGNATURE-----
+
+From orsenthil at gmail.com  Sun Jan  9 04:18:25 2011
+From: orsenthil at gmail.com (Senthil Kumaran)
+Date: Sun, 9 Jan 2011 11:18:25 +0800
+Subject: [python-committers] Commit rights for Ned Deily
+In-Reply-To: <A607B536-22C5-4C4D-BEA0-F19DBC018F43@gmail.com>
+References: <1294530647.3637.4.camel@localhost.localdomain>
+	<A607B536-22C5-4C4D-BEA0-F19DBC018F43@gmail.com>
+Message-ID: <AANLkTinqi39oMeCQ0m=SpNFHLDivxKW2zLai7MACQ9C=@mail.gmail.com>
+
++1.
+
+We will have another OS X developer.
+
+On Sun, Jan 9, 2011 at 8:52 AM, Raymond Hettinger
+<raymond.hettinger at gmail.com> wrote:
+> +1
+>
+> On Jan 8, 2011, at 3:50 PM, Antoine Pitrou wrote:
+>
+>>
+>> Hello,
+>>
+>> Based on his work to diagnose and fix many issues related to OS X and/or
+>> IDLE/tk, I would like to propose that we give Ned Deily commit rights.
+>> He seems to already have developer rights on the tracker.
+>>
+>> Regards
+>>
+>> Antoine.
+>>
+>>
+>> _______________________________________________
+>> python-committers mailing list
+>> python-committers at python.org
+>> http://mail.python.org/mailman/listinfo/python-committers
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+>
+
+
+
+-- 
+Senthil
+
+From tjreedy at udel.edu  Sun Jan  9 06:00:23 2011
+From: tjreedy at udel.edu (Terry Reedy)
+Date: Sun, 09 Jan 2011 00:00:23 -0500
+Subject: [python-committers] Partial commit privileges
+In-Reply-To: <1294539524.14757.19.camel@marge>
+References: <1294539524.14757.19.camel@marge>
+Message-ID: <4D2940E7.7010107@udel.edu>
+
+On 1/8/2011 9:18 PM, Victor Stinner wrote:
+ > Hi,
+ >
+ > The process to gain the commit priviledges is long, and it is sometimes
+ > difficult to decide if someone should have it or not. Would it be
+ > possible to have different "levels" of commit priviledes to simplify the
+ > process? Eg. first only be able to commit on a specific module, and then
+ > maybe more modules, to finally be able to commit everywhere. It doesn't
+ > need to be a technical limitation.
+
+'Limited' privileges have been granted in the past, especially with GSOC 
+students. The 'limit' is by agreement (and the fact that all commits are 
+public to python-checkins subscribers.
+
+Last summer, Guido discovered that the real problem is not overuse of 
+privileges, but underuse. Some people have be given commit access and 
+never used it. As a neophytes, I can imagine that some are too scared of 
+making an embarrassing mistake.
+
+ > The idea is to [involve] more people in the Python development and 
+recognize
+ > their work.
+
+Until we start fighting over a limited supply of issues, we can use a 
+few more ;-)/
+
+ > I would be happy to be the mentor of someone even if I don't have
+ > suggestion currently.
+
+In general, I believe more mentoring could be useful. Possible 
+suggestion: find someone without commit access who has submitted a patch 
+for an issue of interest to you that you think should get a committed 
+patch. Review it and as necessary help the person improve it until you 
+think it ready to commit. (You could even ask if they want that or 
+really want someone to take it over from them.) Then commit it. Or help 
+a new person *with* access and let (help) them commit it.
+
+---
+Terry Jan Reedy
+
+From ncoghlan at gmail.com  Sun Jan  9 07:56:11 2011
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Sun, 9 Jan 2011 16:56:11 +1000
+Subject: [python-committers] Partial commit privileges
+In-Reply-To: <1294539524.14757.19.camel@marge>
+References: <1294539524.14757.19.camel@marge>
+Message-ID: <AANLkTi=kDC0ajHyyvfeWkSNwiwQz_YRrf6sszSb6YXHO@mail.gmail.com>
+
+On Sun, Jan 9, 2011 at 12:18 PM, Victor Stinner
+<victor.stinner at haypocalc.com> wrote:
+> Hi,
+>
+> The process to gain the commit priviledges is long, and it is sometimes
+> difficult to decide if someone should have it or not. Would it be
+> possible to have different "levels" of commit priviledes to simplify the
+> process? Eg. first only be able to commit on a specific module, and then
+> maybe more modules, to finally be able to commit everywhere. It doesn't
+> need to be a technical limitation.
+>
+> The idea is to imply more people in the Python development and recognize
+> their work.
+>
+> I remember that a rule to imply someone into the Python development is
+> that we look for people in the long-term. Is the artial commit privilege
+> compatible with this rule?
+>
+> What do you think? Would it be dangerous?
+
+Trust-but-audit is a good way to handle that, and really matches what
+we already do (my initial privileges years ago were specifically to
+update PEP 343 when Guido didn't have time to revise it, then I
+branched out from there into other things over time). As Terry noted,
+knowing that every checkin you make is going to get dumped in a whole
+pile of inboxes and posted publicly on the internet makes most sane
+people a little nervous and keen to do the right thing :)
+
+The main thing is for an existing committer to notice someone's
+contributions and then volunteer to mentor them through the initial
+process and keep an eye on their initial checkins.
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan?? |?? ncoghlan at gmail.com?? |?? Brisbane, Australia
+
+From martin at v.loewis.de  Sun Jan  9 10:20:44 2011
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Sun, 09 Jan 2011 10:20:44 +0100
+Subject: [python-committers] Partial commit privileges
+In-Reply-To: <1294539524.14757.19.camel@marge>
+References: <1294539524.14757.19.camel@marge>
+Message-ID: <4D297DEC.1040908@v.loewis.de>
+
+> The process to gain the commit priviledges is long, and it is sometimes
+> difficult to decide if someone should have it or not. Would it be
+> possible to have different "levels" of commit priviledes to simplify the
+> process?
+
+We have that already. Many of the committers got commit rights for a
+specific module only, see Misc/developers.txt. This is nowhere enforced,
+but since committers know what they are supposed to work on, and since
+everything is traceable, they stick to the rules.
+
+Regards,
+Martin
+
+From g.brandl at gmx.net  Sun Jan  9 10:41:28 2011
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Sun, 09 Jan 2011 10:41:28 +0100
+Subject: [python-committers] Commit rights for Ned Deily
+In-Reply-To: <1294530647.3637.4.camel@localhost.localdomain>
+References: <1294530647.3637.4.camel@localhost.localdomain>
+Message-ID: <igbvqt$njc$1@dough.gmane.org>
+
+Am 09.01.2011 00:50, schrieb Antoine Pitrou:
+> 
+> Hello,
+> 
+> Based on his work to diagnose and fix many issues related to OS X and/or
+> IDLE/tk, I would like to propose that we give Ned Deily commit rights.
+> He seems to already have developer rights on the tracker.
+
++1.
+
+Georg
+
+
+From g.brandl at gmx.net  Sun Jan  9 10:41:40 2011
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Sun, 09 Jan 2011 10:41:40 +0100
+Subject: [python-committers] Commit privileges for Eli Bendersky
+In-Reply-To: <4D28EEBC.8060705@udel.edu>
+References: <4D28EEBC.8060705@udel.edu>
+Message-ID: <igbvr9$njc$2@dough.gmane.org>
+
+Am 09.01.2011 00:09, schrieb Terry Reedy:
+> Two years ago, Eli Bendersky submitted to the tracker one of several duplicate
+> reports about problems with difflib.SequenceMatcher. After I consolidated and
+> closed all issues but one, he wrote me, said he wanted to get more involved in
+> Python development, and offered to help with that and other issues. Since then
+> he has actively participated in 34 issues, submitting 1 or more patches to 20
+> issues, listed below. Of those, 14 are closed. I believe his work always or
+> nearly always contributed to the commit. Another has been committed to 3.2 and
+> is only open for backports and possible tweaks. Another is waiting for 3.3,
+> another for my response. His activity has covered core, library, and doc issues.
+> He can work on C, Python, and .rst code and text He has shown himself to be a
+> careful reader of both code and text. He has also participated a bit on pydev.
+> 
+> I believe he said last September, in private email in response to my query, that
+> he would like full developer privileges 'someday'. Before I reviewed his tracker
+> activity, I was merely going to recommend that we 'start thinking about' a
+> promotion. But then I discovered that he had done much I did not know about, as
+> several developers (me, Alexander B, Georg B. Eric A, Michael F., ...) have done
+> commits involving his patches. So I now think, 'why wait?' I am confident that
+> he will start with whatever cautions he is given, with issues that are either
+> trivial or that have been reviewed by others.
+
+In case it's still needed, +1.
+
+Georg
+
+
+From solipsis at pitrou.net  Sun Jan  9 17:00:55 2011
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Sun, 09 Jan 2011 17:00:55 +0100
+Subject: [python-committers] Commit rights for Ned Deily
+In-Reply-To: <4D28FF19.6000308@v.loewis.de>
+References: <1294530647.3637.4.camel@localhost.localdomain>
+	<4D28FF19.6000308@v.loewis.de>
+Message-ID: <1294588855.3716.0.camel@localhost.localdomain>
+
+Le dimanche 09 janvier 2011 ? 01:19 +0100, "Martin v. L?wis" a ?crit :
+> > Based on his work to diagnose and fix many issues related to OS X and/or
+> > IDLE/tk, I would like to propose that we give Ned Deily commit rights.
+> > He seems to already have developer rights on the tracker.
+> 
+> Are you willing to mentor him (where necessary)?
+
+Yes.
+
+>  If so, please make him
+> send his SSH key and subscribe to the committers list, and give any
+> instructions you deem necessary.
+
+Ok, will do.
+
+
+
+From ncoghlan at gmail.com  Sun Jan  9 18:05:13 2011
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Mon, 10 Jan 2011 03:05:13 +1000
+Subject: [python-committers] Commit privileges for Eli Bendersky
+In-Reply-To: <4D28EEBC.8060705@udel.edu>
+References: <4D28EEBC.8060705@udel.edu>
+Message-ID: <AANLkTikpHFUxGXeO82DWwmz0rcjHBZtOzifMkRBANbpf@mail.gmail.com>
+
+On Sun, Jan 9, 2011 at 9:09 AM, Terry Reedy <tjreedy at udel.edu> wrote:
+> I believe he said last September, in private email in response to my query,
+> that he would like full developer privileges 'someday'. Before I reviewed
+> his tracker activity, I was merely going to recommend that we 'start
+> thinking about' a promotion. But then I discovered that he had done much I
+> did not know about, as several developers (me, Alexander B, Georg B. Eric A,
+> Michael F., ...) have done commits involving his patches. So I now think,
+> 'why wait?' I am confident that he will start with whatever cautions he is
+> given, with issues that are either trivial or that have been reviewed by
+> others.
+
+Agreed. I'm happy to handle the official mentoring aspect as well -
+I'll send him the usual request to provide SSH keys if he would like
+commit access.
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan?? |?? ncoghlan at gmail.com?? |?? Brisbane, Australia
+
+From g.brandl at gmx.net  Sun Jan  9 20:22:25 2011
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Sun, 09 Jan 2011 20:22:25 +0100
+Subject: [python-committers] rc delayed, waiting for Mac issues
+Message-ID: <igd1s4$ejl$1@dough.gmane.org>
+
+Hi,
+
+you may have noticed that 3.2rc1 was planned for today.  Since there
+are quite a few critical Mac issues unresolved, Ned's contacted
+Ronald about them, but we haven't heard back yet.  I'm going to delay
+the rc for a few days to give him a bit of time (if maybe has was on
+vacation this past week).
+
+cheers,
+Georg
+
+
+From eliben at gmail.com  Mon Jan 10 12:38:17 2011
+From: eliben at gmail.com (Eli Bendersky)
+Date: Mon, 10 Jan 2011 13:38:17 +0200
+Subject: [python-committers] Public SSH key for svn
+Message-ID: <AANLkTin1+XcoFYm+5E7Y_rLbY00F_5jtANbLOKt4je-e@mail.gmail.com>
+
+Hello,
+
+Nick instructed me to send the SSH key here, so here it is. I
+generated it following the dev FAQ, hopefully it's OK.
+
+Eli
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: id_rsa.pub
+Type: application/octet-stream
+Size: 402 bytes
+Desc: not available
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20110110/0d4050a4/attachment.obj>
+
+From brett at python.org  Mon Jan 10 19:56:14 2011
+From: brett at python.org (Brett Cannon)
+Date: Mon, 10 Jan 2011 10:56:14 -0800
+Subject: [python-committers] Public SSH key for svn
+In-Reply-To: <AANLkTin1+XcoFYm+5E7Y_rLbY00F_5jtANbLOKt4je-e@mail.gmail.com>
+References: <AANLkTin1+XcoFYm+5E7Y_rLbY00F_5jtANbLOKt4je-e@mail.gmail.com>
+Message-ID: <AANLkTi=0qwd8kydKiUXXBMvOpWA7q=LL1AMvn3pvkcfV@mail.gmail.com>
+
+Done as eli.bendersky . Go ahead and either follow the dev FAQ to verify
+access, Eli, or simply try to checkout a read-write copy of the repo and
+assume I didn't screw up. =)
+
+On Mon, Jan 10, 2011 at 03:38, Eli Bendersky <eliben at gmail.com> wrote:
+
+> Hello,
+>
+> Nick instructed me to send the SSH key here, so here it is. I
+> generated it following the dev FAQ, hopefully it's OK.
+>
+> Eli
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+>
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20110110/9ca1ccea/attachment.html>
+
+From brett at python.org  Mon Jan 10 21:47:55 2011
+From: brett at python.org (Brett Cannon)
+Date: Mon, 10 Jan 2011 12:47:55 -0800
+Subject: [python-committers] New contributors,
+	don't forget to send in a contributor form!
+Message-ID: <AANLkTinXsYpU-g3OEm65wRprJqH92LMDft_pDbbuBFJ8@mail.gmail.com>
+
+As I am writing the part of the devguide covering getting commit privs, I
+figured it was a good thing to send out an email for our new committers to
+remind them to send in a contributor form:
+http://www.python.org/psf/contrib/ ASAP.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20110110/4d3f724b/attachment.html>
+
+From jcea at jcea.es  Thu Jan 13 01:41:26 2011
+From: jcea at jcea.es (Jesus Cea)
+Date: Thu, 13 Jan 2011 01:41:26 +0100
+Subject: [python-committers] New contributors,
+ don't forget to send in a contributor form!
+In-Reply-To: <AANLkTinXsYpU-g3OEm65wRprJqH92LMDft_pDbbuBFJ8@mail.gmail.com>
+References: <AANLkTinXsYpU-g3OEm65wRprJqH92LMDft_pDbbuBFJ8@mail.gmail.com>
+Message-ID: <4D2E4A36.30304@jcea.es>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On 10/01/11 21:47, Brett Cannon wrote:
+> As I am writing the part of the devguide covering getting commit privs,
+> I figured it was a good thing to send out an email for our new
+> committers to remind them to send in a contributor
+> form: http://www.python.org/psf/contrib/ ASAP.
+
+Maybe would be a good idea to write down a checklist for new committers:
+get a mentor, send the SSH key, be sure have signed the contributor
+agreement, subscribe to the right mailing lists...
+
+- -- 
+Jesus Cea Avion                         _/_/      _/_/_/        _/_/_/
+jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+jabber / xmpp:jcea at jabber.org         _/_/    _/_/          _/_/_/_/_/
+.                              _/_/  _/_/    _/_/          _/_/  _/_/
+"Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+"My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+"El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.10 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - http://enigmail.mozdev.org/
+
+iQCVAwUBTS5KNplgi5GaxT1NAQItMgP+O86eyLvEggDXQNgIvnTDKyN+V7RSd6mm
+4Ot7HGoY3osF7T7t8+wTdXnTJ8KCanfgMH6NipHJicT7sPR1ejCog04vbEQdvBJ0
+wpVTvTBtyU1g9fXFNCiKVCHOQsdsP8oUBBWPykMWAdouHgZ5cH0Uk85v2haiwwbp
+nTAiO2PAtiE=
+=vNpN
+-----END PGP SIGNATURE-----
+
+From brett at python.org  Thu Jan 13 02:42:40 2011
+From: brett at python.org (Brett Cannon)
+Date: Wed, 12 Jan 2011 17:42:40 -0800
+Subject: [python-committers] New contributors,
+ don't forget to send in a contributor form!
+In-Reply-To: <4D2E4A36.30304@jcea.es>
+References: <AANLkTinXsYpU-g3OEm65wRprJqH92LMDft_pDbbuBFJ8@mail.gmail.com>
+	<4D2E4A36.30304@jcea.es>
+Message-ID: <AANLkTimTNSkDpVy25EizawdHJzM=9zt55yq_0LbO0W7P@mail.gmail.com>
+
+Already been done in the new devguide. Just waiting until the URL is
+more solidified before I send out a link.
+
+On Wed, Jan 12, 2011 at 16:41, Jesus Cea <jcea at jcea.es> wrote:
+> -----BEGIN PGP SIGNED MESSAGE-----
+> Hash: SHA1
+>
+> On 10/01/11 21:47, Brett Cannon wrote:
+>> As I am writing the part of the devguide covering getting commit privs,
+>> I figured it was a good thing to send out an email for our new
+>> committers to remind them to send in a contributor
+>> form: http://www.python.org/psf/contrib/ ASAP.
+>
+> Maybe would be a good idea to write down a checklist for new committers:
+> get a mentor, send the SSH key, be sure have signed the contributor
+> agreement, subscribe to the right mailing lists...
+>
+> - --
+> Jesus Cea Avion ? ? ? ? ? ? ? ? ? ? ? ? _/_/ ? ? ?_/_/_/ ? ? ? ?_/_/_/
+> jcea at jcea.es - http://www.jcea.es/ ? ? _/_/ ? ?_/_/ ?_/_/ ? ?_/_/ ?_/_/
+> jabber / xmpp:jcea at jabber.org ? ? ? ? _/_/ ? ?_/_/ ? ? ? ? ?_/_/_/_/_/
+> . ? ? ? ? ? ? ? ? ? ? ? ? ? ? ?_/_/ ?_/_/ ? ?_/_/ ? ? ? ? ?_/_/ ?_/_/
+> "Things are not so easy" ? ? ?_/_/ ?_/_/ ? ?_/_/ ?_/_/ ? ?_/_/ ?_/_/
+> "My name is Dump, Core Dump" ? _/_/_/ ? ? ? ?_/_/_/ ? ? ?_/_/ ?_/_/
+> "El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+> -----BEGIN PGP SIGNATURE-----
+> Version: GnuPG v1.4.10 (GNU/Linux)
+> Comment: Using GnuPG with Mozilla - http://enigmail.mozdev.org/
+>
+> iQCVAwUBTS5KNplgi5GaxT1NAQItMgP+O86eyLvEggDXQNgIvnTDKyN+V7RSd6mm
+> 4Ot7HGoY3osF7T7t8+wTdXnTJ8KCanfgMH6NipHJicT7sPR1ejCog04vbEQdvBJ0
+> wpVTvTBtyU1g9fXFNCiKVCHOQsdsP8oUBBWPykMWAdouHgZ5cH0Uk85v2haiwwbp
+> nTAiO2PAtiE=
+> =vNpN
+> -----END PGP SIGNATURE-----
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+>
+
+From g.brandl at gmx.net  Sat Jan 15 14:14:45 2011
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Sat, 15 Jan 2011 14:14:45 +0100
+Subject: [python-committers] Freezing py3k for rc1
+Message-ID: <igs6nr$273$1@dough.gmane.org>
+
+Endly, the time is right for rc1.  Please coordinate in #python-dev
+if you need something to go in before.
+
+Georg
+
+
+From georg at python.org  Sun Jan 16 08:33:41 2011
+From: georg at python.org (Georg Brandl)
+Date: Sun, 16 Jan 2011 08:33:41 +0100
+Subject: [python-committers] [RELEASED] Python 3.2 rc 1
+Message-ID: <4D329F55.9040903@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On behalf of the Python development team, I'm very happy to announce the
+first release candidate of Python 3.2.
+
+Python 3.2 is a continuation of the efforts to improve and stabilize the
+Python 3.x line.  Since the final release of Python 2.7, the 2.x line
+will only receive bugfixes, and new features are developed for 3.x only.
+
+Since PEP 3003, the Moratorium on Language Changes, is in effect, there
+are no changes in Python's syntax and built-in types in Python 3.2.
+Development efforts concentrated on the standard library and support for
+porting code to Python 3.  Highlights are:
+
+* numerous improvements to the unittest module
+* PEP 3147, support for .pyc repository directories
+* PEP 3149, support for version tagged dynamic libraries
+* PEP 3148, a new futures library for concurrent programming
+* PEP 384, a stable ABI for extension modules
+* PEP 391, dictionary-based logging configuration
+* an overhauled GIL implementation that reduces contention
+* an extended email package that handles bytes messages
+* a much improved ssl module with support for SSL contexts and certificate
+  hostname matching
+* a sysconfig module to access configuration information
+* additions to the shutil module, among them archive file support
+* many enhancements to configparser, among them mapping protocol support
+* improvements to pdb, the Python debugger
+* countless fixes regarding bytes/string issues; among them full support
+  for a bytes environment (filenames, environment variables)
+* many consistency and behavior fixes for numeric operations
+
+For a more extensive list of changes in 3.2, see
+
+    http://docs.python.org/3.2/whatsnew/3.2.html
+
+To download Python 3.2 visit:
+
+    http://www.python.org/download/releases/3.2/
+
+Please consider trying Python 3.2 with your code and reporting any bugs
+you may notice to:
+
+    http://bugs.python.org/
+
+
+Enjoy!
+
+- --
+Georg Brandl, Release Manager
+georg at python.org
+(on behalf of the entire python-dev team and 3.2's contributors)
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v2.0.16 (GNU/Linux)
+
+iEYEARECAAYFAk0yn1QACgkQN9GcIYhpnLDTdACgqQYW5ZmTLlxmppBZItprSj7I
+TmAAn13lgnu9TdVy0Jln7VwOt5JW9CwL
+=VZ3p
+-----END PGP SIGNATURE-----
+
+From g.brandl at gmx.net  Sun Jan 16 08:53:10 2011
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Sun, 16 Jan 2011 08:53:10 +0100
+Subject: [python-committers] py3k unfrozen, however
+Message-ID: <igu898$amm$1@dough.gmane.org>
+
+The rc is out.  Let's hope for some decent developer testing and bug reports
+before it's too late...
+
+To ensure stability in the py3k branch, I want to enforce strict discipline
+for commits from now to the release.  Any change needs to be reviewed by at
+least one other core developer (and I mean real reviews, with the committer
+name mentioned in the commit message).  Absolutely no new features or API
+changes.  If in doubt, please consult with this list, or ask me directly.
+
+cheers,
+Georg
+
+
+From g.brandl at gmx.net  Mon Jan 17 20:37:51 2011
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Mon, 17 Jan 2011 20:37:51 +0100
+Subject: [python-committers] py3k unfrozen, however
+In-Reply-To: <igu898$amm$1@dough.gmane.org>
+References: <igu898$amm$1@dough.gmane.org>
+Message-ID: <ih26d9$ldg$1@dough.gmane.org>
+
+Am 16.01.2011 08:53, schrieb Georg Brandl:
+> The rc is out.  Let's hope for some decent developer testing and bug reports
+> before it's too late...
+> 
+> To ensure stability in the py3k branch, I want to enforce strict discipline
+> for commits from now to the release.  Any change needs to be reviewed by at
+> least one other core developer (and I mean real reviews, with the committer
+> name mentioned in the commit message).  Absolutely no new features or API
+> changes.  If in doubt, please consult with this list, or ask me directly.
+
+Also, review doesn't replace running the test suite.  Please help keeping the
+buildbots green!
+
+Georg
+
+
+From brett at python.org  Wed Jan 19 01:52:34 2011
+From: brett at python.org (Brett Cannon)
+Date: Tue, 18 Jan 2011 16:52:34 -0800
+Subject: [python-committers] anyone still have access to the coverity scan
+	results?
+Message-ID: <AANLkTi=PdckA3Efm3Zy=EuNGR76EH-R9wXR5icFQ=Zcd@mail.gmail.com>
+
+Access to the Python results is currently down, but has anyone
+actually accessed the Coverity scan results any time recently? Or who
+even has access anymore?
+
+From guido at python.org  Wed Jan 19 03:54:46 2011
+From: guido at python.org (Guido van Rossum)
+Date: Tue, 18 Jan 2011 18:54:46 -0800
+Subject: [python-committers] anyone still have access to the coverity
+	scan results?
+In-Reply-To: <AANLkTi=PdckA3Efm3Zy=EuNGR76EH-R9wXR5icFQ=Zcd@mail.gmail.com>
+References: <AANLkTi=PdckA3Efm3Zy=EuNGR76EH-R9wXR5icFQ=Zcd@mail.gmail.com>
+Message-ID: <AANLkTinZHWhZR6G8dfQwi+SXy-BUot1dbnBZTw8eG_7J@mail.gmail.com>
+
+If it is determined that nobody has access any more I can ping one of
+my contacts at Coverity.
+
+On Tue, Jan 18, 2011 at 4:52 PM, Brett Cannon <brett at python.org> wrote:
+> Access to the Python results is currently down, but has anyone
+> actually accessed the Coverity scan results any time recently? Or who
+> even has access anymore?
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+>
+
+
+
+-- 
+--Guido van Rossum (python.org/~guido)
+
+From brett at python.org  Wed Jan 19 04:12:58 2011
+From: brett at python.org (Brett Cannon)
+Date: Tue, 18 Jan 2011 19:12:58 -0800
+Subject: [python-committers] anyone still have access to the coverity
+	scan results?
+In-Reply-To: <AANLkTinZHWhZR6G8dfQwi+SXy-BUot1dbnBZTw8eG_7J@mail.gmail.com>
+References: <AANLkTi=PdckA3Efm3Zy=EuNGR76EH-R9wXR5icFQ=Zcd@mail.gmail.com>
+	<AANLkTinZHWhZR6G8dfQwi+SXy-BUot1dbnBZTw8eG_7J@mail.gmail.com>
+Message-ID: <AANLkTim0EtF-Aot1DHTrwvkkbMEy5N7WSEJHirvtUBF-@mail.gmail.com>
+
+Might have you ping them regardless because I am willing to bet that
+they never moved over to py3k and are still scanning trunk (if they
+are scanning at all). But obviously wait until we know if someone does
+have access and exactly what they are scanning.
+
+On Tue, Jan 18, 2011 at 18:54, Guido van Rossum <guido at python.org> wrote:
+> If it is determined that nobody has access any more I can ping one of
+> my contacts at Coverity.
+>
+> On Tue, Jan 18, 2011 at 4:52 PM, Brett Cannon <brett at python.org> wrote:
+>> Access to the Python results is currently down, but has anyone
+>> actually accessed the Coverity scan results any time recently? Or who
+>> even has access anymore?
+>> _______________________________________________
+>> python-committers mailing list
+>> python-committers at python.org
+>> http://mail.python.org/mailman/listinfo/python-committers
+>>
+>
+>
+>
+> --
+> --Guido van Rossum (python.org/~guido)
+>
+
+From guido at python.org  Wed Jan 19 05:45:15 2011
+From: guido at python.org (Guido van Rossum)
+Date: Tue, 18 Jan 2011 20:45:15 -0800
+Subject: [python-committers] anyone still have access to the coverity
+	scan results?
+In-Reply-To: <AANLkTim0EtF-Aot1DHTrwvkkbMEy5N7WSEJHirvtUBF-@mail.gmail.com>
+References: <AANLkTi=PdckA3Efm3Zy=EuNGR76EH-R9wXR5icFQ=Zcd@mail.gmail.com>
+	<AANLkTinZHWhZR6G8dfQwi+SXy-BUot1dbnBZTw8eG_7J@mail.gmail.com>
+	<AANLkTim0EtF-Aot1DHTrwvkkbMEy5N7WSEJHirvtUBF-@mail.gmail.com>
+Message-ID: <AANLkTin80eD2YKOf_139VLiKeEktG0hcBemyCzXBE3Mx@mail.gmail.com>
+
+I guess we'd also have to point them to the Hg servers (once we are
+using Hg -- but that's a rant for a different day :-). I've pinged my
+direct contact there to get in touch with whoever's in charge of
+scanning open source projects.
+
+On Tue, Jan 18, 2011 at 7:12 PM, Brett Cannon <brett at python.org> wrote:
+> Might have you ping them regardless because I am willing to bet that
+> they never moved over to py3k and are still scanning trunk (if they
+> are scanning at all). But obviously wait until we know if someone does
+> have access and exactly what they are scanning.
+>
+> On Tue, Jan 18, 2011 at 18:54, Guido van Rossum <guido at python.org> wrote:
+>> If it is determined that nobody has access any more I can ping one of
+>> my contacts at Coverity.
+>>
+>> On Tue, Jan 18, 2011 at 4:52 PM, Brett Cannon <brett at python.org> wrote:
+>>> Access to the Python results is currently down, but has anyone
+>>> actually accessed the Coverity scan results any time recently? Or who
+>>> even has access anymore?
+>>> _______________________________________________
+>>> python-committers mailing list
+>>> python-committers at python.org
+>>> http://mail.python.org/mailman/listinfo/python-committers
+>>>
+>>
+>>
+>>
+>> --
+>> --Guido van Rossum (python.org/~guido)
+>>
+>
+
+
+
+-- 
+--Guido van Rossum (python.org/~guido)
+
+From guido at python.org  Wed Jan 19 20:21:47 2011
+From: guido at python.org (Guido van Rossum)
+Date: Wed, 19 Jan 2011 11:21:47 -0800
+Subject: [python-committers] anyone still have access to the coverity
+	scan results?
+In-Reply-To: <AANLkTin80eD2YKOf_139VLiKeEktG0hcBemyCzXBE3Mx@mail.gmail.com>
+References: <AANLkTi=PdckA3Efm3Zy=EuNGR76EH-R9wXR5icFQ=Zcd@mail.gmail.com>
+	<AANLkTinZHWhZR6G8dfQwi+SXy-BUot1dbnBZTw8eG_7J@mail.gmail.com>
+	<AANLkTim0EtF-Aot1DHTrwvkkbMEy5N7WSEJHirvtUBF-@mail.gmail.com>
+	<AANLkTin80eD2YKOf_139VLiKeEktG0hcBemyCzXBE3Mx@mail.gmail.com>
+Message-ID: <AANLkTimGY0mT3C-92KBpzaAborQodHwxQ_x967-BqpTt@mail.gmail.com>
+
+My coverity contact wrote back:
+
+"""
+Sure, the main contact is David Maxwell and he's reachable via
+scan at coverity.com though if that doesn't work you can always just try
+dmaxwell at coverity.com - they can give you access and update ...
+whatever - he also is more up to date on where we are in moving the
+open source
+projects over to our new version (there's a pretty time consuming migration
+involved among all the projects).  Maybe he can set up Python 3 directly on
+the new version - I'm not really sure how they are handling all that...
+"""
+
+-- 
+--Guido van Rossum (python.org/~guido)
+
+From brett at python.org  Wed Jan 19 21:27:53 2011
+From: brett at python.org (Brett Cannon)
+Date: Wed, 19 Jan 2011 12:27:53 -0800
+Subject: [python-committers] anyone still have access to the coverity
+	scan results?
+In-Reply-To: <AANLkTimGY0mT3C-92KBpzaAborQodHwxQ_x967-BqpTt@mail.gmail.com>
+References: <AANLkTi=PdckA3Efm3Zy=EuNGR76EH-R9wXR5icFQ=Zcd@mail.gmail.com>
+	<AANLkTinZHWhZR6G8dfQwi+SXy-BUot1dbnBZTw8eG_7J@mail.gmail.com>
+	<AANLkTim0EtF-Aot1DHTrwvkkbMEy5N7WSEJHirvtUBF-@mail.gmail.com>
+	<AANLkTin80eD2YKOf_139VLiKeEktG0hcBemyCzXBE3Mx@mail.gmail.com>
+	<AANLkTimGY0mT3C-92KBpzaAborQodHwxQ_x967-BqpTt@mail.gmail.com>
+Message-ID: <AANLkTikOSANK=huUv_VXpu3eDcagxDLk_oL5WW=XXwos@mail.gmail.com>
+
+OK, I will handle it.
+
+On Wed, Jan 19, 2011 at 11:21, Guido van Rossum <guido at python.org> wrote:
+> My coverity contact wrote back:
+>
+> """
+> Sure, the main contact is David Maxwell and he's reachable via
+> scan at coverity.com though if that doesn't work you can always just try
+> dmaxwell at coverity.com - they can give you access and update ...
+> whatever - he also is more up to date on where we are in moving the
+> open source
+> projects over to our new version (there's a pretty time consuming migration
+> involved among all the projects). ?Maybe he can set up Python 3 directly on
+> the new version - I'm not really sure how they are handling all that...
+> """
+>
+> --
+> --Guido van Rossum (python.org/~guido)
+>
+
+From victor.stinner at haypocalc.com  Wed Jan 19 23:02:42 2011
+From: victor.stinner at haypocalc.com (Victor Stinner)
+Date: Wed, 19 Jan 2011 23:02:42 +0100
+Subject: [python-committers] anyone still have access to the coverity
+ scan results?
+In-Reply-To: <AANLkTi=PdckA3Efm3Zy=EuNGR76EH-R9wXR5icFQ=Zcd@mail.gmail.com>
+References: <AANLkTi=PdckA3Efm3Zy=EuNGR76EH-R9wXR5icFQ=Zcd@mail.gmail.com>
+Message-ID: <1295474562.1248.135.camel@marge>
+
+Le mardi 18 janvier 2011 ? 16:52 -0800, Brett Cannon a ?crit :
+> Access to the Python results is currently down, but has anyone
+> actually accessed the Coverity scan results any time recently? Or who
+> even has access anymore?
+
+gcc-4.6 emits new warnings: it would be interesting to analyze them.
+Even if gcc-4.6 -O3 generates invalid code :-) I opened an issue with
+the warnings:
+http://bugs.python.org/issue10951
+
+For the gcc 4.6 bug, see:
+http://gcc.gnu.org/bugzilla/show_bug.cgi?id=47271
+
+Victor
+
+
+From steve at holdenweb.com  Thu Jan 20 02:44:08 2011
+From: steve at holdenweb.com (Steve Holden)
+Date: Wed, 19 Jan 2011 20:44:08 -0500
+Subject: [python-committers] anyone still have access to the coverity
+	scan results?
+In-Reply-To: <AANLkTikOSANK=huUv_VXpu3eDcagxDLk_oL5WW=XXwos@mail.gmail.com>
+References: <AANLkTi=PdckA3Efm3Zy=EuNGR76EH-R9wXR5icFQ=Zcd@mail.gmail.com>
+	<AANLkTinZHWhZR6G8dfQwi+SXy-BUot1dbnBZTw8eG_7J@mail.gmail.com>
+	<AANLkTim0EtF-Aot1DHTrwvkkbMEy5N7WSEJHirvtUBF-@mail.gmail.com>
+	<AANLkTin80eD2YKOf_139VLiKeEktG0hcBemyCzXBE3Mx@mail.gmail.com>
+	<AANLkTimGY0mT3C-92KBpzaAborQodHwxQ_x967-BqpTt@mail.gmail.com>
+	<AANLkTikOSANK=huUv_VXpu3eDcagxDLk_oL5WW=XXwos@mail.gmail.com>
+Message-ID: <7F68C6B0-257C-42AC-BD86-6F7B454F46DC@holdenweb.com>
+
+Could we consider offering a complimentary PyCon registration to a member of the Coverity team as an encouragement to have someone around during the sprints? I am sure that much useful informal education would take place, benefiting many sprints, if we enable it and just let things happen.
+
+Or would this be seen as favoring one vendor? I don't see other people lining up to validate the developers' code, but nor do I want to step on anyone's toes. Maybe python-dev is a better place for this discussion, or maybe Guido should just talk to Van and/or Jesse and short-circuit about thirty-five "+1" responses.
+
+Or not.
+
+regards
+ Steve
+
+
+On Jan 19, 2011, at 3:27 PM, Brett Cannon wrote:
+
+> OK, I will handle it.
+> 
+> On Wed, Jan 19, 2011 at 11:21, Guido van Rossum <guido at python.org> wrote:
+>> My coverity contact wrote back:
+>> 
+>> """
+>> Sure, the main contact is David Maxwell and he's reachable via
+>> scan at coverity.com though if that doesn't work you can always just try
+>> dmaxwell at coverity.com - they can give you access and update ...
+>> whatever - he also is more up to date on where we are in moving the
+>> open source
+>> projects over to our new version (there's a pretty time consuming migration
+>> involved among all the projects).  Maybe he can set up Python 3 directly on
+>> the new version - I'm not really sure how they are handling all that...
+>> """
+>> 
+>> --
+>> --Guido van Rossum (python.org/~guido)
+>> 
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+
+
+From brett at python.org  Thu Jan 20 04:34:23 2011
+From: brett at python.org (Brett Cannon)
+Date: Wed, 19 Jan 2011 19:34:23 -0800
+Subject: [python-committers] anyone still have access to the coverity
+	scan results?
+In-Reply-To: <7F68C6B0-257C-42AC-BD86-6F7B454F46DC@holdenweb.com>
+References: <AANLkTi=PdckA3Efm3Zy=EuNGR76EH-R9wXR5icFQ=Zcd@mail.gmail.com>
+	<AANLkTinZHWhZR6G8dfQwi+SXy-BUot1dbnBZTw8eG_7J@mail.gmail.com>
+	<AANLkTim0EtF-Aot1DHTrwvkkbMEy5N7WSEJHirvtUBF-@mail.gmail.com>
+	<AANLkTin80eD2YKOf_139VLiKeEktG0hcBemyCzXBE3Mx@mail.gmail.com>
+	<AANLkTimGY0mT3C-92KBpzaAborQodHwxQ_x967-BqpTt@mail.gmail.com>
+	<AANLkTikOSANK=huUv_VXpu3eDcagxDLk_oL5WW=XXwos@mail.gmail.com>
+	<7F68C6B0-257C-42AC-BD86-6F7B454F46DC@holdenweb.com>
+Message-ID: <AANLkTi=U=y3oMAN-P7Yd30VvJF3geJx1ba9dkp6r8N-N@mail.gmail.com>
+
+On Wed, Jan 19, 2011 at 17:44, Steve Holden <steve at holdenweb.com> wrote:
+> Could we consider offering a complimentary PyCon registration to a member of the Coverity team as an encouragement to have someone around during the sprints? I am sure that much useful informal education would take place, benefiting many sprints, if we enable it and just let things happen.
+
+This may be a bit premature. Last time the scan had a bunch of
+false-positives, so while it found errors it was a bit of work to go
+through. Not sure if there is anything new and useful lately.
+
+Then again free registration is cheap.
+
+>
+> Or would this be seen as favoring one vendor? I don't see other people lining up to validate the developers' code, but nor do I want to step on anyone's toes.
+
+Klocwork did, but the site that hosted their results no longer
+responds and Neal Norwitz was the only person with access.
+
+> Maybe python-dev is a better place for this discussion, or maybe Guido should just talk to Van and/or Jesse and short-circuit about thirty-five "+1" responses.
+
+I just don't know how useful it would be. The results of the scan are
+what they are. Even if I am the only person with access, I have
+received enough PyCon financial aide to be at the sprints for the
+first two full days so I can always dole out responsibilities on the
+spot.
+
+-Brett
+
+>
+> Or not.
+>
+> regards
+> ?Steve
+>
+>
+> On Jan 19, 2011, at 3:27 PM, Brett Cannon wrote:
+>
+>> OK, I will handle it.
+>>
+>> On Wed, Jan 19, 2011 at 11:21, Guido van Rossum <guido at python.org> wrote:
+>>> My coverity contact wrote back:
+>>>
+>>> """
+>>> Sure, the main contact is David Maxwell and he's reachable via
+>>> scan at coverity.com though if that doesn't work you can always just try
+>>> dmaxwell at coverity.com - they can give you access and update ...
+>>> whatever - he also is more up to date on where we are in moving the
+>>> open source
+>>> projects over to our new version (there's a pretty time consuming migration
+>>> involved among all the projects). ?Maybe he can set up Python 3 directly on
+>>> the new version - I'm not really sure how they are handling all that...
+>>> """
+>>>
+>>> --
+>>> --Guido van Rossum (python.org/~guido)
+>>>
+>> _______________________________________________
+>> python-committers mailing list
+>> python-committers at python.org
+>> http://mail.python.org/mailman/listinfo/python-committers
+>
+>
+
+From solipsis at pitrou.net  Thu Jan 20 13:57:26 2011
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Thu, 20 Jan 2011 13:57:26 +0100
+Subject: [python-committers] anyone still have access to the coverity
+ scan results?
+In-Reply-To: <7F68C6B0-257C-42AC-BD86-6F7B454F46DC@holdenweb.com>
+References: <AANLkTi=PdckA3Efm3Zy=EuNGR76EH-R9wXR5icFQ=Zcd@mail.gmail.com>
+	<AANLkTinZHWhZR6G8dfQwi+SXy-BUot1dbnBZTw8eG_7J@mail.gmail.com>
+	<AANLkTim0EtF-Aot1DHTrwvkkbMEy5N7WSEJHirvtUBF-@mail.gmail.com>
+	<AANLkTin80eD2YKOf_139VLiKeEktG0hcBemyCzXBE3Mx@mail.gmail.com>
+	<AANLkTimGY0mT3C-92KBpzaAborQodHwxQ_x967-BqpTt@mail.gmail.com>
+	<AANLkTikOSANK=huUv_VXpu3eDcagxDLk_oL5WW=XXwos@mail.gmail.com>
+	<7F68C6B0-257C-42AC-BD86-6F7B454F46DC@holdenweb.com>
+Message-ID: <1295528246.3705.3.camel@localhost.localdomain>
+
+Le mercredi 19 janvier 2011 ? 20:44 -0500, Steve Holden a ?crit :
+> Could we consider offering a complimentary PyCon registration to a
+> member of the Coverity team as an encouragement to have someone around
+> during the sprints? I am sure that much useful informal education
+> would take place, benefiting many sprints, if we enable it and just
+> let things happen.
+
+I'm not sure hanging around during a sprint is the best way to share
+knowledge with the python-dev community, a large part of which won't
+attend the sprints.
+
+Besides, if the coverity results are private and limited to a couple of
+core devs, I don't think other sprinters will benefit a lot from such
+"education". Or do you have something particular in mind?
+
+Regards
+
+Antoine.
+
+
+
+From g.brandl at gmx.net  Fri Jan 28 12:06:30 2011
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Fri, 28 Jan 2011 12:06:30 +0100
+Subject: [python-committers] rc2 freeze due in two days
+Message-ID: <ihu7vt$a1a$1@dough.gmane.org>
+
+Hi guys,
+
+this is just a heads-up that I'll be freezing py3k for the rc2 release
+in a bit less than 48 hours -- Sunday morning in CET.
+
+Please get all changes that you already know are necessary reviewed and
+committed *before* that: the goal is zero commits between rc2 and final
+(although I know it's unlikely to be reached) -- or rather the necessity
+of an rc3 depends on how stable rc2 proves to be.
+
+cheers,
+Georg
+
+
+From victor.stinner at haypocalc.com  Fri Jan 28 21:27:06 2011
+From: victor.stinner at haypocalc.com (Victor Stinner)
+Date: Fri, 28 Jan 2011 21:27:06 +0100
+Subject: [python-committers] rc2 freeze due in two days
+In-Reply-To: <ihu7vt$a1a$1@dough.gmane.org>
+References: <ihu7vt$a1a$1@dough.gmane.org>
+Message-ID: <1296246426.26102.3.camel@marge>
+
+Hi,
+
+Le vendredi 28 janvier 2011 ? 12:06 +0100, Georg Brandl a ?crit :
+> this is just a heads-up that I'll be freezing py3k for the rc2 release
+> in a bit less than 48 hours -- Sunday morning in CET.
+> 
+> Please get all changes that you already know are necessary reviewed and
+> committed *before* that: the goal is zero commits between rc2 and final
+> (although I know it's unlikely to be reached) -- or rather the necessity
+> of an rc3 depends on how stable rc2 proves to be.
+
+What about the mailbox module? R. David Murray, Antoine Pitrou, I (and
+others) worked on a patch to fix this module (which is "partially
+broken" in Python 3).
+
+http://bugs.python.org/issue9124
+
+It's an huge patch, and it's already the 3rd version. Is it too late for
+such change?
+
+Victor
+
+
+From steve at holdenweb.com  Fri Jan 28 21:35:50 2011
+From: steve at holdenweb.com (Steve Holden)
+Date: Fri, 28 Jan 2011 15:35:50 -0500
+Subject: [python-committers] rc2 freeze due in two days
+In-Reply-To: <1296246426.26102.3.camel@marge>
+References: <ihu7vt$a1a$1@dough.gmane.org> <1296246426.26102.3.camel@marge>
+Message-ID: <BA362619-DDE9-4F1F-A12A-84010EF1C6F1@holdenweb.com>
+
+As teh reporter of that bug I should like to say in Victor's, Antoine's and David's support that the module is so broken without this patch that the module should not really have been included in a production release.
+
+Even if the current patch is broken, I believe the results of using that code would be less negative than the results of using the module from the previous release.
+
+regards
+ Steve
+
+
+On Jan 28, 2011, at 3:27 PM, Victor Stinner wrote:
+
+> Hi,
+> 
+> Le vendredi 28 janvier 2011 ? 12:06 +0100, Georg Brandl a ?crit :
+>> this is just a heads-up that I'll be freezing py3k for the rc2 release
+>> in a bit less than 48 hours -- Sunday morning in CET.
+>> 
+>> Please get all changes that you already know are necessary reviewed and
+>> committed *before* that: the goal is zero commits between rc2 and final
+>> (although I know it's unlikely to be reached) -- or rather the necessity
+>> of an rc3 depends on how stable rc2 proves to be.
+> 
+> What about the mailbox module? R. David Murray, Antoine Pitrou, I (and
+> others) worked on a patch to fix this module (which is "partially
+> broken" in Python 3).
+> 
+> http://bugs.python.org/issue9124
+> 
+> It's an huge patch, and it's already the 3rd version. Is it too late for
+> such change?
+> 
+> Victor
+> 
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+
+
+From raymond.hettinger at gmail.com  Fri Jan 28 23:51:00 2011
+From: raymond.hettinger at gmail.com (Raymond Hettinger)
+Date: Fri, 28 Jan 2011 14:51:00 -0800
+Subject: [python-committers] rc2 freeze due in two days
+In-Reply-To: <BA362619-DDE9-4F1F-A12A-84010EF1C6F1@holdenweb.com>
+References: <ihu7vt$a1a$1@dough.gmane.org> <1296246426.26102.3.camel@marge>
+	<BA362619-DDE9-4F1F-A12A-84010EF1C6F1@holdenweb.com>
+Message-ID: <45EF02F5-7E01-4899-81E4-4CDD90052636@gmail.com>
+
+
+On Jan 28, 2011, at 12:35 PM, Steve Holden wrote:
+
+> As teh reporter of that bug I should like to say in Victor's, Antoine's and David's support that the module is so broken without this patch that the module should not really have been included in a production release.
+> 
+> Even if the current patch is broken, I believe the results of using that code would be less negative than the results of using the module from the previous release.
+
+
++1
+
+
+Raymond
+
+From solipsis at pitrou.net  Sat Jan 29 00:00:12 2011
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Sat, 29 Jan 2011 00:00:12 +0100
+Subject: [python-committers] rc2 freeze due in two days
+In-Reply-To: <45EF02F5-7E01-4899-81E4-4CDD90052636@gmail.com>
+References: <ihu7vt$a1a$1@dough.gmane.org> <1296246426.26102.3.camel@marge>
+	<BA362619-DDE9-4F1F-A12A-84010EF1C6F1@holdenweb.com>
+	<45EF02F5-7E01-4899-81E4-4CDD90052636@gmail.com>
+Message-ID: <1296255612.3686.4.camel@localhost.localdomain>
+
+
+While I agree the mailbox module is basically useless right now, the
+fact that we are using the rc phase for common bug fixing means the rc
+phase has become useless too. That may become a quality problem in the
+middle term. On the other hand, if the RM refused all non-trivial
+patches during the rc phase, that would force people to stop playing
+games with the release process. The mailbox module's brokenness was,
+after all, known for quite some time.
+
+Regards
+
+Antoine.
+
+
+Le vendredi 28 janvier 2011 ? 14:51 -0800, Raymond Hettinger a ?crit :
+> On Jan 28, 2011, at 12:35 PM, Steve Holden wrote:
+> 
+> > As teh reporter of that bug I should like to say in Victor's, Antoine's and David's support that the module is so broken without this patch that the module should not really have been included in a production release.
+> > 
+> > Even if the current patch is broken, I believe the results of using that code would be less negative than the results of using the module from the previous release.
+> 
+> 
+> +1
+> 
+> 
+> Raymond
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+> 
+
+
+
+From steve at holdenweb.com  Sat Jan 29 02:05:30 2011
+From: steve at holdenweb.com (Steve Holden)
+Date: Fri, 28 Jan 2011 20:05:30 -0500
+Subject: [python-committers] rc2 freeze due in two days
+In-Reply-To: <1296255612.3686.4.camel@localhost.localdomain>
+References: <ihu7vt$a1a$1@dough.gmane.org> <1296246426.26102.3.camel@marge>
+	<BA362619-DDE9-4F1F-A12A-84010EF1C6F1@holdenweb.com>
+	<45EF02F5-7E01-4899-81E4-4CDD90052636@gmail.com>
+	<1296255612.3686.4.camel@localhost.localdomain>
+Message-ID: <5055096D-83E1-4E0D-893C-1E457D967F4E@holdenweb.com>
+
+Antoine is quite correct. The strict process would be to include a note it the NEWS file pointing out that this deficiency was found too late for the necessary fixes to be applied in a controlled manner.
+
+I was not thinking straight: I remember arguing in the past that multiprocessing should be excluded from its first release because it was being introduced too late in the cycle, and the ensuing work when it was indeed prematurely included (from my PoV; and I do not negate the significant benefits its existence has since provided).
+
+If a note is required for the NEWS file I would be happy to author it if nobody else has time. We can perhaps provide a patch in the sandbox for anyone who is curious about the kinds of problems that can be raised by Unicode issues and some of the progress that has been made towards solving them. The same may be true of David's other partially-funded work on the email package.
+
+It's also clear that the next  release would benefit from David and/or other developers being able to spend more time on these issues. If any reader is able to help the PSF find sponsorship to fund this or other developments please write to the board, or to me directly.
+
+regards
+ Steve
+
+On Jan 28, 2011, at 6:00 PM, Antoine Pitrou wrote:
+
+> 
+> While I agree the mailbox module is basically useless right now, the
+> fact that we are using the rc phase for common bug fixing means the rc
+> phase has become useless too. That may become a quality problem in the
+> middle term. On the other hand, if the RM refused all non-trivial
+> patches during the rc phase, that would force people to stop playing
+> games with the release process. The mailbox module's brokenness was,
+> after all, known for quite some time.
+> 
+> Regards
+> 
+> Antoine.
+> 
+> 
+> Le vendredi 28 janvier 2011 ? 14:51 -0800, Raymond Hettinger a ?crit :
+>> On Jan 28, 2011, at 12:35 PM, Steve Holden wrote:
+>> 
+>>> As teh reporter of that bug I should like to say in Victor's, Antoine's and David's support that the module is so broken without this patch that the module should not really have been included in a production release.
+>>> 
+>>> Even if the current patch is broken, I believe the results of using that code would be less negative than the results of using the module from the previous release.
+>> 
+>> 
+>> +1
+>> 
+>> 
+>> Raymond
+>> _______________________________________________
+>> python-committers mailing list
+>> python-committers at python.org
+>> http://mail.python.org/mailman/listinfo/python-committers
+>> 
+> 
+> 
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+
+
+From steve at holdenweb.com  Sat Jan 29 06:15:15 2011
+From: steve at holdenweb.com (Steve Holden)
+Date: Sat, 29 Jan 2011 00:15:15 -0500
+Subject: [python-committers] rc2 freeze due in two days
+In-Reply-To: <20110129050452.58E79241AFE@kimball.webabinitio.net>
+References: <ihu7vt$a1a$1@dough.gmane.org> <1296246426.26102.3.camel@marge>
+	<BA362619-DDE9-4F1F-A12A-84010EF1C6F1@holdenweb.com>
+	<45EF02F5-7E01-4899-81E4-4CDD90052636@gmail.com>
+	<1296255612.3686.4.camel@localhost.localdomain>
+	<5055096D-83E1-4E0D-893C-1E457D967F4E@holdenweb.com>
+	<20110129050452.58E79241AFE@kimball.webabinitio.net>
+Message-ID: <73269F1F-D64B-4738-B443-63FBE1968C02@holdenweb.com>
+
+
+On Jan 29, 2011, at 12:04 AM, R. David Murray wrote:
+
+> If the module weren't already broken for most real-world purposes I'd
+> no question want to wait.  As it is I'm on the fence.
+
+Me too, but I did want to acknowledge the correctness of Antoine's argument. Yes, I reminded people (using multiprocessing as an example, which I agree was probably not a fair parallel) that ignoring process can have negative consequences, but I do agree with you about the desirability of not having to wait for 3.3.
+
+Who'd  be a release manager?
+
+regards
+ Steve
+
+
+From rdmurray at bitdance.com  Sat Jan 29 06:04:52 2011
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Sat, 29 Jan 2011 00:04:52 -0500
+Subject: [python-committers] rc2 freeze due in two days
+In-Reply-To: <5055096D-83E1-4E0D-893C-1E457D967F4E@holdenweb.com>
+References: <ihu7vt$a1a$1@dough.gmane.org> <1296246426.26102.3.camel@marge>
+	<BA362619-DDE9-4F1F-A12A-84010EF1C6F1@holdenweb.com>
+	<45EF02F5-7E01-4899-81E4-4CDD90052636@gmail.com>
+	<1296255612.3686.4.camel@localhost.localdomain>
+	<5055096D-83E1-4E0D-893C-1E457D967F4E@holdenweb.com>
+Message-ID: <20110129050452.58E79241AFE@kimball.webabinitio.net>
+
+On Fri, 28 Jan 2011 20:05:30 -0500, Steve Holden <steve at holdenweb.com> wrote:
+> Antoine is quite correct. The strict process would be to include a note it
+> the NEWS file pointing out that this deficiency was found too late for the
+> necessary fixes to be applied in a controlled manner.
+
+I think a warning in the documentation for the module would also be
+required (and in 3.1 as well).
+
+> body else has time. We can perhaps provide a patch in the sandbox for
+> anyone who is curious about the kinds of problems that can be raised
+> by Unicode issues and some of the progress that has been made towards
+
+Well, the patch is in the tracker.
+
+> solving them. The same may be true of David's other partially-funded
+> work on the email package.
+
+I have ideas about that, but I'm waiting until after the release of 3.2
+to put them forward.
+
+I am OK with the patch going in, and OK with it not going in.  I don't
+think it is quite parallel to Multiprocessing, though:  it is a much
+smaller codebase, with good test coverage, and the fix itself, although
+non-trivial, is at its base simple (replace the ASCII-string-only calls
+to email by bytes-capable calls to email, and allow those bytes in and
+out via extensions to the appropriate APIs).  In addition, the module
+is already *in* 3.2, it just doesn't work.
+
+I agree with Antoine that the RC phase is not the right place to be
+doing this.  However, it is rather disheartening to think that we need
+to wait for 3.3 to have this working, whereas if we put the patch in
+but there turn out to be edge case bugs, we can fix those bugs in 3.2.1...
+
+If the module weren't already broken for most real-world purposes I'd
+no question want to wait.  As it is I'm on the fence.
+
+--
+R. David Murray                                      www.bitdance.com
+
+From lukasz at langa.pl  Sat Jan 29 11:16:49 2011
+From: lukasz at langa.pl (=?UTF-8?B?xYF1a2FzeiBMYW5nYQ==?=)
+Date: Sat, 29 Jan 2011 11:16:49 +0100
+Subject: [python-committers] rc2 freeze due in two days
+In-Reply-To: <73269F1F-D64B-4738-B443-63FBE1968C02@holdenweb.com>
+References: <ihu7vt$a1a$1@dough.gmane.org>
+	<1296246426.26102.3.camel@marge>	<BA362619-DDE9-4F1F-A12A-84010EF1C6F1@holdenweb.com>	<45EF02F5-7E01-4899-81E4-4CDD90052636@gmail.com>	<1296255612.3686.4.camel@localhost.localdomain>	<5055096D-83E1-4E0D-893C-1E457D967F4E@holdenweb.com>	<20110129050452.58E79241AFE@kimball.webabinitio.net>
+	<73269F1F-D64B-4738-B443-63FBE1968C02@holdenweb.com>
+Message-ID: <4D43E911.5080709@langa.pl>
+
+W dniu 2011-01-29 06:15, Steve Holden pisze:
+>> If the module weren't already broken for most real-world purposes I'd
+>> no question want to wait.  As it is I'm on the fence.
+> Me too, but I did want to acknowledge the correctness of Antoine's argument. Yes, I reminded people (using multiprocessing as an example, which I agree was probably not a fair parallel) that ignoring process can have negative consequences, but I do agree with you about the desirability of not having to wait for 3.3.
+
+Gentlemen. It was disappointing to see serious ideas about pushing 
+feature commits after the beta (and even during the RC phase) or 
+sneaking in controversial changes in respect to the moratorium. All 
+these risky suggestions came from the fact that we are afraid to miss a 
+release and be forced to wait another year or two. Maybe let's eat the 
+cake and have it too. We could do that by shortening the release cycle 
+from now on. How about that?
+
+PS. Please, let's release 3.2 as it is.
+
+Best regards,
+?ukasz Langa
+
+From solipsis at pitrou.net  Sat Jan 29 11:26:51 2011
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Sat, 29 Jan 2011 11:26:51 +0100
+Subject: [python-committers] rc2 freeze due in two days
+In-Reply-To: <4D43E911.5080709@langa.pl>
+References: <ihu7vt$a1a$1@dough.gmane.org> <1296246426.26102.3.camel@marge>
+	<BA362619-DDE9-4F1F-A12A-84010EF1C6F1@holdenweb.com>
+	<45EF02F5-7E01-4899-81E4-4CDD90052636@gmail.com>
+	<1296255612.3686.4.camel@localhost.localdomain>
+	<5055096D-83E1-4E0D-893C-1E457D967F4E@holdenweb.com>
+	<20110129050452.58E79241AFE@kimball.webabinitio.net>
+	<73269F1F-D64B-4738-B443-63FBE1968C02@holdenweb.com>
+	<4D43E911.5080709@langa.pl>
+Message-ID: <1296296811.3687.0.camel@localhost.localdomain>
+
+Le samedi 29 janvier 2011 ? 11:16 +0100, ?ukasz Langa a ?crit :
+> W dniu 2011-01-29 06:15, Steve Holden pisze:
+> >> If the module weren't already broken for most real-world purposes I'd
+> >> no question want to wait.  As it is I'm on the fence.
+> > Me too, but I did want to acknowledge the correctness of Antoine's argument. Yes, I reminded people (using multiprocessing as an example, which I agree was probably not a fair parallel) that ignoring process can have negative consequences, but I do agree with you about the desirability of not having to wait for 3.3.
+> 
+> Gentlemen. It was disappointing to see serious ideas about pushing 
+> feature commits after the beta (and even during the RC phase) or 
+> sneaking in controversial changes in respect to the moratorium. All 
+> these risky suggestions came from the fact that we are afraid to miss a 
+> release and be forced to wait another year or two.
+
+Of course, this is all solved if people actually take the planning into
+account instead of ignoring it :)
+
+cheers
+
+Antoine.
+
+
+
+From georg at python.org  Sat Jan 29 11:22:17 2011
+From: georg at python.org (Georg Brandl)
+Date: Sat, 29 Jan 2011 11:22:17 +0100
+Subject: [python-committers] rc2 freeze due in two days
+In-Reply-To: <5055096D-83E1-4E0D-893C-1E457D967F4E@holdenweb.com>
+References: <ihu7vt$a1a$1@dough.gmane.org>
+	<1296246426.26102.3.camel@marge>	<BA362619-DDE9-4F1F-A12A-84010EF1C6F1@holdenweb.com>	<45EF02F5-7E01-4899-81E4-4CDD90052636@gmail.com>	<1296255612.3686.4.camel@localhost.localdomain>
+	<5055096D-83E1-4E0D-893C-1E457D967F4E@holdenweb.com>
+Message-ID: <4D43EA59.60800@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Both you (i.e. your earlier you) and Antoine are somewhat correct.  The
+mailbox module *is* broken, and such large patches *shouldn't* go in
+during rc phase.
+
+However, I don't think people are "playing games" with the release
+process.  No core developer has any profit from delaying patches for
+as long as possible, and we have to remember this is all volunteer work.
+Nobody is liable for bugs in the mailbox module and can be fired because
+these problems were discovered or handled too late in the process.
+
+About quality: It is a big fail to do a release and include a note "but
+hey, this module does not work, because our developers did not commit a
+working patch soon enough" (of course you would omit the second part,
+but you would probably include a link to the bug report which says the
+same).  If that isn't a quality problem, I don't know what is.
+
+If the module is broken and we even have a patch, written by the current
+expert on the subject, why don't we take the time to review and include
+it, even if it means that rc2 or the final is delayed a bit?  It's not
+like anyone is standing behind me with a gun, demanding the release of
+3.2.  As you all know, a large part of the community is lukewarm about
+Python 3; releasing minor versions with whole modules known to be broken
+is not going to improve this.
+
+So my "pronouncement" here is: if reviewed properly, the patch will go
+in 3.2rc2.  If this needs a few more days, so be it.  And should the
+testing after 3.2rc2 reveal deficiencies, we will fix them and put in
+another rc.
+
+cheers,
+Georg
+
+Am 29.01.2011 02:05, schrieb Steve Holden:
+> Antoine is quite correct. The strict process would be to include a
+> note it the NEWS file pointing out that this deficiency was found too
+> late for the necessary fixes to be applied in a controlled manner.
+> 
+> I was not thinking straight: I remember arguing in the past that
+> multiprocessing should be excluded from its first release because it
+> was being introduced too late in the cycle, and the ensuing work when
+> it was indeed prematurely included (from my PoV; and I do not negate
+> the significant benefits its existence has since provided).
+> 
+> If a note is required for the NEWS file I would be happy to author it
+> if nobody else has time. We can perhaps provide a patch in the
+> sandbox for anyone who is curious about the kinds of problems that
+> can be raised by Unicode issues and some of the progress that has
+> been made towards solving them. The same may be true of David's other
+> partially-funded work on the email package.
+> 
+> It's also clear that the next  release would benefit from David
+> and/or other developers being able to spend more time on these
+> issues. If any reader is able to help the PSF find sponsorship to
+> fund this or other developments please write to the board, or to me
+> directly.
+> 
+> regards Steve
+> 
+> On Jan 28, 2011, at 6:00 PM, Antoine Pitrou wrote:
+> 
+>> 
+>> While I agree the mailbox module is basically useless right now,
+>> the fact that we are using the rc phase for common bug fixing means
+>> the rc phase has become useless too. That may become a quality
+>> problem in the middle term. On the other hand, if the RM refused
+>> all non-trivial patches during the rc phase, that would force
+>> people to stop playing games with the release process. The mailbox
+>> module's brokenness was, after all, known for quite some time.
+>> 
+>> Regards
+>> 
+>> Antoine.
+>> 
+>> 
+>> Le vendredi 28 janvier 2011 ? 14:51 -0800, Raymond Hettinger a
+>> ?crit :
+>>> On Jan 28, 2011, at 12:35 PM, Steve Holden wrote:
+>>> 
+>>>> As teh reporter of that bug I should like to say in Victor's,
+>>>> Antoine's and David's support that the module is so broken
+>>>> without this patch that the module should not really have been
+>>>> included in a production release.
+>>>> 
+>>>> Even if the current patch is broken, I believe the results of
+>>>> using that code would be less negative than the results of
+>>>> using the module from the previous release.
+>>> 
+>>> 
+>>> +1
+>>> 
+>>> 
+>>> Raymond
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v2.0.17 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - http://enigmail.mozdev.org/
+
+iEYEARECAAYFAk1D6lkACgkQN9GcIYhpnLB/dgCgkNAnf+pg9qumqXR/X9AjvgdO
+dT4AoKqKcn0wurO6YhB6QqDzmRFaip19
+=thhT
+-----END PGP SIGNATURE-----
+
+From georg at python.org  Sat Jan 29 11:25:48 2011
+From: georg at python.org (Georg Brandl)
+Date: Sat, 29 Jan 2011 11:25:48 +0100
+Subject: [python-committers] rc2 freeze due in two days
+In-Reply-To: <4D43E911.5080709@langa.pl>
+References: <ihu7vt$a1a$1@dough.gmane.org>	<1296246426.26102.3.camel@marge>	<BA362619-DDE9-4F1F-A12A-84010EF1C6F1@holdenweb.com>	<45EF02F5-7E01-4899-81E4-4CDD90052636@gmail.com>	<1296255612.3686.4.camel@localhost.localdomain>	<5055096D-83E1-4E0D-893C-1E457D967F4E@holdenweb.com>	<20110129050452.58E79241AFE@kimball.webabinitio.net>	<73269F1F-D64B-4738-B443-63FBE1968C02@holdenweb.com>
+	<4D43E911.5080709@langa.pl>
+Message-ID: <4D43EB2C.5050303@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Am 29.01.2011 11:16, schrieb ?ukasz Langa:
+> W dniu 2011-01-29 06:15, Steve Holden pisze:
+>>> If the module weren't already broken for most real-world purposes I'd
+>>> no question want to wait.  As it is I'm on the fence.
+>> Me too, but I did want to acknowledge the correctness of Antoine's
+>> argument. Yes, I reminded people (using multiprocessing as an example,
+>> which I agree was probably not a fair parallel) that ignoring process
+>> can have negative consequences, but I do agree with you about the
+>> desirability of not having to wait for 3.3.
+> 
+> Gentlemen. It was disappointing to see serious ideas about pushing
+> feature commits after the beta (and even during the RC phase) or
+> sneaking in controversial changes in respect to the moratorium. All
+> these risky suggestions came from the fact that we are afraid to miss a
+> release and be forced to wait another year or two. Maybe let's eat the
+> cake and have it too. We could do that by shortening the release cycle
+> from now on. How about that?
+
+Sure -- I take it you're volunteering to be RM?
+
+Georg
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v2.0.17 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - http://enigmail.mozdev.org/
+
+iEYEARECAAYFAk1D6ywACgkQN9GcIYhpnLCaXgCePUa00PitA9Tr0s5Vm1h8ZS+g
+fzEAn3STkH1evzytNuw7fZR7+F+bkAS+
+=3hsV
+-----END PGP SIGNATURE-----
+
+From lukasz at langa.pl  Sat Jan 29 12:17:41 2011
+From: lukasz at langa.pl (=?UTF-8?B?xYF1a2FzeiBMYW5nYQ==?=)
+Date: Sat, 29 Jan 2011 12:17:41 +0100
+Subject: [python-committers] rc2 freeze due in two days
+In-Reply-To: <4D43EB2C.5050303@python.org>
+References: <ihu7vt$a1a$1@dough.gmane.org>	<1296246426.26102.3.camel@marge>	<BA362619-DDE9-4F1F-A12A-84010EF1C6F1@holdenweb.com>	<45EF02F5-7E01-4899-81E4-4CDD90052636@gmail.com>	<1296255612.3686.4.camel@localhost.localdomain>	<5055096D-83E1-4E0D-893C-1E457D967F4E@holdenweb.com>	<20110129050452.58E79241AFE@kimball.webabinitio.net>	<73269F1F-D64B-4738-B443-63FBE1968C02@holdenweb.com>	<4D43E911.5080709@langa.pl>
+	<4D43EB2C.5050303@python.org>
+Message-ID: <4D43F755.4030600@langa.pl>
+
+W dniu 2011-01-29 11:25, Georg Brandl pisze:
+>> Gentlemen. It was disappointing to see serious ideas about pushing
+>> feature commits after the beta (and even during the RC phase) or
+>> sneaking in controversial changes in respect to the moratorium. All
+>> these risky suggestions came from the fact that we are afraid to miss a
+>> release and be forced to wait another year or two. Maybe let's eat the
+>> cake and have it too. We could do that by shortening the release cycle
+>> from now on. How about that?
+> Sure -- I take it you're volunteering to be RM?
+
+That goes without saying. I wouldn't mind doing all the work. :-)
+
+Best regards,
+?ukasz
+
+From mal at egenix.com  Sat Jan 29 12:50:37 2011
+From: mal at egenix.com (M.-A. Lemburg)
+Date: Sat, 29 Jan 2011 12:50:37 +0100
+Subject: [python-committers] rc2 freeze due in two days
+In-Reply-To: <73269F1F-D64B-4738-B443-63FBE1968C02@holdenweb.com>
+References: <ihu7vt$a1a$1@dough.gmane.org>
+	<1296246426.26102.3.camel@marge>	<BA362619-DDE9-4F1F-A12A-84010EF1C6F1@holdenweb.com>	<45EF02F5-7E01-4899-81E4-4CDD90052636@gmail.com>	<1296255612.3686.4.camel@localhost.localdomain>	<5055096D-83E1-4E0D-893C-1E457D967F4E@holdenweb.com>	<20110129050452.58E79241AFE@kimball.webabinitio.net>
+	<73269F1F-D64B-4738-B443-63FBE1968C02@holdenweb.com>
+Message-ID: <4D43FF0D.3050000@egenix.com>
+
+Steve Holden wrote:
+> 
+> On Jan 29, 2011, at 12:04 AM, R. David Murray wrote:
+> 
+>> If the module weren't already broken for most real-world purposes I'd
+>> no question want to wait.  As it is I'm on the fence.
+
+Why not add a deprecation warning to the module and point users to a
+version on PyPI which you can then develop independently of
+the current Python release cycle ?!
+
+Adding a new module during an RC release is a no-go. We'd
+then have to go back to beta again.
+
+--
+Marc-Andre
+
+From vinay_sajip at yahoo.co.uk  Sat Jan 29 13:24:37 2011
+From: vinay_sajip at yahoo.co.uk (Vinay Sajip)
+Date: Sat, 29 Jan 2011 12:24:37 +0000 (UTC)
+Subject: [python-committers] rc2 freeze due in two days
+References: <ihu7vt$a1a$1@dough.gmane.org>
+	<1296246426.26102.3.camel@marge>	<BA362619-DDE9-4F1F-A12A-84010EF1C6F1@holdenweb.com>	<45EF02F5-7E01-4899-81E4-4CDD90052636@gmail.com>	<1296255612.3686.4.camel@localhost.localdomain>
+	<5055096D-83E1-4E0D-893C-1E457D967F4E@holdenweb.com>
+	<4D43EA59.60800@python.org>
+Message-ID: <loom.20110129T131830-910@post.gmane.org>
+
+Georg Brandl <georg <at> python.org> writes:
+
+> About quality: It is a big fail to do a release and include a note "but
+> hey, this module does not work, because our developers did not commit a
+> working patch soon enough" (of course you would omit the second part,
+> but you would probably include a link to the bug report which says the
+> same).  If that isn't a quality problem, I don't know what is.
+> 
+> If the module is broken and we even have a patch, written by the current
+> expert on the subject, why don't we take the time to review and include
+> it, even if it means that rc2 or the final is delayed a bit?  It's not
+> like anyone is standing behind me with a gun, demanding the release of
+> 3.2.  As you all know, a large part of the community is lukewarm about
+> Python 3; releasing minor versions with whole modules known to be broken
+> is not going to improve this.
+> 
+> So my "pronouncement" here is: if reviewed properly, the patch will go
+> in 3.2rc2.  If this needs a few more days, so be it.  And should the
+> testing after 3.2rc2 reveal deficiencies, we will fix them and put in
+> another rc.
+> 
+
++1.
+
+When we say "release candidate", surely that implies no known serious
+brokenness. Even if we have to go back to calling it beta (Marc-Andre's point),
+surely there's no harm in that, as long as it's made clear that it wouldn't be a
+free-for-all for other patches to go in?
+
+Regards,
+
+Vinay Sajip
+
+
+From solipsis at pitrou.net  Sat Jan 29 13:52:40 2011
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Sat, 29 Jan 2011 13:52:40 +0100
+Subject: [python-committers] rc2 freeze due in two days
+In-Reply-To: <loom.20110129T131830-910@post.gmane.org>
+References: <ihu7vt$a1a$1@dough.gmane.org> <1296246426.26102.3.camel@marge>
+	<BA362619-DDE9-4F1F-A12A-84010EF1C6F1@holdenweb.com>
+	<45EF02F5-7E01-4899-81E4-4CDD90052636@gmail.com>
+	<1296255612.3686.4.camel@localhost.localdomain>
+	<5055096D-83E1-4E0D-893C-1E457D967F4E@holdenweb.com>
+	<4D43EA59.60800@python.org> <loom.20110129T131830-910@post.gmane.org>
+Message-ID: <1296305560.3687.3.camel@localhost.localdomain>
+
+Le samedi 29 janvier 2011 ? 12:24 +0000, Vinay Sajip a ?crit :
+> > 
+> > So my "pronouncement" here is: if reviewed properly, the patch will go
+> > in 3.2rc2.  If this needs a few more days, so be it.  And should the
+> > testing after 3.2rc2 reveal deficiencies, we will fix them and put in
+> > another rc.
+> > 
+> 
+> +1.
+> 
+> When we say "release candidate", surely that implies no known serious
+> brokenness. Even if we have to go back to calling it beta (Marc-Andre's point),
+> surely there's no harm in that, as long as it's made clear that it wouldn't be a
+> free-for-all for other patches to go in?
+
+Okay, I don't mind if mailbox gets "fixed", but -1 on making the release
+schedule any longer because of that.
+OTOH, if mailbox *needs* a lengthening of the release schedule, then
+it's 3.3 material (or 3.2.1, depending on the other RM's view :-)).
+
+Regards
+
+Antoine.
+
+
+
+From ncoghlan at gmail.com  Sat Jan 29 13:58:08 2011
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Sat, 29 Jan 2011 22:58:08 +1000
+Subject: [python-committers] rc2 freeze due in two days
+In-Reply-To: <4D43E911.5080709@langa.pl>
+References: <ihu7vt$a1a$1@dough.gmane.org> <1296246426.26102.3.camel@marge>
+	<BA362619-DDE9-4F1F-A12A-84010EF1C6F1@holdenweb.com>
+	<45EF02F5-7E01-4899-81E4-4CDD90052636@gmail.com>
+	<1296255612.3686.4.camel@localhost.localdomain>
+	<5055096D-83E1-4E0D-893C-1E457D967F4E@holdenweb.com>
+	<20110129050452.58E79241AFE@kimball.webabinitio.net>
+	<73269F1F-D64B-4738-B443-63FBE1968C02@holdenweb.com>
+	<4D43E911.5080709@langa.pl>
+Message-ID: <AANLkTi=yvFD8xS+RiKz-NLHKSTyLHgf9D+RxyTBFxB4m@mail.gmail.com>
+
+2011/1/29 ?ukasz Langa <lukasz at langa.pl>:
+> We could do that by shortening the release cycle from now on. How about
+> that?
+
+The long-term fix is actually the ongoing effort to split the standard
+library off from the core language implementation. A faster release
+cycle is reasonably appropriate for the former, but highly
+inappropriate for the latter.
+
+> PS. Please, let's release 3.2 as it is.
+
+Agreed.
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan?? |?? ncoghlan at gmail.com?? |?? Brisbane, Australia
+
+From ncoghlan at gmail.com  Sat Jan 29 14:00:28 2011
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Sat, 29 Jan 2011 23:00:28 +1000
+Subject: [python-committers] rc2 freeze due in two days
+In-Reply-To: <AANLkTi=yvFD8xS+RiKz-NLHKSTyLHgf9D+RxyTBFxB4m@mail.gmail.com>
+References: <ihu7vt$a1a$1@dough.gmane.org> <1296246426.26102.3.camel@marge>
+	<BA362619-DDE9-4F1F-A12A-84010EF1C6F1@holdenweb.com>
+	<45EF02F5-7E01-4899-81E4-4CDD90052636@gmail.com>
+	<1296255612.3686.4.camel@localhost.localdomain>
+	<5055096D-83E1-4E0D-893C-1E457D967F4E@holdenweb.com>
+	<20110129050452.58E79241AFE@kimball.webabinitio.net>
+	<73269F1F-D64B-4738-B443-63FBE1968C02@holdenweb.com>
+	<4D43E911.5080709@langa.pl>
+	<AANLkTi=yvFD8xS+RiKz-NLHKSTyLHgf9D+RxyTBFxB4m@mail.gmail.com>
+Message-ID: <AANLkTimN+jA30erZcwxB-ZLaQc-5mdnk2H=ahTEdsaS6@mail.gmail.com>
+
+2011/1/29 Nick Coghlan <ncoghlan at gmail.com>:
+> 2011/1/29 ?ukasz Langa <lukasz at langa.pl>:
+>> PS. Please, let's release 3.2 as it is.
+>
+> Agreed.
+
+Although I can accept Georg's reasoning on the topic as well.
+
+Regards,
+Nick.
+
+-- 
+Nick Coghlan?? |?? ncoghlan at gmail.com?? |?? Brisbane, Australia
+
+From lukasz at langa.pl  Sat Jan 29 14:38:19 2011
+From: lukasz at langa.pl (=?utf-8?Q?=C5=81ukasz_Langa?=)
+Date: Sat, 29 Jan 2011 14:38:19 +0100
+Subject: [python-committers] rc2 freeze due in two days
+In-Reply-To: <AANLkTimN+jA30erZcwxB-ZLaQc-5mdnk2H=ahTEdsaS6@mail.gmail.com>
+References: <ihu7vt$a1a$1@dough.gmane.org> <1296246426.26102.3.camel@marge>
+	<BA362619-DDE9-4F1F-A12A-84010EF1C6F1@holdenweb.com>
+	<45EF02F5-7E01-4899-81E4-4CDD90052636@gmail.com>
+	<1296255612.3686.4.camel@localhost.localdomain>
+	<5055096D-83E1-4E0D-893C-1E457D967F4E@holdenweb.com>
+	<20110129050452.58E79241AFE@kimball.webabinitio.net>
+	<73269F1F-D64B-4738-B443-63FBE1968C02@holdenweb.com>
+	<4D43E911.5080709@langa.pl>
+	<AANLkTi=yvFD8xS+RiKz-NLHKSTyLHgf9D+RxyTBFxB4m@mail.gmail.com>
+	<AANLkTimN+jA30erZcwxB-ZLaQc-5mdnk2H=ahTEdsaS6@mail.gmail.com>
+Message-ID: <E447A005-AF42-4442-AAB9-64DF4BB3F0A1@langa.pl>
+
+Dnia 29-01-2011 o godz. 14:00 Nick Coghlan <ncoghlan at gmail.com> napisa?(a):
+
+> 2011/1/29 Nick Coghlan <ncoghlan at gmail.com>:
+>> 2011/1/29 ?ukasz Langa <lukasz at langa.pl>:
+>>> PS. Please, let's release 3.2 as it is.
+>> 
+>> Agreed.
+> 
+> Although I can accept Georg's reasoning on the topic as well.
+> 
+
+Me too. Practicality beats purity once again:-)
+
+-- 
+?ukasz
+
+From georg at python.org  Sat Jan 29 15:27:59 2011
+From: georg at python.org (Georg Brandl)
+Date: Sat, 29 Jan 2011 15:27:59 +0100
+Subject: [python-committers] rc2 freeze due in two days
+In-Reply-To: <1296305560.3687.3.camel@localhost.localdomain>
+References: <ihu7vt$a1a$1@dough.gmane.org>
+	<1296246426.26102.3.camel@marge>	<BA362619-DDE9-4F1F-A12A-84010EF1C6F1@holdenweb.com>	<45EF02F5-7E01-4899-81E4-4CDD90052636@gmail.com>	<1296255612.3686.4.camel@localhost.localdomain>	<5055096D-83E1-4E0D-893C-1E457D967F4E@holdenweb.com>	<4D43EA59.60800@python.org>
+	<loom.20110129T131830-910@post.gmane.org>
+	<1296305560.3687.3.camel@localhost.localdomain>
+Message-ID: <4D4423EF.2010604@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Am 29.01.2011 13:52, schrieb Antoine Pitrou:
+> Le samedi 29 janvier 2011 ? 12:24 +0000, Vinay Sajip a ?crit :
+>>>
+>>> So my "pronouncement" here is: if reviewed properly, the patch will go
+>>> in 3.2rc2.  If this needs a few more days, so be it.  And should the
+>>> testing after 3.2rc2 reveal deficiencies, we will fix them and put in
+>>> another rc.
+>>>
+>>
+>> +1.
+>>
+>> When we say "release candidate", surely that implies no known serious
+>> brokenness. Even if we have to go back to calling it beta (Marc-Andre's point),
+>> surely there's no harm in that, as long as it's made clear that it wouldn't be a
+>> free-for-all for other patches to go in?
+> 
+> Okay, I don't mind if mailbox gets "fixed", but -1 on making the release
+> schedule any longer because of that.
+> OTOH, if mailbox *needs* a lengthening of the release schedule, then
+> it's 3.3 material (or 3.2.1, depending on the other RM's view :-)).
+
+Not if it's a few days, otherwise I'd agree.
+
+Georg
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v2.0.17 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - http://enigmail.mozdev.org/
+
+iEYEARECAAYFAk1EI+8ACgkQN9GcIYhpnLCpqACglNZB0ZKLbif+7ruxqIRJn/63
+nQkAn1wW5dm3EDNKqbrGXxbBE2w998rO
+=Rqgw
+-----END PGP SIGNATURE-----
+
+From barry at python.org  Sat Jan 29 16:56:24 2011
+From: barry at python.org (Barry Warsaw)
+Date: Sat, 29 Jan 2011 10:56:24 -0500
+Subject: [python-committers] rc2 freeze due in two days
+In-Reply-To: <4D43EA59.60800@python.org>
+References: <ihu7vt$a1a$1@dough.gmane.org> <1296246426.26102.3.camel@marge>
+	<BA362619-DDE9-4F1F-A12A-84010EF1C6F1@holdenweb.com>
+	<45EF02F5-7E01-4899-81E4-4CDD90052636@gmail.com>
+	<1296255612.3686.4.camel@localhost.localdomain>
+	<5055096D-83E1-4E0D-893C-1E457D967F4E@holdenweb.com>
+	<4D43EA59.60800@python.org>
+Message-ID: <20110129105624.0eb7169e@limelight.wooz.org>
+
+On Jan 29, 2011, at 11:22 AM, Georg Brandl wrote:
+
+>So my "pronouncement" here is: if reviewed properly, the patch will go
+>in 3.2rc2.  If this needs a few more days, so be it.  And should the
+>testing after 3.2rc2 reveal deficiencies, we will fix them and put in
+>another rc.
+
+I completely agree.  We have precedence for delaying final releases to fix
+known issues with existing fixes.  If we had an established release cadence
+the it would be a different matter, but as it is, we release when it's ready.
+If I were RM, I'd make the same decision.
+
+-Barry
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 836 bytes
+Desc: not available
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20110129/5dca6ca3/attachment.pgp>
+
+From raymond.hettinger at gmail.com  Sat Jan 29 20:55:01 2011
+From: raymond.hettinger at gmail.com (Raymond Hettinger)
+Date: Sat, 29 Jan 2011 11:55:01 -0800
+Subject: [python-committers] rc2 freeze due in two days
+In-Reply-To: <20110129105624.0eb7169e@limelight.wooz.org>
+References: <ihu7vt$a1a$1@dough.gmane.org> <1296246426.26102.3.camel@marge>
+	<BA362619-DDE9-4F1F-A12A-84010EF1C6F1@holdenweb.com>
+	<45EF02F5-7E01-4899-81E4-4CDD90052636@gmail.com>
+	<1296255612.3686.4.camel@localhost.localdomain>
+	<5055096D-83E1-4E0D-893C-1E457D967F4E@holdenweb.com>
+	<4D43EA59.60800@python.org>
+	<20110129105624.0eb7169e@limelight.wooz.org>
+Message-ID: <BBADE226-A15E-4621-94AB-C8EFBED9B9DB@gmail.com>
+
+
+On Jan 29, 2011, at 7:56 AM, Barry Warsaw wrote:
+
+> On Jan 29, 2011, at 11:22 AM, Georg Brandl wrote:
+> 
+>> So my "pronouncement" here is: if reviewed properly, the patch will go
+>> in 3.2rc2.  If this needs a few more days, so be it.  And should the
+>> testing after 3.2rc2 reveal deficiencies, we will fix them and put in
+>> another rc.
+> 
+> I completely agree.  We have precedence for delaying final releases to fix
+> known issues with existing fixes.  If we had an established release cadence
+> the it would be a different matter, but as it is, we release when it's ready.
+> If I were RM, I'd make the same decision.
+
+The current RM and a former RM have spoken.
+
+Please give them your support instead of second-guessing them.
+
+
+Raymond
+
+
+P.S.  Even though it's late in the release cycle, I think we should be
+thrilled at the quality and intensity of efforts to fixup mailbox and the
+OS X issues.  If these guys (Ned, Ronald, David, Steffen, Antoine,
+and Victor) had not poured in effort, these issues may have lingered
+for long time.
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20110129/810d6279/attachment.html>
+
+From georg at python.org  Sat Jan 29 22:20:59 2011
+From: georg at python.org (Georg Brandl)
+Date: Sat, 29 Jan 2011 22:20:59 +0100
+Subject: [python-committers] rc2 freeze due in two days
+In-Reply-To: <BBADE226-A15E-4621-94AB-C8EFBED9B9DB@gmail.com>
+References: <ihu7vt$a1a$1@dough.gmane.org>
+	<1296246426.26102.3.camel@marge>	<BA362619-DDE9-4F1F-A12A-84010EF1C6F1@holdenweb.com>	<45EF02F5-7E01-4899-81E4-4CDD90052636@gmail.com>	<1296255612.3686.4.camel@localhost.localdomain>	<5055096D-83E1-4E0D-893C-1E457D967F4E@holdenweb.com>	<4D43EA59.60800@python.org>	<20110129105624.0eb7169e@limelight.wooz.org>
+	<BBADE226-A15E-4621-94AB-C8EFBED9B9DB@gmail.com>
+Message-ID: <4D4484BB.2050206@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Am 29.01.2011 20:55, schrieb Raymond Hettinger:
+
+> P.S.  Even though it's late in the release cycle, I think we should be
+> thrilled at the quality and intensity of efforts to fixup mailbox and the
+> OS X issues.  If these guys (Ned, Ronald, David, Steffen, Antoine,
+> and Victor) had not poured in effort, these issues may have lingered
+> for long time.
+
+Indeed, big cheers to all the volunteers who make it so pleasant to be
+the RM :)
+
+Georg
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v2.0.17 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - http://enigmail.mozdev.org/
+
+iEYEARECAAYFAk1EhLsACgkQN9GcIYhpnLDMJACdGqrYvpSSK5Tu/pK3T0VCIrUj
+DRIAnjYEwUJTC4gwGMPpOMB8I6uax5f3
+=X7xk
+-----END PGP SIGNATURE-----
+
+From georg at python.org  Sun Jan 30 10:52:14 2011
+From: georg at python.org (Georg Brandl)
+Date: Sun, 30 Jan 2011 10:52:14 +0100
+Subject: [python-committers] py3k frozen for rc2
+Message-ID: <4D4534CE.4010509@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Okay, this is it: please no more commits to the py3k branch for now.
+
+Also, for the remainder of the time until final, please make sure there
+is an issue for each change you want to make containing the patch
+(which was already the case for almost all changes after rc1 anyway),
+and assign the issue to me for sign-off after review.
+
+Changes to the "What's new" are exempt, but I would love some volunteers
+to read through the document and note any issues or typos.
+
+cheers,
+Georg
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v2.0.17 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - http://enigmail.mozdev.org/
+
+iEYEARECAAYFAk1FNM4ACgkQN9GcIYhpnLB20wCfUHDP6xAy3jOj2egp+IsYhA8r
+fYkAnR5gSiXv79y7UXLH97zpcUMcAXHV
+=4g0D
+-----END PGP SIGNATURE-----
+
+From ncoghlan at gmail.com  Sun Jan 30 14:49:07 2011
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Sun, 30 Jan 2011 23:49:07 +1000
+Subject: [python-committers] py3k frozen for rc2
+In-Reply-To: <4D4534CE.4010509@python.org>
+References: <4D4534CE.4010509@python.org>
+Message-ID: <AANLkTi=qHCEECK8NUPfT8zkR1OVt6G9b2GBMf0Vss6Sg@mail.gmail.com>
+
+On Sun, Jan 30, 2011 at 7:52 PM, Georg Brandl <georg at python.org> wrote:
+> Changes to the "What's new" are exempt, but I would love some volunteers
+> to read through the document and note any issues or typos.
+
+I put some comments up at http://bugs.python.org/issue11071.
+
+Mostly minor typo stuff, but there are a couple of additional logging
+changes that I think should be highlighted:
+- the new "handler of last resort" functionality, which allows
+libraries (such as concurrent.futures) to reliably use the logging
+module to report unraisable exceptions.
+- the new logging HOWTO in the docs which should hopefully make it
+much easier for people to start making effective use of the package
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan?? |?? ncoghlan at gmail.com?? |?? Brisbane, Australia
+
+From georg at python.org  Sun Jan 30 15:14:22 2011
+From: georg at python.org (Georg Brandl)
+Date: Sun, 30 Jan 2011 15:14:22 +0100
+Subject: [python-committers] py3k frozen for rc2
+In-Reply-To: <AANLkTi=qHCEECK8NUPfT8zkR1OVt6G9b2GBMf0Vss6Sg@mail.gmail.com>
+References: <4D4534CE.4010509@python.org>
+	<AANLkTi=qHCEECK8NUPfT8zkR1OVt6G9b2GBMf0Vss6Sg@mail.gmail.com>
+Message-ID: <4D45723E.8080200@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Am 30.01.2011 14:49, schrieb Nick Coghlan:
+> On Sun, Jan 30, 2011 at 7:52 PM, Georg Brandl <georg at python.org> wrote:
+>> Changes to the "What's new" are exempt, but I would love some volunteers
+>> to read through the document and note any issues or typos.
+> 
+> I put some comments up at http://bugs.python.org/issue11071.
+> 
+> Mostly minor typo stuff, but there are a couple of additional logging
+> changes that I think should be highlighted:
+> - the new "handler of last resort" functionality, which allows
+> libraries (such as concurrent.futures) to reliably use the logging
+> module to report unraisable exceptions.
+> - the new logging HOWTO in the docs which should hopefully make it
+> much easier for people to start making effective use of the package
+
+Thanks for doing this!
+
+Georg
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v2.0.17 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - http://enigmail.mozdev.org/
+
+iEYEARECAAYFAk1Fcj4ACgkQN9GcIYhpnLAs/gCeOTGeKJQJitFea51uXNNPJAVi
+qUcAnjfrfm10+EzW1v93oYLaag0zu4h5
+=jpsK
+-----END PGP SIGNATURE-----
+
+From georg at python.org  Sun Jan 30 14:48:15 2011
+From: georg at python.org (Georg Brandl)
+Date: Sun, 30 Jan 2011 14:48:15 +0100
+Subject: [python-committers] Issue #11051: system calls per import
+In-Reply-To: <AANLkTikgN53=j+_t6_D3rcwADEYxwdrS2wjdnV3rWLOF@mail.gmail.com>
+References: <1296377778.24415.4.camel@marge>	<4D452E71.6070401@python.org>
+	<AANLkTikgN53=j+_t6_D3rcwADEYxwdrS2wjdnV3rWLOF@mail.gmail.com>
+Message-ID: <4D456C1F.30502@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Am 30.01.2011 13:52, schrieb Nick Coghlan:
+> On Sun, Jan 30, 2011 at 7:25 PM, Georg Brandl <georg at python.org> wrote:
+>>> And why it does test with and without "module".
+>>
+>> Because it always did (there's a thing called backwards compatibility.)
+>>
+>> This is of course probably the obvious one to start a deprecation process.
+> 
+> But why do we check the long suffix for the *new* extension module
+> naming variants from PEP 3149 and PEP 384? Those are completely new,
+> so there's no backwards compatibility argument there.
+
+It's for easy transition I guess -- you take the same module name and
+just tack on .abi3.so instead of .so.
+
+Georg
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v2.0.17 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - http://enigmail.mozdev.org/
+
+iEYEARECAAYFAk1FbB8ACgkQN9GcIYhpnLC6qwCghvhPM1bMaNgmB8SUEoe73vzV
+DP0AnjKDxrR6Y59uFtSRzmWA+qtvBViA
+=8H8+
+-----END PGP SIGNATURE-----
+
+From georg at python.org  Sun Jan 30 21:47:05 2011
+From: georg at python.org (Georg Brandl)
+Date: Sun, 30 Jan 2011 21:47:05 +0100
+Subject: [python-committers] py3k frozen for rc2
+In-Reply-To: <4D4534CE.4010509@python.org>
+References: <4D4534CE.4010509@python.org>
+Message-ID: <4D45CE49.8010909@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Am 30.01.2011 10:52, schrieb Georg Brandl:
+> Okay, this is it: please no more commits to the py3k branch for now.
+> 
+> Also, for the remainder of the time until final, please make sure there
+> is an issue for each change you want to make containing the patch
+> (which was already the case for almost all changes after rc1 anyway),
+> and assign the issue to me for sign-off after review.
+> 
+> Changes to the "What's new" are exempt, but I would love some volunteers
+> to read through the document and note any issues or typos.
+
+OK, the branch is now unfrozen again, but please remember the policy
+above.
+
+Georg
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v2.0.17 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - http://enigmail.mozdev.org/
+
+iEYEARECAAYFAk1FzkkACgkQN9GcIYhpnLBjWgCePiwOg8dohZ0Di6w5ynB2+mw4
+MFcAn2ui6oSxXncsbAn0jEwsrR1HBAD1
+=MkDy
+-----END PGP SIGNATURE-----
+
+From georg at python.org  Mon Jan 31 11:32:02 2011
+From: georg at python.org (Georg Brandl)
+Date: Mon, 31 Jan 2011 11:32:02 +0100
+Subject: [python-committers] [RELEASED] Python 3.2 rc 2
+Message-ID: <4D468FA2.4040704@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On behalf of the Python development team, I'm quite happy to announce
+the second release candidate of Python 3.2.
+
+Python 3.2 is a continuation of the efforts to improve and stabilize the
+Python 3.x line.  Since the final release of Python 2.7, the 2.x line
+will only receive bugfixes, and new features are developed for 3.x only.
+
+Since PEP 3003, the Moratorium on Language Changes, is in effect, there
+are no changes in Python's syntax and built-in types in Python 3.2.
+Development efforts concentrated on the standard library and support for
+porting code to Python 3.  Highlights are:
+
+* numerous improvements to the unittest module
+* PEP 3147, support for .pyc repository directories
+* PEP 3149, support for version tagged dynamic libraries
+* PEP 3148, a new futures library for concurrent programming
+* PEP 384, a stable ABI for extension modules
+* PEP 391, dictionary-based logging configuration
+* an overhauled GIL implementation that reduces contention
+* an extended email package that handles bytes messages
+* a much improved ssl module with support for SSL contexts and certificate
+  hostname matching
+* a sysconfig module to access configuration information
+* additions to the shutil module, among them archive file support
+* many enhancements to configparser, among them mapping protocol support
+* improvements to pdb, the Python debugger
+* countless fixes regarding bytes/string issues; among them full support
+  for a bytes environment (filenames, environment variables)
+* many consistency and behavior fixes for numeric operations
+
+For a more extensive list of changes in 3.2, see
+
+    http://docs.python.org/3.2/whatsnew/3.2.html
+
+To download Python 3.2 visit:
+
+    http://www.python.org/download/releases/3.2/
+
+Please consider trying Python 3.2 with your code and reporting any bugs
+you may notice to:
+
+    http://bugs.python.org/
+
+
+Enjoy!
+
+- -- 
+Georg Brandl, Release Manager
+georg at python.org
+(on behalf of the entire python-dev team and 3.2's contributors)
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.11 (GNU/Linux)
+
+iEYEARECAAYFAk1Gj6IACgkQN9GcIYhpnLC53wCfcZhc6bxbc+fsmi+PAJxM6npr
+Hh4An3QRdeyKHm+L3CqVk+EX02PxNx2r
+=sTu6
+-----END PGP SIGNATURE-----
+

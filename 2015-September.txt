@@ -1,0 +1,1614 @@
+From antoine at python.org  Tue Sep  1 11:02:53 2015
+From: antoine at python.org (Antoine Pitrou)
+Date: Tue, 1 Sep 2015 11:02:53 +0200
+Subject: [python-committers] PSA: replace your DSA keys for SSH
+Message-ID: <55E569BD.3000802@python.org>
+
+
+> Even better: send a ed25519 key as documented in the devguide.
+
+By the way, for those who have been scratching their heads under Linux
+with unhelpful behaviour from the desktop's keyring, it turns out
+gnome-keyring hasn't been updated for ed25519 support...
+
+https://bugzilla.gnome.org/show_bug.cgi?id=723274
+
+Regards
+
+Antoine.
+
+From senthil at uthcode.com  Tue Sep  1 16:08:21 2015
+From: senthil at uthcode.com (Senthil Kumaran)
+Date: Tue, 1 Sep 2015 07:08:21 -0700
+Subject: [python-committers] PSA: replace your DSA keys for SSH
+In-Reply-To: <55E569BD.3000802@python.org>
+References: <55E569BD.3000802@python.org>
+Message-ID: <CAPOVWORm6XtpEzenzdA5_bmGdqip5VzcFifuVKPkYzRS_WA7uw@mail.gmail.com>
+
+On Tue, Sep 1, 2015 at 2:02 AM, Antoine Pitrou <antoine at python.org> wrote:
+
+> By the way, for those who have been scratching their heads under Linux
+> with unhelpful behaviour from the desktop's keyring, it turns out
+> gnome-keyring hasn't been updated for ed25519 support...
+>
+> https://bugzilla.gnome.org/show_bug.cgi?id=723274
+>
+
+On Mac, I had an easy timing compiling openssh locally (
+http://www.openssh.com/portable.html) to get the version with ed25519
+support.
+The default version did not have ed25519 support and I could not get
+precompiled latest version via brew.
+
+-- 
+Senthil
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150901/7f3f6069/attachment.html>
+
+From senthil at uthcode.com  Thu Sep  3 12:03:21 2015
+From: senthil at uthcode.com (Senthil Kumaran)
+Date: Thu, 3 Sep 2015 03:03:21 -0700
+Subject: [python-committers] [Python-checkins] cpython (merge 2.7 ->
+	2.7): merge heads.
+In-Reply-To: <20150903095128.14865.29569@psf.io>
+References: <20150903095128.14865.29569@psf.io>
+Message-ID: <CAPOVWOSd72t9TGkQs1QWKdDtpA+3_eWtvFkTdVujq2AxMarByA@mail.gmail.com>
+
+I did a merge head with Victor's change in 2.7 before pushing my change.
+Can someone confirm if I did it right? If anything was wrong, how to
+correct it?
+
+Thank you,
+Senthil
+
+
+On Thu, Sep 3, 2015 at 2:51 AM, senthil.kumaran <python-checkins at python.org>
+wrote:
+
+> https://hg.python.org/cpython/rev/d687912d499f
+> changeset:   97616:d687912d499f
+> branch:      2.7
+> parent:      97615:cb781d3b1e6b
+> parent:      97611:d739bc20d7b2
+> user:        Senthil Kumaran <senthil at uthcode.com>
+> date:        Thu Sep 03 02:50:51 2015 -0700
+> summary:
+>   merge heads.
+>
+> files:
+>   Lib/test/test_gdb.py      |  168 +++++++++++++++++++++--
+>   Lib/test/test_py3kwarn.py |   16 ++
+>   Tools/gdb/libpython.py    |  183 ++++++++++++++++++++++++-
+>   3 files changed, 338 insertions(+), 29 deletions(-)
+>
+>
+> diff --git a/Lib/test/test_gdb.py b/Lib/test/test_gdb.py
+> --- a/Lib/test/test_gdb.py
+> +++ b/Lib/test/test_gdb.py
+> @@ -10,21 +10,42 @@
+>  import unittest
+>  import sysconfig
+>
+> +from test import test_support
+>  from test.test_support import run_unittest, findfile
+>
+> +# Is this Python configured to support threads?
+>  try:
+> -    gdb_version, _ = subprocess.Popen(["gdb", "-nx", "--version"],
+> -
+> stdout=subprocess.PIPE).communicate()
+> -except OSError:
+> -    # This is what "no gdb" looks like.  There may, however, be other
+> -    # errors that manifest this way too.
+> -    raise unittest.SkipTest("Couldn't find gdb on the path")
+> -gdb_version_number = re.search("^GNU gdb [^\d]*(\d+)\.(\d)", gdb_version)
+> -gdb_major_version = int(gdb_version_number.group(1))
+> -gdb_minor_version = int(gdb_version_number.group(2))
+> +    import thread
+> +except ImportError:
+> +    thread = None
+> +
+> +def get_gdb_version():
+> +    try:
+> +        proc = subprocess.Popen(["gdb", "-nx", "--version"],
+> +                                stdout=subprocess.PIPE,
+> +                                universal_newlines=True)
+> +        version = proc.communicate()[0]
+> +    except OSError:
+> +        # This is what "no gdb" looks like.  There may, however, be other
+> +        # errors that manifest this way too.
+> +        raise unittest.SkipTest("Couldn't find gdb on the path")
+> +
+> +    # Regex to parse:
+> +    # 'GNU gdb (GDB; SUSE Linux Enterprise 12) 7.7\n' -> 7.7
+> +    # 'GNU gdb (GDB) Fedora 7.9.1-17.fc22\n' -> 7.9
+> +    # 'GNU gdb 6.1.1 [FreeBSD]\n'
+> +    match = re.search("^GNU gdb.*? (\d+)\.(\d)", version)
+> +    if match is None:
+> +        raise Exception("unable to parse GDB version: %r" % version)
+> +    return (version, int(match.group(1)), int(match.group(2)))
+> +
+> +gdb_version, gdb_major_version, gdb_minor_version = get_gdb_version()
+>  if gdb_major_version < 7:
+> -    raise unittest.SkipTest("gdb versions before 7.0 didn't support
+> python embedding"
+> -                            " Saw:\n" + gdb_version)
+> +    raise unittest.SkipTest("gdb versions before 7.0 didn't support
+> python "
+> +                            "embedding. Saw %s.%s:\n%s"
+> +                            % (gdb_major_version, gdb_minor_version,
+> +                               gdb_version))
+> +
+>  if sys.platform.startswith("sunos"):
+>      raise unittest.SkipTest("test doesn't work very well on Solaris")
+>
+> @@ -713,20 +734,133 @@
+>  class PyBtTests(DebuggerTests):
+>      @unittest.skipIf(python_is_optimized(),
+>                       "Python was compiled with optimizations")
+> -    def test_basic_command(self):
+> +    def test_bt(self):
+>          'Verify that the "py-bt" command works'
+>          bt = self.get_stack_trace(script=self.get_sample_script(),
+>                                    cmds_after_breakpoint=['py-bt'])
+>          self.assertMultilineMatches(bt,
+>                                      r'''^.*
+> -#[0-9]+ Frame 0x[0-9a-f]+, for file .*gdb_sample.py, line 7, in bar
+> \(a=1, b=2, c=3\)
+> +Traceback \(most recent call first\):
+> +  File ".*gdb_sample.py", line 10, in baz
+> +    print\(42\)
+> +  File ".*gdb_sample.py", line 7, in bar
+>      baz\(a, b, c\)
+> -#[0-9]+ Frame 0x[0-9a-f]+, for file .*gdb_sample.py, line 4, in foo
+> \(a=1, b=2, c=3\)
+> +  File ".*gdb_sample.py", line 4, in foo
+>      bar\(a, b, c\)
+> -#[0-9]+ Frame 0x[0-9a-f]+, for file .*gdb_sample.py, line 12, in <module>
+> \(\)
+> +  File ".*gdb_sample.py", line 12, in <module>
+>      foo\(1, 2, 3\)
+>  ''')
+>
+> +    @unittest.skipIf(python_is_optimized(),
+> +                     "Python was compiled with optimizations")
+> +    def test_bt_full(self):
+> +        'Verify that the "py-bt-full" command works'
+> +        bt = self.get_stack_trace(script=self.get_sample_script(),
+> +                                  cmds_after_breakpoint=['py-bt-full'])
+> +        self.assertMultilineMatches(bt,
+> +                                    r'''^.*
+> +#[0-9]+ Frame 0x-?[0-9a-f]+, for file .*gdb_sample.py, line 7, in bar
+> \(a=1, b=2, c=3\)
+> +    baz\(a, b, c\)
+> +#[0-9]+ Frame 0x-?[0-9a-f]+, for file .*gdb_sample.py, line 4, in foo
+> \(a=1, b=2, c=3\)
+> +    bar\(a, b, c\)
+> +#[0-9]+ Frame 0x-?[0-9a-f]+, for file .*gdb_sample.py, line 12, in
+> <module> \(\)
+> +    foo\(1, 2, 3\)
+> +''')
+> +
+> +    @unittest.skipUnless(thread,
+> +                         "Python was compiled without thread support")
+> +    def test_threads(self):
+> +        'Verify that "py-bt" indicates threads that are waiting for the
+> GIL'
+> +        cmd = '''
+> +from threading import Thread
+> +
+> +class TestThread(Thread):
+> +    # These threads would run forever, but we'll interrupt things with the
+> +    # debugger
+> +    def run(self):
+> +        i = 0
+> +        while 1:
+> +             i += 1
+> +
+> +t = {}
+> +for i in range(4):
+> +   t[i] = TestThread()
+> +   t[i].start()
+> +
+> +# Trigger a breakpoint on the main thread
+> +print 42
+> +
+> +'''
+> +        # Verify with "py-bt":
+> +        gdb_output = self.get_stack_trace(cmd,
+> +                                          cmds_after_breakpoint=['thread
+> apply all py-bt'])
+> +        self.assertIn('Waiting for the GIL', gdb_output)
+> +
+> +        # Verify with "py-bt-full":
+> +        gdb_output = self.get_stack_trace(cmd,
+> +                                          cmds_after_breakpoint=['thread
+> apply all py-bt-full'])
+> +        self.assertIn('Waiting for the GIL', gdb_output)
+> +
+> +    @unittest.skipIf(python_is_optimized(),
+> +                     "Python was compiled with optimizations")
+> +    # Some older versions of gdb will fail with
+> +    #  "Cannot find new threads: generic error"
+> +    # unless we add LD_PRELOAD=PATH-TO-libpthread.so.1 as a workaround
+> +    @unittest.skipUnless(thread,
+> +                         "Python was compiled without thread support")
+> +    def test_gc(self):
+> +        'Verify that "py-bt" indicates if a thread is garbage-collecting'
+> +        cmd = ('from gc import collect\n'
+> +               'print 42\n'
+> +               'def foo():\n'
+> +               '    collect()\n'
+> +               'def bar():\n'
+> +               '    foo()\n'
+> +               'bar()\n')
+> +        # Verify with "py-bt":
+> +        gdb_output = self.get_stack_trace(cmd,
+> +                                          cmds_after_breakpoint=['break
+> update_refs', 'continue', 'py-bt'],
+> +                                          )
+> +        self.assertIn('Garbage-collecting', gdb_output)
+> +
+> +        # Verify with "py-bt-full":
+> +        gdb_output = self.get_stack_trace(cmd,
+> +                                          cmds_after_breakpoint=['break
+> update_refs', 'continue', 'py-bt-full'],
+> +                                          )
+> +        self.assertIn('Garbage-collecting', gdb_output)
+> +
+> +    @unittest.skipIf(python_is_optimized(),
+> +                     "Python was compiled with optimizations")
+> +    # Some older versions of gdb will fail with
+> +    #  "Cannot find new threads: generic error"
+> +    # unless we add LD_PRELOAD=PATH-TO-libpthread.so.1 as a workaround
+> +    @unittest.skipUnless(thread,
+> +                         "Python was compiled without thread support")
+> +    def test_pycfunction(self):
+> +        'Verify that "py-bt" displays invocations of PyCFunction
+> instances'
+> +        # Tested function must not be defined with METH_NOARGS or METH_O,
+> +        # otherwise call_function() doesn't call PyCFunction_Call()
+> +        cmd = ('from time import gmtime\n'
+> +               'def foo():\n'
+> +               '    gmtime(1)\n'
+> +               'def bar():\n'
+> +               '    foo()\n'
+> +               'bar()\n')
+> +        # Verify with "py-bt":
+> +        gdb_output = self.get_stack_trace(cmd,
+> +                                          breakpoint='time_gmtime',
+> +                                          cmds_after_breakpoint=['bt',
+> 'py-bt'],
+> +                                          )
+> +        self.assertIn('<built-in function gmtime', gdb_output)
+> +
+> +        # Verify with "py-bt-full":
+> +        gdb_output = self.get_stack_trace(cmd,
+> +                                          breakpoint='time_gmtime',
+> +
+> cmds_after_breakpoint=['py-bt-full'],
+> +                                          )
+> +        self.assertIn('#0 <built-in function gmtime', gdb_output)
+> +
+> +
+>  class PyPrintTests(DebuggerTests):
+>      @unittest.skipIf(python_is_optimized(),
+>                       "Python was compiled with optimizations")
+> @@ -781,6 +915,10 @@
+>                                      r".*\na = 1\nb = 2\nc = 3\n.*")
+>
+>  def test_main():
+> +    if test_support.verbose:
+> +        print("GDB version %s.%s:" % (gdb_major_version,
+> gdb_minor_version))
+> +        for line in gdb_version.splitlines():
+> +            print(" " * 4 + line)
+>      run_unittest(PrettyPrintTests,
+>                   PyListTests,
+>                   StackNavigationTests,
+> diff --git a/Lib/test/test_py3kwarn.py b/Lib/test/test_py3kwarn.py
+> --- a/Lib/test/test_py3kwarn.py
+> +++ b/Lib/test/test_py3kwarn.py
+> @@ -2,6 +2,7 @@
+>  import sys
+>  from test.test_support import check_py3k_warnings, CleanImport,
+> run_unittest
+>  import warnings
+> +from test import test_support
+>
+>  if not sys.py3kwarning:
+>      raise unittest.SkipTest('%s must be run with the -3 flag' % __name__)
+> @@ -356,6 +357,21 @@
+>      def check_removal(self, module_name, optional=False):
+>          """Make sure the specified module, when imported, raises a
+>          DeprecationWarning and specifies itself in the message."""
+> +        if module_name in sys.modules:
+> +            mod = sys.modules[module_name]
+> +            filename = getattr(mod, '__file__', '')
+> +            mod = None
+> +            # the module is not implemented in C?
+> +            if not filename.endswith(('.py', '.pyc', '.pyo')):
+> +                # Issue #23375: If the module was already loaded,
+> reimporting
+> +                # the module will not emit again the warning. The warning
+> is
+> +                # emited when the module is loaded, but C modules cannot
+> +                # unloaded.
+> +                if test_support.verbose:
+> +                    print("Cannot test the Python 3 DeprecationWarning of
+> the "
+> +                          "%s module, the C module is already loaded"
+> +                          % module_name)
+> +                return
+>          with CleanImport(module_name), warnings.catch_warnings():
+>              warnings.filterwarnings("error", ".+ (module|package) .+
+> removed",
+>                                      DeprecationWarning, __name__)
+> diff --git a/Tools/gdb/libpython.py b/Tools/gdb/libpython.py
+> --- a/Tools/gdb/libpython.py
+> +++ b/Tools/gdb/libpython.py
+> @@ -45,6 +45,7 @@
+>
+>  from __future__ import print_function, with_statement
+>  import gdb
+> +import locale
+>  import os
+>  import sys
+>
+> @@ -76,6 +77,8 @@
+>
+>  MAX_OUTPUT_LEN=1024
+>
+> +ENCODING = locale.getpreferredencoding()
+> +
+>  class NullPyObjectPtr(RuntimeError):
+>      pass
+>
+> @@ -92,6 +95,18 @@
+>      # threshold in case the data was corrupted
+>      return xrange(safety_limit(int(val)))
+>
+> +if sys.version_info[0] >= 3:
+> +    def write_unicode(file, text):
+> +        file.write(text)
+> +else:
+> +    def write_unicode(file, text):
+> +        # Write a byte or unicode string to file. Unicode strings are
+> encoded to
+> +        # ENCODING encoding with 'backslashreplace' error handler to avoid
+> +        # UnicodeEncodeError.
+> +        if isinstance(text, unicode):
+> +            text = text.encode(ENCODING, 'backslashreplace')
+> +        file.write(text)
+> +
+>
+>  class StringTruncated(RuntimeError):
+>      pass
+> @@ -903,7 +918,12 @@
+>          newline character'''
+>          if self.is_optimized_out():
+>              return '(frame information optimized out)'
+> -        with open(self.filename(), 'r') as f:
+> +        filename = self.filename()
+> +        try:
+> +            f = open(filename, 'r')
+> +        except IOError:
+> +            return None
+> +        with f:
+>              all_lines = f.readlines()
+>              # Convert from 1-based current_line_num to 0-based list
+> offset:
+>              return all_lines[self.current_line_num()-1]
+> @@ -914,9 +934,9 @@
+>              return
+>          out.write('Frame 0x%x, for file %s, line %i, in %s ('
+>                    % (self.as_address(),
+> -                     self.co_filename,
+> +                     self.co_filename.proxyval(visited),
+>                       self.current_line_num(),
+> -                     self.co_name))
+> +                     self.co_name.proxyval(visited)))
+>          first = True
+>          for pyop_name, pyop_value in self.iter_locals():
+>              if not first:
+> @@ -929,6 +949,16 @@
+>
+>          out.write(')')
+>
+> +    def print_traceback(self):
+> +        if self.is_optimized_out():
+> +            sys.stdout.write('  (frame information optimized out)\n')
+> +            return
+> +        visited = set()
+> +        sys.stdout.write('  File "%s", line %i, in %s\n'
+> +                  % (self.co_filename.proxyval(visited),
+> +                     self.current_line_num(),
+> +                     self.co_name.proxyval(visited)))
+> +
+>  class PySetObjectPtr(PyObjectPtr):
+>      _typename = 'PySetObject'
+>
+> @@ -1222,6 +1252,23 @@
+>              iter_frame = iter_frame.newer()
+>          return index
+>
+> +    # We divide frames into:
+> +    #   - "python frames":
+> +    #       - "bytecode frames" i.e. PyEval_EvalFrameEx
+> +    #       - "other python frames": things that are of interest from a
+> python
+> +    #         POV, but aren't bytecode (e.g. GC, GIL)
+> +    #   - everything else
+> +
+> +    def is_python_frame(self):
+> +        '''Is this a PyEval_EvalFrameEx frame, or some other important
+> +        frame? (see is_other_python_frame for what "important" means in
+> this
+> +        context)'''
+> +        if self.is_evalframeex():
+> +            return True
+> +        if self.is_other_python_frame():
+> +            return True
+> +        return False
+> +
+>      def is_evalframeex(self):
+>          '''Is this a PyEval_EvalFrameEx frame?'''
+>          if self._gdbframe.name() == 'PyEval_EvalFrameEx':
+> @@ -1238,6 +1285,50 @@
+>
+>          return False
+>
+> +    def is_other_python_frame(self):
+> +        '''Is this frame worth displaying in python backtraces?
+> +        Examples:
+> +          - waiting on the GIL
+> +          - garbage-collecting
+> +          - within a CFunction
+> +         If it is, return a descriptive string
+> +         For other frames, return False
+> +         '''
+> +        if self.is_waiting_for_gil():
+> +            return 'Waiting for the GIL'
+> +        elif self.is_gc_collect():
+> +            return 'Garbage-collecting'
+> +        else:
+> +            # Detect invocations of PyCFunction instances:
+> +            older = self.older()
+> +            if older and older._gdbframe.name() == 'PyCFunction_Call':
+> +                # Within that frame:
+> +                #   "func" is the local containing the PyObject* of the
+> +                # PyCFunctionObject instance
+> +                #   "f" is the same value, but cast to
+> (PyCFunctionObject*)
+> +                #   "self" is the (PyObject*) of the 'self'
+> +                try:
+> +                    # Use the prettyprinter for the func:
+> +                    func = older._gdbframe.read_var('func')
+> +                    return str(func)
+> +                except RuntimeError:
+> +                    return 'PyCFunction invocation (unable to read
+> "func")'
+> +
+> +        # This frame isn't worth reporting:
+> +        return False
+> +
+> +    def is_waiting_for_gil(self):
+> +        '''Is this frame waiting on the GIL?'''
+> +        # This assumes the _POSIX_THREADS version of Python/ceval_gil.h:
+> +        name = self._gdbframe.name()
+> +        if name:
+> +            return ('PyThread_acquire_lock' in name
+> +                    and 'lock_PyThread_acquire_lock' not in name)
+> +
+> +    def is_gc_collect(self):
+> +        '''Is this frame "collect" within the garbage-collector?'''
+> +        return self._gdbframe.name() == 'collect'
+> +
+>      def get_pyop(self):
+>          try:
+>              f = self._gdbframe.read_var('f')
+> @@ -1267,8 +1358,22 @@
+>
+>      @classmethod
+>      def get_selected_python_frame(cls):
+> -        '''Try to obtain the Frame for the python code in the selected
+> frame,
+> -        or None'''
+> +        '''Try to obtain the Frame for the python-related code in the
+> selected
+> +        frame, or None'''
+> +        frame = cls.get_selected_frame()
+> +
+> +        while frame:
+> +            if frame.is_python_frame():
+> +                return frame
+> +            frame = frame.older()
+> +
+> +        # Not found:
+> +        return None
+> +
+> +    @classmethod
+> +    def get_selected_bytecode_frame(cls):
+> +        '''Try to obtain the Frame for the python bytecode interpreter in
+> the
+> +        selected GDB frame, or None'''
+>          frame = cls.get_selected_frame()
+>
+>          while frame:
+> @@ -1283,14 +1388,38 @@
+>          if self.is_evalframeex():
+>              pyop = self.get_pyop()
+>              if pyop:
+> -                sys.stdout.write('#%i %s\n' % (self.get_index(),
+> pyop.get_truncated_repr(MAX_OUTPUT_LEN)))
+> +                line = pyop.get_truncated_repr(MAX_OUTPUT_LEN)
+> +                write_unicode(sys.stdout, '#%i %s\n' % (self.get_index(),
+> line))
+>                  if not pyop.is_optimized_out():
+>                      line = pyop.current_line()
+> -                    sys.stdout.write('    %s\n' % line.strip())
+> +                    if line is not None:
+> +                        sys.stdout.write('    %s\n' % line.strip())
+>              else:
+>                  sys.stdout.write('#%i (unable to read python frame
+> information)\n' % self.get_index())
+>          else:
+> -            sys.stdout.write('#%i\n' % self.get_index())
+> +            info = self.is_other_python_frame()
+> +            if info:
+> +                sys.stdout.write('#%i %s\n' % (self.get_index(), info))
+> +            else:
+> +                sys.stdout.write('#%i\n' % self.get_index())
+> +
+> +    def print_traceback(self):
+> +        if self.is_evalframeex():
+> +            pyop = self.get_pyop()
+> +            if pyop:
+> +                pyop.print_traceback()
+> +                if not pyop.is_optimized_out():
+> +                    line = pyop.current_line()
+> +                    if line is not None:
+> +                        sys.stdout.write('    %s\n' % line.strip())
+> +            else:
+> +                sys.stdout.write('  (unable to read python frame
+> information)\n')
+> +        else:
+> +            info = self.is_other_python_frame()
+> +            if info:
+> +                sys.stdout.write('  %s\n' % info)
+> +            else:
+> +                sys.stdout.write('  (not a python frame)\n')
+>
+>  class PyList(gdb.Command):
+>      '''List the current Python source code, if any
+> @@ -1326,9 +1455,10 @@
+>          if m:
+>              start, end = map(int, m.groups())
+>
+> -        frame = Frame.get_selected_python_frame()
+> +        # py-list requires an actual PyEval_EvalFrameEx frame:
+> +        frame = Frame.get_selected_bytecode_frame()
+>          if not frame:
+> -            print('Unable to locate python frame')
+> +            print('Unable to locate gdb frame for python bytecode
+> interpreter')
+>              return
+>
+>          pyop = frame.get_pyop()
+> @@ -1346,7 +1476,13 @@
+>          if start<1:
+>              start = 1
+>
+> -        with open(filename, 'r') as f:
+> +        try:
+> +            f = open(filename, 'r')
+> +        except IOError as err:
+> +            sys.stdout.write('Unable to open %s: %s\n'
+> +                             % (filename, err))
+> +            return
+> +        with f:
+>              all_lines = f.readlines()
+>              # start and end are 1-based, all_lines is 0-based;
+>              # so [start-1:end] as a python slice gives us [start, end] as
+> a
+> @@ -1374,7 +1510,7 @@
+>          if not iter_frame:
+>              break
+>
+> -        if iter_frame.is_evalframeex():
+> +        if iter_frame.is_python_frame():
+>              # Result:
+>              if iter_frame.select():
+>                  iter_frame.print_summary()
+> @@ -1416,6 +1552,24 @@
+>      PyUp()
+>      PyDown()
+>
+> +class PyBacktraceFull(gdb.Command):
+> +    'Display the current python frame and all the frames within its call
+> stack (if any)'
+> +    def __init__(self):
+> +        gdb.Command.__init__ (self,
+> +                              "py-bt-full",
+> +                              gdb.COMMAND_STACK,
+> +                              gdb.COMPLETE_NONE)
+> +
+> +
+> +    def invoke(self, args, from_tty):
+> +        frame = Frame.get_selected_python_frame()
+> +        while frame:
+> +            if frame.is_python_frame():
+> +                frame.print_summary()
+> +            frame = frame.older()
+> +
+> +PyBacktraceFull()
+> +
+>  class PyBacktrace(gdb.Command):
+>      'Display the current python frame and all the frames within its call
+> stack (if any)'
+>      def __init__(self):
+> @@ -1426,10 +1580,11 @@
+>
+>
+>      def invoke(self, args, from_tty):
+> +        sys.stdout.write('Traceback (most recent call first):\n')
+>          frame = Frame.get_selected_python_frame()
+>          while frame:
+> -            if frame.is_evalframeex():
+> -                frame.print_summary()
+> +            if frame.is_python_frame():
+> +                frame.print_traceback()
+>              frame = frame.older()
+>
+>  PyBacktrace()
+>
+> --
+> Repository URL: https://hg.python.org/cpython
+>
+> _______________________________________________
+> Python-checkins mailing list
+> Python-checkins at python.org
+> https://mail.python.org/mailman/listinfo/python-checkins
+>
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150903/e9156fb3/attachment-0001.html>
+
+From vadmium+py at gmail.com  Fri Sep  4 13:13:02 2015
+From: vadmium+py at gmail.com (Martin Panter)
+Date: Fri, 4 Sep 2015 11:13:02 +0000
+Subject: [python-committers] [Python-checkins] cpython (merge 2.7 ->
+ 2.7): merge heads.
+In-Reply-To: <CAPOVWOSd72t9TGkQs1QWKdDtpA+3_eWtvFkTdVujq2AxMarByA@mail.gmail.com>
+References: <20150903095128.14865.29569@psf.io>
+ <CAPOVWOSd72t9TGkQs1QWKdDtpA+3_eWtvFkTdVujq2AxMarByA@mail.gmail.com>
+Message-ID: <CA+eR4cHjDaTdwYfLBdR1vEQUAb+s30nvmWfT98t8NqCo5UUPLQ@mail.gmail.com>
+
+On 3 September 2015 at 10:03, Senthil Kumaran <senthil at uthcode.com> wrote:
+> I did a merge head with Victor's change in 2.7 before pushing my change.
+> Can someone confirm if I did it right? If anything was wrong, how to correct
+> it?
+
+It looks like you did it right. If I compare the merge result with the
+second merge parent (Victor?s commits)
+
+hg diff -p -r d687912d499f^2 -r d687912d499f
+
+I get just your three-line diff to test_wsgiref.py, as I would expect.
+
+From larry at hastings.org  Tue Sep  8 03:35:03 2015
+From: larry at hastings.org (Larry Hastings)
+Date: Mon, 7 Sep 2015 18:35:03 -0700
+Subject: [python-committers] [RELEASED] Python 3.5.0rc3 is now available
+Message-ID: <55EE3B47.7030305@hastings.org>
+
+
+
+On behalf of the Python development community and the Python 3.5 release 
+team, I'm relieved to announce the availability of Python 3.5.0rc3, also 
+known as Python 3.5.0 Release Candidate 3.
+
+The next release of Python 3.5 will be Python 3.5.0 final.  There should 
+be few (or no) changes to Python 3.5 between rc3 and final.
+
+This is a preview release, and its use is not recommended for production 
+settings.
+
+
+You can find Python 3.5.0rc3 here:
+
+     https://www.python.org/downloads/release/python-350rc3/
+
+Windows and Mac users: please read the important platform-specific 
+"Notes on this release" section near the end of that page.
+
+
+Happy hacking,
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150907/f01910b6/attachment.html>
+
+From larry at hastings.org  Wed Sep  9 15:42:02 2015
+From: larry at hastings.org (Larry Hastings)
+Date: Wed, 9 Sep 2015 06:42:02 -0700
+Subject: [python-committers] [RELEASED] Python 3.5.0rc4 is now available!
+Message-ID: <55F0372A.3050007@hastings.org>
+
+
+
+On behalf of the Python development community and the Python 3.5 release 
+team, I'm surprised to announce the availability of Python 3.5.0rc4, 
+also known as Python 3.5.0 Release Candidate 4.
+
+Python 3.5.0 Release Candidate 3 was only released about a day ago.  
+However: during testing, a major regression was discovered, reported on 
+the issue tracker as #25027:
+
+    http://bugs.python.org/issue25027
+
+Python 3.5 includes some big changes on how Python is built on Windows.  
+One of those changes resulted in Python processes on Windows exceeding 
+the maximum number of loadable shared libraries.  As a result Windows 
+builds of Python could no longer run major Python software stacks like 
+Pandas and Jupyter. Fixing this required non-trivial last-minute changes 
+to the Windows build--and those changes need testing.  We therefore 
+elected to insert an extra release candidate before the final release, 
+to get these changes into your hands as soon as possible, so that 
+Windows users could test these changes.
+
+As with all other Python 3.5 releases to date, this is a preview 
+release, and its use is not recommended for production settings.  
+However, users are encouraged to test with Python 3.5.0rc4, /especially/ 
+Windows users who build or make use of numerous external packages.  
+(Non-Windows users will find little difference between Python 3.5.0rc3 
+and Python 3.5.0rc4.)
+
+
+You can find Python 3.5.0rc4 here:
+
+     https://www.python.org/downloads/release/python-350rc4/
+
+Windows and Mac users: please read the important platform-specific 
+"Notes on this release" section near the end of that page.
+
+
+Please kick the tires,
+
+
+//arry/
+
+p.s.  Special thanks from the Python 3.5 release team to Christoph 
+Gohlke for the bug report!
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150909/f18df8b7/attachment.html>
+
+From yselivanov.ml at gmail.com  Thu Sep 10 04:42:22 2015
+From: yselivanov.ml at gmail.com (Yury Selivanov)
+Date: Wed, 9 Sep 2015 22:42:22 -0400
+Subject: [python-committers] daily refleaks
+Message-ID: <55F0EE0E.1080703@gmail.com>
+
+Hi,
+
+Does anybody know what happened to daily-refleaks?
+
+Yury
+
+From antoine at python.org  Thu Sep 10 09:23:13 2015
+From: antoine at python.org (Antoine Pitrou)
+Date: Thu, 10 Sep 2015 09:23:13 +0200
+Subject: [python-committers] daily refleaks
+In-Reply-To: <55F0EE0E.1080703@gmail.com>
+References: <55F0EE0E.1080703@gmail.com>
+Message-ID: <55F12FE1.1000104@python.org>
+
+
+Apparently the hg clone had gone in a mess:
+
+pulling from https://hg.python.org/cpython
+searching for changes
+abort: abandoned transaction found - run hg recover!
+
+
+I cleaned it up, it should work again next night.
+
+Regards
+
+Antoine.
+
+
+
+Le 10/09/2015 04:42, Yury Selivanov a ?crit :
+> Hi,
+> 
+> Does anybody know what happened to daily-refleaks?
+> 
+> Yury
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> 
+
+From yselivanov.ml at gmail.com  Thu Sep 10 15:22:07 2015
+From: yselivanov.ml at gmail.com (Yury Selivanov)
+Date: Thu, 10 Sep 2015 09:22:07 -0400
+Subject: [python-committers] daily refleaks
+In-Reply-To: <55F12FE1.1000104@python.org>
+References: <55F0EE0E.1080703@gmail.com> <55F12FE1.1000104@python.org>
+Message-ID: <55F183FF.2060406@gmail.com>
+
+
+
+On 2015-09-10 3:23 AM, Antoine Pitrou wrote:
+> Apparently the hg clone had gone in a mess:
+>
+> pulling from https://hg.python.org/cpython
+> searching for changes
+> abort: abandoned transaction found - run hg recover!
+>
+>
+> I cleaned it up, it should work again next night.
+
+Thank you, Antoine!
+
+Yury
+
+
+From larry at hastings.org  Sun Sep 13 16:28:34 2015
+From: larry at hastings.org (Larry Hastings)
+Date: Sun, 13 Sep 2015 15:28:34 +0100
+Subject: [python-committers] [RELEASED] Python 3.5.0 is now available
+Message-ID: <55F58812.1030001@hastings.org>
+
+
+
+On behalf of the Python development community and the Python 3.5 release 
+team, I'm proud to announce the availability of Python 3.5.0.  Python 
+3.5.0 is the newest version of the Python language, and it contains many 
+exciting new features and optimizations.
+
+
+You can read all about what's new in Python 3.5.0 here:
+
+    https://docs.python.org/3.5/whatsnew/3.5.html
+
+
+And you can download Python 3.5.0 here:
+
+    https://www.python.org/downloads/release/python-350/
+
+Windows and Mac users: please read the important platform-specific 
+"Notes on this release" section near the end of that page.
+
+
+We hope you enjoy Python 3.5.0!
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150913/c07351b2/attachment.html>
+
+From ncoghlan at gmail.com  Sat Sep 19 07:43:22 2015
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Sat, 19 Sep 2015 15:43:22 +1000
+Subject: [python-committers] Idea: listing commercial prioritisation options
+ as a new section in the developer guide?
+Message-ID: <CADiSq7d67WzpPc+FaB0WwDcQ=q-dffyyKXz=-i2D6ZQTURouNA@mail.gmail.com>
+
+Hi folks,
+
+A question I occasionally get asked by organisations that use Python
+commercially but don't currently employ any core developers themselves
+is "How can we prioritise getting particular issues
+fixed/reviewed/merged?".
+
+A related problem we have in the PSF is knowing which core developers
+are available for freelance & consulting work when organisations
+approach us regarding larger projects. At the moment, those kinds of
+referrals are reliant on Board members' personal knowledge of who
+amongst the core development team is open to that style of employment
+and making direct introductions, which is neither transparent nor
+fair.
+
+As such, what do folks think of the idea of a new, *opt-in* section in
+the developer guide, similar to the current experts index, but
+allowing core developers to indicate the ways in which we're willing
+to provide paid support.
+
+I'd see four likely sections in such a document:
+
+* Freelance consultants: folks that are available for contract
+opportunities at the individual level
+* Consulting companies: folks that are available for contract
+opportunities, but work for larger consulting organisations rather
+than contracting directly
+* Commercial redistributors: folks that work for commercial Python
+redistributors and are willing and able to both help in getting
+customer issues resolved and in acting as a point of escalation for
+their colleagues
+* Direct employment: folks that work directly for organisations that
+use Python extensively, and hence are able to act as a point of
+escalation for their colleagues
+
+The latter three categories would be further broken out by employer,
+while the first would just be a list of names and professional contact
+details.
+
+Regards,
+Nick.
+
+P.S. Disclosure: I do have my own interests in mind here, both
+personally and professionally. At a personal level, I'm a strong
+believer in "If you want me to care about your opinion on how I spend
+my time, pay me", so it makes sense to me to make it easy for more
+commercially-minded core developers to say "Pay me or my employer if
+you'd like to influence my time allocation". Professionally, it's
+definitely in my interests for both Python core developers and
+commercial Python redistributors to be recognised as a group for their
+expertise and overall influence on the technology sector.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+
+From trent at snakebite.org  Sat Sep 19 14:50:24 2015
+From: trent at snakebite.org (Trent Nelson)
+Date: Sat, 19 Sep 2015 08:50:24 -0400
+Subject: [python-committers] Idea: listing commercial prioritisation
+ options as a new section in the developer guide?
+In-Reply-To: <CADiSq7d67WzpPc+FaB0WwDcQ=q-dffyyKXz=-i2D6ZQTURouNA@mail.gmail.com>
+References: <CADiSq7d67WzpPc+FaB0WwDcQ=q-dffyyKXz=-i2D6ZQTURouNA@mail.gmail.com>
+Message-ID: <20150919125023.GA69840@trent.me>
+
+I like it, +1.
+
+It'd also be useful to see other developers' availability (i.e. "free
+for six months from March 2016") if you ever wanted to try and organize
+a pitch-to-the-PSF-for-sponsorship type project.
+
+    Trent.
+
+On Sat, Sep 19, 2015 at 03:43:22PM +1000, Nick Coghlan wrote:
+> Hi folks,
+> 
+> A question I occasionally get asked by organisations that use Python
+> commercially but don't currently employ any core developers themselves
+> is "How can we prioritise getting particular issues
+> fixed/reviewed/merged?".
+> 
+> A related problem we have in the PSF is knowing which core developers
+> are available for freelance & consulting work when organisations
+> approach us regarding larger projects. At the moment, those kinds of
+> referrals are reliant on Board members' personal knowledge of who
+> amongst the core development team is open to that style of employment
+> and making direct introductions, which is neither transparent nor
+> fair.
+> 
+> As such, what do folks think of the idea of a new, *opt-in* section in
+> the developer guide, similar to the current experts index, but
+> allowing core developers to indicate the ways in which we're willing
+> to provide paid support.
+> 
+> I'd see four likely sections in such a document:
+> 
+> * Freelance consultants: folks that are available for contract
+> opportunities at the individual level
+> * Consulting companies: folks that are available for contract
+> opportunities, but work for larger consulting organisations rather
+> than contracting directly
+> * Commercial redistributors: folks that work for commercial Python
+> redistributors and are willing and able to both help in getting
+> customer issues resolved and in acting as a point of escalation for
+> their colleagues
+> * Direct employment: folks that work directly for organisations that
+> use Python extensively, and hence are able to act as a point of
+> escalation for their colleagues
+> 
+> The latter three categories would be further broken out by employer,
+> while the first would just be a list of names and professional contact
+> details.
+> 
+> Regards,
+> Nick.
+> 
+> P.S. Disclosure: I do have my own interests in mind here, both
+> personally and professionally. At a personal level, I'm a strong
+> believer in "If you want me to care about your opinion on how I spend
+> my time, pay me", so it makes sense to me to make it easy for more
+> commercially-minded core developers to say "Pay me or my employer if
+> you'd like to influence my time allocation". Professionally, it's
+> definitely in my interests for both Python core developers and
+> commercial Python redistributors to be recognised as a group for their
+> expertise and overall influence on the technology sector.
+> 
+> -- 
+> Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+
+From antoine at python.org  Sat Sep 19 16:02:06 2015
+From: antoine at python.org (Antoine Pitrou)
+Date: Sat, 19 Sep 2015 16:02:06 +0200
+Subject: [python-committers] Idea: listing commercial prioritisation
+ options as a new section in the developer guide?
+In-Reply-To: <20150919125023.GA69840@trent.me>
+References: <CADiSq7d67WzpPc+FaB0WwDcQ=q-dffyyKXz=-i2D6ZQTURouNA@mail.gmail.com>
+ <20150919125023.GA69840@trent.me>
+Message-ID: <55FD6ADE.5070505@python.org>
+
+
+It doesn't sound like the devguide is ideally the right place for it.
+
+Actually, for a guide devoted to attract new contributors, saying "hey,
+we'd really like you to contribute on a volunteer basis, but here is a
+list of people who prefer being paid to do the same thing" may send the
+wrong message.
+
+I also understand the pragmatic side of the proposal, which is that the
+devguide has an established development and contribution process where
+it is easy to propose changes and get them discussed and accepted
+(compared to, say, the python.org website which may still be still more
+or less of a... "clusterfuck", perhaps? :-)).
+
+I'm saying that, regardless of whether I may want to be included in such
+a list or not (I'm currently happily employed by a company which would
+definitely deserve to get on the list, though - and, hey, so is Trent
+too :-)).
+
+Regards
+
+Antoine.
+
+
+Le 19/09/2015 14:50, Trent Nelson a ?crit :
+> I like it, +1.
+> 
+> It'd also be useful to see other developers' availability (i.e. "free
+> for six months from March 2016") if you ever wanted to try and organize
+> a pitch-to-the-PSF-for-sponsorship type project.
+> 
+>     Trent.
+> 
+> On Sat, Sep 19, 2015 at 03:43:22PM +1000, Nick Coghlan wrote:
+>> Hi folks,
+>>
+>> A question I occasionally get asked by organisations that use Python
+>> commercially but don't currently employ any core developers themselves
+>> is "How can we prioritise getting particular issues
+>> fixed/reviewed/merged?".
+>>
+>> A related problem we have in the PSF is knowing which core developers
+>> are available for freelance & consulting work when organisations
+>> approach us regarding larger projects. At the moment, those kinds of
+>> referrals are reliant on Board members' personal knowledge of who
+>> amongst the core development team is open to that style of employment
+>> and making direct introductions, which is neither transparent nor
+>> fair.
+>>
+>> As such, what do folks think of the idea of a new, *opt-in* section in
+>> the developer guide, similar to the current experts index, but
+>> allowing core developers to indicate the ways in which we're willing
+>> to provide paid support.
+>>
+>> I'd see four likely sections in such a document:
+>>
+>> * Freelance consultants: folks that are available for contract
+>> opportunities at the individual level
+>> * Consulting companies: folks that are available for contract
+>> opportunities, but work for larger consulting organisations rather
+>> than contracting directly
+>> * Commercial redistributors: folks that work for commercial Python
+>> redistributors and are willing and able to both help in getting
+>> customer issues resolved and in acting as a point of escalation for
+>> their colleagues
+>> * Direct employment: folks that work directly for organisations that
+>> use Python extensively, and hence are able to act as a point of
+>> escalation for their colleagues
+>>
+>> The latter three categories would be further broken out by employer,
+>> while the first would just be a list of names and professional contact
+>> details.
+>>
+>> Regards,
+>> Nick.
+>>
+>> P.S. Disclosure: I do have my own interests in mind here, both
+>> personally and professionally. At a personal level, I'm a strong
+>> believer in "If you want me to care about your opinion on how I spend
+>> my time, pay me", so it makes sense to me to make it easy for more
+>> commercially-minded core developers to say "Pay me or my employer if
+>> you'd like to influence my time allocation". Professionally, it's
+>> definitely in my interests for both Python core developers and
+>> commercial Python redistributors to be recognised as a group for their
+>> expertise and overall influence on the technology sector.
+>>
+>> -- 
+>> Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+>> _______________________________________________
+>> python-committers mailing list
+>> python-committers at python.org
+>> https://mail.python.org/mailman/listinfo/python-committers
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> 
+
+From barry at python.org  Sat Sep 19 18:40:40 2015
+From: barry at python.org (Barry Warsaw)
+Date: Sat, 19 Sep 2015 12:40:40 -0400
+Subject: [python-committers] Idea: listing commercial prioritisation
+ options as a new section in the developer guide?
+In-Reply-To: <CADiSq7d67WzpPc+FaB0WwDcQ=q-dffyyKXz=-i2D6ZQTURouNA@mail.gmail.com>
+References: <CADiSq7d67WzpPc+FaB0WwDcQ=q-dffyyKXz=-i2D6ZQTURouNA@mail.gmail.com>
+Message-ID: <20150919124040.1d0ab52a@limelight.wooz.org>
+
+On Sep 19, 2015, at 03:43 PM, Nick Coghlan wrote:
+
+>As such, what do folks think of the idea of a new, *opt-in* section in
+>the developer guide, similar to the current experts index, but
+>allowing core developers to indicate the ways in which we're willing
+>to provide paid support.
+
+It's certainly useful information to have, but I'm not sure about using the
+devguide for that.  In the Mailman world, we use a wiki page.  So far, it's
+self-serve, hasn't been abused, and I know it's helped people connect for paid
+consulting (not me, but others in our community).
+
+Cheers,
+-Barry
+
+From ncoghlan at gmail.com  Sat Sep 19 18:45:29 2015
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Sun, 20 Sep 2015 02:45:29 +1000
+Subject: [python-committers] Idea: listing commercial prioritisation
+ options as a new section in the developer guide?
+In-Reply-To: <55FD6ADE.5070505@python.org>
+References: <CADiSq7d67WzpPc+FaB0WwDcQ=q-dffyyKXz=-i2D6ZQTURouNA@mail.gmail.com>
+ <20150919125023.GA69840@trent.me> <55FD6ADE.5070505@python.org>
+Message-ID: <CADiSq7d9oLqQBa92wm8hMm2vRVNOjHfCVMy3Kjy+v4e587=ZCw@mail.gmail.com>
+
+On 20 Sep 2015 00:02, "Antoine Pitrou" <antoine at python.org> wrote:
+>
+>
+> It doesn't sound like the devguide is ideally the right place for it.
+>
+> Actually, for a guide devoted to attract new contributors, saying "hey,
+> we'd really like you to contribute on a volunteer basis, but here is a
+> list of people who prefer being paid to do the same thing" may send the
+> wrong message.
+
+Yeah, part of this would involve emphasising that the main thing being
+prioritised commercially is writing & reviewing changes on behalf of *other
+people* - I consider that a distinct pool of time from the time we
+contribute because we find contributing to be an inherently rewarding
+activity.
+
+That said, one of the problems faced by folks that *do* have permission to
+spend work time on contributing to CPython, but aren't yet core
+contributors themselves, is that their employer may not currently have a
+way to ensure they're mentored appropriately.
+
+Just as happens with volunteers looking to contribute on their own time,
+it's a problem for us as a community when someone has successfully made the
+case to their employer that a fix or improvement should be contributed back
+upstream on work time, only to see it languish on the tracker.
+
+While I don't think it's reasonable to ask volunteers to prioritise
+reviewing commercially developed contributions, I do think it's reasonable
+to facilitate folks getting paid to mentor potential future contributors
+and build direct relationships with organisations willing to pay people to
+work on CPython.
+
+> I also understand the pragmatic side of the proposal, which is that the
+> devguide has an established development and contribution process where
+> it is easy to propose changes and get them discussed and accepted
+
+That's part of it, but I also think we (as in those of us with commit
+privileges that are also professional developers) bear the responsibility
+for deciding how transparent we want to be about the commercial aspects of
+the development process that have emerged over time, rather than having
+that responsibility fall on the PSF.
+
+As a next step, I'll draft a page that lists me (and anyone else that
+volunteers to be listed) to show a specific proposed structure, and give
+folks something more concrete to discuss.
+
+Cheers,
+Nick.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150920/63e77f47/attachment-0001.html>
+
+From ncoghlan at gmail.com  Sat Sep 19 18:49:55 2015
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Sun, 20 Sep 2015 02:49:55 +1000
+Subject: [python-committers] Idea: listing commercial prioritisation
+ options as a new section in the developer guide?
+In-Reply-To: <20150919124040.1d0ab52a@limelight.wooz.org>
+References: <CADiSq7d67WzpPc+FaB0WwDcQ=q-dffyyKXz=-i2D6ZQTURouNA@mail.gmail.com>
+ <20150919124040.1d0ab52a@limelight.wooz.org>
+Message-ID: <CADiSq7fqnfRGszwU0gwMJNzei92GqRcLg731N7knNYjSay1CqQ@mail.gmail.com>
+
+On 20 Sep 2015 02:40, "Barry Warsaw" <barry at python.org> wrote:
+>
+> On Sep 19, 2015, at 03:43 PM, Nick Coghlan wrote:
+>
+> >As such, what do folks think of the idea of a new, *opt-in* section in
+> >the developer guide, similar to the current experts index, but
+> >allowing core developers to indicate the ways in which we're willing
+> >to provide paid support.
+>
+> It's certainly useful information to have, but I'm not sure about using
+the
+> devguide for that.  In the Mailman world, we use a wiki page.  So far,
+it's
+> self-serve, hasn't been abused, and I know it's helped people connect for
+paid
+> consulting (not me, but others in our community).
+
+I did consider the wiki, but the nice thing about using an "Expert's Index"
+style page in the devguide is that it's self-certifying: the mere fact of
+being on the list inherently demonstrates that you have the necessary
+access to add yourself to the list.
+
+The wiki's still a good fallback option, though.
+
+Cheers,
+Nick.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150920/8d0ffc19/attachment.html>
+
+From antoine at python.org  Sat Sep 19 19:04:20 2015
+From: antoine at python.org (Antoine Pitrou)
+Date: Sat, 19 Sep 2015 19:04:20 +0200
+Subject: [python-committers] Idea: listing commercial prioritisation
+ options as a new section in the developer guide?
+In-Reply-To: <CADiSq7d9oLqQBa92wm8hMm2vRVNOjHfCVMy3Kjy+v4e587=ZCw@mail.gmail.com>
+References: <CADiSq7d67WzpPc+FaB0WwDcQ=q-dffyyKXz=-i2D6ZQTURouNA@mail.gmail.com>
+ <20150919125023.GA69840@trent.me> <55FD6ADE.5070505@python.org>
+ <CADiSq7d9oLqQBa92wm8hMm2vRVNOjHfCVMy3Kjy+v4e587=ZCw@mail.gmail.com>
+Message-ID: <55FD9594.7010103@python.org>
+
+
+Le 19/09/2015 18:45, Nick Coghlan a ?crit :
+> 
+> That's part of it, but I also think we (as in those of us with commit
+> privileges that are also professional developers) bear the
+> responsibility for deciding how transparent we want to be about the
+> commercial aspects of the development process that have emerged over
+> time, rather than having that responsibility fall on the PSF.
+
+You have a very good point here.  Thank you for spelling it.
+
+Regards,
+
+Antoine.
+
+From storchaka at gmail.com  Sun Sep 20 09:10:50 2015
+From: storchaka at gmail.com (Serhiy Storchaka)
+Date: Sun, 20 Sep 2015 10:10:50 +0300
+Subject: [python-committers] [Python-Dev] Make stacklevel=2 by default
+	in warnings.warn()
+In-Reply-To: <CAPJVwBmftOk7Tu14a=XuBX638V-X7BFheRMx9EY1yGaJvpY4wQ@mail.gmail.com>
+References: <mtlkl6$ur9$1@ger.gmane.org>
+ <CAPJVwBmftOk7Tu14a=XuBX638V-X7BFheRMx9EY1yGaJvpY4wQ@mail.gmail.com>
+Message-ID: <1540799.On5D0zHlBh@raxxla>
+
+??????, 19-???-2015 23:55:44 Nathaniel Smith ????????:
+> OTOH I guess if there is anyone out there who's intentionally using
+> stacklevel=1 they might be reasonably surprised at this change.
+
+That is why I ask on Python-Dev instead of just open an issue.
+
+But I doubt that there is such case.
+ 
+
+From ncoghlan at gmail.com  Sun Sep 20 11:29:25 2015
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Sun, 20 Sep 2015 19:29:25 +1000
+Subject: [python-committers] Idea: listing commercial prioritisation
+ options as a new section in the developer guide?
+In-Reply-To: <55FD9594.7010103@python.org>
+References: <CADiSq7d67WzpPc+FaB0WwDcQ=q-dffyyKXz=-i2D6ZQTURouNA@mail.gmail.com>
+ <20150919125023.GA69840@trent.me> <55FD6ADE.5070505@python.org>
+ <CADiSq7d9oLqQBa92wm8hMm2vRVNOjHfCVMy3Kjy+v4e587=ZCw@mail.gmail.com>
+ <55FD9594.7010103@python.org>
+Message-ID: <CADiSq7cQKR=Dze9grWQDVj+kAWhL1uRyKB9iiEujtvm59ea3xQ@mail.gmail.com>
+
+On 20 September 2015 at 03:04, Antoine Pitrou <antoine at python.org> wrote:
+>
+> Le 19/09/2015 18:45, Nick Coghlan a ?crit :
+>>
+>> That's part of it, but I also think we (as in those of us with commit
+>> privileges that are also professional developers) bear the
+>> responsibility for deciding how transparent we want to be about the
+>> commercial aspects of the development process that have emerged over
+>> time, rather than having that responsibility fall on the PSF.
+>
+> You have a very good point here.  Thank you for spelling it.
+
+I've posted a draft patch at http://bugs.python.org/issue25194
+
+Based on this discussion, I used the "disclosure of interests" aspect
+as the primary framing - the specific name, "Register of Financial
+Interests", is often used for that purpose in a political context. The
+stakes are much lower here, so the proposal is limited to only
+covering our primary financial interest, and even then remaining
+entirely voluntary, but the general concept is the same: providing
+folks with relevant background information while holding a position
+that grants structural power above and beyond our personal influence
+with others.
+
+I've suggested 5 draft categories based on my personal knowledge of
+what some of the other core developers do for a living:
+
+* Consultants and Freelance Developers
+* Software Development Education & Training
+* Commercial Python Redistributors
+* Other Commercial Organizations
+* Non-Commercial Organizations
+
+Regards,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+
+From nad at acm.org  Sun Sep 20 14:13:28 2015
+From: nad at acm.org (Ned Deily)
+Date: Sun, 20 Sep 2015 14:13:28 +0200
+Subject: [python-committers] 3.6 release plans
+Message-ID: <99ED1B01-4095-4269-AC31-7E8A21C3CFA3@acm.org>
+
+Just a quick update on 3.6 release plans. First, thanks for the kind words.  With their help, I will try my best to follow the high standards set by our previous release managers: Larry, Benjamin, Georg, Barry, Martin, et al.  As you may have noticed, we don't have a release schedule for 3.6 published yet. One, we've all been busy getting 3.5.0 out the door. Two, with the  experimental overlap of next release feature development with the stabilization of the current feature release, feature work for 3.6 has been underway since the feature code freeze for 3.5 (3.5 beta 1).  We hope to take advantage of that overlap to shorten the release cycle for 3.6. Three, since accepting the RM role for 3.6 earlier this year, unexpected events - primarily a transcontinental relocation - have taken most of my time for the past few months. Things are now settling back down to a new normal and, starting in about a week, I look forward to devoting a significant amount of time to Python-dev, and specifically 3.6, going forward.  I plan to have a 3.6 schedule out for review by Sep 30.  In the meantime, please keep up the good work on the already identified features for 3.6 and discussions about additional ones.
+
+Here's to another great release!
+
+--Ned
+
+  --
+    Ned Deily
+
+
+From guido at python.org  Mon Sep 28 22:16:38 2015
+From: guido at python.org (Guido van Rossum)
+Date: Mon, 28 Sep 2015 13:16:38 -0700
+Subject: [python-committers] Can't merge into 3.6 (default) branch
+Message-ID: <CAP7+vJL4rCA0DKU=qNh3GeZ9pUzs+HN+iE8b9dmn5bnDi3xgHw@mail.gmail.com>
+
+I've made some changes to asyncio but I've run into a snag -- I can't merge
+the changes from 3.5 into 3.6 (the default branch). It seems some other
+changes to 3.5 haven't been merged and I don't want to just commit the
+default merge outcome (which affected a huge number of files).
+
+I thought the merge policy was to relentlessly merge everything from 3.5
+into 3.6 (using null merges to mark decisions not to copy a specific diff)?
+
+-- 
+--Guido van Rossum (python.org/~guido)
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150928/05251cb7/attachment.html>
+
+From brett at python.org  Mon Sep 28 22:23:08 2015
+From: brett at python.org (Brett Cannon)
+Date: Mon, 28 Sep 2015 20:23:08 +0000
+Subject: [python-committers] Can't merge into 3.6 (default) branch
+In-Reply-To: <CAP7+vJL4rCA0DKU=qNh3GeZ9pUzs+HN+iE8b9dmn5bnDi3xgHw@mail.gmail.com>
+References: <CAP7+vJL4rCA0DKU=qNh3GeZ9pUzs+HN+iE8b9dmn5bnDi3xgHw@mail.gmail.com>
+Message-ID: <CAP1=2W7jhA-kM1=MaU44rpjXh684d91q1YMJADRZLKHmd+Cdog@mail.gmail.com>
+
+On Mon, 28 Sep 2015 at 13:17 Guido van Rossum <guido at python.org> wrote:
+
+> I've made some changes to asyncio but I've run into a snag -- I can't
+> merge the changes from 3.5 into 3.6 (the default branch). It seems some
+> other changes to 3.5 haven't been merged and I don't want to just commit
+> the default merge outcome (which affected a huge number of files).
+>
+> I thought the merge policy was to relentlessly merge everything from 3.5
+> into 3.6 (using null merges to mark decisions not to copy a specific diff)?
+>
+
+Yes, that is the merge policy, so someone messed up and didn't do the
+forward merge.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150928/7af71d8c/attachment.html>
+
+From guido at python.org  Mon Sep 28 22:50:15 2015
+From: guido at python.org (Guido van Rossum)
+Date: Mon, 28 Sep 2015 13:50:15 -0700
+Subject: [python-committers] Can't merge into 3.6 (default) branch
+In-Reply-To: <CAP1=2W7jhA-kM1=MaU44rpjXh684d91q1YMJADRZLKHmd+Cdog@mail.gmail.com>
+References: <CAP7+vJL4rCA0DKU=qNh3GeZ9pUzs+HN+iE8b9dmn5bnDi3xgHw@mail.gmail.com>
+ <CAP1=2W7jhA-kM1=MaU44rpjXh684d91q1YMJADRZLKHmd+Cdog@mail.gmail.com>
+Message-ID: <CAP7+vJ++j85F5qxBjBxx8BHmjha0vwBg8sVe3rX_ejcYKH-YvA@mail.gmail.com>
+
+Well, somehow I managed to fix it by switching directories... Not sure what
+happened. :-(
+
+On Mon, Sep 28, 2015 at 1:23 PM, Brett Cannon <brett at python.org> wrote:
+
+>
+>
+> On Mon, 28 Sep 2015 at 13:17 Guido van Rossum <guido at python.org> wrote:
+>
+>> I've made some changes to asyncio but I've run into a snag -- I can't
+>> merge the changes from 3.5 into 3.6 (the default branch). It seems some
+>> other changes to 3.5 haven't been merged and I don't want to just commit
+>> the default merge outcome (which affected a huge number of files).
+>>
+>> I thought the merge policy was to relentlessly merge everything from 3.5
+>> into 3.6 (using null merges to mark decisions not to copy a specific diff)?
+>>
+>
+> Yes, that is the merge policy, so someone messed up and didn't do the
+> forward merge.
+>
+
+
+
+-- 
+--Guido van Rossum (python.org/~guido)
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150928/fad27336/attachment.html>
+
+From bcannon at gmail.com  Tue Sep 29 23:36:28 2015
+From: bcannon at gmail.com (Brett Cannon)
+Date: Tue, 29 Sep 2015 21:36:28 +0000
+Subject: [python-committers] Quick status update on updating our dev process
+Message-ID: <CAP1=2W642KgfQdAP6TxyQ7jDPCk2MCX7pE5ndgsO9TOhTW9gMA@mail.gmail.com>
+
+I just thought I would quickly update everyone on where things stand in
+terms of fixing our development process to be easier for us to keep up with
+patches.
+
+First, I have given Donald Stufft and Nick Coghlan a deadline of October 31
+-- Halloween in North America -- to get demo instances of their approaches
+for tweaking our approaches (and they were the only ones to propose
+anything so if you are asking "what about considering XXX?", it's because
+no one proposed it and stepped up to make sure it happened if their
+approach was chosen). Nick is proposing using Kalithea and his proposal is
+found at https://www.python.org/dev/peps/pep-0474/ . Donald is proposing
+GitHub + Phabricator -- although the Phabricator bit is optional for people
+-- and his proposal is at https://www.python.org/dev/peps/pep-0481/ . The
+plan is to get the test instances up, play with them to see what it looks
+like from both a core dev and contributor perspective and get opinions from
+various people of different levels of experience as to how the proposals
+feel. My hope is to make a decision by January 1 so we can switch over
+ancillary repositories like the devguide, devinabox, and the benchmark
+suite quickly and then work towards switching the cpython repository.
+
+Second, if you find Misc/NEWS a pain when doing merges then have a look at
+http://bugs.python.org/issue18967 and look at the recent posts. Larry
+Hastings is proposing a wrapper around `hg commit` that will create
+individual files per NEWS entry so that you can just pull the file forward
+in a merge and thus have no issues. We probably need feedback from Windows
+developers more than anyone since this would make using TortoiseHg a bigger
+pain since you would need to generate the NEWS file separately before doing
+your commit while everyone else has it integrated into the commit process.
+The long term goal is to put a field in the issue tracker for the NEWS
+entry so that it's directly attached to the issue related to the change and
+makes it easier to update before a release.
+
+So that's the current status. As always, if you want to participate in any
+of this you should join the core-workflow@ mailing list.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150929/02340e8e/attachment.html>
+
+From barry at python.org  Wed Sep 30 00:04:14 2015
+From: barry at python.org (Barry Warsaw)
+Date: Tue, 29 Sep 2015 18:04:14 -0400
+Subject: [python-committers] Quick status update on updating our dev
+ process
+In-Reply-To: <CAP1=2W642KgfQdAP6TxyQ7jDPCk2MCX7pE5ndgsO9TOhTW9gMA@mail.gmail.com>
+References: <CAP1=2W642KgfQdAP6TxyQ7jDPCk2MCX7pE5ndgsO9TOhTW9gMA@mail.gmail.com>
+Message-ID: <20150929180414.724b8a72@limelight.wooz.org>
+
+On Sep 29, 2015, at 09:36 PM, Brett Cannon wrote:
+
+>First, I have given Donald Stufft and Nick Coghlan a deadline of October 31
+>-- Halloween in North America -- to get demo instances of their approaches
+>for tweaking our approaches (and they were the only ones to propose
+>anything so if you are asking "what about considering XXX?", it's because
+>no one proposed it and stepped up to make sure it happened if their
+>approach was chosen). Nick is proposing using Kalithea and his proposal is
+>found at https://www.python.org/dev/peps/pep-0474/ . Donald is proposing
+>GitHub + Phabricator -- although the Phabricator bit is optional for people
+
+I really appreciate all the work you guys are doing to improve our process.
+
+I am going to ask the question anyway Brett, and depending on the answer, I
+might be willing to write a PEP and work on putting up a demo instance,
+although with my limited time, I'd sure love to work with someone on it.
+
+Recently, the CEO of GitLab made an offer to the Debian community:
+
+http://article.gmane.org/gmane.linux.debian.devel.general/201695
+
+GitLab (community edition at least) is open source, so it's way more palatable
+to me than GitHub.  And if they were willing to extend the same offer to us,
+then we would at least have their assistance for hosting.  I'm happy to reach
+out to Sytse and ask - can't hurt, right?!
+
+I have no connection to GitLab other than as a happy user.
+
+Cheers,
+-Barry
+
+From brett at python.org  Wed Sep 30 18:15:25 2015
+From: brett at python.org (Brett Cannon)
+Date: Wed, 30 Sep 2015 16:15:25 +0000
+Subject: [python-committers] Quick status update on updating our dev
+	process
+In-Reply-To: <20150929180414.724b8a72@limelight.wooz.org>
+References: <CAP1=2W642KgfQdAP6TxyQ7jDPCk2MCX7pE5ndgsO9TOhTW9gMA@mail.gmail.com>
+ <20150929180414.724b8a72@limelight.wooz.org>
+Message-ID: <CAP1=2W4AhPQAcV7-v1MJx3FKN5o0PJvf9RE0p9xEq=dA+T6rBQ@mail.gmail.com>
+
+On Tue, 29 Sep 2015 at 15:04 Barry Warsaw <barry at python.org> wrote:
+
+> On Sep 29, 2015, at 09:36 PM, Brett Cannon wrote:
+>
+> >First, I have given Donald Stufft and Nick Coghlan a deadline of October
+> 31
+> >-- Halloween in North America -- to get demo instances of their approaches
+> >for tweaking our approaches (and they were the only ones to propose
+> >anything so if you are asking "what about considering XXX?", it's because
+> >no one proposed it and stepped up to make sure it happened if their
+> >approach was chosen). Nick is proposing using Kalithea and his proposal is
+> >found at https://www.python.org/dev/peps/pep-0474/ . Donald is proposing
+> >GitHub + Phabricator -- although the Phabricator bit is optional for
+> people
+>
+> I really appreciate all the work you guys are doing to improve our process.
+>
+> I am going to ask the question anyway Brett, and depending on the answer, I
+> might be willing to write a PEP and work on putting up a demo instance,
+> although with my limited time, I'd sure love to work with someone on it.
+>
+> Recently, the CEO of GitLab made an offer to the Debian community:
+>
+> http://article.gmane.org/gmane.linux.debian.devel.general/201695
+>
+> GitLab (community edition at least) is open source, so it's way more
+> palatable
+> to me than GitHub.  And if they were willing to extend the same offer to
+> us,
+> then we would at least have their assistance for hosting.  I'm happy to
+> reach
+> out to Sytse and ask - can't hurt, right?!
+>
+>
+You have clearance from me to sneak in a GitLab proposal then if you think
+you can make the deadline. I leave it up to you to figure out how much you
+want to involve GitLab (heck, you can have them do all the work for all I
+care since I'm trying to be pragmatic about this so I don't care if it's
+fully hosted somewhere else, etc.). Just remember the over-reaching goal is
+to make it so we can all review and merge patches in the majority of cases
+from a tablet on a beach (IOW I can do a full code review and acceptance on
+my lunch break at work without a clone w/ SSH keys).
+
+
+> I have no connection to GitLab other than as a happy user.
+>
+
+Honestly, even if you did I wouldn't care. Key thing is that I don't have
+any connection to any of the proposed companies or projects.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150930/0777a60f/attachment.html>
+

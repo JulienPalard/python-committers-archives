@@ -1,0 +1,460 @@
+From larry at hastings.org  Wed Nov  4 23:06:32 2015
+From: larry at hastings.org (Larry Hastings)
+Date: Wed, 4 Nov 2015 20:06:32 -0800
+Subject: [python-committers] Python 3.5.1 release schedule
+Message-ID: <563AD5C8.7040600@hastings.org>
+
+
+At the request of the platform experts, 3.5.1 is now scheduled to happen 
+simultaneously with 2.7.11.  That means:
+
+Saturday November 21, 2015
+     tag 3.5.1rc1
+
+Sunday November 22, 2015
+     release 3.5.1rc1
+
+Saturday December 5, 2015
+     tag 3.5.1 final
+
+Sunday December 6, 2015
+     release 3.5.1 final
+
+I'll update the release schedule soon,
+
+
+//arry/
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20151104/2a7e5818/attachment.html>
+
+From ethan at stoneleaf.us  Sat Nov  7 09:35:25 2015
+From: ethan at stoneleaf.us (Ethan Furman)
+Date: Sat, 07 Nov 2015 06:35:25 -0800
+Subject: [python-committers] MSDN Subscription Expired
+Message-ID: <563E0C2D.7050104@stoneleaf.us>
+
+Woops.
+
+Can I get it renewed?
+
+--
+~Ethan~
+
+From brian at python.org  Sat Nov  7 09:57:27 2015
+From: brian at python.org (Brian Curtin)
+Date: Sat, 7 Nov 2015 08:57:27 -0600
+Subject: [python-committers] MSDN Subscription Expired
+In-Reply-To: <563E0C2D.7050104@stoneleaf.us>
+References: <563E0C2D.7050104@stoneleaf.us>
+Message-ID: <CAD+XWwp-9yo4m2hcjLzP-ZUjNryspYkaMjm6wPnTMH_c96jS6A@mail.gmail.com>
+
+On Saturday, November 7, 2015, Ethan Furman <ethan at stoneleaf.us> wrote:
+
+> Woops.
+>
+> Can I get it renewed?
+>
+
+Does anyone else need a renewal? It's easier on the Microsoft end if I send
+them in a batch.
+
+All I need is the email associated with the account and your Subscriber ID.
+
+Brian
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20151107/49013913/attachment.html>
+
+From yselivanov.ml at gmail.com  Wed Nov 18 17:40:44 2015
+From: yselivanov.ml at gmail.com (Yury Selivanov)
+Date: Wed, 18 Nov 2015 17:40:44 -0500
+Subject: [python-committers] emails from bugs.python.org are marker as spam
+Message-ID: <564CFE6C.5040208@gmail.com>
+
+Most of the emails from bugs.python.org (and review tool) end up being 
+marked as spam in gmail.  I consistently miss 70% of them. Is it 
+possible to fix this?
+
+Yury
+
+From antoine at python.org  Wed Nov 18 17:46:32 2015
+From: antoine at python.org (Antoine Pitrou)
+Date: Wed, 18 Nov 2015 23:46:32 +0100
+Subject: [python-committers] emails from bugs.python.org are marker as
+ spam
+In-Reply-To: <564CFE6C.5040208@gmail.com>
+References: <564CFE6C.5040208@gmail.com>
+Message-ID: <564CFFC8.9040104@python.org>
+
+
+
+Le 18/11/2015 23:40, Yury Selivanov a ?crit :
+> Most of the emails from bugs.python.org (and review tool) end up being 
+> marked as spam in gmail.  I consistently miss 70% of them. Is it 
+> possible to fix this?
+
+I don't know what gmail says about this, but many conversations on
+python-dev and python-ideas seem like pointless spam anyway... strange
+coincidence? :-)
+
+Regards
+
+Antoine.
+
+From ezio.melotti at gmail.com  Wed Nov 18 17:49:14 2015
+From: ezio.melotti at gmail.com (Ezio Melotti)
+Date: Thu, 19 Nov 2015 00:49:14 +0200
+Subject: [python-committers] emails from bugs.python.org are marker as
+ spam
+In-Reply-To: <564CFE6C.5040208@gmail.com>
+References: <564CFE6C.5040208@gmail.com>
+Message-ID: <CACBhJdEETmgsmLD6NTQY2jG78V0SYL+6gHb=vw7GDkboFaZmdA@mail.gmail.com>
+
+On Thu, Nov 19, 2015 at 12:40 AM, Yury Selivanov
+<yselivanov.ml at gmail.com> wrote:
+> Most of the emails from bugs.python.org (and review tool) end up being
+> marked as spam in gmail.  I consistently miss 70% of them. Is it possible to
+> fix this?
+>
+
+A quick workaround is to create a GMail filter and check "never send to spam".
+
+The issue is also being discussed at
+http://psf.upfronthosting.co.za/roundup/meta/issue562
+
+Best Regards,
+Ezio Melotti
+
+> Yury
+
+From yselivanov.ml at gmail.com  Wed Nov 18 18:09:39 2015
+From: yselivanov.ml at gmail.com (Yury Selivanov)
+Date: Wed, 18 Nov 2015 18:09:39 -0500
+Subject: [python-committers] emails from bugs.python.org are marker as
+ spam
+In-Reply-To: <CACBhJdEETmgsmLD6NTQY2jG78V0SYL+6gHb=vw7GDkboFaZmdA@mail.gmail.com>
+References: <564CFE6C.5040208@gmail.com>
+ <CACBhJdEETmgsmLD6NTQY2jG78V0SYL+6gHb=vw7GDkboFaZmdA@mail.gmail.com>
+Message-ID: <564D0533.5020104@gmail.com>
+
+
+
+On 2015-11-18 5:49 PM, Ezio Melotti wrote:
+> On Thu, Nov 19, 2015 at 12:40 AM, Yury Selivanov
+> <yselivanov.ml at gmail.com>  wrote:
+>> >Most of the emails from bugs.python.org (and review tool) end up being
+>> >marked as spam in gmail.  I consistently miss 70% of them. Is it possible to
+>> >fix this?
+>> >
+> A quick workaround is to create a GMail filter and check "never send to spam".
+
+Great idea, thanks!
+
+Yury
+
+From larry at hastings.org  Sun Nov 22 03:12:35 2015
+From: larry at hastings.org (Larry Hastings)
+Date: Sun, 22 Nov 2015 00:12:35 -0800
+Subject: [python-committers] Release schedule for 3.4.4
+Message-ID: <565178F3.5070701@hastings.org>
+
+
+
+Sorry for the short notice of this schedule, but... here goes:
+
+    Sat Dec 05 - tag 3.4.4rc1
+    Sun Dec 06 - release 3.4.4rc1
+    Sat Dec 19 - tag 3.4.4 final
+    Sun Dec 20 - release 3.4.4 final
+
+
+The reason for the short notice: we may have to change personnel for 
+this release, and we need to work around some holiday vacation schedules 
+too.  However, note that we have two weeks for the RC release.  Because 
+of the short notice, I plan to be a little more flexible about changes 
+between RC1 and final.  It also means we can pretty easily add a second 
+RC if we need to.
+
+Unless something amazing happens, 3.4.4 will be the final release of 3.4 
+with binary installers.  3.4 will also move into "security fixes only" 
+mode at that time.
+
+
+Best wishes, and again my apologies for the short notice,
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20151122/6b13a91b/attachment.html>
+
+From tjreedy at udel.edu  Sun Nov 22 12:38:41 2015
+From: tjreedy at udel.edu (Terry Reedy)
+Date: Sun, 22 Nov 2015 12:38:41 -0500
+Subject: [python-committers] Release schedule for 3.4.4
+In-Reply-To: <565178F3.5070701@hastings.org>
+References: <565178F3.5070701@hastings.org>
+Message-ID: <5651FDA1.7080303@udel.edu>
+
+On 11/22/2015 3:12 AM, Larry Hastings wrote:
+>
+>
+> Sorry for the short notice of this schedule, but... here goes:
+>
+>     Sat Dec 05 - tag 3.4.4rc1
+>     Sun Dec 06 - release 3.4.4rc1
+>     Sat Dec 19 - tag 3.4.4 final
+>     Sun Dec 20 - release 3.4.4 final
+
+This is exactly what I inferred when you said 'a month' about two weeks 
+ago.  What I would like a day or two ahead is the time (UTC) when you 
+will tag, or at least the earliest you will tag, on  the 5th.
+
+Terry
+
+
+From zachary.ware+pydev at gmail.com  Mon Nov 23 01:58:01 2015
+From: zachary.ware+pydev at gmail.com (Zachary Ware)
+Date: Mon, 23 Nov 2015 00:58:01 -0600
+Subject: [python-committers] New installed Python builders
+Message-ID: <CAKJDb-NQM1+j28AyQSg5=9owWKDGEhKgfkm2MvLWUts98gwyLQ@mail.gmail.com>
+
+Hi,
+
+Inspired by a couple of issues about testing installed Python that
+popped up this morning (#25694 and #25696), I've set up a new set of
+builders[1] to build, install, and test the installed Python.  They
+run on the same slave that runs my "x86 Gentoo Non-Debug with X"
+builders.
+
+If you are interested, please have a look at how they do what they do,
+and let me know if you see any issues with how it's set up.  Since the
+3.x builder is not failing, I'm not sure whether the issues have been
+fixed or if I messed something up in the setup :)
+
+[1] http://buildbot.python.org/all/builders/x86%20Gentoo%20Installed%20with%20X%203.x
+    http://buildbot.python.org/all/builders/x86%20Gentoo%20Installed%20with%20X%203.5
+    http://buildbot.python.org/all/builders/x86%20Gentoo%20Installed%20with%20X%203.4
+    http://buildbot.python.org/all/builders/x86%20Gentoo%20Installed%20with%20X%202.7
+
+Regards,
+-- 
+Zach
+
+From larry at hastings.org  Mon Nov 23 02:16:44 2015
+From: larry at hastings.org (Larry Hastings)
+Date: Sun, 22 Nov 2015 23:16:44 -0800
+Subject: [python-committers] [RELEASED] Python 3.5.1rc1 is now available
+Message-ID: <5652BD5C.6040107@hastings.org>
+
+
+On behalf of the Python development community and the Python 3.5 release 
+team, I'm pleased to announce the availability of Python 3.5.1rc1.  
+Python 3.5.1 will be the first update for Python 3.5.  Python 3.5 is the 
+newest version of the Python language, and it contains many exciting new 
+features and optimizations.
+
+
+You can see what's changed in Python 3.5.1rc1 (as compared to 3.5.0) here:
+
+    https://docs.python.org/3.5/whatsnew/changelog.html
+
+
+And you can download Python 3.5.1 here:
+
+    https://www.python.org/downloads/release/python-351rc1/
+
+Windows and Mac users: please read the important platform-specific 
+"Notes on this release" section near the end of that page.
+
+
+
+We hope you enjoy Python 3.5.1!
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20151122/b2c70690/attachment.html>
+
+From larry at hastings.org  Mon Nov 23 02:47:33 2015
+From: larry at hastings.org (Larry Hastings)
+Date: Sun, 22 Nov 2015 23:47:33 -0800
+Subject: [python-committers] Reminder: checkins into 3.5 after rc1 won't
+ automatically go into final
+Message-ID: <5652C495.2080804@hastings.org>
+
+
+
+3.5.1rc1 is tagged, merged, and pushed back into the central repo. At 
+this point I don't plan to merge further changes from hg.python.org into 
+3.5.1 final.  If you have an important bug fix that didn't make it into 
+3.5.1rc1 and *has* to go into 3.5.1 final, add me to the issue and we'll 
+talk about it.  If it happens I'll have to manually cherry-pick the change.
+
+I've added a 3.5.2rc1 section to Misc/NEWS; please add new entries there.
+
+Happy holidays,
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20151122/eb4148aa/attachment.html>
+
+From rdmurray at bitdance.com  Mon Nov 23 11:00:45 2015
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Mon, 23 Nov 2015 11:00:45 -0500
+Subject: [python-committers] New installed Python builders
+In-Reply-To: <CAKJDb-NQM1+j28AyQSg5=9owWKDGEhKgfkm2MvLWUts98gwyLQ@mail.gmail.com>
+References: <CAKJDb-NQM1+j28AyQSg5=9owWKDGEhKgfkm2MvLWUts98gwyLQ@mail.gmail.com>
+Message-ID: <20151123160046.7D999B140A1@webabinitio.net>
+
+On Mon, 23 Nov 2015 00:58:01 -0600, Zachary Ware <zachary.ware+pydev at gmail.com> wrote:
+> Hi,
+> 
+> Inspired by a couple of issues about testing installed Python that
+> popped up this morning (#25694 and #25696), I've set up a new set of
+> builders[1] to build, install, and test the installed Python.  They
+> run on the same slave that runs my "x86 Gentoo Non-Debug with X"
+> builders.
+> 
+> If you are interested, please have a look at how they do what they do,
+> and let me know if you see any issues with how it's set up.  Since the
+> 3.x builder is not failing, I'm not sure whether the issues have been
+> fixed or if I messed something up in the setup :)
+> 
+> [1] http://buildbot.python.org/all/builders/x86%20Gentoo%20Installed%20with%20X%203.x
+>     http://buildbot.python.org/all/builders/x86%20Gentoo%20Installed%20with%20X%203.5
+>     http://buildbot.python.org/all/builders/x86%20Gentoo%20Installed%20with%20X%203.4
+>     http://buildbot.python.org/all/builders/x86%20Gentoo%20Installed%20with%20X%202.7
+
+I haven't looked at this, but unless the buildbot does *not* have write
+access to the installed directories (ie: the install was done as another
+user) it isn't really doing a full installed python test.
+
+--David
+
+From storchaka at gmail.com  Mon Nov 23 12:11:15 2015
+From: storchaka at gmail.com (Serhiy Storchaka)
+Date: Mon, 23 Nov 2015 19:11:15 +0200
+Subject: [python-committers] New installed Python builders
+In-Reply-To: <20151123160046.7D999B140A1@webabinitio.net>
+References: <CAKJDb-NQM1+j28AyQSg5=9owWKDGEhKgfkm2MvLWUts98gwyLQ@mail.gmail.com>
+ <20151123160046.7D999B140A1@webabinitio.net>
+Message-ID: <n2vhbj$hfe$1@ger.gmane.org>
+
+On 23.11.15 18:00, R. David Murray wrote:
+> On Mon, 23 Nov 2015 00:58:01 -0600, Zachary Ware <zachary.ware+pydev at gmail.com> wrote:
+>> Inspired by a couple of issues about testing installed Python that
+>> popped up this morning (#25694 and #25696), I've set up a new set of
+>> builders[1] to build, install, and test the installed Python.  They
+>> run on the same slave that runs my "x86 Gentoo Non-Debug with X"
+>> builders.
+>>
+>> If you are interested, please have a look at how they do what they do,
+>> and let me know if you see any issues with how it's set up.  Since the
+>> 3.x builder is not failing, I'm not sure whether the issues have been
+>> fixed or if I messed something up in the setup :)
+>>
+>> [1] http://buildbot.python.org/all/builders/x86%20Gentoo%20Installed%20with%20X%203.x
+>>      http://buildbot.python.org/all/builders/x86%20Gentoo%20Installed%20with%20X%203.5
+>>      http://buildbot.python.org/all/builders/x86%20Gentoo%20Installed%20with%20X%203.4
+>>      http://buildbot.python.org/all/builders/x86%20Gentoo%20Installed%20with%20X%202.7
+>
+> I haven't looked at this, but unless the buildbot does *not* have write
+> access to the installed directories (ie: the install was done as another
+> user) it isn't really doing a full installed python test.
+
+Yes, but at least it catches cases where some files are not installed. 
+There were few issues with this.
+
+
+
+From rdmurray at bitdance.com  Mon Nov 23 16:11:19 2015
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Mon, 23 Nov 2015 16:11:19 -0500
+Subject: [python-committers] New installed Python builders
+In-Reply-To: <n2vhbj$hfe$1@ger.gmane.org>
+References: <CAKJDb-NQM1+j28AyQSg5=9owWKDGEhKgfkm2MvLWUts98gwyLQ@mail.gmail.com>
+ <20151123160046.7D999B140A1@webabinitio.net> <n2vhbj$hfe$1@ger.gmane.org>
+Message-ID: <20151123211120.338A1B140A1@webabinitio.net>
+
+On Mon, 23 Nov 2015 19:11:15 +0200, Serhiy Storchaka <storchaka at gmail.com> wrote:
+> On 23.11.15 18:00, R. David Murray wrote:
+> > On Mon, 23 Nov 2015 00:58:01 -0600, Zachary Ware <zachary.ware+pydev at gmail.com> wrote:
+> > I haven't looked at this, but unless the buildbot does *not* have write
+> > access to the installed directories (ie: the install was done as another
+> > user) it isn't really doing a full installed python test.
+> 
+> Yes, but at least it catches cases where some files are not installed. 
+> There were few issues with this.
+
+True.  Something incomplete in this vein is better than nothing.  I'm
+Not sure you should call it "Installed" though, as that will be a bit
+misleading.  Most of the "can't run the tests on installed python" bugs
+are because the tree is read-only (obviously, not all of them!).
+Maybe call it "local install"?  Wordy, I know, but more accurate.
+
+--David
+
+From zachary.ware+pydev at gmail.com  Fri Nov 27 00:37:40 2015
+From: zachary.ware+pydev at gmail.com (Zachary Ware)
+Date: Thu, 26 Nov 2015 23:37:40 -0600
+Subject: [python-committers] [Python-buildbots] New installed Python
+ builders
+In-Reply-To: <20151123211120.338A1B140A1@webabinitio.net>
+References: <CAKJDb-NQM1+j28AyQSg5=9owWKDGEhKgfkm2MvLWUts98gwyLQ@mail.gmail.com>
+ <20151123160046.7D999B140A1@webabinitio.net> <n2vhbj$hfe$1@ger.gmane.org>
+ <20151123211120.338A1B140A1@webabinitio.net>
+Message-ID: <CAKJDb-PB3Kra_EDLC2Qsx2yd48U9vVLyFdBHF6f0=cQyghYddQ@mail.gmail.com>
+
+On Mon, Nov 23, 2015 at 3:11 PM, R. David Murray <rdmurray at bitdance.com> wrote:
+> On Mon, 23 Nov 2015 19:11:15 +0200, Serhiy Storchaka <storchaka at gmail.com> wrote:
+>> On 23.11.15 18:00, R. David Murray wrote:
+>> > On Mon, 23 Nov 2015 00:58:01 -0600, Zachary Ware <zachary.ware+pydev at gmail.com> wrote:
+>> > I haven't looked at this, but unless the buildbot does *not* have write
+>> > access to the installed directories (ie: the install was done as another
+>> > user) it isn't really doing a full installed python test.
+>>
+>> Yes, but at least it catches cases where some files are not installed.
+>> There were few issues with this.
+>
+> True.  Something incomplete in this vein is better than nothing.  I'm
+> Not sure you should call it "Installed" though, as that will be a bit
+> misleading.  Most of the "can't run the tests on installed python" bugs
+> are because the tree is read-only (obviously, not all of them!).
+> Maybe call it "local install"?  Wordy, I know, but more accurate.
+
+I've gone with attempting to make it more like a 'real' install, by
+wrapping the test step with appropriate 'chmod' commands to make the
+install directory not writable, and confirmed during a test run that
+the entire installed tree is -w.  I also fixed the slave's usage of
+usePTY (for test_curses) to avoid the failures that had been happening
+in the 'uninstall' step.
+
+-- 
+Zach
+
+From ethan at stoneleaf.us  Sun Nov 29 15:28:01 2015
+From: ethan at stoneleaf.us (Ethan Furman)
+Date: Sun, 29 Nov 2015 12:28:01 -0800
+Subject: [python-committers] MSDN Subscription Expired
+In-Reply-To: <CAD+XWwp-9yo4m2hcjLzP-ZUjNryspYkaMjm6wPnTMH_c96jS6A@mail.gmail.com>
+References: <563E0C2D.7050104@stoneleaf.us>
+ <CAD+XWwp-9yo4m2hcjLzP-ZUjNryspYkaMjm6wPnTMH_c96jS6A@mail.gmail.com>
+Message-ID: <565B5FD1.6020305@stoneleaf.us>
+
+On 11/07/2015 06:57 AM, Brian Curtin wrote:
+
+ > All I need is the email associated with the account and your
+ > Subscriber ID.
+
+I haven't heard anything yet, did I miss something?
+
+--
+~Ethan~
+

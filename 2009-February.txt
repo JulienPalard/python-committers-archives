@@ -1,0 +1,3908 @@
+From trent.nelson at snakebite.org  Mon Feb  2 08:40:18 2009
+From: trent.nelson at snakebite.org (Trent Nelson)
+Date: Mon, 2 Feb 2009 07:40:18 +0000
+Subject: [python-committers] [snakebite] I've got a surprise for you!
+In-Reply-To: <D778B477-30BD-48B8-A181-4FFC159158CA@python.org>
+References: <20090126233246.GA37662@wind.teleri.net>
+	<20090127200138.GA51052@wind.teleri.net>
+	<49808D12.8000009@egenix.com>
+	<D778B477-30BD-48B8-A181-4FFC159158CA@python.org>
+Message-ID: <20090202074018.GD60708@wind.teleri.net>
+
+On Wed, Jan 28, 2009 at 01:29:21PM -0500, Barry Warsaw wrote:
+> On Jan 28, 2009, at 11:51 AM, M.-A. Lemburg wrote:
+> 
+> > On 2009-01-27 21:01, Trent Nelson wrote:
+> >>    I've just set up a mailing list for those that want to carry on  
+> >> with
+> >>    discussions; this CC list is getting a bit unwieldy.  Subscription
+> >>    URL: http://groups.google.com/group/snakebite-list. E-mail address
+> >>    is snakebite-list at googlegroups.com.
+> >>
+> >>    I'll be sending the rest of my replies there after this e-mail.
+> >
+> > Would it be possible to have such a mailing list setup on python.org ?
+> > Or perhaps have Mailman running on snakebite.org ?
+> 
+> +1 for either.  Send a message to postmaster at python.org if you want  
+> the former.  It should definitely be approved.
+
+    I'll follow up with the interested parties in private.
+
+        Trent.
+
+From brett at python.org  Tue Feb 10 20:01:11 2009
+From: brett at python.org (Brett Cannon)
+Date: Tue, 10 Feb 2009 11:01:11 -0800
+Subject: [python-committers] Give Daniel Diniz Developer access on the
+	tracker?
+Message-ID: <bbaeab100902101101m6065479cia45f4b771c58c89@mail.gmail.com>
+
+Daniel seems to be plowing through issues on the tracker and apparently
+Antoine has suggested he be added to the Developer role on the tracker. Any
+objections?
+
+-Brett
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20090210/081c179c/attachment.htm>
+
+From guido at python.org  Tue Feb 10 20:07:10 2009
+From: guido at python.org (Guido van Rossum)
+Date: Tue, 10 Feb 2009 11:07:10 -0800
+Subject: [python-committers] Give Daniel Diniz Developer access on the
+	tracker?
+In-Reply-To: <bbaeab100902101101m6065479cia45f4b771c58c89@mail.gmail.com>
+References: <bbaeab100902101101m6065479cia45f4b771c58c89@mail.gmail.com>
+Message-ID: <ca471dc20902101107x7a0b58eh4c469646b803ad55@mail.gmail.com>
+
+Let's do it!
+
+On Tue, Feb 10, 2009 at 11:01 AM, Brett Cannon <brett at python.org> wrote:
+> Daniel seems to be plowing through issues on the tracker and apparently
+> Antoine has suggested he be added to the Developer role on the tracker. Any
+> objections?
+
+
+
+-- 
+--Guido van Rossum (home page: http://www.python.org/~guido/)
+
+From barry at python.org  Thu Feb 12 23:47:25 2009
+From: barry at python.org (Barry Warsaw)
+Date: Thu, 12 Feb 2009 17:47:25 -0500
+Subject: [python-committers] release30-maint freeze in 15 minutes
+Message-ID: <A5CD6226-3641-4789-B92A-132D8D2BA2B2@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+I am placing a freeze on the release30-maint branch in 15 minutes.  At  
+that point I will sanity check the release and tag it for Martin and  
+Ronald to build the binaries.
+
+Please check with me on irc before you commit anything to this branch,  
+until further notice.  Please remember that I'm not actually making  
+the release until tomorrow.
+
+Thanks,
+Barry
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQCVAwUBSZSm/nEjvBPtnXfVAQLlgAQAt4F18pt3riZX4XfEwWbjQ/5ruOjS0xXq
+cQWkzCYwRP+GErZ6rKww7e9D35uj6AQLK/m5B/xvLBtIEMBIhThY70St8F3Hog5r
+4orDuZsqNaBW8fiSLcA1FrcJ9QWehlQ2dyerBV+GNRXCQMaEMD1dFAp0zeXyC3tf
+2PqXiSyLoNE=
+=ricV
+-----END PGP SIGNATURE-----
+
+From python at rcn.com  Fri Feb 13 00:00:50 2009
+From: python at rcn.com (Raymond Hettinger)
+Date: Thu, 12 Feb 2009 15:00:50 -0800
+Subject: [python-committers] release30-maint freeze in 15 minutes
+References: <A5CD6226-3641-4789-B92A-132D8D2BA2B2@python.org>
+Message-ID: <D6230A6BCAAF4D9EB26A98F5EDF5BDF0@RaymondLaptop1>
+
+> I am placing a freeze on the release30-maint branch in 15 minutes. 
+
+Yea!  3.0.1 is on its way :-)
+
+
+Raymond
+
+From barry at python.org  Fri Feb 13 01:09:01 2009
+From: barry at python.org (Barry Warsaw)
+Date: Thu, 12 Feb 2009 19:09:01 -0500
+Subject: [python-committers] Python 3.0.1 is tagged
+Message-ID: <D006A30C-5427-4C1E-A9FE-BF92CBE02885@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+But the release30-maint tree is still frozen until the release,  
+scheduled for about 23 hours from now.  Ping me in irc if you find any  
+brown baggable problems.
+
+Ronald, Martin, do you thing!
+
+Barry
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQCUAwUBSZS6HnEjvBPtnXfVAQIBHwP2OaBsqfzp6nB+cQPRZZAAaoIo1OBqyZcI
+mxB3vrgjyv/JWX6V2YeljCmLFjMUjNsoiEWeIejuknLoCZLIGyUTTfIVnrrkNDOP
+5vAy1I7PGy/pscn10mmJbR6FrLaXM/WjesseA3DpezVsyaW0zmcJ8AYSugFGGbmc
+dAgH2x0B4w==
+=7JIA
+-----END PGP SIGNATURE-----
+
+From ronaldoussoren at mac.com  Fri Feb 13 08:17:22 2009
+From: ronaldoussoren at mac.com (Ronald Oussoren)
+Date: Fri, 13 Feb 2009 08:17:22 +0100
+Subject: [python-committers] Python 3.0.1 is tagged
+In-Reply-To: <D006A30C-5427-4C1E-A9FE-BF92CBE02885@python.org>
+References: <D006A30C-5427-4C1E-A9FE-BF92CBE02885@python.org>
+Message-ID: <FFCBCB63-255F-4D85-8968-6F1ECEE80B3F@mac.com>
+
+
+On 13 Feb, 2009, at 1:09, Barry Warsaw wrote:
+
+> -----BEGIN PGP SIGNED MESSAGE-----
+> Hash: SHA1
+>
+> But the release30-maint tree is still frozen until the release,  
+> scheduled for about 23 hours from now.  Ping me in irc if you find  
+> any brown baggable problems.
+>
+> Ronald, Martin, do you thing!
+
+That won't be until late tonight (around midnight CET) I'm afraid. At  
+least there will be a OSX installer this time ;-)
+
+Ronald
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: smime.p7s
+Type: application/pkcs7-signature
+Size: 2224 bytes
+Desc: not available
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20090213/22eafafa/attachment.bin>
+
+From barry at python.org  Fri Feb 13 14:18:08 2009
+From: barry at python.org (Barry Warsaw)
+Date: Fri, 13 Feb 2009 08:18:08 -0500
+Subject: [python-committers] Python 3.0.1 is tagged
+In-Reply-To: <FFCBCB63-255F-4D85-8968-6F1ECEE80B3F@mac.com>
+References: <D006A30C-5427-4C1E-A9FE-BF92CBE02885@python.org>
+	<FFCBCB63-255F-4D85-8968-6F1ECEE80B3F@mac.com>
+Message-ID: <75FC6FCE-9268-44EB-9B53-9C9D85B58CB5@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On Feb 13, 2009, at 2:17 AM, Ronald Oussoren wrote:
+
+> On 13 Feb, 2009, at 1:09, Barry Warsaw wrote:
+>
+>> -----BEGIN PGP SIGNED MESSAGE-----
+>> Hash: SHA1
+>>
+>> But the release30-maint tree is still frozen until the release,  
+>> scheduled for about 23 hours from now.  Ping me in irc if you find  
+>> any brown baggable problems.
+>>
+>> Ronald, Martin, do you thing!
+>
+> That won't be until late tonight (around midnight CET) I'm afraid.  
+> At least there will be a OSX installer this time ;-)
+
+Excellent, thanks.  Midnight CET is 6pm US/Eastern which is right  
+about the time I'll start to build the release.  As always, ping me on  
+irc if you want to coordinate.
+
+Barry
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQCVAwUBSZVzEHEjvBPtnXfVAQIYygP7BoHQ2j6/OZXhngHZpxViZMZ5/xm1FSwf
+RNzVMtf9Kmm2LTa80tTdyKPqD0AINsOniPCFzIYaxEsin6mDgMiud9wml05gktHQ
+SURnQrx80uilMjRpAWk/TBzvQwXBGJEW6jX7P9QvFuZ5+NrQH1y89dvs1ywYdBFZ
+Y3sWVt1qxtg=
+=dmCq
+-----END PGP SIGNATURE-----
+
+From barry at python.org  Sat Feb 14 03:23:27 2009
+From: barry at python.org (Barry Warsaw)
+Date: Fri, 13 Feb 2009 21:23:27 -0500
+Subject: [python-committers] Python 3.0.1 is released...
+Message-ID: <6A7CB82A-662C-4350-B1EC-2F4B55BC0AF7@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+...and the release30-maint branch is thawed.  Georg, could you please  
+update the 3.0.1 docs on the website?  Thanks!
+
+Barry
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQCVAwUBSZYrH3EjvBPtnXfVAQLJpAQAtZr/giibETqY6pFaHKb2WCK70rkV2JpS
+lh1pauxxqZfaiDABDvN9SM7SC1uZD0946BMN6XF8s++RqvtGR/K8fIFUSNUjx+AA
+sXoifpIoGFPjQ79paRopmTyQMLxAo8dgZgE1t4KeAeRcVQYPb00+O1AQSoEOJpJz
+XGVVuKXg6ks=
+=UBjP
+-----END PGP SIGNATURE-----
+
+From asmodai at in-nomine.org  Sun Feb 15 21:31:14 2009
+From: asmodai at in-nomine.org (Jeroen Ruigrok van der Werven)
+Date: Sun, 15 Feb 2009 21:31:14 +0100
+Subject: [python-committers] PyPI issue?
+Message-ID: <20090215203114.GI1075@nexus.in-nomine.org>
+
+PyPI was working until I suddenly got:
+
+Error...
+
+There's been a problem with your request
+
+: no connection to the server
+
+Anyone with enough rights to check out what problem there might be?
+
+-- 
+Jeroen Ruigrok van der Werven <asmodai(-at-)in-nomine.org> / asmodai
+????? ?????? ??? ?? ??????
+http://www.in-nomine.org/ | http://www.rangaku.org/ | GPG: 2EAC625B
+Earth to earth, ashes to ashes, dust to dust...
+
+From brett at python.org  Wed Feb 25 23:31:21 2009
+From: brett at python.org (Brett Cannon)
+Date: Wed, 25 Feb 2009 14:31:21 -0800
+Subject: [python-committers] Survey about DVCSs compared to svn
+Message-ID: <bbaeab100902251431q5f1d8a35pfe40e515e682a1a5@mail.gmail.com>
+
+To see if people actually want to switch off of svn to a DVCS, I have put
+together a survey for everyone to state for each DVCS if they think it is
+better, worse, or equal to svn (and an option to not say anything if you
+have no experience with the DVCS):
+
+http://spreadsheets.google.com/viewform?formkey=cDVkUElEeEM5MGdBa29fcFZoU1Y2Vmc6MA..
+The survey is not anonymous so that I can make sure no one games this; I can
+check for duplicate usernames in the answers. But I will not give out any
+information beyond aggregate data, so identifiable information stops at me.
+
+I plan to keep this open for a week before I begin to seriously look at the
+data.
+
+-Brett
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20090225/5023f6bd/attachment.htm>
+
+From mal at egenix.com  Thu Feb 26 00:14:09 2009
+From: mal at egenix.com (M.-A. Lemburg)
+Date: Thu, 26 Feb 2009 00:14:09 +0100
+Subject: [python-committers] Survey about DVCSs compared to svn
+In-Reply-To: <bbaeab100902251431q5f1d8a35pfe40e515e682a1a5@mail.gmail.com>
+References: <bbaeab100902251431q5f1d8a35pfe40e515e682a1a5@mail.gmail.com>
+Message-ID: <49A5D0C1.3040404@egenix.com>
+
+On 2009-02-25 23:31, Brett Cannon wrote:
+> To see if people actually want to switch off of svn to a DVCS, I have put
+> together a survey for everyone to state for each DVCS if they think it is
+> better, worse, or equal to svn (and an option to not say anything if you
+> have no experience with the DVCS):
+> 
+> http://spreadsheets.google.com/viewform?formkey=cDVkUElEeEM5MGdBa29fcFZoU1Y2Vmc6MA..
+> The survey is not anonymous so that I can make sure no one games this; I can
+> check for duplicate usernames in the answers. But I will not give out any
+> information beyond aggregate data, so identifiable information stops at me.
+> 
+> I plan to keep this open for a week before I begin to seriously look at the
+> data.
+
+There's an option missing in that survey:
+
+[ ] I see a need to switch to a DVCS at all.
+
+IMHO, Subversion works perfectly fine.
+
+-- 
+Marc-Andre Lemburg
+eGenix.com
+
+Professional Python Services directly from the Source  (#1, Feb 26 2009)
+>>> Python/Zope Consulting and Support ...        http://www.egenix.com/
+>>> mxODBC.Zope.Database.Adapter ...             http://zope.egenix.com/
+>>> mxODBC, mxDateTime, mxTextTools ...        http://python.egenix.com/
+________________________________________________________________________
+
+::: Try our new mxODBC.Connect Python Database Interface for free ! ::::
+
+
+   eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+    D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+           Registered at Amtsgericht Duesseldorf: HRB 46611
+               http://www.egenix.com/company/contact/
+
+From mhammond at skippinet.com.au  Thu Feb 26 00:35:02 2009
+From: mhammond at skippinet.com.au (Mark Hammond)
+Date: Thu, 26 Feb 2009 10:35:02 +1100
+Subject: [python-committers] Survey about DVCSs compared to svn
+In-Reply-To: <49A5D0C1.3040404@egenix.com>
+References: <bbaeab100902251431q5f1d8a35pfe40e515e682a1a5@mail.gmail.com>
+	<49A5D0C1.3040404@egenix.com>
+Message-ID: <00df01c997a1$b5191ae0$1f4b50a0$@com.au>
+
+> There's an option missing in that survey:
+> 
+> [ ] I see a need to switch to a DVCS at all.
+
+To be fair, the survey isn't asking about a switch, just how they compare
+against svn.
+
+But I must admin that seems a little strange; while I just answered that I
+believe hg and bzr are better than svn (I abstained re git), that *doesn't*
+necessarily imply I would vote that they should replace svn for Python - I
+might, but I might not - that is a much harder question than the one
+presented.
+
+Mark
+
+
+From mal at egenix.com  Thu Feb 26 00:38:20 2009
+From: mal at egenix.com (M.-A. Lemburg)
+Date: Thu, 26 Feb 2009 00:38:20 +0100
+Subject: [python-committers] Survey about DVCSs compared to svn
+In-Reply-To: <49A5D0C1.3040404@egenix.com>
+References: <bbaeab100902251431q5f1d8a35pfe40e515e682a1a5@mail.gmail.com>
+	<49A5D0C1.3040404@egenix.com>
+Message-ID: <49A5D66C.1090409@egenix.com>
+
+Slightly corrected :-)
+
+On 2009-02-26 00:14, M.-A. Lemburg wrote:
+> There's an option missing in that survey:
+> 
+> [ ] I don't see a need to switch to a DVCS at all.
+
+-- 
+Marc-Andre Lemburg
+eGenix.com
+
+Professional Python Services directly from the Source  (#1, Feb 26 2009)
+>>> Python/Zope Consulting and Support ...        http://www.egenix.com/
+>>> mxODBC.Zope.Database.Adapter ...             http://zope.egenix.com/
+>>> mxODBC, mxDateTime, mxTextTools ...        http://python.egenix.com/
+________________________________________________________________________
+
+::: Try our new mxODBC.Connect Python Database Interface for free ! ::::
+
+
+   eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+    D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+           Registered at Amtsgericht Duesseldorf: HRB 46611
+               http://www.egenix.com/company/contact/
+
+From mal at egenix.com  Thu Feb 26 00:40:50 2009
+From: mal at egenix.com (M.-A. Lemburg)
+Date: Thu, 26 Feb 2009 00:40:50 +0100
+Subject: [python-committers] Survey about DVCSs compared to svn
+In-Reply-To: <00df01c997a1$b5191ae0$1f4b50a0$@com.au>
+References: <bbaeab100902251431q5f1d8a35pfe40e515e682a1a5@mail.gmail.com>	<49A5D0C1.3040404@egenix.com>
+	<00df01c997a1$b5191ae0$1f4b50a0$@com.au>
+Message-ID: <49A5D702.8010303@egenix.com>
+
+On 2009-02-26 00:35, Mark Hammond wrote:
+>> There's an option missing in that survey:
+>>
+>> [ ] I don't see a need to switch to a DVCS at all.
+> 
+> To be fair, the survey isn't asking about a switch, just how they compare
+> against svn.
+> 
+> But I must admin that seems a little strange; while I just answered that I
+> believe hg and bzr are better than svn (I abstained re git), that *doesn't*
+> necessarily imply I would vote that they should replace svn for Python - I
+> might, but I might not - that is a much harder question than the one
+> presented.
+
+Indeed, but doesn't the survey sort of imply that as a given ?
+
+-- 
+Marc-Andre Lemburg
+eGenix.com
+
+Professional Python Services directly from the Source  (#1, Feb 26 2009)
+>>> Python/Zope Consulting and Support ...        http://www.egenix.com/
+>>> mxODBC.Zope.Database.Adapter ...             http://zope.egenix.com/
+>>> mxODBC, mxDateTime, mxTextTools ...        http://python.egenix.com/
+________________________________________________________________________
+
+::: Try our new mxODBC.Connect Python Database Interface for free ! ::::
+
+
+   eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+    D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+           Registered at Amtsgericht Duesseldorf: HRB 46611
+               http://www.egenix.com/company/contact/
+
+From brett at python.org  Thu Feb 26 00:46:57 2009
+From: brett at python.org (Brett Cannon)
+Date: Wed, 25 Feb 2009 15:46:57 -0800
+Subject: [python-committers] Survey about DVCSs compared to svn
+In-Reply-To: <00df01c997a1$b5191ae0$1f4b50a0$@com.au>
+References: <bbaeab100902251431q5f1d8a35pfe40e515e682a1a5@mail.gmail.com>
+	<49A5D0C1.3040404@egenix.com> <00df01c997a1$b5191ae0$1f4b50a0$@com.au>
+Message-ID: <bbaeab100902251546r66022b2el1f8df0580f8115b@mail.gmail.com>
+
+On Wed, Feb 25, 2009 at 15:35, Mark Hammond <mhammond at skippinet.com.au>wrote:
+
+> > There's an option missing in that survey:
+> >
+> > [ ] I see a need to switch to a DVCS at all.
+>
+> To be fair, the survey isn't asking about a switch, just how they compare
+> against svn.
+>
+> But I must admin that seems a little strange; while I just answered that I
+> believe hg and bzr are better than svn (I abstained re git), that *doesn't*
+> necessarily imply I would vote that they should replace svn for Python - I
+> might, but I might not - that is a much harder question than the one
+> presented.
+
+
+I guess I didn't make it clear enough in the survey. This is meant to gauge
+whether you think the DVCSs would be improvement over the status quo for us,
+which happens to be svn. I have changed the options to make it a comparison
+against the status quo and not svn specifically. If anyone wants to change
+their vote based on this clarification let me know and I will delete your
+initial answers.
+
+So in MAL's case, you would say you think all the DVCS would be worse than
+the status quo as a way to vote that you don't want any change because the
+status quo is fine.
+
+I am not going to delve any deeper into making a fancier survey because it
+just gets too convoluted in terms of how to present the questions, mining
+the data, dealing with bias and how people are just not built to rate
+things, etc.
+
+-Brett
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20090225/cfc9717b/attachment-0001.htm>
+
+From barry at python.org  Thu Feb 26 01:03:21 2009
+From: barry at python.org (Barry Warsaw)
+Date: Wed, 25 Feb 2009 19:03:21 -0500
+Subject: [python-committers] Survey about DVCSs compared to svn
+In-Reply-To: <00df01c997a1$b5191ae0$1f4b50a0$@com.au>
+References: <bbaeab100902251431q5f1d8a35pfe40e515e682a1a5@mail.gmail.com>
+	<49A5D0C1.3040404@egenix.com>
+	<00df01c997a1$b5191ae0$1f4b50a0$@com.au>
+Message-ID: <F519D8D6-842D-458E-8DA7-0B09DF95C33B@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On Feb 25, 2009, at 6:35 PM, Mark Hammond wrote:
+
+>> There's an option missing in that survey:
+>>
+>> [ ] I see a need to switch to a DVCS at all.
+>
+> To be fair, the survey isn't asking about a switch, just how they  
+> compare
+> against svn.
+>
+> But I must admin that seems a little strange; while I just answered  
+> that I
+> believe hg and bzr are better than svn (I abstained re git), that  
+> *doesn't*
+> necessarily imply I would vote that they should replace svn for  
+> Python - I
+> might, but I might not - that is a much harder question than the one
+> presented.
+
+Note that not switching from svn on the backend, but still allowing  
+access with bzr, hg, and git is also an option.  And there are two  
+subcategories of that: we provide mirrors of svn branches in the  
+native format, and we do nothing, allowing the dvcs's use their svn- 
+bridges to access the branches.  Although I think in either case we  
+could provide hosting support for core committers.
+
+Barry
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQCVAwUBSaXcSXEjvBPtnXfVAQLreQP/c06y3vUTLqhGJrKgiWvajWy6p96kqQ8o
+6WcYp9XXXoDRHsZNFRm8z3Ck+aRCEEB3CmINHSCYdMxR9m43YhwHO/IEjtq6/+WG
+c0LtqXt+BrpfX2UvwG5LVmA4YMR35tnEzMlPNJaWLd8s2NbKyK8Gamnzc6aNhDap
+ltNiwPlMDew=
+=w48j
+-----END PGP SIGNATURE-----
+
+From jnoller at gmail.com  Thu Feb 26 01:13:29 2009
+From: jnoller at gmail.com (jnoller at gmail.com)
+Date: Thu, 26 Feb 2009 00:13:29 +0000
+Subject: [python-committers] Survey about DVCSs compared to svn
+In-Reply-To: <bbaeab100902251546r66022b2el1f8df0580f8115b@mail.gmail.com>
+Message-ID: <0016364ed0d0cc46ce0463c73896@google.com>
+
+On Feb 25, 2009 6:46pm, Brett Cannon <brett at python.org> wrote:
+
+
+> On Wed, Feb 25, 2009 at 15:35, Mark Hammond mhammond at skippinet.com.au>  
+> wrote:
+
+> > There's an option missing in that survey:
+
+> >
+
+> > [ ] I see a need to switch to a DVCS at all.
+
+
+
+
+> To be fair, the survey isn't asking about a switch, just how they compare
+
+> against svn.
+
+
+
+> But I must admin that seems a little strange; while I just answered that I
+
+> believe hg and bzr are better than svn (I abstained re git), that  
+> *doesn't*
+
+> necessarily imply I would vote that they should replace svn for Python - I
+
+> might, but I might not - that is a much harder question than the one
+
+> presented.
+
+> I guess I didn't make it clear enough in the survey. This is meant to  
+> gauge whether you think the DVCSs would be improvement over the status  
+> quo for us, which happens to be svn. I have changed the options to make  
+> it a comparison against the status quo and not svn specifically. If  
+> anyone wants to change their vote based on this clarification let me know  
+> and I will delete your initial answers.
+
+
+
+> So in MAL's case, you would say you think all the DVCS would be worse  
+> than the status quo as a way to vote that you don't want any change  
+> because the status quo is fine.
+
+
+
+> I am not going to delve any deeper into making a fancier survey because  
+> it just gets too convoluted in terms of how to present the questions,  
+> mining the data, dealing with bias and how people are just not built to  
+> rate things, etc.
+
+
+
+> -Brett
+
+
+
+Yeah, but the "Anything but subversion" option isn't there!
+
+jesse
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20090226/8636f923/attachment.htm>
+
+From mhammond at skippinet.com.au  Thu Feb 26 01:14:30 2009
+From: mhammond at skippinet.com.au (Mark Hammond)
+Date: Thu, 26 Feb 2009 11:14:30 +1100
+Subject: [python-committers] DVCS and windows line endings.
+Message-ID: <00e301c997a7$32fbdfb0$98f39f10$@com.au>
+
+I'm not sure if this list or python-dev is appropriate for the more general
+dvcs discussions - apologies if I got it wrong.  There is one issue I'm yet
+to see addressed - Windows line endings.
+
+When the svn tree is checked out on windows, all text files have \r\n line
+endings.  While many dev tools are capable of working with \n line endings,
+this quickly becomes inconvenient - eg, my "patch" tool will always insert
+\r\n line endings, simple commnd-line redirections and dumb editors also
+will result in mixed or swapped line endings.  If we move to a VCS without
+this support, it becomes trickier to compare, eg, an old svn tree with a new
+tree on windows as every file differs.  While commit hooks etc can go some
+way to preventing such files from being checked in, it would be much better
+to avoid the problem in the first place by using native windows line
+endings, as done by svn.
+
+So I guess the first question is: how much importance do we want to put on
+that capability?
+
+To the best of my knowledge, bzr's support for this is a few months away.  I
+keep hearing rumours mercurial does support it and I'm just starting work on
+a mercurial based project, so I may be able to find some answers there -
+does anyone else have experience with mercurial and windows line endings?
+I've never used git but again, heard rumours there is some support.
+
+Thoughts?
+
+Mark
+
+
+
+
+From mhammond at skippinet.com.au  Thu Feb 26 01:16:41 2009
+From: mhammond at skippinet.com.au (Mark Hammond)
+Date: Thu, 26 Feb 2009 11:16:41 +1100
+Subject: [python-committers] Survey about DVCSs compared to svn
+In-Reply-To: <bbaeab100902251546r66022b2el1f8df0580f8115b@mail.gmail.com>
+References: <bbaeab100902251431q5f1d8a35pfe40e515e682a1a5@mail.gmail.com>	
+	<49A5D0C1.3040404@egenix.com>
+	<00df01c997a1$b5191ae0$1f4b50a0$@com.au>
+	<bbaeab100902251546r66022b2el1f8df0580f8115b@mail.gmail.com>
+Message-ID: <00e801c997a7$821ef7d0$865ce770$@com.au>
+
+[Brett writes]
+
+> I guess I didn't make it clear enough in the survey. This is meant to gauge 
+> whether you think the DVCSs would be improvement over the status quo for us, 
+> which happens to be svn. I have changed the options to make it a comparison 
+> against the status quo and not svn specifically. If anyone wants to change 
+> their vote based on this clarification let me know and I will delete your 
+> initial answers.
+
+I'm afraid the above explanation still isn't quite clear to me: you are saying that we are actually voting on if we would 'approve' of an actual move of Python's SVN to that named DVCS?
+
+If so, please do withdraw my vote; I need to think more about that...
+
+Cheers,
+
+Mark
+
+
+From benjamin at python.org  Thu Feb 26 01:24:07 2009
+From: benjamin at python.org (Benjamin Peterson)
+Date: Wed, 25 Feb 2009 18:24:07 -0600
+Subject: [python-committers] DVCS and windows line endings.
+In-Reply-To: <00e301c997a7$32fbdfb0$98f39f10$@com.au>
+References: <00e301c997a7$32fbdfb0$98f39f10$@com.au>
+Message-ID: <1afaf6160902251624k3a324228g572b327561845fd8@mail.gmail.com>
+
+On Wed, Feb 25, 2009 at 6:14 PM, Mark Hammond <mhammond at skippinet.com.au> wrote:
+>
+> To the best of my knowledge, bzr's support for this is a few months away. ?I
+> keep hearing rumours mercurial does support it and I'm just starting work on
+> a mercurial based project, so I may be able to find some answers there -
+> does anyone else have experience with mercurial and windows line endings?
+> I've never used git but again, heard rumours there is some support.
+
+I can't add much more, but there's a section for this in the PEP:
+http://www.python.org/dev/peps/pep-0374/#crlf-lf-support
+
+
+
+-- 
+Regards,
+Benjamin
+
+From brett at python.org  Thu Feb 26 01:50:25 2009
+From: brett at python.org (Brett Cannon)
+Date: Wed, 25 Feb 2009 16:50:25 -0800
+Subject: [python-committers] Survey about DVCSs compared to svn
+In-Reply-To: <00e801c997a7$821ef7d0$865ce770$@com.au>
+References: <bbaeab100902251431q5f1d8a35pfe40e515e682a1a5@mail.gmail.com>
+	<49A5D0C1.3040404@egenix.com> <00df01c997a1$b5191ae0$1f4b50a0$@com.au>
+	<bbaeab100902251546r66022b2el1f8df0580f8115b@mail.gmail.com>
+	<00e801c997a7$821ef7d0$865ce770$@com.au>
+Message-ID: <bbaeab100902251650n71af80aet60cc75ab95adfb16@mail.gmail.com>
+
+On Wed, Feb 25, 2009 at 16:16, Mark Hammond <mhammond at skippinet.com.au>wrote:
+
+> [Brett writes]
+>
+> > I guess I didn't make it clear enough in the survey. This is meant to
+> gauge
+> > whether you think the DVCSs would be improvement over the status quo for
+> us,
+> > which happens to be svn. I have changed the options to make it a
+> comparison
+> > against the status quo and not svn specifically. If anyone wants to
+> change
+> > their vote based on this clarification let me know and I will delete your
+> > initial answers.
+>
+> I'm afraid the above explanation still isn't quite clear to me: you are
+> saying that we are actually voting on if we would 'approve' of an actual
+> move of Python's SVN to that named DVCS?
+>
+
+Basically, yes. If I said, "we are switching to XXX", would you be grumbling
+about it because you thought svn was better, happy because you think it
+would be an improvement or svn, or just shrug your shoulders at it.
+
+
+>
+> If so, please do withdraw my vote; I need to think more about that...
+
+
+Deleted. But this is for me to make a more informed decision; there is
+obviously not enough in this to lead to a switch being made purely on the
+voting results. At best a DVCS will be taken out of the running because it
+was consistently disliked.
+
+-Brett
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20090225/ad9deb2f/attachment-0001.htm>
+
+From brett at python.org  Thu Feb 26 01:52:15 2009
+From: brett at python.org (Brett Cannon)
+Date: Wed, 25 Feb 2009 16:52:15 -0800
+Subject: [python-committers] Survey about DVCSs compared to svn
+In-Reply-To: <0016364ed0d0cc46ce0463c73896@google.com>
+References: <bbaeab100902251546r66022b2el1f8df0580f8115b@mail.gmail.com>
+	<0016364ed0d0cc46ce0463c73896@google.com>
+Message-ID: <bbaeab100902251652k254454beka8cec5753c2e1ca8@mail.gmail.com>
+
+On Wed, Feb 25, 2009 at 16:13, <jnoller at gmail.com> wrote:
+
+> On Feb 25, 2009 6:46pm, Brett Cannon <brett at python.org> wrote:
+> >
+> >
+> > On Wed, Feb 25, 2009 at 15:35, Mark Hammond mhammond at skippinet.com.au>
+> wrote:
+> >
+> > > There's an option missing in that survey:
+> >
+> > >
+> >
+> > > [ ] I see a need to switch to a DVCS at all.
+> >
+> >
+> >
+> >
+> > To be fair, the survey isn't asking about a switch, just how they compare
+> >
+> > against svn.
+> >
+> >
+> >
+> > But I must admin that seems a little strange; while I just answered that
+> I
+> >
+> > believe hg and bzr are better than svn (I abstained re git), that
+> *doesn't*
+> >
+> > necessarily imply I would vote that they should replace svn for Python -
+> I
+> >
+> > might, but I might not - that is a much harder question than the one
+> >
+> > presented.
+> >
+> > I guess I didn't make it clear enough in the survey. This is meant to
+> gauge whether you think the DVCSs would be improvement over the status quo
+> for us, which happens to be svn. I have changed the options to make it a
+> comparison against the status quo and not svn specifically. If anyone wants
+> to change their vote based on this clarification let me know and I will
+> delete your initial answers.
+> >
+> >
+> >
+> > So in MAL's case, you would say you think all the DVCS would be worse
+> than the status quo as a way to vote that you don't want any change because
+> the status quo is fine.
+> >
+> >
+> >
+> > I am not going to delve any deeper into making a fancier survey because
+> it just gets too convoluted in terms of how to present the questions, mining
+> the data, dealing with bias and how people are just not built to rate
+> things, etc.
+> >
+> >
+> >
+> > -Brett
+> >
+> >
+>
+> Yeah, but the "Anything but subversion" option isn't there!
+
+
+Yes it is; just vote that all three are better than the status quo.
+
+-Brett
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20090225/35284cb0/attachment.htm>
+
+From solipsis at pitrou.net  Thu Feb 26 02:33:09 2009
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Thu, 26 Feb 2009 02:33:09 +0100
+Subject: [python-committers] DVCS and windows line endings.
+In-Reply-To: <1afaf6160902251624k3a324228g572b327561845fd8@mail.gmail.com>
+References: <00e301c997a7$32fbdfb0$98f39f10$@com.au>
+	<1afaf6160902251624k3a324228g572b327561845fd8@mail.gmail.com>
+Message-ID: <1235611989.8322.3.camel@fsol>
+
+Le mercredi 25 f?vrier 2009 ? 18:24 -0600, Benjamin Peterson a ?crit :
+> On Wed, Feb 25, 2009 at 6:14 PM, Mark Hammond <mhammond at skippinet.com.au> wrote:
+> >
+> > To the best of my knowledge, bzr's support for this is a few months away.  I
+> > keep hearing rumours mercurial does support it and I'm just starting work on
+> > a mercurial based project, so I may be able to find some answers there -
+> > does anyone else have experience with mercurial and windows line endings?
+> > I've never used git but again, heard rumours there is some support.
+> 
+> I can't add much more, but there's a section for this in the PEP:
+> http://www.python.org/dev/peps/pep-0374/#crlf-lf-support
+
+And it is even covered in the "minimal setup" section:
+http://www.python.org/dev/peps/pep-0374/#hg
+
+
+
+From mhammond at skippinet.com.au  Thu Feb 26 06:11:58 2009
+From: mhammond at skippinet.com.au (Mark Hammond)
+Date: Thu, 26 Feb 2009 16:11:58 +1100
+Subject: [python-committers] DVCS and windows line endings.
+In-Reply-To: <1235611989.8322.3.camel@fsol>
+References: <00e301c997a7$32fbdfb0$98f39f10$@com.au>	
+	<1afaf6160902251624k3a324228g572b327561845fd8@mail.gmail.com>
+	<1235611989.8322.3.camel@fsol>
+Message-ID: <010401c997d0$c4d22d30$4e768790$@com.au>
+
+> And it is even covered in the "minimal setup" section:
+> http://www.python.org/dev/peps/pep-0374/#hg
+
+I can't make the mercurial instructions work; I'm yet to investigate why though.
+
+But my wider point was that there doesn't seem to be a required level of functionality, or even a blanket statement along the lines of "native eol support must offer as much functionality as svn".  eg, what would, and would not, be considered a "deal-breaker" in this area?  Anything?
+
+Cheers,
+
+Mark 
+
+
+
+From brett at python.org  Thu Feb 26 07:43:48 2009
+From: brett at python.org (Brett Cannon)
+Date: Wed, 25 Feb 2009 22:43:48 -0800
+Subject: [python-committers] DVCS and windows line endings.
+In-Reply-To: <010401c997d0$c4d22d30$4e768790$@com.au>
+References: <00e301c997a7$32fbdfb0$98f39f10$@com.au>
+	<1afaf6160902251624k3a324228g572b327561845fd8@mail.gmail.com>
+	<1235611989.8322.3.camel@fsol>
+	<010401c997d0$c4d22d30$4e768790$@com.au>
+Message-ID: <bbaeab100902252243n1cec16dem914818109d255c5d@mail.gmail.com>
+
+On Wed, Feb 25, 2009 at 21:11, Mark Hammond <mhammond at skippinet.com.au>wrote:
+
+> > And it is even covered in the "minimal setup" section:
+> > http://www.python.org/dev/peps/pep-0374/#hg
+>
+> I can't make the mercurial instructions work; I'm yet to investigate why
+> though.
+>
+> But my wider point was that there doesn't seem to be a required level of
+> functionality, or even a blanket statement along the lines of "native eol
+> support must offer as much functionality as svn".  eg, what would, and would
+> not, be considered a "deal-breaker" in this area?  Anything?
+>
+
+If windows users get screwed that's a deal breaker. I have not looked at the
+line endings section of the PEP yet, though, to know if they are at the
+moment.
+
+-Brett
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20090225/633385c3/attachment.htm>
+
+From martin at v.loewis.de  Thu Feb 26 08:54:37 2009
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Thu, 26 Feb 2009 08:54:37 +0100
+Subject: [python-committers] Survey about DVCSs compared to svn
+In-Reply-To: <F519D8D6-842D-458E-8DA7-0B09DF95C33B@python.org>
+References: <bbaeab100902251431q5f1d8a35pfe40e515e682a1a5@mail.gmail.com>	<49A5D0C1.3040404@egenix.com>	<00df01c997a1$b5191ae0$1f4b50a0$@com.au>
+	<F519D8D6-842D-458E-8DA7-0B09DF95C33B@python.org>
+Message-ID: <49A64ABD.1030108@v.loewis.de>
+
+> Note that not switching from svn on the backend, but still allowing
+> access with bzr, hg, and git is also an option.  And there are two
+> subcategories of that: we provide mirrors of svn branches in the native
+> format, and we do nothing, allowing the dvcs's use their svn-bridges to
+> access the branches.  Although I think in either case we could provide
+> hosting support for core committers.
+
+That's already the case, for bzr, right?
+
+Regards,
+Martin
+
+From mal at egenix.com  Thu Feb 26 12:03:00 2009
+From: mal at egenix.com (M.-A. Lemburg)
+Date: Thu, 26 Feb 2009 12:03:00 +0100
+Subject: [python-committers] Survey about DVCSs compared to svn
+In-Reply-To: <bbaeab100902251546r66022b2el1f8df0580f8115b@mail.gmail.com>
+References: <bbaeab100902251431q5f1d8a35pfe40e515e682a1a5@mail.gmail.com>	<49A5D0C1.3040404@egenix.com>
+	<00df01c997a1$b5191ae0$1f4b50a0$@com.au>
+	<bbaeab100902251546r66022b2el1f8df0580f8115b@mail.gmail.com>
+Message-ID: <49A676E4.1070007@egenix.com>
+
+On 2009-02-26 00:46, Brett Cannon wrote:
+> On Wed, Feb 25, 2009 at 15:35, Mark Hammond <mhammond at skippinet.com.au>wrote:
+> 
+>>> There's an option missing in that survey:
+>>>
+>>> [ ] I see a need to switch to a DVCS at all.
+>> To be fair, the survey isn't asking about a switch, just how they compare
+>> against svn.
+>>
+>> But I must admin that seems a little strange; while I just answered that I
+>> believe hg and bzr are better than svn (I abstained re git), that *doesn't*
+>> necessarily imply I would vote that they should replace svn for Python - I
+>> might, but I might not - that is a much harder question than the one
+>> presented.
+> 
+> 
+> I guess I didn't make it clear enough in the survey. This is meant to gauge
+> whether you think the DVCSs would be improvement over the status quo for us,
+> which happens to be svn. I have changed the options to make it a comparison
+> against the status quo and not svn specifically. If anyone wants to change
+> their vote based on this clarification let me know and I will delete your
+> initial answers.
+> 
+> So in MAL's case, you would say you think all the DVCS would be worse than
+> the status quo as a way to vote that you don't want any change because the
+> status quo is fine.
+
+Note that I have abstained from voting on any of the DVCSes - simply
+because I have no experience with them to make an educated decision, ie.
+I can't say bzr is better or worse than svn.
+
+That said, I don't have any major issues with the existing Subversion
+setup and believe that adding bridges to DVCS systems is the more appropriate
+approach to a project of this size than to switch the version control
+system over completely.
+
+Subversion was certainly a technical improvement over CVS which had
+serious problems with branches, tagging and locks. The move to a DVCS
+doesn't look as attractive as Subversion did at the time.
+
+Looking at the PEP 374, the DVCSes don't appear to make life easier for
+common repo tasks (they each require more or less the same number of
+commands), so the argument for using a DVCS is more about giving non-core
+developers access to a version control system they can use to track their
+patches. However, this appears to be already solved using the bzr mirror.
+
+> I am not going to delve any deeper into making a fancier survey because it
+> just gets too convoluted in terms of how to present the questions, mining
+> the data, dealing with bias and how people are just not built to rate
+> things, etc.
+
+At least to me, the survey looks biased already - namely that it puts
+the second question before the first: "do we have a need to change
+the system ?".
+
+Perhaps you should do a survey on this question first ?!
+
+-- 
+Marc-Andre Lemburg
+eGenix.com
+
+Professional Python Services directly from the Source  (#1, Feb 26 2009)
+>>> Python/Zope Consulting and Support ...        http://www.egenix.com/
+>>> mxODBC.Zope.Database.Adapter ...             http://zope.egenix.com/
+>>> mxODBC, mxDateTime, mxTextTools ...        http://python.egenix.com/
+________________________________________________________________________
+
+::: Try our new mxODBC.Connect Python Database Interface for free ! ::::
+
+
+   eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+    D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+           Registered at Amtsgericht Duesseldorf: HRB 46611
+               http://www.egenix.com/company/contact/
+
+From ncoghlan at gmail.com  Thu Feb 26 12:18:48 2009
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Thu, 26 Feb 2009 21:18:48 +1000
+Subject: [python-committers] DVCS and windows line endings.
+In-Reply-To: <bbaeab100902252243n1cec16dem914818109d255c5d@mail.gmail.com>
+References: <00e301c997a7$32fbdfb0$98f39f10$@com.au>	<1afaf6160902251624k3a324228g572b327561845fd8@mail.gmail.com>	<1235611989.8322.3.camel@fsol>	<010401c997d0$c4d22d30$4e768790$@com.au>
+	<bbaeab100902252243n1cec16dem914818109d255c5d@mail.gmail.com>
+Message-ID: <49A67A98.5050601@gmail.com>
+
+Brett Cannon wrote:
+> On Wed, Feb 25, 2009 at 21:11, Mark Hammond <mhammond at skippinet.com.au
+> <mailto:mhammond at skippinet.com.au>> wrote:
+>     But my wider point was that there doesn't seem to be a required
+>     level of functionality, or even a blanket statement along the lines
+>     of "native eol support must offer as much functionality as svn".
+>      eg, what would, and would not, be considered a "deal-breaker" in
+>     this area?  Anything?
+> 
+> 
+> If windows users get screwed that's a deal breaker. I have not looked at
+> the line endings section of the PEP yet, though, to know if they are at
+> the moment.
+
+That sounds like a "not worse than SVN" to me (which means allowing it
+to be set on a per-file basis, but also being able to set it up so that
+checked in text files were marked that way by default).
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+---------------------------------------------------------------
+
+From solipsis at pitrou.net  Thu Feb 26 14:06:11 2009
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Thu, 26 Feb 2009 14:06:11 +0100
+Subject: [python-committers] DVCS and windows line endings.
+In-Reply-To: <010401c997d0$c4d22d30$4e768790$@com.au>
+References: <00e301c997a7$32fbdfb0$98f39f10$@com.au>
+	<1afaf6160902251624k3a324228g572b327561845fd8@mail.gmail.com>
+	<1235611989.8322.3.camel@fsol> <010401c997d0$c4d22d30$4e768790$@com.au>
+Message-ID: <1235653571.7109.2.camel@fsol>
+
+Le jeudi 26 f?vrier 2009 ? 16:11 +1100, Mark Hammond a ?crit :
+> > And it is even covered in the "minimal setup" section:
+> > http://www.python.org/dev/peps/pep-0374/#hg
+> 
+> I can't make the mercurial instructions work; I'm yet to investigate why though.
+
+There's some doc here:
+http://www.selenic.com/mercurial/wiki/index.cgi/Win32TextExtension
+If you want to be sure the extension has been enabled, you can try "hg
+showconfig".
+
+If you still have problems with it, you could post on the mercurial ML:
+http://selenic.com/mailman/listinfo/mercurial
+or through the gmane bridge:
+http://news.gmane.org/gmane.comp.version-control.mercurial.general/
+
+
+
+From barry at python.org  Thu Feb 26 14:25:50 2009
+From: barry at python.org (Barry Warsaw)
+Date: Thu, 26 Feb 2009 08:25:50 -0500
+Subject: [python-committers] Survey about DVCSs compared to svn
+In-Reply-To: <49A64ABD.1030108@v.loewis.de>
+References: <bbaeab100902251431q5f1d8a35pfe40e515e682a1a5@mail.gmail.com>	<49A5D0C1.3040404@egenix.com>	<00df01c997a1$b5191ae0$1f4b50a0$@com.au>
+	<F519D8D6-842D-458E-8DA7-0B09DF95C33B@python.org>
+	<49A64ABD.1030108@v.loewis.de>
+Message-ID: <85AC071A-78DE-4FAC-ADE7-FA78BB737B48@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On Feb 26, 2009, at 2:54 AM, Martin v. L?wis wrote:
+
+>> Note that not switching from svn on the backend, but still allowing
+>> access with bzr, hg, and git is also an option.  And there are two
+>> subcategories of that: we provide mirrors of svn branches in the  
+>> native
+>> format, and we do nothing, allowing the dvcs's use their svn- 
+>> bridges to
+>> access the branches.  Although I think in either case we could  
+>> provide
+>> hosting support for core committers.
+>
+> That's already the case, for bzr, right?
+
+Correct, in that there are native bzr branches on code.python.org,  
+which I am currently trying to improve.
+
+If we go this route though, then I think we should evaluate providing  
+the same level of support for other DVCSs people want.  I'm not  
+volunteering to maintain the hg or git repos, but if volunteers came  
+forward, we should reorganize the url space and authentication stuff  
+so that they can easily be pulled from c.p.o.
+
+Alternatively, we continue to provide the svn masters and let other  
+hosting facilities mirror the native branches (con: there will be a  
+delay) or let people use their <dvcs>-svn bridges, e.g. bzr-svn.
+
+Barry
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQCVAwUBSaaYXnEjvBPtnXfVAQJ9ogP/atF6CV+OfjtgMoTd4fFYcu8yy2xTBxry
+7W8uHbP93mMNHMy15R4sC16E7t/S7CX3IsA+DeTOPOUUb06ZGF9mcwo8FB2veUxB
+UP97TCMr+y7mNCgBLw+Ljjg4N6j9J1dlqGRbA7CekGD8DPIlXY8yYCuDAGM1YyQO
+r9kU2qiSuYw=
+=jh/i
+-----END PGP SIGNATURE-----
+
+From barry at python.org  Thu Feb 26 14:27:38 2009
+From: barry at python.org (Barry Warsaw)
+Date: Thu, 26 Feb 2009 08:27:38 -0500
+Subject: [python-committers] Survey about DVCSs compared to svn
+In-Reply-To: <49A676E4.1070007@egenix.com>
+References: <bbaeab100902251431q5f1d8a35pfe40e515e682a1a5@mail.gmail.com>	<49A5D0C1.3040404@egenix.com>
+	<00df01c997a1$b5191ae0$1f4b50a0$@com.au>
+	<bbaeab100902251546r66022b2el1f8df0580f8115b@mail.gmail.com>
+	<49A676E4.1070007@egenix.com>
+Message-ID: <EC4406B8-443F-495A-86B4-B36F4760B385@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On Feb 26, 2009, at 6:03 AM, M.-A. Lemburg wrote:
+
+> Looking at the PEP 374, the DVCSes don't appear to make life easier  
+> for
+> common repo tasks (they each require more or less the same number of
+> commands), so the argument for using a DVCS is more about giving non- 
+> core
+> developers access to a version control system they can use to track  
+> their
+> patches. However, this appears to be already solved using the bzr  
+> mirror.
+
+For core devs, I do think things like revision blocking and cherry  
+picking would be easier with the branches in a native DVCS.
+
+Barry
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQCVAwUBSaaYynEjvBPtnXfVAQJuYgP/a1ZlDK80EnnAbSKIy6gHFT6pETtgPpcb
+nd+hj1Nvda8Q2p5fovaVn6kpeaDvU7D753zj30nEz0kKtiQxt0TyYMpk9gBPiTA/
+dWGJP8DBQnJnRCE5FEJFTWhMS5TKHyAhtGtibBJa8eP+c+/Yo25i1niBs4rVryow
+gb/Ow/NZDcc=
+=F332
+-----END PGP SIGNATURE-----
+
+From jim at zope.com  Thu Feb 26 15:11:11 2009
+From: jim at zope.com (Jim Fulton)
+Date: Thu, 26 Feb 2009 09:11:11 -0500
+Subject: [python-committers] DVCS and windows line endings.
+In-Reply-To: <00e301c997a7$32fbdfb0$98f39f10$@com.au>
+References: <00e301c997a7$32fbdfb0$98f39f10$@com.au>
+Message-ID: <7F13A05E-92CD-4DC1-9ED8-A15DF409D9B9@zope.com>
+
+
+On Feb 25, 2009, at 7:14 PM, Mark Hammond wrote:
+> So I guess the first question is: how much importance do we want to  
+> put on
+> that capability?
+
+
+IMO, this is very important.
+
+Jim
+
+--
+Jim Fulton
+Zope Corporation
+
+
+
+From mal at egenix.com  Thu Feb 26 15:27:09 2009
+From: mal at egenix.com (M.-A. Lemburg)
+Date: Thu, 26 Feb 2009 15:27:09 +0100
+Subject: [python-committers] Survey about DVCSs compared to svn
+In-Reply-To: <85AC071A-78DE-4FAC-ADE7-FA78BB737B48@python.org>
+References: <bbaeab100902251431q5f1d8a35pfe40e515e682a1a5@mail.gmail.com>	<49A5D0C1.3040404@egenix.com>	<00df01c997a1$b5191ae0$1f4b50a0$@com.au>	<F519D8D6-842D-458E-8DA7-0B09DF95C33B@python.org>	<49A64ABD.1030108@v.loewis.de>
+	<85AC071A-78DE-4FAC-ADE7-FA78BB737B48@python.org>
+Message-ID: <49A6A6BD.4010308@egenix.com>
+
+On 2009-02-26 14:25, Barry Warsaw wrote:
+>> [providing DVCS facilities instead of switching over the main system]
+> Alternatively, we continue to provide the svn masters and let other
+> hosting facilities mirror the native branches (con: there will be a
+> delay) or let people use their <dvcs>-svn bridges, e.g. bzr-svn.
+
+I think that's a much better approach and one that reduces the
+load on the python.org repo sys-admins.
+
+It would also permit fans of all discussed DVCS systems to use
+their favorite tool, provided there are volunteers to do the
+hosting.
+
+On 2009-02-26 14:27, Barry Warsaw wrote:
+> On Feb 26, 2009, at 6:03 AM, M.-A. Lemburg wrote:
+>
+>> Looking at the PEP 374, the DVCSes don't appear to make life easier for
+>> common repo tasks (they each require more or less the same number of
+>> commands), so the argument for using a DVCS is more about giving non-core
+>> developers access to a version control system they can use to track their
+>> patches. However, this appears to be already solved using the bzr mirror.
+>
+> For core devs, I do think things like revision blocking and cherry
+> picking would be easier with the branches in a native DVCS.
+
+AFAIK, svnmerge provides these two functions for Subversion.
+
+Another aspect to consider is that Subversion uses copy-on-write,
+so that creating a branch with only a few changes doesn't take
+up much space in the repo.
+
+It would certainly be possible to setup a repo structure having
+many core-dev private branches, e.g.
+
+/branches/<coredevname>/issue0001
+/branches/<coredevname>/issue0002
+/branches/<coredevname>/issue0003
+
+BTW: You can avoid the extra checkout of the branch in Subversion
+by first locally copying the trunk checkout to a new dir (using e.g.
+cp -al) and then running a "svn switch" on it. To clean out any
+local modification, you can then additionally run "svn revert -R ."
+
+-- 
+Marc-Andre Lemburg
+eGenix.com
+
+Professional Python Services directly from the Source  (#1, Feb 26 2009)
+>>> Python/Zope Consulting and Support ...        http://www.egenix.com/
+>>> mxODBC.Zope.Database.Adapter ...             http://zope.egenix.com/
+>>> mxODBC, mxDateTime, mxTextTools ...        http://python.egenix.com/
+________________________________________________________________________
+
+::: Try our new mxODBC.Connect Python Database Interface for free ! ::::
+
+
+   eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+    D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+           Registered at Amtsgericht Duesseldorf: HRB 46611
+               http://www.egenix.com/company/contact/
+
+From solipsis at pitrou.net  Thu Feb 26 15:50:04 2009
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Thu, 26 Feb 2009 15:50:04 +0100
+Subject: [python-committers] Survey about DVCSs compared to svn
+In-Reply-To: <49A6A6BD.4010308@egenix.com>
+References: <bbaeab100902251431q5f1d8a35pfe40e515e682a1a5@mail.gmail.com>
+	<49A5D0C1.3040404@egenix.com>	<00df01c997a1$b5191ae0$1f4b50a0$@com.au>
+	<F519D8D6-842D-458E-8DA7-0B09DF95C33B@python.org>
+	<49A64ABD.1030108@v.loewis.de>
+	<85AC071A-78DE-4FAC-ADE7-FA78BB737B48@python.org>
+	<49A6A6BD.4010308@egenix.com>
+Message-ID: <1235659804.7109.34.camel@fsol>
+
+
+Hi,
+
+I'm no trying to advocate switching to a DVCS, but really:
+
+> I think that's a much better approach and one that reduces the
+> load on the python.org repo sys-admins.
+
+How does having 4 more-or-less supported VCSes, rather than 1, lighten
+the load on the sysadmins? Even though the DVCSes are theoretically
+handled by separate people, they have needs which must be fulfilled by
+the sysadmins (e.g. for Mercurial, mod_wsgi had to be installed for the
+Web front-end; and we see how much cooperation Bazaar support seems to
+require from the sysadmins).
+
+> Another aspect to consider is that Subversion uses copy-on-write,
+> so that creating a branch with only a few changes doesn't take
+> up much space in the repo.
+
+Other systems like Mercurial (and I'd be surprised if the others didn't
+have that option as well) also use copy-on-write when creating clones of
+a repository. You shouldn't assume that SVN has optimizations that the
+others don't have. SVN is actually quite crappy performance-wise (at
+least compared to Mercurial, which I'm used to).
+
+> BTW: You can avoid the extra checkout of the branch in Subversion
+> by first locally copying the trunk checkout to a new dir (using e.g.
+> cp -al) and then running a "svn switch" on it.
+
+That means you only work on one feature at a time, though (since you
+can't locally commit your changes). Besides, every time you switch the
+source URL you have to "make distclean", which makes builds quite a bit
+longer.
+
+
+
+From fredrik at pythonware.com  Thu Feb 26 15:54:19 2009
+From: fredrik at pythonware.com (Fredrik Lundh)
+Date: Thu, 26 Feb 2009 15:54:19 +0100
+Subject: [python-committers] Survey about DVCSs compared to svn
+In-Reply-To: <1235659804.7109.34.camel@fsol>
+References: <bbaeab100902251431q5f1d8a35pfe40e515e682a1a5@mail.gmail.com>
+	<49A5D0C1.3040404@egenix.com> <00df01c997a1$b5191ae0$1f4b50a0$@com.au>
+	<F519D8D6-842D-458E-8DA7-0B09DF95C33B@python.org>
+	<49A64ABD.1030108@v.loewis.de>
+	<85AC071A-78DE-4FAC-ADE7-FA78BB737B48@python.org>
+	<49A6A6BD.4010308@egenix.com> <1235659804.7109.34.camel@fsol>
+Message-ID: <368a5cd50902260654o42d0def1xe03da3a4232b06e6@mail.gmail.com>
+
+On Thu, Feb 26, 2009 at 3:50 PM, Antoine Pitrou <solipsis at pitrou.net> wrote:
+
+> I'm no trying to advocate switching to a DVCS, but really:
+>
+>> I think that's a much better approach and one that reduces the
+>> load on the python.org repo sys-admins.
+>
+> How does having 4 more-or-less supported VCSes, rather than 1, lighten
+> the load on the sysadmins
+
+"that" was referring to "other hosting facilities", not other
+repositories on the python.org servers:
+
+  > Alternatively, we continue to provide the svn masters and let other
+  > hosting facilities mirror the native branches (con: there will be a
+  > delay) or let people use their <dvcs>-svn bridges, e.g. bzr-svn.
+
+  I think that's a much better approach and one that reduces the
+  load on the python.org repo sys-admins.
+
+</F>
+
+From fredrik at pythonware.com  Thu Feb 26 16:01:43 2009
+From: fredrik at pythonware.com (Fredrik Lundh)
+Date: Thu, 26 Feb 2009 16:01:43 +0100
+Subject: [python-committers] Survey about DVCSs compared to svn
+In-Reply-To: <1235659804.7109.34.camel@fsol>
+References: <bbaeab100902251431q5f1d8a35pfe40e515e682a1a5@mail.gmail.com>
+	<49A5D0C1.3040404@egenix.com> <00df01c997a1$b5191ae0$1f4b50a0$@com.au>
+	<F519D8D6-842D-458E-8DA7-0B09DF95C33B@python.org>
+	<49A64ABD.1030108@v.loewis.de>
+	<85AC071A-78DE-4FAC-ADE7-FA78BB737B48@python.org>
+	<49A6A6BD.4010308@egenix.com> <1235659804.7109.34.camel@fsol>
+Message-ID: <368a5cd50902260701o26319297n327a5eb6370b9522@mail.gmail.com>
+
+On Thu, Feb 26, 2009 at 3:50 PM, Antoine Pitrou <solipsis at pitrou.net> wrote:
+
+>> BTW: You can avoid the extra checkout of the branch in Subversion
+>> by first locally copying the trunk checkout to a new dir (using e.g.
+>> cp -al) and then running a "svn switch" on it.
+>
+> That means you only work on one feature at a time, though (since you
+> can't locally commit your changes). Besides, every time you switch the
+> source URL you have to "make distclean", which makes builds quite a bit
+> longer.
+
+you can work on (at least) one feature for each distinct workspace you
+have on your machine.  the "cp / switch" combo is just a quick way to
+create a new workspace and associate it with a given branch/url,
+without having to pull the whole thing from the server.
+
+switching on active workspaces isn't a good idea (unless you're mostly
+generating trivial patches in a drive-by fashion, perhaps, but even in
+this case, you probably want something like quilt [1] to preserve your
+sanity).
+
+</F>
+
+1) http://savannah.nongnu.org/projects/quilt
+
+From solipsis at pitrou.net  Thu Feb 26 16:04:35 2009
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Thu, 26 Feb 2009 16:04:35 +0100
+Subject: [python-committers] Survey about DVCSs compared to svn
+In-Reply-To: <368a5cd50902260654o42d0def1xe03da3a4232b06e6@mail.gmail.com>
+References: <bbaeab100902251431q5f1d8a35pfe40e515e682a1a5@mail.gmail.com>
+	<49A5D0C1.3040404@egenix.com> <00df01c997a1$b5191ae0$1f4b50a0$@com.au>
+	<F519D8D6-842D-458E-8DA7-0B09DF95C33B@python.org>
+	<49A64ABD.1030108@v.loewis.de>
+	<85AC071A-78DE-4FAC-ADE7-FA78BB737B48@python.org>
+	<49A6A6BD.4010308@egenix.com> <1235659804.7109.34.camel@fsol>
+	<368a5cd50902260654o42d0def1xe03da3a4232b06e6@mail.gmail.com>
+Message-ID: <1235660675.7109.37.camel@fsol>
+
+Le jeudi 26 f?vrier 2009 ? 15:54 +0100, Fredrik Lundh a ?crit :
+> "that" was referring to "other hosting facilities", not other
+> repositories on the python.org servers:
+
+Ok. Sounds like a regression, but anyway.
+
+
+
+From mal at egenix.com  Thu Feb 26 16:10:56 2009
+From: mal at egenix.com (M.-A. Lemburg)
+Date: Thu, 26 Feb 2009 16:10:56 +0100
+Subject: [python-committers] Survey about DVCSs compared to svn
+In-Reply-To: <1235659804.7109.34.camel@fsol>
+References: <bbaeab100902251431q5f1d8a35pfe40e515e682a1a5@mail.gmail.com>	<49A5D0C1.3040404@egenix.com>	<00df01c997a1$b5191ae0$1f4b50a0$@com.au>	<F519D8D6-842D-458E-8DA7-0B09DF95C33B@python.org>	<49A64ABD.1030108@v.loewis.de>	<85AC071A-78DE-4FAC-ADE7-FA78BB737B48@python.org>	<49A6A6BD.4010308@egenix.com>
+	<1235659804.7109.34.camel@fsol>
+Message-ID: <49A6B100.40304@egenix.com>
+
+On 2009-02-26 15:50, Antoine Pitrou wrote:
+> Hi,
+> 
+> I'm no trying to advocate switching to a DVCS, but really:
+> 
+>> I think that's a much better approach and one that reduces the
+>> load on the python.org repo sys-admins.
+> 
+> How does having 4 more-or-less supported VCSes, rather than 1, lighten
+> the load on the sysadmins? Even though the DVCSes are theoretically
+> handled by separate people, they have needs which must be fulfilled by
+> the sysadmins (e.g. for Mercurial, mod_wsgi had to be installed for the
+> Web front-end; and we see how much cooperation Bazaar support seems to
+> require from the sysadmins).
+
+I didn't know that and was under the impression that those other
+systems simply hook up to the svn repo via the standard Subversion
+interfaces.
+
+>> Another aspect to consider is that Subversion uses copy-on-write,
+>> so that creating a branch with only a few changes doesn't take
+>> up much space in the repo.
+> 
+> Other systems like Mercurial (and I'd be surprised if the others didn't
+> have that option as well) also use copy-on-write when creating clones of
+> a repository. You shouldn't assume that SVN has optimizations that the
+> others don't have. SVN is actually quite crappy performance-wise (at
+> least compared to Mercurial, which I'm used to).
+
+I wasn't trying to imply that the other system don't support this.
+
+However, it is often said that branches in DVCS system are so much
+better to work with. Subversion supports these as well, it's just
+that we currently don't make much use of them and that's what I
+wanted to point out.
+
+>> BTW: You can avoid the extra checkout of the branch in Subversion
+>> by first locally copying the trunk checkout to a new dir (using e.g.
+>> cp -al) and then running a "svn switch" on it.
+> 
+> That means you only work on one feature at a time, though (since you
+> can't locally commit your changes).
+
+I don't understand that comment. Of course, you can commit whatever
+changes you make to the branch. It's not done locally and then forwarded,
+but that's not really a technical disadvantage, it's merely a different
+way to work.
+
+By contrast, the reasons for switching from CVS to Subversion were
+mostly technical ones - we often had problems with locks and tagging
+was very slow.
+
+> Besides, every time you switch the
+> source URL you have to "make distclean", which makes builds quite a bit
+> longer.
+
+Why is that ? You need to do that for patches that change the build
+system or configuration, but for patches to a single C file, that's
+normally not needed.
+
+-- 
+Marc-Andre Lemburg
+eGenix.com
+
+Professional Python Services directly from the Source  (#1, Feb 26 2009)
+>>> Python/Zope Consulting and Support ...        http://www.egenix.com/
+>>> mxODBC.Zope.Database.Adapter ...             http://zope.egenix.com/
+>>> mxODBC, mxDateTime, mxTextTools ...        http://python.egenix.com/
+________________________________________________________________________
+
+::: Try our new mxODBC.Connect Python Database Interface for free ! ::::
+
+
+   eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+    D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+           Registered at Amtsgericht Duesseldorf: HRB 46611
+               http://www.egenix.com/company/contact/
+
+From fredrik at pythonware.com  Thu Feb 26 16:15:07 2009
+From: fredrik at pythonware.com (Fredrik Lundh)
+Date: Thu, 26 Feb 2009 16:15:07 +0100
+Subject: [python-committers] Survey about DVCSs compared to svn
+In-Reply-To: <bbaeab100902251431q5f1d8a35pfe40e515e682a1a5@mail.gmail.com>
+References: <bbaeab100902251431q5f1d8a35pfe40e515e682a1a5@mail.gmail.com>
+Message-ID: <368a5cd50902260715t1c639080oa24271cd9d22a154@mail.gmail.com>
+
+Better, worse, or equal in what sense?  Obviously, *all* of them are
+better in certain senses (patch-oriented instead of revision-oriented
+approach, higher (?) development velocity, and not to mention the
+oh-shiny factor).  However, it's highly questionable if any of them is
+better if we take also *users* of the Python source code tree into
+account.  SVN is ubiquitous in industry on all platforms.  The others,
+not so much.  And the set of people capable of installing any of the
+others but not SVN is probably non-existent.
+
+</F>
+
+On Wed, Feb 25, 2009 at 11:31 PM, Brett Cannon <brett at python.org> wrote:
+> To see if people actually want to switch off of svn to a DVCS, I have put
+> together a survey for everyone to state for each DVCS if they think it is
+> better, worse, or equal to svn (and an option to not say anything if you
+> have no experience with the DVCS):
+> http://spreadsheets.google.com/viewform?formkey=cDVkUElEeEM5MGdBa29fcFZoU1Y2Vmc6MA..
+> The survey is not anonymous so that I can make sure no one games this; I can
+> check for duplicate usernames in the answers. But I will not give out any
+> information beyond aggregate data, so identifiable information stops at me.
+> I plan to keep this open for a week before I begin to seriously look at the
+> data.
+> -Brett
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+>
+>
+
+From fredrik at pythonware.com  Thu Feb 26 16:17:30 2009
+From: fredrik at pythonware.com (Fredrik Lundh)
+Date: Thu, 26 Feb 2009 16:17:30 +0100
+Subject: [python-committers] Survey about DVCSs compared to svn
+In-Reply-To: <368a5cd50902260715t1c639080oa24271cd9d22a154@mail.gmail.com>
+References: <bbaeab100902251431q5f1d8a35pfe40e515e682a1a5@mail.gmail.com>
+	<368a5cd50902260715t1c639080oa24271cd9d22a154@mail.gmail.com>
+Message-ID: <368a5cd50902260717i7fcbfef7oce9711e0dcf2ee09@mail.gmail.com>
+
+On Thu, Feb 26, 2009 at 4:15 PM, Fredrik Lundh <fredrik at pythonware.com> wrote:
+> Better, worse, or equal in what sense?  Obviously, *all* of them are
+> better in certain senses (patch-oriented instead of revision-oriented
+> approach, higher (?) development velocity
+
+to clarify: I meant tool development - especially GIT is moving faster
+than anything else, from what I can tell.  (just wish they got their
+Windows support sorted out.  any minute now...)
+
+</F>
+
+From solipsis at pitrou.net  Thu Feb 26 16:36:41 2009
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Thu, 26 Feb 2009 16:36:41 +0100
+Subject: [python-committers] Survey about DVCSs compared to svn
+In-Reply-To: <49A6B100.40304@egenix.com>
+References: <bbaeab100902251431q5f1d8a35pfe40e515e682a1a5@mail.gmail.com>
+	<49A5D0C1.3040404@egenix.com>	<00df01c997a1$b5191ae0$1f4b50a0$@com.au>
+	<F519D8D6-842D-458E-8DA7-0B09DF95C33B@python.org>
+	<49A64ABD.1030108@v.loewis.de>
+	<85AC071A-78DE-4FAC-ADE7-FA78BB737B48@python.org>
+	<49A6A6BD.4010308@egenix.com> <1235659804.7109.34.camel@fsol>
+	<49A6B100.40304@egenix.com>
+Message-ID: <1235662601.7109.48.camel@fsol>
+
+Le jeudi 26 f?vrier 2009 ? 16:10 +0100, M.-A. Lemburg a ?crit :
+> 
+> I didn't know that and was under the impression that those other
+> systems simply hook up to the svn repo via the standard Subversion
+> interfaces.
+
+They hook up to the svn repo for mirroring purposes, true. But they also
+have their own wire protocol, and some of them also have Web-based
+browsing facilities (which, in the case of Mercurial, are actually two
+sides of the same coin: the same base URL is used for human-readable
+browsing and for read-only HTTP-based cloning of the repository (the
+writeable cloning variant, as with SVN, uses an SSH-based protocol
+instead)).
+
+> However, it is often said that branches in DVCS system are so much
+> better to work with. Subversion supports these as well, it's just
+> that we currently don't make much use of them and that's what I
+> wanted to point out.
+
+Perhaps because they are not really practical? For example, I don't know
+how often you use svnmerge, but it's surprisingly slow even for small
+merges. It also seems to transfer lots of information over the network.
+
+> I don't understand that comment. Of course, you can commit whatever
+> changes you make to the branch.
+
+Ok, sorry, I misunderstood your comment.
+
+> By contrast, the reasons for switching from CVS to Subversion were
+> mostly technical ones - we often had problems with locks and tagging
+> was very slow.
+
+There are also technical reasons to prefer a DVCS: fast logging, fast
+annotation, fast (and supposedly smarter, although I'm not really
+knowledgeable on this) merges, and in some cases a nifty Web front-end.
+
+> Why is that ? You need to do that for patches that change the build
+> system or configuration, but for patches to a single C file, that's
+> normally not needed.
+
+Ok, but the point is that if many files have changed (or a single file
+in the Include directory :-)), the rebuild process is longish each time
+you "svn switch". Not so if you use a separate directory for each line
+of work.
+
+
+
+From richard.m.tew at gmail.com  Thu Feb 26 16:50:54 2009
+From: richard.m.tew at gmail.com (Richard Tew)
+Date: Thu, 26 Feb 2009 10:50:54 -0500
+Subject: [python-committers] Survey about DVCSs compared to svn
+In-Reply-To: <1235662601.7109.48.camel@fsol>
+References: <bbaeab100902251431q5f1d8a35pfe40e515e682a1a5@mail.gmail.com>
+	<49A5D0C1.3040404@egenix.com> <00df01c997a1$b5191ae0$1f4b50a0$@com.au>
+	<F519D8D6-842D-458E-8DA7-0B09DF95C33B@python.org>
+	<49A64ABD.1030108@v.loewis.de>
+	<85AC071A-78DE-4FAC-ADE7-FA78BB737B48@python.org>
+	<49A6A6BD.4010308@egenix.com> <1235659804.7109.34.camel@fsol>
+	<49A6B100.40304@egenix.com> <1235662601.7109.48.camel@fsol>
+Message-ID: <952d92df0902260750s78a5d942m19e8bcc251438a20@mail.gmail.com>
+
+On Thu, Feb 26, 2009 at 10:36 AM, Antoine Pitrou <solipsis at pitrou.net> wrote:
+>> However, it is often said that branches in DVCS system are so much
+>> better to work with. Subversion supports these as well, it's just
+>> that we currently don't make much use of them and that's what I
+>> wanted to point out.
+>
+> Perhaps because they are not really practical? For example, I don't know
+> how often you use svnmerge, but it's surprisingly slow even for small
+> merges. It also seems to transfer lots of information over the network.
+
+On the note of SVN bandwidth usage during merges, the merge of the
+changes between the Python 3.0 and 3.0.1 tagged revisions into the
+corresponding Stackless Python branch, used up almost exactly two
+gigabytes according to Tortoise SVN.  This was a trial merge and then
+the real merge, at a gigabyte a piece.
+
+Regarding this DVCS survey in general, Stackless Python is hosted in
+the svn.python.org repository.  As we are a distinct project from
+Python itself, I don't really have a stake in a choice which affects
+Python and haven't filled the survey in.  If the SVN hosting went away
+and the chosen DVCS solution did not have a good Windows UI (like
+TortoiseSVN), then I would have to make sad faces.
+
+Cheers,
+Richard.
+
+From solipsis at pitrou.net  Thu Feb 26 17:00:26 2009
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Thu, 26 Feb 2009 17:00:26 +0100
+Subject: [python-committers] Survey about DVCSs compared to svn
+In-Reply-To: <952d92df0902260750s78a5d942m19e8bcc251438a20@mail.gmail.com>
+References: <bbaeab100902251431q5f1d8a35pfe40e515e682a1a5@mail.gmail.com>
+	<49A5D0C1.3040404@egenix.com> <00df01c997a1$b5191ae0$1f4b50a0$@com.au>
+	<F519D8D6-842D-458E-8DA7-0B09DF95C33B@python.org>
+	<49A64ABD.1030108@v.loewis.de>
+	<85AC071A-78DE-4FAC-ADE7-FA78BB737B48@python.org>
+	<49A6A6BD.4010308@egenix.com> <1235659804.7109.34.camel@fsol>
+	<49A6B100.40304@egenix.com> <1235662601.7109.48.camel@fsol>
+	<952d92df0902260750s78a5d942m19e8bcc251438a20@mail.gmail.com>
+Message-ID: <1235664026.7109.51.camel@fsol>
+
+Le jeudi 26 f?vrier 2009 ? 10:50 -0500, Richard Tew a ?crit :
+> If the SVN hosting went away
+> and the chosen DVCS solution did not have a good Windows UI (like
+> TortoiseSVN), then I would have to make sad faces.
+
+Perhaps you can try TortoiseHG
+(http://bitbucket.org/tortoisehg/stable/wiki/Home) with one of the
+mirrors on http://code.python.org/hg and tell us your observations?
+This would certainly enlighten other Windows developers here.
+
+(the mirrors are read-only, but you can still do local changes and
+commits of course, just not push the changes to the mirrors)
+
+Cheers
+
+Antoine.
+
+
+
+From mal at egenix.com  Thu Feb 26 17:10:32 2009
+From: mal at egenix.com (M.-A. Lemburg)
+Date: Thu, 26 Feb 2009 17:10:32 +0100
+Subject: [python-committers] Survey about DVCSs compared to svn
+In-Reply-To: <1235662601.7109.48.camel@fsol>
+References: <bbaeab100902251431q5f1d8a35pfe40e515e682a1a5@mail.gmail.com>	<49A5D0C1.3040404@egenix.com>	<00df01c997a1$b5191ae0$1f4b50a0$@com.au>	<F519D8D6-842D-458E-8DA7-0B09DF95C33B@python.org>	<49A64ABD.1030108@v.loewis.de>	<85AC071A-78DE-4FAC-ADE7-FA78BB737B48@python.org>	<49A6A6BD.4010308@egenix.com>
+	<1235659804.7109.34.camel@fsol>	<49A6B100.40304@egenix.com>
+	<1235662601.7109.48.camel@fsol>
+Message-ID: <49A6BEF8.4030201@egenix.com>
+
+On 2009-02-26 16:36, Antoine Pitrou wrote:
+> Le jeudi 26 f?vrier 2009 ? 16:10 +0100, M.-A. Lemburg a ?crit :
+>> I didn't know that and was under the impression that those other
+>> systems simply hook up to the svn repo via the standard Subversion
+>> interfaces.
+> 
+> They hook up to the svn repo for mirroring purposes, true. But they also
+> have their own wire protocol, and some of them also have Web-based
+> browsing facilities (which, in the case of Mercurial, are actually two
+> sides of the same coin: the same base URL is used for human-readable
+> browsing and for read-only HTTP-based cloning of the repository (the
+> writeable cloning variant, as with SVN, uses an SSH-based protocol
+> instead)).
+
+So just to get this right: The Subversion admins on python.org do
+not have to setup anything special for DVCS mirror sites to hook
+up to the main Subversion repo.
+
+>> However, it is often said that branches in DVCS system are so much
+>> better to work with. Subversion supports these as well, it's just
+>> that we currently don't make much use of them and that's what I
+>> wanted to point out.
+> 
+> Perhaps because they are not really practical? For example, I don't know
+> how often you use svnmerge, but it's surprisingly slow even for small
+> merges. It also seems to transfer lots of information over the network.
+
+This is probably a matter of Internet connection bandwidth then.
+I have no idea how much data gets transferred, but it doesn't
+"feel" slow.
+
+>> I don't understand that comment. Of course, you can commit whatever
+>> changes you make to the branch.
+> 
+> Ok, sorry, I misunderstood your comment.
+> 
+>> By contrast, the reasons for switching from CVS to Subversion were
+>> mostly technical ones - we often had problems with locks and tagging
+>> was very slow.
+> 
+> There are also technical reasons to prefer a DVCS: fast logging, fast
+> annotation, fast (and supposedly smarter, although I'm not really
+> knowledgeable on this) merges, and in some cases a nifty Web front-end.
+
+IMHO, those are all feel-good factors which can easily be had by
+installing a local Subversion repo copy (sync'ed using svnsync (*)),
+except perhaps regarding merging - but I don't know anything about
+in what way the DVCSes are better than Subversion.
+
+(*) This provides fast reads. Writes will still have to to the
+main repo site. See
+http://subversion.tigris.org/svn_1.5_releasenotes.html#webdav-proxy
+
+>> Why is that ? You need to do that for patches that change the build
+>> system or configuration, but for patches to a single C file, that's
+>> normally not needed.
+> 
+> Ok, but the point is that if many files have changed (or a single file
+> in the Include directory :-)), the rebuild process is longish each time
+> you "svn switch". Not so if you use a separate directory for each line
+> of work.
+
+Right, which is what I was describing... you copy your local trunk
+copy and then switch that copy to the new branch. If you use cp -al
+for this, that's a very fast operation on Unixes and avoids
+most of the network traffic.
+
+Then you work in the new local branch dir.
+Finally, you merge back the changes to trunk and delete the
+local branch dir (and probably also the one in the repo).
+
+-- 
+Marc-Andre Lemburg
+eGenix.com
+
+Professional Python Services directly from the Source  (#1, Feb 26 2009)
+>>> Python/Zope Consulting and Support ...        http://www.egenix.com/
+>>> mxODBC.Zope.Database.Adapter ...             http://zope.egenix.com/
+>>> mxODBC, mxDateTime, mxTextTools ...        http://python.egenix.com/
+________________________________________________________________________
+
+::: Try our new mxODBC.Connect Python Database Interface for free ! ::::
+
+
+   eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+    D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+           Registered at Amtsgericht Duesseldorf: HRB 46611
+               http://www.egenix.com/company/contact/
+
+From martin at v.loewis.de  Thu Feb 26 17:41:34 2009
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Thu, 26 Feb 2009 17:41:34 +0100
+Subject: [python-committers] DVCS and windows line endings.
+In-Reply-To: <00e301c997a7$32fbdfb0$98f39f10$@com.au>
+References: <00e301c997a7$32fbdfb0$98f39f10$@com.au>
+Message-ID: <49A6C63E.3020301@v.loewis.de>
+
+> Thoughts?
+
+Procedurally, I think there are many open issues. I'm not sure
+whether they get collected somewhere - so far, I took the position
+that I'll wait for a final proposal of a specific technology, with
+a specific demo setup, and then look what is wrong with this setup.
+
+Among the issues that have not been adequately addressed so far are:
+- conversion of the complete history
+- performance of the tools
+- availability of Windows support equivalent to TortoiseSVN
+- pre-commit checks
+- post-commit actions (such as commit emails, buildbot triggers)
+
+I think this specific issue (text mode and line endings) definitely
+belongs into the list of issues that need to be resolved, and I
+think it should be show-stopper if it isn't adequately resolved
+(i.e. it needs to be at least as good as CVS and subversion).
+
+Regards,
+Martin
+
+
+From barry at python.org  Thu Feb 26 17:48:04 2009
+From: barry at python.org (Barry Warsaw)
+Date: Thu, 26 Feb 2009 11:48:04 -0500
+Subject: [python-committers] Survey about DVCSs compared to svn
+In-Reply-To: <49A6A6BD.4010308@egenix.com>
+References: <bbaeab100902251431q5f1d8a35pfe40e515e682a1a5@mail.gmail.com>	<49A5D0C1.3040404@egenix.com>	<00df01c997a1$b5191ae0$1f4b50a0$@com.au>	<F519D8D6-842D-458E-8DA7-0B09DF95C33B@python.org>	<49A64ABD.1030108@v.loewis.de>
+	<85AC071A-78DE-4FAC-ADE7-FA78BB737B48@python.org>
+	<49A6A6BD.4010308@egenix.com>
+Message-ID: <E6F133C9-79DE-442E-9BEA-AB4A3CF69680@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On Feb 26, 2009, at 9:27 AM, M.-A. Lemburg wrote:
+
+> It would also permit fans of all discussed DVCS systems to use
+> their favorite tool, provided there are volunteers to do the
+> hosting.
+
+There are.  I think this approach will also allow Brett to save on the  
+astronomical cost of asbestos underwear.
+
+>> For core devs, I do think things like revision blocking and cherry
+>> picking would be easier with the branches in a native DVCS.
+>
+> AFAIK, svnmerge provides these two functions for Subversion.
+
+Right.  It seems like more of a hack than a basic feature to me.   
+Still, it might be good enough.
+
+Barry
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQCVAwUBSabHxXEjvBPtnXfVAQLKPgP/awxzNzdi7lzOu2sGO5yHe9Oc73lkL6u2
+qrPy5z/4OsYBIqCBV/OlNHXJbwgD0FuNWOfSgIQnpaVe4UqqYhEvQDo2qj8ozx6a
+yCt3/UpoIxlgsavDxFpQnpy1QQIiMdArp0dwt7j4dPsGAX3Cm/ynHKLH60SD951t
+pQ9bUVjqvtM=
+=Gjet
+-----END PGP SIGNATURE-----
+
+From barry at python.org  Thu Feb 26 17:50:37 2009
+From: barry at python.org (Barry Warsaw)
+Date: Thu, 26 Feb 2009 11:50:37 -0500
+Subject: [python-committers] Survey about DVCSs compared to svn
+In-Reply-To: <1235660675.7109.37.camel@fsol>
+References: <bbaeab100902251431q5f1d8a35pfe40e515e682a1a5@mail.gmail.com>
+	<49A5D0C1.3040404@egenix.com>
+	<00df01c997a1$b5191ae0$1f4b50a0$@com.au>
+	<F519D8D6-842D-458E-8DA7-0B09DF95C33B@python.org>
+	<49A64ABD.1030108@v.loewis.de>
+	<85AC071A-78DE-4FAC-ADE7-FA78BB737B48@python.org>
+	<49A6A6BD.4010308@egenix.com> <1235659804.7109.34.camel@fsol>
+	<368a5cd50902260654o42d0def1xe03da3a4232b06e6@mail.gmail.com>
+	<1235660675.7109.37.camel@fsol>
+Message-ID: <C6AF9717-DA38-4BC5-8C94-5B64CA491459@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On Feb 26, 2009, at 10:04 AM, Antoine Pitrou wrote:
+
+> Le jeudi 26 f?vrier 2009 ? 15:54 +0100, Fredrik Lundh a ?crit :
+>> "that" was referring to "other hosting facilities", not other
+>> repositories on the python.org servers:
+>
+> Ok. Sounds like a regression, but anyway.
+
+It's not a regression for the status quo.  Ideally, we as an  
+organization could handle the administrative overhead of self-hosting  
+the DVCS branches.  But if not, there are certainly hosting facilities  
+that can handle high fidelity imports of the svn masters.
+
+Barry
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQCVAwUBSabIXnEjvBPtnXfVAQLF7QQAgbpPO3kFuh20bvwXDYmZJPwPBWV81SNY
+OIZb1RKYphdGlyZ/UrzO0CXF+CEl+smnW94JMNStHSQZLwXMm6S+XxoAWZNkawo1
+OZ54j7h9amXbigPKAT3eeFWKtGEaOp2eoap+6p77ri1QCbSrJDgwMtWEBoIICzge
+din0wWYUfJs=
+=pOoO
+-----END PGP SIGNATURE-----
+
+From martin at v.loewis.de  Thu Feb 26 17:54:22 2009
+From: martin at v.loewis.de (=?UTF-8?B?Ik1hcnRpbiB2LiBMw7Z3aXMi?=)
+Date: Thu, 26 Feb 2009 17:54:22 +0100
+Subject: [python-committers] DVCS and windows line endings.
+In-Reply-To: <1235611989.8322.3.camel@fsol>
+References: <00e301c997a7$32fbdfb0$98f39f10$@com.au>	<1afaf6160902251624k3a324228g572b327561845fd8@mail.gmail.com>
+	<1235611989.8322.3.camel@fsol>
+Message-ID: <49A6C93E.9060708@v.loewis.de>
+
+> And it is even covered in the "minimal setup" section:
+> http://www.python.org/dev/peps/pep-0374/#hg
+
+I think this setup is incomplete: you should also add encode/decode
+sections to list all file name patterns that should see line
+conversion. Not sure when to use cleverencode and when to use
+dumbencode, though.
+
+Regards,
+Martin
+
+From barry at python.org  Thu Feb 26 17:55:02 2009
+From: barry at python.org (Barry Warsaw)
+Date: Thu, 26 Feb 2009 11:55:02 -0500
+Subject: [python-committers] Survey about DVCSs compared to svn
+In-Reply-To: <49A6B100.40304@egenix.com>
+References: <bbaeab100902251431q5f1d8a35pfe40e515e682a1a5@mail.gmail.com>	<49A5D0C1.3040404@egenix.com>	<00df01c997a1$b5191ae0$1f4b50a0$@com.au>	<F519D8D6-842D-458E-8DA7-0B09DF95C33B@python.org>	<49A64ABD.1030108@v.loewis.de>	<85AC071A-78DE-4FAC-ADE7-FA78BB737B48@python.org>	<49A6A6BD.4010308@egenix.com>
+	<1235659804.7109.34.camel@fsol> <49A6B100.40304@egenix.com>
+Message-ID: <987F03AA-8291-41EA-9EC6-31B561D6D194@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On Feb 26, 2009, at 10:10 AM, M.-A. Lemburg wrote:
+
+> On 2009-02-26 15:50, Antoine Pitrou wrote:
+>> Hi,
+>>
+>> I'm no trying to advocate switching to a DVCS, but really:
+>>
+>>> I think that's a much better approach and one that reduces the
+>>> load on the python.org repo sys-admins.
+>>
+>> How does having 4 more-or-less supported VCSes, rather than 1,  
+>> lighten
+>> the load on the sysadmins? Even though the DVCSes are theoretically
+>> handled by separate people, they have needs which must be fulfilled  
+>> by
+>> the sysadmins (e.g. for Mercurial, mod_wsgi had to be installed for  
+>> the
+>> Web front-end; and we see how much cooperation Bazaar support seems  
+>> to
+>> require from the sysadmins).
+>
+> I didn't know that and was under the impression that those other
+> systems simply hook up to the svn repo via the standard Subversion
+> interfaces.
+
+Well, for Bazaar, there's a plugin that speaks svn.  I really don't  
+think there's much ongoing maintenance other than setting up a cronjob  
+to sync the mirror to the svn master every minute or so.  From then  
+on, it should just work.  Most of the churn in the bzr branches hosted  
+on code.python.org is because it was an experiment we hacked together  
+at Pycon, so I'm mostly trying to consolidate, update and bring parts  
+of that in house.
+
+> I don't understand that comment. Of course, you can commit whatever
+> changes you make to the branch. It's not done locally and then  
+> forwarded,
+> but that's not really a technical disadvantage, it's merely a  
+> different
+> way to work.
+
+It is when you're on an 18 hour train ride and not on the net.
+
+Barry
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQCVAwUBSabJZnEjvBPtnXfVAQKj5gP7BOThbs2CD4F7h+ERpRHPRR/rNww12l/a
+sJON8U9N9YVTs7Yfzy267Zg204Dm8lE/lxVtu6Ial9RdqGC8rMjD3sDHNuBkFKyD
+PvtQbDohudzytGs2GW2as1FcqpQIBPfhXoPwzQxvjfoVegutRfmdieMh/4WZjRaG
+B23O9Wcicgw=
+=bJro
+-----END PGP SIGNATURE-----
+
+From barry at python.org  Thu Feb 26 17:59:28 2009
+From: barry at python.org (Barry Warsaw)
+Date: Thu, 26 Feb 2009 11:59:28 -0500
+Subject: [python-committers] Survey about DVCSs compared to svn
+In-Reply-To: <1235664026.7109.51.camel@fsol>
+References: <bbaeab100902251431q5f1d8a35pfe40e515e682a1a5@mail.gmail.com>
+	<49A5D0C1.3040404@egenix.com>
+	<00df01c997a1$b5191ae0$1f4b50a0$@com.au>
+	<F519D8D6-842D-458E-8DA7-0B09DF95C33B@python.org>
+	<49A64ABD.1030108@v.loewis.de>
+	<85AC071A-78DE-4FAC-ADE7-FA78BB737B48@python.org>
+	<49A6A6BD.4010308@egenix.com> <1235659804.7109.34.camel@fsol>
+	<49A6B100.40304@egenix.com> <1235662601.7109.48.camel@fsol>
+	<952d92df0902260750s78a5d942m19e8bcc251438a20@mail.gmail.com>
+	<1235664026.7109.51.camel@fsol>
+Message-ID: <87A3D170-B7B9-4284-ACBA-4AE9DB9B06EB@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On Feb 26, 2009, at 11:00 AM, Antoine Pitrou wrote:
+
+> Perhaps you can try TortoiseHG
+> (http://bitbucket.org/tortoisehg/stable/wiki/Home) with one of the
+> mirrors on http://code.python.org/hg and tell us your observations?
+> This would certainly enlighten other Windows developers here.
+>
+> (the mirrors are read-only, but you can still do local changes and
+> commits of course, just not push the changes to the mirrors)
+
+I feel compelled to point out that there's a TortoiseBZR as well.
+
+http://bazaar-vcs.org/Download
+
+You can also push Bazaar branches to Launchpad as lots of people are  
+already doing:
+
+https://code.launchpad.net/python
+
+Barry
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQCVAwUBSabKcHEjvBPtnXfVAQJQXgQAkVyFzxDSOevPJlxOHhZGOqebDY6hvmqk
+tbR2xBPAKCT1JIr15WlnkT2fNwxrAfbzXWp3OVPsDBA6DH7OrP7EGxlcQMyfOgSg
+qpl6Kx/IID1+qturAzP/LHfExBavPfEAzN7Wwq45Wmofv/H9t7XMSVFXiUTlMYQ7
+/FVVCGCGQFE=
+=fsyI
+-----END PGP SIGNATURE-----
+
+From barry at python.org  Thu Feb 26 18:02:38 2009
+From: barry at python.org (Barry Warsaw)
+Date: Thu, 26 Feb 2009 12:02:38 -0500
+Subject: [python-committers] Survey about DVCSs compared to svn
+In-Reply-To: <49A6BEF8.4030201@egenix.com>
+References: <bbaeab100902251431q5f1d8a35pfe40e515e682a1a5@mail.gmail.com>	<49A5D0C1.3040404@egenix.com>	<00df01c997a1$b5191ae0$1f4b50a0$@com.au>	<F519D8D6-842D-458E-8DA7-0B09DF95C33B@python.org>	<49A64ABD.1030108@v.loewis.de>	<85AC071A-78DE-4FAC-ADE7-FA78BB737B48@python.org>	<49A6A6BD.4010308@egenix.com>
+	<1235659804.7109.34.camel@fsol>	<49A6B100.40304@egenix.com>
+	<1235662601.7109.48.camel@fsol> <49A6BEF8.4030201@egenix.com>
+Message-ID: <D14D698B-CFD6-4ED7-AA47-33F467221DDE@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On Feb 26, 2009, at 11:10 AM, M.-A. Lemburg wrote:
+
+> So just to get this right: The Subversion admins on python.org do
+> not have to setup anything special for DVCS mirror sites to hook
+> up to the main Subversion repo.
+
+True.  If we wanted to host the DVCS branches on python.org, we'd have  
+to set up the update scripts, either cron or something else.  We'd  
+probably also want to set up the ViewDVCS web server.
+
+> IMHO, those are all feel-good factors which can easily be had by
+> installing a local Subversion repo copy (sync'ed using svnsync (*)),
+> except perhaps regarding merging - but I don't know anything about
+> in what way the DVCSes are better than Subversion.
+>
+> (*) This provides fast reads. Writes will still have to to the
+> main repo site. See
+> http://subversion.tigris.org/svn_1.5_releasenotes.html#webdav-proxy
+
+Writes are the biggest problem to me.  I want full access to all my  
+VCS features, even when I'm disconnected from the net.
+
+Barry
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQCVAwUBSabLLnEjvBPtnXfVAQLSDQQAlMuMHqvvJomwCy4WjUMV1lyt6L6wv5EQ
+au5wJWZsYHn1InG1d6Het5Ew0j7iVP/uE3MvYolVioLwnm//DP+Pv/sTt2nKPSQ0
+0UtMTBIncyCT662SfOOc0y+yc6pzHxYhYael4wbQrL4Lm0+qgIUv45k/2k9vJ66M
+aWoFLhZj9dU=
+=3PYA
+-----END PGP SIGNATURE-----
+
+From martin at v.loewis.de  Thu Feb 26 18:10:37 2009
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Thu, 26 Feb 2009 18:10:37 +0100
+Subject: [python-committers] Survey about DVCSs compared to svn
+In-Reply-To: <85AC071A-78DE-4FAC-ADE7-FA78BB737B48@python.org>
+References: <bbaeab100902251431q5f1d8a35pfe40e515e682a1a5@mail.gmail.com>	<49A5D0C1.3040404@egenix.com>	<00df01c997a1$b5191ae0$1f4b50a0$@com.au>
+	<F519D8D6-842D-458E-8DA7-0B09DF95C33B@python.org>
+	<49A64ABD.1030108@v.loewis.de>
+	<85AC071A-78DE-4FAC-ADE7-FA78BB737B48@python.org>
+Message-ID: <49A6CD0D.2070505@v.loewis.de>
+
+>> That's already the case, for bzr, right?
+> 
+> Correct, in that there are native bzr branches on code.python.org, which
+> I am currently trying to improve.
+
+Furthermore, there is the option of hosting bzr branches on
+code.python.org, for committers, right? (not sure whether any committer
+makes active use of this service, though)
+
+> If we go this route though, then I think we should evaluate providing
+> the same level of support for other DVCSs people want.  I'm not
+> volunteering to maintain the hg or git repos, but if volunteers came
+> forward, we should reorganize the url space and authentication stuff so
+> that they can easily be pulled from c.p.o.
+
+Indeed. Before, I was worried about disk space. Now that we got a new
+machine, with plenty disk, RAM, CPU, we can offer hosting whatever
+people want to see - as you say, we would need a volunteer maintainer
+of such a service, though.
+
+Regards,
+Martin
+
+
+From barry at python.org  Thu Feb 26 18:17:09 2009
+From: barry at python.org (Barry Warsaw)
+Date: Thu, 26 Feb 2009 12:17:09 -0500
+Subject: [python-committers] Survey about DVCSs compared to svn
+In-Reply-To: <49A6CD0D.2070505@v.loewis.de>
+References: <bbaeab100902251431q5f1d8a35pfe40e515e682a1a5@mail.gmail.com>	<49A5D0C1.3040404@egenix.com>	<00df01c997a1$b5191ae0$1f4b50a0$@com.au>
+	<F519D8D6-842D-458E-8DA7-0B09DF95C33B@python.org>
+	<49A64ABD.1030108@v.loewis.de>
+	<85AC071A-78DE-4FAC-ADE7-FA78BB737B48@python.org>
+	<49A6CD0D.2070505@v.loewis.de>
+Message-ID: <57A5F665-F779-412E-873A-72542281F69D@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On Feb 26, 2009, at 12:10 PM, Martin v. L?wis wrote:
+
+>>> That's already the case, for bzr, right?
+>>
+>> Correct, in that there are native bzr branches on code.python.org,  
+>> which
+>> I am currently trying to improve.
+>
+> Furthermore, there is the option of hosting bzr branches on
+> code.python.org, for committers, right? (not sure whether any  
+> committer
+> makes active use of this service, though)
+
+Right.  I have a few branches up there.
+
+Barry
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQCVAwUBSabOlXEjvBPtnXfVAQJcewQAksBRG691E9zSOqpW4DY8vHuG6Wtgk1Fu
+P78BTb+ckv/3ppvBnSxCne80kiS2uw1escH9LQkAdIFlYz4/SX/PiXIr2/H2N59o
+qMGel4k30QnG7e1WPUqNtux82kiANQ5H6v5kkygz1k4gy7vJ7/bSL/Pxkc2/6+1e
+ZNGMZnAjoV0=
+=G8XG
+-----END PGP SIGNATURE-----
+
+From solipsis at pitrou.net  Thu Feb 26 18:21:18 2009
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Thu, 26 Feb 2009 18:21:18 +0100
+Subject: [python-committers] Survey about DVCSs compared to svn
+In-Reply-To: <49A6BEF8.4030201@egenix.com>
+References: <bbaeab100902251431q5f1d8a35pfe40e515e682a1a5@mail.gmail.com>
+	<49A5D0C1.3040404@egenix.com>	<00df01c997a1$b5191ae0$1f4b50a0$@com.au>
+	<F519D8D6-842D-458E-8DA7-0B09DF95C33B@python.org>
+	<49A64ABD.1030108@v.loewis.de>
+	<85AC071A-78DE-4FAC-ADE7-FA78BB737B48@python.org>
+	<49A6A6BD.4010308@egenix.com> <1235659804.7109.34.camel@fsol>
+	<49A6B100.40304@egenix.com> <1235662601.7109.48.camel@fsol>
+	<49A6BEF8.4030201@egenix.com>
+Message-ID: <1235668878.7109.82.camel@fsol>
+
+Le jeudi 26 f?vrier 2009 ? 17:10 +0100, M.-A. Lemburg a ?crit :
+> This is probably a matter of Internet connection bandwidth then.
+
+Not really.
+To give a point of comparison, when I clone (using Mercurial) the Python
+trunk at http://code.python.org/hg/trunk, it takes 2 minutes 50 seconds.
+That's for the whole trunk history from 1990 to today, and bandwidth is
+around 500 KB/s (sustained) during the downloading.
+
+So, having svnmerge take one minute or more from a machine hosted at the
+same place as code.python.org points to a really slow merge
+implementation IMO.
+
+> I have no idea how much data gets transferred, but it doesn't
+> "feel" slow.
+
+It definitely feels slow when you merge from e.g. trunk to py3k.
+
+> IMHO, those are all feel-good factors which can easily be had by
+> installing a local Subversion repo copy (sync'ed using svnsync (*)),
+> except perhaps regarding merging - but I don't know anything about
+> in what way the DVCSes are better than Subversion.
+
+I've never used svnsync, but I have already tried svk and it was a PITA
+(that's what led me to try Mercurial, and then write hgsvn).
+
+
+
+
+From martin at v.loewis.de  Thu Feb 26 18:28:18 2009
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Thu, 26 Feb 2009 18:28:18 +0100
+Subject: [python-committers] Survey about DVCSs compared to svn
+In-Reply-To: <952d92df0902260750s78a5d942m19e8bcc251438a20@mail.gmail.com>
+References: <bbaeab100902251431q5f1d8a35pfe40e515e682a1a5@mail.gmail.com>	<49A5D0C1.3040404@egenix.com>
+	<00df01c997a1$b5191ae0$1f4b50a0$@com.au>	<F519D8D6-842D-458E-8DA7-0B09DF95C33B@python.org>	<49A64ABD.1030108@v.loewis.de>	<85AC071A-78DE-4FAC-ADE7-FA78BB737B48@python.org>	<49A6A6BD.4010308@egenix.com>
+	<1235659804.7109.34.camel@fsol>	<49A6B100.40304@egenix.com>
+	<1235662601.7109.48.camel@fsol>
+	<952d92df0902260750s78a5d942m19e8bcc251438a20@mail.gmail.com>
+Message-ID: <49A6D132.5060309@v.loewis.de>
+
+> Regarding this DVCS survey in general, Stackless Python is hosted in
+> the svn.python.org repository.  As we are a distinct project from
+> Python itself, I don't really have a stake in a choice which affects
+> Python and haven't filled the survey in.  If the SVN hosting went away
+> and the chosen DVCS solution did not have a good Windows UI (like
+> TortoiseSVN), then I would have to make sad faces.
+
+Be assured that this won't happen. Perhaps the /python folder
+would get removed from projects repository; svn.python.org would
+continue to work (it is also needed to host the website and the
+PyPI sources). It doesn't cost anything to continue to run svn.
+(perhaps if all the other projects except for stackless left svn,
+I would ask you to "volunteer" some admin time into its operation).
+
+Regards,
+Martin
+
+From steven.bethard at gmail.com  Thu Feb 26 19:12:15 2009
+From: steven.bethard at gmail.com (Steven Bethard)
+Date: Thu, 26 Feb 2009 10:12:15 -0800
+Subject: [python-committers] Survey about DVCSs compared to svn
+In-Reply-To: <1235664026.7109.51.camel@fsol>
+References: <bbaeab100902251431q5f1d8a35pfe40e515e682a1a5@mail.gmail.com>
+	<F519D8D6-842D-458E-8DA7-0B09DF95C33B@python.org>
+	<49A64ABD.1030108@v.loewis.de>
+	<85AC071A-78DE-4FAC-ADE7-FA78BB737B48@python.org>
+	<49A6A6BD.4010308@egenix.com> <1235659804.7109.34.camel@fsol>
+	<49A6B100.40304@egenix.com> <1235662601.7109.48.camel@fsol>
+	<952d92df0902260750s78a5d942m19e8bcc251438a20@mail.gmail.com>
+	<1235664026.7109.51.camel@fsol>
+Message-ID: <d11dcfba0902261012x6a526fd2kdaed00e0dc78be13@mail.gmail.com>
+
+On Thu, Feb 26, 2009 at 8:00 AM, Antoine Pitrou <solipsis at pitrou.net> wrote:
+> Le jeudi 26 f?vrier 2009 ? 10:50 -0500, Richard Tew a ?crit :
+>> If the SVN hosting went away
+>> and the chosen DVCS solution did not have a good Windows UI (like
+>> TortoiseSVN), then I would have to make sad faces.
+>
+> Perhaps you can try TortoiseHG
+> (http://bitbucket.org/tortoisehg/stable/wiki/Home) with one of the
+> mirrors on http://code.python.org/hg and tell us your observations?
+> This would certainly enlighten other Windows developers here.
+
+I've been using TortoiseHG with another repository for a while, and
+the functionality is basically as good as TortoiseSVN except that
+about 10% of the time it hangs on push and I have to kill it and
+restart the machine.
+
+Steve
+-- 
+I'm not *in*-sane. Indeed, I am so far *out* of sane that you appear a
+tiny blip on the distant coast of sanity.
+        --- Bucky Katt, Get Fuzzy
+
+From brett at python.org  Fri Feb 27 04:21:09 2009
+From: brett at python.org (Brett Cannon)
+Date: Thu, 26 Feb 2009 19:21:09 -0800
+Subject: [python-committers] Survey about DVCSs compared to svn
+In-Reply-To: <49A6BEF8.4030201@egenix.com>
+References: <bbaeab100902251431q5f1d8a35pfe40e515e682a1a5@mail.gmail.com>
+	<00df01c997a1$b5191ae0$1f4b50a0$@com.au>
+	<F519D8D6-842D-458E-8DA7-0B09DF95C33B@python.org>
+	<49A64ABD.1030108@v.loewis.de>
+	<85AC071A-78DE-4FAC-ADE7-FA78BB737B48@python.org>
+	<49A6A6BD.4010308@egenix.com> <1235659804.7109.34.camel@fsol>
+	<49A6B100.40304@egenix.com> <1235662601.7109.48.camel@fsol>
+	<49A6BEF8.4030201@egenix.com>
+Message-ID: <bbaeab100902261921h2012f40fy3a735fce5e22f3a1@mail.gmail.com>
+
+On Thu, Feb 26, 2009 at 08:10, M.-A. Lemburg <mal at egenix.com> wrote:
+
+> On 2009-02-26 16:36, Antoine Pitrou wrote:
+> > Le jeudi 26 f?vrier 2009 ? 16:10 +0100, M.-A. Lemburg a ?crit :
+> >> I didn't know that and was under the impression that those other
+> >> systems simply hook up to the svn repo via the standard Subversion
+> >> interfaces.
+> >
+> > They hook up to the svn repo for mirroring purposes, true. But they also
+> > have their own wire protocol, and some of them also have Web-based
+> > browsing facilities (which, in the case of Mercurial, are actually two
+> > sides of the same coin: the same base URL is used for human-readable
+> > browsing and for read-only HTTP-based cloning of the repository (the
+> > writeable cloning variant, as with SVN, uses an SSH-based protocol
+> > instead)).
+>
+> So just to get this right: The Subversion admins on python.org do
+> not have to setup anything special for DVCS mirror sites to hook
+> up to the main Subversion repo.
+>
+> >> However, it is often said that branches in DVCS system are so much
+> >> better to work with. Subversion supports these as well, it's just
+> >> that we currently don't make much use of them and that's what I
+> >> wanted to point out.
+> >
+> > Perhaps because they are not really practical? For example, I don't know
+> > how often you use svnmerge, but it's surprisingly slow even for small
+> > merges. It also seems to transfer lots of information over the network.
+>
+> This is probably a matter of Internet connection bandwidth then.
+> I have no idea how much data gets transferred, but it doesn't
+> "feel" slow.
+>
+
+Feels slow to me, especially when you have to do it three separate times
+that all feel slow.
+
+
+>
+> >> I don't understand that comment. Of course, you can commit whatever
+> >> changes you make to the branch.
+> >
+> > Ok, sorry, I misunderstood your comment.
+> >
+> >> By contrast, the reasons for switching from CVS to Subversion were
+> >> mostly technical ones - we often had problems with locks and tagging
+> >> was very slow.
+> >
+> > There are also technical reasons to prefer a DVCS: fast logging, fast
+> > annotation, fast (and supposedly smarter, although I'm not really
+> > knowledgeable on this) merges, and in some cases a nifty Web front-end.
+>
+> IMHO, those are all feel-good factors which can easily be had by
+> installing a local Subversion repo copy (sync'ed using svnsync (*)),
+> except perhaps regarding merging - but I don't know anything about
+> in what way the DVCSes are better than Subversion.
+>
+> (*) This provides fast reads. Writes will still have to to the
+> main repo site. See
+> http://subversion.tigris.org/svn_1.5_releasenotes.html#webdav-proxy
+>
+
+Performance is a perk, not a reason to switch, true.
+
+
+>
+> >> Why is that ? You need to do that for patches that change the build
+> >> system or configuration, but for patches to a single C file, that's
+> >> normally not needed.
+> >
+> > Ok, but the point is that if many files have changed (or a single file
+> > in the Include directory :-)), the rebuild process is longish each time
+> > you "svn switch". Not so if you use a separate directory for each line
+> > of work.
+>
+> Right, which is what I was describing... you copy your local trunk
+> copy and then switch that copy to the new branch. If you use cp -al
+> for this, that's a very fast operation on Unixes and avoids
+> most of the network traffic.
+>
+
+What cp are you talking about, the command or svn cp? Either way the help
+for both commands don't list -a or -l as flags on OS X under their help.
+
+
+>
+> Then you work in the new local branch dir.
+> Finally, you merge back the changes to trunk and delete the
+> local branch dir (and probably also the one in the repo).
+>
+
+But what about the non-core developer? While all of us can do svn copy to
+make any branch we want and all that, the poor guy who doesn't have commit
+privs can't do that.
+
+As an example, let's say Antoine was getting help from someone for his io
+rewrite that was not a core developer. That guy would have to either have to
+live without being able to do local commits to checkpoint his work and hope
+he never reached a situation where he needed to revert some of his work,
+generate patch files to simulate checkins, or have to learn how to convert
+the io C branch for a DVCS and work from that.
+
+Or we can use a DVCS to make sure non-core developers don't have to feel
+like second-class citizens and jump through extra hoops in order to do
+something as basic as commits of their work.
+
+The DVCS switch is not about us (at least not entirely). It's about the
+people who want to help out but have not earned checking rights. It's about
+giving them the best tools available to empower them to contribute to Python
+in the easiest, best way possible.
+
+-Brett
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20090226/4924f224/attachment-0001.htm>
+
+From fredrik at pythonware.com  Fri Feb 27 11:59:33 2009
+From: fredrik at pythonware.com (Fredrik Lundh)
+Date: Fri, 27 Feb 2009 11:59:33 +0100
+Subject: [python-committers] Survey about DVCSs compared to svn
+In-Reply-To: <bbaeab100902261921h2012f40fy3a735fce5e22f3a1@mail.gmail.com>
+References: <bbaeab100902251431q5f1d8a35pfe40e515e682a1a5@mail.gmail.com>
+	<F519D8D6-842D-458E-8DA7-0B09DF95C33B@python.org>
+	<49A64ABD.1030108@v.loewis.de>
+	<85AC071A-78DE-4FAC-ADE7-FA78BB737B48@python.org>
+	<49A6A6BD.4010308@egenix.com> <1235659804.7109.34.camel@fsol>
+	<49A6B100.40304@egenix.com> <1235662601.7109.48.camel@fsol>
+	<49A6BEF8.4030201@egenix.com>
+	<bbaeab100902261921h2012f40fy3a735fce5e22f3a1@mail.gmail.com>
+Message-ID: <368a5cd50902270259o14dfe257hf595a2860020e674@mail.gmail.com>
+
+On Fri, Feb 27, 2009 at 4:21 AM, Brett Cannon <brett at python.org> wrote:
+
+>> Right, which is what I was describing... you copy your local trunk
+>> copy and then switch that copy to the new branch. If you use cp -al
+>> for this, that's a very fast operation on Unixes and avoids
+>> most of the network traffic.
+>
+> What cp are you talking about, the command or svn cp? Either way the help
+> for both commands don't list -a or -l as flags on OS X under their help.
+
+$ cp --help
+...
+Copy SOURCE to DEST, or multiple SOURCE(s) to DIRECTORY.
+...
+Mandatory arguments to long options are mandatory for short options too.
+  -a, --archive                same as -dpR
+...
+  -l, --link                   link files instead of copying
+
+Sounds like you need to upgrade to a real OS ;-)
+
+> The DVCS switch is not about us (at least not entirely). It's about the
+> people who want to help out but have not earned checking rights. It's about
+> giving them the best tools available to empower them to contribute to Python
+> in the easiest, best way possible.
+
+So the hypothetical requirements of one hypothetical developer is
+reason enough for breaking the current process for *everyone*,
+including core developers and non-development repository users (see my
+earlier mail)?  Given that all major DVCS:es seem to have solid
+support for *pulling* from an SVN master repository (and at least Git
+makes it easy to commit too), why not just let developers to use
+whatever tools they want when working on individual features, as long
+as they can provide a straightforward patch (or commit) at the end?
+
+</F>
+
+From aleaxit at gmail.com  Fri Feb 27 16:32:01 2009
+From: aleaxit at gmail.com (Alex Martelli)
+Date: Fri, 27 Feb 2009 07:32:01 -0800
+Subject: [python-committers] Survey about DVCSs compared to svn
+In-Reply-To: <368a5cd50902270259o14dfe257hf595a2860020e674@mail.gmail.com>
+References: <bbaeab100902251431q5f1d8a35pfe40e515e682a1a5@mail.gmail.com>
+	<49A64ABD.1030108@v.loewis.de>
+	<85AC071A-78DE-4FAC-ADE7-FA78BB737B48@python.org>
+	<49A6A6BD.4010308@egenix.com> <1235659804.7109.34.camel@fsol>
+	<49A6B100.40304@egenix.com> <1235662601.7109.48.camel@fsol>
+	<49A6BEF8.4030201@egenix.com>
+	<bbaeab100902261921h2012f40fy3a735fce5e22f3a1@mail.gmail.com>
+	<368a5cd50902270259o14dfe257hf595a2860020e674@mail.gmail.com>
+Message-ID: <e8a0972d0902270732k6dfd28cex2b2d58302fd128e6@mail.gmail.com>
+
+On Fri, Feb 27, 2009 at 2:59 AM, Fredrik Lundh <fredrik at pythonware.com>wrote:
+   ...
+
+> $ cp --help
+> ...
+> Copy SOURCE to DEST, or multiple SOURCE(s) to DIRECTORY.
+> ...
+> Mandatory arguments to long options are mandatory for short options too.
+>  -a, --archive                same as -dpR
+> ...
+>  -l, --link                   link files instead of copying
+>
+> Sounds like you need to upgrade to a real OS ;-)
+
+
+if you want the feature-laden gnu-style version of basic utilities, instead
+of the simpler unix-style one that MacOSX (and most all BSDs, OpenSolaris,
+etc) come with, it's typically simple to download and install the gnu-style
+one; on MacOSX, the simplest way is probably via
+http://coreutils.darwinports.com/ .
+
+
+Alex
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20090227/f8a04480/attachment.htm>
+
+From g.brandl at gmx.net  Fri Feb 27 20:56:37 2009
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Fri, 27 Feb 2009 20:56:37 +0100
+Subject: [python-committers] Survey about DVCSs compared to svn
+In-Reply-To: <49A6BEF8.4030201@egenix.com>
+References: <bbaeab100902251431q5f1d8a35pfe40e515e682a1a5@mail.gmail.com>	<49A5D0C1.3040404@egenix.com>	<00df01c997a1$b5191ae0$1f4b50a0$@com.au>	<F519D8D6-842D-458E-8DA7-0B09DF95C33B@python.org>	<49A64ABD.1030108@v.loewis.de>	<85AC071A-78DE-4FAC-ADE7-FA78BB737B48@python.org>	<49A6A6BD.4010308@egenix.com>	<1235659804.7109.34.camel@fsol>	<49A6B100.40304@egenix.com>	<1235662601.7109.48.camel@fsol>
+	<49A6BEF8.4030201@egenix.com>
+Message-ID: <go9gid$1ha$1@ger.gmane.org>
+
+M.-A. Lemburg schrieb:
+
+> IMHO, those are all feel-good factors which can easily be had by
+> installing a local Subversion repo copy (sync'ed using svnsync (*)),
+> except perhaps regarding merging - but I don't know anything about
+> in what way the DVCSes are better than Subversion.
+> 
+> (*) This provides fast reads. Writes will still have to to the
+> main repo site. See
+> http://subversion.tigris.org/svn_1.5_releasenotes.html#webdav-proxy
+
+So for merging we use svnmerge, for having a local repo we use svnsync.
+If we continue that way, perhaps there is a svnlocalcommit for on-the-fly
+committing, and so on.
+
+But once you have to install, learn and maintain Subversion plus a handful
+of tools, just to get the same level of convenience you get for free with
+a DVCS, you can't tell me the former is easier than the latter.
+
+Georg
+
+-- 
+Thus spake the Lord: Thou shalt indent with four spaces. No more, no less.
+Four shall be the number of spaces thou shalt indent, and the number of thy
+indenting shall be four. Eight shalt thou not indent, nor either indent thou
+two, excepting that thou then proceed to four. Tabs are right out.
+
+
+From brett at python.org  Fri Feb 27 21:23:56 2009
+From: brett at python.org (Brett Cannon)
+Date: Fri, 27 Feb 2009 12:23:56 -0800
+Subject: [python-committers] Survey about DVCSs compared to svn
+In-Reply-To: <368a5cd50902270259o14dfe257hf595a2860020e674@mail.gmail.com>
+References: <bbaeab100902251431q5f1d8a35pfe40e515e682a1a5@mail.gmail.com>
+	<49A64ABD.1030108@v.loewis.de>
+	<85AC071A-78DE-4FAC-ADE7-FA78BB737B48@python.org>
+	<49A6A6BD.4010308@egenix.com> <1235659804.7109.34.camel@fsol>
+	<49A6B100.40304@egenix.com> <1235662601.7109.48.camel@fsol>
+	<49A6BEF8.4030201@egenix.com>
+	<bbaeab100902261921h2012f40fy3a735fce5e22f3a1@mail.gmail.com>
+	<368a5cd50902270259o14dfe257hf595a2860020e674@mail.gmail.com>
+Message-ID: <bbaeab100902271223u427c65b8we08c9abf32684e8e@mail.gmail.com>
+
+I had a long reply all written out, but instead I decided to discard it so
+as to not continue to drag this discussion out. Why? The DVCS PEP is not
+even finished yet!
+
+Can you guys please let me finish the PEP before you start worrying about
+whether we are going to switch? At least give me the chance to make a
+decision on whether I think it is reasonable to switch and what to switch
+to. And then we can have a reasonable conversation where I update the PEP to
+address any questions that come up.
+
+-Brett
+
+
+On Fri, Feb 27, 2009 at 02:59, Fredrik Lundh <fredrik at pythonware.com> wrote:
+
+> On Fri, Feb 27, 2009 at 4:21 AM, Brett Cannon <brett at python.org> wrote:
+>
+> >> Right, which is what I was describing... you copy your local trunk
+> >> copy and then switch that copy to the new branch. If you use cp -al
+> >> for this, that's a very fast operation on Unixes and avoids
+> >> most of the network traffic.
+> >
+> > What cp are you talking about, the command or svn cp? Either way the help
+> > for both commands don't list -a or -l as flags on OS X under their help.
+>
+> $ cp --help
+> ...
+> Copy SOURCE to DEST, or multiple SOURCE(s) to DIRECTORY.
+> ...
+> Mandatory arguments to long options are mandatory for short options too.
+>  -a, --archive                same as -dpR
+> ...
+>  -l, --link                   link files instead of copying
+>
+> Sounds like you need to upgrade to a real OS ;-)
+>
+> > The DVCS switch is not about us (at least not entirely). It's about the
+> > people who want to help out but have not earned checking rights. It's
+> about
+> > giving them the best tools available to empower them to contribute to
+> Python
+> > in the easiest, best way possible.
+>
+> So the hypothetical requirements of one hypothetical developer is
+> reason enough for breaking the current process for *everyone*,
+> including core developers and non-development repository users (see my
+> earlier mail)?  Given that all major DVCS:es seem to have solid
+> support for *pulling* from an SVN master repository (and at least Git
+> makes it easy to commit too), why not just let developers to use
+> whatever tools they want when working on individual features, as long
+> as they can provide a straightforward patch (or commit) at the end?
+>
+> </F>
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20090227/1af125d3/attachment.htm>
+
+From mhammond at skippinet.com.au  Fri Feb 27 22:57:25 2009
+From: mhammond at skippinet.com.au (Mark Hammond)
+Date: Sat, 28 Feb 2009 08:57:25 +1100
+Subject: [python-committers] Survey about DVCSs compared to svn
+In-Reply-To: <bbaeab100902271223u427c65b8we08c9abf32684e8e@mail.gmail.com>
+References: <bbaeab100902251431q5f1d8a35pfe40e515e682a1a5@mail.gmail.com>	<49A64ABD.1030108@v.loewis.de>	<85AC071A-78DE-4FAC-ADE7-FA78BB737B48@python.org>	<49A6A6BD.4010308@egenix.com>
+	<1235659804.7109.34.camel@fsol>	<49A6B100.40304@egenix.com>
+	<1235662601.7109.48.camel@fsol>	<49A6BEF8.4030201@egenix.com>	<bbaeab100902261921h2012f40fy3a735fce5e22f3a1@mail.gmail.com>	<368a5cd50902270259o14dfe257hf595a2860020e674@mail.gmail.com>
+	<bbaeab100902271223u427c65b8we08c9abf32684e8e@mail.gmail.com>
+Message-ID: <015d01c99926$62b229a0$28167ce0$@com.au>
+
+Brett,
+  We really appreciate your work on this PEP, but I wonder if the process itself isn't causing some of this friction:
+
+> Can you guys please let me finish the PEP before you start worrying about 
+> whether we are going to switch? At least give me the chance to make a 
+> decision on whether I think it is reasonable to switch and what to 
+> switch to. And then we can have a reasonable conversation where I update 
+> the PEP to address any questions that come up.
+
+It sounds like you want people to hold feedback until you have finished the PEP - which will come complete with a *decision* about what to switch to, or not to switch at all?
+
+It may be that people are concerned that if the PEP will be presented as a decision being made, the opportunity for meaninful input will have passed.
+
+Could you clarify for me: how binding will your PEP be?  ie, will it be closer to a recommendation, or will the final PEP be a final decision about what will (or will not) happen?
+
+Thanks,
+
+Mark
+
+
+From brett at python.org  Fri Feb 27 23:07:28 2009
+From: brett at python.org (Brett Cannon)
+Date: Fri, 27 Feb 2009 14:07:28 -0800
+Subject: [python-committers] Survey about DVCSs compared to svn
+In-Reply-To: <015d01c99926$62b229a0$28167ce0$@com.au>
+References: <bbaeab100902251431q5f1d8a35pfe40e515e682a1a5@mail.gmail.com>
+	<49A6A6BD.4010308@egenix.com> <1235659804.7109.34.camel@fsol>
+	<49A6B100.40304@egenix.com> <1235662601.7109.48.camel@fsol>
+	<49A6BEF8.4030201@egenix.com>
+	<bbaeab100902261921h2012f40fy3a735fce5e22f3a1@mail.gmail.com>
+	<368a5cd50902270259o14dfe257hf595a2860020e674@mail.gmail.com>
+	<bbaeab100902271223u427c65b8we08c9abf32684e8e@mail.gmail.com>
+	<015d01c99926$62b229a0$28167ce0$@com.au>
+Message-ID: <bbaeab100902271407y6159d52eo858bfdae1c1ff344@mail.gmail.com>
+
+On Fri, Feb 27, 2009 at 13:57, Mark Hammond <mhammond at skippinet.com.au>wrote:
+
+> Brett,
+>  We really appreciate your work on this PEP, but I wonder if the process
+> itself isn't causing some of this friction:
+>
+> > Can you guys please let me finish the PEP before you start worrying about
+> > whether we are going to switch? At least give me the chance to make a
+> > decision on whether I think it is reasonable to switch and what to
+> > switch to. And then we can have a reasonable conversation where I update
+> > the PEP to address any questions that come up.
+>
+> It sounds like you want people to hold feedback until you have finished the
+> PEP - which will come complete with a *decision* about what to switch to, or
+> not to switch at all?
+>
+> It may be that people are concerned that if the PEP will be presented as a
+> decision being made, the opportunity for meaninful input will have passed.
+>
+> Could you clarify for me: how binding will your PEP be?  ie, will it be
+> closer to a recommendation, or will the final PEP be a final decision about
+> what will (or will not) happen?
+
+
+It's my recommendation. The only person who could force python-dev to switch
+is the BDFL. The point of the PEP is so someone (namely me) examines what
+our options are, figures out which one is the best DVCS for us, see if the
+switch seems worth it and if it is figure out how to go about it, and then
+present the results to python-dev just like any other PEP.
+
+-Brett
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20090227/41fb54cf/attachment-0001.htm>
+
+From martin at v.loewis.de  Fri Feb 27 23:13:18 2009
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Fri, 27 Feb 2009 23:13:18 +0100
+Subject: [python-committers] Survey about DVCSs compared to svn
+In-Reply-To: <015d01c99926$62b229a0$28167ce0$@com.au>
+References: <bbaeab100902251431q5f1d8a35pfe40e515e682a1a5@mail.gmail.com>	<49A64ABD.1030108@v.loewis.de>	<85AC071A-78DE-4FAC-ADE7-FA78BB737B48@python.org>	<49A6A6BD.4010308@egenix.com>	<1235659804.7109.34.camel@fsol>	<49A6B100.40304@egenix.com>	<1235662601.7109.48.camel@fsol>	<49A6BEF8.4030201@egenix.com>	<bbaeab100902261921h2012f40fy3a735fce5e22f3a1@mail.gmail.com>	<368a5cd50902270259o14dfe257hf595a2860020e674@mail.gmail.com>	<bbaeab100902271223u427c65b8we08c9abf32684e8e@mail.gmail.com>
+	<015d01c99926$62b229a0$28167ce0$@com.au>
+Message-ID: <49A8657E.2050308@v.loewis.de>
+
+> It may be that people are concerned that if the PEP will be presented
+> as a decision being made, the opportunity for meaninful input will
+> have passed.
+
+That is not the idea of the PEP process. Instead, it works like this:
+an enhancement is proposed, and people can discuss it and give feedback.
+They can indicate support, or suggest improvements, or indicate
+rejection. After some revisions, the PEP is proposed to the BDFL, who
+will pronounce. Traditionally, the BDFL has also considered the
+community view (unless he has a strong opinion on his own).
+
+> Could you clarify for me: how binding will your PEP be?  ie, will it
+> be closer to a recommendation, or will the final PEP be a final
+> decision about what will (or will not) happen?
+
+If the PEP process is followed (which I recommend it is), then it will
+be a decision. Notice, however, that the PEP can be rejected (and
+several PEPs *have* been rejected in the past, including some I wrote).
+
+I'm strongly in favor of this process, even though I'm also opposed
+to the likely proposition of the PEP (namely, to use something else
+than subversion - else there would not need to be a PEP). It is
+*very important* that the PEP provides a complete specification right
+from the start, or else discussion will revolve around the open issues,
+with no conclusion. So I'd rather have the PEP suggest that we switch
+to bzr (say), so that I can vote that down, instead of giving options
+in its final form.
+
+Regards,
+Martin
+
+From python at rcn.com  Fri Feb 27 23:15:25 2009
+From: python at rcn.com (Raymond Hettinger)
+Date: Fri, 27 Feb 2009 14:15:25 -0800
+Subject: [python-committers] Survey about DVCSs compared to svn
+References: <bbaeab100902251431q5f1d8a35pfe40e515e682a1a5@mail.gmail.com>	<49A64ABD.1030108@v.loewis.de>	<85AC071A-78DE-4FAC-ADE7-FA78BB737B48@python.org>	<49A6A6BD.4010308@egenix.com><1235659804.7109.34.camel@fsol>	<49A6B100.40304@egenix.com><1235662601.7109.48.camel@fsol>	<49A6BEF8.4030201@egenix.com>	<bbaeab100902261921h2012f40fy3a735fce5e22f3a1@mail.gmail.com>	<368a5cd50902270259o14dfe257hf595a2860020e674@mail.gmail.com><bbaeab100902271223u427c65b8we08c9abf32684e8e@mail.gmail.com>
+	<015d01c99926$62b229a0$28167ce0$@com.au>
+Message-ID: <9AD93975473542FEA1FB60CED5CF020A@RaymondLaptop1>
+
+
+[Mark Hammond]
+> It sounds like you want people to hold feedback until you have finished the PEP - which will come complete with a *decision* about 
+> what to switch to, or not to switch at all?
+>
+> It may be that people are concerned that if the PEP will be presented as a decision being made, the opportunity for meaninful 
+> input will have passed.
+
+FWIW, I share that concern.
+These things can take on a life of their own
+even if that wasn't the original intent.
+
+
+Raymond 
+
+
+From brett at python.org  Fri Feb 27 23:17:20 2009
+From: brett at python.org (Brett Cannon)
+Date: Fri, 27 Feb 2009 14:17:20 -0800
+Subject: [python-committers] Survey about DVCSs compared to svn
+In-Reply-To: <49A8657E.2050308@v.loewis.de>
+References: <bbaeab100902251431q5f1d8a35pfe40e515e682a1a5@mail.gmail.com>
+	<1235659804.7109.34.camel@fsol> <49A6B100.40304@egenix.com>
+	<1235662601.7109.48.camel@fsol> <49A6BEF8.4030201@egenix.com>
+	<bbaeab100902261921h2012f40fy3a735fce5e22f3a1@mail.gmail.com>
+	<368a5cd50902270259o14dfe257hf595a2860020e674@mail.gmail.com>
+	<bbaeab100902271223u427c65b8we08c9abf32684e8e@mail.gmail.com>
+	<015d01c99926$62b229a0$28167ce0$@com.au>
+	<49A8657E.2050308@v.loewis.de>
+Message-ID: <bbaeab100902271417i76f01558i2919bdeb6b587d0@mail.gmail.com>
+
+On Fri, Feb 27, 2009 at 14:13, "Martin v. L?wis" <martin at v.loewis.de> wrote:
+
+> > It may be that people are concerned that if the PEP will be presented
+> > as a decision being made, the opportunity for meaninful input will
+> > have passed.
+>
+> That is not the idea of the PEP process. Instead, it works like this:
+> an enhancement is proposed, and people can discuss it and give feedback.
+> They can indicate support, or suggest improvements, or indicate
+> rejection. After some revisions, the PEP is proposed to the BDFL, who
+> will pronounce. Traditionally, the BDFL has also considered the
+> community view (unless he has a strong opinion on his own).
+>
+> > Could you clarify for me: how binding will your PEP be?  ie, will it
+> > be closer to a recommendation, or will the final PEP be a final
+> > decision about what will (or will not) happen?
+>
+> If the PEP process is followed (which I recommend it is), then it will
+> be a decision. Notice, however, that the PEP can be rejected (and
+> several PEPs *have* been rejected in the past, including some I wrote).
+>
+> I'm strongly in favor of this process, even though I'm also opposed
+> to the likely proposition of the PEP (namely, to use something else
+> than subversion - else there would not need to be a PEP). It is
+> *very important* that the PEP provides a complete specification right
+> from the start, or else discussion will revolve around the open issues,
+> with no conclusion. So I'd rather have the PEP suggest that we switch
+> to bzr (say), so that I can vote that down, instead of giving options
+> in its final form.
+
+
+It ain't going to be wishy-washy; there will be a very obvious suggestion of
+what to switch to if a switch were to take place.
+
+-Brett
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20090227/70fdcbb9/attachment.htm>
+
+From mal at egenix.com  Fri Feb 27 23:34:42 2009
+From: mal at egenix.com (M.-A. Lemburg)
+Date: Fri, 27 Feb 2009 23:34:42 +0100
+Subject: [python-committers] Survey about DVCSs compared to svn
+In-Reply-To: <go9gid$1ha$1@ger.gmane.org>
+References: <bbaeab100902251431q5f1d8a35pfe40e515e682a1a5@mail.gmail.com>	<49A5D0C1.3040404@egenix.com>	<00df01c997a1$b5191ae0$1f4b50a0$@com.au>	<F519D8D6-842D-458E-8DA7-0B09DF95C33B@python.org>	<49A64ABD.1030108@v.loewis.de>	<85AC071A-78DE-4FAC-ADE7-FA78BB737B48@python.org>	<49A6A6BD.4010308@egenix.com>	<1235659804.7109.34.camel@fsol>	<49A6B100.40304@egenix.com>	<1235662601.7109.48.camel@fsol>	<49A6BEF8.4030201@egenix.com>
+	<go9gid$1ha$1@ger.gmane.org>
+Message-ID: <49A86A82.6040701@egenix.com>
+
+On 2009-02-27 20:56, Georg Brandl wrote:
+> M.-A. Lemburg schrieb:
+> 
+>> IMHO, those are all feel-good factors which can easily be had by
+>> installing a local Subversion repo copy (sync'ed using svnsync (*)),
+>> except perhaps regarding merging - but I don't know anything about
+>> in what way the DVCSes are better than Subversion.
+>>
+>> (*) This provides fast reads. Writes will still have to to the
+>> main repo site. See
+>> http://subversion.tigris.org/svn_1.5_releasenotes.html#webdav-proxy
+> 
+> So for merging we use svnmerge, for having a local repo we use svnsync.
+> If we continue that way, perhaps there is a svnlocalcommit for on-the-fly
+> committing, and so on.
+> 
+> But once you have to install, learn and maintain Subversion plus a handful
+> of tools, just to get the same level of convenience you get for free with
+> a DVCS, you can't tell me the former is easier than the latter.
+
+I am not saying that. Just suggesting that this is possible with
+Subversion as well, so it's not a technical argument for changing
+the main repo system.
+
+For those who want to use local commits, it's probably easier to just
+go with one of the DVCS systems hooked up to the central SVN repo.
+
+... and in two years, when DVCS 2.0 will be new and shiny, interested
+developers can then use those systems to hook up to the central
+SVN repo ;-)
+
+-- 
+Marc-Andre Lemburg
+eGenix.com
+
+Professional Python Services directly from the Source  (#1, Feb 27 2009)
+>>> Python/Zope Consulting and Support ...        http://www.egenix.com/
+>>> mxODBC.Zope.Database.Adapter ...             http://zope.egenix.com/
+>>> mxODBC, mxDateTime, mxTextTools ...        http://python.egenix.com/
+________________________________________________________________________
+
+::: Try our new mxODBC.Connect Python Database Interface for free ! ::::
+
+
+   eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+    D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+           Registered at Amtsgericht Duesseldorf: HRB 46611
+               http://www.egenix.com/company/contact/
+
+From g.brandl at gmx.net  Fri Feb 27 23:46:20 2009
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Fri, 27 Feb 2009 23:46:20 +0100
+Subject: [python-committers] Survey about DVCSs compared to svn
+In-Reply-To: <49A8657E.2050308@v.loewis.de>
+References: <bbaeab100902251431q5f1d8a35pfe40e515e682a1a5@mail.gmail.com>	<49A64ABD.1030108@v.loewis.de>	<85AC071A-78DE-4FAC-ADE7-FA78BB737B48@python.org>	<49A6A6BD.4010308@egenix.com>	<1235659804.7109.34.camel@fsol>	<49A6B100.40304@egenix.com>	<1235662601.7109.48.camel@fsol>	<49A6BEF8.4030201@egenix.com>	<bbaeab100902261921h2012f40fy3a735fce5e22f3a1@mail.gmail.com>	<368a5cd50902270259o14dfe257hf595a2860020e674@mail.gmail.com>	<bbaeab100902271223u427c65b8we08c9abf32684e8e@mail.gmail.com>	<015d01c99926$62b229a0$28167ce0$@com.au>
+	<49A8657E.2050308@v.loewis.de>
+Message-ID: <go9qgl$1gp$1@ger.gmane.org>
+
+Martin v. L?wis schrieb:
+
+>> Could you clarify for me: how binding will your PEP be?  ie, will it
+>> be closer to a recommendation, or will the final PEP be a final
+>> decision about what will (or will not) happen?
+> 
+> If the PEP process is followed (which I recommend it is), then it will
+> be a decision. Notice, however, that the PEP can be rejected (and
+> several PEPs *have* been rejected in the past, including some I wrote).
+
+However, in this case it should perhaps rather be deferred, since we cannot
+once and forever reject switching to a DVCS.
+
+Georg
+
+
+-- 
+Thus spake the Lord: Thou shalt indent with four spaces. No more, no less.
+Four shall be the number of spaces thou shalt indent, and the number of thy
+indenting shall be four. Eight shalt thou not indent, nor either indent thou
+two, excepting that thou then proceed to four. Tabs are right out.
+
+
+From martin at v.loewis.de  Sat Feb 28 00:23:41 2009
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Sat, 28 Feb 2009 00:23:41 +0100
+Subject: [python-committers] Survey about DVCSs compared to svn
+In-Reply-To: <go9qgl$1gp$1@ger.gmane.org>
+References: <bbaeab100902251431q5f1d8a35pfe40e515e682a1a5@mail.gmail.com>	<49A64ABD.1030108@v.loewis.de>	<85AC071A-78DE-4FAC-ADE7-FA78BB737B48@python.org>	<49A6A6BD.4010308@egenix.com>	<1235659804.7109.34.camel@fsol>	<49A6B100.40304@egenix.com>	<1235662601.7109.48.camel@fsol>	<49A6BEF8.4030201@egenix.com>	<bbaeab100902261921h2012f40fy3a735fce5e22f3a1@mail.gmail.com>	<368a5cd50902270259o14dfe257hf595a2860020e674@mail.gmail.com>	<bbaeab100902271223u427c65b8we08c9abf32684e8e@mail.gmail.com>	<015d01c99926$62b229a0$28167ce0$@com.au>	<49A8657E.2050308@v.loewis.de>
+	<go9qgl$1gp$1@ger.gmane.org>
+Message-ID: <49A875FD.20605@v.loewis.de>
+
+> However, in this case it should perhaps rather be deferred, since we cannot
+> once and forever reject switching to a DVCS.
+
+OTOH, we can't keep discussing forever whether we should switch, either.
+If a decision is made not to switch, that decision should hold for a
+couple of years - as long as the reason(s) for not switching remain
+valid.
+
+Regards,
+Martin
+
+From barry at python.org  Sat Feb 28 00:38:11 2009
+From: barry at python.org (Barry Warsaw)
+Date: Fri, 27 Feb 2009 18:38:11 -0500
+Subject: [python-committers] Survey about DVCSs compared to svn
+In-Reply-To: <49A875FD.20605@v.loewis.de>
+References: <bbaeab100902251431q5f1d8a35pfe40e515e682a1a5@mail.gmail.com>	<49A64ABD.1030108@v.loewis.de>	<85AC071A-78DE-4FAC-ADE7-FA78BB737B48@python.org>	<49A6A6BD.4010308@egenix.com>	<1235659804.7109.34.camel@fsol>	<49A6B100.40304@egenix.com>	<1235662601.7109.48.camel@fsol>	<49A6BEF8.4030201@egenix.com>	<bbaeab100902261921h2012f40fy3a735fce5e22f3a1@mail.gmail.com>	<368a5cd50902270259o14dfe257hf595a2860020e674@mail.gmail.com>	<bbaeab100902271223u427c65b8we08c9abf32684e8e@mail.gmail.com>	<015d01c99926$62b229a0$28167ce0$@com.au>	<49A8657E.2050308@v.loewis.de>
+	<go9qgl$1gp$1@ger.gmane.org> <49A875FD.20605@v.loewis.de>
+Message-ID: <877D3846-4B77-47DE-92E8-C5FFCEBA6A8E@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On Feb 27, 2009, at 6:23 PM, Martin v. L?wis wrote:
+
+>> However, in this case it should perhaps rather be deferred, since  
+>> we cannot
+>> once and forever reject switching to a DVCS.
+>
+> OTOH, we can't keep discussing forever whether we should switch,  
+> either.
+> If a decision is made not to switch, that decision should hold for a
+> couple of years - as long as the reason(s) for not switching remain
+> valid.
+
+Originally, I had suggested considering the switch after the 2.6/3.0  
+release.  I still think switching "soonish" after a major release is a  
+good time (soonish can be 3 months, like we're now considering).  It  
+definitely would /not/ be a good idea to switch anytime before a major  
+release.  So if we defer the decision now, I think we need to look at  
+the release calendar before choosing another window for the switch.
+
+Barry
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQCVAwUBSah5Y3EjvBPtnXfVAQJobwP5AbNQQCZ6tJYqA4B9FfoSzSTriKe7s0nq
+DxGYA+Q5FOFXYhkxCxVwITaqoK3qBgnlG7QNpBv6AweTi3oFxnkqUuE3SJuPCrKp
+qQqaohStQKaOtitmobs+clkx2TYfd+klbkvjbyPkpzhbb/Vp8AATt533oqsG5EsK
+VDkNc1Hd9OY=
+=Q6sL
+-----END PGP SIGNATURE-----
+
+From jafo at tummy.com  Sat Feb 28 00:41:29 2009
+From: jafo at tummy.com (Sean Reifschneider)
+Date: Fri, 27 Feb 2009 16:41:29 -0700
+Subject: [python-committers] Survey about DVCSs compared to svn
+In-Reply-To: <bbaeab100902271417i76f01558i2919bdeb6b587d0@mail.gmail.com>
+References: <bbaeab100902251431q5f1d8a35pfe40e515e682a1a5@mail.gmail.com>	<1235659804.7109.34.camel@fsol>
+	<49A6B100.40304@egenix.com>	<1235662601.7109.48.camel@fsol>
+	<49A6BEF8.4030201@egenix.com>	<bbaeab100902261921h2012f40fy3a735fce5e22f3a1@mail.gmail.com>	<368a5cd50902270259o14dfe257hf595a2860020e674@mail.gmail.com>	<bbaeab100902271223u427c65b8we08c9abf32684e8e@mail.gmail.com>	<015d01c99926$62b229a0$28167ce0$@com.au>	<49A8657E.2050308@v.loewis.de>
+	<bbaeab100902271417i76f01558i2919bdeb6b587d0@mail.gmail.com>
+Message-ID: <49A87A29.7050109@tummy.com>
+
+Brett Cannon wrote:
+> It ain't going to be wishy-washy; there will be a very obvious suggestion of
+
+I know I haven't said much in this discussion, mostly because I don't
+really care which one we pick.  It's just a tool, I'll use whatever.
+
+But, I did want to say thanks to Brett for sticking his face in this fan.
+:-)  It's a task of practically religious-war-proportions, and obviously is
+something there are a lot of opinions and concerns over.  Thanks for
+working on this.
+
+Sean
+-- 
+Sean Reifschneider, Member of Technical Staff <jafo at tummy.com>
+tummy.com, ltd. - Linux Consulting since 1995: Ask me about High Availability
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 251 bytes
+Desc: OpenPGP digital signature
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20090227/162c2837/attachment.pgp>
+
+From fredrik at pythonware.com  Sat Feb 28 01:04:15 2009
+From: fredrik at pythonware.com (Fredrik Lundh)
+Date: Sat, 28 Feb 2009 01:04:15 +0100
+Subject: [python-committers] Survey about DVCSs compared to svn
+In-Reply-To: <368a5cd50902271534y20beed6aj915293eaa0dbfa6e@mail.gmail.com>
+References: <bbaeab100902251431q5f1d8a35pfe40e515e682a1a5@mail.gmail.com>
+	<49A6A6BD.4010308@egenix.com> <1235659804.7109.34.camel@fsol>
+	<49A6B100.40304@egenix.com> <1235662601.7109.48.camel@fsol>
+	<49A6BEF8.4030201@egenix.com>
+	<bbaeab100902261921h2012f40fy3a735fce5e22f3a1@mail.gmail.com>
+	<368a5cd50902270259o14dfe257hf595a2860020e674@mail.gmail.com>
+	<bbaeab100902271223u427c65b8we08c9abf32684e8e@mail.gmail.com>
+	<368a5cd50902271534y20beed6aj915293eaa0dbfa6e@mail.gmail.com>
+Message-ID: <368a5cd50902271604u769083a7na8dc562ecb62025@mail.gmail.com>
+
+No need for a long answer - just explain what the purpose of the survey is,
+and why it isn't as biasad as it appears to be. A process where you're
+actively discouraging people with a certain opinion from getting involved
+isn't much of a process.
+
+</F>
+
+On Feb 27, 2009 9:24 PM, "Brett Cannon" <brett at python.org> wrote:
+
+I had a long reply all written out, but instead I decided to discard it so
+as to not continue to drag this discussion out. Why? The DVCS PEP is not
+even finished yet!
+
+Can you guys please let me finish the PEP before you start worrying about
+whether we are going to switch? At least give me the chance to make a
+decision on whether I think it is reasonable to switch and what to switch
+to. And then we can have a reasonable conversation where I update the PEP to
+address any questions that come up.
+
+-Brett
+
+On Fri, Feb 27, 2009 at 02:59, Fredrik Lundh <fredrik at pythonware.com> wrote:
+> > On Fri, Feb 27, ...
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20090228/4155b156/attachment.htm>
+
+From fredrik at pythonware.com  Sat Feb 28 01:04:29 2009
+From: fredrik at pythonware.com (Fredrik Lundh)
+Date: Sat, 28 Feb 2009 01:04:29 +0100
+Subject: [python-committers] Survey about DVCSs compared to svn
+In-Reply-To: <go9qgl$1gp$1@ger.gmane.org>
+References: <bbaeab100902251431q5f1d8a35pfe40e515e682a1a5@mail.gmail.com>
+	<49A6B100.40304@egenix.com> <1235662601.7109.48.camel@fsol>
+	<49A6BEF8.4030201@egenix.com>
+	<bbaeab100902261921h2012f40fy3a735fce5e22f3a1@mail.gmail.com>
+	<368a5cd50902270259o14dfe257hf595a2860020e674@mail.gmail.com>
+	<bbaeab100902271223u427c65b8we08c9abf32684e8e@mail.gmail.com>
+	<015d01c99926$62b229a0$28167ce0$@com.au>
+	<49A8657E.2050308@v.loewis.de> <go9qgl$1gp$1@ger.gmane.org>
+Message-ID: <368a5cd50902271604y49120d55n71496ebb9cd4ebe6@mail.gmail.com>
+
+On the other hand, given how quickly things move in the VC space, we might
+as well end up in a situation where we don't need to do anything...
+
+</F>
+
+On Feb 27, 2009 11:47 PM, "Georg Brandl" <g.brandl at gmx.net> wrote:
+
+Martin v. L?wis schrieb:
+
+>> Could you clarify for me: how binding will your PEP be? ie, will it >> be
+closer to a recommend...
+However, in this case it should perhaps rather be deferred, since we cannot
+once and forever reject switching to a DVCS.
+
+Georg -- Thus spake the Lord: Thou shalt indent with four spaces. No more,
+no less. Four shall b...
+
+python-committers mailing list python-committers at python.org
+http://mail.python.org/mailman/listinfo/...
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20090228/0508b94c/attachment.htm>
+
+From guido at python.org  Sat Feb 28 01:06:44 2009
+From: guido at python.org (Guido van Rossum)
+Date: Fri, 27 Feb 2009 16:06:44 -0800
+Subject: [python-committers] Survey about DVCSs compared to svn
+In-Reply-To: <49A87A29.7050109@tummy.com>
+References: <bbaeab100902251431q5f1d8a35pfe40e515e682a1a5@mail.gmail.com>
+	<1235662601.7109.48.camel@fsol> <49A6BEF8.4030201@egenix.com>
+	<bbaeab100902261921h2012f40fy3a735fce5e22f3a1@mail.gmail.com>
+	<368a5cd50902270259o14dfe257hf595a2860020e674@mail.gmail.com>
+	<bbaeab100902271223u427c65b8we08c9abf32684e8e@mail.gmail.com>
+	<015d01c99926$62b229a0$28167ce0$@com.au>
+	<49A8657E.2050308@v.loewis.de>
+	<bbaeab100902271417i76f01558i2919bdeb6b587d0@mail.gmail.com>
+	<49A87A29.7050109@tummy.com>
+Message-ID: <ca471dc20902271606tc150e0dh7658f544ffaf3f29@mail.gmail.com>
+
+On Fri, Feb 27, 2009 at 3:41 PM, Sean Reifschneider <jafo at tummy.com> wrote:
+> But, I did want to say thanks to Brett for sticking his face in this fan.
+> :-) ?It's a task of practically religious-war-proportions, and obviously is
+> something there are a lot of opinions and concerns over. ?Thanks for
+> working on this.
+
+Thanks to Brett in deed.
+
+Would it help if I made a pronouncement? Let me express my personal
+feelings. Note that I can still be swayed many ways, so don't consider
+this a pronouncement, but perhaps it can serve as a catalyst for the
+decision making process.
+
+- Mercurial: IMO we can't go wrong with this. I've tried it a bit for
+small projects, and it's very easy to learn for a SVN user. I've
+talked to Bryan O'Sullivan, and I'm impressed by the customer list,
+which includes Mozilla and Sun.
+
+-  Bazaar: Probably okay, but I'm lukewarm about it. It is also
+apparently still slower than Hg. It is married to Launchpad whose UI
+continues to confuse and frustrate me (e.g. why is the "report a bug"
+link so much more prominent on the overview page than the "download"
+link?). I also am a little worried that Canonical is a little too
+eager to get us as a "high profile customer". The good news is that
+Bzr and Hg are so compatible that Bzr fans will be able to use Bzr
+even if the master repository (probably on Benjamin's hard drive :-)
+uses Hg.
+
+- Keeping Subversion: This would sadden me, because merging really
+sucks, even with the 1.5 merge tracking feature.
+
+- Git: Too complex, and I've heard that a negative attitude prevails
+in the Git  community.
+
+-- 
+--Guido van Rossum (home page: http://www.python.org/~guido/)
+
+From jnoller at gmail.com  Sat Feb 28 01:08:45 2009
+From: jnoller at gmail.com (jnoller at gmail.com)
+Date: Sat, 28 Feb 2009 00:08:45 +0000
+Subject: [python-committers] Survey about DVCSs compared to svn
+In-Reply-To: <368a5cd50902271604y49120d55n71496ebb9cd4ebe6@mail.gmail.com>
+Message-ID: <0016e64402809186f50463ef630f@google.com>
+
+I don't think that the implicit assumption "that something better may one  
+day come along" is something which negates action now. That's like  
+saying "something better than python may come along, so I'll stick with  
+$X". The fact is is that DVCes *are* an improvement over subversion,  
+especially around patch/branching/etc. I guess I'm spoiled with systems  
+which make branching/patching/merging eas(ier) tasks.
+
+-jesse
+
+On Feb 27, 2009 7:04pm, Fredrik Lundh <fredrik at pythonware.com> wrote:
+
+> On the other hand, given how quickly things move in the VC space, we  
+> might as well end up in a situation where we don't need to do anything...
+
+
+
+> On Feb 27, 2009 11:47 PM, "Georg Brandl" g.brandl at gmx.net> wrote:
+
+> Martin v. L?wis schrieb:
+
+
+
+> >> Could you clarify for me: how binding will your PEP be? ie, will it
+> >> be closer to a recommend...However, in this case it should perhaps  
+> rather be deferred, since we cannot
+
+> once and forever reject switching to a DVCS.
+
+
+
+> Georg
+
+
+> --
+> Thus spake the Lord: Thou shalt indent with four spaces. No more, no less.
+> Four shall b...
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/...
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20090228/33989537/attachment.htm>
+
+From jnoller at gmail.com  Sat Feb 28 01:11:39 2009
+From: jnoller at gmail.com (jnoller at gmail.com)
+Date: Sat, 28 Feb 2009 00:11:39 +0000
+Subject: [python-committers] Survey about DVCSs compared to svn
+In-Reply-To: <368a5cd50902271604u769083a7na8dc562ecb62025@mail.gmail.com>
+Message-ID: <00163630ee1dee73860463ef6d4d@google.com>
+
+The survey isn't biased. You have a value "the same /worse than the status  
+quo" - wherein the status quo is subversion. If you hate DVCes, you mark it  
+as "same/worse than the status quo" and we move on.
+
+No one is suggesting we accept *less* functionality than subversion: in  
+fact we're looking at these for *more* functionality.
+
+On Feb 27, 2009 7:04pm, Fredrik Lundh <fredrik at pythonware.com> wrote:
+
+> No need for a long answer - just explain what the purpose of the survey  
+> is, and why it isn't as biasad as it appears to be. A process where  
+> you're actively discouraging people with a certain opinion from getting  
+> involved isn't much of a process.
+
+
+
+
+> On Feb 27, 2009 9:24 PM, "Brett Cannon" brett at python.org> wrote:
+
+> I had a long reply all written out, but instead I decided to discard it  
+> so as to not continue to drag this discussion out. Why? The DVCS PEP is  
+> not even finished yet!
+
+
+> Can you guys please let me finish the PEP before you start worrying about  
+> whether we are going to switch? At least give me the chance to make a  
+> decision on whether I think it is reasonable to switch and what to switch  
+> to. And then we can have a reasonable conversation where I update the PEP  
+> to address any questions that come up.
+
+
+
+> -Brett
+
+
+
+> On Fri, Feb 27, 2009 at 02:59, Fredrik Lundh fredrik at pythonware.com>  
+> wrote:
+> >
+> > On Fri, Feb 27, ...
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20090228/c91dee8c/attachment.htm>
+
+From brett at python.org  Sat Feb 28 01:25:51 2009
+From: brett at python.org (Brett Cannon)
+Date: Fri, 27 Feb 2009 16:25:51 -0800
+Subject: [python-committers] Survey about DVCSs compared to svn
+In-Reply-To: <368a5cd50902271604u769083a7na8dc562ecb62025@mail.gmail.com>
+References: <bbaeab100902251431q5f1d8a35pfe40e515e682a1a5@mail.gmail.com>
+	<1235659804.7109.34.camel@fsol> <49A6B100.40304@egenix.com>
+	<1235662601.7109.48.camel@fsol> <49A6BEF8.4030201@egenix.com>
+	<bbaeab100902261921h2012f40fy3a735fce5e22f3a1@mail.gmail.com>
+	<368a5cd50902270259o14dfe257hf595a2860020e674@mail.gmail.com>
+	<bbaeab100902271223u427c65b8we08c9abf32684e8e@mail.gmail.com>
+	<368a5cd50902271534y20beed6aj915293eaa0dbfa6e@mail.gmail.com>
+	<368a5cd50902271604u769083a7na8dc562ecb62025@mail.gmail.com>
+Message-ID: <bbaeab100902271625j375e3833o9c2db8baed0c5a53@mail.gmail.com>
+
+On Fri, Feb 27, 2009 at 16:04, Fredrik Lundh <fredrik at pythonware.com> wrote:
+
+> No need for a long answer - just explain what the purpose of the survey is,
+>
+
+To see what committers think about the various DVCSs and if one happens to
+be disliked by a majority of developer when compared to svn as a baseline.
+
+
+> and why it isn't as biasad as it appears to be. A process where you're
+> actively discouraging people with a certain opinion from getting involved
+> isn't much of a process.
+>
+
+I just wanted some data, nothing more. This was not meant to spark a debate
+else this would have occurred over at python-dev. I just wanted to know what
+people thought in order to potentially eliminate a DVCS from the running to
+make my life easier in writing the PEP. Next time I will flat-out write "DO
+NOT TAKE THIS SURVEY SERIOUSLY" and still hope people take the time to fill
+it out.
+
+-Brett
+
+</F>
+>
+> On Feb 27, 2009 9:24 PM, "Brett Cannon" <brett at python.org> wrote:
+>
+> I had a long reply all written out, but instead I decided to discard it so
+> as to not continue to drag this discussion out. Why? The DVCS PEP is not
+> even finished yet!
+>
+> Can you guys please let me finish the PEP before you start worrying about
+> whether we are going to switch? At least give me the chance to make a
+> decision on whether I think it is reasonable to switch and what to switch
+> to. And then we can have a reasonable conversation where I update the PEP to
+> address any questions that come up.
+>
+> -Brett
+>
+> On Fri, Feb 27, 2009 at 02:59, Fredrik Lundh <fredrik at pythonware.com>
+> wrote: > > On Fri, Feb 27, ...
+>
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20090227/ad8a699d/attachment.htm>
+
+From brett at python.org  Sat Feb 28 01:35:35 2009
+From: brett at python.org (Brett Cannon)
+Date: Fri, 27 Feb 2009 16:35:35 -0800
+Subject: [python-committers] Survey about DVCSs compared to svn
+In-Reply-To: <49A87A29.7050109@tummy.com>
+References: <bbaeab100902251431q5f1d8a35pfe40e515e682a1a5@mail.gmail.com>
+	<1235662601.7109.48.camel@fsol> <49A6BEF8.4030201@egenix.com>
+	<bbaeab100902261921h2012f40fy3a735fce5e22f3a1@mail.gmail.com>
+	<368a5cd50902270259o14dfe257hf595a2860020e674@mail.gmail.com>
+	<bbaeab100902271223u427c65b8we08c9abf32684e8e@mail.gmail.com>
+	<015d01c99926$62b229a0$28167ce0$@com.au>
+	<49A8657E.2050308@v.loewis.de>
+	<bbaeab100902271417i76f01558i2919bdeb6b587d0@mail.gmail.com>
+	<49A87A29.7050109@tummy.com>
+Message-ID: <bbaeab100902271635wcaca5e2v6b5899e28b530bc7@mail.gmail.com>
+
+On Fri, Feb 27, 2009 at 15:41, Sean Reifschneider <jafo at tummy.com> wrote:
+
+> Brett Cannon wrote:
+> > It ain't going to be wishy-washy; there will be a very obvious suggestion
+> of
+>
+> I know I haven't said much in this discussion, mostly because I don't
+> really care which one we pick.  It's just a tool, I'll use whatever.
+>
+> But, I did want to say thanks to Brett for sticking his face in this fan.
+> :-)
+
+
+You're welcome.
+
+
+>  It's a task of practically religious-war-proportions, and obviously is
+> something there are a lot of opinions and concerns over.
+
+
+I think people take me seriously now when I say this has become the
+vim/Emacs war as of late.
+
+
+>  Thanks for
+> working on this.
+>
+
+Just don't let me do something like this again for a VERY LONG TIME. Thanks
+to the support of various people I will stick this out, but I am so close to
+burn-out that sheer determination is about the only thing keeping me going
+on this.
+
+-Brett
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20090227/b604e44e/attachment-0001.htm>
+
+From martin at v.loewis.de  Sat Feb 28 08:22:13 2009
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Sat, 28 Feb 2009 08:22:13 +0100
+Subject: [python-committers] Survey about DVCSs compared to svn
+In-Reply-To: <0016e64402809186f50463ef630f@google.com>
+References: <0016e64402809186f50463ef630f@google.com>
+Message-ID: <49A8E625.3080703@v.loewis.de>
+
+jnoller at gmail.com wrote:
+> The fact is is that DVCes *are* an improvement over subversion,
+> especially around patch/branching/etc. 
+
+I think the core of the problem/discussion is that many (including
+me) don't accept this as a fact. It has not been *demonstrated*
+to me that they are better, and I don't accept word-of-mouth as
+a proof. My own personal experience tells me git and bzr are much
+worse than subversion (each in different respects).
+
+Regards,
+Martin
+
+From fredrik at pythonware.com  Sat Feb 28 08:51:25 2009
+From: fredrik at pythonware.com (Fredrik Lundh)
+Date: Sat, 28 Feb 2009 08:51:25 +0100
+Subject: [python-committers] Survey about DVCSs compared to svn
+In-Reply-To: <368a5cd50902272345y74fb1711g626ad471161bf10b@mail.gmail.com>
+References: <368a5cd50902271604u769083a7na8dc562ecb62025@mail.gmail.com>
+	<00163630ee1dee73860463ef6d4d@google.com>
+	<368a5cd50902272345y74fb1711g626ad471161bf10b@mail.gmail.com>
+Message-ID: <368a5cd50902272351l5293b4bck68151f0357ba9fdf@mail.gmail.com>
+
+The bias is that the framing of the survey doesn't distinguish between
+"better in absolute terms" and "better given that we already have a working
+system and that there's a cost for *lots* of people if we switch". I'm
+surprised that you can claim that everything's ok even though several people
+that appear to be concerned about the latter has stated that they won't
+participate in the survey.
+
+</F>
+
+On Feb 28, 2009 1:11 AM, <jnoller at gmail.com> wrote:
+
+The survey isn't biased. You have a value "the same /worse than the status
+quo" - wherein the status quo is subversion. If you hate DVCes, you mark it
+as "same/worse than the status quo" and we move on.
+
+No one is suggesting we accept *less* functionality than subversion: in fact
+we're looking at these for *more* functionality.
+
+On Feb 27, 2009 7:04pm, Fredrik Lundh <fredrik at pythonware.com> wrote: > > No
+need for a long answe...
+
+> On Feb 27, 2009 9:24 PM, "Brett Cannon" brett at python.org> wrote: > > I had
+a long reply all writt...
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20090228/b00d3a15/attachment.htm>
+
+From fredrik at pythonware.com  Sat Feb 28 10:09:19 2009
+From: fredrik at pythonware.com (Fredrik Lundh)
+Date: Sat, 28 Feb 2009 10:09:19 +0100
+Subject: [python-committers] Survey about DVCSs compared to svn
+In-Reply-To: <ca471dc20902271606tc150e0dh7658f544ffaf3f29@mail.gmail.com>
+References: <bbaeab100902251431q5f1d8a35pfe40e515e682a1a5@mail.gmail.com>
+	<49A6BEF8.4030201@egenix.com>
+	<bbaeab100902261921h2012f40fy3a735fce5e22f3a1@mail.gmail.com>
+	<368a5cd50902270259o14dfe257hf595a2860020e674@mail.gmail.com>
+	<bbaeab100902271223u427c65b8we08c9abf32684e8e@mail.gmail.com>
+	<015d01c99926$62b229a0$28167ce0$@com.au>
+	<49A8657E.2050308@v.loewis.de>
+	<bbaeab100902271417i76f01558i2919bdeb6b587d0@mail.gmail.com>
+	<49A87A29.7050109@tummy.com>
+	<ca471dc20902271606tc150e0dh7658f544ffaf3f29@mail.gmail.com>
+Message-ID: <368a5cd50902280109l3a446526m7a18bcf804419af4@mail.gmail.com>
+
+What's Hg:s story on Svn integration? To what extent can you use it with a
+Svn master repo?
+
+(Btw, I would have said that Git is probably the one that's moving the
+fastest right now, and where the most interesting work is being done - but
+their Windows story is a tragedy (at least last time I checked) and I agree
+that the portions of the "community" that shows up in public places isn't
+always helping... I'm also a big fan of dogfooding, so picking a good-enough
+Python-powered Vcs definitely makes sense to me. If we need to pick one,
+that is. I'm still not convinced...)
+
+</F>
+
+On Feb 28, 2009 1:06 AM, "Guido van Rossum" <guido at python.org> wrote:
+
+On Fri, Feb 27, 2009 at 3:41 PM, Sean Reifschneider <jafo at tummy.com> wrote:
+> But, I did want to say...
+Thanks to Brett in deed.
+
+Would it help if I made a pronouncement? Let me express my personal
+feelings. Note that I can still be swayed many ways, so don't consider
+this a pronouncement, but perhaps it can serve as a catalyst for the
+decision making process.
+
+- Mercurial: IMO we can't go wrong with this. I've tried it a bit for
+small projects, and it's very easy to learn for a SVN user. I've
+talked to Bryan O'Sullivan, and I'm impressed by the customer list,
+which includes Mozilla and Sun.
+
+-  Bazaar: Probably okay, but I'm lukewarm about it. It is also
+apparently still slower than Hg. It is married to Launchpad whose UI
+continues to confuse and frustrate me (e.g. why is the "report a bug"
+link so much more prominent on the overview page than the "download"
+link?). I also am a little worried that Canonical is a little too
+eager to get us as a "high profile customer". The good news is that
+Bzr and Hg are so compatible that Bzr fans will be able to use Bzr
+even if the master repository (probably on Benjamin's hard drive :-)
+uses Hg.
+
+- Keeping Subversion: This would sadden me, because merging really
+sucks, even with the 1.5 merge tracking feature.
+
+- Git: Too complex, and I've heard that a negative attitude prevails
+in the Git  community.
+
+--
+--Guido van Rossum (home page: http://www.python.org/~guido/)
+
+_______________________________________________ python-committers mailing
+list python-committers at pyt...
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20090228/aae6e5c8/attachment.htm>
+
+From fredrik at pythonware.com  Sat Feb 28 10:16:22 2009
+From: fredrik at pythonware.com (Fredrik Lundh)
+Date: Sat, 28 Feb 2009 10:16:22 +0100
+Subject: [python-committers] Survey about DVCSs compared to svn
+In-Reply-To: <368a5cd50902280112n1b8a886bie0a9bf9744fb48ea@mail.gmail.com>
+References: <368a5cd50902271604u769083a7na8dc562ecb62025@mail.gmail.com>
+	<00163630ee1dee73860463ef6d4d@google.com>
+	<368a5cd50902272345y74fb1711g626ad471161bf10b@mail.gmail.com>
+	<368a5cd50902272351l5293b4bck68151f0357ba9fdf@mail.gmail.com>
+	<368a5cd50902280112n1b8a886bie0a9bf9744fb48ea@mail.gmail.com>
+Message-ID: <368a5cd50902280116u7052c604r2c007bc90c86d7ef@mail.gmail.com>
+
+Btw, one of my concerns is that a move away from Svn breaks the process for
+people who pull sources from Svn to build their own Pythons. I know a few
+teams that do that, and switching to another system isn't just an apt-get
+away for them. Do we have enough log info to be able to determine how common
+it is that people pull down source kits using Svn?
+
+</F>
+
+On Feb 28, 2009 1:11 AM, <jnoller at gmail.com> wrote:
+
+The survey isn't biased. You have a value "the same /worse than the status
+quo" - wherein the status quo is subversion. If you hate DVCes, you mark it
+as "same/worse than the status quo" and we move on.
+
+No one is suggesting we accept *less* functionality than subversion: in fact
+we're looking at these for *more* functionality.
+
+On Feb 27, 2009 7:04pm, Fredrik Lundh <fredrik at pythonware.com> wrote: > > No
+need for a long answe...
+
+> On Feb 27, 2009 9:24 PM, "Brett Cannon" brett at python.org> wrote: > > I had
+a long reply all writt...
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20090228/93bb71f6/attachment.htm>
+
+From martin at v.loewis.de  Sat Feb 28 10:35:07 2009
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Sat, 28 Feb 2009 10:35:07 +0100
+Subject: [python-committers] Survey about DVCSs compared to svn
+In-Reply-To: <368a5cd50902280116u7052c604r2c007bc90c86d7ef@mail.gmail.com>
+References: <368a5cd50902271604u769083a7na8dc562ecb62025@mail.gmail.com>	<00163630ee1dee73860463ef6d4d@google.com>	<368a5cd50902272345y74fb1711g626ad471161bf10b@mail.gmail.com>	<368a5cd50902272351l5293b4bck68151f0357ba9fdf@mail.gmail.com>	<368a5cd50902280112n1b8a886bie0a9bf9744fb48ea@mail.gmail.com>
+	<368a5cd50902280116u7052c604r2c007bc90c86d7ef@mail.gmail.com>
+Message-ID: <49A9054B.60902@v.loewis.de>
+
+Fredrik Lundh wrote:
+> Btw, one of my concerns is that a move away from Svn breaks the process
+> for people who pull sources from Svn to build their own Pythons. I know
+> a few teams that do that, and switching to another system isn't just an
+> apt-get away for them. Do we have enough log info to be able to
+> determine how common it is that people pull down source kits using Svn?
+
+With the limitation that svn urls are difficult to process, see
+
+http://svn.python.org/webstats/
+
+The actual logs themselves roll over after four days.
+
+Regards,
+Martin
+
+From bob at redivi.com  Sat Feb 28 11:18:54 2009
+From: bob at redivi.com (Bob Ippolito)
+Date: Sat, 28 Feb 2009 02:18:54 -0800
+Subject: [python-committers] Survey about DVCSs compared to svn
+In-Reply-To: <368a5cd50902280116u7052c604r2c007bc90c86d7ef@mail.gmail.com>
+References: <368a5cd50902271604u769083a7na8dc562ecb62025@mail.gmail.com>
+	<00163630ee1dee73860463ef6d4d@google.com>
+	<368a5cd50902272345y74fb1711g626ad471161bf10b@mail.gmail.com>
+	<368a5cd50902272351l5293b4bck68151f0357ba9fdf@mail.gmail.com>
+	<368a5cd50902280112n1b8a886bie0a9bf9744fb48ea@mail.gmail.com>
+	<368a5cd50902280116u7052c604r2c007bc90c86d7ef@mail.gmail.com>
+Message-ID: <6a36e7290902280218k4e762439sdad31c4557aa788d@mail.gmail.com>
+
+Why not add a requirement to the PEP such that if a DVCS is chosen
+then a read-only SVN mirror or gateway should be maintained? Would
+that be a reasonable compromise?
+
+I have more or less the same opinion as Guido regarding svn merge. It
+sucks. We bump up against problems with svn merge tracking on a
+regular basis at work. We'd have switched to a DVCS by now if it
+wasn't for tool support (trac mostly) and the fact that we use a lot
+of svn:externals in our repository.
+
+On Sat, Feb 28, 2009 at 1:16 AM, Fredrik Lundh <fredrik at pythonware.com> wrote:
+> Btw, one of my concerns is that a move away from Svn breaks the process for
+> people who pull sources from Svn to build their own Pythons. I know a few
+> teams that do that, and switching to another system isn't just an apt-get
+> away for them. Do we have enough log info to be able to determine how common
+> it is that people pull down source kits using Svn?
+>
+> </F>
+>
+> On Feb 28, 2009 1:11 AM, <jnoller at gmail.com> wrote:
+>
+> The survey isn't biased. You have a value "the same /worse than the status
+> quo" - wherein the status quo is subversion. If you hate DVCes, you mark it
+> as "same/worse than the status quo" and we move on.
+>
+> No one is suggesting we accept *less* functionality than subversion: in fact
+> we're looking at these for *more* functionality.
+>
+> On Feb 27, 2009 7:04pm, Fredrik Lundh <fredrik at pythonware.com> wrote: > > No
+> need for a long answe...
+>
+>> On Feb 27, 2009 9:24 PM, "Brett Cannon" brett at python.org> wrote: > > I had
+>> a long reply all writt...
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+>
+>
+
+From ncoghlan at gmail.com  Sat Feb 28 11:27:02 2009
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Sat, 28 Feb 2009 20:27:02 +1000
+Subject: [python-committers] Survey about DVCSs compared to svn
+In-Reply-To: <6a36e7290902280218k4e762439sdad31c4557aa788d@mail.gmail.com>
+References: <368a5cd50902271604u769083a7na8dc562ecb62025@mail.gmail.com>	<00163630ee1dee73860463ef6d4d@google.com>	<368a5cd50902272345y74fb1711g626ad471161bf10b@mail.gmail.com>	<368a5cd50902272351l5293b4bck68151f0357ba9fdf@mail.gmail.com>	<368a5cd50902280112n1b8a886bie0a9bf9744fb48ea@mail.gmail.com>	<368a5cd50902280116u7052c604r2c007bc90c86d7ef@mail.gmail.com>
+	<6a36e7290902280218k4e762439sdad31c4557aa788d@mail.gmail.com>
+Message-ID: <49A91176.6020106@gmail.com>
+
+Bob Ippolito wrote:
+> I have more or less the same opinion as Guido regarding svn merge. It
+> sucks. We bump up against problems with svn merge tracking on a
+> regular basis at work. We'd have switched to a DVCS by now if it
+> wasn't for tool support (trac mostly) and the fact that we use a lot
+> of svn:externals in our repository.
+
+We have a few of those (svn:externals) as well... Brett, another
+question for your DVCS champions!
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+---------------------------------------------------------------
+
+From solipsis at pitrou.net  Sat Feb 28 11:28:50 2009
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Sat, 28 Feb 2009 11:28:50 +0100
+Subject: [python-committers] Survey about DVCSs compared to svn
+In-Reply-To: <368a5cd50902280109l3a446526m7a18bcf804419af4@mail.gmail.com>
+References: <bbaeab100902251431q5f1d8a35pfe40e515e682a1a5@mail.gmail.com>
+	<49A6BEF8.4030201@egenix.com>
+	<bbaeab100902261921h2012f40fy3a735fce5e22f3a1@mail.gmail.com>
+	<368a5cd50902270259o14dfe257hf595a2860020e674@mail.gmail.com>
+	<bbaeab100902271223u427c65b8we08c9abf32684e8e@mail.gmail.com>
+	<015d01c99926$62b229a0$28167ce0$@com.au> <49A8657E.2050308@v.loewis.de>
+	<bbaeab100902271417i76f01558i2919bdeb6b587d0@mail.gmail.com>
+	<49A87A29.7050109@tummy.com>
+	<ca471dc20902271606tc150e0dh7658f544ffaf3f29@mail.gmail.com>
+	<368a5cd50902280109l3a446526m7a18bcf804419af4@mail.gmail.com>
+Message-ID: <1235816930.6644.17.camel@fsol>
+
+Le samedi 28 f?vrier 2009 ? 10:09 +0100, Fredrik Lundh a ?crit :
+> What's Hg:s story on Svn integration? To what extent can you use it
+> with a Svn master repo?
+
+hgsubversion is supposed to allow bidirectional integration:
+http://www.selenic.com/mercurial/wiki/index.cgi/HgSubversion
+
+If you just need a one-way bridge (and are ready to accept manually
+commiting patches to the SVN repo, which is what I'm doing with Python),
+there are a bunch of possibilities besides hgsubversion: the builtin "hg
+convert" command, hgsvn, and probably others.
+
+
+
+
+From guido at python.org  Sat Feb 28 16:57:22 2009
+From: guido at python.org (Guido van Rossum)
+Date: Sat, 28 Feb 2009 07:57:22 -0800
+Subject: [python-committers] Survey about DVCSs compared to svn
+In-Reply-To: <49A9054B.60902@v.loewis.de>
+References: <368a5cd50902271604u769083a7na8dc562ecb62025@mail.gmail.com>
+	<00163630ee1dee73860463ef6d4d@google.com>
+	<368a5cd50902272345y74fb1711g626ad471161bf10b@mail.gmail.com>
+	<368a5cd50902272351l5293b4bck68151f0357ba9fdf@mail.gmail.com>
+	<368a5cd50902280112n1b8a886bie0a9bf9744fb48ea@mail.gmail.com>
+	<368a5cd50902280116u7052c604r2c007bc90c86d7ef@mail.gmail.com>
+	<49A9054B.60902@v.loewis.de>
+Message-ID: <ca471dc20902280757s5480ebd6g156247122977820@mail.gmail.com>
+
+On Sat, Feb 28, 2009 at 1:35 AM, "Martin v. L?wis" <martin at v.loewis.de> wrote:
+> Fredrik Lundh wrote:
+>> Btw, one of my concerns is that a move away from Svn breaks the process
+>> for people who pull sources from Svn to build their own Pythons. I know
+>> a few teams that do that, and switching to another system isn't just an
+>> apt-get away for them. Do we have enough log info to be able to
+>> determine how common it is that people pull down source kits using Svn?
+>
+> With the limitation that svn urls are difficult to process, see
+>
+> http://svn.python.org/webstats/
+>
+> The actual logs themselves roll over after four days.
+
+What on earth happened between May and June 2008? The number of
+"visits" went down dramatically (at least 3x), and stayed at that
+level ever since.
+
+-- 
+--Guido van Rossum (home page: http://www.python.org/~guido/)
+
+From skip at pobox.com  Sat Feb 28 17:28:35 2009
+From: skip at pobox.com (skip at pobox.com)
+Date: Sat, 28 Feb 2009 10:28:35 -0600
+Subject: [python-committers] Survey about DVCSs compared to svn
+In-Reply-To: <49A8E625.3080703@v.loewis.de>
+References: <0016e64402809186f50463ef630f@google.com>
+	<49A8E625.3080703@v.loewis.de>
+Message-ID: <18857.26163.932827.4915@montanaro.dyndns.org>
+
+
+    Martin> My own personal experience tells me git and bzr are much worse
+    Martin> than subversion (each in different respects).
+
+Perhaps you could relay these shortcomings to Brett or edit them into the
+PEP directly.
+
+Skip
+
+From theller at ctypes.org  Sat Feb 28 17:41:22 2009
+From: theller at ctypes.org (Thomas Heller)
+Date: Sat, 28 Feb 2009 17:41:22 +0100
+Subject: [python-committers] Survey about DVCSs compared to svn
+In-Reply-To: <bbaeab100902271223u427c65b8we08c9abf32684e8e@mail.gmail.com>
+References: <bbaeab100902251431q5f1d8a35pfe40e515e682a1a5@mail.gmail.com>	<49A64ABD.1030108@v.loewis.de>	<85AC071A-78DE-4FAC-ADE7-FA78BB737B48@python.org>	<49A6A6BD.4010308@egenix.com>
+	<1235659804.7109.34.camel@fsol>	<49A6B100.40304@egenix.com>
+	<1235662601.7109.48.camel@fsol>	<49A6BEF8.4030201@egenix.com>	<bbaeab100902261921h2012f40fy3a735fce5e22f3a1@mail.gmail.com>	<368a5cd50902270259o14dfe257hf595a2860020e674@mail.gmail.com>
+	<bbaeab100902271223u427c65b8we08c9abf32684e8e@mail.gmail.com>
+Message-ID: <49A96932.6090105@ctypes.org>
+
+Brett Cannon schrieb:
+> I had a long reply all written out, but instead I decided to discard it so
+> as to not continue to drag this discussion out. Why? The DVCS PEP is not
+> even finished yet!
+> 
+> Can you guys please let me finish the PEP before you start worrying about
+> whether we are going to switch? At least give me the chance to make a
+> decision on whether I think it is reasonable to switch and what to switch
+> to. And then we can have a reasonable conversation where I update the PEP to
+> address any questions that come up.
+
+What I would *like* to see in the PEP is a discussion of support tools
+for these systems.  For CVS, I have used pcl-cvs in XEmacs, and psvn.el
+for SVN.
+I guess there is a Tortoise variant available for all these DVCSs, but
+for example (haven't tried it myself) weak support for mercurial in XEmacs.
+
+Thanks,
+Thomas
+
+From martin at v.loewis.de  Sat Feb 28 19:27:32 2009
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Sat, 28 Feb 2009 19:27:32 +0100
+Subject: [python-committers] Survey about DVCSs compared to svn
+In-Reply-To: <18857.26163.932827.4915@montanaro.dyndns.org>
+References: <0016e64402809186f50463ef630f@google.com>
+	<49A8E625.3080703@v.loewis.de>
+	<18857.26163.932827.4915@montanaro.dyndns.org>
+Message-ID: <49A98214.2030803@v.loewis.de>
+
+skip at pobox.com wrote:
+>     Martin> My own personal experience tells me git and bzr are much worse
+>     Martin> than subversion (each in different respects).
+> 
+> Perhaps you could relay these shortcomings to Brett or edit them into the
+> PEP directly.
+
+As I said: I refrain from commenting at this point, as much as I can.
+When (if) the PEP reaches a final form, I can start discussing its content.
+
+Regards,
+Martin
+
+From lists at cheimes.de  Sat Feb 28 19:34:57 2009
+From: lists at cheimes.de (Christian Heimes)
+Date: Sat, 28 Feb 2009 19:34:57 +0100
+Subject: [python-committers] Survey about DVCSs compared to svn
+In-Reply-To: <49A91176.6020106@gmail.com>
+References: <368a5cd50902271604u769083a7na8dc562ecb62025@mail.gmail.com>	<00163630ee1dee73860463ef6d4d@google.com>	<368a5cd50902272345y74fb1711g626ad471161bf10b@mail.gmail.com>	<368a5cd50902272351l5293b4bck68151f0357ba9fdf@mail.gmail.com>	<368a5cd50902280112n1b8a886bie0a9bf9744fb48ea@mail.gmail.com>	<368a5cd50902280116u7052c604r2c007bc90c86d7ef@mail.gmail.com>	<6a36e7290902280218k4e762439sdad31c4557aa788d@mail.gmail.com>
+	<49A91176.6020106@gmail.com>
+Message-ID: <49A983D1.5090301@cheimes.de>
+
+Nick Coghlan wrote:
+> Bob Ippolito wrote:
+>> I have more or less the same opinion as Guido regarding svn merge. It
+>> sucks. We bump up against problems with svn merge tracking on a
+>> regular basis at work. We'd have switched to a DVCS by now if it
+>> wasn't for tool support (trac mostly) and the fact that we use a lot
+>> of svn:externals in our repository.
+> 
+> We have a few of those (svn:externals) as well... Brett, another
+> question for your DVCS champions!
+
+As far as I can recall the PEP doesn't cover metadata at all. Subversion
+supports metadata in properties via svn prop[set|get|del]. Do the DVCS
+support properties, too? What about svn:ignore (ignore files and
+directories via glob style patterns), svn:keywords (expand keywords like
+$ID$), svn:executable (chmods a file a+x) and svn:eol-style (forces a
+line ending style).
+
+Christian
+
+
+From martin at v.loewis.de  Sat Feb 28 21:02:37 2009
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Sat, 28 Feb 2009 21:02:37 +0100
+Subject: [python-committers] Survey about DVCSs compared to svn
+In-Reply-To: <ca471dc20902280757s5480ebd6g156247122977820@mail.gmail.com>
+References: <368a5cd50902271604u769083a7na8dc562ecb62025@mail.gmail.com>	
+	<00163630ee1dee73860463ef6d4d@google.com>	
+	<368a5cd50902272345y74fb1711g626ad471161bf10b@mail.gmail.com>	
+	<368a5cd50902272351l5293b4bck68151f0357ba9fdf@mail.gmail.com>	
+	<368a5cd50902280112n1b8a886bie0a9bf9744fb48ea@mail.gmail.com>	
+	<368a5cd50902280116u7052c604r2c007bc90c86d7ef@mail.gmail.com>	
+	<49A9054B.60902@v.loewis.de>
+	<ca471dc20902280757s5480ebd6g156247122977820@mail.gmail.com>
+Message-ID: <49A9985D.9060404@v.loewis.de>
+
+> What on earth happened between May and June 2008? The number of
+> "visits" went down dramatically (at least 3x), and stayed at that
+> level ever since.
+
+As we don't have the log files anymore, it's hard to tell. My guess
+is that it is some automated procedure that completed or got turned
+off. For example, on PyPI, a single system was producing 25% of the hits
+for some time, trying to keep PyPI mirrored (and the operator didn't
+even know it was running).
+
+For svn.python.org, here are some guesses:
+
+- webalizer only counts accesses to PageType URLs as potential
+  visits (and as a new visit only if there was no access within 30min
+  from that IP). In our configuration, htm*, cgi, and py are PageType
+  URLs. So regular svn accesses don't trigger a visit.
+- in March 2008, there were 6810 accesses to /webstats/usage_200705.html
+  (for whatever reason, from whatever hosts)
+
+So the number of visits is probably irrelevant for that site.
+
+Regards,
+Martin
+
+From g.brandl at gmx.net  Sat Feb 28 22:41:54 2009
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Sat, 28 Feb 2009 22:41:54 +0100
+Subject: [python-committers] Survey about DVCSs compared to svn
+In-Reply-To: <1235668878.7109.82.camel@fsol>
+References: <bbaeab100902251431q5f1d8a35pfe40e515e682a1a5@mail.gmail.com>	<49A5D0C1.3040404@egenix.com>	<00df01c997a1$b5191ae0$1f4b50a0$@com.au>	<F519D8D6-842D-458E-8DA7-0B09DF95C33B@python.org>	<49A64ABD.1030108@v.loewis.de>	<85AC071A-78DE-4FAC-ADE7-FA78BB737B48@python.org>	<49A6A6BD.4010308@egenix.com>
+	<1235659804.7109.34.camel@fsol>	<49A6B100.40304@egenix.com>
+	<1235662601.7109.48.camel@fsol>	<49A6BEF8.4030201@egenix.com>
+	<1235668878.7109.82.camel@fsol>
+Message-ID: <gocb3s$tj7$1@ger.gmane.org>
+
+Antoine Pitrou schrieb:
+> Le jeudi 26 f?vrier 2009 ? 17:10 +0100, M.-A. Lemburg a ?crit :
+>> This is probably a matter of Internet connection bandwidth then.
+> 
+> Not really.
+> To give a point of comparison, when I clone (using Mercurial) the Python
+> trunk at http://code.python.org/hg/trunk, it takes 2 minutes 50 seconds.
+> That's for the whole trunk history from 1990 to today, and bandwidth is
+> around 500 KB/s (sustained) during the downloading.
+> 
+> So, having svnmerge take one minute or more from a machine hosted at the
+> same place as code.python.org points to a really slow merge
+> implementation IMO.
+> 
+>> I have no idea how much data gets transferred, but it doesn't
+>> "feel" slow.
+> 
+> It definitely feels slow when you merge from e.g. trunk to py3k.
+
+It doesn't only *feel* slow, it *is* slow.  And not only compared to merging
+with a DVCS, which doesn't need network.  Half a minute to merge a three-line
+change is not productive.
+
+Not to mention the various other problems with svnmerge, e.g. having to pack
+several merges into "batch" commits which then are atomic on the merged-to
+branch (which bites us merging from 3.1 to 3.0).  (And no, merging each commit
+individually is not an option, because it takes even *longer*.)
+
+Frankly, there are very few people who routinely (like Benjamin) or even only
+sometimes (like me) merge larger amounts of stuff between our four branches.
+While that's no surprise, given how clumsy svnmerge makes it, others shouldn't
+just dismiss the merging problem with "we have svnmerge".
+
+Georg
+
+-- 
+Thus spake the Lord: Thou shalt indent with four spaces. No more, no less.
+Four shall be the number of spaces thou shalt indent, and the number of thy
+indenting shall be four. Eight shalt thou not indent, nor either indent thou
+two, excepting that thou then proceed to four. Tabs are right out.
+
+
+From ncoghlan at gmail.com  Sat Feb 28 23:43:09 2009
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Sun, 01 Mar 2009 08:43:09 +1000
+Subject: [python-committers] Survey about DVCSs compared to svn
+In-Reply-To: <gocb3s$tj7$1@ger.gmane.org>
+References: <bbaeab100902251431q5f1d8a35pfe40e515e682a1a5@mail.gmail.com>	<49A5D0C1.3040404@egenix.com>	<00df01c997a1$b5191ae0$1f4b50a0$@com.au>	<F519D8D6-842D-458E-8DA7-0B09DF95C33B@python.org>	<49A64ABD.1030108@v.loewis.de>	<85AC071A-78DE-4FAC-ADE7-FA78BB737B48@python.org>	<49A6A6BD.4010308@egenix.com>	<1235659804.7109.34.camel@fsol>	<49A6B100.40304@egenix.com>	<1235662601.7109.48.camel@fsol>	<49A6BEF8.4030201@egenix.com>	<1235668878.7109.82.camel@fsol>
+	<gocb3s$tj7$1@ger.gmane.org>
+Message-ID: <49A9BDFD.5070607@gmail.com>
+
+Georg Brandl wrote:
+> It doesn't only *feel* slow, it *is* slow.  And not only compared to merging
+> with a DVCS, which doesn't need network.  Half a minute to merge a three-line
+> change is not productive.
+
+Don't forget that *blocking* a revision with svnmerge seems to take
+nearly as long as actually merging it does (the only part that seems to
+save time is the fact that you don't need to build and/or run the test
+suite afterwards).
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+---------------------------------------------------------------
+

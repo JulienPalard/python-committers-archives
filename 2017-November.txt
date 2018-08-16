@@ -1,0 +1,1251 @@
+From nad at python.org  Wed Nov  1 17:47:45 2017
+From: nad at python.org (Ned Deily)
+Date: Wed, 1 Nov 2017 17:47:45 -0400
+Subject: [python-committers] Reminder: 12 weeks to 3.7 feature code cutoff
+Message-ID: <60B5B0C5-7688-428C-980E-1D08AEFD076A@python.org>
+
+Happy belated Halloween to those who celebrate it; I hope it wasn't too scary!  Also possibly scary: we have just a little over 12 weeks remaining until Python 3.7's feature code cutoff, 2018-01-29.  Those 12 weeks include a number of traditional holidays around the world so, if you are planning on writing another PEP for 3.7 or working on getting an existing one approved or getting feature code reviewed, please plan accordingly.        If you have something in the pipeline, please either let me know or, when implemented, add the feature to PEP 537, the 3.7 Release Schedule PEP.  As you may recall, the release schedule calls for 4 alpha preview releases prior to the feature code cutoff with the first beta release.  We have already produced the first two alphas.  Reviewing the schedule recently, I realized that I had "front-loaded" the alphas, leaving a bigger gap between the final alphas and the first beta.  So I have adjusted the schedule a bit, pushing alpha 3 and 4 out.  The new dates are:
+
+- 3.7.0 alpha 3: 2017-11-27 (was 2017-11-13)
+- 3.7.0 alpha 4: 2018-01-08 (was 2017-12-18)
+- 3.7.0 beta 1:  2018-01-29 (feature freeze - unchanged)
+
+I hope the new dates give you a little bit more time to get your bits finished and get a little bit of exposure prior to the feature freeze.
+
+Considering how quickly and positively it has been adopted, 3.6 is going to be a tough act to follow.  But we can do it again.  Thank you all for your ongoing efforts!
+
+--Ned
+
+--
+  Ned Deily
+  nad at python.org -- []
+
+
+From ronaldoussoren at mac.com  Thu Nov  2 13:17:55 2017
+From: ronaldoussoren at mac.com (Ronald Oussoren)
+Date: Thu, 02 Nov 2017 18:17:55 +0100
+Subject: [python-committers] [Python-Dev] Reminder: 12 weeks to 3.7
+ feature code cutoff
+In-Reply-To: <60B5B0C5-7688-428C-980E-1D08AEFD076A@python.org>
+References: <60B5B0C5-7688-428C-980E-1D08AEFD076A@python.org>
+Message-ID: <21A3BAE4-2EDA-4299-A1FB-F643ECB2C984@mac.com>
+
+
+> On 1 Nov 2017, at 22:47, Ned Deily <nad at python.org> wrote:
+> 
+> Happy belated Halloween to those who celebrate it; I hope it wasn't too scary!  Also possibly scary: we have just a little over 12 weeks remaining until Python 3.7's feature code cutoff, 2018-01-29.  Those 12 weeks include a number of traditional holidays around the world so, if you are planning on writing another PEP for 3.7 or working on getting an existing one approved or getting feature code reviewed, please plan accordingly.        If you have something in the pipeline, please either let me know or, when implemented, add the feature to PEP 537, the 3.7 Release Schedule PEP.
+
+I?d still like to finish PEP 447, but don?t know if I can manage to find enough free time to do so.
+
+Ronald
+
+From solipsis at pitrou.net  Thu Nov  2 14:21:13 2017
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Thu, 2 Nov 2017 19:21:13 +0100
+Subject: [python-committers] Reminder: 12 weeks to 3.7 feature code
+ cutoff
+References: <60B5B0C5-7688-428C-980E-1D08AEFD076A@python.org>
+Message-ID: <20171102192113.096173d4@fsol>
+
+On Wed, 1 Nov 2017 17:47:45 -0400
+Ned Deily <nad at python.org> wrote:
+
+> If you have something in the pipeline, please either let me know or, when implemented, add the feature to PEP 537, the 3.7 Release Schedule PEP.
+
+I hope to be able to write the implementation for PEP 556.
+https://www.python.org/dev/peps/pep-0556/
+
+Regards
+
+Antoine.
+
+
+
+From eric at trueblade.com  Thu Nov  2 17:28:10 2017
+From: eric at trueblade.com (Eric V. Smith)
+Date: Thu, 2 Nov 2017 17:28:10 -0400
+Subject: [python-committers] [Python-Dev] Reminder: 12 weeks to 3.7
+ feature code cutoff
+In-Reply-To: <60B5B0C5-7688-428C-980E-1D08AEFD076A@python.org>
+References: <60B5B0C5-7688-428C-980E-1D08AEFD076A@python.org>
+Message-ID: <cd2a20df-c064-bca7-4316-1723458dbd64@trueblade.com>
+
+On 11/1/2017 5:47 PM, Ned Deily wrote:
+> Happy belated Halloween to those who celebrate it; I hope it wasn't too scary!  Also possibly scary: we have just a little over 12 weeks remaining until Python 3.7's feature code cutoff, 2018-01-29.  Those 12 weeks include a number of traditional holidays around the world so, if you are planning on writing another PEP for 3.7 or working on getting an existing one approved or getting feature code reviewed, please plan accordingly.        If you have something in the pipeline, please either let me know or, when implemented, add the feature to PEP 537, the 3.7 Release Schedule PEP.
+
+I hope to be able to free up some time to complete PEP 557, Data Classes.
+
+Eric.
+
+
+From victor.stinner at gmail.com  Fri Nov  3 19:53:08 2017
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Sat, 4 Nov 2017 00:53:08 +0100
+Subject: [python-committers] [Python-Dev] Reminder: 12 weeks to 3.7
+ feature code cutoff
+In-Reply-To: <CAH0mxTSpLvyc_kFwJQKK_f876TO6VtCkq8ZSDO0cO__YL8=ZDg@mail.gmail.com>
+References: <60B5B0C5-7688-428C-980E-1D08AEFD076A@python.org>
+ <CAH0mxTSpLvyc_kFwJQKK_f876TO6VtCkq8ZSDO0cO__YL8=ZDg@mail.gmail.com>
+Message-ID: <CAMpsgwYhsPYV_oOF3OLeVsH17Scg9vT+e8i50LqK3L6Y1HOUYQ@mail.gmail.com>
+
+2017-11-04 0:44 GMT+01:00 Joao S. O. Bueno <jsbueno at python.org.br>:
+> This just popped up in Brython's issue tracker discussion:
+>
+> """
+> Pierre Quentel <notifications at github.com>
+>
+> 04:57 (16 hours ago)
+> to brython-dev/br., Subscribed
+>
+> I think it's better to rename all occurences of async now, although
+> it's strange that :
+>
+> there is currently no deprecation warning in CPython with code that
+> uses it as a variable name, PEP492 said that "async and await names
+> will be softly deprecated in CPython 3.5 and 3.6"
+> there is no mention of async and await becoming keywords in What's new
+> in Python 3.7
+>
+> Maybe the idea was finally given up, but I can't find a reference.
+
+async & await already became concrete keywords in Python 3.7:
+
+$ ./python
+Python 3.7.0a2+ (heads/master-dirty:cbe1756e3e, Nov  4 2017, 00:24:07)
+>>> async=1
+  File "<stdin>", line 1
+    async=1
+         ^
+SyntaxError: invalid syntax
+
+Please request an entry in the "What's New in Pyhon 3.7" at
+https://bugs.python.org/issue30406
+
+Victor
+
+From ncoghlan at gmail.com  Fri Nov  3 23:30:49 2017
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Sat, 4 Nov 2017 13:30:49 +1000
+Subject: [python-committers] [Python-Dev] Reminder: 12 weeks to 3.7
+ feature code cutoff
+In-Reply-To: <CAFp3-p_5Hs4pu+Z8Y_3d838eiVNUNyi31yrhqbAak=JbdPuRHQ@mail.gmail.com>
+References: <60B5B0C5-7688-428C-980E-1D08AEFD076A@python.org>
+ <CAH0mxTSpLvyc_kFwJQKK_f876TO6VtCkq8ZSDO0cO__YL8=ZDg@mail.gmail.com>
+ <CAFp3-p_5Hs4pu+Z8Y_3d838eiVNUNyi31yrhqbAak=JbdPuRHQ@mail.gmail.com>
+Message-ID: <CADiSq7e01ZNpF8X=C-rB0a3UbLK_W7oDuusmGXOKLcxev8B3PQ@mail.gmail.com>
+
+On 4 November 2017 at 09:52, Jelle Zijlstra <jelle.zijlstra at gmail.com> wrote:
+>
+> 2017-11-03 16:44 GMT-07:00 Joao S. O. Bueno <jsbueno at python.org.br>:
+>>
+>> This just popped up in Brython's issue tracker discussion:
+>>
+>> """
+>> Pierre Quentel <notifications at github.com>
+>>
+>> 04:57 (16 hours ago)
+>> to brython-dev/br., Subscribed
+>>
+>> I think it's better to rename all occurences of async now, although
+>> it's strange that :
+>>
+>> there is currently no deprecation warning in CPython with code that
+>> uses it as a variable name, PEP492 said that "async and await names
+>> will be softly deprecated in CPython 3.5 and 3.6"
+>> there is no mention of async and await becoming keywords in What's new
+>> in Python 3.7
+>>
+>> Maybe the idea was finally given up, but I can't find a reference.
+>>
+>> """
+>>
+>> So, what is the status of promoting async and await to full keyword for
+>> 3.7?
+>>
+> This was implemented, and it's in NEWS:
+> https://github.com/python/cpython/pull/1669.
+
+That's a big enough change that it should be in What's New as well (at
+least in the porting section, and probably more prominent than that).
+
+The current lack of DeprecationWarnings in 3.6 is a fairly major
+oversight/bug, though:
+
+    Python 3.6.2 (default, Oct  2 2017, 16:51:32)
+    [GCC 7.2.1 20170915 (Red Hat 7.2.1-2)] on linux
+    Type "help", "copyright", "credits" or "license" for more information.
+    >>> await = 1
+    >>> async = 1
+    >>> print(async, await)
+    1 1
+
+So if we're going to go ahead with making them real keywords in 3.7
+(as specified in PEP 492), then the missing DeprecationWarning problem
+in 3.6 needs to be fixed.
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+
+From yselivanov.ml at gmail.com  Sun Nov  5 11:02:47 2017
+From: yselivanov.ml at gmail.com (Yury Selivanov)
+Date: Sun, 5 Nov 2017 11:02:47 -0500
+Subject: [python-committers] [Python-Dev] Reminder: 12 weeks to 3.7
+ feature code cutoff
+In-Reply-To: <CADiSq7e01ZNpF8X=C-rB0a3UbLK_W7oDuusmGXOKLcxev8B3PQ@mail.gmail.com>
+References: <60B5B0C5-7688-428C-980E-1D08AEFD076A@python.org>
+ <CAH0mxTSpLvyc_kFwJQKK_f876TO6VtCkq8ZSDO0cO__YL8=ZDg@mail.gmail.com>
+ <CAFp3-p_5Hs4pu+Z8Y_3d838eiVNUNyi31yrhqbAak=JbdPuRHQ@mail.gmail.com>
+ <CADiSq7e01ZNpF8X=C-rB0a3UbLK_W7oDuusmGXOKLcxev8B3PQ@mail.gmail.com>
+Message-ID: <CA+St6D2-sFvhKQr7c7=gsohXtXdaup0VbiJ7P=j-TJUGepqqUg@mail.gmail.com>
+
+On Fri, Nov 3, 2017 at 11:30 PM, Nick Coghlan <ncoghlan at gmail.com> wrote:
+> On 4 November 2017 at 09:52, Jelle Zijlstra <jelle.zijlstra at gmail.com> wrote:
+>>
+>> 2017-11-03 16:44 GMT-07:00 Joao S. O. Bueno <jsbueno at python.org.br>:
+>>>
+>>> This just popped up in Brython's issue tracker discussion:
+>>>
+>>> """
+>>> Pierre Quentel <notifications at github.com>
+>>>
+>>> 04:57 (16 hours ago)
+>>> to brython-dev/br., Subscribed
+>>>
+>>> I think it's better to rename all occurences of async now, although
+>>> it's strange that :
+>>>
+>>> there is currently no deprecation warning in CPython with code that
+>>> uses it as a variable name, PEP492 said that "async and await names
+>>> will be softly deprecated in CPython 3.5 and 3.6"
+>>> there is no mention of async and await becoming keywords in What's new
+>>> in Python 3.7
+>>>
+>>> Maybe the idea was finally given up, but I can't find a reference.
+>>>
+>>> """
+>>>
+>>> So, what is the status of promoting async and await to full keyword for
+>>> 3.7?
+>>>
+>> This was implemented, and it's in NEWS:
+>> https://github.com/python/cpython/pull/1669.
+>
+> That's a big enough change that it should be in What's New as well (at
+> least in the porting section, and probably more prominent than that).
+>
+> The current lack of DeprecationWarnings in 3.6 is a fairly major
+> oversight/bug, though:
+
+There's no oversight.  We had PendingDeprecationWarning for
+async/await names in 3.5, and DeprecationWarning in 3.6.  You just
+need to enable warnings to see them:
+
+~ ? python3 -Wall
+Python 3.6.2 (default, Aug  2 2017, 22:29:27)
+[GCC 4.2.1 Compatible Apple LLVM 8.1.0 (clang-802.0.42)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+>>> async = 1
+<stdin>:1: DeprecationWarning: 'async' and 'await' will become
+reserved keywords in Python 3.7
+
+
+> So if we're going to go ahead with making them real keywords in 3.7
+> (as specified in PEP 492), then the missing DeprecationWarning problem
+> in 3.6 needs to be fixed.
+
+They are already keywords in 3.7, I've committed that change a month ago.
+
+Yury
+
+From ncoghlan at gmail.com  Sun Nov  5 20:46:48 2017
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Mon, 6 Nov 2017 11:46:48 +1000
+Subject: [python-committers] [Python-Dev] Reminder: 12 weeks to 3.7
+ feature code cutoff
+In-Reply-To: <CA+St6D2-sFvhKQr7c7=gsohXtXdaup0VbiJ7P=j-TJUGepqqUg@mail.gmail.com>
+References: <60B5B0C5-7688-428C-980E-1D08AEFD076A@python.org>
+ <CAH0mxTSpLvyc_kFwJQKK_f876TO6VtCkq8ZSDO0cO__YL8=ZDg@mail.gmail.com>
+ <CAFp3-p_5Hs4pu+Z8Y_3d838eiVNUNyi31yrhqbAak=JbdPuRHQ@mail.gmail.com>
+ <CADiSq7e01ZNpF8X=C-rB0a3UbLK_W7oDuusmGXOKLcxev8B3PQ@mail.gmail.com>
+ <CA+St6D2-sFvhKQr7c7=gsohXtXdaup0VbiJ7P=j-TJUGepqqUg@mail.gmail.com>
+Message-ID: <CADiSq7exZ=R9gc2ij0tyN7adRPbwK=QaxDWq50eYqcShhsRbWQ@mail.gmail.com>
+
+On 6 November 2017 at 02:02, Yury Selivanov <yselivanov.ml at gmail.com> wrote:
+> On Fri, Nov 3, 2017 at 11:30 PM, Nick Coghlan <ncoghlan at gmail.com> wrote:
+>> The current lack of DeprecationWarnings in 3.6 is a fairly major
+>> oversight/bug, though:
+>
+> There's no oversight.  We had PendingDeprecationWarning for
+> async/await names in 3.5, and DeprecationWarning in 3.6.  You just
+> need to enable warnings to see them:
+
+Gah, seven years on from Python 2.7's release, I still get caught by
+that. I'm tempted to propose we reverse that decision and go back to
+enabling them by default :P
+
+If app devs don't want their users seeing deprecation warnings, they
+can silence them globally during app startup, and end users can do the
+same in PYTHONSTARTUP for their interactive sessions.
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+
+From rdmurray at bitdance.com  Mon Nov  6 13:02:04 2017
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Mon, 06 Nov 2017 13:02:04 -0500
+Subject: [python-committers] [Python-Dev] Reminder: 12 weeks to 3.7
+ feature code cutoff
+In-Reply-To: <CADiSq7exZ=R9gc2ij0tyN7adRPbwK=QaxDWq50eYqcShhsRbWQ@mail.gmail.com>
+References: <60B5B0C5-7688-428C-980E-1D08AEFD076A@python.org>
+ <CAH0mxTSpLvyc_kFwJQKK_f876TO6VtCkq8ZSDO0cO__YL8=ZDg@mail.gmail.com>
+ <CAFp3-p_5Hs4pu+Z8Y_3d838eiVNUNyi31yrhqbAak=JbdPuRHQ@mail.gmail.com>
+ <CADiSq7e01ZNpF8X=C-rB0a3UbLK_W7oDuusmGXOKLcxev8B3PQ@mail.gmail.com>
+ <CA+St6D2-sFvhKQr7c7=gsohXtXdaup0VbiJ7P=j-TJUGepqqUg@mail.gmail.com>
+ <CADiSq7exZ=R9gc2ij0tyN7adRPbwK=QaxDWq50eYqcShhsRbWQ@mail.gmail.com>
+Message-ID: <20171106180210.823B31310027@webabinitio.net>
+
+On Mon, 06 Nov 2017 11:46:48 +1000, Nick Coghlan <ncoghlan at gmail.com> wrote:
+> On 6 November 2017 at 02:02, Yury Selivanov <yselivanov.ml at gmail.com> wrote:
+> > On Fri, Nov 3, 2017 at 11:30 PM, Nick Coghlan <ncoghlan at gmail.com> wrote:
+> >> The current lack of DeprecationWarnings in 3.6 is a fairly major
+> >> oversight/bug, though:
+> >
+> > There's no oversight.  We had PendingDeprecationWarning for
+> > async/await names in 3.5, and DeprecationWarning in 3.6.  You just
+> > need to enable warnings to see them:
+> 
+> Gah, seven years on from Python 2.7's release, I still get caught by
+> that. I'm tempted to propose we reverse that decision and go back to
+> enabling them by default :P
+> 
+> If app devs don't want their users seeing deprecation warnings, they
+> can silence them globally during app startup, and end users can do the
+> same in PYTHONSTARTUP for their interactive sessions.
+
+I'm glad you are only tempted and have not actually proposed it :)
+
+--David
+
+From nas-python at arctrix.com  Mon Nov  6 13:51:45 2017
+From: nas-python at arctrix.com (Neil Schemenauer)
+Date: Mon, 6 Nov 2017 12:51:45 -0600
+Subject: [python-committers] Enabling depreciation warnings feature code
+ cutoff
+In-Reply-To: <CADiSq7exZ=R9gc2ij0tyN7adRPbwK=QaxDWq50eYqcShhsRbWQ@mail.gmail.com>
+References: <60B5B0C5-7688-428C-980E-1D08AEFD076A@python.org>
+ <CAH0mxTSpLvyc_kFwJQKK_f876TO6VtCkq8ZSDO0cO__YL8=ZDg@mail.gmail.com>
+ <CAFp3-p_5Hs4pu+Z8Y_3d838eiVNUNyi31yrhqbAak=JbdPuRHQ@mail.gmail.com>
+ <CADiSq7e01ZNpF8X=C-rB0a3UbLK_W7oDuusmGXOKLcxev8B3PQ@mail.gmail.com>
+ <CA+St6D2-sFvhKQr7c7=gsohXtXdaup0VbiJ7P=j-TJUGepqqUg@mail.gmail.com>
+ <CADiSq7exZ=R9gc2ij0tyN7adRPbwK=QaxDWq50eYqcShhsRbWQ@mail.gmail.com>
+Message-ID: <20171106185145.mfgq6qylrugk6nqo@python.ca>
+
+On 2017-11-06, Nick Coghlan wrote:
+> Gah, seven years on from Python 2.7's release, I still get caught by
+> that. I'm tempted to propose we reverse that decision and go back to
+> enabling them by default :P
+
+Either enable them by default or make them really easy to enable for
+development evironments.  I think some setting of the PYTHONWARNINGS
+evironment variable should do it.  It is not obvious to me how to do
+it though.  Maybe there should be an environment variable that does
+it more directly.  E.g.
+
+    PYTHONWARNDEPRECATED=1
+
+Another idea is to have venv to turn them on by default or, based on
+a command-line option, do it.  Or, maybe the unit testing frameworks
+should turn on the warnings when they run.
+
+The current "disabled by default" behavior is obviously not working
+very well.  I had them turned on for a while and found quite a
+number of warnings in what are otherwise high-quality Python
+packages.  Obviously the vast majority of developers don't have them
+turned on.
+
+Regards,
+
+  Neil
+
+From alex.gaynor at gmail.com  Mon Nov  6 14:00:21 2017
+From: alex.gaynor at gmail.com (Alex Gaynor)
+Date: Mon, 6 Nov 2017 14:00:21 -0500
+Subject: [python-committers] Enabling depreciation warnings feature code
+ cutoff
+In-Reply-To: <20171106185145.mfgq6qylrugk6nqo@python.ca>
+References: <60B5B0C5-7688-428C-980E-1D08AEFD076A@python.org>
+ <CAH0mxTSpLvyc_kFwJQKK_f876TO6VtCkq8ZSDO0cO__YL8=ZDg@mail.gmail.com>
+ <CAFp3-p_5Hs4pu+Z8Y_3d838eiVNUNyi31yrhqbAak=JbdPuRHQ@mail.gmail.com>
+ <CADiSq7e01ZNpF8X=C-rB0a3UbLK_W7oDuusmGXOKLcxev8B3PQ@mail.gmail.com>
+ <CA+St6D2-sFvhKQr7c7=gsohXtXdaup0VbiJ7P=j-TJUGepqqUg@mail.gmail.com>
+ <CADiSq7exZ=R9gc2ij0tyN7adRPbwK=QaxDWq50eYqcShhsRbWQ@mail.gmail.com>
+ <20171106185145.mfgq6qylrugk6nqo@python.ca>
+Message-ID: <CAFRnB2U3MkBgCXon4c6UqKQ=BHFYy86Dt_uB-jJk92=0JH81jg@mail.gmail.com>
+
+I also feel this decision was a mistake. If there's a consensus to revert,
+I'm happy to draft a PEP.
+
+Alex
+
+On Nov 6, 2017 1:58 PM, "Neil Schemenauer" <nas-python at arctrix.com> wrote:
+
+> On 2017-11-06, Nick Coghlan wrote:
+> > Gah, seven years on from Python 2.7's release, I still get caught by
+> > that. I'm tempted to propose we reverse that decision and go back to
+> > enabling them by default :P
+>
+> Either enable them by default or make them really easy to enable for
+> development evironments.  I think some setting of the PYTHONWARNINGS
+> evironment variable should do it.  It is not obvious to me how to do
+> it though.  Maybe there should be an environment variable that does
+> it more directly.  E.g.
+>
+>     PYTHONWARNDEPRECATED=1
+>
+> Another idea is to have venv to turn them on by default or, based on
+> a command-line option, do it.  Or, maybe the unit testing frameworks
+> should turn on the warnings when they run.
+>
+> The current "disabled by default" behavior is obviously not working
+> very well.  I had them turned on for a while and found quite a
+> number of warnings in what are otherwise high-quality Python
+> packages.  Obviously the vast majority of developers don't have them
+> turned on.
+>
+> Regards,
+>
+>   Neil
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20171106/61544864/attachment.html>
+
+From rdmurray at bitdance.com  Mon Nov  6 14:09:58 2017
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Mon, 06 Nov 2017 14:09:58 -0500
+Subject: [python-committers] Enabling depreciation warnings feature code
+ cutoff
+In-Reply-To: <20171106185145.mfgq6qylrugk6nqo@python.ca>
+References: <60B5B0C5-7688-428C-980E-1D08AEFD076A@python.org>
+ <CAH0mxTSpLvyc_kFwJQKK_f876TO6VtCkq8ZSDO0cO__YL8=ZDg@mail.gmail.com>
+ <CAFp3-p_5Hs4pu+Z8Y_3d838eiVNUNyi31yrhqbAak=JbdPuRHQ@mail.gmail.com>
+ <CADiSq7e01ZNpF8X=C-rB0a3UbLK_W7oDuusmGXOKLcxev8B3PQ@mail.gmail.com>
+ <CA+St6D2-sFvhKQr7c7=gsohXtXdaup0VbiJ7P=j-TJUGepqqUg@mail.gmail.com>
+ <CADiSq7exZ=R9gc2ij0tyN7adRPbwK=QaxDWq50eYqcShhsRbWQ@mail.gmail.com>
+ <20171106185145.mfgq6qylrugk6nqo@python.ca>
+Message-ID: <20171106191001.328C6131002C@webabinitio.net>
+
+On Mon, 06 Nov 2017 12:51:45 -0600, Neil Schemenauer <nas-python at arctrix.com> wrote:
+> Another idea is to have venv to turn them on by default or, based on
+> a command-line option, do it.  Or, maybe the unit testing frameworks
+> should turn on the warnings when they run.
+
+Unit test frameworks, including at least unittest, do.
+
+> The current "disabled by default" behavior is obviously not working
+> very well.  I had them turned on for a while and found quite a
+> number of warnings in what are otherwise high-quality Python
+> packages.  Obviously the vast majority of developers don't have them
+> turned on.
+
+It's working great for me.  I've only run into warnings in one package,
+and I wouldn't call that one high quality.  And we use a lot of packages
+in our current project.
+
+I'm curious which ones you are seeing it in?  It could be we are
+operating in different problem spaces :)
+
+--David
+
+From nas-python at arctrix.com  Mon Nov  6 14:25:09 2017
+From: nas-python at arctrix.com (Neil Schemenauer)
+Date: Mon, 6 Nov 2017 13:25:09 -0600
+Subject: [python-committers] Enabling depreciation warnings feature code
+ cutoff
+In-Reply-To: <20171106191001.328C6131002C@webabinitio.net>
+References: <60B5B0C5-7688-428C-980E-1D08AEFD076A@python.org>
+ <CAH0mxTSpLvyc_kFwJQKK_f876TO6VtCkq8ZSDO0cO__YL8=ZDg@mail.gmail.com>
+ <CAFp3-p_5Hs4pu+Z8Y_3d838eiVNUNyi31yrhqbAak=JbdPuRHQ@mail.gmail.com>
+ <CADiSq7e01ZNpF8X=C-rB0a3UbLK_W7oDuusmGXOKLcxev8B3PQ@mail.gmail.com>
+ <CA+St6D2-sFvhKQr7c7=gsohXtXdaup0VbiJ7P=j-TJUGepqqUg@mail.gmail.com>
+ <CADiSq7exZ=R9gc2ij0tyN7adRPbwK=QaxDWq50eYqcShhsRbWQ@mail.gmail.com>
+ <20171106185145.mfgq6qylrugk6nqo@python.ca>
+ <20171106191001.328C6131002C@webabinitio.net>
+Message-ID: <20171106192509.mtkdullraknyjacz@python.ca>
+
+On 2017-11-06, R. David Murray wrote:
+> I'm curious which ones you are seeing it in?  It could be we are
+> operating in different problem spaces :)
+
+In the last few months: Pillow, docutils, dateutil.  Some of them
+could have been PendingDeprecationWarning, I'm not sure.  I had that
+enabled as well.  So, maybe the warnings would have been fixed once
+they became DeprecationWarning.  The fact that unittest enables the
+warnings should help a lot.
+
+Regards,
+
+  Neil
+
+From antoine at python.org  Mon Nov  6 14:28:16 2017
+From: antoine at python.org (Antoine Pitrou)
+Date: Mon, 6 Nov 2017 20:28:16 +0100
+Subject: [python-committers] Enabling depreciation warnings feature code
+ cutoff
+In-Reply-To: <20171106192509.mtkdullraknyjacz@python.ca>
+References: <60B5B0C5-7688-428C-980E-1D08AEFD076A@python.org>
+ <CAH0mxTSpLvyc_kFwJQKK_f876TO6VtCkq8ZSDO0cO__YL8=ZDg@mail.gmail.com>
+ <CAFp3-p_5Hs4pu+Z8Y_3d838eiVNUNyi31yrhqbAak=JbdPuRHQ@mail.gmail.com>
+ <CADiSq7e01ZNpF8X=C-rB0a3UbLK_W7oDuusmGXOKLcxev8B3PQ@mail.gmail.com>
+ <CA+St6D2-sFvhKQr7c7=gsohXtXdaup0VbiJ7P=j-TJUGepqqUg@mail.gmail.com>
+ <CADiSq7exZ=R9gc2ij0tyN7adRPbwK=QaxDWq50eYqcShhsRbWQ@mail.gmail.com>
+ <20171106185145.mfgq6qylrugk6nqo@python.ca>
+ <20171106191001.328C6131002C@webabinitio.net>
+ <20171106192509.mtkdullraknyjacz@python.ca>
+Message-ID: <0469e57b-8e20-9cab-747f-4e656bd79761@python.org>
+
+
+Perhaps this discussion can go back to python-dev?
+
+
+
+Le 06/11/2017 ? 20:25, Neil Schemenauer a ?crit?:
+> On 2017-11-06, R. David Murray wrote:
+>> I'm curious which ones you are seeing it in?  It could be we are
+>> operating in different problem spaces :)
+> 
+> In the last few months: Pillow, docutils, dateutil.  Some of them
+> could have been PendingDeprecationWarning, I'm not sure.  I had that
+> enabled as well.  So, maybe the warnings would have been fixed once
+> they became DeprecationWarning.  The fact that unittest enables the
+> warnings should help a lot.
+> 
+> Regards,
+> 
+>   Neil
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+> 
+
+From rdmurray at bitdance.com  Mon Nov  6 14:36:39 2017
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Mon, 06 Nov 2017 14:36:39 -0500
+Subject: [python-committers] Enabling depreciation warnings feature code
+ cutoff
+In-Reply-To: <20171106192509.mtkdullraknyjacz@python.ca>
+References: <60B5B0C5-7688-428C-980E-1D08AEFD076A@python.org>
+ <CAH0mxTSpLvyc_kFwJQKK_f876TO6VtCkq8ZSDO0cO__YL8=ZDg@mail.gmail.com>
+ <CAFp3-p_5Hs4pu+Z8Y_3d838eiVNUNyi31yrhqbAak=JbdPuRHQ@mail.gmail.com>
+ <CADiSq7e01ZNpF8X=C-rB0a3UbLK_W7oDuusmGXOKLcxev8B3PQ@mail.gmail.com>
+ <CA+St6D2-sFvhKQr7c7=gsohXtXdaup0VbiJ7P=j-TJUGepqqUg@mail.gmail.com>
+ <CADiSq7exZ=R9gc2ij0tyN7adRPbwK=QaxDWq50eYqcShhsRbWQ@mail.gmail.com>
+ <20171106185145.mfgq6qylrugk6nqo@python.ca>
+ <20171106191001.328C6131002C@webabinitio.net>
+ <20171106192509.mtkdullraknyjacz@python.ca>
+Message-ID: <20171106193639.E403D1310025@webabinitio.net>
+
+On Mon, 06 Nov 2017 13:25:09 -0600, Neil Schemenauer <nas-python at arctrix.com> wrote:
+> On 2017-11-06, R. David Murray wrote:
+> > I'm curious which ones you are seeing it in?  It could be we are
+> > operating in different problem spaces :)
+> 
+> In the last few months: Pillow, docutils, dateutil.  Some of them
+> could have been PendingDeprecationWarning, I'm not sure.  I had that
+> enabled as well.  So, maybe the warnings would have been fixed once
+> they became DeprecationWarning.  The fact that unittest enables the
+> warnings should help a lot.
+
+We're using at Pillow and dateutil without seeing any warnings
+(without Pending on), so I suspect your speculation is correct.
+
+--David
+
+From antoine at python.org  Thu Nov 16 09:07:38 2017
+From: antoine at python.org (Antoine Pitrou)
+Date: Thu, 16 Nov 2017 15:07:38 +0100
+Subject: [python-committers] IPv6 issues on *.python.org
+Message-ID: <4d5124a3-7283-8b37-b4ff-f06daec0c6c0@python.org>
+
+
+Hello,
+
+I'm having IPv6 issues on *.python.org.  Is anyone having the same
+issues or is it just me?  Who should I report this to?
+
+$ curl -6 -v -I https://www.python.org/
+*   Trying 2a04:4e42:9::223...
+* Connected to www.python.org (2a04:4e42:9::223) port 443 (#0)
+* found 148 certificates in /etc/ssl/certs/ca-certificates.crt
+* found 604 certificates in /etc/ssl/certs
+* ALPN, offering http/1.1
+* gnutls_handshake() failed: Error in the pull function.
+* Closing connection 0
+curl: (35) gnutls_handshake() failed: Error in the pull function.
+
+
+Regards
+
+Antoine.
+
+From jaraco at jaraco.com  Thu Nov 16 09:10:17 2017
+From: jaraco at jaraco.com (Jason R. Coombs)
+Date: Thu, 16 Nov 2017 14:10:17 +0000
+Subject: [python-committers] IPv6 issues on *.python.org
+In-Reply-To: <4d5124a3-7283-8b37-b4ff-f06daec0c6c0@python.org>
+References: <4d5124a3-7283-8b37-b4ff-f06daec0c6c0@python.org>
+Message-ID: <5E4B717C-48AF-4977-BA0F-F19F49125E1C@jaraco.com>
+
+It?s working for me. https://gist.github.com/51689c789a21edc1f9f9cf32fa17431f
+
+
+On 16 Nov, 2017, at 09:07, Antoine Pitrou <antoine at python.org<mailto:antoine at python.org>> wrote:
+
+
+Hello,
+
+I'm having IPv6 issues on *.python.org<http://python.org>.  Is anyone having the same
+issues or is it just me?  Who should I report this to?
+
+$ curl -6 -v -I https://www.python.org/
+*   Trying 2a04:4e42:9::223...
+* Connected to www.python.org<http://www.python.org> (2a04:4e42:9::223) port 443 (#0)
+* found 148 certificates in /etc/ssl/certs/ca-certificates.crt
+* found 604 certificates in /etc/ssl/certs
+* ALPN, offering http/1.1
+* gnutls_handshake() failed: Error in the pull function.
+* Closing connection 0
+curl: (35) gnutls_handshake() failed: Error in the pull function.
+
+
+Regards
+
+Antoine.
+_______________________________________________
+python-committers mailing list
+python-committers at python.org<mailto:python-committers at python.org>
+https://mail.python.org/mailman/listinfo/python-committers
+Code of Conduct: https://www.python.org/psf/codeofconduct/
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20171116/d7a85b69/attachment.html>
+
+From victor.stinner at gmail.com  Thu Nov 16 09:26:51 2017
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Thu, 16 Nov 2017 15:26:51 +0100
+Subject: [python-committers] IPv6 issues on *.python.org
+In-Reply-To: <4d5124a3-7283-8b37-b4ff-f06daec0c6c0@python.org>
+References: <4d5124a3-7283-8b37-b4ff-f06daec0c6c0@python.org>
+Message-ID: <CAMpsgwZVuynpA0R57OnZsvKnd08Ezz3o+p1JtBNdwrRWuzsCQQ@mail.gmail.com>
+
+Hi,
+
+> * gnutls_handshake() failed: Error in the pull function.
+
+It looks more like a TLS issue rather than an IPv6 issue. It reminds
+me a similar TLS issue on blog.python.org:
+
+"blog.python.org in HTTPS doesn't provide a server certificate?"
+https://github.com/python/psf-infra-meta/issues/3
+
+You may want to try the following command to get more information your
+TLS issue:
+
+openssl s_client -connect blog.python.org -port 443
+
+Look for "no peer certificate available" or "New, (NONE), Cipher is
+(NONE)" in the output.
+
+Victor
+
+2017-11-16 15:07 GMT+01:00 Antoine Pitrou <antoine at python.org>:
+>
+> Hello,
+>
+> I'm having IPv6 issues on *.python.org.  Is anyone having the same
+> issues or is it just me?  Who should I report this to?
+>
+> $ curl -6 -v -I https://www.python.org/
+> *   Trying 2a04:4e42:9::223...
+> * Connected to www.python.org (2a04:4e42:9::223) port 443 (#0)
+> * found 148 certificates in /etc/ssl/certs/ca-certificates.crt
+> * found 604 certificates in /etc/ssl/certs
+> * ALPN, offering http/1.1
+> * gnutls_handshake() failed: Error in the pull function.
+> * Closing connection 0
+> curl: (35) gnutls_handshake() failed: Error in the pull function.
+>
+>
+> Regards
+>
+> Antoine.
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+
+From victor.stinner at gmail.com  Thu Nov 16 09:33:38 2017
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Thu, 16 Nov 2017 15:33:38 +0100
+Subject: [python-committers] IPv6 issues on *.python.org
+In-Reply-To: <CAMpsgwZVuynpA0R57OnZsvKnd08Ezz3o+p1JtBNdwrRWuzsCQQ@mail.gmail.com>
+References: <4d5124a3-7283-8b37-b4ff-f06daec0c6c0@python.org>
+ <CAMpsgwZVuynpA0R57OnZsvKnd08Ezz3o+p1JtBNdwrRWuzsCQQ@mail.gmail.com>
+Message-ID: <CAMpsgwZrh48XRkFPQEoviY4CR9FoBKZCFk+WvwWQCtu2aqoZEQ@mail.gmail.com>
+
+Note: I'm living in France and my ISP is Orange. I have IPv6 connectivity.
+
+On the first try, I reproduced the blog.python.org issue:
+
+haypo at selma$ openssl s_client -connect blog.python.org -port 443
+</dev/null 2>&1|tee log; grep -E 'Certificate chain|no peer
+certificate available' log
+(...)
+no peer certificate available
+
+
+But for python.org, it works for me:
+
+haypo at selma$ openssl s_client -connect python.org -port 443 </dev/null
+2>&1|tee log; grep -E 'Certificate chain|no peer certificate
+available' log
+(...)
+Certificate chain
+
+
+The following command also works properly:
+
+$ curl -6 -v -I https://www.python.org/
+(...)
+* SSL connection using TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+* Server certificate:
+*     subject: CN=www.python.org,O=Python Software
+Foundation,L=Wolfeboro,ST=New
+Hampshire,C=US,postalCode=03894-4801,STREET=16 Allen
+Rd,serialNumber=3359300,incorporationState=Delaware,incorporationCountry=US,businessCategory=Private
+Organization
+(...)
+
+
+IPv6 traceroute to python.org:
+
+haypo at selma$ traceroute6 python.org
+traceroute to python.org (2001:4802:7901:0:e60a:1375:0:6), 30 hops
+max, 80 byte packets
+ 1  2a01:cb1c:4af:5600:b2b2:8fff:fe9b:a9f0
+(2a01:cb1c:4af:5600:b2b2:8fff:fe9b:a9f0)  6.061 ms  6.027 ms  6.017 ms
+ 2  2a01cb08a004020d0193025300750016.ipv6.abo.wanadoo.fr
+(2a01:cb08:a004:20d:193:253:75:16)  17.206 ms  17.203 ms  17.196 ms
+ 3  2a01:cfc4:0:1f00::a (2a01:cfc4:0:1f00::a)  19.962 ms  19.996 ms  19.989 ms
+ 4  ae106-0.pastr3.paris03.opentransit.net (2a01:cfc4:0:2100::3)
+29.762 ms  34.047 ms  34.048 ms
+ 5  ae-26.r04.parsfr01.fr.bb.gin.ntt.net (2001:728:0:4000::6d)  37.070
+ms  37.065 ms  37.055 ms
+ 6  ae-2.r25.londen12.uk.bb.gin.ntt.net (2001:728:0:2000::181)  56.603
+ms  35.463 ms  37.785 ms
+ 7  ae-1.r24.londen12.uk.bb.gin.ntt.net (2001:728:0:2000::151)  37.780
+ms  36.336 ms  36.339 ms
+ 8  ae-5.r24.nycmny01.us.bb.gin.ntt.net (2001:418:0:2000::24d)
+103.634 ms  103.594 ms  107.559 ms
+ 9  ae-1.r25.nycmny01.us.bb.gin.ntt.net (2001:418:0:2000::27e)
+107.512 ms  103.466 ms  103.459 ms
+10  ae-9.r22.asbnva02.us.bb.gin.ntt.net (2001:418:0:2000::1fe)
+114.485 ms  114.471 ms  114.457 ms
+11  ae-1.r05.asbnva02.us.bb.gin.ntt.net (2001:418:0:2000::19)  120.910
+ms  114.392 ms  102.718 ms
+12  ae-0.a01.asbnva02.us.bb.gin.ntt.net (2001:418:0:2000::2cd)
+108.669 ms ae-1.a01.asbnva02.us.bb.gin.ntt.net (2001:418:0:2000::2d1)
+105.013 ms  103.748 ms
+13  2001:418:0:5000::8ed (2001:418:0:5000::8ed)  103.643 ms  103.579
+ms  103.567 ms
+14  2001:4802:800:dc1:ca:: (2001:4802:800:dc1:ca::)  109.676 ms
+109.709 ms 2001:4802:800:dc2:cb:: (2001:4802:800:dc2:cb::)  116.053 ms
+15  2001:4802:800:dc2:ca::1 (2001:4802:800:dc2:ca::1)  112.816 ms
+2001:4802:800:dc1:ca::1 (2001:4802:800:dc1:ca::1)  124.222 ms
+2001:4802:800:dc2:ca::1 (2001:4802:800:dc2:ca::1)  120.993 ms
+16  corea-core7.iad3.rackspace.net (2001:4802:800:ca:c7::1)  124.154
+ms coreb-core7.iad3.rackspace.net (2001:4802:800:cb:c7::1)  118.295 ms
+corea-core7.iad3.rackspace.net (2001:4802:800:ca:c7::1)  120.946 ms
+17  2001:4802:800:5000::403a:6 (2001:4802:800:5000::403a:6)  102.160
+ms  102.134 ms  109.862 ms
+18  2001:4802:7901:0:e60a:1375:0:6 (2001:4802:7901:0:e60a:1375:0:6)
+105.901 ms  109.252 ms  105.737 ms
+
+IPv6 traceroute to blog.python.org:
+
+haypo at selma$ traceroute6 blog.python.org
+traceroute to blog.python.org (2a00:1450:4001:814::2013), 30 hops max,
+80 byte packets
+ 1  2a01:cb1c:4af:5600:b2b2:8fff:fe9b:a9f0
+(2a01:cb1c:4af:5600:b2b2:8fff:fe9b:a9f0)  5.688 ms  5.575 ms  5.427 ms
+ 2  2a01cb08a004020d0193025300750016.ipv6.abo.wanadoo.fr
+(2a01:cb08:a004:20d:193:253:75:16)  15.191 ms  15.223 ms  15.201 ms
+ 3  2a01:cfc4:0:1f00::a (2a01:cfc4:0:1f00::a)  19.354 ms  19.375 ms  21.667 ms
+ 4  ae102-0.marcr6.marseille03.opentransit.net (2a01:cfc4:0:2100::9)
+21.655 ms  23.945 ms  23.974 ms
+ 5  2001:4860:1:1::a4 (2001:4860:1:1::a4)  28.128 ms
+2001:4860:1:1:0:1587:0:c (2001:4860:1:1:0:1587:0:c)  28.160 ms
+2001:4860:1:1::a4 (2001:4860:1:1::a4)  28.137 ms
+ 6  2001:4860::9:4001:c34 (2001:4860::9:4001:c34)  33.138 ms  15.627
+ms  15.592 ms
+ 7  2001:4860::9:4000:e392 (2001:4860::9:4000:e392)  32.223 ms  29.887
+ms 2001:4860::9:4001:7bc (2001:4860::9:4001:7bc)  23.638 ms
+ 8  2001:4860::8:0:cb95 (2001:4860::8:0:cb95)  32.209 ms
+2001:4860::8:0:cb93 (2001:4860::8:0:cb93)  32.203 ms  34.571 ms
+ 9  2001:4860::1:0:d0d8 (2001:4860::1:0:d0d8)  34.576 ms
+2001:4860::1:0:d0d9 (2001:4860::1:0:d0d9)  34.567 ms
+2001:4860::1:0:d0d8 (2001:4860::1:0:d0d8)  38.061 ms
+10  2001:4860:0:11df::1 (2001:4860:0:11df::1)  38.049 ms *
+2001:4860:0:1::1aad (2001:4860:0:1::1aad)  41.809 ms
+11  fra15s11-in-x13.1e100.net (2a00:1450:4001:814::2013)  41.802 ms
+44.339 ms  29.161 ms
+
+Victor
+
+2017-11-16 15:26 GMT+01:00 Victor Stinner <victor.stinner at gmail.com>:
+> Hi,
+>
+>> * gnutls_handshake() failed: Error in the pull function.
+>
+> It looks more like a TLS issue rather than an IPv6 issue. It reminds
+> me a similar TLS issue on blog.python.org:
+>
+> "blog.python.org in HTTPS doesn't provide a server certificate?"
+> https://github.com/python/psf-infra-meta/issues/3
+>
+> You may want to try the following command to get more information your
+> TLS issue:
+>
+> openssl s_client -connect blog.python.org -port 443
+>
+> Look for "no peer certificate available" or "New, (NONE), Cipher is
+> (NONE)" in the output.
+>
+> Victor
+>
+> 2017-11-16 15:07 GMT+01:00 Antoine Pitrou <antoine at python.org>:
+>>
+>> Hello,
+>>
+>> I'm having IPv6 issues on *.python.org.  Is anyone having the same
+>> issues or is it just me?  Who should I report this to?
+>>
+>> $ curl -6 -v -I https://www.python.org/
+>> *   Trying 2a04:4e42:9::223...
+>> * Connected to www.python.org (2a04:4e42:9::223) port 443 (#0)
+>> * found 148 certificates in /etc/ssl/certs/ca-certificates.crt
+>> * found 604 certificates in /etc/ssl/certs
+>> * ALPN, offering http/1.1
+>> * gnutls_handshake() failed: Error in the pull function.
+>> * Closing connection 0
+>> curl: (35) gnutls_handshake() failed: Error in the pull function.
+>>
+>>
+>> Regards
+>>
+>> Antoine.
+>> _______________________________________________
+>> python-committers mailing list
+>> python-committers at python.org
+>> https://mail.python.org/mailman/listinfo/python-committers
+>> Code of Conduct: https://www.python.org/psf/codeofconduct/
+
+From antoine at python.org  Thu Nov 16 09:35:02 2017
+From: antoine at python.org (Antoine Pitrou)
+Date: Thu, 16 Nov 2017 15:35:02 +0100
+Subject: [python-committers] IPv6 issues on *.python.org
+In-Reply-To: <CAMpsgwZVuynpA0R57OnZsvKnd08Ezz3o+p1JtBNdwrRWuzsCQQ@mail.gmail.com>
+References: <4d5124a3-7283-8b37-b4ff-f06daec0c6c0@python.org>
+ <CAMpsgwZVuynpA0R57OnZsvKnd08Ezz3o+p1JtBNdwrRWuzsCQQ@mail.gmail.com>
+Message-ID: <3049f5de-db11-4aea-6e36-c72feb1f6c50@python.org>
+
+
+
+Le 16/11/2017 ? 15:26, Victor Stinner a ?crit?:
+> Hi,
+> 
+>> * gnutls_handshake() failed: Error in the pull function.
+> 
+> It looks more like a TLS issue rather than an IPv6 issue. It reminds
+> me a similar TLS issue on blog.python.org:
+> 
+> "blog.python.org in HTTPS doesn't provide a server certificate?"
+> https://github.com/python/psf-infra-meta/issues/3
+> 
+> You may want to try the following command to get more information your
+> TLS issue:
+> 
+> openssl s_client -connect blog.python.org -port 443
+
+Unfortunately, "openssl s_client" doesn't seem to support IPv6 here
+(Ubuntu 16.04).
+
+Regards
+
+Antoine.
+
+From victor.stinner at gmail.com  Fri Nov 17 16:17:23 2017
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Fri, 17 Nov 2017 22:17:23 +0100
+Subject: [python-committers] Nickname changed from haypo to vstinner
+Message-ID: <CAMpsgwaKqowfEAjYAXzE_goZC=Cqsa8SP+Qq+mZkUNdt-VDT8A@mail.gmail.com>
+
+Hi,
+
+For your information, I changed my nickname from "haypo" to "vstinner"
+on IRC, GitHub and Bitbucket.
+
+The change is supposed to be transparent, *but* there is an exception.
+On GitHub, @haypo mentions don't notify me anymore. So please, if you
+want to notify me on GitHub, please use @vstinner.
+
+That's all, sorry for the noise,
+Victor Stinner aka vstinner ;-)
+
+From victor.stinner at gmail.com  Mon Nov 20 12:54:50 2017
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Mon, 20 Nov 2017 18:54:50 +0100
+Subject: [python-committers] Requirements to get the "bug triage" permission?
+Message-ID: <CAMpsgwaN1WttbV4KXMmD=sieCCVPUkg3OMnxQOamGycu=GLmRQ@mail.gmail.com>
+
+Hi,
+
+I identified some active contributors and I would like to offer them
+to get the "bug triage" permission. What's the requirements to give
+such permissions to someone?
+
+On my "Different stages of core developers" "lader", it's the 3rd
+stage ("step"?):
+
+http://cpython-core-tutorial.readthedocs.io/en/latest/what_is_a_cpython_core_developer.html#different-stages-of-core-developers
+
+Requirements to become a core developer (get the "commit bit") are now
+written down:
+
+http://cpython-core-tutorial.readthedocs.io/en/latest/what_is_a_cpython_core_developer.html#requirements-to-become-a-core-developer
+
+It would be nice to write down requirements to get the bug triage permission.
+
+
+IMHO the requirements are quite low:
+
+* at least one commit merged in Python
+* signed the CLA
+* be nice and respectful
+* don't close a bug if it's not well understood to not "loose"
+information (closed bugs are ignored in search by default, and hidden
+from the main page).
+
+Did it happen in the past that we removed the bug triage permission to
+someone who abused this power?
+
+Maybe we can give some guide lines on how to behave on the bug tracker?
+
+Responsability for bug tracker:
+
+* Request more information if a report is incomplete
+* Ping original reporters if they don't reply
+* Adjust Python version, component, bug type, etc.
+* Rewrite the issue title if needed
+* Close duplicated bugs as DUPLICATE
+* Close irrevelant bugs as NOTABUG
+
+The exact behaviour on the bug tracker is not specified. For example,
+when someone asks for help on code, I close the issue and suggest to
+use a different forum to get help, without giving examples of forums
+(since I simply don't know them :-)).
+
+When the reported issue described a legit Python behaviour, I try to
+explain the rationale of the behaviour before closing the issue as
+"not a bug".
+
+Sometimes I'm just tired of the 4th bug report on "floating point
+rouding issue" and just give the link to the FAQ without explaining
+anything.
+
+Devguide ?Helping Triage Issues
+https://devguide.python.org/tracker/#helptriage
+
+Victor
+
+From rdmurray at bitdance.com  Mon Nov 20 13:12:44 2017
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Mon, 20 Nov 2017 13:12:44 -0500
+Subject: [python-committers] Requirements to get the "bug triage"
+ permission?
+In-Reply-To: <CAMpsgwaN1WttbV4KXMmD=sieCCVPUkg3OMnxQOamGycu=GLmRQ@mail.gmail.com>
+References: <CAMpsgwaN1WttbV4KXMmD=sieCCVPUkg3OMnxQOamGycu=GLmRQ@mail.gmail.com>
+Message-ID: <20171120181245.6238C131001D@webabinitio.net>
+
+On Mon, 20 Nov 2017 18:54:50 +0100, Victor Stinner <victor.stinner at gmail.com> wrote:
+> I identified some active contributors and I would like to offer them
+> to get the "bug triage" permission. What's the requirements to give
+> such permissions to someone?
+
+Currently it is "someone with the power to do it decides to give it out".
+Should we have more detailed/conscious requirements?  Perhaps so.
+
+> IMHO the requirements are quite low:
+> 
+> * at least one commit merged in Python
+> * signed the CLA
+
+I have never looked for either of these when giving out triage.  I can
+see that having signed the CLA is probably a good idea, but I see no
+reason to have getting a patch merged be a requirement.
+
+> * be nice and respectful
+> * don't close a bug if it's not well understood to not "loose"
+> information (closed bugs are ignored in search by default, and hidden
+> from the main page).
+
+Personally my criteria is heavy on "be nice and respectful", coupled
+with observing that they have posted comments on issue that demonstrate
+an understanding of our code culture...specifically, commenting that a bug
+should be closed (and why) and I agree with them, and demonstrating an
+understanding of what python versions a bug applies to (enhancement
+versus bug fix, when to backport a bug fix and when not).
+
+How it generally works for me is that I think, "this person knows
+what they are talking about, they ought to be able to close this issue
+themselves instead of my having to do it for them".  Then I pull up a
+list of all the issues they are nosy on, and look at their comments to
+see if they are consistently polite and respectful, know what they are
+talking about, and explain their reasoning well.  If I don't see any
+red flags, I give them triage.
+
+> Did it happen in the past that we removed the bug triage permission to
+> someone who abused this power?
+
+Only once that I'm aware of.
+
+> Maybe we can give some guide lines on how to behave on the bug tracker?
+
+Enhance the bug triage section of the devguide, by all means :)
+
+--David
+
+From ezio.melotti at gmail.com  Mon Nov 20 13:59:45 2017
+From: ezio.melotti at gmail.com (Ezio Melotti)
+Date: Mon, 20 Nov 2017 10:59:45 -0800
+Subject: [python-committers] Requirements to get the "bug triage"
+ permission?
+In-Reply-To: <20171120181245.6238C131001D@webabinitio.net>
+References: <CAMpsgwaN1WttbV4KXMmD=sieCCVPUkg3OMnxQOamGycu=GLmRQ@mail.gmail.com>
+ <20171120181245.6238C131001D@webabinitio.net>
+Message-ID: <CACBhJdFBtbAFOSNjXWR4Hm_xn6y04y69MHKFptsSXd7yG3i=+g@mail.gmail.com>
+
+On Mon, Nov 20, 2017 at 10:12 AM, R. David Murray <rdmurray at bitdance.com> wrote:
+>
+> On Mon, 20 Nov 2017 18:54:50 +0100, Victor Stinner <victor.stinner at gmail.com> wrote:
+> > I identified some active contributors and I would like to offer them
+> > to get the "bug triage" permission. What's the requirements to give
+> > such permissions to someone?
+>
+> Currently it is "someone with the power to do it decides to give it out".
+> Should we have more detailed/conscious requirements?  Perhaps so.
+>
+> > IMHO the requirements are quite low:
+> >
+> > * at least one commit merged in Python
+> > * signed the CLA
+>
+> I have never looked for either of these when giving out triage.  I can
+> see that having signed the CLA is probably a good idea, but I see no
+> reason to have getting a patch merged be a requirement.
+>
+
+Both those requirements shouldn't strictly be necessary (triaging
+shouldn't be covered by the CLA), however people that are interested
+in triaging often made previous contributions and signed the CLA
+already.  I wouldn't be against requiring the CLA to be signed as a
+requirement.
+
+> > * be nice and respectful
+> > * don't close a bug if it's not well understood to not "loose"
+> > information (closed bugs are ignored in search by default, and hidden
+> > from the main page).
+>
+> Personally my criteria is heavy on "be nice and respectful", coupled
+> with observing that they have posted comments on issue that demonstrate
+> an understanding of our code culture...specifically, commenting that a bug
+> should be closed (and why) and I agree with them, and demonstrating an
+> understanding of what python versions a bug applies to (enhancement
+> versus bug fix, when to backport a bug fix and when not).
+>
+> How it generally works for me is that I think, "this person knows
+> what they are talking about, they ought to be able to close this issue
+> themselves instead of my having to do it for them".  Then I pull up a
+> list of all the issues they are nosy on, and look at their comments to
+> see if they are consistently polite and respectful, know what they are
+> talking about, and explain their reasoning well.  If I don't see any
+> red flags, I give them triage.
+>
+
++1
+A good triager must be familiar with our codebase, our bug tracker,
+and our "code culture", in particular:
+* being able to find (or remember) duplicate and related issues, link
+them to each other, and closing the duplicates as necessary;
+* being able to correctly select the versions affected by the issue,
+the components, the stage, and other fields;
+* being able to verify if the issue can be reproduced and if the
+report is valid or not;
+* being able to recognize commonly reported issues and link to the
+appropriate FAQ or other existing issues/explanations;
+* being able to identify and specify the next step, possibly
+suggesting which files should be updated to fix the issue;
+* being able to locate the commits that might have introduced the
+issue, and the reason for the change;
+* being able to leave meaningful opinions on the issue (e.g. whether
+it should be addressed or closed and why);
+
+It usually takes some time and a few contributions before people can
+do these things, and by the time they do, they usually get noticed by
+other core devs.
+By that time, either they ask for more power themselves, or a core dev
+asks them if they would like to become triagers, but we don't have a
+well defined procedure and sometimes people keep contributing for
+weeks before someone realizes they could become triagers.
+
+To avoid this, we can either:
+1) let contributors know that they could ask for more power if they
+think they can handle it;
+2) be more proactive and check regularly if there are contributors
+deserving of more power;
+
+Best Regards,
+Ezio Melotti
+
+> > Did it happen in the past that we removed the bug triage permission to
+> > someone who abused this power?
+>
+> Only once that I'm aware of.
+>
+> > Maybe we can give some guide lines on how to behave on the bug tracker?
+>
+> Enhance the bug triage section of the devguide, by all means :)
+>
+> --David
+
+From antoine at python.org  Fri Nov 24 06:02:35 2017
+From: antoine at python.org (Antoine Pitrou)
+Date: Fri, 24 Nov 2017 12:02:35 +0100
+Subject: [python-committers] CLA indication on Github out of date?
+Message-ID: <02edd5ec-ec9c-b55d-a200-7a27a2993ae6@python.org>
+
+
+Hello,
+
+I forget... Who handles updating the Python CLA database?
+One of our contributors apparently signed the CLA but still has the "CLA
+not signed" indicator on their PR:
+https://github.com/python/cpython/pull/4496#issuecomment-346792634
+
+(sent to: python-committers, board at psf)
+
+Regards
+
+Antoine.
+
+From victor.stinner at gmail.com  Fri Nov 24 11:02:01 2017
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Fri, 24 Nov 2017 17:02:01 +0100
+Subject: [python-committers] CLA indication on Github out of date?
+In-Reply-To: <02edd5ec-ec9c-b55d-a200-7a27a2993ae6@python.org>
+References: <02edd5ec-ec9c-b55d-a200-7a27a2993ae6@python.org>
+Message-ID: <CAMpsgwaVO6LN+r+LEB-wKy8_+xnuX7psvcECFui3gpCNYMARwA@mail.gmail.com>
+
+His bugs.python.org account still says "Contributor Form Received: No".
+
+Maybe the people responsible to handle CLA are busy with Thanksgiving?
+
+Victor
+
+2017-11-24 12:02 GMT+01:00 Antoine Pitrou <antoine at python.org>:
+>
+> Hello,
+>
+> I forget... Who handles updating the Python CLA database?
+> One of our contributors apparently signed the CLA but still has the "CLA
+> not signed" indicator on their PR:
+> https://github.com/python/cpython/pull/4496#issuecomment-346792634
+>
+> (sent to: python-committers, board at psf)
+>
+> Regards
+>
+> Antoine.
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+
+From brett at python.org  Fri Nov 24 11:05:44 2017
+From: brett at python.org (Brett Cannon)
+Date: Fri, 24 Nov 2017 16:05:44 +0000
+Subject: [python-committers] CLA indication on Github out of date?
+In-Reply-To: <02edd5ec-ec9c-b55d-a200-7a27a2993ae6@python.org>
+References: <02edd5ec-ec9c-b55d-a200-7a27a2993ae6@python.org>
+Message-ID: <CAP1=2W4uWRyz7Uet28g+XmB9ESRND9X7__-dDFR17DspNjkAEA@mail.gmail.com>
+
+Ewa handle the updating, and since she lives in the States it's possible it
+hasn't happened yet due to US Thanksgiving.
+
+On Fri, Nov 24, 2017, 03:05 Antoine Pitrou, <antoine at python.org> wrote:
+
+>
+> Hello,
+>
+> I forget... Who handles updating the Python CLA database?
+> One of our contributors apparently signed the CLA but still has the "CLA
+> not signed" indicator on their PR:
+> https://github.com/python/cpython/pull/4496#issuecomment-346792634
+>
+> (sent to: python-committers, board at psf)
+>
+> Regards
+>
+> Antoine.
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20171124/95919c2a/attachment.html>
+
+From nad at python.org  Mon Nov 27 22:40:20 2017
+From: nad at python.org (Ned Deily)
+Date: Mon, 27 Nov 2017 22:40:20 -0500
+Subject: [python-committers] 3.7.0a3 cutoff extended a week to 12-04
+Message-ID: <1E7661D9-B165-4A1A-8471-57F7E2415786@python.org>
+
+We are extending the cutoff for the next 3.7 alpha preview (3.7.0a3) a week, moving it from today to 12-04 12:00 UTC.  The main reason is a selfish one: I have been traveling and mainly offline for the last few weeks and I am still catching up with activity.  Since we are getting close to feature code cutoff for the 3.7 cycle, it would be better to get things in sooner than later.  Following alpha 3, we will have one more alpha preview, 3.7.0a4 on 2018-01-08, prior to the feature code cutoff with 3.7.0b1 on 2018-01-29.  Note that 12-04 is also the scheduled date for the next 3.6.x maintenance release release candidate, 3.6.4rc1.  So I hope you can take advantage of the extra days for both release cycles.
+
+Thanks again for all your efforts!
+--Ned
+
+--
+  Ned Deily
+  nad at python.org -- []
+
+

@@ -1,0 +1,1077 @@
+From solipsis at pitrou.net  Mon Sep  1 12:19:36 2008
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Mon, 01 Sep 2008 12:19:36 +0200
+Subject: [python-committers] Patches need review
+Message-ID: <1220264376.5602.6.camel@fsol>
+
+
+Hello all,
+
+According to the release schedule (PEP 361), the first release
+candidates are scheduled for the 3rd of September. 
+Right now there are roughly 50 release blockers waiting. Many of them do
+have a patch. But very few people seem to review patches these days, and
+that's what is getting us stuck: without review, those patches will not
+go in.
+
+So it would be nice if people could invest a bit of their time in
+reviewing some of these patches and give or not approval for inclusion.
+
+Regards
+
+Antoine.
+
+
+
+From musiccomposition at gmail.com  Mon Sep  1 16:09:23 2008
+From: musiccomposition at gmail.com (Benjamin Peterson)
+Date: Mon, 1 Sep 2008 09:09:23 -0500
+Subject: [python-committers] Patches need review
+In-Reply-To: <1220264376.5602.6.camel@fsol>
+References: <1220264376.5602.6.camel@fsol>
+Message-ID: <1afaf6160809010709o6e8b65ar534e0c00c7b8d8f2@mail.gmail.com>
+
+On Mon, Sep 1, 2008 at 5:19 AM, Antoine Pitrou <solipsis at pitrou.net> wrote:
+>
+> Hello all,
+>
+> According to the release schedule (PEP 361), the first release
+> candidates are scheduled for the 3rd of September.
+> Right now there are roughly 50 release blockers waiting. Many of them do
+> have a patch. But very few people seem to review patches these days, and
+> that's what is getting us stuck: without review, those patches will not
+> go in.
+>
+> So it would be nice if people could invest a bit of their time in
+> reviewing some of these patches and give or not approval for inclusion.
+
+I will try to step up my reviewing.
+
+Unfortunately, I can't review my own things. In particular, I'd like
+to have some of my 2to3 patches reviewed. The one I'd most like to get
+in the moment is #3637. (Note that the patch simply changes the API
+around and doesn't involve the heavy lifting of 2to3; even if you
+aren't very familiar with 2to3, you could review it.)
+
+>
+> Regards
+>
+> Antoine.
+>
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+>
+
+
+
+-- 
+Cheers,
+Benjamin Peterson
+"There's no place like 127.0.0.1."
+
+From barry at python.org  Thu Sep  4 00:05:15 2008
+From: barry at python.org (Barry Warsaw)
+Date: Wed, 3 Sep 2008 18:05:15 -0400
+Subject: [python-committers] Working on the releases - No commits please
+Message-ID: <644E317A-1239-45CD-A738-082A6CDE7B48@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+I'm going to start working on the releases now.  Please no commits  
+unless you've checked with me on #python-dev @ freenode, until further  
+notice.
+
+- -Barry
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQCVAwUBSL8KG3EjvBPtnXfVAQKfxAQApT5URP2UAthkmjrKC82mreLlKKp2JUHN
+cqZIf84xvka+TyJs+3XL/5TFVgFpXUrPX8TwSRJbzZbXXEWsMEqydR51qAXbHrWQ
+0/qjpmgULf3WLnpCU+ApO/zuIotYipQN32I6Lom/OTu6YolbEO+kjWX9p17zuZBd
+YlsHP2B+m2Q=
+=1byG
+-----END PGP SIGNATURE-----
+
+From barry at python.org  Thu Sep  4 05:46:00 2008
+From: barry at python.org (Barry Warsaw)
+Date: Wed, 3 Sep 2008 23:46:00 -0400
+Subject: [python-committers] branches open
+Message-ID: <9F9EBCDB-0AD1-4DC8-A74A-A2AA48AA6B7E@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+See my message to python-dev.  I'm not releasing rc1 today so the  
+branches are open for commits.  Remember of course that all must be  
+reviewed.
+
+- -Barry
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQCUAwUBSL9Z+HEjvBPtnXfVAQKnAQP46FSRBNKODPBSIdp5IQyK3FOmUQYt7J57
+xckF2+SI4uA3cKhCXcYtFDHDzIFkxwGfV5dogKBmYDQHHwxFd83aUyJU2vlyh7Aa
+l8xTw/of21J+OdFOTJy9BkGY4qahgj/RPgumLSm4OtTrWtnYm13jEvCeP+AZgZ0C
+oS+O6sMBaw==
+=FyVD
+-----END PGP SIGNATURE-----
+
+From janssen at parc.com  Thu Sep  4 18:52:50 2008
+From: janssen at parc.com (Bill Janssen)
+Date: Thu, 4 Sep 2008 09:52:50 PDT
+Subject: [python-committers] Trunk and 3.0 branch are now open
+In-Reply-To: <ca471dc20808210929g6d7cbeach69facdb9640d0387@mail.gmail.com> 
+References: <20080820231018.1cde4c23@resist.wooz.org>
+	<bbaeab100808202024g5ce1ce5ft516091782a2e36ce@mail.gmail.com>
+	<F8F3C416-B538-4B6A-92C3-361BD4956153@python.org>
+	<ca471dc20808210929g6d7cbeach69facdb9640d0387@mail.gmail.com>
+Message-ID: <08Sep4.095252pdt."58698"@synergy1.parc.xerox.com>
+
+> but before deciding
+> to fix a bug, please consult at least one other committer, and when it
+> doubt, mail the list.
+
+Is there a handy list of committers available?
+
+Bill
+
+From brett at python.org  Thu Sep  4 20:17:45 2008
+From: brett at python.org (Brett Cannon)
+Date: Thu, 4 Sep 2008 11:17:45 -0700
+Subject: [python-committers] Trunk and 3.0 branch are now open
+In-Reply-To: <5536224463378144456@unknownmsgid>
+References: <20080820231018.1cde4c23@resist.wooz.org>
+	<bbaeab100808202024g5ce1ce5ft516091782a2e36ce@mail.gmail.com>
+	<F8F3C416-B538-4B6A-92C3-361BD4956153@python.org>
+	<ca471dc20808210929g6d7cbeach69facdb9640d0387@mail.gmail.com>
+	<5536224463378144456@unknownmsgid>
+Message-ID: <bbaeab100809041117t7f4452c6qa2d6afd7f82f1d9d@mail.gmail.com>
+
+On Thu, Sep 4, 2008 at 9:52 AM, Bill Janssen <janssen at parc.com> wrote:
+>> but before deciding
+>> to fix a bug, please consult at least one other committer, and when it
+>> doubt, mail the list.
+>
+> Is there a handy list of committers available?
+>
+
+As always, the python-dev FAQ has an answer:
+http://www.python.org/dev/faq/#who-has-commit-privileges-on-the-subversion-repository
+.
+
+-Brett
+
+From jcea at jcea.es  Mon Sep  8 14:17:01 2008
+From: jcea at jcea.es (Jesus Cea)
+Date: Mon, 08 Sep 2008 14:17:01 +0200
+Subject: [python-committers] broken arm
+Message-ID: <48C517BD.80703@jcea.es>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Hi, guys.
+
+I just have broken my left arm last saturday (sliding swimming pools are
+dangerous :)). I will be barely online for the next 6 weeks. I will try
+to keep email backlog under control, but single-hand typing is a nightmare.
+
+I will be "slow" but available, anyway.
+
+- --
+Jesus Cea Avion                         _/_/      _/_/_/        _/_/_/
+jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+jabber / xmpp:jcea at jabber.org         _/_/    _/_/          _/_/_/_/_/
+.                              _/_/  _/_/    _/_/          _/_/  _/_/
+"Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+"My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+"El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.8 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - http://enigmail.mozdev.org
+
+iQCVAwUBSMUXsplgi5GaxT1NAQKu2wQAj67jDJzk2ah0aF+DF119mYib5XlP6kAU
+bIFCNC1ipYI/BmiS8djSQzZCWSgJQasZIJ28A5D2E3ey0jrrmXYqmw8OicXZ+ckE
+jHgJYPWf4XNAkW6h4TRalnCPEMMWEz9HarHYbOehxjsRESxq4T0ayWYvL9hk5J+3
+tJo8qwxCzrY=
+=PmIb
+-----END PGP SIGNATURE-----
+
+
+From skip at pobox.com  Mon Sep  8 19:10:03 2008
+From: skip at pobox.com (skip at pobox.com)
+Date: Mon, 8 Sep 2008 12:10:03 -0500
+Subject: [python-committers] broken arm
+In-Reply-To: <48C517BD.80703@jcea.es>
+References: <48C517BD.80703@jcea.es>
+Message-ID: <18629.23659.765549.910577@montanaro-dyndns-org.local>
+
+
+    Jesus> I just have broken my left arm last saturday (sliding swimming
+    Jesus> pools are dangerous :)). I will be barely online for the next 6
+    Jesus> weeks. I will try to keep email backlog under control, but
+    Jesus> single-hand typing is a nightmare.
+
+    Jesus> I will be "slow" but available, anyway.
+
+Ouch...  Dragon NaturallySpeaking, perhaps?
+
+    http://www.nuance.com/naturallyspeaking/
+
+Hope you feel better soon.
+
+Skip
+
+From christian at cheimes.de  Mon Sep  8 20:02:58 2008
+From: christian at cheimes.de (Christian Heimes)
+Date: Mon, 08 Sep 2008 20:02:58 +0200
+Subject: [python-committers] broken arm
+In-Reply-To: <48C517BD.80703@jcea.es>
+References: <48C517BD.80703@jcea.es>
+Message-ID: <48C568D2.30903@cheimes.de>
+
+Jesus Cea wrote:
+> I just have broken my left arm last saturday (sliding swimming pools are
+> dangerous :)). I will be barely online for the next 6 weeks. I will try
+> to keep email backlog under control, but single-hand typing is a nightmare.
+
+Take the opportunity and read some good books! :] And get well soon.
+
+Christian
+
+PS: Who was talking about a single point of failure a few days ago? ...
+
+From python-committers-list at trentnelson.com  Mon Sep  8 20:40:45 2008
+From: python-committers-list at trentnelson.com (Trent Nelson)
+Date: Mon, 8 Sep 2008 18:40:45 +0000
+Subject: [python-committers] broken arm
+In-Reply-To: <48C517BD.80703@jcea.es>
+References: <48C517BD.80703@jcea.es>
+Message-ID: <20080908184045.GC68013@wind.teleri.net>
+
+On Mon, Sep 08, 2008 at 02:17:01PM +0200, Jesus Cea wrote:
+> -----BEGIN PGP SIGNED MESSAGE-----
+> Hash: SHA1
+> 
+> Hi, guys.
+> 
+> I just have broken my left arm last saturday (sliding swimming pools are
+> dangerous :)). I will be barely online for the next 6 weeks. I will try
+> to keep email backlog under control, but single-hand typing is a nightmare.
+
+    Having endured the arduous task of single-hand typing this evening 
+    (e-mailing whilst inhaling a chicken burger), I can certainly symp-
+    athise!  I'll have some time away from work over PyCon UK where I
+    can put some cycles into bsddb (especially on py3k and on Windows).
+
+    Hope the slide was worth it }:>
+
+        Trent.
+
+From python-committers-list at trentnelson.com  Mon Sep  8 20:45:05 2008
+From: python-committers-list at trentnelson.com (Trent Nelson)
+Date: Mon, 8 Sep 2008 18:45:05 +0000
+Subject: [python-committers] Who's going to be at PyCon UK this weekend?
+Message-ID: <20080908184505.GD68013@wind.teleri.net>
+
+    Any Python committers making the trip to Birmingham this coming
+    weekend for PyCon UK?  Would be good to meet up.  I can't make
+    it to the sprints but I'll be around Friday->Sunday.
+
+    Mobile: +44 7753 424 577, phone e-mail: tnelson at onresolve.com.
+    Look forward to meeting some new faces!
+
+        Trent.
+
+From jcea at jcea.es  Thu Sep 11 00:25:00 2008
+From: jcea at jcea.es (Jesus Cea)
+Date: Thu, 11 Sep 2008 00:25:00 +0200
+Subject: [python-committers] broken arm
+In-Reply-To: <48C568D2.30903@cheimes.de>
+References: <48C517BD.80703@jcea.es> <48C568D2.30903@cheimes.de>
+Message-ID: <48C8493C.3050104@jcea.es>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Christian Heimes wrote:
+> Take the opportunity and read some good books! :] And get well soon.
+
+Just reading the last book from Ken Follet :-P. 1200 pages...
+
+> PS: Who was talking about a single point of failure a few days ago? ...
+
+I'm still here :-).
+
+PS: If I was working in the bsddb code for Python 3.0 I would have spend
+Saturday working on this, instead of having fun in a birthday party with
+an aching end :-). Shit happens :)
+
+- --
+Jesus Cea Avion                         _/_/      _/_/_/        _/_/_/
+jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+jabber / xmpp:jcea at jabber.org         _/_/    _/_/          _/_/_/_/_/
+.                              _/_/  _/_/    _/_/          _/_/  _/_/
+"Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+"My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+"El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.8 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - http://enigmail.mozdev.org
+
+iQCVAwUBSMhJK5lgi5GaxT1NAQJbiAP+NSFZSDjvx84JdqZvMf9un48ai+vHPeXO
+MIvms07H7iSpXZA4MwjTe4iJ0FzG30EZPKZ16jqgnT2AJW2E+NndZo/KLC4zjN75
+iTZvpsxzfY2PFvqOqueNqrowzRmESWZrxr8B95eHgSSawMlKhJmtWoKJHkZ9kgdm
+SPiy5QjZ2vU=
+=s5KE
+-----END PGP SIGNATURE-----
+
+From barry at python.org  Sat Sep 13 01:13:21 2008
+From: barry at python.org (Barry Warsaw)
+Date: Fri, 12 Sep 2008 19:13:21 -0400
+Subject: [python-committers] Trunk freeze
+Message-ID: <78D0FA57-8A65-432B-8DF0-C2547E939E9B@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Since there were no objections, and we have no release blockers, I'm  
+going to go ahead and spin the 2.6rc1 release.  Please refrain from  
+committing anything to the trunk until further notice, or until you  
+check with me on freenode #python-dev.
+
+- -Barry
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQCVAwUBSMr3knEjvBPtnXfVAQLhbQP/VYKxEc+Kp/4plauCbjNsTHqI/gzoigsS
+js0lDogf9wWai/ABgwn5N4Gn3s4kkWJpcdIKoA5XUqkWQWfq3lYJphO02vruqx77
+M6juoStVLpcnEd7fx6cCmJkYqPoafjgE4sHeFg2v5q+3q0nPug3iuKB+KqHACyKr
+ay4sdXZjHGY=
+=H0w5
+-----END PGP SIGNATURE-----
+
+From barry at python.org  Sat Sep 13 03:22:27 2008
+From: barry at python.org (Barry Warsaw)
+Date: Fri, 12 Sep 2008 21:22:27 -0400
+Subject: [python-committers] trunk is open
+Message-ID: <66E6C7AA-26CA-4BA7-BC37-BEF302D92DEA@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+2.6rc1 is done, so the trunk is now open for commits.
+
+- -Barry
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQCVAwUBSMsV1HEjvBPtnXfVAQK0CgP+MujzHfxVBE8prbhX/lq3vah3CYTSWmBu
+qXQDu78Chde2aQJZZiEEs0DEuJX9istz0YaDMnOLcDlUtG00yYdUx7Q6nZeCE/zw
+1U2PjHPZ9vDHF5WZv3XTZ3CzLLpx5tEHKlTY10RNr6JhQoHiF9GSCAArigg1t9EA
+S6i06M87IAU=
+=WTfE
+-----END PGP SIGNATURE-----
+
+From solipsis at pitrou.net  Sun Sep 14 02:37:51 2008
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Sun, 14 Sep 2008 02:37:51 +0200
+Subject: [python-committers] deferred blockers
+Message-ID: <1221352671.6183.0.camel@fsol>
+
+
+Hi all,
+
+Now 2.6rc1 is released, shouldn't the issues which have "deferred
+blocker" status be put back in the "release blocker" category?
+
+cheers
+
+Antoine.
+
+
+
+From musiccomposition at gmail.com  Sun Sep 14 03:12:23 2008
+From: musiccomposition at gmail.com (Benjamin Peterson)
+Date: Sat, 13 Sep 2008 20:12:23 -0500
+Subject: [python-committers] deferred blockers
+In-Reply-To: <1221352671.6183.0.camel@fsol>
+References: <1221352671.6183.0.camel@fsol>
+Message-ID: <1afaf6160809131812t7082e837v134bd1629b8c59d0@mail.gmail.com>
+
+On Sat, Sep 13, 2008 at 7:37 PM, Antoine Pitrou <solipsis at pitrou.net> wrote:
+>
+> Hi all,
+>
+> Now 2.6rc1 is released, shouldn't the issues which have "deferred
+> blocker" status be put back in the "release blocker" category?
+
+I believe most of those issues are actually 3.0 ones that were demoted
+to deferred, so we can release 3.0rc1 on Wednesday. I think the ones
+applicable to 2.6 can be bumped up, though.
+
+>
+> cheers
+>
+> Antoine.
+>
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+>
+
+
+
+-- 
+Cheers,
+Benjamin Peterson
+"There's no place like 127.0.0.1."
+
+From barry at python.org  Sun Sep 14 05:40:43 2008
+From: barry at python.org (Barry Warsaw)
+Date: Sat, 13 Sep 2008 23:40:43 -0400
+Subject: [python-committers] deferred blockers
+In-Reply-To: <1afaf6160809131812t7082e837v134bd1629b8c59d0@mail.gmail.com>
+References: <1221352671.6183.0.camel@fsol>
+	<1afaf6160809131812t7082e837v134bd1629b8c59d0@mail.gmail.com>
+Message-ID: <211C9F2A-55F7-4A9F-BC90-1B140CC9E026@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On Sep 13, 2008, at 9:12 PM, Benjamin Peterson wrote:
+
+> On Sat, Sep 13, 2008 at 7:37 PM, Antoine Pitrou  
+> <solipsis at pitrou.net> wrote:
+>>
+>> Hi all,
+>>
+>> Now 2.6rc1 is released, shouldn't the issues which have "deferred
+>> blocker" status be put back in the "release blocker" category?
+>
+> I believe most of those issues are actually 3.0 ones that were demoted
+> to deferred, so we can release 3.0rc1 on Wednesday. I think the ones
+> applicable to 2.6 can be bumped up, though.
+
+Yes, please bump the 2.6 deferreds to release blockers.
+
+- -Barry
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQCVAwUBSMyHu3EjvBPtnXfVAQK1yQP+OFOvMCEJOo7y251FCJalDy0pcK/rxZPR
+b5nuMZ89L8gJ+crM0VAmcWc0KjX/P233jlC+CYtN7VYGp3J1VatRYNJuzbNuAl4V
+XMF42ykMKYAHHFCM1/0axvTGqkIuunQlaSdxMP4tXoPpMnvQLdagqovAQ2PQT98I
+3zk1ZFoxjXo=
+=084Q
+-----END PGP SIGNATURE-----
+
+From andymac at bullseye.apana.org.au  Sun Sep 14 15:15:50 2008
+From: andymac at bullseye.apana.org.au (Andrew MacIntyre)
+Date: Sun, 14 Sep 2008 23:15:50 +1000
+Subject: [python-committers] patches for review: OS/2 EMX port updates for
+	2.6
+Message-ID: <48CD0E86.5000608@bullseye.andymac.org>
+
+I'd appreciate a committer review of the 2 patches attached to issue 
+3868 (http://bugs.python.org/issue3868), so that I can get them in for 
+2.6 final.
+
+The build related patches only affect files in PC/os2emx (not used by any
+other part of Python, so could be checked in without any impact), but 
+there are also some source related patches...
+
+In passing I'll note I've added issues 3863 
+(http://bugs.python.org/issue3863) and 3864 
+(http://bugs.python.org/issue3864), which both affect FreeBSD. 
+Unfortunately I can't make much time to dig into these further at the
+moment :-(.
+
+Thanks,
+Andrew.
+
+-- 
+-------------------------------------------------------------------------
+Andrew I MacIntyre                     "These thoughts are mine alone..."
+E-mail: andymac at bullseye.apana.org.au  (pref) | Snail: PO Box 370
+        andymac at pcug.org.au             (alt) |        Belconnen ACT 2616
+Web:    http://www.andymac.org/               |        Australia
+
+From musiccomposition at gmail.com  Sun Sep 14 18:27:37 2008
+From: musiccomposition at gmail.com (Benjamin Peterson)
+Date: Sun, 14 Sep 2008 11:27:37 -0500
+Subject: [python-committers] deferred blockers
+In-Reply-To: <211C9F2A-55F7-4A9F-BC90-1B140CC9E026@python.org>
+References: <1221352671.6183.0.camel@fsol>
+	<1afaf6160809131812t7082e837v134bd1629b8c59d0@mail.gmail.com>
+	<211C9F2A-55F7-4A9F-BC90-1B140CC9E026@python.org>
+Message-ID: <1afaf6160809140927o58beee59q2d5e5694f241e044@mail.gmail.com>
+
+On Sat, Sep 13, 2008 at 10:40 PM, Barry Warsaw <barry at python.org> wrote:
+> -----BEGIN PGP SIGNED MESSAGE-----
+> Hash: SHA1
+>
+> On Sep 13, 2008, at 9:12 PM, Benjamin Peterson wrote:
+>
+>> On Sat, Sep 13, 2008 at 7:37 PM, Antoine Pitrou <solipsis at pitrou.net>
+>> wrote:
+>>>
+>>> Hi all,
+>>>
+>>> Now 2.6rc1 is released, shouldn't the issues which have "deferred
+>>> blocker" status be put back in the "release blocker" category?
+>>
+>> I believe most of those issues are actually 3.0 ones that were demoted
+>> to deferred, so we can release 3.0rc1 on Wednesday. I think the ones
+>> applicable to 2.6 can be bumped up, though.
+>
+> Yes, please bump the 2.6 deferreds to release blockers.
+
+I just tried.
+
+You'll all be happy to know that we have no 2.6 deferred blockers. :)
+Maybe, I should bump some other ones up, so we feel stressed enough...
+
+
+
+-- 
+Cheers,
+Benjamin Peterson
+"There's no place like 127.0.0.1."
+
+From martin at v.loewis.de  Sun Sep 14 18:58:32 2008
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Sun, 14 Sep 2008 18:58:32 +0200
+Subject: [python-committers] deferred blockers
+In-Reply-To: <1afaf6160809140927o58beee59q2d5e5694f241e044@mail.gmail.com>
+References: <1221352671.6183.0.camel@fsol>	<1afaf6160809131812t7082e837v134bd1629b8c59d0@mail.gmail.com>	<211C9F2A-55F7-4A9F-BC90-1B140CC9E026@python.org>
+	<1afaf6160809140927o58beee59q2d5e5694f241e044@mail.gmail.com>
+Message-ID: <48CD42B8.3090206@v.loewis.de>
+
+
+> You'll all be happy to know that we have no 2.6 deferred blockers. :)
+
+I thought this was the plan from the beginning: make sure that for rc1,
+there aren't any blockers - not even deferred ones. All 3.0 blockers
+got deferred before 2.6rc1, but the 2.6 blockers stayed.
+
+In case you wonder where they all went - I "resolved" a number of them
+by declaring that they shouldn't really block the release; in most
+cases, people then agreed (or didn't object).
+
+As a criterion, I asked "could that get fixed in 2.6.1 as well?", and
+I thought it could if
+- it's not a regression wrt. 2.5, and
+- it's not really that embarrassing, and
+- fixing it won't violate the policies that we had established for
+  bug fix releases.
+
+It's the latter point I'd like to get more feedback on: for a few
+issues, I declared them as non-blockers because they dealt with
+the addition of -3 warnings, or lib2to3 additions.
+
+I would claim that it is fine if both 2to3 fixers and -3 warnings
+get added to 2.6.1, even though they are strictly-speaking new
+features. For 2to3, it should be fairly obvious: most of the time,
+adding fixers just means that you have to do less work. There is
+a small chance, of course, that adding a fixer may break conversion
+for a code base for which conversion previously worked. Still, since
+conversion is mostly a manual process, developers invoking it will
+still be able to deal with that.
+
+For -3 warnings, I would also assume that people normally don't
+run Python with -3 (i.e. in production), but do so only if they
+actually look into porting to 3.0. Adding a warning will then let
+them find out problems more quickly which they would otherwise need
+to find out the hard way, so I also don't see how adding such warnings
+could cause problems.
+
+Of course, if people disagree with these principles, it means
+that we either
+a) have those changes block 2.6 again, until they get resolved, or
+b) defer the change to 2.7. For 2to3 in particular, it would mean
+   that the built-in version of 2to3 wouldn't change until 2.7
+   (except for clear bug fixes).
+
+Regards,
+Martin
+
+From guido at python.org  Sun Sep 14 19:08:07 2008
+From: guido at python.org (Guido van Rossum)
+Date: Sun, 14 Sep 2008 10:08:07 -0700
+Subject: [python-committers] deferred blockers
+In-Reply-To: <48CD42B8.3090206@v.loewis.de>
+References: <1221352671.6183.0.camel@fsol>
+	<1afaf6160809131812t7082e837v134bd1629b8c59d0@mail.gmail.com>
+	<211C9F2A-55F7-4A9F-BC90-1B140CC9E026@python.org>
+	<1afaf6160809140927o58beee59q2d5e5694f241e044@mail.gmail.com>
+	<48CD42B8.3090206@v.loewis.de>
+Message-ID: <ca471dc20809141008n43ca9ef9v7327b678e1ac8ac0@mail.gmail.com>
+
+On Sun, Sep 14, 2008 at 9:58 AM, "Martin v. L?wis" <martin at v.loewis.de> wrote:
+>
+>> You'll all be happy to know that we have no 2.6 deferred blockers. :)
+>
+> I thought this was the plan from the beginning: make sure that for rc1,
+> there aren't any blockers - not even deferred ones. All 3.0 blockers
+> got deferred before 2.6rc1, but the 2.6 blockers stayed.
+>
+> In case you wonder where they all went - I "resolved" a number of them
+> by declaring that they shouldn't really block the release; in most
+> cases, people then agreed (or didn't object).
+
+Great -- thanks!
+
+> As a criterion, I asked "could that get fixed in 2.6.1 as well?", and
+> I thought it could if
+> - it's not a regression wrt. 2.5, and
+> - it's not really that embarrassing, and
+> - fixing it won't violate the policies that we had established for
+>  bug fix releases.
+>
+> It's the latter point I'd like to get more feedback on: for a few
+> issues, I declared them as non-blockers because they dealt with
+> the addition of -3 warnings, or lib2to3 additions.
+>
+> I would claim that it is fine if both 2to3 fixers and -3 warnings
+> get added to 2.6.1, even though they are strictly-speaking new
+> features. For 2to3, it should be fairly obvious: most of the time,
+> adding fixers just means that you have to do less work. There is
+> a small chance, of course, that adding a fixer may break conversion
+> for a code base for which conversion previously worked. Still, since
+> conversion is mostly a manual process, developers invoking it will
+> still be able to deal with that.
+
+I would go further -- I don't see the fixers in 2to3 as part of the
+distribution in the same way as I see other library code. That is, in
+a sense I find it awkward that the fixers are all contained in the Lib
+tree -- this part of 2to3 feels like an application, not really a
+library, and clearly we should be doing all we can to improve the set
+of fixers over time! OTOH the APIs used to create fixers and to use
+lib2to3 for another purpose (e.g. for a hypothetical 3-to-2 converter
+or other transformations) should be considered as part of the standard
+library -- there's a lot of reusable code there!
+
+> For -3 warnings, I would also assume that people normally don't
+> run Python with -3 (i.e. in production), but do so only if they
+> actually look into porting to 3.0. Adding a warning will then let
+> them find out problems more quickly which they would otherwise need
+> to find out the hard way, so I also don't see how adding such warnings
+> could cause problems.
+
+This isn't so clear-cut as 2to3 fixers, but I think it is worthwhile
+to exempt -3 warnings from the "no new features" requirement, and
+instead to try to add more -3 warnings (and possibly remove or change
+existing ones) over time as we learn more about the subtleties of
+translating 2.6 code to 3.0.
+
+> Of course, if people disagree with these principles, it means
+> that we either
+> a) have those changes block 2.6 again, until they get resolved, or
+> b) defer the change to 2.7. For 2to3 in particular, it would mean
+>   that the built-in version of 2to3 wouldn't change until 2.7
+>   (except for clear bug fixes).
+
+-- 
+--Guido van Rossum (home page: http://www.python.org/~guido/)
+
+From solipsis at pitrou.net  Sun Sep 14 19:14:01 2008
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Sun, 14 Sep 2008 19:14:01 +0200
+Subject: [python-committers] deferred blockers
+In-Reply-To: <1afaf6160809131812t7082e837v134bd1629b8c59d0@mail.gmail.com>
+References: <1221352671.6183.0.camel@fsol>
+	<1afaf6160809131812t7082e837v134bd1629b8c59d0@mail.gmail.com>
+Message-ID: <1221412441.13172.1.camel@fsol>
+
+
+Le samedi 13 septembre 2008 ? 20:12 -0500, Benjamin Peterson a ?crit :
+> I believe most of those issues are actually 3.0 ones that were demoted
+> to deferred, so we can release 3.0rc1 on Wednesday.
+
+I'm not sure I understand. I thought the 3.0 release blockers were
+demoted to deferred blockers so that we could release 2.6rc1, not
+3.0rc1... Otherwise it seems to defeat the whole point of having release
+blockers.
+
+(perhaps I'm just lacking coffee)
+
+
+
+From ncoghlan at gmail.com  Mon Sep 15 00:15:30 2008
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Mon, 15 Sep 2008 08:15:30 +1000
+Subject: [python-committers] deferred blockers
+In-Reply-To: <48CD42B8.3090206@v.loewis.de>
+References: <1221352671.6183.0.camel@fsol>	<1afaf6160809131812t7082e837v134bd1629b8c59d0@mail.gmail.com>	<211C9F2A-55F7-4A9F-BC90-1B140CC9E026@python.org>	<1afaf6160809140927o58beee59q2d5e5694f241e044@mail.gmail.com>
+	<48CD42B8.3090206@v.loewis.de>
+Message-ID: <48CD8D02.4060102@gmail.com>
+
+Martin v. L?wis wrote:
+> It's the latter point I'd like to get more feedback on: for a few
+> issues, I declared them as non-blockers because they dealt with
+> the addition of -3 warnings, or lib2to3 additions.
+
+Allowing both of those in 2.6.1 seems reasonable to me - and if any of
+the 2to3 fixers seems potentially problematic, then we can put them in
+the 'disabled by default' category.
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+---------------------------------------------------------------
+            http://www.boredomandlaziness.org
+
+From barry at python.org  Mon Sep 15 15:34:48 2008
+From: barry at python.org (Barry Warsaw)
+Date: Mon, 15 Sep 2008 09:34:48 -0400
+Subject: [python-committers] deferred blockers
+In-Reply-To: <48CD42B8.3090206@v.loewis.de>
+References: <1221352671.6183.0.camel@fsol>	<1afaf6160809131812t7082e837v134bd1629b8c59d0@mail.gmail.com>	<211C9F2A-55F7-4A9F-BC90-1B140CC9E026@python.org>
+	<1afaf6160809140927o58beee59q2d5e5694f241e044@mail.gmail.com>
+	<48CD42B8.3090206@v.loewis.de>
+Message-ID: <A100A8A3-0D3C-4EDF-8002-E57612BDCAEC@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On Sep 14, 2008, at 12:58 PM, Martin v. L?wis wrote:
+>>
+> I thought this was the plan from the beginning: make sure that for  
+> rc1,
+> there aren't any blockers - not even deferred ones. All 3.0 blockers
+> got deferred before 2.6rc1, but the 2.6 blockers stayed.
+>
+> In case you wonder where they all went - I "resolved" a number of them
+> by declaring that they shouldn't really block the release; in most
+> cases, people then agreed (or didn't object).
+>
+> As a criterion, I asked "could that get fixed in 2.6.1 as well?", and
+> I thought it could if
+> - it's not a regression wrt. 2.5, and
+> - it's not really that embarrassing, and
+> - fixing it won't violate the policies that we had established for
+>  bug fix releases.
+
+Martin, I agree with your take on this, and Guido's follow up.  Thanks.
+
+- -Barry
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQCVAwUBSM5keHEjvBPtnXfVAQIGugQAkYDZatppkBTysc1+wJ1raamgBdIqFXA/
++/jUiEv6dRHIhfu+CqAhCD+M8h5sWl2iZ+VZaHqvgiJdv7nU1Zd+oQCp4Iw42rOP
+Eqy/bR1euBO3tQxqrq5UyFVZjCuYEIvwJP0odiFoa/ygc7J7/yuu2EEysG97Xgo7
+urZRlZO2UGw=
+=T3PN
+-----END PGP SIGNATURE-----
+
+From barry at python.org  Thu Sep 18 03:35:23 2008
+From: barry at python.org (Barry Warsaw)
+Date: Wed, 17 Sep 2008 21:35:23 -0400
+Subject: [python-committers] trunk and 3.0 branch frozen
+Message-ID: <B83C5183-7ECB-4EDD-AAA3-600628AC8194@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+I'm freezing the trunk and 3.0 branches to do 2.6rc2 and 3.0rc1  
+tonight.  Please do not commit to either tree unless you check with me  
+first on irc, #python-dev @ freenode.
+
+Mark H is right now looking at 4 test failures on Windows: bsddb3,  
+sys, site and wsgiref.  Other than that, 2.6 full of green buildbots  
+and has no release blockers open.
+
+I'm going to do 3.0rc1 even though we have some deferred blockers for  
+3.0.  The 3.0 bots look pretty green, so I think it's worth it.
+
+Thanks,
+- -Barry
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQCVAwUBSNGwXHEjvBPtnXfVAQKDpwQAq12eDKYrSm344OlAb5w5ZdpJc6EBh3mF
+1rMTadiO8U2lVhVIrFzc8PeX60POqmIuTZADoh/Xu+hOQxPkYO+weUxLVNVZyohH
+1hPjhU5fAFXVvEmWp05vVVwkZ/fSr7kCbmYiA3/uZI72ePg+WcCP6esdGkkdz8zf
+ZP2KzEXwjHw=
+=pykn
+-----END PGP SIGNATURE-----
+
+From barry at python.org  Thu Sep 18 07:40:55 2008
+From: barry at python.org (Barry Warsaw)
+Date: Thu, 18 Sep 2008 01:40:55 -0400
+Subject: [python-committers] the branches are open
+Message-ID: <25814685-3D1F-4FCB-87A7-036AE97A5F9B@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+unfreeze
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQCVAwUBSNHp53EjvBPtnXfVAQLnxQP/R0Rv6vlvOlyqoewD8CS3zVXOTuteZ86n
+0Gm4APGSb6D6VKggfTxnpbzszabMN7ivWq1j8cq3RYm5FQ9moOEgWekgRV3wZgJ2
+Xskr0y/W08WlJrIcEIc26qy3CiCWR/0WARRX0gkyA5Nx94JFp5evMy/sHYuvRTNu
+cqw7/JCNpq8=
+=y/65
+-----END PGP SIGNATURE-----
+
+From ocean-city at m2.ccsnet.ne.jp  Fri Sep 19 14:06:03 2008
+From: ocean-city at m2.ccsnet.ne.jp (Hirokazu Yamamoto)
+Date: Fri, 19 Sep 2008 21:06:03 +0900
+Subject: [python-committers] VC6 related change
+Message-ID: <000d01c91a50$16a619e0$0200a8c0@whiterabc2znlh>
+
+Hello. Can I commit VC6 related patch without review?
+I want to bump up external library versions (bsddb, sqlite3 etc) to follow
+PCBuild.
+
+Thank you.
+
+
+From barry at python.org  Fri Sep 19 15:27:34 2008
+From: barry at python.org (Barry Warsaw)
+Date: Fri, 19 Sep 2008 09:27:34 -0400
+Subject: [python-committers] VC6 related change
+In-Reply-To: <000d01c91a50$16a619e0$0200a8c0@whiterabc2znlh>
+References: <000d01c91a50$16a619e0$0200a8c0@whiterabc2znlh>
+Message-ID: <5D9AAF08-1E28-4A38-99D2-A24F11F9EA05@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On Sep 19, 2008, at 8:06 AM, Hirokazu Yamamoto wrote:
+
+> Hello. Can I commit VC6 related patch without review?
+> I want to bump up external library versions (bsddb, sqlite3 etc) to  
+> follow
+> PCBuild.
+
+Since we're in release candidate, please have one of the Windows  
+experts review your changes.  If this is a blocker issue for the final  
+release, open a bug and set the priority to 'release blocker' and  
+attach your diff to the issue.
+
+Thanks,
+- -Barry
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQCVAwUBSNOoxnEjvBPtnXfVAQKAdgP+LAtrA/z0/uq4GNibobIS9IHMky4h87sL
+ADBrqPIhtv5/2w/UPVOhWEGiCKJmX9vI91CHCZLzSJDDI2D1NtgSehKi3o9vZ5RR
+HB7gmsfcZUARrTH+l02N5uFZX8Uq4W0cfGoe91oBZAiHFNP0roovJFEUUcRtn34D
+CvpC6LasrO4=
+=nqSE
+-----END PGP SIGNATURE-----
+
+From ocean-city at m2.ccsnet.ne.jp  Fri Sep 19 15:32:07 2008
+From: ocean-city at m2.ccsnet.ne.jp (Hirokazu Yamamoto)
+Date: Fri, 19 Sep 2008 22:32:07 +0900
+Subject: [python-committers] VC6 related change
+References: <000d01c91a50$16a619e0$0200a8c0@whiterabc2znlh>
+	<5D9AAF08-1E28-4A38-99D2-A24F11F9EA05@python.org>
+Message-ID: <000a01c91a5c$1c8436b0$0200a8c0@whiterabc2znlh>
+
+> Since we're in release candidate, please have one of the Windows  
+> experts review your changes.  If this is a blocker issue for the final  
+> release, open a bug and set the priority to 'release blocker' and  
+> attach your diff to the issue.
+> 
+> Thanks,
+> - -Barry
+
+OK, Thanks.
+
+From gh at ghaering.de  Mon Sep 22 09:10:42 2008
+From: gh at ghaering.de (=?ISO-8859-1?Q?Gerhard_H=E4ring?=)
+Date: Mon, 22 Sep 2008 09:10:42 +0200
+Subject: [python-committers] VC6 related change
+In-Reply-To: <5D9AAF08-1E28-4A38-99D2-A24F11F9EA05@python.org>
+References: <000d01c91a50$16a619e0$0200a8c0@whiterabc2znlh>
+	<5D9AAF08-1E28-4A38-99D2-A24F11F9EA05@python.org>
+Message-ID: <48D744F2.7080909@ghaering.de>
+
+Barry Warsaw wrote:
+> On Sep 19, 2008, at 8:06 AM, Hirokazu Yamamoto wrote:
+> 
+>> Hello. Can I commit VC6 related patch without review?
+>> I want to bump up external library versions (bsddb, sqlite3 etc) to 
+>> follow
+>> PCBuild.
+> 
+> Since we're in release candidate, please have one of the Windows experts 
+> review your changes.  If this is a blocker issue for the final release, 
+> open a bug and set the priority to 'release blocker' and attach your 
+> diff to the issue.
+
+Barry,
+
+sorry if you were aware of that already, but VC6 isn't the compiler for 
+the official builds. The VC6 files are "only" alternative "Makefiles".
+
+-- Gerhard
+
+From mhammond at skippinet.com.au  Mon Sep 22 10:02:25 2008
+From: mhammond at skippinet.com.au (Mark Hammond)
+Date: Mon, 22 Sep 2008 18:02:25 +1000
+Subject: [python-committers] VC6 related change
+In-Reply-To: <48D744F2.7080909@ghaering.de>
+References: <000d01c91a50$16a619e0$0200a8c0@whiterabc2znlh>	<5D9AAF08-1E28-4A38-99D2-A24F11F9EA05@python.org>
+	<48D744F2.7080909@ghaering.de>
+Message-ID: <003b01c91c89$90871940$b1954bc0$@com.au>
+
+> sorry if you were aware of that already, but VC6 isn't the compiler for
+> the official builds. The VC6 files are "only" alternative "Makefiles".
+
+As far as I'm concerned, +1 for Gerhard being able to checkin vc6 related
+makefiles to the trunk without review (notwithstanding any other
+restrictions imposed by the release manager, etc.)
+
+Cheers,
+
+Mark
+
+
+From barry at python.org  Mon Sep 22 14:30:03 2008
+From: barry at python.org (Barry Warsaw)
+Date: Mon, 22 Sep 2008 08:30:03 -0400
+Subject: [python-committers] VC6 related change
+In-Reply-To: <003b01c91c89$90871940$b1954bc0$@com.au>
+References: <000d01c91a50$16a619e0$0200a8c0@whiterabc2znlh>	<5D9AAF08-1E28-4A38-99D2-A24F11F9EA05@python.org>
+	<48D744F2.7080909@ghaering.de>
+	<003b01c91c89$90871940$b1954bc0$@com.au>
+Message-ID: <38BD75A6-F39F-49EB-8FF7-C2D90987AA24@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On Sep 22, 2008, at 4:02 AM, Mark Hammond wrote:
+
+>> sorry if you were aware of that already, but VC6 isn't the compiler  
+>> for
+>> the official builds. The VC6 files are "only" alternative  
+>> "Makefiles".
+>
+> As far as I'm concerned, +1 for Gerhard being able to checkin vc6  
+> related
+> makefiles to the trunk without review (notwithstanding any other
+> restrictions imposed by the release manager, etc.)
+
+I wasn't aware, thanks for the clarification.  If it's not in the  
+critical path for building our Windows binaries, and Mark is rubber- 
+stamping your changes <wink>, and Martin is okay with it, then as long  
+as the tree is open I'm okay with it.  If it's not something we test,  
+and we break it, then we'll just have to fix it in a point release.
+
+- -Barry
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQCVAwUBSNePzHEjvBPtnXfVAQKbnQQAgDivYpJ9tXFXJY6vrgl3PyMbrfADEKnM
+HotR4JeI6wbM0Z5Uj5k+3MvGhCcphozd3FFr4Ig3VDFDWSesY2FR7LjHx7WnljmO
+gC2FEBhDgKPx/A0HpP6SqSbH7znHHZZ0FDYUZsWByDh3Y4rkR4bDhAOh9SDklz5z
+oUA+eVSagr4=
+=D0z4
+-----END PGP SIGNATURE-----
+
+From martin at v.loewis.de  Mon Sep 22 22:57:47 2008
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Mon, 22 Sep 2008 22:57:47 +0200
+Subject: [python-committers] VC6 related change
+In-Reply-To: <003b01c91c89$90871940$b1954bc0$@com.au>
+References: <000d01c91a50$16a619e0$0200a8c0@whiterabc2znlh>	<5D9AAF08-1E28-4A38-99D2-A24F11F9EA05@python.org>	<48D744F2.7080909@ghaering.de>
+	<003b01c91c89$90871940$b1954bc0$@com.au>
+Message-ID: <48D806CB.8040000@v.loewis.de>
+
+> As far as I'm concerned, +1 for Gerhard being able to checkin vc6 related
+> makefiles to the trunk without review (notwithstanding any other
+> restrictions imposed by the release manager, etc.)
+
+Hmm - it might be easier to just review them. What's the patch number again?
+
+Regards,
+Martin
+
+From bob at redivi.com  Wed Sep 24 06:56:47 2008
+From: bob at redivi.com (Bob Ippolito)
+Date: Tue, 23 Sep 2008 21:56:47 -0700
+Subject: [python-committers] json decoder speedups, any time left for 2.6?
+Message-ID: <6a36e7290809232156k3fdfffdbx55e1f464863d076f@mail.gmail.com>
+
+I'm out of town this week for a conference (ICFP/CUFP in Victoria) and
+my hotel's connection has been bad enough such that I can't get any
+Real Work done so I've managed to hammer on the json library's
+decoding quite a bit instead. I just released simplejson 1.9.3 which
+improves decoding performance by about 2x and I've got some more
+changes along the way in trunk for 1.9.4 that will increase it even
+further (over 3x my original 1.9.2 benchmark perf). How much time do I
+have left to get this into Python 2.6?
+
+FWIW the changes are all on the Python side, no C code has been harmed
+(yet). The test suite still passes of course. Added bonus is that
+simplejson trunk only uses the public and documented re interface, no
+more sre scanner stuff.
+
+-bob
+
+(I had originally sent this to python-dev out of habit without CCing
+here, and it appears I'm not currently subscribed there so it's in the
+moderation queue. Sorry about that!)
+
+From martin at v.loewis.de  Wed Sep 24 07:13:00 2008
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Wed, 24 Sep 2008 07:13:00 +0200
+Subject: [python-committers] json decoder speedups,
+ any time left for 2.6?
+In-Reply-To: <6a36e7290809232156k3fdfffdbx55e1f464863d076f@mail.gmail.com>
+References: <6a36e7290809232156k3fdfffdbx55e1f464863d076f@mail.gmail.com>
+Message-ID: <48D9CC5C.6090601@v.loewis.de>
+
+Bob Ippolito wrote:
+> How much time do I
+> have left to get this into Python 2.6?
+
+I think for mere speedups, it is already too late for 2.6. Only
+the most release-critical bugs can be fixed still (i.e. even
+plain bug fixes need to wait for 2.6.1 now). IMO, performance
+improvements are clearly out of scope now.
+
+Regards,
+Martin
+
+From theller at ctypes.org  Wed Sep 24 19:21:38 2008
+From: theller at ctypes.org (Thomas Heller)
+Date: Wed, 24 Sep 2008 19:21:38 +0200
+Subject: [python-committers] Review requested for issue 3547
+Message-ID: <48DA7722.2040103@ctypes.org>
+
+I'd like to request review (or whatever is needed to get permission
+to fix this bug and commit the patch into trunk, py3k and release25-maint).
+
+http://bugs.python.org/issue3547
+
+
+-- 
+Thanks,
+Thomas
+

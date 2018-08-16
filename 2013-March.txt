@@ -1,0 +1,2890 @@
+From rdmurray at bitdance.com  Mon Mar  4 16:24:03 2013
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Mon, 04 Mar 2013 10:24:03 -0500
+Subject: [python-committers] echosign
+Message-ID: <20130304152403.85DDF2500B9@webabinitio.net>
+
+I applaud the foundation for getting an electronic signature method in
+place.
+
+However, I have to say that to my mind echosign is nothing more than
+"authentication theater", and I wonder if it is going to make us look
+more than a bit clueless to the tech community.  I'm surprised that
+a lawyer would consider a "signature" generated from typed text to be
+useful for anything.  If you are are going to accept the typed signature,
+just accept the typed signature.
+
+I was asked to sign a legal document I cared about that way once and I refused.
+
+At least there's a way to upload a real signature.
+
+--David
+
+From jnoller at gmail.com  Mon Mar  4 16:29:23 2013
+From: jnoller at gmail.com (Jesse Noller)
+Date: Mon, 4 Mar 2013 10:29:23 -0500
+Subject: [python-committers] echosign
+In-Reply-To: <20130304152403.85DDF2500B9@webabinitio.net>
+References: <20130304152403.85DDF2500B9@webabinitio.net>
+Message-ID: <AD677B6787694A14B20EE2777C86FF8A@gmail.com>
+
+
+
+On Monday, March 4, 2013 at 10:24 AM, R. David Murray wrote:
+
+> I applaud the foundation for getting an electronic signature method in
+> place.
+> 
+> However, I have to say that to my mind echosign is nothing more than
+> "authentication theater", and I wonder if it is going to make us look
+> more than a bit clueless to the tech community. I'm surprised that
+> a lawyer would consider a "signature" generated from typed text to be
+> useful for anything. If you are are going to accept the typed signature,
+> just accept the typed signature.
+> 
+> I was asked to sign a legal document I cared about that way once and I refused.
+> 
+> At least there's a way to upload a real signature.
+> 
+> --David
+You mean like OpenStack who also uses this? And Opscode, Eucalyptus, and others? 
+
+
+From jnoller at gmail.com  Mon Mar  4 16:35:10 2013
+From: jnoller at gmail.com (Jesse Noller)
+Date: Mon, 4 Mar 2013 10:35:10 -0500
+Subject: [python-committers] echosign
+In-Reply-To: <AD677B6787694A14B20EE2777C86FF8A@gmail.com>
+References: <20130304152403.85DDF2500B9@webabinitio.net>
+	<AD677B6787694A14B20EE2777C86FF8A@gmail.com>
+Message-ID: <90230CA64C754E1FB300139BD94A43AB@gmail.com>
+
+
+
+On Monday, March 4, 2013 at 10:29 AM, Jesse Noller wrote:
+
+> 
+> 
+> On Monday, March 4, 2013 at 10:24 AM, R. David Murray wrote:
+> 
+> > I applaud the foundation for getting an electronic signature method in
+> > place.
+> > 
+> > However, I have to say that to my mind echosign is nothing more than
+> > "authentication theater", and I wonder if it is going to make us look
+> > more than a bit clueless to the tech community. I'm surprised that
+> > a lawyer would consider a "signature" generated from typed text to be
+> > useful for anything. If you are are going to accept the typed signature,
+> > just accept the typed signature.
+> > 
+> > I was asked to sign a legal document I cared about that way once and I refused.
+> > 
+> > At least there's a way to upload a real signature.
+> > 
+> > --David
+> You mean like OpenStack who also uses this? And Opscode, Eucalyptus, and others? 
+
+See also: Google's: https://developers.google.com/open-source/cla/individual 
+
+So, multiple corporations who pay their lawyers a *lot* more than we pay ours, backing large open source projects have moved to authentication theater. I'm pretty happy we have the option now, since not offering electronic CLAs has been a complaint for the past 5+ years.
+
+
+
+From solipsis at pitrou.net  Mon Mar  4 16:43:17 2013
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Mon, 4 Mar 2013 16:43:17 +0100 (CET)
+Subject: [python-committers] echosign
+In-Reply-To: <20130304152403.85DDF2500B9@webabinitio.net>
+References: <20130304152403.85DDF2500B9@webabinitio.net>
+Message-ID: <920099bbfd83e43acfaadb2013d67f92.squirrel@webmail.nerim.net>
+
+> I applaud the foundation for getting an electronic signature method in
+> place.
+>
+> However, I have to say that to my mind echosign is nothing more than
+> "authentication theater", and I wonder if it is going to make us look
+> more than a bit clueless to the tech community.  I'm surprised that
+> a lawyer would consider a "signature" generated from typed text to be
+> useful for anything.  If you are are going to accept the typed signature,
+> just accept the typed signature.
+
+I don't know what this is talking about. Is there an announcement somewhere I
+missed? Or has the PSF declared announcements to be old-fashionable and
+despicable?
+
+Regards
+
+Antoine.
+
+
+
+From rdmurray at bitdance.com  Mon Mar  4 16:43:26 2013
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Mon, 04 Mar 2013 10:43:26 -0500
+Subject: [python-committers] echosign
+In-Reply-To: <AD677B6787694A14B20EE2777C86FF8A@gmail.com>
+References: <20130304152403.85DDF2500B9@webabinitio.net>
+	<AD677B6787694A14B20EE2777C86FF8A@gmail.com>
+Message-ID: <20130304154327.1DEDC2500B9@webabinitio.net>
+
+On Mon, 04 Mar 2013 10:29:23 -0500, Jesse Noller <jnoller at gmail.com> wrote:
+> On Monday, March 4, 2013 at 10:24 AM, R. David Murray wrote:
+> 
+> > I applaud the foundation for getting an electronic signature method in
+> > place.
+> > 
+> > However, I have to say that to my mind echosign is nothing more than
+> > "authentication theater", and I wonder if it is going to make us look
+> > more than a bit clueless to the tech community. I'm surprised that
+> > a lawyer would consider a "signature" generated from typed text to be
+> > useful for anything. If you are are going to accept the typed signature,
+> > just accept the typed signature.
+> > 
+> > I was asked to sign a legal document I cared about that way once and I refused.
+> > 
+> > At least there's a way to upload a real signature.
+> > 
+> > --David
+>
+> You mean like OpenStack who also uses this? And Opscode, Eucalyptus, and others? 
+
+Sure, it's fine to be using it, if the legal community for some reason
+wants it.  And very I'm grateful that the system was put in place.
+
+But I won't change my opinion that it is authentication theater, and
+the existence of that theater component makes me sad.  And apparently
+I can be sad not just for us, but for those other organizations that
+indeed I was not aware were using it.
+
+--David
+
+From jnoller at gmail.com  Mon Mar  4 16:47:21 2013
+From: jnoller at gmail.com (Jesse Noller)
+Date: Mon, 4 Mar 2013 10:47:21 -0500
+Subject: [python-committers] echosign
+In-Reply-To: <920099bbfd83e43acfaadb2013d67f92.squirrel@webmail.nerim.net>
+References: <20130304152403.85DDF2500B9@webabinitio.net>
+	<920099bbfd83e43acfaadb2013d67f92.squirrel@webmail.nerim.net>
+Message-ID: <214F89FE63134627B716112D866E6543@gmail.com>
+
+
+
+On Monday, March 4, 2013 at 10:43 AM, Antoine Pitrou wrote:
+
+> > I applaud the foundation for getting an electronic signature method in
+> > place.
+> > 
+> > However, I have to say that to my mind echosign is nothing more than
+> > "authentication theater", and I wonder if it is going to make us look
+> > more than a bit clueless to the tech community. I'm surprised that
+> > a lawyer would consider a "signature" generated from typed text to be
+> > useful for anything. If you are are going to accept the typed signature,
+> > just accept the typed signature.
+> 
+> 
+> 
+> I don't know what this is talking about. Is there an announcement somewhere I
+> missed? Or has the PSF declared announcements to be old-fashionable and
+> despicable?
+> 
+> Regards
+> 
+> Antoine.
+Brian Curtin was rolling out the announcement(s) - the blog post went live automatically before he could wake up in chicago time and send out the email announcements:
+
+http://pyfound.blogspot.com/2013/03/introducing-electronic-contributor.html
+
+So no, no one being evil (but you can assume that). Auto-post times in blogger just beating people.
+
+From eliben at gmail.com  Mon Mar  4 16:52:15 2013
+From: eliben at gmail.com (Eli Bendersky)
+Date: Mon, 4 Mar 2013 07:52:15 -0800
+Subject: [python-committers] echosign
+In-Reply-To: <AD677B6787694A14B20EE2777C86FF8A@gmail.com>
+References: <20130304152403.85DDF2500B9@webabinitio.net>
+	<AD677B6787694A14B20EE2777C86FF8A@gmail.com>
+Message-ID: <CAF-Rda8MCvf3CR_o8zR2vNuL+mvrta5RnH6MB1vbGEiPonKF8Q@mail.gmail.com>
+
+Great news to finally have this available!
+On Mar 4, 2013 7:30 AM, "Jesse Noller" <jnoller at gmail.com> wrote:
+
+>
+>
+> On Monday, March 4, 2013 at 10:24 AM, R. David Murray wrote:
+>
+> > I applaud the foundation for getting an electronic signature method in
+> > place.
+> >
+> > However, I have to say that to my mind echosign is nothing more than
+> > "authentication theater", and I wonder if it is going to make us look
+> > more than a bit clueless to the tech community. I'm surprised that
+> > a lawyer would consider a "signature" generated from typed text to be
+> > useful for anything. If you are are going to accept the typed signature,
+> > just accept the typed signature.
+> >
+> > I was asked to sign a legal document I cared about that way once and I
+> refused.
+> >
+> > At least there's a way to upload a real signature.
+> >
+> > --David
+> You mean like OpenStack who also uses this? And Opscode, Eucalyptus, and
+> others?
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20130304/50149f5e/attachment-0001.html>
+
+From rdmurray at bitdance.com  Mon Mar  4 16:53:15 2013
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Mon, 04 Mar 2013 10:53:15 -0500
+Subject: [python-committers] echosign
+In-Reply-To: <214F89FE63134627B716112D866E6543@gmail.com>
+References: <20130304152403.85DDF2500B9@webabinitio.net>
+	<920099bbfd83e43acfaadb2013d67f92.squirrel@webmail.nerim.net>
+	<214F89FE63134627B716112D866E6543@gmail.com>
+Message-ID: <20130304155316.2DF8D2500B9@webabinitio.net>
+
+My apologies for sounding a sour note, by the way, I think I was unduly
+influenced by my previous (very poor, from a UI perspective) experience
+with a system like this, and had a knee-jerk reaction.
+
+I think it is great that this system has been put in place, and my
+thanks to all involved.
+
+--David
+
+From solipsis at pitrou.net  Mon Mar  4 16:55:23 2013
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Mon, 4 Mar 2013 16:55:23 +0100 (CET)
+Subject: [python-committers] echosign
+In-Reply-To: <20130304155316.2DF8D2500B9@webabinitio.net>
+References: <20130304152403.85DDF2500B9@webabinitio.net>
+	<920099bbfd83e43acfaadb2013d67f92.squirrel@webmail.nerim.net>
+	<214F89FE63134627B716112D866E6543@gmail.com>
+	<20130304155316.2DF8D2500B9@webabinitio.net>
+Message-ID: <7cb2aa4c53cfefb62aeaf733bb9fa0da.squirrel@webmail.nerim.net>
+
+> My apologies for sounding a sour note, by the way, I think I was unduly
+> influenced by my previous (very poor, from a UI perspective) experience
+> with a system like this, and had a knee-jerk reaction.
+>
+> I think it is great that this system has been put in place, and my
+> thanks to all involved.
+
+It is certainly great indeed (I say that without having seen the UI,
+though).
+
+Regards
+
+Antoine.
+
+
+
+From jnoller at gmail.com  Mon Mar  4 16:58:57 2013
+From: jnoller at gmail.com (Jesse Noller)
+Date: Mon, 4 Mar 2013 10:58:57 -0500
+Subject: [python-committers] echosign
+In-Reply-To: <7cb2aa4c53cfefb62aeaf733bb9fa0da.squirrel@webmail.nerim.net>
+References: <20130304152403.85DDF2500B9@webabinitio.net>
+	<920099bbfd83e43acfaadb2013d67f92.squirrel@webmail.nerim.net>
+	<214F89FE63134627B716112D866E6543@gmail.com>
+	<20130304155316.2DF8D2500B9@webabinitio.net>
+	<7cb2aa4c53cfefb62aeaf733bb9fa0da.squirrel@webmail.nerim.net>
+Message-ID: <D72CEDA68A3D463EBC408E1F0D73AA41@gmail.com>
+
+
+
+On Monday, March 4, 2013 at 10:55 AM, Antoine Pitrou wrote:
+
+> > My apologies for sounding a sour note, by the way, I think I was unduly
+> > influenced by my previous (very poor, from a UI perspective) experience
+> > with a system like this, and had a knee-jerk reaction.
+> > 
+> > I think it is great that this system has been put in place, and my
+> > thanks to all involved.
+> 
+> 
+> 
+> It is certainly great indeed (I say that without having seen the UI,
+> though).
+> 
+> Regards
+> 
+> Antoine.
+it's an iframe and some javascript wizardry widgeting. Nothing to write home to mom about. 
+
+
+
+From rdmurray at bitdance.com  Mon Mar  4 17:08:08 2013
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Mon, 04 Mar 2013 11:08:08 -0500
+Subject: [python-committers] echosign
+In-Reply-To: <D72CEDA68A3D463EBC408E1F0D73AA41@gmail.com>
+References: <20130304152403.85DDF2500B9@webabinitio.net>
+	<920099bbfd83e43acfaadb2013d67f92.squirrel@webmail.nerim.net>
+	<214F89FE63134627B716112D866E6543@gmail.com>
+	<20130304155316.2DF8D2500B9@webabinitio.net>
+	<7cb2aa4c53cfefb62aeaf733bb9fa0da.squirrel@webmail.nerim.net>
+	<D72CEDA68A3D463EBC408E1F0D73AA41@gmail.com>
+Message-ID: <20130304160808.7684B2500B9@webabinitio.net>
+
+On Mon, 04 Mar 2013 10:58:57 -0500, Jesse Noller <jnoller at gmail.com> wrote:
+> On Monday, March 4, 2013 at 10:55 AM, Antoine Pitrou wrote:
+> 
+> > > My apologies for sounding a sour note, by the way, I think I was unduly
+> > > influenced by my previous (very poor, from a UI perspective) experience
+> > > with a system like this, and had a knee-jerk reaction.
+> > > 
+> > > I think it is great that this system has been put in place, and my
+> > > thanks to all involved.
+> > 
+> > It is certainly great indeed (I say that without having seen the UI,
+> > though).
+>
+> it's an iframe and some javascript wizardry widgeting. Nothing to write home to mom about. 
+
+It can probably stand some tweaks(*), but it is *much* better than the
+one I encountered before.
+
+--David
+
+(*) Not sure where to report this, so: I was confused by the fact
+that I'd filled in the blanks, but clicking on the 'esign' button did
+nothing except post a message that I needed to fill in all the required
+fields...which I had already done.  Turns out I needed to scroll the
+sub-window down in order to see the additional button to click for signing
+the document.  The confusion could be cleared up by either having the
+entire document show without scrolling, or by changing the final button
+label from 'esign' to 'submit' (or doing both).
+
+From mal at egenix.com  Mon Mar  4 17:13:59 2013
+From: mal at egenix.com (M.-A. Lemburg)
+Date: Mon, 04 Mar 2013 17:13:59 +0100
+Subject: [python-committers] [PSF-Board] echosign
+In-Reply-To: <20130304152403.85DDF2500B9@webabinitio.net>
+References: <20130304152403.85DDF2500B9@webabinitio.net>
+Message-ID: <5134C847.7020008@egenix.com>
+
+On 04.03.2013 16:24, R. David Murray wrote:
+> I applaud the foundation for getting an electronic signature method in
+> place.
+> 
+> However, I have to say that to my mind echosign is nothing more than
+> "authentication theater", and I wonder if it is going to make us look
+> more than a bit clueless to the tech community.  I'm surprised that
+> a lawyer would consider a "signature" generated from typed text to be
+> useful for anything.  If you are are going to accept the typed signature,
+> just accept the typed signature.
+> 
+> I was asked to sign a legal document I cared about that way once and I refused.
+> 
+> At least there's a way to upload a real signature.
+
+The old paper-trail version is still available, if the new form
+doesn't work out for you.
+
+Whether any version of a signature, other than the wet-signed paper
+version sent by postal mail actually proves that a agreement was
+entered, depends a lot on the jurisdictions on both sides of the
+agreement, e.g.
+
+http://en.wikipedia.org/wiki/Electronic_signature#Enforceability_of_electronic_signatures
+
+In our particular case, there's usually a rather long story leading
+up to someone signing a contrib form, so I don't think we'd ever
+run into a situation where the above would not be enough to prove
+the (final) intention of entering an agreement in court. A simple
+checkbox "I agree" would like be enough and the little extra
+sugar makes it look smarter :-)
+
+-- 
+Marc-Andre Lemburg
+eGenix.com
+
+Professional Python Services directly from the Source  (#1, Mar 04 2013)
+>>> Python Projects, Consulting and Support ...   http://www.egenix.com/
+>>> mxODBC.Zope/Plone.Database.Adapter ...       http://zope.egenix.com/
+>>> mxODBC, mxDateTime, mxTextTools ...        http://python.egenix.com/
+________________________________________________________________________
+
+::::: Try our mxODBC.Connect Python Database Interface for free ! ::::::
+
+   eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+    D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+           Registered at Amtsgericht Duesseldorf: HRB 46611
+               http://www.egenix.com/company/contact/
+
+From brian at python.org  Mon Mar  4 17:14:05 2013
+From: brian at python.org (Brian Curtin)
+Date: Mon, 4 Mar 2013 10:14:05 -0600
+Subject: [python-committers] echosign
+In-Reply-To: <920099bbfd83e43acfaadb2013d67f92.squirrel@webmail.nerim.net>
+References: <20130304152403.85DDF2500B9@webabinitio.net>
+	<920099bbfd83e43acfaadb2013d67f92.squirrel@webmail.nerim.net>
+Message-ID: <CAD+XWwoVZkMrzvzzQ8=1gpcfsQnyGNOqYLMw0vN3eC1KjrbbyA@mail.gmail.com>
+
+On Mon, Mar 4, 2013 at 9:43 AM, Antoine Pitrou <solipsis at pitrou.net> wrote:
+>> I applaud the foundation for getting an electronic signature method in
+>> place.
+>>
+>> However, I have to say that to my mind echosign is nothing more than
+>> "authentication theater", and I wonder if it is going to make us look
+>> more than a bit clueless to the tech community.  I'm surprised that
+>> a lawyer would consider a "signature" generated from typed text to be
+>> useful for anything.  If you are are going to accept the typed signature,
+>> just accept the typed signature.
+>
+> I don't know what this is talking about. Is there an announcement somewhere I
+> missed? Or has the PSF declared announcements to be old-fashionable and
+> despicable?
+
+Sorry I didn't send the email at the exact same time as the blog posts
+that I had scheduled. You'll find out what we're talking about in some
+form or fashion at some point today.
+
+From jnoller at gmail.com  Mon Mar  4 17:10:29 2013
+From: jnoller at gmail.com (Jesse Noller)
+Date: Mon, 4 Mar 2013 11:10:29 -0500
+Subject: [python-committers] echosign
+In-Reply-To: <20130304160808.7684B2500B9@webabinitio.net>
+References: <20130304152403.85DDF2500B9@webabinitio.net>
+	<920099bbfd83e43acfaadb2013d67f92.squirrel@webmail.nerim.net>
+	<214F89FE63134627B716112D866E6543@gmail.com>
+	<20130304155316.2DF8D2500B9@webabinitio.net>
+	<7cb2aa4c53cfefb62aeaf733bb9fa0da.squirrel@webmail.nerim.net>
+	<D72CEDA68A3D463EBC408E1F0D73AA41@gmail.com>
+	<20130304160808.7684B2500B9@webabinitio.net>
+Message-ID: <C96C857EC00F42E3AC4F9E0C414C07E6@gmail.com>
+
+
+
+On Monday, March 4, 2013 at 11:08 AM, R. David Murray wrote:
+
+> On Mon, 04 Mar 2013 10:58:57 -0500, Jesse Noller <jnoller at gmail.com (mailto:jnoller at gmail.com)> wrote:
+> > On Monday, March 4, 2013 at 10:55 AM, Antoine Pitrou wrote:
+> > 
+> > > > My apologies for sounding a sour note, by the way, I think I was unduly
+> > > > influenced by my previous (very poor, from a UI perspective) experience
+> > > > with a system like this, and had a knee-jerk reaction.
+> > > > 
+> > > > I think it is great that this system has been put in place, and my
+> > > > thanks to all involved.
+> > > 
+> > > 
+> > > 
+> > > It is certainly great indeed (I say that without having seen the UI,
+> > > though).
+> > 
+> > 
+> > 
+> > it's an iframe and some javascript wizardry widgeting. Nothing to write home to mom about. 
+> 
+> It can probably stand some tweaks(*), but it is *much* better than the
+> one I encountered before.
+> 
+> --David
+> 
+> (*) Not sure where to report this, so: I was confused by the fact
+> that I'd filled in the blanks, but clicking on the 'esign' button did
+> nothing except post a message that I needed to fill in all the required
+> fields...which I had already done. Turns out I needed to scroll the
+> sub-window down in order to see the additional button to click for signing
+> the document. The confusion could be cleared up by either having the
+> entire document show without scrolling, or by changing the final button
+> label from 'esign' to 'submit' (or doing both).
+
+reported :) 
+
+
+From larry at hastings.org  Wed Mar  6 01:03:16 2013
+From: larry at hastings.org (Larry Hastings)
+Date: Tue, 05 Mar 2013 16:03:16 -0800
+Subject: [python-committers] WANTED: leader for the core sprint at PyCon
+ US (was: I will NOT be leading the core sprint at PyCon US this year)
+In-Reply-To: <20130226181339.B37C6250BD9@webabinitio.net>
+References: <CAP1=2W7wfxuD8avtn2PcOkoFkO9chAkR_EC14+v6eO2Vcs6mAQ@mail.gmail.com>
+	<20130226181339.B37C6250BD9@webabinitio.net>
+Message-ID: <513687C4.5000700@hastings.org>
+
+On 02/26/2013 10:13 AM, R. David Murray wrote:
+> Given a little support from Brett on how best to go about it, I'm willing
+> to volunteer for this.
+
+I'm happy to do it too, and I'll be there for the full sprint fwiw.
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20130305/bd19ef6a/attachment.html>
+
+From eliben at gmail.com  Tue Mar 12 16:48:22 2013
+From: eliben at gmail.com (Eli Bendersky)
+Date: Tue, 12 Mar 2013 08:48:22 -0700
+Subject: [python-committers] PyCon US 2013 attendees
+In-Reply-To: <CD53F7C9-D4CD-4A35-9809-EA4D7728BD67@voidspace.org.uk>
+References: <CAOTb1we6--i1gs-Y96+jPrbB5XNM4gcxzRZ638s6XJWM7oGtcg@mail.gmail.com>
+	<D31FD63E-C35A-4C4D-ACDD-7DB9C89461FF@langa.pl>
+	<20130225194613.41997250BD2@webabinitio.net>
+	<20130225145907.75be8965@anarchist.wooz.org>
+	<CAP7+vJ+No6yy_kpd6ZTtkNVOK=k95gNmS69-RSEg-AmC+90BXg@mail.gmail.com>
+	<nad-CF37E9.12210425022013@news.gmane.org>
+	<CD53F7C9-D4CD-4A35-9809-EA4D7728BD67@voidspace.org.uk>
+Message-ID: <CAF-Rda8ZX4FTftxLxzH85QKg4h2HMJtrVP1u9rorpLQTaXoFCw@mail.gmail.com>
+
+On Mon, Feb 25, 2013 at 3:26 PM, Michael Foord <michael at voidspace.org.uk>wrote:
+
+>
+> On 25 Feb 2013, at 20:21, Ned Deily <nad at acm.org> wrote:
+>
+> > In article
+> > <CAP7+vJ+No6yy_kpd6ZTtkNVOK=k95gNmS69-RSEg-AmC+90BXg at mail.gmail.com>,
+> > Guido van Rossum <guido at python.org> wrote:
+> >> I'll try to attend 1-2 days of sprints (and the rest of the
+> >> conference, of course, and the language summit if there is one).
+> >
+> > Is there uncertainty about having the language summit on Wednesday?
+> > Michael had sent out notices about it earlier, as usual.
+> >
+> >
+> http://mail.python.org/pipermail/python-committers/2012-November/002231.h
+> > tml
+>
+> The summit is on and we have a good number of committers planning to come.
+>
+
+So it's 10:30 AM tomorrow (Wednesday) in Mission City Ballroom B1 ? [I
+gleaned the location from the Guidebook app for the event - the website
+doesn't seem to have it]
+
+P.S. California greets PyCon with superb spring weather ;-)
+
+Eli
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20130312/173639e8/attachment.html>
+
+From ronaldoussoren at mac.com  Wed Mar 13 09:08:59 2013
+From: ronaldoussoren at mac.com (Ronald Oussoren)
+Date: Wed, 13 Mar 2013 09:08:59 +0100
+Subject: [python-committers] PyCon US 2013 attendees
+In-Reply-To: <CAF-Rda8ZX4FTftxLxzH85QKg4h2HMJtrVP1u9rorpLQTaXoFCw@mail.gmail.com>
+References: <CAOTb1we6--i1gs-Y96+jPrbB5XNM4gcxzRZ638s6XJWM7oGtcg@mail.gmail.com>
+	<D31FD63E-C35A-4C4D-ACDD-7DB9C89461FF@langa.pl>
+	<20130225194613.41997250BD2@webabinitio.net>
+	<20130225145907.75be8965@anarchist.wooz.org>
+	<CAP7+vJ+No6yy_kpd6ZTtkNVOK=k95gNmS69-RSEg-AmC+90BXg@mail.gmail.com>
+	<nad-CF37E9.12210425022013@news.gmane.org>
+	<CD53F7C9-D4CD-4A35-9809-EA4D7728BD67@voidspace.org.uk>
+	<CAF-Rda8ZX4FTftxLxzH85QKg4h2HMJtrVP1u9rorpLQTaXoFCw@mail.gmail.com>
+Message-ID: <4E5381D7-FC18-4D5F-BC17-6A3C824D700C@mac.com>
+
+
+On 12 Mar, 2013, at 16:48, Eli Bendersky <eliben at gmail.com> wrote:
+> 
+> 
+> P.S. California greets PyCon with superb spring weather ;-)
+
+So that's where the nice weather has gone to :-). 
+
+Cold-in-Amsterdam-ly,
+
+    Ronald
+
+> 
+> Eli
+> 
+>  
+> 
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+
+
+From ncoghlan at gmail.com  Sat Mar 16 15:01:00 2013
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Sat, 16 Mar 2013 07:01:00 -0700
+Subject: [python-committers] Tracker settings for Peter Moody
+Message-ID: <CADiSq7c0kHV7K5f6qqHhLcVKArokdO5uK1aT-cgk=_4kV6BZZA@mail.gmail.com>
+
+Could someone with sufficient privileges please flip Peter Moody's
+commit bit in the tracker: http://bugs.python.org/user9293
+
+Reminder to everyone else: if you have commit privileges, but don't
+have the Python logo showing up next to your name on bugs.python.org
+(and have "Is Committer: No" in your user profile), we missed a step
+when granting you commit access, and it needs to be fixed so you
+appear in the "Assigned To" dropdown properly. (the "nosy" magic draws
+from the experts index instead, so it can work even if this setting is
+wrong)
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+
+From g.brandl at gmx.net  Sat Mar 16 15:25:56 2013
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Sat, 16 Mar 2013 15:25:56 +0100
+Subject: [python-committers] Tracker settings for Peter Moody
+In-Reply-To: <CADiSq7c0kHV7K5f6qqHhLcVKArokdO5uK1aT-cgk=_4kV6BZZA@mail.gmail.com>
+References: <CADiSq7c0kHV7K5f6qqHhLcVKArokdO5uK1aT-cgk=_4kV6BZZA@mail.gmail.com>
+Message-ID: <ki1vd4$qd3$1@ger.gmane.org>
+
+Am 16.03.2013 15:01, schrieb Nick Coghlan:
+> Could someone with sufficient privileges please flip Peter Moody's
+> commit bit in the tracker: http://bugs.python.org/user9293
+
+Done.
+
+
+> Reminder to everyone else: if you have commit privileges, but don't
+> have the Python logo showing up next to your name on bugs.python.org
+> (and have "Is Committer: No" in your user profile)
+
+Also, the Role field should be "User,Developer".
+
+>, we missed a step
+> when granting you commit access, and it needs to be fixed so you
+> appear in the "Assigned To" dropdown properly. (the "nosy" magic draws
+> from the experts index instead, so it can work even if this setting is
+> wrong)
+
+Georg
+
+
+From rdmurray at bitdance.com  Sat Mar 16 16:18:12 2013
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Sat, 16 Mar 2013 11:18:12 -0400
+Subject: [python-committers] Tracker settings for Peter Moody
+In-Reply-To: <ki1vd4$qd3$1@ger.gmane.org>
+References: <CADiSq7c0kHV7K5f6qqHhLcVKArokdO5uK1aT-cgk=_4kV6BZZA@mail.gmail.com>
+	<ki1vd4$qd3$1@ger.gmane.org>
+Message-ID: <20130316151814.DDC27250BCD@webabinitio.net>
+
+On Sat, 16 Mar 2013 15:25:56 +0100, Georg Brandl <g.brandl at gmx.net> wrote:
+> Am 16.03.2013 15:01, schrieb Nick Coghlan:
+> > Could someone with sufficient privileges please flip Peter Moody's
+> > commit bit in the tracker: http://bugs.python.org/user9293
+> 
+> Done.
+> 
+> > Reminder to everyone else: if you have commit privileges, but don't
+> > have the Python logo showing up next to your name on bugs.python.org
+> > (and have "Is Committer: No" in your user profile)
+> 
+> Also, the Role field should be "User,Developer".
+> 
+> >, we missed a step
+> > when granting you commit access, and it needs to be fixed so you
+> > appear in the "Assigned To" dropdown properly. (the "nosy" magic draws
+> > from the experts index instead, so it can work even if this setting is
+> > wrong)
+
+It's the 'Developer' role that puts one in the dropdown (and allows
+editing of all issue fields).  Which is why triage people appear in the
+assigned-to even though they aren't committers (yet :).
+
+The committer flag only controls the icon, as far as I remember.
+
+--David
+
+From ezio.melotti at gmail.com  Sat Mar 16 18:12:22 2013
+From: ezio.melotti at gmail.com (Ezio Melotti)
+Date: Sat, 16 Mar 2013 19:12:22 +0200
+Subject: [python-committers] Tracker settings for Peter Moody
+In-Reply-To: <20130316151814.DDC27250BCD@webabinitio.net>
+References: <CADiSq7c0kHV7K5f6qqHhLcVKArokdO5uK1aT-cgk=_4kV6BZZA@mail.gmail.com>
+	<ki1vd4$qd3$1@ger.gmane.org>
+	<20130316151814.DDC27250BCD@webabinitio.net>
+Message-ID: <CACBhJdEJwr2NXThB=efZ=F4_8Y5Y5fuuiz+doPwedYm2bEgXeQ@mail.gmail.com>
+
+On Sat, Mar 16, 2013 at 5:18 PM, R. David Murray <rdmurray at bitdance.com> wrote:
+> On Sat, 16 Mar 2013 15:25:56 +0100, Georg Brandl <g.brandl at gmx.net> wrote:
+>> Am 16.03.2013 15:01, schrieb Nick Coghlan:
+>> >, we missed a step
+>> > when granting you commit access, and it needs to be fixed so you
+>> > appear in the "Assigned To" dropdown properly. (the "nosy" magic draws
+>> > from the experts index instead, so it can work even if this setting is
+>> > wrong)
+>
+> It's the 'Developer' role that puts one in the dropdown (and allows
+> editing of all issue fields).  Which is why triage people appear in the
+> assigned-to even though they aren't committers (yet :).
+>
+
+Correct.
+
+> The committer flag only controls the icon, as far as I remember.
+>
+
+FTR the "nosy" autocomplete uses both the experts index and the list
+of tracker users with the "is committer" flag.
+
+Best Regards,
+Ezio Melotti
+
+> --David
+
+From nad at acm.org  Sun Mar 17 00:00:12 2013
+From: nad at acm.org (Ned Deily)
+Date: Sat, 16 Mar 2013 16:00:12 -0700
+Subject: [python-committers] Sunday afternoon visit to Computer History
+	Museum?
+In-Reply-To: <nad-C4246A.12220226022013@news.gmane.org>
+References: <CAOTb1we6--i1gs-Y96+jPrbB5XNM4gcxzRZ638s6XJWM7oGtcg@mail.gmail.com>
+	<D31FD63E-C35A-4C4D-ACDD-7DB9C89461FF@langa.pl>
+	<20130225194613.41997250BD2@webabinitio.net>
+	<20130225145907.75be8965@anarchist.wooz.org>
+	<CAP7+vJ+No6yy_kpd6ZTtkNVOK=k95gNmS69-RSEg-AmC+90BXg@mail.gmail.com>
+	<nad-CF37E9.12210425022013@news.gmane.org>
+	<CAP7+vJ+B-PweBFJxmD3RjdSQA-Gke7AzZtjO6u_ptLNxFTn3RQ@mail.gmail.com>
+	<CAP1=2W7pmacSs0GAXwA+J-Jv6qnbKZz3R_Eg=DNsEtS8w4V6pQ@mail.gmail.com>
+	<CAHrZfZDhmKyfgXQkDY1UhZg=xXUwSFZiGjfACW2ELueju8_ciw@mail.gmail.com>
+	<CAP1=2W5B0sYxpaQvdse=Rq6A6rfa9ZJNE3=OPsRHPFcDRvK9VQ@mail.gmail.com>
+	<CADiSq7fq2Yhp8PpUokVMC193CLR4jU3mKRDT7tOXeAizD+rJ4g@mail.gmail.com>
+	<nad-DB787A.10342426022013@news.gmane.org>
+	<CAP7+vJ+QW1YdcGaSxOZTbvYu6=QyddRgnFFpG-8iMquF_Fek+A@mail.gmail.com>
+	<nad-DBD83F.11402326022013@news.gmane.org>
+	<nad-C4246A.12220226022013@news.gmane.org>
+Message-ID: <76E2714E-79B4-496C-8C08-34B6EBAD4E3B@acm.org>
+
+
+On Feb 26, 2013, at 12:22 , Ned Deily <nad at acm.org> wrote:
+> In article <nad-DBD83F.11402326022013 at news.gmane.org>,
+> Ned Deily <nad at acm.org> wrote:
+>> In article 
+>> <CAP7+vJ+QW1YdcGaSxOZTbvYu6=QyddRgnFFpG-8iMquF_Fek+A at mail.gmail.com>,
+>> Guido van Rossum <guido at python.org> wrote:
+>>> On Tue, Feb 26, 2013 at 10:34 AM, Ned Deily <nad at acm.org> wrote:
+>>>> http://www.computerhistory.org/ 
+>>> If someone organizes a visit to the computer museum I *definitely*
+>>> would like to tag along. Despite working around the corner for 7 years
+>>> I've never been. My first computer was a Cray design, and soon I will
+>>> be computer history myself. :-)
+>> So was mine.  It's open Tue-Sat 1000 to 1700, so given the PyCon 
+>> schedule, I'd guess Wednesday afternoon during the sprints would be the 
+>> earliest practical option.  Or Thursday if people are still around.  I'd 
+>> be happy to put up a signup sheet for people and cars at the sprints if 
+>> there is interest.
+> Bah, I just noticed that the museum is closed for a special event on 
+> that Wednesday (03-20) so the earliest would be Thursday (03-21).  We 
+> can discuss further at the summit and/or sprints.
+
+
+I ran into Guido today at lunch and remembered this previous discussion about a possible visit to the CHM.  As noted, the  museum would not be available during the week until Thursday.  Guido and no doubt others will not be around then.  So he suggested that Sunday (tomorrow) afternoon might be an option.  The logistics are not ideal but it might be doable.  The museum closes at 5pm and it should take at most 15 minutes to get there by auto from the convention center.  I think any visit should not be less than an hour and the museum has a suggested 1-hour highlights tour here:
+
+    http://www.computerhistory.org/planvisit/media/docs/chm-1hr-tour.pdf
+
+That suggests that the departure time from the convention center should be no later than 3:30pm which would be in the middle of the conference closing address.
+
+Rather than cluttering this list, I suggest that anyone interested in such a trip contact me via private email prior to 9am tomorrow morning and, if you are willing to drive, how many people you could give rides to, and an email address or SMS phone number to contact you on Sunday during the day.  I'll reply all tomorrow morning with first-come, first-served match-ups and a suggested meeting place if there is interest.
+
+--
+  Ned Deily
+  nad at acm.org -- []
+
+
+
+From nad at acm.org  Tue Mar 19 20:17:26 2013
+From: nad at acm.org (Ned Deily)
+Date: Tue, 19 Mar 2013 12:17:26 -0700
+Subject: [python-committers] Commit privileges for Roger Serwy for IDLE
+Message-ID: <nad-6D3345.12172619032013@news.gmane.org>
+
+I would like to propose Roger Serwy be given commit privileges to work 
+on IDLE.  Roger has demonstrated long-term interest in IDLE and has been 
+contributing to IDLE in a number of ways for years.  He has submitted 
+many patches for IDLE to the tracker since at least April 2008.  He has 
+developed a number of IDLE extensions (http://idlex.sourceforge.net), 
+some of which he has proposed for inclusion in the standard library.  He 
+is also active in triaging and commenting on the bug tracker and has had 
+developer privileges on the tracker for the past 12 months.  He has also 
+already signed the contributor agreement and I know he has been 
+interested in becoming a core developer for IDLE.  I've informally 
+discussed this with a few other core developers here at PyCon and I 
+think there is general agreement that having Roger be able to contribute 
+more directly to IDLE would be a really good thing.  I would certainly 
+be willing to help mentor him as necessary.
+
+-- 
+ Ned Deily,
+ nad at acm.org
+
+
+From andrew.svetlov at gmail.com  Tue Mar 19 20:28:12 2013
+From: andrew.svetlov at gmail.com (Andrew Svetlov)
+Date: Tue, 19 Mar 2013 12:28:12 -0700
+Subject: [python-committers] Commit privileges for Roger Serwy for IDLE
+In-Reply-To: <nad-6D3345.12172619032013@news.gmane.org>
+References: <nad-6D3345.12172619032013@news.gmane.org>
+Message-ID: <CAL3CFcWTDOo0z0yEa_U+YuDo-DAhg5KJWMsQOuAfWpbNBbyZww@mail.gmail.com>
+
++1, he is pretty active. I've committed many his patches.
+
+
+On Tue, Mar 19, 2013 at 12:17 PM, Ned Deily <nad at acm.org> wrote:
+> I would like to propose Roger Serwy be given commit privileges to work
+> on IDLE.  Roger has demonstrated long-term interest in IDLE and has been
+> contributing to IDLE in a number of ways for years.  He has submitted
+> many patches for IDLE to the tracker since at least April 2008.  He has
+> developed a number of IDLE extensions (http://idlex.sourceforge.net),
+> some of which he has proposed for inclusion in the standard library.  He
+> is also active in triaging and commenting on the bug tracker and has had
+> developer privileges on the tracker for the past 12 months.  He has also
+> already signed the contributor agreement and I know he has been
+> interested in becoming a core developer for IDLE.  I've informally
+> discussed this with a few other core developers here at PyCon and I
+> think there is general agreement that having Roger be able to contribute
+> more directly to IDLE would be a really good thing.  I would certainly
+> be willing to help mentor him as necessary.
+>
+> --
+>  Ned Deily,
+>  nad at acm.org
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+
+
+
+--
+Thanks,
+Andrew Svetlov
+
+From rdmurray at bitdance.com  Tue Mar 19 21:58:10 2013
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Tue, 19 Mar 2013 16:58:10 -0400
+Subject: [python-committers] Commit privileges for Roger Serwy for IDLE
+In-Reply-To: <CAL3CFcWTDOo0z0yEa_U+YuDo-DAhg5KJWMsQOuAfWpbNBbyZww@mail.gmail.com>
+References: <nad-6D3345.12172619032013@news.gmane.org>
+	<CAL3CFcWTDOo0z0yEa_U+YuDo-DAhg5KJWMsQOuAfWpbNBbyZww@mail.gmail.com>
+Message-ID: <20130319205811.03679250BC1@webabinitio.net>
+
++1
+
+From tjreedy at udel.edu  Tue Mar 19 21:42:31 2013
+From: tjreedy at udel.edu (Terry Reedy)
+Date: Tue, 19 Mar 2013 16:42:31 -0400
+Subject: [python-committers] Commit privileges for Roger Serwy for IDLE
+In-Reply-To: <nad-6D3345.12172619032013@news.gmane.org>
+References: <nad-6D3345.12172619032013@news.gmane.org>
+Message-ID: <5148CDB7.7080501@udel.edu>
+
+On 3/19/2013 3:17 PM, Ned Deily wrote:
+> I would like to propose Roger Serwy be given commit privileges to work
+> on IDLE.  Roger has demonstrated long-term interest in IDLE and has been
+> contributing to IDLE in a number of ways for years.  He has submitted
+> many patches for IDLE to the tracker since at least April 2008.  He has
+> developed a number of IDLE extensions (http://idlex.sourceforge.net),
+> some of which he has proposed for inclusion in the standard library.  He
+> is also active in triaging and commenting on the bug tracker and has had
+> developer privileges on the tracker for the past 12 months.  He has also
+> already signed the contributor agreement and I know he has been
+> interested in becoming a core developer for IDLE.  I've informally
+> discussed this with a few other core developers here at PyCon and I
+> think there is general agreement that having Roger be able to contribute
+> more directly to IDLE would be a really good thing.  I would certainly
+> be willing to help mentor him as necessary.
+
+I have been intending to propose the same thing for the same reasons,
+(which you wrote up better than I would have -- thanks)
+but have been waiting for the resolution of
+http://python.org/dev/peps/pep-0434/
+clarifying what rule he and I and anyone else can use for deciding what 
+branches an IDLE change can be applied to.
+
+Terry
+
+
+
+From richard at python.org  Tue Mar 19 22:45:10 2013
+From: richard at python.org (Richard Jones)
+Date: Tue, 19 Mar 2013 14:45:10 -0700
+Subject: [python-committers] Commit privileges for Roger Serwy for IDLE
+In-Reply-To: <20130319205811.03679250BC1@webabinitio.net>
+References: <nad-6D3345.12172619032013@news.gmane.org>
+	<CAL3CFcWTDOo0z0yEa_U+YuDo-DAhg5KJWMsQOuAfWpbNBbyZww@mail.gmail.com>
+	<20130319205811.03679250BC1@webabinitio.net>
+Message-ID: <CAHrZfZB7Uj_n4WzFZmt98d_cjCJkAcT1b-jAxCLDOsWejKedeg@mail.gmail.com>
+
++1 oh please yes
+
+From victor.stinner at gmail.com  Wed Mar 20 01:00:19 2013
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Wed, 20 Mar 2013 01:00:19 +0100
+Subject: [python-committers] Commit privileges for Roger Serwy for IDLE
+In-Reply-To: <nad-6D3345.12172619032013@news.gmane.org>
+References: <nad-6D3345.12172619032013@news.gmane.org>
+Message-ID: <CAMpsgwYMtWOdPCR7ue=5pTVKmMnXRu+5hUp5yWNtZmEO0WdFCw@mail.gmail.com>
+
+It's maybe not the right place to discuss that, but why is IDLE part
+of the Python stdlib? Can't we maintain IDLE outside Python? I guess
+that maintaining it outside the stdlib would allow to develop it
+faster and be able to upgrade it for old (unmaintained) Python
+versions.
+
+Packaging Python with IDLE is stil a good idea, especially on Windows
+where there is no good text editor by default.
+
+Victor
+
+2013/3/19 Ned Deily <nad at acm.org>:
+> I would like to propose Roger Serwy be given commit privileges to work
+> on IDLE.  Roger has demonstrated long-term interest in IDLE and has been
+> contributing to IDLE in a number of ways for years.  He has submitted
+> many patches for IDLE to the tracker since at least April 2008.  He has
+> developed a number of IDLE extensions (http://idlex.sourceforge.net),
+> some of which he has proposed for inclusion in the standard library.  He
+> is also active in triaging and commenting on the bug tracker and has had
+> developer privileges on the tracker for the past 12 months.  He has also
+> already signed the contributor agreement and I know he has been
+> interested in becoming a core developer for IDLE.  I've informally
+> discussed this with a few other core developers here at PyCon and I
+> think there is general agreement that having Roger be able to contribute
+> more directly to IDLE would be a really good thing.  I would certainly
+> be willing to help mentor him as necessary.
+>
+> --
+>  Ned Deily,
+>  nad at acm.org
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+
+From eliben at gmail.com  Wed Mar 20 01:06:01 2013
+From: eliben at gmail.com (Eli Bendersky)
+Date: Tue, 19 Mar 2013 17:06:01 -0700
+Subject: [python-committers] Commit privileges for Roger Serwy for IDLE
+In-Reply-To: <CAMpsgwYMtWOdPCR7ue=5pTVKmMnXRu+5hUp5yWNtZmEO0WdFCw@mail.gmail.com>
+References: <nad-6D3345.12172619032013@news.gmane.org>
+	<CAMpsgwYMtWOdPCR7ue=5pTVKmMnXRu+5hUp5yWNtZmEO0WdFCw@mail.gmail.com>
+Message-ID: <CAF-Rda9-9Vf4QiATJOHc8wo_aQNG++2QmnDKJ3Ucv2o4pTM-xw@mail.gmail.com>
+
+On Tue, Mar 19, 2013 at 5:00 PM, Victor Stinner <victor.stinner at gmail.com>wrote:
+
+> It's maybe not the right place to discuss that, but why is IDLE part
+> of the Python stdlib? Can't we maintain IDLE outside Python? I guess
+> that maintaining it outside the stdlib would allow to develop it
+> faster and be able to upgrade it for old (unmaintained) Python
+> versions.
+>
+
+Strongly +1 here. I'd extend it to the whole tkinter and derivatives, but
+IDLE itself is a worthier goal. In my view, it's been mainly "kept alive"
+for the past many years and is a much inferior IDE to others, and not a
+very good editor.
+
+FWIW, I heard some mentions how this is important for education. It's just
+one data point, but perhaps worth mentioning - I met a teacher during PyCon
+and specifically asked him if he used IDLE, and he said that no, IDLE isn't
+really good enough an editor and he asked his students to use Sublime text.
+
+Eli
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20130319/7c12f686/attachment-0001.html>
+
+From nad at acm.org  Wed Mar 20 01:26:23 2013
+From: nad at acm.org (Ned Deily)
+Date: Tue, 19 Mar 2013 17:26:23 -0700
+Subject: [python-committers] Commit privileges for Roger Serwy for IDLE
+References: <nad-6D3345.12172619032013@news.gmane.org>
+	<CAMpsgwYMtWOdPCR7ue=5pTVKmMnXRu+5hUp5yWNtZmEO0WdFCw@mail.gmail.com>
+	<CAF-Rda9-9Vf4QiATJOHc8wo_aQNG++2QmnDKJ3Ucv2o4pTM-xw@mail.gmail.com>
+Message-ID: <nad-5A5C18.17262319032013@news.gmane.org>
+
+In article 
+<CAF-Rda9-9Vf4QiATJOHc8wo_aQNG++2QmnDKJ3Ucv2o4pTM-xw at mail.gmail.com>,
+ Eli Bendersky <eliben at gmail.com> wrote:
+> On Tue, Mar 19, 2013 at 5:00 PM, Victor Stinner 
+> <victor.stinner at gmail.com>wrote:
+> > It's maybe not the right place to discuss that, but why is IDLE part
+> > of the Python stdlib? Can't we maintain IDLE outside Python? I guess
+> > that maintaining it outside the stdlib would allow to develop it
+> > faster and be able to upgrade it for old (unmaintained) Python
+> > versions.
+> Strongly +1 here. I'd extend it to the whole tkinter and derivatives, but
+> IDLE itself is a worthier goal. In my view, it's been mainly "kept alive"
+> for the past many years and is a much inferior IDE to others, and not a
+> very good editor.
+
+Please, this is definitely not the right place to discuss the issue of 
+IDLE in the stdlib.  It has been discussed repeatedly and the conclusion 
+is always that it is an important part of the batteries-included 
+experience.  More importantly, PEP 434, is out for review concerning 
+IDLE maintenance and features, is currently out for review.  That would 
+be a much more appropriate place to bring up any concerns.  (I will be 
+forwarding my comments to the PEP soon, BTW.)
+
+-- 
+ Ned Deily,
+ nad at acm.org
+
+
+From victor.stinner at gmail.com  Wed Mar 20 01:48:33 2013
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Wed, 20 Mar 2013 01:48:33 +0100
+Subject: [python-committers] Commit privileges for Roger Serwy for IDLE
+In-Reply-To: <nad-5A5C18.17262319032013@news.gmane.org>
+References: <nad-6D3345.12172619032013@news.gmane.org>
+	<CAMpsgwYMtWOdPCR7ue=5pTVKmMnXRu+5hUp5yWNtZmEO0WdFCw@mail.gmail.com>
+	<CAF-Rda9-9Vf4QiATJOHc8wo_aQNG++2QmnDKJ3Ucv2o4pTM-xw@mail.gmail.com>
+	<nad-5A5C18.17262319032013@news.gmane.org>
+Message-ID: <CAMpsgwYv4yEQKk+thuT=7gYQ+zHLQQK0yih+CCZYFmZByHjimw@mail.gmail.com>
+
+2013/3/20 Ned Deily <nad at acm.org>:
+> Please, this is definitely not the right place to discuss the issue of
+> IDLE in the stdlib.  It has been discussed repeatedly and the conclusion
+> is always that it is an important part of the batteries-included
+> experience.
+
+I don't propose to remove IDLE from the stdlib, just move the code to
+another repository to allow to maintain it more easily. And then
+re-add IDLE to the stdlib at each Python release.
+
+We might also release IDLE more frequently using an external repository.
+
+>  More importantly, PEP 434, is out for review concerning
+> IDLE maintenance and features, is currently out for review.  That would
+> be a much more appropriate place to bring up any concerns.  (I will be
+> forwarding my comments to the PEP soon, BTW.)
+
+Oh sorry, I missed this PEP. I will read it.
+
+Victor
+
+From eliben at gmail.com  Wed Mar 20 04:02:44 2013
+From: eliben at gmail.com (Eli Bendersky)
+Date: Tue, 19 Mar 2013 20:02:44 -0700
+Subject: [python-committers] Commit privileges for Roger Serwy for IDLE
+In-Reply-To: <nad-5A5C18.17262319032013@news.gmane.org>
+References: <nad-6D3345.12172619032013@news.gmane.org>
+	<CAMpsgwYMtWOdPCR7ue=5pTVKmMnXRu+5hUp5yWNtZmEO0WdFCw@mail.gmail.com>
+	<CAF-Rda9-9Vf4QiATJOHc8wo_aQNG++2QmnDKJ3Ucv2o4pTM-xw@mail.gmail.com>
+	<nad-5A5C18.17262319032013@news.gmane.org>
+Message-ID: <CAF-Rda9m_vaHoOZ_0ZWOA=nHw2jrJxXxfywQ6FM13+8rikyU1Q@mail.gmail.com>
+
+On Tue, Mar 19, 2013 at 5:26 PM, Ned Deily <nad at acm.org> wrote:
+
+> In article
+> <CAF-Rda9-9Vf4QiATJOHc8wo_aQNG++2QmnDKJ3Ucv2o4pTM-xw at mail.gmail.com>,
+>  Eli Bendersky <eliben at gmail.com> wrote:
+> > On Tue, Mar 19, 2013 at 5:00 PM, Victor Stinner
+> > <victor.stinner at gmail.com>wrote:
+> > > It's maybe not the right place to discuss that, but why is IDLE part
+> > > of the Python stdlib? Can't we maintain IDLE outside Python? I guess
+> > > that maintaining it outside the stdlib would allow to develop it
+> > > faster and be able to upgrade it for old (unmaintained) Python
+> > > versions.
+> > Strongly +1 here. I'd extend it to the whole tkinter and derivatives, but
+> > IDLE itself is a worthier goal. In my view, it's been mainly "kept alive"
+> > for the past many years and is a much inferior IDE to others, and not a
+> > very good editor.
+>
+> Please, this is definitely not the right place to discuss the issue of
+> IDLE in the stdlib.  It has been discussed repeatedly and the conclusion
+> is always that it is an important part of the batteries-included
+> experience.  More importantly, PEP 434, is out for review concerning
+> IDLE maintenance and features, is currently out for review.  That would
+> be a much more appropriate place to bring up any concerns.  (I will be
+> forwarding my comments to the PEP soon, BTW.)
+>
+
+
+Sorry for mixing it up - I did not intend to hijack the discussion. While
+I'm not familiar with Roger's work ISTM there were enough +1 to put a stamp
+on it.
+
+Eli
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20130319/6c51fc80/attachment.html>
+
+From rdmurray at bitdance.com  Wed Mar 20 04:27:38 2013
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Tue, 19 Mar 2013 23:27:38 -0400
+Subject: [python-committers] [Infrastructure] test suite dependencies on
+	www.python.org
+In-Reply-To: <8A2481BA-2B3E-4C10-BD9B-21A5DEB0BD0A@coderanger.net>
+References: <8A2481BA-2B3E-4C10-BD9B-21A5DEB0BD0A@coderanger.net>
+Message-ID: <20130320032739.19F2A2500B9@webabinitio.net>
+
+On Mon, 18 Mar 2013 15:17:23 -0700, Noah Kantrowitz <noah at coderanger.net> wrote:
+> As part of the PyCon sprints I would like to move python.org off
+> dinsdale to a VM at OSL. Due to the build system being tied to SVN,
+> I'll also migrate that service on the same VM. Do any SVN repos other
+> than www/ need to remain available? This would require at least some
+> period of not changing the website, probably a few hours, but I don't
+> think that would be a problem. This is mostly a legacy move so I'm not
+> going to clean it up much, we'll have a new site soon enough.
+
+While working on tests at the sprint I was reminded that there are
+various tests in the Python standard library that depend on resources in
+specific resources in specific locations at python.org.  We will need
+a plan for finding and dealing with these before (or as?) the new web
+site is turned up.
+
+Example:
+
+    request = urllib.request.Request("http://www.python.org/~jeremy/")
+
+And then there are things like:
+
+    h = client.HTTPSConnection('svn.python.org', 443, context=context)
+
+I don't think there are a huge number of these, but we will need to
+deal with them.
+
+--David
+
+From senthil at uthcode.com  Wed Mar 20 04:46:24 2013
+From: senthil at uthcode.com (Senthil Kumaran)
+Date: Tue, 19 Mar 2013 20:46:24 -0700
+Subject: [python-committers] [Infrastructure] test suite dependencies on
+	www.python.org
+In-Reply-To: <20130320032739.19F2A2500B9@webabinitio.net>
+References: <8A2481BA-2B3E-4C10-BD9B-21A5DEB0BD0A@coderanger.net>
+	<20130320032739.19F2A2500B9@webabinitio.net>
+Message-ID: <CAPOVWOQj8XUMEroia8mc7sKsPeEEH7b-qvHmFBrdWLocpDOcpA@mail.gmail.com>
+
+On Tue, Mar 19, 2013 at 8:27 PM, R. David Murray <rdmurray at bitdance.com> wrote:
+
+> While working on tests at the sprint I was reminded that there are
+> various tests in the Python standard library that depend on resources in
+> specific resources in specific locations at python.org.  We will need
+> a plan for finding and dealing with these before (or as?) the new web
+> site is turned up.
+>
+> Example:
+>
+>     request = urllib.request.Request("http://www.python.org/~jeremy/")
+>
+> And then there are things like:
+>
+>     h = client.HTTPSConnection('svn.python.org', 443, context=context)
+>
+
+Tests which are accessible over HTTP can still remain the same, for
+others, I shall look for alternatives.
+But yeah, these tests (or potential test failures) should not be be a
+blocker for the Infrastructure team.
+
+Thanks,
+Senthil
+
+From ncoghlan at gmail.com  Wed Mar 20 18:32:10 2013
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Wed, 20 Mar 2013 10:32:10 -0700
+Subject: [python-committers] Commit privileges for Roger Serwy for IDLE
+In-Reply-To: <nad-6D3345.12172619032013@news.gmane.org>
+References: <nad-6D3345.12172619032013@news.gmane.org>
+Message-ID: <CADiSq7fG9LCfiCR1sv7u1HkhVbcD=WEASgwaWt5XMSeLLkmrug@mail.gmail.com>
+
+On Tue, Mar 19, 2013 at 12:17 PM, Ned Deily <nad at acm.org> wrote:
+> I would like to propose Roger Serwy be given commit privileges to work
+> on IDLE.  Roger has demonstrated long-term interest in IDLE and has been
+> contributing to IDLE in a number of ways for years.  He has submitted
+> many patches for IDLE to the tracker since at least April 2008.  He has
+> developed a number of IDLE extensions (http://idlex.sourceforge.net),
+> some of which he has proposed for inclusion in the standard library.  He
+> is also active in triaging and commenting on the bug tracker and has had
+> developer privileges on the tracker for the past 12 months.  He has also
+> already signed the contributor agreement and I know he has been
+> interested in becoming a core developer for IDLE.  I've informally
+> discussed this with a few other core developers here at PyCon and I
+> think there is general agreement that having Roger be able to contribute
+> more directly to IDLE would be a really good thing.  I would certainly
+> be willing to help mentor him as necessary.
+
++lots, let's make it happen.
+
+Cheers,
+Nick.
+
+>
+> --
+>  Ned Deily,
+>  nad at acm.org
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+
+
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+
+From martin at v.loewis.de  Wed Mar 20 20:44:19 2013
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Wed, 20 Mar 2013 20:44:19 +0100
+Subject: [python-committers] [Infrastructure] test suite dependencies on
+	www.python.org
+In-Reply-To: <20130320032739.19F2A2500B9@webabinitio.net>
+References: <8A2481BA-2B3E-4C10-BD9B-21A5DEB0BD0A@coderanger.net>
+	<20130320032739.19F2A2500B9@webabinitio.net>
+Message-ID: <514A1193.6040604@v.loewis.de>
+
+Am 20.03.13 04:27, schrieb R. David Murray:
+> Example:
+> 
+>     request = urllib.request.Request("http://www.python.org/~jeremy/")
+> 
+> And then there are things like:
+> 
+>     h = client.HTTPSConnection('svn.python.org', 443, context=context)
+> 
+> I don't think there are a huge number of these, but we will need to
+> deal with them.
+
+In the past, we just let them break and then fix the test case,
+which is not the best solution, but also not overly tragic (IMO).
+
+Note that the redesign project includes an objective of URL stability.
+The test suite is here of least concern, as there are thousands of
+incoming links to various pages. These need to be preserved as much
+as feasible (possibly using redirects).
+
+Regards,
+Martin
+
+
+
+From kbk at shore.net  Wed Mar 20 20:57:49 2013
+From: kbk at shore.net (Kurt B. Kaiser)
+Date: Wed, 20 Mar 2013 15:57:49 -0400
+Subject: [python-committers] Commit privileges for Roger Serwy for IDLE
+In-Reply-To: <nad-6D3345.12172619032013@news.gmane.org>
+References: <nad-6D3345.12172619032013@news.gmane.org>
+Message-ID: <1363809469.3416.140661206995041.32804AFE@webmail.messagingengine.com>
+
++1
+
+On Tue, Mar 19, 2013, at 03:17 PM, Ned Deily wrote:
+> I would like to propose Roger Serwy be given commit privileges to work 
+> on IDLE.  Roger has demonstrated long-term interest in IDLE and has been 
+> contributing to IDLE in a number of ways for years.  He has submitted 
+> many patches for IDLE to the tracker since at least April 2008.  He has 
+> developed a number of IDLE extensions (http://idlex.sourceforge.net), 
+> some of which he has proposed for inclusion in the standard library.  He 
+> is also active in triaging and commenting on the bug tracker and has had 
+> developer privileges on the tracker for the past 12 months.  He has also 
+> already signed the contributor agreement and I know he has been 
+> interested in becoming a core developer for IDLE.  I've informally 
+> discussed this with a few other core developers here at PyCon and I 
+> think there is general agreement that having Roger be able to contribute 
+> more directly to IDLE would be a really good thing.  I would certainly 
+> be willing to help mentor him as necessary.
+> 
+> -- 
+>  Ned Deily,
+>  nad at acm.org
+> 
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+> 
+
+From rdmurray at bitdance.com  Wed Mar 20 21:06:03 2013
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Wed, 20 Mar 2013 16:06:03 -0400
+Subject: [python-committers] [Infrastructure] test suite dependencies on
+	www.python.org
+In-Reply-To: <71D8D25A-0A74-4FC3-BFE6-A3F04D707986@coderanger.net>
+References: <8A2481BA-2B3E-4C10-BD9B-21A5DEB0BD0A@coderanger.net>
+	<20130320032739.19F2A2500B9@webabinitio.net>
+	<514A1193.6040604@v.loewis.de>
+	<71D8D25A-0A74-4FC3-BFE6-A3F04D707986@coderanger.net>
+Message-ID: <20130320200603.7A1582500B3@webabinitio.net>
+
+On Wed, 20 Mar 2013 12:47:09 -0700, Noah Kantrowitz <noah at coderanger.net> wrote:
+> +1 on let them break, but when they get fixed it should be against a
+> dedicated testing endpoint if possible, preferably something internal
+> to the test suite. Maybe spawn an HTTP server in a background
+> thread/proc? I would very much like the web infra to not be a runtime
+> dependency if possible.
+
+Keep in mind that it isn't only us running the test suite; but, yeah,
+this is what we've done in the past.  Just don't do the cutover near
+when one of the release managers is trying to produce a release :)
+
+We've been converting tests to use internal services as we've noticed them
+for one reason or another, and when possible.  The example I quoted should
+be converted.  There are tests that we don't have the infrastructure
+to move into the test harness, but I don't think any of the ones that
+reference www.python.org should be among those at this point.
+
+--David
+
+From trent at snakebite.org  Wed Mar 20 21:20:59 2013
+From: trent at snakebite.org (Trent Nelson)
+Date: Wed, 20 Mar 2013 13:20:59 -0700
+Subject: [python-committers] [Infrastructure] test suite dependencies on
+	www.python.org
+In-Reply-To: <71D8D25A-0A74-4FC3-BFE6-A3F04D707986@coderanger.net>
+References: <8A2481BA-2B3E-4C10-BD9B-21A5DEB0BD0A@coderanger.net>
+	<20130320032739.19F2A2500B9@webabinitio.net>
+	<514A1193.6040604@v.loewis.de>
+	<71D8D25A-0A74-4FC3-BFE6-A3F04D707986@coderanger.net>
+Message-ID: <20130320202058.GA36343@snakebite.org>
+
+On Wed, Mar 20, 2013 at 12:47:09PM -0700, Noah Kantrowitz wrote:
+> 
+> On Mar 20, 2013, at 12:44 PM, Martin v. L?wis wrote:
+> 
+> > Am 20.03.13 04:27, schrieb R. David Murray:
+> >> Example:
+> >> 
+> >>    request =
+> >>    urllib.request.Request("http://www.python.org/~jeremy/")
+> >> 
+> >> And then there are things like:
+> >> 
+> >>    h = client.HTTPSConnection('svn.python.org', 443,
+> >>    context=context)
+> >> 
+> >> I don't think there are a huge number of these, but we will need to
+> >> deal with them.
+> > 
+> > In the past, we just let them break and then fix the test case,
+> > which is not the best solution, but also not overly tragic (IMO).
+> > 
+> > Note that the redesign project includes an objective of URL
+> > stability.  The test suite is here of least concern, as there are
+> > thousands of incoming links to various pages. These need to be
+> > preserved as much as feasible (possibly using redirects).
+> 
+> +1 on let them break, but when they get fixed it should be against a
+> dedicated testing endpoint if possible, preferably something internal
+> to the test suite. Maybe spawn an HTTP server in a background
+> thread/proc? I would very much like the web infra to not be a runtime
+> dependency if possible.
+
+    FWIW, that approach isn't possible in all cases.  Perfect example
+    was http://bugs.python.org/issue15285, which required very specific
+    TCP/IP behavior (specifically with regards to RST) that you simply
+    can't simulate easily on a localhost.
+
+    I set up two services, blackhole and whitehole.snakebite.net, that
+    have been fulfilling this need for the past ~10 months now.
+
+    Relevant blurb below:
+
+    def testConnectTimeout(self):
+        # Testing connect timeout is tricky: we need to have IP connectivity
+        # to a host that silently drops our packets.  We can't simulate this
+        # from Python because it's a function of the underlying TCP/IP stack.
+        # So, the following Snakebite host has been defined:
+        blackhole = ('blackhole.snakebite.net', 56666)
+
+        # Blackhole has been configured to silently drop any incoming packets.
+        # No RSTs (for TCP) or ICMP UNREACH (for UDP/ICMP) will be sent back
+        # to hosts that attempt to connect to this address: which is exactly
+        # what we need to confidently test connect timeout.
+
+        # However, we want to prevent false positives.  It's not unreasonable
+        # to expect certain hosts may not be able to reach the blackhole, due
+        # to firewalling or general network configuration.  In order to improve
+        # our confidence in testing the blackhole, a corresponding 'whitehole'
+        # has also been set up using one port higher:
+        whitehole = ('whitehole.snakebite.net', 56667)
+
+        # This address has been configured to immediately drop any incoming
+        # packets as well, but it does it respectfully with regards to the
+        # incoming protocol.  RSTs are sent for TCP packets, and ICMP UNREACH
+        # is sent for UDP/ICMP packets.  This means our attempts to connect to
+        # it should be met immediately with ECONNREFUSED.  The test case has
+        # been structured around this premise: if we get an ECONNREFUSED from
+        # the whitehole, we proceed with testing connect timeout against the
+        # blackhole.  If we don't, we skip the test (with a message about not
+        # getting the required RST from the whitehole within the required
+        # timeframe).
+
+        # For the records, the whitehole/blackhole configuration has been set
+        # up using the 'pf' firewall (available on BSDs), using the following:
+        #
+        #   ext_if="bge0"
+        #
+        #   blackhole_ip="35.8.247.6"
+        #   whitehole_ip="35.8.247.6"
+        #   blackhole_port="56666"
+        #   whitehole_port="56667"
+        #
+        #   block return in log quick on $ext_if proto { tcp udp } \
+        #       from any to $whitehole_ip port $whitehole_port
+        #   block drop in log quick on $ext_if proto { tcp udp } \
+        #       from any to $blackhole_ip port $blackhole_port
+        #
+
+    Regards,
+
+        Trent.
+
+
+From nad at acm.org  Thu Mar 21 04:26:40 2013
+From: nad at acm.org (Ned Deily)
+Date: Wed, 20 Mar 2013 20:26:40 -0700
+Subject: [python-committers] Commit privileges for Roger Serwy for IDLE
+References: <nad-6D3345.12172619032013@news.gmane.org>
+	<CADiSq7fG9LCfiCR1sv7u1HkhVbcD=WEASgwaWt5XMSeLLkmrug@mail.gmail.com>
+Message-ID: <nad-0CCEEE.20264020032013@news.gmane.org>
+
+In article 
+<CADiSq7fG9LCfiCR1sv7u1HkhVbcD=WEASgwaWt5XMSeLLkmrug at mail.gmail.com>,
+ Nick Coghlan <ncoghlan at gmail.com> wrote:
+> +lots, let's make it happen.
+
+Thanks everyone for your positive feedback.  Roger has indicated he's 
+still interested.  I've pointed him at the developer's guide section for 
+new committers, in particular, sending ssh keys and signing up for this 
+list, and I've suggested he introduce himself here.
+
+-- 
+ Ned Deily,
+ nad at acm.org
+
+
+From raymond.hettinger at gmail.com  Thu Mar 21 04:33:29 2013
+From: raymond.hettinger at gmail.com (Raymond Hettinger)
+Date: Wed, 20 Mar 2013 20:33:29 -0700
+Subject: [python-committers] Commit privileges for Roger Serwy for IDLE
+In-Reply-To: <nad-6D3345.12172619032013@news.gmane.org>
+References: <nad-6D3345.12172619032013@news.gmane.org>
+Message-ID: <77D6D1DC-2097-443B-AE77-F06759864B1C@gmail.com>
+
+
+On Mar 19, 2013, at 12:17 PM, Ned Deily <nad at acm.org> wrote:
+
+> I would like to propose Roger Serwy be given commit privileges to work 
+> on IDLE. 
+
++1  Roger would do a great job.
+
+
+Raymond
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20130320/210cc7a7/attachment.html>
+
+From andrew.svetlov at gmail.com  Thu Mar 21 04:36:33 2013
+From: andrew.svetlov at gmail.com (Andrew Svetlov)
+Date: Wed, 20 Mar 2013 20:36:33 -0700
+Subject: [python-committers] Commit privileges for Roger Serwy for IDLE
+In-Reply-To: <nad-0CCEEE.20264020032013@news.gmane.org>
+References: <nad-6D3345.12172619032013@news.gmane.org>
+	<CADiSq7fG9LCfiCR1sv7u1HkhVbcD=WEASgwaWt5XMSeLLkmrug@mail.gmail.com>
+	<nad-0CCEEE.20264020032013@news.gmane.org>
+Message-ID: <CAL3CFcWQFrKmYfE-HukGufcruxLZcfgCr4EOG_teNdp94AEPjg@mail.gmail.com>
+
+Cool! Thank you, Ned, for picking up the subject.
+
+On Wed, Mar 20, 2013 at 8:26 PM, Ned Deily <nad at acm.org> wrote:
+> In article
+> <CADiSq7fG9LCfiCR1sv7u1HkhVbcD=WEASgwaWt5XMSeLLkmrug at mail.gmail.com>,
+>  Nick Coghlan <ncoghlan at gmail.com> wrote:
+>> +lots, let's make it happen.
+>
+> Thanks everyone for your positive feedback.  Roger has indicated he's
+> still interested.  I've pointed him at the developer's guide section for
+> new committers, in particular, sending ssh keys and signing up for this
+> list, and I've suggested he introduce himself here.
+>
+> --
+>  Ned Deily,
+>  nad at acm.org
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+
+
+
+-- 
+Thanks,
+Andrew Svetlov
+
+From eric at trueblade.com  Thu Mar 21 08:23:43 2013
+From: eric at trueblade.com (Eric V. Smith)
+Date: Thu, 21 Mar 2013 03:23:43 -0400
+Subject: [python-committers] Commit privileges for Roger Serwy for IDLE
+In-Reply-To: <nad-0CCEEE.20264020032013@news.gmane.org>
+References: <nad-6D3345.12172619032013@news.gmane.org>
+	<CADiSq7fG9LCfiCR1sv7u1HkhVbcD=WEASgwaWt5XMSeLLkmrug@mail.gmail.com>
+	<nad-0CCEEE.20264020032013@news.gmane.org>
+Message-ID: <514AB57F.8050203@trueblade.com>
+
+On 3/20/2013 11:26 PM, Ned Deily wrote:
+> In article 
+> <CADiSq7fG9LCfiCR1sv7u1HkhVbcD=WEASgwaWt5XMSeLLkmrug at mail.gmail.com>,
+>  Nick Coghlan <ncoghlan at gmail.com> wrote:
+>> +lots, let's make it happen.
+> 
+> Thanks everyone for your positive feedback.  Roger has indicated he's 
+> still interested.  I've pointed him at the developer's guide section for 
+> new committers, in particular, sending ssh keys and signing up for this 
+> list, and I've suggested he introduce himself here.
+
+I've approved him for python-committers.
+
+-- 
+Eric.
+
+From roger.serwy at gmail.com  Fri Mar 22 04:40:04 2013
+From: roger.serwy at gmail.com (serwy)
+Date: Thu, 21 Mar 2013 22:40:04 -0500
+Subject: [python-committers] Commit privileges for Roger Serwy for IDLE
+In-Reply-To: <nad-6D3345.12172619032013@news.gmane.org>
+References: <nad-6D3345.12172619032013@news.gmane.org>
+Message-ID: <514BD294.3060505@illinois.edu>
+
+Hi Everyone,
+
+My name is Roger Serwy and I would like to introduce myself. I am a 
+graduate student at the University of Illinois in electrical and 
+computer engineering. Python has been a primary language for my research 
+in signal processing and the auditory system. I use IdleX almost daily 
+for prototyping algorithms and data analysis.
+
+I do look forward to working with you to to improve IDLE.
+
+Thank you,
+Roger
+
+From ericsnowcurrently at gmail.com  Fri Mar 22 04:42:31 2013
+From: ericsnowcurrently at gmail.com (Eric Snow)
+Date: Thu, 21 Mar 2013 20:42:31 -0700
+Subject: [python-committers] Commit privileges for Roger Serwy for IDLE
+In-Reply-To: <514BD294.3060505@illinois.edu>
+References: <nad-6D3345.12172619032013@news.gmane.org>
+	<514BD294.3060505@illinois.edu>
+Message-ID: <CALFfu7A3a02gtFRSDTmq2PoHUmxbn8V1ZfRnSaitEgV4Z-7pvQ@mail.gmail.com>
+
+Welcome!
+
+-eric
+On Mar 21, 2013 9:39 PM, "serwy" <roger.serwy at gmail.com> wrote:
+
+> Hi Everyone,
+>
+> My name is Roger Serwy and I would like to introduce myself. I am a
+> graduate student at the University of Illinois in electrical and computer
+> engineering. Python has been a primary language for my research in signal
+> processing and the auditory system. I use IdleX almost daily for
+> prototyping algorithms and data analysis.
+>
+> I do look forward to working with you to to improve IDLE.
+>
+> Thank you,
+> Roger
+> ______________________________**_________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/**mailman/listinfo/python-**committers<http://mail.python.org/mailman/listinfo/python-committers>
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20130321/9e8bdf3d/attachment.html>
+
+From eliben at gmail.com  Fri Mar 22 04:47:33 2013
+From: eliben at gmail.com (Eli Bendersky)
+Date: Thu, 21 Mar 2013 20:47:33 -0700
+Subject: [python-committers] Commit privileges for Roger Serwy for IDLE
+In-Reply-To: <514BD294.3060505@illinois.edu>
+References: <nad-6D3345.12172619032013@news.gmane.org>
+	<514BD294.3060505@illinois.edu>
+Message-ID: <CAF-Rda-c6ngL3O9XrbWU-zx1Vz-+3w77HE+dkRy7Mg15SyFDmw@mail.gmail.com>
+
+On Thu, Mar 21, 2013 at 8:40 PM, serwy <roger.serwy at gmail.com> wrote:
+
+> Hi Everyone,
+>
+> My name is Roger Serwy and I would like to introduce myself. I am a
+> graduate student at the University of Illinois in electrical and computer
+> engineering. Python has been a primary language for my research in signal
+> processing and the auditory system. I use IdleX almost daily for
+> prototyping algorithms and data analysis.
+>
+> I do look forward to working with you to to improve IDLE.
+>
+
+Welcome, Roger. I'm sure you were already referred to the developer's
+guide. If you run into any problems or have questions, don't hesitate to
+ask on this list.
+
+Eli
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20130321/e8dceb34/attachment.html>
+
+From nad at acm.org  Fri Mar 22 04:55:21 2013
+From: nad at acm.org (Ned Deily)
+Date: Thu, 21 Mar 2013 20:55:21 -0700
+Subject: [python-committers] Commit privileges for Roger Serwy for IDLE
+In-Reply-To: <514BD294.3060505@illinois.edu>
+References: <nad-6D3345.12172619032013@news.gmane.org>
+	<514BD294.3060505@illinois.edu>
+Message-ID: <F37F85EC-4269-4F2C-8E3A-42E18FB50E8F@acm.org>
+
+Welcome, Roger!  And thanks for volunteering to share some more of your, um, idle time to help the Python community.
+
+--Ned
+
+--
+  Ned Deily
+  nad at acm.org -- []
+
+
+
+From andrew.svetlov at gmail.com  Fri Mar 22 05:45:39 2013
+From: andrew.svetlov at gmail.com (Andrew Svetlov)
+Date: Thu, 21 Mar 2013 21:45:39 -0700
+Subject: [python-committers] Commit privileges for Roger Serwy for IDLE
+In-Reply-To: <F37F85EC-4269-4F2C-8E3A-42E18FB50E8F@acm.org>
+References: <nad-6D3345.12172619032013@news.gmane.org>
+	<514BD294.3060505@illinois.edu>
+	<F37F85EC-4269-4F2C-8E3A-42E18FB50E8F@acm.org>
+Message-ID: <CAL3CFcUzRPutNQgJUuhjpr01w1wX9PQvFZmu+qCErUgP=NYwBw@mail.gmail.com>
+
+Welcome Roger!
+
+On Thu, Mar 21, 2013 at 8:55 PM, Ned Deily <nad at acm.org> wrote:
+> Welcome, Roger!  And thanks for volunteering to share some more of your, um, idle time to help the Python community.
+>
+> --Ned
+>
+> --
+>   Ned Deily
+>   nad at acm.org -- []
+>
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+
+
+
+-- 
+Thanks,
+Andrew Svetlov
+
+From benjamin at python.org  Sat Mar 23 16:54:03 2013
+From: benjamin at python.org (Benjamin Peterson)
+Date: Sat, 23 Mar 2013 10:54:03 -0500
+Subject: [python-committers] 2.7.4rc1 tagged
+Message-ID: <CAPZV6o-A_wAB7FQxpeYWpYRo9qCNm-ocTK8DbUbGUYiMjYUBvw@mail.gmail.com>
+
+The 2.7.4rc1 tag is in the main hg repo.
+
+-- 
+Regards,
+Benjamin
+
+From roger.serwy at gmail.com  Mon Mar 25 05:02:47 2013
+From: roger.serwy at gmail.com (Roger Serwy)
+Date: Sun, 24 Mar 2013 23:02:47 -0500
+Subject: [python-committers] SSH fingerprint
+Message-ID: <514FCC67.5070607@gmail.com>
+
+Hi All,
+
+What should be the ssh fingerprint be for hg.python.org? I am receiving 
+63:75:9b:14:b7:b2:dc:e7:cd:42:d7:19:48:6a:68:8e, but I can't verify if 
+it's correct.
+
+Thank you,
+Roger
+
+From nad at acm.org  Mon Mar 25 05:10:18 2013
+From: nad at acm.org (Ned Deily)
+Date: Sun, 24 Mar 2013 21:10:18 -0700
+Subject: [python-committers] SSH fingerprint
+In-Reply-To: <514FCC67.5070607@gmail.com>
+References: <514FCC67.5070607@gmail.com>
+Message-ID: <AB23B99A-C6A4-42DF-83B7-9E896D623B45@acm.org>
+
+On Mar 24, 2013, at 21:02 , Roger Serwy <roger.serwy at gmail.com> wrote:
+> What should be the ssh fingerprint be for hg.python.org? I am receiving 63:75:9b:14:b7:b2:dc:e7:cd:42:d7:19:48:6a:68:8e, but I can't verify if it's correct.
+
+I currently get:
+
+The authenticity of host 'hg.python.org (140.211.10.72)' can't be established.
+RSA key fingerprint is ec:98:fe:7b:e1:0f:88:c5:93:37:83:64:a4:cc:aa:01.
+
+$ host 140.211.10.72
+72.10.211.140.in-addr.arpa domain name pointer virt-7yvsjn.psf.osuosl.org.
+
+Are you using an RSA key?
+
+--
+  Ned Deily
+  nad at acm.org -- []
+
+
+
+From roger.serwy at gmail.com  Mon Mar 25 05:32:28 2013
+From: roger.serwy at gmail.com (Roger Serwy)
+Date: Sun, 24 Mar 2013 23:32:28 -0500
+Subject: [python-committers] SSH fingerprint
+In-Reply-To: <AB23B99A-C6A4-42DF-83B7-9E896D623B45@acm.org>
+References: <514FCC67.5070607@gmail.com>
+	<AB23B99A-C6A4-42DF-83B7-9E896D623B45@acm.org>
+Message-ID: <514FD35C.1010602@gmail.com>
+
+On 03/24/2013 11:10 PM, Ned Deily wrote:
+> On Mar 24, 2013, at 21:02 , Roger Serwy <roger.serwy at gmail.com> wrote:
+>> What should be the ssh fingerprint be for hg.python.org? I am receiving 63:75:9b:14:b7:b2:dc:e7:cd:42:d7:19:48:6a:68:8e, but I can't verify if it's correct.
+> I currently get:
+>
+> The authenticity of host 'hg.python.org (140.211.10.72)' can't be established.
+> RSA key fingerprint is ec:98:fe:7b:e1:0f:88:c5:93:37:83:64:a4:cc:aa:01.
+>
+> $ host 140.211.10.72
+> 72.10.211.140.in-addr.arpa domain name pointer virt-7yvsjn.psf.osuosl.org.
+>
+> Are you using an RSA key?
+It looks like my ssh is using ECDSA as the host key algorithm by 
+default. When I force it to use ssh-rsa, then I receive the same 
+fingerprint you have.
+
+Should this be documented somewhere?
+
+From nad at acm.org  Mon Mar 25 05:47:40 2013
+From: nad at acm.org (Ned Deily)
+Date: Sun, 24 Mar 2013 21:47:40 -0700
+Subject: [python-committers] SSH fingerprint
+In-Reply-To: <514FD35C.1010602@gmail.com>
+References: <514FCC67.5070607@gmail.com>
+	<AB23B99A-C6A4-42DF-83B7-9E896D623B45@acm.org>
+	<514FD35C.1010602@gmail.com>
+Message-ID: <7E85CB13-BFF1-492A-BD10-6CE5234C1580@acm.org>
+
+
+On Mar 24, 2013, at 21:32 , Roger Serwy <roger.serwy at gmail.com> wrote:
+
+> It looks like my ssh is using ECDSA as the host key algorithm by default. When I force it to use ssh-rsa, then I receive the same fingerprint you have.
+> 
+> Should this be documented somewhere?
+
+
+I believe RSA keys are generally recommended for SSH work.  You could add it to the developer's guide.  Another tip that may not be documented: to improve transfer speed, enable compression at the ssh level for the hg.python.org connection.  If you are using a Unix-y .ssh/config file, you can add it there to the host entry for hg.python.org.
+
+http://serverfault.com/questions/40071/ssh-keypair-generation-rsa-or-dsa
+
+--
+  Ned Deily
+  nad at acm.org -- []
+
+
+
+From jyasskin at gmail.com  Mon Mar 25 05:51:33 2013
+From: jyasskin at gmail.com (Jeffrey Yasskin)
+Date: Sun, 24 Mar 2013 21:51:33 -0700
+Subject: [python-committers] SSH fingerprint
+In-Reply-To: <7E85CB13-BFF1-492A-BD10-6CE5234C1580@acm.org>
+References: <514FCC67.5070607@gmail.com>
+	<AB23B99A-C6A4-42DF-83B7-9E896D623B45@acm.org>
+	<514FD35C.1010602@gmail.com>
+	<7E85CB13-BFF1-492A-BD10-6CE5234C1580@acm.org>
+Message-ID: <CA+6j2gjJO0GtFw8mYdpTVQDYPkSytotbVh2ZBiuSUcmiDSWskQ@mail.gmail.com>
+
+You missed that ECDSA != DSA.
+
+On Sun, Mar 24, 2013 at 9:47 PM, Ned Deily <nad at acm.org> wrote:
+>
+> On Mar 24, 2013, at 21:32 , Roger Serwy <roger.serwy at gmail.com> wrote:
+>
+>> It looks like my ssh is using ECDSA as the host key algorithm by default. When I force it to use ssh-rsa, then I receive the same fingerprint you have.
+>>
+>> Should this be documented somewhere?
+>
+>
+> I believe RSA keys are generally recommended for SSH work.  You could add it to the developer's guide.  Another tip that may not be documented: to improve transfer speed, enable compression at the ssh level for the hg.python.org connection.  If you are using a Unix-y .ssh/config file, you can add it there to the host entry for hg.python.org.
+>
+> http://serverfault.com/questions/40071/ssh-keypair-generation-rsa-or-dsa
+>
+> --
+>   Ned Deily
+>   nad at acm.org -- []
+>
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+
+From nad at acm.org  Mon Mar 25 06:26:34 2013
+From: nad at acm.org (Ned Deily)
+Date: Sun, 24 Mar 2013 22:26:34 -0700
+Subject: [python-committers] SSH fingerprint
+In-Reply-To: <CA+6j2gjJO0GtFw8mYdpTVQDYPkSytotbVh2ZBiuSUcmiDSWskQ@mail.gmail.com>
+References: <514FCC67.5070607@gmail.com>
+	<AB23B99A-C6A4-42DF-83B7-9E896D623B45@acm.org>
+	<514FD35C.1010602@gmail.com>
+	<7E85CB13-BFF1-492A-BD10-6CE5234C1580@acm.org>
+	<CA+6j2gjJO0GtFw8mYdpTVQDYPkSytotbVh2ZBiuSUcmiDSWskQ@mail.gmail.com>
+Message-ID: <C3FE328C-3205-4928-AFFE-25E7490C788A@acm.org>
+
+
+On Mar 24, 2013, at 21:51 , Jeffrey Yasskin <jyasskin at gmail.com> wrote:
+
+> You missed that ECDSA != DSA.
+
+
+Good! Someone is paying attention. :=)  Should we all be preferring one for pydev work?
+
+--
+  Ned Deily
+  nad at acm.org -- []
+
+
+
+From brett at python.org  Mon Mar 25 13:27:27 2013
+From: brett at python.org (Brett Cannon)
+Date: Mon, 25 Mar 2013 08:27:27 -0400
+Subject: [python-committers] SSH fingerprint
+In-Reply-To: <C3FE328C-3205-4928-AFFE-25E7490C788A@acm.org>
+References: <514FCC67.5070607@gmail.com>
+	<AB23B99A-C6A4-42DF-83B7-9E896D623B45@acm.org>
+	<514FD35C.1010602@gmail.com>
+	<7E85CB13-BFF1-492A-BD10-6CE5234C1580@acm.org>
+	<CA+6j2gjJO0GtFw8mYdpTVQDYPkSytotbVh2ZBiuSUcmiDSWskQ@mail.gmail.com>
+	<C3FE328C-3205-4928-AFFE-25E7490C788A@acm.org>
+Message-ID: <CAP1=2W47fTuWbWonrHAeCZysPov=RQa=BvTQ6myecOg5eCzCLQ@mail.gmail.com>
+
+On Mon, Mar 25, 2013 at 1:26 AM, Ned Deily <nad at acm.org> wrote:
+
+>
+> On Mar 24, 2013, at 21:51 , Jeffrey Yasskin <jyasskin at gmail.com> wrote:
+>
+> > You missed that ECDSA != DSA.
+>
+>
+> Good! Someone is paying attention. :=)  Should we all be preferring one
+> for pydev work?
+
+
+We have new contributors (who don't have a pre-existing key) use RSA:
+http://docs.python.org/devguide/faq.html#id1 .
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20130325/b2f057a8/attachment.html>
+
+From christian at python.org  Mon Mar 25 13:29:48 2013
+From: christian at python.org (Christian Heimes)
+Date: Mon, 25 Mar 2013 13:29:48 +0100
+Subject: [python-committers] SSH fingerprint
+In-Reply-To: <CA+6j2gjJO0GtFw8mYdpTVQDYPkSytotbVh2ZBiuSUcmiDSWskQ@mail.gmail.com>
+References: <514FCC67.5070607@gmail.com>
+	<AB23B99A-C6A4-42DF-83B7-9E896D623B45@acm.org>
+	<514FD35C.1010602@gmail.com>
+	<7E85CB13-BFF1-492A-BD10-6CE5234C1580@acm.org>
+	<CA+6j2gjJO0GtFw8mYdpTVQDYPkSytotbVh2ZBiuSUcmiDSWskQ@mail.gmail.com>
+Message-ID: <5150433C.1050801@python.org>
+
+Am 25.03.2013 05:51, schrieb Jeffrey Yasskin:
+> You missed that ECDSA != DSA.
+
+Yeah, Elliptic Curve DSA is as secure as RSA while using much shorter
+keys. ECDSA verification used to be much slower so you may want to
+prefer RSA for short time connections like hg pull and push.
+
+Christian
+
+From roger.serwy at gmail.com  Mon Mar 25 14:54:46 2013
+From: roger.serwy at gmail.com (Roger Serwy)
+Date: Mon, 25 Mar 2013 08:54:46 -0500
+Subject: [python-committers] SSH fingerprint
+In-Reply-To: <CAP1=2W47fTuWbWonrHAeCZysPov=RQa=BvTQ6myecOg5eCzCLQ@mail.gmail.com>
+References: <514FCC67.5070607@gmail.com>
+	<AB23B99A-C6A4-42DF-83B7-9E896D623B45@acm.org>
+	<514FD35C.1010602@gmail.com>
+	<7E85CB13-BFF1-492A-BD10-6CE5234C1580@acm.org>
+	<CA+6j2gjJO0GtFw8mYdpTVQDYPkSytotbVh2ZBiuSUcmiDSWskQ@mail.gmail.com>
+	<C3FE328C-3205-4928-AFFE-25E7490C788A@acm.org>
+	<CAP1=2W47fTuWbWonrHAeCZysPov=RQa=BvTQ6myecOg5eCzCLQ@mail.gmail.com>
+Message-ID: <51505726.3000802@gmail.com>
+
+
+>
+> We have new contributors (who don't have a pre-existing key) use RSA: 
+> http://docs.python.org/devguide/faq.html#id1 .
+
+I was trying to avoid a man-in-the-middle attack by verifying the 
+server's key fingerprint. Those server fingerprints should be documented.
+
+
+From rdmurray at bitdance.com  Mon Mar 25 17:18:54 2013
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Mon, 25 Mar 2013 12:18:54 -0400
+Subject: [python-committers] SSH fingerprint
+In-Reply-To: <5150433C.1050801@python.org>
+References: <514FCC67.5070607@gmail.com>
+	<AB23B99A-C6A4-42DF-83B7-9E896D623B45@acm.org>
+	<514FD35C.1010602@gmail.com>
+	<7E85CB13-BFF1-492A-BD10-6CE5234C1580@acm.org>
+	<CA+6j2gjJO0GtFw8mYdpTVQDYPkSytotbVh2ZBiuSUcmiDSWskQ@mail.gmail.com>
+	<5150433C.1050801@python.org>
+Message-ID: <20130325161855.05623250069@webabinitio.net>
+
+Note that I believe ECDSA is now the default for host keys for OpenSSH.
+At the least, my systems (Gentoo) switched to them after an upgrade a
+a bit a go.
+
+--David
+
+On Mon, 25 Mar 2013 13:29:48 +0100, Christian Heimes <christian at python.org> wrote:
+> Am 25.03.2013 05:51, schrieb Jeffrey Yasskin:
+> > You missed that ECDSA != DSA.
+> 
+> Yeah, Elliptic Curve DSA is as secure as RSA while using much shorter
+> keys. ECDSA verification used to be much slower so you may want to
+> prefer RSA for short time connections like hg pull and push.
+> 
+> Christian
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+
+From solipsis at pitrou.net  Mon Mar 25 17:34:05 2013
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Mon, 25 Mar 2013 17:34:05 +0100 (CET)
+Subject: [python-committers] SSH fingerprint
+In-Reply-To: <51505726.3000802@gmail.com>
+References: <514FCC67.5070607@gmail.com>
+	<AB23B99A-C6A4-42DF-83B7-9E896D623B45@acm.org>
+	<514FD35C.1010602@gmail.com>
+	<7E85CB13-BFF1-492A-BD10-6CE5234C1580@acm.org>
+	<CA+6j2gjJO0GtFw8mYdpTVQDYPkSytotbVh2ZBiuSUcmiDSWskQ@mail.gmail.com>
+	<C3FE328C-3205-4928-AFFE-25E7490C788A@acm.org>
+	<CAP1=2W47fTuWbWonrHAeCZysPov=RQa=BvTQ6myecOg5eCzCLQ@mail.gmail.com>
+	<51505726.3000802@gmail.com>
+Message-ID: <9621f2491e982071590bfd8ed1784ddb.squirrel@webmail.nerim.net>
+
+
+>> We have new contributors (who don't have a pre-existing key) use RSA:
+>> http://docs.python.org/devguide/faq.html#id1 .
+>
+> I was trying to avoid a man-in-the-middle attack by verifying the
+> server's key fingerprint. Those server fingerprints should be documented.
+
+Well if a MITM attacker tries to use your ssh access to do anything nasty,
+another developer will probably notice quite quickly.
+(the only "nasty thing" the ssh access allows you to do is "hg push",
+IIRC; still, that can trigger code execution on the buildbots)
+
+Regards
+
+Antoine.
+
+
+
+From georg at python.org  Tue Mar 26 07:47:38 2013
+From: georg at python.org (Georg Brandl)
+Date: Tue, 26 Mar 2013 07:47:38 +0100
+Subject: [python-committers] [RELEASED] Python 3.2.4 rc 1 and Python 3.3.1
+	rc 1
+Message-ID: <5151448A.2010103@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On behalf of the Python development team, I am pleased to announce the
+first release candidates of Python 3.2.4 and 3.3.1.
+
+Python 3.2.4 will be the last regular maintenance release for the Python 3.2
+series, while Python 3.3.1 is the first maintenance release for the 3.3
+series.  Both releases include hundreds of bugfixes.
+
+There has recently been a lot of discussion about XML-based denial of service
+attacks. Specifically, certain XML files can cause XML parsers, including ones
+in the Python stdlib, to consume gigabytes of RAM and swamp the CPU. These
+releases do not include any changes in Python XML code to address these issues.
+Interested parties should examine the defusedxml package on PyPI:
+https://pypi.python.org/pypi/defusedxml
+
+These are testing releases: Please consider trying them with your code
+and reporting any bugs you may notice to:
+
+    http://bugs.python.org/
+
+To download Python 3.2.4 or Python 3.3.1, visit:
+
+    http://www.python.org/download/releases/3.2.4/  or
+    http://www.python.org/download/releases/3.3.1/
+
+respectively.
+
+
+Enjoy!
+
+- -- 
+Georg Brandl, Release Manager
+georg at python.org
+(on behalf of the entire python-dev team and all contributors)
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v2.0.19 (GNU/Linux)
+
+iEYEARECAAYFAlFRRIoACgkQN9GcIYhpnLD6jACgnzYdYRKZ4kwkKeN3zSLSZ3Zr
+M/IAn17vlpxI3a3xk+i/ODOrCkMnRZro
+=B5sA
+-----END PGP SIGNATURE-----
+
+From roger.serwy at gmail.com  Tue Mar 26 13:39:44 2013
+From: roger.serwy at gmail.com (Roger Serwy)
+Date: Tue, 26 Mar 2013 07:39:44 -0500
+Subject: [python-committers] SSH fingerprint
+In-Reply-To: <9621f2491e982071590bfd8ed1784ddb.squirrel@webmail.nerim.net>
+References: <514FCC67.5070607@gmail.com>
+	<AB23B99A-C6A4-42DF-83B7-9E896D623B45@acm.org>
+	<514FD35C.1010602@gmail.com>
+	<7E85CB13-BFF1-492A-BD10-6CE5234C1580@acm.org>
+	<CA+6j2gjJO0GtFw8mYdpTVQDYPkSytotbVh2ZBiuSUcmiDSWskQ@mail.gmail.com>
+	<C3FE328C-3205-4928-AFFE-25E7490C788A@acm.org>
+	<CAP1=2W47fTuWbWonrHAeCZysPov=RQa=BvTQ6myecOg5eCzCLQ@mail.gmail.com>
+	<51505726.3000802@gmail.com>
+	<9621f2491e982071590bfd8ed1784ddb.squirrel@webmail.nerim.net>
+Message-ID: <51519710.9020206@gmail.com>
+
+
+> Well if a MITM attacker tries to use your ssh access to do anything nasty,
+> another developer will probably notice quite quickly.
+> (the only "nasty thing" the ssh access allows you to do is "hg push",
+> IIRC; still, that can trigger code execution on the buildbots)
+>
+>
+Sure, but it would be better to actually have the fingerprints to avoid 
+the MITM attack altogether.
+
+Can someone log into hg.python.org and get the public keys for the server?
+
+From eric at trueblade.com  Tue Mar 26 13:56:43 2013
+From: eric at trueblade.com (Eric V. Smith)
+Date: Tue, 26 Mar 2013 08:56:43 -0400
+Subject: [python-committers] SSH fingerprint
+In-Reply-To: <51519710.9020206@gmail.com>
+References: <514FCC67.5070607@gmail.com>
+	<AB23B99A-C6A4-42DF-83B7-9E896D623B45@acm.org>
+	<514FD35C.1010602@gmail.com>
+	<7E85CB13-BFF1-492A-BD10-6CE5234C1580@acm.org>
+	<CA+6j2gjJO0GtFw8mYdpTVQDYPkSytotbVh2ZBiuSUcmiDSWskQ@mail.gmail.com>
+	<C3FE328C-3205-4928-AFFE-25E7490C788A@acm.org>
+	<CAP1=2W47fTuWbWonrHAeCZysPov=RQa=BvTQ6myecOg5eCzCLQ@mail.gmail.com>
+	<51505726.3000802@gmail.com>
+	<9621f2491e982071590bfd8ed1784ddb.squirrel@webmail.nerim.net>
+	<51519710.9020206@gmail.com>
+Message-ID: <51519B0B.60803@trueblade.com>
+
+On 3/26/2013 8:39 AM, Roger Serwy wrote:
+> 
+>> Well if a MITM attacker tries to use your ssh access to do anything
+>> nasty,
+>> another developer will probably notice quite quickly.
+>> (the only "nasty thing" the ssh access allows you to do is "hg push",
+>> IIRC; still, that can trigger code execution on the buildbots)
+>>
+>>
+> Sure, but it would be better to actually have the fingerprints to avoid
+> the MITM attack altogether.
+
+I completely agree. "We'll notice the damage" is not a great reason to
+avoid publishing the fingerprints.
+
+> Can someone log into hg.python.org and get the public keys for the server?
+
+Not me. But from my hosts, I get:
+RSA key fingerprint is ec:98:fe:7b:e1:0f:88:c5:93:37:83:64:a4:cc:aa:01.
+
+-- 
+Eric.
+
+From solipsis at pitrou.net  Tue Mar 26 14:57:28 2013
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Tue, 26 Mar 2013 14:57:28 +0100 (CET)
+Subject: [python-committers] SSH fingerprint
+In-Reply-To: <51519B0B.60803@trueblade.com>
+References: <514FCC67.5070607@gmail.com>
+	<AB23B99A-C6A4-42DF-83B7-9E896D623B45@acm.org>
+	<514FD35C.1010602@gmail.com>
+	<7E85CB13-BFF1-492A-BD10-6CE5234C1580@acm.org>
+	<CA+6j2gjJO0GtFw8mYdpTVQDYPkSytotbVh2ZBiuSUcmiDSWskQ@mail.gmail.com>
+	<C3FE328C-3205-4928-AFFE-25E7490C788A@acm.org>
+	<CAP1=2W47fTuWbWonrHAeCZysPov=RQa=BvTQ6myecOg5eCzCLQ@mail.gmail.com>
+	<51505726.3000802@gmail.com>
+	<9621f2491e982071590bfd8ed1784ddb.squirrel@webmail.nerim.net>
+	<51519710.9020206@gmail.com> <51519B0B.60803@trueblade.com>
+Message-ID: <795ade4f83683c1784f2210ff1a044c7.squirrel@webmail.nerim.net>
+
+
+>> Can someone log into hg.python.org and get the public keys for the
+>> server?
+>
+> Not me. But from my hosts, I get:
+> RSA key fingerprint is ec:98:fe:7b:e1:0f:88:c5:93:37:83:64:a4:cc:aa:01.
+
+Well I'm not sure how logging in would be an improvement, since the person
+logging in could also be the victim of a MITM attack ;)
+
+Also, what is the command to use on the server to get the public key
+fingerprint?
+
+Regards
+
+Antoine.
+
+
+
+From roger.serwy at gmail.com  Tue Mar 26 15:03:33 2013
+From: roger.serwy at gmail.com (Roger Serwy)
+Date: Tue, 26 Mar 2013 09:03:33 -0500
+Subject: [python-committers] SSH fingerprint
+In-Reply-To: <795ade4f83683c1784f2210ff1a044c7.squirrel@webmail.nerim.net>
+References: <514FCC67.5070607@gmail.com>
+	<AB23B99A-C6A4-42DF-83B7-9E896D623B45@acm.org>
+	<514FD35C.1010602@gmail.com>
+	<7E85CB13-BFF1-492A-BD10-6CE5234C1580@acm.org>
+	<CA+6j2gjJO0GtFw8mYdpTVQDYPkSytotbVh2ZBiuSUcmiDSWskQ@mail.gmail.com>
+	<C3FE328C-3205-4928-AFFE-25E7490C788A@acm.org>
+	<CAP1=2W47fTuWbWonrHAeCZysPov=RQa=BvTQ6myecOg5eCzCLQ@mail.gmail.com>
+	<51505726.3000802@gmail.com>
+	<9621f2491e982071590bfd8ed1784ddb.squirrel@webmail.nerim.net>
+	<51519710.9020206@gmail.com> <51519B0B.60803@trueblade.com>
+	<795ade4f83683c1784f2210ff1a044c7.squirrel@webmail.nerim.net>
+Message-ID: <5151AAB5.4070509@gmail.com>
+
+
+>
+> Also, what is the command to use on the server to get the public key
+> fingerprint?
+>
+>
+Run "ssh-keygen -lf /path/to/public/key.pub" for the RSA, DSA, and ECDSA 
+keys.
+
+
+From solipsis at pitrou.net  Tue Mar 26 19:35:33 2013
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Tue, 26 Mar 2013 19:35:33 +0100
+Subject: [python-committers] SSH fingerprint
+In-Reply-To: <5151AAB5.4070509@gmail.com>
+References: <514FCC67.5070607@gmail.com>
+	<AB23B99A-C6A4-42DF-83B7-9E896D623B45@acm.org>
+	<514FD35C.1010602@gmail.com>
+	<7E85CB13-BFF1-492A-BD10-6CE5234C1580@acm.org>
+	<CA+6j2gjJO0GtFw8mYdpTVQDYPkSytotbVh2ZBiuSUcmiDSWskQ@mail.gmail.com>
+	<C3FE328C-3205-4928-AFFE-25E7490C788A@acm.org>
+	<CAP1=2W47fTuWbWonrHAeCZysPov=RQa=BvTQ6myecOg5eCzCLQ@mail.gmail.com>
+	<51505726.3000802@gmail.com>
+	<9621f2491e982071590bfd8ed1784ddb.squirrel@webmail.nerim.net>
+	<51519710.9020206@gmail.com> <51519B0B.60803@trueblade.com>
+	<795ade4f83683c1784f2210ff1a044c7.squirrel@webmail.nerim.net>
+	<5151AAB5.4070509@gmail.com>
+Message-ID: <1364322933.3508.1.camel@localhost.localdomain>
+
+Le mardi 26 mars 2013 ? 09:03 -0500, Roger Serwy a ?crit :
+> >
+> > Also, what is the command to use on the server to get the public key
+> > fingerprint?
+> >
+> >
+> Run "ssh-keygen -lf /path/to/public/key.pub" for the RSA, DSA, and ECDSA 
+> keys.
+
+$ ssh-keygen -lf /etc/ssh/ssh_host_ecdsa_key
+256 63:75:9b:14:b7:b2:dc:e7:cd:42:d7:19:48:6a:68:8e  root at gimager (ECDSA)
+$ ssh-keygen -lf /etc/ssh/ssh_host_rsa_key
+1024 ec:98:fe:7b:e1:0f:88:c5:93:37:83:64:a4:cc:aa:01  root at boomslang (RSA)
+$ ssh-keygen -lf /etc/ssh/ssh_host_dsa_key
+1024 d8:88:d2:5e:5f:1c:a3:f5:5f:ae:0e:d2:ec:f0:c8:a3  root at boomslang (DSA)
+
+Regards
+
+Antoine.
+
+
+
+From martin at v.loewis.de  Tue Mar 26 21:39:48 2013
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Tue, 26 Mar 2013 21:39:48 +0100
+Subject: [python-committers] SSH fingerprint
+In-Reply-To: <51519B0B.60803@trueblade.com>
+References: <514FCC67.5070607@gmail.com>
+	<AB23B99A-C6A4-42DF-83B7-9E896D623B45@acm.org>
+	<514FD35C.1010602@gmail.com>
+	<7E85CB13-BFF1-492A-BD10-6CE5234C1580@acm.org>
+	<CA+6j2gjJO0GtFw8mYdpTVQDYPkSytotbVh2ZBiuSUcmiDSWskQ@mail.gmail.com>
+	<C3FE328C-3205-4928-AFFE-25E7490C788A@acm.org>
+	<CAP1=2W47fTuWbWonrHAeCZysPov=RQa=BvTQ6myecOg5eCzCLQ@mail.gmail.com>
+	<51505726.3000802@gmail.com>
+	<9621f2491e982071590bfd8ed1784ddb.squirrel@webmail.nerim.net>
+	<51519710.9020206@gmail.com> <51519B0B.60803@trueblade.com>
+Message-ID: <51520794.3000606@v.loewis.de>
+
+Am 26.03.13 13:56, schrieb Eric V. Smith:
+> I completely agree. "We'll notice the damage" is not a great reason to
+> avoid publishing the fingerprints.
+
+IMO, the proper way is to publish SSHFP records in DNS. Unfortunately,
+DynECT currently does not support RFC 6594.
+
+Regards,
+Martin
+
+
+From solipsis at pitrou.net  Tue Mar 26 21:40:38 2013
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Tue, 26 Mar 2013 21:40:38 +0100
+Subject: [python-committers] SSH fingerprint
+In-Reply-To: <5152082C.9010803@v.loewis.de>
+References: <514FCC67.5070607@gmail.com>
+	<AB23B99A-C6A4-42DF-83B7-9E896D623B45@acm.org>
+	<514FD35C.1010602@gmail.com>
+	<7E85CB13-BFF1-492A-BD10-6CE5234C1580@acm.org>
+	<CA+6j2gjJO0GtFw8mYdpTVQDYPkSytotbVh2ZBiuSUcmiDSWskQ@mail.gmail.com>
+	<C3FE328C-3205-4928-AFFE-25E7490C788A@acm.org>
+	<CAP1=2W47fTuWbWonrHAeCZysPov=RQa=BvTQ6myecOg5eCzCLQ@mail.gmail.com>
+	<51505726.3000802@gmail.com>
+	<9621f2491e982071590bfd8ed1784ddb.squirrel@webmail.nerim.net>
+	<51519710.9020206@gmail.com> <51519B0B.60803@trueblade.com>
+	<795ade4f83683c1784f2210ff1a044c7.squirrel@webmail.nerim.net>
+	<5152082C.9010803@v.loewis.de>
+Message-ID: <1364330438.3508.3.camel@localhost.localdomain>
+
+Le mardi 26 mars 2013 ? 21:42 +0100, "Martin v. L?wis" a ?crit :
+> Am 26.03.13 14:57, schrieb Antoine Pitrou:
+> > Well I'm not sure how logging in would be an improvement, since the person
+> > logging in could also be the victim of a MITM attack ;)
+> 
+> In addition, the email you sent might be subject to MITM, either when
+> you were submitting it, or when it was transmitted from python.org to
+> Roger's SMTP server. So you really need to PGP sign it :-)
+
+That's assuming someone actually validated my PGP fingerprint through a
+secure channel, which probably hasn't happened in recent times!
+
+Regards
+
+Antoine.
+
+
+
+From martin at v.loewis.de  Tue Mar 26 21:42:20 2013
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Tue, 26 Mar 2013 21:42:20 +0100
+Subject: [python-committers] SSH fingerprint
+In-Reply-To: <795ade4f83683c1784f2210ff1a044c7.squirrel@webmail.nerim.net>
+References: <514FCC67.5070607@gmail.com>
+	<AB23B99A-C6A4-42DF-83B7-9E896D623B45@acm.org>
+	<514FD35C.1010602@gmail.com>
+	<7E85CB13-BFF1-492A-BD10-6CE5234C1580@acm.org>
+	<CA+6j2gjJO0GtFw8mYdpTVQDYPkSytotbVh2ZBiuSUcmiDSWskQ@mail.gmail.com>
+	<C3FE328C-3205-4928-AFFE-25E7490C788A@acm.org>
+	<CAP1=2W47fTuWbWonrHAeCZysPov=RQa=BvTQ6myecOg5eCzCLQ@mail.gmail.com>
+	<51505726.3000802@gmail.com>
+	<9621f2491e982071590bfd8ed1784ddb.squirrel@webmail.nerim.net>
+	<51519710.9020206@gmail.com> <51519B0B.60803@trueblade.com>
+	<795ade4f83683c1784f2210ff1a044c7.squirrel@webmail.nerim.net>
+Message-ID: <5152082C.9010803@v.loewis.de>
+
+Am 26.03.13 14:57, schrieb Antoine Pitrou:
+> Well I'm not sure how logging in would be an improvement, since the person
+> logging in could also be the victim of a MITM attack ;)
+
+In addition, the email you sent might be subject to MITM, either when
+you were submitting it, or when it was transmitted from python.org to
+Roger's SMTP server. So you really need to PGP sign it :-)
+
+Regards,
+Martin
+
+
+From mail at timgolden.me.uk  Tue Mar 26 21:48:54 2013
+From: mail at timgolden.me.uk (Tim Golden)
+Date: Tue, 26 Mar 2013 20:48:54 +0000
+Subject: [python-committers] SSH fingerprint
+In-Reply-To: <1364330438.3508.3.camel@localhost.localdomain>
+References: <514FCC67.5070607@gmail.com>
+	<AB23B99A-C6A4-42DF-83B7-9E896D623B45@acm.org>
+	<514FD35C.1010602@gmail.com>
+	<7E85CB13-BFF1-492A-BD10-6CE5234C1580@acm.org>
+	<CA+6j2gjJO0GtFw8mYdpTVQDYPkSytotbVh2ZBiuSUcmiDSWskQ@mail.gmail.com>
+	<C3FE328C-3205-4928-AFFE-25E7490C788A@acm.org>
+	<CAP1=2W47fTuWbWonrHAeCZysPov=RQa=BvTQ6myecOg5eCzCLQ@mail.gmail.com>
+	<51505726.3000802@gmail.com>
+	<9621f2491e982071590bfd8ed1784ddb.squirrel@webmail.nerim.net>
+	<51519710.9020206@gmail.com> <51519B0B.60803@trueblade.com>
+	<795ade4f83683c1784f2210ff1a044c7.squirrel@webmail.nerim.net>
+	<5152082C.9010803@v.loewis.de>
+	<1364330438.3508.3.camel@localhost.localdomain>
+Message-ID: <515209B6.2050509@timgolden.me.uk>
+
+On 26/03/2013 20:40, Antoine Pitrou wrote:
+> Le mardi 26 mars 2013 ? 21:42 +0100, "Martin v. L?wis" a ?crit :
+>> Am 26.03.13 14:57, schrieb Antoine Pitrou:
+>>> Well I'm not sure how logging in would be an improvement, since the person
+>>> logging in could also be the victim of a MITM attack ;)
+>>
+>> In addition, the email you sent might be subject to MITM, either when
+>> you were submitting it, or when it was transmitted from python.org to
+>> Roger's SMTP server. So you really need to PGP sign it :-)
+>
+> That's assuming someone actually validated my PGP fingerprint through a
+> secure channel, which probably hasn't happened in recent times!
+
+Obligatory xkcd reference:
+
+   http://xkcd.com/1181/
+
+TJG
+
+
+From martin at v.loewis.de  Tue Mar 26 21:38:38 2013
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Tue, 26 Mar 2013 21:38:38 +0100
+Subject: [python-committers] SSH fingerprint
+In-Reply-To: <9621f2491e982071590bfd8ed1784ddb.squirrel@webmail.nerim.net>
+References: <514FCC67.5070607@gmail.com>
+	<AB23B99A-C6A4-42DF-83B7-9E896D623B45@acm.org>
+	<514FD35C.1010602@gmail.com>
+	<7E85CB13-BFF1-492A-BD10-6CE5234C1580@acm.org>
+	<CA+6j2gjJO0GtFw8mYdpTVQDYPkSytotbVh2ZBiuSUcmiDSWskQ@mail.gmail.com>
+	<C3FE328C-3205-4928-AFFE-25E7490C788A@acm.org>
+	<CAP1=2W47fTuWbWonrHAeCZysPov=RQa=BvTQ6myecOg5eCzCLQ@mail.gmail.com>
+	<51505726.3000802@gmail.com>
+	<9621f2491e982071590bfd8ed1784ddb.squirrel@webmail.nerim.net>
+Message-ID: <5152074E.3060603@v.loewis.de>
+
+Am 25.03.13 17:34, schrieb Antoine Pitrou:
+> 
+>>> We have new contributors (who don't have a pre-existing key) use RSA:
+>>> http://docs.python.org/devguide/faq.html#id1 .
+>>
+>> I was trying to avoid a man-in-the-middle attack by verifying the
+>> server's key fingerprint. Those server fingerprints should be documented.
+> 
+> Well if a MITM attacker tries to use your ssh access to do anything nasty,
+> another developer will probably notice quite quickly.
+> (the only "nasty thing" the ssh access allows you to do is "hg push",
+> IIRC; still, that can trigger code execution on the buildbots)
+
+I thought the same first, but for the sufficiently-paranoid there
+actually is a threat in spoofing hg.python.org:
+- if you are not talking to the right server, hg pull might bring
+  a trojan horse on your system, which you might then run into
+  when trying to build Python.
+
+OTOH, there is actually *no* threat at all for men-in-the-*middle*.
+Anybody spoofing hg.python.org could not simultaneously connect
+successfully to the actual hg.python.org, since they don't have
+any authorized key, and since they cannot trick the actual client
+in providing the proper token that the server would verify, see e.g.
+
+http://utcc.utoronto.ca/~cks/space/blog/tech/SshAndMitM
+
+Regards,
+Martin
+
+
+From roger.serwy at gmail.com  Wed Mar 27 02:30:26 2013
+From: roger.serwy at gmail.com (Roger Serwy)
+Date: Tue, 26 Mar 2013 20:30:26 -0500
+Subject: [python-committers] SSH fingerprint
+In-Reply-To: <5152082C.9010803@v.loewis.de>
+References: <514FCC67.5070607@gmail.com>
+	<AB23B99A-C6A4-42DF-83B7-9E896D623B45@acm.org>
+	<514FD35C.1010602@gmail.com>
+	<7E85CB13-BFF1-492A-BD10-6CE5234C1580@acm.org>
+	<CA+6j2gjJO0GtFw8mYdpTVQDYPkSytotbVh2ZBiuSUcmiDSWskQ@mail.gmail.com>
+	<C3FE328C-3205-4928-AFFE-25E7490C788A@acm.org>
+	<CAP1=2W47fTuWbWonrHAeCZysPov=RQa=BvTQ6myecOg5eCzCLQ@mail.gmail.com>
+	<51505726.3000802@gmail.com>
+	<9621f2491e982071590bfd8ed1784ddb.squirrel@webmail.nerim.net>
+	<51519710.9020206@gmail.com> <51519B0B.60803@trueblade.com>
+	<795ade4f83683c1784f2210ff1a044c7.squirrel@webmail.nerim.net>
+	<5152082C.9010803@v.loewis.de>
+Message-ID: <51524BB2.2030303@gmail.com>
+
+
+> In addition, the email you sent might be subject to MITM, either when
+> you were submitting it, or when it was transmitted from python.org to
+> Roger's SMTP server. So you really need to PGP sign it :-)
+>
+>
+And hope that I have Antoine's correct public PGP key... And down the 
+rabbit hole we go.
+
+Thank you everyone for helping.
+
+- Roger
+
+
+From g.brandl at gmx.net  Thu Mar 28 08:55:36 2013
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Thu, 28 Mar 2013 08:55:36 +0100
+Subject: [python-committers] Please don't commit to 3.2 branch anymore
+Message-ID: <kj0t11$o3j$1@ger.gmane.org>
+
+Hi all,
+
+with 3.2.4 being the last regular 3.2 maintenance release and the rc out
+of the door, the 3.2 branch should only be committed to for security
+releases.  So please don't commit anything there anymore.  To help everyone
+remember, I've configured the push hook to reject changesets to the 3.2
+branch.
+
+cheers,
+Georg
+
+
+From ncoghlan at gmail.com  Fri Mar 29 21:34:17 2013
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Sat, 30 Mar 2013 06:34:17 +1000
+Subject: [python-committers] Please don't commit to 3.2 branch anymore
+In-Reply-To: <kj0t11$o3j$1@ger.gmane.org>
+References: <kj0t11$o3j$1@ger.gmane.org>
+Message-ID: <CADiSq7eEvLknEV1ALfpNC=QjKLZks-dEv=AhS8sd5VNr3KOsdQ@mail.gmail.com>
+
+On Thu, Mar 28, 2013 at 5:55 PM, Georg Brandl <g.brandl at gmx.net> wrote:
+> Hi all,
+>
+> with 3.2.4 being the last regular 3.2 maintenance release and the rc out
+> of the door, the 3.2 branch should only be committed to for security
+> releases.  So please don't commit anything there anymore.  To help everyone
+> remember, I've configured the push hook to reject changesets to the 3.2
+> branch.
+
+Ah, I was waiting for that before doing the test helper
+discoverability improvements in 3.3 & default. I guess I just lost my
+excuse for procrastinating on that :)
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+
+From jcea at jcea.es  Sat Mar 30 13:41:39 2013
+From: jcea at jcea.es (Jesus Cea)
+Date: Sat, 30 Mar 2013 13:41:39 +0100
+Subject: [python-committers] Please don't commit to 3.2 branch anymore
+In-Reply-To: <kj0t11$o3j$1@ger.gmane.org>
+References: <kj0t11$o3j$1@ger.gmane.org>
+Message-ID: <5156DD83.6000503@jcea.es>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On 28/03/13 08:55, Georg Brandl wrote:
+> with 3.2.4 being the last regular 3.2 maintenance release and the
+> rc out of the door, the 3.2 branch should only be committed to for
+> security releases.  So please don't commit anything there anymore.
+> To help everyone remember, I've configured the push hook to reject
+> changesets to the 3.2 branch.
+
+What is the procedure for commiting security fixes?. Is it documentes
+anywhere?
+
+- -- 
+Jes?s Cea Avi?n                         _/_/      _/_/_/        _/_/_/
+jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+Twitter: @jcea                        _/_/    _/_/          _/_/_/_/_/
+jabber / xmpp:jcea at jabber.org  _/_/  _/_/    _/_/          _/_/  _/_/
+"Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+"My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+"El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.10 (GNU/Linux)
+Comment: Using GnuPG with Thunderbird - http://www.enigmail.net/
+
+iQCVAwUBUVbdg5lgi5GaxT1NAQIUeQP5Afv9geQRTGzzSiYjOlG1H2Mn9NWRpP4s
+2ih1z6c5kqFuksXrAh2gRjifUX53P7Ig+OlaS84uS2SbGy3NT6xPuIIVjfntoe4d
+f2vHa7uI9iKE4+U5KDEDKDr250rSly5NFVouFgzAo/JCQtvQ4uH7lWO+sM14qPyT
+IfBDMgWIVNo=
+=SOic
+-----END PGP SIGNATURE-----
+
+From rdmurray at bitdance.com  Sat Mar 30 15:15:33 2013
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Sat, 30 Mar 2013 10:15:33 -0400
+Subject: [python-committers] Please don't commit to 3.2 branch anymore
+In-Reply-To: <5156DD83.6000503@jcea.es>
+References: <kj0t11$o3j$1@ger.gmane.org> <5156DD83.6000503@jcea.es>
+Message-ID: <20130330141534.44893250BDD@webabinitio.net>
+
+On Sat, 30 Mar 2013 13:41:39 +0100, Jesus Cea <jcea at jcea.es> wrote:
+> -----BEGIN PGP SIGNED MESSAGE-----
+> Hash: SHA1
+> 
+> On 28/03/13 08:55, Georg Brandl wrote:
+> > with 3.2.4 being the last regular 3.2 maintenance release and the
+> > rc out of the door, the 3.2 branch should only be committed to for
+> > security releases.  So please don't commit anything there anymore.
+> > To help everyone remember, I've configured the push hook to reject
+> > changesets to the 3.2 branch.
+> 
+> What is the procedure for commiting security fixes?. Is it documentes
+> anywhere?
+
+This is the first time we've been in the situation of having a
+security-only branch in Mercurial (other than 2.7, which is its own head).
+So I don't believe we have articulated a procedure yet.
+
+--David
+
+From jcea at jcea.es  Sat Mar 30 16:10:35 2013
+From: jcea at jcea.es (Jesus Cea)
+Date: Sat, 30 Mar 2013 16:10:35 +0100
+Subject: [python-committers] Please don't commit to 3.2 branch anymore
+In-Reply-To: <20130330141534.44893250BDD@webabinitio.net>
+References: <kj0t11$o3j$1@ger.gmane.org> <5156DD83.6000503@jcea.es>
+	<20130330141534.44893250BDD@webabinitio.net>
+Message-ID: <5157006B.9030603@jcea.es>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On 30/03/13 15:15, R. David Murray wrote:
+> This is the first time we've been in the situation of having a 
+> security-only branch in Mercurial (other than 2.7, which is its own
+> head). So I don't believe we have articulated a procedure yet.
+
+I am asking because the commit hook.
+
+I expect patches will be few and far apart, so "somebody" could
+disable that hook just for committing those, when time comes. But I
+think would be interesting to actually think about it and document
+something now, even if we need to update it when we have real experience.
+
+Something simple would be for the hook to refuse any commit in that
+branch UNLESS it is coming from the maintainer.
+
+- -- 
+Jes?s Cea Avi?n                         _/_/      _/_/_/        _/_/_/
+jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+Twitter: @jcea                        _/_/    _/_/          _/_/_/_/_/
+jabber / xmpp:jcea at jabber.org  _/_/  _/_/    _/_/          _/_/  _/_/
+"Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+"My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+"El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.10 (GNU/Linux)
+Comment: Using GnuPG with Thunderbird - http://www.enigmail.net/
+
+iQCVAwUBUVcAa5lgi5GaxT1NAQKQ7gP/TZWs2pSqQs4K2Wc5jG6EZC52Ya7dGffT
+vhoWXhSBPCDuzzONh0BvPwVhMVGE6+IIBeUnxviCB/VnOfG7rNxcAb1GfwCWp0bY
+rtITu25Rgx3FemYyIROI1Bh0sdbWyEaEkgR6E+UEzO985fH7UJH24Ztc60ezyNgV
+Sn9KWXBdvOM=
+=ayOT
+-----END PGP SIGNATURE-----
+
+From jcea at jcea.es  Sat Mar 30 16:20:39 2013
+From: jcea at jcea.es (Jesus Cea)
+Date: Sat, 30 Mar 2013 16:20:39 +0100
+Subject: [python-committers] Please don't commit to 3.2 branch anymore
+In-Reply-To: <5157006B.9030603@jcea.es>
+References: <kj0t11$o3j$1@ger.gmane.org> <5156DD83.6000503@jcea.es>
+	<20130330141534.44893250BDD@webabinitio.net>
+	<5157006B.9030603@jcea.es>
+Message-ID: <515702C7.8030809@jcea.es>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On 30/03/13 16:10, Jesus Cea wrote:
+> Something simple would be for the hook to refuse any commit in
+> that branch UNLESS it is coming from the maintainer.
+
+BTW, are the hooks available anywhere. I am interested in the "create
+patch" hook and the "be sure you merge your patches" hook :). Maybe
+some other nice hooks out there.
+
+- -- 
+Jes?s Cea Avi?n                         _/_/      _/_/_/        _/_/_/
+jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+Twitter: @jcea                        _/_/    _/_/          _/_/_/_/_/
+jabber / xmpp:jcea at jabber.org  _/_/  _/_/    _/_/          _/_/  _/_/
+"Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+"My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+"El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.10 (GNU/Linux)
+Comment: Using GnuPG with Thunderbird - http://www.enigmail.net/
+
+iQCVAwUBUVcCx5lgi5GaxT1NAQJrRAP9Fmz/CxISeLrV0sh9oM3GJN/trLcmXpPU
+e3+qoL+9Z+xTcLJURuIH0Tur5TY6zdNF0J7G8lKmUV1IGMGpeOODt3Vlf62uYLVu
+eOf5xHW42RJHHH0Cof0tEI5PIE6+UaCN4XcDMRMX4fbWNC6/t+jEWc20rte3tDTu
+76VY2BmEwIY=
+=0Niw
+-----END PGP SIGNATURE-----
+
+From g.brandl at gmx.net  Sat Mar 30 18:03:53 2013
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Sat, 30 Mar 2013 18:03:53 +0100
+Subject: [python-committers] Please don't commit to 3.2 branch anymore
+In-Reply-To: <5157006B.9030603@jcea.es>
+References: <kj0t11$o3j$1@ger.gmane.org> <5156DD83.6000503@jcea.es>
+	<20130330141534.44893250BDD@webabinitio.net>
+	<5157006B.9030603@jcea.es>
+Message-ID: <kj75tg$30m$1@ger.gmane.org>
+
+On 03/30/2013 04:10 PM, Jesus Cea wrote:
+> On 30/03/13 15:15, R. David Murray wrote:
+>> This is the first time we've been in the situation of having a
+>> security-only branch in Mercurial (other than 2.7, which is its own
+>> head). So I don't believe we have articulated a procedure yet.
+> 
+> I am asking because the commit hook.
+> 
+> I expect patches will be few and far apart, so "somebody" could
+> disable that hook just for committing those, when time comes. But I
+> think would be interesting to actually think about it and document
+> something now, even if we need to update it when we have real experience.
+> 
+> Something simple would be for the hook to refuse any commit in that
+> branch UNLESS it is coming from the maintainer.
+
+Security fixes will have to be coordinated with me anyway, so that is
+not a problem here.  For example, whoever commits them can put them in
+a clone on hg.python.org, and I will pull them into the main repo.
+
+Georg
+
+
+From g.brandl at gmx.net  Sat Mar 30 18:04:50 2013
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Sat, 30 Mar 2013 18:04:50 +0100
+Subject: [python-committers] Please don't commit to 3.2 branch anymore
+In-Reply-To: <515702C7.8030809@jcea.es>
+References: <kj0t11$o3j$1@ger.gmane.org> <5156DD83.6000503@jcea.es>
+	<20130330141534.44893250BDD@webabinitio.net>
+	<5157006B.9030603@jcea.es> <515702C7.8030809@jcea.es>
+Message-ID: <kj75v9$30m$2@ger.gmane.org>
+
+On 03/30/2013 04:20 PM, Jesus Cea wrote:
+> On 30/03/13 16:10, Jesus Cea wrote:
+>> Something simple would be for the hook to refuse any commit in
+>> that branch UNLESS it is coming from the maintainer.
+> 
+> BTW, are the hooks available anywhere. I am interested in the "create
+> patch" hook and the "be sure you merge your patches" hook :). Maybe
+> some other nice hooks out there.
+> 
+
+They are here: http://hg.python.org/hooks -- the specific one here is
+"checkbranch.py".
+
+Georg
+
+
+From nad at acm.org  Sat Mar 30 18:13:13 2013
+From: nad at acm.org (Ned Deily)
+Date: Sat, 30 Mar 2013 10:13:13 -0700
+Subject: [python-committers] Please don't commit to 3.2 branch anymore
+References: <kj0t11$o3j$1@ger.gmane.org> <5156DD83.6000503@jcea.es>
+	<20130330141534.44893250BDD@webabinitio.net>
+Message-ID: <nad-EEECE5.10131230032013@news.gmane.org>
+
+In article <20130330141534.44893250BDD at webabinitio.net>,
+ "R. David Murray" <rdmurray at bitdance.com> wrote:
+> This is the first time we've been in the situation of having a
+> security-only branch in Mercurial (other than 2.7, which is its own head).
+
+3.1?
+
+-- 
+ Ned Deily,
+ nad at acm.org
+
+
+From solipsis at pitrou.net  Sat Mar 30 18:14:13 2013
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Sat, 30 Mar 2013 18:14:13 +0100
+Subject: [python-committers] Please don't commit to 3.2 branch anymore
+In-Reply-To: <nad-EEECE5.10131230032013@news.gmane.org>
+References: <kj0t11$o3j$1@ger.gmane.org> <5156DD83.6000503@jcea.es>
+	<20130330141534.44893250BDD@webabinitio.net>
+	<nad-EEECE5.10131230032013@news.gmane.org>
+Message-ID: <1364663653.3447.0.camel@localhost.localdomain>
+
+Le samedi 30 mars 2013 ? 10:13 -0700, Ned Deily a ?crit :
+> In article <20130330141534.44893250BDD at webabinitio.net>,
+>  "R. David Murray" <rdmurray at bitdance.com> wrote:
+> > This is the first time we've been in the situation of having a
+> > security-only branch in Mercurial (other than 2.7, which is its own head).
+> 
+> 3.1?
+
+Or 2.6?
+I also don't know what "which is its own head" is supposed to mean :-)
+
+Regards
+
+Antoine, who isn't his own head (and it shows).
+
+
+
+From g.brandl at gmx.net  Sat Mar 30 18:25:13 2013
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Sat, 30 Mar 2013 18:25:13 +0100
+Subject: [python-committers] Please don't commit to 3.2 branch anymore
+In-Reply-To: <1364663653.3447.0.camel@localhost.localdomain>
+References: <kj0t11$o3j$1@ger.gmane.org> <5156DD83.6000503@jcea.es>
+	<20130330141534.44893250BDD@webabinitio.net>
+	<nad-EEECE5.10131230032013@news.gmane.org>
+	<1364663653.3447.0.camel@localhost.localdomain>
+Message-ID: <kj775f$enl$1@ger.gmane.org>
+
+On 03/30/2013 06:14 PM, Antoine Pitrou wrote:
+> Le samedi 30 mars 2013 ? 10:13 -0700, Ned Deily a ?crit :
+>> In article <20130330141534.44893250BDD at webabinitio.net>,
+>>  "R. David Murray" <rdmurray at bitdance.com> wrote:
+>> > This is the first time we've been in the situation of having a
+>> > security-only branch in Mercurial (other than 2.7, which is its own head).
+>> 
+>> 3.1?
+> 
+> Or 2.6?
+> I also don't know what "which is its own head" is supposed to mean :-)
+
+Whatever :) Policy is, and always was, that security fixes are coordinated
+and committed to old branches by the release manager for that branch.
+
+Georg
+
+
+From tjreedy at udel.edu  Sat Mar 30 18:30:13 2013
+From: tjreedy at udel.edu (Terry Reedy)
+Date: Sat, 30 Mar 2013 13:30:13 -0400
+Subject: [python-committers] Please don't commit to 3.2 branch anymore
+In-Reply-To: <1364663653.3447.0.camel@localhost.localdomain>
+References: <kj0t11$o3j$1@ger.gmane.org> <5156DD83.6000503@jcea.es>
+	<20130330141534.44893250BDD@webabinitio.net>
+	<nad-EEECE5.10131230032013@news.gmane.org>
+	<1364663653.3447.0.camel@localhost.localdomain>
+Message-ID: <51572125.1070908@udel.edu>
+
+On 3/30/2013 1:14 PM, Antoine Pitrou wrote:
+> I also don't know what "which is its own head" is supposed to mean :-)
+
+We don't merge 2.7 into default, leaving 2.7 as a second head.
+
+
+From rdmurray at bitdance.com  Sat Mar 30 20:01:36 2013
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Sat, 30 Mar 2013 15:01:36 -0400
+Subject: [python-committers] Please don't commit to 3.2 branch anymore
+In-Reply-To: <nad-EEECE5.10131230032013@news.gmane.org>
+References: <kj0t11$o3j$1@ger.gmane.org> <5156DD83.6000503@jcea.es>
+	<20130330141534.44893250BDD@webabinitio.net>
+	<nad-EEECE5.10131230032013@news.gmane.org>
+Message-ID: <20130330190136.E15A1250BDD@webabinitio.net>
+
+On Sat, 30 Mar 2013 10:13:13 -0700, Ned Deily <nad at acm.org> wrote:
+> In article <20130330141534.44893250BDD at webabinitio.net>,
+>  "R. David Murray" <rdmurray at bitdance.com> wrote:
+> > This is the first time we've been in the situation of having a
+> > security-only branch in Mercurial (other than 2.7, which is its own head).
+> 
+> 3.1?
+
+Heh, silly me.  The memory is the second thing that goes.
+
+--David
+
+From barry at python.org  Sat Mar 30 22:46:20 2013
+From: barry at python.org (Barry Warsaw)
+Date: Sat, 30 Mar 2013 17:46:20 -0400
+Subject: [python-committers] Please don't commit to 3.2 branch anymore
+In-Reply-To: <1364663653.3447.0.camel@localhost.localdomain>
+References: <kj0t11$o3j$1@ger.gmane.org> <5156DD83.6000503@jcea.es>
+	<20130330141534.44893250BDD@webabinitio.net>
+	<nad-EEECE5.10131230032013@news.gmane.org>
+	<1364663653.3447.0.camel@localhost.localdomain>
+Message-ID: <20130330174620.2e07c093@anarchist>
+
+On Mar 30, 2013, at 06:14 PM, Antoine Pitrou wrote:
+
+>Or 2.6?
+
+Right, but no one should really be committing to 2.6 without at least checking
+with me first.  FWIW, I still merge from 2.6 to 2.7 if appropriate, but given
+that there's only one more 2.6 release planned at all, this is a very rare
+occurrence.
+
+-Barry
+
+From vinay_sajip at yahoo.co.uk  Sun Mar 31 18:27:16 2013
+From: vinay_sajip at yahoo.co.uk (Vinay Sajip)
+Date: Sun, 31 Mar 2013 16:27:16 +0000 (UTC)
+Subject: [python-committers] Please don't commit to 3.2 branch anymore
+References: <kj0t11$o3j$1@ger.gmane.org>
+Message-ID: <loom.20130331T182448-680@post.gmane.org>
+
+Georg Brandl <g.brandl <at> gmx.net> writes:
+
+> with 3.2.4 being the last regular 3.2 maintenance release and the rc out
+> of the door, the 3.2 branch should only be committed to for security
+> releases.  So please don't commit anything there anymore.  To help everyone
+> remember, I've configured the push hook to reject changesets to the 3.2
+> branch.
+
+I recently committed some changes to the logging cookbook, and as per your wishes
+only applied them to 3.3 and default, even though they would be applicable to 3.2
+as well. Is the position on documentation updates the same as for code? Should
+it be?
+
+Regards,
+
+Vinay Sajip
+
+
+From g.brandl at gmx.net  Sun Mar 31 18:42:59 2013
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Sun, 31 Mar 2013 18:42:59 +0200
+Subject: [python-committers] Please don't commit to 3.2 branch anymore
+In-Reply-To: <loom.20130331T182448-680@post.gmane.org>
+References: <kj0t11$o3j$1@ger.gmane.org>
+	<loom.20130331T182448-680@post.gmane.org>
+Message-ID: <kj9p2b$2ri$1@ger.gmane.org>
+
+On 03/31/2013 06:27 PM, Vinay Sajip wrote:
+> Georg Brandl <g.brandl <at> gmx.net> writes:
+> 
+>> with 3.2.4 being the last regular 3.2 maintenance release and the rc out
+>> of the door, the 3.2 branch should only be committed to for security
+>> releases.  So please don't commit anything there anymore.  To help everyone
+>> remember, I've configured the push hook to reject changesets to the 3.2
+>> branch.
+> 
+> I recently committed some changes to the logging cookbook, and as per your wishes
+> only applied them to 3.3 and default, even though they would be applicable to 3.2
+> as well. Is the position on documentation updates the same as for code? Should
+> it be?
+
+Yes, and it should be. We can't maintain old releases indefinitely, having 3
+active branches is quite enough.
+
+Updates to the 3.2 docs wouldn't be released in any form anyway.  As you might
+have noticed, the online 3.2 docs aren't updated daily, but only on releases
+(i.e. the 3.2.4 update will be the last).
+
+Georg
+
+

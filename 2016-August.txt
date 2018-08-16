@@ -1,0 +1,461 @@
+From steve at pearwood.info  Sun Aug  7 22:58:05 2016
+From: steve at pearwood.info (Steven D'Aprano)
+Date: Mon, 8 Aug 2016 12:58:05 +1000
+Subject: [python-committers] Failed to build select
+Message-ID: <20160808025804.GB6608@ando.pearwood.info>
+
+Hi,
+
+I've just re-built the latest Python 3.6 from the repo using this:
+
+PYTHONHOME=/usr/local ./configure --with-pydebug && make -s -j2
+
+
+and I'm getting:
+
+Failed to build these modules:
+select
+
+
+which means I can't run the test suite:
+
+[steve at ando cpython]$ ./python -m test -j3
+Traceback (most recent call last):
+  File "/home/steve/python/python-dev/cpython/Lib/runpy.py", line 184, in _run_module_as_main
+    "__main__", mod_spec)
+  File "/home/steve/python/python-dev/cpython/Lib/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/home/steve/python/python-dev/cpython/Lib/test/__main__.py", line 1, in <module>
+    from test.libregrtest import main
+  File "/home/steve/python/python-dev/cpython/Lib/test/libregrtest/__init__.py", line 4, in <module>
+    from test.libregrtest.cmdline import _parse_args, RESOURCE_NAMES
+  File "/home/steve/python/python-dev/cpython/Lib/test/libregrtest/cmdline.py", line 4, in <module>
+    from test import support
+  File "/home/steve/python/python-dev/cpython/Lib/test/support/__init__.py", line 15, in <module>
+    import logging.handlers
+  File "/home/steve/python/python-dev/cpython/Lib/logging/handlers.py", line 26, in <module>
+    import logging, socket, os, pickle, struct, time, re
+  File "/home/steve/python/python-dev/cpython/Lib/socket.py", line 52, in <module>
+    import os, sys, io, selectors
+  File "/home/steve/python/python-dev/cpython/Lib/selectors.py", line 11, in <module>
+    import select
+ImportError: No module named 'select'
+
+
+
+Is it just me? Any suggestions?
+
+
+
+
+-- 
+Steve
+
+From senthil at uthcode.com  Sun Aug  7 23:51:07 2016
+From: senthil at uthcode.com (Senthil Kumaran)
+Date: Sun, 7 Aug 2016 20:51:07 -0700
+Subject: [python-committers] Failed to build select
+In-Reply-To: <20160808025804.GB6608@ando.pearwood.info>
+References: <20160808025804.GB6608@ando.pearwood.info>
+Message-ID: <CAPOVWORHR4m0__KDGwdtM_5Gkf7zjVcpDx4c3hNrKeQ+EfzK1A@mail.gmail.com>
+
+On Sun, Aug 7, 2016 at 7:58 PM, Steven D'Aprano <steve at pearwood.info> wrote:
+>
+> Is it just me? Any suggestions?
+
+I suspect local to your end.  Try
+
+$ make distclean # and try again?
+
+On Mac OSX Yosemite, I tried to build on the tip and didn't encounter
+this problem.
+
+$ hg pull && hg update && hg log -l 1 | head -n 2
+pulling from ssh://hg at hg.python.org/cpython
+searching for changes
+no changes found
+0 files updated, 0 files merged, 0 files removed, 0 files unresolved
+changeset:   102564:226d6c1485e9
+
+tag:         tip
+
+From nad at python.org  Mon Aug  8 00:17:21 2016
+From: nad at python.org (Ned Deily)
+Date: Mon, 8 Aug 2016 00:17:21 -0400
+Subject: [python-committers] Failed to build select
+In-Reply-To: <CAPOVWORHR4m0__KDGwdtM_5Gkf7zjVcpDx4c3hNrKeQ+EfzK1A@mail.gmail.com>
+References: <20160808025804.GB6608@ando.pearwood.info>
+ <CAPOVWORHR4m0__KDGwdtM_5Gkf7zjVcpDx4c3hNrKeQ+EfzK1A@mail.gmail.com>
+Message-ID: <8DBDE981-842A-4869-A573-9FF75262B4AC@python.org>
+
+On Aug 7, 2016, at 23:51, Senthil Kumaran <senthil at uthcode.com> wrote:
+> 
+> On Sun, Aug 7, 2016 at 7:58 PM, Steven D'Aprano <steve at pearwood.info> wrote:
+>> 
+>> Is it just me? Any suggestions?
+> 
+> I suspect local to your end.  Try
+> 
+> $ make distclean # and try again?
+
+Also, try without setting PYTHONHOME.  I'm not sure what you're trying to do by setting that but you shouldn't need to.
+
+--
+  Ned Deily
+  nad at python.org -- []
+
+
+From steve at pearwood.info  Mon Aug  8 02:45:45 2016
+From: steve at pearwood.info (Steven D'Aprano)
+Date: Mon, 8 Aug 2016 16:45:45 +1000
+Subject: [python-committers] Failed to build select
+In-Reply-To: <8DBDE981-842A-4869-A573-9FF75262B4AC@python.org>
+References: <20160808025804.GB6608@ando.pearwood.info>
+ <CAPOVWORHR4m0__KDGwdtM_5Gkf7zjVcpDx4c3hNrKeQ+EfzK1A@mail.gmail.com>
+ <8DBDE981-842A-4869-A573-9FF75262B4AC@python.org>
+Message-ID: <20160808064544.GA31842@ando.pearwood.info>
+
+On Mon, Aug 08, 2016 at 12:17:21AM -0400, Ned Deily wrote:
+> On Aug 7, 2016, at 23:51, Senthil Kumaran <senthil at uthcode.com> wrote:
+> > 
+> > On Sun, Aug 7, 2016 at 7:58 PM, Steven D'Aprano <steve at pearwood.info> wrote:
+> >> 
+> >> Is it just me? Any suggestions?
+> > 
+> > I suspect local to your end.  Try
+> > 
+> > $ make distclean # and try again?
+> 
+> Also, try without setting PYTHONHOME.  I'm not sure what you're trying to do by setting that but you shouldn't need to.
+
+I didn't think I needed to either, but when I try without it, I get:
+
+Could not find platform dependent libraries <exec_prefix>
+Consider setting $PYTHONHOME to <prefix>[:<exec_prefix>]
+Could not find platform dependent libraries <exec_prefix>
+Consider setting $PYTHONHOME to <prefix>[:<exec_prefix>]
+
+
+I tried make distclean and building again, and I get:
+
+
+Could not find platform dependent libraries <exec_prefix>
+Consider setting $PYTHONHOME to <prefix>[:<exec_prefix>]
+Could not find platform dependent libraries <exec_prefix>
+Consider setting $PYTHONHOME to <prefix>[:<exec_prefix>]
+/home/steve/python/python-dev/cpython/Modules/selectmodule.c: In function ?PyInit_select?:
+/home/steve/python/python-dev/cpython/Modules/selectmodule.c:2484: error: ?EPOLLRDHUP? undeclared (first use in this function)
+/home/steve/python/python-dev/cpython/Modules/selectmodule.c:2484: error: (Each undeclared identifier is reported only once
+/home/steve/python/python-dev/cpython/Modules/selectmodule.c:2484: error: for each function it appears in.)
+
+Failed to build these modules:
+select                                                         
+
+
+
+
+-- 
+Steve
+
+From chris.jerdonek at gmail.com  Mon Aug  8 03:25:15 2016
+From: chris.jerdonek at gmail.com (Chris Jerdonek)
+Date: Mon, 8 Aug 2016 00:25:15 -0700
+Subject: [python-committers] Failed to build select
+In-Reply-To: <20160808064544.GA31842@ando.pearwood.info>
+References: <20160808025804.GB6608@ando.pearwood.info>
+ <CAPOVWORHR4m0__KDGwdtM_5Gkf7zjVcpDx4c3hNrKeQ+EfzK1A@mail.gmail.com>
+ <8DBDE981-842A-4869-A573-9FF75262B4AC@python.org>
+ <20160808064544.GA31842@ando.pearwood.info>
+Message-ID: <CAOTb1wfj3YT5xhb5isefsp7s4Bx3R7rq_0vNVofGCHxspwTqNw@mail.gmail.com>
+
+On Sun, Aug 7, 2016 at 11:45 PM, Steven D'Aprano <steve at pearwood.info> wrote:
+> On Mon, Aug 08, 2016 at 12:17:21AM -0400, Ned Deily wrote:
+>> Also, try without setting PYTHONHOME.  I'm not sure what you're trying to do by setting that but you shouldn't need to.
+>
+> I didn't think I needed to either, but when I try without it, I get:
+>
+> Could not find platform dependent libraries <exec_prefix>
+> Consider setting $PYTHONHOME to <prefix>[:<exec_prefix>]
+> Could not find platform dependent libraries <exec_prefix>
+> Consider setting $PYTHONHOME to <prefix>[:<exec_prefix>]
+
+FWIW, I would be interested in learning more about the above warning
+(its significance, how it can be addressed, whether it can be ignored,
+etc). I also get this message when installing 3.5.2 from source on
+Ubuntu 14.04.
+
+--Chris
+
+From berker.peksag at gmail.com  Mon Aug  8 06:41:18 2016
+From: berker.peksag at gmail.com (=?UTF-8?Q?Berker_Peksa=C4=9F?=)
+Date: Mon, 8 Aug 2016 13:41:18 +0300
+Subject: [python-committers] Failed to build select
+In-Reply-To: <20160808064544.GA31842@ando.pearwood.info>
+References: <20160808025804.GB6608@ando.pearwood.info>
+ <CAPOVWORHR4m0__KDGwdtM_5Gkf7zjVcpDx4c3hNrKeQ+EfzK1A@mail.gmail.com>
+ <8DBDE981-842A-4869-A573-9FF75262B4AC@python.org>
+ <20160808064544.GA31842@ando.pearwood.info>
+Message-ID: <CAF4280+RZH6V0VqwsGM19aTk+0FHGnDnAOh41WOk2LSmOjBFCw@mail.gmail.com>
+
+On Mon, Aug 8, 2016 at 9:45 AM, Steven D'Aprano <steve at pearwood.info> wrote:
+> I tried make distclean and building again, and I get:
+>
+>
+> Could not find platform dependent libraries <exec_prefix>
+> Consider setting $PYTHONHOME to <prefix>[:<exec_prefix>]
+> Could not find platform dependent libraries <exec_prefix>
+> Consider setting $PYTHONHOME to <prefix>[:<exec_prefix>]
+> /home/steve/python/python-dev/cpython/Modules/selectmodule.c: In function ?PyInit_select?:
+> /home/steve/python/python-dev/cpython/Modules/selectmodule.c:2484: error: ?EPOLLRDHUP? undeclared (first use in this function)
+> /home/steve/python/python-dev/cpython/Modules/selectmodule.c:2484: error: (Each undeclared identifier is reported only once
+> /home/steve/python/python-dev/cpython/Modules/selectmodule.c:2484: error: for each function it appears in.)
+
+Hi Steven,
+
+Do you have an old version of Kernel? I think
+https://hg.python.org/cpython/rev/831ce2a717eb should fix this.
+
+--Berker
+
+From steve at pearwood.info  Mon Aug  8 10:12:49 2016
+From: steve at pearwood.info (Steven D'Aprano)
+Date: Tue, 9 Aug 2016 00:12:49 +1000
+Subject: [python-committers] Failed to build select
+In-Reply-To: <CAF4280+RZH6V0VqwsGM19aTk+0FHGnDnAOh41WOk2LSmOjBFCw@mail.gmail.com>
+References: <20160808025804.GB6608@ando.pearwood.info>
+ <CAPOVWORHR4m0__KDGwdtM_5Gkf7zjVcpDx4c3hNrKeQ+EfzK1A@mail.gmail.com>
+ <8DBDE981-842A-4869-A573-9FF75262B4AC@python.org>
+ <20160808064544.GA31842@ando.pearwood.info>
+ <CAF4280+RZH6V0VqwsGM19aTk+0FHGnDnAOh41WOk2LSmOjBFCw@mail.gmail.com>
+Message-ID: <20160808141248.GC6608@ando.pearwood.info>
+
+On Mon, Aug 08, 2016 at 01:41:18PM +0300, Berker Peksa? wrote:
+
+> > /home/steve/python/python-dev/cpython/Modules/selectmodule.c: In function ?PyInit_select?:
+> > /home/steve/python/python-dev/cpython/Modules/selectmodule.c:2484: error: ?EPOLLRDHUP? undeclared (first use in this function)
+> > /home/steve/python/python-dev/cpython/Modules/selectmodule.c:2484: error: (Each undeclared identifier is reported only once
+> > /home/steve/python/python-dev/cpython/Modules/selectmodule.c:2484: error: for each function it appears in.)
+> 
+> Hi Steven,
+> 
+> Do you have an old version of Kernel? I think
+> https://hg.python.org/cpython/rev/831ce2a717eb should fix this.
+
+This seems to have fixed it. Thanks for the fast work!
+
+
+
+-- 
+Steve
+
+From nad at python.org  Sat Aug 13 15:24:13 2016
+From: nad at python.org (Ned Deily)
+Date: Sat, 13 Aug 2016 15:24:13 -0400
+Subject: [python-committers] Reminder: 3.6.0a4 snapshot 2016-08-15 12:00 UTC
+Message-ID: <58AB682A-6ADE-4BF8-8B8E-D69D9B48C0BE@python.org>
+
+The next and final alpha snapshot planned for the 3.6 release cycle is coming up soon.  Keep in mind that the feature development phase of the 3.6 release cycle is nearing an end.  The next major milestone is a big one: the first beta shapshot, 3.6.0b1, scheduled for Monday, 09-12, a little over four weeks from now.  That will mark the end of the unrestricted feature development phase and the start of the bugfix/stabilization/testing phase.  All feature code for 3.6.0 should be checked in by b1.  During the beta phase, the emphasis will be on fixes for new features, fixes for all categories of bugs and regressions, and documentation fixes/updates.  After b1, new features should be targeted for 3.7; more details will be forthcoming by b1.
+
+As a reminder, alpha releases are intended to make it easier for the wider community to test the current state of new features and bug fixes for an upcoming Python release as a whole and for us to test the release process.  During the alpha phase, features may be added, modified, or deleted up until the start of the beta phase.  Alpha users beware!
+
+To recap:
+
+2016-08-15 ~12:00 UTC: code snapshot for 3.6.0 alpha 4.
+
+now to 2016-09-12: Alpha phase (unrestricted feature development)
+
+2016-09-12: 3.6.0 feature code freeze, 3.7.0 feature development begins
+
+2016-09-12 to 2016-12-04: 3.6.0 beta phase (bug and regression fixes, no new features)
+
+2016-12-04 3.6.0 release candidate 1 (3.6.0 code freeze)
+
+2016-12-16 3.6.0 release (3.6.0rc1 plus, if necessary, any dire emergency fixes)
+
+
+https://www.python.org/dev/peps/pep-0494/
+
+--Ne?
+
+--
+  Ned Deily
+  nad at python.org -- []
+
+
+From stefan at bytereef.org  Sun Aug 14 07:28:10 2016
+From: stefan at bytereef.org (Stefan Krah)
+Date: Sun, 14 Aug 2016 13:28:10 +0200
+Subject: [python-committers] PVS-Studio licences
+Message-ID: <20160814112810.GA3004@bytereef.org>
+
+
+Hello,
+
+as many here know, the recent comparison of Python/Ruby w.r.t. static analysis
+done by viva64.com (PVS-Studio) accidentally included the external packages that
+are automatically downloaded in the scripted build (like OpenSSL).
+
+
+I've notified viva64.com, and they were nice enough to do a second analysis,
+this time done with the Linux version of PVS-Studio:
+
+http://www.viva64.com/en/b/0418/
+
+
+They found another issue. :)
+
+
+Andrey Karpov has offered a key for PVS-Studio for the Python Team (python.org),
+valid for half a year.  It's a *single shared key*:  We have to keep it secret
+and it's obviously only for Python core development.
+
+
+If you want it, mail me privately -- similar to the MSDN licences.
+
+
+Stefan Krah
+
+
+
+
+From storchaka at gmail.com  Sun Aug 14 07:56:59 2016
+From: storchaka at gmail.com (Serhiy Storchaka)
+Date: Sun, 14 Aug 2016 14:56:59 +0300
+Subject: [python-committers] PVS-Studio licences
+In-Reply-To: <20160814112810.GA3004@bytereef.org>
+References: <20160814112810.GA3004@bytereef.org>
+Message-ID: <6753304.PF9ngXmvsU@xarax>
+
+??????, 14 ?????? 2016 ?. 13:28:10 EEST Stefan Krah ????????:
+> I've notified viva64.com, and they were nice enough to do a second analysis,
+> this time done with the Linux version of PVS-Studio:
+> 
+> http://www.viva64.com/en/b/0418/
+> 
+> 
+> They found another issue. :)
+
+What is this issue? I see only one example in the article, it was reported in 
+the previous article (PVS-Studio found three confirmed bugs, two of them 
+already are fixed, a patch for the last one waits a review).
+
+
+From stefan at bytereef.org  Sun Aug 14 08:25:04 2016
+From: stefan at bytereef.org (Stefan Krah)
+Date: Sun, 14 Aug 2016 14:25:04 +0200
+Subject: [python-committers] PVS-Studio licences
+In-Reply-To: <20160814112810.GA3004@bytereef.org>
+References: <20160814112810.GA3004@bytereef.org>
+Message-ID: <20160814122504.GA4128@bytereef.org>
+
+
+As Serhiy pointed out, there is no new issue: A diff exists in #27587.
+
+
+From nad at python.org  Mon Aug 15 22:59:33 2016
+From: nad at python.org (Ned Deily)
+Date: Mon, 15 Aug 2016 22:59:33 -0400
+Subject: [python-committers] {RELEASE] Python 3.6.0a4 is now available
+Message-ID: <24931ad1-1bb1-0894-c2f5-4c8835cab319@python.org>
+
+On behalf of the Python development community and the Python 3.6 release
+team, I'm happy to announce the availability of Python 3.6.0a4. 3.6.0a4
+is the last of four planned alpha releases of Python 3.6, the next major
+release of Python. During the alpha phase, Python 3.6 remains under
+heavy development: additional features will be added and existing
+features may be modified or deleted. Please keep in mind that this is a
+preview release and its use is not recommended for production environments.
+
+You can find Python 3.6.0a4 here:
+
+https://www.python.org/downloads/release/python-360a4/
+
+The next planned release of Python 3.6 will be 3.6.0b1, currently
+scheduled for 2016-09-12. 3.6.0b1 will mark the beginning of the beta
+phase of Python 3.6; at that time, feature development for 3.6 will be
+complete and the emphasis will change to fixing bugs and regressions.
+More information about the release schedule can be found here:
+
+https://www.python.org/dev/peps/pep-0494/
+
+--Ned
+
+--
+  Ned Deily
+  nad at python.org -- []
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 801 bytes
+Desc: OpenPGP digital signature
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20160815/4b10a90e/attachment.sig>
+
+From dickinsm at gmail.com  Thu Aug 18 12:53:43 2016
+From: dickinsm at gmail.com (Mark Dickinson)
+Date: Thu, 18 Aug 2016 17:53:43 +0100
+Subject: [python-committers] Restoring hg.python.org access?
+Message-ID: <CAAu3qLXymqACPi59X3qs_2GYgq9NjS38LkTSis8xRxsbN8FR1Q@mail.gmail.com>
+
+Hi all,
+
+My .ssh key became inactive about a year ago, and I'm looking to
+reactivate it; there are some bugfixes that I'd quite like to get in
+before Python 3.6.
+
+I've created a new ED25519 key pair, and I emailed the public key to
+hgaccounts at python.org a few days ago. I didn't get any response, so
+I'm not sure if that email went into a black hole or not. Is there
+something else I need to do, or is it just a matter of being patient?
+:-)
+
+Thanks,
+
+Mark
+
+From dickinsm at gmail.com  Thu Aug 18 13:55:03 2016
+From: dickinsm at gmail.com (Mark Dickinson)
+Date: Thu, 18 Aug 2016 18:55:03 +0100
+Subject: [python-committers] Restoring hg.python.org access?
+In-Reply-To: <CAP1=2W503cmV4TxV2+xUuJDe=oOzNYgQjTgPU9WVY4bmagXxZA@mail.gmail.com>
+References: <CAAu3qLXymqACPi59X3qs_2GYgq9NjS38LkTSis8xRxsbN8FR1Q@mail.gmail.com>
+ <CAP1=2W503cmV4TxV2+xUuJDe=oOzNYgQjTgPU9WVY4bmagXxZA@mail.gmail.com>
+Message-ID: <CAAu3qLUXwATeHBmCyNWhzkD74DAAB=2gTDn4=hugk-QXe2b2hg@mail.gmail.com>
+
+Thanks, Brett! Much appreciated.
+
+Now I guess I have no excuse not to get those bugfixes in...
+
+Mark
+
+From brett at python.org  Thu Aug 18 13:39:54 2016
+From: brett at python.org (Brett Cannon)
+Date: Thu, 18 Aug 2016 17:39:54 +0000
+Subject: [python-committers] Restoring hg.python.org access?
+In-Reply-To: <CAAu3qLXymqACPi59X3qs_2GYgq9NjS38LkTSis8xRxsbN8FR1Q@mail.gmail.com>
+References: <CAAu3qLXymqACPi59X3qs_2GYgq9NjS38LkTSis8xRxsbN8FR1Q@mail.gmail.com>
+Message-ID: <CAP1=2W503cmV4TxV2+xUuJDe=oOzNYgQjTgPU9WVY4bmagXxZA@mail.gmail.com>
+
+On Thu, 18 Aug 2016 at 09:54 Mark Dickinson <dickinsm at gmail.com> wrote:
+
+> Hi all,
+>
+> My .ssh key became inactive about a year ago, and I'm looking to
+> reactivate it; there are some bugfixes that I'd quite like to get in
+> before Python 3.6.
+>
+> I've created a new ED25519 key pair, and I emailed the public key to
+> hgaccounts at python.org a few days ago. I didn't get any response, so
+> I'm not sure if that email went into a black hole or not. Is there
+> something else I need to do, or is it just a matter of being patient?
+> :-)
+>
+
+I actually replied the same day you sent in your key that I had updated it,
+but it looks like my email never reached you. So it's been done, there's
+nothing else you need to do, and email can be frustrating. :/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20160818/f9595bd0/attachment.html>
+

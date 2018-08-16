@@ -1,0 +1,680 @@
+From brett at python.org  Mon Apr  4 19:45:30 2016
+From: brett at python.org (Brett Cannon)
+Date: Mon, 04 Apr 2016 23:45:30 +0000
+Subject: [python-committers] Please add your GitHub username to your
+ bugs.python.org account
+Message-ID: <CAP1=2W50JpF8G1gHEqGtQF=ZT-+W2EFC3yWdFZypKcqbf6uBRQ@mail.gmail.com>
+
+If you go to your bugs.python.org account you will notice there is now a
+"GitHub Name" field. Please fill that in with your GitHub username sometime
+this month. You can see who has already filled in their username by going
+to
+http://bugs.python.org/user?iscommitter=1&@action=search&@sort=username&@pagesize=300
+ .
+
+Let's aim to have those fields filled in by the end of the month? It's not
+a huge deal if you don't get to it in time but it makes my life easier if I
+can add everyone to the python-dev -- or maybe python-commiters; haven't
+chosen the name yet -- team on GitHub at once instead of piecemeal over
+time. I'm hoping to get devinabox, benchmarks, peps, and devguide
+repositories moved to GitHub by PyCon US, hence why I'm asking people do
+this now instead of later.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20160404/64d6ac1a/attachment.html>
+
+From ncoghlan at gmail.com  Mon Apr  4 21:29:02 2016
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Tue, 5 Apr 2016 11:29:02 +1000
+Subject: [python-committers] Please add your GitHub username to your
+ bugs.python.org account
+In-Reply-To: <CAP1=2W50JpF8G1gHEqGtQF=ZT-+W2EFC3yWdFZypKcqbf6uBRQ@mail.gmail.com>
+References: <CAP1=2W50JpF8G1gHEqGtQF=ZT-+W2EFC3yWdFZypKcqbf6uBRQ@mail.gmail.com>
+Message-ID: <CADiSq7fGH+BMzpdt_pZds+He2jD9GTXWO1KPzksFP59TBAtAfQ@mail.gmail.com>
+
+On 5 April 2016 at 09:45, Brett Cannon <brett at python.org> wrote:
+> If you go to your bugs.python.org account you will notice there is now a
+> "GitHub Name" field. Please fill that in with your GitHub username sometime
+> this month. You can see who has already filled in their username by going to
+> http://bugs.python.org/user?iscommitter=1&@action=search&@sort=username&@pagesize=300
+
+Pre-empting a possible data quality problem: while everyone has left
+it out so far, at some point we may start to see entries with the
+leading "@" included in the GitHub username field. The GitHub API
+doesn't strip that automatically, so we may need to clean it either in
+Roundup directly or by stripping it in the bots when they retrieve the
+username information from Roundup.
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+
+From brett at python.org  Tue Apr  5 12:12:37 2016
+From: brett at python.org (Brett Cannon)
+Date: Tue, 05 Apr 2016 16:12:37 +0000
+Subject: [python-committers] Please add your GitHub username to your
+ bugs.python.org account
+In-Reply-To: <CADiSq7fGH+BMzpdt_pZds+He2jD9GTXWO1KPzksFP59TBAtAfQ@mail.gmail.com>
+References: <CAP1=2W50JpF8G1gHEqGtQF=ZT-+W2EFC3yWdFZypKcqbf6uBRQ@mail.gmail.com>
+ <CADiSq7fGH+BMzpdt_pZds+He2jD9GTXWO1KPzksFP59TBAtAfQ@mail.gmail.com>
+Message-ID: <CAP1=2W5ouPGrDQv813GLgzLOhV8AuWEu68C99tYs-UGDfNFWHA@mail.gmail.com>
+
+On Mon, 4 Apr 2016 at 18:29 Nick Coghlan <ncoghlan at gmail.com> wrote:
+
+> On 5 April 2016 at 09:45, Brett Cannon <brett at python.org> wrote:
+> > If you go to your bugs.python.org account you will notice there is now a
+> > "GitHub Name" field. Please fill that in with your GitHub username
+> sometime
+> > this month. You can see who has already filled in their username by
+> going to
+> >
+> http://bugs.python.org/user?iscommitter=1&@action=search&@sort=username&@pagesize=300
+>
+> Pre-empting a possible data quality problem: while everyone has left
+> it out so far, at some point we may start to see entries with the
+> leading "@" included in the GitHub username field. The GitHub API
+> doesn't strip that automatically, so we may need to clean it either in
+> Roundup directly or by stripping it in the bots when they retrieve the
+> username information from Roundup.
+>
+
+It won't work on the bot end without making redundant calls with the '@'
+sign when a GitHub username isn't found since we query based on GitHub
+username. As for the Roundup-side, it can probably be tweaked to error if
+an '@' sign is entered.
+
+But I suspect it won't happen very often -- I personally don't see people
+using the '@' sign prepended to their GitHub username when simply stating
+it really ever -- and when it does at least in the case of the CLA bot it
+will simply say it can't find a signed CLA and we can work with the person
+directly to resolve it.
+
+-Brett
+
+
+>
+> Cheers,
+> Nick.
+>
+> --
+> Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20160405/51107df7/attachment.html>
+
+From larry at hastings.org  Wed Apr  6 15:42:44 2016
+From: larry at hastings.org (Larry Hastings)
+Date: Wed, 6 Apr 2016 12:42:44 -0700
+Subject: [python-committers] Less than a week left! (was Re: Call For
+ Participants For The 2016 Python Language Summit)
+In-Reply-To: <56D63B6A.6040805@hastings.org>
+References: <56D63B6A.6040805@hastings.org>
+Message-ID: <570566B4.9020601@hastings.org>
+
+
+
+As I mentioned in the original announcement, we'll close Language Summit 
+invite signups next Tuesday, April 12th.  Signing up in advance makes 
+planning much easier on us Language Summit organizers, and signing up 
+through our web form makes it easiest on everybody.  If you plan to 
+attend, please fill out the form in the next few days!  I promise it's 
+short, clear, and easy.  It'll take you only a few minutes, honest.
+
+
+And remember: if you're a core developer, your invitation is guaranteed,
+
+
+[BL]arry
+
+On 03/01/2016 05:01 PM, Larry Hastings wrote:
+> Signups are open as of now, and will remain open for six weeks, 
+> closing April 12th.  But it'll only take you a minute to fill out the 
+> form, so you might as well do it right now!  Signing up sooner will 
+> make our lives easier, too.
+>
+> You'll find a link to the signup form on the summit's official web 
+> page, here:
+>
+>     https://us.pycon.org/2016/events/langsummit/
+>
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20160406/5c5f971f/attachment.html>
+
+From larry at hastings.org  Tue Apr 12 05:32:20 2016
+From: larry at hastings.org (Larry Hastings)
+Date: Tue, 12 Apr 2016 02:32:20 -0700
+Subject: [python-committers] Today's the last day for Language Summit invite
+ requests
+In-Reply-To: <570566B4.9020601@hastings.org>
+References: <56D63B6A.6040805@hastings.org> <570566B4.9020601@hastings.org>
+Message-ID: <570CC0A4.3090904@hastings.org>
+
+
+
+Please sign up today if you want to attend.  We want to start planning 
+the schedule and other details and it really helps to know who's coming 
+and what they want to talk about as early as possible.
+
+    https://us.pycon.org/2016/events/langsummit/
+
+
+Thanks,
+
+[BL]arry
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20160412/9c1063fe/attachment.html>
+
+From larry at hastings.org  Thu Apr 21 13:59:35 2016
+From: larry at hastings.org (Larry Hastings)
+Date: Thu, 21 Apr 2016 10:59:35 -0700
+Subject: [python-committers] All Language Summit invites have been sent!
+Message-ID: <57191507.6050409@hastings.org>
+
+
+
+Barry and I have sent out notices to everyone who requested an 
+invite--check the inbox for the email address you supplied us with!
+
+And boy are our fingers tired,
+
+
+[BL]arry
+
+From brett at python.org  Fri Apr 22 19:13:51 2016
+From: brett at python.org (Brett Cannon)
+Date: Fri, 22 Apr 2016 23:13:51 +0000
+Subject: [python-committers] Please add your GitHub username to your
+ bugs.python.org account
+In-Reply-To: <CAP1=2W50JpF8G1gHEqGtQF=ZT-+W2EFC3yWdFZypKcqbf6uBRQ@mail.gmail.com>
+References: <CAP1=2W50JpF8G1gHEqGtQF=ZT-+W2EFC3yWdFZypKcqbf6uBRQ@mail.gmail.com>
+Message-ID: <CAP1=2W6Ddc21uiu=yTcgLS1xQqA0L4qyN_CR4Xk-7kjdehAQ5A@mail.gmail.com>
+
+Just a quick reminder for folks to please fill in their GitHub username on
+bugs.python.org by May 1 if possible to make my and your life easier.
+
+We are on track to move our first repository to GitHub before PyCon US
+(devinabox to start, hopefully another one like peps and/or the devguide as
+well shortly thereafter if there's time), so it will soon not be a
+hypothetical thing to want to have GitHub access.
+
+On Mon, 4 Apr 2016 at 16:45 Brett Cannon <brett at python.org> wrote:
+
+> If you go to your bugs.python.org account you will notice there is now a
+> "GitHub Name" field. Please fill that in with your GitHub username sometime
+> this month. You can see who has already filled in their username by going
+> to
+> http://bugs.python.org/user?iscommitter=1&@action=search&@sort=username&@pagesize=300
+>  .
+>
+> Let's aim to have those fields filled in by the end of the month? It's not
+> a huge deal if you don't get to it in time but it makes my life easier if I
+> can add everyone to the python-dev -- or maybe python-committers; haven't
+> chosen the name yet -- team on GitHub at once instead of piecemeal over
+> time. I'm hoping to get devinabox, benchmarks, peps, and devguide
+> repositories moved to GitHub by PyCon US, hence why I'm asking people do
+> this now instead of later.
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20160422/94f731be/attachment.html>
+
+From ncoghlan at gmail.com  Sun Apr 24 00:49:52 2016
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Sun, 24 Apr 2016 14:49:52 +1000
+Subject: [python-committers] Tweaks to the Motivations & Affiliations page
+Message-ID: <CADiSq7fnJ0bdk+wZpaO2_Rs6VAQCeKtbDW8MU0cgBQ4K7=x=1g@mail.gmail.com>
+
+Hi folks,
+
+I just pushed an update to the Motivations & Affiliations page in the
+Developer Guide: https://hg.python.org/devguide/rev/9a9f32fcb794
+
+That's mainly based on a recent conversation with Brett, where he pointed
+out:
+
+- not everyone is going to have a concise personal bio handy, but might
+still be happy to provide relevant employer info
+- I'd never explicitly posted here to say the page was no longer
+experimental
+
+The update aims to address both of those observations.
+
+For the first one, I changed the wording of both the overall page and the
+guidelines for making new entries to say that "I work for <company> in
+<country/continent>" is still useful information to share if folks are
+comfortable doing so.
+
+So, if you work for a CPython redistributor, or a large corporate or
+institutional user of CPython, and are willing to share that info, I
+encourage you to clone the devguide repo and update the revised page.
+
+The reason for that is that professional affiliations give both the PSF and
+other organisations with a vested interest in CPython's future a better
+sense of:
+
+- the diversity of use cases encountered directly by current core developers
+- the diversity of funding supporting the availability of current core
+developers (as even when employers aren't funding contributions directly,
+it's our paid work and other sources of income that provide us with the
+free time needed for volunteer work like contributing to CPython ourselves,
+as well as mentoring other contributors)
+
+The request for regional information primarily relates to the "diversity of
+use cases" representation question - the world's a complex place, and
+there's no substitute for actually living and working in a region when it
+comes to understanding the needs and interests of that region.
+
+For the second one, while I do still consider this page part of an
+experiment, the page itself isn't likely to go away at this point. Instead,
+I consider the experiment to be a larger one around open source supply
+chain management and what happens if you take sustaining engineering
+information for a project that could (at least in theory) be obtained by
+mining publicly available information, and instead ask contributors if
+they're willing to explicitly volunteer that data in a central location.
+
+Regards,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20160424/5f474c0f/attachment.html>
+
+From victor.stinner at gmail.com  Sun Apr 24 03:30:50 2016
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Sun, 24 Apr 2016 09:30:50 +0200
+Subject: [python-committers] Tweaks to the Motivations & Affiliations
+ page
+In-Reply-To: <CADiSq7fnJ0bdk+wZpaO2_Rs6VAQCeKtbDW8MU0cgBQ4K7=x=1g@mail.gmail.com>
+References: <CADiSq7fnJ0bdk+wZpaO2_Rs6VAQCeKtbDW8MU0cgBQ4K7=x=1g@mail.gmail.com>
+Message-ID: <CAMpsgwY-6OCCzvYz9dpBFaMSUec8BmukSbAUTdpQ+Cwzbtdf3g@mail.gmail.com>
+
+I added myself to mention that my employer Red Hat gives me time to
+work on CPython.
+
+Victor
+
+2016-04-24 6:49 GMT+02:00 Nick Coghlan <ncoghlan at gmail.com>:
+> Hi folks,
+>
+> I just pushed an update to the Motivations & Affiliations page in the
+> Developer Guide: https://hg.python.org/devguide/rev/9a9f32fcb794
+>
+> That's mainly based on a recent conversation with Brett, where he pointed
+> out:
+>
+> - not everyone is going to have a concise personal bio handy, but might
+> still be happy to provide relevant employer info
+> - I'd never explicitly posted here to say the page was no longer
+> experimental
+>
+> The update aims to address both of those observations.
+>
+> For the first one, I changed the wording of both the overall page and the
+> guidelines for making new entries to say that "I work for <company> in
+> <country/continent>" is still useful information to share if folks are
+> comfortable doing so.
+>
+> So, if you work for a CPython redistributor, or a large corporate or
+> institutional user of CPython, and are willing to share that info, I
+> encourage you to clone the devguide repo and update the revised page.
+>
+> The reason for that is that professional affiliations give both the PSF and
+> other organisations with a vested interest in CPython's future a better
+> sense of:
+>
+> - the diversity of use cases encountered directly by current core developers
+> - the diversity of funding supporting the availability of current core
+> developers (as even when employers aren't funding contributions directly,
+> it's our paid work and other sources of income that provide us with the free
+> time needed for volunteer work like contributing to CPython ourselves, as
+> well as mentoring other contributors)
+>
+> The request for regional information primarily relates to the "diversity of
+> use cases" representation question - the world's a complex place, and
+> there's no substitute for actually living and working in a region when it
+> comes to understanding the needs and interests of that region.
+>
+> For the second one, while I do still consider this page part of an
+> experiment, the page itself isn't likely to go away at this point. Instead,
+> I consider the experiment to be a larger one around open source supply chain
+> management and what happens if you take sustaining engineering information
+> for a project that could (at least in theory) be obtained by mining publicly
+> available information, and instead ask contributors if they're willing to
+> explicitly volunteer that data in a central location.
+>
+> Regards,
+> Nick.
+>
+> --
+> Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+
+From larry at hastings.org  Thu Apr 28 21:35:57 2016
+From: larry at hastings.org (Larry Hastings)
+Date: Thu, 28 Apr 2016 18:35:57 -0700
+Subject: [python-committers] Release schedule for Python 3.5.2
+Message-ID: <5722BA7D.2020008@hastings.org>
+
+
+
+I've been holding off on the hope that one or two bugs would get fixes.  
+But those seem to have stalled.  So I think it's time that we pushed out 
+a 3.5.2.  Maybe announcing a schedule will light a fire under some rumps.
+
+I put "Spring 2016" as the release date for 3.5.2 on the 3.5 release 
+schedule PEP.  Officially, spring ends--and summer begins--Tuesday June 
+21 at 12:24am EDT.  However on the off chance that the PyCon sprints are 
+productive, I want to hold off until those are done, and maybe give it a 
+couple extra days for the dust to settle.  Last sprint day is Sunday 
+June 5th.  So, bottom line, the RC will happen during spring, but the 
+final release will technically be during summer.
+
+3.5.2 RC 1 - tag Sat June 11, release Sun June 12
+3.5.2 Final - tag Sat June 25, release Sun June 26
+
+Any problems with that?  Speak up now.
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20160428/d94f87b2/attachment.html>
+
+From larry at hastings.org  Fri Apr 29 18:46:34 2016
+From: larry at hastings.org (Larry Hastings)
+Date: Fri, 29 Apr 2016 15:46:34 -0700
+Subject: [python-committers] 2016 Python Language Summit: Can we get
+ volunteers to talk about pathlib?
+Message-ID: <5723E44A.4030504@hastings.org>
+
+
+
+This month there were over 350 emails in python-dev with the word 
+"pathlib" in the title.  Yet, despite this massive online debate, nobody 
+volunteered to present about pathlib at the language summit.
+
+Based on Jake Edge's summary of the conversation from LWN.net we've 
+boiled down the debate to these six basic positions.
+
+ 1. We should keep pathlib in the standard library.
+ 2. We should remove pathlib from the standard library.
+ 3. The Path object should inherit from str.
+ 4. The Path object shouldn't inherit from str; it should continue to be
+    its own unrelated type.
+ 5. We need a new "fspath" protocol.
+ 6. We don't need an "fspath" protocol.
+
+We'd like some volunteers to speak on each of these positions. Speakers 
+should plan for a maximum of 2 minutes per position.  After the six 
+positions are presented at the summit we'll open the floor for debate.
+
+You're encouraged to volunteer to present more than one!  For example, 
+if you think we need the protocol, you're probably pro- keeping the 
+object and anti-inherit from str.  (Brett, we're looking at /you.)/
+
+Please note, volunteers should be people who are *already invited to the 
+summit*.  We can't invite additional people just for this--and we're 
+basically full anyway.
+
+
+Thanks,
+
+
+[BL]arry
+
+p.s. In case you're thinking "That's not fair!  I can't make it to the 
+summit, I don't want to get left out of the decision!"  We don't propose 
+to make any binding decisions at the summit--unless the BDFL makes 
+pronouncements there of course.  This discussion is intended as a quick 
+face-to-face debate on the topic, both to inform the delegates at the 
+summit, and to possibly find a rough consensus.
+
+p.p.s. If we mischaracterized the debate, and the positions above aren't 
+a good distillation, by all means follow up and make a 
+counter-proposal!  We're listening.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20160429/d043aa90/attachment.html>
+
+From guido at python.org  Fri Apr 29 18:53:07 2016
+From: guido at python.org (Guido van Rossum)
+Date: Fri, 29 Apr 2016 15:53:07 -0700
+Subject: [python-committers] 2016 Python Language Summit: Can we get
+ volunteers to talk about pathlib?
+In-Reply-To: <5723E44A.4030504@hastings.org>
+References: <5723E44A.4030504@hastings.org>
+Message-ID: <CAP7+vJJp5QSu2vsxWr1Lr+0MEoxATfzn0nYsKmLwCioNW5r_1Q@mail.gmail.com>
+
+The primary debate should be about fspath or not. Inheriting from str is
+off the table while I'm BDFL. Removing pathlib from the stdlib would only
+be on the table if we can't reach agreement on fspath.
+
+On Fri, Apr 29, 2016 at 3:46 PM, Larry Hastings <larry at hastings.org> wrote:
+
+>
+>
+> This month there were over 350 emails in python-dev with the word
+> "pathlib" in the title.  Yet, despite this massive online debate, nobody
+> volunteered to present about pathlib at the language summit.
+>
+> Based on Jake Edge's summary of the conversation from LWN.net we've boiled
+> down the debate to these six basic positions.
+>
+>    1. We should keep pathlib in the standard library.
+>    2. We should remove pathlib from the standard library.
+>    3. The Path object should inherit from str.
+>    4. The Path object shouldn't inherit from str; it should continue to
+>    be its own unrelated type.
+>    5. We need a new "fspath" protocol.
+>    6. We don't need an "fspath" protocol.
+>
+> We'd like some volunteers to speak on each of these positions.  Speakers
+> should plan for a maximum of 2 minutes per position.  After the six
+> positions are presented at the summit we'll open the floor for debate.
+>
+> You're encouraged to volunteer to present more than one!  For example, if
+> you think we need the protocol, you're probably pro- keeping the object and
+> anti-inherit from str.  (Brett, we're looking at *you.)*
+>
+> Please note, volunteers should be people who are *already invited to the
+> summit*.  We can't invite additional people just for this--and we're
+> basically full anyway.
+>
+>
+> Thanks,
+>
+>
+> [BL]arry
+>
+> p.s. In case you're thinking "That's not fair!  I can't make it to the
+> summit, I don't want to get left out of the decision!"  We don't propose to
+> make any binding decisions at the summit--unless the BDFL makes
+> pronouncements there of course.  This discussion is intended as a quick
+> face-to-face debate on the topic, both to inform the delegates at the
+> summit, and to possibly find a rough consensus.
+>
+> p.p.s. If we mischaracterized the debate, and the positions above aren't a
+> good distillation, by all means follow up and make a counter-proposal!
+> We're listening.
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+
+
+
+-- 
+--Guido van Rossum (python.org/~guido)
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20160429/114cf14b/attachment.html>
+
+From brett at python.org  Fri Apr 29 18:55:14 2016
+From: brett at python.org (Brett Cannon)
+Date: Fri, 29 Apr 2016 22:55:14 +0000
+Subject: [python-committers] 2016 Python Language Summit: Can we get
+ volunteers to talk about pathlib?
+In-Reply-To: <5723E44A.4030504@hastings.org>
+References: <5723E44A.4030504@hastings.org>
+Message-ID: <CAP1=2W4YWhhocVoaER55VJUPVPZOT7KJBWysaFOrhuHgb3Us6Q@mail.gmail.com>
+
+PEP has first draft done. Giving Koos and Stephen to comment on it before I
+post it (I'll give them until Monday).
+
+On Fri, Apr 29, 2016, 15:46 Larry Hastings <larry at hastings.org> wrote:
+
+>
+>
+> This month there were over 350 emails in python-dev with the word
+> "pathlib" in the title.  Yet, despite this massive online debate, nobody
+> volunteered to present about pathlib at the language summit.
+>
+> Based on Jake Edge's summary of the conversation from LWN.net we've boiled
+> down the debate to these six basic positions.
+>
+>    1. We should keep pathlib in the standard library.
+>    2. We should remove pathlib from the standard library.
+>    3. The Path object should inherit from str.
+>    4. The Path object shouldn't inherit from str; it should continue to
+>    be its own unrelated type.
+>    5. We need a new "fspath" protocol.
+>    6. We don't need an "fspath" protocol.
+>
+> We'd like some volunteers to speak on each of these positions.  Speakers
+> should plan for a maximum of 2 minutes per position.  After the six
+> positions are presented at the summit we'll open the floor for debate.
+>
+> You're encouraged to volunteer to present more than one!  For example, if
+> you think we need the protocol, you're probably pro- keeping the object and
+> anti-inherit from str.  (Brett, we're looking at *you.)*
+>
+> Please note, volunteers should be people who are *already invited to the
+> summit*.  We can't invite additional people just for this--and we're
+> basically full anyway.
+>
+>
+> Thanks,
+>
+>
+> [BL]arry
+>
+> p.s. In case you're thinking "That's not fair!  I can't make it to the
+> summit, I don't want to get left out of the decision!"  We don't propose to
+> make any binding decisions at the summit--unless the BDFL makes
+> pronouncements there of course.  This discussion is intended as a quick
+> face-to-face debate on the topic, both to inform the delegates at the
+> summit, and to possibly find a rough consensus.
+>
+> p.p.s. If we mischaracterized the debate, and the positions above aren't a
+> good distillation, by all means follow up and make a counter-proposal!
+> We're listening.
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20160429/7e878de1/attachment-0001.html>
+
+From larry at hastings.org  Fri Apr 29 23:44:58 2016
+From: larry at hastings.org (Larry Hastings)
+Date: Fri, 29 Apr 2016 20:44:58 -0700
+Subject: [python-committers] 2016 Python Language Summit: Can we get
+ volunteers to talk about pathlib?
+In-Reply-To: <CAP7+vJJp5QSu2vsxWr1Lr+0MEoxATfzn0nYsKmLwCioNW5r_1Q@mail.gmail.com>
+References: <5723E44A.4030504@hastings.org>
+ <CAP7+vJJp5QSu2vsxWr1Lr+0MEoxATfzn0nYsKmLwCioNW5r_1Q@mail.gmail.com>
+Message-ID: <57242A3A.1080103@hastings.org>
+
+
+On 04/29/2016 03:53 PM, Guido van Rossum wrote:
+> The primary debate should be about fspath or not. Inheriting from str 
+> is off the table while I'm BDFL. Removing pathlib from the stdlib 
+> would only be on the table if we can't reach agreement on fspath.
+
+WFM.  Are there competing proposals for how fspath should work, or is 
+there just one proposal and the debate is whether or not to add it?
+
+
+//arry/
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20160429/32b3788d/attachment.html>
+
+From guido at python.org  Sat Apr 30 00:07:40 2016
+From: guido at python.org (Guido van Rossum)
+Date: Fri, 29 Apr 2016 21:07:40 -0700
+Subject: [python-committers] 2016 Python Language Summit: Can we get
+ volunteers to talk about pathlib?
+In-Reply-To: <57242A3A.1080103@hastings.org>
+References: <5723E44A.4030504@hastings.org>
+ <CAP7+vJJp5QSu2vsxWr1Lr+0MEoxATfzn0nYsKmLwCioNW5r_1Q@mail.gmail.com>
+ <57242A3A.1080103@hastings.org>
+Message-ID: <CAP7+vJLtHuYThVCdLoX91ytvL7=H-h-HwehUskYMihSDcc+QZw@mail.gmail.com>
+
+Wait for Brett.
+
+On Friday, April 29, 2016, Larry Hastings <larry at hastings.org> wrote:
+
+>
+> On 04/29/2016 03:53 PM, Guido van Rossum wrote:
+>
+> The primary debate should be about fspath or not. Inheriting from str is
+> off the table while I'm BDFL. Removing pathlib from the stdlib would only
+> be on the table if we can't reach agreement on fspath.
+>
+>
+> WFM.  Are there competing proposals for how fspath should work, or is
+> there just one proposal and the debate is whether or not to add it?
+>
+>
+> */arry*
+>
+>
+
+-- 
+--Guido (mobile)
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20160429/a23779f4/attachment.html>
+
+From steve at pearwood.info  Sat Apr 30 23:26:23 2016
+From: steve at pearwood.info (Steven D'Aprano)
+Date: Sun, 1 May 2016 13:26:23 +1000
+Subject: [python-committers] 2016 Python Language Summit: Can we get
+ volunteers to talk about pathlib?
+In-Reply-To: <CAP1=2W4YWhhocVoaER55VJUPVPZOT7KJBWysaFOrhuHgb3Us6Q@mail.gmail.com>
+References: <5723E44A.4030504@hastings.org>
+ <CAP1=2W4YWhhocVoaER55VJUPVPZOT7KJBWysaFOrhuHgb3Us6Q@mail.gmail.com>
+Message-ID: <20160501032623.GA13497@ando.pearwood.info>
+
+On Fri, Apr 29, 2016 at 10:55:14PM +0000, Brett Cannon wrote:
+> PEP has first draft done. Giving Koos and Stephen to comment on it before I
+> post it (I'll give them until Monday).
+
+Brett, thanks for this! I've looked at the size of the threads on 
+pathlib and my brain started making "whib whib whib" noises and tried to 
+hide, so I really appreciate the work you're doing.
+
+
+-- 
+Steve
+

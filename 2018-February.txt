@@ -1,0 +1,1403 @@
+From tjreedy at udel.edu  Thu Feb  1 14:23:08 2018
+From: tjreedy at udel.edu (Terry Reedy)
+Date: Thu, 1 Feb 2018 14:23:08 -0500
+Subject: [python-committers] [IMPORTANT] post 3.7.0b1 development now
+ open
+In-Reply-To: <CB6D24FA-A82E-4B7C-B4E7-EF2196794221@python.org>
+References: <CB6D24FA-A82E-4B7C-B4E7-EF2196794221@python.org>
+Message-ID: <5dc3bc95-608e-c72d-d2b9-8b06ed9dee51@udel.edu>
+
+On 1/31/2018 8:04 PM, Ned Deily wrote:
+
+> In the cpython repo, there is now a 3.7 branch. Starting now, all PRs
+> destined for 3.7.0 should get cherry-picked from master to the 3.7
+> branch or just pushed to 3.7 if only applicable there. New features
+> should continue to be pushed to the master branch for release in 3.8;
+> no new features are now permitted in 3.7 unless you have contacted me
+> and we have agreed on an extension (and all granted extensions will
+> expire as of 3.7.0b2). As before, bug fixes appropriate for 3.6.x
+> should continue to be cherry-picked to the 3.6 branch.
+Should a patch for 3.6 be cherry-picked directly from master or from 
+3.7?  Does it matter?  With hg, double forward merges had to be done 
+linearly, as from 3.6 to 3.7 and thence from 3.7 to 3.8 (master).
+
+
+From mariatta.wijaya at gmail.com  Thu Feb  1 14:47:58 2018
+From: mariatta.wijaya at gmail.com (Mariatta Wijaya)
+Date: Thu, 1 Feb 2018 11:47:58 -0800
+Subject: [python-committers] [IMPORTANT] post 3.7.0b1 development now
+ open
+In-Reply-To: <5dc3bc95-608e-c72d-d2b9-8b06ed9dee51@udel.edu>
+References: <CB6D24FA-A82E-4B7C-B4E7-EF2196794221@python.org>
+ <5dc3bc95-608e-c72d-d2b9-8b06ed9dee51@udel.edu>
+Message-ID: <CAGbohnbAAjuRfPEgZQm+Y+9iF+O0oKKHBtdsXFxO-x_O53UQyg@mail.gmail.com>
+
+>
+> Should a patch for 3.6 be cherry-picked directly from master or from 3.7?
+> Does it matter?  With hg, double forward merges had to be done linearly, as
+> from 3.6 to 3.7 and thence from 3.7 to 3.8 (master).
+
+
+cherry_picker.py and miss-islington will backport from master to newest
+branch first.
+So master -> 3.7, then master -> 3.6, and master -> 2.7.
+It does not backport from 3.7 -> 3.6.
+
+When doing it manually yourself, you should be able to backport from master
+-> 3.6 first and then master -> 3.7, it doesn't matter.
+
+
+Mariatta Wijaya
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20180201/cd3e0956/attachment.html>
+
+From tjreedy at udel.edu  Thu Feb  1 22:58:03 2018
+From: tjreedy at udel.edu (Terry Reedy)
+Date: Thu, 1 Feb 2018 22:58:03 -0500
+Subject: [python-committers] I created the "needs backport to 3.7" label
+ on GitHub
+In-Reply-To: <FE855FA7-5E28-4082-981A-C87BD676148D@python.org>
+References: <CAGbohnZM8JbQFmUwFh4PbfMz9Zs9tF6qBaa4woBXoeQJH8VsDg@mail.gmail.com>
+ <CAGbohnaCFejii1L1Dg48v=9mTddre74jXZPfjiCY4BY-cRQPag@mail.gmail.com>
+ <CAFRnB2UKZkgH-omLOpK6NpuFMdqfdndZXiXjAUeLc4cuysjL4Q@mail.gmail.com>
+ <CAGbohnY3tNrt0W8S2t=-VbyVxqd1wLtLmU9+4sAb3MUVmjnb3A@mail.gmail.com>
+ <FE855FA7-5E28-4082-981A-C87BD676148D@python.org>
+Message-ID: <440f78a1-a4f4-e432-5531-849a0044a28e@udel.edu>
+
+On 1/31/2018 7:03 PM, Barry Warsaw wrote:
+
+> $ git worktree add ../3.7 3.7  # ftw!
+
+f:\dev\3x> git worktree add ../37 3.7
+fatal: invalid reference: 3.7
+
+f:\dev\3x> git worktree add -b 3.7 ../37 3.7
+fatal: Not a valid object name: '3.7'.
+
+# However
+f:\dev\3x> git checkout 3.7
+# 'exposes' the existing branch so after
+git checkout master
+git worktree add ../37 3.7
+# seems to work
+
+tjr
+
+
+From barry at python.org  Fri Feb  2 20:17:22 2018
+From: barry at python.org (Barry Warsaw)
+Date: Fri, 2 Feb 2018 20:17:22 -0500
+Subject: [python-committers] cherry picking, miss islington,
+ and generated files
+Message-ID: <A502EFF3-3D7B-45E8-9A9A-7788F5928C93@python.org>
+
+I?m in the process of back porting a change which touches importlib and requires regeneration of Python/importlib.h and Python/importlib_external.h.
+
+The original fix on master:
+https://github.com/python/cpython/pull/5481
+
+Miss Islington?s back port to 3.7:
+https://github.com/python/cpython/pull/5498
+
+Miss Islington was not able to auto-pick this into 3.6, which makes sense.
+
+I got a little concerned though that the back port touches those two generated files, and didn?t feel comfortable just pushing the Big Green Button.  I chatted with Brett and he also agreed that the merge should probably be done manually.  So for the 3.7 merge, I actually followed the GitHub CLI merge instructions, regenerated the .h files, pushed the branch, and opened a new PR:
+
+https://github.com/python/cpython/pull/5503/files
+
+Once CI passed, I hit the BGB and the merge occurred as normal.
+
+For the 3.6 fix, I used cherry_pick, resolved the conflicts manually, regen?d the header files, pushed the branch, and submitted a new PR:
+
+https://github.com/python/cpython/pull/5504
+
+This one?s still running CI, but if it passes, I?ll merge it.
+
+I wanted to mention this because maybe Miss Islington should flag, warn, or otherwise indicate when autogenerated files are being merged?  Are there any other files other than the importlib .h files that we should take extra care with?
+
+Cheers,
+-Barry
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 833 bytes
+Desc: Message signed with OpenPGP
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20180202/4379196d/attachment.sig>
+
+From mariatta.wijaya at gmail.com  Fri Feb  2 20:40:05 2018
+From: mariatta.wijaya at gmail.com (Mariatta Wijaya)
+Date: Fri, 2 Feb 2018 20:40:05 -0500
+Subject: [python-committers] cherry picking, miss islington,
+ and generated files
+In-Reply-To: <CAGbohnasLS93fByFC5d5cNZFjQJWNTAwifuUt2YzSFmVJbVE1Q@mail.gmail.com>
+References: <A502EFF3-3D7B-45E8-9A9A-7788F5928C93@python.org>
+ <CAGbohnZqifgW03Yg_eKvpZKjnCjbpBu4rDBUTfr-FtntgO+K0w@mail.gmail.com>
+ <CAGbohnasLS93fByFC5d5cNZFjQJWNTAwifuUt2YzSFmVJbVE1Q@mail.gmail.com>
+Message-ID: <CAGbohnY9ueDmj3uTtGDsDPL6tfcnzZ=RzNzMOGWY6=Vn3eE=-A@mail.gmail.com>
+
+Sure, I sort of asked this in the past: what are the generated files, how
+to identify them, is there a pattern?
+
+I need to dig up that thread and find out if anyone answered. It's been a
+while :)
+
+Usually there would be conflict in backport though. It was suggested that
+cherry-picker can regenerate the files and resolve the conflict.
+Your suggestion of having miss Islington comment on the PR sounds good too.
+
+
+
+On Feb 2, 2018 8:17 PM, "Barry Warsaw" <barry at python.org> wrote:
+
+I?m in the process of back porting a change which touches importlib and
+requires regeneration of Python/importlib.h and Python/importlib_external.h.
+
+The original fix on master:
+https://github.com/python/cpython/pull/5481
+
+Miss Islington?s back port to 3.7:
+https://github.com/python/cpython/pull/5498
+
+Miss Islington was not able to auto-pick this into 3.6, which makes sense.
+
+I got a little concerned though that the back port touches those two
+generated files, and didn?t feel comfortable just pushing the Big Green
+Button.  I chatted with Brett and he also agreed that the merge should
+probably be done manually.  So for the 3.7 merge, I actually followed the
+GitHub CLI merge instructions, regenerated the .h files, pushed the branch,
+and opened a new PR:
+
+https://github.com/python/cpython/pull/5503/files
+
+Once CI passed, I hit the BGB and the merge occurred as normal.
+
+For the 3.6 fix, I used cherry_pick, resolved the conflicts manually,
+regen?d the header files, pushed the branch, and submitted a new PR:
+
+https://github.com/python/cpython/pull/5504
+
+This one?s still running CI, but if it passes, I?ll merge it.
+
+I wanted to mention this because maybe Miss Islington should flag, warn, or
+otherwise indicate when autogenerated files are being merged?  Are there
+any other files other than the importlib .h files that we should take extra
+care with?
+
+Cheers,
+-Barry
+
+
+_______________________________________________
+python-committers mailing list
+python-committers at python.org
+https://mail.python.org/mailman/listinfo/python-committers
+Code of Conduct: https://www.python.org/psf/codeofconduct/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20180202/21a88097/attachment.html>
+
+From barry at python.org  Sat Feb  3 09:54:58 2018
+From: barry at python.org (Barry Warsaw)
+Date: Sat, 3 Feb 2018 09:54:58 -0500
+Subject: [python-committers] cherry picking, miss islington,
+ and generated files
+In-Reply-To: <CAGbohnY9ueDmj3uTtGDsDPL6tfcnzZ=RzNzMOGWY6=Vn3eE=-A@mail.gmail.com>
+References: <A502EFF3-3D7B-45E8-9A9A-7788F5928C93@python.org>
+ <CAGbohnZqifgW03Yg_eKvpZKjnCjbpBu4rDBUTfr-FtntgO+K0w@mail.gmail.com>
+ <CAGbohnasLS93fByFC5d5cNZFjQJWNTAwifuUt2YzSFmVJbVE1Q@mail.gmail.com>
+ <CAGbohnY9ueDmj3uTtGDsDPL6tfcnzZ=RzNzMOGWY6=Vn3eE=-A@mail.gmail.com>
+Message-ID: <B996463D-5FAB-48FE-97E6-2192A72F1487@python.org>
+
+On Feb 2, 2018, at 20:40, Mariatta Wijaya <mariatta.wijaya at gmail.com> wrote:
+> 
+> Sure, I sort of asked this in the past: what are the generated files, how to identify them, is there a pattern?
+
+I?m not sure there?s going to be a pattern so much as a list of such files.
+
+> I need to dig up that thread and find out if anyone answered. It's been a while :)
+
+Cool, thanks!  I definitely missed the discussion the first time around.
+
+> Usually there would be conflict in backport though. It was suggested that cherry-picker can regenerate the files and resolve the conflict.
+> Your suggestion of having miss Islington comment on the PR sounds good too.
+
+In my case, there was no conflict, although I actually thought there might have been one.  But I was still uncomfortable not manually regenerating those files anyway.  The 3.6 auto-merge did have conflicts because the commit touched a file that doesn?t exist in 3.6, but cherry_picker worked beautifully so it wasn?t difficult to resolve.
+
+I don?t think this is a common situation, since importlib is a bit more of an esoteric part of the stdlib, and cherry picking fixes in it is probably even more rare.  At least it?s something to be aware of, and anybody who changes importlib will already know they have to do something special (i.e. regenerate the files).
+
+Thanks for your great work on these tools Mariatta!
+
+Cheers,
+-Barry
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 833 bytes
+Desc: Message signed with OpenPGP
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20180203/78510c80/attachment.sig>
+
+From tjreedy at udel.edu  Sat Feb  3 14:11:17 2018
+From: tjreedy at udel.edu (Terry Reedy)
+Date: Sat, 3 Feb 2018 14:11:17 -0500
+Subject: [python-committers] cherry picking, miss islington,
+ and generated files
+In-Reply-To: <B996463D-5FAB-48FE-97E6-2192A72F1487@python.org>
+References: <A502EFF3-3D7B-45E8-9A9A-7788F5928C93@python.org>
+ <CAGbohnZqifgW03Yg_eKvpZKjnCjbpBu4rDBUTfr-FtntgO+K0w@mail.gmail.com>
+ <CAGbohnasLS93fByFC5d5cNZFjQJWNTAwifuUt2YzSFmVJbVE1Q@mail.gmail.com>
+ <CAGbohnY9ueDmj3uTtGDsDPL6tfcnzZ=RzNzMOGWY6=Vn3eE=-A@mail.gmail.com>
+ <B996463D-5FAB-48FE-97E6-2192A72F1487@python.org>
+Message-ID: <0b55af68-5ef8-a830-6e8f-21b41187de29@udel.edu>
+
+On 2/3/2018 9:54 AM, Barry Warsaw wrote:
+> On Feb 2, 2018, at 20:40, Mariatta Wijaya <mariatta.wijaya at gmail.com> wrote:
+>>
+>> Sure, I sort of asked this in the past: what are the generated files, how to identify them, is there a pattern?
+> 
+> I?m not sure there?s going to be a pattern so much as a list of such files.
+
+There are also files that when touched, should cause regeneration of 
+another file.  For instance, typo PR 
+https://github.com/python/cpython/pull/5144 formerly touched aclocal.m4. 
+  Serhiy said that changing that might mean that configure should be 
+regenerated.  (Not knowing anything about this, I reverted the spelling 
+correction.)
+
+
+From mariatta.wijaya at gmail.com  Sat Feb  3 23:16:51 2018
+From: mariatta.wijaya at gmail.com (Mariatta Wijaya)
+Date: Sat, 3 Feb 2018 23:16:51 -0500
+Subject: [python-committers] cherry picking, miss islington,
+ and generated files
+In-Reply-To: <0b55af68-5ef8-a830-6e8f-21b41187de29@udel.edu>
+References: <A502EFF3-3D7B-45E8-9A9A-7788F5928C93@python.org>
+ <CAGbohnZqifgW03Yg_eKvpZKjnCjbpBu4rDBUTfr-FtntgO+K0w@mail.gmail.com>
+ <CAGbohnasLS93fByFC5d5cNZFjQJWNTAwifuUt2YzSFmVJbVE1Q@mail.gmail.com>
+ <CAGbohnY9ueDmj3uTtGDsDPL6tfcnzZ=RzNzMOGWY6=Vn3eE=-A@mail.gmail.com>
+ <B996463D-5FAB-48FE-97E6-2192A72F1487@python.org>
+ <0b55af68-5ef8-a830-6e8f-21b41187de29@udel.edu>
+Message-ID: <CAGbohnbxRZuLA7bQB_0Ci0n=D5xfwCThs_P3s73=VWcmTE9FQg@mail.gmail.com>
+
+Thanks :)
+
+I found the related thread in core mentorship mailing list:
+https://mail.python.org/mm3/archives/list/core-mentorship at python.org/thread/CNK7EWWZTDIRID7MTWLTWXU4H7IH3UIE/
+
+Guido and Victor answered, I guess I got distracted with other things and
+forgot to do any sort of follow up :P
+
+If I understand it right, they both suggested running "make regen-all" at
+each backport.
+But you seem to indicate that you rather do that manually?
+
+For the first pass, I think it can detect that when a changeset includes
+importlib.h, we'll make miss-islington leave a comment about needing to
+regenerate files.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20180203/475f3c67/attachment.html>
+
+From barry at python.org  Sun Feb  4 07:43:37 2018
+From: barry at python.org (Barry Warsaw)
+Date: Sun, 4 Feb 2018 07:43:37 -0500
+Subject: [python-committers] cherry picking, miss islington,
+ and generated files
+In-Reply-To: <CAGbohnbxRZuLA7bQB_0Ci0n=D5xfwCThs_P3s73=VWcmTE9FQg@mail.gmail.com>
+References: <A502EFF3-3D7B-45E8-9A9A-7788F5928C93@python.org>
+ <CAGbohnZqifgW03Yg_eKvpZKjnCjbpBu4rDBUTfr-FtntgO+K0w@mail.gmail.com>
+ <CAGbohnasLS93fByFC5d5cNZFjQJWNTAwifuUt2YzSFmVJbVE1Q@mail.gmail.com>
+ <CAGbohnY9ueDmj3uTtGDsDPL6tfcnzZ=RzNzMOGWY6=Vn3eE=-A@mail.gmail.com>
+ <B996463D-5FAB-48FE-97E6-2192A72F1487@python.org>
+ <0b55af68-5ef8-a830-6e8f-21b41187de29@udel.edu>
+ <CAGbohnbxRZuLA7bQB_0Ci0n=D5xfwCThs_P3s73=VWcmTE9FQg@mail.gmail.com>
+Message-ID: <068BBC5F-B2BF-4B24-9C44-CED6D8A1C525@python.org>
+
+On Feb 3, 2018, at 23:16, Mariatta Wijaya <mariatta.wijaya at gmail.com> wrote:
+> 
+> I found the related thread in core mentorship mailing list:
+> https://mail.python.org/mm3/archives/list/core-mentorship at python.org/thread/CNK7EWWZTDIRID7MTWLTWXU4H7IH3UIE/
+
+FYI, core-mentorship?s archives can?t be read without a subscription.
+
+> Guido and Victor answered, I guess I got distracted with other things and forgot to do any sort of follow up :P
+> 
+> If I understand it right, they both suggested running "make regen-all" at each backport.
+> But you seem to indicate that you rather do that manually?
+
+Not necessarily.  I think the only option right now is to run it manually, but if the bot can do that automatically (and probably add a comment that it?s done so), that would be great.
+
+> For the first pass, I think it can detect that when a changeset includes importlib.h, we'll make miss-islington leave a comment about needing to regenerate files.
+
++1
+
+-Barry
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 833 bytes
+Desc: Message signed with OpenPGP
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20180204/494386ab/attachment.sig>
+
+From larry at hastings.org  Sun Feb  4 19:35:03 2018
+From: larry at hastings.org (Larry Hastings)
+Date: Sun, 4 Feb 2018 16:35:03 -0800
+Subject: [python-committers] [RELEASED] Python 3.4.8 and Python 3.5.5 are
+ now available
+Message-ID: <7b3f1a47-bdb1-8601-3a68-2b6c5b53b1ac@hastings.org>
+
+
+On behalf of the Python development community, I'm happy to announce the 
+availability of Python 3.4.8 and Python 3.5.5.
+
+Both Python 3.4 and 3.5 are in "security fixes only" mode.? Both 
+versions only accept security fixes, not conventional bug fixes, and 
+both releases are source-only.
+
+
+You can find Python 3.4.8 here:
+
+    https://www.python.org/downloads/release/python-348/
+
+
+And you can find Python 3.5.5 here:
+
+    https://www.python.org/downloads/release/python-355/
+
+
+
+Happy Pythoning,
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20180204/d8d060db/attachment.html>
+
+From ncoghlan at gmail.com  Sun Feb  4 22:09:04 2018
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Mon, 5 Feb 2018 13:09:04 +1000
+Subject: [python-committers] cherry picking, miss islington,
+ and generated files
+In-Reply-To: <B996463D-5FAB-48FE-97E6-2192A72F1487@python.org>
+References: <A502EFF3-3D7B-45E8-9A9A-7788F5928C93@python.org>
+ <CAGbohnZqifgW03Yg_eKvpZKjnCjbpBu4rDBUTfr-FtntgO+K0w@mail.gmail.com>
+ <CAGbohnasLS93fByFC5d5cNZFjQJWNTAwifuUt2YzSFmVJbVE1Q@mail.gmail.com>
+ <CAGbohnY9ueDmj3uTtGDsDPL6tfcnzZ=RzNzMOGWY6=Vn3eE=-A@mail.gmail.com>
+ <B996463D-5FAB-48FE-97E6-2192A72F1487@python.org>
+Message-ID: <CADiSq7ehUetrTmszeYN+9srd7mpe9-rvrpjH0SZEBw0O-yZiQw@mail.gmail.com>
+
+On 4 February 2018 at 00:54, Barry Warsaw <barry at python.org> wrote:
+> On Feb 2, 2018, at 20:40, Mariatta Wijaya <mariatta.wijaya at gmail.com> wrote:
+>>
+>> Sure, I sort of asked this in the past: what are the generated files, how to identify them, is there a pattern?
+>
+> I?m not sure there?s going to be a pattern so much as a list of such files.
+
+- all C files may potentially contain Argument Clinic headers that
+modify them in place
+- build input files (configure.ac, etc) may change the other build artifacts
+
+At the moment, I think we're still relying on humans to notice those
+problematic cases, but we may be able to at least have CI fail if
+"make regen-all" actually changes any file contents for checked in
+files.
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+
+From zachary.ware+pydev at gmail.com  Sun Feb  4 23:38:00 2018
+From: zachary.ware+pydev at gmail.com (Zachary Ware)
+Date: Sun, 4 Feb 2018 22:38:00 -0600
+Subject: [python-committers] cherry picking, miss islington,
+ and generated files
+In-Reply-To: <CADiSq7ehUetrTmszeYN+9srd7mpe9-rvrpjH0SZEBw0O-yZiQw@mail.gmail.com>
+References: <A502EFF3-3D7B-45E8-9A9A-7788F5928C93@python.org>
+ <CAGbohnZqifgW03Yg_eKvpZKjnCjbpBu4rDBUTfr-FtntgO+K0w@mail.gmail.com>
+ <CAGbohnasLS93fByFC5d5cNZFjQJWNTAwifuUt2YzSFmVJbVE1Q@mail.gmail.com>
+ <CAGbohnY9ueDmj3uTtGDsDPL6tfcnzZ=RzNzMOGWY6=Vn3eE=-A@mail.gmail.com>
+ <B996463D-5FAB-48FE-97E6-2192A72F1487@python.org>
+ <CADiSq7ehUetrTmszeYN+9srd7mpe9-rvrpjH0SZEBw0O-yZiQw@mail.gmail.com>
+Message-ID: <CAKJDb-Ortxi+qQqXpDbbkwRQ9=_55yN_Ms0RGDjHi80cNbcb4w@mail.gmail.com>
+
+We already have Travis checking 'make regen-all' and 'make clinic'
+(assuming it's working correctly).
+
+--
+Zach
+(On a phone)
+
+On Feb 4, 2018 9:09 PM, "Nick Coghlan" <ncoghlan at gmail.com> wrote:
+
+On 4 February 2018 at 00:54, Barry Warsaw <barry at python.org> wrote:
+> On Feb 2, 2018, at 20:40, Mariatta Wijaya <mariatta.wijaya at gmail.com>
+wrote:
+>>
+>> Sure, I sort of asked this in the past: what are the generated files,
+how to identify them, is there a pattern?
+>
+> I?m not sure there?s going to be a pattern so much as a list of such
+files.
+
+- all C files may potentially contain Argument Clinic headers that
+modify them in place
+- build input files (configure.ac, etc) may change the other build artifacts
+
+At the moment, I think we're still relying on humans to notice those
+problematic cases, but we may be able to at least have CI fail if
+"make regen-all" actually changes any file contents for checked in
+files.
+
+Cheers,
+Nick.
+
+--
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+_______________________________________________
+python-committers mailing list
+python-committers at python.org
+https://mail.python.org/mailman/listinfo/python-committers
+Code of Conduct: https://www.python.org/psf/codeofconduct/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20180204/e94e1ba5/attachment.html>
+
+From mariatta.wijaya at gmail.com  Sun Feb  4 23:47:44 2018
+From: mariatta.wijaya at gmail.com (Mariatta Wijaya)
+Date: Sun, 4 Feb 2018 23:47:44 -0500
+Subject: [python-committers] cherry picking, miss islington,
+ and generated files
+In-Reply-To: <CAKJDb-Ortxi+qQqXpDbbkwRQ9=_55yN_Ms0RGDjHi80cNbcb4w@mail.gmail.com>
+References: <A502EFF3-3D7B-45E8-9A9A-7788F5928C93@python.org>
+ <CAGbohnZqifgW03Yg_eKvpZKjnCjbpBu4rDBUTfr-FtntgO+K0w@mail.gmail.com>
+ <CAGbohnasLS93fByFC5d5cNZFjQJWNTAwifuUt2YzSFmVJbVE1Q@mail.gmail.com>
+ <CAGbohnY9ueDmj3uTtGDsDPL6tfcnzZ=RzNzMOGWY6=Vn3eE=-A@mail.gmail.com>
+ <B996463D-5FAB-48FE-97E6-2192A72F1487@python.org>
+ <CADiSq7ehUetrTmszeYN+9srd7mpe9-rvrpjH0SZEBw0O-yZiQw@mail.gmail.com>
+ <CAKJDb-Ortxi+qQqXpDbbkwRQ9=_55yN_Ms0RGDjHi80cNbcb4w@mail.gmail.com>
+Message-ID: <CAGbohnYx4pH4jb8kVe0DBWx98rN97qYzu_+n5ew5XiL1kSjs9A@mail.gmail.com>
+
+>
+> We already have Travis checking 'make regen-all' and 'make clinic'
+> (assuming it's working correctly).
+
+
+The CI in https://github.com/python/cpython/pull/5498 were all passing, but
+I think we expected it to fail? In the end Barry regenerated the files
+manually.
+
+Mariatta Wijaya
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20180204/b53a8c30/attachment.html>
+
+From ncoghlan at gmail.com  Mon Feb  5 09:09:26 2018
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Tue, 6 Feb 2018 00:09:26 +1000
+Subject: [python-committers] cherry picking, miss islington,
+ and generated files
+In-Reply-To: <CAGbohnYx4pH4jb8kVe0DBWx98rN97qYzu_+n5ew5XiL1kSjs9A@mail.gmail.com>
+References: <A502EFF3-3D7B-45E8-9A9A-7788F5928C93@python.org>
+ <CAGbohnZqifgW03Yg_eKvpZKjnCjbpBu4rDBUTfr-FtntgO+K0w@mail.gmail.com>
+ <CAGbohnasLS93fByFC5d5cNZFjQJWNTAwifuUt2YzSFmVJbVE1Q@mail.gmail.com>
+ <CAGbohnY9ueDmj3uTtGDsDPL6tfcnzZ=RzNzMOGWY6=Vn3eE=-A@mail.gmail.com>
+ <B996463D-5FAB-48FE-97E6-2192A72F1487@python.org>
+ <CADiSq7ehUetrTmszeYN+9srd7mpe9-rvrpjH0SZEBw0O-yZiQw@mail.gmail.com>
+ <CAKJDb-Ortxi+qQqXpDbbkwRQ9=_55yN_Ms0RGDjHi80cNbcb4w@mail.gmail.com>
+ <CAGbohnYx4pH4jb8kVe0DBWx98rN97qYzu_+n5ew5XiL1kSjs9A@mail.gmail.com>
+Message-ID: <CADiSq7fzvTXSS_cV8cXQkGUx_=KrrMrNgw30n92YEqd0QqsZ7w@mail.gmail.com>
+
+On 5 February 2018 at 14:47, Mariatta Wijaya <mariatta.wijaya at gmail.com> wrote:
+>> We already have Travis checking 'make regen-all' and 'make clinic'
+>> (assuming it's working correctly).
+
+Ah, I didn't think that idea was a new one :)
+
+> The CI in https://github.com/python/cpython/pull/5498 were all passing, but
+> I think we expected it to fail? In the end Barry regenerated the files
+> manually.
+
+Heh, I think I have a plausible theory as to what happened:
+
+The 3.7 and 3.8 compilers are currently still identical, and this was
+the first post-branch change to importlib (as far as I know), so:
+
+1. The patch applied cleanly (because the previously frozen versions
+were the same)
+2. The regen check passed (because the regenerated version was the same)
+
+And this is likely to continue to be the case until we either make a
+change to importlib or the compiler for 3.8 that we don't backport to
+3.7.
+
+Whereas the cherry picking just outright failed on 3.6 because the
+current state of the frozen importlib on that branch is different.
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+
+From mariatta.wijaya at gmail.com  Mon Feb  5 09:07:16 2018
+From: mariatta.wijaya at gmail.com (Mariatta Wijaya)
+Date: Mon, 5 Feb 2018 09:07:16 -0500
+Subject: [python-committers] Auto-merge the backport PR with one core dev
+ approval and all passing CI
+Message-ID: <CAGbohnZj8t8DsKZzMGmp7agTDQsk8edQ9H3RdzZe0N0R6h7rJA@mail.gmail.com>
+
+Hi,
+
+I will have some time in the next couple weeks to work on miss-islington.
+I'm thinking to work on this issue:
+https://github.com/python/miss-islington/issues/44
+
+The idea is to have miss-islington automatically merge the backport PR,
+after all CI passed and after a core dev approved the PR. I think this will
+save us a lot of button clicks and time.
+
+Just wanted to check if everyone is pretty much +1 on this, before I start
+writing the code.
+
+Some notes and implicationss:
+
+- The expectation is that the commit message has already been cleaned up on
+the master branch
+- It already knows how to replace the # to GH- in the commit message
+- miss-islington will need write access to CPython
+- git log it will show miss-islington (bot) as the committer
+- If you still want to do the merge yourself, then just don't approve
+miss-islington's PR.
+
+What does everyone here think about all that?
+
+Thanks.
+
+Mariatta Wijaya
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20180205/fd5d5685/attachment.html>
+
+From barry at python.org  Mon Feb  5 09:13:30 2018
+From: barry at python.org (Barry Warsaw)
+Date: Mon, 5 Feb 2018 09:13:30 -0500
+Subject: [python-committers] cherry picking, miss islington,
+ and generated files
+In-Reply-To: <CADiSq7fzvTXSS_cV8cXQkGUx_=KrrMrNgw30n92YEqd0QqsZ7w@mail.gmail.com>
+References: <A502EFF3-3D7B-45E8-9A9A-7788F5928C93@python.org>
+ <CAGbohnZqifgW03Yg_eKvpZKjnCjbpBu4rDBUTfr-FtntgO+K0w@mail.gmail.com>
+ <CAGbohnasLS93fByFC5d5cNZFjQJWNTAwifuUt2YzSFmVJbVE1Q@mail.gmail.com>
+ <CAGbohnY9ueDmj3uTtGDsDPL6tfcnzZ=RzNzMOGWY6=Vn3eE=-A@mail.gmail.com>
+ <B996463D-5FAB-48FE-97E6-2192A72F1487@python.org>
+ <CADiSq7ehUetrTmszeYN+9srd7mpe9-rvrpjH0SZEBw0O-yZiQw@mail.gmail.com>
+ <CAKJDb-Ortxi+qQqXpDbbkwRQ9=_55yN_Ms0RGDjHi80cNbcb4w@mail.gmail.com>
+ <CAGbohnYx4pH4jb8kVe0DBWx98rN97qYzu_+n5ew5XiL1kSjs9A@mail.gmail.com>
+ <CADiSq7fzvTXSS_cV8cXQkGUx_=KrrMrNgw30n92YEqd0QqsZ7w@mail.gmail.com>
+Message-ID: <668E2647-6895-4D91-8943-DCAE77F53F49@python.org>
+
+On Feb 5, 2018, at 09:09, Nick Coghlan <ncoghlan at gmail.com> wrote:
+> 
+> Heh, I think I have a plausible theory as to what happened:
+> 
+> The 3.7 and 3.8 compilers are currently still identical, and this was
+> the first post-branch change to importlib (as far as I know), so:
+> 
+> 1. The patch applied cleanly (because the previously frozen versions
+> were the same)
+> 2. The regen check passed (because the regenerated version was the same)
+
+Agreed.  I just wasn?t *positive* I could trust a clean merge and passing tests.  Maybe we can though.
+
+-Barry
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 833 bytes
+Desc: Message signed with OpenPGP
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20180205/410fd18f/attachment.sig>
+
+From senthil at uthcode.com  Mon Feb  5 09:18:06 2018
+From: senthil at uthcode.com (Senthil Kumaran)
+Date: Mon, 5 Feb 2018 06:18:06 -0800
+Subject: [python-committers] Auto-merge the backport PR with one core
+ dev approval and all passing CI
+In-Reply-To: <CAGbohnZj8t8DsKZzMGmp7agTDQsk8edQ9H3RdzZe0N0R6h7rJA@mail.gmail.com>
+References: <CAGbohnZj8t8DsKZzMGmp7agTDQsk8edQ9H3RdzZe0N0R6h7rJA@mail.gmail.com>
+Message-ID: <CAPOVWOR6zd-p2erKCywraEH+r3vH7rNb6m73HWW0Zek5ZHdMZQ@mail.gmail.com>
+
+Great idea. Definitely, +1.
+
+On Mon, Feb 5, 2018 at 6:07 AM, Mariatta Wijaya <mariatta.wijaya at gmail.com>
+wrote:
+
+> Hi,
+>
+> I will have some time in the next couple weeks to work on miss-islington.
+> I'm thinking to work on this issue: https://github.com/
+> python/miss-islington/issues/44
+>
+> The idea is to have miss-islington automatically merge the backport PR,
+> after all CI passed and after a core dev approved the PR. I think this will
+> save us a lot of button clicks and time.
+>
+> Just wanted to check if everyone is pretty much +1 on this, before I start
+> writing the code.
+>
+> Some notes and implicationss:
+>
+> - The expectation is that the commit message has already been cleaned up
+> on the master branch
+> - It already knows how to replace the # to GH- in the commit message
+> - miss-islington will need write access to CPython
+> - git log it will show miss-islington (bot) as the committer
+> - If you still want to do the merge yourself, then just don't approve
+> miss-islington's PR.
+>
+> What does everyone here think about all that?
+>
+> Thanks.
+>
+> Mariatta Wijaya
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20180205/30b4f61e/attachment.html>
+
+From senthil at uthcode.com  Mon Feb  5 09:28:20 2018
+From: senthil at uthcode.com (Senthil Kumaran)
+Date: Mon, 5 Feb 2018 06:28:20 -0800
+Subject: [python-committers] Auto-merge the backport PR with one core
+ dev approval and all passing CI
+In-Reply-To: <CAPOVWOR6zd-p2erKCywraEH+r3vH7rNb6m73HWW0Zek5ZHdMZQ@mail.gmail.com>
+References: <CAGbohnZj8t8DsKZzMGmp7agTDQsk8edQ9H3RdzZe0N0R6h7rJA@mail.gmail.com>
+ <CAPOVWOR6zd-p2erKCywraEH+r3vH7rNb6m73HWW0Zek5ZHdMZQ@mail.gmail.com>
+Message-ID: <CAPOVWOSqUCCm_3Q3BcUO354FV3E+GE21rRhTSqT6j2PHKvD9xg@mail.gmail.com>
+
+I like to seek one clarification.
+
+I know git has author as well as committer. I am assuming that even if
+miss-islington backports the PR, the author'ship of the patch is still
+preserved.
+
+Is that correct?
+
+Thank you,
+Senthil
+
+
+
+On Mon, Feb 5, 2018 at 6:18 AM, Senthil Kumaran <senthil at uthcode.com> wrote:
+
+> Great idea. Definitely, +1.
+>
+> On Mon, Feb 5, 2018 at 6:07 AM, Mariatta Wijaya <mariatta.wijaya at gmail.com
+> > wrote:
+>
+>> Hi,
+>>
+>> I will have some time in the next couple weeks to work on miss-islington.
+>> I'm thinking to work on this issue: https://github.com/pyth
+>> on/miss-islington/issues/44
+>>
+>> The idea is to have miss-islington automatically merge the backport PR,
+>> after all CI passed and after a core dev approved the PR. I think this will
+>> save us a lot of button clicks and time.
+>>
+>> Just wanted to check if everyone is pretty much +1 on this, before I
+>> start writing the code.
+>>
+>> Some notes and implicationss:
+>>
+>> - The expectation is that the commit message has already been cleaned up
+>> on the master branch
+>> - It already knows how to replace the # to GH- in the commit message
+>> - miss-islington will need write access to CPython
+>> - git log it will show miss-islington (bot) as the committer
+>> - If you still want to do the merge yourself, then just don't approve
+>> miss-islington's PR.
+>>
+>> What does everyone here think about all that?
+>>
+>> Thanks.
+>>
+>> Mariatta Wijaya
+>>
+>> _______________________________________________
+>> python-committers mailing list
+>> python-committers at python.org
+>> https://mail.python.org/mailman/listinfo/python-committers
+>> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>>
+>>
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20180205/c390fac0/attachment-0001.html>
+
+From mariatta.wijaya at gmail.com  Mon Feb  5 09:44:26 2018
+From: mariatta.wijaya at gmail.com (Mariatta Wijaya)
+Date: Mon, 5 Feb 2018 09:44:26 -0500
+Subject: [python-committers] Auto-merge the backport PR with one core
+ dev approval and all passing CI
+In-Reply-To: <CAPOVWOSqUCCm_3Q3BcUO354FV3E+GE21rRhTSqT6j2PHKvD9xg@mail.gmail.com>
+References: <CAGbohnZj8t8DsKZzMGmp7agTDQsk8edQ9H3RdzZe0N0R6h7rJA@mail.gmail.com>
+ <CAPOVWOR6zd-p2erKCywraEH+r3vH7rNb6m73HWW0Zek5ZHdMZQ@mail.gmail.com>
+ <CAPOVWOSqUCCm_3Q3BcUO354FV3E+GE21rRhTSqT6j2PHKvD9xg@mail.gmail.com>
+Message-ID: <CAGbohnb0jpuvVf_7V8_upyM_k=RdAJnaqPyiOeVvTD2X4_m4dg@mail.gmail.com>
+
+On Mon, Feb 5, 2018 at 9:28 AM, Senthil Kumaran <senthil at uthcode.com> wrote:
+
+> I like to seek one clarification.
+>
+> I know git has author as well as committer. I am assuming that even if
+> miss-islington backports the PR, the author'ship of the patch is still
+> preserved.
+>
+> Is that correct?
+>
+>
+>
+Thanks, Senthil.
+Currently, the original PR author on master will be credited as a co-author
+on backport PRs.
+See this example [1] where it says "2 people authored (miss-islington and
+csabella) and ncoghlan committed"
+If this idea got implemented, I believe it will say "2 people authored
+(miss-islington and csabella) and miss-islington committed"
+
+[1]
+https://github.com/python/cpython/commit/fea0a12f6bee4a36b2c9533003e33a12c58d2d91
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20180205/0e1287fe/attachment.html>
+
+From ncoghlan at gmail.com  Mon Feb  5 09:34:59 2018
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Tue, 6 Feb 2018 00:34:59 +1000
+Subject: [python-committers] Auto-merge the backport PR with one core
+ dev approval and all passing CI
+In-Reply-To: <CAGbohnZj8t8DsKZzMGmp7agTDQsk8edQ9H3RdzZe0N0R6h7rJA@mail.gmail.com>
+References: <CAGbohnZj8t8DsKZzMGmp7agTDQsk8edQ9H3RdzZe0N0R6h7rJA@mail.gmail.com>
+Message-ID: <CADiSq7e7vSzvTW1ot80VbFQfjcLDczWRurVKEHqCSL_x_6Mjew@mail.gmail.com>
+
+On 6 February 2018 at 00:07, Mariatta Wijaya <mariatta.wijaya at gmail.com> wrote:
+> Some notes and implicationss:
+>
+> - The expectation is that the commit message has already been cleaned up on
+> the master branch
+> - It already knows how to replace the # to GH- in the commit message
+> - miss-islington will need write access to CPython
+> - git log it will show miss-islington (bot) as the committer
+> - If you still want to do the merge yourself, then just don't approve
+> miss-islington's PR.
+>
+> What does everyone here think about all that?
+
++1 from me, as being able to do the backport PR reviews as soon as
+Miss Islington creates them means I'll still have the original review
+fresh in my mind. (I know I can theoretically do that now, but I
+currently tend not to look at the details of the backport PRs until
+the CI run is finished)
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+
+From mariatta.wijaya at gmail.com  Mon Feb  5 09:51:18 2018
+From: mariatta.wijaya at gmail.com (Mariatta Wijaya)
+Date: Mon, 5 Feb 2018 09:51:18 -0500
+Subject: [python-committers] cherry picking, miss islington,
+ and generated files
+In-Reply-To: <668E2647-6895-4D91-8943-DCAE77F53F49@python.org>
+References: <A502EFF3-3D7B-45E8-9A9A-7788F5928C93@python.org>
+ <CAGbohnZqifgW03Yg_eKvpZKjnCjbpBu4rDBUTfr-FtntgO+K0w@mail.gmail.com>
+ <CAGbohnasLS93fByFC5d5cNZFjQJWNTAwifuUt2YzSFmVJbVE1Q@mail.gmail.com>
+ <CAGbohnY9ueDmj3uTtGDsDPL6tfcnzZ=RzNzMOGWY6=Vn3eE=-A@mail.gmail.com>
+ <B996463D-5FAB-48FE-97E6-2192A72F1487@python.org>
+ <CADiSq7ehUetrTmszeYN+9srd7mpe9-rvrpjH0SZEBw0O-yZiQw@mail.gmail.com>
+ <CAKJDb-Ortxi+qQqXpDbbkwRQ9=_55yN_Ms0RGDjHi80cNbcb4w@mail.gmail.com>
+ <CAGbohnYx4pH4jb8kVe0DBWx98rN97qYzu_+n5ew5XiL1kSjs9A@mail.gmail.com>
+ <CADiSq7fzvTXSS_cV8cXQkGUx_=KrrMrNgw30n92YEqd0QqsZ7w@mail.gmail.com>
+ <668E2647-6895-4D91-8943-DCAE77F53F49@python.org>
+Message-ID: <CAGbohnYzkATavEMXZZ2qiUfR11Z5UqLcpTDTEJCqpA7FxqmoxA@mail.gmail.com>
+
+Maybe we should just do a diff if https://github.com/python/
+cpython/pull/5498 and https://github.com/python/cpython/pull/5503
+<https://github.com/python/cpython/pull/5503/files> are identical..
+
+Mariatta Wijaya
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20180205/b2954e2f/attachment.html>
+
+From tjreedy at udel.edu  Mon Feb  5 14:26:06 2018
+From: tjreedy at udel.edu (Terry Reedy)
+Date: Mon, 5 Feb 2018 14:26:06 -0500
+Subject: [python-committers] Auto-merge the backport PR with one core
+ dev approval and all passing CI
+In-Reply-To: <CADiSq7e7vSzvTW1ot80VbFQfjcLDczWRurVKEHqCSL_x_6Mjew@mail.gmail.com>
+References: <CAGbohnZj8t8DsKZzMGmp7agTDQsk8edQ9H3RdzZe0N0R6h7rJA@mail.gmail.com>
+ <CADiSq7e7vSzvTW1ot80VbFQfjcLDczWRurVKEHqCSL_x_6Mjew@mail.gmail.com>
+Message-ID: <5d21329c-bf37-9a06-3296-8e91eaeafd54@udel.edu>
+
+On 2/5/2018 9:34 AM, Nick Coghlan wrote:
+> On 6 February 2018 at 00:07, Mariatta Wijaya <mariatta.wijaya at gmail.com> wrote:
+>> Some notes and implicationss:
+>>
+>> - The expectation is that the commit message has already been cleaned up on
+>> the master branch
+
+and that Miss Islington has correctly copied the title and commit message.
+
+>> - It already knows how to replace the # to GH- in the commit message
+>> - miss-islington will need write access to CPython
+>> - git log it will show miss-islington (bot) as the committer
+
+I believe that this is already true unless there was a merge conflict.
+
+>> - If you still want to do the merge yourself, then just don't approve
+>> miss-islington's PR.
+
+If I have to use cherry-picker because there is a merge conflict and I 
+use cherry-picker --continue after resolving, then I am the author and I 
+cannot approve my own PR.  The auto generated title has no relation to 
+the title of the original merge, and the commit message is replaced by 
+the reminder.  Finding the original commit message to paste in is not easy.
+
+>> What does everyone here think about all that?
+
++1
+
+> +1 from me, as being able to do the backport PR reviews as soon as
+> Miss Islington creates them means I'll still have the original review
+> fresh in my mind.
+
+I have just started doing this, and approving when I am allowed.  I like 
+it better than waiting, (or not reviewing).
+
+Terry
+
+From mariatta.wijaya at gmail.com  Tue Feb  6 15:30:12 2018
+From: mariatta.wijaya at gmail.com (Mariatta Wijaya)
+Date: Tue, 6 Feb 2018 15:30:12 -0500
+Subject: [python-committers] cherry picking, miss islington,
+ and generated files
+In-Reply-To: <CAGbohnYzkATavEMXZZ2qiUfR11Z5UqLcpTDTEJCqpA7FxqmoxA@mail.gmail.com>
+References: <A502EFF3-3D7B-45E8-9A9A-7788F5928C93@python.org>
+ <CAGbohnZqifgW03Yg_eKvpZKjnCjbpBu4rDBUTfr-FtntgO+K0w@mail.gmail.com>
+ <CAGbohnasLS93fByFC5d5cNZFjQJWNTAwifuUt2YzSFmVJbVE1Q@mail.gmail.com>
+ <CAGbohnY9ueDmj3uTtGDsDPL6tfcnzZ=RzNzMOGWY6=Vn3eE=-A@mail.gmail.com>
+ <B996463D-5FAB-48FE-97E6-2192A72F1487@python.org>
+ <CADiSq7ehUetrTmszeYN+9srd7mpe9-rvrpjH0SZEBw0O-yZiQw@mail.gmail.com>
+ <CAKJDb-Ortxi+qQqXpDbbkwRQ9=_55yN_Ms0RGDjHi80cNbcb4w@mail.gmail.com>
+ <CAGbohnYx4pH4jb8kVe0DBWx98rN97qYzu_+n5ew5XiL1kSjs9A@mail.gmail.com>
+ <CADiSq7fzvTXSS_cV8cXQkGUx_=KrrMrNgw30n92YEqd0QqsZ7w@mail.gmail.com>
+ <668E2647-6895-4D91-8943-DCAE77F53F49@python.org>
+ <CAGbohnYzkATavEMXZZ2qiUfR11Z5UqLcpTDTEJCqpA7FxqmoxA@mail.gmail.com>
+Message-ID: <CAGbohna4FuB7n_jdHGhbesEczoSN2xUHeK80qS3woxve01iXzQ@mail.gmail.com>
+
+I compared the output from the auto backport PR, and Barry's PR where he
+regenerated the files:
+
+Basically comparing the two results from [1] (miss-islington) and [2]
+(Barry)
+
+[1] https://api.github.com/repos/python/cpython/pulls/5503/files
+[2] https://api.github.com/repos/python/cpython/pulls/5498/files
+
+All these values are identical: "sha", "filename", "status", "additions",
+"deletions", "changes", "patch"
+
+The differences are in "blob_url", "raw_url", and "contents_url" but those
+are expected to be different for each PR.
+
+So, maybe we trust the CI a little bit more now when it comes to checking
+if regenerated files are needed :)
+
+Mariatta Wijaya
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20180206/fc1da606/attachment.html>
+
+From barry at python.org  Tue Feb  6 15:39:42 2018
+From: barry at python.org (Barry Warsaw)
+Date: Tue, 6 Feb 2018 15:39:42 -0500
+Subject: [python-committers] cherry picking, miss islington,
+ and generated files
+In-Reply-To: <CAGbohna4FuB7n_jdHGhbesEczoSN2xUHeK80qS3woxve01iXzQ@mail.gmail.com>
+References: <A502EFF3-3D7B-45E8-9A9A-7788F5928C93@python.org>
+ <CAGbohnZqifgW03Yg_eKvpZKjnCjbpBu4rDBUTfr-FtntgO+K0w@mail.gmail.com>
+ <CAGbohnasLS93fByFC5d5cNZFjQJWNTAwifuUt2YzSFmVJbVE1Q@mail.gmail.com>
+ <CAGbohnY9ueDmj3uTtGDsDPL6tfcnzZ=RzNzMOGWY6=Vn3eE=-A@mail.gmail.com>
+ <B996463D-5FAB-48FE-97E6-2192A72F1487@python.org>
+ <CADiSq7ehUetrTmszeYN+9srd7mpe9-rvrpjH0SZEBw0O-yZiQw@mail.gmail.com>
+ <CAKJDb-Ortxi+qQqXpDbbkwRQ9=_55yN_Ms0RGDjHi80cNbcb4w@mail.gmail.com>
+ <CAGbohnYx4pH4jb8kVe0DBWx98rN97qYzu_+n5ew5XiL1kSjs9A@mail.gmail.com>
+ <CADiSq7fzvTXSS_cV8cXQkGUx_=KrrMrNgw30n92YEqd0QqsZ7w@mail.gmail.com>
+ <668E2647-6895-4D91-8943-DCAE77F53F49@python.org>
+ <CAGbohnYzkATavEMXZZ2qiUfR11Z5UqLcpTDTEJCqpA7FxqmoxA@mail.gmail.com>
+ <CAGbohna4FuB7n_jdHGhbesEczoSN2xUHeK80qS3woxve01iXzQ@mail.gmail.com>
+Message-ID: <EA48A49B-3BF9-425C-A63F-13D1948F4D8F@python.org>
+
+On Feb 6, 2018, at 15:30, Mariatta Wijaya <mariatta.wijaya at gmail.com> wrote:
+
+> So, maybe we trust the CI a little bit more now when it comes to checking if regenerated files are needed :)
+
+Great, thanks for checking Mariatta!  It definitely gives me more confidence that if the bot and CI pass, the merge will be good.  If it comes up again, I?ll run that experiment for real. :)
+
+-Barry
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 833 bytes
+Desc: Message signed with OpenPGP
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20180206/149e13b3/attachment.sig>
+
+From larry at hastings.org  Sat Feb 10 21:15:09 2018
+From: larry at hastings.org (Larry Hastings)
+Date: Sat, 10 Feb 2018 18:15:09 -0800
+Subject: [python-committers] [RELEASED] Python 3.4.8 and Python 3.5.5
+ are now available
+In-Reply-To: <p5mkde$c0i$1@blaine.gmane.org>
+References: <7b3f1a47-bdb1-8601-3a68-2b6c5b53b1ac@hastings.org>
+ <p5mkde$c0i$1@blaine.gmane.org>
+Message-ID: <81687a94-0ed0-1edb-c3f4-1ac6e6577d29@hastings.org>
+
+
+Actually, it was updated on the server, but somehow the old version was 
+sticking around in the CDN cache.? I "purged" it and it's fine now.? 
+Weird that it would linger this long!
+
+Cheers,
+
+
+//arry/
+
+On 02/10/2018 03:20 AM, Serhiy Storchaka wrote:
+> 05.02.18 02:35, Larry Hastings ????:
+>> On behalf of the Python development community, I'm happy to announce 
+>> the availability of Python 3.4.8 and Python 3.5.5.
+>>
+>> Both Python 3.4 and 3.5 are in "security fixes only" mode.? Both 
+>> versions only accept security fixes, not conventional bug fixes, and 
+>> both releases are source-only.
+>>
+>>
+>> You can find Python 3.4.8 here:
+>>
+>> ??? https://www.python.org/downloads/release/python-348/
+>>
+>>
+>> And you can find Python 3.5.5 here:
+>>
+>> ??? https://www.python.org/downloads/release/python-355/
+>
+> Online documentation for 3.5 is not updated yet.
+>
+>
+> https://docs.python.org/3.5/whatsnew/changelog.html#python-3-5-5
+>
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20180210/da1ebdce/attachment.html>
+
+From mariatta.wijaya at gmail.com  Mon Feb 12 03:18:19 2018
+From: mariatta.wijaya at gmail.com (Mariatta Wijaya)
+Date: Mon, 12 Feb 2018 00:18:19 -0800
+Subject: [python-committers] Auto-merge the backport PR with one core
+ dev approval and all passing CI
+In-Reply-To: <5d21329c-bf37-9a06-3296-8e91eaeafd54@udel.edu>
+References: <CAGbohnZj8t8DsKZzMGmp7agTDQsk8edQ9H3RdzZe0N0R6h7rJA@mail.gmail.com>
+ <CADiSq7e7vSzvTW1ot80VbFQfjcLDczWRurVKEHqCSL_x_6Mjew@mail.gmail.com>
+ <5d21329c-bf37-9a06-3296-8e91eaeafd54@udel.edu>
+Message-ID: <CAGbohnYz+UWtJZaq=2jcMV7-h6NQ56LMpHkO+31nT6XXDCxocg@mail.gmail.com>
+
+This is now done!
+
+miss-islington has been promoted as committer ;)
+
+If you approve the PR and all CI passed, miss-islington will merge it.
+Example: https://github.com/python/cpython/pull/5547#event-1468940344
+
+Enjoy!
+
+Mariatta Wijaya
+
+?
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20180212/415d25b5/attachment.html>
+
+From ncoghlan at gmail.com  Mon Feb 12 21:38:35 2018
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Tue, 13 Feb 2018 12:38:35 +1000
+Subject: [python-committers] Auto-merge the backport PR with one core
+ dev approval and all passing CI
+In-Reply-To: <CAGbohnYz+UWtJZaq=2jcMV7-h6NQ56LMpHkO+31nT6XXDCxocg@mail.gmail.com>
+References: <CAGbohnZj8t8DsKZzMGmp7agTDQsk8edQ9H3RdzZe0N0R6h7rJA@mail.gmail.com>
+ <CADiSq7e7vSzvTW1ot80VbFQfjcLDczWRurVKEHqCSL_x_6Mjew@mail.gmail.com>
+ <5d21329c-bf37-9a06-3296-8e91eaeafd54@udel.edu>
+ <CAGbohnYz+UWtJZaq=2jcMV7-h6NQ56LMpHkO+31nT6XXDCxocg@mail.gmail.com>
+Message-ID: <CADiSq7cGcHG416DKhMjmE3jWi=oUa-PruSuZFmX3X3vmd_c+rQ@mail.gmail.com>
+
+On 12 February 2018 at 18:18, Mariatta Wijaya <mariatta.wijaya at gmail.com>
+wrote:
+
+> This is now done!
+>
+> miss-islington has been promoted as committer ;)
+>
+> If you approve the PR and all CI passed, miss-islington will merge it.
+> Example: https://github.com/python/cpython/pull/5547#event-1468940344
+>
+
+Huzzah, thank you!
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20180213/9e21b3dc/attachment.html>
+
+From steve.dower at python.org  Tue Feb 13 00:12:15 2018
+From: steve.dower at python.org (Steve Dower)
+Date: Mon, 12 Feb 2018 21:12:15 -0800
+Subject: [python-committers] Auto-merge the backport PR with one coredev
+ approval and all passing CI
+In-Reply-To: <CAGbohnYz+UWtJZaq=2jcMV7-h6NQ56LMpHkO+31nT6XXDCxocg@mail.gmail.com>
+References: <CAGbohnZj8t8DsKZzMGmp7agTDQsk8edQ9H3RdzZe0N0R6h7rJA@mail.gmail.com>
+ <CADiSq7e7vSzvTW1ot80VbFQfjcLDczWRurVKEHqCSL_x_6Mjew@mail.gmail.com>
+ <5d21329c-bf37-9a06-3296-8e91eaeafd54@udel.edu>
+ <CAGbohnYz+UWtJZaq=2jcMV7-h6NQ56LMpHkO+31nT6XXDCxocg@mail.gmail.com>
+Message-ID: <mailman.84.1518498738.27154.python-committers@python.org>
+
++1 Miss Islington does a lot of great work maintaining all the released versions while we get to focus on the latest and greatest. Deserves commit rights :o)
+
+Top-posted from my Windows phone
+
+From: Mariatta Wijaya
+Sent: Monday, February 12, 2018 0:19
+To: Terry Reedy
+Cc: python-committers
+Subject: Re: [python-committers] Auto-merge the backport PR with one coredev approval and all passing CI
+
+This is now done!
+
+miss-islington has been promoted as committer ;)
+
+If you approve the PR and all CI passed, miss-islington will merge it.
+Example:?https://github.com/python/cpython/pull/5547#event-1468940344
+
+Enjoy!
+
+
+Mariatta Wijaya
+
+?
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20180212/725b801d/attachment.html>
+
+From guido at python.org  Thu Feb 15 19:21:39 2018
+From: guido at python.org (Guido van Rossum)
+Date: Thu, 15 Feb 2018 16:21:39 -0800
+Subject: [python-committers] Issues with hundreds of commits being opened
+ and closed -- what's going on?
+Message-ID: <CAP7+vJLJnHefQJt8StdoLFT33ktYQXO9aBLS+JJyvnr31AwB-Q@mail.gmail.com>
+
+Occasionally I receive a sequence of emails from GitHub where a PR is
+requesting my review by some user, the-knights-who-say-ni responds with a
+CLA request, and then Bedevere closes it, without comment. Latest example:
+https://github.com/python/cpython/pull/5693
+
+This seems to be some kind of user error -- the GitHub description is
+typically something like "<user> wants to merge 398 commits into master
+from 3.5". But this happens so frequently I would like to prevent this user
+error from happening in the first place.
+
+Does anyone understand what these users are doing that causes such PRs to
+be created?
+
+-- 
+--Guido van Rossum (python.org/~guido)
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20180215/5fde7a56/attachment.html>
+
+From zachary.ware+pydev at gmail.com  Thu Feb 15 19:35:39 2018
+From: zachary.ware+pydev at gmail.com (Zachary Ware)
+Date: Thu, 15 Feb 2018 18:35:39 -0600
+Subject: [python-committers] Issues with hundreds of commits being
+ opened and closed -- what's going on?
+In-Reply-To: <CAP7+vJLJnHefQJt8StdoLFT33ktYQXO9aBLS+JJyvnr31AwB-Q@mail.gmail.com>
+References: <CAP7+vJLJnHefQJt8StdoLFT33ktYQXO9aBLS+JJyvnr31AwB-Q@mail.gmail.com>
+Message-ID: <CAKJDb-NiEdezfkDBRSOHbm+YYdHrZDX+avzjR_-XQxXG4YjYLw@mail.gmail.com>
+
+On Thu, Feb 15, 2018 at 6:21 PM, Guido van Rossum <guido at python.org> wrote:
+> Occasionally I receive a sequence of emails from GitHub where a PR is
+> requesting my review by some user, the-knights-who-say-ni responds with a
+> CLA request, and then Bedevere closes it, without comment. Latest example:
+> https://github.com/python/cpython/pull/5693
+>
+> This seems to be some kind of user error -- the GitHub description is
+> typically something like "<user> wants to merge 398 commits into master from
+> 3.5". But this happens so frequently I would like to prevent this user error
+> from happening in the first place.
+>
+> Does anyone understand what these users are doing that causes such PRs to be
+> created?
+
+This is because GitHub allows anyone logged into the site to click the
+"New pull request" button on the branches page
+(https://github.com/python/cpython/branches).  I reported this to
+GitHub several months ago and the last word was that they were
+"discussing it internally"; I'll bug them about it again.
+
+-- 
+Zach
+
+From mariatta.wijaya at gmail.com  Thu Feb 15 19:42:34 2018
+From: mariatta.wijaya at gmail.com (Mariatta Wijaya)
+Date: Thu, 15 Feb 2018 16:42:34 -0800
+Subject: [python-committers] Issues with hundreds of commits being
+ opened and closed -- what's going on?
+In-Reply-To: <CAKJDb-NiEdezfkDBRSOHbm+YYdHrZDX+avzjR_-XQxXG4YjYLw@mail.gmail.com>
+References: <CAP7+vJLJnHefQJt8StdoLFT33ktYQXO9aBLS+JJyvnr31AwB-Q@mail.gmail.com>
+ <CAKJDb-NiEdezfkDBRSOHbm+YYdHrZDX+avzjR_-XQxXG4YjYLw@mail.gmail.com>
+Message-ID: <CAGbohna33mUgNkFsSu_Q3Aha4jEPmERfaVcX_1cYsRMykhZqvg@mail.gmail.com>
+
+I've also created https://github.com/python/bedevere/issues/69 so that the
+review requests from such PRs can be dismissed automatically.
+
+Not sure if there's anything else we can do.
+
+Will it help when bedevere close the PR, it can leave a comment say that
+"This PR is invalid. Ignore it" ?
+
+
+Mariatta Wijaya
+
+?
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20180215/88800ade/attachment.html>
+
+From guido at python.org  Thu Feb 15 19:49:57 2018
+From: guido at python.org (Guido van Rossum)
+Date: Thu, 15 Feb 2018 16:49:57 -0800
+Subject: [python-committers] Issues with hundreds of commits being
+ opened and closed -- what's going on?
+In-Reply-To: <CAKJDb-NiEdezfkDBRSOHbm+YYdHrZDX+avzjR_-XQxXG4YjYLw@mail.gmail.com>
+References: <CAP7+vJLJnHefQJt8StdoLFT33ktYQXO9aBLS+JJyvnr31AwB-Q@mail.gmail.com>
+ <CAKJDb-NiEdezfkDBRSOHbm+YYdHrZDX+avzjR_-XQxXG4YjYLw@mail.gmail.com>
+Message-ID: <CAP7+vJL8uBTc7XehA0rGTa4wXrxQErQC5YdqeBBHDGFUFEOdSQ@mail.gmail.com>
+
+Ah. Makes sense. UI design is hard... Thanks!
+
+On Thu, Feb 15, 2018 at 4:35 PM, Zachary Ware <zachary.ware+pydev at gmail.com>
+wrote:
+
+> On Thu, Feb 15, 2018 at 6:21 PM, Guido van Rossum <guido at python.org>
+> wrote:
+> > Occasionally I receive a sequence of emails from GitHub where a PR is
+> > requesting my review by some user, the-knights-who-say-ni responds with a
+> > CLA request, and then Bedevere closes it, without comment. Latest
+> example:
+> > https://github.com/python/cpython/pull/5693
+> >
+> > This seems to be some kind of user error -- the GitHub description is
+> > typically something like "<user> wants to merge 398 commits into master
+> from
+> > 3.5". But this happens so frequently I would like to prevent this user
+> error
+> > from happening in the first place.
+> >
+> > Does anyone understand what these users are doing that causes such PRs
+> to be
+> > created?
+>
+> This is because GitHub allows anyone logged into the site to click the
+> "New pull request" button on the branches page
+> (https://github.com/python/cpython/branches).  I reported this to
+> GitHub several months ago and the last word was that they were
+> "discussing it internally"; I'll bug them about it again.
+>
+> --
+> Zach
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+
+
+
+-- 
+--Guido van Rossum (python.org/~guido)
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20180215/4ab0bb79/attachment-0001.html>
+
+From tjreedy at udel.edu  Thu Feb 15 19:59:59 2018
+From: tjreedy at udel.edu (Terry Reedy)
+Date: Thu, 15 Feb 2018 19:59:59 -0500
+Subject: [python-committers] Issues with hundreds of commits being
+ opened and closed -- what's going on?
+In-Reply-To: <CAGbohna33mUgNkFsSu_Q3Aha4jEPmERfaVcX_1cYsRMykhZqvg@mail.gmail.com>
+References: <CAP7+vJLJnHefQJt8StdoLFT33ktYQXO9aBLS+JJyvnr31AwB-Q@mail.gmail.com>
+ <CAKJDb-NiEdezfkDBRSOHbm+YYdHrZDX+avzjR_-XQxXG4YjYLw@mail.gmail.com>
+ <CAGbohna33mUgNkFsSu_Q3Aha4jEPmERfaVcX_1cYsRMykhZqvg@mail.gmail.com>
+Message-ID: <5ba37975-879e-c31e-2fb6-c1f22f7e5f6b@udel.edu>
+
+On 2/15/2018 7:42 PM, Mariatta Wijaya wrote:
+> I've also created https://github.com/python/bedevere/issues/69 so that 
+> the review requests from such PRs can be dismissed automatically.
+
+This is a great improvement over the PR being left open until someone 
+manually closes it.
+
+> Not sure if there's anything else we can do.
+
+We need GH to provide a hook so that our bot could vet a proposed PR 
+*before* it is created and the review notices sent out (by GH).
+
+> Will it help when bedevere close the PR, it can leave a comment say that 
+> "This PR is invalid. Ignore it" ?
+
+If that could be added to the same email, instead of sending yet another 
+one, yes.
+
+Would it be possible for Bedevere to run and possibly close *before* the 
+Knight runs, so we get one less email?
+
+Terry
+
+From nad at python.org  Sun Feb 25 15:16:59 2018
+From: nad at python.org (Ned Deily)
+Date: Sun, 25 Feb 2018 15:16:59 -0500
+Subject: [python-committers] 3.7.0b2 code cutoff soon!
+Message-ID: <B7FB88EE-0F7C-47CB-BD65-1EE4AC326BA8@python.org>
+
+Just a reminder that 3.7.0b2 is almost upon us. Please get your feature
+fixes, bug fixes, and documentation updates in before 2018-02-26 ~23:59
+Anywhere on Earth (UTC-12:00). That's a little over 1.5 days from now.
+Also, as previously noted, for those of you who asked for and received
+extensions for a few remaining 3.7.0 features, those extensions expire
+as of the b2 cutoff so please plan accordingly.
+
+Looking ahead, we need to start locking down 3.7.0 so that our
+downstream users, that is, third-party package developers, Python
+distributors, and end users, can test their code with confidence that
+the actual release of 3.7.0 will hold no unpleasant surprises. So please
+assume that the 3.7.0 ABI will be frozen as of beta 3, in 4 weeks on
+2018-03-26, and that only doc updates and the kinds of bug fixes
+appropriate for a maintenance release should be going into the 3.7
+branch after 3.7.0b3 without further discussion.
+
+Thanks again for all of your hard work towards making 3.7.0 yet another
+great release!
+
+--Ned
+
+--
+  Ned Deily
+  nad at python.org -- []
+
+
+From nad at python.org  Wed Feb 28 01:04:32 2018
+From: nad at python.org (Ned Deily)
+Date: Wed, 28 Feb 2018 01:04:32 -0500
+Subject: [python-committers] [RELEASE] Python 3.7.0b2 is now available for
+ testing
+Message-ID: <66EE6E10-2815-4E53-841C-A8896BFA48A5@python.org>
+
+On behalf of the Python development community and the Python 3.7 release
+team, I'm happy to announce the availability of Python 3.7.0b2.  b2 is
+the second of four planned beta releases of Python 3.7, the next major
+release of Python, and marks the end of the feature development phase
+for 3.7.  You can find Python 3.7.0b2 here:
+
+https://www.python.org/downloads/release/python-370b2/
+
+Among the new major new features in Python 3.7 are:
+
+* PEP 538, Coercing the legacy C locale to a UTF-8 based locale
+* PEP 539, A New C-API for Thread-Local Storage in CPython
+* PEP 540, UTF-8 mode
+* PEP 552, Deterministic pyc
+* PEP 553, Built-in breakpoint()
+* PEP 557, Data Classes
+* PEP 560, Core support for typing module and generic types
+* PEP 562, Module __getattr__ and __dir__
+* PEP 563, Postponed Evaluation of Annotations
+* PEP 564, Time functions with nanosecond resolution
+* PEP 565, Show DeprecationWarning in __main__
+* PEP 567, Context Variables
+
+Please see "What?s New In Python 3.7" for more information.
+Additional documentation for these features and for other changes
+will be provided during the beta phase.
+
+https://docs.python.org/3.7/whatsnew/3.7.html
+
+Beta releases are intended to give you the opportunity to test new
+features and bug fixes and to prepare their projects to support the
+new feature release. We strongly encourage you to test your projects
+with 3.7 during the beta phase and report issues found to
+https://bugs.python.org as soon as possible.
+
+While the release is feature complete entering the beta phase, it is
+possible that features may be modified or, in rare cases, deleted up
+until the start of the release candidate phase (2018-05-21). Our goal
+is have no ABI changes after beta 3 and no code changes after rc1.
+To achieve that, it will be extremely important to get as much exposure
+for 3.7 as possible during the beta phase.
+
+Attention macOS users: as of b1, there is a new installer variant for
+macOS 10.9+ that includes a built-in version of Tcl/Tk 8.6. This
+variant is expected to become the default version when 3.7.0 releases.
+Check it out! We welcome your feedback.
+
+Please keep in mind that this is a preview release and its use is
+not recommended for production environments.
+
+The next planned release of Python 3.7 will be 3.7.0b3, currently
+scheduled for 2018-03-26. More information about the release schedule
+can be found here:
+
+https://www.python.org/dev/peps/pep-0537/
+
+
+--
+  Ned Deily
+  nad at python.org -- []
+
+

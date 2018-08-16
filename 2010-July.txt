@@ -1,0 +1,2574 @@
+From g.brandl at gmx.net  Thu Jul  1 00:37:16 2010
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Thu, 01 Jul 2010 00:37:16 +0200
+Subject: [python-committers] Delaying 3.2 release
+In-Reply-To: <AANLkTimyxFENImAeQeQr5HQB2c-vG7ec9gLGe8feAxcH@mail.gmail.com>
+References: <i0751v$9gs$1@dough.gmane.org>
+	<4C278557.8070807@v.loewis.de>	<1277760611.3270.0.camel@localhost.localdomain>	<4C291B0B.3020303@v.loewis.de>	<AANLkTikxeJ1v71nJMW3WwOebyz77CQZ34LGvUaTp9a9H@mail.gmail.com>	<i0f02k$985$2@dough.gmane.org>
+	<AANLkTimyxFENImAeQeQr5HQB2c-vG7ec9gLGe8feAxcH@mail.gmail.com>
+Message-ID: <i0ggt6$c08$1@dough.gmane.org>
+
+Am 30.06.2010 16:43, schrieb Benjamin Peterson:
+> 2010/6/30 Georg Brandl <g.brandl at gmx.net>:
+>> All in all, hearing the arguments in this thread I agree that a month
+>> more time for development is a good thing, and I will update the release
+>> schedule accordingly.
+> 
+> You could just throw in another alpha. It never hurts to get the code
+> out there IMO.
+
+Yes, but on the other hand probably nobody cares.  So I'd rather like to
+keep the current schedule with 3 months alpha period, especially because
+there still may be substantial changes during that period.
+
+Georg
+
+
+From benjamin at python.org  Fri Jul  2 05:17:13 2010
+From: benjamin at python.org (Benjamin Peterson)
+Date: Thu, 1 Jul 2010 22:17:13 -0500
+Subject: [python-committers] changes after 2.7 final
+Message-ID: <AANLkTin-lM4Rn7sXbCHGAnyWATpn3S10Uk1DuS9JITKc@mail.gmail.com>
+
+After I tag 2.7 this Saturday, I will effect the following changes in
+the repository:
+- I will make the 2.7 maintenance branch.
+- I will remove svnmerge from trunk -> py3k.
+- I will initialize svnmerge from py3k -> 2.7maint.
+- The trunk will be officially closed. I suggest you just delete your
+trunk working copies (or switch them anyway) because a commit hook
+will be in place to prevent commits to it.
+
+-- 
+Regards,
+Benjamin
+
+From brett at python.org  Fri Jul  2 06:10:27 2010
+From: brett at python.org (Brett Cannon)
+Date: Thu, 1 Jul 2010 21:10:27 -0700
+Subject: [python-committers] changes after 2.7 final
+In-Reply-To: <AANLkTin-lM4Rn7sXbCHGAnyWATpn3S10Uk1DuS9JITKc@mail.gmail.com>
+References: <AANLkTin-lM4Rn7sXbCHGAnyWATpn3S10Uk1DuS9JITKc@mail.gmail.com>
+Message-ID: <AANLkTinT8ZYkMs8ZHJZo0uKgy-HhzabTE1kt1LyVySCo@mail.gmail.com>
+
+On Thu, Jul 1, 2010 at 20:17, Benjamin Peterson <benjamin at python.org> wrote:
+> After I tag 2.7 this Saturday, I will effect the following changes in
+> the repository:
+> - I will make the 2.7 maintenance branch.
+> - I will remove svnmerge from trunk -> py3k.
+
+Thanks for going through to make sure no commits were going to be lost.
+
+> - I will initialize svnmerge from py3k -> 2.7maint.
+
+We should probably all get into the habit of making sure that we leave
+any issues open with Python 2.7 flagged as an effected version to get
+fixes ported. These then could become "easy" issues for people to
+contribute through by letting others create a backport patch. Else we
+could think about introducing a "2.x backport" (or simply "backport")
+keyword to flag such open issues.
+
+> - The trunk will be officially closed. I suggest you just delete your
+> trunk working copies (or switch them anyway) because a commit hook
+> will be in place to prevent commits to it.
+
+Boy will it be nice to be down to only three official branches. Can't
+wait until we can drop Python 2.7 as well and really only have two
+branches to care about.
+
+From mal at egenix.com  Fri Jul  2 09:47:03 2010
+From: mal at egenix.com (M.-A. Lemburg)
+Date: Fri, 02 Jul 2010 09:47:03 +0200
+Subject: [python-committers] changes after 2.7 final
+In-Reply-To: <AANLkTin-lM4Rn7sXbCHGAnyWATpn3S10Uk1DuS9JITKc@mail.gmail.com>
+References: <AANLkTin-lM4Rn7sXbCHGAnyWATpn3S10Uk1DuS9JITKc@mail.gmail.com>
+Message-ID: <4C2D9977.4080603@egenix.com>
+
+Benjamin Peterson wrote:
+> After I tag 2.7 this Saturday, I will effect the following changes in
+> the repository:
+> - I will make the 2.7 maintenance branch.
+> - I will remove svnmerge from trunk -> py3k.
+> - I will initialize svnmerge from py3k -> 2.7maint.
+> - The trunk will be officially closed. I suggest you just delete your
+> trunk working copies (or switch them anyway) because a commit hook
+> will be in place to prevent commits to it.
+
+Wouldn't it be better to make the py3k branch the new trunk by
+removing the 2.7 code and moving the Python3 code into that
+directory ?
+
+-- 
+Marc-Andre Lemburg
+eGenix.com
+
+Professional Python Services directly from the Source  (#1, Jul 02 2010)
+>>> Python/Zope Consulting and Support ...        http://www.egenix.com/
+>>> mxODBC.Zope.Database.Adapter ...             http://zope.egenix.com/
+>>> mxODBC, mxDateTime, mxTextTools ...        http://python.egenix.com/
+________________________________________________________________________
+2010-07-19: EuroPython 2010, Birmingham, UK                16 days to go
+
+::: Try our new mxODBC.Connect Python Database Interface for free ! ::::
+
+
+   eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+    D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+           Registered at Amtsgericht Duesseldorf: HRB 46611
+               http://www.egenix.com/company/contact/
+
+From mal at egenix.com  Fri Jul  2 09:53:27 2010
+From: mal at egenix.com (M.-A. Lemburg)
+Date: Fri, 02 Jul 2010 09:53:27 +0200
+Subject: [python-committers] changes after 2.7 final
+In-Reply-To: <4C2D9977.4080603@egenix.com>
+References: <AANLkTin-lM4Rn7sXbCHGAnyWATpn3S10Uk1DuS9JITKc@mail.gmail.com>
+	<4C2D9977.4080603@egenix.com>
+Message-ID: <4C2D9AF7.4070305@egenix.com>
+
+M.-A. Lemburg wrote:
+> Benjamin Peterson wrote:
+>> After I tag 2.7 this Saturday, I will effect the following changes in
+>> the repository:
+>> - I will make the 2.7 maintenance branch.
+>> - I will remove svnmerge from trunk -> py3k.
+>> - I will initialize svnmerge from py3k -> 2.7maint.
+>> - The trunk will be officially closed. I suggest you just delete your
+>> trunk working copies (or switch them anyway) because a commit hook
+>> will be in place to prevent commits to it.
+> 
+> Wouldn't it be better to make the py3k branch the new trunk by
+> removing the 2.7 code and moving the Python3 code into that
+> directory ?
+
+With "that directory" I meant trunk/, i.e. along the lines of:
+
+svn remove trunk
+svn move branches/py3k trunk
+
+-- 
+Marc-Andre Lemburg
+eGenix.com
+
+Professional Python Services directly from the Source  (#1, Jul 02 2010)
+>>> Python/Zope Consulting and Support ...        http://www.egenix.com/
+>>> mxODBC.Zope.Database.Adapter ...             http://zope.egenix.com/
+>>> mxODBC, mxDateTime, mxTextTools ...        http://python.egenix.com/
+________________________________________________________________________
+2010-07-19: EuroPython 2010, Birmingham, UK                16 days to go
+
+::: Try our new mxODBC.Connect Python Database Interface for free ! ::::
+
+
+   eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+    D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+           Registered at Amtsgericht Duesseldorf: HRB 46611
+               http://www.egenix.com/company/contact/
+
+From solipsis at pitrou.net  Fri Jul  2 10:57:03 2010
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Fri, 02 Jul 2010 10:57:03 +0200
+Subject: [python-committers] changes after 2.7 final
+In-Reply-To: <AANLkTinT8ZYkMs8ZHJZo0uKgy-HhzabTE1kt1LyVySCo@mail.gmail.com>
+References: <AANLkTin-lM4Rn7sXbCHGAnyWATpn3S10Uk1DuS9JITKc@mail.gmail.com>
+	<AANLkTinT8ZYkMs8ZHJZo0uKgy-HhzabTE1kt1LyVySCo@mail.gmail.com>
+Message-ID: <1278061023.3201.3.camel@localhost.localdomain>
+
+
+> > - I will initialize svnmerge from py3k -> 2.7maint.
+> 
+> We should probably all get into the habit of making sure that we leave
+> any issues open with Python 2.7 flagged as an effected version to get
+> fixes ported. These then could become "easy" issues for people to
+> contribute through by letting others create a backport patch. Else we
+> could think about introducing a "2.x backport" (or simply "backport")
+> keyword to flag such open issues.
+
+What do you mean by that? Why wouldn't we just do the backports
+ourselves?
+(I don't understand what "effected" means here)
+
+For the record, the "2.6 backport" keyword on the tracker ended up
+mostly unused. Good practice is to backport just after you commit on
+trunk/py3k, not months later.
+
+
+
+
+From g.brandl at gmx.net  Fri Jul  2 11:02:06 2010
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Fri, 02 Jul 2010 11:02:06 +0200
+Subject: [python-committers] changes after 2.7 final
+In-Reply-To: <4C2D9AF7.4070305@egenix.com>
+References: <AANLkTin-lM4Rn7sXbCHGAnyWATpn3S10Uk1DuS9JITKc@mail.gmail.com>	<4C2D9977.4080603@egenix.com>
+	<4C2D9AF7.4070305@egenix.com>
+Message-ID: <i0ka25$mou$1@dough.gmane.org>
+
+Am 02.07.2010 09:53, schrieb M.-A. Lemburg:
+> M.-A. Lemburg wrote:
+>> Benjamin Peterson wrote:
+>>> After I tag 2.7 this Saturday, I will effect the following changes in
+>>> the repository:
+>>> - I will make the 2.7 maintenance branch.
+>>> - I will remove svnmerge from trunk -> py3k.
+>>> - I will initialize svnmerge from py3k -> 2.7maint.
+>>> - The trunk will be officially closed. I suggest you just delete your
+>>> trunk working copies (or switch them anyway) because a commit hook
+>>> will be in place to prevent commits to it.
+>> 
+>> Wouldn't it be better to make the py3k branch the new trunk by
+>> removing the 2.7 code and moving the Python3 code into that
+>> directory ?
+> 
+> With "that directory" I meant trunk/, i.e. along the lines of:
+> 
+> svn remove trunk
+> svn move branches/py3k trunk
+
+While that would be logical if we continued to use SVN, it's probably not
+worth it when we switch to Hg anyway a short time later, so avoiding the
+potential confusion is better.
+
+Georg
+
+-- 
+Thus spake the Lord: Thou shalt indent with four spaces. No more, no less.
+Four shall be the number of spaces thou shalt indent, and the number of thy
+indenting shall be four. Eight shalt thou not indent, nor either indent thou
+two, excepting that thou then proceed to four. Tabs are right out.
+
+
+From dirkjan at ochtman.nl  Fri Jul  2 11:12:53 2010
+From: dirkjan at ochtman.nl (Dirkjan Ochtman)
+Date: Fri, 2 Jul 2010 11:12:53 +0200
+Subject: [python-committers] changes after 2.7 final
+In-Reply-To: <i0ka25$mou$1@dough.gmane.org>
+References: <AANLkTin-lM4Rn7sXbCHGAnyWATpn3S10Uk1DuS9JITKc@mail.gmail.com> 
+	<4C2D9977.4080603@egenix.com> <4C2D9AF7.4070305@egenix.com> 
+	<i0ka25$mou$1@dough.gmane.org>
+Message-ID: <AANLkTil3kE4U5ZqudNqPSS6_aaTWIHdogoaVozyJC-XT@mail.gmail.com>
+
+On Fri, Jul 2, 2010 at 11:02, Georg Brandl <g.brandl at gmx.net> wrote:
+> While that would be logical if we continued to use SVN, it's probably not
+> worth it when we switch to Hg anyway a short time later, so avoiding the
+> potential confusion is better.
+
+Agreed, renaming the branch has the potential of making the conversion
+harder/worse.
+
+Cheers,
+
+Dirkjan
+
+From brett at python.org  Fri Jul  2 20:00:13 2010
+From: brett at python.org (Brett Cannon)
+Date: Fri, 2 Jul 2010 11:00:13 -0700
+Subject: [python-committers] changes after 2.7 final
+In-Reply-To: <1278061023.3201.3.camel@localhost.localdomain>
+References: <AANLkTin-lM4Rn7sXbCHGAnyWATpn3S10Uk1DuS9JITKc@mail.gmail.com> 
+	<AANLkTinT8ZYkMs8ZHJZo0uKgy-HhzabTE1kt1LyVySCo@mail.gmail.com> 
+	<1278061023.3201.3.camel@localhost.localdomain>
+Message-ID: <AANLkTilcKa5ywQxQr4B1gFs-EyRiazbfkV42Grf87USw@mail.gmail.com>
+
+On Fri, Jul 2, 2010 at 01:57, Antoine Pitrou <solipsis at pitrou.net> wrote:
+>
+>> > - I will initialize svnmerge from py3k -> 2.7maint.
+>>
+>> We should probably all get into the habit of making sure that we leave
+>> any issues open with Python 2.7 flagged as an effected version to get
+>> fixes ported. These then could become "easy" issues for people to
+>> contribute through by letting others create a backport patch. Else we
+>> could think about introducing a "2.x backport" (or simply "backport")
+>> keyword to flag such open issues.
+>
+> What do you mean by that? Why wouldn't we just do the backports
+> ourselves?
+
+People forget or don't view it as important enough to do. Just look at
+home many merges Benjamin did last week into py3k from trunk because
+people didn't do a merge.
+
+> (I don't understand what "effected" means here)
+
+That should have been "affected".
+
+>
+> For the record, the "2.6 backport" keyword on the tracker ended up
+> mostly unused.
+
+I supported its removal. =)
+
+>Good practice is to backport just after you commit on
+> trunk/py3k, not months later.
+
+Obviously, but people forget or simply choose not to.
+
+-Brett
+
+
+>
+>
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+>
+
+From martin at v.loewis.de  Sat Jul  3 01:10:19 2010
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Sat, 03 Jul 2010 01:10:19 +0200
+Subject: [python-committers] changes after 2.7 final
+In-Reply-To: <AANLkTilcKa5ywQxQr4B1gFs-EyRiazbfkV42Grf87USw@mail.gmail.com>
+References: <AANLkTin-lM4Rn7sXbCHGAnyWATpn3S10Uk1DuS9JITKc@mail.gmail.com>
+	<AANLkTinT8ZYkMs8ZHJZo0uKgy-HhzabTE1kt1LyVySCo@mail.gmail.com>
+	<1278061023.3201.3.camel@localhost.localdomain>
+	<AANLkTilcKa5ywQxQr4B1gFs-EyRiazbfkV42Grf87USw@mail.gmail.com>
+Message-ID: <4C2E71DB.8060903@v.loewis.de>
+
+>> Good practice is to backport just after you commit on
+>> trunk/py3k, not months later.
+> 
+> Obviously, but people forget or simply choose not to.
+
+I'd say: "tough luck, then". If people don't port a fix in some
+branch, the bug stays unfixed in that branch. So what: if somebody
+runs into the bug again, it will get fixed again - perhaps by the
+same person who failed to backport in the first place. Or perhaps
+in an entirely different way, possibly better.
+
+I think it's perfectly fine that people have different notions
+of quality and process. If we impose some notion of quality and
+process on everybody, it better be widely agreed (i.e. the people
+being forced to do things should, in principle, agree that these
+are good things).
+
+Regards,
+Martin
+
+
+From benjamin at python.org  Sat Jul  3 15:47:51 2010
+From: benjamin at python.org (Benjamin Peterson)
+Date: Sat, 3 Jul 2010 08:47:51 -0500
+Subject: [python-committers] churning 2.7
+Message-ID: <AANLkTimhTZqGDnPrJexujyNP1ENZcjyqwae7FYrzykIW@mail.gmail.com>
+
+The last release blockers have been closed, so I'm now going to go
+ahead if the release. Please no commits to the trunk... ever again! :)
+
+-- 
+Regards,
+Benjamin
+
+From benjamin at python.org  Sat Jul  3 17:45:09 2010
+From: benjamin at python.org (Benjamin Peterson)
+Date: Sat, 3 Jul 2010 10:45:09 -0500
+Subject: [python-committers] 2.7 almost out the door
+Message-ID: <AANLkTikEHFlXZCNuWdrrAm85qJUcblwh9_o1T6YQbXLg@mail.gmail.com>
+
+2.7 has been tagged, and I have uploaded docs and the source tarballs
+to python.org. I will wait on binaries before announcing the release.
+
+-- 
+Regards,
+Benjamin
+
+From jcea at jcea.es  Sat Jul  3 18:23:01 2010
+From: jcea at jcea.es (Jesus Cea)
+Date: Sat, 03 Jul 2010 18:23:01 +0200
+Subject: [python-committers] 2.7 almost out the door
+In-Reply-To: <AANLkTikEHFlXZCNuWdrrAm85qJUcblwh9_o1T6YQbXLg@mail.gmail.com>
+References: <AANLkTikEHFlXZCNuWdrrAm85qJUcblwh9_o1T6YQbXLg@mail.gmail.com>
+Message-ID: <4C2F63E5.7000505@jcea.es>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On 03/07/10 17:45, Benjamin Peterson wrote:
+> 2.7 has been tagged, and I have uploaded docs and the source tarballs
+> to python.org. I will wait on binaries before announcing the release.
+
+The end of an era.
+
+Congratulations to all.
+
+- -- 
+Jesus Cea Avion                         _/_/      _/_/_/        _/_/_/
+jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+jabber / xmpp:jcea at jabber.org         _/_/    _/_/          _/_/_/_/_/
+.                              _/_/  _/_/    _/_/          _/_/  _/_/
+"Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+"My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+"El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.10 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - http://enigmail.mozdev.org/
+
+iQCVAwUBTC9j5Zlgi5GaxT1NAQKhewQAgIkLWJ7UhNFM+qpk3kbLL2fgu1uD4iek
+CGLA5qh5QzPvDezcEnLKnVcRNZfFKS/BhxgiLerKnh1eY7jEP64ZY3NkQ/botFbd
+pOOt9g4515Y0OAgm3cspl4gk+kSJOY0gEzg2tdZdnColXXSE6bJK89c2qsCNIhJ9
+ikB+hBUnQ/E=
+=NC3P
+-----END PGP SIGNATURE-----
+
+From alexander.belopolsky at gmail.com  Sat Jul  3 20:26:41 2010
+From: alexander.belopolsky at gmail.com (Alexander Belopolsky)
+Date: Sat, 3 Jul 2010 14:26:41 -0400
+Subject: [python-committers] 2.7 almost out the door
+In-Reply-To: <AANLkTikEHFlXZCNuWdrrAm85qJUcblwh9_o1T6YQbXLg@mail.gmail.com>
+References: <AANLkTikEHFlXZCNuWdrrAm85qJUcblwh9_o1T6YQbXLg@mail.gmail.com>
+Message-ID: <AANLkTilkyrqMJwGI3xJP1_NCqA_YMN9oeYRHphGn3V3k@mail.gmail.com>
+
+The "What?s New in Python 2.7" document says "Python 2.7 was released
+on July 7, 2010."  Is this a typo or you plan a 4-day cool off period
+before making an announcement?
+
+On Sat, Jul 3, 2010 at 11:45 AM, Benjamin Peterson <benjamin at python.org> wrote:
+> 2.7 has been tagged, and I have uploaded docs and the source tarballs
+> to python.org. I will wait on binaries before announcing the release.
+>
+> --
+> Regards,
+> Benjamin
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+>
+
+From benjamin at python.org  Sat Jul  3 20:54:23 2010
+From: benjamin at python.org (Benjamin Peterson)
+Date: Sat, 3 Jul 2010 13:54:23 -0500
+Subject: [python-committers] 2.7 almost out the door
+In-Reply-To: <AANLkTilkyrqMJwGI3xJP1_NCqA_YMN9oeYRHphGn3V3k@mail.gmail.com>
+References: <AANLkTikEHFlXZCNuWdrrAm85qJUcblwh9_o1T6YQbXLg@mail.gmail.com>
+	<AANLkTilkyrqMJwGI3xJP1_NCqA_YMN9oeYRHphGn3V3k@mail.gmail.com>
+Message-ID: <AANLkTikEgMIgI2uZFQzZ5dFpjowQ8u2KxPHHCzGE8Kpq@mail.gmail.com>
+
+2010/7/3 Alexander Belopolsky <alexander.belopolsky at gmail.com>:
+> The "What?s New in Python 2.7" document says "Python 2.7 was released
+> on July 7, 2010." ?Is this a typo or you plan a 4-day cool off period
+> before making an announcement?
+
+I was thinking of July being the 7th month when I did that.
+
+
+-- 
+Regards,
+Benjamin
+
+From solipsis at pitrou.net  Sat Jul  3 21:01:54 2010
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Sat, 03 Jul 2010 21:01:54 +0200
+Subject: [python-committers] 2.7 almost out the door
+In-Reply-To: <AANLkTikEgMIgI2uZFQzZ5dFpjowQ8u2KxPHHCzGE8Kpq@mail.gmail.com>
+References: <AANLkTikEHFlXZCNuWdrrAm85qJUcblwh9_o1T6YQbXLg@mail.gmail.com>
+	<AANLkTilkyrqMJwGI3xJP1_NCqA_YMN9oeYRHphGn3V3k@mail.gmail.com>
+	<AANLkTikEgMIgI2uZFQzZ5dFpjowQ8u2KxPHHCzGE8Kpq@mail.gmail.com>
+Message-ID: <1278183714.3271.2.camel@localhost.localdomain>
+
+Le samedi 03 juillet 2010 ? 13:54 -0500, Benjamin Peterson a ?crit :
+> 2010/7/3 Alexander Belopolsky <alexander.belopolsky at gmail.com>:
+> > The "What?s New in Python 2.7" document says "Python 2.7 was released
+> > on July 7, 2010."  Is this a typo or you plan a 4-day cool off period
+> > before making an announcement?
+> 
+> I was thinking of July being the 7th month when I did that.
+
+We can say we released it early because we couldn't stand 2.x anymore.
+
+
+
+From janssen at parc.com  Sun Jul  4 01:51:49 2010
+From: janssen at parc.com (Bill Janssen)
+Date: Sat, 3 Jul 2010 16:51:49 PDT
+Subject: [python-committers] 2.7 almost out the door
+In-Reply-To: <1278183714.3271.2.camel@localhost.localdomain>
+References: <AANLkTikEHFlXZCNuWdrrAm85qJUcblwh9_o1T6YQbXLg@mail.gmail.com>
+	<AANLkTilkyrqMJwGI3xJP1_NCqA_YMN9oeYRHphGn3V3k@mail.gmail.com>
+	<AANLkTikEgMIgI2uZFQzZ5dFpjowQ8u2KxPHHCzGE8Kpq@mail.gmail.com>
+	<1278183714.3271.2.camel@localhost.localdomain>
+Message-ID: <2559.1278201109@parc.com>
+
+Antoine Pitrou <solipsis at pitrou.net> wrote:
+
+> Le samedi 03 juillet 2010 ? 13:54 -0500, Benjamin Peterson a ?crit :
+> > 2010/7/3 Alexander Belopolsky <alexander.belopolsky at gmail.com>:
+> > > The "What?s New in Python 2.7" document says "Python 2.7 was released
+> > > on July 7, 2010."  Is this a typo or you plan a 4-day cool off period
+> > > before making an announcement?
+> > 
+> > I was thinking of July being the 7th month when I did that.
+> 
+> We can say we released it early because we couldn't stand 2.x anymore.
+
+Except that 2.7.1 is going to appear...
+
+Bill
+
+From g.brandl at gmx.net  Fri Jul  9 12:02:51 2010
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Fri, 09 Jul 2010 12:02:51 +0200
+Subject: [python-committers] svnmerge to 2.6 branch
+Message-ID: <i16s7s$vgd$1@dough.gmane.org>
+
+Hi,
+
+since the 2.7 commits now go to release27-maint, I've added svnmerge tracking
+from this branch to release26-maint.  From now on, if you want to backport a
+commit to 2.6 you have to select the source manually via
+
+svnmerge merge -S /python/trunk -rREV
+
+or
+
+svnmerge merge -S /python/branches/release27-maint -rREV
+
+depending on whether the commit was made before or after the switch to
+release27-maint.
+
+Georg
+
+-- 
+Thus spake the Lord: Thou shalt indent with four spaces. No more, no less.
+Four shall be the number of spaces thou shalt indent, and the number of thy
+indenting shall be four. Eight shalt thou not indent, nor either indent thou
+two, excepting that thou then proceed to four. Tabs are right out.
+
+
+From ncoghlan at gmail.com  Sun Jul 18 03:09:43 2010
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Sun, 18 Jul 2010 11:09:43 +1000
+Subject: [python-committers] New comitter proposal: Terry Reedy
+Message-ID: <AANLkTinXkOlCHN-GG2Oj0q-6dvrIYoId-v5jkxqSFszP@mail.gmail.com>
+
+I'd like to propose Terry Reedy as a new comitter.
+
+He has been contributing to Python via the tracker, c.l.p, python-dev
+and python-ideas for years and has recently requested commit
+privileges in order to work on IDLE. I think we should give them to
+him :)
+
+Terry's been around long enough that I don't think he'll need much (if
+any) mentoring, but I'm certainly willing to provide any that is
+needed.
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan?? |?? ncoghlan at gmail.com?? |?? Brisbane, Australia
+
+From orsenthil at gmail.com  Sun Jul 18 04:53:47 2010
+From: orsenthil at gmail.com (Senthil Kumaran)
+Date: Sun, 18 Jul 2010 08:23:47 +0530
+Subject: [python-committers] New comitter proposal: Terry Reedy
+In-Reply-To: <AANLkTinXkOlCHN-GG2Oj0q-6dvrIYoId-v5jkxqSFszP@mail.gmail.com>
+References: <AANLkTinXkOlCHN-GG2Oj0q-6dvrIYoId-v5jkxqSFszP@mail.gmail.com>
+Message-ID: <20100718025347.GA5391@remy>
+
+On Sun, Jul 18, 2010 at 11:09:43AM +1000, Nick Coghlan wrote:
+> I'd like to propose Terry Reedy as a new comitter.
+> 
+> He has been contributing to Python via the tracker, c.l.p, python-dev
+> and python-ideas for years and has recently requested commit
+> privileges in order to work on IDLE. I think we should give them to
+> him :)
+
++1 on this proposal. 
+
+Terry has also been helpful with providing review comments on
+documentation patches and I understand, he might be interested in
+working on them too.
+
+-- 
+Senthil
+
+Q:	What lies on the bottom of the ocean and twitches?
+A:	A nervous wreck.
+
+From rdmurray at bitdance.com  Sun Jul 18 07:03:56 2010
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Sun, 18 Jul 2010 01:03:56 -0400
+Subject: [python-committers] New comitter proposal: Terry Reedy
+In-Reply-To: <AANLkTinXkOlCHN-GG2Oj0q-6dvrIYoId-v5jkxqSFszP@mail.gmail.com>
+References: <AANLkTinXkOlCHN-GG2Oj0q-6dvrIYoId-v5jkxqSFszP@mail.gmail.com>
+Message-ID: <20100718050356.457CA21BB5A@kimball.webabinitio.net>
+
+On Sun, 18 Jul 2010 11:09:43 +1000, Nick Coghlan <ncoghlan at gmail.com> wrote:
+> I'd like to propose Terry Reedy as a new comitter.
+> 
+> He has been contributing to Python via the tracker, c.l.p, python-dev
+> and python-ideas for years and has recently requested commit
+> privileges in order to work on IDLE. I think we should give them to
+> him :)
+> 
+> Terry's been around long enough that I don't think he'll need much (if
+> any) mentoring, but I'm certainly willing to provide any that is
+> needed.
+
++1
+
+I'm guessing he'll have some questions about the commit process (everyone
+does) and perhaps the development environment/tools.  I'm sure the
+#python-dev regulars would be glad to help out with those questions
+as well, if he visits there.
+
+--
+R. David Murray                                      www.bitdance.com
+
+From brian.curtin at gmail.com  Sun Jul 18 07:08:16 2010
+From: brian.curtin at gmail.com (Brian Curtin)
+Date: Sun, 18 Jul 2010 00:08:16 -0500
+Subject: [python-committers] New comitter proposal: Terry Reedy
+In-Reply-To: <AANLkTinXkOlCHN-GG2Oj0q-6dvrIYoId-v5jkxqSFszP@mail.gmail.com>
+References: <AANLkTinXkOlCHN-GG2Oj0q-6dvrIYoId-v5jkxqSFszP@mail.gmail.com>
+Message-ID: <AANLkTilfEdemCDWV12IhE24T68X004LO5ETWW-DFTPhP@mail.gmail.com>
+
+On Sat, Jul 17, 2010 at 20:09, Nick Coghlan <ncoghlan at gmail.com> wrote:
+
+> I'd like to propose Terry Reedy as a new comitter.
+>
+> He has been contributing to Python via the tracker, c.l.p, python-dev
+> and python-ideas for years and has recently requested commit
+> privileges in order to work on IDLE. I think we should give them to
+> him :)
+>
+> Terry's been around long enough that I don't think he'll need much (if
+> any) mentoring, but I'm certainly willing to provide any that is
+> needed.
+>
+> Cheers,
+> Nick.
+
+
++1
+
+He has been active for quite a while, contributes quality work on the
+tracker, and of course the recent IDLE stuff.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20100718/6fa5fa2b/attachment.html>
+
+From dickinsm at gmail.com  Sun Jul 18 09:20:04 2010
+From: dickinsm at gmail.com (Mark Dickinson)
+Date: Sun, 18 Jul 2010 08:20:04 +0100
+Subject: [python-committers] New comitter proposal: Terry Reedy
+In-Reply-To: <AANLkTinXkOlCHN-GG2Oj0q-6dvrIYoId-v5jkxqSFszP@mail.gmail.com>
+References: <AANLkTinXkOlCHN-GG2Oj0q-6dvrIYoId-v5jkxqSFszP@mail.gmail.com>
+Message-ID: <AANLkTinTNB_n46gB3jrQJZToplJdER07Ihj9n_QZ4gbi@mail.gmail.com>
+
+On Sun, Jul 18, 2010 at 2:09 AM, Nick Coghlan <ncoghlan at gmail.com> wrote:
+> I'd like to propose Terry Reedy as a new comitter.
+
+Definitely +1.
+
+Mark
+
+From martin at v.loewis.de  Sun Jul 18 11:25:32 2010
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Sun, 18 Jul 2010 10:25:32 +0100
+Subject: [python-committers] New comitter proposal: Terry Reedy
+In-Reply-To: <AANLkTinXkOlCHN-GG2Oj0q-6dvrIYoId-v5jkxqSFszP@mail.gmail.com>
+References: <AANLkTinXkOlCHN-GG2Oj0q-6dvrIYoId-v5jkxqSFszP@mail.gmail.com>
+Message-ID: <4C42C88C.6040001@v.loewis.de>
+
+> He has been contributing to Python via the tracker, c.l.p, python-dev
+> and python-ideas for years and has recently requested commit
+> privileges in order to work on IDLE. I think we should give them to
+> him :)
+
+Has he actually contributed code to Python in all this time?
+
+Regards,
+Martin
+
+From ncoghlan at gmail.com  Sun Jul 18 13:15:22 2010
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Sun, 18 Jul 2010 21:15:22 +1000
+Subject: [python-committers] New comitter proposal: Terry Reedy
+In-Reply-To: <4C42C88C.6040001@v.loewis.de>
+References: <AANLkTinXkOlCHN-GG2Oj0q-6dvrIYoId-v5jkxqSFszP@mail.gmail.com>
+	<4C42C88C.6040001@v.loewis.de>
+Message-ID: <AANLkTimapc84y-NJhzP1Af28KYM8UP5qS5AgpenBuQiy@mail.gmail.com>
+
+On Sun, Jul 18, 2010 at 7:25 PM, "Martin v. L?wis" <martin at v.loewis.de> wrote:
+>> He has been contributing to Python via the tracker, c.l.p, python-dev
+>> and python-ideas for years and has recently requested commit
+>> privileges in order to work on IDLE. I think we should give them to
+>> him :)
+>
+> Has he actually contributed code to Python in all this time?
+
+That I've seen myself? No (NEWS doesn't show any specific patch
+attributions, but he is listed in ACKS. If I've missed anything, Terry
+will hopefully let me know).
+
+My suggestion was more a matter of someone I trust to do a good job of
+reviewing and selecting for inclusion improvements to IDLE to provide
+KBK with more support than the existing comitters are able to provide.
+I realise it isn't the way we normally do things, but in this specific
+case I think it is worth a try.
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan?? |?? ncoghlan at gmail.com?? |?? Brisbane, Australia
+
+From solipsis at pitrou.net  Sun Jul 18 14:40:38 2010
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Sun, 18 Jul 2010 14:40:38 +0200
+Subject: [python-committers] New comitter proposal: Terry Reedy
+In-Reply-To: <4C42C88C.6040001@v.loewis.de>
+References: <AANLkTinXkOlCHN-GG2Oj0q-6dvrIYoId-v5jkxqSFszP@mail.gmail.com>
+	<4C42C88C.6040001@v.loewis.de>
+Message-ID: <1279456838.3213.2.camel@localhost.localdomain>
+
+
+Le dimanche 18 juillet 2010 ? 10:25 +0100, "Martin v. L?wis" a ?crit :
+> > He has been contributing to Python via the tracker, c.l.p, python-dev
+> > and python-ideas for years and has recently requested commit
+> > privileges in order to work on IDLE. I think we should give them to
+> > him :)
+> 
+> Has he actually contributed code to Python in all this time?
+
+I would say that it's sufficient if he has been contributing
+documentation. Which, given his overall involvment, he probably has
+done, but Georg probably knows the answer better than I do.
+
+
+
+
+From alexander.belopolsky at gmail.com  Sun Jul 18 18:50:51 2010
+From: alexander.belopolsky at gmail.com (Alexander Belopolsky)
+Date: Sun, 18 Jul 2010 12:50:51 -0400
+Subject: [python-committers] New comitter proposal: Terry Reedy
+In-Reply-To: <AANLkTinXkOlCHN-GG2Oj0q-6dvrIYoId-v5jkxqSFszP@mail.gmail.com>
+References: <AANLkTinXkOlCHN-GG2Oj0q-6dvrIYoId-v5jkxqSFszP@mail.gmail.com>
+Message-ID: <AANLkTimoMZ3Eq_mUJePYBJJILRQP4Hgkcah_pET6HjLq@mail.gmail.com>
+
+On Sat, Jul 17, 2010 at 9:09 PM, Nick Coghlan <ncoghlan at gmail.com> wrote:
+> I'd like to propose Terry Reedy as a new comitter.
+>
++1
+
+In fact, I was surprised to learn that Terry was not a committer.
+
+From kbk at shore.net  Tue Jul 20 00:46:11 2010
+From: kbk at shore.net (Kurt B. Kaiser)
+Date: Mon, 19 Jul 2010 18:46:11 -0400
+Subject: [python-committers] New comitter proposal: Terry Reedy
+In-Reply-To: <AANLkTimapc84y-NJhzP1Af28KYM8UP5qS5AgpenBuQiy@mail.gmail.com>
+References: <AANLkTinXkOlCHN-GG2Oj0q-6dvrIYoId-v5jkxqSFszP@mail.gmail.com>
+	<4C42C88C.6040001@v.loewis.de>
+	<AANLkTimapc84y-NJhzP1Af28KYM8UP5qS5AgpenBuQiy@mail.gmail.com>
+Message-ID: <1279579571.17883.1385675373@webmail.messagingengine.com>
+
+
+On Sun, 18 Jul 2010 21:15:22 +1000, "Nick Coghlan" <ncoghlan at gmail.com>
+said:
+> On Sun, Jul 18, 2010 at 7:25 PM, "Martin v. L?wis" <martin at v.loewis.de>
+> wrote:
+> >> He has been contributing to Python via the tracker, c.l.p, python-dev
+> >> and python-ideas for years and has recently requested commit
+> >> privileges in order to work on IDLE. I think we should give them to
+> >> him :)
+> >
+> > Has he actually contributed code to Python in all this time?
+> 
+> That I've seen myself? No (NEWS doesn't show any specific patch
+> attributions, but he is listed in ACKS. If I've missed anything, Terry
+> will hopefully let me know).
+> 
+> My suggestion was more a matter of someone I trust to do a good job of
+> reviewing and selecting for inclusion improvements to IDLE to provide
+> KBK with more support than the existing comitters are able to provide.
+> I realise it isn't the way we normally do things, but in this specific
+> case I think it is worth a try.
+
+Terry's an unusual case.  Although I'm a still a bit tied up atm, I took
+the time to look around a bit and found that he's been contributing
+strongly to Python for some time.  We haven't crossed paths because I
+don't hang around the lists and he doesn't submit patches.
+
+His modus operandi is to identify a bug, often by picking it up on
+python-list, and putting it on the tracker.  He then is able to convince
+someone to present a patch, and get a different person to commit it.  He
+doesn't usually make a comment on the patch itself.
+
+I think what he is doing shows a rather unique management talent.  I
+suspect he might actually get less done if he was processing the patches
+himself, with associated testing and backporting!
+
+He's made the comment a couple of times recently that he doesn't have a
+development environment and can't make patches.  That's unusual. 
+However, since IDLE is pure Python, the necessary development
+environment is minimal, I'd be happy to help him get set up.  I'm pretty
+sure he has pretty much everything he needs already.
+
+Some of the patches submitted to IDLE need a fair amount of polishing. 
+Tal Einat's, for example, usually need work and testing.  I'd expect
+that Terry would scrutinize them carefully, and not just check them in.
+
++1
+
+-- 
+KBK
+
+
+From brian.curtin at gmail.com  Tue Jul 20 07:47:20 2010
+From: brian.curtin at gmail.com (Brian Curtin)
+Date: Tue, 20 Jul 2010 00:47:20 -0500
+Subject: [python-committers] New comitter proposal: Terry Reedy
+In-Reply-To: <1279579571.17883.1385675373@webmail.messagingengine.com>
+References: <AANLkTinXkOlCHN-GG2Oj0q-6dvrIYoId-v5jkxqSFszP@mail.gmail.com>
+	<4C42C88C.6040001@v.loewis.de>
+	<AANLkTimapc84y-NJhzP1Af28KYM8UP5qS5AgpenBuQiy@mail.gmail.com>
+	<1279579571.17883.1385675373@webmail.messagingengine.com>
+Message-ID: <AANLkTikGVHG8A9V-8wCCouUN3WkuhD_9l2nysFrvT4NE@mail.gmail.com>
+
+On Mon, Jul 19, 2010 at 17:46, Kurt B. Kaiser <kbk at shore.net> wrote:
+
+>
+> He's made the comment a couple of times recently that he doesn't have a
+> development environment and can't make patches.  That's unusual.
+> However, since IDLE is pure Python, the necessary development
+> environment is minimal, I'd be happy to help him get set up.  I'm pretty
+> sure he has pretty much everything he needs already.
+
+
+Terry,
+
+You might be interested in this doc I just wrote up for the PSF sprint
+group: http://docs.pythonsprints.com/core_development/beginners.html. It
+could use a more accurate/friendly compilation setup for Mac/Linux (I've
+done it in the past, I just have no idea what I did), but a few interested
+beginners have looked it over and said it was helpful.
+
+Although a Windows development environment can be had with free (as in beer)
+tools, I can ping our contact at Microsoft for MSDN subscriptions as needed.
+
+Brian
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20100720/506e0590/attachment.html>
+
+From solipsis at pitrou.net  Wed Jul 21 17:34:40 2010
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Wed, 21 Jul 2010 17:34:40 +0200
+Subject: [python-committers] PEP checkin process
+Message-ID: <1279726480.3222.10.camel@localhost.localdomain>
+
+
+Hello,
+
+Can a committer check-in their own PEP directly, or do they have to go
+through the peps at python.org process?
+
+Thank you
+
+Antoine.
+
+
+
+
+From goodger at python.org  Wed Jul 21 18:01:57 2010
+From: goodger at python.org (David Goodger)
+Date: Wed, 21 Jul 2010 12:01:57 -0400
+Subject: [python-committers] PEP checkin process
+In-Reply-To: <1279726480.3222.10.camel@localhost.localdomain>
+References: <1279726480.3222.10.camel@localhost.localdomain>
+Message-ID: <AANLkTimuVArGveFLTl1Be_xqc7260mNCXy_-Hk7bTYGh@mail.gmail.com>
+
+On Wed, Jul 21, 2010 at 11:34, Antoine Pitrou <solipsis at pitrou.net> wrote:
+> Can a committer check-in their own PEP directly, or do they have to go
+> through the peps at python.org process?
+
+As long as the PEP is formatted correctly and conforms to PEP 1 (PEP
+Purpose and Guidelines), committers are welcome to handle their PEPs
+directly. Less experienced PEP authors should send drafts to
+peps at python.org for editorial guidance. The PEP editors are there to
+help polish your text and avoid omissions & embarrassing errors.
+
+IOW, as a committer you're welcome to short-circuit the PEP process,
+but if you do, the egg will be on your own face ;-)
+
+-- 
+David Goodger <http://python.net/~goodger>
+
+From guido at python.org  Wed Jul 21 18:15:33 2010
+From: guido at python.org (Guido van Rossum)
+Date: Wed, 21 Jul 2010 17:15:33 +0100
+Subject: [python-committers] PEP checkin process
+In-Reply-To: <1279726480.3222.10.camel@localhost.localdomain>
+References: <1279726480.3222.10.camel@localhost.localdomain>
+Message-ID: <AANLkTiltW3PiBEDzkNImDeXyiEvCoaKClWdVdzj_5xh_@mail.gmail.com>
+
+You can check in directly. The peps@ list is only for PEP authors
+without checkin privileges, or if you're not sure you have conformed
+to the PEP template sufficiently well. Picking a PEP number is
+arbitrated by svn (soon hopefully Hg). However always to make sure
+that your pep runs through pep2html without warnings or errors.
+
+--Guido
+
+On Wed, Jul 21, 2010 at 4:34 PM, Antoine Pitrou <solipsis at pitrou.net> wrote:
+>
+> Hello,
+>
+> Can a committer check-in their own PEP directly, or do they have to go
+> through the peps at python.org process?
+>
+> Thank you
+>
+> Antoine.
+>
+>
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+>
+
+
+
+-- 
+--Guido van Rossum (python.org/~guido)
+
+From ncoghlan at gmail.com  Thu Jul 22 00:17:54 2010
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Thu, 22 Jul 2010 08:17:54 +1000
+Subject: [python-committers] PEP checkin process
+In-Reply-To: <AANLkTiltW3PiBEDzkNImDeXyiEvCoaKClWdVdzj_5xh_@mail.gmail.com>
+References: <1279726480.3222.10.camel@localhost.localdomain>
+	<AANLkTiltW3PiBEDzkNImDeXyiEvCoaKClWdVdzj_5xh_@mail.gmail.com>
+Message-ID: <AANLkTil9SPqF2NKdRbDkmH65LpqSc9ecLtrRiZKR8id5@mail.gmail.com>
+
+On Thu, Jul 22, 2010 at 2:15 AM, Guido van Rossum <guido at python.org> wrote:
+> You can check in directly. The peps@ list is only for PEP authors
+> without checkin privileges, or if you're not sure you have conformed
+> to the PEP template sufficiently well. Picking a PEP number is
+> arbitrated by svn (soon hopefully Hg). However always to make sure
+> that your pep runs through pep2html without warnings or errors.
+
+These days running genpepindex.py is also useful to make sure you
+don't break the generation of PEP 0 (e.g. I found an error in the way
+I had written the headers for PEP 3150 when I did that).
+
+Useful commands (using PEP 3150 as my example):
+python genpepindex.py # ./genpepindex.py only works if Python 2.5 is installed
+./pep2html.py -b 3150 # Generate the PEP and open in a new browser window
+./pep2html.py 3150 # Regenerate the PEP (hit refresh in the browser to
+see changes)
+
+The "-b" switch opens the wrong browser for me (Konqueror, despite
+Firefox being set as default) but it's handy when it works. Otherwise
+the HTML file is pretty easy to find manually (it is generated in the
+same directory as the source text file)
+
+You won't have the relevant CSS files, so the PEP won't be as nicely
+formatted as it is on python.org, but you can still check that things
+are coming out basically the way you want them to.
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan?? |?? ncoghlan at gmail.com?? |?? Brisbane, Australia
+
+From benjamin at python.org  Thu Jul 22 00:52:20 2010
+From: benjamin at python.org (Benjamin Peterson)
+Date: Wed, 21 Jul 2010 17:52:20 -0500
+Subject: [python-committers] PEP checkin process
+In-Reply-To: <AANLkTil9SPqF2NKdRbDkmH65LpqSc9ecLtrRiZKR8id5@mail.gmail.com>
+References: <1279726480.3222.10.camel@localhost.localdomain>
+	<AANLkTiltW3PiBEDzkNImDeXyiEvCoaKClWdVdzj_5xh_@mail.gmail.com>
+	<AANLkTil9SPqF2NKdRbDkmH65LpqSc9ecLtrRiZKR8id5@mail.gmail.com>
+Message-ID: <AANLkTimGEwM2-DD-CiozzAeTTKr4xCcVYS8JwkMnjsRu@mail.gmail.com>
+
+2010/7/21 Nick Coghlan <ncoghlan at gmail.com>:
+> On Thu, Jul 22, 2010 at 2:15 AM, Guido van Rossum <guido at python.org> wrote:
+>> You can check in directly. The peps@ list is only for PEP authors
+>> without checkin privileges, or if you're not sure you have conformed
+>> to the PEP template sufficiently well. Picking a PEP number is
+>> arbitrated by svn (soon hopefully Hg). However always to make sure
+>> that your pep runs through pep2html without warnings or errors.
+>
+> These days running genpepindex.py is also useful to make sure you
+> don't break the generation of PEP 0 (e.g. I found an error in the way
+> I had written the headers for PEP 3150 when I did that).
+>
+> Useful commands (using PEP 3150 as my example):
+> python genpepindex.py # ./genpepindex.py only works if Python 2.5 is installed
+
+You can also do "make PYTHON=python"
+
+
+
+-- 
+Regards,
+Benjamin
+
+From barry at python.org  Thu Jul 22 10:35:40 2010
+From: barry at python.org (Barry Warsaw)
+Date: Thu, 22 Jul 2010 10:35:40 +0200
+Subject: [python-committers] PEP checkin process
+In-Reply-To: <AANLkTil9SPqF2NKdRbDkmH65LpqSc9ecLtrRiZKR8id5@mail.gmail.com>
+References: <1279726480.3222.10.camel@localhost.localdomain>
+	<AANLkTiltW3PiBEDzkNImDeXyiEvCoaKClWdVdzj_5xh_@mail.gmail.com>
+	<AANLkTil9SPqF2NKdRbDkmH65LpqSc9ecLtrRiZKR8id5@mail.gmail.com>
+Message-ID: <20100722103540.0499dd64@snowdog>
+
+On Jul 22, 2010, at 08:17 AM, Nick Coghlan wrote:
+
+>Useful commands (using PEP 3150 as my example):
+>python genpepindex.py # ./genpepindex.py only works if Python 2.5 is
+>installed ./pep2html.py -b 3150 # Generate the PEP and open in a new
+>browser window ./pep2html.py 3150 # Regenerate the PEP (hit refresh in
+>the browser to see changes)
+
+Just run 'make' in the peps checkout directory.
+
+-Barry
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 836 bytes
+Desc: not available
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20100722/e88ac478/attachment.pgp>
+
+From ncoghlan at gmail.com  Thu Jul 22 14:16:23 2010
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Thu, 22 Jul 2010 22:16:23 +1000
+Subject: [python-committers] PEP checkin process
+In-Reply-To: <20100722103540.0499dd64@snowdog>
+References: <1279726480.3222.10.camel@localhost.localdomain>
+	<AANLkTiltW3PiBEDzkNImDeXyiEvCoaKClWdVdzj_5xh_@mail.gmail.com>
+	<AANLkTil9SPqF2NKdRbDkmH65LpqSc9ecLtrRiZKR8id5@mail.gmail.com>
+	<20100722103540.0499dd64@snowdog>
+Message-ID: <AANLkTik1unU9iXNRQfVj3Z6o5G6El_oqiBpsM24pkTqZ@mail.gmail.com>
+
+On Thu, Jul 22, 2010 at 6:35 PM, Barry Warsaw <barry at python.org> wrote:
+> On Jul 22, 2010, at 08:17 AM, Nick Coghlan wrote:
+>
+>>Useful commands (using PEP 3150 as my example):
+>>python genpepindex.py # ./genpepindex.py only works if Python 2.5 is
+>>installed ./pep2html.py -b 3150 # Generate the PEP and open in a new
+>>browser window ./pep2html.py 3150 # Regenerate the PEP (hit refresh in
+>>the browser to see changes)
+>
+> Just run 'make' in the peps checkout directory.
+
+That doesn't work for me by default since I don't have python2.5
+installed (although it does turn out it can be made to work by
+overriding PYTHON as Benjamin suggests). Not only that, but the
+makefile builds all the PEPs when I generally only care about the PEP
+I'm working on and PEP 0.
+
+Basically, direct invocation of the Python scripts is simple enough in
+this case that going indirect through the makefile didn't really make
+things any easier for me.
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan?? |?? ncoghlan at gmail.com?? |?? Brisbane, Australia
+
+From benjamin at python.org  Thu Jul 22 14:22:02 2010
+From: benjamin at python.org (Benjamin Peterson)
+Date: Thu, 22 Jul 2010 07:22:02 -0500
+Subject: [python-committers] PEP checkin process
+In-Reply-To: <AANLkTik1unU9iXNRQfVj3Z6o5G6El_oqiBpsM24pkTqZ@mail.gmail.com>
+References: <1279726480.3222.10.camel@localhost.localdomain>
+	<AANLkTiltW3PiBEDzkNImDeXyiEvCoaKClWdVdzj_5xh_@mail.gmail.com>
+	<AANLkTil9SPqF2NKdRbDkmH65LpqSc9ecLtrRiZKR8id5@mail.gmail.com>
+	<20100722103540.0499dd64@snowdog>
+	<AANLkTik1unU9iXNRQfVj3Z6o5G6El_oqiBpsM24pkTqZ@mail.gmail.com>
+Message-ID: <AANLkTilhbe0F1iiN8yicbJS0hVy8p2AShxtnjCmri8zc@mail.gmail.com>
+
+2010/7/22 Nick Coghlan <ncoghlan at gmail.com>:
+> On Thu, Jul 22, 2010 at 6:35 PM, Barry Warsaw <barry at python.org> wrote:
+>> On Jul 22, 2010, at 08:17 AM, Nick Coghlan wrote:
+>>
+>>>Useful commands (using PEP 3150 as my example):
+>>>python genpepindex.py # ./genpepindex.py only works if Python 2.5 is
+>>>installed ./pep2html.py -b 3150 # Generate the PEP and open in a new
+>>>browser window ./pep2html.py 3150 # Regenerate the PEP (hit refresh in
+>>>the browser to see changes)
+>>
+>> Just run 'make' in the peps checkout directory.
+>
+> That doesn't work for me by default since I don't have python2.5
+> installed (although it does turn out it can be made to work by
+> overriding PYTHON as Benjamin suggests). Not only that, but the
+> makefile builds all the PEPs when I generally only care about the PEP
+> I'm working on and PEP 0.
+
+Note that dinsdale's python version is now up to 2.5, so the prefix
+can be (and has been) removed.
+
+
+
+-- 
+Regards,
+Benjamin
+
+From solipsis at pitrou.net  Thu Jul 22 14:24:06 2010
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Thu, 22 Jul 2010 14:24:06 +0200
+Subject: [python-committers] PEP checkin process
+In-Reply-To: <AANLkTimuVArGveFLTl1Be_xqc7260mNCXy_-Hk7bTYGh@mail.gmail.com>
+References: <1279726480.3222.10.camel@localhost.localdomain>
+	<AANLkTimuVArGveFLTl1Be_xqc7260mNCXy_-Hk7bTYGh@mail.gmail.com>
+Message-ID: <1279801446.3201.1.camel@localhost.localdomain>
+
+
+Thank you all for the answers!
+The PEP (numbered 3151) is now discussed on python-ideas.
+
+Regards
+
+Antoine.
+
+
+
+Le mercredi 21 juillet 2010 ? 12:01 -0400, David Goodger a ?crit :
+> On Wed, Jul 21, 2010 at 11:34, Antoine Pitrou <solipsis at pitrou.net> wrote:
+> > Can a committer check-in their own PEP directly, or do they have to go
+> > through the peps at python.org process?
+> 
+> As long as the PEP is formatted correctly and conforms to PEP 1 (PEP
+> Purpose and Guidelines), committers are welcome to handle their PEPs
+> directly. Less experienced PEP authors should send drafts to
+> peps at python.org for editorial guidance. The PEP editors are there to
+> help polish your text and avoid omissions & embarrassing errors.
+> 
+> IOW, as a committer you're welcome to short-circuit the PEP process,
+> but if you do, the egg will be on your own face ;-)
+> 
+
+
+
+From jcea at jcea.es  Thu Jul 22 18:45:23 2010
+From: jcea at jcea.es (Jesus Cea)
+Date: Thu, 22 Jul 2010 18:45:23 +0200
+Subject: [python-committers] PEP checkin process
+In-Reply-To: <AANLkTik1unU9iXNRQfVj3Z6o5G6El_oqiBpsM24pkTqZ@mail.gmail.com>
+References: <1279726480.3222.10.camel@localhost.localdomain>	<AANLkTiltW3PiBEDzkNImDeXyiEvCoaKClWdVdzj_5xh_@mail.gmail.com>	<AANLkTil9SPqF2NKdRbDkmH65LpqSc9ecLtrRiZKR8id5@mail.gmail.com>	<20100722103540.0499dd64@snowdog>
+	<AANLkTik1unU9iXNRQfVj3Z6o5G6El_oqiBpsM24pkTqZ@mail.gmail.com>
+Message-ID: <4C4875A3.5090600@jcea.es>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On 22/07/10 14:16, Nick Coghlan wrote:
+
+>> Just run 'make' in the peps checkout directory.
+> 
+> That doesn't work for me by default since I don't have python2.5
+> installed (although it does turn out it can be made to work by
+> overriding PYTHON as Benjamin suggests). Not only that, but the
+> makefile builds all the PEPs when I generally only care about the PEP
+> I'm working on and PEP 0.
+
+The "make" should include dependency information to only rebuild the
+changed documents. :-?.
+
+- -- 
+Jesus Cea Avion                         _/_/      _/_/_/        _/_/_/
+jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+jabber / xmpp:jcea at jabber.org         _/_/    _/_/          _/_/_/_/_/
+.                              _/_/  _/_/    _/_/          _/_/  _/_/
+"Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+"My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+"El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.10 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - http://enigmail.mozdev.org/
+
+iQCVAwUBTEh1o5lgi5GaxT1NAQJfmgP+L+TMka+beAeub3YNhkLot0Bg9/NfF5iw
+Qw/+6IX0GFVa1BFqYM3QfbW0arUst0bRehNGZgMCCzglvAZz6pmsyq0/dBx7IrDv
+Es9zVMyYaoOBs6z9ur+U9afWU1FRpXRz2DHRTPA6CiaI2sCsNbBmlssOGHCCueSa
+i77kj/Utm6s=
+=6+zi
+-----END PGP SIGNATURE-----
+
+From martin at v.loewis.de  Thu Jul 22 19:21:21 2010
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Thu, 22 Jul 2010 18:21:21 +0100
+Subject: [python-committers] PEP checkin process
+In-Reply-To: <4C4875A3.5090600@jcea.es>
+References: <1279726480.3222.10.camel@localhost.localdomain>	<AANLkTiltW3PiBEDzkNImDeXyiEvCoaKClWdVdzj_5xh_@mail.gmail.com>	<AANLkTil9SPqF2NKdRbDkmH65LpqSc9ecLtrRiZKR8id5@mail.gmail.com>	<20100722103540.0499dd64@snowdog>	<AANLkTik1unU9iXNRQfVj3Z6o5G6El_oqiBpsM24pkTqZ@mail.gmail.com>
+	<4C4875A3.5090600@jcea.es>
+Message-ID: <4C487E11.7000901@v.loewis.de>
+
+>>> Just run 'make' in the peps checkout directory.
+>>
+>> That doesn't work for me by default since I don't have python2.5
+>> installed (although it does turn out it can be made to work by
+>> overriding PYTHON as Benjamin suggests). Not only that, but the
+>> makefile builds all the PEPs when I generally only care about the PEP
+>> I'm working on and PEP 0.
+>
+> The "make" should include dependency information to only rebuild the
+> changed documents. :-?.
+
+And indeed, it does.
+
+Regards,
+Martin
+
+
+From skip at pobox.com  Thu Jul 22 21:52:31 2010
+From: skip at pobox.com (skip at pobox.com)
+Date: Thu, 22 Jul 2010 14:52:31 -0500
+Subject: [python-committers] PEP checkin process
+In-Reply-To: <4C487E11.7000901@v.loewis.de>
+References: <1279726480.3222.10.camel@localhost.localdomain>
+	<AANLkTiltW3PiBEDzkNImDeXyiEvCoaKClWdVdzj_5xh_@mail.gmail.com>
+	<AANLkTil9SPqF2NKdRbDkmH65LpqSc9ecLtrRiZKR8id5@mail.gmail.com>
+	<20100722103540.0499dd64@snowdog>
+	<AANLkTik1unU9iXNRQfVj3Z6o5G6El_oqiBpsM24pkTqZ@mail.gmail.com>
+	<4C4875A3.5090600@jcea.es> <4C487E11.7000901@v.loewis.de>
+Message-ID: <19528.41343.966640.166541@montanaro.dyndns.org>
+
+
+    >>>> Just run 'make' in the peps checkout directory.
+    >>> 
+    >>> That doesn't work for me by default since I don't have python2.5
+    >>> installed (although it does turn out it can be made to work by
+    >>> overriding PYTHON as Benjamin suggests). Not only that, but the
+    >>> makefile builds all the PEPs when I generally only care about the PEP
+    >>> I'm working on and PEP 0.
+    >> 
+    >> The "make" should include dependency information to only rebuild the
+    >> changed documents. :-?.
+
+    Martin> And indeed, it does.
+
+Following up on Martin's comment, note that you are not required to make all
+PEP outputs.  Just make the one(s) you care about at the moment:
+
+    % make pep-0008.html
+    pep-0008.txt (text/plain) -> pep-0008.html
+
+Skip
+
+From ncoghlan at gmail.com  Fri Jul 23 00:52:30 2010
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Fri, 23 Jul 2010 08:52:30 +1000
+Subject: [python-committers] PEP checkin process
+In-Reply-To: <4C4875A3.5090600@jcea.es>
+References: <1279726480.3222.10.camel@localhost.localdomain>
+	<AANLkTiltW3PiBEDzkNImDeXyiEvCoaKClWdVdzj_5xh_@mail.gmail.com>
+	<AANLkTil9SPqF2NKdRbDkmH65LpqSc9ecLtrRiZKR8id5@mail.gmail.com>
+	<20100722103540.0499dd64@snowdog>
+	<AANLkTik1unU9iXNRQfVj3Z6o5G6El_oqiBpsM24pkTqZ@mail.gmail.com>
+	<4C4875A3.5090600@jcea.es>
+Message-ID: <AANLkTik6eVXwl-__FogQCkN3VPQUo5kbndYbGwpHRQ7Z@mail.gmail.com>
+
+On Fri, Jul 23, 2010 at 2:45 AM, Jesus Cea <jcea at jcea.es> wrote:
+>> That doesn't work for me by default since I don't have python2.5
+>> installed (although it does turn out it can be made to work by
+>> overriding PYTHON as Benjamin suggests). Not only that, but the
+>> makefile builds all the PEPs when I generally only care about the PEP
+>> I'm working on and PEP 0.
+>
+> The "make" should include dependency information to only rebuild the
+> changed documents. :-?.
+
+I don't generally have the PEP directory completely built. I suppose I
+*could* do it that way but the basic commands are so simple I've never
+even considered the idea.
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan?? |?? ncoghlan at gmail.com?? |?? Brisbane, Australia
+
+From brett at python.org  Fri Jul 23 18:52:00 2010
+From: brett at python.org (Brett Cannon)
+Date: Fri, 23 Jul 2010 17:52:00 +0100
+Subject: [python-committers] New comitter proposal: Terry Reedy
+In-Reply-To: <AANLkTinXkOlCHN-GG2Oj0q-6dvrIYoId-v5jkxqSFszP@mail.gmail.com>
+References: <AANLkTinXkOlCHN-GG2Oj0q-6dvrIYoId-v5jkxqSFszP@mail.gmail.com>
+Message-ID: <AANLkTimnxGxQhD1B1o5hwryo44AscU2ayT5t8Z4Q95=H@mail.gmail.com>
+
+Terry, can you email Martin, Georg, or I your SSH key to get commit
+privileges? And just so you know, if you want privileges within the next
+week, don't send it to me. =)
+
+On Sun, Jul 18, 2010 at 02:09, Nick Coghlan <ncoghlan at gmail.com> wrote:
+
+> I'd like to propose Terry Reedy as a new comitter.
+>
+> He has been contributing to Python via the tracker, c.l.p, python-dev
+> and python-ideas for years and has recently requested commit
+> privileges in order to work on IDLE. I think we should give them to
+> him :)
+>
+> Terry's been around long enough that I don't think he'll need much (if
+> any) mentoring, but I'm certainly willing to provide any that is
+> needed.
+>
+> Cheers,
+> Nick.
+>
+> --
+> Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20100723/f65579ef/attachment.html>
+
+From victor.stinner at haypocalc.com  Sat Jul 24 01:55:35 2010
+From: victor.stinner at haypocalc.com (Victor Stinner)
+Date: Sat, 24 Jul 2010 01:55:35 +0200
+Subject: [python-committers] PEP checkin process
+In-Reply-To: <1279801446.3201.1.camel@localhost.localdomain>
+References: <1279726480.3222.10.camel@localhost.localdomain>
+	<AANLkTimuVArGveFLTl1Be_xqc7260mNCXy_-Hk7bTYGh@mail.gmail.com>
+	<1279801446.3201.1.camel@localhost.localdomain>
+Message-ID: <201007240155.35890.victor.stinner@haypocalc.com>
+
+Le jeudi 22 juillet 2010 14:24:06, Antoine Pitrou a ?crit :
+> The PEP (numbered 3151) is now discussed on python-ideas.
+
+I like this PEP, great job Antoine!
+
+-- 
+Victor Stinner
+http://www.haypocalc.com/
+
+From ziade.tarek at gmail.com  Tue Jul 27 01:50:59 2010
+From: ziade.tarek at gmail.com (=?ISO-8859-1?Q?Tarek_Ziad=E9?=)
+Date: Tue, 27 Jul 2010 01:50:59 +0200
+Subject: [python-committers] Eric Araujo (merwok) as Distutils commiter
+Message-ID: <AANLkTimxaz+Oh8HNhTPq+cdT8WAg3fjgErc5XwBCBOFM@mail.gmail.com>
+
+Hello,
+
+I don't want to maintain Distutils anymore for various reasons.  I
+will focus for now on on Distutils2, shutil and sysconfig.
+
+I would like to propose Eric (merwok on IRC) as a commiter to work on
+Distutils. He has done a great work in triaging
+the bugs and also has now a pretty good knowledge of the Distutils
+code. He's a GSOC student for distutils2 and
+has done a great coding work in there. I am pretty sure he would love
+to do this as I did.
+
+If this proposal is accepted, I will ask Eric if he accepts it and
+wants to work on distutils maintenance, and follow his work until
+Distutils2 starts to be used.
+
+Regards
+Tarek
+-- 
+Tarek Ziad? | http://ziade.org
+
+From alexander.belopolsky at gmail.com  Tue Jul 27 02:03:00 2010
+From: alexander.belopolsky at gmail.com (Alexander Belopolsky)
+Date: Mon, 26 Jul 2010 20:03:00 -0400
+Subject: [python-committers] Eric Araujo (merwok) as Distutils commiter
+In-Reply-To: <AANLkTimxaz+Oh8HNhTPq+cdT8WAg3fjgErc5XwBCBOFM@mail.gmail.com>
+References: <AANLkTimxaz+Oh8HNhTPq+cdT8WAg3fjgErc5XwBCBOFM@mail.gmail.com>
+Message-ID: <AANLkTikknr8xG__9jo8KOsWkZK+sBCxbb2hG0cZ5GPeb@mail.gmail.com>
+
+On Mon, Jul 26, 2010 at 7:50 PM, Tarek Ziad? <ziade.tarek at gmail.com> wrote:
+..
+> I would like to propose Eric (merwok on IRC) as a commiter to work on
+> Distutils.
+
++1
+
+From solipsis at pitrou.net  Tue Jul 27 11:54:27 2010
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Tue, 27 Jul 2010 11:54:27 +0200
+Subject: [python-committers] Eric Araujo (merwok) as Distutils commiter
+In-Reply-To: <AANLkTimxaz+Oh8HNhTPq+cdT8WAg3fjgErc5XwBCBOFM@mail.gmail.com>
+References: <AANLkTimxaz+Oh8HNhTPq+cdT8WAg3fjgErc5XwBCBOFM@mail.gmail.com>
+Message-ID: <1280224467.3156.4.camel@localhost.localdomain>
+
+Le mardi 27 juillet 2010 ? 01:50 +0200, Tarek Ziad? a ?crit : 
+> Hello,
+> 
+> I don't want to maintain Distutils anymore for various reasons.  I
+> will focus for now on on Distutils2, shutil and sysconfig.
+> 
+> I would like to propose Eric (merwok on IRC) as a commiter to work on
+> Distutils. He has done a great work in triaging
+> the bugs and also has now a pretty good knowledge of the Distutils
+> code. He's a GSOC student for distutils2 and
+> has done a great coding work in there. I am pretty sure he would love
+> to do this as I did.
+
+Have any significant code patches by ?ric been committed to Python core?
+I may be mistaken in my evaluation, but I'm not sure giving away
+distutils maintenance to an almost complete beginner is a good idea
+(since you are basically suggesting that he *replace* you in distutils
+maintenance).
+
+Regards
+
+Antoine.
+
+
+
+From ziade.tarek at gmail.com  Tue Jul 27 12:36:12 2010
+From: ziade.tarek at gmail.com (=?ISO-8859-1?Q?Tarek_Ziad=E9?=)
+Date: Tue, 27 Jul 2010 12:36:12 +0200
+Subject: [python-committers] Eric Araujo (merwok) as Distutils commiter
+In-Reply-To: <1280224467.3156.4.camel@localhost.localdomain>
+References: <AANLkTimxaz+Oh8HNhTPq+cdT8WAg3fjgErc5XwBCBOFM@mail.gmail.com>
+	<1280224467.3156.4.camel@localhost.localdomain>
+Message-ID: <AANLkTim1cM8xeFTn6K=VgeQ=vv+awieyU9rifw-jLVw6@mail.gmail.com>
+
+On Tue, Jul 27, 2010 at 11:54 AM, Antoine Pitrou <solipsis at pitrou.net> wrote:
+> Le mardi 27 juillet 2010 ? 01:50 +0200, Tarek Ziad? a ?crit :
+>> Hello,
+>>
+>> I don't want to maintain Distutils anymore for various reasons. ?I
+>> will focus for now on on Distutils2, shutil and sysconfig.
+>>
+>> I would like to propose Eric (merwok on IRC) as a commiter to work on
+>> Distutils. He has done a great work in triaging
+>> the bugs and also has now a pretty good knowledge of the Distutils
+>> code. He's a GSOC student for distutils2 and
+>> has done a great coding work in there. I am pretty sure he would love
+>> to do this as I did.
+>
+> Have any significant code patches by ?ric been committed to Python core?
+
+Depending on your definition of core, none. He works on Distutils2 and
+helps me (and other) in the tracker.
+
+> I may be mistaken in my evaluation, but I'm not sure giving away
+> distutils maintenance to an almost complete beginner is a good idea
+> (since you are basically suggesting that he *replace* you in distutils
+> maintenance).
+
+I am not sure how you define a complete beginner. As far as Distutils is
+concerned, he's not. He's capable of maintaining Distutils, given the patches
+he provides for Distutils2  (see http://hg.python.org/distutils2). He's also
+now involved in most design discussions, so aware of the various issues.
+
+Distutils2 is the old Distutils trunk FYI.
+
+That said, this was just a suggestion to replace me for this maintenance because
+I don't want to do it anymore. Another option is to have you and other core
+devs take over the maintenance, but FWIW I think you are less able
+than him to maintain Distutils, given his experience in the package,
+and the fact
+that he work on the next gen.
+
+Last, I think Guido's thoughts on giving commiter access earlier matches
+completely this case. I believe Eric has the qualities to become a
+good commiter.
+
+If the proposal is accepted I'll help him. If you or someone else
+rejects it, then
+good luck with the 150+ Distutils issues and the various ML fights on the topic.
+
+One last option of course would be to let the package rotten, and just
+fix critical
+bugs when they occur, and wait for distutils2 to take over.
+
+Regards
+Tarek
+
+-- 
+Tarek Ziad? | http://ziade.org
+
+From mal at egenix.com  Tue Jul 27 13:00:42 2010
+From: mal at egenix.com (M.-A. Lemburg)
+Date: Tue, 27 Jul 2010 13:00:42 +0200
+Subject: [python-committers] Eric Araujo (merwok) as Distutils commiter
+In-Reply-To: <AANLkTim1cM8xeFTn6K=VgeQ=vv+awieyU9rifw-jLVw6@mail.gmail.com>
+References: <AANLkTimxaz+Oh8HNhTPq+cdT8WAg3fjgErc5XwBCBOFM@mail.gmail.com>	<1280224467.3156.4.camel@localhost.localdomain>
+	<AANLkTim1cM8xeFTn6K=VgeQ=vv+awieyU9rifw-jLVw6@mail.gmail.com>
+Message-ID: <4C4EBC5A.1010400@egenix.com>
+
+Tarek Ziad? wrote:
+> On Tue, Jul 27, 2010 at 11:54 AM, Antoine Pitrou <solipsis at pitrou.net> wrote:
+>> Le mardi 27 juillet 2010 ? 01:50 +0200, Tarek Ziad? a ?crit :
+>>> Hello,
+>>>
+>>> I don't want to maintain Distutils anymore for various reasons.  I
+>>> will focus for now on on Distutils2, shutil and sysconfig.
+>>>
+>>> I would like to propose Eric (merwok on IRC) as a commiter to work on
+>>> Distutils. He has done a great work in triaging
+>>> the bugs and also has now a pretty good knowledge of the Distutils
+>>> code. He's a GSOC student for distutils2 and
+>>> has done a great coding work in there. I am pretty sure he would love
+>>> to do this as I did.
+>>
+>> Have any significant code patches by ?ric been committed to Python core?
+> 
+> Depending on your definition of core, none. He works on Distutils2 and
+> helps me (and other) in the tracker.
+> 
+>> I may be mistaken in my evaluation, but I'm not sure giving away
+>> distutils maintenance to an almost complete beginner is a good idea
+>> (since you are basically suggesting that he *replace* you in distutils
+>> maintenance).
+> 
+> I am not sure how you define a complete beginner. As far as Distutils is
+> concerned, he's not. He's capable of maintaining Distutils, given the patches
+> he provides for Distutils2  (see http://hg.python.org/distutils2). He's also
+> now involved in most design discussions, so aware of the various issues.
+> 
+> Distutils2 is the old Distutils trunk FYI.
+> 
+> That said, this was just a suggestion to replace me for this maintenance because
+> I don't want to do it anymore. Another option is to have you and other core
+> devs take over the maintenance, but FWIW I think you are less able
+> than him to maintain Distutils, given his experience in the package,
+> and the fact
+> that he work on the next gen.
+> 
+> Last, I think Guido's thoughts on giving commiter access earlier matches
+> completely this case. I believe Eric has the qualities to become a
+> good commiter.
+> 
+> If the proposal is accepted I'll help him. If you or someone else
+> rejects it, then
+> good luck with the 150+ Distutils issues and the various ML fights on the topic.
+> 
+> One last option of course would be to let the package rotten, and just
+> fix critical
+> bugs when they occur, and wait for distutils2 to take over.
+
+I think there's a difference in granting commit access to the
+repo and taking over maintenance of a huge stdlib package.
+
+The first is easy to grant. The second requires more support from
+the developer community to be successful. Without knowing how
+Eric works, I think it's difficult to judge whether he'd be
+a good maintainer or not. Why not start with giving him commit
+rights and then see how things work out for a few months. After
+that we could then assign the maintenance to Eric.
+
+FWIW: I think you've done a great job at maintaining distutils
+and I'd like to thank you for that.
+
+-- 
+Marc-Andre Lemburg
+eGenix.com
+
+Professional Python Services directly from the Source  (#1, Jul 27 2010)
+>>> Python/Zope Consulting and Support ...        http://www.egenix.com/
+>>> mxODBC.Zope.Database.Adapter ...             http://zope.egenix.com/
+>>> mxODBC, mxDateTime, mxTextTools ...        http://python.egenix.com/
+________________________________________________________________________
+
+::: Try our new mxODBC.Connect Python Database Interface for free ! ::::
+
+
+   eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+    D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+           Registered at Amtsgericht Duesseldorf: HRB 46611
+               http://www.egenix.com/company/contact/
+
+From michael at voidspace.org.uk  Tue Jul 27 13:20:13 2010
+From: michael at voidspace.org.uk (Michael Foord)
+Date: Tue, 27 Jul 2010 12:20:13 +0100
+Subject: [python-committers] Eric Araujo (merwok) as Distutils commiter
+In-Reply-To: <4C4EBC5A.1010400@egenix.com>
+References: <AANLkTimxaz+Oh8HNhTPq+cdT8WAg3fjgErc5XwBCBOFM@mail.gmail.com>	<1280224467.3156.4.camel@localhost.localdomain>	<AANLkTim1cM8xeFTn6K=VgeQ=vv+awieyU9rifw-jLVw6@mail.gmail.com>
+	<4C4EBC5A.1010400@egenix.com>
+Message-ID: <4C4EC0ED.9090703@voidspace.org.uk>
+
+On 27/07/2010 12:00, M.-A. Lemburg wrote:
+> Tarek Ziad? wrote:
+>
+>> On Tue, Jul 27, 2010 at 11:54 AM, Antoine Pitrou<solipsis at pitrou.net>  wrote:
+>>
+>>> Le mardi 27 juillet 2010 ? 01:50 +0200, Tarek Ziad? a ?crit :
+>>>
+>>>> Hello,
+>>>>
+>>>> I don't want to maintain Distutils anymore for various reasons.  I
+>>>> will focus for now on on Distutils2, shutil and sysconfig.
+>>>>
+>>>> I would like to propose Eric (merwok on IRC) as a commiter to work on
+>>>> Distutils. He has done a great work in triaging
+>>>> the bugs and also has now a pretty good knowledge of the Distutils
+>>>> code. He's a GSOC student for distutils2 and
+>>>> has done a great coding work in there. I am pretty sure he would love
+>>>> to do this as I did.
+>>>>
+>>> Have any significant code patches by ?ric been committed to Python core?
+>>>
+>> Depending on your definition of core, none. He works on Distutils2 and
+>> helps me (and other) in the tracker.
+>>
+>>
+>>> I may be mistaken in my evaluation, but I'm not sure giving away
+>>> distutils maintenance to an almost complete beginner is a good idea
+>>> (since you are basically suggesting that he *replace* you in distutils
+>>> maintenance).
+>>>
+>> I am not sure how you define a complete beginner. As far as Distutils is
+>> concerned, he's not. He's capable of maintaining Distutils, given the patches
+>> he provides for Distutils2  (see http://hg.python.org/distutils2). He's also
+>> now involved in most design discussions, so aware of the various issues.
+>>
+>> Distutils2 is the old Distutils trunk FYI.
+>>
+>> That said, this was just a suggestion to replace me for this maintenance because
+>> I don't want to do it anymore. Another option is to have you and other core
+>> devs take over the maintenance, but FWIW I think you are less able
+>> than him to maintain Distutils, given his experience in the package,
+>> and the fact
+>> that he work on the next gen.
+>>
+>> Last, I think Guido's thoughts on giving commiter access earlier matches
+>> completely this case. I believe Eric has the qualities to become a
+>> good commiter.
+>>
+>> If the proposal is accepted I'll help him. If you or someone else
+>> rejects it, then
+>> good luck with the 150+ Distutils issues and the various ML fights on the topic.
+>>
+>> One last option of course would be to let the package rotten, and just
+>> fix critical
+>> bugs when they occur, and wait for distutils2 to take over.
+>>
+> I think there's a difference in granting commit access to the
+> repo and taking over maintenance of a huge stdlib package.
+>
+> The first is easy to grant. The second requires more support from
+> the developer community to be successful. Without knowing how
+> Eric works, I think it's difficult to judge whether he'd be
+> a good maintainer or not. Why not start with giving him commit
+> rights and then see how things work out for a few months. After
+> that we could then assign the maintenance to Eric.
+>
+
++1
+
+> FWIW: I think you've done a great job at maintaining distutils
+> and I'd like to thank you for that.
+>
+>
+
++1
+
+
+Michael
+
+-- 
+http://www.ironpythoninaction.com/
+http://www.voidspace.org.uk/blog
+
+READ CAREFULLY. By accepting and reading this email you agree, on behalf 
+of your employer, to release me from all obligations and waivers arising 
+from any and all NON-NEGOTIATED agreements, licenses, terms-of-service, 
+shrinkwrap, clickwrap, browsewrap, confidentiality, non-disclosure, 
+non-compete and acceptable use policies (?BOGUS AGREEMENTS?) that I have 
+entered into with your employer, its partners, licensors, agents and 
+assigns, in perpetuity, without prejudice to my ongoing rights and 
+privileges. You further represent that you have the authority to release 
+me from any BOGUS AGREEMENTS on behalf of your employer.
+
+
+From orsenthil at gmail.com  Tue Jul 27 13:40:37 2010
+From: orsenthil at gmail.com (Senthil Kumaran)
+Date: Tue, 27 Jul 2010 17:10:37 +0530
+Subject: [python-committers] Eric Araujo (merwok) as Distutils commiter
+In-Reply-To: <AANLkTim1cM8xeFTn6K=VgeQ=vv+awieyU9rifw-jLVw6@mail.gmail.com>
+References: <AANLkTimxaz+Oh8HNhTPq+cdT8WAg3fjgErc5XwBCBOFM@mail.gmail.com>
+	<1280224467.3156.4.camel@localhost.localdomain>
+	<AANLkTim1cM8xeFTn6K=VgeQ=vv+awieyU9rifw-jLVw6@mail.gmail.com>
+Message-ID: <20100727114037.GA10277@remy>
+
+Hi Tarek,
+
+On Tue, Jul 27, 2010 at 12:36:12PM +0200, Tarek Ziad? wrote:
+> Depending on your definition of core, none. He works on Distutils2 and
+> helps me (and other) in the tracker.
+
+I support Antoine here. The core may not just mean the CPython
+interpreter, but the stdlib module too.
+
+Simple patches (in the form of Code) is helpful before giving the
+commit access.
+
+I have seen Eric interacting a lot in tracker but mostly in the form
+of words and less code. So, I think some patches will help us all to
+be favorable to him too.
+
+
+Thanks,
+Senthil
+
+From ziade.tarek at gmail.com  Tue Jul 27 13:56:26 2010
+From: ziade.tarek at gmail.com (=?ISO-8859-1?Q?Tarek_Ziad=E9?=)
+Date: Tue, 27 Jul 2010 13:56:26 +0200
+Subject: [python-committers] Eric Araujo (merwok) as Distutils commiter
+In-Reply-To: <4C4EBC5A.1010400@egenix.com>
+References: <AANLkTimxaz+Oh8HNhTPq+cdT8WAg3fjgErc5XwBCBOFM@mail.gmail.com>
+	<1280224467.3156.4.camel@localhost.localdomain>
+	<AANLkTim1cM8xeFTn6K=VgeQ=vv+awieyU9rifw-jLVw6@mail.gmail.com>
+	<4C4EBC5A.1010400@egenix.com>
+Message-ID: <AANLkTim3opjSBbiKoVpWhhF3BLd1MLW+wxkGAay64G=Q@mail.gmail.com>
+
+On Tue, Jul 27, 2010 at 1:00 PM, M.-A. Lemburg <mal at egenix.com> wrote:
+...
+> I think there's a difference in granting commit access to the
+> repo and taking over maintenance of a huge stdlib package.
+>
+> The first is easy to grant. The second requires more support from
+> the developer community to be successful. Without knowing how
+> Eric works, I think it's difficult to judge whether he'd be
+> a good maintainer or not. Why not start with giving him commit
+> rights and then see how things work out for a few months. After
+> that we could then assign the maintenance to Eric.
+
+Sounds good.
+
+> FWIW: I think you've done a great job at maintaining distutils
+> and I'd like to thank you for that.
+
+Thanks !
+
+-- 
+Tarek Ziad? | http://ziade.org
+
+From michael at voidspace.org.uk  Tue Jul 27 14:34:14 2010
+From: michael at voidspace.org.uk (Michael Foord)
+Date: Tue, 27 Jul 2010 13:34:14 +0100
+Subject: [python-committers] Eric Araujo (merwok) as Distutils commiter
+In-Reply-To: <20100727114037.GA10277@remy>
+References: <AANLkTimxaz+Oh8HNhTPq+cdT8WAg3fjgErc5XwBCBOFM@mail.gmail.com>	<1280224467.3156.4.camel@localhost.localdomain>	<AANLkTim1cM8xeFTn6K=VgeQ=vv+awieyU9rifw-jLVw6@mail.gmail.com>
+	<20100727114037.GA10277@remy>
+Message-ID: <4C4ED246.3070306@voidspace.org.uk>
+
+On 27/07/2010 12:40, Senthil Kumaran wrote:
+> Hi Tarek,
+>
+> On Tue, Jul 27, 2010 at 12:36:12PM +0200, Tarek Ziad? wrote:
+>    
+>> Depending on your definition of core, none. He works on Distutils2 and
+>> helps me (and other) in the tracker.
+>>      
+> I support Antoine here. The core may not just mean the CPython
+> interpreter, but the stdlib module too.
+>
+> Simple patches (in the form of Code) is helpful before giving the
+> commit access.
+>
+> I have seen Eric interacting a lot in tracker but mostly in the form
+> of words and less code. So, I think some patches will help us all to
+> be favorable to him too.
+>    
+
+Tarek is saying that Eric has already contributed substantially to 
+distutils2, which may not be part of the standard library *yet* but will 
+be and is being developed as a standard library module. Perhaps Tarek 
+could link us to a couple of these contributions, or those concerned 
+could look at the distutils2 commit log to see his contribution.
+
+So long as Eric is prepared to commit to our standard procedures 
+(discussion and patches on issues before commit and general caution and 
+regard for backwards compatibility) I would like to see him given commit 
+rights under the watchful eye of Tarek and those who review checkins. We 
+could see this as an "experimental" commit access in line with the 
+lowered barrier proposed by Guido.
+
+Michael
+
+>
+> Thanks,
+> Senthil
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+>    
+
+
+-- 
+http://www.ironpythoninaction.com/
+http://www.voidspace.org.uk/blog
+
+READ CAREFULLY. By accepting and reading this email you agree, on behalf of your employer, to release me from all obligations and waivers arising from any and all NON-NEGOTIATED agreements, licenses, terms-of-service, shrinkwrap, clickwrap, browsewrap, confidentiality, non-disclosure, non-compete and acceptable use policies (?BOGUS AGREEMENTS?) that I have entered into with your employer, its partners, licensors, agents and assigns, in perpetuity, without prejudice to my ongoing rights and privileges. You further represent that you have the authority to release me from any BOGUS AGREEMENTS on behalf of your employer.
+
+
+
+From solipsis at pitrou.net  Tue Jul 27 14:56:17 2010
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Tue, 27 Jul 2010 14:56:17 +0200
+Subject: [python-committers] Eric Araujo (merwok) as Distutils commiter
+In-Reply-To: <4C4ED246.3070306@voidspace.org.uk>
+References: <AANLkTimxaz+Oh8HNhTPq+cdT8WAg3fjgErc5XwBCBOFM@mail.gmail.com>
+	<1280224467.3156.4.camel@localhost.localdomain>
+	<AANLkTim1cM8xeFTn6K=VgeQ=vv+awieyU9rifw-jLVw6@mail.gmail.com>
+	<20100727114037.GA10277@remy>  <4C4ED246.3070306@voidspace.org.uk>
+Message-ID: <1280235377.3156.21.camel@localhost.localdomain>
+
+
+> So long as Eric is prepared to commit to our standard procedures 
+> (discussion and patches on issues before commit and general caution and 
+> regard for backwards compatibility) I would like to see him given commit 
+> rights under the watchful eye of Tarek and those who review checkins. We 
+> could see this as an "experimental" commit access in line with the 
+> lowered barrier proposed by Guido.
+
+I'm fine with commit access for ?ric (especially for documentation
+issues where his contribution has been quite useful).
+
+The issue at hand is the fate of distutils maintenance.
+
+Regards
+
+Antoine.
+
+
+
+From michael at voidspace.org.uk  Tue Jul 27 14:59:55 2010
+From: michael at voidspace.org.uk (Michael Foord)
+Date: Tue, 27 Jul 2010 13:59:55 +0100
+Subject: [python-committers] Eric Araujo (merwok) as Distutils commiter
+In-Reply-To: <1280235377.3156.21.camel@localhost.localdomain>
+References: <AANLkTimxaz+Oh8HNhTPq+cdT8WAg3fjgErc5XwBCBOFM@mail.gmail.com>	<1280224467.3156.4.camel@localhost.localdomain>	<AANLkTim1cM8xeFTn6K=VgeQ=vv+awieyU9rifw-jLVw6@mail.gmail.com>	<20100727114037.GA10277@remy>
+	<4C4ED246.3070306@voidspace.org.uk>
+	<1280235377.3156.21.camel@localhost.localdomain>
+Message-ID: <4C4ED84B.4050704@voidspace.org.uk>
+
+On 27/07/2010 13:56, Antoine Pitrou wrote:
+>    
+>> So long as Eric is prepared to commit to our standard procedures
+>> (discussion and patches on issues before commit and general caution and
+>> regard for backwards compatibility) I would like to see him given commit
+>> rights under the watchful eye of Tarek and those who review checkins. We
+>> could see this as an "experimental" commit access in line with the
+>> lowered barrier proposed by Guido.
+>>      
+> I'm fine with commit access for ?ric (especially for documentation
+> issues where his contribution has been quite useful).
+>
+> The issue at hand is the fate of distutils maintenance.
+>    
+
+As indicated by my previous +1, I favour the approach suggested by 
+Marc-andre Lemburg.
+
+Michael
+
+> Regards
+>
+> Antoine.
+>
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+>    
+
+
+-- 
+http://www.ironpythoninaction.com/
+http://www.voidspace.org.uk/blog
+
+READ CAREFULLY. By accepting and reading this email you agree, on behalf of your employer, to release me from all obligations and waivers arising from any and all NON-NEGOTIATED agreements, licenses, terms-of-service, shrinkwrap, clickwrap, browsewrap, confidentiality, non-disclosure, non-compete and acceptable use policies (?BOGUS AGREEMENTS?) that I have entered into with your employer, its partners, licensors, agents and assigns, in perpetuity, without prejudice to my ongoing rights and privileges. You further represent that you have the authority to release me from any BOGUS AGREEMENTS on behalf of your employer.
+
+
+
+From guido at python.org  Tue Jul 27 16:15:02 2010
+From: guido at python.org (Guido van Rossum)
+Date: Tue, 27 Jul 2010 07:15:02 -0700
+Subject: [python-committers] Eric Araujo (merwok) as Distutils commiter
+In-Reply-To: <1280235377.3156.21.camel@localhost.localdomain>
+References: <AANLkTimxaz+Oh8HNhTPq+cdT8WAg3fjgErc5XwBCBOFM@mail.gmail.com>
+	<1280224467.3156.4.camel@localhost.localdomain>
+	<AANLkTim1cM8xeFTn6K=VgeQ=vv+awieyU9rifw-jLVw6@mail.gmail.com>
+	<20100727114037.GA10277@remy> <4C4ED246.3070306@voidspace.org.uk>
+	<1280235377.3156.21.camel@localhost.localdomain>
+Message-ID: <AANLkTimbH5R0Xd-ULy6OrFcaHDJjhxVCTXk8twnVzXF0@mail.gmail.com>
+
+Well like it or not Tarek is not going to do it. So who will? You, or a new
+volunteer?
+
+--Guido (on Android)
+
+On Jul 27, 2010 5:58 AM, "Antoine Pitrou" <solipsis at pitrou.net> wrote:
+>
+>> So long as Eric is prepared to commit to our standard procedures
+>> (discussion and patches on issues before commit and general caution and
+>> regard for backwards compatibility) I would like to see him given commit
+>> rights under the watchful eye of Tarek and those who review checkins. We
+>> could see this as an "experimental" commit access in line with the
+>> lowered barrier proposed by Guido.
+>
+> I'm fine with commit access for ?ric (especially for documentation
+> issues where his contribution has been quite useful).
+>
+> The issue at hand is the fate of distutils maintenance.
+>
+> Regards
+>
+> Antoine.
+>
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20100727/bc0a002c/attachment.html>
+
+From solipsis at pitrou.net  Tue Jul 27 16:24:59 2010
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Tue, 27 Jul 2010 16:24:59 +0200
+Subject: [python-committers] Eric Araujo (merwok) as Distutils commiter
+In-Reply-To: <AANLkTimbH5R0Xd-ULy6OrFcaHDJjhxVCTXk8twnVzXF0@mail.gmail.com>
+References: <AANLkTimxaz+Oh8HNhTPq+cdT8WAg3fjgErc5XwBCBOFM@mail.gmail.com>
+	<1280224467.3156.4.camel@localhost.localdomain>
+	<AANLkTim1cM8xeFTn6K=VgeQ=vv+awieyU9rifw-jLVw6@mail.gmail.com>
+	<20100727114037.GA10277@remy> <4C4ED246.3070306@voidspace.org.uk>
+	<1280235377.3156.21.camel@localhost.localdomain>
+	<AANLkTimbH5R0Xd-ULy6OrFcaHDJjhxVCTXk8twnVzXF0@mail.gmail.com>
+Message-ID: <1280240699.3156.28.camel@localhost.localdomain>
+
+Le mardi 27 juillet 2010 ? 07:15 -0700, Guido van Rossum a ?crit :
+> Well like it or not Tarek is not going to do it. So who will? You, or
+> a new volunteer? 
+
+Well, we don't even know if ?ric actually volunteers for maintaining
+distutils.
+Otherwise the module will just rot as Tarek said, until distutils2
+replaces it. This is certainly a less than optimal transition, but if
+distutils2 matures quickly enough it will not be as painful as it seems.
+(much less painful anyway than the state of distutils before Tarek
+started maintenance on it)
+
+
+
+From guido at python.org  Tue Jul 27 17:55:45 2010
+From: guido at python.org (Guido van Rossum)
+Date: Tue, 27 Jul 2010 16:55:45 +0100
+Subject: [python-committers] Eric Araujo (merwok) as Distutils commiter
+In-Reply-To: <1280240699.3156.28.camel@localhost.localdomain>
+References: <AANLkTimxaz+Oh8HNhTPq+cdT8WAg3fjgErc5XwBCBOFM@mail.gmail.com> 
+	<1280224467.3156.4.camel@localhost.localdomain>
+	<AANLkTim1cM8xeFTn6K=VgeQ=vv+awieyU9rifw-jLVw6@mail.gmail.com> 
+	<20100727114037.GA10277@remy> <4C4ED246.3070306@voidspace.org.uk> 
+	<1280235377.3156.21.camel@localhost.localdomain>
+	<AANLkTimbH5R0Xd-ULy6OrFcaHDJjhxVCTXk8twnVzXF0@mail.gmail.com> 
+	<1280240699.3156.28.camel@localhost.localdomain>
+Message-ID: <AANLkTiko0yg7aJd3qHpFT4_+uwHNQ9XyrP+5MCyQw4tk@mail.gmail.com>
+
+On Tue, Jul 27, 2010 at 3:24 PM, Antoine Pitrou <solipsis at pitrou.net> wrote:
+> Le mardi 27 juillet 2010 ? 07:15 -0700, Guido van Rossum a ?crit :
+>> Well like it or not Tarek is not going to do it. So who will? You, or
+>> a new volunteer?
+>
+> Well, we don't even know if ?ric actually volunteers for maintaining
+> distutils.
+
+I'm kind of guessing that Tarek checked with ?ric first (as is
+customary in such cases).
+
+> Otherwise the module will just rot as Tarek said, until distutils2
+> replaces it.
+
+Well, rotting has been the distutils status quo for years, hasn't it?
+In fact, I thought that once significant changes were made, things got
+worse for a while due to (insanely subtle) backwards
+incompatibilities.
+
+> This is certainly a less than optimal transition, but if
+> distutils2 matures quickly enough it will not be as painful as it seems.
+> (much less painful anyway than the state of distutils before Tarek
+> started maintenance on it)
+
+Let's not forget that Tarek is also a volunteer. If he has to choose
+between maintaining distutils or spending more time getting distutils2
+in shape, the choice is his, but ISTM that the choice he stated (work
+on distutils2) is the better one anyways.
+
+-- 
+--Guido van Rossum (python.org/~guido)
+
+From ziade.tarek at gmail.com  Tue Jul 27 18:10:35 2010
+From: ziade.tarek at gmail.com (=?ISO-8859-1?Q?Tarek_Ziad=E9?=)
+Date: Tue, 27 Jul 2010 18:10:35 +0200
+Subject: [python-committers] Eric Araujo (merwok) as Distutils commiter
+In-Reply-To: <1280240699.3156.28.camel@localhost.localdomain>
+References: <AANLkTimxaz+Oh8HNhTPq+cdT8WAg3fjgErc5XwBCBOFM@mail.gmail.com>
+	<1280224467.3156.4.camel@localhost.localdomain>
+	<AANLkTim1cM8xeFTn6K=VgeQ=vv+awieyU9rifw-jLVw6@mail.gmail.com>
+	<20100727114037.GA10277@remy> <4C4ED246.3070306@voidspace.org.uk>
+	<1280235377.3156.21.camel@localhost.localdomain>
+	<AANLkTimbH5R0Xd-ULy6OrFcaHDJjhxVCTXk8twnVzXF0@mail.gmail.com>
+	<1280240699.3156.28.camel@localhost.localdomain>
+Message-ID: <AANLkTin6A7krmZsL--d_Dn3+JCLNcqATLx3iXxU=Z3RB@mail.gmail.com>
+
+On Tue, Jul 27, 2010 at 4:24 PM, Antoine Pitrou <solipsis at pitrou.net> wrote:
+> Le mardi 27 juillet 2010 ? 07:15 -0700, Guido van Rossum a ?crit :
+>> Well like it or not Tarek is not going to do it. So who will? You, or
+>> a new volunteer?
+>
+> Well, we don't even know if ?ric actually volunteers for maintaining
+> distutils.
+
+He does as long as I help him.
+
+Note that he is a student so he will have less free time as soon as
+he's back too school of course,
+so he cannot guarantee, foresee, the amount of free time per week he
+will have next year.
+
+
+> Otherwise the module will just rot as Tarek said, until distutils2
+> replaces it. This is certainly a less than optimal transition, but if
+> distutils2 matures quickly enough it will not be as painful as it seems.
+> (much less painful anyway than the state of distutils before Tarek
+> started maintenance on it)
+>
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+>
+
+
+
+-- 
+Tarek Ziad? | http://ziade.org
+
+From ronaldoussoren at mac.com  Tue Jul 27 17:19:36 2010
+From: ronaldoussoren at mac.com (Ronald Oussoren)
+Date: Tue, 27 Jul 2010 17:19:36 +0200
+Subject: [python-committers] Eric Araujo (merwok) as Distutils commiter
+In-Reply-To: <1280240699.3156.28.camel@localhost.localdomain>
+References: <AANLkTimxaz+Oh8HNhTPq+cdT8WAg3fjgErc5XwBCBOFM@mail.gmail.com>
+	<1280224467.3156.4.camel@localhost.localdomain>
+	<AANLkTim1cM8xeFTn6K=VgeQ=vv+awieyU9rifw-jLVw6@mail.gmail.com>
+	<20100727114037.GA10277@remy> <4C4ED246.3070306@voidspace.org.uk>
+	<1280235377.3156.21.camel@localhost.localdomain>
+	<AANLkTimbH5R0Xd-ULy6OrFcaHDJjhxVCTXk8twnVzXF0@mail.gmail.com>
+	<1280240699.3156.28.camel@localhost.localdomain>
+Message-ID: <F234F0E7-97F3-42A5-9288-AD69A3E6A503@mac.com>
+
+
+On 27 Jul, 2010, at 16:24, Antoine Pitrou wrote:
+
+> Le mardi 27 juillet 2010 ? 07:15 -0700, Guido van Rossum a ?crit :
+>> Well like it or not Tarek is not going to do it. So who will? You, or
+>> a new volunteer? 
+> 
+> Well, we don't even know if ?ric actually volunteers for maintaining
+> distutils.
+> Otherwise the module will just rot as Tarek said, until distutils2
+> replaces it. This is certainly a less than optimal transition, but if
+> distutils2 matures quickly enough it will not be as painful as it seems.
+> (much less painful anyway than the state of distutils before Tarek
+> started maintenance on it)
+
+It won't really rot, it won't get as much attention as when Tarek did maintain it. We'll basicly revert to the situation before Tarek volunteered to maintain distutils (which he did very well)
+
+Ronald
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: smime.p7s
+Type: application/pkcs7-signature
+Size: 3567 bytes
+Desc: not available
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20100727/efc9c048/attachment.bin>
+
+From jnoller at gmail.com  Tue Jul 27 19:26:26 2010
+From: jnoller at gmail.com (Jesse Noller)
+Date: Tue, 27 Jul 2010 13:26:26 -0400
+Subject: [python-committers] Eric Araujo (merwok) as Distutils commiter
+In-Reply-To: <F234F0E7-97F3-42A5-9288-AD69A3E6A503@mac.com>
+References: <AANLkTimxaz+Oh8HNhTPq+cdT8WAg3fjgErc5XwBCBOFM@mail.gmail.com>
+	<1280224467.3156.4.camel@localhost.localdomain>
+	<AANLkTim1cM8xeFTn6K=VgeQ=vv+awieyU9rifw-jLVw6@mail.gmail.com>
+	<20100727114037.GA10277@remy> <4C4ED246.3070306@voidspace.org.uk>
+	<1280235377.3156.21.camel@localhost.localdomain>
+	<AANLkTimbH5R0Xd-ULy6OrFcaHDJjhxVCTXk8twnVzXF0@mail.gmail.com>
+	<1280240699.3156.28.camel@localhost.localdomain>
+	<F234F0E7-97F3-42A5-9288-AD69A3E6A503@mac.com>
+Message-ID: <AANLkTim84E5HS3nEak-thANNG=ZCd-HhjOv7-L-JHOfy@mail.gmail.com>
+
+On Tue, Jul 27, 2010 at 11:19 AM, Ronald Oussoren
+<ronaldoussoren at mac.com> wrote:
+>
+> On 27 Jul, 2010, at 16:24, Antoine Pitrou wrote:
+>
+>> Le mardi 27 juillet 2010 ? 07:15 -0700, Guido van Rossum a ?crit :
+>>> Well like it or not Tarek is not going to do it. So who will? You, or
+>>> a new volunteer?
+>>
+>> Well, we don't even know if ?ric actually volunteers for maintaining
+>> distutils.
+>> Otherwise the module will just rot as Tarek said, until distutils2
+>> replaces it. This is certainly a less than optimal transition, but if
+>> distutils2 matures quickly enough it will not be as painful as it seems.
+>> (much less painful anyway than the state of distutils before Tarek
+>> started maintenance on it)
+>
+> It won't really rot, it won't get as much attention as when Tarek did maintain it. We'll basicly revert to the situation before Tarek volunteered to maintain distutils (which he did very well)
+>
+> Ronald
+
+I too, am for MaL's suggestion that we give Eric privs, and see how it
+goes before signing off on him being the long-term maintainer, but I
+am a strong -100 on allowing distutils to fall back to the way things
+were. We need more people assigned/associated/feeling ownership of
+stdlib modules, not less.
+
+jesse
+
+From solipsis at pitrou.net  Tue Jul 27 20:18:54 2010
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Tue, 27 Jul 2010 20:18:54 +0200
+Subject: [python-committers] Eric Araujo (merwok) as Distutils commiter
+In-Reply-To: <AANLkTim84E5HS3nEak-thANNG=ZCd-HhjOv7-L-JHOfy@mail.gmail.com>
+References: <AANLkTimxaz+Oh8HNhTPq+cdT8WAg3fjgErc5XwBCBOFM@mail.gmail.com>
+	<1280224467.3156.4.camel@localhost.localdomain>
+	<AANLkTim1cM8xeFTn6K=VgeQ=vv+awieyU9rifw-jLVw6@mail.gmail.com>
+	<20100727114037.GA10277@remy> <4C4ED246.3070306@voidspace.org.uk>
+	<1280235377.3156.21.camel@localhost.localdomain>
+	<AANLkTimbH5R0Xd-ULy6OrFcaHDJjhxVCTXk8twnVzXF0@mail.gmail.com>
+	<1280240699.3156.28.camel@localhost.localdomain>
+	<F234F0E7-97F3-42A5-9288-AD69A3E6A503@mac.com>
+	<AANLkTim84E5HS3nEak-thANNG=ZCd-HhjOv7-L-JHOfy@mail.gmail.com>
+Message-ID: <1280254734.3156.33.camel@localhost.localdomain>
+
+
+> I too, am for MaL's suggestion that we give Eric privs, and see how it
+> goes before signing off on him being the long-term maintainer, but I
+> am a strong -100 on allowing distutils to fall back to the way things
+> were. We need more people assigned/associated/feeling ownership of
+> stdlib modules, not less.
+
+I agree with the last sentence. I was just trying to be prudent as to
+how we handle maintenance of delicate parts of the stdlib.
+
+As for "allowing distutils to fall back", the point is that Tarek and
+friends are working on its replacement. I hope it can be integrated
+sooner rather than later. Tarek used to develop features directly in the
+stdlib, but Guido decided at PyCon that it was too dangerous and that a
+separate project had to be started instead - leading to the recent
+reverting of distutils to its 3.1 state.
+
+Regards
+
+Antoine.
+
+
+
+From ncoghlan at gmail.com  Wed Jul 28 14:23:22 2010
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Wed, 28 Jul 2010 22:23:22 +1000
+Subject: [python-committers] Eric Araujo (merwok) as Distutils commiter
+In-Reply-To: <1280254734.3156.33.camel@localhost.localdomain>
+References: <AANLkTimxaz+Oh8HNhTPq+cdT8WAg3fjgErc5XwBCBOFM@mail.gmail.com>
+	<1280224467.3156.4.camel@localhost.localdomain>
+	<AANLkTim1cM8xeFTn6K=VgeQ=vv+awieyU9rifw-jLVw6@mail.gmail.com>
+	<20100727114037.GA10277@remy> <4C4ED246.3070306@voidspace.org.uk>
+	<1280235377.3156.21.camel@localhost.localdomain>
+	<AANLkTimbH5R0Xd-ULy6OrFcaHDJjhxVCTXk8twnVzXF0@mail.gmail.com>
+	<1280240699.3156.28.camel@localhost.localdomain>
+	<F234F0E7-97F3-42A5-9288-AD69A3E6A503@mac.com>
+	<AANLkTim84E5HS3nEak-thANNG=ZCd-HhjOv7-L-JHOfy@mail.gmail.com>
+	<1280254734.3156.33.camel@localhost.localdomain>
+Message-ID: <AANLkTimvdc43_DZtOWa1odQ=h3mGdPQyK7TiaaHREVV7@mail.gmail.com>
+
+On Wed, Jul 28, 2010 at 4:18 AM, Antoine Pitrou <solipsis at pitrou.net> wrote:
+>
+>> I too, am for MaL's suggestion that we give Eric privs, and see how it
+>> goes before signing off on him being the long-term maintainer, but I
+>> am a strong -100 on allowing distutils to fall back to the way things
+>> were. We need more people assigned/associated/feeling ownership of
+>> stdlib modules, not less.
+>
+> I agree with the last sentence. I was just trying to be prudent as to
+> how we handle maintenance of delicate parts of the stdlib.
+
+If it's just the maintainer issue concerning people, perhaps think of
+it as Tarek deputising to Eric - and I think we should allow active
+maintainers of modules to deputise people that *they* trust to do a
+good job.
+
++1 from me as well.
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan?? |?? ncoghlan at gmail.com?? |?? Brisbane, Australia
+
+From barry at python.org  Wed Jul 28 16:21:35 2010
+From: barry at python.org (Barry Warsaw)
+Date: Wed, 28 Jul 2010 10:21:35 -0400
+Subject: [python-committers] Eric Araujo (merwok) as Distutils commiter
+In-Reply-To: <AANLkTimvdc43_DZtOWa1odQ=h3mGdPQyK7TiaaHREVV7@mail.gmail.com>
+References: <AANLkTimxaz+Oh8HNhTPq+cdT8WAg3fjgErc5XwBCBOFM@mail.gmail.com>
+	<1280224467.3156.4.camel@localhost.localdomain>
+	<AANLkTim1cM8xeFTn6K=VgeQ=vv+awieyU9rifw-jLVw6@mail.gmail.com>
+	<20100727114037.GA10277@remy> <4C4ED246.3070306@voidspace.org.uk>
+	<1280235377.3156.21.camel@localhost.localdomain>
+	<AANLkTimbH5R0Xd-ULy6OrFcaHDJjhxVCTXk8twnVzXF0@mail.gmail.com>
+	<1280240699.3156.28.camel@localhost.localdomain>
+	<F234F0E7-97F3-42A5-9288-AD69A3E6A503@mac.com>
+	<AANLkTim84E5HS3nEak-thANNG=ZCd-HhjOv7-L-JHOfy@mail.gmail.com>
+	<1280254734.3156.33.camel@localhost.localdomain>
+	<AANLkTimvdc43_DZtOWa1odQ=h3mGdPQyK7TiaaHREVV7@mail.gmail.com>
+Message-ID: <20100728102135.259be58d@heresy>
+
+On Jul 28, 2010, at 10:23 PM, Nick Coghlan wrote:
+
+>If it's just the maintainer issue concerning people, perhaps think of
+>it as Tarek deputising to Eric - and I think we should allow active
+>maintainers of modules to deputise people that *they* trust to do a
+>good job.
+
+Excellent way to put in Nick.  We trust Tarek, Tarek vouches for Eric.  That's
+good enough for me.
+
+Tarek, if things go sour with Eric, just watch your back for the PSU (which
+does *not* exist).
+
+:) :)
+
+-Barry
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 836 bytes
+Desc: not available
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20100728/d9272e56/attachment.pgp>
+
+From g.brandl at gmx.net  Sat Jul 31 08:57:54 2010
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Sat, 31 Jul 2010 08:57:54 +0200
+Subject: [python-committers] trunk (py3k) frozen for 3.2a1 release
+Message-ID: <i30hm2$ggn$1@dough.gmane.org>
+
+No commits please without my blessing.  If you think you have something
+that is important enough, write me an email or come to #python-dev on
+freenode.
+
+Georg
+
+-- 
+Thus spake the Lord: Thou shalt indent with four spaces. No more, no less.
+Four shall be the number of spaces thou shalt indent, and the number of thy
+indenting shall be four. Eight shalt thou not indent, nor either indent thou
+two, excepting that thou then proceed to four. Tabs are right out.
+
+
+From g.brandl at gmx.net  Sat Jul 31 11:07:33 2010
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Sat, 31 Jul 2010 11:07:33 +0200
+Subject: [python-committers] Windows issues blocking alpha1
+Message-ID: <i30p94$28d$1@dough.gmane.org>
+
+Hi,
+
+http://bugs.python.org/issue9116 was made a blocker this morning.  I can
+neither verify the bug nor test the patch, so I would be grateful for any
+help, especially with patch review.
+
+Also, the Windows 3.x buildbot shows failures compiling _ssl and _hashopenssl
+(for logs, see e.g. http://bit.ly/aSAnhh).  I'd like to know if this is
+specific to that machine (I've already mailed David about it) or a general
+problem.
+
+Thanks,
+Georg
+
+-- 
+Thus spake the Lord: Thou shalt indent with four spaces. No more, no less.
+Four shall be the number of spaces thou shalt indent, and the number of thy
+indenting shall be four. Eight shalt thou not indent, nor either indent thou
+two, excepting that thou then proceed to four. Tabs are right out.
+
+
+From martin at v.loewis.de  Sat Jul 31 11:23:06 2010
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Sat, 31 Jul 2010 11:23:06 +0200
+Subject: [python-committers] Windows issues blocking alpha1
+In-Reply-To: <i30p94$28d$1@dough.gmane.org>
+References: <i30p94$28d$1@dough.gmane.org>
+Message-ID: <4C53EB7A.2060504@v.loewis.de>
+
+> Also, the Windows 3.x buildbot shows failures compiling _ssl and _hashopenssl
+> (for logs, see e.g. http://bit.ly/aSAnhh).  I'd like to know if this is
+> specific to that machine (I've already mailed David about it) or a general
+> problem.
+
+This was a general problem - I forgot to update the external-common.bat
+for OpenSSL 1.0.0a. This is now fixed.
+
+There is a related problem - apparently, OpenSSL now fails to build on
+AMD64. I look into this later today.
+
+Regards,
+Martin
+
+From g.brandl at gmx.net  Sat Jul 31 11:46:51 2010
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Sat, 31 Jul 2010 11:46:51 +0200
+Subject: [python-committers] Windows issues blocking alpha1
+In-Reply-To: <4C53EB7A.2060504@v.loewis.de>
+References: <i30p94$28d$1@dough.gmane.org> <4C53EB7A.2060504@v.loewis.de>
+Message-ID: <i30rir$8gc$1@dough.gmane.org>
+
+Am 31.07.2010 11:23, schrieb "Martin v. L?wis":
+>> Also, the Windows 3.x buildbot shows failures compiling _ssl and _hashopenssl
+>> (for logs, see e.g. http://bit.ly/aSAnhh).  I'd like to know if this is
+>> specific to that machine (I've already mailed David about it) or a general
+>> problem.
+> 
+> This was a general problem - I forgot to update the external-common.bat
+> for OpenSSL 1.0.0a. This is now fixed.
+> 
+> There is a related problem - apparently, OpenSSL now fails to build on
+> AMD64. I look into this later today.
+
+Thanks Martin!
+
+The buildbot still seems to have problems --
+http://www.python.org/dev/buildbot/3.x.stable/builders/x86%20XP-4%203.x/builds/2608/steps/compile/logs/stdio
+shows
+
+ cl /Fotmp32\o_dir.obj  -Iinc32 -Itmp32 /MT /Ox /O2 /Ob2 -DOPENSSL_THREADS
+-DDSO_WIN32 -W3 -WX -Gs0 -GF -Gy -nologo -DOPENSSL_SYSNAME_WIN32
+-DWIN32_LEAN_AND_MEAN -DL_ENDIAN -D_CRT_SECURE_NO_DEPRECATE
+-DOPENSSL_BN_ASM_PART_WORDS -DOPENSSL_IA32_SSE2 -DOPENSSL_BN_ASM_MONT -DSHA1_ASM
+-DSHA256_ASM -DSHA512_ASM -DMD5_ASM -DRMD160_ASM -DAES_ASM -DWHIRLPOOL_ASM
+-DOPENSSL_NO_IDEA -DOPENSSL_NO_RC5 -DOPENSSL_NO_MD2 -DOPENSSL_NO_MDC2
+-DOPENSSL_NO_KRB5 -DOPENSSL_NO_JPAKE -DOPENSSL_NO_DYNAMIC_ENGINE /Zl /Zi
+/Fdtmp32/lib -c .\crypto\o_dir.c
+o_dir.c
+  crypto\x86cpuid.pl win32n /MT /Ox /O2 /Ob2 -DOPENSSL_THREADS  -DDSO_WIN32 -W3
+-WX -Gs0 -GF -Gy -nologo -DOPENSSL_SYSNAME_WIN32 -DWIN32_LEAN_AND_MEAN
+-DL_ENDIAN -D_CRT_SECURE_NO_DEPRECATE -DOPENSSL_BN_ASM_PART_WORDS
+-DOPENSSL_IA32_SSE2 -DOPENSSL_BN_ASM_MONT -DSHA1_ASM -DSHA256_ASM -DSHA512_ASM
+-DMD5_ASM -DRMD160_ASM -DAES_ASM -DWHIRLPOOL_ASM -DOPENSSL_NO_IDEA
+-DOPENSSL_NO_RC5 -DOPENSSL_NO_MD2 -DOPENSSL_NO_MDC2 -DOPENSSL_NO_KRB5
+-DOPENSSL_NO_JPAKE -DOPENSSL_NO_DYNAMIC_ENGINE >tmp32\x86cpuid.asm
+Access is denied.
+NMAKE : fatal error U1077: 'crypto\x86cpuid.pl' : return code '0x1'
+Stop.
+
+Looks like it wants to execute a Perl script?  That probably doesn't work
+that way on Windows...
+
+Georg
+
+-- 
+Thus spake the Lord: Thou shalt indent with four spaces. No more, no less.
+Four shall be the number of spaces thou shalt indent, and the number of thy
+indenting shall be four. Eight shalt thou not indent, nor either indent thou
+two, excepting that thou then proceed to four. Tabs are right out.
+
+
+From martin at v.loewis.de  Sat Jul 31 13:45:33 2010
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Sat, 31 Jul 2010 13:45:33 +0200
+Subject: [python-committers] Windows issues blocking alpha1
+In-Reply-To: <i30rir$8gc$1@dough.gmane.org>
+References: <i30p94$28d$1@dough.gmane.org> <4C53EB7A.2060504@v.loewis.de>
+	<i30rir$8gc$1@dough.gmane.org>
+Message-ID: <4C540CDD.5050805@v.loewis.de>
+
+>   crypto\x86cpuid.pl win32n /MT /Ox /O2 /Ob2 -DOPENSSL_THREADS  -DDSO_WIN32 -W3
+> -WX -Gs0 -GF -Gy -nologo -DOPENSSL_SYSNAME_WIN32 -DWIN32_LEAN_AND_MEAN
+> -DL_ENDIAN -D_CRT_SECURE_NO_DEPRECATE -DOPENSSL_BN_ASM_PART_WORDS
+> -DOPENSSL_IA32_SSE2 -DOPENSSL_BN_ASM_MONT -DSHA1_ASM -DSHA256_ASM -DSHA512_ASM
+> -DMD5_ASM -DRMD160_ASM -DAES_ASM -DWHIRLPOOL_ASM -DOPENSSL_NO_IDEA
+> -DOPENSSL_NO_RC5 -DOPENSSL_NO_MD2 -DOPENSSL_NO_MDC2 -DOPENSSL_NO_KRB5
+> -DOPENSSL_NO_JPAKE -DOPENSSL_NO_DYNAMIC_ENGINE >tmp32\x86cpuid.asm
+> Access is denied.
+> NMAKE : fatal error U1077: 'crypto\x86cpuid.pl' : return code '0x1'
+> Stop.
+> 
+> Looks like it wants to execute a Perl script?  That probably doesn't work
+> that way on Windows...
+
+Unfortunately, it does... OpenSSL requires Perl to build it on Windows.
+And indeed, the build slave does have perl installed:
+
+Found a working perl at 'c:\Perl\bin\perl.exe'
+Found an SSL directory at '..\..\openssl-1.0.0a'
+
+However, since Christian Heimes last changed it, we are not passing PERL
+anymore into the makefile, so this broke.
+
+In the past, we didn't need Perl on the slaves, anyway, since our
+external copy of OpenSSL had OpenSSL already pre-configured, and all
+Perl-generated files were included. In 1.0.0, OpenSSL started to
+generate assembler files with Perl, which broke the build. I have now
+added them to the external copy as well, so this is fixed.
+
+Now, the XP build succeeded. For some reason, the Windows 7 build failed
+due to duplicate symbols. I have cleaned the build area, and it
+currently retries.
+
+Regards,
+Martin
+
+From solipsis at pitrou.net  Sat Jul 31 13:50:37 2010
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Sat, 31 Jul 2010 13:50:37 +0200
+Subject: [python-committers] Windows issues blocking alpha1
+In-Reply-To: <4C53EB7A.2060504@v.loewis.de>
+References: <i30p94$28d$1@dough.gmane.org>  <4C53EB7A.2060504@v.loewis.de>
+Message-ID: <1280577037.3148.2.camel@localhost.localdomain>
+
+Le samedi 31 juillet 2010 ? 11:23 +0200, "Martin v. L?wis" a ?crit :
+> > Also, the Windows 3.x buildbot shows failures compiling _ssl and _hashopenssl
+> > (for logs, see e.g. http://bit.ly/aSAnhh).  I'd like to know if this is
+> > specific to that machine (I've already mailed David about it) or a general
+> > problem.
+> 
+> This was a general problem - I forgot to update the external-common.bat
+> for OpenSSL 1.0.0a. This is now fixed.
+
+Thanks Martin! Can http://bugs.python.org/issue8569 be closed now?
+
+Regards
+
+Antoine.
+
+
+
+From solipsis at pitrou.net  Sat Jul 31 14:04:33 2010
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Sat, 31 Jul 2010 14:04:33 +0200
+Subject: [python-committers] Windows issues blocking alpha1
+In-Reply-To: <4C541003.2040700@v.loewis.de>
+References: <i30p94$28d$1@dough.gmane.org>  <4C53EB7A.2060504@v.loewis.de>
+	<1280577037.3148.2.camel@localhost.localdomain>
+	<4C541003.2040700@v.loewis.de>
+Message-ID: <1280577873.3148.4.camel@localhost.localdomain>
+
+Le samedi 31 juillet 2010 ? 13:58 +0200, "Martin v. L?wis" a ?crit :
+> Am 31.07.2010 13:50, schrieb Antoine Pitrou:
+> > Le samedi 31 juillet 2010 ? 11:23 +0200, "Martin v. L?wis" a ?crit :
+> >>> Also, the Windows 3.x buildbot shows failures compiling _ssl and _hashopenssl
+> >>> (for logs, see e.g. http://bit.ly/aSAnhh).  I'd like to know if this is
+> >>> specific to that machine (I've already mailed David about it) or a general
+> >>> problem.
+> >>
+> >> This was a general problem - I forgot to update the external-common.bat
+> >> for OpenSSL 1.0.0a. This is now fixed.
+> > 
+> > Thanks Martin! Can http://bugs.python.org/issue8569 be closed now?
+> 
+> I'm not sure whether there is consensus that this is not a security
+> issue. I think it can be closed.
+
+Well, regardless of whether it is a security issue, upgrading OpenSSL
+brings slight behaviour changes, so I don't think it can be done in the
+bugfix branches.
+
+Regards
+
+Antoine.
+
+
+
+From martin at v.loewis.de  Sat Jul 31 13:58:59 2010
+From: martin at v.loewis.de (=?UTF-8?B?Ik1hcnRpbiB2LiBMw7Z3aXMi?=)
+Date: Sat, 31 Jul 2010 13:58:59 +0200
+Subject: [python-committers] Windows issues blocking alpha1
+In-Reply-To: <1280577037.3148.2.camel@localhost.localdomain>
+References: <i30p94$28d$1@dough.gmane.org> <4C53EB7A.2060504@v.loewis.de>
+	<1280577037.3148.2.camel@localhost.localdomain>
+Message-ID: <4C541003.2040700@v.loewis.de>
+
+Am 31.07.2010 13:50, schrieb Antoine Pitrou:
+> Le samedi 31 juillet 2010 ? 11:23 +0200, "Martin v. L?wis" a ?crit :
+>>> Also, the Windows 3.x buildbot shows failures compiling _ssl and _hashopenssl
+>>> (for logs, see e.g. http://bit.ly/aSAnhh).  I'd like to know if this is
+>>> specific to that machine (I've already mailed David about it) or a general
+>>> problem.
+>>
+>> This was a general problem - I forgot to update the external-common.bat
+>> for OpenSSL 1.0.0a. This is now fixed.
+> 
+> Thanks Martin! Can http://bugs.python.org/issue8569 be closed now?
+
+I'm not sure whether there is consensus that this is not a security
+issue. I think it can be closed.
+
+Regards,
+Martin
+
+From g.brandl at gmx.net  Sat Jul 31 15:48:00 2010
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Sat, 31 Jul 2010 15:48:00 +0200
+Subject: [python-committers] Windows issues blocking alpha1
+In-Reply-To: <i30p94$28d$1@dough.gmane.org>
+References: <i30p94$28d$1@dough.gmane.org>
+Message-ID: <i319n1$h7s$1@dough.gmane.org>
+
+Am 31.07.2010 11:07, schrieb Georg Brandl:
+> Hi,
+> 
+> http://bugs.python.org/issue9116 was made a blocker this morning.  I can
+> neither verify the bug nor test the patch, so I would be grateful for any
+> help, especially with patch review.
+
+OK, since the problem the issue describes happens in a case where Python
+exits with a fatal error anyway, I've decided to defer this blocker.
+
+> Also, the Windows 3.x buildbot shows failures compiling _ssl and _hashopenssl
+> (for logs, see e.g. http://bit.ly/aSAnhh).  I'd like to know if this is
+> specific to that machine (I've already mailed David about it) or a general
+> problem.
+
+This has been resolved now, so I'll go ahead and tag the current state for
+releasing.
+
+Georg
+
+-- 
+Thus spake the Lord: Thou shalt indent with four spaces. No more, no less.
+Four shall be the number of spaces thou shalt indent, and the number of thy
+indenting shall be four. Eight shalt thou not indent, nor either indent thou
+two, excepting that thou then proceed to four. Tabs are right out.
+
+
+From g.brandl at gmx.net  Sat Jul 31 20:04:03 2010
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Sat, 31 Jul 2010 20:04:03 +0200
+Subject: [python-committers] trunk (py3k) thawed
+Message-ID: <i31on4$sfi$1@dough.gmane.org>
+
+Please commit away!  (Especially, let's try to fix the tests and the
+buildbots...)
+
+Georg
+
+-- 
+Thus spake the Lord: Thou shalt indent with four spaces. No more, no less.
+Four shall be the number of spaces thou shalt indent, and the number of thy
+indenting shall be four. Eight shalt thou not indent, nor either indent thou
+two, excepting that thou then proceed to four. Tabs are right out.
+
+

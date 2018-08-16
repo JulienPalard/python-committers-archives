@@ -1,0 +1,862 @@
+From ncoghlan at gmail.com  Thu Sep  1 03:08:23 2011
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Thu, 1 Sep 2011 11:08:23 +1000
+Subject: [python-committers] Three wishes for Mercurial-Roundup
+	integration
+In-Reply-To: <j3lthk$ioc$1@dough.gmane.org>
+References: <4E5E4789.8060001@netwok.org>
+	<j3lthk$ioc$1@dough.gmane.org>
+Message-ID: <CADiSq7eqDut5A=OhQt-kKDGaZAR5KT5WyzYysD-0ru5-Kmh=4A@mail.gmail.com>
+
+On Thu, Sep 1, 2011 at 4:13 AM, Georg Brandl <g.brandl at gmx.net> wrote:
+> Am 31.08.2011 16:39, schrieb ?ric Araujo:
+>> Hi,
+>>
+>> 1) When a commit message references more than one bug (with text
+>> matching #\d+), only the first gets a message for the changeset. ?I
+>> would like all referenced bugs to get a message.
+>
+> +1. ?Just make sure that only issues that should be closed are closed
+> (i.e. if the commit message is """Close #1234: better fix than proposed
+> in #5678""", #1234 should be closed, and #5678 get a reference).
+
++1 here as well.
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan?? |?? ncoghlan at gmail.com?? |?? Brisbane, Australia
+
+From ezio.melotti at gmail.com  Thu Sep  1 15:14:28 2011
+From: ezio.melotti at gmail.com (Ezio Melotti)
+Date: Thu, 1 Sep 2011 16:14:28 +0300
+Subject: [python-committers] Three wishes for Mercurial-Roundup
+	integration
+In-Reply-To: <CACBhJdHDSR5HhQXqbB3Cz1fSy1__zvOZL63180vOmT2i0VSwmA@mail.gmail.com>
+References: <4E5E4789.8060001@netwok.org>
+	<CACBhJdHDSR5HhQXqbB3Cz1fSy1__zvOZL63180vOmT2i0VSwmA@mail.gmail.com>
+Message-ID: <CACBhJdHy9j9x4513wketWfwjL_6GgYj2Kdd43QEqLdhbUFbkVQ@mail.gmail.com>
+
+On Wed, Aug 31, 2011 at 8:44 PM, Ezio Melotti <ezio.melotti at gmail.com>wrote:
+
+>
+>
+>> 2) When a bug number (#\d+) is not in the first line of the commit
+>> message, no message is sent.  Is there a reason for this or is it a bug?
+>>  (Note: I?m not sure about this one, I may misremember.)
+>>
+>>
+> From a quick look at the code I don't see any obvious reason why this
+> shouldn't work, if it really doesn't I guess it can be fixed.  (I prefer to
+> always write the issue number at beginning of the line though.)
+>
+>
+ I did a small test [0] and the regex seems to match fine[1] even when the
+issue number is on the other lines.  However the log message sent to the
+tracker is limited to the first line only.  This seems intentional (
+'commit_msg': description.splitlines()[0]).
+
+Best Regards,
+Ezio Melotti
+
+[0]: http://hg.python.org/test/rev/90586887032e
+[1]: http://bugs.python.org/issue2771#msg143322
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20110901/0aef1c08/attachment.html>
+
+From merwok at netwok.org  Fri Sep  2 18:53:30 2011
+From: merwok at netwok.org (=?UTF-8?B?w4lyaWMgQXJhdWpv?=)
+Date: Fri, 02 Sep 2011 18:53:30 +0200
+Subject: [python-committers] Three wishes for Mercurial-Roundup
+	integration
+In-Reply-To: <j3lthk$ioc$1@dough.gmane.org>
+References: <4E5E4789.8060001@netwok.org> <j3lthk$ioc$1@dough.gmane.org>
+Message-ID: <4E610A0A.7040407@netwok.org>
+
+Le 31/08/2011 20:13, Georg Brandl a ?crit :
+>> 1) When a commit message references more than one bug (with text
+>> matching #\d+), only the first gets a message for the changeset.  I
+>> would like all referenced bugs to get a message.
+> +1.  Just make sure that only issues that should be closed are closed
+> (i.e. if the commit message is """Close #1234: better fix than proposed
+> in #5678""", #1234 should be closed, and #5678 get a reference).
+
+You, Nick and Terry are +1, Ezio -1.  I originally changed my mind and
+agreed with Ezio after discussing it on IRC, on the basis that duplicate
+bug should be sorted out in the tracker, but the majority here is in
+favor.  I?ll wait a bit for other opinions.
+
+>> 2) When a bug number (#\d+) is not in the first line of the commit
+>> message, no message is sent.  Is there a reason for this or is it a bug?
+>>  (Note: I?m not sure about this one, I may misremember.)
+
+I did misremember, this works well.
+
+>> 3) To let us track the backport of changesets from cpython/packaging to
+>> distutils2, I would like the script to look at changesets in the
+>> distutils2 repo and send messages to Roundup when a bug number is detected.
+> Sure.  Should be a simple [hooks] entry.
+
+Changing this requires admin access to hg.python.org, doesn?t it?  Can
+Antoine or you make the changes (benchmarks, devguide, d2)?  Thanks.
+
+Cheers
+
+From ncoghlan at gmail.com  Sat Sep  3 08:24:14 2011
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Sat, 3 Sep 2011 16:24:14 +1000
+Subject: [python-committers] Three wishes for Mercurial-Roundup
+	integration
+In-Reply-To: <4E610A0A.7040407@netwok.org>
+References: <4E5E4789.8060001@netwok.org> <j3lthk$ioc$1@dough.gmane.org>
+	<4E610A0A.7040407@netwok.org>
+Message-ID: <CADiSq7dshYtQVDPAGn3n0P9RMSGLVK5-rTqFJymyo2W-5Lu9dA@mail.gmail.com>
+
+On Sat, Sep 3, 2011 at 2:53 AM, ?ric Araujo <merwok at netwok.org> wrote:
+> Le 31/08/2011 20:13, Georg Brandl a ?crit :
+>>> 1) When a commit message references more than one bug (with text
+>>> matching #\d+), only the first gets a message for the changeset. ?I
+>>> would like all referenced bugs to get a message.
+>> +1. ?Just make sure that only issues that should be closed are closed
+>> (i.e. if the commit message is """Close #1234: better fix than proposed
+>> in #5678""", #1234 should be closed, and #5678 get a reference).
+>
+> You, Nick and Terry are +1, Ezio -1. ?I originally changed my mind and
+> agreed with Ezio after discussing it on IRC, on the basis that duplicate
+> bug should be sorted out in the tracker, but the majority here is in
+> favor. ?I?ll wait a bit for other opinions.
+
+Wanting this is rare enough that I don't mind doing it manually on the
+occasions when it happens to arises. I'd advise against spending too
+much effort on it if it turns out to be tricky.
+
+The last case where it might have been helpful to me was one where a
+coverage patch added new tests (issue A) that picked up a bug (issue
+B) and I made a single commit with both the new test and the fix for
+the bug. I don't remember the exact details any more, but it was
+something along those lines.
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan?? |?? ncoghlan at gmail.com?? |?? Brisbane, Australia
+
+From g.brandl at gmx.net  Sat Sep  3 08:42:12 2011
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Sat, 03 Sep 2011 08:42:12 +0200
+Subject: [python-committers] Three wishes for Mercurial-Roundup
+	integration
+In-Reply-To: <4E610A0A.7040407@netwok.org>
+References: <4E5E4789.8060001@netwok.org> <j3lthk$ioc$1@dough.gmane.org>
+	<4E610A0A.7040407@netwok.org>
+Message-ID: <j3si5k$mrt$1@dough.gmane.org>
+
+Am 02.09.2011 18:53, schrieb ?ric Araujo:
+
+>>> 3) To let us track the backport of changesets from cpython/packaging to
+>>> distutils2, I would like the script to look at changesets in the
+>>> distutils2 repo and send messages to Roundup when a bug number is detected.
+>> Sure.  Should be a simple [hooks] entry.
+> 
+> Changing this requires admin access to hg.python.org, doesn?t it?  Can
+> Antoine or you make the changes (benchmarks, devguide, d2)?  Thanks.
+
+This should be done; please let me know if it doesn't work as intended.
+
+Georg
+
+
+From g.brandl at gmx.net  Sat Sep  3 10:35:11 2011
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Sat, 03 Sep 2011 10:35:11 +0200
+Subject: [python-committers] Working on 3.2.2
+Message-ID: <j3sope$p3h$1@dough.gmane.org>
+
+I've now pulled all 3.2 changes that I think are important and safe into
+the release clone and am working on making the tag.
+
+Georg
+
+
+From georg at python.org  Sun Sep  4 22:21:50 2011
+From: georg at python.org (Georg Brandl)
+Date: Sun, 04 Sep 2011 22:21:50 +0200
+Subject: [python-committers] [RELEASED] Python 3.2.2
+Message-ID: <4E63DDDE.2040108@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On behalf of the Python development team, I'm happy to announce the
+Python 3.2.2 maintenance release.
+
+Python 3.2.2 mainly fixes `a regression <http://bugs.python.org/12576>`_ in the
+``urllib.request`` module that prevented opening many HTTP resources correctly
+with Python 3.2.1.
+
+Python 3.2 is a continuation of the efforts to improve and stabilize the
+Python 3.x line.  Since the final release of Python 2.7, the 2.x line
+will only receive bugfixes, and new features are developed for 3.x only.
+
+Since PEP 3003, the Moratorium on Language Changes, is in effect, there
+are no changes in Python's syntax and built-in types in Python 3.2.
+Development efforts concentrated on the standard library and support for
+porting code to Python 3.  Highlights are:
+
+* numerous improvements to the unittest module
+* PEP 3147, support for .pyc repository directories
+* PEP 3149, support for version tagged dynamic libraries
+* PEP 3148, a new futures library for concurrent programming
+* PEP 384, a stable ABI for extension modules
+* PEP 391, dictionary-based logging configuration
+* an overhauled GIL implementation that reduces contention
+* an extended email package that handles bytes messages
+* a much improved ssl module with support for SSL contexts and certificate
+  hostname matching
+* a sysconfig module to access configuration information
+* additions to the shutil module, among them archive file support
+* many enhancements to configparser, among them mapping protocol support
+* improvements to pdb, the Python debugger
+* countless fixes regarding bytes/string issues; among them full support
+  for a bytes environment (filenames, environment variables)
+* many consistency and behavior fixes for numeric operations
+
+For a more extensive list of changes in 3.2, see
+
+    http://docs.python.org/3.2/whatsnew/3.2.html
+
+To download Python 3.2 visit:
+
+    http://www.python.org/download/releases/3.2/
+
+Please consider trying Python 3.2 with your code and reporting any bugs
+you may notice to:
+
+    http://bugs.python.org/
+
+
+Enjoy!
+
+- --
+Georg Brandl, Release Manager
+georg at python.org
+(on behalf of the entire python-dev team and 3.2's contributors)
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v2.0.18 (GNU/Linux)
+
+iEYEARECAAYFAk5j3d4ACgkQN9GcIYhpnLA2BACeLZ8nSdVOoxlJw4DnbM42neeA
+fwAAoKTHetXsVxrEfvCWSorUhoJ083kZ
+=5Wm1
+-----END PGP SIGNATURE-----
+
+From tjreedy at udel.edu  Mon Sep  5 05:41:20 2011
+From: tjreedy at udel.edu (Terry Reedy)
+Date: Sun, 04 Sep 2011 23:41:20 -0400
+Subject: [python-committers] [RELEASED] Python 3.2.2
+In-Reply-To: <4E63DDDE.2040108@python.org>
+References: <4E63DDDE.2040108@python.org>
+Message-ID: <j41gei$pvi$1@dough.gmane.org>
+
+On 9/4/2011 4:21 PM, Georg Brandl wrote:
+> -----BEGIN PGP SIGNED MESSAGE-----
+> Hash: SHA1
+>
+> On behalf of the Python development team, I'm happy to announce the
+> Python 3.2.2 maintenance release.
+
+> To download Python 3.2 visit:
+>
+>      http://www.python.org/download/releases/3.2/
+
+To download 3.2.2 visit:
+http://www.python.org/download/releases/3.2.2/
+
+-- 
+Terry Jan Reedy
+
+
+From patcam at python.org  Tue Sep 13 19:23:15 2011
+From: patcam at python.org (Pat Campbell)
+Date: Tue, 13 Sep 2011 13:23:15 -0400
+Subject: [python-committers] [PSF-Board] Contributor agreement
+In-Reply-To: <CAFEF1dE4t0A=y-mHKeG=ym3=T-kw0hR1xKAjyt5-Gn4ogWussw@mail.gmail.com>
+References: <CAFEF1dE4t0A=y-mHKeG=ym3=T-kw0hR1xKAjyt5-Gn4ogWussw@mail.gmail.com>
+Message-ID: <CAFy_4dKAnuhpZqO0rigxfdv316_2S5TonXjK1QZcq-ddXSOmzw@mail.gmail.com>
+
+Hi Jakob:
+
+Thank-you for submitting your contributor agreement.
+
+Have you had a chance to create your profile on the PSF tracker
+http://bugs.python.org/user? If so, please email your "username" in
+order for the tracker to show your contributor agreement submission
+to the PSF.
+
+Thanks,
+Pat
+
+On Mon, Sep 12, 2011 at 4:29 PM, Jakob Malm <jakob.malm at gmail.com> wrote:
+
+> Hi,
+>
+> I plan to contribute to Python. Attached you will find a signed
+> contributor agreement.
+>
+> Regards,
+> Jakob Malm
+>
+> _______________________________________________
+> PSF-Board mailing list
+> PSF-Board at python.org
+> http://mail.python.org/mailman/listinfo/psf-board
+>
+>
+
+
+-- 
+Pat Campbell
+PSF Administrator/Secretary
+patcam at python.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20110913/1d855e8f/attachment.html>
+
+From patcam at python.org  Wed Sep 14 00:27:32 2011
+From: patcam at python.org (Pat Campbell)
+Date: Tue, 13 Sep 2011 18:27:32 -0400
+Subject: [python-committers] [PSF-Board] Contributor agreement
+In-Reply-To: <CAFEF1dGfduFvrpxau6i=PxLbUsvQ03fP5g2FE3cA3fseY2r+Zg@mail.gmail.com>
+References: <CAFEF1dE4t0A=y-mHKeG=ym3=T-kw0hR1xKAjyt5-Gn4ogWussw@mail.gmail.com>
+	<CAFy_4dKAnuhpZqO0rigxfdv316_2S5TonXjK1QZcq-ddXSOmzw@mail.gmail.com>
+	<CAFEF1dGfduFvrpxau6i=PxLbUsvQ03fP5g2FE3cA3fseY2r+Zg@mail.gmail.com>
+Message-ID: <CAFy_4dKNuDJJd-0k8omOFLUzZ3nycdcOSSPNyF4psjM1XN6Wsg@mail.gmail.com>
+
+Okay Jakob, thanks. Your contributor agreement information has been added
+to the PSF tracker.
+
+Pat
+
+On Tue, Sep 13, 2011 at 4:51 PM, Jakob Malm <jakob.malm at gmail.com> wrote:
+
+> Hi Pat,
+>
+> My username is 'shaq', created yesterday.
+>
+> Thanks,
+> Jakob
+>
+> 2011/9/13 Pat Campbell <patcam at python.org>:
+> > Hi Jakob:
+> >
+> > Thank-you for submitting your contributor agreement.
+> >
+> > Have you had a chance to create your profile on the PSF tracker
+> > http://bugs.python.org/user? If so, please email your "username" in
+> > order for the tracker to show your contributor agreement submission
+> > to the PSF.
+> >
+> > Thanks,
+> > Pat
+> >
+> > On Mon, Sep 12, 2011 at 4:29 PM, Jakob Malm <jakob.malm at gmail.com>
+> wrote:
+> >>
+> >> Hi,
+> >>
+> >> I plan to contribute to Python. Attached you will find a signed
+> >> contributor agreement.
+> >>
+> >> Regards,
+> >> Jakob Malm
+> >>
+> >> _______________________________________________
+> >> PSF-Board mailing list
+> >> PSF-Board at python.org
+> >> http://mail.python.org/mailman/listinfo/psf-board
+> >>
+> >
+> >
+> >
+> > --
+> > Pat Campbell
+> > PSF Administrator/Secretary
+> > patcam at python.org
+> >
+>
+
+
+
+-- 
+Pat Campbell
+PSF Administrator/Secretary
+patcam at python.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20110913/ee10e1e1/attachment.html>
+
+From dickinsm at gmail.com  Wed Sep 14 22:46:23 2011
+From: dickinsm at gmail.com (Mark Dickinson)
+Date: Wed, 14 Sep 2011 21:46:23 +0100
+Subject: [python-committers] Commit rights for Meador Inge
+Message-ID: <CAAu3qLVGM27m3e3TkLXueoNTXvNLOf+qGe==OSz8x0Eu-FTiHA@mail.gmail.com>
+
+Hi all,
+
+Meador Inge has been contributing to Python for a while now;  he's put
+in a lot of work in particular on the struct and ctypes modules
+amongst others (see username 'meadori' in the tracker for more), and
+all the work that I've seen has been consistently high quality and
+careful.  I think he's long overdue for commit rights, and would be a
+really valuable member of the Python team.
+
+I'm afraid I can't offer to mentor him (I'm not finding anything like
+as much time as I'd like to spend on Python right now);  but I doubt
+he needs much mentoring at this point.  Does anyone want to act as a
+nominal mentor?
+
+Mark
+
+From g.brandl at gmx.net  Thu Sep 15 07:43:48 2011
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Thu, 15 Sep 2011 07:43:48 +0200
+Subject: [python-committers] Commit rights for Meador Inge
+In-Reply-To: <CAAu3qLVGM27m3e3TkLXueoNTXvNLOf+qGe==OSz8x0Eu-FTiHA@mail.gmail.com>
+References: <CAAu3qLVGM27m3e3TkLXueoNTXvNLOf+qGe==OSz8x0Eu-FTiHA@mail.gmail.com>
+Message-ID: <j4s37v$hmd$1@dough.gmane.org>
+
+Am 14.09.2011 22:46, schrieb Mark Dickinson:
+> Hi all,
+> 
+> Meador Inge has been contributing to Python for a while now;  he's put
+> in a lot of work in particular on the struct and ctypes modules
+> amongst others (see username 'meadori' in the tracker for more), and
+> all the work that I've seen has been consistently high quality and
+> careful.  I think he's long overdue for commit rights, and would be a
+> really valuable member of the Python team.
+
++1.0000000000000001
+
+> I'm afraid I can't offer to mentor him (I'm not finding anything like
+> as much time as I'd like to spend on Python right now);  but I doubt
+> he needs much mentoring at this point.  Does anyone want to act as a
+> nominal mentor?
+
+If nobody else does, I will be available.
+
+Georg
+
+
+From ncoghlan at gmail.com  Sun Sep 18 14:35:16 2011
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Sun, 18 Sep 2011 22:35:16 +1000
+Subject: [python-committers] Request email from buildbot when forcing a
+	build?
+Message-ID: <CADiSq7fM07dJ+8fRr0sS5pf69qfhwKXfc+72BkU=4BpF_OqV0Q@mail.gmail.com>
+
+Q for the buildbot admins: would it be easy to add an "Email Address"
+field to the 'Force Build' form, so buildbot could email me when the
+job was complete?
+
+This doesn't come up very often, and would just be a nice to have, so
+don't worry about it if it isn't trivial to add.
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan?? |?? ncoghlan at gmail.com?? |?? Brisbane, Australia
+
+From g.brandl at gmx.net  Sun Sep 18 16:32:25 2011
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Sun, 18 Sep 2011 16:32:25 +0200
+Subject: [python-committers] Request email from buildbot when forcing a
+	build?
+In-Reply-To: <CADiSq7fM07dJ+8fRr0sS5pf69qfhwKXfc+72BkU=4BpF_OqV0Q@mail.gmail.com>
+References: <CADiSq7fM07dJ+8fRr0sS5pf69qfhwKXfc+72BkU=4BpF_OqV0Q@mail.gmail.com>
+Message-ID: <j54vb3$qqh$1@dough.gmane.org>
+
+Am 18.09.2011 14:35, schrieb Nick Coghlan:
+> Q for the buildbot admins: would it be easy to add an "Email Address"
+> field to the 'Force Build' form, so buildbot could email me when the
+> job was complete?
+> 
+> This doesn't come up very often, and would just be a nice to have, so
+> don't worry about it if it isn't trivial to add.
+
+Oh yes, this would be very helpful, also for release managering (since
+I for example test the release branch, after making changes there during
+releasing, using the custom builders).
+
+Georg
+
+
+From dickinsm at gmail.com  Sun Sep 18 19:27:25 2011
+From: dickinsm at gmail.com (Mark Dickinson)
+Date: Sun, 18 Sep 2011 18:27:25 +0100
+Subject: [python-committers] Commit rights for Meador Inge
+In-Reply-To: <j4s37v$hmd$1@dough.gmane.org>
+References: <CAAu3qLVGM27m3e3TkLXueoNTXvNLOf+qGe==OSz8x0Eu-FTiHA@mail.gmail.com>
+	<j4s37v$hmd$1@dough.gmane.org>
+Message-ID: <CAAu3qLUcicRg05NACPEL56rRAAyGEUCbf1SUzcWkG7pAMVjGBQ@mail.gmail.com>
+
+On Thu, Sep 15, 2011 at 6:43 AM, Georg Brandl <g.brandl at gmx.net> wrote:
+> Am 14.09.2011 22:46, schrieb Mark Dickinson:
+>> I'm afraid I can't offer to mentor him (I'm not finding anything like
+>> as much time as I'd like to spend on Python right now); ?but I doubt
+>> he needs much mentoring at this point. ?Does anyone want to act as a
+>> nominal mentor?
+>
+> If nobody else does, I will be available.
+
+Thanks, Georg.
+
+What do I need to do to get Meador set up?
+
+Mark
+
+From martin at v.loewis.de  Sun Sep 18 20:34:01 2011
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Sun, 18 Sep 2011 20:34:01 +0200
+Subject: [python-committers] Request email from buildbot when forcing
+ a	build?
+In-Reply-To: <CADiSq7fM07dJ+8fRr0sS5pf69qfhwKXfc+72BkU=4BpF_OqV0Q@mail.gmail.com>
+References: <CADiSq7fM07dJ+8fRr0sS5pf69qfhwKXfc+72BkU=4BpF_OqV0Q@mail.gmail.com>
+Message-ID: <4E763999.60301@v.loewis.de>
+
+Am 18.09.2011 14:35, schrieb Nick Coghlan:
+> Q for the buildbot admins: would it be easy to add an "Email Address"
+> field to the 'Force Build' form, so buildbot could email me when the
+> job was complete?
+> 
+> This doesn't come up very often, and would just be a nice to have, so
+> don't worry about it if it isn't trivial to add.
+
+I think this would be a change to buildbot itself, rather than a
+configuration parameter. Consider requesting it on the buildbot
+tracker: http://trac.buildbot.net
+
+Regards,
+Martin
+
+
+From brett at python.org  Mon Sep 19 01:03:10 2011
+From: brett at python.org (Brett Cannon)
+Date: Sun, 18 Sep 2011 16:03:10 -0700
+Subject: [python-committers] Commit rights for Meador Inge
+In-Reply-To: <CAAu3qLUcicRg05NACPEL56rRAAyGEUCbf1SUzcWkG7pAMVjGBQ@mail.gmail.com>
+References: <CAAu3qLVGM27m3e3TkLXueoNTXvNLOf+qGe==OSz8x0Eu-FTiHA@mail.gmail.com>
+	<j4s37v$hmd$1@dough.gmane.org>
+	<CAAu3qLUcicRg05NACPEL56rRAAyGEUCbf1SUzcWkG7pAMVjGBQ@mail.gmail.com>
+Message-ID: <CAP1=2W61nY6iY_4oYD=_q22-43UVQsBQQ8qj-8BWn-zZyPzUyg@mail.gmail.com>
+
+http://docs.python.org/devguide/coredev.html#gaining-commit-privileges
+
+On Sun, Sep 18, 2011 at 10:27, Mark Dickinson <dickinsm at gmail.com> wrote:
+
+> On Thu, Sep 15, 2011 at 6:43 AM, Georg Brandl <g.brandl at gmx.net> wrote:
+> > Am 14.09.2011 22:46, schrieb Mark Dickinson:
+> >> I'm afraid I can't offer to mentor him (I'm not finding anything like
+> >> as much time as I'd like to spend on Python right now);  but I doubt
+> >> he needs much mentoring at this point.  Does anyone want to act as a
+> >> nominal mentor?
+> >
+> > If nobody else does, I will be available.
+>
+> Thanks, Georg.
+>
+> What do I need to do to get Meador set up?
+>
+> Mark
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20110918/be256996/attachment.html>
+
+From meadori at gmail.com  Mon Sep 19 04:11:03 2011
+From: meadori at gmail.com (Meador Inge)
+Date: Sun, 18 Sep 2011 21:11:03 -0500
+Subject: [python-committers] Commit rights for Meador Inge
+In-Reply-To: <CAP1=2W61nY6iY_4oYD=_q22-43UVQsBQQ8qj-8BWn-zZyPzUyg@mail.gmail.com>
+References: <CAAu3qLVGM27m3e3TkLXueoNTXvNLOf+qGe==OSz8x0Eu-FTiHA@mail.gmail.com>
+	<j4s37v$hmd$1@dough.gmane.org>
+	<CAAu3qLUcicRg05NACPEL56rRAAyGEUCbf1SUzcWkG7pAMVjGBQ@mail.gmail.com>
+	<CAP1=2W61nY6iY_4oYD=_q22-43UVQsBQQ8qj-8BWn-zZyPzUyg@mail.gmail.com>
+Message-ID: <CAK1Qoor=KFxVD_JUmWwkEi82+wvAU3nmen3D3POa-1GzJ6xX+A@mail.gmail.com>
+
+On Sun, Sep 18, 2011 at 6:03 PM, Brett Cannon <brett at python.org> wrote:
+> http://docs.python.org/devguide/coredev.html#gaining-commit-privileges
+
+I believe everything is in place:
+
+   1. I am subscribed to the right mailing lists.
+   2. I already had the Developer role in the tracker.
+   3. I changed my tracker username from 'meadori' to 'meador.inge'.
+   4. I sent my SSH key to Georg and he set me up with repo access,
+       which I tested on http://hg.python.org/test/.
+   5. I faxed my contributor agreement on Saturday.
+
+My tracker details need to be changed to committer, though.  How do I that?
+
+-- Meador
+
+From ezio.melotti at gmail.com  Mon Sep 19 13:16:15 2011
+From: ezio.melotti at gmail.com (Ezio Melotti)
+Date: Mon, 19 Sep 2011 14:16:15 +0300
+Subject: [python-committers] Commit rights for Meador Inge
+In-Reply-To: <CAK1Qoor=KFxVD_JUmWwkEi82+wvAU3nmen3D3POa-1GzJ6xX+A@mail.gmail.com>
+References: <CAAu3qLVGM27m3e3TkLXueoNTXvNLOf+qGe==OSz8x0Eu-FTiHA@mail.gmail.com>
+	<j4s37v$hmd$1@dough.gmane.org>
+	<CAAu3qLUcicRg05NACPEL56rRAAyGEUCbf1SUzcWkG7pAMVjGBQ@mail.gmail.com>
+	<CAP1=2W61nY6iY_4oYD=_q22-43UVQsBQQ8qj-8BWn-zZyPzUyg@mail.gmail.com>
+	<CAK1Qoor=KFxVD_JUmWwkEi82+wvAU3nmen3D3POa-1GzJ6xX+A@mail.gmail.com>
+Message-ID: <4E77247F.8090501@gmail.com>
+
+On 19/09/2011 5.11, Meador Inge wrote:
+> On Sun, Sep 18, 2011 at 6:03 PM, Brett Cannon<brett at python.org>  wrote:
+>> http://docs.python.org/devguide/coredev.html#gaining-commit-privileges
+> I believe everything is in place:
+>
+>     1. I am subscribed to the right mailing lists.
+>     2. I already had the Developer role in the tracker.
+>     3. I changed my tracker username from 'meadori' to 'meador.inge'.
+>     4. I sent my SSH key to Georg and he set me up with repo access,
+>         which I tested on http://hg.python.org/test/.
+>     5. I faxed my contributor agreement on Saturday.
+>
+> My tracker details need to be changed to committer, though.  How do I that?
+
+Done.
+Pat will probably take care of updating the "contributor form received" 
+field as soon as she receives the contributor agreement.
+Even if it's not mentioned on the devguide, if you use IRC, you might 
+want to join the #python-dev channel on irc.freenode.net.  There you can 
+get real-time updates about commits, new messages posted on the tracker, 
+the buildbots status, and you can also get in touch with other developers.
+
+Best Regards,
+Ezio Melotti
+
+>
+> -- Meador
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+>
+
+
+From victor.stinner at haypocalc.com  Mon Sep 19 14:09:19 2011
+From: victor.stinner at haypocalc.com (Victor Stinner)
+Date: Mon, 19 Sep 2011 14:09:19 +0200
+Subject: [python-committers] Commit rights for Meador Inge
+In-Reply-To: <CAK1Qoor=KFxVD_JUmWwkEi82+wvAU3nmen3D3POa-1GzJ6xX+A@mail.gmail.com>
+References: <CAAu3qLVGM27m3e3TkLXueoNTXvNLOf+qGe==OSz8x0Eu-FTiHA@mail.gmail.com>	<j4s37v$hmd$1@dough.gmane.org>	<CAAu3qLUcicRg05NACPEL56rRAAyGEUCbf1SUzcWkG7pAMVjGBQ@mail.gmail.com>	<CAP1=2W61nY6iY_4oYD=_q22-43UVQsBQQ8qj-8BWn-zZyPzUyg@mail.gmail.com>
+	<CAK1Qoor=KFxVD_JUmWwkEi82+wvAU3nmen3D3POa-1GzJ6xX+A@mail.gmail.com>
+Message-ID: <4E7730EF.9050405@haypocalc.com>
+
+Le 19/09/2011 04:11, Meador Inge a ?crit :
+> On Sun, Sep 18, 2011 at 6:03 PM, Brett Cannon<brett at python.org>  wrote:
+>> http://docs.python.org/devguide/coredev.html#gaining-commit-privileges
+>
+> I believe everything is in place:
+>
+>     1. I am subscribed to the right mailing lists.
+>     2. I already had the Developer role in the tracker.
+>     3. I changed my tracker username from 'meadori' to 'meador.inge'.
+>     4. I sent my SSH key to Georg and he set me up with repo access,
+>         which I tested on http://hg.python.org/test/.
+>     5. I faxed my contributor agreement on Saturday.
+
+The next (optional?) step is to break all buildbots in a single commit.
+
+Victor
+
+From meadori at gmail.com  Mon Sep 19 15:26:10 2011
+From: meadori at gmail.com (Meador Inge)
+Date: Mon, 19 Sep 2011 08:26:10 -0500
+Subject: [python-committers] Commit rights for Meador Inge
+In-Reply-To: <4E7730EF.9050405@haypocalc.com>
+References: <CAAu3qLVGM27m3e3TkLXueoNTXvNLOf+qGe==OSz8x0Eu-FTiHA@mail.gmail.com>
+	<j4s37v$hmd$1@dough.gmane.org>
+	<CAAu3qLUcicRg05NACPEL56rRAAyGEUCbf1SUzcWkG7pAMVjGBQ@mail.gmail.com>
+	<CAP1=2W61nY6iY_4oYD=_q22-43UVQsBQQ8qj-8BWn-zZyPzUyg@mail.gmail.com>
+	<CAK1Qoor=KFxVD_JUmWwkEi82+wvAU3nmen3D3POa-1GzJ6xX+A@mail.gmail.com>
+	<4E7730EF.9050405@haypocalc.com>
+Message-ID: <CAK1QoornGch6ZoRtVFNNnysNV0tMJy6XrUgP9ciuj6HjWsyaKg@mail.gmail.com>
+
+On Mon, Sep 19, 2011 at 7:09 AM, Victor Stinner
+<victor.stinner at haypocalc.com> wrote:
+> Le 19/09/2011 04:11, Meador Inge a ?crit :
+>>
+>> On Sun, Sep 18, 2011 at 6:03 PM, Brett Cannon<brett at python.org> ?wrote:
+>>>
+>>> http://docs.python.org/devguide/coredev.html#gaining-commit-privileges
+>>
+>> I believe everything is in place:
+>>
+>> ? ?1. I am subscribed to the right mailing lists.
+>> ? ?2. I already had the Developer role in the tracker.
+>> ? ?3. I changed my tracker username from 'meadori' to 'meador.inge'.
+>> ? ?4. I sent my SSH key to Georg and he set me up with repo access,
+>> ? ? ? ?which I tested on http://hg.python.org/test/.
+>> ? ?5. I faxed my contributor agreement on Saturday.
+>
+> The next (optional?) step is to break all buildbots in a single commit.
+
+That sounds like one of those "meet all the core developers at the
+pool on the roof"
+kind of propositions.  I will try my best to be there ;-)
+
+-- Meador
+
+From ncoghlan at gmail.com  Mon Sep 19 15:31:04 2011
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Mon, 19 Sep 2011 23:31:04 +1000
+Subject: [python-committers] Commit rights for Meador Inge
+In-Reply-To: <4E7730EF.9050405@haypocalc.com>
+References: <CAAu3qLVGM27m3e3TkLXueoNTXvNLOf+qGe==OSz8x0Eu-FTiHA@mail.gmail.com>
+	<j4s37v$hmd$1@dough.gmane.org>
+	<CAAu3qLUcicRg05NACPEL56rRAAyGEUCbf1SUzcWkG7pAMVjGBQ@mail.gmail.com>
+	<CAP1=2W61nY6iY_4oYD=_q22-43UVQsBQQ8qj-8BWn-zZyPzUyg@mail.gmail.com>
+	<CAK1Qoor=KFxVD_JUmWwkEi82+wvAU3nmen3D3POa-1GzJ6xX+A@mail.gmail.com>
+	<4E7730EF.9050405@haypocalc.com>
+Message-ID: <CADiSq7diyuB3CiRANOZVoewWzCphGNgC-FnTngi+Qg3dHz65PQ@mail.gmail.com>
+
+On Sep 19, 2011 10:40 PM, "Victor Stinner" <victor.stinner at haypocalc.com>
+wrote:
+> The next (optional?) step is to break all buildbots in a single commit.
+
+(forgetting to run) 'hg add' is a great tool for that task :)
+
+--
+Nick Coghlan (via Gmail on Android, so likely to be more terse than usual)
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20110919/206d9e1c/attachment.html>
+
+From kbk at shore.net  Mon Sep 19 17:31:52 2011
+From: kbk at shore.net (Kurt B. Kaiser)
+Date: Mon, 19 Sep 2011 11:31:52 -0400
+Subject: [python-committers] Commit rights for Meador Inge
+In-Reply-To: <4E77247F.8090501@gmail.com>
+References: <CAAu3qLVGM27m3e3TkLXueoNTXvNLOf+qGe==OSz8x0Eu-FTiHA@mail.gmail.com><j4s37v$hmd$1@dough.gmane.org><CAAu3qLUcicRg05NACPEL56rRAAyGEUCbf1SUzcWkG7pAMVjGBQ@mail.gmail.com><CAP1=2W61nY6iY_4oYD=_q22-43UVQsBQQ8qj-8BWn-zZyPzUyg@mail.gmail.com><CAK1Qoor=KFxVD_JUmWwkEi82+wvAU3nmen3D3POa-1GzJ6xX+A@mail.gmail.com>
+	<4E77247F.8090501@gmail.com>
+Message-ID: <1316446312.13466.140258142902193@webmail.messagingengine.com>
+
+On Monday, September 19, 2011 2:16 PM, "Ezio Melotti"
+<ezio.melotti at gmail.com> wrote:
+> On 19/09/2011 5.11, Meador Inge wrote:
+> > On Sun, Sep 18, 2011 at 6:03 PM, Brett Cannon<brett at python.org>  wrote:
+> >> http://docs.python.org/devguide/coredev.html#gaining-commit-privileges
+> > I believe everything is in place:
+> >
+> >     1. I am subscribed to the right mailing lists.
+> >     2. I already had the Developer role in the tracker.
+> >     3. I changed my tracker username from 'meadori' to 'meador.inge'.
+> >     4. I sent my SSH key to Georg and he set me up with repo access,
+> >         which I tested on http://hg.python.org/test/.
+> >     5. I faxed my contributor agreement on Saturday.
+> >
+> > My tracker details need to be changed to committer, though.  How do I that?
+> 
+> Done.
+> Pat will probably take care of updating the "contributor form received" 
+> field as soon as she receives the contributor agreement.
+
+We received the fax, thanks.
+
+-- 
+KBK
+
+
+From solipsis at pitrou.net  Mon Sep 19 20:28:11 2011
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Mon, 19 Sep 2011 20:28:11 +0200
+Subject: [python-committers] Commit rights for Meador Inge
+In-Reply-To: <CADiSq7diyuB3CiRANOZVoewWzCphGNgC-FnTngi+Qg3dHz65PQ@mail.gmail.com>
+References: <CAAu3qLVGM27m3e3TkLXueoNTXvNLOf+qGe==OSz8x0Eu-FTiHA@mail.gmail.com>
+	<j4s37v$hmd$1@dough.gmane.org>
+	<CAAu3qLUcicRg05NACPEL56rRAAyGEUCbf1SUzcWkG7pAMVjGBQ@mail.gmail.com>
+	<CAP1=2W61nY6iY_4oYD=_q22-43UVQsBQQ8qj-8BWn-zZyPzUyg@mail.gmail.com>
+	<CAK1Qoor=KFxVD_JUmWwkEi82+wvAU3nmen3D3POa-1GzJ6xX+A@mail.gmail.com>
+	<4E7730EF.9050405@haypocalc.com>
+	<CADiSq7diyuB3CiRANOZVoewWzCphGNgC-FnTngi+Qg3dHz65PQ@mail.gmail.com>
+Message-ID: <20110919202811.6dff453d@msiwind>
+
+Le Mon, 19 Sep 2011 23:31:04 +1000,
+Nick Coghlan <ncoghlan at gmail.com> a ?crit :
+
+> On Sep 19, 2011 10:40 PM, "Victor Stinner" <victor.stinner at haypocalc.com>
+> wrote:
+> > The next (optional?) step is to break all buildbots in a single commit.
+> 
+> (forgetting to run) 'hg add' is a great tool for that task :)
+
+That's like choosing the "easy" level when playing a video game. People
+like Victor prefer the trickier game modes :)
+
+Regards
+
+Antoine.
+
+From patcam at python.org  Wed Sep 21 22:55:10 2011
+From: patcam at python.org (Pat Campbell)
+Date: Wed, 21 Sep 2011 16:55:10 -0400
+Subject: [python-committers] Commit rights for Meador Inge
+In-Reply-To: <CAK1Qoor=KFxVD_JUmWwkEi82+wvAU3nmen3D3POa-1GzJ6xX+A@mail.gmail.com>
+References: <CAAu3qLVGM27m3e3TkLXueoNTXvNLOf+qGe==OSz8x0Eu-FTiHA@mail.gmail.com>
+	<j4s37v$hmd$1@dough.gmane.org>
+	<CAAu3qLUcicRg05NACPEL56rRAAyGEUCbf1SUzcWkG7pAMVjGBQ@mail.gmail.com>
+	<CAP1=2W61nY6iY_4oYD=_q22-43UVQsBQQ8qj-8BWn-zZyPzUyg@mail.gmail.com>
+	<CAK1Qoor=KFxVD_JUmWwkEi82+wvAU3nmen3D3POa-1GzJ6xX+A@mail.gmail.com>
+Message-ID: <CAFy_4dKEig5LeQsjUQUj3RsVqfv2d3BAtNA_JuTHr5mFwLtYGA@mail.gmail.com>
+
+Hi Meador:
+
+Thank-you for submitting your contributor agreement. The PSF tracker also
+shows that your contributor agreement has been received.
+
+Thanks again,
+
+Pat
+
+On Sun, Sep 18, 2011 at 10:11 PM, Meador Inge <meadori at gmail.com> wrote:
+
+> On Sun, Sep 18, 2011 at 6:03 PM, Brett Cannon <brett at python.org> wrote:
+> > http://docs.python.org/devguide/coredev.html#gaining-commit-privileges
+>
+> I believe everything is in place:
+>
+>   1. I am subscribed to the right mailing lists.
+>   2. I already had the Developer role in the tracker.
+>   3. I changed my tracker username from 'meadori' to 'meador.inge'.
+>   4. I sent my SSH key to Georg and he set me up with repo access,
+>       which I tested on http://hg.python.org/test/.
+>   5. I faxed my contributor agreement on Saturday.
+>
+> My tracker details need to be changed to committer, though.  How do I that?
+>
+> -- Meador
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+>
+
+
+
+-- 
+Pat Campbell
+PSF Administrator/Secretary
+patcam at python.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20110921/a2eb9319/attachment.html>
+

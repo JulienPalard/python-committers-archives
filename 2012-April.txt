@@ -1,0 +1,1714 @@
+From patcam at python.org  Tue Apr  3 19:54:34 2012
+From: patcam at python.org (Pat Campbell)
+Date: Tue, 3 Apr 2012 13:54:34 -0400
+Subject: [python-committers] Contributor agreement
+In-Reply-To: <CAL3CFcU0Cske5hC3o7sMOeNVJyEX4DeQyqtS6eEy6UZeV79xdg@mail.gmail.com>
+References: <CAL3CFcVwwnQa6DYp0gTAdiwq2rTgXHJS=ct+N6N2=jawQq2vig@mail.gmail.com>
+	<CAFy_4d+_X4H-dRxYcqiriypxG+DAf8kdXeUMnEER0hMu=0PFvw@mail.gmail.com>
+	<CAL3CFcURgJeu-9WUxBjPVf5hRLfbhNp+qaKhRv=APRXT3RW28Q@mail.gmail.com>
+	<CAFy_4dJY5SW5YC8O4tKEnZe_99rbT-me2KfhCBjwaGM6V4p1MQ@mail.gmail.com>
+	<20120329233521.Horde._X3yKVNNcXdPdNWZr8whJmA@webmail.df.eu>
+	<CAFy_4d+uZPiipcZr6bAO_EWCQhbcRvjWQCt+1DLFTsij9kvL2A@mail.gmail.com>
+	<CAL3CFcU0Cske5hC3o7sMOeNVJyEX4DeQyqtS6eEy6UZeV79xdg@mail.gmail.com>
+Message-ID: <CAFy_4dLp3xBu4CzPb-jqa+9j2pqz17XDCnOgP5PF_Ueqy9CGCw@mail.gmail.com>
+
+Hi Andrew:
+
+Thank-you for submitting your contributor agreement. Your online profile on
+the PSF bug tracker has been updated to show that you have a contributor
+agreement on file with us.
+
+Thanks,
+Pat
+
+On Tue, Apr 3, 2012 at 8:31 AM, Andrew Svetlov <andrew.svetlov at gmail.com>wrote:
+
+> Looks like easier to fill that form again.
+>
+> Please see attachment.
+>
+>
+> On Fri, Mar 30, 2012 at 12:57 AM, Pat Campbell <patcam at python.org> wrote:
+> > Hi Martin:
+> >
+> > Well, Kurt will get the contributor agreements that were collected
+> > at PyCon 2012 to me. I am cc'ing him on this email.
+> >
+> > Thanks,
+> > Pat
+> >
+> >
+> > On Thu, Mar 29, 2012 at 5:35 PM, <martin at v.loewis.de> wrote:
+> >>>
+> >>> Okay, regarding your contributor agreement, I have cc'd Martin. If
+> >>> he has it, then there should be no problem with him forwarding it
+> >>> to me.
+> >>
+> >>
+> >> I gave a bunch of them (including Andrew's) to Kurt Kaiser.
+> >>
+> >> Regards,
+> >> Martin
+> >>
+> >>
+> >
+> >
+> >
+> > --
+> > Pat Campbell
+> > PSF Administrator/Secretary
+> > patcam at python.org
+>
+>
+>
+> --
+> Thanks,
+> Andrew Svetlov
+>
+
+
+
+-- 
+Pat Campbell
+PSF Administrator/Secretary
+patcam at python.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20120403/06015205/attachment.html>
+
+From rdmurray at bitdance.com  Fri Apr  6 04:44:50 2012
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Thu, 05 Apr 2012 22:44:50 -0400
+Subject: [python-committers] state of repo?
+Message-ID: <20120406024437.A2B02250603@webabinitio.net>
+
+I just tried to merge a change from 3.2 to default and found an unexpected
+file being merged.  Looking at the graph, it *looks* like Sandro copied a
+change to default instead of merging it, even though his commit comment
+says merge.  That would be fine, I'd just do a null merge...except that
+the file I'm being asked to merge when I try that seems to have nothing
+to do with Sandro's commits.  It is deleting one paragraph and adding
+another in the threading docs.
+
+Can someone sort this out, please?  It's currently beyond my knowledge
+of hg to do so.
+
+--David
+
+From benjamin at python.org  Fri Apr  6 04:58:43 2012
+From: benjamin at python.org (Benjamin Peterson)
+Date: Thu, 5 Apr 2012 22:58:43 -0400
+Subject: [python-committers] state of repo?
+In-Reply-To: <20120406024437.A2B02250603@webabinitio.net>
+References: <20120406024437.A2B02250603@webabinitio.net>
+Message-ID: <CAPZV6o-hH4xUw_Uy0W9kWcVanMX50UrtqbK_OSuijAHR28x_cQ@mail.gmail.com>
+
+2012/4/5 R. David Murray <rdmurray at bitdance.com>:
+> I just tried to merge a change from 3.2 to default and found an unexpected
+> file being merged. ?Looking at the graph, it *looks* like Sandro copied a
+> change to default instead of merging it, even though his commit comment
+> says merge. ?That would be fine, I'd just do a null merge...except that
+> the file I'm being asked to merge when I try that seems to have nothing
+> to do with Sandro's commits. ?It is deleting one paragraph and adding
+> another in the threading docs.
+
+Yes, it seems he didn't actually perform a merge.
+
+>
+> Can someone sort this out, please? ?It's currently beyond my knowledge
+> of hg to do so.
+
+Fixed.
+
+-- 
+Regards,
+Benjamin
+
+From g.brandl at gmx.net  Fri Apr  6 09:57:29 2012
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Fri, 06 Apr 2012 09:57:29 +0200
+Subject: [python-committers] state of repo?
+In-Reply-To: <20120406024437.A2B02250603@webabinitio.net>
+References: <20120406024437.A2B02250603@webabinitio.net>
+Message-ID: <jlm7ks$bmk$1@dough.gmane.org>
+
+Am 06.04.2012 04:44, schrieb R. David Murray:
+> I just tried to merge a change from 3.2 to default and found an unexpected
+> file being merged.  Looking at the graph, it *looks* like Sandro copied a
+> change to default instead of merging it, even though his commit comment
+> says merge.  That would be fine, I'd just do a null merge...except that
+> the file I'm being asked to merge when I try that seems to have nothing
+> to do with Sandro's commits.  It is deleting one paragraph and adding
+> another in the threading docs.
+> 
+> Can someone sort this out, please?  It's currently beyond my knowledge
+> of hg to do so.
+
+Tip: "hg glog" (from the graphlog extension), or any of the GUIs that have
+this graph view builtin, is very useful to check the actual state of the
+branches.  In this case, as Benjamin noted, it was just a non-merge commit
+erroneously given the commit message "merge".
+
+Georg
+
+
+From sandro.tosi at gmail.com  Fri Apr  6 09:57:51 2012
+From: sandro.tosi at gmail.com (Sandro Tosi)
+Date: Fri, 6 Apr 2012 09:57:51 +0200
+Subject: [python-committers] state of repo?
+In-Reply-To: <CAPZV6o-hH4xUw_Uy0W9kWcVanMX50UrtqbK_OSuijAHR28x_cQ@mail.gmail.com>
+References: <20120406024437.A2B02250603@webabinitio.net>
+	<CAPZV6o-hH4xUw_Uy0W9kWcVanMX50UrtqbK_OSuijAHR28x_cQ@mail.gmail.com>
+Message-ID: <CAB4XWXxp0urZ7Gfard_yhWrisfur=3KEtyC=u5xHZOQkovQZ4g@mail.gmail.com>
+
+On Fri, Apr 6, 2012 at 04:58, Benjamin Peterson <benjamin at python.org> wrote:
+> 2012/4/5 R. David Murray <rdmurray at bitdance.com>:
+>> I just tried to merge a change from 3.2 to default and found an unexpected
+>> file being merged. ?Looking at the graph, it *looks* like Sandro copied a
+>> change to default instead of merging it, even though his commit comment
+>> says merge. ?That would be fine, I'd just do a null merge...except that
+>> the file I'm being asked to merge when I try that seems to have nothing
+>> to do with Sandro's commits. ?It is deleting one paragraph and adding
+>> another in the threading docs.
+>
+> Yes, it seems he didn't actually perform a merge.
+
+I'm sorry about that! I thought I had merged and then edited the
+paragraph, but I didn't. Lesson learnt: don't commit when you're dead
+tired :(
+
+-- 
+Sandro Tosi (aka morph, morpheus, matrixhasu)
+My website: http://matrixhasu.altervista.org/
+Me at Debian: http://wiki.debian.org/SandroTosi
+
+From rdmurray at bitdance.com  Fri Apr  6 19:25:46 2012
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Fri, 06 Apr 2012 13:25:46 -0400
+Subject: [python-committers] state of repo?
+In-Reply-To: <jlm7ks$bmk$1@dough.gmane.org>
+References: <20120406024437.A2B02250603@webabinitio.net>
+	<jlm7ks$bmk$1@dough.gmane.org>
+Message-ID: <20120406172528.27DB1250603@webabinitio.net>
+
+On Fri, 06 Apr 2012 09:57:29 +0200, Georg Brandl <g.brandl at gmx.net> wrote:
+> Am 06.04.2012 04:44, schrieb R. David Murray:
+> > I just tried to merge a change from 3.2 to default and found an unexpected
+> > file being merged.  Looking at the graph, it *looks* like Sandro copied a
+> > change to default instead of merging it, even though his commit comment
+> > says merge.  That would be fine, I'd just do a null merge...except that
+> > the file I'm being asked to merge when I try that seems to have nothing
+> > to do with Sandro's commits.  It is deleting one paragraph and adding
+> > another in the threading docs.
+> > 
+> > Can someone sort this out, please?  It's currently beyond my knowledge
+> > of hg to do so.
+> 
+> Tip: "hg glog" (from the graphlog extension), or any of the GUIs that have
+> this graph view builtin, is very useful to check the actual state of the
+> branches.  In this case, as Benjamin noted, it was just a non-merge commit
+> erroneously given the commit message "merge".
+
+I did look at 'hg glog', and I did see that (I mentioned the mislabeled
+non-merge commit).  But when I looked at the commit that wasn't merged
+(via hg diff -c), it was a one-liner that had nothing to do with the merge
+'hg merge' was asking me to do.
+
+I'm guessing the latter was coming from some *previous* commit Sandro
+did, but as I said I wasn't comfortable with my ability to figure out
+what that was and if merging it was in fact the right thing to do.
+(It didn't *look* like the right thing to do since it was deleting
+a paragraph about a CPython implementation detail.)
+
+So thanks Benjamin for taking care of it.
+
+--David
+
+From kristjan at ccpgames.com  Sun Apr  8 15:19:14 2012
+From: kristjan at ccpgames.com (=?iso-8859-1?Q?Kristj=E1n_Valur_J=F3nsson?=)
+Date: Sun, 8 Apr 2012 13:19:14 +0000
+Subject: [python-committers] committer icon
+Message-ID: <EFE3877620384242A686D52278B7CCD338938D@RKV-IT-EXCH104.ccp.ad.local>
+
+Hey,
+
+I noticed that I don't have that fancy python logo next to my name on the bug tracker, indicating that I am a committer.  Is that fixable?  My user account is "krisvale".
+
+
+
+K
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20120408/f03c4e51/attachment.html>
+
+From martin at v.loewis.de  Sun Apr  8 19:14:50 2012
+From: martin at v.loewis.de (martin at v.loewis.de)
+Date: Sun, 08 Apr 2012 19:14:50 +0200
+Subject: [python-committers] committer icon
+In-Reply-To: <EFE3877620384242A686D52278B7CCD338938D@RKV-IT-EXCH104.ccp.ad.local>
+References: <EFE3877620384242A686D52278B7CCD338938D@RKV-IT-EXCH104.ccp.ad.local>
+Message-ID: <20120408191450.Horde.xXJOFUlCcOxPgceKMEQwQIA@webmail.df.eu>
+
+> I noticed that I don't have that fancy python logo next to my name  
+> on the bug tracker, indicating that I am a committer.  Is that  
+> fixable?  My user account is "krisvale".
+
+Done!
+
+Martin
+
+
+From kristjan at ccpgames.com  Wed Apr 11 11:45:40 2012
+From: kristjan at ccpgames.com (=?iso-8859-1?Q?Kristj=E1n_Valur_J=F3nsson?=)
+Date: Wed, 11 Apr 2012 09:45:40 +0000
+Subject: [python-committers] user link
+Message-ID: <EFE3877620384242A686D52278B7CCD338B91B@RKV-IT-EXCH104.ccp.ad.local>
+
+Hi.
+who maintains bugs.python.org?
+Here's an idea:  How about adding the provision of a per-user information URL for each user, so that they can use it to point to some information about themselves?  Clicking the user name could then take you to that link, for example.
+
+K
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20120411/8a2d79a5/attachment.html>
+
+From ncoghlan at gmail.com  Wed Apr 11 14:51:12 2012
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Wed, 11 Apr 2012 22:51:12 +1000
+Subject: [python-committers] user link
+In-Reply-To: <EFE3877620384242A686D52278B7CCD338B91B@RKV-IT-EXCH104.ccp.ad.local>
+References: <EFE3877620384242A686D52278B7CCD338B91B@RKV-IT-EXCH104.ccp.ad.local>
+Message-ID: <CADiSq7f5fQoqNt_gb1ycLZSns0=q16MbXzW9QzMUGyY0+tfbmg@mail.gmail.com>
+
+On Wed, Apr 11, 2012 at 7:45 PM, Kristj?n Valur J?nsson
+<kristjan at ccpgames.com> wrote:
+> Hi.
+>
+> who maintains bugs.python.org?
+>
+> Here?s an idea:? How about adding the provision of a per-user information
+> URL for each user, so that they can use it to point to some information
+> about themselves? ?Clicking the user name could then take you to that link,
+> for example.
+
+If you hit the "Report Tracker Problem" link in the bottom left of the
+tracker UI, it will take you to the meta tracker for bugs.python.org.
+
+While an idea like this may be better pitched as a proposal for
+Roundup itself, it's probably still worth posting as a wishlist
+suggestion on the meta-tracker. If MvL and the other maintainers would
+like to see it happen upstream first, they can say so on the
+meta-tracker.
+
+[1] http://roundup-tracker.org/
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan?? |?? ncoghlan at gmail.com?? |?? Brisbane, Australia
+
+From kristjan at ccpgames.com  Wed Apr 11 15:34:44 2012
+From: kristjan at ccpgames.com (=?iso-8859-1?Q?Kristj=E1n_Valur_J=F3nsson?=)
+Date: Wed, 11 Apr 2012 13:34:44 +0000
+Subject: [python-committers] user link
+In-Reply-To: <CADiSq7f5fQoqNt_gb1ycLZSns0=q16MbXzW9QzMUGyY0+tfbmg@mail.gmail.com>
+References: <EFE3877620384242A686D52278B7CCD338B91B@RKV-IT-EXCH104.ccp.ad.local>
+	<CADiSq7f5fQoqNt_gb1ycLZSns0=q16MbXzW9QzMUGyY0+tfbmg@mail.gmail.com>
+Message-ID: <EFE3877620384242A686D52278B7CCD338C0C4@RKV-IT-EXCH104.ccp.ad.local>
+
+Thanks Nick.
+Of course, the trackers is a complete meta-project unto itself.  ?Tis said that fleas have little fleas... 
+K
+
+> -----Original Message-----
+> From: Nick Coghlan [mailto:ncoghlan at gmail.com]
+> Sent: 11. apr?l 2012 12:51
+> To: Kristj?n Valur J?nsson
+> Cc: python-committers at python.org
+> Subject: Re: [python-committers] user link
+> 
+> On Wed, Apr 11, 2012 at 7:45 PM, Kristj?n Valur J?nsson
+> <kristjan at ccpgames.com> wrote:
+> > Hi.
+> >
+> > who maintains bugs.python.org?
+> >
+> > Here's an idea:? How about adding the provision of a per-user
+> > information URL for each user, so that they can use it to point to
+> > some information about themselves? ?Clicking the user name could then
+> > take you to that link, for example.
+> 
+> If you hit the "Report Tracker Problem" link in the bottom left of the tracker
+> UI, it will take you to the meta tracker for bugs.python.org.
+> 
+> While an idea like this may be better pitched as a proposal for Roundup itself,
+> it's probably still worth posting as a wishlist suggestion on the meta-tracker. If
+> MvL and the other maintainers would like to see it happen upstream first,
+> they can say so on the meta-tracker.
+> 
+> [1] http://roundup-tracker.org/
+> 
+> Cheers,
+> Nick.
+> 
+> --
+> Nick Coghlan?? |?? ncoghlan at gmail.com?? |?? Brisbane, Australia
+
+
+
+From patcam at python.org  Wed Apr 11 16:52:00 2012
+From: patcam at python.org (Pat Campbell)
+Date: Wed, 11 Apr 2012 10:52:00 -0400
+Subject: [python-committers] contributor form
+In-Reply-To: <4F83E1A6.1010201@behnel.de>
+References: <OF0B2EDF29.D40CD75A-ONC12579DC.002843CC-C12579DC.00284FB1@pfandbriefbank.com>
+	<4F83E1A6.1010201@behnel.de>
+Message-ID: <CAFy_4d+5+8BcpGjQ=DnJkC1E3ENrm3ETuj89Scd0wGshHe+nEQ@mail.gmail.com>
+
+Hi Stefan:
+
+Thank-you for submitting your contributor agreement. It has been recorded
+on the
+bug tracker online.
+
+Pat
+
+On Tue, Apr 10, 2012 at 3:30 AM, Stefan Behnel <stefan_ml at behnel.de> wrote:
+
+> Hi,
+>
+> here's my signed contributor agreement.
+>
+> Regards,
+>
+> Stefan
+>
+>
+
+
+-- 
+Pat Campbell
+PSF Administrator/Secretary
+patcam at python.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20120411/a19c3502/attachment.html>
+
+From patcam at python.org  Wed Apr 11 17:04:45 2012
+From: patcam at python.org (Pat Campbell)
+Date: Wed, 11 Apr 2012 11:04:45 -0400
+Subject: [python-committers] Contributor form for mattip
+In-Reply-To: <4F859741.4030106@gmail.com>
+References: <4F833F7C.60508@gmail.com>
+	<CAFy_4dJVAyt+5Pikipuq7Ly_pAFHhOoXDjntFCsLCupWrdS8vA@mail.gmail.com>
+	<CAFy_4dKwsP+Vf62oE9_4C_+x4AMSm7db+nnndgD5146LjO58Pg@mail.gmail.com>
+	<4F859741.4030106@gmail.com>
+Message-ID: <CAFy_4dJFDxaByKn6b7UO2t2cP8KG7AKrrwtmYdR7RHqPrrJcwg@mail.gmail.com>
+
+Hi Matti:
+
+This is great! Your online record has been updated.
+
+Thanks,
+Pat
+
+On Wed, Apr 11, 2012 at 10:37 AM, Matti Picus <matti.picus at gmail.com> wrote:
+
+>  Here I am:
+> http://bugs.python.org/user15782
+> Or do I need to register somewhere else? kinda new to all this...
+>
+>
+>
+> On 11/04/2012 5:35 PM, Pat Campbell wrote:
+>
+> Hi Matti:
+>
+> I was not able to update the online PSF bug tracker with the username
+> "mattip".
+> So, could you recheck your tracker username and resend it to me?
+>
+> Thanks,
+> Pat
+>
+>  On Tue, Apr 10, 2012 at 2:24 PM, Pat Campbell <patcam at python.org> wrote:
+>
+>> Hi Matti:
+>>
+>> Thank-you for submitting your contributor agreement form. It will be added
+>> to the online bug tracker.
+>>
+>> Pat
+>>
+>> On Mon, Apr 9, 2012 at 3:58 PM, Matti Picus <matti.picus at gmail.com>wrote:
+>>
+>>>
+>>>
+>>
+>>
+>> --
+>> Pat Campbell
+>> PSF Administrator/Secretary
+>> patcam at python.org
+>>
+>
+>
+>
+> --
+> Pat Campbell
+> PSF Administrator/Secretary
+> patcam at python.org
+>
+>
+>
+
+
+-- 
+Pat Campbell
+PSF Administrator/Secretary
+patcam at python.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20120411/df57e497/attachment.html>
+
+From patcam at python.org  Wed Apr 18 00:58:40 2012
+From: patcam at python.org (Pat Campbell)
+Date: Tue, 17 Apr 2012 18:58:40 -0400
+Subject: [python-committers] PSF Contributor Agreement
+In-Reply-To: <CAFy_4dKxMVhUEXZA-YYh046Yz-b05Ui=zBEqUfMpQf13Pk9Nkg@mail.gmail.com>
+References: <CAFiRLmm4AEfo3zYc2g-bnQq1Yf7G4F7C3U6VS-gE5k-V02EOPw@mail.gmail.com>
+	<CAFy_4dKxMVhUEXZA-YYh046Yz-b05Ui=zBEqUfMpQf13Pk9Nkg@mail.gmail.com>
+Message-ID: <CAFy_4d+-92G+8Sn_Q2EvP1sP5pCWFL2H4PwusdaN5ZZ-Cfx3AA@mail.gmail.com>
+
+On Tue, Apr 17, 2012 at 6:57 PM, Pat Campbell <patcam at python.org> wrote:
+
+> Hi Darjus:
+>
+> Thank-you for submitting your contributor agreement. It has been added to
+> the PSF bug tracker online.
+>
+> Pat
+>
+> On Wed, Apr 11, 2012 at 1:41 PM, Darjus Loktevic <darjus at gmail.com> wrote:
+>
+>> Thanks!
+>> Darjus
+>>
+>
+>
+>
+> --
+> Pat Campbell
+> PSF Administrator/Secretary
+> patcam at python.org
+>
+
+
+
+-- 
+Pat Campbell
+PSF Administrator/Secretary
+patcam at python.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20120417/df89f957/attachment.html>
+
+From patcam at python.org  Wed Apr 18 12:15:32 2012
+From: patcam at python.org (Pat Campbell)
+Date: Wed, 18 Apr 2012 06:15:32 -0400
+Subject: [python-committers] PSF form attached <eom>
+In-Reply-To: <CADrh4zLWcuexnwnEe6xn3xE4yNoJ1Cx79YoLPzTsPG5Jya=pAA@mail.gmail.com>
+References: <CACjPmS1ESe7pi8mPt6CCybJSDRV07Kj2u8Z+gdNY-3O34-mKRw@mail.gmail.com>
+	<CADrh4zLWcuexnwnEe6xn3xE4yNoJ1Cx79YoLPzTsPG5Jya=pAA@mail.gmail.com>
+Message-ID: <CAFy_4dLHCgX+yyiRerb0Wf5Ep2bVxeiVsyZLtz=rLfNHXr5QCA@mail.gmail.com>
+
+Hi Frank & Miki:
+
+Thank-you for submitting the contributor agreement form. It has been
+entered on
+the PSF bug tracker online.
+
+Pat
+
+On Tue, Apr 17, 2012 at 6:29 PM, fwierzbicki at gmail.com <
+fwierzbicki at gmail.com> wrote:
+
+> Attached is the contributor form from Miki Tebeka.
+>
+> Kind regards,
+>
+> -Frank
+>
+>
+> ---------- Forwarded message ----------
+> From: Miki Tebeka <miki.tebeka at gmail.com>
+> Date: Tue, Apr 17, 2012 at 2:22 PM
+> Subject: PSF form attached <eom>
+> To: Frank Wierzbicki <fwierzbicki at gmail.com>
+>
+
+
+
+-- 
+Pat Campbell
+PSF Administrator/Secretary
+patcam at python.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20120418/f027d6ca/attachment.html>
+
+From patcam at python.org  Wed Apr 18 17:01:54 2012
+From: patcam at python.org (Pat Campbell)
+Date: Wed, 18 Apr 2012 11:01:54 -0400
+Subject: [python-committers] PSF form attached <eom>
+In-Reply-To: <CACjPmS0gh=MOmdjoC20oXcDW9Ty7Zw8DdzdWxrt3eE_5kTQL5g@mail.gmail.com>
+References: <CACjPmS1ESe7pi8mPt6CCybJSDRV07Kj2u8Z+gdNY-3O34-mKRw@mail.gmail.com>
+	<CADrh4zLWcuexnwnEe6xn3xE4yNoJ1Cx79YoLPzTsPG5Jya=pAA@mail.gmail.com>
+	<CAFy_4dLHCgX+yyiRerb0Wf5Ep2bVxeiVsyZLtz=rLfNHXr5QCA@mail.gmail.com>
+	<CACjPmS0gh=MOmdjoC20oXcDW9Ty7Zw8DdzdWxrt3eE_5kTQL5g@mail.gmail.com>
+Message-ID: <CAFy_4dJMdx+pUkjBPtVFHf1gHx1OH8brovWZYjRnHFUTeaeL1w@mail.gmail.com>
+
+Okay!
+
+On Wed, Apr 18, 2012 at 9:16 AM, Miki Tebeka <miki.tebeka at gmail.com> wrote:
+
+> > Thank-you for submitting the contributor agreement form. It has been
+> entered
+> > on
+> > the PSF bug tracker online.
+> Thanks!
+>
+
+
+
+-- 
+Pat Campbell
+PSF Administrator/Secretary
+patcam at python.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20120418/a600d3b8/attachment.html>
+
+From martin at v.loewis.de  Sun Apr 22 19:26:02 2012
+From: martin at v.loewis.de (=?ISO-8859-15?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Sun, 22 Apr 2012 19:26:02 +0200
+Subject: [python-committers] Contrib forms
+Message-ID: <4F943F2A.6060709@v.loewis.de>
+
+As some may have been noticed, I started urging contributors more
+intensely to submit contributor forms before accepting their patches.
+I encourage all committers to do the same, for non-trivial changes.
+
+You may wonder what changed between before and now: we (the PSF) now
+have a good management of the forms, thanks to them being listed in
+Roundup, and thanks to Pat (Campbell) keeping track of all forms that
+we receive. So we (the committers) are now in a position to actually
+verify that we have a contrib form received before deciding whether or
+not to commit a patch.
+
+Regards,
+Martin
+
+From solipsis at pitrou.net  Sun Apr 22 19:33:13 2012
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Sun, 22 Apr 2012 19:33:13 +0200
+Subject: [python-committers] Contrib forms
+In-Reply-To: <4F943F2A.6060709@v.loewis.de>
+References: <4F943F2A.6060709@v.loewis.de>
+Message-ID: <1335115993.3467.1.camel@localhost.localdomain>
+
+Le dimanche 22 avril 2012 ? 19:26 +0200, "Martin v. L?wis" a ?crit :
+> You may wonder what changed between before and now: we (the PSF) now
+> have a good management of the forms, thanks to them being listed in
+> Roundup, and thanks to Pat (Campbell) keeping track of all forms that
+> we receive. So we (the committers) are now in a position to actually
+> verify that we have a contrib form received before deciding whether or
+> not to commit a patch.
+
+How about an electronic form? It's not like it's the first time this
+topic is discussed...
+
+Thanks
+
+Antoine.
+
+
+
+From pjenvey at underboss.org  Sun Apr 22 22:52:41 2012
+From: pjenvey at underboss.org (Philip Jenvey)
+Date: Sun, 22 Apr 2012 13:52:41 -0700
+Subject: [python-committers] Contrib forms
+In-Reply-To: <4F943F2A.6060709@v.loewis.de>
+References: <4F943F2A.6060709@v.loewis.de>
+Message-ID: <D61F3239-3651-4AE8-86B7-E2CB7792DC25@underboss.org>
+
+
+On Apr 22, 2012, at 10:26 AM, Martin v. L?wis wrote:
+> 
+> You may wonder what changed between before and now: we (the PSF) now
+> have a good management of the forms, thanks to them being listed in
+> Roundup,
+
+Where exactly is this listing?
+
+--
+Philip Jenvey
+
+
+From martin at v.loewis.de  Mon Apr 23 00:14:58 2012
+From: martin at v.loewis.de (martin at v.loewis.de)
+Date: Mon, 23 Apr 2012 00:14:58 +0200
+Subject: [python-committers] Contrib forms
+In-Reply-To: <D61F3239-3651-4AE8-86B7-E2CB7792DC25@underboss.org>
+References: <4F943F2A.6060709@v.loewis.de>
+	<D61F3239-3651-4AE8-86B7-E2CB7792DC25@underboss.org>
+Message-ID: <20120423001458.Horde.y5xEd7uWis5PlILiRg9j39A@webmail.df.eu>
+
+
+Zitat von Philip Jenvey <pjenvey at underboss.org>:
+
+> On Apr 22, 2012, at 10:26 AM, Martin v. L?wis wrote:
+>>
+>> You may wonder what changed between before and now: we (the PSF) now
+>> have a good management of the forms, thanks to them being listed in
+>> Roundup,
+>
+> Where exactly is this listing?
+
+It the asterisk ('*') shown next to the user's name, with the
+title text "Contributor form received".
+
+Regards,
+Martin
+
+
+
+From kbk at shore.net  Mon Apr 23 00:30:56 2012
+From: kbk at shore.net (Kurt B. Kaiser)
+Date: Sun, 22 Apr 2012 18:30:56 -0400
+Subject: [python-committers] Contributor agreement - Received at PyCon
+	2012 USA
+In-Reply-To: <CAFy_4d+uZPiipcZr6bAO_EWCQhbcRvjWQCt+1DLFTsij9kvL2A@mail.gmail.com>
+References: <CAL3CFcVwwnQa6DYp0gTAdiwq2rTgXHJS=ct+N6N2=jawQq2vig@mail.gmail.com>
+	<CAFy_4d+_X4H-dRxYcqiriypxG+DAf8kdXeUMnEER0hMu=0PFvw@mail.gmail.com>
+	<CAL3CFcURgJeu-9WUxBjPVf5hRLfbhNp+qaKhRv=APRXT3RW28Q@mail.gmail.com>
+	<CAFy_4dJY5SW5YC8O4tKEnZe_99rbT-me2KfhCBjwaGM6V4p1MQ@mail.gmail.com>
+	<20120329233521.Horde._X3yKVNNcXdPdNWZr8whJmA@webmail.df.eu>
+	<CAFy_4d+uZPiipcZr6bAO_EWCQhbcRvjWQCt+1DLFTsij9kvL2A@mail.gmail.com>
+Message-ID: <1335133856.6473.140661065889861.5B788F0E@webmail.messagingengine.com>
+
+
+
+> 
+> On Thu, Mar 29, 2012 at 5:35 PM, <martin at v.loewis.de> wrote:
+> >
+> > I gave a bunch of them (including Andrew's) to Kurt Kaiser.
+
+We received contributor agreements at PyCon from the following:
+
+Shashank Bharadwaj
+Mark Florisson
+Brian K. Jones
+Jeff Ramnani
+Andrew Svetlov
+
+I am mailing them to our Administrator tomorrow.
+
+-- 
+KBK
+
+From greg at krypto.org  Mon Apr 23 20:20:38 2012
+From: greg at krypto.org (Gregory P. Smith)
+Date: Mon, 23 Apr 2012 11:20:38 -0700
+Subject: [python-committers] fyi - openssl vulnerability - likely in our
+	windows builds
+Message-ID: <CAGE7PN+g32KGE1D8M=T734uXpr+emN62Ar+KXcAZMH27cFLn+w@mail.gmail.com>
+
+FYI - there is a network exploitable vulnerability in OpenSSL -
+http://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2012-2110
+
+Our windows builds likely need updating.  At the very least make sure
+openssl is updated before the next time we produce binaries. Its up to the
+release managers if they want to make a new windows only sub-release to
+include the updated version of openssl.
+
+-gps
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20120423/da681ea7/attachment.html>
+
+From amauryfa at gmail.com  Mon Apr 23 22:52:12 2012
+From: amauryfa at gmail.com (Amaury Forgeot d'Arc)
+Date: Mon, 23 Apr 2012 22:52:12 +0200
+Subject: [python-committers] fyi - openssl vulnerability - likely in our
+ windows builds
+In-Reply-To: <CAGE7PN+g32KGE1D8M=T734uXpr+emN62Ar+KXcAZMH27cFLn+w@mail.gmail.com>
+References: <CAGE7PN+g32KGE1D8M=T734uXpr+emN62Ar+KXcAZMH27cFLn+w@mail.gmail.com>
+Message-ID: <CAGmFidZpz=7sj-KpJ0Z19kzoG64w=ykK5veEWEWFzc8_STX2AQ@mail.gmail.com>
+
+2012/4/23 Gregory P. Smith <greg at krypto.org>
+
+> FYI - there is a network exploitable vulnerability in OpenSSL -
+> http://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2012-2110
+>
+> Our windows builds likely need updating.  At the very least make sure
+> openssl is updated before the next time we produce binaries. Its up to the
+> release managers if they want to make a new windows only sub-release to
+> include the updated version of openssl.
+>
+
+The OpenSSL Security Advisory says:
+http://www.openssl.org/news/secadv_20120419.txt
+"""
+Affected functions are of the form d2i_*_bio or
+d2i_*_fp, for example d2i_X509_bio or d2i_PKCS12_fp.
+"""
+
+I don't see any occurrence of these functions in the various versions of
+the _ssl module.
+Is Python really affected by this vulnerability?
+
+-- 
+Amaury Forgeot d'Arc
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20120423/8bed102a/attachment.html>
+
+From martin at v.loewis.de  Mon Apr 23 23:42:11 2012
+From: martin at v.loewis.de (martin at v.loewis.de)
+Date: Mon, 23 Apr 2012 23:42:11 +0200
+Subject: [python-committers] fyi - openssl vulnerability - likely in our
+ windows builds
+In-Reply-To: <CAGmFidZpz=7sj-KpJ0Z19kzoG64w=ykK5veEWEWFzc8_STX2AQ@mail.gmail.com>
+References: <CAGE7PN+g32KGE1D8M=T734uXpr+emN62Ar+KXcAZMH27cFLn+w@mail.gmail.com>
+	<CAGmFidZpz=7sj-KpJ0Z19kzoG64w=ykK5veEWEWFzc8_STX2AQ@mail.gmail.com>
+Message-ID: <20120423234211.Horde.t-SocaGZi1VPlcyzmVNG_kA@webmail.df.eu>
+
+> I don't see any occurrence of these functions in the various versions of
+> the _ssl module.
+> Is Python really affected by this vulnerability?
+
+We use SSL_CTX_use_certificate_chain_file, which ultimately uses
+d2i_X509_AUX_fp (I think).
+
+However, I fail to see how this constitutes are remote vulnerability:
+one would have to inject a bad PEM file into an application to trigger
+this.
+
+http://isc.sans.edu/diary.html?storyid=13018
+
+claims that this is *not* exploitable over TLS (and I agree); they
+warn that it can be exploited e.g. when Apache reads server certificates
+from untrusted users. Even in the local case, you need a Python application
+running under one account that reads certificate files belonging to
+a different (Unix) account to create an exploit.
+
+So I propose that for the regular bugfix releases, we upgrade the OpenSSL
+version, but otherwise take no action at this point.
+
+Regards,
+Martin
+
+
+From solipsis at pitrou.net  Mon Apr 23 23:48:32 2012
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Mon, 23 Apr 2012 23:48:32 +0200
+Subject: [python-committers] fyi - openssl vulnerability - likely in our
+ windows builds
+In-Reply-To: <20120423234211.Horde.t-SocaGZi1VPlcyzmVNG_kA@webmail.df.eu>
+References: <CAGE7PN+g32KGE1D8M=T734uXpr+emN62Ar+KXcAZMH27cFLn+w@mail.gmail.com>
+	<CAGmFidZpz=7sj-KpJ0Z19kzoG64w=ykK5veEWEWFzc8_STX2AQ@mail.gmail.com>
+	<20120423234211.Horde.t-SocaGZi1VPlcyzmVNG_kA@webmail.df.eu>
+Message-ID: <1335217712.3411.8.camel@localhost.localdomain>
+
+Le lundi 23 avril 2012 ? 23:42 +0200, martin at v.loewis.de a ?crit :
+> > I don't see any occurrence of these functions in the various versions of
+> > the _ssl module.
+> > Is Python really affected by this vulnerability?
+> 
+> We use SSL_CTX_use_certificate_chain_file, which ultimately uses
+> d2i_X509_AUX_fp (I think).
+> 
+> However, I fail to see how this constitutes are remote vulnerability:
+> one would have to inject a bad PEM file into an application to trigger
+> this.
+> 
+> http://isc.sans.edu/diary.html?storyid=13018
+> 
+> claims that this is *not* exploitable over TLS (and I agree); they
+> warn that it can be exploited e.g. when Apache reads server certificates
+> from untrusted users. Even in the local case, you need a Python application
+> running under one account that reads certificate files belonging to
+> a different (Unix) account to create an exploit.
+> 
+> So I propose that for the regular bugfix releases, we upgrade the OpenSSL
+> version, but otherwise take no action at this point.
+
+Agreed.
+
+Regards
+
+Antoine.
+
+
+
+From steve at holdenweb.com  Mon Apr 23 23:57:11 2012
+From: steve at holdenweb.com (Steve Holden)
+Date: Mon, 23 Apr 2012 17:57:11 -0400
+Subject: [python-committers] fyi - openssl vulnerability - likely in our
+	windows builds
+In-Reply-To: <1335217712.3411.8.camel@localhost.localdomain>
+References: <CAGE7PN+g32KGE1D8M=T734uXpr+emN62Ar+KXcAZMH27cFLn+w@mail.gmail.com>
+	<CAGmFidZpz=7sj-KpJ0Z19kzoG64w=ykK5veEWEWFzc8_STX2AQ@mail.gmail.com>
+	<20120423234211.Horde.t-SocaGZi1VPlcyzmVNG_kA@webmail.df.eu>
+	<1335217712.3411.8.camel@localhost.localdomain>
+Message-ID: <CFC619F0-618D-40BB-8930-00CDEB47B88E@holdenweb.com>
+
+On Apr 23, 2012, at 5:48 PM, Antoine Pitrou wrote:
+
+>> [mvl]
+>> So I propose that for the regular bugfix releases, we upgrade the OpenSSL
+>> version, but otherwise take no action at this point.
+> 
+> Agreed.
+
+
+With two such august opinions I, at least, feel confident we are unlikely to have to scramble to remove a dangerous vulnerability.
+
+Do we need to address this publicly? If nobody is asking any questions then remaining silent and implementing Martin's suggestion seems like the best option.
+
+S
+-- 
+Steve Holden steve at holdenweb.com,  Holden Web, LLC http://holdenweb.com/
+Python classes (and much more) through the web http://oreillyschool.com/
+
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20120423/f6db1f44/attachment.html>
+
+From greg at krypto.org  Tue Apr 24 00:47:07 2012
+From: greg at krypto.org (Gregory P. Smith)
+Date: Mon, 23 Apr 2012 15:47:07 -0700
+Subject: [python-committers] fyi - openssl vulnerability - likely in our
+ windows builds
+In-Reply-To: <20120423234211.Horde.t-SocaGZi1VPlcyzmVNG_kA@webmail.df.eu>
+References: <CAGE7PN+g32KGE1D8M=T734uXpr+emN62Ar+KXcAZMH27cFLn+w@mail.gmail.com>
+	<CAGmFidZpz=7sj-KpJ0Z19kzoG64w=ykK5veEWEWFzc8_STX2AQ@mail.gmail.com>
+	<20120423234211.Horde.t-SocaGZi1VPlcyzmVNG_kA@webmail.df.eu>
+Message-ID: <CAGE7PN+EnmroT3fECNJSbxipuCrLQxTR9WCn95fmHB60NkLK0Q@mail.gmail.com>
+
+On Mon, Apr 23, 2012 at 2:42 PM, <martin at v.loewis.de> wrote:
+
+>  I don't see any occurrence of these functions in the various versions of
+>> the _ssl module.
+>> Is Python really affected by this vulnerability?
+>>
+>
+> We use SSL_CTX_use_certificate_chain_**file, which ultimately uses
+> d2i_X509_AUX_fp (I think).
+>
+> However, I fail to see how this constitutes are remote vulnerability:
+> one would have to inject a bad PEM file into an application to trigger
+> this.
+>
+> http://isc.sans.edu/diary.**html?storyid=13018<http://isc.sans.edu/diary.html?storyid=13018>
+>
+> claims that this is *not* exploitable over TLS (and I agree); they
+> warn that it can be exploited e.g. when Apache reads server certificates
+> from untrusted users. Even in the local case, you need a Python application
+> running under one account that reads certificate files belonging to
+> a different (Unix) account to create an exploit.
+>
+> So I propose that for the regular bugfix releases, we upgrade the OpenSSL
+> version, but otherwise take no action at this point.
+>
+
+give that, agreed.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20120423/0bebf385/attachment-0001.html>
+
+From neologix at free.fr  Wed Apr 25 20:57:58 2012
+From: neologix at free.fr (=?ISO-8859-1?Q?Charles=2DFran=E7ois_Natali?=)
+Date: Wed, 25 Apr 2012 20:57:58 +0200
+Subject: [python-committers] commit rights for Richard Oudkerk (sbt)
+Message-ID: <CAH_1eM0Cb+bha5fc2PqG_x-soX3FXpydE3wOovS4auLKSH4-xQ@mail.gmail.com>
+
+Hi,
+
+Richard (sbt) has been contributing for quite some time now, as can be
+seen from (part of) its contributions below:
+
+"""
+- Issue #4892: multiprocessing Connections can now be transferred over
+  multiprocessing Connections.  Patch by Richard Oudkerk (sbt).
+
+- Issue #11750: The Windows API functions scattered in the _subprocess and
+  _multiprocessing.win32 modules now live in a single module "_winapi".
+  Patch by sbt.
+
+- Issue #14087: multiprocessing: add Condition.wait_for(). Patch by sbt.
+
+- Issue #14522: Avoid duplicating socket handles in multiprocessing.connection.
+  Patch by sbt.
+
+- Issue #14300: Under Windows, sockets created using socket.dup() now allow
+  overlapped I/O.  Patch by sbt.
+
+- Issue #14335: multiprocessing's custom Pickler subclass now inherits from
+  the C-accelerated implementation.  Patch by sbt.
+
+- Issue #12328: Fix multiprocessing's use of overlapped I/O on Windows.
+  Also, add a multiprocessing.connection.wait(rlist, timeout=None) function
+  for polling multiple objects at once.  Patch by sbt.
+
+- Issue #13322: Fix BufferedWriter.write() to ensure that BlockingIOError is
+  raised when the wrapped raw file is non-blocking and the write would block.
+  Previous code assumed that the raw write() would raise BlockingIOError, but
+  RawIOBase.write() is defined to returned None when the call would block.
+  Patch by sbt.
+"""
+
+He writes good code, has good ideas, is reactive to comments and
+reviews, and he's actually the original multiprocessing author (and
+he's one of the few contributors competent under both Unix and
+Windows).
+
+Therefore, I think it would definitely make sense to give him commit rights.
+
+What do you think?
+
+Cheers,
+
+cf
+
+From jnoller at gmail.com  Wed Apr 25 21:08:25 2012
+From: jnoller at gmail.com (Jesse Noller)
+Date: Wed, 25 Apr 2012 15:08:25 -0400
+Subject: [python-committers] commit rights for Richard Oudkerk (sbt)
+In-Reply-To: <CAH_1eM0Cb+bha5fc2PqG_x-soX3FXpydE3wOovS4auLKSH4-xQ@mail.gmail.com>
+References: <CAH_1eM0Cb+bha5fc2PqG_x-soX3FXpydE3wOovS4auLKSH4-xQ@mail.gmail.com>
+Message-ID: <A71D3E7D12964DF0B9883FD087574488@gmail.com>
+
+On Wednesday, April 25, 2012 at 2:57 PM, Charles-Fran?ois Natali wrote:
+> Hi,
+>  
+> Richard (sbt) has been contributing for quite some time now, as can be
+> seen from (part of) its contributions below:
+>  
+>  
+[snip]
+>  
+> He writes good code, has good ideas, is reactive to comments and
+> reviews, and he's actually the original multiprocessing author (and
+> he's one of the few contributors competent under both Unix and
+> Windows).
+>  
+> Therefore, I think it would definitely make sense to give him commit rights.
+>  
+> What do you think?
+>  
+> Cheers,
+>  
+> cf
+
+Uh, Wow. Yes. He should have commit rights - he was granted them when the multiprocessing pep was approved, but then vanished for several years (myself and others tried getting a hold of him). Lack of any contributor agreement or response from him is actually why the header files for multiprocessing including the specific license due to lack of contributor agreement from him.
+
+He should have commit rights: In fact I'd love to talk to him offline about where he went off to! I assumed he was gone-gone!
+
+Jesse  
+
+
+
+From solipsis at pitrou.net  Wed Apr 25 21:12:35 2012
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Wed, 25 Apr 2012 21:12:35 +0200
+Subject: [python-committers] commit rights for Richard Oudkerk (sbt)
+In-Reply-To: <A71D3E7D12964DF0B9883FD087574488@gmail.com>
+References: <CAH_1eM0Cb+bha5fc2PqG_x-soX3FXpydE3wOovS4auLKSH4-xQ@mail.gmail.com>
+	<A71D3E7D12964DF0B9883FD087574488@gmail.com>
+Message-ID: <1335381155.3465.20.camel@localhost.localdomain>
+
+Le mercredi 25 avril 2012 ? 15:08 -0400, Jesse Noller a ?crit :
+> On Wednesday, April 25, 2012 at 2:57 PM, Charles-Fran?ois Natali wrote:
+> > Hi,
+> >  
+> > Richard (sbt) has been contributing for quite some time now, as can be
+> > seen from (part of) its contributions below:
+> >  
+> >  
+> [snip]
+> >  
+> > He writes good code, has good ideas, is reactive to comments and
+> > reviews, and he's actually the original multiprocessing author (and
+> > he's one of the few contributors competent under both Unix and
+> > Windows).
+> >  
+> > Therefore, I think it would definitely make sense to give him commit rights.
+> >  
+> > What do you think?
+> >  
+> > Cheers,
+> >  
+> > cf
+> 
+> Uh, Wow. Yes. He should have commit rights - he was granted them when
+> the multiprocessing pep was approved, but then vanished for several
+> years (myself and others tried getting a hold of him).
+
+Actually, I don't see his name in the SSH keys history, so apparently he
+wasn't given commit rights at the time.
+
+> He should have commit rights: In fact I'd love to talk to him offline
+> about where he went off to! I assumed he was gone-gone!
+
+Agreed with Jesse and Charles-Fran?ois.
+
+Regards
+
+Antoine.
+
+
+
+From kbk at shore.net  Wed Apr 25 21:14:45 2012
+From: kbk at shore.net (Kurt B. Kaiser)
+Date: Wed, 25 Apr 2012 15:14:45 -0400
+Subject: [python-committers] commit rights for Richard Oudkerk (sbt)
+In-Reply-To: <A71D3E7D12964DF0B9883FD087574488@gmail.com>
+References: <CAH_1eM0Cb+bha5fc2PqG_x-soX3FXpydE3wOovS4auLKSH4-xQ@mail.gmail.com>
+	<A71D3E7D12964DF0B9883FD087574488@gmail.com>
+Message-ID: <1335381285.21290.140661067317901.23707019@webmail.messagingengine.com>
+
+On Wed, Apr 25, 2012, at 03:08 PM, Jesse Noller wrote:
+> On Wednesday, April 25, 2012 at 2:57 PM, Charles-Fran?ois Natali wrote:
+> > Hi,
+> >  
+> > Richard (sbt) has been contributing for quite some time now, as can be
+> > seen from (part of) its contributions below:
+> >  
+> >  
+> [snip]
+> >  
+> > He writes good code, has good ideas, is reactive to comments and
+> > reviews, and he's actually the original multiprocessing author (and
+> > he's one of the few contributors competent under both Unix and
+> > Windows).
+> >  
+> > Therefore, I think it would definitely make sense to give him commit rights.
+> >  
+> > What do you think?
+> >  
+> > Cheers,
+> >  
+> > cf
+> 
+> Uh, Wow. Yes. He should have commit rights - he was granted them when the
+> multiprocessing pep was approved, but then vanished for several years
+> (myself and others tried getting a hold of him). Lack of any contributor
+> agreement or response from him is actually why the header files for
+> multiprocessing including the specific license due to lack of contributor
+> agreement from him.
+> 
+> He should have commit rights: In fact I'd love to talk to him offline
+> about where he went off to! I assumed he was gone-gone!
+> 
+> Jesse  
+
+Guido mentioned him at the 2011 Language Summit as a vanished
+contributor that we'd really like to get an agreement from.
+
++1
+
+-- 
+KBK
+
+From jnoller at gmail.com  Wed Apr 25 21:15:55 2012
+From: jnoller at gmail.com (Jesse Noller)
+Date: Wed, 25 Apr 2012 15:15:55 -0400
+Subject: [python-committers] commit rights for Richard Oudkerk (sbt)
+In-Reply-To: <1335381155.3465.20.camel@localhost.localdomain>
+References: <CAH_1eM0Cb+bha5fc2PqG_x-soX3FXpydE3wOovS4auLKSH4-xQ@mail.gmail.com>
+	<A71D3E7D12964DF0B9883FD087574488@gmail.com>
+	<1335381155.3465.20.camel@localhost.localdomain>
+Message-ID: <6B9EF0AC926E47F782AD75686FFF7445@gmail.com>
+
+> > 
+> > 
+> > Uh, Wow. Yes. He should have commit rights - he was granted them when
+> > the multiprocessing pep was approved, but then vanished for several
+> > years (myself and others tried getting a hold of him).
+> 
+> 
+> 
+> Actually, I don't see his name in the SSH keys history, so apparently he
+> wasn't given commit rights at the time.
+> 
+You wouldn't; he "disappeared" before that happened. I am *really* happy to see him alive and active!
+
+
+
+From jnoller at gmail.com  Wed Apr 25 21:20:46 2012
+From: jnoller at gmail.com (Jesse Noller)
+Date: Wed, 25 Apr 2012 15:20:46 -0400
+Subject: [python-committers] commit rights for Richard Oudkerk (sbt)
+In-Reply-To: <1335381285.21290.140661067317901.23707019@webmail.messagingengine.com>
+References: <CAH_1eM0Cb+bha5fc2PqG_x-soX3FXpydE3wOovS4auLKSH4-xQ@mail.gmail.com>
+	<A71D3E7D12964DF0B9883FD087574488@gmail.com>
+	<1335381285.21290.140661067317901.23707019@webmail.messagingengine.com>
+Message-ID: <50D77F6739E8419590614E4ADBE0C2DE@gmail.com>
+
+> 
+> Guido mentioned him at the 2011 Language Summit as a vanished
+> contributor that we'd really like to get an agreement from.
+> 
+> +1
+> 
+> -- 
+> KBK
+
+Interesting note: We supposedly have a contributor agreement on file for him now: 
+
+Contributor Form Received Yes on: 2012-02-26.05:00:00
+
+I'll follow up offline to confirm
+
+jesse
+
+From patcam at python.org  Wed Apr 25 22:06:12 2012
+From: patcam at python.org (Pat Campbell)
+Date: Wed, 25 Apr 2012 16:06:12 -0400
+Subject: [python-committers] Confirm a contributor agreement
+In-Reply-To: <E3A46CAC59FA4F578AB3E20461357978@gmail.com>
+References: <E3A46CAC59FA4F578AB3E20461357978@gmail.com>
+Message-ID: <CAFy_4dKzpUx-j-3Z=2zvSNESRyZG-Dewi079gN+qrk_uGm3xAg@mail.gmail.com>
+
+Hi Jesse:
+
+Yes, I can confirm this. And, a good indication of it/documented on  or
+can be found on the bug tracker. If the item: Contributor Form Received
+is marked (Yes) then chances are very high that I have already taken care
+of the contributor form.
+
+I look over more and more contributor forms in any given week because
+now they are sent via fax, US mail, email, etc. So, the information that you
+provided helped me to get to the information more quickly.
+
+I hope you got what you needed.
+
+Thanks,
+Pat
+
+
+On Wed, Apr 25, 2012 at 3:21 PM, Jesse Noller <jnoller at gmail.com> wrote:
+
+> Can you please confirm we have a contributor agreement on file for:
+>
+> Name: Richard Oudkerk
+> Tracker name: sbt
+> Contributor Form Received Yes on: 2012-02-26.05:00:00
+>
+>
+>
+>
+>
+
+
+-- 
+Pat Campbell
+PSF Administrator/Secretary
+patcam at python.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20120425/188caf43/attachment.html>
+
+From ncoghlan at gmail.com  Thu Apr 26 03:55:29 2012
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Thu, 26 Apr 2012 11:55:29 +1000
+Subject: [python-committers] List Linux distribution maintainers to help
+	with bug triaging?
+Message-ID: <CADiSq7c04RdC5ZuGy3uqtO45QYrmu+N9GsG4VYYZgB8u-=sBVg@mail.gmail.com>
+
+While helping to diagnose what appears to be a Fedora/RHEL specific
+problem with distutils, it occurred to me that it may be useful for
+triaging that kind of distribution specific problem if distro package
+maintainers (or at least points of contact) were listed in the experts
+file in the devguide: http://docs.python.org/devguide/experts
+
+What do people think of the idea of adding specific distros (e.g.
+"Linux (Fedora/RHEL)", "Linux (Ubuntu)") to the "Platforms" table for
+cases related to building and packaging where it may not be clear if
+the problem lies within CPython or within the distro?
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan?? |?? ncoghlan at gmail.com?? |?? Brisbane, Australia
+
+From dmalcolm at redhat.com  Thu Apr 26 05:06:20 2012
+From: dmalcolm at redhat.com (David Malcolm)
+Date: Wed, 25 Apr 2012 23:06:20 -0400
+Subject: [python-committers] List Linux distribution maintainers to help
+ with bug triaging?
+In-Reply-To: <CADiSq7c04RdC5ZuGy3uqtO45QYrmu+N9GsG4VYYZgB8u-=sBVg@mail.gmail.com>
+References: <CADiSq7c04RdC5ZuGy3uqtO45QYrmu+N9GsG4VYYZgB8u-=sBVg@mail.gmail.com>
+Message-ID: <1335409581.13398.31.camel@surprise>
+
+On Thu, 2012-04-26 at 11:55 +1000, Nick Coghlan wrote:
+> While helping to diagnose what appears to be a Fedora/RHEL specific
+> problem with distutils, it occurred to me that it may be useful for
+> triaging that kind of distribution specific problem if distro package
+> maintainers (or at least points of contact) were listed in the experts
+> file in the devguide: http://docs.python.org/devguide/experts
+> 
+> What do people think of the idea of adding specific distros (e.g.
+> "Linux (Fedora/RHEL)", "Linux (Ubuntu)") to the "Platforms" table for
+> cases related to building and packaging where it may not be clear if
+> the problem lies within CPython or within the distro?
+
+Feel free to add me for "Linux (Fedora/RHEL)".
+
+
+From rosslagerwall at gmail.com  Thu Apr 26 06:09:40 2012
+From: rosslagerwall at gmail.com (Ross Lagerwall)
+Date: Thu, 26 Apr 2012 06:09:40 +0200
+Subject: [python-committers] List Linux distribution maintainers to help
+ with bug triaging?
+In-Reply-To: <CADiSq7c04RdC5ZuGy3uqtO45QYrmu+N9GsG4VYYZgB8u-=sBVg@mail.gmail.com>
+References: <CADiSq7c04RdC5ZuGy3uqtO45QYrmu+N9GsG4VYYZgB8u-=sBVg@mail.gmail.com>
+Message-ID: <4F98CA84.3050306@gmail.com>
+
+On 04/26/2012 03:55 AM, Nick Coghlan wrote:
+> What do people think of the idea of adding specific distros (e.g.
+> "Linux (Fedora/RHEL)", "Linux (Ubuntu)") to the "Platforms" table for
+> cases related to building and packaging where it may not be clear if
+> the problem lies within CPython or within the distro?
+
+Definitely a good idea. How about even putting a link to the upstream
+packaging repository (if available) like:
+http://pkgs.fedoraproject.org/gitweb/?p=python.git
+
+so others can easily inspect what patches the distro is using.
+
+Regards
+-- 
+Ross Lagerwall
+
+From rosslagerwall at gmail.com  Thu Apr 26 07:18:35 2012
+From: rosslagerwall at gmail.com (Ross Lagerwall)
+Date: Thu, 26 Apr 2012 07:18:35 +0200
+Subject: [python-committers] List Linux distribution maintainers to help
+ with bug triaging?
+In-Reply-To: <4F98CA84.3050306@gmail.com>
+References: <CADiSq7c04RdC5ZuGy3uqtO45QYrmu+N9GsG4VYYZgB8u-=sBVg@mail.gmail.com>
+	<4F98CA84.3050306@gmail.com>
+Message-ID: <4F98DAAB.9080908@gmail.com>
+
+On 26/04/2012 06:09, Ross Lagerwall wrote:
+> On 04/26/2012 03:55 AM, Nick Coghlan wrote:
+>> What do people think of the idea of adding specific distros (e.g.
+>> "Linux (Fedora/RHEL)", "Linux (Ubuntu)") to the "Platforms" table for
+>> cases related to building and packaging where it may not be clear if
+>> the problem lies within CPython or within the distro?
+>
+> Definitely a good idea. How about even putting a link to the upstream
+> packaging repository (if available) like:
+> http://pkgs.fedoraproject.org/gitweb/?p=python.git
+>
+> so others can easily inspect what patches the distro is using.
+>
+
+That's probably not the right place to put the link. Hmm, maybe there 
+should be a page on the wiki with information about the state of python 
+in the various linux distributions. E.g. what version is in each distro 
+version, the maintainer, a link to the downstream repo/patches, etc.
+
+Regards
+-- 
+Ross Lagerwall
+
+From rdmurray at bitdance.com  Thu Apr 26 15:38:36 2012
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Thu, 26 Apr 2012 09:38:36 -0400
+Subject: [python-committers] Contrib forms
+In-Reply-To: <20120423001458.Horde.y5xEd7uWis5PlILiRg9j39A@webmail.df.eu>
+References: <4F943F2A.6060709@v.loewis.de>
+	<D61F3239-3651-4AE8-86B7-E2CB7792DC25@underboss.org>
+	<20120423001458.Horde.y5xEd7uWis5PlILiRg9j39A@webmail.df.eu>
+Message-ID: <20120426133836.EF8FD250631@webabinitio.net>
+
+On Mon, 23 Apr 2012 00:14:58 +0200, martin at v.loewis.de wrote:
+> 
+> Zitat von Philip Jenvey <pjenvey at underboss.org>:
+> 
+> > On Apr 22, 2012, at 10:26 AM, Martin v. L??wis wrote:
+> >>
+> >> You may wonder what changed between before and now: we (the PSF) now
+> >> have a good management of the forms, thanks to them being listed in
+> >> Roundup,
+> >
+> > Where exactly is this listing?
+> 
+> It the asterisk ('*') shown next to the user's name, with the
+> title text "Contributor form received".
+
+I've been acting similar to Martin, for the same reason.  It is now
+*really* easy to be considering a patch, see that the contributor you
+are having the discussion with doesn't have a * next to their name, and
+request that they submit a contributor agreement if they haven't already.
+
+Pat updates the tracker promptly, and forms can be sent electronically
+(jpg image of signed form, pdf scan, etc), so the turnaround is now
+very quick, and you can pretty much(*) rely on the tracker status.
+That being the case I suppose it is now time for me to move to the next
+step and not apply (non-trivial) patches until the * appears.
+
+--David
+
+It is probably still the case that there are some long time contributors
+who do not have a * because their form submission predated Pat's
+management of the tracker status.  For these we can either try to have
+Pat confirm the status against the paper files or, what is probably
+simpler, just have them send in a new form (which is less of a burden
+now that it can be done by email).
+
+From steve at holdenweb.com  Thu Apr 26 16:18:21 2012
+From: steve at holdenweb.com (Steve Holden)
+Date: Thu, 26 Apr 2012 10:18:21 -0400
+Subject: [python-committers] Contrib forms
+In-Reply-To: <20120426133836.EF8FD250631@webabinitio.net>
+References: <4F943F2A.6060709@v.loewis.de>
+	<D61F3239-3651-4AE8-86B7-E2CB7792DC25@underboss.org>
+	<20120423001458.Horde.y5xEd7uWis5PlILiRg9j39A@webmail.df.eu>
+	<20120426133836.EF8FD250631@webabinitio.net>
+Message-ID: <855E016F-FB88-4756-BF79-CB06C869822F@holdenweb.com>
+
+Thanks, David. It's nice to see that the PSF does sometimes manage to make things easier for the devs - without you the whole exercise would be pretty pointless!
+
+S
+
+On Apr 26, 2012, at 9:38 AM, R. David Murray wrote:
+
+> On Mon, 23 Apr 2012 00:14:58 +0200, martin at v.loewis.de wrote:
+>> 
+>> Zitat von Philip Jenvey <pjenvey at underboss.org>:
+>> 
+>>> On Apr 22, 2012, at 10:26 AM, Martin v. L?wis wrote:
+>>>> 
+>>>> You may wonder what changed between before and now: we (the PSF) now
+>>>> have a good management of the forms, thanks to them being listed in
+>>>> Roundup,
+>>> 
+>>> Where exactly is this listing?
+>> 
+>> It the asterisk ('*') shown next to the user's name, with the
+>> title text "Contributor form received".
+> 
+> I've been acting similar to Martin, for the same reason.  It is now
+> *really* easy to be considering a patch, see that the contributor you
+> are having the discussion with doesn't have a * next to their name, and
+> request that they submit a contributor agreement if they haven't already.
+> 
+> Pat updates the tracker promptly, and forms can be sent electronically
+> (jpg image of signed form, pdf scan, etc), so the turnaround is now
+> very quick, and you can pretty much(*) rely on the tracker status.
+> That being the case I suppose it is now time for me to move to the next
+> step and not apply (non-trivial) patches until the * appears.
+> 
+> --David
+> 
+> It is probably still the case that there are some long time contributors
+> who do not have a * because their form submission predated Pat's
+> management of the tracker status.  For these we can either try to have
+> Pat confirm the status against the paper files or, what is probably
+> simpler, just have them send in a new form (which is less of a burden
+> now that it can be done by email).
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+
+-- 
+Steve Holden steve at holdenweb.com,  Holden Web, LLC http://holdenweb.com/
+Python classes (and much more) through the web http://oreillyschool.com/
+
+
+
+
+From barry at python.org  Thu Apr 26 17:15:47 2012
+From: barry at python.org (Barry Warsaw)
+Date: Thu, 26 Apr 2012 11:15:47 -0400
+Subject: [python-committers] List Linux distribution maintainers to help
+ with bug triaging?
+In-Reply-To: <CADiSq7c04RdC5ZuGy3uqtO45QYrmu+N9GsG4VYYZgB8u-=sBVg@mail.gmail.com>
+References: <CADiSq7c04RdC5ZuGy3uqtO45QYrmu+N9GsG4VYYZgB8u-=sBVg@mail.gmail.com>
+Message-ID: <20120426111547.6d774244@limelight.wooz.org>
+
+On Apr 26, 2012, at 11:55 AM, Nick Coghlan wrote:
+
+>What do people think of the idea of adding specific distros (e.g.
+>"Linux (Fedora/RHEL)", "Linux (Ubuntu)") to the "Platforms" table for
+>cases related to building and packaging where it may not be clear if
+>the problem lies within CPython or within the distro?
+
++1 and you can certainly put me down for Ubuntu/Debian.
+
+-Barry
+
+From patcam at python.org  Fri Apr 27 17:43:03 2012
+From: patcam at python.org (Pat Campbell)
+Date: Fri, 27 Apr 2012 11:43:03 -0400
+Subject: [python-committers] Contributor's agreement...
+In-Reply-To: <CA+j1x0mqUj4puWBv2mP_CK2GnYB1d=wOwS4g29dihgEM+G9r3w@mail.gmail.com>
+References: <CA+j1x0mqUj4puWBv2mP_CK2GnYB1d=wOwS4g29dihgEM+G9r3w@mail.gmail.com>
+Message-ID: <CAFy_4dKxCo2MxG15SihzxRZ2WExvGC_YfzV9mi8sY51Ow4MDog@mail.gmail.com>
+
+Hi Stefan:
+
+Thank-you for submitting your contributor agreement to the PSF. I would
+like to add
+your contributor form to the online bug tracker, however, you did not
+provide me with
+a username.
+
+Therefore, I will not be able to access, view, update, or make any changes
+to your
+online records until you provide me with you username.
+
+If you have any questions, please let me know.
+
+Thanks,
+Pat
+
+On Thu, Apr 26, 2012 at 3:51 PM, stefan brunthaler <s.brunthaler at uci.edu>wrote:
+
+> Hello,
+>
+> as suggested by Dr. von Loewis on the python-dev mailing list, I
+> attach the signed and scanned copy of hte Contributor Agreement. In
+> case the writing on the address is not legibile, it is meant to say
+> "404 Stanford Ct."
+>
+> I hope that takes care of the formalities, have a nice day,
+> --stefan brunthaler
+>
+
+
+
+-- 
+Pat Campbell
+PSF Administrator/Secretary
+patcam at python.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20120427/d00df3c0/attachment.html>
+
+From patcam at python.org  Fri Apr 27 17:58:12 2012
+From: patcam at python.org (Pat Campbell)
+Date: Fri, 27 Apr 2012 11:58:12 -0400
+Subject: [python-committers] PSF Contributor Agreement - Serhiy Storchaka
+In-Reply-To: <1335535946.2572.2.camel@raxxla>
+References: <1335535946.2572.2.camel@raxxla>
+Message-ID: <CAFy_4dJTcWP9kW_CsaewF29Ee_rA-61vsX9MK_iRMrmjxM8jtw@mail.gmail.com>
+
+Hi Serhiy:
+
+Thank-you for submitting your contributor agreement form. It has been added
+to the
+PSF online bug tracker.
+
+Pat
+
+On Fri, Apr 27, 2012 at 10:12 AM, Serhiy Storchaka <storchaka at gmail.com>wrote:
+
+>
+>
+
+
+-- 
+Pat Campbell
+PSF Administrator/Secretary
+patcam at python.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20120427/d1494fb3/attachment.html>
+
+From patcam at python.org  Fri Apr 27 18:38:43 2012
+From: patcam at python.org (Pat Campbell)
+Date: Fri, 27 Apr 2012 12:38:43 -0400
+Subject: [python-committers] Contributor's agreement...
+In-Reply-To: <CA+j1x0nOhw4-aOS=3q-dZ5hpcTfAxjUTCZ-X1p25AjsO4RYW-Q@mail.gmail.com>
+References: <CA+j1x0mqUj4puWBv2mP_CK2GnYB1d=wOwS4g29dihgEM+G9r3w@mail.gmail.com>
+	<CAFy_4dKxCo2MxG15SihzxRZ2WExvGC_YfzV9mi8sY51Ow4MDog@mail.gmail.com>
+	<CA+j1x0nOhw4-aOS=3q-dZ5hpcTfAxjUTCZ-X1p25AjsO4RYW-Q@mail.gmail.com>
+Message-ID: <CAFy_4dKXDYeKtFnyUnmHk5N3PFE3PnVsDuSE37uRfN_Cbort=Q@mail.gmail.com>
+
+Hi Stefan:
+
+I should have mentioned that you must create a profile first,
+here: http://bugs.python.org/user
+
+Your "username" should be included in the creation of your profile on
+the PSF bug tracker. So, if you need help with this, maybe Martin or
+one of the committers will help explain to you how this system works.
+
+I hope that helped.
+
+Thanks,
+Pat
+
+
+On Fri, Apr 27, 2012 at 12:10 PM, stefan brunthaler <s.brunthaler at uci.edu>wrote:
+
+> Hi Pat,
+>
+> > Thank-you for submitting your contributor agreement to the PSF. I would
+> like
+> > to add
+> > your contributor form to the online bug tracker, however, you did not
+> > provide me with
+> > a username.
+> >
+> > Therefore, I will not be able to access, view, update, or make any
+> changes
+> > to your
+> > online records until you provide me with you username.
+>
+> Ah, OK. Did not see this on the form. I think it's best to use
+> "sbrunthaler" as a username, unless there is another preferred naming
+> schema.
+>
+> Thanks,
+> --stefan
+>
+
+
+
+-- 
+Pat Campbell
+PSF Administrator/Secretary
+patcam at python.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20120427/b70c4781/attachment.html>
+
+From patcam at python.org  Fri Apr 27 20:18:19 2012
+From: patcam at python.org (Pat Campbell)
+Date: Fri, 27 Apr 2012 14:18:19 -0400
+Subject: [python-committers] Contributor's agreement...
+In-Reply-To: <CA+j1x0=sgpyTG_thvFzrhMnN2C4zPhE+wOLtQKyYLLFFBM8ABw@mail.gmail.com>
+References: <CA+j1x0mqUj4puWBv2mP_CK2GnYB1d=wOwS4g29dihgEM+G9r3w@mail.gmail.com>
+	<CAFy_4dKxCo2MxG15SihzxRZ2WExvGC_YfzV9mi8sY51Ow4MDog@mail.gmail.com>
+	<CA+j1x0nOhw4-aOS=3q-dZ5hpcTfAxjUTCZ-X1p25AjsO4RYW-Q@mail.gmail.com>
+	<CAFy_4dKXDYeKtFnyUnmHk5N3PFE3PnVsDuSE37uRfN_Cbort=Q@mail.gmail.com>
+	<CA+j1x0=sgpyTG_thvFzrhMnN2C4zPhE+wOLtQKyYLLFFBM8ABw@mail.gmail.com>
+Message-ID: <CAFy_4d+jtdhBeWZC7QBmGr1+Csiq0uJ1a_47gTH2G1J4pRKiUQ@mail.gmail.com>
+
+Hi Stefan:
+
+I have tried to access your account but was not given access.
+
+When you created your account, were you given a user number?
+If so, please copy & paste that information from the webpage and I
+should be able to use it.
+
+Thanks,
+Pat
+
+On Fri, Apr 27, 2012 at 1:54 PM, stefan brunthaler <s.brunthaler at uci.edu>wrote:
+
+> Hello Pat,
+>
+> > I should have mentioned that you must create a profile first,
+> > here: http://bugs.python.org/user
+>
+> OK, that clears up things. I created an account with the username
+> "sbrunthaler".
+>
+> I guess that's all, if there is still something missing, please let me
+> know!
+>
+> Thanks,
+> --stefan
+>
+
+
+
+-- 
+Pat Campbell
+PSF Administrator/Secretary
+patcam at python.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20120427/ef5c2040/attachment.html>
+
+From patcam at python.org  Mon Apr 30 16:38:49 2012
+From: patcam at python.org (Pat Campbell)
+Date: Mon, 30 Apr 2012 10:38:49 -0400
+Subject: [python-committers] Contributor Agreement
+In-Reply-To: <4F9D609D.2020509@ox.cx>
+References: <4F9D609D.2020509@ox.cx>
+Message-ID: <CAFy_4dLgkHX_roBccG6662PWZJragmeWiNTJcW=C09HWwadn=g@mail.gmail.com>
+
+Hi Hynek:
+
+Thank-you for submitting your contributor agreement form. It has
+now been added to the PSF online bug tracker.
+
+Pat
+
+On Sun, Apr 29, 2012 at 11:39 AM, Hynek Schlawack <hs at ox.cx> wrote:
+
+> Hi,
+>
+> I?ve been asked to sign one of these, please find it attached. :)
+>
+> All the best,
+> Hynek
+>
+
+
+
+-- 
+Pat Campbell
+PSF Administrator/Secretary
+patcam at python.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20120430/149fbe76/attachment.html>
+
+From patcam at python.org  Mon Apr 30 17:11:11 2012
+From: patcam at python.org (Pat Campbell)
+Date: Mon, 30 Apr 2012 11:11:11 -0400
+Subject: [python-committers] contributor agreement
+In-Reply-To: <CAA77j2C-AwAPvtMJymEcmhhx9CmG-wF0QOFMWCqUHWNjpUZ48w@mail.gmail.com>
+References: <CAA77j2C-AwAPvtMJymEcmhhx9CmG-wF0QOFMWCqUHWNjpUZ48w@mail.gmail.com>
+Message-ID: <CAFy_4d+HHLK720zn65UavNKw74J3WUK9PMevQ1f4md1s_Y4V_Q@mail.gmail.com>
+
+Hi Tshepang:
+
+Thank-you for submitting your contributor agreement form. It has been added
+to the
+PSF online bug tracker.
+
+Pat
+
+On Mon, Apr 30, 2012 at 6:17 AM, Tshepang Lekhonkhobe <tshepang at gmail.com>wrote:
+
+> find attached
+>
+
+
+
+-- 
+Pat Campbell
+PSF Administrator/Secretary
+patcam at python.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20120430/a0fa0665/attachment.html>
+

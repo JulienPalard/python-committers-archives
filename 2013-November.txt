@@ -1,0 +1,4183 @@
+From brian at python.org  Fri Nov  1 04:50:30 2013
+From: brian at python.org (Brian Curtin)
+Date: Thu, 31 Oct 2013 20:50:30 -0700
+Subject: [python-committers] Zachary Ware for commit access?
+Message-ID: <CAD+XWwq_bXidPi7W=gek+S4xLeELdTP58D63kfkAUQb7USXxPw@mail.gmail.com>
+
+Hi all,
+
+What do you think about giving commit access to Zachary Ware? He's
+been active on the tracker for a while and has contributed a good bit
+of Windows code.
+
+I'm not doing much Windows stuff these days, and unfortunately I
+haven't had much time to contribute much lately. The latter will be
+changing, but the former probably won't. Anyways, Zach is interested
+in picking up some of our Windows slack and I think he could benefit
+from commit access.
+
+Although I've been mostly quiet, I have been nosy on most of his
+issues and have looked over most of the patches. I volunteer to
+continue looking after him as I too get back into contributing.
+
+Any thoughts?
+
+From ncoghlan at gmail.com  Fri Nov  1 05:53:53 2013
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Fri, 1 Nov 2013 14:53:53 +1000
+Subject: [python-committers] Zachary Ware for commit access?
+In-Reply-To: <CAD+XWwq_bXidPi7W=gek+S4xLeELdTP58D63kfkAUQb7USXxPw@mail.gmail.com>
+References: <CAD+XWwq_bXidPi7W=gek+S4xLeELdTP58D63kfkAUQb7USXxPw@mail.gmail.com>
+Message-ID: <CADiSq7c7Z1L=Ob2V6oMAezEF6rsBd9UaKEut8qAc6+mxmF6=Aw@mail.gmail.com>
+
+On 1 Nov 2013 13:50, "Brian Curtin" <brian at python.org> wrote:
+>
+> Hi all,
+>
+> What do you think about giving commit access to Zachary Ware? He's
+> been active on the tracker for a while and has contributed a good bit
+> of Windows code.
+>
+> I'm not doing much Windows stuff these days, and unfortunately I
+> haven't had much time to contribute much lately. The latter will be
+> changing, but the former probably won't. Anyways, Zach is interested
+> in picking up some of our Windows slack and I think he could benefit
+> from commit access.
+>
+> Although I've been mostly quiet, I have been nosy on most of his
+> issues and have looked over most of the patches. I volunteer to
+> continue looking after him as I too get back into contributing.
+>
+> Any thoughts?
+
+Sounds good to me - my interaction with Zachary on the tracker has been
+limited but positive, and I've definitely noticed the steady stream of
+python-checkins messages with his name attached :)
+
+Cheers,
+Nick.
+
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20131101/b800f413/attachment.html>
+
+From tjreedy at udel.edu  Fri Nov  1 06:02:05 2013
+From: tjreedy at udel.edu (Terry Reedy)
+Date: Fri, 01 Nov 2013 01:02:05 -0400
+Subject: [python-committers] Zachary Ware for commit access?
+In-Reply-To: <CAD+XWwq_bXidPi7W=gek+S4xLeELdTP58D63kfkAUQb7USXxPw@mail.gmail.com>
+References: <CAD+XWwq_bXidPi7W=gek+S4xLeELdTP58D63kfkAUQb7USXxPw@mail.gmail.com>
+Message-ID: <527335CD.7060500@udel.edu>
+
+On 10/31/2013 11:50 PM, Brian Curtin wrote:
+> Hi all,
+>
+> What do you think about giving commit access to Zachary Ware? He's
+> been active on the tracker for a while and has contributed a good bit
+> of Windows code.
+>
+> I'm not doing much Windows stuff these days, and unfortunately I
+> haven't had much time to contribute much lately. The latter will be
+> changing, but the former probably won't. Anyways, Zach is interested
+> in picking up some of our Windows slack and I think he could benefit
+> from commit access.
+
+I think *we* would benefit from him having access ;-).
+
+> Although I've been mostly quiet, I have been nosy on most of his
+> issues and have looked over most of the patches. I volunteer to
+> continue looking after him as I too get back into contributing.
+>
+> Any thoughts?
+
+When it seems like busy work to apply someone's patches, it is time to 
+let them do it. On #17883, I would like to tell him 'go ahead and try 
+it', with full confidence that he would watch the buildbots for any 
+unforeseen problems.
+
++1.
+
+Terry
+
+
+
+From mail at timgolden.me.uk  Fri Nov  1 10:19:43 2013
+From: mail at timgolden.me.uk (Tim Golden)
+Date: Fri, 01 Nov 2013 09:19:43 +0000
+Subject: [python-committers] Zachary Ware for commit access?
+In-Reply-To: <CAD+XWwq_bXidPi7W=gek+S4xLeELdTP58D63kfkAUQb7USXxPw@mail.gmail.com>
+References: <CAD+XWwq_bXidPi7W=gek+S4xLeELdTP58D63kfkAUQb7USXxPw@mail.gmail.com>
+Message-ID: <5273722F.3070009@timgolden.me.uk>
+
+On 01/11/2013 03:50, Brian Curtin wrote:
+> Hi all,
+> 
+> What do you think about giving commit access to Zachary Ware? He's
+> been active on the tracker for a while and has contributed a good bit
+> of Windows code.
+
+Definitely +1. I've committed a couple of his issues and I'm tracking a
+few others. Much of what he's done is around the Windows build process
+and its documentation: a somewhat thankless if much-needed task, and a
+great example of scratching his own itch!
+
+
+> I'm not doing much Windows stuff these days, and unfortunately I
+> haven't had much time to contribute much lately. The latter will be
+> changing, but the former probably won't. Anyways, Zach is interested
+> in picking up some of our Windows slack and I think he could benefit
+> from commit access.
+> 
+> Although I've been mostly quiet, I have been nosy on most of his
+> issues and have looked over most of the patches. I volunteer to
+> continue looking after him as I too get back into contributing.
+
+I've managed to find some time to go back over patches and update /
+commit some stuff. Hopefully I can continue. I'm actually using
+Zachary's configure.bat/make.bat from issue16895 to help my build / test
+process.
+
+As an aside: I'd actually like to see those committed even as they are,
+but I'm not 100% sure about the 64-bit builds so I'll probably try to
+post an updated patch and see what the feeling is.
+
+Anyway, +1 on giving him commit privs.
+
+TJG
+
+From brett at python.org  Fri Nov  1 14:18:28 2013
+From: brett at python.org (Brett Cannon)
+Date: Fri, 1 Nov 2013 09:18:28 -0400
+Subject: [python-committers] Zachary Ware for commit access?
+In-Reply-To: <CAD+XWwq_bXidPi7W=gek+S4xLeELdTP58D63kfkAUQb7USXxPw@mail.gmail.com>
+References: <CAD+XWwq_bXidPi7W=gek+S4xLeELdTP58D63kfkAUQb7USXxPw@mail.gmail.com>
+Message-ID: <CAP1=2W7pq6FoBEhmQ2RwtusbgqySjBmkidKqa3Kb6iNGqMRf2Q@mail.gmail.com>
+
+On Thu, Oct 31, 2013 at 11:50 PM, Brian Curtin <brian at python.org> wrote:
+
+> Hi all,
+>
+> What do you think about giving commit access to Zachary Ware? He's
+> been active on the tracker for a while and has contributed a good bit
+> of Windows code.
+>
+> I'm not doing much Windows stuff these days, and unfortunately I
+> haven't had much time to contribute much lately. The latter will be
+> changing, but the former probably won't. Anyways, Zach is interested
+> in picking up some of our Windows slack and I think he could benefit
+> from commit access.
+>
+> Although I've been mostly quiet, I have been nosy on most of his
+> issues and have looked over most of the patches. I volunteer to
+> continue looking after him as I too get back into contributing.
+>
+> Any thoughts?
+>
+
++1 from me. Worked with him a few times on the unittest.main() cleanup and
+he has always been quick to respond and pleasant to work with.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20131101/6a331758/attachment.html>
+
+From christian at cheimes.de  Fri Nov  1 14:22:41 2013
+From: christian at cheimes.de (Christian Heimes)
+Date: Fri, 01 Nov 2013 14:22:41 +0100
+Subject: [python-committers] Zachary Ware for commit access?
+In-Reply-To: <CAD+XWwq_bXidPi7W=gek+S4xLeELdTP58D63kfkAUQb7USXxPw@mail.gmail.com>
+References: <CAD+XWwq_bXidPi7W=gek+S4xLeELdTP58D63kfkAUQb7USXxPw@mail.gmail.com>
+Message-ID: <5273AB21.1010704@cheimes.de>
+
+Am 01.11.2013 04:50, schrieb Brian Curtin:
+> Hi all,
+> 
+> What do you think about giving commit access to Zachary Ware? He's
+> been active on the tracker for a while and has contributed a good bit
+> of Windows code.
+
++1 for a new Windows developer. :)
+
+
+From ezio.melotti at gmail.com  Fri Nov  1 15:41:47 2013
+From: ezio.melotti at gmail.com (Ezio Melotti)
+Date: Fri, 1 Nov 2013 16:41:47 +0200
+Subject: [python-committers] Zachary Ware for commit access?
+In-Reply-To: <CAD+XWwq_bXidPi7W=gek+S4xLeELdTP58D63kfkAUQb7USXxPw@mail.gmail.com>
+References: <CAD+XWwq_bXidPi7W=gek+S4xLeELdTP58D63kfkAUQb7USXxPw@mail.gmail.com>
+Message-ID: <CACBhJdHbTuAkn_CAhMEsPo104G3cCkKjT4XQhpa+qcxD2=UQ2A@mail.gmail.com>
+
+On Fri, Nov 1, 2013 at 5:50 AM, Brian Curtin <brian at python.org> wrote:
+
+> Hi all,
+>
+> [...]
+>
+> Any thoughts?
+>
+
++1
+I committed many of his patches this year and I think it's about time he
+gets commit access.  The fact that he is also interested in Windows makes
+him an even more valuable addition to the team.
+I can also help supervising him if necessary.
+
+Best Regards,
+Ezio Melotti
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20131101/fa09ee3d/attachment.html>
+
+From zachary.ware+pycommit at gmail.com  Sun Nov  3 03:54:06 2013
+From: zachary.ware+pycommit at gmail.com (Zachary Ware)
+Date: Sat, 2 Nov 2013 21:54:06 -0500
+Subject: [python-committers] Thank you
+Message-ID: <CAKJDb-MWZnYm+OLN2iBydOvzSK=nQwspNEBYasT4WPrC4-c3aA@mail.gmail.com>
+
+Hi all,
+
+Just wanted to briefly say thank you for the vote of confidence in
+accepting me into your ranks.  I'm looking forward to working with
+such a great group of people on such a great project for a long time
+to come!
+
+Thanks,
+
+Zach Ware
+
+From ethan at stoneleaf.us  Sun Nov  3 04:00:25 2013
+From: ethan at stoneleaf.us (Ethan Furman)
+Date: Sat, 02 Nov 2013 20:00:25 -0700
+Subject: [python-committers] Thank you
+In-Reply-To: <CAKJDb-MWZnYm+OLN2iBydOvzSK=nQwspNEBYasT4WPrC4-c3aA@mail.gmail.com>
+References: <CAKJDb-MWZnYm+OLN2iBydOvzSK=nQwspNEBYasT4WPrC4-c3aA@mail.gmail.com>
+Message-ID: <5275BC49.2070809@stoneleaf.us>
+
+Congratulations & Welcome!
+
+From mail at timgolden.me.uk  Sun Nov  3 12:34:38 2013
+From: mail at timgolden.me.uk (Tim Golden)
+Date: Sun, 03 Nov 2013 11:34:38 +0000
+Subject: [python-committers] Thank you
+In-Reply-To: <CAKJDb-MWZnYm+OLN2iBydOvzSK=nQwspNEBYasT4WPrC4-c3aA@mail.gmail.com>
+References: <CAKJDb-MWZnYm+OLN2iBydOvzSK=nQwspNEBYasT4WPrC4-c3aA@mail.gmail.com>
+Message-ID: <527634CE.9020106@timgolden.me.uk>
+
+Welcome, Zach, and thanks especially for the work you've been doing on 
+the Windows build.
+
+I've currently got one of the issues you submitted: 
+http://bugs.python.org/issue19464. I've committed the changes to 
+default, but I haven't yet backported them to 3.3 so, with your 
+permission, I'll hang on to that call and try to finish the job.
+
+TJG
+
+From ncoghlan at gmail.com  Sun Nov  3 13:25:50 2013
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Sun, 3 Nov 2013 22:25:50 +1000
+Subject: [python-committers] Thank you
+In-Reply-To: <CAKJDb-MWZnYm+OLN2iBydOvzSK=nQwspNEBYasT4WPrC4-c3aA@mail.gmail.com>
+References: <CAKJDb-MWZnYm+OLN2iBydOvzSK=nQwspNEBYasT4WPrC4-c3aA@mail.gmail.com>
+Message-ID: <CADiSq7eTnL3A0YfsjmQQqCz0HOhMh_yNjk-qOMKMcVOdz6UN1g@mail.gmail.com>
+
+On 3 November 2013 12:54, Zachary Ware <zachary.ware+pycommit at gmail.com> wrote:
+> Hi all,
+>
+> Just wanted to briefly say thank you for the vote of confidence in
+> accepting me into your ranks.  I'm looking forward to working with
+> such a great group of people on such a great project for a long time
+> to come!
+
+Welcome and thanks for finally resolving that long standing test suite
+limitation where the embedding tests couldn't be run on Windows :)
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+
+From benjamin at python.org  Sun Nov  3 21:11:55 2013
+From: benjamin at python.org (Benjamin Peterson)
+Date: Sun, 3 Nov 2013 15:11:55 -0500
+Subject: [python-committers] 2.7.6
+Message-ID: <CAPZV6o9QasQhxo5Xtjmf4-u+L3B5oXR1d7yxjUzBaBmfYh2weA@mail.gmail.com>
+
+I know I said I would do Python 2.7.6 this weekend, but I became
+unexpectedly busy. I will plan to get to it in the next few days.
+
+-- 
+Regards,
+Benjamin
+
+From christian at cheimes.de  Thu Nov  7 11:40:25 2013
+From: christian at cheimes.de (Christian Heimes)
+Date: Thu, 07 Nov 2013 11:40:25 +0100
+Subject: [python-committers] Python bug bounty
+Message-ID: <527B6E19.9060006@cheimes.de>
+
+Hi,
+
+this is going through the news right now. Has anybody contact us about
+the bug bounty program for Python?
+
+  https://hackerone.com/python
+
+Christian
+
+From mal at egenix.com  Thu Nov  7 11:45:21 2013
+From: mal at egenix.com (M.-A. Lemburg)
+Date: Thu, 07 Nov 2013 11:45:21 +0100
+Subject: [python-committers] Python bug bounty
+In-Reply-To: <527B6E19.9060006@cheimes.de>
+References: <527B6E19.9060006@cheimes.de>
+Message-ID: <527B6F41.9010302@egenix.com>
+
+On 07.11.2013 11:40, Christian Heimes wrote:
+> Hi,
+> 
+> this is going through the news right now. Has anybody contact us about
+> the bug bounty program for Python?
+> 
+>   https://hackerone.com/python
+
+FWIW, the PSF was not contacted about this in advance.
+
+Sounds like a nice project, though.
+
+-- 
+Marc-Andre Lemburg
+eGenix.com
+
+Professional Python Services directly from the Source  (#1, Nov 05 2013)
+>>> Python Projects, Consulting and Support ...   http://www.egenix.com/
+>>> mxODBC.Zope/Plone.Database.Adapter ...       http://zope.egenix.com/
+>>> mxODBC, mxDateTime, mxTextTools ...        http://python.egenix.com/
+________________________________________________________________________
+2013-11-19: Python Meeting Duesseldorf ...                 14 days to go
+
+::::: Try our mxODBC.Connect Python Database Interface for free ! ::::::
+
+   eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+    D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+           Registered at Amtsgericht Duesseldorf: HRB 46611
+               http://www.egenix.com/company/contact/
+
+From christian at cheimes.de  Thu Nov  7 12:24:59 2013
+From: christian at cheimes.de (Christian Heimes)
+Date: Thu, 07 Nov 2013 12:24:59 +0100
+Subject: [python-committers] Python bug bounty
+In-Reply-To: <527B6F41.9010302@egenix.com>
+References: <527B6E19.9060006@cheimes.de> <527B6F41.9010302@egenix.com>
+Message-ID: <527B788B.7000408@cheimes.de>
+
+Am 07.11.2013 11:45, schrieb M.-A. Lemburg:
+> On 07.11.2013 11:40, Christian Heimes wrote:
+>> Hi,
+>>
+>> this is going through the news right now. Has anybody contact us about
+>> the bug bounty program for Python?
+>>
+>>   https://hackerone.com/python
+> 
+> FWIW, the PSF was not contacted about this in advance.
+> 
+> Sounds like a nice project, though.
+
+The PSRT wasn't contacted either.
+
+I like it, it's a great idea! It just came as a surprise to me. Should
+we contact them and establish a work flow?
+
+Christian
+
+From alex.gaynor at gmail.com  Thu Nov  7 15:41:57 2013
+From: alex.gaynor at gmail.com (Alex Gaynor)
+Date: Thu, 7 Nov 2013 06:41:57 -0800
+Subject: [python-committers] Python bug bounty
+In-Reply-To: <527B788B.7000408@cheimes.de>
+References: <527B6E19.9060006@cheimes.de> <527B6F41.9010302@egenix.com>
+ <527B788B.7000408@cheimes.de>
+Message-ID: <CAFRnB2Vke3iBRqXDnhM3APHbfj=a+OfdtFQjQT8o2cb1wV8mnA@mail.gmail.com>
+
+Yes, we probably should. The Django project was contacted by them, I've
+we've been working with them to set up a workflow, when I saw this I'd
+assumed someone had been contacted for CPython.
+
+Alex
+
+
+On Thu, Nov 7, 2013 at 3:24 AM, Christian Heimes <christian at cheimes.de>wrote:
+
+> Am 07.11.2013 11:45, schrieb M.-A. Lemburg:
+> > On 07.11.2013 11:40, Christian Heimes wrote:
+> >> Hi,
+> >>
+> >> this is going through the news right now. Has anybody contact us about
+> >> the bug bounty program for Python?
+> >>
+> >>   https://hackerone.com/python
+> >
+> > FWIW, the PSF was not contacted about this in advance.
+> >
+> > Sounds like a nice project, though.
+>
+> The PSRT wasn't contacted either.
+>
+> I like it, it's a great idea! It just came as a surprise to me. Should
+> we contact them and establish a work flow?
+>
+> Christian
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+>
+
+
+
+-- 
+"I disapprove of what you say, but I will defend to the death your right to
+say it." -- Evelyn Beatrice Hall (summarizing Voltaire)
+"The people's good is the highest law." -- Cicero
+GPG Key fingerprint: 125F 5C67 DFE9 4084
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20131107/d89746ba/attachment.html>
+
+From mal at egenix.com  Thu Nov  7 20:03:25 2013
+From: mal at egenix.com (M.-A. Lemburg)
+Date: Thu, 07 Nov 2013 20:03:25 +0100
+Subject: [python-committers] Python bug bounty
+In-Reply-To: <527B788B.7000408@cheimes.de>
+References: <527B6E19.9060006@cheimes.de> <527B6F41.9010302@egenix.com>
+ <527B788B.7000408@cheimes.de>
+Message-ID: <527BE3FD.8020608@egenix.com>
+
+On 07.11.2013 12:24, Christian Heimes wrote:
+> Am 07.11.2013 11:45, schrieb M.-A. Lemburg:
+>> On 07.11.2013 11:40, Christian Heimes wrote:
+>>> Hi,
+>>>
+>>> this is going through the news right now. Has anybody contact us about
+>>> the bug bounty program for Python?
+>>>
+>>>   https://hackerone.com/python
+>>
+>> FWIW, the PSF was not contacted about this in advance.
+>>
+>> Sounds like a nice project, though.
+> 
+> The PSRT wasn't contacted either.
+> 
+> I like it, it's a great idea! It just came as a surprise to me. Should
+> we contact them and establish a work flow?
+
+I think that would be useful to make sure that the security issues
+found in the code can be handled properly.
+
+-- 
+Marc-Andre Lemburg
+eGenix.com
+
+Professional Python Services directly from the Source  (#1, Nov 05 2013)
+>>> Python Projects, Consulting and Support ...   http://www.egenix.com/
+>>> mxODBC.Zope/Plone.Database.Adapter ...       http://zope.egenix.com/
+>>> mxODBC, mxDateTime, mxTextTools ...        http://python.egenix.com/
+________________________________________________________________________
+2013-11-19: Python Meeting Duesseldorf ...                 14 days to go
+
+::::: Try our mxODBC.Connect Python Database Interface for free ! ::::::
+
+   eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+    D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+           Registered at Amtsgericht Duesseldorf: HRB 46611
+               http://www.egenix.com/company/contact/
+
+From christian at python.org  Thu Nov  7 20:38:39 2013
+From: christian at python.org (Christian Heimes)
+Date: Thu, 07 Nov 2013 20:38:39 +0100
+Subject: [python-committers] Python at HackerOne
+Message-ID: <527BEC3F.2030406@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Hi!
+
+I'm contacting you on behalf of the Python core committers and Python
+Security Response Team (PSRT). We were really excited and honored that
+Python was selected as one of the twelve first projects for the new
+Internet Bug Bounty program. Thanks a lot for including Python!
+
+Is there anything the PSRT or Python Software Foundation can do to
+join the effort and assist with your program? I think it's in our
+mutable interest to spread the word and handle incoming security
+issues properly. We will be glad to help you.
+
+Regards,
+Christian Heimes
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.12 (GNU/Linux)
+Comment: Using GnuPG with Thunderbird - http://www.enigmail.net/
+
+iQIcBAEBCgAGBQJSe+w5AAoJEMeIxMHUVQ1FScgP/RFfopZobKp6Zm6m+/x3PLuK
+drN6qNFz+bVTP0OWBjuADLOIJHMH2Bg4BdhBaxwz0gFF+f4g6iqr5bI4VJRhaDiE
+Is99KzY7ZrMUy2OKC0MbrmbAxrWq8axmwel2u4wjCs/EH1qr794/fwExCEG8udzq
+3KEzlBT5S+sxVvv8aXLeQX5fRyEAxr6saRtbXqThTZjL/MmZ0cb4f3eNfJDT4RTv
+SDHRjnAC/OtrGr5Qg+0y+qX7Qa7+YcMvQXGmNIFIrunbUCGiODtBJAx8xsjZNFDP
+6N28CprnHYo2fLkDJTC//QhIpdS+dsrHtEhNih1cxw5ZjMf28MQNEenPjFx27S//
+gFkJC87JFV3cbWVFWZLM8j8im1tv+o2Ph09nrLj8QoApS5cgLB3LJXUy2b++rHOX
+cw5OM3BlQt701KpV3ATuPspWQEELqlKB7+gOeJEdd0+XUrEQfIEMdiT6fZOEOE+N
+qd+uPKRUNxxVC8kGne2GszhLXhHoeeBDK8EaTICr94Xw3ZVM8HaNBA6sykDdXEXn
+QX8OjSrXbW9iyS63Aru6KoUZS0PdHAzSHLDQbzRJUMtaE39kxVe5zfLovgaPY3dH
+zQnvotts5jvZ6K/G89dyNLqDRnGrZgPROKej1Uws82iah6GXO/3FTFSGrRmX4JUk
+/9xOzzkdBMjS1EF6/ca+
+=oUpk
+-----END PGP SIGNATURE-----
+
+From christian at python.org  Fri Nov  8 02:00:46 2013
+From: christian at python.org (Christian Heimes)
+Date: Fri, 08 Nov 2013 02:00:46 +0100
+Subject: [python-committers] Fwd: Re: Python at HackerOne
+In-Reply-To: <CAAVUcywkdOdpcYPRi5XfPhg4aoduXd9b5wgeY4=4ZfPqMwX1FA@mail.gmail.com>
+References: <CAAVUcywkdOdpcYPRi5XfPhg4aoduXd9b5wgeY4=4ZfPqMwX1FA@mail.gmail.com>
+Message-ID: <527C37BE.9080809@python.org>
+
+Forwarded mail
+
+-------- Original-Nachricht --------
+Betreff: 	Re: Python at HackerOne
+Datum: 	Thu, 7 Nov 2013 16:37:30 -0800
+Von: 	Alex Rice <arice at hackerone.com>
+An: 	Christian Heimes <christian at python.org>
+Kopie (CC): 	python-committers at python.org, IBB Panel
+<ibb-panel at hackerone.com>
+
+
+
+Hi Christian!
+
+Thanks for getting in touch, glad there's interest on your end! Our
+initial approach was structured to be as noninvasive as possible. The
+simple version: we'll keep an eye out for public security patches and
+reactively issue bounties for both the discovery & fix.
+
+This passive approach is optimized for minimizing pain but leaves room
+for efficiency gains given how removed we are from the project.
+Fortunately, we have a lot of flexibility here and we welcome assistance
+devising more effective means of rewarding outstanding security
+contributions to the Python community. Here are a few options worth
+mentioning:
+
+- Our initial scope only covers the rare, high-severity bugs, because
+we're a bottleneck that can't investigate every bug. This scope can be
+expanded if you're willing to accept more submissions and provide a
+severity assessment for confirmed bugs. For example, you might include
+low-severity bugs (i.e., DoS) for ~$500.
+
+- Please shout at us whenever you observe a contribution that you
+believe made us all safer. You will undoubtedly have insight into each
+vulnerability that we might have overlooked.
+
+- We're happy to make suggested edits to the program's description at
+https://hackerone.com/python
+
+In general, you're the boss: feel free to think of this as the "Python
+Bug Bounty". You tell us how the budget would be spent most effectively
+and we'll work with you to strike a balance. As examples, the guys at
+Phabricator decided to exclude bounties for patches (they'd rather fix
+every issue themselves) and rewrote most of our scope from scratch.
+Django is going through the same exercise right now.
+
+Thanks,
+Alex
+
+From christian at python.org  Fri Nov  8 12:06:16 2013
+From: christian at python.org (Christian Heimes)
+Date: Fri, 08 Nov 2013 12:06:16 +0100
+Subject: [python-committers] Fwd: Re: Fwd: Python at HackerOne
+In-Reply-To: <CAAVUcyyZ0yaoHJnNDJbqBACezK_5xUzWW2P8dryCGiet-jKCAQ@mail.gmail.com>
+References: <CAAVUcyyZ0yaoHJnNDJbqBACezK_5xUzWW2P8dryCGiet-jKCAQ@mail.gmail.com>
+Message-ID: <527CC5A8.5020609@python.org>
+
+Here is another mail from Alex. I asked him about conflict of interest:
+
+
+-------- Original-Nachricht --------
+Betreff: 	Re: Fwd: Python at HackerOne
+Datum: 	Thu, 7 Nov 2013 17:33:52 -0800
+Von: 	Alex Rice <arice at hackerone.com>
+An: 	Christian Heimes <christian at python.org>
+
+
+
+Our "easy fix" to the collusion issue is to request core developers
+donate the bounty directly to a nonprofit instead of personal gain (the
+nonprofit could be the PSF).
+
+Attacking the problem directly requires a bit more structure. This would
+be a start:
+
+- transparent, consistent bounty amounts. This requires removing most
+subjectiveness from the award process
+- volunteer cannot be paid for a bug in code they wrote
+- bug must have been *live* for 12+ months
+
+But, to be honest, it's not a problem with one clearcut solution. If
+there's a desire for a formal code of conduct (probably a worthwhile
+exercise), we can take a first pass at drafting one and request feedback
+from the community.
+
+On Nov 7, 2013 8:19 PM, "Christian Heimes" <christian at python.org
+<mailto:christian at python.org>> wrote:
+
+    Am 08.11.2013 01:45, schrieb Alex Rice:
+    > FYI :)
+
+    Hi Alex,
+
+    I totally forgot that it's a member's only mailing list. I have forward
+    your mail. Thanks for the heads-up! We are going to discuss your input
+    internally and get back to you in a couple of days.
+
+    I have one final question / remark for you:
+
+    Do you have a recommendation how we should handle conflict of interests
+    with IBB? After all a high percentage of security-related discoveries,
+    fixes and improvements are made by Python core committers or PSRT
+    members. Although we are all unpaid volunteers I (and probably others)
+    would feel uncomfortable to suggest fellow developers for a bounty. It
+    would feel like cronyism... Are you working on a code of conduct for
+    these kinds of problems?
+
+    Good night!
+    Christian
+
+
+
+
+From georg at python.org  Tue Nov 12 08:10:38 2013
+From: georg at python.org (Georg Brandl)
+Date: Tue, 12 Nov 2013 08:10:38 +0100
+Subject: [python-committers] [RELEASED] Python 3.3.3 release candidate 2
+Message-ID: <5281D46E.5010404@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On behalf of the Python development team, I'm quite happy to announce the
+Python 3.3.3 release candidate 2.
+
+Python 3.3.3 includes several security fixes and over 150 bug fixes compared to
+the Python 3.3.2 release.
+
+This release fully supports OS X 10.9 Mavericks.  In particular, this release
+fixes an issue that could cause previous versions of Python to crash when typing
+in interactive mode on OS X 10.9.
+
+Python 3.3 includes a range of improvements of the 3.x series, as well as easier
+porting between 2.x and 3.x.  In total, almost 500 API items are new or improved
+in Python 3.3.  For a more extensive list of changes in the 3.3 series, see
+
+    http://docs.python.org/3.3/whatsnew/3.3.html
+
+To download Python 3.3.3 rc2 visit:
+
+    http://www.python.org/download/releases/3.3.3/
+
+
+This is a preview release, please report any bugs to
+
+     http://bugs.python.org/
+
+
+Enjoy!
+
+- --
+Georg Brandl, Release Manager
+georg at python.org
+(on behalf of the entire python-dev team and 3.3's contributors)
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v2.0.22 (GNU/Linux)
+
+iEYEARECAAYFAlKB1G4ACgkQN9GcIYhpnLAu5gCfRkfpnEs+rmtZ9iTjaaZcHDx3
+sNYAn180Q4cFZmKtwJdaG+g/3jHAVd97
+=n/Tt
+-----END PGP SIGNATURE-----
+
+From larry at hastings.org  Sat Nov 16 10:50:47 2013
+From: larry at hastings.org (Larry Hastings)
+Date: Sat, 16 Nov 2013 01:50:47 -0800
+Subject: [python-committers] Reminder: Python 3.4 feature freeze in a week
+Message-ID: <52873FF7.70907@hastings.org>
+
+
+
+We're on schedule to tag Python 3.4 Beta 1 next Saturday.  And when that 
+happens we go into "feature freeze" on Python trunk; no new features 
+will be accepted in trunk until we branch the 3.4 release branch next 
+February.  Time to get those checkins in folks.
+
+Last call, everyone,
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20131116/feffeead/attachment.html>
+
+From georg at python.org  Tue Nov 19 07:59:50 2013
+From: georg at python.org (Georg Brandl)
+Date: Tue, 19 Nov 2013 07:59:50 +0100
+Subject: [python-committers] [RELEASED] Python 3.3.3 final
+Message-ID: <528B0C66.5090502@python.org>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On behalf of the Python development team, I'm very happy to announce
+the release of Python 3.3.3.
+
+Python 3.3.3 includes several security fixes and over 150 bug fixes
+compared to the Python 3.3.2 release. Importantly, a security bug in
+CGIHTTPServer was fixed [1]. Thank you to those who tested the 3.3.3
+release candidate!
+
+This release fully supports OS X 10.9 Mavericks.  In particular, this
+release fixes an issue that could cause previous versions of Python to
+crash when typing in interactive mode on OS X 10.9.
+
+Python 3.3 includes a range of improvements of the 3.x series, as well
+as easier porting between 2.x and 3.x.  In total, almost 500 API items
+are new or improved in Python 3.3.  For a more extensive list of
+changes in the 3.3 series, see
+
+    http://docs.python.org/3.3/whatsnew/3.3.html
+
+To download Python 3.3.3 rc2 visit:
+
+    http://www.python.org/download/releases/3.3.3/
+
+
+This is a production release, please report any bugs to
+
+     http://bugs.python.org/
+
+
+Enjoy!
+
+- --
+Georg Brandl, Release Manager
+georg at python.org
+(on behalf of the entire python-dev team and 3.3's contributors)
+
+
+[1] http://bugs.python.org/issue19435
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v2.0.22 (GNU/Linux)
+
+iEYEARECAAYFAlKLDGYACgkQN9GcIYhpnLCjewCfQ+EJHpzGzIyTvYOrYmsRmnbv
+n40AniVM0UuQWpPrlCu349fu7Edt+d4+
+=WSIj
+-----END PGP SIGNATURE-----
+
+From ezio.melotti at gmail.com  Wed Nov 20 20:57:26 2013
+From: ezio.melotti at gmail.com (Ezio Melotti)
+Date: Wed, 20 Nov 2013 21:57:26 +0200
+Subject: [python-committers] The evolution of HTMLParser
+Message-ID: <CACBhJdFxt2tUOL+TBkavcmjK-6=NpP0y2kcXTCSi8jJnb=_b7w@mail.gmail.com>
+
+Hi,
+during the last few months/years I worked on HTMLParser and the html
+package -- this is a brief summary of what happened, what I'm working
+on for 3.4, and what are the plans for future, and I'm looking for
+some feedback about the latter.
+
+When I first looked at it, the parser was able to parse most valid
+pages, and had some heuristic to work around common mistakes, but was
+raising exceptions on most broken pages.  On Python 3.2 it also had a
+new strict argument that when set to False would allow the parser to
+try to handle some more broken markup.
+
+Last year HTML5 became a "Candidate Recommendation", and a lengthy
+specification with detailed algorithms to handle both valid and
+invalid markup was released [0].  Since then I worked on converging
+HTMLParser to the HTML5 standard, while trying to remain backward
+compatible and, where necessary, provide warnings for the changes I
+was making.
+Since the HTML5 standard specifies how to handle broken markup and
+since the strict mode of HTMLParser is not strict enough to be used to
+validate markup, I decided to deprecate it in 3.3 and remove it in 3.5
+[2].
+Currently the parser is able to handle horribly broken markup and (in
+theory) should never raise errors while parsing HTML.  The result it
+produces is really close to what the standard says and what the
+browser does (I intentionally ignore a few obscure corner cases to
+keep the code relatively simple/fast).  This is true for both 2.7 and
+3.x (you can try to break it and report any failures you might
+encounter).
+Python 3.3 also comes with the list of HTML 5 entities
+(html.entities.html5), and 3.4 will have an html.unescape() function
+to convert them to the corresponding Unicode characters.
+
+Now I'm working on #13633 (Automatically convert character references
+in HTMLParser [1]), and I'm planning to add a convert_charrefs boolean
+flag to the constructors that, when set to True, will automatically
+convert charrefs (e.g. "&quot;", "&#34;") to the corresponding Unicode
+characters, and avoid calling the handle_charref/handle_entityref
+methods.
+Since in my opinion this behavior is preferable, I am thinking about
+switching the default to True in 3.5/3.6 and add a warning to 3.4 that
+warns the user to either set convert_charrefs explicitly or be ready
+to a behavior change in 3.5/3.6.  This means that HTMLParser will see
+the warning and will have to set the flag, and they will be able to
+remove it in 3.5/3.6, when the default will be True and warning will
+be gone.
+
+Do you think this would be acceptable?  If not, can you think any
+better way to do it?
+
+After this, most of the work on HTMLParser and the html package should
+be done.  I plan to update the documentation and say that the parser
+is (almost) compliant with HTML 5, phase out the deprecated "strict"
+argument [2] and eventually the warning about convert_charrefs, and
+possibly do some optimizations/clean ups.  There's also an open issue
+to add a generator-based API [3], but that's a major change and I need
+more time to think about it.
+
+Best Regards,
+Ezio Melotti
+
+
+[0]: http://www.w3.org/TR/html5/syntax.html
+[1]: http://bugs.python.org/issue13633 - Automatically convert
+character references in HTMLParser
+[2]: http://bugs.python.org/issue15114 - Deprecate strict mode of HTMLParser
+[3]: http://bugs.python.org/issue17410 - Generator-based HTMLParser
+
+From antoine at python.org  Wed Nov 20 21:34:53 2013
+From: antoine at python.org (Antoine Pitrou)
+Date: Wed, 20 Nov 2013 21:34:53 +0100
+Subject: [python-committers] The evolution of HTMLParser
+In-Reply-To: <CACBhJdFxt2tUOL+TBkavcmjK-6=NpP0y2kcXTCSi8jJnb=_b7w@mail.gmail.com>
+References: <CACBhJdFxt2tUOL+TBkavcmjK-6=NpP0y2kcXTCSi8jJnb=_b7w@mail.gmail.com>
+Message-ID: <1384979693.2311.4.camel@fsol>
+
+On mer., 2013-11-20 at 21:57 +0200, Ezio Melotti wrote:
+> Now I'm working on #13633 (Automatically convert character references
+> in HTMLParser [1]), and I'm planning to add a convert_charrefs boolean
+> flag to the constructors that, when set to True, will automatically
+> convert charrefs (e.g. "&quot;", "&#34;") to the corresponding Unicode
+> characters, and avoid calling the handle_charref/handle_entityref
+> methods.
+
+How about a separate StandardHTMLParser class that would have the right
+handle_charref / handle_entityref implementations?
+(you could also change other behaviours in that class if desired)
+
+Regards
+
+Antoine.
+
+
+
+From ezio.melotti at gmail.com  Wed Nov 20 22:55:14 2013
+From: ezio.melotti at gmail.com (Ezio Melotti)
+Date: Wed, 20 Nov 2013 23:55:14 +0200
+Subject: [python-committers] The evolution of HTMLParser
+In-Reply-To: <1384979693.2311.4.camel@fsol>
+References: <CACBhJdFxt2tUOL+TBkavcmjK-6=NpP0y2kcXTCSi8jJnb=_b7w@mail.gmail.com>
+ <1384979693.2311.4.camel@fsol>
+Message-ID: <CACBhJdE78Goh+0jq2Sf+sPyHdVP7MJarj+rebmAAxKzu_tSXAw@mail.gmail.com>
+
+On Wed, Nov 20, 2013 at 10:34 PM, Antoine Pitrou <antoine at python.org> wrote:
+> On mer., 2013-11-20 at 21:57 +0200, Ezio Melotti wrote:
+>> Now I'm working on #13633 (Automatically convert character references
+>> in HTMLParser [1]), and I'm planning to add a convert_charrefs boolean
+>> flag to the constructors that, when set to True, will automatically
+>> convert charrefs (e.g. "&quot;", "&#34;") to the corresponding Unicode
+>> characters, and avoid calling the handle_charref/handle_entityref
+>> methods.
+>
+> How about a separate StandardHTMLParser class that would have the right
+> handle_charref / handle_entityref implementations?
+> (you could also change other behaviours in that class if desired)
+>
+
+When convert_charrefs is True, handle_charref/handle_entityref are not
+called at all.
+This is in part because there's no easy way to tell where an invalid
+charrefs ends (e.g. if the ';' is missing), so the parser would either
+have to only find correctly terminated charrefs (but that doesn't
+allow to handle invalid HTML5 entities) or it will have to apply the
+HTML5 algorithm (or a subset of it) to find what might be a charref,
+and then the user will have to do it again to find the corresponding
+character.
+
+So, for example, passing "<p>foo&gt;bar</p>" to the parser currently results in:
+  1) a call to handle_starttag with "p";
+  2) a call to handle_data with "foo";
+  3) a call to handle_entitydef with "&gt;";
+  4) a call to handle_data with "bar";
+  5) a call to handle_endtag with "p";
+The user has then to write the code in handle_entitydef to convert
+"&gt;" to ">" and then do "foo" + ">" + "bar" before getting the
+content of the paragraph, i.e. "foo>bar".
+
+With the proposed patch, the parser gets all the text between tags,
+and then passes it to html.unescape() to convert all the charrefs
+according to the HTML5 algorithm, so the example above becomes:
+  1) a call to handle_starttag with "p";
+  2) a call to handle_data with "foo>bar";
+  3) a call to handle_endtag with "p";
+
+This also happens in the core of HTMLParser, so in order to create a
+subclass where charrefs are converted automatically and without the
+handle_charref/handle_entityref, I would also have to duplicate (or
+reorganize) lot of code.
+
+Also while parsing arbitrary HTML you might or might not get charrefs,
+so the only use cases left are I can think of are:
+  * preserving the entities -- this can be done by setting
+convert_charrefs=False and returning what gets passed to
+handle_charref/handle_entityref or by using html.escape() after the
+parsing (the output might be different though);
+  * using a different set of charrefs -- xml and html4 are subsets of
+the html5 charrefs so they are covered, for other sets it's still
+possible to keep using convert_charrefs=False (and people will have
+time till 3.5/3.6 to add it before the default changes);
+(Note that unlike the strict argument/mode, I don't plan to remove
+convert_charrefs -- only to make it default to True.)
+
+Best Regards,
+Ezio Melotti
+
+> Regards
+>
+> Antoine.
+
+From larry at hastings.org  Sat Nov 23 03:29:14 2013
+From: larry at hastings.org (Larry Hastings)
+Date: Fri, 22 Nov 2013 18:29:14 -0800
+Subject: [python-committers] Reminder: Less than 24 hours until 3.4 feature
+	freeze
+Message-ID: <529012FA.20809@hastings.org>
+
+
+
+I hope to tag 3.4 in less than 24 hours from now.  Last call, folks.
+
+Here's hoping the buildbots all get green soon,
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20131122/6ca48a97/attachment.html>
+
+From larry at hastings.org  Sun Nov 24 16:38:21 2013
+From: larry at hastings.org (Larry Hastings)
+Date: Sun, 24 Nov 2013 07:38:21 -0800
+Subject: [python-committers] Python 3.4.0b1 is now tagged,
+	feature-freeze is now in effect
+Message-ID: <52921D6D.4050502@hastings.org>
+
+
+
+Please refrain from checking in any new features to Python trunk until 
+after the 3.4 release branch is created (which will be a few months).  
+Instead, let's concentrate our efforts on polishing Python 3.4 until 
+it's the best and most-defect-free release yet!
+
+Thanks,
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20131124/71bfa833/attachment.html>
+
+From larry at hastings.org  Sun Nov 24 23:00:16 2013
+From: larry at hastings.org (Larry Hastings)
+Date: Sun, 24 Nov 2013 14:00:16 -0800
+Subject: [python-committers] [RELEASED] Python 3.4.0b1
+Message-ID: <529276F0.3040105@hastings.org>
+
+
+On behalf of the Python development team, it's my privilege to announce
+the first beta release of Python 3.4.
+
+This is a preview release, and its use is not recommended for
+production settings.
+
+Python 3.4 includes a range of improvements of the 3.x series, including
+hundreds of small improvements and bug fixes.  Major new features and
+changes in the 3.4 release series include:
+
+* PEP 435, a standardized "enum" module
+* PEP 436, a build enhancement that will help generate introspection
+            information for builtins
+* PEP 442, improved semantics for object finalization
+* PEP 443, adding single-dispatch generic functions to the standard library
+* PEP 445, a new C API for implementing custom memory allocators
+* PEP 446, changing file descriptors to not be inherited by default
+            in subprocesses
+* PEP 450, a new "statistics" module
+* PEP 453, a bundled installer for the *pip* package manager
+* PEP 456, a new hash algorithm for Python strings and binary data
+* PEP 3154, a new and improved protocol for pickled objects
+* PEP 3156, a new "asyncio" module, a new framework for asynchronous I/O
+
+Python 3.4 is now in "feature freeze", meaning that no new features will be
+added.  The final release is projected for late February 2014.
+
+
+To download Python 3.4.0b1 visit:
+
+     http://www.python.org/download/releases/3.4.0/
+
+
+Please consider trying Python 3.4.0b1 with your code and reporting any
+new issues you notice to:
+
+      http://bugs.python.org/
+
+
+Enjoy!
+
+--
+Larry Hastings, Release Manager
+larry at hastings.org
+(on behalf of the entire python-dev team and 3.4's contributors)
+
+From larry at hastings.org  Sun Nov 24 23:28:31 2013
+From: larry at hastings.org (Larry Hastings)
+Date: Sun, 24 Nov 2013 14:28:31 -0800
+Subject: [python-committers] [RELEASED] Python 3.4.0b1
+In-Reply-To: <529276F0.3040105@hastings.org>
+References: <529276F0.3040105@hastings.org>
+Message-ID: <52927D8F.9000506@hastings.org>
+
+On 11/24/2013 02:00 PM, Larry Hastings wrote:
+> Python 3.4 includes a range of improvements of the 3.x series, including
+> hundreds of small improvements and bug fixes.  Major new features and
+> changes in the 3.4 release series include:
+
+Whoops, sorry, I missed a couple of PEPs there:
+
+* PEP 428, a "pathlib" module providing object-oriented filesystem paths
+* PEP 451, standardizing module metadata for Python's module import system
+* PEP 454, a new "tracemalloc" module for tracing Python memory allocations
+
+They're on the web site already, and they'll be in the next announcement.
+
+Sorry for the oversight!
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20131124/43795eee/attachment.html>
+
+From brett at python.org  Fri Nov 29 16:04:06 2013
+From: brett at python.org (Brett Cannon)
+Date: Fri, 29 Nov 2013 10:04:06 -0500
+Subject: [python-committers] Anatoly has been warned about his behaviour
+ potentially leading to his loss of tracker privileges
+Message-ID: <CAP1=2W6nO3XJ6dH09q3jaD41T1ZSJ6sshp6zCnGHSqNMCUafVA@mail.gmail.com>
+
+I just want to make sure others know that Georg has warned Anatoly that if
+he continues to re-open a specific issue he will lose his tracker
+privileges (http://bugs.python.org/issue19822#msg204696). I stand behind
+his warning and will support anyone who enforces it. I would suggest that
+if he does this to *any* other issue that he be warned that flipping
+*any *fields
+after a core dev has made a decision and without discussing it first will
+also lead to his loss of privileges.
+
+I would also like to point out his attitude is still horrible at times;
+being accused of spreading "ill FUD policies in favor of creating [a]
+collaborative environment" is not exactly polite (
+http://bugs.python.org/issue19826#msg204693).
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20131129/80680788/attachment.html>
+
+From antoine at python.org  Fri Nov 29 16:07:24 2013
+From: antoine at python.org (Antoine Pitrou)
+Date: Fri, 29 Nov 2013 16:07:24 +0100
+Subject: [python-committers] Anatoly Techtonik's contribution (again)
+Message-ID: <1385737644.2336.7.camel@fsol>
+
+
+Hello,
+
+I'm a bit curious, but do people think Anatoly is now behaving more
+constructively than before? He does seem to post *less*, otherwise...
+
+After all, he's just sent another rant about the "community process" in
+which the word CLA seems to appear multiple times:
+https://mail.python.org/pipermail/python-dev/2013-November/130632.html
+
+Regards
+
+Antoine.
+
+
+
+From alex.gaynor at gmail.com  Fri Nov 29 16:12:46 2013
+From: alex.gaynor at gmail.com (Alex Gaynor)
+Date: Fri, 29 Nov 2013 09:12:46 -0600
+Subject: [python-committers] Anatoly Techtonik's contribution (again)
+In-Reply-To: <1385737644.2336.7.camel@fsol>
+References: <1385737644.2336.7.camel@fsol>
+Message-ID: <CAFRnB2XviA+Mk5-E1r1H71ZeqNGaLaRoBE3yNm16-Nxzmpz2rg@mail.gmail.com>
+
+I'm not sure if it's because I'm reading the lists more, or if he's
+actually posting more, but I definitely seem to see him more frequently.
+And almost none of it is positive contribution, it's almost entirely people
+wasting time trying to humor him. I'm honestly not sure I've ever seen a
+discussion with him add value to the community.
+
+Karl Fogel's book, "Producing Open Source Software", has heavily influenced
+my thinking here (http://producingoss.com/en/difficult-people.html), but I
+think we ought to reconsider banning him from the mailing lists that we run.
+
+Alex
+
+
+On Fri, Nov 29, 2013 at 9:07 AM, Antoine Pitrou <antoine at python.org> wrote:
+
+>
+> Hello,
+>
+> I'm a bit curious, but do people think Anatoly is now behaving more
+> constructively than before? He does seem to post *less*, otherwise...
+>
+> After all, he's just sent another rant about the "community process" in
+> which the word CLA seems to appear multiple times:
+> https://mail.python.org/pipermail/python-dev/2013-November/130632.html
+>
+> Regards
+>
+> Antoine.
+>
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+>
+
+
+
+-- 
+"I disapprove of what you say, but I will defend to the death your right to
+say it." -- Evelyn Beatrice Hall (summarizing Voltaire)
+"The people's good is the highest law." -- Cicero
+GPG Key fingerprint: 125F 5C67 DFE9 4084
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20131129/748fe12e/attachment.html>
+
+From brett at python.org  Fri Nov 29 16:27:11 2013
+From: brett at python.org (Brett Cannon)
+Date: Fri, 29 Nov 2013 10:27:11 -0500
+Subject: [python-committers] Anatoly Techtonik's contribution (again)
+In-Reply-To: <CAFRnB2XviA+Mk5-E1r1H71ZeqNGaLaRoBE3yNm16-Nxzmpz2rg@mail.gmail.com>
+References: <1385737644.2336.7.camel@fsol>
+ <CAFRnB2XviA+Mk5-E1r1H71ZeqNGaLaRoBE3yNm16-Nxzmpz2rg@mail.gmail.com>
+Message-ID: <CAP1=2W526=z3rJF1v-VfSDxA1od2q6sPVd3xPMmE=V+yM=n=nQ@mail.gmail.com>
+
+On Fri, Nov 29, 2013 at 10:12 AM, Alex Gaynor <alex.gaynor at gmail.com> wrote:
+
+> I'm not sure if it's because I'm reading the lists more, or if he's
+> actually posting more, but I definitely seem to see him more frequently.
+>
+
+No, it's definitely picked up. He went dormant for a while and now he is
+back.
+
+
+>  And almost none of it is positive contribution, it's almost entirely
+> people wasting time trying to humor him. I'm honestly not sure I've ever
+> seen a discussion with him add value to the community.
+>
+
+His core points are typically valid (which is why I assume so many people
+have tried to help him fix his attitude), but then his solutions are
+typically over-the-top and he demands things occur instead of suggesting.
+Basically he's just rude.
+
+
+>
+> Karl Fogel's book, "Producing Open Source Software", has heavily
+> influenced my thinking here (
+> http://producingoss.com/en/difficult-people.html), but I think we ought
+> to reconsider banning him from the mailing lists that we run.
+>
+
+Python-ideas has a CoC now for a reason. Might be time to enact one for
+python-dev and the bug tracker.
+
+
+>
+> Alex
+>
+>
+> On Fri, Nov 29, 2013 at 9:07 AM, Antoine Pitrou <antoine at python.org>wrote:
+>
+>>
+>> Hello,
+>>
+>> I'm a bit curious, but do people think Anatoly is now behaving more
+>> constructively than before?
+>
+>
+No.
+
+
+>  He does seem to post *less*, otherwise...
+>>
+>> After all, he's just sent another rant about the "community process" in
+>> which the word CLA seems to appear multiple times:
+>> https://mail.python.org/pipermail/python-dev/2013-November/130632.html
+>
+>
+He also flat-out admits that he is "disrespectful to policies". He views
+himself as being a rabble-rouser to make sure old ideas get revisited. I
+say there are nicer ways to make sure old decisions are revisited that
+don't require being disrespectful and rude.
+
+-Brett
+
+
+>>
+>> Regards
+>>
+>> Antoine.
+>>
+>>
+>> _______________________________________________
+>> python-committers mailing list
+>> python-committers at python.org
+>> https://mail.python.org/mailman/listinfo/python-committers
+>>
+>
+>
+>
+> --
+> "I disapprove of what you say, but I will defend to the death your right
+> to say it." -- Evelyn Beatrice Hall (summarizing Voltaire)
+> "The people's good is the highest law." -- Cicero
+> GPG Key fingerprint: 125F 5C67 DFE9 4084
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+>
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20131129/0064da7a/attachment-0001.html>
+
+From brian at python.org  Fri Nov 29 16:43:09 2013
+From: brian at python.org (Brian Curtin)
+Date: Fri, 29 Nov 2013 09:43:09 -0600
+Subject: [python-committers] Anatoly Techtonik's contribution (again)
+In-Reply-To: <1385737644.2336.7.camel@fsol>
+References: <1385737644.2336.7.camel@fsol>
+Message-ID: <CAD+XWwpwyUoYtrjziLWBJ+8gDJ+sBo33TQVghsmXKFdwE_xnOQ@mail.gmail.com>
+
+On Fri, Nov 29, 2013 at 9:07 AM, Antoine Pitrou <antoine at python.org> wrote:
+
+>
+> Hello,
+>
+> I'm a bit curious, but do people think Anatoly is now behaving more
+> constructively than before? He does seem to post *less*, otherwise...
+>
+> After all, he's just sent another rant about the "community process" in
+> which the word CLA seems to appear multiple times:
+> https://mail.python.org/pipermail/python-dev/2013-November/130632.html
+
+
+Saying that he's actively disrespectful because he doesn't agree, and then
+saying he can't be nice if he's not made to feel happy may be constructive
+to him personally, but not to the project. As he's done in the past several
+times, he wants changes, he wants his changes, and he's going to act this
+way if he doesn't get them.
+
+I used to do this when I was a child and didn't get to eat candy.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20131129/caa33357/attachment.html>
+
+From victor.stinner at gmail.com  Fri Nov 29 16:45:25 2013
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Fri, 29 Nov 2013 16:45:25 +0100
+Subject: [python-committers] Anatoly Techtonik's contribution (again)
+In-Reply-To: <1385737644.2336.7.camel@fsol>
+References: <1385737644.2336.7.camel@fsol>
+Message-ID: <CAMpsgwZJ7HM8i+aaouPVjfGMevtTjihcs4NsHgP8uCcHgPh0mw@mail.gmail.com>
+
+Hi,
+
+I worked with many and various contributors on the Python projects
+last 3 years. All contributors made a lot of effort to understand the
+process (which is complex and not well documented), try to find
+information by themself (ask find the right place to ask questions
+like "how can I find information"), produced patches, accepted reviews
+and updated their patches. I really enjoyed working with them.
+
+Whereas it's really a pain to "work" with Anatoly. It's really a
+difficult to try to understand what he means. He have to repeat the
+same things again and again to help him to express his suggestion. I
+don't remember once when I was happy to see that he understood and
+don't repeat the same mistakes. He always complains about the CLA,
+whereas other developers focus on patches, no on the CLA.
+
+I don't like how Anatoly suggests changes. It's always something like
+"Python sucks" (Python "warts" is Anatoly's idea) whereas other
+developers are more kind: "xxx can be improved: I suggest to ..."
+(sometimes with a patch, yeah!).
+
+Seriously, why should I care of Anatoly whereas I can spend my time
+helping other productive developers who really want to contribute and
+do produce patches?
+
+I don't care of what Anatoly does outside mailing lists and the bug
+tracker, but in my opinion, he has a clear negative effect on the
+mailing lists and the bug tracker and making us loose our time. I do
+care of Anatoly because people who don't know him and read his
+messages would have a very bad opinion of Python (Python is full of
+warts, everything is broken, the CLA is evil, the process sucks,
+etc.).
+
+He was warned too many times. I see no progress.
+
+Victor
+
+2013/11/29 Antoine Pitrou <antoine at python.org>:
+>
+> Hello,
+>
+> I'm a bit curious, but do people think Anatoly is now behaving more
+> constructively than before? He does seem to post *less*, otherwise...
+>
+> After all, he's just sent another rant about the "community process" in
+> which the word CLA seems to appear multiple times:
+> https://mail.python.org/pipermail/python-dev/2013-November/130632.html
+>
+> Regards
+>
+> Antoine.
+>
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+
+From christian at python.org  Fri Nov 29 16:51:44 2013
+From: christian at python.org (Christian Heimes)
+Date: Fri, 29 Nov 2013 16:51:44 +0100
+Subject: [python-committers] Anatoly has been warned about his behaviour
+ potentially leading to his loss of tracker privileges
+In-Reply-To: <CAP1=2W6nO3XJ6dH09q3jaD41T1ZSJ6sshp6zCnGHSqNMCUafVA@mail.gmail.com>
+References: <CAP1=2W6nO3XJ6dH09q3jaD41T1ZSJ6sshp6zCnGHSqNMCUafVA@mail.gmail.com>
+Message-ID: <5298B810.3090703@python.org>
+
+Am 29.11.2013 16:04, schrieb Brett Cannon:
+> I just want to make sure others know that Georg has warned Anatoly
+> that if he continues to re-open a specific issue he will lose his
+> tracker privileges (http://bugs.python.org/issue19822#msg204696). I
+> stand behind his warning and will support anyone who enforces it. I
+> would suggest that if he does this to *any* other issue that he be
+> warned that flipping *any *fields after a core dev has made a
+> decision and without discussing it first will also lead to his loss
+> of privileges.
+
+I second the motion!
+
+
+From eliben at gmail.com  Fri Nov 29 18:43:03 2013
+From: eliben at gmail.com (Eli Bendersky)
+Date: Fri, 29 Nov 2013 09:43:03 -0800
+Subject: [python-committers] Anatoly Techtonik's contribution (again)
+In-Reply-To: <1385737644.2336.7.camel@fsol>
+References: <1385737644.2336.7.camel@fsol>
+Message-ID: <CAF-Rda9dC_h423NqeVtbhhuiMg5K+MNxco-wqcp+31-H5-5uYg@mail.gmail.com>
+
+On Fri, Nov 29, 2013 at 7:07 AM, Antoine Pitrou <antoine at python.org> wrote:
+
+>
+> Hello,
+>
+> I'm a bit curious, but do people think Anatoly is now behaving more
+> constructively than before? He does seem to post *less*, otherwise...
+>
+> After all, he's just sent another rant about the "community process" in
+> which the word CLA seems to appear multiple times:
+> https://mail.python.org/pipermail/python-dev/2013-November/130632.html
+>
+> Regards
+>
+
+Anecdotally, Anatoly  found out about the alternative ASDL parser I was
+proposing (we've decided to postpone this to after the default branch goes
+3.5) and started nagging me about the Python license -
+https://github.com/eliben/asdl_parser/issues/1
+
+He's ubiquitous.
+
+Eli
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20131129/81a2817d/attachment.html>
+
+From eliben at gmail.com  Fri Nov 29 18:45:18 2013
+From: eliben at gmail.com (Eli Bendersky)
+Date: Fri, 29 Nov 2013 09:45:18 -0800
+Subject: [python-committers] Anatoly has been warned about his behaviour
+ potentially leading to his loss of tracker privileges
+In-Reply-To: <CAP1=2W6nO3XJ6dH09q3jaD41T1ZSJ6sshp6zCnGHSqNMCUafVA@mail.gmail.com>
+References: <CAP1=2W6nO3XJ6dH09q3jaD41T1ZSJ6sshp6zCnGHSqNMCUafVA@mail.gmail.com>
+Message-ID: <CAF-Rda_Fs8pwuhWkh5HEQH=nGbn6J83ujv+vZ1=S82ZW9=zhxA@mail.gmail.com>
+
+Brett, +1 from me. But I suggest we wait for Guido to express his opinion
+before taking any action. In a recent private correspondence with Christian
+(and myself CCd) Guido expressed reluctance to act against Anatoly at this
+time.
+
+Eli
+
+
+On Fri, Nov 29, 2013 at 7:04 AM, Brett Cannon <brett at python.org> wrote:
+
+> I just want to make sure others know that Georg has warned Anatoly that if
+> he continues to re-open a specific issue he will lose his tracker
+> privileges (http://bugs.python.org/issue19822#msg204696). I stand behind
+> his warning and will support anyone who enforces it. I would suggest that
+> if he does this to *any* other issue that he be warned that flipping
+> *any *fields after a core dev has made a decision and without discussing
+> it first will also lead to his loss of privileges.
+>
+> I would also like to point out his attitude is still horrible at times;
+> being accused of spreading "ill FUD policies in favor of creating [a]
+> collaborative environment" is not exactly polite (
+> http://bugs.python.org/issue19826#msg204693).
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+>
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20131129/dcce77ba/attachment.html>
+
+From guido at python.org  Fri Nov 29 19:14:14 2013
+From: guido at python.org (Guido van Rossum)
+Date: Fri, 29 Nov 2013 10:14:14 -0800
+Subject: [python-committers] Anatoly has been warned about his behaviour
+ potentially leading to his loss of tracker privileges
+In-Reply-To: <CAF-Rda_Fs8pwuhWkh5HEQH=nGbn6J83ujv+vZ1=S82ZW9=zhxA@mail.gmail.com>
+References: <CAP1=2W6nO3XJ6dH09q3jaD41T1ZSJ6sshp6zCnGHSqNMCUafVA@mail.gmail.com>
+ <CAF-Rda_Fs8pwuhWkh5HEQH=nGbn6J83ujv+vZ1=S82ZW9=zhxA@mail.gmail.com>
+Message-ID: <CAP7+vJL6zuAD7MRP1cAfMo_AEhBU2AtVbrB-ynwVJK171uSreA@mail.gmail.com>
+
+Have you read the latest on the python-dev thread? Several other people are
+now also complaining. The only thing that makes sense to me is nothing --
+banning Anatoly now is just going to cause a PR disaster. Not responding at
+all will most likely cause it to blow over (surely they will collectively
+make fools of themselves, and Anatoly's post is the closest to trolling
+from him yet). I'll add some pointers to the peps repo README file so we
+can close that issue properly as well.
+
+
+On Fri, Nov 29, 2013 at 9:45 AM, Eli Bendersky <eliben at gmail.com> wrote:
+
+> Brett, +1 from me. But I suggest we wait for Guido to express his opinion
+> before taking any action. In a recent private correspondence with Christian
+> (and myself CCd) Guido expressed reluctance to act against Anatoly at this
+> time.
+>
+> Eli
+>
+>
+> On Fri, Nov 29, 2013 at 7:04 AM, Brett Cannon <brett at python.org> wrote:
+>
+>> I just want to make sure others know that Georg has warned Anatoly that
+>> if he continues to re-open a specific issue he will lose his tracker
+>> privileges (http://bugs.python.org/issue19822#msg204696). I stand behind
+>> his warning and will support anyone who enforces it. I would suggest that
+>> if he does this to *any* other issue that he be warned that flipping
+>> *any *fields after a core dev has made a decision and without discussing
+>> it first will also lead to his loss of privileges.
+>>
+>> I would also like to point out his attitude is still horrible at times;
+>> being accused of spreading "ill FUD policies in favor of creating [a]
+>> collaborative environment" is not exactly polite (
+>> http://bugs.python.org/issue19826#msg204693).
+>>
+>> _______________________________________________
+>> python-committers mailing list
+>> python-committers at python.org
+>> https://mail.python.org/mailman/listinfo/python-committers
+>>
+>>
+>
+
+
+-- 
+--Guido van Rossum (python.org/~guido)
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20131129/aadf9248/attachment-0001.html>
+
+From tim.peters at gmail.com  Fri Nov 29 19:22:55 2013
+From: tim.peters at gmail.com (Tim Peters)
+Date: Fri, 29 Nov 2013 12:22:55 -0600
+Subject: [python-committers] Anatoly has been warned about his behaviour
+ potentially leading to his loss of tracker privileges
+In-Reply-To: <CAP7+vJL6zuAD7MRP1cAfMo_AEhBU2AtVbrB-ynwVJK171uSreA@mail.gmail.com>
+References: <CAP1=2W6nO3XJ6dH09q3jaD41T1ZSJ6sshp6zCnGHSqNMCUafVA@mail.gmail.com>
+ <CAF-Rda_Fs8pwuhWkh5HEQH=nGbn6J83ujv+vZ1=S82ZW9=zhxA@mail.gmail.com>
+ <CAP7+vJL6zuAD7MRP1cAfMo_AEhBU2AtVbrB-ynwVJK171uSreA@mail.gmail.com>
+Message-ID: <CAExdVNk9U348dQR6cXb=G81CXaaBLZMvOkHHTGy_7PMDPLNLxw@mail.gmail.com>
+
+I pretty much ignore Anatoly, and that works really well for me - try it ;-)
+
+From christian at python.org  Fri Nov 29 19:28:12 2013
+From: christian at python.org (Christian Heimes)
+Date: Fri, 29 Nov 2013 19:28:12 +0100
+Subject: [python-committers] Anatoly has been warned about his behaviour
+ potentially leading to his loss of tracker privileges
+In-Reply-To: <CAP7+vJL6zuAD7MRP1cAfMo_AEhBU2AtVbrB-ynwVJK171uSreA@mail.gmail.com>
+References: <CAP1=2W6nO3XJ6dH09q3jaD41T1ZSJ6sshp6zCnGHSqNMCUafVA@mail.gmail.com>
+ <CAF-Rda_Fs8pwuhWkh5HEQH=nGbn6J83ujv+vZ1=S82ZW9=zhxA@mail.gmail.com>
+ <CAP7+vJL6zuAD7MRP1cAfMo_AEhBU2AtVbrB-ynwVJK171uSreA@mail.gmail.com>
+Message-ID: <5298DCBC.70003@python.org>
+
+Am 29.11.2013 19:14, schrieb Guido van Rossum:
+> Have you read the latest on the python-dev thread? Several other
+> people are now also complaining. The only thing that makes sense to
+> me is nothing -- banning Anatoly now is just going to cause a PR
+> disaster. Not responding at all will most likely cause it to blow
+> over (surely they will collectively make fools of themselves, and
+> Anatoly's post is the closest to trolling from him yet). I'll add
+> some pointers to the peps repo README file so we can close that
+> issue properly as well.
+
+"Several people" is an exaggeration. Only Kristjan is complaining and
+he sure hasn't dealt with Anatoly before. Let's not forget that four
+core devs have agreed to close the ticket.
+
+Perhaps it's time to try a more technical approach and restrict
+modifications of status, resolution, version and priority to core devs
+or CLA signers. That could stop his rampage without further discussion.
+
+
+From g.brandl at gmx.net  Fri Nov 29 19:40:51 2013
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Fri, 29 Nov 2013 19:40:51 +0100
+Subject: [python-committers] Anatoly has been warned about his behaviour
+ potentially leading to his loss of tracker privileges
+In-Reply-To: <CAP7+vJL6zuAD7MRP1cAfMo_AEhBU2AtVbrB-ynwVJK171uSreA@mail.gmail.com>
+References: <CAP1=2W6nO3XJ6dH09q3jaD41T1ZSJ6sshp6zCnGHSqNMCUafVA@mail.gmail.com>
+ <CAF-Rda_Fs8pwuhWkh5HEQH=nGbn6J83ujv+vZ1=S82ZW9=zhxA@mail.gmail.com>
+ <CAP7+vJL6zuAD7MRP1cAfMo_AEhBU2AtVbrB-ynwVJK171uSreA@mail.gmail.com>
+Message-ID: <l7an2v$lhe$1@ger.gmane.org>
+
+Am 29.11.2013 19:14, schrieb Guido van Rossum:
+> Have you read the latest on the python-dev thread? Several other people are now
+> also complaining. The only thing that makes sense to me is nothing -- banning
+> Anatoly now is just going to cause a PR disaster.
+
+There's no reason for banning - he has not touched the issue again.
+
+Also, I think that for an open source project the sanity of the contributors is
+as important as PR, if not more.
+
+Georg
+
+
+From g.brandl at gmx.net  Fri Nov 29 19:41:50 2013
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Fri, 29 Nov 2013 19:41:50 +0100
+Subject: [python-committers] Anatoly has been warned about his behaviour
+ potentially leading to his loss of tracker privileges
+In-Reply-To: <CAExdVNk9U348dQR6cXb=G81CXaaBLZMvOkHHTGy_7PMDPLNLxw@mail.gmail.com>
+References: <CAP1=2W6nO3XJ6dH09q3jaD41T1ZSJ6sshp6zCnGHSqNMCUafVA@mail.gmail.com>
+ <CAF-Rda_Fs8pwuhWkh5HEQH=nGbn6J83ujv+vZ1=S82ZW9=zhxA@mail.gmail.com>
+ <CAP7+vJL6zuAD7MRP1cAfMo_AEhBU2AtVbrB-ynwVJK171uSreA@mail.gmail.com>
+ <CAExdVNk9U348dQR6cXb=G81CXaaBLZMvOkHHTGy_7PMDPLNLxw@mail.gmail.com>
+Message-ID: <l7an4r$lhe$2@ger.gmane.org>
+
+Am 29.11.2013 19:22, schrieb Tim Peters:
+> I pretty much ignore Anatoly, and that works really well for me - try it ;-)
+> 
+
+It's a nice option, I agree -- but someone has to triage his issues, or they
+will rot in the tracker for eternity.
+
+Georg
+
+
+From brian at python.org  Fri Nov 29 19:48:00 2013
+From: brian at python.org (Brian Curtin)
+Date: Fri, 29 Nov 2013 12:48:00 -0600
+Subject: [python-committers] Anatoly has been warned about his behaviour
+ potentially leading to his loss of tracker privileges
+In-Reply-To: <CAExdVNk9U348dQR6cXb=G81CXaaBLZMvOkHHTGy_7PMDPLNLxw@mail.gmail.com>
+References: <CAP1=2W6nO3XJ6dH09q3jaD41T1ZSJ6sshp6zCnGHSqNMCUafVA@mail.gmail.com>
+ <CAF-Rda_Fs8pwuhWkh5HEQH=nGbn6J83ujv+vZ1=S82ZW9=zhxA@mail.gmail.com>
+ <CAP7+vJL6zuAD7MRP1cAfMo_AEhBU2AtVbrB-ynwVJK171uSreA@mail.gmail.com>
+ <CAExdVNk9U348dQR6cXb=G81CXaaBLZMvOkHHTGy_7PMDPLNLxw@mail.gmail.com>
+Message-ID: <CAD+XWwom2L3cYOT3RygtcLKxuLdVkM5HqWTR2hFtdcp10Edvdw@mail.gmail.com>
+
+On Fri, Nov 29, 2013 at 12:22 PM, Tim Peters <tim.peters at gmail.com> wrote:
+
+> I pretty much ignore Anatoly, and that works really well for me - try it
+> ;-)
+
+
+I've filtered his emails to the trash for close to two years now so I'm
+only aware of him when issues like this come up. He doesn't get to come in
+here and act how he does, and openly say he's being disrespectful on
+purpose, and then say that he can't be nice if we don't make him happy.
+
+I doubt he would walk into a restaurant, complain about the process they
+used to create their menu, then complain when they don't make food the way
+he likes, then be mean to the waiters and waitresses because they're not
+seeing to it that he is comforted. If he did, they'd just call the police
+and he'd be escorted out.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20131129/968e8b37/attachment.html>
+
+From guido at python.org  Fri Nov 29 19:56:17 2013
+From: guido at python.org (Guido van Rossum)
+Date: Fri, 29 Nov 2013 10:56:17 -0800
+Subject: [python-committers] Anatoly has been warned about his behaviour
+ potentially leading to his loss of tracker privileges
+In-Reply-To: <l7an4r$lhe$2@ger.gmane.org>
+References: <CAP1=2W6nO3XJ6dH09q3jaD41T1ZSJ6sshp6zCnGHSqNMCUafVA@mail.gmail.com>
+ <CAF-Rda_Fs8pwuhWkh5HEQH=nGbn6J83ujv+vZ1=S82ZW9=zhxA@mail.gmail.com>
+ <CAP7+vJL6zuAD7MRP1cAfMo_AEhBU2AtVbrB-ynwVJK171uSreA@mail.gmail.com>
+ <CAExdVNk9U348dQR6cXb=G81CXaaBLZMvOkHHTGy_7PMDPLNLxw@mail.gmail.com>
+ <l7an4r$lhe$2@ger.gmane.org>
+Message-ID: <CAP7+vJJt=eiwXveue-S5VXKr_0DZ7PfE=rDL0SYOzepK8-dx6A@mail.gmail.com>
+
+On Fri, Nov 29, 2013 at 10:41 AM, Georg Brandl <g.brandl at gmx.net> wrote:
+
+> Am 29.11.2013 19:22, schrieb Tim Peters:
+> > I pretty much ignore Anatoly, and that works really well for me - try it
+> ;-)
+>
+> It's a nice option, I agree -- but someone has to triage his issues, or
+> they
+> will rot in the tracker for eternity.
+>
+
+Plenty of issues do rot there, it doesn't bother me much. If you don't want
+to triage Anatoly's issues, don't; maybe someone else (Mark Lawrence? :-)
+will.
+
+The key thing to understand here is that you can't win an argument with
+Anatoly. You can only avoid *getting* into one.
+
+-- 
+--Guido van Rossum (python.org/~guido)
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20131129/ce9a8948/attachment.html>
+
+From guido at python.org  Fri Nov 29 20:14:41 2013
+From: guido at python.org (Guido van Rossum)
+Date: Fri, 29 Nov 2013 11:14:41 -0800
+Subject: [python-committers] Anatoly has been warned about his behaviour
+ potentially leading to his loss of tracker privileges
+In-Reply-To: <CAD+XWwom2L3cYOT3RygtcLKxuLdVkM5HqWTR2hFtdcp10Edvdw@mail.gmail.com>
+References: <CAP1=2W6nO3XJ6dH09q3jaD41T1ZSJ6sshp6zCnGHSqNMCUafVA@mail.gmail.com>
+ <CAF-Rda_Fs8pwuhWkh5HEQH=nGbn6J83ujv+vZ1=S82ZW9=zhxA@mail.gmail.com>
+ <CAP7+vJL6zuAD7MRP1cAfMo_AEhBU2AtVbrB-ynwVJK171uSreA@mail.gmail.com>
+ <CAExdVNk9U348dQR6cXb=G81CXaaBLZMvOkHHTGy_7PMDPLNLxw@mail.gmail.com>
+ <CAD+XWwom2L3cYOT3RygtcLKxuLdVkM5HqWTR2hFtdcp10Edvdw@mail.gmail.com>
+Message-ID: <CAP7+vJK26Xmd=af31B9v1nGmVrqKbkom9Uj2tdrAuc6jX0_UGw@mail.gmail.com>
+
+On Fri, Nov 29, 2013 at 10:48 AM, Brian Curtin <brian at python.org> wrote:
+
+> On Fri, Nov 29, 2013 at 12:22 PM, Tim Peters <tim.peters at gmail.com> wrote:
+>
+>> I pretty much ignore Anatoly, and that works really well for me - try it
+>> ;-)
+>
+>
+> I've filtered his emails to the trash for close to two years now so I'm
+> only aware of him when issues like this come up. He doesn't get to come in
+> here and act how he does, and openly say he's being disrespectful on
+> purpose, and then say that he can't be nice if we don't make him happy.
+>
+> I doubt he would walk into a restaurant, complain about the process they
+> used to create their menu, then complain when they don't make food the way
+> he likes, then be mean to the waiters and waitresses because they're not
+> seeing to it that he is comforted. If he did, they'd just call the police
+> and he'd be escorted out.
+>
+
+This analogy feels flawed -- Python users who are unhappy with the
+community's process for change can't just switch to Ruby, because they have
+all this software that's already written in Python.
+
+I'm still thinking about whether there's something we committers should do
+besides staying calm and staying out of the discussion despite the
+offensive criticism, but nothing comes to mind.
+
+-- 
+--Guido van Rossum (python.org/~guido)
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20131129/2393aa2f/attachment-0001.html>
+
+From antoine at python.org  Fri Nov 29 20:31:26 2013
+From: antoine at python.org (Antoine Pitrou)
+Date: Fri, 29 Nov 2013 20:31:26 +0100
+Subject: [python-committers] Anatoly has been warned about his behaviour
+ potentially leading to his loss of tracker privileges
+In-Reply-To: <CAP7+vJJt=eiwXveue-S5VXKr_0DZ7PfE=rDL0SYOzepK8-dx6A@mail.gmail.com>
+References: <CAP1=2W6nO3XJ6dH09q3jaD41T1ZSJ6sshp6zCnGHSqNMCUafVA@mail.gmail.com>
+ <CAF-Rda_Fs8pwuhWkh5HEQH=nGbn6J83ujv+vZ1=S82ZW9=zhxA@mail.gmail.com>
+ <CAP7+vJL6zuAD7MRP1cAfMo_AEhBU2AtVbrB-ynwVJK171uSreA@mail.gmail.com>
+ <CAExdVNk9U348dQR6cXb=G81CXaaBLZMvOkHHTGy_7PMDPLNLxw@mail.gmail.com>
+ <l7an4r$lhe$2@ger.gmane.org>
+ <CAP7+vJJt=eiwXveue-S5VXKr_0DZ7PfE=rDL0SYOzepK8-dx6A@mail.gmail.com>
+Message-ID: <1385753486.2336.37.camel@fsol>
+
+On ven., 2013-11-29 at 10:56 -0800, Guido van Rossum wrote:
+> On Fri, Nov 29, 2013 at 10:41 AM, Georg Brandl <g.brandl at gmx.net>
+> wrote:
+>         Am 29.11.2013 19:22, schrieb Tim Peters:
+>         > I pretty much ignore Anatoly, and that works really well for
+>         me - try it ;-)
+>         
+>         
+>         It's a nice option, I agree -- but someone has to triage his
+>         issues, or they
+>         will rot in the tracker for eternity.
+> 
+> 
+> Plenty of issues do rot there, it doesn't bother me much. If you don't
+> want to triage Anatoly's issues, don't; maybe someone else (Mark
+> Lawrence? :-) will.
+
+The real problem with trolls in an open community is that there'll
+always be new people to fall in their traps. We may not pay attention
+anymore, but other people will.
+
+Here's a small recap:
+
+- Anatoly has repeatably hostile rhetorics towards core development and
+the contribution process
+
+- he refuses to abide by some of our (rather lax, IMHO) contribution
+rules (e.g. CLA)
+
+- he continuously veers into meta-discourse (complaining about the
+development process)
+
+- he always rehashes the same obsessions
+
+- he was warned about his behaviour and acknowledges that his
+interaction is not satisfactory
+
+- he nevertheless refuses to change his behaviour
+
+- his behaviour has spawned several distinct threads over the time here
+at python-committers, purely about him and nothing else (i.e. it's not a
+hidden systemic issue)
+
+- his behaviour has been going on for years
+
+Regards
+
+Antoine.
+
+
+
+From brett at python.org  Fri Nov 29 20:34:17 2013
+From: brett at python.org (Brett Cannon)
+Date: Fri, 29 Nov 2013 14:34:17 -0500
+Subject: [python-committers] Anatoly has been warned about his behaviour
+ potentially leading to his loss of tracker privileges
+In-Reply-To: <CAP7+vJJt=eiwXveue-S5VXKr_0DZ7PfE=rDL0SYOzepK8-dx6A@mail.gmail.com>
+References: <CAP1=2W6nO3XJ6dH09q3jaD41T1ZSJ6sshp6zCnGHSqNMCUafVA@mail.gmail.com>
+ <CAF-Rda_Fs8pwuhWkh5HEQH=nGbn6J83ujv+vZ1=S82ZW9=zhxA@mail.gmail.com>
+ <CAP7+vJL6zuAD7MRP1cAfMo_AEhBU2AtVbrB-ynwVJK171uSreA@mail.gmail.com>
+ <CAExdVNk9U348dQR6cXb=G81CXaaBLZMvOkHHTGy_7PMDPLNLxw@mail.gmail.com>
+ <l7an4r$lhe$2@ger.gmane.org>
+ <CAP7+vJJt=eiwXveue-S5VXKr_0DZ7PfE=rDL0SYOzepK8-dx6A@mail.gmail.com>
+Message-ID: <CAP1=2W5AAQVCWWgYbL7RFrC8+w=LXCins8Cc7piTb7O4dgO7bA@mail.gmail.com>
+
+On Fri, Nov 29, 2013 at 1:56 PM, Guido van Rossum <guido at python.org> wrote:
+
+> On Fri, Nov 29, 2013 at 10:41 AM, Georg Brandl <g.brandl at gmx.net> wrote:
+>
+>> Am 29.11.2013 19:22, schrieb Tim Peters:
+>> > I pretty much ignore Anatoly, and that works really well for me - try
+>> it ;-)
+>>
+>> It's a nice option, I agree -- but someone has to triage his issues, or
+>> they
+>> will rot in the tracker for eternity.
+>>
+>
+> Plenty of issues do rot there, it doesn't bother me much. If you don't
+> want to triage Anatoly's issues, don't; maybe someone else (Mark Lawrence?
+> :-) will.
+>
+
+Maybe, but not the issues for stuff some of us are heavily invested in. If
+he starts to file importlib bugs I am going to triage them because I try to
+close all importlib bugs. I try to at least triage the ast issues as well
+which is where I have been bumping up against him as of late. The idea of
+having to change how I and others triage bugs because of one individual
+seems like the wrong cost/benefit ratio for dealing with the problem.
+
+
+>
+> The key thing to understand here is that you can't win an argument with
+> Anatoly. You can only avoid *getting* into one.
+>
+
+I'm sure you have developed skills at ignoring people based on the amount
+of unsolicited communication sent your way as BDFL. But the rest of us
+really only have to put up with this consistently with a single individual.
+I know you're worried about some PR problem, but this isn't some knee jerk
+reaction but a multi-year issue that everyone has sustained. And this
+slowly leaks into everything because new people come, try to participate
+with him, and then get the negative consequences of that which becomes a
+low, simmering PR problem of its own that we are not more welcoming and
+tolerate rude individuals.
+
+If someone turns away from the community because we decided we didn't want
+someone who is rude participating and ruining the experience for others
+then I'm fine with losing that person's participation just like anyone who
+chooses not to come to PyCon because we have a CoC (they can still use
+Python, they can just choose to not participate in the community). But if
+we lose a single individual because they didn't like someone being rude to
+them or others then that is a loss I don't want to see. Once again, the
+cost/benefit ratio of everyone as a group having to ignore a single
+troublemaker does not seem like the best solution.
+
+If you want to go with ignoring him, then that's fine. But to go along with
+that, I think it's reasonable to actively tell others who are new to not
+engage him if they start to in order to spare them the stress and
+aggravation and potentially losing their participation, otherwise how are
+they to know that this is not normal community behaviour and that he holds
+no sway? I do not want to continue to feel sorry for people who happen to
+reply to one person's emails knowing full well there was something I could
+do about it.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20131129/394496c8/attachment.html>
+
+From guido at python.org  Fri Nov 29 20:40:03 2013
+From: guido at python.org (Guido van Rossum)
+Date: Fri, 29 Nov 2013 11:40:03 -0800
+Subject: [python-committers] Anatoly has been warned about his behaviour
+ potentially leading to his loss of tracker privileges
+In-Reply-To: <1385753486.2336.37.camel@fsol>
+References: <CAP1=2W6nO3XJ6dH09q3jaD41T1ZSJ6sshp6zCnGHSqNMCUafVA@mail.gmail.com>
+ <CAF-Rda_Fs8pwuhWkh5HEQH=nGbn6J83ujv+vZ1=S82ZW9=zhxA@mail.gmail.com>
+ <CAP7+vJL6zuAD7MRP1cAfMo_AEhBU2AtVbrB-ynwVJK171uSreA@mail.gmail.com>
+ <CAExdVNk9U348dQR6cXb=G81CXaaBLZMvOkHHTGy_7PMDPLNLxw@mail.gmail.com>
+ <l7an4r$lhe$2@ger.gmane.org>
+ <CAP7+vJJt=eiwXveue-S5VXKr_0DZ7PfE=rDL0SYOzepK8-dx6A@mail.gmail.com>
+ <1385753486.2336.37.camel@fsol>
+Message-ID: <CAP7+vJK7vtYqJki+swKUQtLd2BgY=X=MR2kMy8yM=ZHyJO3Akg@mail.gmail.com>
+
+On Fri, Nov 29, 2013 at 11:31 AM, Antoine Pitrou <antoine at python.org> wrote:
+
+> On ven., 2013-11-29 at 10:56 -0800, Guido van Rossum wrote:
+> > On Fri, Nov 29, 2013 at 10:41 AM, Georg Brandl <g.brandl at gmx.net>
+> > wrote:
+> >         Am 29.11.2013 19:22, schrieb Tim Peters:
+> >         > I pretty much ignore Anatoly, and that works really well for
+> >         me - try it ;-)
+> >
+> >
+> >         It's a nice option, I agree -- but someone has to triage his
+> >         issues, or they
+> >         will rot in the tracker for eternity.
+> >
+> >
+> > Plenty of issues do rot there, it doesn't bother me much. If you don't
+> > want to triage Anatoly's issues, don't; maybe someone else (Mark
+> > Lawrence? :-) will.
+>
+> The real problem with trolls in an open community is that there'll
+> always be new people to fall in their traps. We may not pay attention
+> anymore, but other people will.
+>
+> Here's a small recap:
+>
+> - Anatoly has repeatably hostile rhetorics towards core development and
+> the contribution process
+>
+> - he refuses to abide by some of our (rather lax, IMHO) contribution
+> rules (e.g. CLA)
+>
+> - he continuously veers into meta-discourse (complaining about the
+> development process)
+>
+> - he always rehashes the same obsessions
+>
+> - he was warned about his behaviour and acknowledges that his
+> interaction is not satisfactory
+>
+> - he nevertheless refuses to change his behaviour
+>
+> - his behaviour has spawned several distinct threads over the time here
+> at python-committers, purely about him and nothing else (i.e. it's not a
+> hidden systemic issue)
+>
+> - his behaviour has been going on for years
+>
+
+I would add to this list that he is a really bad communicator. His English
+grammar is so random that I often can't figure out what he is saying (*),
+and he is either extremely terse or extremely verbose.
+
+If you can get a majority of the committers to vote to ban him we should do
+it -- but that's a high bar (many committers probably don't care enough to
+vote).
+
+__________
+(*) The PEP process bug was an example -- I couldn't tell if he was asking
+"what is the process" or suggesting "please add a pointer to a description
+of the process to the peps repo README.txt" or trying to propose an
+alternative process.
+
+-- 
+--Guido van Rossum (python.org/~guido)
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20131129/6d4c92e7/attachment-0001.html>
+
+From antoine at python.org  Fri Nov 29 20:59:25 2013
+From: antoine at python.org (Antoine Pitrou)
+Date: Fri, 29 Nov 2013 20:59:25 +0100
+Subject: [python-committers] Anatoly has been warned about his behaviour
+ potentially leading to his loss of tracker privileges
+In-Reply-To: <CAP7+vJK7vtYqJki+swKUQtLd2BgY=X=MR2kMy8yM=ZHyJO3Akg@mail.gmail.com>
+References: <CAP1=2W6nO3XJ6dH09q3jaD41T1ZSJ6sshp6zCnGHSqNMCUafVA@mail.gmail.com>
+ <CAF-Rda_Fs8pwuhWkh5HEQH=nGbn6J83ujv+vZ1=S82ZW9=zhxA@mail.gmail.com>
+ <CAP7+vJL6zuAD7MRP1cAfMo_AEhBU2AtVbrB-ynwVJK171uSreA@mail.gmail.com>
+ <CAExdVNk9U348dQR6cXb=G81CXaaBLZMvOkHHTGy_7PMDPLNLxw@mail.gmail.com>
+ <l7an4r$lhe$2@ger.gmane.org>
+ <CAP7+vJJt=eiwXveue-S5VXKr_0DZ7PfE=rDL0SYOzepK8-dx6A@mail.gmail.com>
+ <1385753486.2336.37.camel@fsol>
+ <CAP7+vJK7vtYqJki+swKUQtLd2BgY=X=MR2kMy8yM=ZHyJO3Akg@mail.gmail.com>
+Message-ID: <1385755165.2336.47.camel@fsol>
+
+On ven., 2013-11-29 at 11:40 -0800, Guido van Rossum wrote:
+> 
+> If you can get a majority of the committers to vote to ban him we
+> should do it -- but that's a high bar (many committers probably don't
+> care enough to vote).
+
+Well, many are probably inactive enough to not even notice this
+discussion :-) I'm not sure about the authoritative source, but the SSH
+keys repository shows 178 people with access rights. The majority of
+them isn't probably active nowadays.
+
+Then I don't know where his behaviour is most problematic: on the
+tracker or the MLs?
+If we only ban him from the tracker, I'm afraid he'll start making
+"here's an issue I can't post on the tracker because I'm banned" posts
+on the mailing-list...
+
+Perhaps a temporary ban? There does need to be a signal sent to him.
+(apparently, he stopped reopening the issue when Georg told him
+reopening the issue would lead to loss of posting rights, which implies
+he is sensitive to this kind of signals)
+
+Regards
+
+Antoine.
+
+
+
+From guido at python.org  Fri Nov 29 21:05:27 2013
+From: guido at python.org (Guido van Rossum)
+Date: Fri, 29 Nov 2013 12:05:27 -0800
+Subject: [python-committers] Anatoly has been warned about his behaviour
+ potentially leading to his loss of tracker privileges
+In-Reply-To: <1385755165.2336.47.camel@fsol>
+References: <CAP1=2W6nO3XJ6dH09q3jaD41T1ZSJ6sshp6zCnGHSqNMCUafVA@mail.gmail.com>
+ <CAF-Rda_Fs8pwuhWkh5HEQH=nGbn6J83ujv+vZ1=S82ZW9=zhxA@mail.gmail.com>
+ <CAP7+vJL6zuAD7MRP1cAfMo_AEhBU2AtVbrB-ynwVJK171uSreA@mail.gmail.com>
+ <CAExdVNk9U348dQR6cXb=G81CXaaBLZMvOkHHTGy_7PMDPLNLxw@mail.gmail.com>
+ <l7an4r$lhe$2@ger.gmane.org>
+ <CAP7+vJJt=eiwXveue-S5VXKr_0DZ7PfE=rDL0SYOzepK8-dx6A@mail.gmail.com>
+ <1385753486.2336.37.camel@fsol>
+ <CAP7+vJK7vtYqJki+swKUQtLd2BgY=X=MR2kMy8yM=ZHyJO3Akg@mail.gmail.com>
+ <1385755165.2336.47.camel@fsol>
+Message-ID: <CAP7+vJJLYU3W3zi3nwaepT1cvnHz0fjS3Q7uUqzJCfvjCn6nYQ@mail.gmail.com>
+
+Here's another idea. Ban him temporarily from the tracker and the lists(*)
+and tell him that to be unbanned he has to talk to me, and to me only. I
+will then negotiate a cool-off period and posting guidelines with him. If
+he violate those he will automatically be banned permanently (or at least
+for a year).
+
+(*) Which lists? I'd say python-dev and python-idea -- are there any other
+lists where he hangs out? Or perhaps all lists on mail python.org just so
+he won't take his complaints to other lists.
+
+
+On Fri, Nov 29, 2013 at 11:59 AM, Antoine Pitrou <antoine at python.org> wrote:
+
+> On ven., 2013-11-29 at 11:40 -0800, Guido van Rossum wrote:
+> >
+> > If you can get a majority of the committers to vote to ban him we
+> > should do it -- but that's a high bar (many committers probably don't
+> > care enough to vote).
+>
+> Well, many are probably inactive enough to not even notice this
+> discussion :-) I'm not sure about the authoritative source, but the SSH
+> keys repository shows 178 people with access rights. The majority of
+> them isn't probably active nowadays.
+>
+> Then I don't know where his behaviour is most problematic: on the
+> tracker or the MLs?
+> If we only ban him from the tracker, I'm afraid he'll start making
+> "here's an issue I can't post on the tracker because I'm banned" posts
+> on the mailing-list...
+>
+> Perhaps a temporary ban? There does need to be a signal sent to him.
+> (apparently, he stopped reopening the issue when Georg told him
+> reopening the issue would lead to loss of posting rights, which implies
+> he is sensitive to this kind of signals)
+>
+> Regards
+>
+> Antoine.
+>
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+>
+
+
+
+-- 
+--Guido van Rossum (python.org/~guido)
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20131129/ac4f7734/attachment.html>
+
+From christian at python.org  Fri Nov 29 21:07:40 2013
+From: christian at python.org (Christian Heimes)
+Date: Fri, 29 Nov 2013 21:07:40 +0100
+Subject: [python-committers] Anatoly has been warned about his behaviour
+ potentially leading to his loss of tracker privileges
+In-Reply-To: <CAP7+vJJLYU3W3zi3nwaepT1cvnHz0fjS3Q7uUqzJCfvjCn6nYQ@mail.gmail.com>
+References: <CAP1=2W6nO3XJ6dH09q3jaD41T1ZSJ6sshp6zCnGHSqNMCUafVA@mail.gmail.com>
+ <CAF-Rda_Fs8pwuhWkh5HEQH=nGbn6J83ujv+vZ1=S82ZW9=zhxA@mail.gmail.com>
+ <CAP7+vJL6zuAD7MRP1cAfMo_AEhBU2AtVbrB-ynwVJK171uSreA@mail.gmail.com>
+ <CAExdVNk9U348dQR6cXb=G81CXaaBLZMvOkHHTGy_7PMDPLNLxw@mail.gmail.com>
+ <l7an4r$lhe$2@ger.gmane.org>
+ <CAP7+vJJt=eiwXveue-S5VXKr_0DZ7PfE=rDL0SYOzepK8-dx6A@mail.gmail.com>
+ <1385753486.2336.37.camel@fsol>
+ <CAP7+vJK7vtYqJki+swKUQtLd2BgY=X=MR2kMy8yM=ZHyJO3Akg@mail.gmail.com>
+ <1385755165.2336.47.camel@fsol>
+ <CAP7+vJJLYU3W3zi3nwaepT1cvnHz0fjS3Q7uUqzJCfvjCn6nYQ@mail.gmail.com>
+Message-ID: <5298F40C.2050300@python.org>
+
+Am 29.11.2013 21:05, schrieb Guido van Rossum:
+> Here's another idea. Ban him temporarily from the tracker and the 
+> lists(*) and tell him that to be unbanned he has to talk to me, and
+> to me only. I will then negotiate a cool-off period and posting
+> guidelines with him. If he violate those he will automatically be
+> banned permanently (or at least for a year).
+
+Thanks a lot for your mediating role. :)
+
+> (*) Which lists? I'd say python-dev and python-idea -- are there
+> any other lists where he hangs out? Or perhaps all lists on mail
+> python.org <http://python.org> just so he won't take his complaints
+> to other lists.
+
+python-legal and python-infrastructure, too.
+
+Christian
+
+From guido at python.org  Fri Nov 29 21:12:44 2013
+From: guido at python.org (Guido van Rossum)
+Date: Fri, 29 Nov 2013 12:12:44 -0800
+Subject: [python-committers] Anatoly has been warned about his behaviour
+ potentially leading to his loss of tracker privileges
+In-Reply-To: <CAP1=2W5AAQVCWWgYbL7RFrC8+w=LXCins8Cc7piTb7O4dgO7bA@mail.gmail.com>
+References: <CAP1=2W6nO3XJ6dH09q3jaD41T1ZSJ6sshp6zCnGHSqNMCUafVA@mail.gmail.com>
+ <CAF-Rda_Fs8pwuhWkh5HEQH=nGbn6J83ujv+vZ1=S82ZW9=zhxA@mail.gmail.com>
+ <CAP7+vJL6zuAD7MRP1cAfMo_AEhBU2AtVbrB-ynwVJK171uSreA@mail.gmail.com>
+ <CAExdVNk9U348dQR6cXb=G81CXaaBLZMvOkHHTGy_7PMDPLNLxw@mail.gmail.com>
+ <l7an4r$lhe$2@ger.gmane.org>
+ <CAP7+vJJt=eiwXveue-S5VXKr_0DZ7PfE=rDL0SYOzepK8-dx6A@mail.gmail.com>
+ <CAP1=2W5AAQVCWWgYbL7RFrC8+w=LXCins8Cc7piTb7O4dgO7bA@mail.gmail.com>
+Message-ID: <CAP7+vJ+vs+MxsYS8+JqDwWJWCpjH4ZtMdqqqc1=XDZrO8tqyKw@mail.gmail.com>
+
+On Fri, Nov 29, 2013 at 11:34 AM, Brett Cannon <brett at python.org> wrote:
+
+>
+>
+>
+> On Fri, Nov 29, 2013 at 1:56 PM, Guido van Rossum <guido at python.org>wrote:
+>
+>> On Fri, Nov 29, 2013 at 10:41 AM, Georg Brandl <g.brandl at gmx.net> wrote:
+>>
+>>> Am 29.11.2013 19:22, schrieb Tim Peters:
+>>> > I pretty much ignore Anatoly, and that works really well for me - try
+>>> it ;-)
+>>>
+>>> It's a nice option, I agree -- but someone has to triage his issues, or
+>>> they
+>>> will rot in the tracker for eternity.
+>>>
+>>
+>> Plenty of issues do rot there, it doesn't bother me much. If you don't
+>> want to triage Anatoly's issues, don't; maybe someone else (Mark Lawrence?
+>> :-) will.
+>>
+>
+> Maybe, but not the issues for stuff some of us are heavily invested in. If
+> he starts to file importlib bugs I am going to triage them because I try to
+> close all importlib bugs. I try to at least triage the ast issues as well
+> which is where I have been bumping up against him as of late. The idea of
+> having to change how I and others triage bugs because of one individual
+> seems like the wrong cost/benefit ratio for dealing with the problem.
+>
+
+The question is, how effective will the alternative solution (banning him)
+be? I worry that it's just going to make things worse.
+
+
+>
+>
+>>
+>> The key thing to understand here is that you can't win an argument with
+>> Anatoly. You can only avoid *getting* into one.
+>>
+>
+> I'm sure you have developed skills at ignoring people based on the amount
+> of unsolicited communication sent your way as BDFL. But the rest of us
+> really only have to put up with this consistently with a single individual.
+> I know you're worried about some PR problem, but this isn't some knee jerk
+> reaction but a multi-year issue that everyone has sustained. And this
+> slowly leaks into everything because new people come, try to participate
+> with him, and then get the negative consequences of that which becomes a
+> low, simmering PR problem of its own that we are not more welcoming and
+> tolerate rude individuals.
+>
+
+Do you have examples of new people engaging him? I mostly see him engaged
+by old-timers or other known "difficult" users (Kristjan, Mark Lawrence).
+
+I guess I haven't managed to teach you all well enough how to do this.
+Honestly it's not easy. :-(
+
+
+>
+> If someone turns away from the community because we decided we didn't want
+> someone who is rude participating and ruining the experience for others
+> then I'm fine with losing that person's participation just like anyone who
+> chooses not to come to PyCon because we have a CoC (they can still use
+> Python, they can just choose to not participate in the community). But if
+> we lose a single individual because they didn't like someone being rude to
+> them or others then that is a loss I don't want to see. Once again, the
+> cost/benefit ratio of everyone as a group having to ignore a single
+> troublemaker does not seem like the best solution.
+>
+
+Again, I haven't seen Anatoly interfere with others. I imagine that most
+people seeing his posts will recognize him as the nutcase he is.
+
+>
+> If you want to go with ignoring him, then that's fine. But to go along
+> with that, I think it's reasonable to actively tell others who are new to
+> not engage him if they start to in order to spare them the stress and
+> aggravation and potentially losing their participation, otherwise how are
+> they to know that this is not normal community behaviour and that he holds
+> no sway? I do not want to continue to feel sorry for people who happen to
+> reply to one person's emails knowing full well there was something I could
+> do about it.
+>
+
+When I see this kind of thing happen to people who have already contributed
+positively but haven't been around long enough to recognize specific trolls
+I usually send them an off-line message suggesting to ignore the troll.
+This happens a few times a year, and it's not just Anatoly.
+
+
+-- 
+--Guido van Rossum (python.org/~guido)
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20131129/7a64aa1c/attachment-0001.html>
+
+From antoine at python.org  Fri Nov 29 21:50:29 2013
+From: antoine at python.org (Antoine Pitrou)
+Date: Fri, 29 Nov 2013 21:50:29 +0100
+Subject: [python-committers] Anatoly has been warned about his behaviour
+ potentially leading to his loss of tracker privileges
+In-Reply-To: <5298F40C.2050300@python.org>
+References: <CAP1=2W6nO3XJ6dH09q3jaD41T1ZSJ6sshp6zCnGHSqNMCUafVA@mail.gmail.com>
+ <CAF-Rda_Fs8pwuhWkh5HEQH=nGbn6J83ujv+vZ1=S82ZW9=zhxA@mail.gmail.com>
+ <CAP7+vJL6zuAD7MRP1cAfMo_AEhBU2AtVbrB-ynwVJK171uSreA@mail.gmail.com>
+ <CAExdVNk9U348dQR6cXb=G81CXaaBLZMvOkHHTGy_7PMDPLNLxw@mail.gmail.com>
+ <l7an4r$lhe$2@ger.gmane.org>
+ <CAP7+vJJt=eiwXveue-S5VXKr_0DZ7PfE=rDL0SYOzepK8-dx6A@mail.gmail.com>
+ <1385753486.2336.37.camel@fsol>
+ <CAP7+vJK7vtYqJki+swKUQtLd2BgY=X=MR2kMy8yM=ZHyJO3Akg@mail.gmail.com>
+ <1385755165.2336.47.camel@fsol>
+ <CAP7+vJJLYU3W3zi3nwaepT1cvnHz0fjS3Q7uUqzJCfvjCn6nYQ@mail.gmail.com>
+ <5298F40C.2050300@python.org>
+Message-ID: <1385758229.2336.48.camel@fsol>
+
+On ven., 2013-11-29 at 21:07 +0100, Christian Heimes wrote:
+> Am 29.11.2013 21:05, schrieb Guido van Rossum:
+> > Here's another idea. Ban him temporarily from the tracker and the 
+> > lists(*) and tell him that to be unbanned he has to talk to me, and
+> > to me only. I will then negotiate a cool-off period and posting
+> > guidelines with him. If he violate those he will automatically be
+> > banned permanently (or at least for a year).
+> 
+> Thanks a lot for your mediating role. :)
+> 
+> > (*) Which lists? I'd say python-dev and python-idea -- are there
+> > any other lists where he hangs out? Or perhaps all lists on mail
+> > python.org <http://python.org> just so he won't take his complaints
+> > to other lists.
+> 
+> python-legal and python-infrastructure, too.
+
++1 from me. This sounds like a good solution (except for giving you more
+work, Guido :-)).
+
+Regards
+
+Antoine.
+
+
+
+From nad at acm.org  Fri Nov 29 22:16:32 2013
+From: nad at acm.org (Ned Deily)
+Date: Fri, 29 Nov 2013 13:16:32 -0800
+Subject: [python-committers] Anatoly has been warned about his behaviour
+	potentially leading to his loss of tracker privileges
+In-Reply-To: <CAP7+vJ+vs+MxsYS8+JqDwWJWCpjH4ZtMdqqqc1=XDZrO8tqyKw@mail.gmail.com>
+References: <CAP1=2W6nO3XJ6dH09q3jaD41T1ZSJ6sshp6zCnGHSqNMCUafVA@mail.gmail.com>
+ <CAF-Rda_Fs8pwuhWkh5HEQH=nGbn6J83ujv+vZ1=S82ZW9=zhxA@mail.gmail.com>
+ <CAP7+vJL6zuAD7MRP1cAfMo_AEhBU2AtVbrB-ynwVJK171uSreA@mail.gmail.com>
+ <CAExdVNk9U348dQR6cXb=G81CXaaBLZMvOkHHTGy_7PMDPLNLxw@mail.gmail.com>
+ <l7an4r$lhe$2@ger.gmane.org>
+ <CAP7+vJJt=eiwXveue-S5VXKr_0DZ7PfE=rDL0SYOzepK8-dx6A@mail.gmail.com>
+ <CAP1=2W5AAQVCWWgYbL7RFrC8+w=LXCins8Cc7piTb7O4dgO7bA@mail.gmail.com>
+ <CAP7+vJ+vs+MxsYS8+JqDwWJWCpjH4ZtMdqqqc1=XDZrO8tqyKw@mail.gmail.com>
+Message-ID: <D22A4191-6CFB-409C-B0DB-EEAB40F625FB@acm.org>
+
+
+On Nov 29, 2013, at 12:12 , Guido van Rossum <guido at python.org> wrote:
+
+> The question is, how effective will the alternative solution (banning him) be? I worry that it's just going to make things worse.
+
+I think that is a legitimate concern and likely outcome.
+
+> The key thing to understand here is that you can't win an argument with Anatoly. You can only avoid *getting* into one.
+
+Right.  We can't change other people's behavior.  We can at best encourage change.  In this case, I'm doubtful that banning would serve as an encouragement.  I understand the many of us get annoyed and frustrated by his comments and the multiple re-opening of the tracker issue thing the other day was certainly uncalled-for behavior on his part.  But it was likely fueled in part by people's reaction to his comments.  I think the more important issue here is not his behavior but our behavior in how we react to behavior like this.  *That* is something we can reasonably try to change.  Why is it that we find him so annoying, enough to advocate fairly drastic measures like banning?  There have been and will be others who behave similarly.  I don't propose to try to answer that question: it's one that each of us will have our own answer to.
+
+But taking the active step of banning could become additional fuel.  Since he has repeatedly demonstrated a willingness to ignore the advice and admonitions of others in our communities, it seems to me that a quite reasonable response is to, in turn, ignore him and just not engage with him.   Comparing his behavior to some of the recent, on-going cases of wildly inappropriate behavior on python-list (not involving Anatoly), I think it would be hard to justify to the world banning Anatoly for his relatively minor annoyances when it took so long to do something about one help vampire whose behavior and the community's reaction severely damaged its atmosphere and really did scare new people away.  (Yes, there are other important differences but this is about perceptions.)
+
+> I guess I haven't managed to teach you all well enough how to do this. Honestly it's not easy. :-(
+
+It's not but it is an important skill.
+
+> When I see this kind of thing happen to people who have already contributed positively but haven't been around long enough to recognize specific trolls I usually send them an off-line message suggesting to ignore the troll. This happens a few times a year, and it's not just Anatoly.
+
+Sound like exactly the right thing to do.
+
+--
+  Ned Deily
+  nad at acm.org -- []
+
+
+
+From guido at python.org  Fri Nov 29 22:37:08 2013
+From: guido at python.org (Guido van Rossum)
+Date: Fri, 29 Nov 2013 13:37:08 -0800
+Subject: [python-committers] Anatoly has been warned about his behaviour
+ potentially leading to his loss of tracker privileges
+In-Reply-To: <D22A4191-6CFB-409C-B0DB-EEAB40F625FB@acm.org>
+References: <CAP1=2W6nO3XJ6dH09q3jaD41T1ZSJ6sshp6zCnGHSqNMCUafVA@mail.gmail.com>
+ <CAF-Rda_Fs8pwuhWkh5HEQH=nGbn6J83ujv+vZ1=S82ZW9=zhxA@mail.gmail.com>
+ <CAP7+vJL6zuAD7MRP1cAfMo_AEhBU2AtVbrB-ynwVJK171uSreA@mail.gmail.com>
+ <CAExdVNk9U348dQR6cXb=G81CXaaBLZMvOkHHTGy_7PMDPLNLxw@mail.gmail.com>
+ <l7an4r$lhe$2@ger.gmane.org>
+ <CAP7+vJJt=eiwXveue-S5VXKr_0DZ7PfE=rDL0SYOzepK8-dx6A@mail.gmail.com>
+ <CAP1=2W5AAQVCWWgYbL7RFrC8+w=LXCins8Cc7piTb7O4dgO7bA@mail.gmail.com>
+ <CAP7+vJ+vs+MxsYS8+JqDwWJWCpjH4ZtMdqqqc1=XDZrO8tqyKw@mail.gmail.com>
+ <D22A4191-6CFB-409C-B0DB-EEAB40F625FB@acm.org>
+Message-ID: <CAP7+vJ+xnH_MhcYaEA8gcg0Fet3iiCUU-pyoz=n7XPrD0Zm=xA@mail.gmail.com>
+
+On Fri, Nov 29, 2013 at 1:16 PM, Ned Deily <nad at acm.org> wrote:
+[bunch of stuff I agree with :-)]
+
+> I think it would be hard to justify to the world banning Anatoly for his
+> relatively minor annoyances when it took so long to do something about one
+> help vampire whose behavior and the community's reaction severely damaged
+> its atmosphere and really did scare new people away.
+>
+
+This led me to look up "help vampire" which led me to a wiki on the topic
+of community management. Here's a sample link:
+http://communitymgt.wikia.com/wiki/RTFM
+
+-- 
+--Guido van Rossum (python.org/~guido)
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20131129/6189d6eb/attachment.html>
+
+From antoine at python.org  Fri Nov 29 22:51:16 2013
+From: antoine at python.org (Antoine Pitrou)
+Date: Fri, 29 Nov 2013 22:51:16 +0100
+Subject: [python-committers] Anatoly has been warned about his behaviour
+ potentially leading to his loss of tracker privileges
+In-Reply-To: <D22A4191-6CFB-409C-B0DB-EEAB40F625FB@acm.org>
+References: <CAP1=2W6nO3XJ6dH09q3jaD41T1ZSJ6sshp6zCnGHSqNMCUafVA@mail.gmail.com>
+ <CAF-Rda_Fs8pwuhWkh5HEQH=nGbn6J83ujv+vZ1=S82ZW9=zhxA@mail.gmail.com>
+ <CAP7+vJL6zuAD7MRP1cAfMo_AEhBU2AtVbrB-ynwVJK171uSreA@mail.gmail.com>
+ <CAExdVNk9U348dQR6cXb=G81CXaaBLZMvOkHHTGy_7PMDPLNLxw@mail.gmail.com>
+ <l7an4r$lhe$2@ger.gmane.org>
+ <CAP7+vJJt=eiwXveue-S5VXKr_0DZ7PfE=rDL0SYOzepK8-dx6A@mail.gmail.com>
+ <CAP1=2W5AAQVCWWgYbL7RFrC8+w=LXCins8Cc7piTb7O4dgO7bA@mail.gmail.com>
+ <CAP7+vJ+vs+MxsYS8+JqDwWJWCpjH4ZtMdqqqc1=XDZrO8tqyKw@mail.gmail.com>
+ <D22A4191-6CFB-409C-B0DB-EEAB40F625FB@acm.org>
+Message-ID: <1385761876.2336.57.camel@fsol>
+
+On ven., 2013-11-29 at 13:16 -0800, Ned Deily wrote:
+> Right.  We can't change other people's behavior.  We can at best
+> encourage change.  In this case, I'm doubtful that banning would serve
+> as an encouragement.
+
+Personally, I don't see it as an encouragement, rather a solution.
+The "temporary" part is in case he actually wants to start behaving
+better, but I'm not holding my breath.
+
+You can't fix people, but you can prevent them from actually being
+harmful.
+
+> Why is it that we find him so annoying, enough to advocate fairly
+> drastic measures like banning?  There have been and will be others who
+> behave similarly.
+
+I've only been here since 2006 or so, but I can't remember someone
+behaving like that on such a frequent and long-lived basis. He does
+stand out.
+
+> Comparing his behavior to some of the recent, on-going cases of wildly
+> inappropriate behavior on python-list (not involving Anatoly),
+
+If python-list is a troll magnet, that's a pity, but how is that
+relevant to the *development community*?
+
+Have you noticed that many of us hardly ever participate in
+python-list? 
+I personally hate reading python-list because so much of it is misguided
+wishful-thinking people trying to help and reason trolls, and making
+python-list a frankly annoying place :-(
+
+Regards
+
+Antoine.
+
+
+
+From ethan at stoneleaf.us  Fri Nov 29 22:36:50 2013
+From: ethan at stoneleaf.us (Ethan Furman)
+Date: Fri, 29 Nov 2013 13:36:50 -0800
+Subject: [python-committers] Anatoly has been warned about his behaviour
+ potentially leading to his loss of tracker privileges
+In-Reply-To: <CAP7+vJJLYU3W3zi3nwaepT1cvnHz0fjS3Q7uUqzJCfvjCn6nYQ@mail.gmail.com>
+References: <CAP1=2W6nO3XJ6dH09q3jaD41T1ZSJ6sshp6zCnGHSqNMCUafVA@mail.gmail.com>
+ <CAF-Rda_Fs8pwuhWkh5HEQH=nGbn6J83ujv+vZ1=S82ZW9=zhxA@mail.gmail.com>
+ <CAP7+vJL6zuAD7MRP1cAfMo_AEhBU2AtVbrB-ynwVJK171uSreA@mail.gmail.com>
+ <CAExdVNk9U348dQR6cXb=G81CXaaBLZMvOkHHTGy_7PMDPLNLxw@mail.gmail.com>
+ <l7an4r$lhe$2@ger.gmane.org>
+ <CAP7+vJJt=eiwXveue-S5VXKr_0DZ7PfE=rDL0SYOzepK8-dx6A@mail.gmail.com>
+ <1385753486.2336.37.camel@fsol>
+ <CAP7+vJK7vtYqJki+swKUQtLd2BgY=X=MR2kMy8yM=ZHyJO3Akg@mail.gmail.com>
+ <1385755165.2336.47.camel@fsol>
+ <CAP7+vJJLYU3W3zi3nwaepT1cvnHz0fjS3Q7uUqzJCfvjCn6nYQ@mail.gmail.com>
+Message-ID: <529908F2.2020402@stoneleaf.us>
+
+On 11/29/2013 12:05 PM, Guido van Rossum wrote:
+> Here's another idea. Ban him temporarily from the tracker and the lists(*) and tell him that to be unbanned he has to
+> talk to me, and to me only. I will then negotiate a cool-off period and posting guidelines with him. If he violate those
+> he will automatically be banned permanently (or at least for a year).
+>
+> (*) Which lists? I'd say python-dev and python-idea -- are there any other lists where he hangs out? Or perhaps all
+> lists on mail python.org <http://python.org> just so he won't take his complaints to other lists.
+
++1 for the temp ban, then one year if he doesn't cool off.
+
++1 for all Python lists.
+
+Thanks, Guido.
+
+--
+~Ethan~
+
+From rdmurray at bitdance.com  Fri Nov 29 23:17:18 2013
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Fri, 29 Nov 2013 17:17:18 -0500
+Subject: [python-committers] Anatoly has been warned about his behaviour
+	potentially leading to his loss of tracker privileges
+In-Reply-To: <D22A4191-6CFB-409C-B0DB-EEAB40F625FB@acm.org>
+References: <CAP1=2W6nO3XJ6dH09q3jaD41T1ZSJ6sshp6zCnGHSqNMCUafVA@mail.gmail.com>
+ <CAF-Rda_Fs8pwuhWkh5HEQH=nGbn6J83ujv+vZ1=S82ZW9=zhxA@mail.gmail.com>
+ <CAP7+vJL6zuAD7MRP1cAfMo_AEhBU2AtVbrB-ynwVJK171uSreA@mail.gmail.com>
+ <CAExdVNk9U348dQR6cXb=G81CXaaBLZMvOkHHTGy_7PMDPLNLxw@mail.gmail.com>
+ <l7an4r$lhe$2@ger.gmane.org>
+ <CAP7+vJJt=eiwXveue-S5VXKr_0DZ7PfE=rDL0SYOzepK8-dx6A@mail.gmail.com>
+ <CAP1=2W5AAQVCWWgYbL7RFrC8+w=LXCins8Cc7piTb7O4dgO7bA@mail.gmail.com>
+ <CAP7+vJ+vs+MxsYS8+JqDwWJWCpjH4ZtMdqqqc1=XDZrO8tqyKw@mail.gmail.com>
+ <D22A4191-6CFB-409C-B0DB-EEAB40F625FB@acm.org>
+Message-ID: <20131129221718.C263F250030@webabinitio.net>
+
+On Fri, 29 Nov 2013 13:16:32 -0800, Ned Deily <nad at acm.org> wrote:
+> 
+> On Nov 29, 2013, at 12:12 , Guido van Rossum <guido at python.org> wrote:
+> 
+> > The question is, how effective will the alternative solution
+> > (banning him) be? I worry that it's just going to make things worse.
+> 
+> I think that is a legitimate concern and likely outcome.
+> 
+> > The key thing to understand here is that you can't win an argument
+> > with Anatoly. You can only avoid *getting* into one.
+> 
+> Right.  We can't change other people's behavior.  We can at best
+> encourage change.  In this case, I'm doubtful that banning would serve
+> as an encouragement.  I understand the many of us get annoyed and
+> frustrated by his comments and the multiple re-opening of the tracker
+> issue thing the other day was certainly uncalled-for behavior on his
+> part.  But it was likely fueled in part by people's reaction to his
+
+Since his multiple re-openings really are a trigger for us, one possible
+mitigation (*not* solution) would be to set up a special tracker account
+type just for Anatoly that does not have authorization to edit any
+tracker fields once the issue is created.
+
+This is a half-joking suggestion, but only half.
+
+> comments.  I think the more important issue here is not his behavior
+> but our behavior in how we react to behavior like this.  *That* is
+> something we can reasonably try to change.  Why is it that we find him
+> so annoying, enough to advocate fairly drastic measures like banning?
+
+He does not evidence any respect for the community, and so we not only
+get defensive, we want to attack back.
+
+> There have been and will be others who behave similarly.  I don't
+> propose to try to answer that question: it's one that each of us will
+> have our own answer to.
+
+I think that if he is not banned it is important to call him out on
+his actions *politely* when his tone is insulting instead of polite, to
+indicate to the rest of the community that we value a polite environment.
+Other people have changed their behavior when we have done this.
+Anatoly has not.  But the message to the rest of the community makes it
+worth doing even when Anatoly himself doesn't change.
+
+However...ignoring him can be tough.  Engaging his *valid* points without
+letting emotion color the interaction is tougher.  Calling him out on
+his bad behavior without letting the emotion in is the toughest.
+
+So yeah, he's a problem no matter which way you slice it.  As Ned
+says maybe doing our best to set a good example is the best course.
+
+I'm not against banning him myself, but I'm not particularly for it,
+either.  I don't know *what* the best course is here.
+
+--David
+
+PS: Maybe we could set up some mailing list software that, every time
+Anatoly starts a new thread, and periodically during it, it posts
+an "Anatoly FAQ"? 
+
+Yes, that one *is* 100% a joke.  Or at least 99%.
+
+From ethan at stoneleaf.us  Fri Nov 29 22:43:46 2013
+From: ethan at stoneleaf.us (Ethan Furman)
+Date: Fri, 29 Nov 2013 13:43:46 -0800
+Subject: [python-committers] Anatoly has been warned about his behaviour
+ potentially leading to his loss of tracker privileges
+In-Reply-To: <5298DCBC.70003@python.org>
+References: <CAP1=2W6nO3XJ6dH09q3jaD41T1ZSJ6sshp6zCnGHSqNMCUafVA@mail.gmail.com>
+ <CAF-Rda_Fs8pwuhWkh5HEQH=nGbn6J83ujv+vZ1=S82ZW9=zhxA@mail.gmail.com>
+ <CAP7+vJL6zuAD7MRP1cAfMo_AEhBU2AtVbrB-ynwVJK171uSreA@mail.gmail.com>
+ <5298DCBC.70003@python.org>
+Message-ID: <52990A92.9040907@stoneleaf.us>
+
+On 11/29/2013 10:28 AM, Christian Heimes wrote:
+>
+> Perhaps it's time to try a more technical approach and restrict
+> modifications of status, resolution, version and priority to core devs
+> or CLA signers. That could stop his rampage without further discussion.
+
++1
+
+--
+~Ethan~
+
+From mal at egenix.com  Fri Nov 29 23:38:04 2013
+From: mal at egenix.com (M.-A. Lemburg)
+Date: Fri, 29 Nov 2013 23:38:04 +0100
+Subject: [python-committers] Anatoly has been warned about his behaviour
+ potentially leading to his loss of tracker privileges
+In-Reply-To: <CAP7+vJ+xnH_MhcYaEA8gcg0Fet3iiCUU-pyoz=n7XPrD0Zm=xA@mail.gmail.com>
+References: <CAP1=2W6nO3XJ6dH09q3jaD41T1ZSJ6sshp6zCnGHSqNMCUafVA@mail.gmail.com>	<CAF-Rda_Fs8pwuhWkh5HEQH=nGbn6J83ujv+vZ1=S82ZW9=zhxA@mail.gmail.com>	<CAP7+vJL6zuAD7MRP1cAfMo_AEhBU2AtVbrB-ynwVJK171uSreA@mail.gmail.com>	<CAExdVNk9U348dQR6cXb=G81CXaaBLZMvOkHHTGy_7PMDPLNLxw@mail.gmail.com>	<l7an4r$lhe$2@ger.gmane.org>	<CAP7+vJJt=eiwXveue-S5VXKr_0DZ7PfE=rDL0SYOzepK8-dx6A@mail.gmail.com>	<CAP1=2W5AAQVCWWgYbL7RFrC8+w=LXCins8Cc7piTb7O4dgO7bA@mail.gmail.com>	<CAP7+vJ+vs+MxsYS8+JqDwWJWCpjH4ZtMdqqqc1=XDZrO8tqyKw@mail.gmail.com>	<D22A4191-6CFB-409C-B0DB-EEAB40F625FB@acm.org>
+ <CAP7+vJ+xnH_MhcYaEA8gcg0Fet3iiCUU-pyoz=n7XPrD0Zm=xA@mail.gmail.com>
+Message-ID: <5299174C.5000307@egenix.com>
+
+On 29.11.2013 22:37, Guido van Rossum wrote:
+> On Fri, Nov 29, 2013 at 1:16 PM, Ned Deily <nad at acm.org> wrote:
+> [bunch of stuff I agree with :-)]
+> 
+>> I think it would be hard to justify to the world banning Anatoly for his
+>> relatively minor annoyances when it took so long to do something about one
+>> help vampire whose behavior and the community's reaction severely damaged
+>> its atmosphere and really did scare new people away.
+>>
+> 
+> This led me to look up "help vampire" which led me to a wiki on the topic
+> of community management. Here's a sample link:
+> http://communitymgt.wikia.com/wiki/RTFM
+
+Nice one :-)
+
+http://lmgtfy.com/
+
+BTW: Rather than actually ban Anatoly from the various mailing lists,
+I think setting his moderation flag would be a better approach. He'd
+get a note that his emails are being held for moderation and the
+moderators could then screen the emails for possibly problems.
+
+This would likely mean more work for the moderators and thus we'd
+need more moderators. Should be a fixable, though.
+
+-- 
+Marc-Andre Lemburg
+eGenix.com
+
+Professional Python Services directly from the Source  (#1, Nov 29 2013)
+>>> Python Projects, Consulting and Support ...   http://www.egenix.com/
+>>> mxODBC.Zope/Plone.Database.Adapter ...       http://zope.egenix.com/
+>>> mxODBC, mxDateTime, mxTextTools ...        http://python.egenix.com/
+________________________________________________________________________
+
+::::: Try our mxODBC.Connect Python Database Interface for free ! ::::::
+
+   eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+    D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+           Registered at Amtsgericht Duesseldorf: HRB 46611
+               http://www.egenix.com/company/contact/
+
+From nad at acm.org  Fri Nov 29 23:41:22 2013
+From: nad at acm.org (Ned Deily)
+Date: Fri, 29 Nov 2013 14:41:22 -0800
+Subject: [python-committers] Anatoly has been warned about his behaviour
+	potentially leading to his loss of tracker privileges
+In-Reply-To: <1385761876.2336.57.camel@fsol>
+References: <CAP1=2W6nO3XJ6dH09q3jaD41T1ZSJ6sshp6zCnGHSqNMCUafVA@mail.gmail.com>
+ <CAF-Rda_Fs8pwuhWkh5HEQH=nGbn6J83ujv+vZ1=S82ZW9=zhxA@mail.gmail.com>
+ <CAP7+vJL6zuAD7MRP1cAfMo_AEhBU2AtVbrB-ynwVJK171uSreA@mail.gmail.com>
+ <CAExdVNk9U348dQR6cXb=G81CXaaBLZMvOkHHTGy_7PMDPLNLxw@mail.gmail.com>
+ <l7an4r$lhe$2@ger.gmane.org>
+ <CAP7+vJJt=eiwXveue-S5VXKr_0DZ7PfE=rDL0SYOzepK8-dx6A@mail.gmail.com>
+ <CAP1=2W5AAQVCWWgYbL7RFrC8+w=LXCins8Cc7piTb7O4dgO7bA@mail.gmail.com>
+ <CAP7+vJ+vs+MxsYS8+JqDwWJWCpjH4ZtMdqqqc1=XDZrO8tqyKw@mail.gmail.com>
+ <D22A4191-6CFB-409C-B0DB-EEAB40F625FB@acm.org>
+ <1385761876.2336.57.camel@fsol>
+Message-ID: <14E6220E-B82A-449F-93A4-A7F4485F291C@acm.org>
+
+
+On Nov 29, 2013, at 13:51 , Antoine Pitrou <antoine at python.org> wrote:
+
+> On ven., 2013-11-29 at 13:16 -0800, Ned Deily wrote:
+>> Right.  We can't change other people's behavior.  We can at best
+>> encourage change.  In this case, I'm doubtful that banning would serve
+>> as an encouragement.
+> 
+> Personally, I don't see it as an encouragement, rather a solution.
+> The "temporary" part is in case he actually wants to start behaving
+> better, but I'm not holding my breath.
+> 
+> You can't fix people, but you can prevent them from actually being
+> harmful.
+
+The thing is it's a technical solution to a social problem.  I don't the former tend to be all that effective for the latter.  And I think reasonable people can disagree about the degree of harmfulness.  I personally don't see his behavior, in and of itself, as all that harmful.  I *do* see the negative reaction it provokes as being harmful.  Clearly, it bothers people and that is disruptive.  But it would be a whole lot less disruptive if we didn't let it be, e.g. by just letting it go and ignoring it.
+
+I'm very sympathetic to Alex's argument earlier and the link he provided to Karl Fogel's book.  I think the case study provided there from the svn project is not all that comparable to the situation here.  It's not the case that the mailing list(s) here is/are being swamped by one disruptive person.  If we all just agreed to ignore him and try not to feel compelled to respond, I believe we would soon find there is no longer an issue and we wouldn't need to be discussing potentially damaging solutions like formally banning.
+
+>> Why is it that we find him so annoying, enough to advocate fairly
+>> drastic measures like banning?  There have been and will be others who
+>> behave similarly.
+> I've only been here since 2006 or so, but I can't remember someone
+> behaving like that on such a frequent and long-lived basis. He does
+> stand out.
+
+I think he stands out in part because we've spotlighted him.
+
+>> Comparing his behavior to some of the recent, on-going cases of wildly
+>> inappropriate behavior on python-list (not involving Anatoly),
+> 
+> If python-list is a troll magnet, that's a pity, but how is that
+> relevant to the *development community*?
+
+It's relevant because python-list is yet another forum hosted by the PSF via python.org mailing lists and is viewed as part of the broader Python community as a whole.  If we propose to ban someone from python-list, along with other lists, that raises the question of what standards are being used.  There is, in fact, a published suggested CoC for python-list (http://www.python.org/community/lists/).  In the help vampire case, I think most reasonable people would agree that the CoC is reasonable, was clearly being violated, and that banning was a drastic, but ultimately, necessary step as people were not willing to just ignore the misbehavior.  If the same CoC were applied to python-dev (and python-ideas et al), I think many people would disagree that the behavior in this case violates a similar CoC seriously enough to warrant a ban.
+   
+> Have you noticed that many of us hardly ever participate in
+> python-list? 
+> I personally hate reading python-list because so much of it is misguided
+> wishful-thinking people trying to help and reason trolls, and making
+> python-list a frankly annoying place :-(
+
+It is a problem.  And choosing to not participate is a perfectly rational and legitimate response.  But it doesn't necessarily follow that banning someone is a better response.  Trying to encourage different behavior can help if someone wants to take on that generally thankless effort.  I applaud people like the other Ned who has lately been trying to do so there with some success.  But it's not for everyone.
+
+--
+  Ned Deily
+  nad at acm.org -- []
+
+
+
+From tjreedy at udel.edu  Fri Nov 29 23:49:46 2013
+From: tjreedy at udel.edu (Terry Reedy)
+Date: Fri, 29 Nov 2013 17:49:46 -0500
+Subject: [python-committers] Anatoly has been warned about his behaviour
+ potentially leading to his loss of tracker privileges
+In-Reply-To: <CAP1=2W6nO3XJ6dH09q3jaD41T1ZSJ6sshp6zCnGHSqNMCUafVA@mail.gmail.com>
+References: <CAP1=2W6nO3XJ6dH09q3jaD41T1ZSJ6sshp6zCnGHSqNMCUafVA@mail.gmail.com>
+Message-ID: <52991A0A.8000602@udel.edu>
+
+On 11/29/2013 10:04 AM, Brett Cannon wrote:
+> I just want to make sure others know that Georg has warned Anatoly that
+> if he continues to re-open a specific issue he will lose his tracker
+> privileges (http://bugs.python.org/issue19822#msg204696). I stand behind
+> his warning and will support anyone who enforces it. I would suggest
+> that if he does this to *any* other issue that he be warned that
+> flipping *any *fields after a core dev has made a decision and without
+> discussing it first will also lead to his loss of privileges.
+
+He did this a couple of months ago on another issue and I told him 
+directly to stop. Enough warnings.
+
+> I would also like to point out his attitude is still horrible at times;
+> being accused of spreading "ill FUD policies in favor of creating [a]
+> collaborative environment" is not exactly
+> polite (http://bugs.python.org/issue19826#msg204693).
+
+
+From eliben at gmail.com  Fri Nov 29 23:57:32 2013
+From: eliben at gmail.com (Eli Bendersky)
+Date: Fri, 29 Nov 2013 14:57:32 -0800
+Subject: [python-committers] Anatoly has been warned about his behaviour
+ potentially leading to his loss of tracker privileges
+In-Reply-To: <CAP7+vJJLYU3W3zi3nwaepT1cvnHz0fjS3Q7uUqzJCfvjCn6nYQ@mail.gmail.com>
+References: <CAP1=2W6nO3XJ6dH09q3jaD41T1ZSJ6sshp6zCnGHSqNMCUafVA@mail.gmail.com>
+ <CAF-Rda_Fs8pwuhWkh5HEQH=nGbn6J83ujv+vZ1=S82ZW9=zhxA@mail.gmail.com>
+ <CAP7+vJL6zuAD7MRP1cAfMo_AEhBU2AtVbrB-ynwVJK171uSreA@mail.gmail.com>
+ <CAExdVNk9U348dQR6cXb=G81CXaaBLZMvOkHHTGy_7PMDPLNLxw@mail.gmail.com>
+ <l7an4r$lhe$2@ger.gmane.org>
+ <CAP7+vJJt=eiwXveue-S5VXKr_0DZ7PfE=rDL0SYOzepK8-dx6A@mail.gmail.com>
+ <1385753486.2336.37.camel@fsol>
+ <CAP7+vJK7vtYqJki+swKUQtLd2BgY=X=MR2kMy8yM=ZHyJO3Akg@mail.gmail.com>
+ <1385755165.2336.47.camel@fsol>
+ <CAP7+vJJLYU3W3zi3nwaepT1cvnHz0fjS3Q7uUqzJCfvjCn6nYQ@mail.gmail.com>
+Message-ID: <CAF-Rda8beL+iksu_mbcWLPWU-m3evmb_1ArfwFtCdfvcpvdiSg@mail.gmail.com>
+
+On Fri, Nov 29, 2013 at 12:05 PM, Guido van Rossum <guido at python.org> wrote:
+
+> Here's another idea. Ban him temporarily from the tracker and the lists(*)
+> and tell him that to be unbanned he has to talk to me, and to me only. I
+> will then negotiate a cool-off period and posting guidelines with him. If
+> he violate those he will automatically be banned permanently (or at least
+> for a year).
+>
+> (*) Which lists? I'd say python-dev and python-idea -- are there any other
+> lists where he hangs out? Or perhaps all lists on mail python.org just so
+> he won't take his complaints to other lists.
+>
+>
+This idea sounds good to me. If you don't mind the extra work, Guido, +1
+
+Eli
+
+
+
+
+>
+> On Fri, Nov 29, 2013 at 11:59 AM, Antoine Pitrou <antoine at python.org>wrote:
+>
+>> On ven., 2013-11-29 at 11:40 -0800, Guido van Rossum wrote:
+>> >
+>> > If you can get a majority of the committers to vote to ban him we
+>> > should do it -- but that's a high bar (many committers probably don't
+>> > care enough to vote).
+>>
+>> Well, many are probably inactive enough to not even notice this
+>> discussion :-) I'm not sure about the authoritative source, but the SSH
+>> keys repository shows 178 people with access rights. The majority of
+>> them isn't probably active nowadays.
+>>
+>> Then I don't know where his behaviour is most problematic: on the
+>> tracker or the MLs?
+>> If we only ban him from the tracker, I'm afraid he'll start making
+>> "here's an issue I can't post on the tracker because I'm banned" posts
+>> on the mailing-list...
+>>
+>> Perhaps a temporary ban? There does need to be a signal sent to him.
+>> (apparently, he stopped reopening the issue when Georg told him
+>> reopening the issue would lead to loss of posting rights, which implies
+>> he is sensitive to this kind of signals)
+>>
+>> Regards
+>>
+>> Antoine.
+>>
+>>
+>> _______________________________________________
+>> python-committers mailing list
+>> python-committers at python.org
+>> https://mail.python.org/mailman/listinfo/python-committers
+>>
+>
+>
+>
+> --
+> --Guido van Rossum (python.org/~guido)
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+>
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20131129/f8bb2be4/attachment.html>
+
+From eliben at gmail.com  Fri Nov 29 23:59:20 2013
+From: eliben at gmail.com (Eli Bendersky)
+Date: Fri, 29 Nov 2013 14:59:20 -0800
+Subject: [python-committers] Anatoly has been warned about his behaviour
+ potentially leading to his loss of tracker privileges
+In-Reply-To: <CAF-Rda8beL+iksu_mbcWLPWU-m3evmb_1ArfwFtCdfvcpvdiSg@mail.gmail.com>
+References: <CAP1=2W6nO3XJ6dH09q3jaD41T1ZSJ6sshp6zCnGHSqNMCUafVA@mail.gmail.com>
+ <CAF-Rda_Fs8pwuhWkh5HEQH=nGbn6J83ujv+vZ1=S82ZW9=zhxA@mail.gmail.com>
+ <CAP7+vJL6zuAD7MRP1cAfMo_AEhBU2AtVbrB-ynwVJK171uSreA@mail.gmail.com>
+ <CAExdVNk9U348dQR6cXb=G81CXaaBLZMvOkHHTGy_7PMDPLNLxw@mail.gmail.com>
+ <l7an4r$lhe$2@ger.gmane.org>
+ <CAP7+vJJt=eiwXveue-S5VXKr_0DZ7PfE=rDL0SYOzepK8-dx6A@mail.gmail.com>
+ <1385753486.2336.37.camel@fsol>
+ <CAP7+vJK7vtYqJki+swKUQtLd2BgY=X=MR2kMy8yM=ZHyJO3Akg@mail.gmail.com>
+ <1385755165.2336.47.camel@fsol>
+ <CAP7+vJJLYU3W3zi3nwaepT1cvnHz0fjS3Q7uUqzJCfvjCn6nYQ@mail.gmail.com>
+ <CAF-Rda8beL+iksu_mbcWLPWU-m3evmb_1ArfwFtCdfvcpvdiSg@mail.gmail.com>
+Message-ID: <CAF-Rda_1w9WdcnaHp+wjZ=G0ijVqRo29HC4yA_kXE4DeYDhtmw@mail.gmail.com>
+
+On Fri, Nov 29, 2013 at 2:57 PM, Eli Bendersky <eliben at gmail.com> wrote:
+
+>
+>
+>
+> On Fri, Nov 29, 2013 at 12:05 PM, Guido van Rossum <guido at python.org>wrote:
+>
+>> Here's another idea. Ban him temporarily from the tracker and the
+>> lists(*) and tell him that to be unbanned he has to talk to me, and to me
+>> only. I will then negotiate a cool-off period and posting guidelines with
+>> him. If he violate those he will automatically be banned permanently (or at
+>> least for a year).
+>>
+>> (*) Which lists? I'd say python-dev and python-idea -- are there any
+>> other lists where he hangs out? Or perhaps all lists on mail python.orgjust so he won't take his complaints to other lists.
+>>
+>>
+> This idea sounds good to me. If you don't mind the extra work, Guido, +1
+>
+
+Oh, I forgot to add that if Anatoly's contacted off-lists about this and
+the conditions (per Guido's outline) are clearly explained, I don't see how
+this can become a PR disaster. FWIW, python-committers is a list with
+publicly visible archives - it's very easy to see this whole discussion and
+how much though the core devs have put into this (including previous
+discussions mentioning Anatoly).
+
+Eli
+
+
+
+
+
+
+
+
+
+>
+>> On Fri, Nov 29, 2013 at 11:59 AM, Antoine Pitrou <antoine at python.org>wrote:
+>>
+>>> On ven., 2013-11-29 at 11:40 -0800, Guido van Rossum wrote:
+>>> >
+>>> > If you can get a majority of the committers to vote to ban him we
+>>> > should do it -- but that's a high bar (many committers probably don't
+>>> > care enough to vote).
+>>>
+>>> Well, many are probably inactive enough to not even notice this
+>>> discussion :-) I'm not sure about the authoritative source, but the SSH
+>>> keys repository shows 178 people with access rights. The majority of
+>>> them isn't probably active nowadays.
+>>>
+>>> Then I don't know where his behaviour is most problematic: on the
+>>> tracker or the MLs?
+>>> If we only ban him from the tracker, I'm afraid he'll start making
+>>> "here's an issue I can't post on the tracker because I'm banned" posts
+>>> on the mailing-list...
+>>>
+>>> Perhaps a temporary ban? There does need to be a signal sent to him.
+>>> (apparently, he stopped reopening the issue when Georg told him
+>>> reopening the issue would lead to loss of posting rights, which implies
+>>> he is sensitive to this kind of signals)
+>>>
+>>> Regards
+>>>
+>>> Antoine.
+>>>
+>>>
+>>> _______________________________________________
+>>> python-committers mailing list
+>>> python-committers at python.org
+>>> https://mail.python.org/mailman/listinfo/python-committers
+>>>
+>>
+>>
+>>
+>> --
+>> --Guido van Rossum (python.org/~guido)
+>>
+>> _______________________________________________
+>> python-committers mailing list
+>> python-committers at python.org
+>> https://mail.python.org/mailman/listinfo/python-committers
+>>
+>>
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20131129/c23daa0c/attachment.html>
+
+From tjreedy at udel.edu  Sat Nov 30 00:11:42 2013
+From: tjreedy at udel.edu (Terry Reedy)
+Date: Fri, 29 Nov 2013 18:11:42 -0500
+Subject: [python-committers] Anatoly has been warned about his behaviour
+ potentially leading to his loss of tracker privileges
+In-Reply-To: <1385755165.2336.47.camel@fsol>
+References: <CAP1=2W6nO3XJ6dH09q3jaD41T1ZSJ6sshp6zCnGHSqNMCUafVA@mail.gmail.com>
+ <CAF-Rda_Fs8pwuhWkh5HEQH=nGbn6J83ujv+vZ1=S82ZW9=zhxA@mail.gmail.com>
+ <CAP7+vJL6zuAD7MRP1cAfMo_AEhBU2AtVbrB-ynwVJK171uSreA@mail.gmail.com>
+ <CAExdVNk9U348dQR6cXb=G81CXaaBLZMvOkHHTGy_7PMDPLNLxw@mail.gmail.com>
+ <l7an4r$lhe$2@ger.gmane.org>
+ <CAP7+vJJt=eiwXveue-S5VXKr_0DZ7PfE=rDL0SYOzepK8-dx6A@mail.gmail.com>
+ <1385753486.2336.37.camel@fsol>
+ <CAP7+vJK7vtYqJki+swKUQtLd2BgY=X=MR2kMy8yM=ZHyJO3Akg@mail.gmail.com>
+ <1385755165.2336.47.camel@fsol>
+Message-ID: <52991F2E.3050506@udel.edu>
+
+On 11/29/2013 2:59 PM, Antoine Pitrou wrote:
+
+> Then I don't know where his behaviour is most problematic: on the
+> tracker or the MLs?
+> If we only ban him from the tracker, I'm afraid he'll start making
+> "here's an issue I can't post on the tracker because I'm banned" posts
+> on the mailing-list...
+>
+> Perhaps a temporary ban? There does need to be a signal sent to him.
+> (apparently, he stopped reopening the issue when Georg told him
+
+I think an appropriate first signal would be to make it so he cannot 
+change headers. Either a general rule (committer or cla signer) or 
+specific to him. "You do not have permission to perform this action." To 
+me, re-opening issues is about the most directly obnoxious thing he 
+does. It would remove what seems to be an irresistible temtation for him 
+and in that sense, would be doing him a favor.
+
+> reopening the issue would lead to loss of posting rights, which implies
+> he is sensitive to this kind of signals)
+
+Terry
+
+
+From barry at python.org  Sat Nov 30 01:14:29 2013
+From: barry at python.org (Barry Warsaw)
+Date: Fri, 29 Nov 2013 19:14:29 -0500
+Subject: [python-committers] Anatoly has been warned about his behaviour
+ potentially leading to his loss of tracker privileges
+In-Reply-To: <5299174C.5000307@egenix.com>
+References: <CAP1=2W6nO3XJ6dH09q3jaD41T1ZSJ6sshp6zCnGHSqNMCUafVA@mail.gmail.com>
+ <CAF-Rda_Fs8pwuhWkh5HEQH=nGbn6J83ujv+vZ1=S82ZW9=zhxA@mail.gmail.com>
+ <CAP7+vJL6zuAD7MRP1cAfMo_AEhBU2AtVbrB-ynwVJK171uSreA@mail.gmail.com>
+ <CAExdVNk9U348dQR6cXb=G81CXaaBLZMvOkHHTGy_7PMDPLNLxw@mail.gmail.com>
+ <l7an4r$lhe$2@ger.gmane.org>
+ <CAP7+vJJt=eiwXveue-S5VXKr_0DZ7PfE=rDL0SYOzepK8-dx6A@mail.gmail.com>
+ <CAP1=2W5AAQVCWWgYbL7RFrC8+w=LXCins8Cc7piTb7O4dgO7bA@mail.gmail.com>
+ <CAP7+vJ+vs+MxsYS8+JqDwWJWCpjH4ZtMdqqqc1=XDZrO8tqyKw@mail.gmail.com>
+ <D22A4191-6CFB-409C-B0DB-EEAB40F625FB@acm.org>
+ <CAP7+vJ+xnH_MhcYaEA8gcg0Fet3iiCUU-pyoz=n7XPrD0Zm=xA@mail.gmail.com>
+ <5299174C.5000307@egenix.com>
+Message-ID: <20131129191429.170f2fb8@anarchist>
+
+On Nov 29, 2013, at 11:38 PM, M.-A. Lemburg wrote:
+
+>BTW: Rather than actually ban Anatoly from the various mailing lists,
+>I think setting his moderation flag would be a better approach. He'd
+>get a note that his emails are being held for moderation and the
+>moderators could then screen the emails for possibly problems.
+
+Remember that new python-dev members automatically get their moderation flag
+turned on.  A moderator has to take an explicit action to unset a member's
+flag so that they can post to the list unhindered.  By default, members with a
+set moderation flag have their postings held for approval.
+
+A member's moderation flag can easily be turned back on if necessary, and the
+normal moderation procedure can be to accept, reject (with a message), discard
+(throw it away), or defer for later.  Python mailing lists are governed by the
+Code of Conduct, so if a member is violating that code, it seems like a
+measured, reasonable response would be to re-moderate their postings until
+their conduct complies again.
+
+The question of course is: who gets to decide?  So far, we've operated pretty
+well on rough consensus, and I think we could probably do the same here, with
+the python-dev moderators having ultimate say.   Other communities have
+democratically elected councils with set terms, to which such decisions can be
+referred.  Perhaps it's time for Python to have such a community council?
+
+>This would likely mean more work for the moderators and thus we'd
+>need more moderators. Should be a fixable, though.
+
+python-dev has 2 owners and 5 moderators, with varying degrees of active
+participation.  More help would surely be accepted.
+
+Cheers,
+-Barry
+
+From antoine at python.org  Sat Nov 30 01:17:28 2013
+From: antoine at python.org (Antoine Pitrou)
+Date: Sat, 30 Nov 2013 01:17:28 +0100
+Subject: [python-committers] Anatoly has been warned about his behaviour
+ potentially leading to his loss of tracker privileges
+In-Reply-To: <52991F2E.3050506@udel.edu>
+References: <CAP1=2W6nO3XJ6dH09q3jaD41T1ZSJ6sshp6zCnGHSqNMCUafVA@mail.gmail.com>
+ <CAF-Rda_Fs8pwuhWkh5HEQH=nGbn6J83ujv+vZ1=S82ZW9=zhxA@mail.gmail.com>
+ <CAP7+vJL6zuAD7MRP1cAfMo_AEhBU2AtVbrB-ynwVJK171uSreA@mail.gmail.com>
+ <CAExdVNk9U348dQR6cXb=G81CXaaBLZMvOkHHTGy_7PMDPLNLxw@mail.gmail.com>
+ <l7an4r$lhe$2@ger.gmane.org>
+ <CAP7+vJJt=eiwXveue-S5VXKr_0DZ7PfE=rDL0SYOzepK8-dx6A@mail.gmail.com>
+ <1385753486.2336.37.camel@fsol>
+ <CAP7+vJK7vtYqJki+swKUQtLd2BgY=X=MR2kMy8yM=ZHyJO3Akg@mail.gmail.com>
+ <1385755165.2336.47.camel@fsol> <52991F2E.3050506@udel.edu>
+Message-ID: <1385770648.2336.72.camel@fsol>
+
+On ven., 2013-11-29 at 18:11 -0500, Terry Reedy wrote:
+> On 11/29/2013 2:59 PM, Antoine Pitrou wrote:
+> 
+> > Then I don't know where his behaviour is most problematic: on the
+> > tracker or the MLs?
+> > If we only ban him from the tracker, I'm afraid he'll start making
+> > "here's an issue I can't post on the tracker because I'm banned" posts
+> > on the mailing-list...
+> >
+> > Perhaps a temporary ban? There does need to be a signal sent to him.
+> > (apparently, he stopped reopening the issue when Georg told him
+> 
+> I think an appropriate first signal would be to make it so he cannot 
+> change headers.
+
+I wasn't thinking only about the bug tracker, but also the MLs.
+
+Regards
+
+Antoine.
+
+
+
+From mal at egenix.com  Sat Nov 30 01:38:20 2013
+From: mal at egenix.com (M.-A. Lemburg)
+Date: Sat, 30 Nov 2013 01:38:20 +0100
+Subject: [python-committers] Anatoly has been warned about his behaviour
+ potentially leading to his loss of tracker privileges
+In-Reply-To: <20131129191429.170f2fb8@anarchist>
+References: <CAP1=2W6nO3XJ6dH09q3jaD41T1ZSJ6sshp6zCnGHSqNMCUafVA@mail.gmail.com>	<CAF-Rda_Fs8pwuhWkh5HEQH=nGbn6J83ujv+vZ1=S82ZW9=zhxA@mail.gmail.com>	<CAP7+vJL6zuAD7MRP1cAfMo_AEhBU2AtVbrB-ynwVJK171uSreA@mail.gmail.com>	<CAExdVNk9U348dQR6cXb=G81CXaaBLZMvOkHHTGy_7PMDPLNLxw@mail.gmail.com>	<l7an4r$lhe$2@ger.gmane.org>	<CAP7+vJJt=eiwXveue-S5VXKr_0DZ7PfE=rDL0SYOzepK8-dx6A@mail.gmail.com>	<CAP1=2W5AAQVCWWgYbL7RFrC8+w=LXCins8Cc7piTb7O4dgO7bA@mail.gmail.com>	<CAP7+vJ+vs+MxsYS8+JqDwWJWCpjH4ZtMdqqqc1=XDZrO8tqyKw@mail.gmail.com>	<D22A4191-6CFB-409C-B0DB-EEAB40F625FB@acm.org>	<CAP7+vJ+xnH_MhcYaEA8gcg0Fet3iiCUU-pyoz=n7XPrD0Zm=xA@mail.gmail.com>	<5299174C.5000307@egenix.com>
+ <20131129191429.170f2fb8@anarchist>
+Message-ID: <5299337C.9090906@egenix.com>
+
+On 30.11.2013 01:14, Barry Warsaw wrote:
+> On Nov 29, 2013, at 11:38 PM, M.-A. Lemburg wrote:
+> 
+>> BTW: Rather than actually ban Anatoly from the various mailing lists,
+>> I think setting his moderation flag would be a better approach. He'd
+>> get a note that his emails are being held for moderation and the
+>> moderators could then screen the emails for possibly problems.
+> 
+> Remember that new python-dev members automatically get their moderation flag
+> turned on.  A moderator has to take an explicit action to unset a member's
+> flag so that they can post to the list unhindered.  By default, members with a
+> set moderation flag have their postings held for approval.
+> 
+> A member's moderation flag can easily be turned back on if necessary, and the
+> normal moderation procedure can be to accept, reject (with a message), discard
+> (throw it away), or defer for later.  Python mailing lists are governed by the
+> Code of Conduct, so if a member is violating that code, it seems like a
+> measured, reasonable response would be to re-moderate their postings until
+> their conduct complies again.
+
+I don't think a CoC will help in this case (I'm not even sure which CoC
+you are referring to :-)).
+
+Anatoly is basically just being ignorant, not explicitly rude or
+offensive; or at least not to the level where any such code would
+trigger sanctions. Of course, ignorance makes people angry.
+
+In my experience the best option is to fight ignorance with ignorance
+(if you are lucky enough to be able to use that option).
+
+If a moderator rejects a message with say "Please rephrase in a more
+productive way." or "Your message is difficult to understand. Please
+send an updated version." this may result in an improvement
+without actually enforcing some kind of ban.
+
+> The question of course is: who gets to decide?  So far, we've operated pretty
+> well on rough consensus, and I think we could probably do the same here, with
+> the python-dev moderators having ultimate say.   Other communities have
+> democratically elected councils with set terms, to which such decisions can be
+> referred.  Perhaps it's time for Python to have such a community council?
+
+I'd wait with that until the ratio between subjects in need of
+intensive care and members needed for such a council reaches
+a value higher than 10 ;-)
+
+>> This would likely mean more work for the moderators and thus we'd
+>> need more moderators. Should be a fixable, though.
+> 
+> python-dev has 2 owners and 5 moderators, with varying degrees of active
+> participation.  More help would surely be accepted.
+
+Feel free to sign me up as moderator. More moderators means less
+work for everyone.
+
+Cheers,
+-- 
+Marc-Andre Lemburg
+eGenix.com
+
+Professional Python Services directly from the Source  (#1, Nov 30 2013)
+>>> Python Projects, Consulting and Support ...   http://www.egenix.com/
+>>> mxODBC.Zope/Plone.Database.Adapter ...       http://zope.egenix.com/
+>>> mxODBC, mxDateTime, mxTextTools ...        http://python.egenix.com/
+________________________________________________________________________
+
+::::: Try our mxODBC.Connect Python Database Interface for free ! ::::::
+
+   eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+    D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+           Registered at Amtsgericht Duesseldorf: HRB 46611
+               http://www.egenix.com/company/contact/
+
+From tjreedy at udel.edu  Sat Nov 30 02:01:16 2013
+From: tjreedy at udel.edu (Terry Reedy)
+Date: Fri, 29 Nov 2013 20:01:16 -0500
+Subject: [python-committers] Anatoly has been warned about his behaviour
+ potentially leading to his loss of tracker privileges
+In-Reply-To: <1385770648.2336.72.camel@fsol>
+References: <CAP1=2W6nO3XJ6dH09q3jaD41T1ZSJ6sshp6zCnGHSqNMCUafVA@mail.gmail.com>
+ <CAF-Rda_Fs8pwuhWkh5HEQH=nGbn6J83ujv+vZ1=S82ZW9=zhxA@mail.gmail.com>
+ <CAP7+vJL6zuAD7MRP1cAfMo_AEhBU2AtVbrB-ynwVJK171uSreA@mail.gmail.com>
+ <CAExdVNk9U348dQR6cXb=G81CXaaBLZMvOkHHTGy_7PMDPLNLxw@mail.gmail.com>
+ <l7an4r$lhe$2@ger.gmane.org>
+ <CAP7+vJJt=eiwXveue-S5VXKr_0DZ7PfE=rDL0SYOzepK8-dx6A@mail.gmail.com>
+ <1385753486.2336.37.camel@fsol>
+ <CAP7+vJK7vtYqJki+swKUQtLd2BgY=X=MR2kMy8yM=ZHyJO3Akg@mail.gmail.com>
+ <1385755165.2336.47.camel@fsol> <52991F2E.3050506@udel.edu>
+ <1385770648.2336.72.camel@fsol>
+Message-ID: <529938DC.9020600@udel.edu>
+
+On 11/29/2013 7:17 PM, Antoine Pitrou wrote:
+> On ven., 2013-11-29 at 18:11 -0500, Terry Reedy wrote:
+>> On 11/29/2013 2:59 PM, Antoine Pitrou wrote:
+>>
+>>> Then I don't know where his behaviour is most problematic: on the
+>>> tracker or the MLs?
+>>> If we only ban him from the tracker, I'm afraid he'll start making
+>>> "here's an issue I can't post on the tracker because I'm banned" posts
+>>> on the mailing-list.
+
+I would not be surprised if he did exactly that, which is why I (and a 
+couple of other people) are suggesting something less than a ban.
+
+>>> Perhaps a temporary ban? There does need to be a signal sent to him.
+>>> (apparently, he stopped reopening the issue when Georg told him
+
+He stopped reopening other issues before, but then there was this new 
+issue ... and it is reasonable to think there will be again as things 
+stand now.
+
+>> I think an appropriate first signal would be to make it so he cannot
+>> change headers.
+>
+> I wasn't thinking only about the bug tracker, but also the MLs.
+
+Right, you are worried about retaliation on the MLs if he were *banned* 
+from the tracker.
+
+My belief and point is that removing header editing privileges 
+(permanently, by the way) is
+
+* a minimal action that we should be able to mostly agree on;
+* not something that most people would consider to be a 'right';
+* an *action*, not a *warning* (of which there have been many), which 
+would demonstrate that we *are* collectively capable of action (which at 
+some level I suspect he doubts), and which would make the possibility of 
+more severe action more credible;
+* not a 'ban', which is a more contentious action;
+* not something that would preclude more severe action.
+
+Terry
+
+
+From antoine at python.org  Sat Nov 30 03:56:50 2013
+From: antoine at python.org (Antoine Pitrou)
+Date: Sat, 30 Nov 2013 03:56:50 +0100
+Subject: [python-committers] Anatoly has been warned about his behaviour
+ potentially leading to his loss of tracker privileges
+In-Reply-To: <529938DC.9020600@udel.edu>
+References: <CAP1=2W6nO3XJ6dH09q3jaD41T1ZSJ6sshp6zCnGHSqNMCUafVA@mail.gmail.com>
+ <CAF-Rda_Fs8pwuhWkh5HEQH=nGbn6J83ujv+vZ1=S82ZW9=zhxA@mail.gmail.com>
+ <CAP7+vJL6zuAD7MRP1cAfMo_AEhBU2AtVbrB-ynwVJK171uSreA@mail.gmail.com>
+ <CAExdVNk9U348dQR6cXb=G81CXaaBLZMvOkHHTGy_7PMDPLNLxw@mail.gmail.com>
+ <l7an4r$lhe$2@ger.gmane.org>
+ <CAP7+vJJt=eiwXveue-S5VXKr_0DZ7PfE=rDL0SYOzepK8-dx6A@mail.gmail.com>
+ <1385753486.2336.37.camel@fsol>
+ <CAP7+vJK7vtYqJki+swKUQtLd2BgY=X=MR2kMy8yM=ZHyJO3Akg@mail.gmail.com>
+ <1385755165.2336.47.camel@fsol> <52991F2E.3050506@udel.edu>
+ <1385770648.2336.72.camel@fsol> <529938DC.9020600@udel.edu>
+Message-ID: <1385780210.2336.74.camel@fsol>
+
+
+On ven., 2013-11-29 at 20:01 -0500, Terry Reedy wrote:
+> >> I think an appropriate first signal would be to make it so he cannot
+> >> change headers.
+> >
+> > I wasn't thinking only about the bug tracker, but also the MLs.
+> 
+> Right, you are worried about retaliation on the MLs if he were *banned* 
+> from the tracker.
+
+No, I'm saying that his behaviour on the MLs warrants the same kind of
+action as on the tracker.
+
+Regards
+
+Antoine.
+
+
+
+From ncoghlan at gmail.com  Sat Nov 30 05:05:37 2013
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Sat, 30 Nov 2013 14:05:37 +1000
+Subject: [python-committers] Anatoly has been warned about his behaviour
+ potentially leading to his loss of tracker privileges
+In-Reply-To: <CAP7+vJ+vs+MxsYS8+JqDwWJWCpjH4ZtMdqqqc1=XDZrO8tqyKw@mail.gmail.com>
+References: <CAP1=2W6nO3XJ6dH09q3jaD41T1ZSJ6sshp6zCnGHSqNMCUafVA@mail.gmail.com>
+ <CAF-Rda_Fs8pwuhWkh5HEQH=nGbn6J83ujv+vZ1=S82ZW9=zhxA@mail.gmail.com>
+ <CAP7+vJL6zuAD7MRP1cAfMo_AEhBU2AtVbrB-ynwVJK171uSreA@mail.gmail.com>
+ <CAExdVNk9U348dQR6cXb=G81CXaaBLZMvOkHHTGy_7PMDPLNLxw@mail.gmail.com>
+ <l7an4r$lhe$2@ger.gmane.org>
+ <CAP7+vJJt=eiwXveue-S5VXKr_0DZ7PfE=rDL0SYOzepK8-dx6A@mail.gmail.com>
+ <CAP1=2W5AAQVCWWgYbL7RFrC8+w=LXCins8Cc7piTb7O4dgO7bA@mail.gmail.com>
+ <CAP7+vJ+vs+MxsYS8+JqDwWJWCpjH4ZtMdqqqc1=XDZrO8tqyKw@mail.gmail.com>
+Message-ID: <CADiSq7eM7+7KPqTncjk7WXPe5cQQX2AejGHyNWbC7r=2U5Jmkw@mail.gmail.com>
+
+On 30 November 2013 06:12, Guido van Rossum <guido at python.org> wrote:
+>> If someone turns away from the community because we decided we didn't want
+>> someone who is rude participating and ruining the experience for others then
+>> I'm fine with losing that person's participation just like anyone who
+>> chooses not to come to PyCon because we have a CoC (they can still use
+>> Python, they can just choose to not participate in the community). But if we
+>> lose a single individual because they didn't like someone being rude to them
+>> or others then that is a loss I don't want to see. Once again, the
+>> cost/benefit ratio of everyone as a group having to ignore a single
+>> troublemaker does not seem like the best solution.
+>
+>
+> Again, I haven't seen Anatoly interfere with others. I imagine that most
+> people seeing his posts will recognize him as the nutcase he is.
+
+Noah Kantrowitz and I recently had to warn him off harassing the PyPI
+2 developers (Richard Jones and Donald Stufft).
+
+Them I had to post on distutils-sig to explain why we were being so
+abrupt, since many of the folks there hadn't had the "pleasure" of
+experiencing Anatoly's antics before:
+https://mail.python.org/pipermail/distutils-sig/2013-November/023051.html
+
+The problem with someone like Anatoly isn't just that he's an energy
+drain, it's the fact that the way we deal with him reflects our
+knowledge of that fact, and then other people go "hang on, that's a
+bit rude", because they don't know we've already been putting up with
+him for years, and long ago ran out of patience for his antics.
+
+I have him killfiled, Brett has him killfiled, most of the other core
+developers already have him killfiled, but silently ignoring him isn't
+a solution, since that has it's own damaging effects on the lists.
+
+I've gone on record before in favour of banning him permanently:
+
+    https://mail.python.org/pipermail//python-committers/2012-December/002287.html
+
+And I just did so again today:
+
+    https://mail.python.org/pipermail//python-dev/2013-November/130646.html
+
+We have plenty of documented evidence of his antics to back us up if
+anyone wants to make a big deal of it. At his point, it's a matter of
+"we care about Anatoly more than we do about the people he is pissing
+off", and that's taking inclusiveness to ridiculous extremes.
+
+Every resource on OSS community management says the same thing: there
+are some people where trying to continue to include them will do the
+community more harm than good. Many people will leave of their own
+accord if they're consistently ignored, but if they can't take the
+hint, then we need to be more forceful in showing them the door.
+
+This piece on Geek Social Fallacies is also relevant, since I think
+we're falling into the "Ostracizers are Evil" trap in refusing to ban
+Anatoly despite on ongoing pattern of detrimental behaviour that has
+persisted over years:
+http://www.plausiblydeniable.com/opinion/gsf.html
+
+Regards,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+
+From ncoghlan at gmail.com  Sat Nov 30 05:25:28 2013
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Sat, 30 Nov 2013 14:25:28 +1000
+Subject: [python-committers] Anatoly has been warned about his behaviour
+ potentially leading to his loss of tracker privileges
+In-Reply-To: <14E6220E-B82A-449F-93A4-A7F4485F291C@acm.org>
+References: <CAP1=2W6nO3XJ6dH09q3jaD41T1ZSJ6sshp6zCnGHSqNMCUafVA@mail.gmail.com>
+ <CAF-Rda_Fs8pwuhWkh5HEQH=nGbn6J83ujv+vZ1=S82ZW9=zhxA@mail.gmail.com>
+ <CAP7+vJL6zuAD7MRP1cAfMo_AEhBU2AtVbrB-ynwVJK171uSreA@mail.gmail.com>
+ <CAExdVNk9U348dQR6cXb=G81CXaaBLZMvOkHHTGy_7PMDPLNLxw@mail.gmail.com>
+ <l7an4r$lhe$2@ger.gmane.org>
+ <CAP7+vJJt=eiwXveue-S5VXKr_0DZ7PfE=rDL0SYOzepK8-dx6A@mail.gmail.com>
+ <CAP1=2W5AAQVCWWgYbL7RFrC8+w=LXCins8Cc7piTb7O4dgO7bA@mail.gmail.com>
+ <CAP7+vJ+vs+MxsYS8+JqDwWJWCpjH4ZtMdqqqc1=XDZrO8tqyKw@mail.gmail.com>
+ <D22A4191-6CFB-409C-B0DB-EEAB40F625FB@acm.org>
+ <1385761876.2336.57.camel@fsol>
+ <14E6220E-B82A-449F-93A4-A7F4485F291C@acm.org>
+Message-ID: <CADiSq7etoReOWcHiBsBv9T7HeMj42fSw5+Zn8go2exoG8Rx4eQ@mail.gmail.com>
+
+On 30 November 2013 08:41, Ned Deily <nad at acm.org> wrote:
+>
+> On Nov 29, 2013, at 13:51 , Antoine Pitrou <antoine at python.org> wrote:
+>
+>> On ven., 2013-11-29 at 13:16 -0800, Ned Deily wrote:
+>>> Right.  We can't change other people's behavior.  We can at best
+>>> encourage change.  In this case, I'm doubtful that banning would serve
+>>> as an encouragement.
+>>
+>> Personally, I don't see it as an encouragement, rather a solution.
+>> The "temporary" part is in case he actually wants to start behaving
+>> better, but I'm not holding my breath.
+>>
+>> You can't fix people, but you can prevent them from actually being
+>> harmful.
+>
+> The thing is it's a technical solution to a social problem.  I don't the former tend to be all that effective for the latter.  And I think reasonable people can disagree about the degree of harmfulness.  I personally don't see his behavior, in and of itself, as all that harmful.  I *do* see the negative reaction it provokes as being harmful.  Clearly, it bothers people and that is disruptive.  But it would be a whole lot less disruptive if we didn't let it be, e.g. by just letting it go and ignoring it.
+
+Nonsense. We shouldn't have to put up with Anatoly's constant
+disrespect for everyone else's time and energy.
+
+> I'm very sympathetic to Alex's argument earlier and the link he provided to Karl Fogel's book.  I think the case study provided there from the svn project is not all that comparable to the situation here.  It's not the case that the mailing list(s) here is/are being swamped by one disruptive person.  If we all just agreed to ignore him and try not to feel compelled to respond, I believe we would soon find there is no longer an issue and we wouldn't need to be discussing potentially damaging solutions like formally banning.
+
+Also nonsense. We've tried this for years, and he's still here and
+still a problem. It *hasn't worked* and it isn't going to magically
+start working now.
+
+>>> Why is it that we find him so annoying, enough to advocate fairly
+>>> drastic measures like banning?  There have been and will be others who
+>>> behave similarly.
+>> I've only been here since 2006 or so, but I can't remember someone
+>> behaving like that on such a frequent and long-lived basis. He does
+>> stand out.
+>
+> I think he stands out in part because we've spotlighted him.
+
+More nonsense. He stands out, because everyone else that has behaved
+even remotely like him has been around for a few threads, realised
+people have started ignoring them, and then left again.
+
+Anatoly's passion and persistence initially garnered him positive
+attention, since that kind of energy is worth trying to channel in
+positive directions. But that hasn't worked out, and it remains the
+case that he barges in to areas he doesn't understand and demands that
+everyone else stop what they are doing until they have explained it in
+simple enough terms for him to understand (and when he still doesn't
+get it, that's clearly *their* fault, rather than his).
+
+>>> Comparing his behavior to some of the recent, on-going cases of wildly
+>>> inappropriate behavior on python-list (not involving Anatoly),
+>>
+>> If python-list is a troll magnet, that's a pity, but how is that
+>> relevant to the *development community*?
+>
+> It's relevant because python-list is yet another forum hosted by the PSF via python.org mailing lists and is viewed as part of the broader Python community as a whole.  If we propose to ban someone from python-list, along with other lists, that raises the question of what standards are being used.  There is, in fact, a published suggested CoC for python-list (http://www.python.org/community/lists/).  In the help vampire case, I think most reasonable people would agree that the CoC is reasonable, was clearly being violated, and that banning was a drastic, but ultimately, necessary step as people were not willing to just ignore the misbehavior.  If the same CoC were applied to python-dev (and python-ideas et al), I think many people would disagree that the behavior in this case violates a similar CoC seriously enough to warrant a ban.
+
+Anatoly is *absolutely* in violation of the python-ideas CoC:
+
+- Open? Nope - Anatoly is right, and there's no possible way he could
+ever be wrong
+- Considerate? Not once - everything should be the way Anatoly
+demands, screw the interests of everyone else
+- Respectful? Not in the least - nobody else's concerns are relevant,
+we should revamp everything to be convenient for Anatoly
+
+It's one thing for newcomers to behave that way, since we have to
+assume they don't know any better, and try to guide them in the
+direction of more productive collaboration. We've already sunk
+inordinate amounts of time into trying to help Anatoly, and have
+almost exactly nothing to show for it (certainly nothing that even
+remotely justifies the cost in time and emotional energy).
+
+> It is a problem.  And choosing to not participate is a perfectly rational and legitimate response.  But it doesn't necessarily follow that banning someone is a better response.  Trying to encourage different behavior can help if someone wants to take on that generally thankless effort.  I applaud people like the other Ned who has lately been trying to do so there with some success.  But it's not for everyone.
+
+Please, I spent *years* trying to help Anatoly. It didn't work, so
+it's time to switch to the harm minimisation option and at least get
+him out of everyone's hair.
+
+We tried to get him to be a productive contributor, it's time to admit
+we failed, and stop him being a drag on everyone else.
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+
+From ethan at stoneleaf.us  Sat Nov 30 04:47:39 2013
+From: ethan at stoneleaf.us (Ethan Furman)
+Date: Fri, 29 Nov 2013 19:47:39 -0800
+Subject: [python-committers] Anatoly has been warned about his behaviour
+ potentially leading to his loss of tracker privileges
+In-Reply-To: <20131129221718.C263F250030@webabinitio.net>
+References: <CAP1=2W6nO3XJ6dH09q3jaD41T1ZSJ6sshp6zCnGHSqNMCUafVA@mail.gmail.com>
+ <CAF-Rda_Fs8pwuhWkh5HEQH=nGbn6J83ujv+vZ1=S82ZW9=zhxA@mail.gmail.com>
+ <CAP7+vJL6zuAD7MRP1cAfMo_AEhBU2AtVbrB-ynwVJK171uSreA@mail.gmail.com>
+ <CAExdVNk9U348dQR6cXb=G81CXaaBLZMvOkHHTGy_7PMDPLNLxw@mail.gmail.com>
+ <l7an4r$lhe$2@ger.gmane.org>
+ <CAP7+vJJt=eiwXveue-S5VXKr_0DZ7PfE=rDL0SYOzepK8-dx6A@mail.gmail.com>
+ <CAP1=2W5AAQVCWWgYbL7RFrC8+w=LXCins8Cc7piTb7O4dgO7bA@mail.gmail.com>
+ <CAP7+vJ+vs+MxsYS8+JqDwWJWCpjH4ZtMdqqqc1=XDZrO8tqyKw@mail.gmail.com>
+ <D22A4191-6CFB-409C-B0DB-EEAB40F625FB@acm.org>
+ <20131129221718.C263F250030@webabinitio.net>
+Message-ID: <52995FDB.7000707@stoneleaf.us>
+
+On 11/29/2013 02:17 PM, R. David Murray wrote:
+>
+> PS: Maybe we could set up some mailing list software that, every time
+> Anatoly starts a new thread, and periodically during it, it posts
+> an "Anatoly FAQ"?
+
+Heh, there's a couple other names we could add to that list, too!  ;)
+
+--
+~Ethan~
+
+From rdmurray at bitdance.com  Sat Nov 30 05:26:12 2013
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Fri, 29 Nov 2013 23:26:12 -0500
+Subject: [python-committers] Anatoly has been warned about his behaviour
+	potentially leading to his loss of tracker privileges
+In-Reply-To: <14E6220E-B82A-449F-93A4-A7F4485F291C@acm.org>
+References: <CAP1=2W6nO3XJ6dH09q3jaD41T1ZSJ6sshp6zCnGHSqNMCUafVA@mail.gmail.com>
+ <CAF-Rda_Fs8pwuhWkh5HEQH=nGbn6J83ujv+vZ1=S82ZW9=zhxA@mail.gmail.com>
+ <CAP7+vJL6zuAD7MRP1cAfMo_AEhBU2AtVbrB-ynwVJK171uSreA@mail.gmail.com>
+ <CAExdVNk9U348dQR6cXb=G81CXaaBLZMvOkHHTGy_7PMDPLNLxw@mail.gmail.com>
+ <l7an4r$lhe$2@ger.gmane.org>
+ <CAP7+vJJt=eiwXveue-S5VXKr_0DZ7PfE=rDL0SYOzepK8-dx6A@mail.gmail.com>
+ <CAP1=2W5AAQVCWWgYbL7RFrC8+w=LXCins8Cc7piTb7O4dgO7bA@mail.gmail.com>
+ <CAP7+vJ+vs+MxsYS8+JqDwWJWCpjH4ZtMdqqqc1=XDZrO8tqyKw@mail.gmail.com>
+ <D22A4191-6CFB-409C-B0DB-EEAB40F625FB@acm.org>
+ <1385761876.2336.57.camel@fsol>
+ <14E6220E-B82A-449F-93A4-A7F4485F291C@acm.org>
+Message-ID: <20131130042613.732B4250030@webabinitio.net>
+
+On Fri, 29 Nov 2013 14:41:22 -0800, Ned Deily <nad at acm.org> wrote:
+> 
+> On Nov 29, 2013, at 13:51 , Antoine Pitrou <antoine at python.org> wrote:
+> 
+> > On ven., 2013-11-29 at 13:16 -0800, Ned Deily wrote:
+> 
+> >> Why is it that we find him so annoying, enough to advocate fairly
+> >> drastic measures like banning?  There have been and will be others who
+> >> behave similarly.
+> > I've only been here since 2006 or so, but I can't remember someone
+> > behaving like that on such a frequent and long-lived basis. He does
+> > stand out.
+> 
+> I think he stands out in part because we've spotlighted him.
+
+I don't.  There is *no one* else whose name on an email or bug tracker
+issue makes my stomach clench up right away(*).  This is based on my
+personal interactions with him, not anything I've heard from others.
+
+The most telling thing is that there are times when he is perfectly
+reasonable and pleasant.  So it's not like he doesn't know how.
+He chooses not to be.
+
+--David
+
+(*) I've gotten better at dealing with this; the negative reaction
+doesn't last nearly as long as it used to.  That doesn't make it any
+more fun when he's being unpleasant, though.
+
+From guido at python.org  Sat Nov 30 06:23:31 2013
+From: guido at python.org (Guido van Rossum)
+Date: Fri, 29 Nov 2013 21:23:31 -0800
+Subject: [python-committers] Anatoly has been warned about his behaviour
+ potentially leading to his loss of tracker privileges
+In-Reply-To: <CADiSq7etoReOWcHiBsBv9T7HeMj42fSw5+Zn8go2exoG8Rx4eQ@mail.gmail.com>
+References: <CAP1=2W6nO3XJ6dH09q3jaD41T1ZSJ6sshp6zCnGHSqNMCUafVA@mail.gmail.com>
+ <CAF-Rda_Fs8pwuhWkh5HEQH=nGbn6J83ujv+vZ1=S82ZW9=zhxA@mail.gmail.com>
+ <CAP7+vJL6zuAD7MRP1cAfMo_AEhBU2AtVbrB-ynwVJK171uSreA@mail.gmail.com>
+ <CAExdVNk9U348dQR6cXb=G81CXaaBLZMvOkHHTGy_7PMDPLNLxw@mail.gmail.com>
+ <l7an4r$lhe$2@ger.gmane.org>
+ <CAP7+vJJt=eiwXveue-S5VXKr_0DZ7PfE=rDL0SYOzepK8-dx6A@mail.gmail.com>
+ <CAP1=2W5AAQVCWWgYbL7RFrC8+w=LXCins8Cc7piTb7O4dgO7bA@mail.gmail.com>
+ <CAP7+vJ+vs+MxsYS8+JqDwWJWCpjH4ZtMdqqqc1=XDZrO8tqyKw@mail.gmail.com>
+ <D22A4191-6CFB-409C-B0DB-EEAB40F625FB@acm.org> <1385761876.2336.57.camel@fsol>
+ <14E6220E-B82A-449F-93A4-A7F4485F291C@acm.org>
+ <CADiSq7etoReOWcHiBsBv9T7HeMj42fSw5+Zn8go2exoG8Rx4eQ@mail.gmail.com>
+Message-ID: <CAP7+vJJXU1+i6bxY1jWAPZsLUuT9KGc5q8gVSoPH6-TSdVpLbA@mail.gmail.com>
+
+Nick,
+
+I think we've seen the issue from every possible side now. I trust your
+judgment that he has pulled this trick once too many times. So please
+implement the ban. Or wait until the next infraction -- that's up to you.
+Either way, since the archives of this list are public, our deliberations
+will stand up to scrutiny.
+
+My offer to mediate (*after* he's been banned) stands, but it's up to you
+if and how you want to mention that to Anatoly.
+
+-- 
+--Guido van Rossum (python.org/~guido)
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20131129/afb7cef7/attachment.html>
+
+From tjreedy at udel.edu  Sat Nov 30 05:26:54 2013
+From: tjreedy at udel.edu (Terry Reedy)
+Date: Fri, 29 Nov 2013 23:26:54 -0500
+Subject: [python-committers] Anatoly has been warned about his behaviour
+ potentially leading to his loss of tracker privileges
+In-Reply-To: <1385780210.2336.74.camel@fsol>
+References: <CAP1=2W6nO3XJ6dH09q3jaD41T1ZSJ6sshp6zCnGHSqNMCUafVA@mail.gmail.com>
+ <CAF-Rda_Fs8pwuhWkh5HEQH=nGbn6J83ujv+vZ1=S82ZW9=zhxA@mail.gmail.com>
+ <CAP7+vJL6zuAD7MRP1cAfMo_AEhBU2AtVbrB-ynwVJK171uSreA@mail.gmail.com>
+ <CAExdVNk9U348dQR6cXb=G81CXaaBLZMvOkHHTGy_7PMDPLNLxw@mail.gmail.com>
+ <l7an4r$lhe$2@ger.gmane.org>
+ <CAP7+vJJt=eiwXveue-S5VXKr_0DZ7PfE=rDL0SYOzepK8-dx6A@mail.gmail.com>
+ <1385753486.2336.37.camel@fsol>
+ <CAP7+vJK7vtYqJki+swKUQtLd2BgY=X=MR2kMy8yM=ZHyJO3Akg@mail.gmail.com>
+ <1385755165.2336.47.camel@fsol> <52991F2E.3050506@udel.edu>
+ <1385770648.2336.72.camel@fsol> <529938DC.9020600@udel.edu>
+ <1385780210.2336.74.camel@fsol>
+Message-ID: <5299690E.805@udel.edu>
+
+On 11/29/2013 9:56 PM, Antoine Pitrou wrote:
+>
+> On ven., 2013-11-29 at 20:01 -0500, Terry Reedy wrote:
+>>>> I think an appropriate first signal would be to make it so he cannot
+>>>> change headers.
+>>>
+>>> I wasn't thinking only about the bug tracker, but also the MLs.
+>>
+>> Right, you are worried about retaliation on the MLs if he were *banned*
+>> from the tracker.
+>
+> No, I'm saying that his behaviour on the MLs warrants the same kind of
+> action as on the tracker.
+
+A non-ban action would be to turn his moderate bit on, where it is used. 
+That has been done for someone else on python-list. But I do not know 
+about pydev, python-ideas, and others.
+
+
+From nad at acm.org  Sat Nov 30 07:19:32 2013
+From: nad at acm.org (Ned Deily)
+Date: Fri, 29 Nov 2013 22:19:32 -0800
+Subject: [python-committers] Anatoly has been warned about his behaviour
+	potentially leading to his loss of tracker privileges
+In-Reply-To: <CADiSq7etoReOWcHiBsBv9T7HeMj42fSw5+Zn8go2exoG8Rx4eQ@mail.gmail.com>
+References: <CAP1=2W6nO3XJ6dH09q3jaD41T1ZSJ6sshp6zCnGHSqNMCUafVA@mail.gmail.com>
+ <CAF-Rda_Fs8pwuhWkh5HEQH=nGbn6J83ujv+vZ1=S82ZW9=zhxA@mail.gmail.com>
+ <CAP7+vJL6zuAD7MRP1cAfMo_AEhBU2AtVbrB-ynwVJK171uSreA@mail.gmail.com>
+ <CAExdVNk9U348dQR6cXb=G81CXaaBLZMvOkHHTGy_7PMDPLNLxw@mail.gmail.com>
+ <l7an4r$lhe$2@ger.gmane.org>
+ <CAP7+vJJt=eiwXveue-S5VXKr_0DZ7PfE=rDL0SYOzepK8-dx6A@mail.gmail.com>
+ <CAP1=2W5AAQVCWWgYbL7RFrC8+w=LXCins8Cc7piTb7O4dgO7bA@mail.gmail.com>
+ <CAP7+vJ+vs+MxsYS8+JqDwWJWCpjH4ZtMdqqqc1=XDZrO8tqyKw@mail.gmail.com>
+ <D22A4191-6CFB-409C-B0DB-EEAB40F625FB@acm.org>
+ <1385761876.2336.57.camel@fsol>
+ <14E6220E-B82A-449F-93A4-A7F4485F291C@acm.org>
+ <CADiSq7etoReOWcHiBsBv9T7HeMj42fSw5+Zn8go2exoG8Rx4eQ@mail.gmail.com>
+Message-ID: <D233356B-BED2-446A-B68E-8D1D85D93A95@acm.org>
+
+I concur that it is time to make a decision and move one.  I will support whatever we decide.
+
+I want to apologize for not being clear in my earlier reply.  FTR, a few clarifications:
+
+On Nov 29, 2013, at 20:25 , Nick Coghlan <ncoghlan at gmail.com> wrote:
+
+> On 30 November 2013 08:41, Ned Deily <nad at acm.org> wrote:
+>> It is a problem.  And choosing to not participate is a perfectly rational and legitimate response.  But it doesn't necessarily follow that banning someone is a better response.  Trying to encourage different behavior can help if someone wants to take on that generally thankless effort.  I applaud people like the other Ned who has lately been trying to do so there with some success.  But it's not for everyone.
+> 
+> Please, I spent *years* trying to help Anatoly. It didn't work, so
+> it's time to switch to the harm minimisation option and at least get
+> him out of everyone's hair.
+
+I should have been clearer that I was not referring to Anatoly here but to the "Help Vampire" in python-list.  I am under no illusion that Anatoly's behavior is going to change substantially.  That was really a point I was trying to make earlier.  And I can see that some of what I wrote could be read as if I were trying to absolve him of responsibility for his actions and for the current negative situation.  I didn't intend to imply that. 
+
+> We tried to get him to be a productive contributor, it's time to admit
+> we failed, and stop him being a drag on everyone else.
+
+
+Agreed.
+
+--Ned
+
+--
+  Ned Deily
+  nad at acm.org -- []
+
+
+
+From ezio.melotti at gmail.com  Sat Nov 30 07:58:26 2013
+From: ezio.melotti at gmail.com (Ezio Melotti)
+Date: Sat, 30 Nov 2013 08:58:26 +0200
+Subject: [python-committers] Anatoly has been warned about his behaviour
+ potentially leading to his loss of tracker privileges
+In-Reply-To: <14E6220E-B82A-449F-93A4-A7F4485F291C@acm.org>
+References: <CAP1=2W6nO3XJ6dH09q3jaD41T1ZSJ6sshp6zCnGHSqNMCUafVA@mail.gmail.com>
+ <CAF-Rda_Fs8pwuhWkh5HEQH=nGbn6J83ujv+vZ1=S82ZW9=zhxA@mail.gmail.com>
+ <CAP7+vJL6zuAD7MRP1cAfMo_AEhBU2AtVbrB-ynwVJK171uSreA@mail.gmail.com>
+ <CAExdVNk9U348dQR6cXb=G81CXaaBLZMvOkHHTGy_7PMDPLNLxw@mail.gmail.com>
+ <l7an4r$lhe$2@ger.gmane.org>
+ <CAP7+vJJt=eiwXveue-S5VXKr_0DZ7PfE=rDL0SYOzepK8-dx6A@mail.gmail.com>
+ <CAP1=2W5AAQVCWWgYbL7RFrC8+w=LXCins8Cc7piTb7O4dgO7bA@mail.gmail.com>
+ <CAP7+vJ+vs+MxsYS8+JqDwWJWCpjH4ZtMdqqqc1=XDZrO8tqyKw@mail.gmail.com>
+ <D22A4191-6CFB-409C-B0DB-EEAB40F625FB@acm.org>
+ <1385761876.2336.57.camel@fsol>
+ <14E6220E-B82A-449F-93A4-A7F4485F291C@acm.org>
+Message-ID: <CACBhJdHOsivhuL3jmsg0UyfjtYF1Z7dHMaNSQLKy8ZFAEg--bw@mail.gmail.com>
+
+Hi,
+as I already mentioned in a message on a previous thread, I'm -1 on banning him.
+Last time this issue came up I contacted him and we discussed about
+these problems several times.  For a while things got better and hhis
+behavior got a bit better and his posts less frequent, but lately he
+got "active" again.
+
+If you try to get in his shoes, you can see how his behavior kind of
+makes sense -- even thought results are far from ideal:
+  1) he wants to improve Python and fix problems that affect or might
+affect him -- this is completely understandable and reasonable;
+  2) however, he read the CLA and disagrees with/doesn't understand a
+few things -- this also is somewhat reasonable and shared by a few
+other persons; the fact   that most of the others don't care / trust
+it and just sign it without even reading doesn't mean that he's wrong;
+  3) without a signed CLA he is unable to contribute code (even if
+he's otherwise willing and able to do so), and this places him in a
+very frustrating position where he his not able to fix things himself
+and has to rely on others;
+  4) in an attempt to catch the attention of others he relies on
+passive-aggressiveness -- likely because he thinks this is the most
+effective tool he has available;
+
+His behavior does catch our attention (giving the impression of
+(short-term) effectiveness), but in a negative way.  There's also a
+vicious circle where our behavior towards him increases his
+frustration and leads him to complain louder in an attempt to
+compensate; the fact that we already start with a negative bias
+against him doesn't help either.
+
+I also agree with Ned when he says:
+
+On Sat, Nov 30, 2013 at 12:41 AM, Ned Deily <nad at acm.org> wrote:
+>
+> [...]  I personally don't see his behavior, in and of itself, as all that harmful.  I *do* see the negative reaction it provokes as being harmful. [...]
+>
+
+That said, I think a ban will make him even more frustrated, and that
+might lead to two outcomes:
+  1) he will eventually gave up (and make some people happy);
+  2) he will likely still face problems with Python that he wants to
+fix and he will have to find other ways to report them, since the
+regular ways have been precluded to him, thus perpetuating the
+aforementioned vicious circle.
+
+I personally don't have problems talking with him, and, if we decided
+not to ban him, I'm available to spend more time talking with him and
+being a mediator.  I'm not very active on the mailing lists, but I
+don't mind taking actions on the bug tracker (so feel free to add me
+to the issues he reports -- especially if he causes problems).
+
+I also agree that if people don't want to discuss with him on the MLs
+they should just ignore his messages, and especially they should avoid
+replying with "attacks" against him or his behavior, rather than
+"attacks" against his proposals.  I've already seen a few of his
+threads that got ignored for a few weeks before he pinged the thread
+only to be ignored again, so this method seems somewhat effective.
+(And FTR I don't think I'm wasting my time -- if anything I'm
+sharpening my already nearly-limitless patience ;).
+
+Best Regards,
+Ezio Melotti
+
+From ncoghlan at gmail.com  Sat Nov 30 08:44:03 2013
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Sat, 30 Nov 2013 17:44:03 +1000
+Subject: [python-committers] Anatoly has been warned about his behaviour
+ potentially leading to his loss of tracker privileges
+In-Reply-To: <CAP7+vJJXU1+i6bxY1jWAPZsLUuT9KGc5q8gVSoPH6-TSdVpLbA@mail.gmail.com>
+References: <CAP1=2W6nO3XJ6dH09q3jaD41T1ZSJ6sshp6zCnGHSqNMCUafVA@mail.gmail.com>
+ <CAF-Rda_Fs8pwuhWkh5HEQH=nGbn6J83ujv+vZ1=S82ZW9=zhxA@mail.gmail.com>
+ <CAP7+vJL6zuAD7MRP1cAfMo_AEhBU2AtVbrB-ynwVJK171uSreA@mail.gmail.com>
+ <CAExdVNk9U348dQR6cXb=G81CXaaBLZMvOkHHTGy_7PMDPLNLxw@mail.gmail.com>
+ <l7an4r$lhe$2@ger.gmane.org>
+ <CAP7+vJJt=eiwXveue-S5VXKr_0DZ7PfE=rDL0SYOzepK8-dx6A@mail.gmail.com>
+ <CAP1=2W5AAQVCWWgYbL7RFrC8+w=LXCins8Cc7piTb7O4dgO7bA@mail.gmail.com>
+ <CAP7+vJ+vs+MxsYS8+JqDwWJWCpjH4ZtMdqqqc1=XDZrO8tqyKw@mail.gmail.com>
+ <D22A4191-6CFB-409C-B0DB-EEAB40F625FB@acm.org>
+ <1385761876.2336.57.camel@fsol>
+ <14E6220E-B82A-449F-93A4-A7F4485F291C@acm.org>
+ <CADiSq7etoReOWcHiBsBv9T7HeMj42fSw5+Zn8go2exoG8Rx4eQ@mail.gmail.com>
+ <CAP7+vJJXU1+i6bxY1jWAPZsLUuT9KGc5q8gVSoPH6-TSdVpLbA@mail.gmail.com>
+Message-ID: <CADiSq7dRw24x45uoR=Md7AE6cfJN+oXQ8XoJyPqu-2RmbLf+1Q@mail.gmail.com>
+
+On 30 November 2013 15:23, Guido van Rossum <guido at python.org> wrote:
+> Nick,
+>
+> I think we've seen the issue from every possible side now. I trust your
+> judgment that he has pulled this trick once too many times. So please
+> implement the ban. Or wait until the next infraction -- that's up to you.
+> Either way, since the archives of this list are public, our deliberations
+> will stand up to scrutiny.
+>
+> My offer to mediate (*after* he's been banned) stands, but it's up to you if
+> and how you want to mention that to Anatoly.
+
+OK, moving on to mechanics, here's what I would like to propose:
+
+- flip his moderation bit on the mailing lists, at least for
+python-dev, python-ideas and distutils-sig (are there any other lists
+where his presence is considered disruptive?).
+
+- revoke his tracker privileges. If he would like something done on
+the tracker, he can ask Guido or Ezio to make the change on his
+behalf.
+
+I'm willing to be the bearer of bad news, and let Anatoly know this is
+being done, and cc' Guido and Ezio (as I'll also pass along their
+offers of assistance).
+
+Regards,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+
+From ncoghlan at gmail.com  Sat Nov 30 08:38:31 2013
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Sat, 30 Nov 2013 17:38:31 +1000
+Subject: [python-committers] Anatoly has been warned about his behaviour
+ potentially leading to his loss of tracker privileges
+In-Reply-To: <CACBhJdHOsivhuL3jmsg0UyfjtYF1Z7dHMaNSQLKy8ZFAEg--bw@mail.gmail.com>
+References: <CAP1=2W6nO3XJ6dH09q3jaD41T1ZSJ6sshp6zCnGHSqNMCUafVA@mail.gmail.com>
+ <CAF-Rda_Fs8pwuhWkh5HEQH=nGbn6J83ujv+vZ1=S82ZW9=zhxA@mail.gmail.com>
+ <CAP7+vJL6zuAD7MRP1cAfMo_AEhBU2AtVbrB-ynwVJK171uSreA@mail.gmail.com>
+ <CAExdVNk9U348dQR6cXb=G81CXaaBLZMvOkHHTGy_7PMDPLNLxw@mail.gmail.com>
+ <l7an4r$lhe$2@ger.gmane.org>
+ <CAP7+vJJt=eiwXveue-S5VXKr_0DZ7PfE=rDL0SYOzepK8-dx6A@mail.gmail.com>
+ <CAP1=2W5AAQVCWWgYbL7RFrC8+w=LXCins8Cc7piTb7O4dgO7bA@mail.gmail.com>
+ <CAP7+vJ+vs+MxsYS8+JqDwWJWCpjH4ZtMdqqqc1=XDZrO8tqyKw@mail.gmail.com>
+ <D22A4191-6CFB-409C-B0DB-EEAB40F625FB@acm.org>
+ <1385761876.2336.57.camel@fsol>
+ <14E6220E-B82A-449F-93A4-A7F4485F291C@acm.org>
+ <CACBhJdHOsivhuL3jmsg0UyfjtYF1Z7dHMaNSQLKy8ZFAEg--bw@mail.gmail.com>
+Message-ID: <CADiSq7foS9zsXRRSXjwXJcxSCPYeGhSuCu=Vztj0=NoK4rPC-Q@mail.gmail.com>
+
+On 30 November 2013 16:58, Ezio Melotti <ezio.melotti at gmail.com> wrote:
+> Hi,
+> as I already mentioned in a message on a previous thread, I'm -1 on banning him.
+> Last time this issue came up I contacted him and we discussed about
+> these problems several times.  For a while things got better and hhis
+> behavior got a bit better and his posts less frequent, but lately he
+> got "active" again.
+>
+> If you try to get in his shoes, you can see how his behavior kind of
+> makes sense -- even thought results are far from ideal:
+>   1) he wants to improve Python and fix problems that affect or might
+> affect him -- this is completely understandable and reasonable;
+
+Yes, but passion is not enough, one also has to be willing *and able*
+to collaborate with others.
+
+>   2) however, he read the CLA and disagrees with/doesn't understand a
+> few things -- this also is somewhat reasonable and shared by a few
+> other persons; the fact   that most of the others don't care / trust
+> it and just sign it without even reading doesn't mean that he's wrong;
+
+PSF board members have sat down with at PyCon to explain it in person.
+If he is still uncomfortable it, and is not willing to pay a lawyer to
+explain it to him, that's his problem, not ours.
+
+>   3) without a signed CLA he is unable to contribute code (even if
+> he's otherwise willing and able to do so), and this places him in a
+> very frustrating position where he his not able to fix things himself
+> and has to rely on others;
+
+That's his fault, not ours. He can choose not to sign the CLA. He
+can't use that as an excuse to be disrespectful to others.
+
+>   4) in an attempt to catch the attention of others he relies on
+> passive-aggressiveness -- likely because he thinks this is the most
+> effective tool he has available;
+
+So he should seek professional help for his obsession then. This is
+harassment level behaviour - he refuses to contribute productively for
+reasons he cannot articulate to anyone else, and chooses to be
+actively destructive instead.
+
+At that point, we need to stop enabling him and just say "enough is enough".
+
+> On Sat, Nov 30, 2013 at 12:41 AM, Ned Deily <nad at acm.org> wrote:
+>>
+>> [...]  I personally don't see his behavior, in and of itself, as all that harmful.  I *do* see the negative reaction it provokes as being harmful. [...]
+>>
+>
+> That said, I think a ban will make him even more frustrated, and that
+> might lead to two outcomes:
+>   1) he will eventually gave up (and make some people happy);
+>   2) he will likely still face problems with Python that he wants to
+> fix and he will have to find other ways to report them, since the
+> regular ways have been precluded to him, thus perpetuating the
+> aforementioned vicious circle.
+>
+> I personally don't have problems talking with him, and, if we decided
+> not to ban him, I'm available to spend more time talking with him and
+> being a mediator.  I'm not very active on the mailing lists, but I
+> don't mind taking actions on the bug tracker (so feel free to add me
+> to the issues he reports -- especially if he causes problems).
+
+If you and Guido are willing to act as a buffer between him and
+everyone else, I am fine with flipping his moderation bit rather than
+banning him entirely. Valuing Anatoly's experience of the community
+over the experience of everyone else, on the other hand, *needs to
+stop*.
+
+> I also agree that if people don't want to discuss with him on the MLs
+> they should just ignore his messages, and especially they should avoid
+> replying with "attacks" against him or his behavior, rather than
+> "attacks" against his proposals.  I've already seen a few of his
+> threads that got ignored for a few weeks before he pinged the thread
+> only to be ignored again, so this method seems somewhat effective.
+
+That's avoiding the problem rather than addressing it though, as it
+gives the impression we're in the habit of ignoring threads in
+general, when we're really just in the habit of ignoring Anatoly.
+
+> (And FTR I don't think I'm wasting my time -- if anything I'm
+> sharpening my already nearly-limitless patience ;).
+
+It took about three years of actively trying to help him for Anatoly
+to exhaust mine :P
+
+Regards,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+
+From antoine at python.org  Sat Nov 30 12:30:47 2013
+From: antoine at python.org (Antoine Pitrou)
+Date: Sat, 30 Nov 2013 12:30:47 +0100
+Subject: [python-committers] Anatoly has been warned about his behaviour
+ potentially leading to his loss of tracker privileges
+In-Reply-To: <CACBhJdHOsivhuL3jmsg0UyfjtYF1Z7dHMaNSQLKy8ZFAEg--bw@mail.gmail.com>
+References: <CAP1=2W6nO3XJ6dH09q3jaD41T1ZSJ6sshp6zCnGHSqNMCUafVA@mail.gmail.com>
+ <CAF-Rda_Fs8pwuhWkh5HEQH=nGbn6J83ujv+vZ1=S82ZW9=zhxA@mail.gmail.com>
+ <CAP7+vJL6zuAD7MRP1cAfMo_AEhBU2AtVbrB-ynwVJK171uSreA@mail.gmail.com>
+ <CAExdVNk9U348dQR6cXb=G81CXaaBLZMvOkHHTGy_7PMDPLNLxw@mail.gmail.com>
+ <l7an4r$lhe$2@ger.gmane.org>
+ <CAP7+vJJt=eiwXveue-S5VXKr_0DZ7PfE=rDL0SYOzepK8-dx6A@mail.gmail.com>
+ <CAP1=2W5AAQVCWWgYbL7RFrC8+w=LXCins8Cc7piTb7O4dgO7bA@mail.gmail.com>
+ <CAP7+vJ+vs+MxsYS8+JqDwWJWCpjH4ZtMdqqqc1=XDZrO8tqyKw@mail.gmail.com>
+ <D22A4191-6CFB-409C-B0DB-EEAB40F625FB@acm.org>
+ <1385761876.2336.57.camel@fsol>
+ <14E6220E-B82A-449F-93A4-A7F4485F291C@acm.org>
+ <CACBhJdHOsivhuL3jmsg0UyfjtYF1Z7dHMaNSQLKy8ZFAEg--bw@mail.gmail.com>
+Message-ID: <1385811047.2331.2.camel@fsol>
+
+On sam., 2013-11-30 at 08:58 +0200, Ezio Melotti wrote:
+> I personally don't have problems talking with him, and, if we decided
+> not to ban him, I'm available to spend more time talking with him and
+> being a mediator.
+
+And the end result is that the community spends time "mediating" with a
+jerk instead of actually caring about the decent people who report
+issues or try to contribute. This is completely ridiculous and
+destructive.
+
+Regards
+
+Antoine.
+
+
+
+From alex.gaynor at gmail.com  Sat Nov 30 15:28:37 2013
+From: alex.gaynor at gmail.com (Alex Gaynor)
+Date: Sat, 30 Nov 2013 08:28:37 -0600
+Subject: [python-committers] Anatoly has been warned about his behaviour
+ potentially leading to his loss of tracker privileges
+In-Reply-To: <CADiSq7dRw24x45uoR=Md7AE6cfJN+oXQ8XoJyPqu-2RmbLf+1Q@mail.gmail.com>
+References: <CAP1=2W6nO3XJ6dH09q3jaD41T1ZSJ6sshp6zCnGHSqNMCUafVA@mail.gmail.com>
+ <CAF-Rda_Fs8pwuhWkh5HEQH=nGbn6J83ujv+vZ1=S82ZW9=zhxA@mail.gmail.com>
+ <CAP7+vJL6zuAD7MRP1cAfMo_AEhBU2AtVbrB-ynwVJK171uSreA@mail.gmail.com>
+ <CAExdVNk9U348dQR6cXb=G81CXaaBLZMvOkHHTGy_7PMDPLNLxw@mail.gmail.com>
+ <l7an4r$lhe$2@ger.gmane.org>
+ <CAP7+vJJt=eiwXveue-S5VXKr_0DZ7PfE=rDL0SYOzepK8-dx6A@mail.gmail.com>
+ <CAP1=2W5AAQVCWWgYbL7RFrC8+w=LXCins8Cc7piTb7O4dgO7bA@mail.gmail.com>
+ <CAP7+vJ+vs+MxsYS8+JqDwWJWCpjH4ZtMdqqqc1=XDZrO8tqyKw@mail.gmail.com>
+ <D22A4191-6CFB-409C-B0DB-EEAB40F625FB@acm.org>
+ <1385761876.2336.57.camel@fsol>
+ <14E6220E-B82A-449F-93A4-A7F4485F291C@acm.org>
+ <CADiSq7etoReOWcHiBsBv9T7HeMj42fSw5+Zn8go2exoG8Rx4eQ@mail.gmail.com>
+ <CAP7+vJJXU1+i6bxY1jWAPZsLUuT9KGc5q8gVSoPH6-TSdVpLbA@mail.gmail.com>
+ <CADiSq7dRw24x45uoR=Md7AE6cfJN+oXQ8XoJyPqu-2RmbLf+1Q@mail.gmail.com>
+Message-ID: <CAFRnB2XDzVHvp4D-3TY44z=qWXU5D=6-po5Ur=5b2W+R3wUgyA@mail.gmail.com>
+
+These steps sound right to me. Make the notification a private email, not a
+public one -- this doesn't have to be a big deal. It's not a warning shot
+to other people, this is one isolated individual, and we should treat it as
+such.
+
+Alex
+
+
+On Sat, Nov 30, 2013 at 1:44 AM, Nick Coghlan <ncoghlan at gmail.com> wrote:
+
+> On 30 November 2013 15:23, Guido van Rossum <guido at python.org> wrote:
+> > Nick,
+> >
+> > I think we've seen the issue from every possible side now. I trust your
+> > judgment that he has pulled this trick once too many times. So please
+> > implement the ban. Or wait until the next infraction -- that's up to you.
+> > Either way, since the archives of this list are public, our deliberations
+> > will stand up to scrutiny.
+> >
+> > My offer to mediate (*after* he's been banned) stands, but it's up to
+> you if
+> > and how you want to mention that to Anatoly.
+>
+> OK, moving on to mechanics, here's what I would like to propose:
+>
+> - flip his moderation bit on the mailing lists, at least for
+> python-dev, python-ideas and distutils-sig (are there any other lists
+> where his presence is considered disruptive?).
+>
+> - revoke his tracker privileges. If he would like something done on
+> the tracker, he can ask Guido or Ezio to make the change on his
+> behalf.
+>
+> I'm willing to be the bearer of bad news, and let Anatoly know this is
+> being done, and cc' Guido and Ezio (as I'll also pass along their
+> offers of assistance).
+>
+> Regards,
+> Nick.
+>
+> --
+> Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+>
+
+
+
+-- 
+"I disapprove of what you say, but I will defend to the death your right to
+say it." -- Evelyn Beatrice Hall (summarizing Voltaire)
+"The people's good is the highest law." -- Cicero
+GPG Key fingerprint: 125F 5C67 DFE9 4084
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20131130/c1f08256/attachment.html>
+
+From eliben at gmail.com  Sat Nov 30 16:49:21 2013
+From: eliben at gmail.com (Eli Bendersky)
+Date: Sat, 30 Nov 2013 07:49:21 -0800
+Subject: [python-committers] Anatoly has been warned about his behaviour
+ potentially leading to his loss of tracker privileges
+In-Reply-To: <CADiSq7dRw24x45uoR=Md7AE6cfJN+oXQ8XoJyPqu-2RmbLf+1Q@mail.gmail.com>
+References: <CAP1=2W6nO3XJ6dH09q3jaD41T1ZSJ6sshp6zCnGHSqNMCUafVA@mail.gmail.com>
+ <CAF-Rda_Fs8pwuhWkh5HEQH=nGbn6J83ujv+vZ1=S82ZW9=zhxA@mail.gmail.com>
+ <CAP7+vJL6zuAD7MRP1cAfMo_AEhBU2AtVbrB-ynwVJK171uSreA@mail.gmail.com>
+ <CAExdVNk9U348dQR6cXb=G81CXaaBLZMvOkHHTGy_7PMDPLNLxw@mail.gmail.com>
+ <l7an4r$lhe$2@ger.gmane.org>
+ <CAP7+vJJt=eiwXveue-S5VXKr_0DZ7PfE=rDL0SYOzepK8-dx6A@mail.gmail.com>
+ <CAP1=2W5AAQVCWWgYbL7RFrC8+w=LXCins8Cc7piTb7O4dgO7bA@mail.gmail.com>
+ <CAP7+vJ+vs+MxsYS8+JqDwWJWCpjH4ZtMdqqqc1=XDZrO8tqyKw@mail.gmail.com>
+ <D22A4191-6CFB-409C-B0DB-EEAB40F625FB@acm.org> <1385761876.2336.57.camel@fsol>
+ <14E6220E-B82A-449F-93A4-A7F4485F291C@acm.org>
+ <CADiSq7etoReOWcHiBsBv9T7HeMj42fSw5+Zn8go2exoG8Rx4eQ@mail.gmail.com>
+ <CAP7+vJJXU1+i6bxY1jWAPZsLUuT9KGc5q8gVSoPH6-TSdVpLbA@mail.gmail.com>
+ <CADiSq7dRw24x45uoR=Md7AE6cfJN+oXQ8XoJyPqu-2RmbLf+1Q@mail.gmail.com>
+Message-ID: <CAF-Rda_pNS+Yshkr8k074M_a_WTqJcVgdsi72ByNjMQExA5ZjA@mail.gmail.com>
+
+On Fri, Nov 29, 2013 at 11:44 PM, Nick Coghlan <ncoghlan at gmail.com> wrote:
+
+> On 30 November 2013 15:23, Guido van Rossum <guido at python.org> wrote:
+> > Nick,
+> >
+> > I think we've seen the issue from every possible side now. I trust your
+> > judgment that he has pulled this trick once too many times. So please
+> > implement the ban. Or wait until the next infraction -- that's up to you.
+> > Either way, since the archives of this list are public, our deliberations
+> > will stand up to scrutiny.
+> >
+> > My offer to mediate (*after* he's been banned) stands, but it's up to
+> you if
+> > and how you want to mention that to Anatoly.
+>
+> OK, moving on to mechanics, here's what I would like to propose:
+>
+> - flip his moderation bit on the mailing lists, at least for
+> python-dev, python-ideas and distutils-sig (are there any other lists
+> where his presence is considered disruptive?).
+>
+> - revoke his tracker privileges. If he would like something done on
+> the tracker, he can ask Guido or Ezio to make the change on his
+> behalf.
+>
+> I'm willing to be the bearer of bad news, and let Anatoly know this is
+> being done, and cc' Guido and Ezio (as I'll also pass along their
+> offers of assistance).
+>
+
+This plan sounds good. I agree with Alex that the initial email has to be
+private. There's no need here for a public humiliation that will harm both
+Anatoly and Python.
+
+One thing that's not clear from the above is the duration of the ban. Guido
+was mentioning some minimal cool-off period before Anatoly can discuss his
+reinstatement with Guido.
+
+Eli
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20131130/4de381a4/attachment.html>
+
+From barry at python.org  Sat Nov 30 17:10:11 2013
+From: barry at python.org (Barry Warsaw)
+Date: Sat, 30 Nov 2013 11:10:11 -0500
+Subject: [python-committers] Anatoly has been warned about his behaviour
+ potentially leading to his loss of tracker privileges
+In-Reply-To: <CADiSq7dRw24x45uoR=Md7AE6cfJN+oXQ8XoJyPqu-2RmbLf+1Q@mail.gmail.com>
+References: <CAP1=2W6nO3XJ6dH09q3jaD41T1ZSJ6sshp6zCnGHSqNMCUafVA@mail.gmail.com>
+ <CAF-Rda_Fs8pwuhWkh5HEQH=nGbn6J83ujv+vZ1=S82ZW9=zhxA@mail.gmail.com>
+ <CAP7+vJL6zuAD7MRP1cAfMo_AEhBU2AtVbrB-ynwVJK171uSreA@mail.gmail.com>
+ <CAExdVNk9U348dQR6cXb=G81CXaaBLZMvOkHHTGy_7PMDPLNLxw@mail.gmail.com>
+ <l7an4r$lhe$2@ger.gmane.org>
+ <CAP7+vJJt=eiwXveue-S5VXKr_0DZ7PfE=rDL0SYOzepK8-dx6A@mail.gmail.com>
+ <CAP1=2W5AAQVCWWgYbL7RFrC8+w=LXCins8Cc7piTb7O4dgO7bA@mail.gmail.com>
+ <CAP7+vJ+vs+MxsYS8+JqDwWJWCpjH4ZtMdqqqc1=XDZrO8tqyKw@mail.gmail.com>
+ <D22A4191-6CFB-409C-B0DB-EEAB40F625FB@acm.org>
+ <1385761876.2336.57.camel@fsol>
+ <14E6220E-B82A-449F-93A4-A7F4485F291C@acm.org>
+ <CADiSq7etoReOWcHiBsBv9T7HeMj42fSw5+Zn8go2exoG8Rx4eQ@mail.gmail.com>
+ <CAP7+vJJXU1+i6bxY1jWAPZsLUuT9KGc5q8gVSoPH6-TSdVpLbA@mail.gmail.com>
+ <CADiSq7dRw24x45uoR=Md7AE6cfJN+oXQ8XoJyPqu-2RmbLf+1Q@mail.gmail.com>
+Message-ID: <20131130111011.7b1d663a@anarchist>
+
+On Nov 30, 2013, at 05:44 PM, Nick Coghlan wrote:
+
+>- flip his moderation bit on the mailing lists, at least for
+>python-dev, python-ideas and distutils-sig (are there any other lists
+>where his presence is considered disruptive?).
+
+Done, for techtonik at gmail.com on all three lists.
+
+-Barry
+
+From ncoghlan at gmail.com  Sat Nov 30 23:17:24 2013
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Sun, 1 Dec 2013 08:17:24 +1000
+Subject: [python-committers] Anatoly has been warned about his behaviour
+ potentially leading to his loss of tracker privileges
+In-Reply-To: <CAF-Rda_pNS+Yshkr8k074M_a_WTqJcVgdsi72ByNjMQExA5ZjA@mail.gmail.com>
+References: <CAP1=2W6nO3XJ6dH09q3jaD41T1ZSJ6sshp6zCnGHSqNMCUafVA@mail.gmail.com>
+ <CAF-Rda_Fs8pwuhWkh5HEQH=nGbn6J83ujv+vZ1=S82ZW9=zhxA@mail.gmail.com>
+ <CAP7+vJL6zuAD7MRP1cAfMo_AEhBU2AtVbrB-ynwVJK171uSreA@mail.gmail.com>
+ <CAExdVNk9U348dQR6cXb=G81CXaaBLZMvOkHHTGy_7PMDPLNLxw@mail.gmail.com>
+ <l7an4r$lhe$2@ger.gmane.org>
+ <CAP7+vJJt=eiwXveue-S5VXKr_0DZ7PfE=rDL0SYOzepK8-dx6A@mail.gmail.com>
+ <CAP1=2W5AAQVCWWgYbL7RFrC8+w=LXCins8Cc7piTb7O4dgO7bA@mail.gmail.com>
+ <CAP7+vJ+vs+MxsYS8+JqDwWJWCpjH4ZtMdqqqc1=XDZrO8tqyKw@mail.gmail.com>
+ <D22A4191-6CFB-409C-B0DB-EEAB40F625FB@acm.org>
+ <1385761876.2336.57.camel@fsol>
+ <14E6220E-B82A-449F-93A4-A7F4485F291C@acm.org>
+ <CADiSq7etoReOWcHiBsBv9T7HeMj42fSw5+Zn8go2exoG8Rx4eQ@mail.gmail.com>
+ <CAP7+vJJXU1+i6bxY1jWAPZsLUuT9KGc5q8gVSoPH6-TSdVpLbA@mail.gmail.com>
+ <CADiSq7dRw24x45uoR=Md7AE6cfJN+oXQ8XoJyPqu-2RmbLf+1Q@mail.gmail.com>
+ <CAF-Rda_pNS+Yshkr8k074M_a_WTqJcVgdsi72ByNjMQExA5ZjA@mail.gmail.com>
+Message-ID: <CADiSq7fjRT3MMTq6o5AOatMDALFA7=Rt9LL1oZVOYwLqOBDRwg@mail.gmail.com>
+
+On 1 Dec 2013 01:49, "Eli Bendersky" <eliben at gmail.com> wrote:
+>
+>
+>
+>
+> On Fri, Nov 29, 2013 at 11:44 PM, Nick Coghlan <ncoghlan at gmail.com> wrote:
+>>
+>> On 30 November 2013 15:23, Guido van Rossum <guido at python.org> wrote:
+>> > Nick,
+>> >
+>> > I think we've seen the issue from every possible side now. I trust your
+>> > judgment that he has pulled this trick once too many times. So please
+>> > implement the ban. Or wait until the next infraction -- that's up to
+you.
+>> > Either way, since the archives of this list are public, our
+deliberations
+>> > will stand up to scrutiny.
+>> >
+>> > My offer to mediate (*after* he's been banned) stands, but it's up to
+you if
+>> > and how you want to mention that to Anatoly.
+>>
+>> OK, moving on to mechanics, here's what I would like to propose:
+>>
+>> - flip his moderation bit on the mailing lists, at least for
+>> python-dev, python-ideas and distutils-sig (are there any other lists
+>> where his presence is considered disruptive?).
+>>
+>> - revoke his tracker privileges. If he would like something done on
+>> the tracker, he can ask Guido or Ezio to make the change on his
+>> behalf.
+>>
+>> I'm willing to be the bearer of bad news, and let Anatoly know this is
+>> being done, and cc' Guido and Ezio (as I'll also pass along their
+>> offers of assistance).
+>
+>
+> This plan sounds good. I agree with Alex that the initial email has to be
+private. There's no need here for a public humiliation that will harm both
+Anatoly and Python.
+>
+> One thing that's not clear from the above is the duration of the ban.
+Guido was mentioning some minimal cool-off period before Anatoly can
+discuss his reinstatement with Guido.
+
+I'm thinking at least 12 months, and then Guido and Ezio can decide whether
+or not to propose that the suspension be lifted.
+
+Regards,
+Nick.
+
+>
+> Eli
+>
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20131201/75a6f2ad/attachment-0001.html>
+
+From antoine at python.org  Sat Nov 30 23:49:22 2013
+From: antoine at python.org (Antoine Pitrou)
+Date: Sat, 30 Nov 2013 23:49:22 +0100
+Subject: [python-committers] Anatoly has been warned about his behaviour
+ potentially leading to his loss of tracker privileges
+In-Reply-To: <20131130111011.7b1d663a@anarchist>
+References: <CAP1=2W6nO3XJ6dH09q3jaD41T1ZSJ6sshp6zCnGHSqNMCUafVA@mail.gmail.com>
+ <CAF-Rda_Fs8pwuhWkh5HEQH=nGbn6J83ujv+vZ1=S82ZW9=zhxA@mail.gmail.com>
+ <CAP7+vJL6zuAD7MRP1cAfMo_AEhBU2AtVbrB-ynwVJK171uSreA@mail.gmail.com>
+ <CAExdVNk9U348dQR6cXb=G81CXaaBLZMvOkHHTGy_7PMDPLNLxw@mail.gmail.com>
+ <l7an4r$lhe$2@ger.gmane.org>
+ <CAP7+vJJt=eiwXveue-S5VXKr_0DZ7PfE=rDL0SYOzepK8-dx6A@mail.gmail.com>
+ <CAP1=2W5AAQVCWWgYbL7RFrC8+w=LXCins8Cc7piTb7O4dgO7bA@mail.gmail.com>
+ <CAP7+vJ+vs+MxsYS8+JqDwWJWCpjH4ZtMdqqqc1=XDZrO8tqyKw@mail.gmail.com>
+ <D22A4191-6CFB-409C-B0DB-EEAB40F625FB@acm.org>
+ <1385761876.2336.57.camel@fsol>
+ <14E6220E-B82A-449F-93A4-A7F4485F291C@acm.org>
+ <CADiSq7etoReOWcHiBsBv9T7HeMj42fSw5+Zn8go2exoG8Rx4eQ@mail.gmail.com>
+ <CAP7+vJJXU1+i6bxY1jWAPZsLUuT9KGc5q8gVSoPH6-TSdVpLbA@mail.gmail.com>
+ <CADiSq7dRw24x45uoR=Md7AE6cfJN+oXQ8XoJyPqu-2RmbLf+1Q@mail.gmail.com>
+ <20131130111011.7b1d663a@anarchist>
+Message-ID: <1385851762.2339.0.camel@fsol>
+
+On sam., 2013-11-30 at 11:10 -0500, Barry Warsaw wrote:
+> On Nov 30, 2013, at 05:44 PM, Nick Coghlan wrote:
+> 
+> >- flip his moderation bit on the mailing lists, at least for
+> >python-dev, python-ideas and distutils-sig (are there any other lists
+> >where his presence is considered disruptive?).
+> 
+> Done, for techtonik at gmail.com on all three lists.
+
+Thank you very much for stepping up, Barry and Nick.
+
+cheers
+
+Antoine.
+
+
+

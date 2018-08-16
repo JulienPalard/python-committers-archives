@@ -1,0 +1,1327 @@
+From solipsis at pitrou.net  Thu Aug  6 23:01:33 2009
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Thu, 06 Aug 2009 23:01:33 +0200
+Subject: [python-committers] Data corruption issue (C IO library)
+Message-ID: <1249592493.6595.4.camel@localhost>
+
+
+Hello,
+
+A data corruption issue has been discovered in the C IO lib in Python
+3.1 (http://bugs.python.org/issue6629). I've applied a fix, and I wonder
+whether we should make a release quickly to minimize the probability of
+users hitting the problem?
+(Georg tells me Benjamin is on holiday, however)
+
+Regards
+
+Antoine.
+
+
+
+From brett at python.org  Thu Aug  6 23:07:43 2009
+From: brett at python.org (Brett Cannon)
+Date: Thu, 6 Aug 2009 14:07:43 -0700
+Subject: [python-committers] Data corruption issue (C IO library)
+In-Reply-To: <1249592493.6595.4.camel@localhost>
+References: <1249592493.6595.4.camel@localhost>
+Message-ID: <bbaeab100908061407g632bd9edy5a0b6d19c8eb0eb4@mail.gmail.com>
+
+On Thu, Aug 6, 2009 at 14:01, Antoine Pitrou <solipsis at pitrou.net> wrote:
+
+>
+> Hello,
+>
+> A data corruption issue has been discovered in the C IO lib in Python
+> 3.1 (http://bugs.python.org/issue6629). I've applied a fix, and I wonder
+> whether we should make a release quickly to minimize the probability of
+> users hitting the problem?
+
+
+Probably, or at least make the patch available directly.
+
+
+>
+> (Georg tells me Benjamin is on holiday, however)
+
+
+Yeah, I think he is in Sweden. Anyone know when he is due back?
+
+-Brett
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20090806/7101bdc4/attachment.htm>
+
+From martin at v.loewis.de  Fri Aug  7 00:02:29 2009
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Fri, 07 Aug 2009 00:02:29 +0200
+Subject: [python-committers] Data corruption issue (C IO library)
+In-Reply-To: <1249592493.6595.4.camel@localhost>
+References: <1249592493.6595.4.camel@localhost>
+Message-ID: <4A7B52F5.5040400@v.loewis.de>
+
+> A data corruption issue has been discovered in the C IO lib in Python
+> 3.1 (http://bugs.python.org/issue6629). I've applied a fix, and I wonder
+> whether we should make a release quickly to minimize the probability of
+> users hitting the problem?
+
+There are always two dimensions in which to evaluate criticality of an
+issue: how serious is the problem it can cause when it hits, and in how
+many real applications is it likely to occur?
+
+In the first dimension, I agree it's a serious problem. In the second
+dimension, it only affects applications that seek on files, and so I
+believe the problem is only of minor relevance.
+
+I think posting a patch on the 3.1 release page would be sufficient
+for now, along with a summary description on the circumstances that
+may trigger the bug, and the consequences it may cause.
+
+Regards,
+Martin
+
+From solipsis at pitrou.net  Fri Aug  7 00:42:04 2009
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Fri, 07 Aug 2009 00:42:04 +0200
+Subject: [python-committers] Data corruption issue (C IO library)
+In-Reply-To: <4A7B52F5.5040400@v.loewis.de>
+References: <1249592493.6595.4.camel@localhost> <4A7B52F5.5040400@v.loewis.de>
+Message-ID: <1249598524.6595.35.camel@localhost>
+
+Le vendredi 07 ao?t 2009 ? 00:02 +0200, "Martin v. L?wis" a ?crit :
+> There are always two dimensions in which to evaluate criticality of an
+> issue: how serious is the problem it can cause when it hits, and in how
+> many real applications is it likely to occur?
+> 
+> In the first dimension, I agree it's a serious problem. In the second
+> dimension, it only affects applications that seek on files, and so I
+> believe the problem is only of minor relevance.
+
+It doesn't depend on seek() actually (this was the reporter's diagnosis,
+which turned out wrong). It happens when writing more than the buffer
+size after the buffer was filled for readahead but not entirely
+consumed.
+
+The fact that it wasn't reported before may have to do with either the
+fact that it indeed doesn't affect a lot of applications, or that not
+many people have been using 3.1 "seriously" yet.
+
+As a side note, when I was working on the IO lib, I regularly ran the
+Durus stress test script in addition to our test suite. So the problem
+might indeed be unlikely in the real world.
+
+> I think posting a patch on the 3.1 release page would be sufficient
+> for now, along with a summary description on the circumstances that
+> may trigger the bug, and the consequences it may cause.
+
+I'm fine with this decision. The patch can be trivially extracted from
+one of the commits or svnmerges, but I don't know how to post it on the
+release page.
+
+Regards
+
+Antoine.
+
+
+PS : Obviously, having our own brand new IO subsystem rather than
+relying on a venerable standard C library is not without risks.
+
+
+
+From g.brandl at gmx.net  Fri Aug  7 01:28:43 2009
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Fri, 07 Aug 2009 01:28:43 +0200
+Subject: [python-committers] Data corruption issue (C IO library)
+In-Reply-To: <1249592493.6595.4.camel@localhost>
+References: <1249592493.6595.4.camel@localhost>
+Message-ID: <h5fp1o$gh7$1@ger.gmane.org>
+
+Antoine Pitrou schrieb:
+> Hello,
+> 
+> A data corruption issue has been discovered in the C IO lib in Python
+> 3.1 (http://bugs.python.org/issue6629). I've applied a fix, and I wonder
+> whether we should make a release quickly to minimize the probability of
+> users hitting the problem?
+> (Georg tells me Benjamin is on holiday, however)
+
+FWIW, I also think we should make a new micro release right now.  We can't
+be seen to take data corruption issues with the most basic file operations
+lightly, especially in Python 3; otherwise, people will think we still don't
+consider it ready for use.
+
+We can either make a release with only that patch applied, or a release of
+the full 3.1-maint branch, but the latter would need alphas and betas.
+
+Georg
+
+-- 
+Thus spake the Lord: Thou shalt indent with four spaces. No more, no less.
+Four shall be the number of spaces thou shalt indent, and the number of thy
+indenting shall be four. Eight shalt thou not indent, nor either indent thou
+two, excepting that thou then proceed to four. Tabs are right out.
+
+
+From facundobatista at gmail.com  Fri Aug  7 02:02:42 2009
+From: facundobatista at gmail.com (Facundo Batista)
+Date: Thu, 6 Aug 2009 21:02:42 -0300
+Subject: [python-committers] Data corruption issue (C IO library)
+In-Reply-To: <h5fp1o$gh7$1@ger.gmane.org>
+References: <1249592493.6595.4.camel@localhost> <h5fp1o$gh7$1@ger.gmane.org>
+Message-ID: <e04bdf310908061702m4410c96cj63e0332ff24e7468@mail.gmail.com>
+
+On Thu, Aug 6, 2009 at 8:28 PM, Georg Brandl<g.brandl at gmx.net> wrote:
+
+> FWIW, I also think we should make a new micro release right now. ?We can't
+> be seen to take data corruption issues with the most basic file operations
+> lightly, especially in Python 3; otherwise, people will think we still don't
+> consider it ready for use.
+
++1
+
+-- 
+.    Facundo
+
+Blog: http://www.taniquetil.com.ar/plog/
+PyAr: http://www.python.org/ar/
+
+From guido at python.org  Fri Aug  7 01:42:42 2009
+From: guido at python.org (Guido van Rossum)
+Date: Thu, 6 Aug 2009 16:42:42 -0700
+Subject: [python-committers] Data corruption issue (C IO library)
+In-Reply-To: <h5fp1o$gh7$1@ger.gmane.org>
+References: <1249592493.6595.4.camel@localhost> <h5fp1o$gh7$1@ger.gmane.org>
+Message-ID: <ca471dc20908061642qcf35b3at10a21098f6b7163a@mail.gmail.com>
+
+On Thu, Aug 6, 2009 at 4:28 PM, Georg Brandl<g.brandl at gmx.net> wrote:
+> Antoine Pitrou schrieb:
+>> Hello,
+>>
+>> A data corruption issue has been discovered in the C IO lib in Python
+>> 3.1 (http://bugs.python.org/issue6629). I've applied a fix, and I wonder
+>> whether we should make a release quickly to minimize the probability of
+>> users hitting the problem?
+>> (Georg tells me Benjamin is on holiday, however)
+>
+> FWIW, I also think we should make a new micro release right now. ?We can't
+> be seen to take data corruption issues with the most basic file operations
+> lightly, especially in Python 3; otherwise, people will think we still don't
+> consider it ready for use.
+>
+> We can either make a release with only that patch applied, or a release of
+> the full 3.1-maint branch, but the latter would need alphas and betas.
+
++1
+
+> Georg
+>
+> --
+> Thus spake the Lord: Thou shalt indent with four spaces. No more, no less.
+> Four shall be the number of spaces thou shalt indent, and the number of thy
+> indenting shall be four. Eight shalt thou not indent, nor either indent thou
+> two, excepting that thou then proceed to four. Tabs are right out.
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+>
+
+
+
+-- 
+--Guido van Rossum (home page: http://www.python.org/~guido/)
+
+From brett at python.org  Fri Aug  7 02:42:35 2009
+From: brett at python.org (Brett Cannon)
+Date: Thu, 6 Aug 2009 17:42:35 -0700
+Subject: [python-committers] Data corruption issue (C IO library)
+In-Reply-To: <ca471dc20908061642qcf35b3at10a21098f6b7163a@mail.gmail.com>
+References: <1249592493.6595.4.camel@localhost> <h5fp1o$gh7$1@ger.gmane.org> 
+	<ca471dc20908061642qcf35b3at10a21098f6b7163a@mail.gmail.com>
+Message-ID: <bbaeab100908061742y5cc2810x8fe22ba85485479e@mail.gmail.com>
+
+On Thu, Aug 6, 2009 at 16:42, Guido van Rossum <guido at python.org> wrote:
+
+> On Thu, Aug 6, 2009 at 4:28 PM, Georg Brandl<g.brandl at gmx.net> wrote:
+> > Antoine Pitrou schrieb:
+> >> Hello,
+> >>
+> >> A data corruption issue has been discovered in the C IO lib in Python
+> >> 3.1 (http://bugs.python.org/issue6629). I've applied a fix, and I
+> wonder
+> >> whether we should make a release quickly to minimize the probability of
+> >> users hitting the problem?
+> >> (Georg tells me Benjamin is on holiday, however)
+> >
+> > FWIW, I also think we should make a new micro release right now.  We
+> can't
+> > be seen to take data corruption issues with the most basic file
+> operations
+> > lightly, especially in Python 3; otherwise, people will think we still
+> don't
+> > consider it ready for use.
+> >
+> > We can either make a release with only that patch applied, or a release
+> of
+> > the full 3.1-maint branch, but the latter would need alphas and betas.
+>
+> +1
+
+
+Is that for the former or latter solution? Assuming the former, who is going
+to organize this since Benjamin is on vacation? And do we want just a source
+release or a full binary release (I assume the latter but the former is a
+lot easier)?
+
+-Brett
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20090806/ff74669d/attachment.htm>
+
+From guido at python.org  Fri Aug  7 02:51:52 2009
+From: guido at python.org (Guido van Rossum)
+Date: Thu, 6 Aug 2009 17:51:52 -0700
+Subject: [python-committers] Data corruption issue (C IO library)
+In-Reply-To: <bbaeab100908061742y5cc2810x8fe22ba85485479e@mail.gmail.com>
+References: <1249592493.6595.4.camel@localhost> <h5fp1o$gh7$1@ger.gmane.org> 
+	<ca471dc20908061642qcf35b3at10a21098f6b7163a@mail.gmail.com> 
+	<bbaeab100908061742y5cc2810x8fe22ba85485479e@mail.gmail.com>
+Message-ID: <ca471dc20908061751m1f5e40c6we7587125461e0c79@mail.gmail.com>
+
+On Thu, Aug 6, 2009 at 5:42 PM, Brett Cannon<brett at python.org> wrote:
+>
+>
+> On Thu, Aug 6, 2009 at 16:42, Guido van Rossum <guido at python.org> wrote:
+>>
+>> On Thu, Aug 6, 2009 at 4:28 PM, Georg Brandl<g.brandl at gmx.net> wrote:
+>> > Antoine Pitrou schrieb:
+>> >> Hello,
+>> >>
+>> >> A data corruption issue has been discovered in the C IO lib in Python
+>> >> 3.1 (http://bugs.python.org/issue6629). I've applied a fix, and I
+>> >> wonder
+>> >> whether we should make a release quickly to minimize the probability of
+>> >> users hitting the problem?
+>> >> (Georg tells me Benjamin is on holiday, however)
+>> >
+>> > FWIW, I also think we should make a new micro release right now. ?We
+>> > can't
+>> > be seen to take data corruption issues with the most basic file
+>> > operations
+>> > lightly, especially in Python 3; otherwise, people will think we still
+>> > don't
+>> > consider it ready for use.
+>> >
+>> > We can either make a release with only that patch applied, or a release
+>> > of
+>> > the full 3.1-maint branch, but the latter would need alphas and betas.
+>>
+>> +1
+>
+> Is that for the former or latter solution? Assuming the former, who is going
+> to organize this since Benjamin is on vacation? And do we want just a source
+> release or a full binary release (I assume the latter but the former is a
+> lot easier)?
+
+I just meant to +1 the "we need to make a new micro-release right now"
+paragraph. Logistically, I think it needs to be a full binary release
+but it could be identical to 3.1 except for the one patch. Hopefully
+that obviates the need for alphas and betas. Who? Not me :-(
+
+-- 
+--Guido van Rossum (home page: http://www.python.org/~guido/)
+
+From alexandre at peadrop.com  Fri Aug  7 03:16:32 2009
+From: alexandre at peadrop.com (Alexandre Vassalotti)
+Date: Thu, 6 Aug 2009 21:16:32 -0400
+Subject: [python-committers] Data corruption issue (C IO library)
+In-Reply-To: <h5fp1o$gh7$1@ger.gmane.org>
+References: <1249592493.6595.4.camel@localhost> <h5fp1o$gh7$1@ger.gmane.org>
+Message-ID: <acd65fa20908061816x3b7348f8re489b413a41cd8fc@mail.gmail.com>
+
+On Thu, Aug 6, 2009 at 7:28 PM, Georg Brandl<g.brandl at gmx.net> wrote:
+> Antoine Pitrou schrieb:
+>> Hello,
+>>
+>> A data corruption issue has been discovered in the C IO lib in Python
+>> 3.1 (http://bugs.python.org/issue6629). I've applied a fix, and I wonder
+>> whether we should make a release quickly to minimize the probability of
+>> users hitting the problem?
+>> (Georg tells me Benjamin is on holiday, however)
+>
+> FWIW, I also think we should make a new micro release right now. ?We can't
+> be seen to take data corruption issues with the most basic file operations
+> lightly, especially in Python 3; otherwise, people will think we still don't
+> consider it ready for use.
+
++1 for a micro release.
+
+-- Alexandre
+
+From jcea at jcea.es  Fri Aug  7 04:11:05 2009
+From: jcea at jcea.es (Jesus Cea)
+Date: Fri, 07 Aug 2009 04:11:05 +0200
+Subject: [python-committers] Data corruption issue (C IO library)
+In-Reply-To: <h5fp1o$gh7$1@ger.gmane.org>
+References: <1249592493.6595.4.camel@localhost> <h5fp1o$gh7$1@ger.gmane.org>
+Message-ID: <4A7B8D39.1040907@jcea.es>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Georg Brandl wrote:
+>> A data corruption issue has been discovered in the C IO lib in Python
+>> 3.1 (http://bugs.python.org/issue6629). I've applied a fix, and I wonder
+>> whether we should make a release quickly to minimize the probability of
+>> users hitting the problem?
+>> (Georg tells me Benjamin is on holiday, however)
+> 
+> FWIW, I also think we should make a new micro release right now.  We can't
+> be seen to take data corruption issues with the most basic file operations
+> lightly, especially in Python 3; otherwise, people will think we still don't
+> consider it ready for use.
+
++1. Messing with people files is probably the worst you can do.
+
+- --
+Jesus Cea Avion                         _/_/      _/_/_/        _/_/_/
+jcea at jcea.es - http://www.jcea.es/     _/_/    _/_/  _/_/    _/_/  _/_/
+jabber / xmpp:jcea at jabber.org         _/_/    _/_/          _/_/_/_/_/
+.                              _/_/  _/_/    _/_/          _/_/  _/_/
+"Things are not so easy"      _/_/  _/_/    _/_/  _/_/    _/_/  _/_/
+"My name is Dump, Core Dump"   _/_/_/        _/_/_/      _/_/  _/_/
+"El amor es poner tu felicidad en la felicidad de otro" - Leibniz
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.8 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - http://enigmail.mozdev.org
+
+iQCVAwUBSnuNL5lgi5GaxT1NAQIamQP+ItacvhX2myXmQ0uFtxHuL+2HxIZpjiPG
+zC/32QMeSuYEWERzfmADUyePeXMuN6pBQmkkbV5g0NQyQfkdKUqa7qzpeGAwSh5x
+SY30rP2K2gIi7egJd+1Akemm9HHvMepPip4YiLedGaY4naIQgGm2BHnOIpJcsgwY
+szLLo6jdn/M=
+=j0jo
+-----END PGP SIGNATURE-----
+
+From benjamin at python.org  Fri Aug  7 05:22:12 2009
+From: benjamin at python.org (Benjamin Peterson)
+Date: Thu, 6 Aug 2009 21:22:12 -0600
+Subject: [python-committers] Data corruption issue (C IO library)
+In-Reply-To: <h5fp1o$gh7$1@ger.gmane.org>
+References: <1249592493.6595.4.camel@localhost> <h5fp1o$gh7$1@ger.gmane.org>
+Message-ID: <1afaf6160908062022r28ab9db7nc9420c5f8e7739fb@mail.gmail.com>
+
+Hi everyone,
+I'm just getting back from the nice trip to the Olympic Peninsula. I
+should be able to do a release sometime next week. In the meantime,
+could someone post the patch to the 3.1 download site? (We should add
+a note to the quick links section, too.)
+
+2009/8/6 Georg Brandl <g.brandl at gmx.net>:
+> We can either make a release with only that patch applied, or a release of
+> the full 3.1-maint branch, but the latter would need alphas and betas.
+
+Why does that require doing alphas and betas? I believe the 2.5.x
+releases only had a RC and the 3.0.1 and 2.6.x had no preview releases
+before the final bugfix release.
+
+
+-- 
+Regards,
+Benjamin
+
+From anthonybaxter at gmail.com  Fri Aug  7 07:00:53 2009
+From: anthonybaxter at gmail.com (Anthony Baxter)
+Date: Fri, 7 Aug 2009 15:00:53 +1000
+Subject: [python-committers] Data corruption issue (C IO library)
+In-Reply-To: <1afaf6160908062022r28ab9db7nc9420c5f8e7739fb@mail.gmail.com>
+References: <1249592493.6595.4.camel@localhost> <h5fp1o$gh7$1@ger.gmane.org>
+	<1afaf6160908062022r28ab9db7nc9420c5f8e7739fb@mail.gmail.com>
+Message-ID: <e69d3ed20908062200n248a1cdbl5fc597a85cf075d6@mail.gmail.com>
+
+I have in the past done a microrelease without a release candidate. It
+didn't go well.
+
+
+On Fri, Aug 7, 2009 at 1:22 PM, Benjamin Peterson <benjamin at python.org>wrote:
+
+> Hi everyone,
+> I'm just getting back from the nice trip to the Olympic Peninsula. I
+> should be able to do a release sometime next week. In the meantime,
+> could someone post the patch to the 3.1 download site? (We should add
+> a note to the quick links section, too.)
+>
+> 2009/8/6 Georg Brandl <g.brandl at gmx.net>:
+> > We can either make a release with only that patch applied, or a release
+> of
+> > the full 3.1-maint branch, but the latter would need alphas and betas.
+>
+> Why does that require doing alphas and betas? I believe the 2.5.x
+> releases only had a RC and the 3.0.1 and 2.6.x had no preview releases
+> before the final bugfix release.
+>
+>
+> --
+> Regards,
+> Benjamin
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20090807/670dd32c/attachment-0001.htm>
+
+From g.brandl at gmx.net  Fri Aug  7 08:20:38 2009
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Fri, 07 Aug 2009 08:20:38 +0200
+Subject: [python-committers] Data corruption issue (C IO library)
+In-Reply-To: <1afaf6160908062022r28ab9db7nc9420c5f8e7739fb@mail.gmail.com>
+References: <1249592493.6595.4.camel@localhost> <h5fp1o$gh7$1@ger.gmane.org>
+	<1afaf6160908062022r28ab9db7nc9420c5f8e7739fb@mail.gmail.com>
+Message-ID: <h5gh63$v7i$1@ger.gmane.org>
+
+Benjamin Peterson schrieb:
+> Hi everyone,
+> I'm just getting back from the nice trip to the Olympic Peninsula. I
+> should be able to do a release sometime next week.
+
+Just at the right time! :)
+
+> In the meantime,
+> could someone post the patch to the 3.1 download site? (We should add
+> a note to the quick links section, too.)
+> 
+> 2009/8/6 Georg Brandl <g.brandl at gmx.net>:
+>> We can either make a release with only that patch applied, or a release of
+>> the full 3.1-maint branch, but the latter would need alphas and betas.
+> 
+> Why does that require doing alphas and betas? I believe the 2.5.x
+> releases only had a RC and the 3.0.1 and 2.6.x had no preview releases
+> before the final bugfix release.
+
+OK, maybe alphas and betas were a bit too skeptical; but there needs to be
+*something* that people can test before final.  Otherwise, another release
+may be necessary just afterwards :|
+
+Georg
+
+-- 
+Thus spake the Lord: Thou shalt indent with four spaces. No more, no less.
+Four shall be the number of spaces thou shalt indent, and the number of thy
+indenting shall be four. Eight shalt thou not indent, nor either indent thou
+two, excepting that thou then proceed to four. Tabs are right out.
+
+
+From python at rcn.com  Fri Aug  7 08:32:40 2009
+From: python at rcn.com (Raymond Hettinger)
+Date: Thu, 6 Aug 2009 23:32:40 -0700
+Subject: [python-committers] Data corruption issue (C IO library)
+References: <1249592493.6595.4.camel@localhost> <h5fp1o$gh7$1@ger.gmane.org>
+	<ca471dc20908061642qcf35b3at10a21098f6b7163a@mail.gmail.com>
+	<bbaeab100908061742y5cc2810x8fe22ba85485479e@mail.gmail.com>
+	<ca471dc20908061751m1f5e40c6we7587125461e0c79@mail.gmail.com>
+Message-ID: <58325E92253841C4BD94936951E813A4@RaymondLaptop1>
+
+> I just meant to +1 the "we need to make a new micro-release right now"
+> paragraph. Logistically, I think it needs to be a full binary release
+> but it could be identical to 3.1 except for the one patch. 
+
+Looking at Misc/NEWS, there are a number of worthy bugfixes already in.
+Why not just do a regular micro-release, reflecting the state of release31-maint?
+We could stick to the normal procedures -- the only thing different is that
+we're doing it sooner than planned.
+
+
+Raymond
+
+From ncoghlan at gmail.com  Fri Aug  7 12:05:57 2009
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Fri, 07 Aug 2009 20:05:57 +1000
+Subject: [python-committers] Data corruption issue (C IO library)
+In-Reply-To: <h5gh63$v7i$1@ger.gmane.org>
+References: <1249592493.6595.4.camel@localhost>
+	<h5fp1o$gh7$1@ger.gmane.org>	<1afaf6160908062022r28ab9db7nc9420c5f8e7739fb@mail.gmail.com>
+	<h5gh63$v7i$1@ger.gmane.org>
+Message-ID: <4A7BFC85.4070105@gmail.com>
+
+Georg Brandl wrote:
+> OK, maybe alphas and betas were a bit too skeptical; but there needs to be
+> *something* that people can test before final.  Otherwise, another release
+> may be necessary just afterwards :|
+
+As has been noted, release candidate -> maintenance release is the
+approach that has worked well in the past. Only including bug fixes
+means the alpha/beta stages aren't needed, but going through an RC makes
+sure the installers and the like are all in a happy state as well.
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+---------------------------------------------------------------
+
+From anthonybaxter at gmail.com  Fri Aug  7 12:17:23 2009
+From: anthonybaxter at gmail.com (Anthony Baxter)
+Date: Fri, 7 Aug 2009 20:17:23 +1000
+Subject: [python-committers] Data corruption issue (C IO library)
+In-Reply-To: <4A7BFC85.4070105@gmail.com>
+References: <1249592493.6595.4.camel@localhost> <h5fp1o$gh7$1@ger.gmane.org>
+	<1afaf6160908062022r28ab9db7nc9420c5f8e7739fb@mail.gmail.com>
+	<h5gh63$v7i$1@ger.gmane.org> <4A7BFC85.4070105@gmail.com>
+Message-ID: <e69d3ed20908070317q4ddcc02ey7f281ef898d6a9ff@mail.gmail.com>
+
+Its also about preventing the brown paper bag releases caused by stupid
+screwups.
+
+On Aug 7, 2009 8:08 PM, "Nick Coghlan" <ncoghlan at gmail.com> wrote:
+
+Georg Brandl wrote: > OK, maybe alphas and betas were a bit too skeptical;
+but there needs to be > *...
+As has been noted, release candidate -> maintenance release is the
+approach that has worked well in the past. Only including bug fixes
+means the alpha/beta stages aren't needed, but going through an RC makes
+sure the installers and the like are all in a happy state as well.
+
+Cheers,
+Nick.
+
+--
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+---------------------------------------------------------------
+
+_______________________________________________ python-committers mailing
+list python-committers at pyt...
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20090807/fbd5856e/attachment.htm>
+
+From barry at python.org  Fri Aug  7 16:26:53 2009
+From: barry at python.org (Barry Warsaw)
+Date: Fri, 7 Aug 2009 10:26:53 -0400
+Subject: [python-committers] Data corruption issue (C IO library)
+In-Reply-To: <h5gh63$v7i$1@ger.gmane.org>
+References: <1249592493.6595.4.camel@localhost> <h5fp1o$gh7$1@ger.gmane.org>
+	<1afaf6160908062022r28ab9db7nc9420c5f8e7739fb@mail.gmail.com>
+	<h5gh63$v7i$1@ger.gmane.org>
+Message-ID: <4F152600-AFD7-4301-A706-AE01EBC6A705@python.org>
+
+On Aug 7, 2009, at 2:20 AM, Georg Brandl wrote:
+
+>> Why does that require doing alphas and betas? I believe the 2.5.x
+>> releases only had a RC and the 3.0.1 and 2.6.x had no preview  
+>> releases
+>> before the final bugfix release.
+>
+> OK, maybe alphas and betas were a bit too skeptical; but there needs  
+> to be
+> *something* that people can test before final.  Otherwise, another  
+> release
+> may be necessary just afterwards :|
+
+I'm skeptical about pre-releases for micro releases.  Nobody outside  
+dedicated insiders really tests them and y'all can test the source  
+branches anyway.  I also don't think it's /that/ big of a deal to  
+release a new micro release right away for the occasional brown bag  
+moment.
+
+An alternative may be to embargo a micro release from the public for a  
+day or so.  Build it and upload it, and announce it here.  Let people  
+at least test installs and a few very simple things, and then 24 hours  
+later, update the public links and make the announcement.
+
+OTOH, if and when snakebite.org is part of our normal development  
+process, the RM can just use that to make sure nothing horrible is  
+broken.
+
+I'd say JFDI :)
+
+-Barry
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: PGP.sig
+Type: application/pgp-signature
+Size: 832 bytes
+Desc: This is a digitally signed message part
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20090807/374cfcfe/attachment.pgp>
+
+From solipsis at pitrou.net  Fri Aug  7 19:20:31 2009
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Fri, 07 Aug 2009 19:20:31 +0200
+Subject: [python-committers] Data corruption issue (C IO library)
+In-Reply-To: <58325E92253841C4BD94936951E813A4@RaymondLaptop1>
+References: <1249592493.6595.4.camel@localhost> <h5fp1o$gh7$1@ger.gmane.org>
+	<ca471dc20908061642qcf35b3at10a21098f6b7163a@mail.gmail.com>
+	<bbaeab100908061742y5cc2810x8fe22ba85485479e@mail.gmail.com>
+	<ca471dc20908061751m1f5e40c6we7587125461e0c79@mail.gmail.com>
+	<58325E92253841C4BD94936951E813A4@RaymondLaptop1>
+Message-ID: <1249665631.5607.48.camel@localhost>
+
+Le jeudi 06 ao?t 2009 ? 23:32 -0700, Raymond Hettinger a ?crit :
+> > I just meant to +1 the "we need to make a new micro-release right now"
+> > paragraph. Logistically, I think it needs to be a full binary release
+> > but it could be identical to 3.1 except for the one patch. 
+> 
+> Looking at Misc/NEWS, there are a number of worthy bugfixes already in.
+
+Indeed, a couple of which could be considered serious:
+
+- Issue #6573: set.union() stopped processing inputs if an instance of self
+  occurred in the argument chain.
+
+- Issue #6415: Fixed warnings.warn segfault on bad formatted string.
+
+- Issue #6344: Fixed a crash of mmap.read() when passed a negative argument.
+
+
+As a sidenote: I'm a relatively young core developer here, are there any
+precedents of such critical bugs? How has the situation been handled
+then?
+
+Regards
+
+Antoine.
+
+
+
+From greg at krypto.org  Fri Aug  7 23:14:11 2009
+From: greg at krypto.org (Gregory P. Smith)
+Date: Fri, 7 Aug 2009 14:14:11 -0700
+Subject: [python-committers] www & svn . python.org down?
+Message-ID: <52dc1c820908071414r55779495yf93cd8b2066a2651@mail.gmail.com>
+
+i assume someone already knows, just pointing it out.
+
+From thomas at python.org  Fri Aug  7 23:44:47 2009
+From: thomas at python.org (Thomas Wouters)
+Date: Fri, 7 Aug 2009 23:44:47 +0200
+Subject: [python-committers] www & svn . python.org down?
+In-Reply-To: <52dc1c820908071414r55779495yf93cd8b2066a2651@mail.gmail.com>
+References: <52dc1c820908071414r55779495yf93cd8b2066a2651@mail.gmail.com>
+Message-ID: <9e804ac0908071444t17a3f96u18f80e8e8133d5d3@mail.gmail.com>
+
+Yes.
+
+On Fri, Aug 7, 2009 at 23:14, Gregory P. Smith <greg at krypto.org> wrote:
+
+> i assume someone already knows, just pointing it out.
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+>
+
+
+
+-- 
+Thomas Wouters <thomas at python.org>
+
+Hi! I'm a .signature virus! copy me into your .signature file to help me
+spread!
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20090807/2e8a053b/attachment-0001.htm>
+
+From g.brandl at gmx.net  Mon Aug 10 00:00:40 2009
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Mon, 10 Aug 2009 00:00:40 +0200
+Subject: [python-committers] Data corruption issue (C IO library)
+In-Reply-To: <1249665631.5607.48.camel@localhost>
+References: <1249592493.6595.4.camel@localhost>
+	<h5fp1o$gh7$1@ger.gmane.org>	<ca471dc20908061642qcf35b3at10a21098f6b7163a@mail.gmail.com>	<bbaeab100908061742y5cc2810x8fe22ba85485479e@mail.gmail.com>	<ca471dc20908061751m1f5e40c6we7587125461e0c79@mail.gmail.com>	<58325E92253841C4BD94936951E813A4@RaymondLaptop1>
+	<1249665631.5607.48.camel@localhost>
+Message-ID: <h5nh0p$e31$1@ger.gmane.org>
+
+Antoine Pitrou schrieb:
+> Le jeudi 06 ao?t 2009 ? 23:32 -0700, Raymond Hettinger a ?crit :
+>> > I just meant to +1 the "we need to make a new micro-release right now"
+>> > paragraph. Logistically, I think it needs to be a full binary release
+>> > but it could be identical to 3.1 except for the one patch. 
+>> 
+>> Looking at Misc/NEWS, there are a number of worthy bugfixes already in.
+> 
+> Indeed, a couple of which could be considered serious:
+> 
+> - Issue #6573: set.union() stopped processing inputs if an instance of self
+>   occurred in the argument chain.
+> 
+> - Issue #6415: Fixed warnings.warn segfault on bad formatted string.
+> 
+> - Issue #6344: Fixed a crash of mmap.read() when passed a negative argument.
+
+Less serious, but a showstopper nevertheless: #6126, which basically renders
+pdb unusable.  I'll try to remember to commit the fix as soon as SVN is back.
+
+Georg
+
+-- 
+Thus spake the Lord: Thou shalt indent with four spaces. No more, no less.
+Four shall be the number of spaces thou shalt indent, and the number of thy
+indenting shall be four. Eight shalt thou not indent, nor either indent thou
+two, excepting that thou then proceed to four. Tabs are right out.
+
+
+From benjamin at python.org  Thu Aug 13 17:17:58 2009
+From: benjamin at python.org (Benjamin Peterson)
+Date: Thu, 13 Aug 2009 10:17:58 -0500
+Subject: [python-committers] 3.1 maint frozen
+Message-ID: <1afaf6160908130817x2bb510deya9c52c887cb8d2e0@mail.gmail.com>
+
+I'm going to start working on 3.1.1 now. Please no commits to it.
+
+-- 
+Regards,
+Benjamin
+
+From brett at python.org  Thu Aug 13 18:00:09 2009
+From: brett at python.org (Brett Cannon)
+Date: Thu, 13 Aug 2009 09:00:09 -0700
+Subject: [python-committers] 3.1 maint frozen
+In-Reply-To: <1afaf6160908130817x2bb510deya9c52c887cb8d2e0@mail.gmail.com>
+References: <1afaf6160908130817x2bb510deya9c52c887cb8d2e0@mail.gmail.com>
+Message-ID: <bbaeab100908130900j7c63eea0p43aeb6fd26dd7e3d@mail.gmail.com>
+
+Is this an alpha or beta cut for 3.1.1? I have a crasher fix I plan to
+commit later today.
+
+On Aug 13, 2009 8:18 AM, "Benjamin Peterson" <benjamin at python.org> wrote:
+
+I'm going to start working on 3.1.1 now. Please no commits to it.
+
+--
+Regards,
+Benjamin
+_______________________________________________
+python-committers mailing list
+python-committers at python.org
+http://mail.python.org/mailman/listinfo/python-committers
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20090813/a8bd7a8b/attachment.htm>
+
+From benjamin at python.org  Thu Aug 13 18:07:26 2009
+From: benjamin at python.org (Benjamin Peterson)
+Date: Thu, 13 Aug 2009 11:07:26 -0500
+Subject: [python-committers] 3.1 maint frozen
+In-Reply-To: <bbaeab100908130900j7c63eea0p43aeb6fd26dd7e3d@mail.gmail.com>
+References: <1afaf6160908130817x2bb510deya9c52c887cb8d2e0@mail.gmail.com>
+	<bbaeab100908130900j7c63eea0p43aeb6fd26dd7e3d@mail.gmail.com>
+Message-ID: <1afaf6160908130907n237510f0r87167a6147f9de0@mail.gmail.com>
+
+2009/8/13 Brett Cannon <brett at python.org>:
+> Is this an alpha or beta cut for 3.1.1? I have a crasher fix I plan to
+> commit later today.
+
+I'm calling it an RC. Feel free to commit that fix now that I've
+tagged the release.
+
+
+
+-- 
+Regards,
+Benjamin
+
+From rdmurray at bitdance.com  Thu Aug 13 18:17:20 2009
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Thu, 13 Aug 2009 12:17:20 -0400 (EDT)
+Subject: [python-committers] 3.1 maint frozen
+In-Reply-To: <bbaeab100908130900j7c63eea0p43aeb6fd26dd7e3d@mail.gmail.com>
+References: <1afaf6160908130817x2bb510deya9c52c887cb8d2e0@mail.gmail.com>
+	<bbaeab100908130900j7c63eea0p43aeb6fd26dd7e3d@mail.gmail.com>
+Message-ID: <Pine.LNX.4.64.0908131216140.30683@kimball.webabinitio.net>
+
+On Thu, 13 Aug 2009 at 09:00, Brett Cannon wrote:
+> Is this an alpha or beta cut for 3.1.1? I have a crasher fix I plan to
+> commit later today.
+
+It's an RC.
+
+--David
+
+From brett at python.org  Thu Aug 13 21:44:04 2009
+From: brett at python.org (Brett Cannon)
+Date: Thu, 13 Aug 2009 12:44:04 -0700
+Subject: [python-committers] Anyone having issues with svnmerge.py and 2.6
+	(possibly OS X problem)?
+Message-ID: <bbaeab100908131244n68461072q5ac792e32450da02@mail.gmail.com>
+
+I am trying to backport something to 2.6 and I am getting the following
+error from svnmerge.py:
+> svnmerge.py merge -r74429t
+property 'svnmerge-integrated' deleted from '.'.
+
+property 'svnmerge-blocked' deleted from '.'.
+
+--- Merging r74429 into '.':
+C    Misc/NEWS
+U    Misc/ACKS
+U    Lib/test/test_pyexpat.py
+U    Modules/expat/xmltok_impl.c
+Summary of conflicts:
+  Text conflicts: 1
+
+property 'svnmerge-integrated' set on '.'
+
+property 'svnmerge-blocked' set on '.'
+
+Traceback (most recent call last):
+  File "/Users/brett/.slash/python/svnmerge/svnmerge.py", line 2361, in
+<module>
+    main(sys.argv[1:])
+  File "/Users/brett/.slash/python/svnmerge/svnmerge.py", line 2356, in main
+    cmd(branch_dir, branch_props)
+  File "/Users/brett/.slash/python/svnmerge/svnmerge.py", line 1810, in
+__call__
+    return self.func(*args, **kwargs)
+  File "/Users/brett/.slash/python/svnmerge/svnmerge.py", line 1560, in
+action_merge
+    print >>f, construct_merged_log_message(opts["source-url"], revs),
+  File "/Users/brett/.slash/python/svnmerge/svnmerge.py", line 1136, in
+construct_merged_log_message
+    message = get_commit_log(url, r)
+  File "/Users/brett/.slash/python/svnmerge/svnmerge.py", line 1122, in
+get_commit_log
+    return recode_stdout_to_file("".join(out[1:]))
+  File "/Users/brett/.slash/python/svnmerge/svnmerge.py", line 229, in
+recode_stdout_to_file
+    return u.encode(locale.getdefaultlocale()[1])
+  File "/Users/brett/.slash/python/lib/python2.6/encodings/mac_roman.py",
+line 12, in encode
+    return codecs.charmap_encode(input,errors,encoding_table)
+UnicodeEncodeError: 'charmap' codec can't encode character u'\u0107' in
+position 191: character maps to <undefined>
+
+
+Anyone else running into this? I tried backing up svnmerge.py to r36767
+(sometime in March; random choice) and I am still having the problem.
+
+-Brett
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20090813/a3e04011/attachment.htm>
+
+From ggpolo at gmail.com  Thu Aug 13 21:58:47 2009
+From: ggpolo at gmail.com (Guilherme Polo)
+Date: Thu, 13 Aug 2009 16:58:47 -0300
+Subject: [python-committers] Anyone having issues with svnmerge.py and
+	2.6 (possibly OS X problem)?
+In-Reply-To: <bbaeab100908131244n68461072q5ac792e32450da02@mail.gmail.com>
+References: <bbaeab100908131244n68461072q5ac792e32450da02@mail.gmail.com>
+Message-ID: <ac2200130908131258j2d90648crd49b3fe51a5437b@mail.gmail.com>
+
+2009/8/13 Brett Cannon <brett at python.org>:
+> I am trying to backport something to 2.6 and I am getting the following
+> error from svnmerge.py:
+>> svnmerge.py merge -r74429t
+> property 'svnmerge-integrated' deleted from '.'.
+> property 'svnmerge-blocked' deleted from '.'.
+> --- Merging r74429 into '.':
+> C ? ?Misc/NEWS
+> U ? ?Misc/ACKS
+> U ? ?Lib/test/test_pyexpat.py
+> U ? ?Modules/expat/xmltok_impl.c
+> Summary of conflicts:
+> ??Text conflicts: 1
+> property 'svnmerge-integrated' set on '.'
+> property 'svnmerge-blocked' set on '.'
+> Traceback (most recent call last):
+> ??File "/Users/brett/.slash/python/svnmerge/svnmerge.py", line 2361, in
+> <module>
+> ?? ?main(sys.argv[1:])
+> ??File "/Users/brett/.slash/python/svnmerge/svnmerge.py", line 2356, in main
+> ?? ?cmd(branch_dir, branch_props)
+> ??File "/Users/brett/.slash/python/svnmerge/svnmerge.py", line 1810, in
+> __call__
+> ?? ?return self.func(*args, **kwargs)
+> ??File "/Users/brett/.slash/python/svnmerge/svnmerge.py", line 1560, in
+> action_merge
+> ?? ?print >>f, construct_merged_log_message(opts["source-url"], revs),
+> ??File "/Users/brett/.slash/python/svnmerge/svnmerge.py", line 1136, in
+> construct_merged_log_message
+> ?? ?message = get_commit_log(url, r)
+> ??File "/Users/brett/.slash/python/svnmerge/svnmerge.py", line 1122, in
+> get_commit_log
+> ?? ?return recode_stdout_to_file("".join(out[1:]))
+> ??File "/Users/brett/.slash/python/svnmerge/svnmerge.py", line 229, in
+> recode_stdout_to_file
+> ?? ?return u.encode(locale.getdefaultlocale()[1])
+> ??File "/Users/brett/.slash/python/lib/python2.6/encodings/mac_roman.py",
+> line 12, in encode
+> ?? ?return codecs.charmap_encode(input,errors,encoding_table)
+> UnicodeEncodeError: 'charmap' codec can't encode character u'\u0107' in
+> position 191: character maps to <undefined>
+>
+> Anyone else running into this? I tried backing up svnmerge.py to r36767
+> (sometime in March; random choice) and I am still having the problem.
+
+I just ran svnmerge on tk_and_idle_maintenance branch and it worked
+fine (r74434). Unfortunately the svnmerge.py I use doesn't include its
+revision number, so svnmerge.__rev__ and .__date__ are set to
+'<unknown>'.
+
+> -Brett
+
+
+
+
+-- 
+-- Guilherme H. Polo Goncalves
+
+From jseutter at gmail.com  Thu Aug 13 23:03:44 2009
+From: jseutter at gmail.com (Jerry Seutter)
+Date: Thu, 13 Aug 2009 15:03:44 -0600
+Subject: [python-committers] Anyone having issues with svnmerge.py and
+	2.6 (possibly OS X problem)?
+In-Reply-To: <bbaeab100908131244n68461072q5ac792e32450da02@mail.gmail.com>
+References: <bbaeab100908131244n68461072q5ac792e32450da02@mail.gmail.com>
+Message-ID: <2c8d48d70908131403w1befd240yc48c2882044f08ee@mail.gmail.com>
+
+On Thu, Aug 13, 2009 at 1:44 PM, Brett Cannon <brett at python.org> wrote:
+
+> I am trying to backport something to 2.6 and I am getting the following
+> error from svnmerge.py:
+> > svnmerge.py merge -r74429t
+> property 'svnmerge-integrated' deleted from '.'.
+>
+> property 'svnmerge-blocked' deleted from '.'.
+>
+> --- Merging r74429 into '.':
+> C    Misc/NEWS
+> U    Misc/ACKS
+> U    Lib/test/test_pyexpat.py
+> U    Modules/expat/xmltok_impl.c
+> Summary of conflicts:
+>   Text conflicts: 1
+>
+> property 'svnmerge-integrated' set on '.'
+>
+> property 'svnmerge-blocked' set on '.'
+>
+> Traceback (most recent call last):
+>   File "/Users/brett/.slash/python/svnmerge/svnmerge.py", line 2361, in
+> <module>
+>     main(sys.argv[1:])
+>   File "/Users/brett/.slash/python/svnmerge/svnmerge.py", line 2356, in
+> main
+>     cmd(branch_dir, branch_props)
+>   File "/Users/brett/.slash/python/svnmerge/svnmerge.py", line 1810, in
+> __call__
+>     return self.func(*args, **kwargs)
+>   File "/Users/brett/.slash/python/svnmerge/svnmerge.py", line 1560, in
+> action_merge
+>     print >>f, construct_merged_log_message(opts["source-url"], revs),
+>   File "/Users/brett/.slash/python/svnmerge/svnmerge.py", line 1136, in
+> construct_merged_log_message
+>     message = get_commit_log(url, r)
+>   File "/Users/brett/.slash/python/svnmerge/svnmerge.py", line 1122, in
+> get_commit_log
+>     return recode_stdout_to_file("".join(out[1:]))
+>    File "/Users/brett/.slash/python/svnmerge/svnmerge.py", line 229, in
+> recode_stdout_to_file
+>     return u.encode(locale.getdefaultlocale()[1])
+>   File "/Users/brett/.slash/python/lib/python2.6/encodings/mac_roman.py",
+> line 12, in encode
+>     return codecs.charmap_encode(input,errors,encoding_table)
+> UnicodeEncodeError: 'charmap' codec can't encode character u'\u0107' in
+> position 191: character maps to <undefined>
+>
+>
+> Anyone else running into this? I tried backing up svnmerge.py to r36767
+> (sometime in March; random choice) and I am still having the problem.
+>
+> -Brett
+>
+
+There's an accented c (?, unicode 0x0107) in a log message.  It looks like
+svn log is outputting the character and python can't handle it.  Wierd,
+since svn log is supposed to convert its output to the local encoding, just
+like svnmerge is trying to do.
+
+http://svn.haxx.se/dev/archive-2002-09/0522.shtml
+
+Someone isn't using the right encoding, or else svn log has a bug.  I might
+just be restating the obvious.
+
+Jerry
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20090813/715b061e/attachment.htm>
+
+From rdmurray at bitdance.com  Thu Aug 13 23:15:38 2009
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Thu, 13 Aug 2009 17:15:38 -0400 (EDT)
+Subject: [python-committers] Anyone having issues with svnmerge.py and
+ 2.6 (possibly OS X problem)?
+In-Reply-To: <2c8d48d70908131403w1befd240yc48c2882044f08ee@mail.gmail.com>
+References: <bbaeab100908131244n68461072q5ac792e32450da02@mail.gmail.com>
+	<2c8d48d70908131403w1befd240yc48c2882044f08ee@mail.gmail.com>
+Message-ID: <Pine.LNX.4.64.0908131714260.30683@kimball.webabinitio.net>
+
+On Thu, 13 Aug 2009 at 15:03, Jerry Seutter wrote:
+> On Thu, Aug 13, 2009 at 1:44 PM, Brett Cannon <brett at python.org> wrote:
+>>   File "/Users/brett/.slash/python/lib/python2.6/encodings/mac_roman.py",
+>> line 12, in encode
+>>     return codecs.charmap_encode(input,errors,encoding_table)
+>> UnicodeEncodeError: 'charmap' codec can't encode character u'\u0107' in
+>> position 191: character maps to <undefined>
+>>
+>>
+>> Anyone else running into this? I tried backing up svnmerge.py to r36767
+>> (sometime in March; random choice) and I am still having the problem.
+>>
+>> -Brett
+>>
+>
+> There's an accented c (??, unicode 0x0107) in a log message.  It looks like
+> svn log is outputting the character and python can't handle it.  Wierd,
+> since svn log is supposed to convert its output to the local encoding, just
+> like svnmerge is trying to do.
+>
+> http://svn.haxx.se/dev/archive-2002-09/0522.shtml
+>
+> Someone isn't using the right encoding, or else svn log has a bug.  I might
+> just be restating the obvious.
+
+Hmm.  Given the presence of 'mac_roman.py' in the traceback, I wonder if
+Issue 6202 has any relevance here?
+
+--David
+
+From brett at python.org  Thu Aug 13 23:19:13 2009
+From: brett at python.org (Brett Cannon)
+Date: Thu, 13 Aug 2009 14:19:13 -0700
+Subject: [python-committers] Anyone having issues with svnmerge.py and
+	2.6 (possibly OS X problem)?
+In-Reply-To: <Pine.LNX.4.64.0908131714260.30683@kimball.webabinitio.net>
+References: <bbaeab100908131244n68461072q5ac792e32450da02@mail.gmail.com> 
+	<2c8d48d70908131403w1befd240yc48c2882044f08ee@mail.gmail.com> 
+	<Pine.LNX.4.64.0908131714260.30683@kimball.webabinitio.net>
+Message-ID: <bbaeab100908131419y5a1fc037u9c4ce3889f44c42e@mail.gmail.com>
+
+On Thu, Aug 13, 2009 at 14:15, R. David Murray <rdmurray at bitdance.com>wrote:
+
+> On Thu, 13 Aug 2009 at 15:03, Jerry Seutter wrote:
+>
+>> On Thu, Aug 13, 2009 at 1:44 PM, Brett Cannon <brett at python.org> wrote:
+>>
+>>>  File "/Users/brett/.slash/python/lib/python2.6/encodings/mac_roman.py",
+>>> line 12, in encode
+>>>    return codecs.charmap_encode(input,errors,encoding_table)
+>>> UnicodeEncodeError: 'charmap' codec can't encode character u'\u0107' in
+>>> position 191: character maps to <undefined>
+>>>
+>>>
+>>> Anyone else running into this? I tried backing up svnmerge.py to r36767
+>>> (sometime in March; random choice) and I am still having the problem.
+>>>
+>>> -Brett
+>>>
+>>>
+>> There's an accented c (?, unicode 0x0107) in a log message.  It looks like
+>> svn log is outputting the character and python can't handle it.  Wierd,
+>> since svn log is supposed to convert its output to the local encoding,
+>> just
+>> like svnmerge is trying to do.
+>>
+>> http://svn.haxx.se/dev/archive-2002-09/0522.shtml
+>>
+>> Someone isn't using the right encoding, or else svn log has a bug.  I
+>> might
+>> just be restating the obvious.
+>>
+>
+> Hmm.  Given the presence of 'mac_roman.py' in the traceback, I wonder if
+> Issue 6202 has any relevance here?
+
+
+That's possible, although this was run under CPython 2.5 and the issue
+doesn't mention if this is an issue under 2.x.
+
+-Brett
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20090813/985dc0d3/attachment.htm>
+
+From brett at python.org  Thu Aug 13 23:15:05 2009
+From: brett at python.org (Brett Cannon)
+Date: Thu, 13 Aug 2009 14:15:05 -0700
+Subject: [python-committers] Anyone having issues with svnmerge.py and
+	2.6 (possibly OS X problem)?
+In-Reply-To: <2c8d48d70908131403w1befd240yc48c2882044f08ee@mail.gmail.com>
+References: <bbaeab100908131244n68461072q5ac792e32450da02@mail.gmail.com> 
+	<2c8d48d70908131403w1befd240yc48c2882044f08ee@mail.gmail.com>
+Message-ID: <bbaeab100908131415se62233ag7dd4ea203391b95e@mail.gmail.com>
+
+On Thu, Aug 13, 2009 at 14:03, Jerry Seutter <jseutter at gmail.com> wrote:
+
+>
+>
+> On Thu, Aug 13, 2009 at 1:44 PM, Brett Cannon <brett at python.org> wrote:
+>
+>> I am trying to backport something to 2.6 and I am getting the following
+>> error from svnmerge.py:
+>> > svnmerge.py merge -r74429t
+>> property 'svnmerge-integrated' deleted from '.'.
+>>
+>> property 'svnmerge-blocked' deleted from '.'.
+>>
+>> --- Merging r74429 into '.':
+>> C    Misc/NEWS
+>> U    Misc/ACKS
+>> U    Lib/test/test_pyexpat.py
+>> U    Modules/expat/xmltok_impl.c
+>> Summary of conflicts:
+>>   Text conflicts: 1
+>>
+>> property 'svnmerge-integrated' set on '.'
+>>
+>> property 'svnmerge-blocked' set on '.'
+>>
+>> Traceback (most recent call last):
+>>   File "/Users/brett/.slash/python/svnmerge/svnmerge.py", line 2361, in
+>> <module>
+>>     main(sys.argv[1:])
+>>   File "/Users/brett/.slash/python/svnmerge/svnmerge.py", line 2356, in
+>> main
+>>     cmd(branch_dir, branch_props)
+>>   File "/Users/brett/.slash/python/svnmerge/svnmerge.py", line 1810, in
+>> __call__
+>>     return self.func(*args, **kwargs)
+>>   File "/Users/brett/.slash/python/svnmerge/svnmerge.py", line 1560, in
+>> action_merge
+>>     print >>f, construct_merged_log_message(opts["source-url"], revs),
+>>   File "/Users/brett/.slash/python/svnmerge/svnmerge.py", line 1136, in
+>> construct_merged_log_message
+>>     message = get_commit_log(url, r)
+>>   File "/Users/brett/.slash/python/svnmerge/svnmerge.py", line 1122, in
+>> get_commit_log
+>>     return recode_stdout_to_file("".join(out[1:]))
+>>    File "/Users/brett/.slash/python/svnmerge/svnmerge.py", line 229, in
+>> recode_stdout_to_file
+>>     return u.encode(locale.getdefaultlocale()[1])
+>>   File "/Users/brett/.slash/python/lib/python2.6/encodings/mac_roman.py",
+>> line 12, in encode
+>>     return codecs.charmap_encode(input,errors,encoding_table)
+>> UnicodeEncodeError: 'charmap' codec can't encode character u'\u0107' in
+>> position 191: character maps to <undefined>
+>>
+>>
+>> Anyone else running into this? I tried backing up svnmerge.py to r36767
+>> (sometime in March; random choice) and I am still having the problem.
+>>
+>> -Brett
+>>
+>
+> There's an accented c (?, unicode 0x0107) in a log message.
+>
+
+Yeah, Ivan's last name.
+
+
+>   It looks like svn log is outputting the character and python can't handle
+> it.  Wierd, since svn log is supposed to convert its output to the local
+> encoding, just like svnmerge is trying to do.
+>
+> http://svn.haxx.se/dev/archive-2002-09/0522.shtml
+>
+> Someone isn't using the right encoding, or else svn log has a bug.  I might
+> just be restating the obvious.
+>
+
+Huh. Probably Vim putting it into some encoding like UTF-8 or Latin-1 and
+svn not caring until later. Guess that means I will never be able to
+merge/block this checkin as svnmerge will always grab that log message. So
+if someone else can do the block for me that would be nice (or not worry
+about it since we seem to never do blind merges anymore).
+
+-Brett
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20090813/78b04c3e/attachment-0001.htm>
+
+From martin at v.loewis.de  Fri Aug 14 00:15:13 2009
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Fri, 14 Aug 2009 00:15:13 +0200
+Subject: [python-committers] Anyone having issues with svnmerge.py and
+ 2.6 (possibly OS X problem)?
+In-Reply-To: <Pine.LNX.4.64.0908131714260.30683@kimball.webabinitio.net>
+References: <bbaeab100908131244n68461072q5ac792e32450da02@mail.gmail.com>	<2c8d48d70908131403w1befd240yc48c2882044f08ee@mail.gmail.com>
+	<Pine.LNX.4.64.0908131714260.30683@kimball.webabinitio.net>
+Message-ID: <4A849071.1060708@v.loewis.de>
+
+> Hmm.  Given the presence of 'mac_roman.py' in the traceback, I wonder if
+> Issue 6202 has any relevance here?
+
+Only partially so. That character (LATIN SMALL LETTER C WITH ACUTE) is
+not supported by Mac-roman, so the codec is right in complaining that it
+can't encode it. And yes, had svnmerge been run in an UTF-8 locale, it
+would have worked fine.
+
+However, I think it is svnmerge that is to blame here. It implements
+construct_merged_log_message, which really should do its job in a
+locale-independent way - as long as it uses the locale encoding, it
+can always run into problems.
+
+Fortunately, svn has been support --xml for "svn log" for a number of
+releases. So svnmerge should switch to use that; it will allow parsing
+arbitrary characters in a log message, independent of what the terminal
+encoding is.
+
+Regards,
+Martin
+
+From brett at python.org  Fri Aug 14 00:31:06 2009
+From: brett at python.org (Brett Cannon)
+Date: Thu, 13 Aug 2009 15:31:06 -0700
+Subject: [python-committers] Anyone having issues with svnmerge.py and
+	2.6 (possibly OS X problem)?
+In-Reply-To: <4A849071.1060708@v.loewis.de>
+References: <bbaeab100908131244n68461072q5ac792e32450da02@mail.gmail.com> 
+	<2c8d48d70908131403w1befd240yc48c2882044f08ee@mail.gmail.com> 
+	<Pine.LNX.4.64.0908131714260.30683@kimball.webabinitio.net> 
+	<4A849071.1060708@v.loewis.de>
+Message-ID: <bbaeab100908131531y6765bc4ese916799904137ff3@mail.gmail.com>
+
+On Thu, Aug 13, 2009 at 15:15, "Martin v. L?wis" <martin at v.loewis.de> wrote:
+
+> > Hmm.  Given the presence of 'mac_roman.py' in the traceback, I wonder if
+> > Issue 6202 has any relevance here?
+>
+> Only partially so. That character (LATIN SMALL LETTER C WITH ACUTE) is
+> not supported by Mac-roman, so the codec is right in complaining that it
+> can't encode it. And yes, had svnmerge been run in an UTF-8 locale, it
+> would have worked fine.
+>
+> However, I think it is svnmerge that is to blame here. It implements
+> construct_merged_log_message, which really should do its job in a
+> locale-independent way - as long as it uses the locale encoding, it
+> can always run into problems.
+>
+> Fortunately, svn has been support --xml for "svn log" for a number of
+> releases. So svnmerge should switch to use that; it will allow parsing
+> arbitrary characters in a log message, independent of what the terminal
+> encoding is.
+
+
+Sounds like I need to file a bug against svnmerge.py w/ Martin's suggestion.
+
+-Brett
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20090813/b58fc9e8/attachment.htm>
+
+From benjamin at python.org  Mon Aug 17 04:59:51 2009
+From: benjamin at python.org (Benjamin Peterson)
+Date: Sun, 16 Aug 2009 21:59:51 -0500
+Subject: [python-committers] 3.1 maint open
+Message-ID: <1afaf6160908161959x2f0b3051td73dd20f7cbb386c@mail.gmail.com>
+
+3.1.1 is out, so the maintence branch is open for 3.1.2.
+
+-- 
+Regards,
+Benjamin
+

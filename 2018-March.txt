@@ -1,0 +1,1051 @@
+From steve.dower at python.org  Thu Mar  8 00:25:12 2018
+From: steve.dower at python.org (Steve Dower)
+Date: Wed, 7 Mar 2018 21:25:12 -0800
+Subject: [python-committers] Save the date: Core developer sprints
+Message-ID: <mailman.4.1520486724.2865.python-committers@python.org>
+
+With similar levels of compulsion and blackmail as applied to selecting our esteemed Release Managers, it has fallen to me to organise our core developer sprints this year.
+
+Of course I?ll be choosing a location with maximum convenience for myself, which means we are going to be in Redmond, Washington this year at the main Microsoft campus.
+
+So far, I have locked in dates and a building. Assuming no disasters, we will have Microsoft Building 20 for our (almost) exclusive use from September 10th until the 14th. This is a set aside building for guests, which should mean no NDAs are required, and we?ll have a large space to use with a small kitchen and a few conference rooms.
+
+That?s all the detail I have right now, but since it's being held a week later than the last two years I wanted to let people know the dates. Attendance will be by invitation with essentially the same criteria as in past years, but invites will come later (likely during or after PyCon US, but if you need confirmation of whether you?ll be invited earlier for travel/visa reasons, email me off list).
+
+Feel free to email me if you have any questions or requests. But if you start creating too much work for me, I?ll consider that your application to join the organising committee :)
+
+Cheers,
+Steve
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20180307/d7d0d5c2/attachment.html>
+
+From lukasz at langa.pl  Thu Mar  8 02:34:55 2018
+From: lukasz at langa.pl (=?utf-8?Q?=C5=81ukasz_Langa?=)
+Date: Wed, 7 Mar 2018 23:34:55 -0800
+Subject: [python-committers] Save the date: Core developer sprints
+In-Reply-To: <3zxf9L0mRmzFr94@mail.python.org>
+References: <3zxf9L0mRmzFr94@mail.python.org>
+Message-ID: <AB32EBB3-19CD-488D-AA03-58F32ED62F09@langa.pl>
+
+This is wonderful news. Thanks for biting this bullet! :-)
+
+- ?
+
+> On 7 Mar, 2018, at 9:25 PM, Steve Dower <steve.dower at python.org> wrote:
+> 
+> With similar levels of compulsion and blackmail as applied to selecting our esteemed Release Managers, it has fallen to me to organise our core developer sprints this year.
+> 
+> Of course I?ll be choosing a location with maximum convenience for myself, which means we are going to be in Redmond, Washington this year at the main Microsoft campus.
+> 
+> So far, I have locked in dates and a building. Assuming no disasters, we will have Microsoft Building 20 <https://www.bing.com/maps/?pc=W8AP&FORM=MAPXSH&where1=47.643699,-122.131305&name=3709+157th+Ave+NE%2C+Redmond%2C+WA+98052&locsearch=1> for our (almost) exclusive use from September 10th until the 14th. This is a set aside building for guests, which should mean no NDAs are required, and we?ll have a large space to use with a small kitchen and a few conference rooms.
+> 
+> That?s all the detail I have right now, but since it's being held a week later than the last two years I wanted to let people know the dates. Attendance will be by invitation with essentially the same criteria as in past years, but invites will come later (likely during or after PyCon US, but if you need confirmation of whether you?ll be invited earlier for travel/visa reasons, email me off list).
+> 
+> Feel free to email me if you have any questions or requests. But if you start creating too much work for me, I?ll consider that your application to join the organising committee :)
+> 
+> Cheers,
+> Steve
+> 
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org <mailto:python-committers at python.org>
+> https://mail.python.org/mailman/listinfo/python-committers <https://mail.python.org/mailman/listinfo/python-committers>
+> Code of Conduct: https://www.python.org/psf/codeofconduct/ <https://www.python.org/psf/codeofconduct/>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20180307/e7c1053f/attachment.html>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 833 bytes
+Desc: Message signed with OpenPGP
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20180307/e7c1053f/attachment.sig>
+
+From nad at python.org  Thu Mar  8 16:29:50 2018
+From: nad at python.org (Ned Deily)
+Date: Thu, 8 Mar 2018 16:29:50 -0500
+Subject: [python-committers] Reminder: 3.6.5rc1 cutoff coming up
+Message-ID: <43180E5E-EF4E-4C2D-ADB7-A85B12382C9E@python.org>
+
+A quick reminder that it's time for our next quarterly maintenance release of Python 3.6.  The cutoff for 3.6.5rc1 is planned for 2018-03-12 end-of-the-day AOE.  Please get any bug fixes and doc changes in before then.  Expect that any changes merged after the 3.6.5rc1 cutoff will be released in 3.6.6 which is currently scheduled for 2018-06 (along with 3.7.0).
+
+Also, a reminder that 3.6.x has been out in the field for nearly 15 months now and thanks to all of your hard work in previous feature releases and during the 3.6 development phase, the 3.6 release series has seen remarkably quick adoption to overall great acclaim.  Now that 3.6 has reached a certain level of maturity, it is important for all of us to continue to focus on stability for all of its downstream users.  A key assumption of our maintenance strategy for years has been that we as a project will only maintain the most recent bugfix (or security) release.  In other words, when we release x.y.z, we immediately drop support for x.y.z-1.  To do that, we implicitly promise to users that they can "painlessly" upgrade from any x.y.n to x.y.z where n < z.  To try to keep that promise, we strive to make no incompatible changes in x.y.z without *really* good reasons.  I think it is important as 3.6 moves along in its lifecycle to put ourselves in the shoes of our users and ask ourselves if a change is really appropriate at this stage.  There's no hard and fast rule here, just continue to use your best judgement.  When in doubt, ask!
+
+FYI, I've adjusted the 3.6.x release schedule to allow for 2 additional quarterly maintenance releases after 3.7.0 releases instead of just one.  That means the final bugfix release for the 3.6 series is planned to be 3.6.8 in 2018-12, 6 months after 3.7.0 releases and 2 years after 3.6.0 first released.  Thereafter, only security issues will be accepted and addressed for the remaining life of 3.6.
+
+Thanks again!
+--Ned
+
+https://www.python.org/dev/peps/pep-0494/
+
+--
+  Ned Deily
+  nad at python.org -- []
+
+
+From mariatta.wijaya at gmail.com  Thu Mar  8 17:21:22 2018
+From: mariatta.wijaya at gmail.com (Mariatta Wijaya)
+Date: Thu, 8 Mar 2018 14:21:22 -0800
+Subject: [python-committers] Save the date: Core developer sprints
+In-Reply-To: <AB32EBB3-19CD-488D-AA03-58F32ED62F09@langa.pl>
+References: <3zxf9L0mRmzFr94@mail.python.org>
+ <AB32EBB3-19CD-488D-AA03-58F32ED62F09@langa.pl>
+Message-ID: <CAGbohnah9fV1fbntYyoHj4zT-tTfiK1Dpox=mDjk4LK2i6jvQw@mail.gmail.com>
+
+Thanks for organizing!
+
+I should be able to attend for the whole week this time :) Looking forward
+to it.
+
+Mariatta Wijaya
+
+?
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20180308/8da962b6/attachment.html>
+
+From willingc at gmail.com  Thu Mar  8 18:02:01 2018
+From: willingc at gmail.com (Carol Willing)
+Date: Thu, 8 Mar 2018 15:02:01 -0800
+Subject: [python-committers] Save the date: Core developer sprints
+In-Reply-To: <CAGbohnah9fV1fbntYyoHj4zT-tTfiK1Dpox=mDjk4LK2i6jvQw@mail.gmail.com>
+References: <3zxf9L0mRmzFr94@mail.python.org>
+ <AB32EBB3-19CD-488D-AA03-58F32ED62F09@langa.pl>
+ <CAGbohnah9fV1fbntYyoHj4zT-tTfiK1Dpox=mDjk4LK2i6jvQw@mail.gmail.com>
+Message-ID: <F1796D74-871C-4A29-A6EF-85A5434D97A1@gmail.com>
+
+Thanks Steve. Happy to pitch in with organizing if it would be helpful (and it can be done remotely).
+
+Carol
+
+> On Mar 8, 2018, at 2:21 PM, Mariatta Wijaya <mariatta.wijaya at gmail.com <mailto:mariatta.wijaya at gmail.com>> wrote:
+> 
+> Thanks for organizing!
+> 
+> I should be able to attend for the whole week this time :) Looking forward to it.
+> 
+> Mariatta Wijaya
+> 
+> ?
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org <mailto:python-committers at python.org>
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20180308/81dade9b/attachment.html>
+
+From nad at python.org  Wed Mar 14 00:52:32 2018
+From: nad at python.org (Ned Deily)
+Date: Wed, 14 Mar 2018 00:52:32 -0400
+Subject: [python-committers] [RELEASE] Python 3.6.5rc1 is now available for
+ testing
+Message-ID: <F70650C7-BE99-4C84-B5F3-FA76172820F7@python.org>
+
+Announcing the immediate availability of Python 3.6.5 release candidate 1!
+
+Python 3.6.5rc1 is the first release candidate for Python 3.6.5, the next
+maintenance release of Python 3.6.  While 3.6.5rc1 is a preview release and,
+thus, not intended for production environments, we encourage you to explore
+it and provide feedback via the Python bug tracker (https://bugs.python.org).
+3.6.5 is planned for final release on 2018-03-26 with the next maintenance
+release expected to follow in about 3 months.  You can find Python 3.6.5rc1
+and more information here:
+    https://www.python.org/downloads/release/python-365rc1/
+
+Attention macOS users: as of 3.6.5rc1, there is a new additional installer
+variant for macOS 10.9+ that includes a built-in version of Tcl/Tk 8.6.
+This variant is expected to become the default variant in future releases.
+Check it out!
+
+--
+  Ned Deily
+  nad at python.org -- []
+
+
+From larry at hastings.org  Thu Mar 15 19:24:33 2018
+From: larry at hastings.org (Larry Hastings)
+Date: Thu, 15 Mar 2018 16:24:33 -0700
+Subject: [python-committers] Announcing: signups are open for the 2018
+ Python Language Summit
+Message-ID: <8cec6529-65d4-b003-fed8-6676eae86e9c@hastings.org>
+
+
+It?s that time again: time to start thinking about the Python Language 
+Summit!? The 2018 summit will be held on Wednesday, May 9, from 10am to 
+4pm, at the Huntington Convention Center in Cleveland, Ohio, USA.? Your 
+befezzled and befuddled hosts Barry and Larry will once more be behind 
+the big desk in front.
+
+The summit?s purpose is to disseminate information and spark 
+conversation among core Python developers.? It?s our yearly opportunity 
+to get together for an in-person discussion, to review interesting 
+developments of the previous year and hash out where we?re going next.? 
+And we have lots to talk about!? 3.7 is in beta, and we've all 
+collectively started work on 3.8 too.
+
+As before, we?re using Google Forms to collect signups.? Signups are 
+open now; the deadline to sign up is Wednesday April 18th, 2018 (AoE).? 
+Please do us a favor and sign up sooner rather than later. The signup 
+form is simpler this year--I bet most people can be done in less than 
+two minutes!
+
+One difference from last year: there are now *two* forms.? The first 
+form is for signing up to attend (the "Request For Invitation" form), 
+and the second form is for proposing a talk.? Please note: if you want 
+to present, you still need to fill out the Request For Invitation form 
+too.? (Yes, it's more complicated this way, sorry. But having both on 
+the same form kind of enforced a one-to-one mapping, and it's really a 
+many-to-many mapping: one person might propose multiple talks, and one 
+talk might have multiple presenters.? Overall this should be less 
+complicated.)
+
+You can find links to *both* forms on the official Python Language 
+Summit 2018 page:
+https://us.pycon.org/2018/events/language-summit/
+
+
+A few notes:
+
+  * There will be lightning talks!? Signups will only be available
+    during the Language Summit itself.
+  * You don?t need to be registered for PyCon in order to attend the summit!
+  * We?ll have badge ribbons for Language Summit participants, which
+    we?ll hand out at the summit room in the morning.
+  * We're inviting Jake Edge from Linux Weekly News to attend the summit
+    and provide press coverage again.? Jake?s done a phenomenal job of
+    covering the last few summits, providing valuable information not
+    just for summit attendees, but also for the Python community at
+    large.? Jake?s coverage goes a long way toward demystifying the
+    summit, while remaining respectful of confidential information
+    that?s deemed ?off the record? ahead of time by participants.
+
+
+One big final note (please read this!):
+
+    When using Google Forms, you /can/ edit your responses later!? When
+    you fill out the form and hit Submit, the submission complete page
+    (the one that says "Thanks for playing!") will have a link on it
+    labeled "Edit your response".? BOOKMARK THIS LINK!? You can use this
+    link at /any time/ to edit your response, up to the point that
+    signups close on April 18th.? Keep in mind, you'll need to bookmark
+    each response independently: once for signing up to attend ("Request
+    For Invitation"), and once for each talk proposal you submit.?
+    Again, /please/ be sure to save this bookmark yourself--we don't
+    know how to find the link for you later if you don't save it.
+
+
+We hope to see you at the summit!
+
+
+[BL]arry
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20180315/0c807f97/attachment.html>
+
+From larry at hastings.org  Sat Mar 17 22:16:09 2018
+From: larry at hastings.org (Larry Hastings)
+Date: Sat, 17 Mar 2018 19:16:09 -0700
+Subject: [python-committers] Save the date: Core developer sprints
+In-Reply-To: <3zxf9Q3mfSzFr9v@mail.python.org>
+References: <3zxf9Q3mfSzFr9v@mail.python.org>
+Message-ID: <9f5bcb7c-623d-bfc8-8f63-a3b1bc2eb963@hastings.org>
+
+
+
+On 03/07/2018 09:25 PM, Steve Dower wrote:
+> So far, I have locked in dates and a building. Assuming no disasters, 
+> we will have Microsoft Building 20 
+> <https://www.bing.com/maps/?pc=W8AP&FORM=MAPXSH&where1=47.643699,-122.131305&name=3709+157th+Ave+NE%2C+Redmond%2C+WA+98052&locsearch=1> 
+> for our (almost) exclusive use from *September 10^th until the 14^th 
+> *. This is a set aside building for guests, which should mean no NDAs 
+> are required, and we?ll have a large space to use with a small kitchen 
+> and a few conference rooms.
+
+FWIW this butts up against PyCon UK 2018, which starts Saturday 
+September 15th and runs for five days.? I suppose it's getting harder 
+and harder to throw a dart at a wall calendar and land on a date which 
+*doesn't* have a PyCon running.? But still, I can think of one person 
+who might have otherwise planned on attending both.*
+
+
+//arry
+
+* me
+/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20180317/0f3adeee/attachment.html>
+
+From mal at egenix.com  Sun Mar 18 08:49:09 2018
+From: mal at egenix.com (M.-A. Lemburg)
+Date: Sun, 18 Mar 2018 13:49:09 +0100
+Subject: [python-committers] Save the date: Core developer sprints
+In-Reply-To: <9f5bcb7c-623d-bfc8-8f63-a3b1bc2eb963@hastings.org>
+References: <3zxf9Q3mfSzFr9v@mail.python.org>
+ <9f5bcb7c-623d-bfc8-8f63-a3b1bc2eb963@hastings.org>
+Message-ID: <a6d008db-e088-1081-0293-5fe02f25261b@egenix.com>
+
+On 18.03.2018 03:16, Larry Hastings wrote:
+> 
+> 
+> On 03/07/2018 09:25 PM, Steve Dower wrote:
+>> So far, I have locked in dates and a building. Assuming no disasters,
+>> we will have Microsoft Building 20
+>> <https://www.bing.com/maps/?pc=W8AP&FORM=MAPXSH&where1=47.643699,-122.131305&name=3709+157th+Ave+NE%2C+Redmond%2C+WA+98052&locsearch=1>
+>> for our (almost) exclusive use from *September 10^th until the 14^th
+>> *. This is a set aside building for guests, which should mean no NDAs
+>> are required, and we?ll have a large space to use with a small kitchen
+>> and a few conference rooms.
+> 
+> FWIW this butts up against PyCon UK 2018, which starts Saturday
+> September 15th and runs for five days.? I suppose it's getting harder
+> and harder to throw a dart at a wall calendar and land on a date which
+> *doesn't* have a PyCon running.? But still, I can think of one person
+> who might have otherwise planned on attending both.*
+You can use the Python event calendar to improve your dart skills :-)
+
+https://wiki.python.org/moin/PythonEventsCalendar#Available_Calendars
+
+(or is this cheating ?)
+
+-- 
+Marc-Andre Lemburg
+eGenix.com
+
+Professional Python Services directly from the Experts (#1, Mar 18 2018)
+>>> Python Projects, Coaching and Consulting ...  http://www.egenix.com/
+>>> Python Database Interfaces ...           http://products.egenix.com/
+>>> Plone/Zope Database Interfaces ...           http://zope.egenix.com/
+________________________________________________________________________
+
+::: We implement business ideas - efficiently in both time and costs :::
+
+   eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+    D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+           Registered at Amtsgericht Duesseldorf: HRB 46611
+               http://www.egenix.com/company/contact/
+                      http://www.malemburg.com/
+
+
+From steve.dower at python.org  Sun Mar 18 12:44:15 2018
+From: steve.dower at python.org (Steve Dower)
+Date: Sun, 18 Mar 2018 09:44:15 -0700
+Subject: [python-committers] Save the date: Core developer sprints
+In-Reply-To: <a6d008db-e088-1081-0293-5fe02f25261b@egenix.com>
+References: <3zxf9Q3mfSzFr9v@mail.python.org>
+ <9f5bcb7c-623d-bfc8-8f63-a3b1bc2eb963@hastings.org>
+ <a6d008db-e088-1081-0293-5fe02f25261b@egenix.com>
+Message-ID: <mailman.92.1521391461.1871.python-committers@python.org>
+
+If PyCon UK was in the calendar, then it would be cheating, but since September 2018 appears totally open... :)
+
+Larry ? hopefully being close to home (#1) means you can join for the first few days. You won?t force someone else to miss out completely, we'll have room.
+
+Top-posted from my Windows phone
+
+From: M.-A. Lemburg
+Sent: Sunday, March 18, 2018 5:50
+To: Larry Hastings; python-committers at python.org
+Subject: Re: [python-committers] Save the date: Core developer sprints
+
+On 18.03.2018 03:16, Larry Hastings wrote:
+> 
+> 
+> On 03/07/2018 09:25 PM, Steve Dower wrote:
+>> So far, I have locked in dates and a building. Assuming no disasters,
+>> we will have Microsoft Building 20
+>> <https://www.bing.com/maps/?pc=W8AP&FORM=MAPXSH&where1=47.643699,-122.131305&name=3709+157th+Ave+NE%2C+Redmond%2C+WA+98052&locsearch=1>
+>> for our (almost) exclusive use from *September 10^th until the 14^th
+>> *. This is a set aside building for guests, which should mean no NDAs
+>> are required, and we?ll have a large space to use with a small kitchen
+>> and a few conference rooms.
+> 
+> FWIW this butts up against PyCon UK 2018, which starts Saturday
+> September 15th and runs for five days.? I suppose it's getting harder
+> and harder to throw a dart at a wall calendar and land on a date which
+> *doesn't* have a PyCon running.? But still, I can think of one person
+> who might have otherwise planned on attending both.*
+You can use the Python event calendar to improve your dart skills :-)
+
+https://wiki.python.org/moin/PythonEventsCalendar#Available_Calendars
+
+(or is this cheating ?)
+
+-- 
+Marc-Andre Lemburg
+eGenix.com
+
+Professional Python Services directly from the Experts (#1, Mar 18 2018)
+>>> Python Projects, Coaching and Consulting ...  http://www.egenix.com/
+>>> Python Database Interfaces ...           http://products.egenix.com/
+>>> Plone/Zope Database Interfaces ...           http://zope.egenix.com/
+________________________________________________________________________
+
+::: We implement business ideas - efficiently in both time and costs :::
+
+   eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+    D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+           Registered at Amtsgericht Duesseldorf: HRB 46611
+               http://www.egenix.com/company/contact/
+                      http://www.malemburg.com/
+
+_______________________________________________
+python-committers mailing list
+python-committers at python.org
+https://mail.python.org/mailman/listinfo/python-committers
+Code of Conduct: https://www.python.org/psf/codeofconduct/
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20180318/55ba5d84/attachment.html>
+
+From mal at egenix.com  Sun Mar 18 13:20:31 2018
+From: mal at egenix.com (M.-A. Lemburg)
+Date: Sun, 18 Mar 2018 18:20:31 +0100
+Subject: [python-committers] Save the date: Core developer sprints
+In-Reply-To: <20180318164420.3014678D39AF0@mail.egenix.com>
+References: <3zxf9Q3mfSzFr9v@mail.python.org>
+ <9f5bcb7c-623d-bfc8-8f63-a3b1bc2eb963@hastings.org>
+ <a6d008db-e088-1081-0293-5fe02f25261b@egenix.com>
+ <20180318164420.3014678D39AF0@mail.egenix.com>
+Message-ID: <47052453-7200-81d0-08d8-8fe04f3e11bf@egenix.com>
+
+On 18.03.2018 17:44, Steve Dower wrote:
+> If PyCon UK was in the calendar, then it would be cheating, but since
+> September 2018 appears totally open... :)
+
+Hmm, looks like the UK folks forgot to submit this. I've added it
+now.
+> Larry ? hopefully being close to home (#1) means you can join for the
+> first few days. You won?t force someone else to miss out completely,
+> we'll have room.
+> 
+> ?
+> 
+> Top-posted from my Windows phone
+> 
+> ?
+> 
+> *From: *M.-A. Lemburg <mailto:mal at egenix.com>
+> *Sent: *Sunday, March 18, 2018 5:50
+> *To: *Larry Hastings <mailto:larry at hastings.org>;
+> python-committers at python.org <mailto:python-committers at python.org>
+> *Subject: *Re: [python-committers] Save the date: Core developer sprints
+> 
+> ?
+> 
+> On 18.03.2018 03:16, Larry Hastings wrote:
+> 
+>>
+> 
+>>
+> 
+>> On 03/07/2018 09:25 PM, Steve Dower wrote:
+> 
+>>> So far, I have locked in dates and a building. Assuming no disasters,
+> 
+>>> we will have Microsoft Building 20
+> 
+>>>
+> <https://www.bing.com/maps/?pc=W8AP&FORM=MAPXSH&where1=47.643699,-122.131305&name=3709+157th+Ave+NE%2C+Redmond%2C+WA+98052&locsearch=1>
+> 
+>>> for our (almost) exclusive use from *September 10^th until the 14^th
+> 
+>>> *. This is a set aside building for guests, which should mean no NDAs
+> 
+>>> are required, and we?ll have a large space to use with a small kitchen
+> 
+>>> and a few conference rooms.
+> 
+>>
+> 
+>> FWIW this butts up against PyCon UK 2018, which starts Saturday
+> 
+>> September 15th and runs for five days.? I suppose it's getting harder
+> 
+>> and harder to throw a dart at a wall calendar and land on a date which
+> 
+>> *doesn't* have a PyCon running.? But still, I can think of one person
+> 
+>> who might have otherwise planned on attending both.*
+> 
+> You can use the Python event calendar to improve your dart skills :-)
+> 
+> ?
+> 
+> https://wiki.python.org/moin/PythonEventsCalendar#Available_Calendars
+> 
+> ?
+> 
+> (or is this cheating ?)
+> 
+> ?
+> 
+> -- 
+> 
+> Marc-Andre Lemburg
+> 
+> eGenix.com
+> 
+> ?
+> 
+> Professional Python Services directly from the Experts (#1, Mar 18 2018)
+> 
+>>>> Python Projects, Coaching and Consulting ...? http://www.egenix.com/
+> 
+>>>> Python Database Interfaces ...?????????? http://products.egenix.com/
+> 
+>>>> Plone/Zope Database Interfaces ...?????????? http://zope.egenix.com/
+> 
+> ________________________________________________________________________
+> 
+> ?
+> 
+> ::: We implement business ideas - efficiently in both time and costs :::
+> 
+> ?
+> 
+> ?? eGenix.com Software, Skills and Services GmbH? Pastor-Loeh-Str.48
+> 
+> ??? D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+> 
+> ?????????? Registered at Amtsgericht Duesseldorf: HRB 46611
+> 
+> ?????????????? http://www.egenix.com/company/contact/
+> 
+> ????????????????????? http://www.malemburg.com/
+> 
+> ?
+> 
+> _______________________________________________
+> 
+> python-committers mailing list
+> 
+> python-committers at python.org
+> 
+> https://mail.python.org/mailman/listinfo/python-committers
+> 
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+> 
+> ?
+> 
+
+-- 
+Marc-Andre Lemburg
+eGenix.com
+
+Professional Python Services directly from the Experts (#1, Mar 18 2018)
+>>> Python Projects, Coaching and Consulting ...  http://www.egenix.com/
+>>> Python Database Interfaces ...           http://products.egenix.com/
+>>> Plone/Zope Database Interfaces ...           http://zope.egenix.com/
+________________________________________________________________________
+
+::: We implement business ideas - efficiently in both time and costs :::
+
+   eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+    D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+           Registered at Amtsgericht Duesseldorf: HRB 46611
+               http://www.egenix.com/company/contact/
+                      http://www.malemburg.com/
+
+
+From p.f.moore at gmail.com  Tue Mar 20 16:58:35 2018
+From: p.f.moore at gmail.com (Paul Moore)
+Date: Tue, 20 Mar 2018 20:58:35 +0000
+Subject: [python-committers] Wanting to merge my first PR under github - a
+ bit of advice
+Message-ID: <CACac1F-wAK7knTK-PX4jKJVe_D128oB5Yr4Q2UQuRUG4ktEyYQ@mail.gmail.com>
+
+Hi,
+Cheryl Sabella kindly migrated a patch I'd put on bpo some time ago
+but forgotten about onto github. The PR (#6158) is ready to go (I
+think) but this is the first time since the migration to github that
+I've done a merge, and I'm not quite sure what the workflow is :-( I
+didn't see much in the devguide (which covers how to write a PR, how
+to test it etc, but not so much how to merge it, unless I missed
+something, or it's so simple that the little I did find is all that's
+needed!)
+
+Am I right that all I need to do is hit "Squash and Merge", tidy up
+the commit message, and that's it for master? This is a doc change
+which should probably go into 3.7 - so I presume I just add the "Needs
+backport" label and Miss Islington does the rest? (I assume doc fixes
+are still OK for 3.7 at this point?)
+
+Is there anything else I've missed? (Do I need another approver? I'm
+assuming not, for a doc fix).
+
+Sorry for the dumb questions - if I've missed a glaringly obvious
+explanation, feel free to let me know. I'm just a little nervous that
+it's *so* simple I feel I must have missed something!
+
+Paul
+
+PS Thanks to everyone who has worked on the new github workflow. What
+I've done so far has been really straightforward, and if I'm right in
+what I think I need to do above, then you've made the rest of the
+process beautifully simple, too!
+
+From levkivskyi at gmail.com  Tue Mar 20 17:06:56 2018
+From: levkivskyi at gmail.com (Ivan Levkivskyi)
+Date: Tue, 20 Mar 2018 21:06:56 +0000
+Subject: [python-committers] Wanting to merge my first PR under github -
+ a bit of advice
+In-Reply-To: <CACac1F-wAK7knTK-PX4jKJVe_D128oB5Yr4Q2UQuRUG4ktEyYQ@mail.gmail.com>
+References: <CACac1F-wAK7knTK-PX4jKJVe_D128oB5Yr4Q2UQuRUG4ktEyYQ@mail.gmail.com>
+Message-ID: <CAOMjWkkfe-A7Amp7+F6h_1pdSC2ZuBHoxUnz2hDW2bupiSZ4gw@mail.gmail.com>
+
+Also don't forget to replace #XXXX with GH-XXXX in the commit message.
+I was hit by this few times.
+
+--
+Ivan
+
+
+
+On 20 March 2018 at 20:58, Paul Moore <p.f.moore at gmail.com> wrote:
+
+> Hi,
+> Cheryl Sabella kindly migrated a patch I'd put on bpo some time ago
+> but forgotten about onto github. The PR (#6158) is ready to go (I
+> think) but this is the first time since the migration to github that
+> I've done a merge, and I'm not quite sure what the workflow is :-( I
+> didn't see much in the devguide (which covers how to write a PR, how
+> to test it etc, but not so much how to merge it, unless I missed
+> something, or it's so simple that the little I did find is all that's
+> needed!)
+>
+> Am I right that all I need to do is hit "Squash and Merge", tidy up
+> the commit message, and that's it for master? This is a doc change
+> which should probably go into 3.7 - so I presume I just add the "Needs
+> backport" label and Miss Islington does the rest? (I assume doc fixes
+> are still OK for 3.7 at this point?)
+>
+> Is there anything else I've missed? (Do I need another approver? I'm
+> assuming not, for a doc fix).
+>
+> Sorry for the dumb questions - if I've missed a glaringly obvious
+> explanation, feel free to let me know. I'm just a little nervous that
+> it's *so* simple I feel I must have missed something!
+>
+> Paul
+>
+> PS Thanks to everyone who has worked on the new github workflow. What
+> I've done so far has been really straightforward, and if I'm right in
+> what I think I need to do above, then you've made the rest of the
+> process beautifully simple, too!
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20180320/8f279140/attachment.html>
+
+From brett at python.org  Tue Mar 20 17:32:48 2018
+From: brett at python.org (Brett Cannon)
+Date: Tue, 20 Mar 2018 21:32:48 +0000
+Subject: [python-committers] Wanting to merge my first PR under github -
+ a bit of advice
+In-Reply-To: <CACac1F-wAK7knTK-PX4jKJVe_D128oB5Yr4Q2UQuRUG4ktEyYQ@mail.gmail.com>
+References: <CACac1F-wAK7knTK-PX4jKJVe_D128oB5Yr4Q2UQuRUG4ktEyYQ@mail.gmail.com>
+Message-ID: <CAP1=2W4TqC46pEnF1VeQrcF98qzWf9cCjKDu3wv4cqy-3PfK8w@mail.gmail.com>
+
+On Tue, 20 Mar 2018 at 13:58 Paul Moore <p.f.moore at gmail.com> wrote:
+
+> Hi,
+> Cheryl Sabella kindly migrated a patch I'd put on bpo some time ago
+> but forgotten about onto github. The PR (#6158) is ready to go (I
+> think) but this is the first time since the migration to github that
+> I've done a merge, and I'm not quite sure what the workflow is :-( I
+> didn't see much in the devguide (which covers how to write a PR, how
+> to test it etc, but not so much how to merge it, unless I missed
+> something, or it's so simple that the little I did find is all that's
+> needed!)
+>
+
+It's pretty simple at this point. :) Obviously feel free to open an issue
+on the devguide to add a checklist on how to do the final commit
+appropriately since this should be documented somewhere.
+
+
+>
+> Am I right that all I need to do is hit "Squash and Merge", tidy up
+> the commit message, and that's it for master?
+
+
+Pretty much! Just remember to tidy up the title as well like Ivan pointed
+out (replace "#NNNNN" with "GH-NNNN").
+
+
+> This is a doc change
+> which should probably go into 3.7 - so I presume I just add the "Needs
+> backport" label and Miss Islington does the rest? (I assume doc fixes
+> are still OK for 3.7 at this point?)
+>
+
+Just make sure to add the labels before the merge. Then after the merge the
+issue will get a comment pointing to the backported PR. Go over there and
+approve the new PR, then miss-islington will handle the final merge.
+
+
+>
+> Is there anything else I've missed? (Do I need another approver? I'm
+> assuming not, for a doc fix).
+>
+
+Not really; it's mostly outlined above.
+
+
+>
+> Sorry for the dumb questions - if I've missed a glaringly obvious
+> explanation, feel free to let me know. I'm just a little nervous that
+> it's *so* simple I feel I must have missed something!
+>
+>
+:) Yeah, it's like when your tests pass the first time. It seems too good
+to be true. :)
+
+
+> Paul
+>
+> PS Thanks to everyone who has worked on the new github workflow. What
+> I've done so far has been really straightforward, and if I'm right in
+> what I think I need to do above, then you've made the rest of the
+> process beautifully simple, too!
+>
+
+We have tried. :)
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20180320/26822cce/attachment.html>
+
+From ncoghlan at gmail.com  Wed Mar 21 08:42:18 2018
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Wed, 21 Mar 2018 22:42:18 +1000
+Subject: [python-committers] Wanting to merge my first PR under github -
+ a bit of advice
+In-Reply-To: <CACac1F-wAK7knTK-PX4jKJVe_D128oB5Yr4Q2UQuRUG4ktEyYQ@mail.gmail.com>
+References: <CACac1F-wAK7knTK-PX4jKJVe_D128oB5Yr4Q2UQuRUG4ktEyYQ@mail.gmail.com>
+Message-ID: <CADiSq7dBfCfyJ77+wNAQtGEY6ho1X6Z7_Ez1Op+6i8B59sR30w@mail.gmail.com>
+
+On 21 March 2018 at 06:58, Paul Moore <p.f.moore at gmail.com> wrote:
+
+> Hi,
+> Cheryl Sabella kindly migrated a patch I'd put on bpo some time ago
+> but forgotten about onto github. The PR (#6158) is ready to go (I
+> think) but this is the first time since the migration to github that
+> I've done a merge, and I'm not quite sure what the workflow is :-( I
+> didn't see much in the devguide (which covers how to write a PR, how
+> to test it etc, but not so much how to merge it, unless I missed
+> something, or it's so simple that the little I did find is all that's
+> needed!)
+>
+
+You didn't miss it - https://devguide.python.org/committing/ is still
+pretty much written for the old approach of merging on the command line.
+
+So a devguide issue would definltely be appropriate, and if you're so
+inclined, even a PR with the docs that you wish had existing when you
+looked for them :)
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20180321/fa6e5644/attachment-0001.html>
+
+From p.f.moore at gmail.com  Wed Mar 21 08:57:08 2018
+From: p.f.moore at gmail.com (Paul Moore)
+Date: Wed, 21 Mar 2018 12:57:08 +0000
+Subject: [python-committers] Wanting to merge my first PR under github -
+ a bit of advice
+In-Reply-To: <CADiSq7dBfCfyJ77+wNAQtGEY6ho1X6Z7_Ez1Op+6i8B59sR30w@mail.gmail.com>
+References: <CACac1F-wAK7knTK-PX4jKJVe_D128oB5Yr4Q2UQuRUG4ktEyYQ@mail.gmail.com>
+ <CADiSq7dBfCfyJ77+wNAQtGEY6ho1X6Z7_Ez1Op+6i8B59sR30w@mail.gmail.com>
+Message-ID: <CACac1F_FqYHjPvLGovCNX8Rb3+vJCsTHUW8B6EiVOnPdfYra6A@mail.gmail.com>
+
+On 21 March 2018 at 12:42, Nick Coghlan <ncoghlan at gmail.com> wrote:
+> On 21 March 2018 at 06:58, Paul Moore <p.f.moore at gmail.com> wrote:
+>>
+>> Hi,
+>> Cheryl Sabella kindly migrated a patch I'd put on bpo some time ago
+>> but forgotten about onto github. The PR (#6158) is ready to go (I
+>> think) but this is the first time since the migration to github that
+>> I've done a merge, and I'm not quite sure what the workflow is :-( I
+>> didn't see much in the devguide (which covers how to write a PR, how
+>> to test it etc, but not so much how to merge it, unless I missed
+>> something, or it's so simple that the little I did find is all that's
+>> needed!)
+>
+>
+> You didn't miss it - https://devguide.python.org/committing/ is still pretty
+> much written for the old approach of merging on the command line.
+>
+> So a devguide issue would definltely be appropriate, and if you're so
+> inclined, even a PR with the docs that you wish had existing when you looked
+> for them :)
+
+I'll certainly try to find some time to put something together. For
+now, I've raised https://github.com/python/devguide/issues/347 to
+track it.
+
+Paul
+
+From mariatta.wijaya at gmail.com  Wed Mar 21 10:02:34 2018
+From: mariatta.wijaya at gmail.com (Mariatta Wijaya)
+Date: Wed, 21 Mar 2018 14:02:34 +0000
+Subject: [python-committers] Wanting to merge my first PR under github -
+ a bit of advice
+In-Reply-To: <CACac1F_FqYHjPvLGovCNX8Rb3+vJCsTHUW8B6EiVOnPdfYra6A@mail.gmail.com>
+References: <CACac1F-wAK7knTK-PX4jKJVe_D128oB5Yr4Q2UQuRUG4ktEyYQ@mail.gmail.com>
+ <CADiSq7dBfCfyJ77+wNAQtGEY6ho1X6Z7_Ez1Op+6i8B59sR30w@mail.gmail.com>
+ <CACac1F_FqYHjPvLGovCNX8Rb3+vJCsTHUW8B6EiVOnPdfYra6A@mail.gmail.com>
+Message-ID: <CAGbohnaGjdhuaU_TSybs3ywufEmqer0e4tPJm1=x-ihh86WmXA@mail.gmail.com>
+
+Some steps were written here:
+https://devguide.python.org/gitbootcamp/#accepting-and-merging-a-pull-request
+
+And the section right after explains the backport.
+
+I guess it needs reorganizing.
+
+Top posted from my phone while literally on a beach.
+
+On Wed, Mar 21, 2018, 7:57 AM Paul Moore <p.f.moore at gmail.com> wrote:
+
+> On 21 March 2018 at 12:42, Nick Coghlan <ncoghlan at gmail.com> wrote:
+> > On 21 March 2018 at 06:58, Paul Moore <p.f.moore at gmail.com> wrote:
+> >>
+> >> Hi,
+> >> Cheryl Sabella kindly migrated a patch I'd put on bpo some time ago
+> >> but forgotten about onto github. The PR (#6158) is ready to go (I
+> >> think) but this is the first time since the migration to github that
+> >> I've done a merge, and I'm not quite sure what the workflow is :-( I
+> >> didn't see much in the devguide (which covers how to write a PR, how
+> >> to test it etc, but not so much how to merge it, unless I missed
+> >> something, or it's so simple that the little I did find is all that's
+> >> needed!)
+> >
+> >
+> > You didn't miss it - https://devguide.python.org/committing/ is still
+> pretty
+> > much written for the old approach of merging on the command line.
+> >
+> > So a devguide issue would definltely be appropriate, and if you're so
+> > inclined, even a PR with the docs that you wish had existing when you
+> looked
+> > for them :)
+>
+> I'll certainly try to find some time to put something together. For
+> now, I've raised https://github.com/python/devguide/issues/347 to
+> track it.
+>
+> Paul
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20180321/3acb906c/attachment.html>
+
+From p.f.moore at gmail.com  Wed Mar 21 10:29:08 2018
+From: p.f.moore at gmail.com (Paul Moore)
+Date: Wed, 21 Mar 2018 14:29:08 +0000
+Subject: [python-committers] Wanting to merge my first PR under github -
+ a bit of advice
+In-Reply-To: <CAGbohnaGjdhuaU_TSybs3ywufEmqer0e4tPJm1=x-ihh86WmXA@mail.gmail.com>
+References: <CACac1F-wAK7knTK-PX4jKJVe_D128oB5Yr4Q2UQuRUG4ktEyYQ@mail.gmail.com>
+ <CADiSq7dBfCfyJ77+wNAQtGEY6ho1X6Z7_Ez1Op+6i8B59sR30w@mail.gmail.com>
+ <CACac1F_FqYHjPvLGovCNX8Rb3+vJCsTHUW8B6EiVOnPdfYra6A@mail.gmail.com>
+ <CAGbohnaGjdhuaU_TSybs3ywufEmqer0e4tPJm1=x-ihh86WmXA@mail.gmail.com>
+Message-ID: <CACac1F-ejyOYXXNr6zo=+NK0u7sgTD2o=wWFarpWmA3fiK7yDg@mail.gmail.com>
+
+On 21 March 2018 at 14:02, Mariatta Wijaya <mariatta.wijaya at gmail.com> wrote:
+> Some steps were written here:
+> https://devguide.python.org/gitbootcamp/#accepting-and-merging-a-pull-request
+>
+> And the section right after explains the backport.
+
+Thanks Mariatta - that's exactly what I was looking for.
+
+> I guess it needs reorganizing.
+
+It's depressing how often the problem is not about providing the
+information, but about helping people find it. I was *almost* there -
+I remember skimming the pages about git, but as I know git itself, I
+was assuming it was about git for people who didn't know it, rather
+than "how the CPython workflow uses git" and missed that bit. I'll see
+if I can think of a way of making it a bit more obvious.
+
+> Top posted from my phone while literally on a beach.
+
+I'm jealous :-)
+
+Paul
+
+From nad at python.org  Fri Mar 23 14:39:20 2018
+From: nad at python.org (Ned Deily)
+Date: Fri, 23 Mar 2018 14:39:20 -0400
+Subject: [python-committers] IMPORTANT - 3.7.0b3 cutoff / 3.7.0 ABI freeze
+Message-ID: <BE66DE0B-81E0-4F18-A33A-534B6BB4E581@python.org>
+
+Just a reminder that 3.7.0b3 is almost upon us. Please get your
+feature fixes, bug fixes, and documentation updates in before
+2018-03-26 ~23:59 Anywhere on Earth (UTC-12:00). That's a little over
+3.5 days from now.
+
+IMPORTANT: We are now entering the final phases of 3.7.0. After the
+tagging for 3.7.0b3, the intention is that the ABI for 3.7.0 is
+frozen. After next week's 3.7.0b3, there will only be two more
+opportunities planned for changes prior to 3.7.0 final:
+
+- 2018-04-30 3.7.0 beta 4
+- 2018-05-31 3.7.0 release candidate
+
+As I've noted in previous communications, we need to start locking
+down 3.7.0 so that our downstream users, that is, third-party package
+developers, Python distributors, and end users, can test their code
+with confidence that the actual release of 3.7.0 will hold no
+unpleasant surprises. So after 3.7.0b3, you should treat the 3.7
+branch as if it is already released and in maintenance mode. That
+means you should only push the kinds of changes that are appropriate
+for a maintenance release: non-ABI-changing bug and feature fixes and
+documentation updates. If you find a problem that requires an
+ABI-altering or other significant user-facing change (for example,
+something likely to introduce an incompatibility with existing users'
+code or require rebuilding of user extension modules), please make
+sure to set the b.p.o issue to "release blocker" priority and describe
+there why you feel the change is necessary. If you are reviewing PRs
+for 3.7 (and please do!), be on the lookout for and flag potential
+incompatibilities (we've all made them).
+
+Thanks again for all of your hard work towards making 3.7.0 yet
+another great release!
+
+--Ned
+
+--
+  Ned Deily
+  nad at python.org -- []
+
+
+From nad at python.org  Wed Mar 28 17:59:19 2018
+From: nad at python.org (Ned Deily)
+Date: Wed, 28 Mar 2018 17:59:19 -0400
+Subject: [python-committers] [RELEASE] Python 3.6.5 is now available
+Message-ID: <F87ADAC8-0B00-4057-AC36-D4C0A746E786@python.org>
+
+Python 3.6.5 is now available. 3.6.5 is the fifth maintenance release of
+Python 3.6, which was initially released in 2016-12 to great interest.
+Detailed information about the changes made in 3.6.5 can be found in its
+change log. You can find Python 3.6.5 and more information here:
+    https://www.python.org/downloads/release/python-365/
+
+See the "What?s New In Python 3.6" document for more information about
+features included in the 3.6 series. Detailed information about the
+changes made in 3.6.5 can be found in the change log here:
+    https://docs.python.org/3.6/whatsnew/changelog.html#python-3-6-5-final
+
+Attention macOS users: as of 3.6.5, there is a new additional installer
+variant for macOS 10.9+ that includes a built-in version of Tcl/Tk 8.6.
+This variant is expected to become the default variant in future
+releases. Check it out!
+
+The next maintenance release is expected to follow in about 3 months,
+around the end of 2018-06.
+
+Thanks to all of the many volunteers who help make Python Development and
+these releases possible! Please consider supporting our efforts by
+volunteering yourself or through organization contributions to the Python
+Software Foundation:
+    https://www.python.org/psf/
+
+--
+  Ned Deily
+  nad at python.org -- []
+
+
+From nad at python.org  Thu Mar 29 21:44:28 2018
+From: nad at python.org (Ned Deily)
+Date: Thu, 29 Mar 2018 21:44:28 -0400
+Subject: [python-committers] [RELEASE] Python 3.7.0b3 is now available for
+ testing
+Message-ID: <E6B8BEA3-597E-4322-9332-737071AB9614@python.org>
+
+On behalf of the Python development community and the Python 3.7 release
+team, I'm happy to announce the availability of Python 3.7.0b3.  b3 is
+the third of four planned beta releases of Python 3.7, the next major
+release of Python, and marks the end of the feature development phase
+for 3.7.  You can find Python 3.7.0b3 here:
+
+https://www.python.org/downloads/release/python-370b3/
+
+Among the new major new features in Python 3.7 are:
+
+* PEP 538, Coercing the legacy C locale to a UTF-8 based locale
+* PEP 539, A New C-API for Thread-Local Storage in CPython
+* PEP 540, UTF-8 mode
+* PEP 552, Deterministic pyc
+* PEP 553, Built-in breakpoint()
+* PEP 557, Data Classes
+* PEP 560, Core support for typing module and generic types
+* PEP 562, Module __getattr__ and __dir__
+* PEP 563, Postponed Evaluation of Annotations
+* PEP 564, Time functions with nanosecond resolution
+* PEP 565, Show DeprecationWarning in __main__
+* PEP 567, Context Variables
+
+Please see "What?s New In Python 3.7" for more information.
+Additional documentation for these features and for other changes
+will be provided during the beta phase.
+
+https://docs.python.org/3.7/whatsnew/3.7.html
+
+Beta releases are intended to give you the opportunity to test new
+features and bug fixes and to prepare their projects to support the
+new feature release. We strongly encourage you to test your projects
+with 3.7 during the beta phase and report issues found to
+https://bugs.python.org as soon as possible.
+
+While the release is feature complete entering the beta phase, it is
+possible that features may be modified or, in rare cases, deleted up
+until the start of the release candidate phase (2018-05-21). Our goal
+is have no ABI changes after beta 3 and no code changes after rc1.
+To achieve that, it will be extremely important to get as much exposure
+for 3.7 as possible during the beta phase.
+
+Attention macOS users: there is a new installer variant for
+macOS 10.9+ that includes a built-in version of Tcl/Tk 8.6. This
+variant is expected to become the default version when 3.7.0 releases.
+Check it out! We welcome your feedback.  As of 3.7.0b3, the legacy
+10.6+ installer also includes a built-in Tcl/Tk 8.6.
+
+Please keep in mind that this is a preview release and its use is
+not recommended for production environments.
+
+The next planned release of Python 3.7 will be 3.7.0b4, currently
+scheduled for 2018-04-30. More information about the release schedule
+can be found here:
+
+https://www.python.org/dev/peps/pep-0537/
+
+--
+  Ned Deily
+  nad at python.org -- []
+
+

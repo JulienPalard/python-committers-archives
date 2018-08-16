@@ -1,0 +1,2269 @@
+From raymond.hettinger at gmail.com  Wed Jan  7 08:09:01 2015
+From: raymond.hettinger at gmail.com (Raymond Hettinger)
+Date: Tue, 6 Jan 2015 23:09:01 -0800
+Subject: [python-committers] Proposed core developer for contributing to
+	multiprocessing
+References: <CAM2Y4a80gARhPVnfrLi0SKdfkTGuRSNSrxU_udkJ=UirxQ0=uA@mail.gmail.com>
+Message-ID: <37BF34B0-6FE7-4F57-8302-3329BD8DE584@gmail.com>
+
+Hello all,
+
+I would like to propose Davin Potts as core developer to take on the responsibility for maintaining the multiprocessing package.
+
+I've been working with him on and off for over a year and found him to be highly skilled, thoughtful, and responsible.  He is willing to devote time to a much neglected part of the standard library (186 open issues).  He would be a valued member of the team.
+
+I would be happy to serve as his mentor for his early contributions.
+
+
+Raymond
+
+
+
+> Begin forwarded message:
+> 
+> Date: December 25, 2014 at 6:46:33 AM PST
+> Subject: contributing to multiprocessing
+> From: Davin Potts <davin at appliomics.com>
+> To: Raymond Hettinger <raymond.hettinger at gmail.com>
+> 
+> Hi Raymond --
+> 
+> You asked if I'd be interested in becoming a maintainer for the multiprocessing package -- I've continued thinking about what I can do or trust myself to do and I think it'd be cool to make some serious ongoing contributions around multiprocessing.
+> 
+> A rambling set of thoughts from my looking into multiprocessing....
+> 
+> 
+> I've now read many (most?) of Jesse Noller's blog posts relating to multiprocessing, where it stands and where it should go, his calls for help.  I've noted Richard Oudkerk's disappearance from the issue comments and mailing lists for a half year or so now -- people are still referencing him, asking for his take, in new issues from as recent as this past week.  I'm still a bit unclear on how multiprocessing should ultimately relate to concurrent.futures though that discussion seems to be an ongoing one.  Reading through those discussions makes me realize I must come from a different background (massive distributed computing, scientific computing, HPC) -- it's neat to read and try to understand what's going through other peoples' heads here.
+> 
+> 
+> I've spent a decent chunk of time now going through the outstanding issues against multiprocessing.  As best as I can tell, I'd break the current set of 186 issues mentioning multiprocessing down like this:
+> * 50% are either junk or otherwise simply outdated-needing-proper-cleanup items,
+> * 30% are advocating changes to docs to cover edge cases they've encountered,
+> * 15% are Windows-specific problems needing investigation,
+> * the remaining 5% are more interesting or nasty topics.
+> 
+> Many of the edge cases people get surprised by in that 30% are complications related to Windows -- I think a goodly chunk of these problems could be prevented if the documentation were re-oriented a bit more (though documentation is not the answer to them all).  The thought of documenting every little gotchya or niche these folks encounter is silly and won't help in practical terms.  That said, there's enough of these problems to signal that something is definitely sub-optimal.
+> 
+> The overall volume of Windows-related issues reminds me very much of Trent Nelson telling me at the one point that he figured the real reason he was invited to become a committer was because he didn't at all mind working on Windows issues.  In a twisted way, I kind of like sorting out Windows issues too.
+> 
+> I'd guess it'd take me 30-60 minutes to carefully go through each item in that big 50% chunk, bringing a healthy number to some closure in an iteration or two.  That'll take a bit of time to chew through but seems important.
+> 
+> 
+> 
+> If I'm up for helping work through the backlog of issues, including debugging Windows issues, how should I start?
+> 
+> 
+> 
+> Davin
+> 
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150106/8a9fc72c/attachment.html>
+
+From antoine at python.org  Wed Jan  7 09:51:59 2015
+From: antoine at python.org (Antoine Pitrou)
+Date: Wed, 07 Jan 2015 09:51:59 +0100
+Subject: [python-committers] Proposed core developer for contributing to
+ multiprocessing
+In-Reply-To: <37BF34B0-6FE7-4F57-8302-3329BD8DE584@gmail.com>
+References: <CAM2Y4a80gARhPVnfrLi0SKdfkTGuRSNSrxU_udkJ=UirxQ0=uA@mail.gmail.com>
+ <37BF34B0-6FE7-4F57-8302-3329BD8DE584@gmail.com>
+Message-ID: <54ACF3AF.1030007@python.org>
+
+
+Le 07/01/2015 08:09, Raymond Hettinger a ?crit :
+> Hello all,
+> 
+> I would like to propose Davin Potts as core developer to take on the
+> responsibility for maintaining the multiprocessing package.
+> 
+> I've been working with him on and off for over a year and found him to
+> be highly skilled, thoughtful, and responsible.  He is willing to devote
+> time to a much neglected part of the standard library (186 open issues).
+>  He would be a valued member of the team.
+> 
+> I would be happy to serve as his mentor for his early contributions.
+
+Then let Davin contribute before proposing core developer access?
+I think it is unusual to make core developer someone who's not known by
+the community (unless he's known and I'm missing something :-)).
+
+Note multiprocessing has received active maintenance by Richard until ~1
+year ago.
+
+Regards
+
+Antoine.
+
+From victor.stinner at gmail.com  Wed Jan  7 11:22:30 2015
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Wed, 7 Jan 2015 11:22:30 +0100
+Subject: [python-committers] Proposed core developer for contributing to
+	multiprocessing
+In-Reply-To: <54ACF3AF.1030007@python.org>
+References: <CAM2Y4a80gARhPVnfrLi0SKdfkTGuRSNSrxU_udkJ=UirxQ0=uA@mail.gmail.com>
+ <37BF34B0-6FE7-4F57-8302-3329BD8DE584@gmail.com> <54ACF3AF.1030007@python.org>
+Message-ID: <CAMpsgwbVyFCpZ4e31=neo0trUwU9jy3yg4dyWMnRab2iMiOa2w@mail.gmail.com>
+
+Hi,
+
+2015-01-07 9:51 GMT+01:00 Antoine Pitrou <antoine at python.org>:
+>> I would like to propose Davin Potts as core developer to take on the
+>> responsibility for maintaining the multiprocessing package.
+
+Did he already contributed to CPython? What is his nickname on the bug
+tracker? Can we see his previous contributions?
+
+A difficult part of the multiprocessing is the Windows support.
+Richard knows well the Windows API. It doesn't mean that someone who
+doesn't know Windows should not be able to contribute ;-)
+
+> Then let Davin contribute before proposing core developer access?
+> I think it is unusual to make core developer someone who's not known by
+> the community (unless he's known and I'm missing something :-)).
+
+If David didn't contribute before, I'm against giving him directly the
+developer access. Different people repeat that you don't need to have
+the developer access to contribute. Send patches, review patches,
+comment issues, etc.
+
+We rejected candidates who had many previous contributions, just
+because they didn't contribute enough.
+
+Victor
+
+From raymond.hettinger at gmail.com  Wed Jan  7 17:25:05 2015
+From: raymond.hettinger at gmail.com (Raymond Hettinger)
+Date: Wed, 7 Jan 2015 08:25:05 -0800
+Subject: [python-committers] Proposed core developer for contributing to	
+	multiprocessing
+Message-ID: <3B89E50D-9817-41D2-9177-FAA27B0DC881@gmail.com>
+
+> Did he already contributed to CPython? 
+> What is his nickname on the bug tracker? 
+> Can we see his previous contributions?
+
+Davin has already devoted significant time to researching
+180+ open issues for multiprocessing and getting up to speed
+to the history of multiprocessing work.  His tracker name is
+"davin" and his initial contributions are at:
+
+   http://bugs.python.org/issue22952
+   http://bugs.python.org/issue23100
+
+Davin is active in the PyData community and a popular Python instructor.
+He was the Chief Data Scientist at Continuum (one of the large
+Python consultancy firms along with Enthought and ActiveState).
+
+
+Raymond
+
+
+https://www.linkedin.com/pub/davin-potts/1/b25/606
+https://github.com/applio
+http://www.crunchbase.com/person/davin-potts
+http://strataconf.com/strata2011/public/schedule/speaker/106479
+
+From ncoghlan at gmail.com  Fri Jan  9 12:47:14 2015
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Fri, 9 Jan 2015 21:47:14 +1000
+Subject: [python-committers] Proposed core developer for contributing to
+	multiprocessing
+In-Reply-To: <CAMpsgwbVyFCpZ4e31=neo0trUwU9jy3yg4dyWMnRab2iMiOa2w@mail.gmail.com>
+References: <CAM2Y4a80gARhPVnfrLi0SKdfkTGuRSNSrxU_udkJ=UirxQ0=uA@mail.gmail.com>
+ <37BF34B0-6FE7-4F57-8302-3329BD8DE584@gmail.com>
+ <54ACF3AF.1030007@python.org>
+ <CAMpsgwbVyFCpZ4e31=neo0trUwU9jy3yg4dyWMnRab2iMiOa2w@mail.gmail.com>
+Message-ID: <CADiSq7c2Xw3Hpp7SvVsvor8Oh4t4E0C_yTvAZQ7BGRo=+KuAjA@mail.gmail.com>
+
+On 7 January 2015 at 20:22, Victor Stinner <victor.stinner at gmail.com> wrote:
+> If David didn't contribute before, I'm against giving him directly the
+> developer access. Different people repeat that you don't need to have
+> the developer access to contribute. Send patches, review patches,
+> comment issues, etc.
+>
+> We rejected candidates who had many previous contributions, just
+> because they didn't contribute enough.
+
+That's not quite the guideline I personally use - for me, it's more
+about whether someone being able to commit their own patches is likely
+to be more efficient overall or not.
+
+If their patches are to a point where the only parts I'm handling are
+the mechanics of doing the commit (i.e. they're already up to speed on
+what makes for an appropriate change to the area under consideration),
+and I trust them to be appropriately cautious when branching out to
+other areas of the code base, then I'll propose granting them commit
+access and teaching them the additional steps involved in actually
+doing the commits and taking responsibility for them.
+
+The key is whether I feel that extra committer review step is still
+providing value commensurate with the additional time it takes, and
+that's something which varies on a case by case basis.
+
+Regards,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+
+From mal at egenix.com  Fri Jan  9 13:09:03 2015
+From: mal at egenix.com (M.-A. Lemburg)
+Date: Fri, 09 Jan 2015 13:09:03 +0100
+Subject: [python-committers] Proposed core developer for contributing to
+ multiprocessing
+In-Reply-To: <CADiSq7c2Xw3Hpp7SvVsvor8Oh4t4E0C_yTvAZQ7BGRo=+KuAjA@mail.gmail.com>
+References: <CAM2Y4a80gARhPVnfrLi0SKdfkTGuRSNSrxU_udkJ=UirxQ0=uA@mail.gmail.com>	<37BF34B0-6FE7-4F57-8302-3329BD8DE584@gmail.com>	<54ACF3AF.1030007@python.org>	<CAMpsgwbVyFCpZ4e31=neo0trUwU9jy3yg4dyWMnRab2iMiOa2w@mail.gmail.com>
+ <CADiSq7c2Xw3Hpp7SvVsvor8Oh4t4E0C_yTvAZQ7BGRo=+KuAjA@mail.gmail.com>
+Message-ID: <54AFC4DF.8070902@egenix.com>
+
+On 09.01.2015 12:47, Nick Coghlan wrote:
+> On 7 January 2015 at 20:22, Victor Stinner <victor.stinner at gmail.com> wrote:
+>> If David didn't contribute before, I'm against giving him directly the
+>> developer access. Different people repeat that you don't need to have
+>> the developer access to contribute. Send patches, review patches,
+>> comment issues, etc.
+>>
+>> We rejected candidates who had many previous contributions, just
+>> because they didn't contribute enough.
+> 
+> That's not quite the guideline I personally use - for me, it's more
+> about whether someone being able to commit their own patches is likely
+> to be more efficient overall or not.
+> 
+> If their patches are to a point where the only parts I'm handling are
+> the mechanics of doing the commit (i.e. they're already up to speed on
+> what makes for an appropriate change to the area under consideration),
+> and I trust them to be appropriately cautious when branching out to
+> other areas of the code base, then I'll propose granting them commit
+> access and teaching them the additional steps involved in actually
+> doing the commits and taking responsibility for them.
+> 
+> The key is whether I feel that extra committer review step is still
+> providing value commensurate with the additional time it takes, and
+> that's something which varies on a case by case basis.
+
+I'm with Nick here. The itertools module needs a new maintainer.
+If Davin can be that maintainer, definitely +1 on adding him,
+under the condition that Raymond provides some oversight in the
+first few months.
+
+BTW: How about having an "incubator" phase for new core devs ?
+The new candidate will get commit rights for say 3 months and
+after those 3 months, the mentor then suggests whether make
+the status permanent or not.
+
+As long as this is stated clearly from the beginning, I don't
+think people will feel offended if they end up not receiving
+the permanent status, and this will reduce the barrier for
+entry a lot. Learning on the job is a rather common practice
+in the industry these days :-)
+
+-- 
+Marc-Andre Lemburg
+eGenix.com
+
+Professional Python Services directly from the Source  (#1, Jan 09 2015)
+>>> Python Projects, Coaching and Consulting ...  http://www.egenix.com/
+>>> mxODBC Plone/Zope Database Adapter ...       http://zope.egenix.com/
+>>> mxODBC, mxDateTime, mxTextTools ...        http://python.egenix.com/
+________________________________________________________________________
+
+::::: Try our mxODBC.Connect Python Database Interface for free ! ::::::
+
+   eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+    D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+           Registered at Amtsgericht Duesseldorf: HRB 46611
+               http://www.egenix.com/company/contact/
+
+From Steve.Dower at microsoft.com  Fri Jan  9 17:19:41 2015
+From: Steve.Dower at microsoft.com (Steve Dower)
+Date: Fri, 9 Jan 2015 16:19:41 +0000
+Subject: [python-committers] Proposed core developer for contributing to
+ multiprocessing
+In-Reply-To: <54AFC4DF.8070902@egenix.com>
+References: <CAM2Y4a80gARhPVnfrLi0SKdfkTGuRSNSrxU_udkJ=UirxQ0=uA@mail.gmail.com>
+ <37BF34B0-6FE7-4F57-8302-3329BD8DE584@gmail.com>
+ <54ACF3AF.1030007@python.org>
+ <CAMpsgwbVyFCpZ4e31=neo0trUwU9jy3yg4dyWMnRab2iMiOa2w@mail.gmail.com>
+ <CADiSq7c2Xw3Hpp7SvVsvor8Oh4t4E0C_yTvAZQ7BGRo=+KuAjA@mail.gmail.com>
+ <54AFC4DF.8070902@egenix.com>
+Message-ID: <DM2PR0301MB07342ADF1324A705609FF4F2F5440@DM2PR0301MB0734.namprd03.prod.outlook.com>
+
+M.-A. Lemburg wrote:
+> BTW: How about having an "incubator" phase for new core devs ?
+> The new candidate will get commit rights for say 3 months and after those 3
+> months, the mentor then suggests whether make the status permanent or not.
+> 
+> As long as this is stated clearly from the beginning, I don't think people will
+> feel offended if they end up not receiving the permanent status, and this will
+> reduce the barrier for entry a lot. Learning on the job is a rather common
+> practice in the industry these days :-)
+
+As someone who received commit rights based entirely (almost?) on willingness rather than contributions, I think this is a great idea. I certainly would not have been at all offended if I'd been told "don't touch anything apart from X and we'll reevaluate in three months." Being clear about it at the start is the important part - having a title like "probationary" or "provisional" makes that pretty easy. 
+
+Cheers,
+Steve
+
+From ezio.melotti at gmail.com  Fri Jan  9 23:26:30 2015
+From: ezio.melotti at gmail.com (Ezio Melotti)
+Date: Fri, 9 Jan 2015 23:26:30 +0100
+Subject: [python-committers] Proposed core developer for contributing to
+	multiprocessing
+In-Reply-To: <54AFC4DF.8070902@egenix.com>
+References: <CAM2Y4a80gARhPVnfrLi0SKdfkTGuRSNSrxU_udkJ=UirxQ0=uA@mail.gmail.com>
+ <37BF34B0-6FE7-4F57-8302-3329BD8DE584@gmail.com>
+ <54ACF3AF.1030007@python.org>
+ <CAMpsgwbVyFCpZ4e31=neo0trUwU9jy3yg4dyWMnRab2iMiOa2w@mail.gmail.com>
+ <CADiSq7c2Xw3Hpp7SvVsvor8Oh4t4E0C_yTvAZQ7BGRo=+KuAjA@mail.gmail.com>
+ <54AFC4DF.8070902@egenix.com>
+Message-ID: <CACBhJdFJyV+p0FLy0HV7RXv+oM77D6qpmNYt4hk3vKshjvTiNw@mail.gmail.com>
+
+Hi,
+
+On Fri, Jan 9, 2015 at 1:09 PM, M.-A. Lemburg <mal at egenix.com> wrote:
+>
+> BTW: How about having an "incubator" phase for new core devs ?
+> The new candidate will get commit rights for say 3 months and
+> after those 3 months, the mentor then suggests whether make
+> the status permanent or not.
+>
+
+Not sure this will work too well.  I'm assuming that new candidates
+are good developers and reasonable persons that will still be chosen
+based on their merits (previous contributions, recommendations from
+other core devs, etc.), so nearly all of them will probably get the
+permanent status.
+I can't imagine many reasons why we wouldn't eventually accept a
+candidate.  If they wreak havoc in the repo we will probably remove
+their commit rights immediately, if they do something wrong we would
+just tell them and they would hopefully fix the problem and keep it in
+mind for the next time.  If they really can't figure out/follow our
+workflow or have similar problems they will probably gave up being
+contributors on their own, even if they still have rights.
+
+> As long as this is stated clearly from the beginning, I don't
+> think people will feel offended if they end up not receiving
+> the permanent status, and this will reduce the barrier for
+> entry a lot. Learning on the job is a rather common practice
+> in the industry these days :-)
+>
+
+If they do something clearly wrong they shouldn't be surprised if we
+revoke their right, 3 months period or not.  If they are just not good
+enough they won't be offended but they will probably be disappointed.
+Comparing Python with a paid job is also somewhat misleading, since
+the only investment we have to do is following the new contributor for
+a while and possibly intervene if something goes wrong (e.g. they made
+a wrong commit and don't know how to fix it/revert it).  IME this
+doesn't happen often and it's not a particularly time-consuming task.
+
+TL;DR We can give access rights to whoever proves to be up to the task
+and willing to contribute, the three month period is not necessary, if
+they cause trouble we will just revoke the right (but that shouldn't
+happen).
+
+Best Regards,
+Ezio Melotti
+
+From mal at egenix.com  Fri Jan  9 23:47:49 2015
+From: mal at egenix.com (M.-A. Lemburg)
+Date: Fri, 09 Jan 2015 23:47:49 +0100
+Subject: [python-committers] Proposed core developer for contributing to
+ multiprocessing
+In-Reply-To: <CACBhJdFJyV+p0FLy0HV7RXv+oM77D6qpmNYt4hk3vKshjvTiNw@mail.gmail.com>
+References: <CAM2Y4a80gARhPVnfrLi0SKdfkTGuRSNSrxU_udkJ=UirxQ0=uA@mail.gmail.com>	<37BF34B0-6FE7-4F57-8302-3329BD8DE584@gmail.com>	<54ACF3AF.1030007@python.org>	<CAMpsgwbVyFCpZ4e31=neo0trUwU9jy3yg4dyWMnRab2iMiOa2w@mail.gmail.com>	<CADiSq7c2Xw3Hpp7SvVsvor8Oh4t4E0C_yTvAZQ7BGRo=+KuAjA@mail.gmail.com>	<54AFC4DF.8070902@egenix.com>
+ <CACBhJdFJyV+p0FLy0HV7RXv+oM77D6qpmNYt4hk3vKshjvTiNw@mail.gmail.com>
+Message-ID: <54B05A95.6050708@egenix.com>
+
+On 09.01.2015 23:26, Ezio Melotti wrote:
+> Hi,
+> 
+> On Fri, Jan 9, 2015 at 1:09 PM, M.-A. Lemburg <mal at egenix.com> wrote:
+>>
+>> BTW: How about having an "incubator" phase for new core devs ?
+>> The new candidate will get commit rights for say 3 months and
+>> after those 3 months, the mentor then suggests whether make
+>> the status permanent or not.
+>>
+> 
+> Not sure this will work too well.  I'm assuming that new candidates
+> are good developers and reasonable persons that will still be chosen
+> based on their merits (previous contributions, recommendations from
+> other core devs, etc.), so nearly all of them will probably get the
+> permanent status.
+> I can't imagine many reasons why we wouldn't eventually accept a
+> candidate.  If they wreak havoc in the repo we will probably remove
+> their commit rights immediately, if they do something wrong we would
+> just tell them and they would hopefully fix the problem and keep it in
+> mind for the next time.  If they really can't figure out/follow our
+> workflow or have similar problems they will probably gave up being
+> contributors on their own, even if they still have rights.
+> 
+>> As long as this is stated clearly from the beginning, I don't
+>> think people will feel offended if they end up not receiving
+>> the permanent status, and this will reduce the barrier for
+>> entry a lot. Learning on the job is a rather common practice
+>> in the industry these days :-)
+>>
+> 
+> If they do something clearly wrong they shouldn't be surprised if we
+> revoke their right, 3 months period or not.  If they are just not good
+> enough they won't be offended but they will probably be disappointed.
+> Comparing Python with a paid job is also somewhat misleading, since
+> the only investment we have to do is following the new contributor for
+> a while and possibly intervene if something goes wrong (e.g. they made
+> a wrong commit and don't know how to fix it/revert it).  IME this
+> doesn't happen often and it's not a particularly time-consuming task.
+> 
+> TL;DR We can give access rights to whoever proves to be up to the task
+> and willing to contribute, the three month period is not necessary, if
+> they cause trouble we will just revoke the right (but that shouldn't
+> happen).
+
+Perhaps I wasn't clear about the context. The discussion was
+focusing on requirements for a new developer to get commit
+rights.
+
+Antoine and Victor argued that new developers should first
+show their skills by submitting patches to tickets, working
+with other core devs before getting the commit bit set.
+
+My suggestion was allowing new developers to start committing
+patches themselves before having worked on dozens of tickets
+using the usual patch approach.
+
+The incubator phase is meant to check whether the new developer
+is up to the task he or she signs up for. The mentor keeps checking
+the code quality during this phase to avoid broken code or
+backwards incompatible changes which would need more discussion.
+
+In summary, we'd allow developers to start taking on responsibilities
+earlier than in the current process, while still maintaining
+the high quality standards we have.
+
+I may be misunderstanding your reply, but it appears you'd even
+want to go beyond that, so we're not really in disagreement it
+seems :-)
+
+-- 
+Marc-Andre Lemburg
+eGenix.com
+
+Professional Python Services directly from the Source  (#1, Jan 09 2015)
+>>> Python Projects, Coaching and Consulting ...  http://www.egenix.com/
+>>> mxODBC Plone/Zope Database Adapter ...       http://zope.egenix.com/
+>>> mxODBC, mxDateTime, mxTextTools ...        http://python.egenix.com/
+________________________________________________________________________
+
+::::: Try our mxODBC.Connect Python Database Interface for free ! ::::::
+
+   eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+    D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+           Registered at Amtsgericht Duesseldorf: HRB 46611
+               http://www.egenix.com/company/contact/
+
+From antoine at python.org  Fri Jan  9 23:52:24 2015
+From: antoine at python.org (Antoine Pitrou)
+Date: Fri, 09 Jan 2015 23:52:24 +0100
+Subject: [python-committers] Proposed core developer for contributing to
+ multiprocessing
+In-Reply-To: <54B05A95.6050708@egenix.com>
+References: <CAM2Y4a80gARhPVnfrLi0SKdfkTGuRSNSrxU_udkJ=UirxQ0=uA@mail.gmail.com>	<37BF34B0-6FE7-4F57-8302-3329BD8DE584@gmail.com>	<54ACF3AF.1030007@python.org>	<CAMpsgwbVyFCpZ4e31=neo0trUwU9jy3yg4dyWMnRab2iMiOa2w@mail.gmail.com>	<CADiSq7c2Xw3Hpp7SvVsvor8Oh4t4E0C_yTvAZQ7BGRo=+KuAjA@mail.gmail.com>	<54AFC4DF.8070902@egenix.com>
+ <CACBhJdFJyV+p0FLy0HV7RXv+oM77D6qpmNYt4hk3vKshjvTiNw@mail.gmail.com>
+ <54B05A95.6050708@egenix.com>
+Message-ID: <54B05BA8.1040908@python.org>
+
+
+Le 09/01/2015 23:47, M.-A. Lemburg a ?crit :
+> 
+> Antoine and Victor argued that new developers should first
+> show their skills by submitting patches to tickets, working
+> with other core devs before getting the commit bit set.
+> 
+> My suggestion was allowing new developers to start committing
+> patches themselves before having worked on dozens of tickets
+> using the usual patch approach.
+
+What would that bring? Reverting commits or asking people to make post
+hoc changes is much more bothersome than making pre-commit code reviews.
+
+And I don't see how it's beneficial to ask developers to commit up front
+while we're trying to promote a culture of code review, anyway.
+
+Regards
+
+Antoine.
+
+From guido at python.org  Fri Jan  9 23:54:12 2015
+From: guido at python.org (Guido van Rossum)
+Date: Fri, 9 Jan 2015 14:54:12 -0800
+Subject: [python-committers] Proposed core developer for contributing to
+	multiprocessing
+In-Reply-To: <54B05BA8.1040908@python.org>
+References: <CAM2Y4a80gARhPVnfrLi0SKdfkTGuRSNSrxU_udkJ=UirxQ0=uA@mail.gmail.com>
+ <37BF34B0-6FE7-4F57-8302-3329BD8DE584@gmail.com> <54ACF3AF.1030007@python.org>
+ <CAMpsgwbVyFCpZ4e31=neo0trUwU9jy3yg4dyWMnRab2iMiOa2w@mail.gmail.com>
+ <CADiSq7c2Xw3Hpp7SvVsvor8Oh4t4E0C_yTvAZQ7BGRo=+KuAjA@mail.gmail.com>
+ <54AFC4DF.8070902@egenix.com>
+ <CACBhJdFJyV+p0FLy0HV7RXv+oM77D6qpmNYt4hk3vKshjvTiNw@mail.gmail.com>
+ <54B05A95.6050708@egenix.com> <54B05BA8.1040908@python.org>
+Message-ID: <CAP7+vJLmv4G7DKapJxOasSWgYpxWQu1DsnZ9rLcnaAznfMmmrg@mail.gmail.com>
+
+On Fri, Jan 9, 2015 at 2:52 PM, Antoine Pitrou <antoine at python.org> wrote:
+
+>
+> Le 09/01/2015 23:47, M.-A. Lemburg a ?crit :
+> >
+> > Antoine and Victor argued that new developers should first
+> > show their skills by submitting patches to tickets, working
+> > with other core devs before getting the commit bit set.
+> >
+> > My suggestion was allowing new developers to start committing
+> > patches themselves before having worked on dozens of tickets
+> > using the usual patch approach.
+>
+> What would that bring? Reverting commits or asking people to make post
+> hoc changes is much more bothersome than making pre-commit code reviews.
+>
+> And I don't see how it's beneficial to ask developers to commit up front
+> while we're trying to promote a culture of code review, anyway.
+>
+
+I'm with Antoine here.
+
+-- 
+--Guido van Rossum (python.org/~guido)
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150109/63f02f33/attachment.html>
+
+From mal at egenix.com  Sat Jan 10 00:03:07 2015
+From: mal at egenix.com (M.-A. Lemburg)
+Date: Sat, 10 Jan 2015 00:03:07 +0100
+Subject: [python-committers] Proposed core developer for contributing to
+ multiprocessing
+In-Reply-To: <54B05BA8.1040908@python.org>
+References: <CAM2Y4a80gARhPVnfrLi0SKdfkTGuRSNSrxU_udkJ=UirxQ0=uA@mail.gmail.com>	<37BF34B0-6FE7-4F57-8302-3329BD8DE584@gmail.com>	<54ACF3AF.1030007@python.org>	<CAMpsgwbVyFCpZ4e31=neo0trUwU9jy3yg4dyWMnRab2iMiOa2w@mail.gmail.com>	<CADiSq7c2Xw3Hpp7SvVsvor8Oh4t4E0C_yTvAZQ7BGRo=+KuAjA@mail.gmail.com>	<54AFC4DF.8070902@egenix.com>	<CACBhJdFJyV+p0FLy0HV7RXv+oM77D6qpmNYt4hk3vKshjvTiNw@mail.gmail.com>	<54B05A95.6050708@egenix.com>
+ <54B05BA8.1040908@python.org>
+Message-ID: <54B05E2B.20407@egenix.com>
+
+On 09.01.2015 23:52, Antoine Pitrou wrote:
+> 
+> Le 09/01/2015 23:47, M.-A. Lemburg a ?crit :
+>>
+>> Antoine and Victor argued that new developers should first
+>> show their skills by submitting patches to tickets, working
+>> with other core devs before getting the commit bit set.
+>>
+>> My suggestion was allowing new developers to start committing
+>> patches themselves before having worked on dozens of tickets
+>> using the usual patch approach.
+> 
+> What would that bring? Reverting commits or asking people to make post
+> hoc changes is much more bothersome than making pre-commit code reviews.
+> 
+> And I don't see how it's beneficial to ask developers to commit up front
+> while we're trying to promote a culture of code review, anyway.
+
+Sorry, that was not what I meant. There should still be code reviews.
+
+The point here is getting people to take responsibility.
+
+As core dev you do have responsibility. A contributor uploading
+a patch to a ticket can still rely on the final judgement of the
+core dev applying the patch, so there's less responsibility
+involved for the contributor.
+
+If the contributor gets to work as core dev early, the motivation
+and feeling for responsibility will change. That's main driver.
+
+In the current case, there's a developer who has not worked on
+dozens of tickets, but has the trust of Raymond to do a good
+job at maintaining the multiprocessing module. By giving
+Davin commit rights with a probation period, we'd be investing
+trust and hopefully get motivation as return on investment ;-)
+
+-- 
+Marc-Andre Lemburg
+eGenix.com
+
+Professional Python Services directly from the Source  (#1, Jan 09 2015)
+>>> Python Projects, Coaching and Consulting ...  http://www.egenix.com/
+>>> mxODBC Plone/Zope Database Adapter ...       http://zope.egenix.com/
+>>> mxODBC, mxDateTime, mxTextTools ...        http://python.egenix.com/
+________________________________________________________________________
+
+::::: Try our mxODBC.Connect Python Database Interface for free ! ::::::
+
+   eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+    D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+           Registered at Amtsgericht Duesseldorf: HRB 46611
+               http://www.egenix.com/company/contact/
+
+From ezio.melotti at gmail.com  Sat Jan 10 01:19:51 2015
+From: ezio.melotti at gmail.com (Ezio Melotti)
+Date: Sat, 10 Jan 2015 01:19:51 +0100
+Subject: [python-committers] Proposed core developer for contributing to
+	multiprocessing
+In-Reply-To: <54B05A95.6050708@egenix.com>
+References: <CAM2Y4a80gARhPVnfrLi0SKdfkTGuRSNSrxU_udkJ=UirxQ0=uA@mail.gmail.com>
+ <37BF34B0-6FE7-4F57-8302-3329BD8DE584@gmail.com>
+ <54ACF3AF.1030007@python.org>
+ <CAMpsgwbVyFCpZ4e31=neo0trUwU9jy3yg4dyWMnRab2iMiOa2w@mail.gmail.com>
+ <CADiSq7c2Xw3Hpp7SvVsvor8Oh4t4E0C_yTvAZQ7BGRo=+KuAjA@mail.gmail.com>
+ <54AFC4DF.8070902@egenix.com>
+ <CACBhJdFJyV+p0FLy0HV7RXv+oM77D6qpmNYt4hk3vKshjvTiNw@mail.gmail.com>
+ <54B05A95.6050708@egenix.com>
+Message-ID: <CACBhJdGSTjbR3UbgkS+yEi9m+NTtrP_QrZCb20atQEU1oT3f_g@mail.gmail.com>
+
+Hi,
+
+On Fri, Jan 9, 2015 at 11:47 PM, M.-A. Lemburg <mal at egenix.com> wrote:
+> On 09.01.2015 23:26, Ezio Melotti wrote:
+>> Hi,
+>>
+>> On Fri, Jan 9, 2015 at 1:09 PM, M.-A. Lemburg <mal at egenix.com> wrote:
+>>>
+>>> BTW: How about having an "incubator" phase for new core devs ?
+>>> The new candidate will get commit rights for say 3 months and
+>>> after those 3 months, the mentor then suggests whether make
+>>> the status permanent or not.
+>>>
+>>
+>> Not sure this will work too well.  I'm assuming that new candidates
+>> are good developers and reasonable persons that will still be chosen
+>> based on their merits (previous contributions, recommendations from
+>> other core devs, etc.), so nearly all of them will probably get the
+>> permanent status.
+>> I can't imagine many reasons why we wouldn't eventually accept a
+>> candidate.  If they wreak havoc in the repo we will probably remove
+>> their commit rights immediately, if they do something wrong we would
+>> just tell them and they would hopefully fix the problem and keep it in
+>> mind for the next time.  If they really can't figure out/follow our
+>> workflow or have similar problems they will probably gave up being
+>> contributors on their own, even if they still have rights.
+>>
+>>> As long as this is stated clearly from the beginning, I don't
+>>> think people will feel offended if they end up not receiving
+>>> the permanent status, and this will reduce the barrier for
+>>> entry a lot. Learning on the job is a rather common practice
+>>> in the industry these days :-)
+>>>
+>>
+>> If they do something clearly wrong they shouldn't be surprised if we
+>> revoke their right, 3 months period or not.  If they are just not good
+>> enough they won't be offended but they will probably be disappointed.
+>> Comparing Python with a paid job is also somewhat misleading, since
+>> the only investment we have to do is following the new contributor for
+>> a while and possibly intervene if something goes wrong (e.g. they made
+>> a wrong commit and don't know how to fix it/revert it).  IME this
+>> doesn't happen often and it's not a particularly time-consuming task.
+>>
+>> TL;DR We can give access rights to whoever proves to be up to the task
+>> and willing to contribute, the three month period is not necessary, if
+>> they cause trouble we will just revoke the right (but that shouldn't
+>> happen).
+>
+> Perhaps I wasn't clear about the context. The discussion was
+> focusing on requirements for a new developer to get commit
+> rights.
+>
+> Antoine and Victor argued that new developers should first
+> show their skills by submitting patches to tickets, working
+> with other core devs before getting the commit bit set.
+>
+
+IMHO if the contributors are already known for their skills, then they
+just need to submit a couple of patches.  This is useful both for the
+contributors (so they get the hang of it and learn the workflow) and
+for the team (so we see they understand the workflow and they are
+indeed up to the task).  If everything is fine then they can get the
+commit bit.  This group includes devs that already work on other
+projects/Python implementations, that have successful packages on
+PyPI, or that are recommended by other core devs.
+
+If the contributor is relatively "unknown", then he/she has to prove
+that he/she is up to the task by contributing a larger number of
+patches before getting the commit bit.
+
+> My suggestion was allowing new developers to start committing
+> patches themselves before having worked on dozens of tickets
+> using the usual patch approach.
+>
+
+The usual patch approach varies from person to person.  Some
+contributors works on dozen of trivial issues before moving to
+something more complex, others specialize on a single package, others
+are able to tackle difficult issues right away.  Working on a few
+difficult issues often tells more about the skills of the contributor
+than working on dozen of trivial ones.
+Since most contributors start with simpler issues, it is not uncommon
+that by the time they are comfortable working on complex issues and
+become core devs they already contributed several patches.
+
+> The incubator phase is meant to check whether the new developer
+> is up to the task he or she signs up for. The mentor keeps checking
+> the code quality during this phase to avoid broken code or
+> backwards incompatible changes which would need more discussion.
+>
+
+This should happen before the code is committed, so it doesn't matter
+if they have commit rights or not.
+
+> In summary, we'd allow developers to start taking on responsibilities
+> earlier than in the current process, while still maintaining
+> the high quality standards we have.
+>
+> I may be misunderstanding your reply, but it appears you'd even
+> want to go beyond that, so we're not really in disagreement it
+> seems :-)
+>
+
+IMHO people can get the commit bit once they proved they are up to the
+task and contributed at least a couple of patches (for the reasons
+stated above).
+
+Best Regards,
+Ezio Melotti
+
+From g.brandl at gmx.net  Sat Jan 10 09:18:38 2015
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Sat, 10 Jan 2015 09:18:38 +0100
+Subject: [python-committers] Proposed core developer for contributing to
+	multiprocessing
+In-Reply-To: <54B05E2B.20407@egenix.com>
+References: <CAM2Y4a80gARhPVnfrLi0SKdfkTGuRSNSrxU_udkJ=UirxQ0=uA@mail.gmail.com>	<37BF34B0-6FE7-4F57-8302-3329BD8DE584@gmail.com>	<54ACF3AF.1030007@python.org>	<CAMpsgwbVyFCpZ4e31=neo0trUwU9jy3yg4dyWMnRab2iMiOa2w@mail.gmail.com>	<CADiSq7c2Xw3Hpp7SvVsvor8Oh4t4E0C_yTvAZQ7BGRo=+KuAjA@mail.gmail.com>	<54AFC4DF.8070902@egenix.com>	<CACBhJdFJyV+p0FLy0HV7RXv+oM77D6qpmNYt4hk3vKshjvTiNw@mail.gmail.com>	<54B05A95.6050708@egenix.com>
+ <54B05BA8.1040908@python.org> <54B05E2B.20407@egenix.com>
+Message-ID: <m8qn8v$mjv$1@ger.gmane.org>
+
+On 01/10/2015 12:03 AM, M.-A. Lemburg wrote:
+
+>>> Antoine and Victor argued that new developers should first
+>>> show their skills by submitting patches to tickets, working
+>>> with other core devs before getting the commit bit set.
+>>>
+>>> My suggestion was allowing new developers to start committing
+>>> patches themselves before having worked on dozens of tickets
+>>> using the usual patch approach.
+>> 
+>> What would that bring? Reverting commits or asking people to make post
+>> hoc changes is much more bothersome than making pre-commit code reviews.
+>> 
+>> And I don't see how it's beneficial to ask developers to commit up front
+>> while we're trying to promote a culture of code review, anyway.
+> 
+> Sorry, that was not what I meant. There should still be code reviews.
+> 
+> The point here is getting people to take responsibility.
+> 
+> As core dev you do have responsibility. A contributor uploading
+> a patch to a ticket can still rely on the final judgement of the
+> core dev applying the patch, so there's less responsibility
+> involved for the contributor.
+> 
+> If the contributor gets to work as core dev early, the motivation
+> and feeling for responsibility will change. That's main driver.
+
+I think this is a good point.  We who already are committers might think
+that it's not a big deal if the contributor has the commit bit or not,
+since the patches are always going to be reviewed by the mentor and/or
+others, but it certainly is a difference in feeling for them.
+
+As far back as I can remember, we never had to remove someone's commit
+privileges because they wreaked havoc.  That probably means that
+a) people are decent and b) our timing of giving commit bits is very
+much on the "safe" side.
+
+Georg
+
+
+
+From mal at egenix.com  Sat Jan 10 11:33:06 2015
+From: mal at egenix.com (M.-A. Lemburg)
+Date: Sat, 10 Jan 2015 11:33:06 +0100
+Subject: [python-committers] Proposed core developer for contributing to
+ multiprocessing
+In-Reply-To: <CACBhJdGSTjbR3UbgkS+yEi9m+NTtrP_QrZCb20atQEU1oT3f_g@mail.gmail.com>
+References: <CAM2Y4a80gARhPVnfrLi0SKdfkTGuRSNSrxU_udkJ=UirxQ0=uA@mail.gmail.com>	<37BF34B0-6FE7-4F57-8302-3329BD8DE584@gmail.com>	<54ACF3AF.1030007@python.org>	<CAMpsgwbVyFCpZ4e31=neo0trUwU9jy3yg4dyWMnRab2iMiOa2w@mail.gmail.com>	<CADiSq7c2Xw3Hpp7SvVsvor8Oh4t4E0C_yTvAZQ7BGRo=+KuAjA@mail.gmail.com>	<54AFC4DF.8070902@egenix.com>	<CACBhJdFJyV+p0FLy0HV7RXv+oM77D6qpmNYt4hk3vKshjvTiNw@mail.gmail.com>	<54B05A95.6050708@egenix.com>
+ <CACBhJdGSTjbR3UbgkS+yEi9m+NTtrP_QrZCb20atQEU1oT3f_g@mail.gmail.com>
+Message-ID: <54B0FFE2.4010500@egenix.com>
+
+Hi Ezio,
+
+I think I'm not making myself clear enough :-)
+
+Technically, operations would stay the same (tickets, patches, reviews),
+but from a motivational point of view, you change things a lot for the
+better if you put trust into people by giving them the commit bit early.
+
+The "incubation" period idea is just meant to make the process clear
+to new developers. They should not feel offended if they don't end
+up keeping the commit bit.
+
+Cheers,
+-- 
+Marc-Andre Lemburg
+eGenix.com
+
+Professional Python Services directly from the Source  (#1, Jan 10 2015)
+>>> Python Projects, Coaching and Consulting ...  http://www.egenix.com/
+>>> mxODBC Plone/Zope Database Adapter ...       http://zope.egenix.com/
+>>> mxODBC, mxDateTime, mxTextTools ...        http://python.egenix.com/
+________________________________________________________________________
+
+::::: Try our mxODBC.Connect Python Database Interface for free ! ::::::
+
+   eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+    D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+           Registered at Amtsgericht Duesseldorf: HRB 46611
+               http://www.egenix.com/company/contact/
+
+On 10.01.2015 01:19, Ezio Melotti wrote:
+> Hi,
+> 
+> On Fri, Jan 9, 2015 at 11:47 PM, M.-A. Lemburg <mal at egenix.com> wrote:
+>> On 09.01.2015 23:26, Ezio Melotti wrote:
+>>> Hi,
+>>>
+>>> On Fri, Jan 9, 2015 at 1:09 PM, M.-A. Lemburg <mal at egenix.com> wrote:
+>>>>
+>>>> BTW: How about having an "incubator" phase for new core devs ?
+>>>> The new candidate will get commit rights for say 3 months and
+>>>> after those 3 months, the mentor then suggests whether make
+>>>> the status permanent or not.
+>>>>
+>>>
+>>> Not sure this will work too well.  I'm assuming that new candidates
+>>> are good developers and reasonable persons that will still be chosen
+>>> based on their merits (previous contributions, recommendations from
+>>> other core devs, etc.), so nearly all of them will probably get the
+>>> permanent status.
+>>> I can't imagine many reasons why we wouldn't eventually accept a
+>>> candidate.  If they wreak havoc in the repo we will probably remove
+>>> their commit rights immediately, if they do something wrong we would
+>>> just tell them and they would hopefully fix the problem and keep it in
+>>> mind for the next time.  If they really can't figure out/follow our
+>>> workflow or have similar problems they will probably gave up being
+>>> contributors on their own, even if they still have rights.
+>>>
+>>>> As long as this is stated clearly from the beginning, I don't
+>>>> think people will feel offended if they end up not receiving
+>>>> the permanent status, and this will reduce the barrier for
+>>>> entry a lot. Learning on the job is a rather common practice
+>>>> in the industry these days :-)
+>>>>
+>>>
+>>> If they do something clearly wrong they shouldn't be surprised if we
+>>> revoke their right, 3 months period or not.  If they are just not good
+>>> enough they won't be offended but they will probably be disappointed.
+>>> Comparing Python with a paid job is also somewhat misleading, since
+>>> the only investment we have to do is following the new contributor for
+>>> a while and possibly intervene if something goes wrong (e.g. they made
+>>> a wrong commit and don't know how to fix it/revert it).  IME this
+>>> doesn't happen often and it's not a particularly time-consuming task.
+>>>
+>>> TL;DR We can give access rights to whoever proves to be up to the task
+>>> and willing to contribute, the three month period is not necessary, if
+>>> they cause trouble we will just revoke the right (but that shouldn't
+>>> happen).
+>>
+>> Perhaps I wasn't clear about the context. The discussion was
+>> focusing on requirements for a new developer to get commit
+>> rights.
+>>
+>> Antoine and Victor argued that new developers should first
+>> show their skills by submitting patches to tickets, working
+>> with other core devs before getting the commit bit set.
+>>
+> 
+> IMHO if the contributors are already known for their skills, then they
+> just need to submit a couple of patches.  This is useful both for the
+> contributors (so they get the hang of it and learn the workflow) and
+> for the team (so we see they understand the workflow and they are
+> indeed up to the task).  If everything is fine then they can get the
+> commit bit.  This group includes devs that already work on other
+> projects/Python implementations, that have successful packages on
+> PyPI, or that are recommended by other core devs.
+> 
+> If the contributor is relatively "unknown", then he/she has to prove
+> that he/she is up to the task by contributing a larger number of
+> patches before getting the commit bit.
+> 
+>> My suggestion was allowing new developers to start committing
+>> patches themselves before having worked on dozens of tickets
+>> using the usual patch approach.
+>>
+> 
+> The usual patch approach varies from person to person.  Some
+> contributors works on dozen of trivial issues before moving to
+> something more complex, others specialize on a single package, others
+> are able to tackle difficult issues right away.  Working on a few
+> difficult issues often tells more about the skills of the contributor
+> than working on dozen of trivial ones.
+> Since most contributors start with simpler issues, it is not uncommon
+> that by the time they are comfortable working on complex issues and
+> become core devs they already contributed several patches.
+> 
+>> The incubator phase is meant to check whether the new developer
+>> is up to the task he or she signs up for. The mentor keeps checking
+>> the code quality during this phase to avoid broken code or
+>> backwards incompatible changes which would need more discussion.
+>>
+> 
+> This should happen before the code is committed, so it doesn't matter
+> if they have commit rights or not.
+> 
+>> In summary, we'd allow developers to start taking on responsibilities
+>> earlier than in the current process, while still maintaining
+>> the high quality standards we have.
+>>
+>> I may be misunderstanding your reply, but it appears you'd even
+>> want to go beyond that, so we're not really in disagreement it
+>> seems :-)
+>>
+> 
+> IMHO people can get the commit bit once they proved they are up to the
+> task and contributed at least a couple of patches (for the reasons
+> stated above).
+> 
+> Best Regards,
+> Ezio Melotti
+> 
+
+
+From berker.peksag at gmail.com  Sat Jan 10 13:38:12 2015
+From: berker.peksag at gmail.com (=?UTF-8?Q?Berker_Peksa=C4=9F?=)
+Date: Sat, 10 Jan 2015 14:38:12 +0200
+Subject: [python-committers] Proposed core developer for contributing to
+	multiprocessing
+In-Reply-To: <54B0FFE2.4010500@egenix.com>
+References: <CAM2Y4a80gARhPVnfrLi0SKdfkTGuRSNSrxU_udkJ=UirxQ0=uA@mail.gmail.com>
+ <37BF34B0-6FE7-4F57-8302-3329BD8DE584@gmail.com> <54ACF3AF.1030007@python.org>
+ <CAMpsgwbVyFCpZ4e31=neo0trUwU9jy3yg4dyWMnRab2iMiOa2w@mail.gmail.com>
+ <CADiSq7c2Xw3Hpp7SvVsvor8Oh4t4E0C_yTvAZQ7BGRo=+KuAjA@mail.gmail.com>
+ <54AFC4DF.8070902@egenix.com>
+ <CACBhJdFJyV+p0FLy0HV7RXv+oM77D6qpmNYt4hk3vKshjvTiNw@mail.gmail.com>
+ <54B05A95.6050708@egenix.com>
+ <CACBhJdGSTjbR3UbgkS+yEi9m+NTtrP_QrZCb20atQEU1oT3f_g@mail.gmail.com>
+ <54B0FFE2.4010500@egenix.com>
+Message-ID: <CAF4280Kwmo6kXRLh8syQ=c3xjnPboMJmVdc7ethmdDwcR7HgvA@mail.gmail.com>
+
+On Sat, Jan 10, 2015 at 12:33 PM, M.-A. Lemburg <mal at egenix.com> wrote:
+> Hi Ezio,
+>
+> I think I'm not making myself clear enough :-)
+>
+> Technically, operations would stay the same (tickets, patches, reviews),
+> but from a motivational point of view, you change things a lot for the
+> better if you put trust into people by giving them the commit bit early.
+
+Contributing to open source is all about motivation. If people are
+already willing to spend their free time working on an open source
+project(by writing and/or reviewing patches, for example), I think
+they are motivated enough and things like "commit rights", a
+@python.org mail address, a Python t-shirt etc. shouldn't be used as
+motivational items. From a contributor point of view, I can say that I
+would be more motivated if my patches were reviewed and committed in a
+shorter time frame (note: I was a contributor until six months ago).
+
+--Berker
+
+From mal at egenix.com  Sat Jan 10 14:53:01 2015
+From: mal at egenix.com (M.-A. Lemburg)
+Date: Sat, 10 Jan 2015 14:53:01 +0100
+Subject: [python-committers] Proposed core developer for contributing to
+ multiprocessing
+In-Reply-To: <CAF4280Kwmo6kXRLh8syQ=c3xjnPboMJmVdc7ethmdDwcR7HgvA@mail.gmail.com>
+References: <CAM2Y4a80gARhPVnfrLi0SKdfkTGuRSNSrxU_udkJ=UirxQ0=uA@mail.gmail.com>	<37BF34B0-6FE7-4F57-8302-3329BD8DE584@gmail.com>	<54ACF3AF.1030007@python.org>	<CAMpsgwbVyFCpZ4e31=neo0trUwU9jy3yg4dyWMnRab2iMiOa2w@mail.gmail.com>	<CADiSq7c2Xw3Hpp7SvVsvor8Oh4t4E0C_yTvAZQ7BGRo=+KuAjA@mail.gmail.com>	<54AFC4DF.8070902@egenix.com>	<CACBhJdFJyV+p0FLy0HV7RXv+oM77D6qpmNYt4hk3vKshjvTiNw@mail.gmail.com>	<54B05A95.6050708@egenix.com>	<CACBhJdGSTjbR3UbgkS+yEi9m+NTtrP_QrZCb20atQEU1oT3f_g@mail.gmail.com>	<54B0FFE2.4010500@egenix.com>
+ <CAF4280Kwmo6kXRLh8syQ=c3xjnPboMJmVdc7ethmdDwcR7HgvA@mail.gmail.com>
+Message-ID: <54B12EBD.2060105@egenix.com>
+
+On 10.01.2015 13:38, Berker Peksa? wrote:
+> On Sat, Jan 10, 2015 at 12:33 PM, M.-A. Lemburg <mal at egenix.com> wrote:
+>> Hi Ezio,
+>>
+>> I think I'm not making myself clear enough :-)
+>>
+>> Technically, operations would stay the same (tickets, patches, reviews),
+>> but from a motivational point of view, you change things a lot for the
+>> better if you put trust into people by giving them the commit bit early.
+> 
+> Contributing to open source is all about motivation. If people are
+> already willing to spend their free time working on an open source
+> project(by writing and/or reviewing patches, for example), I think
+> they are motivated enough and things like "commit rights", a
+> @python.org mail address, a Python t-shirt etc. shouldn't be used as
+> motivational items. From a contributor point of view, I can say that I
+> would be more motivated if my patches were reviewed and committed in a
+> shorter time frame (note: I was a contributor until six months ago).
+
+... which is the direct result of us not having enough active
+committers and this most probably being the result of the process
+being too strict, not because there are too few people willing
+to work on Python.
+
+Anyway, I think I've made my point now :-) If other committers
+feel that we don't need to have a more welcoming approach to
+new developers, that's fine.
+
+PS: If there's anything I've learned in the many years working
+in and for open-source communities, it's that enabling people
+to do collaborative work is the key factor to success. Give them
+access, let people make mistakes and fix them, thank them for
+doing a great job every now and then.
+
+-- 
+Marc-Andre Lemburg
+eGenix.com
+
+Professional Python Services directly from the Source  (#1, Jan 10 2015)
+>>> Python Projects, Coaching and Consulting ...  http://www.egenix.com/
+>>> mxODBC Plone/Zope Database Adapter ...       http://zope.egenix.com/
+>>> mxODBC, mxDateTime, mxTextTools ...        http://python.egenix.com/
+________________________________________________________________________
+
+::::: Try our mxODBC.Connect Python Database Interface for free ! ::::::
+
+   eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+    D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+           Registered at Amtsgericht Duesseldorf: HRB 46611
+               http://www.egenix.com/company/contact/
+
+From antoine at python.org  Sat Jan 10 14:55:53 2015
+From: antoine at python.org (Antoine Pitrou)
+Date: Sat, 10 Jan 2015 14:55:53 +0100
+Subject: [python-committers] Proposed core developer for contributing to
+ multiprocessing
+In-Reply-To: <54B12EBD.2060105@egenix.com>
+References: <CAM2Y4a80gARhPVnfrLi0SKdfkTGuRSNSrxU_udkJ=UirxQ0=uA@mail.gmail.com>	<37BF34B0-6FE7-4F57-8302-3329BD8DE584@gmail.com>	<54ACF3AF.1030007@python.org>	<CAMpsgwbVyFCpZ4e31=neo0trUwU9jy3yg4dyWMnRab2iMiOa2w@mail.gmail.com>	<CADiSq7c2Xw3Hpp7SvVsvor8Oh4t4E0C_yTvAZQ7BGRo=+KuAjA@mail.gmail.com>	<54AFC4DF.8070902@egenix.com>	<CACBhJdFJyV+p0FLy0HV7RXv+oM77D6qpmNYt4hk3vKshjvTiNw@mail.gmail.com>	<54B05A95.6050708@egenix.com>	<CACBhJdGSTjbR3UbgkS+yEi9m+NTtrP_QrZCb20atQEU1oT3f_g@mail.gmail.com>	<54B0FFE2.4010500@egenix.com>
+ <CAF4280Kwmo6kXRLh8syQ=c3xjnPboMJmVdc7ethmdDwcR7HgvA@mail.gmail.com>
+ <54B12EBD.2060105@egenix.com>
+Message-ID: <54B12F69.4090101@python.org>
+
+
+Le 10/01/2015 14:53, M.-A. Lemburg a ?crit :
+> 
+> Anyway, I think I've made my point now :-) If other committers
+> feel that we don't need to have a more welcoming approach to
+> new developers, that's fine.
+
+I half-agree with Berker: the number one problem is enough people to
+review patches and guide contributors. Being welcoming is not the same
+as giving away commit rights in the hope that people will contribute.
+
+I only half-agree because it seems lately we have been having an
+attractivity problem. I may be biased, but I see much less interesting
+contributions nowadays than 2/3 years ago. Python may be becoming less
+exciting compared to Rust / Go / etc.
+
+Regards
+
+Antoine.
+
+From ethan at stoneleaf.us  Sat Jan 10 18:16:15 2015
+From: ethan at stoneleaf.us (Ethan Furman)
+Date: Sat, 10 Jan 2015 09:16:15 -0800
+Subject: [python-committers] Proposed core developer for contributing to
+ multiprocessing
+In-Reply-To: <37BF34B0-6FE7-4F57-8302-3329BD8DE584@gmail.com>
+References: <CAM2Y4a80gARhPVnfrLi0SKdfkTGuRSNSrxU_udkJ=UirxQ0=uA@mail.gmail.com>
+ <37BF34B0-6FE7-4F57-8302-3329BD8DE584@gmail.com>
+Message-ID: <54B15E5F.2080009@stoneleaf.us>
+
+On 01/06/2015 11:09 PM, Raymond Hettinger wrote:
+> 
+> I would like to propose Davin Potts as core developer to take on the responsibility for maintaining the multiprocessing
+> package.
+> 
+> I've been working with him on and off for over a year and found him to be highly skilled, thoughtful, and responsible.
+>  He is willing to devote time to a much neglected part of the standard library (186 open issues).  He would be a valued
+> member of the team.
+> 
+> I would be happy to serve as his mentor for his early contributions.
+
+Having read the thread, and seeing that Raymond is willing to vouch for and to mentor Davin, I am
+
++1
+
+--
+~Ethan~
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 836 bytes
+Desc: OpenPGP digital signature
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150110/696c98bd/attachment.sig>
+
+From greg at krypto.org  Sat Jan 10 21:09:22 2015
+From: greg at krypto.org (Gregory P. Smith)
+Date: Sat, 10 Jan 2015 20:09:22 +0000
+Subject: [python-committers] Proposed core developer for contributing to
+	multiprocessing
+References: <CAM2Y4a80gARhPVnfrLi0SKdfkTGuRSNSrxU_udkJ=UirxQ0=uA@mail.gmail.com>
+ <37BF34B0-6FE7-4F57-8302-3329BD8DE584@gmail.com>
+ <54B15E5F.2080009@stoneleaf.us>
+Message-ID: <CAGE7PNKYg6euBS0TT+rR0OB+7isx=NAqnvk1YFvSA=bAe77DXA@mail.gmail.com>
+
++1 for commit access, Raymond volunteered as a mentor.
+
+I agree with MAL, it is more beneficial to trust people and give out commit
+access early.
+
+-gregory.p.smith
+
+On Sat Jan 10 2015 at 9:16:26 AM Ethan Furman <ethan at stoneleaf.us> wrote:
+
+> On 01/06/2015 11:09 PM, Raymond Hettinger wrote:
+> >
+> > I would like to propose Davin Potts as core developer to take on the
+> responsibility for maintaining the multiprocessing
+> > package.
+> >
+> > I've been working with him on and off for over a year and found him to
+> be highly skilled, thoughtful, and responsible.
+> >  He is willing to devote time to a much neglected part of the standard
+> library (186 open issues).  He would be a valued
+> > member of the team.
+> >
+> > I would be happy to serve as his mentor for his early contributions.
+>
+> Having read the thread, and seeing that Raymond is willing to vouch for
+> and to mentor Davin, I am
+>
+> +1
+>
+> --
+> ~Ethan~
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150110/fc935468/attachment.html>
+
+From nad at acm.org  Sat Jan 10 22:01:43 2015
+From: nad at acm.org (Ned Deily)
+Date: Sat, 10 Jan 2015 13:01:43 -0800
+Subject: [python-committers] Proposed core developer for contributing to
+	multiprocessing
+In-Reply-To: <CAGE7PNKYg6euBS0TT+rR0OB+7isx=NAqnvk1YFvSA=bAe77DXA@mail.gmail.com>
+References: <CAM2Y4a80gARhPVnfrLi0SKdfkTGuRSNSrxU_udkJ=UirxQ0=uA@mail.gmail.com>
+ <37BF34B0-6FE7-4F57-8302-3329BD8DE584@gmail.com>
+ <54B15E5F.2080009@stoneleaf.us>
+ <CAGE7PNKYg6euBS0TT+rR0OB+7isx=NAqnvk1YFvSA=bAe77DXA@mail.gmail.com>
+Message-ID: <3F748DA0-C413-4B50-AEA5-86223278EE22@acm.org>
+
+On Jan 10, 2015, at 12:09, Gregory P. Smith <greg at krypto.org> wrote:
+> 
+> +1 for commit access, Raymond volunteered as a mentor.
+> 
+> I agree with MAL, it is more beneficial to trust people and give out commit access early.
+
++1, for all of those reasons.  My only concern is trying to ensure that Richard (sbt) is involved as much as he wishes to be in any work on multiprocessing.
+
+--
+  Ned Deily
+  nad at acm.org -- []
+
+
+
+From brett at python.org  Sat Jan 10 21:16:44 2015
+From: brett at python.org (Brett Cannon)
+Date: Sat, 10 Jan 2015 20:16:44 +0000
+Subject: [python-committers] Proposed core developer for contributing to
+	multiprocessing
+References: <CAM2Y4a80gARhPVnfrLi0SKdfkTGuRSNSrxU_udkJ=UirxQ0=uA@mail.gmail.com>
+ <37BF34B0-6FE7-4F57-8302-3329BD8DE584@gmail.com>
+ <54B15E5F.2080009@stoneleaf.us>
+ <CAGE7PNKYg6euBS0TT+rR0OB+7isx=NAqnvk1YFvSA=bAe77DXA@mail.gmail.com>
+Message-ID: <CAP1=2W4Wt0Nr4rZbb-=L2ycFvnbqQOTh1heMPQ1rG_SgakPspg@mail.gmail.com>
+
+I'm +1 as well since Raymond has said he will mentor Davin the way through
+and I'm willing to experiment with giving commit rights earlier based on
+personal vouching of a core developer.
+
+On Sat Jan 10 2015 at 3:09:43 PM Gregory P. Smith <greg at krypto.org> wrote:
+
+> +1 for commit access, Raymond volunteered as a mentor.
+>
+> I agree with MAL, it is more beneficial to trust people and give out
+> commit access early.
+>
+> -gregory.p.smith
+>
+> On Sat Jan 10 2015 at 9:16:26 AM Ethan Furman <ethan at stoneleaf.us> wrote:
+>
+>> On 01/06/2015 11:09 PM, Raymond Hettinger wrote:
+>> >
+>> > I would like to propose Davin Potts as core developer to take on the
+>> responsibility for maintaining the multiprocessing
+>> > package.
+>> >
+>> > I've been working with him on and off for over a year and found him to
+>> be highly skilled, thoughtful, and responsible.
+>> >  He is willing to devote time to a much neglected part of the standard
+>> library (186 open issues).  He would be a valued
+>> > member of the team.
+>> >
+>> > I would be happy to serve as his mentor for his early contributions.
+>>
+>> Having read the thread, and seeing that Raymond is willing to vouch for
+>> and to mentor Davin, I am
+>>
+>> +1
+>>
+>> --
+>> ~Ethan~
+>>
+>> _______________________________________________
+>> python-committers mailing list
+>> python-committers at python.org
+>> https://mail.python.org/mailman/listinfo/python-committers
+>>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150110/57c70251/attachment.html>
+
+From antoine at python.org  Sun Jan 11 00:01:02 2015
+From: antoine at python.org (Antoine Pitrou)
+Date: Sun, 11 Jan 2015 00:01:02 +0100
+Subject: [python-committers] Proposed core developer for contributing to
+ multiprocessing
+In-Reply-To: <CAP1=2W4Wt0Nr4rZbb-=L2ycFvnbqQOTh1heMPQ1rG_SgakPspg@mail.gmail.com>
+References: <CAM2Y4a80gARhPVnfrLi0SKdfkTGuRSNSrxU_udkJ=UirxQ0=uA@mail.gmail.com>
+ <37BF34B0-6FE7-4F57-8302-3329BD8DE584@gmail.com>
+ <54B15E5F.2080009@stoneleaf.us>
+ <CAGE7PNKYg6euBS0TT+rR0OB+7isx=NAqnvk1YFvSA=bAe77DXA@mail.gmail.com>
+ <CAP1=2W4Wt0Nr4rZbb-=L2ycFvnbqQOTh1heMPQ1rG_SgakPspg@mail.gmail.com>
+Message-ID: <54B1AF2E.4040008@python.org>
+
+
+Le 10/01/2015 21:16, Brett Cannon a ?crit :
+> I'm +1 as well since Raymond has said he will mentor Davin the way
+> through and I'm willing to experiment with giving commit rights earlier
+> based on personal vouching of a core developer.
+
+We have already experimented with that. People like Jean-Paul Calderone
+have been given commit privs and they committed very little.
+
+Regards
+
+Antoine.
+
+From brett at python.org  Sun Jan 11 03:01:17 2015
+From: brett at python.org (Brett Cannon)
+Date: Sun, 11 Jan 2015 02:01:17 +0000
+Subject: [python-committers] Proposed core developer for contributing to
+	multiprocessing
+References: <CAM2Y4a80gARhPVnfrLi0SKdfkTGuRSNSrxU_udkJ=UirxQ0=uA@mail.gmail.com>
+ <37BF34B0-6FE7-4F57-8302-3329BD8DE584@gmail.com>
+ <54B15E5F.2080009@stoneleaf.us>
+ <CAGE7PNKYg6euBS0TT+rR0OB+7isx=NAqnvk1YFvSA=bAe77DXA@mail.gmail.com>
+ <CAP1=2W4Wt0Nr4rZbb-=L2ycFvnbqQOTh1heMPQ1rG_SgakPspg@mail.gmail.com>
+ <54B1AF2E.4040008@python.org>
+Message-ID: <CAP1=2W5oWkHjJ+6T14z30VxxE05rehROnu+KOuT=7P4FnFcU9Q@mail.gmail.com>
+
+ On Sat, Jan 10, 2015, 18:01 Antoine Pitrou <antoine at python.org> wrote:
+
+
+Le 10/01/2015 21:16, Brett Cannon a ?crit :
+> I'm +1 as well since Raymond has said he will mentor Davin the way
+> through and I'm willing to experiment with giving commit rights earlier
+> based on personal vouching of a core developer.
+
+We have already experimented with that. People like Jean-Paul Calderone
+have been given commit privs and they committed very little.
+
+ But it wasn't detrimental either. And I don't remember JP having a
+specific champion like Raymond. In this instance we have someone who is
+staking their reputation on someone.
+
+-Brett
+
+
+Regards
+
+Antoine.
+_______________________________________________
+python-committers mailing list
+python-committers at python.org
+https <https://mail.python.org/mailman/listinfo/python-committers>://
+<https://mail.python.org/mailman/listinfo/python-committers>mail.python.org
+<https://mail.python.org/mailman/listinfo/python-committers>/mailman/
+<https://mail.python.org/mailman/listinfo/python-committers>listinfo
+<https://mail.python.org/mailman/listinfo/python-committers>
+/python-committers
+<https://mail.python.org/mailman/listinfo/python-committers>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150111/4ba88127/attachment.html>
+
+From antoine at python.org  Sun Jan 11 03:10:07 2015
+From: antoine at python.org (Antoine Pitrou)
+Date: Sun, 11 Jan 2015 03:10:07 +0100
+Subject: [python-committers] Proposed core developer for contributing to
+ multiprocessing
+In-Reply-To: <CAP1=2W5oWkHjJ+6T14z30VxxE05rehROnu+KOuT=7P4FnFcU9Q@mail.gmail.com>
+References: <CAM2Y4a80gARhPVnfrLi0SKdfkTGuRSNSrxU_udkJ=UirxQ0=uA@mail.gmail.com>
+ <37BF34B0-6FE7-4F57-8302-3329BD8DE584@gmail.com>
+ <54B15E5F.2080009@stoneleaf.us>
+ <CAGE7PNKYg6euBS0TT+rR0OB+7isx=NAqnvk1YFvSA=bAe77DXA@mail.gmail.com>
+ <CAP1=2W4Wt0Nr4rZbb-=L2ycFvnbqQOTh1heMPQ1rG_SgakPspg@mail.gmail.com>
+ <54B1AF2E.4040008@python.org>
+ <CAP1=2W5oWkHjJ+6T14z30VxxE05rehROnu+KOuT=7P4FnFcU9Q@mail.gmail.com>
+Message-ID: <54B1DB7F.7020803@python.org>
+
+
+Le 11/01/2015 03:01, Brett Cannon a ?crit :
+> 
+> On Sat, Jan 10, 2015, 18:01 Antoine Pitrou <antoine at python.org
+> <mailto:antoine at python.org>> wrote:
+> 
+> 
+>     Le 10/01/2015 21:16, Brett Cannon a ?crit :
+>     > I'm +1 as well since Raymond has said he will mentor Davin the way
+>     > through and I'm willing to experiment with giving commit rights
+>     earlier
+>     > based on personal vouching of a core developer.
+> 
+>     We have already experimented with that. People like Jean-Paul Calderone
+>     have been given commit privs and they committed very little.
+> 
+> But it wasn't detrimental either. And I don't remember JP having a
+> specific champion like Raymond. In this instance we have someone who is
+> staking their reputation on someone.
+
+So we're talking about champions, stakes and reputation, rather than
+building a community?
+
+By the way, did anyone ask Richard what he thought about this?
+I am not aware that Raymond is an expert in the multiprocessing module,
+how exactly is he gonna evaluate Davin's work?
+
+Regards
+
+Antoine.
+
+From senthil at uthcode.com  Sun Jan 11 05:51:58 2015
+From: senthil at uthcode.com (Senthil Kumaran)
+Date: Sat, 10 Jan 2015 20:51:58 -0800
+Subject: [python-committers] Proposed core developer for contributing to
+	multiprocessing
+In-Reply-To: <3F748DA0-C413-4B50-AEA5-86223278EE22@acm.org>
+References: <CAM2Y4a80gARhPVnfrLi0SKdfkTGuRSNSrxU_udkJ=UirxQ0=uA@mail.gmail.com>
+ <37BF34B0-6FE7-4F57-8302-3329BD8DE584@gmail.com>
+ <54B15E5F.2080009@stoneleaf.us>
+ <CAGE7PNKYg6euBS0TT+rR0OB+7isx=NAqnvk1YFvSA=bAe77DXA@mail.gmail.com>
+ <3F748DA0-C413-4B50-AEA5-86223278EE22@acm.org>
+Message-ID: <CAPOVWOR+bBboRoLW+UVbMUexGnG2CtrGgy_H73qJQ5Pm=8Kqqw@mail.gmail.com>
+
+I have not been active for past year or so. But here is are thoughts on
+this process.
+
+The important thing should be "contribution"  and a developer's personal
+satisfaction comes from contribution. The commit access IMO is secondary,
+but is very important and as it helps contributor to move at a faster pace
+and increase his scope.
+
+I think, that anyone who contributes frequently through patches will get
+the satisfaction and when a developer who has been committing the patches
+notices it, he will automatically suggest the next step of giving the
+commit access to person who has been contributing.
+
+I think, this works well instead of giving commit access to encourage
+contribution.  My suggestion will be for David to contribute more
+frequently, be aligned with more active developers and the commit access
+might be an automatic next step.
+
+-- 
+Senthil
+
+
+On Sat, Jan 10, 2015 at 1:01 PM, Ned Deily <nad at acm.org> wrote:
+
+> On Jan 10, 2015, at 12:09, Gregory P. Smith <greg at krypto.org> wrote:
+> >
+> > +1 for commit access, Raymond volunteered as a mentor.
+> >
+> > I agree with MAL, it is more beneficial to trust people and give out
+> commit access early.
+>
+> +1, for all of those reasons.  My only concern is trying to ensure that
+> Richard (sbt) is involved as much as he wishes to be in any work on
+> multiprocessing.
+>
+> --
+>   Ned Deily
+>   nad at acm.org -- []
+>
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150110/56095117/attachment-0001.html>
+
+From antoine at python.org  Sun Jan 11 16:43:33 2015
+From: antoine at python.org (Antoine Pitrou)
+Date: Sun, 11 Jan 2015 16:43:33 +0100
+Subject: [python-committers] Hook error when pushing (5.7.0 Message limit
+	reached)
+Message-ID: <54B29A25.1030006@python.org>
+
+
+Hello,
+
+I just got the following error when pushing a changeset:
+
+remote: buildbot: change(s) sent successfully
+remote: Traceback (most recent call last):
+remote: File "/srv/hg/repos/hooks/hgroundup.py", line 56, in update_issue
+remote: _update_issue(*args, **kwargs)
+remote: File "/srv/hg/repos/hooks/hgroundup.py", line 108, in _update_issue
+remote: s.login(username, password)
+remote: File "/usr/lib/python2.7/smtplib.py", line 615, in login
+remote: raise SMTPAuthenticationError(code, resp)
+remote: SMTPAuthenticationError: (535, '5.7.0 Message limit reached.')
+remote: error: changegroup.roundup hook raised an exception: (535,
+'5.7.0 Message limit reached.')
+remote: Traceback (most recent call last):
+remote: File "/srv/hg/repos/hooks/mail.py", line 166, in incoming
+remote: return _incoming(ui, repo, **kwargs)
+remote: File "/srv/hg/repos/hooks/mail.py", line 156, in _incoming
+remote: smtp.login(username, ui.config('smtp', 'password', ''))
+remote: File "/usr/lib/python2.7/smtplib.py", line 615, in login
+remote: raise SMTPAuthenticationError(code, resp)
+remote: SMTPAuthenticationError: (535, '5.7.0 Message limit reached.')
+remote: error: incoming.notify hook raised an exception: (535, '5.7.0
+Message limit reached.')
+
+Regards
+
+Antoine.
+
+From donald at stufft.io  Sun Jan 11 16:55:47 2015
+From: donald at stufft.io (Donald Stufft)
+Date: Sun, 11 Jan 2015 10:55:47 -0500
+Subject: [python-committers] Hook error when pushing (5.7.0 Message
+	limit reached)
+In-Reply-To: <54B29A25.1030006@python.org>
+References: <54B29A25.1030006@python.org>
+Message-ID: <8676F267-D702-41BC-8F3B-4576D90E749A@stufft.io>
+
+
+> On Jan 11, 2015, at 10:43 AM, Antoine Pitrou <antoine at python.org> wrote:
+> 
+> 
+> Hello,
+> 
+> I just got the following error when pushing a changeset:
+> 
+> remote: buildbot: change(s) sent successfully
+> remote: Traceback (most recent call last):
+> remote: File "/srv/hg/repos/hooks/hgroundup.py", line 56, in update_issue
+> remote: _update_issue(*args, **kwargs)
+> remote: File "/srv/hg/repos/hooks/hgroundup.py", line 108, in _update_issue
+> remote: s.login(username, password)
+> remote: File "/usr/lib/python2.7/smtplib.py", line 615, in login
+> remote: raise SMTPAuthenticationError(code, resp)
+> remote: SMTPAuthenticationError: (535, '5.7.0 Message limit reached.')
+> remote: error: changegroup.roundup hook raised an exception: (535,
+> '5.7.0 Message limit reached.')
+> remote: Traceback (most recent call last):
+> remote: File "/srv/hg/repos/hooks/mail.py", line 166, in incoming
+> remote: return _incoming(ui, repo, **kwargs)
+> remote: File "/srv/hg/repos/hooks/mail.py", line 156, in _incoming
+> remote: smtp.login(username, ui.config('smtp', 'password', ''))
+> remote: File "/usr/lib/python2.7/smtplib.py", line 615, in login
+> remote: raise SMTPAuthenticationError(code, resp)
+> remote: SMTPAuthenticationError: (535, '5.7.0 Message limit reached.')
+> remote: error: incoming.notify hook raised an exception: (535, '5.7.0
+> Message limit reached.')
+> 
+> Regards
+> 
+> Antoine.
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+
+For some reason it looks like our mailgun account is disabled. It says because
+we?ve exceded the limit of the plan.. however that limit is 50k and I?m not sure
+how we?ve managed to exceed that. I?ve filed a ticket with Mailgun and will await
+further information.
+
+---
+Donald Stufft
+PGP: 7C6B 7C5D 5E2B 6356 A926 F04F 6E3C BCE9 3372 DCFA
+
+
+From raymond.hettinger at gmail.com  Sun Jan 11 21:26:59 2015
+From: raymond.hettinger at gmail.com (Raymond Hettinger)
+Date: Sun, 11 Jan 2015 12:26:59 -0800
+Subject: [python-committers] Proposed core developer for contributing to
+	multiprocessing
+In-Reply-To: <CAGE7PNKYg6euBS0TT+rR0OB+7isx=NAqnvk1YFvSA=bAe77DXA@mail.gmail.com>
+References: <CAM2Y4a80gARhPVnfrLi0SKdfkTGuRSNSrxU_udkJ=UirxQ0=uA@mail.gmail.com>
+ <37BF34B0-6FE7-4F57-8302-3329BD8DE584@gmail.com>
+ <54B15E5F.2080009@stoneleaf.us>
+ <CAGE7PNKYg6euBS0TT+rR0OB+7isx=NAqnvk1YFvSA=bAe77DXA@mail.gmail.com>
+Message-ID: <D9D83386-C51E-4EB5-A769-80258D442634@gmail.com>
+
+
+> On Jan 10, 2015, at 12:09 PM, Gregory P. Smith <greg at krypto.org> wrote:
+> 
+> I agree with MAL, it is more beneficial to trust people and give out commit access early.
+
+For comparison, I think that is the norm for paid work.  At companies I've 
+worked for, new programmers are given check-in rights on the first day.
+
+To have become the Chief Data Scientist at Continuum, Davin
+had to impress the likes of Travis Oliphant and Peter Wang.
+I've certainly been impressed with how carefully and thoroughly
+he researches and thinks through everything he does. 
+
+Dr. Potts brings a rich skill set and has volunteered to put 
+substantial time into a complex module with many outstanding
+bugs and that has long been in need of some love.
+
+He's already spent time researching past discussions on the
+multiprocessing module, reading all of the 180+ open bugs
+to assess what needs to be done, and preparing two patches
+currently open on the tracker.
+
+We should at least grant him developer privileges on the tracker 
+to it much easier for him to move the tracker items forward.
+As far as I can tell, no other developer is showing active
+interest in those issues (though Antoine did just commit  
+one of Davin's patches).
+
+Commit rights are a separate issue, but I wouldn't see the point
+in saying no there either.  The final step of committing your
+work is easy part.  The hard part is forming a coherent view
+of the package as a whole, triaging the open bugs,
+preparing patches, and engaging in discussion with
+interested parties (if any).
+
+
+Raymond
+
+
+
+
+From antoine at python.org  Sun Jan 11 21:47:17 2015
+From: antoine at python.org (Antoine Pitrou)
+Date: Sun, 11 Jan 2015 21:47:17 +0100
+Subject: [python-committers] Proposed core developer for contributing to
+ multiprocessing
+In-Reply-To: <D9D83386-C51E-4EB5-A769-80258D442634@gmail.com>
+References: <CAM2Y4a80gARhPVnfrLi0SKdfkTGuRSNSrxU_udkJ=UirxQ0=uA@mail.gmail.com>
+ <37BF34B0-6FE7-4F57-8302-3329BD8DE584@gmail.com>
+ <54B15E5F.2080009@stoneleaf.us>
+ <CAGE7PNKYg6euBS0TT+rR0OB+7isx=NAqnvk1YFvSA=bAe77DXA@mail.gmail.com>
+ <D9D83386-C51E-4EB5-A769-80258D442634@gmail.com>
+Message-ID: <54B2E155.8090601@python.org>
+
+
+Le 11/01/2015 21:26, Raymond Hettinger a ?crit :
+> 
+> We should at least grant him developer privileges on the tracker 
+> to it much easier for him to move the tracker items forward.
+
+I just gave him developer privileges (or at least I hope so - I added
+the role "Developer").
+
+> As far as I can tell, no other developer is showing active
+> interest in those issues (though Antoine did just commit  
+> one of Davin's patches).
+
+Interest tends to rise when patches are posted :-) Although of course
+some patches also linger...
+
+Regards
+
+Antoine.
+
+From larry at hastings.org  Thu Jan 15 05:02:24 2015
+From: larry at hastings.org (Larry Hastings)
+Date: Wed, 14 Jan 2015 23:02:24 -0500
+Subject: [python-committers] Schedule for 3.4.3, revised schedule for 3.5.0a1
+Message-ID: <54B73BD0.8000207@hastings.org>
+
+
+
+Python 3.5.0a1 is currently scheduled to be released February 1. Since 
+I'll be on the road that day, the 3.5 team has agreed to push the 
+release back a week.  3.5.0a1 will be tagged Saturday February 7 and 
+released Sunday February 8.  This doesn't change any of the other 
+release dates for 3.5..
+
+Since it's about time for a 3.4.3 anyway, we're going to push that out 
+at the same time.  3.4.3rc1 will be tagged Saturday February 7 and 
+released Sunday February 8.  3.4.3 final will follow two weeks later, 
+tagged Saturday February 21 and released Sunday February 22.
+
+Get your bug fixes (3.4) and crazy new functionality (3.5) in now!
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150114/a7933056/attachment.html>
+
+From donald at stufft.io  Tue Jan 20 17:54:59 2015
+From: donald at stufft.io (Donald Stufft)
+Date: Tue, 20 Jan 2015 11:54:59 -0500
+Subject: [python-committers] Possible "REMOTE HOST IDENTIFICATION HAS
+	CHANGED!" Error.
+Message-ID: <2BB0BA8E-95EC-406E-BCA4-29E6D2AC7D89@stufft.io>
+
+Sending this to python-committers as well for anyone who doesn't keep up with
+python-dev. If you've gotten this message twice now I'm sorry!
+
+Just a heads up that people might see a "REMOTE HOST IDENTIFICATION HAS
+CHANGED!" error when connecting to hg.python.org's SSH (or any other PSF
+machine). The reason for this is that previously we allowed RSA, ECDSA, and 
+ED25519 host keys. However ECDSA relies on having an unbiased random number
+generator on every connection and any bias in the random numbers can leak the
+private key. Since these are running on VMs where we don't know for sure what
+the quality is of the random numbers I've disabled the ECDSA host key.
+
+The impact of this is if you had previously connected to a PSF machine, and
+your client had the ECDSA key in your ~/.ssh/known_hosts file, that you'll
+see an error like:
+
+   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+   @    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
+   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+   IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
+   Someone could be eavesdropping on you right now (man-in-the-middle attack)!
+   It is also possible that a host key has just been changed.
+
+The remediation is to remove the ECDSA for the PSF servers from your known
+hosts and connect again and accept either the RSA or the ED25519 key when it
+presents it.
+
+The fingerprints for hg.python.org for both of those keys are:
+
+$ ssh-keygen -lf /etc/ssh/ssh_host_rsa_key.pub
+2048 a0:12:52:50:4a:4b:db:43:ac:65:26:b6:6f:0a:f7:b8 /etc/ssh/ssh_host_rsa_key.pub (RSA)
+$ ssh-keygen -lf /etc/ssh/ssh_host_ed25519_key.pub
+256 1d:02:d1:d2:7b:a1:cb:e0:51:65:25:d7:19:dd:4e:74 /etc/ssh/ssh_host_ed25519_key.pub (ED25519)
+
+Sorry for any inconvience this causes!
+
+---
+Donald Stufft
+PGP: 7C6B 7C5D 5E2B 6356 A926 F04F 6E3C BCE9 3372 DCFA
+
+
+From barry at python.org  Wed Jan 21 17:54:41 2015
+From: barry at python.org (Barry Warsaw)
+Date: Wed, 21 Jan 2015 11:54:41 -0500
+Subject: [python-committers] You are invited to the Pycon 2015 Language
+	Summit
+Message-ID: <20150121115441.18818901@marathon>
+
+[Apologies for any duplicates you might have gotten - B]
+
+Hello everyone - it's that time of year again where we plan the Pycon 2015
+Language Summit.
+
+Unfortunately, this year Michael will not be able to attend, so Larry Hastings
+and I will be organizing the Summit.  If you're on this email, consider
+yourself invited!
+
+*Please* let us know if you plan to attend so we can size the room and other
+amenities accordingly.
+
+The Summit will be held on Wednesday, April 8th, from approximately 10am to
+4pm.  Location within the convention center is TBD.   The Summit is free,
+although of course you are responsible for travel and hotel costs.  If you are
+planning on attending Pycon, you must still register and pay for that
+separately, but Pycon attendance is *not* required if you're only interested
+in the Language Summit.
+
+The topics of conversation will be largely "floor led".  Python 3.5 will be in
+alpha release at the time, so I expect it to be a topic of conversation.  I
+have a few ideas for some other topics, and I hope to brainstorm with Larry on
+how to make the Summit relevant for more people this year.  Perhaps we have
+some plenary sessions in the morning, with breakouts into smaller "working
+groups" in the afternoon, with a final plenary catch up at the end of the day.
+
+Your thoughts, suggestions, and interests are especially important, so please
+do respond with your feedback.
+
+There is a page on the Pycon 2015 site for the Summit, although it's currently
+unresponsive for me:
+
+https://us.pycon.org/2015/events/langsummit/
+
+We'll post additional details, topics, schedules, etc. as they become
+available.
+
+I hope you can join us!
+
+Cheers,
+-Barry
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 819 bytes
+Desc: OpenPGP digital signature
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150121/22c99c90/attachment.sig>
+
+From Steve.Dower at microsoft.com  Wed Jan 21 20:34:11 2015
+From: Steve.Dower at microsoft.com (Steve Dower)
+Date: Wed, 21 Jan 2015 19:34:11 +0000
+Subject: [python-committers] You are invited to the Pycon 2015 Language
+ Summit
+Message-ID: <DM2PR0301MB073443A602673A5A55F5330CF5480@DM2PR0301MB0734.namprd03.prod.outlook.com>
+
+Barry Warsaw wrote:
+> *Please* let us know if you plan to attend so we can size the room and other amenities accordingly.
+
+I'll be there. (Hopefully on time this year...)
+
+Cheers,
+Steve
+
+From christian at python.org  Thu Jan 22 21:43:33 2015
+From: christian at python.org (Christian Heimes)
+Date: Thu, 22 Jan 2015 21:43:33 +0100
+Subject: [python-committers] You are invited to the Pycon 2015 Language
+ Summit
+In-Reply-To: <20150121115441.18818901@marathon>
+References: <20150121115441.18818901@marathon>
+Message-ID: <54C160F5.7030804@python.org>
+
+On 21.01.2015 17:54, Barry Warsaw wrote:
+> *Please* let us know if you plan to attend so we can size the room and other
+> amenities accordingly.
+
+I'll be there for the first time. It's also my first time at PyCon US
+and first time outside Europe thanks to the financial aid program. My
+current plan is to arrive on Tuesday 7th and stay until the last sprint
+day on Thursday 16th.
+
+Christian
+
+PS: I'm also looking for somebody to share a hotel room or other
+accommodation like an Airbnb apartment. I'm a non-smoker -- and I hardly
+ever snore, too.
+
+From brett at python.org  Fri Jan 23 14:50:25 2015
+From: brett at python.org (Brett Cannon)
+Date: Fri, 23 Jan 2015 13:50:25 +0000
+Subject: [python-committers] Possible "REMOTE HOST IDENTIFICATION HAS
+ CHANGED!" Error.
+References: <2BB0BA8E-95EC-406E-BCA4-29E6D2AC7D89@stufft.io>
+Message-ID: <CAP1=2W7Vt1OfON=9VAsg_yYt1jYsBFu0oqXPXaADA14kutPcoQ@mail.gmail.com>
+
+I tried updating my checkout this morning and then I was given the warning.
+So I deleted the key from my known_hosts file, accepted the new one, but
+now I just keep getting my connection rejected:
+
+remote: Received disconnect from 104.130.43.97: 2: Too many authentication
+failures for hg
+
+abort: no suitable response from remote hg!
+
+
+This this rejection going to timeout so I can eventually connect, and if so
+how long do I need to wait?
+
+On Tue Jan 20 2015 at 11:55:08 AM Donald Stufft <donald at stufft.io> wrote:
+
+> Sending this to python-committers as well for anyone who doesn't keep up
+> with
+> python-dev. If you've gotten this message twice now I'm sorry!
+>
+> Just a heads up that people might see a "REMOTE HOST IDENTIFICATION HAS
+> CHANGED!" error when connecting to hg.python.org's SSH (or any other PSF
+> machine). The reason for this is that previously we allowed RSA, ECDSA, and
+> ED25519 host keys. However ECDSA relies on having an unbiased random number
+> generator on every connection and any bias in the random numbers can leak
+> the
+> private key. Since these are running on VMs where we don't know for sure
+> what
+> the quality is of the random numbers I've disabled the ECDSA host key.
+>
+> The impact of this is if you had previously connected to a PSF machine, and
+> your client had the ECDSA key in your ~/.ssh/known_hosts file, that you'll
+> see an error like:
+>
+>    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+>    @    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
+>    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+>    IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
+>    Someone could be eavesdropping on you right now (man-in-the-middle
+> attack)!
+>    It is also possible that a host key has just been changed.
+>
+> The remediation is to remove the ECDSA for the PSF servers from your known
+> hosts and connect again and accept either the RSA or the ED25519 key when
+> it
+> presents it.
+>
+> The fingerprints for hg.python.org for both of those keys are:
+>
+> $ ssh-keygen -lf /etc/ssh/ssh_host_rsa_key.pub
+> 2048 a0:12:52:50:4a:4b:db:43:ac:65:26:b6:6f:0a:f7:b8
+> /etc/ssh/ssh_host_rsa_key.pub (RSA)
+> $ ssh-keygen -lf /etc/ssh/ssh_host_ed25519_key.pub
+> 256 1d:02:d1:d2:7b:a1:cb:e0:51:65:25:d7:19:dd:4e:74
+> /etc/ssh/ssh_host_ed25519_key.pub (ED25519)
+>
+> Sorry for any inconvience this causes!
+>
+> ---
+> Donald Stufft
+> PGP: 7C6B 7C5D 5E2B 6356 A926 F04F 6E3C BCE9 3372 DCFA
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150123/e65cb4ae/attachment.html>
+
+From donald at stufft.io  Fri Jan 23 16:34:20 2015
+From: donald at stufft.io (Donald Stufft)
+Date: Fri, 23 Jan 2015 10:34:20 -0500
+Subject: [python-committers] Possible "REMOTE HOST IDENTIFICATION HAS
+	CHANGED!" Error.
+In-Reply-To: <CAP1=2W7Vt1OfON=9VAsg_yYt1jYsBFu0oqXPXaADA14kutPcoQ@mail.gmail.com>
+References: <2BB0BA8E-95EC-406E-BCA4-29E6D2AC7D89@stufft.io>
+ <CAP1=2W7Vt1OfON=9VAsg_yYt1jYsBFu0oqXPXaADA14kutPcoQ@mail.gmail.com>
+Message-ID: <1262FABB-C06C-4909-8692-460FB655A1FA@stufft.io>
+
+Can you do ssh -v to that box and send me the output?
+
+
+> On Jan 23, 2015, at 8:50 AM, Brett Cannon <brett at python.org> wrote:
+> 
+> I tried updating my checkout this morning and then I was given the warning. So I deleted the key from my known_hosts file, accepted the new one, but now I just keep getting my connection rejected:
+> 
+> remote: Received disconnect from 104.130.43.97: 2: Too many authentication failures for hg
+> 
+> abort: no suitable response from remote hg!
+> 
+> 
+> 
+> This this rejection going to timeout so I can eventually connect, and if so how long do I need to wait?
+> 
+> 
+>> On Tue Jan 20 2015 at 11:55:08 AM Donald Stufft <donald at stufft.io> wrote:
+>> Sending this to python-committers as well for anyone who doesn't keep up with
+>> python-dev. If you've gotten this message twice now I'm sorry!
+>> 
+>> Just a heads up that people might see a "REMOTE HOST IDENTIFICATION HAS
+>> CHANGED!" error when connecting to hg.python.org's SSH (or any other PSF
+>> machine). The reason for this is that previously we allowed RSA, ECDSA, and
+>> ED25519 host keys. However ECDSA relies on having an unbiased random number
+>> generator on every connection and any bias in the random numbers can leak the
+>> private key. Since these are running on VMs where we don't know for sure what
+>> the quality is of the random numbers I've disabled the ECDSA host key.
+>> 
+>> The impact of this is if you had previously connected to a PSF machine, and
+>> your client had the ECDSA key in your ~/.ssh/known_hosts file, that you'll
+>> see an error like:
+>> 
+>>    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+>>    @    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
+>>    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+>>    IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
+>>    Someone could be eavesdropping on you right now (man-in-the-middle attack)!
+>>    It is also possible that a host key has just been changed.
+>> 
+>> The remediation is to remove the ECDSA for the PSF servers from your known
+>> hosts and connect again and accept either the RSA or the ED25519 key when it
+>> presents it.
+>> 
+>> The fingerprints for hg.python.org for both of those keys are:
+>> 
+>> $ ssh-keygen -lf /etc/ssh/ssh_host_rsa_key.pub
+>> 2048 a0:12:52:50:4a:4b:db:43:ac:65:26:b6:6f:0a:f7:b8 /etc/ssh/ssh_host_rsa_key.pub (RSA)
+>> $ ssh-keygen -lf /etc/ssh/ssh_host_ed25519_key.pub
+>> 256 1d:02:d1:d2:7b:a1:cb:e0:51:65:25:d7:19:dd:4e:74 /etc/ssh/ssh_host_ed25519_key.pub (ED25519)
+>> 
+>> Sorry for any inconvience this causes!
+>> 
+>> ---
+>> Donald Stufft
+>> PGP: 7C6B 7C5D 5E2B 6356 A926 F04F 6E3C BCE9 3372 DCFA
+>> 
+>> _______________________________________________
+>> python-committers mailing list
+>> python-committers at python.org
+>> https://mail.python.org/mailman/listinfo/python-committers
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150123/94047a9c/attachment.html>
+
+From brett at python.org  Fri Jan 23 17:16:46 2015
+From: brett at python.org (Brett Cannon)
+Date: Fri, 23 Jan 2015 16:16:46 +0000
+Subject: [python-committers] Possible "REMOTE HOST IDENTIFICATION HAS
+ CHANGED!" Error.
+References: <2BB0BA8E-95EC-406E-BCA4-29E6D2AC7D89@stufft.io>
+ <CAP1=2W7Vt1OfON=9VAsg_yYt1jYsBFu0oqXPXaADA14kutPcoQ@mail.gmail.com>
+ <1262FABB-C06C-4909-8692-460FB655A1FA@stufft.io>
+Message-ID: <CAP1=2W6C3g3Mn5Ysrt1FSxdg_Ophxaxe75F1ovuQ7SQyy3oBBQ@mail.gmail.com>
+
+Looks like my id_rsa key is not being tried soon enough for the two-attempt
+threshold as the key that GitHub for Mac installed and my work key are
+being tried first (I tried specifying my id_rsa key with -i but that didn't
+seem to change anything):
+
+*> *ssh -v 104.130.43.97
+
+OpenSSH_6.6.1, OpenSSL 1.0.1i 6 Aug 2014
+
+debug1: Reading configuration data /etc/ssh_config
+
+debug1: /etc/ssh_config line 58: Applying options for *.*
+
+debug1: /etc/ssh_config line 68: Applying options for *
+
+debug1: /etc/ssh_config line 107: Deprecated option "globalknownhostsfile2"
+
+debug1: Connecting to 104.130.43.97 [104.130.43.97] port 22.
+
+debug1: Connection established.
+
+debug1: could not open key file '/etc/ssh_host_key': No such file or
+directory
+
+debug1: could not open key file '/etc/ssh_host_dsa_key': No such file or
+directory
+
+debug1: could not open key file '/etc/ssh_host_ecdsa_key': No such file or
+directory
+
+debug1: could not open key file '/etc/ssh_host_rsa_key': No such file or
+directory
+
+debug1: could not open key file '/etc/ssh_host_ed25519_key': No such file
+or directory
+
+debug1: could not open key file '/etc/ssh_host_dsa_key': No such file or
+directory
+
+debug1: could not open key file '/etc/ssh_host_ecdsa_key': No such file or
+directory
+
+debug1: could not open key file '/etc/ssh_host_rsa_key': No such file or
+directory
+
+debug1: could not open key file '/etc/ssh_host_ed25519_key': No such file
+or directory
+
+debug1: identity file /Users/bcannon/.ssh/identity type -1
+
+debug1: identity file /Users/bcannon/.ssh/identity-cert type -1
+
+debug1: identity file /Users/bcannon/.ssh/localhost/identity type -1
+
+debug1: identity file /Users/bcannon/.ssh/localhost/identity-cert type -1
+
+debug1: identity file /Users/bcannon/.ssh/clusterhost/identity type -1
+
+debug1: identity file /Users/bcannon/.ssh/clusterhost/identity-cert type -1
+
+debug1: identity file /Users/bcannon/.ssh/id_dsa type -1
+
+debug1: identity file /Users/bcannon/.ssh/id_dsa-cert type -1
+
+debug1: identity file /Users/bcannon/.ssh/id_rsa type 1
+
+debug1: identity file /Users/bcannon/.ssh/id_rsa-cert type -1
+
+debug1: identity file /Users/bcannon/.ssh/localhost/id_dsa type -1
+
+debug1: identity file /Users/bcannon/.ssh/localhost/id_dsa-cert type -1
+
+debug1: identity file /Users/bcannon/.ssh/localhost/id_rsa type -1
+
+debug1: identity file /Users/bcannon/.ssh/localhost/id_rsa-cert type -1
+
+debug1: identity file /Users/bcannon/.ssh/clusterhost/id_dsa type -1
+
+debug1: identity file /Users/bcannon/.ssh/clusterhost/id_dsa-cert type -1
+
+debug1: identity file /Users/bcannon/.ssh/clusterhost/id_rsa type -1
+
+debug1: identity file /Users/bcannon/.ssh/clusterhost/id_rsa-cert type -1
+
+debug1: Enabling compatibility mode for protocol 2.0
+
+debug1: Local version string SSH-2.0-OpenSSH_6.6.1
+
+debug1: Remote protocol version 2.0, remote software version
+OpenSSH_6.6.1p1 Ubuntu-2ubuntu2
+
+debug1: match: OpenSSH_6.6.1p1 Ubuntu-2ubuntu2 pat OpenSSH_6.6.1* compat
+0x04000000
+
+debug1:  Miscellaneous failure (see text)
+
+No credentials cache file found
+
+
+debug1:  An invalid name was supplied
+
+unknown mech-code 0 for mech 1 2 752 43 14 2
+
+
+debug1:  Miscellaneous failure (see text)
+
+unknown mech-code 0 for mech 1 3 6 1 5 5 14
+
+
+debug1:  Miscellaneous failure (see text)
+
+unknown mech-code 2 for mech 1 3 6 1 4 1 311 2 2 10
+
+
+debug1:  An unsupported mechanism was requested
+
+unknown mech-code 0 for mech 1 3 5 1 5 2 7
+
+
+debug1:  Miscellaneous failure (see text)
+
+unknown mech-code 0 for mech 1 3 6 1 5 2 5
+
+
+debug1: SSH2_MSG_KEXINIT sent
+
+debug1: SSH2_MSG_KEXINIT received
+
+debug1: kex: server->client aes128-ctr umac-128-etm at openssh.com none
+
+debug1: kex: client->server aes128-ctr umac-128-etm at openssh.com none
+
+debug1: sending SSH2_MSG_KEX_ECDH_INIT
+
+debug1: expecting SSH2_MSG_KEX_ECDH_REPLY
+
+debug1: Server host key: ED25519
+1d:02:d1:d2:7b:a1:cb:e0:51:65:25:d7:19:dd:4e:74
+
+debug1: Host '104.130.43.97' is known and matches the ED25519 host key.
+
+debug1: Found key in /Users/bcannon/.ssh/known_hosts:24
+
+debug1: ssh_ed25519_verify: signature correct
+
+debug1: SSH2_MSG_NEWKEYS sent
+
+debug1: expecting SSH2_MSG_NEWKEYS
+
+debug1: SSH2_MSG_NEWKEYS received
+
+debug1: Roaming not allowed by server
+
+debug1: SSH2_MSG_SERVICE_REQUEST sent
+
+debug1: SSH2_MSG_SERVICE_ACCEPT received
+
+debug1: Authentications that can continue: publickey
+
+debug1: Next authentication method: publickey
+
+debug1: Offering RSA public key: /Users/bcannon/.ssh/github_rsa
+
+debug1: Authentications that can continue: publickey
+
+debug1: Offering ECDSA public key: corp/normal
+
+Received disconnect from 104.130.43.97: 2: Too many authentication failures
+for bcannon
+
+On Fri Jan 23 2015 at 10:34:25 AM Donald Stufft <donald at stufft.io> wrote:
+
+> Can you do ssh -v to that box and send me the output?
+>
+>
+> On Jan 23, 2015, at 8:50 AM, Brett Cannon <brett at python.org> wrote:
+>
+> I tried updating my checkout this morning and then I was given the
+> warning. So I deleted the key from my known_hosts file, accepted the new
+> one, but now I just keep getting my connection rejected:
+>
+> remote: Received disconnect from 104.130.43.97: 2: Too many
+> authentication failures for hg
+>
+> abort: no suitable response from remote hg!
+>
+>
+> This this rejection going to timeout so I can eventually connect, and if
+> so how long do I need to wait?
+>
+> On Tue Jan 20 2015 at 11:55:08 AM Donald Stufft <donald at stufft.io> wrote:
+>
+>> Sending this to python-committers as well for anyone who doesn't keep up
+>> with
+>> python-dev. If you've gotten this message twice now I'm sorry!
+>>
+>> Just a heads up that people might see a "REMOTE HOST IDENTIFICATION HAS
+>> CHANGED!" error when connecting to hg.python.org's SSH (or any other PSF
+>> machine). The reason for this is that previously we allowed RSA, ECDSA,
+>> and
+>> ED25519 host keys. However ECDSA relies on having an unbiased random
+>> number
+>> generator on every connection and any bias in the random numbers can leak
+>> the
+>> private key. Since these are running on VMs where we don't know for sure
+>> what
+>> the quality is of the random numbers I've disabled the ECDSA host key.
+>>
+>> The impact of this is if you had previously connected to a PSF machine,
+>> and
+>> your client had the ECDSA key in your ~/.ssh/known_hosts file, that you'll
+>> see an error like:
+>>
+>>    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+>>    @    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
+>>    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+>>    IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
+>>    Someone could be eavesdropping on you right now (man-in-the-middle
+>> attack)!
+>>    It is also possible that a host key has just been changed.
+>>
+>> The remediation is to remove the ECDSA for the PSF servers from your known
+>> hosts and connect again and accept either the RSA or the ED25519 key when
+>> it
+>> presents it.
+>>
+>> The fingerprints for hg.python.org for both of those keys are:
+>>
+>> $ ssh-keygen -lf /etc/ssh/ssh_host_rsa_key.pub
+>> 2048 a0:12:52:50:4a:4b:db:43:ac:65:26:b6:6f:0a:f7:b8
+>> /etc/ssh/ssh_host_rsa_key.pub (RSA)
+>> $ ssh-keygen -lf /etc/ssh/ssh_host_ed25519_key.pub
+>> 256 1d:02:d1:d2:7b:a1:cb:e0:51:65:25:d7:19:dd:4e:74
+>> /etc/ssh/ssh_host_ed25519_key.pub (ED25519)
+>>
+>> Sorry for any inconvience this causes!
+>>
+>> ---
+>> Donald Stufft
+>> PGP: 7C6B 7C5D 5E2B 6356 A926 F04F 6E3C BCE9 3372 DCFA
+>>
+>> _______________________________________________
+>> python-committers mailing list
+>> python-committers at python.org
+>> https://mail.python.org/mailman/listinfo/python-committers
+>>
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150123/6c72f688/attachment-0001.html>
+
+From barry at python.org  Fri Jan 23 19:20:21 2015
+From: barry at python.org (Barry Warsaw)
+Date: Fri, 23 Jan 2015 13:20:21 -0500
+Subject: [python-committers] Possible "REMOTE HOST IDENTIFICATION HAS
+ CHANGED!" Error.
+In-Reply-To: <CAP1=2W6C3g3Mn5Ysrt1FSxdg_Ophxaxe75F1ovuQ7SQyy3oBBQ@mail.gmail.com>
+References: <2BB0BA8E-95EC-406E-BCA4-29E6D2AC7D89@stufft.io>
+ <CAP1=2W7Vt1OfON=9VAsg_yYt1jYsBFu0oqXPXaADA14kutPcoQ@mail.gmail.com>
+ <1262FABB-C06C-4909-8692-460FB655A1FA@stufft.io>
+ <CAP1=2W6C3g3Mn5Ysrt1FSxdg_Ophxaxe75F1ovuQ7SQyy3oBBQ@mail.gmail.com>
+Message-ID: <20150123132021.33b8533a@anarchist.wooz.org>
+
+On Jan 23, 2015, at 04:16 PM, Brett Cannon wrote:
+
+>Looks like my id_rsa key is not being tried soon enough for the two-attempt
+>threshold as the key that GitHub for Mac installed and my work key are
+>being tried first (I tried specifying my id_rsa key with -i but that didn't
+>seem to change anything):
+
+I get this all the time when I add my Debian ssh key to ssh-agent and then try
+to connect to hosts on my LAN (which use a different key).  I think this is a
+limitation of ssh-agent and if you search the web, you'll find various
+solutions, which I've used to varying degrees of success.
+
+Basically you want to force ssh not to use the agent when connecting to the
+site (I haven't yet tried hg.python.org with multiple keys).  E.g. in your
+~/.ssh/config file:
+
+Host hg.python.org
+    IdentityFile ~/.ssh/id_rsa
+    IdentitiesOnly yes
+
+HTH,
+-Barry
+
+From brett at python.org  Fri Jan 23 19:36:43 2015
+From: brett at python.org (Brett Cannon)
+Date: Fri, 23 Jan 2015 18:36:43 +0000
+Subject: [python-committers] Possible "REMOTE HOST IDENTIFICATION HAS
+ CHANGED!" Error.
+References: <2BB0BA8E-95EC-406E-BCA4-29E6D2AC7D89@stufft.io>
+ <CAP1=2W7Vt1OfON=9VAsg_yYt1jYsBFu0oqXPXaADA14kutPcoQ@mail.gmail.com>
+ <1262FABB-C06C-4909-8692-460FB655A1FA@stufft.io>
+ <CAP1=2W6C3g3Mn5Ysrt1FSxdg_Ophxaxe75F1ovuQ7SQyy3oBBQ@mail.gmail.com>
+ <20150123132021.33b8533a@anarchist.wooz.org>
+Message-ID: <CAP1=2W62TdFxzcYBrixBhEJu65YvxBsVBGSCs9ZP=tgUNoY8KQ@mail.gmail.com>
+
+That did it! Thanks, Barry.
+
+On Fri Jan 23 2015 at 1:20:40 PM Barry Warsaw <barry at python.org> wrote:
+
+> On Jan 23, 2015, at 04:16 PM, Brett Cannon wrote:
+>
+> >Looks like my id_rsa key is not being tried soon enough for the
+> two-attempt
+> >threshold as the key that GitHub for Mac installed and my work key are
+> >being tried first (I tried specifying my id_rsa key with -i but that
+> didn't
+> >seem to change anything):
+>
+> I get this all the time when I add my Debian ssh key to ssh-agent and then
+> try
+> to connect to hosts on my LAN (which use a different key).  I think this
+> is a
+> limitation of ssh-agent and if you search the web, you'll find various
+> solutions, which I've used to varying degrees of success.
+>
+> Basically you want to force ssh not to use the agent when connecting to the
+> site (I haven't yet tried hg.python.org with multiple keys).  E.g. in your
+> ~/.ssh/config file:
+>
+> Host hg.python.org
+>     IdentityFile ~/.ssh/id_rsa
+>     IdentitiesOnly yes
+>
+> HTH,
+> -Barry
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20150123/098c6350/attachment.html>
+

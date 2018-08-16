@@ -1,0 +1,1446 @@
+From martin at v.loewis.de  Sun Jul  1 23:59:58 2012
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Sun, 01 Jul 2012 23:59:58 +0200
+Subject: [python-committers] hg machine migrated
+Message-ID: <4FF0C85E.2020403@v.loewis.de>
+
+We (primarily Antoine) just migrated hg.python.org to OSU/OSL.
+
+Everything should continue to work as it did before, except that the
+IP address of the machine has now changed.
+
+If there are any issues, please let us know.
+
+Regards,
+Martin
+
+From martin at v.loewis.de  Mon Jul  2 00:48:11 2012
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Mon, 02 Jul 2012 00:48:11 +0200
+Subject: [python-committers] Further hg maintenance
+Message-ID: <4FF0D3AB.809@v.loewis.de>
+
+It seems that our memory estimation of what the hg machine would need
+was wildly incorrect, causing an OOM Linux crash within one hour.
+We'll look into fixing this; expect occasional 15 min outages for a
+few days for reboots. If the outage is longer, it means it crashed
+again :-( I'll report if we found something that can be considered a
+permanent solution.
+
+Regards,
+Martin
+
+From solipsis at pitrou.net  Mon Jul  2 02:55:29 2012
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Mon, 02 Jul 2012 02:55:29 +0200
+Subject: [python-committers] Further hg maintenance
+In-Reply-To: <4FF0D3AB.809@v.loewis.de>
+References: <4FF0D3AB.809@v.loewis.de>
+Message-ID: <1341190529.3363.19.camel@localhost.localdomain>
+
+Le lundi 02 juillet 2012 ? 00:48 +0200, "Martin v. L?wis" a ?crit :
+> It seems that our memory estimation of what the hg machine would need
+> was wildly incorrect, causing an OOM Linux crash within one hour.
+> We'll look into fixing this; expect occasional 15 min outages for a
+> few days for reboots. If the outage is longer, it means it crashed
+> again :-( I'll report if we found something that can be considered a
+> permanent solution.
+
+The machine now has double the RAM (8 GB) and the biggest memory hog has
+been turned into a sober process (2 GB down to 80 MB). Things should be
+much better :-)
+
+Regards
+
+Antoine.
+
+
+
+From martin at v.loewis.de  Mon Jul  2 17:57:31 2012
+From: martin at v.loewis.de (martin at v.loewis.de)
+Date: Mon, 02 Jul 2012 17:57:31 +0200
+Subject: [python-committers] Deleting code.python.org
+Message-ID: <20120702175731.Horde.SmwDBklCcOxP8cTre-3yhzA@webmail.df.eu>
+
+code.python.org was meant as a VCS-independent hostname for CPython;
+PEP 385 chose to use hg.python.org instead.
+
+I'd like to delete code.python.org. Objections?
+
+Regards,
+Martin
+
+
+
+From solipsis at pitrou.net  Mon Jul  2 18:03:27 2012
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Mon, 02 Jul 2012 18:03:27 +0200
+Subject: [python-committers] Deleting code.python.org
+In-Reply-To: <20120702175731.Horde.SmwDBklCcOxP8cTre-3yhzA@webmail.df.eu>
+References: <20120702175731.Horde.SmwDBklCcOxP8cTre-3yhzA@webmail.df.eu>
+Message-ID: <1341245007.3368.4.camel@localhost.localdomain>
+
+Le lundi 02 juillet 2012 ? 17:57 +0200, martin at v.loewis.de a ?crit :
+> code.python.org was meant as a VCS-independent hostname for CPython;
+> PEP 385 chose to use hg.python.org instead.
+> 
+> I'd like to delete code.python.org. Objections?
+
+Sounds fine to me.
+
+cheers
+
+Antoine.
+
+
+
+From victor.stinner at gmail.com  Mon Jul  2 18:08:42 2012
+From: victor.stinner at gmail.com (Victor Stinner)
+Date: Mon, 2 Jul 2012 18:08:42 +0200
+Subject: [python-committers] Deleting code.python.org
+In-Reply-To: <20120702175731.Horde.SmwDBklCcOxP8cTre-3yhzA@webmail.df.eu>
+References: <20120702175731.Horde.SmwDBklCcOxP8cTre-3yhzA@webmail.df.eu>
+Message-ID: <CAMpsgwbkWwwuCFsqocVxZ7wBtvLJZ4CBRRmCnva+7NsFkdmBNw@mail.gmail.com>
+
+2012/7/2  <martin at v.loewis.de>:
+> code.python.org was meant as a VCS-independent hostname for CPython;
+> PEP 385 chose to use hg.python.org instead.
+>
+> I'd like to delete code.python.org. Objections?
+
+I never used or heard about this domain. Is it referenced somewhere?
+
+Victor
+
+From barry at python.org  Tue Jul  3 21:38:02 2012
+From: barry at python.org (Barry Warsaw)
+Date: Tue, 3 Jul 2012 15:38:02 -0400
+Subject: [python-committers] Deleting code.python.org
+In-Reply-To: <20120702175731.Horde.SmwDBklCcOxP8cTre-3yhzA@webmail.df.eu>
+References: <20120702175731.Horde.SmwDBklCcOxP8cTre-3yhzA@webmail.df.eu>
+Message-ID: <20120703153802.0068a36d@limelight.wooz.org>
+
+On Jul 02, 2012, at 05:57 PM, martin at v.loewis.de wrote:
+
+>code.python.org was meant as a VCS-independent hostname for CPython;
+>PEP 385 chose to use hg.python.org instead.
+>
+>I'd like to delete code.python.org. Objections?
+
+None from me.
+
+Cheers,
+-Barry
+
+From martin at v.loewis.de  Tue Jul  3 21:41:44 2012
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Tue, 03 Jul 2012 21:41:44 +0200
+Subject: [python-committers] Further hg maintenance
+In-Reply-To: <4FF0D3AB.809@v.loewis.de>
+References: <4FF0D3AB.809@v.loewis.de>
+Message-ID: <4FF34AF8.3090706@v.loewis.de>
+
+On 02.07.2012 00:48, "Martin v. L?wis" wrote:
+> I'll report if we found something that can be considered a
+> permanent solution.
+
+Antoine managed to reduce the memory usage of Mercurial quite
+drastically. Not sure which contributed most, but
+a) hg was upgraded to 2.2
+b) a patch was applied to hgweb which calls
+   repo.invalidate/gc.collect after each request (IIUC)
+c) reducing the memory consumption of our hglookup binary
+   (which maps revision numbers to repositories)
+d) improving the hgweb rejuvenation
+
+With that, hg.p.o should be quite available and responsive;
+if it isn't, please report the infrastructure list.
+
+Regards,
+Martin
+
+From martin at v.loewis.de  Tue Jul  3 21:42:45 2012
+From: martin at v.loewis.de (=?ISO-8859-1?Q?=22Martin_v=2E_L=F6wis=22?=)
+Date: Tue, 03 Jul 2012 21:42:45 +0200
+Subject: [python-committers] [pydotorg-www]  Deleting code.python.org
+In-Reply-To: <20120703153802.0068a36d@limelight.wooz.org>
+References: <20120702175731.Horde.SmwDBklCcOxP8cTre-3yhzA@webmail.df.eu>
+	<20120703153802.0068a36d@limelight.wooz.org>
+Message-ID: <4FF34B35.2010500@v.loewis.de>
+
+On 03.07.2012 21:38, Barry Warsaw wrote:
+> On Jul 02, 2012, at 05:57 PM, martin at v.loewis.de wrote:
+> 
+>> code.python.org was meant as a VCS-independent hostname for CPython;
+>> PEP 385 chose to use hg.python.org instead.
+>>
+>> I'd like to delete code.python.org. Objections?
+> 
+> None from me.
+
+It's gone!
+
+Martin
+
+
+From larry at hastings.org  Wed Jul  4 18:46:21 2012
+From: larry at hastings.org (Larry Hastings)
+Date: Wed, 04 Jul 2012 18:46:21 +0200
+Subject: [python-committers] EuroPython 2012 Language Summit Is In JEOPARDY
+	*gasp*
+Message-ID: <4FF4735D.5020801@hastings.org>
+
+
+
+So far I've had exactly four reservations for the Language Summit at 
+EuroPython 2012.  One of them is Guido--but he's threatening to skip it 
+if we don't get more people and just go to the sprints.
+
+Also, honestly I have next-to-nothing on the docket.  At this point 
+we've just hit feature freeze for Python 3.3--or at least that's what 
+people tell me. In general, anyone who wanted to get a language change 
+in have already either just succeeded or just failed.  So after a flurry 
+of activity I feel like we've hit a quiet period.  I mean, the trunk for 
+3.4 won't even be open for a month or two.
+
+So: if you're a core developer, and you're interested in attending the 
+Language Summit in Florence on Saturday, please email me your RSVP.  
+Also, if you have suggestions for things we should discuss, send those 
+along too.  Please send all these emails directly to me, *off-list*, 
+tonight or Thursday.
+
+I'll send another email on Friday morning decreeing the fate of the 
+Language Summit.
+
+Thanks!
+
+
+//arry/
+
+p.s. I'm assured the room we'd have for the Language Summit has 
+excellent air conditioning.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20120704/db89d289/attachment.html>
+
+From solipsis at pitrou.net  Wed Jul  4 18:51:41 2012
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Wed, 04 Jul 2012 18:51:41 +0200
+Subject: [python-committers] EuroPython 2012 Language Summit Is In
+ JEOPARDY *gasp*
+In-Reply-To: <4FF4735D.5020801@hastings.org>
+References: <4FF4735D.5020801@hastings.org>
+Message-ID: <1341420701.3419.3.camel@localhost.localdomain>
+
+Le mercredi 04 juillet 2012 ? 18:46 +0200, Larry Hastings a ?crit :
+> Also, honestly I have next-to-nothing on the docket.  At this point
+> we've just hit feature freeze for Python 3.3--or at least that's what
+> people tell me. In general, anyone who wanted to get a language change
+> in have already either just succeeded or just failed.
+
+Then just make it a stdlib summit and discuss post-3.3 improvements?
+
+> Please send all these emails directly to me, *off-list*, tonight or
+> Thursday.
+
+Come on, Larry, we're a community, not a secret society :-)
+(ok, I'm cc'ing you just to be nice)
+
+> p.s. I'm assured the room we'd have for the Language Summit has
+> excellent air conditioning.
+
+Bad memories of last year's meeting?
+
+Regards
+
+Antoine.
+
+
+
+From larry at hastings.org  Fri Jul  6 08:47:30 2012
+From: larry at hastings.org (Larry Hastings)
+Date: Fri, 06 Jul 2012 08:47:30 +0200
+Subject: [python-committers] EuroPython 2012 Language Summit is Canceled.
+Message-ID: <4FF68A02.8000500@hastings.org>
+
+
+
+I only got one more RSVP and zero topics for the docket.  So let's 
+sprint instead.
+
+See you at the PyCon 2013 Language Summit,
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20120706/f13295aa/attachment.html>
+
+From brett at python.org  Fri Jul  6 17:14:44 2012
+From: brett at python.org (Brett Cannon)
+Date: Fri, 6 Jul 2012 11:14:44 -0400
+Subject: [python-committers] Is Pat on vacation?
+Message-ID: <CAP1=2W7AaOS_+Rd+Jnw+No+JwSucgZYC6fcui8rMc+JHc8RsFQ@mail.gmail.com>
+
+I had someone send in a contributor agreement to contributors@ and he has
+not heard anything about it after more than a week.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20120706/138c25fb/attachment.html>
+
+From patcam at python.org  Fri Jul  6 17:41:55 2012
+From: patcam at python.org (Pat Campbell)
+Date: Fri, 6 Jul 2012 11:41:55 -0400
+Subject: [python-committers] Is Pat on vacation?
+In-Reply-To: <CAP1=2W7AaOS_+Rd+Jnw+No+JwSucgZYC6fcui8rMc+JHc8RsFQ@mail.gmail.com>
+References: <CAP1=2W7AaOS_+Rd+Jnw+No+JwSucgZYC6fcui8rMc+JHc8RsFQ@mail.gmail.com>
+Message-ID: <CAFy_4dLwmMtbOsR7jsRiwx1TJPRTJPZMO890-799SupUOR_5aQ@mail.gmail.com>
+
+Hi Brett:
+
+Sorry for the delay, I will get to them on Monday, I will be traveling from
+EuroPython this weekend.
+
+Thanks,
+Pat
+
+On Fri, Jul 6, 2012 at 11:14 AM, Brett Cannon <brett at python.org> wrote:
+
+> I had someone send in a contributor agreement to contributors@ and he has
+> not heard anything about it after more than a week.
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+>
+>
+
+
+-- 
+Pat Campbell
+PSF Administrator/Secretary
+patcam at python.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20120706/22fdcbad/attachment.html>
+
+From brett at python.org  Fri Jul  6 22:06:21 2012
+From: brett at python.org (Brett Cannon)
+Date: Fri, 6 Jul 2012 16:06:21 -0400
+Subject: [python-committers] Is Pat on vacation?
+In-Reply-To: <CAFy_4dLwmMtbOsR7jsRiwx1TJPRTJPZMO890-799SupUOR_5aQ@mail.gmail.com>
+References: <CAP1=2W7AaOS_+Rd+Jnw+No+JwSucgZYC6fcui8rMc+JHc8RsFQ@mail.gmail.com>
+	<CAFy_4dLwmMtbOsR7jsRiwx1TJPRTJPZMO890-799SupUOR_5aQ@mail.gmail.com>
+Message-ID: <CAP1=2W7YHCiuGyhJLUQO8u+TQm2PXEgtWmu+mNwii_Bzk8Of4g@mail.gmail.com>
+
+Thanks, Pat! Hope EuroPython was fun.
+
+On Fri, Jul 6, 2012 at 11:41 AM, Pat Campbell <patcam at python.org> wrote:
+
+> Hi Brett:
+>
+> Sorry for the delay, I will get to them on Monday, I will be traveling from
+> EuroPython this weekend.
+>
+> Thanks,
+> Pat
+>
+> On Fri, Jul 6, 2012 at 11:14 AM, Brett Cannon <brett at python.org> wrote:
+>
+>> I had someone send in a contributor agreement to contributors@ and he
+>> has not heard anything about it after more than a week.
+>> _______________________________________________
+>> python-committers mailing list
+>> python-committers at python.org
+>> http://mail.python.org/mailman/listinfo/python-committers
+>>
+>>
+>
+>
+> --
+> Pat Campbell
+> PSF Administrator/Secretary
+> patcam at python.org
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20120706/aecd805a/attachment.html>
+
+From patcam at python.org  Sun Jul  8 23:05:02 2012
+From: patcam at python.org (Pat Campbell)
+Date: Sun, 8 Jul 2012 17:05:02 -0400
+Subject: [python-committers] Contributor Agreement for Scott J. Goldman
+In-Reply-To: <49531A86-2DC5-4B2A-A01D-594E6DFF8DEC@github.com>
+References: <49531A86-2DC5-4B2A-A01D-594E6DFF8DEC@github.com>
+Message-ID: <CAFy_4dKObweznqiOvF-99avPkZRoHe0N2P6iHCaBZNgj5TFu6A@mail.gmail.com>
+
+Hi Scott:
+
+Thank-you for submitting your contributor agreement form to the PSF. It
+has been added to our online bug tracker.
+
+Pat Campbell, PSF Administrator
+
+
+On Thu, Jun 28, 2012 at 9:02 PM, Scott J. Goldman <goldman at github.com>wrote:
+
+> Hello Lawyer Friends,
+>
+> I've attached a signed contributor agreement document. Though I am
+> employed by GitHub, we have come to an agreement that I will be
+> contributing under my own name.
+>
+> I've cc'ed Tom Preston-Werner, Co-founder and CTO of GitHub.
+>
+> Cheers,
+> -sjg
+>
+
+
+
+-- 
+Pat Campbell
+PSF Administrator/Secretary
+patcam at python.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20120708/d78e9e05/attachment.html>
+
+From patcam at python.org  Sun Jul  8 23:27:40 2012
+From: patcam at python.org (Pat Campbell)
+Date: Sun, 8 Jul 2012 17:27:40 -0400
+Subject: [python-committers] Signed contributor agreement for Lorenzo M.
+	Catucci
+In-Reply-To: <alpine.DEB.2.02.1207032147310.7444@ronzinante.ccd.uniroma2.it>
+References: <alpine.DEB.2.02.1207032147310.7444@ronzinante.ccd.uniroma2.it>
+Message-ID: <CAFy_4dLASEszh_DVFXbS+C1P9JYhprQxTnGwfy0F-VyfsBLjvw@mail.gmail.com>
+
+Hi Lorenzo:
+
+Thank-you for submitting your contributor agreement form to the PSF. It
+has been added to our online bug tracker.
+
+Pat
+
+2012/7/3 Lorenzo M. Catucci <lorenzo at sancho.ccd.uniroma2.it>
+
+> Please find the signed agreement hereby attached.
+>
+> Thank you very much,
+>
+>         lorenzo m catucci
+>
+> +-------------------------+---**------------------------------**
+> -------------+
+> |   Lorenzo M.  Catucci   | Centro di Calcolo e Documentazione           |
+> | catucci at ccd.uniroma2.it | Universit? degli Studi di Roma "Tor Vergata" |
+> |                         | Via O. Raimondo 18 ** I-00173 ROMA  ** ITALY |
+> |  Tel. +39 06 7259 2255  | Fax. +39 06 7259 2125                        |
+> +-------------------------+---**------------------------------**
+> -------------+
+
+
+
+
+-- 
+Pat Campbell
+PSF Administrator/Secretary
+patcam at python.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20120708/5edeca24/attachment.html>
+
+From patcam at python.org  Sun Jul  8 23:47:58 2012
+From: patcam at python.org (Pat Campbell)
+Date: Sun, 8 Jul 2012 17:47:58 -0400
+Subject: [python-committers] PSF Contributor Agreement
+In-Reply-To: <CAAgNOZ21iSXsg6kWK3b0StqSo9h5-LD+HO4ZTodv3MwD3hgh7A@mail.gmail.com>
+References: <CAAgNOZ21iSXsg6kWK3b0StqSo9h5-LD+HO4ZTodv3MwD3hgh7A@mail.gmail.com>
+Message-ID: <CAFy_4dKWRv7XLUZY=rxc1tpe-+Z4WEypCREk6jDoLJS--_m0LQ@mail.gmail.com>
+
+Hi Marc:
+
+Thank-you for submitting your contributor agreement form to the PSF. It
+has been added to our online bug tracker.
+
+Pat
+
+On Wed, Jun 27, 2012 at 11:03 AM, Marc Abramowitz <msabramo at gmail.com>wrote:
+
+> Attached.
+>
+> Cheers,
+> Marc Abramowitz
+> http://marc-abramowitz.com/
+>
+
+
+
+-- 
+Pat Campbell
+PSF Administrator/Secretary
+patcam at python.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20120708/5b9cc78a/attachment.html>
+
+From patcam at python.org  Mon Jul  9 00:15:55 2012
+From: patcam at python.org (Pat Campbell)
+Date: Sun, 8 Jul 2012 18:15:55 -0400
+Subject: [python-committers] contributor agreement submission
+In-Reply-To: <CAOTb1weoP9yu1Owh6h2W+nWQVyZS6uQa9vjBQBo-RhVUJD3ZSg@mail.gmail.com>
+References: <CAOTb1weoP9yu1Owh6h2W+nWQVyZS6uQa9vjBQBo-RhVUJD3ZSg@mail.gmail.com>
+Message-ID: <CAFy_4dJEHdxG8oATvqnSrQFG_QUu+S5T49mBfCezXWDTSgbn6g@mail.gmail.com>
+
+Hi Chris:
+
+Thank-you for submitting your contributor agreement form to the PSF. It
+has been added to our online bug tracker.
+
+Pat
+
+On Thu, Jul 5, 2012 at 6:34 PM, Chris Jerdonek <chris.jerdonek at gmail.com>wrote:
+
+> See attached for a scanned copy of my signed version of the
+> contributor agreement.
+>
+> Please let me know when it's okay to make submissions and be listed in
+> Misc/ACKS, etc.
+>
+> Thanks a lot,
+>
+> Chris Jerdonek
+> PO Box 194161
+> San Francisco, CA 94119
+>
+
+
+
+-- 
+Pat Campbell
+PSF Administrator/Secretary
+patcam at python.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20120708/4d1bbe38/attachment.html>
+
+From patcam at python.org  Mon Jul  9 00:25:49 2012
+From: patcam at python.org (Pat Campbell)
+Date: Sun, 8 Jul 2012 18:25:49 -0400
+Subject: [python-committers] PSF agreement
+In-Reply-To: <E29404C093674B55B06D61082785B76B@windisch.us>
+References: <E29404C093674B55B06D61082785B76B@windisch.us>
+Message-ID: <CAFy_4dJOwu0XcQyz=D=grK-69_CQpAv3UokVBVzzcT88DfXraA@mail.gmail.com>
+
+Hi Eric:
+
+Thank-you for submitting your contributor agreement form to the PSF. It
+has been added to our online bug tracker.
+
+Pat
+
+On Thu, Jul 5, 2012 at 9:51 PM, Eric Windisch <eric at windisch.us> wrote:
+
+> Attached
+>
+> --
+> Eric Windisch
+>
+>
+
+
+-- 
+Pat Campbell
+PSF Administrator/Secretary
+patcam at python.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20120708/841ba839/attachment.html>
+
+From patcam at python.org  Mon Jul  9 18:25:02 2012
+From: patcam at python.org (Pat Campbell)
+Date: Mon, 9 Jul 2012 12:25:02 -0400
+Subject: [python-committers] Greg Roodt - Contributor agreement
+In-Reply-To: <CAAD3oiJCwjMVTxMHFJEj8uVkr0ArUL1q2ms2eZHu3dr9BkoFMw@mail.gmail.com>
+References: <CAAD3oiJCwjMVTxMHFJEj8uVkr0ArUL1q2ms2eZHu3dr9BkoFMw@mail.gmail.com>
+Message-ID: <CAFy_4dLXFPfVV8K3EtFxE6gN_bL+RZzuyVBJPsRQaq9mQZ+7vw@mail.gmail.com>
+
+Hi Greg:
+
+Thank-you for submitting your contributor agreement form to the PSF. It
+has been added to our online bug tracker.
+
+Pat
+
+On Sat, Jul 7, 2012 at 12:24 PM, Greg Roodt <groodt at gmail.com> wrote:
+
+> Contributor agreement
+>
+
+
+
+-- 
+Pat Campbell
+PSF Administrator/Secretary
+patcam at python.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20120709/7cedd37c/attachment.html>
+
+From patcam at python.org  Mon Jul  9 18:39:14 2012
+From: patcam at python.org (Pat Campbell)
+Date: Mon, 9 Jul 2012 12:39:14 -0400
+Subject: [python-committers] Conributor agreement
+In-Reply-To: <CALy7ODs=baiK-07EvJFotGOpXgFgKWO8O5vTZ35Ph3MxX2iZ7w@mail.gmail.com>
+References: <CALy7ODs=baiK-07EvJFotGOpXgFgKWO8O5vTZ35Ph3MxX2iZ7w@mail.gmail.com>
+Message-ID: <CAFy_4dJGsY=imwpTpUZkgV-bMBM_BYwjQucEt-zFweWi0W_GbQ@mail.gmail.com>
+
+Hi Andrea:
+
+Thank-you for submitting your contributor agreement form to the PSF. It
+has been added to our online bug tracker.
+
+Pat
+
+On Sat, Jul 7, 2012 at 12:30 PM, Andrea Griffini <agriff at tin.it> wrote:
+
+> This is the signed contributor agreement
+>
+> Andrea Griffini
+> username = ag6502
+>
+
+
+
+-- 
+Pat Campbell
+PSF Administrator/Secretary
+patcam at python.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20120709/6d95cb9c/attachment.html>
+
+From patcam at python.org  Mon Jul  9 18:55:04 2012
+From: patcam at python.org (Pat Campbell)
+Date: Mon, 9 Jul 2012 12:55:04 -0400
+Subject: [python-committers] Contributor agreement for GSoC2012
+In-Reply-To: <4FEA3B25.1050704@gmail.com>
+References: <4FE252AE.3030002@gmail.com>
+	<CAFy_4dKORxLO5NbZWnNPaZEJxmwQqR7UGEnY8p8m-WN3w6Ecjg@mail.gmail.com>
+	<4FEA3B25.1050704@gmail.com>
+Message-ID: <CAFy_4dLaHzdiE2XEj2N9Gv+aUHSjWpuuXa==N1XCv-Kzk=wGxQ@mail.gmail.com>
+
+Hi Stefan & Alexandre:
+
+Thank-you for submitting your contributor agreement form to the PSF. It
+has been added to our online bug tracker.
+
+Pat
+
+On Tue, Jun 26, 2012 at 6:43 PM, M Stefan <mstefanro at gmail.com> wrote:
+
+>  On 6/26/2012 8:56 PM, Pat Campbell wrote:
+>
+> Hi Stefan:
+>
+> Thank-you for submitting your contributor agreement form. I would like to
+> add your
+> form to the PSF online bug tracker.
+>
+> In order for me to add your contributor agreement form to your profile (on
+> the online bug
+> tracker) I will need to access your user number webpage or please provide
+> the link to your
+>
+> "user# editing" webpage in order for me to mark (Yes) to receiving your
+> contributor
+> agreement form.
+>
+> Or, you could provide me with your "user name, user number, & real name
+> (the way it appears
+>
+> on the online bug tracker "login" webpage, since I was not able to access
+> the webpage based on
+>
+> the information provided on the form. The login webpage is "case
+> sensitive", therefore, the data
+>
+> used to access a webpage on this site must be exact.
+>
+> Thanking you in advance,
+> Pat
+>
+>
+> On Wed, Jun 20, 2012 at 6:46 PM, M Stefan <mstefanro at gmail.com> wrote:
+>
+>> Hello, I'm a student at Google Summer of Code 2012 working on improving
+>> the pickle serializer in Python.
+>>
+>> My mentor is Alexandre Vassalotti and most of the work I'm planning to do
+>> is
+>> explained in PEP 3154[1]. If interested, my progress can be tracked in
+>> the blog
+>> at [2] and bitbucket repo at [3].
+>>
+>> Attached is my PSF contributor agreement. I apologize for the delay.
+>>
+>> Yours,
+>>  Stefan Mihaila
+>>
+>> [1] http://www.python.org/dev/peps/pep-3154/
+>> [2] http://pypickle4.wordpress.com/
+>> [3] https://bitbucket.org/mstefanro/pickle4/
+>>
+>
+>
+>
+> --
+> Pat Campbell
+> PSF Administrator/Secretary
+> patcam at python.org
+>
+> Hello,
+>
+> Here is the information that you've requested:
+>
+> My "editing" page is http://bugs.python.org/user16149, and my account
+> details are:
+>  username: mstefanro
+>  userid: 16149
+>  realname: Stefan Mihaila
+>
+> The realname used to be just "Stefan M", I assume that's why you weren't
+> able to find me, sorry for the inconvenience.
+>
+> Yours sincerely,
+>   Stefan
+>
+>
+
+
+-- 
+Pat Campbell
+PSF Administrator/Secretary
+patcam at python.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20120709/82d5a3a4/attachment.html>
+
+From patcam at python.org  Wed Jul 11 20:56:14 2012
+From: patcam at python.org (Pat Campbell)
+Date: Wed, 11 Jul 2012 14:56:14 -0400
+Subject: [python-committers] Python contributor agreement
+In-Reply-To: <E8B8DF13-251B-4F72-898D-482E58341ABD@almostobsolete.net>
+References: <E8B8DF13-251B-4F72-898D-482E58341ABD@almostobsolete.net>
+Message-ID: <CAFy_4d+66KFyRhu-C2hKNo4hC06HMw33=cN+3uOnoeY0hVBRYQ@mail.gmail.com>
+
+Hi Thomas:
+
+Thank-you for submitting your contributor agreement form to the PSF. It
+has been added to our online bug tracker.
+
+Pat
+
+On Tue, Jul 10, 2012 at 4:15 AM, Thomas Parslow <tom at almostobsolete.net>wrote:
+
+> Please find attached a signed copy of the Python Contributor Agreement
+> from Thomas Parslow ("almost" on the issue tracker)
+>
+>
+>
+>
+>
+> Sent from my phone
+>
+
+
+
+-- 
+Pat Campbell
+PSF Administrator/Secretary
+patcam at python.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20120711/daa4a0ad/attachment.html>
+
+From ncoghlan at gmail.com  Mon Jul 16 15:26:32 2012
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Mon, 16 Jul 2012 23:26:32 +1000
+Subject: [python-committers] PEP regeneration on the website
+Message-ID: <CADiSq7du-WVKh56WDiHNnNAgJdYdDuahT4vbghXc0rUx=7mbWA@mail.gmail.com>
+
+I just noticed that PEP 424 hasn't appeared on the site yet - is it
+possible the automatic regeneration broke when hg.python.org was moved
+to OSU/OSL?
+
+The usual explanation of the PEP index failing to build due to an
+error in one of the PEP headers doesn't apply, since it builds OK
+locally.
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+
+From solipsis at pitrou.net  Mon Jul 16 15:43:09 2012
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Mon, 16 Jul 2012 15:43:09 +0200
+Subject: [python-committers] PEP regeneration on the website
+In-Reply-To: <CADiSq7du-WVKh56WDiHNnNAgJdYdDuahT4vbghXc0rUx=7mbWA@mail.gmail.com>
+References: <CADiSq7du-WVKh56WDiHNnNAgJdYdDuahT4vbghXc0rUx=7mbWA@mail.gmail.com>
+Message-ID: <1342446189.3396.1.camel@localhost.localdomain>
+
+Le lundi 16 juillet 2012 ? 23:26 +1000, Nick Coghlan a ?crit :
+> I just noticed that PEP 424 hasn't appeared on the site yet - is it
+> possible the automatic regeneration broke when hg.python.org was moved
+> to OSU/OSL?
+
+Yes, it appears to have broken. Whoever put the automatic generation in
+place (Georg perhaps?) should probably simply add a cronjob that will
+periodically fetch PEP changes and build them.
+
+Regards
+
+Antoine.
+
+
+-- 
+Software development and contracting: http://pro.pitrou.net
+
+
+
+From g.brandl at gmx.net  Mon Jul 16 21:59:58 2012
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Mon, 16 Jul 2012 21:59:58 +0200
+Subject: [python-committers] PEP regeneration on the website
+In-Reply-To: <1342446189.3396.1.camel@localhost.localdomain>
+References: <CADiSq7du-WVKh56WDiHNnNAgJdYdDuahT4vbghXc0rUx=7mbWA@mail.gmail.com>
+	<1342446189.3396.1.camel@localhost.localdomain>
+Message-ID: <ju1rrm$1h5$1@dough.gmane.org>
+
+On 16.07.2012 15:43, Antoine Pitrou wrote:
+> Le lundi 16 juillet 2012 ? 23:26 +1000, Nick Coghlan a ?crit :
+>> I just noticed that PEP 424 hasn't appeared on the site yet - is it
+>> possible the automatic regeneration broke when hg.python.org was moved
+>> to OSU/OSL?
+> 
+> Yes, it appears to have broken. Whoever put the automatic generation in
+> place (Georg perhaps?) should probably simply add a cronjob that will
+> periodically fetch PEP changes and build them.
+
+I didn't set up the whole thing -- that was done by someone before for
+SVN.  I just added a hook to touch the "pepqueued" file (that hook can
+be removed fwiw).
+
+Georg
+
+
+From g.brandl at gmx.net  Mon Jul 16 22:16:17 2012
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Mon, 16 Jul 2012 22:16:17 +0200
+Subject: [python-committers] 3.3 schedule
+Message-ID: <ju1sq9$9oi$1@dough.gmane.org>
+
+Hi,
+
+due to the extensive fixes done in pkgutil/importlib, I've postponed
+the beta2 and with it the following releases by one week.  I.e., the
+beta2 will be released on or shortly after July 21.
+
+Georg
+
+
+From solipsis at pitrou.net  Mon Jul 16 22:15:03 2012
+From: solipsis at pitrou.net (Antoine Pitrou)
+Date: Mon, 16 Jul 2012 22:15:03 +0200
+Subject: [python-committers] PEP regeneration on the website
+In-Reply-To: <ju1rrm$1h5$1@dough.gmane.org>
+References: <CADiSq7du-WVKh56WDiHNnNAgJdYdDuahT4vbghXc0rUx=7mbWA@mail.gmail.com>
+	<1342446189.3396.1.camel@localhost.localdomain>
+	<ju1rrm$1h5$1@dough.gmane.org>
+Message-ID: <1342469703.3396.4.camel@localhost.localdomain>
+
+Le lundi 16 juillet 2012 ? 21:59 +0200, Georg Brandl a ?crit :
+> On 16.07.2012 15:43, Antoine Pitrou wrote:
+> > Le lundi 16 juillet 2012 ? 23:26 +1000, Nick Coghlan a ?crit :
+> >> I just noticed that PEP 424 hasn't appeared on the site yet - is it
+> >> possible the automatic regeneration broke when hg.python.org was moved
+> >> to OSU/OSL?
+> > 
+> > Yes, it appears to have broken. Whoever put the automatic generation in
+> > place (Georg perhaps?) should probably simply add a cronjob that will
+> > periodically fetch PEP changes and build them.
+> 
+> I didn't set up the whole thing -- that was done by someone before for
+> SVN.  I just added a hook to touch the "pepqueued" file (that hook can
+> be removed fwiw).
+
+Ok, I've removed it
+
+cheers
+
+Antoine.
+
+
+-- 
+Software development and contracting: http://pro.pitrou.net
+
+
+
+From patcam at python.org  Wed Jul 18 22:35:12 2012
+From: patcam at python.org (Pat Campbell)
+Date: Wed, 18 Jul 2012 16:35:12 -0400
+Subject: [python-committers] signed contributor agreement
+In-Reply-To: <CAMZYqRRpMzzvnub4tCHA0AVEAZjWnE-kr-2C88M0CdXvkO8qfQ@mail.gmail.com>
+References: <CAMZYqRRpMzzvnub4tCHA0AVEAZjWnE-kr-2C88M0CdXvkO8qfQ@mail.gmail.com>
+Message-ID: <CAFy_4dKpbpnEBH1yYQ8x85EkSg_bmnQQcpnTMGezVnA8s9_rKg@mail.gmail.com>
+
+Hi Chris:
+
+Thank-you for submitting your contributor agreement form to the PSF. It
+has been added to the online bug tracker.
+
+Pat
+
+On Wed, Jul 18, 2012 at 4:27 AM, Chris Rebert <chris at rebertia.com> wrote:
+
+> To Whom It May Concern at the Python Software Foundation:
+>
+> I hereby offer the attached Contributor Agreement for submission.
+>
+> Sincerely,
+> Chris Rebert
+>
+
+
+
+-- 
+Pat Campbell
+PSF Administrator/Secretary
+patcam at python.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20120718/7e9b4709/attachment.html>
+
+From patcam at python.org  Thu Jul 19 20:49:32 2012
+From: patcam at python.org (Pat Campbell)
+Date: Thu, 19 Jul 2012 14:49:32 -0400
+Subject: [python-committers] contributor form
+In-Reply-To: <alpine.DEB.2.02.1207191451370.1808@hadrien>
+References: <alpine.DEB.2.02.1207191451370.1808@hadrien>
+Message-ID: <CAFy_4dJ5ePrgBQzb8b_i=UJ-SxxZVLs3LT-ND1yUwKkTp+ds+g@mail.gmail.com>
+
+Hi Julia:
+
+Thank-you for submitting your contributor agreement form to the PSF. It
+has been added to the online bug tracker.
+
+Pat
+
+On Thu, Jul 19, 2012 at 8:51 AM, Julia Lawall <julia.lawall at lip6.fr> wrote:
+
+>
+
+
+-- 
+Pat Campbell
+PSF Administrator/Secretary
+patcam at python.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20120719/9f9715b2/attachment.html>
+
+From patcam at python.org  Mon Jul 23 15:43:22 2012
+From: patcam at python.org (Pat Campbell)
+Date: Mon, 23 Jul 2012 09:43:22 -0400
+Subject: [python-committers]
+	=?iso-8859-1?q?Contributor_Agreement_Form_-_F?=
+	=?iso-8859-1?q?l=E1vio_Ribeiro?=
+In-Reply-To: <CAN=oOE0PcsDaLmHCRd2NPD36KK7yDDFfXmerVWMYMvobKjnRyw@mail.gmail.com>
+References: <CAN=oOE0PcsDaLmHCRd2NPD36KK7yDDFfXmerVWMYMvobKjnRyw@mail.gmail.com>
+Message-ID: <CAFy_4dL7Es4Aad-oBAZogkC+225tNDw0GGbUEBXjMZp8AkBGjQ@mail.gmail.com>
+
+Hi Fl?vio:
+
+Thank-you for submitting your contributor agreement form to the PSF. It has
+been processed. At the present, your form may not appear on the PSF bug
+tracker, due to a current technical issue we are having on the tracker.
+
+However, we have receive your contributor agreement form.
+
+Pat
+
+On Fri, Jul 20, 2012 at 3:36 PM, Fl?vio Ribeiro <email at flavioribeiro.com>wrote:
+
+> Hi,
+>
+> Contributor agreement form attached. I've helped in some issues
+>
+> http://bugs.python.org/issue15406
+> http://bugs.python.org/issue9736
+> http://bugs.python.org/issue15398
+>
+> Thanks,
+>
+> *Fl?vio Ribeiro*
+> about.me/flavioribeiro
+>
+>
+
+
+-- 
+Pat Campbell
+PSF Administrator/Secretary
+patcam at python.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20120723/898bb7f9/attachment.html>
+
+From rdmurray at bitdance.com  Mon Jul 23 15:54:41 2012
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Mon, 23 Jul 2012 09:54:41 -0400
+Subject: [python-committers]
+	=?iso-8859-1?q?Contributor_Agreement_Form_-_F?=
+	=?iso-8859-1?q?l=E1vio_Ribeiro?=
+In-Reply-To: <CAFy_4dL7Es4Aad-oBAZogkC+225tNDw0GGbUEBXjMZp8AkBGjQ@mail.gmail.com>
+References: <CAN=oOE0PcsDaLmHCRd2NPD36KK7yDDFfXmerVWMYMvobKjnRyw@mail.gmail.com>
+	<CAFy_4dL7Es4Aad-oBAZogkC+225tNDw0GGbUEBXjMZp8AkBGjQ@mail.gmail.com>
+Message-ID: <20120723135442.2492B250064@webabinitio.net>
+
+Pat, I'm not sure what the technical difficulty was...I was just able
+to update Fl??vio's entry.  (If I did something wrong I'm sure you'll
+fix it...)
+
+--David
+
+On Mon, 23 Jul 2012 09:43:22 -0400, Pat Campbell <patcam at python.org> wrote:
+> Hi Fl??vio:
+> 
+> Thank-you for submitting your contributor agreement form to the PSF. It has
+> been processed. At the present, your form may not appear on the PSF bug
+> tracker, due to a current technical issue we are having on the tracker.
+> 
+> However, we have receive your contributor agreement form.
+> 
+> Pat
+> 
+> On Fri, Jul 20, 2012 at 3:36 PM, Fl??vio Ribeiro <email at flavioribeiro.com>wrote:
+> 
+> > Hi,
+> >
+> > Contributor agreement form attached. I've helped in some issues
+> >
+> > http://bugs.python.org/issue15406
+> > http://bugs.python.org/issue9736
+> > http://bugs.python.org/issue15398
+> >
+> > Thanks,
+> >
+> > *Fl??vio Ribeiro*
+> > about.me/flavioribeiro
+> >
+> >
+> 
+> 
+> -- 
+> Pat Campbell
+> PSF Administrator/Secretary
+> patcam at python.org
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> http://mail.python.org/mailman/listinfo/python-committers
+
+From patcam at python.org  Mon Jul 23 16:20:37 2012
+From: patcam at python.org (Pat Campbell)
+Date: Mon, 23 Jul 2012 10:20:37 -0400
+Subject: [python-committers] Contributor agreement
+In-Reply-To: <500C4498.9030603@googlemail.com>
+References: <500C4498.9030603@googlemail.com>
+Message-ID: <CAFy_4dL==HgaGCT_f+87HZjHv09sn7TQs3GC=8=JOY3iL6Ggmw@mail.gmail.com>
+
+Hi Ludwig:
+
+Thanks for submitting your contributor agreement form to the PSF.
+
+We have currently encountered a minor issue with the online bug tracker,
+therefore, there will be a slight delay in getting your form online.
+
+We thank you for your patience,
+
+Pat
+
+PS. error message receiving:
+
+An error has occurred
+
+A problem was encountered processing your request. The tracker maintainers
+have
+
+been notified of the problem.
+
+
+On Sun, Jul 22, 2012 at 2:21 PM, Ludwig H?hne <lhaehne at googlemail.com>wrote:
+
+> Martin Loewis asked me to send a contributor agreement:
+>
+> http://bugs.python.org/**issue15424 <http://bugs.python.org/issue15424>
+>
+> Please see the attachment.
+>
+> Cheers,
+> Ludwig H?hne
+>
+
+
+
+-- 
+Pat Campbell
+PSF Administrator/Secretary
+patcam at python.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20120723/e0b6a418/attachment.html>
+
+From patcam at python.org  Mon Jul 23 16:42:55 2012
+From: patcam at python.org (Pat Campbell)
+Date: Mon, 23 Jul 2012 10:42:55 -0400
+Subject: [python-committers]
+	=?iso-8859-1?q?Contributor_Agreement_Form_-_F?=
+	=?iso-8859-1?q?l=E1vio_Ribeiro?=
+In-Reply-To: <CAFy_4dL7Es4Aad-oBAZogkC+225tNDw0GGbUEBXjMZp8AkBGjQ@mail.gmail.com>
+References: <CAN=oOE0PcsDaLmHCRd2NPD36KK7yDDFfXmerVWMYMvobKjnRyw@mail.gmail.com>
+	<CAFy_4dL7Es4Aad-oBAZogkC+225tNDw0GGbUEBXjMZp8AkBGjQ@mail.gmail.com>
+Message-ID: <CAFy_4dJjJGY4NSBF+YofNKZm-yLpWJDKRQpdtHy2QnYj_wObog@mail.gmail.com>
+
+Hi Fl?vio:
+
+Update:
+
+Thank-you for submitting your contributor agreement form to the PSF. It
+has now been added to the online bug tracker.
+
+Pat
+
+On Mon, Jul 23, 2012 at 9:43 AM, Pat Campbell <patcam at python.org> wrote:
+
+> Hi Fl?vio:
+>
+> Thank-you for submitting your contributor agreement form to the PSF. It has
+> been processed. At the present, your form may not appear on the PSF bug
+> tracker, due to a current technical issue we are having on the tracker.
+>
+> However, we have receive your contributor agreement form.
+>
+> Pat
+>
+>
+> On Fri, Jul 20, 2012 at 3:36 PM, Fl?vio Ribeiro <email at flavioribeiro.com>wrote:
+>
+>> Hi,
+>>
+>> Contributor agreement form attached. I've helped in some issues
+>>
+>> http://bugs.python.org/issue15406
+>> http://bugs.python.org/issue9736
+>> http://bugs.python.org/issue15398
+>>
+>> Thanks,
+>>
+>> *Fl?vio Ribeiro*
+>> about.me/flavioribeiro
+>>
+>>
+>
+>
+> --
+> Pat Campbell
+> PSF Administrator/Secretary
+> patcam at python.org
+>
+
+
+
+-- 
+Pat Campbell
+PSF Administrator/Secretary
+patcam at python.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20120723/c0539471/attachment.html>
+
+From patcam at python.org  Mon Jul 23 16:44:03 2012
+From: patcam at python.org (Pat Campbell)
+Date: Mon, 23 Jul 2012 10:44:03 -0400
+Subject: [python-committers]
+	=?iso-8859-1?q?Contributor_Agreement_Form_-_F?=
+	=?iso-8859-1?q?l=E1vio_Ribeiro?=
+In-Reply-To: <20120723135442.2492B250064@webabinitio.net>
+References: <CAN=oOE0PcsDaLmHCRd2NPD36KK7yDDFfXmerVWMYMvobKjnRyw@mail.gmail.com>
+	<CAFy_4dL7Es4Aad-oBAZogkC+225tNDw0GGbUEBXjMZp8AkBGjQ@mail.gmail.com>
+	<20120723135442.2492B250064@webabinitio.net>
+Message-ID: <CAFy_4dKPrS0518fYgt25U9RuHbbQt16H1a2N2XXFCfazvQdauw@mail.gmail.com>
+
+It worked this time, thanks David.
+Pat
+
+On Mon, Jul 23, 2012 at 9:54 AM, R. David Murray <rdmurray at bitdance.com>wrote:
+
+> Pat, I'm not sure what the technical difficulty was...I was just able
+> to update Fl?vio's entry.  (If I did something wrong I'm sure you'll
+> fix it...)
+>
+> --David
+>
+> On Mon, 23 Jul 2012 09:43:22 -0400, Pat Campbell <patcam at python.org>
+> wrote:
+> > Hi Fl?vio:
+> >
+> > Thank-you for submitting your contributor agreement form to the PSF. It
+> has
+> > been processed. At the present, your form may not appear on the PSF bug
+> > tracker, due to a current technical issue we are having on the tracker.
+> >
+> > However, we have receive your contributor agreement form.
+> >
+> > Pat
+> >
+> > On Fri, Jul 20, 2012 at 3:36 PM, Fl?vio Ribeiro <email at flavioribeiro.com
+> >wrote:
+> >
+> > > Hi,
+> > >
+> > > Contributor agreement form attached. I've helped in some issues
+> > >
+> > > http://bugs.python.org/issue15406
+> > > http://bugs.python.org/issue9736
+> > > http://bugs.python.org/issue15398
+> > >
+> > > Thanks,
+> > >
+> > > *Fl?vio Ribeiro*
+> > > about.me/flavioribeiro
+> > >
+> > >
+> >
+> >
+> > --
+> > Pat Campbell
+> > PSF Administrator/Secretary
+> > patcam at python.org
+> > _______________________________________________
+> > python-committers mailing list
+> > python-committers at python.org
+> > http://mail.python.org/mailman/listinfo/python-committers
+>
+
+
+
+-- 
+Pat Campbell
+PSF Administrator/Secretary
+patcam at python.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20120723/4d53b7fc/attachment-0001.html>
+
+From patcam at python.org  Tue Jul 24 15:01:07 2012
+From: patcam at python.org (Pat Campbell)
+Date: Tue, 24 Jul 2012 09:01:07 -0400
+Subject: [python-committers] Contributor Agreement form for Atsuo Ishimoto
+Message-ID: <CAFy_4dKcM3dWWM387nd9qmrj+MmCKwYbA4qBz-tbLPmffrp9fA@mail.gmail.com>
+
+Hi Atsuo:
+
+Thank-you for submitting your contributor agreement form to the PSF. It
+has been added to the online bug tracker.
+
+Pat
+
+-- 
+Pat Campbell
+PSF Administrator/Secretary
+patcam at python.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20120724/c093d435/attachment.html>
+
+From ncoghlan at gmail.com  Tue Jul 24 15:18:51 2012
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Tue, 24 Jul 2012 23:18:51 +1000
+Subject: [python-committers] PEP regeneration on the website
+In-Reply-To: <ju1rrm$1h5$1@dough.gmane.org>
+References: <CADiSq7du-WVKh56WDiHNnNAgJdYdDuahT4vbghXc0rUx=7mbWA@mail.gmail.com>
+	<1342446189.3396.1.camel@localhost.localdomain>
+	<ju1rrm$1h5$1@dough.gmane.org>
+Message-ID: <CADiSq7frj=R4rCGfehUcFmwq2fWKdYNZWEyZxmd4puZ7N4ThSQ@mail.gmail.com>
+
+On Tue, Jul 17, 2012 at 5:59 AM, Georg Brandl <g.brandl at gmx.net> wrote:
+> On 16.07.2012 15:43, Antoine Pitrou wrote:
+>> Le lundi 16 juillet 2012 ? 23:26 +1000, Nick Coghlan a ?crit :
+>>> I just noticed that PEP 424 hasn't appeared on the site yet - is it
+>>> possible the automatic regeneration broke when hg.python.org was moved
+>>> to OSU/OSL?
+>>
+>> Yes, it appears to have broken. Whoever put the automatic generation in
+>> place (Georg perhaps?) should probably simply add a cronjob that will
+>> periodically fetch PEP changes and build them.
+>
+> I didn't set up the whole thing -- that was done by someone before for
+> SVN.  I just added a hook to touch the "pepqueued" file (that hook can
+> be removed fwiw).
+
+Can the PEP regeneration at least be hooked up to the same daily cycle
+that rebuilds the main docs?
+
+PEP 398 is still showing the old schedule and PEP 424 isn't on the site at all.
+
+Or should I be sending this question to the pydotorg list?
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+
+From rdmurray at bitdance.com  Tue Jul 24 16:44:24 2012
+From: rdmurray at bitdance.com (R. David Murray)
+Date: Tue, 24 Jul 2012 10:44:24 -0400
+Subject: [python-committers] PEP regeneration on the website
+In-Reply-To: <CADiSq7frj=R4rCGfehUcFmwq2fWKdYNZWEyZxmd4puZ7N4ThSQ@mail.gmail.com>
+References: <CADiSq7du-WVKh56WDiHNnNAgJdYdDuahT4vbghXc0rUx=7mbWA@mail.gmail.com>
+	<1342446189.3396.1.camel@localhost.localdomain>
+	<ju1rrm$1h5$1@dough.gmane.org>
+	<CADiSq7frj=R4rCGfehUcFmwq2fWKdYNZWEyZxmd4puZ7N4ThSQ@mail.gmail.com>
+Message-ID: <20120724144425.4BB90250171@webabinitio.net>
+
+On Tue, 24 Jul 2012 23:18:51 +1000, Nick Coghlan <ncoghlan at gmail.com> wrote:
+> On Tue, Jul 17, 2012 at 5:59 AM, Georg Brandl <g.brandl at gmx.net> wrote:
+> > On 16.07.2012 15:43, Antoine Pitrou wrote:
+> >> Le lundi 16 juillet 2012 ?? 23:26 +1000, Nick Coghlan a ??crit :
+> >>> I just noticed that PEP 424 hasn't appeared on the site yet - is it
+> >>> possible the automatic regeneration broke when hg.python.org was moved
+> >>> to OSU/OSL?
+> >>
+> >> Yes, it appears to have broken. Whoever put the automatic generation in
+> >> place (Georg perhaps?) should probably simply add a cronjob that will
+> >> periodically fetch PEP changes and build them.
+> >
+> > I didn't set up the whole thing -- that was done by someone before for
+> > SVN.  I just added a hook to touch the "pepqueued" file (that hook can
+> > be removed fwiw).
+> 
+> Can the PEP regeneration at least be hooked up to the same daily cycle
+> that rebuilds the main docs?
+> 
+> PEP 398 is still showing the old schedule and PEP 424 isn't on the site at all.
+> 
+> Or should I be sending this question to the pydotorg list?
+
+My understanding is that there is a push script for the docs run out of
+a cronjob "somewhere", but it is operating off the cpython repo, not the
+pep repo.  So an equivalent script needs to be set up.  I think *all*
+it needs to do is push the data over to the web server, but my knowledge
+of all these details is so fuzzy (I've never touched pydotorg) that I'm
+not in a position to look at it.
+
+--David
+
+From patcam at python.org  Tue Jul 24 17:44:02 2012
+From: patcam at python.org (Pat Campbell)
+Date: Tue, 24 Jul 2012 11:44:02 -0400
+Subject: [python-committers] Contributor agreement
+In-Reply-To: <CAHKBc+MtefStUqJ+6g1Z3oEi2VOGciL3NXV-WuKwLXM9cqAPEg@mail.gmail.com>
+References: <500C4498.9030603@googlemail.com>
+	<CAFy_4d+Nnn3f-TPwJCpc0QHf_nh5nrpXZWRWAD6MqnxYQkW6RA@mail.gmail.com>
+	<CAHKBc+MtefStUqJ+6g1Z3oEi2VOGciL3NXV-WuKwLXM9cqAPEg@mail.gmail.com>
+Message-ID: <CAFy_4dJuGWmwzTEujUena41xZfpCy3Kz9SriecPjAXxUiifGPw@mail.gmail.com>
+
+Hi Ludwig
+
+Your contributor agreement form has finally been successfully submitted on
+the
+PSF online bug tracker
+
+Pat
+
+On Tue, Jul 24, 2012 at 10:06 AM, Ludwig Cox <lhaehne at googlemail.com> wrote:
+
+> Hi Pat,
+>
+> here is the link:
+>
+> http://bugs.python.org/user5856
+>
+> Thanks, Ludwig
+>
+> 2012/7/24 Pat Campbell <patcam at python.org>:
+> > Hi Ludwig:
+> >
+> > Thank-you for submitting your contributor agreement form. I would like to
+> > add your
+> > form to the PSF online bug tracker.
+> >
+> > In order for me to add your contributor agreement form to your profile
+> (on
+> > the online bug
+> > tracker) I will need to access your user number webpage or please provide
+> > the link to your
+> >
+> > "user# editing" webpage in order for me to mark (Yes) to receiving your
+> > contributor
+> > agreement form.
+> >
+> > Thanking you in advance,
+> > Pat
+> >
+> >
+> >
+> > On Sun, Jul 22, 2012 at 2:21 PM, Ludwig H?hne <lhaehne at googlemail.com>
+> > wrote:
+> >>
+> >> Martin Loewis asked me to send a contributor agreement:
+> >>
+> >> http://bugs.python.org/issue15424
+> >>
+> >> Please see the attachment.
+> >>
+> >> Cheers,
+> >> Ludwig H?hne
+> >
+> >
+> >
+> >
+> > --
+> > Pat Campbell
+> > PSF Administrator/Secretary
+> > patcam at python.org
+>
+
+
+
+-- 
+Pat Campbell
+PSF Administrator/Secretary
+patcam at python.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20120724/f3f604a4/attachment.html>
+
+From g.brandl at gmx.net  Sun Jul 29 08:05:45 2012
+From: g.brandl at gmx.net (Georg Brandl)
+Date: Sun, 29 Jul 2012 08:05:45 +0200
+Subject: [python-committers] 3.3beta2 delayed
+Message-ID: <jv2jr8$5mq$1@dough.gmane.org>
+
+Hi all,
+
+as you might have noticed, a couple of blocker-level bugs have crept
+up that delayed the beta2 release again.  I want these fixed before
+beta2 is done, which might take another week.  In any case, please
+don't be too adventurous with your bugfixes :)
+
+Georg
+
+

@@ -1,0 +1,16 @@
+language: python
+python: 3.6
+before_install:
+  - sudo apt-get update
+  - sudo apt-get install -y git
+  - openssl aes-256-cbc -K $encrypted_d1e1886513e6_key -iv $encrypted_d1e1886513e6_iv -in id_ed25519-python-committers-archives.enc -out id_ed25519-python-committers-archives -d
+  - printf "host %s\nHostName %s\nIdentityFile %s\n" "github.com" "github.com" "id_ed25519-python-committers-archives" > ~/.ssh/config
+install:
+  - pip install mailman-fetch
+script:
+  - git config user.email "julien+travis@palard.fr"
+  - git config user.name "Travis the Build Bot"
+  - mailman-fetch -v https://mail.python.org/pipermail/python-committers/ ./
+  - git add *.txt
+  - git commit -m "update"
+  - git push git@github.com:JulienPalard/python-committers-archives.git

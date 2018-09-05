@@ -6009,3 +6009,124 @@ On Wed, Aug 15, 2018 at 9:18 AM, Steve Dower <steve.dower at python.org> wrote:
 An HTML attachment was scrubbed...
 URL: <http://mail.python.org/pipermail/python-committers/attachments/20180815/67b21ae9/attachment.html>
 
+From vstinner at redhat.com  Mon Aug 20 08:52:28 2018
+From: vstinner at redhat.com (Victor Stinner)
+Date: Mon, 20 Aug 2018 14:52:28 +0200
+Subject: [python-committers] Winding down 3.4
+In-Reply-To: <55df745c-bf49-9849-0e64-b54b797ca0f1@hastings.org>
+References: <55df745c-bf49-9849-0e64-b54b797ca0f1@hastings.org>
+Message-ID: <CA+3bQGH0AbaWGyCNRHZ3E_TOS_mXGxWi0+SmT6-irZEAuaTqUg@mail.gmail.com>
+
+> "shutil copy* unsafe on POSIX - they preserve setuid/setgit bits"
+> https://bugs.python.org/issue17180
+
+There is no fix. A fix may break the backward compatibility. Is it really
+worth it for the last 3.4 release?
+
+> "XML vulnerabilities in Python"
+> https://bugs.python.org/issue17239
+
+Bug inactive since 2015. I don't expect that anyone will step in next weeks
+with a wonderful solution to all XML issues. I suggest to ignore this one
+as well, this issue is as old as XML support in Python and I am not aware
+of any victim of these issues.
+
+Obviously, it would be "nice" to see a fix for these issues but it seems
+like core devs are more interested to work on other topics and other
+security issues.
+
+
+> "fflush called on pointer to potentially closed file" (Windows only)
+> https://bugs.python.org/issue19050
+
+It seems like two core devs are opposed to fix this issue.
+
+--
+
+There are open security issues on the HTTP server and urllib. I am more
+concerned by these issues, but it's hard to fix them, there is a risk of
+introducing regressions.
+
+Victor
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20180820/581125e3/attachment.html>
+
+From vstinner at redhat.com  Mon Aug 20 18:19:50 2018
+From: vstinner at redhat.com (Victor Stinner)
+Date: Tue, 21 Aug 2018 00:19:50 +0200
+Subject: [python-committers] MSDN Subscriptions/Renewals
+In-Reply-To: <075f4882-e2fd-875d-f77c-6b8be487494e@python.org>
+References: <CAD+XWwo6Dfy0=kwb1KmW9pNXA7BM0sOMZJfBzMNU+=xOeSjDZg@mail.gmail.com>
+ <075f4882-e2fd-875d-f77c-6b8be487494e@python.org>
+Message-ID: <CA+3bQGH9qkH+JQDWGaXptEcTbVc_e62C7Tc5vZYv8jk-=X8wtQ@mail.gmail.com>
+
+Steve wrote:
+> Just to clarify one thing: you don't need a special license to get Visual
+Studio Community Edition to work on Python, even within a big company -
+it's free for open source work, and has everything we need.
+
+My employer gave me a laptop without Windows license. It is likely the case
+for Apple fans as well. MSDN provide a legal Windows license which is
+required to develop on Windows ;-)
+
+Victor
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20180821/8b916951/attachment.html>
+
+From larry at hastings.org  Tue Aug 21 01:36:00 2018
+From: larry at hastings.org (Larry Hastings)
+Date: Mon, 20 Aug 2018 22:36:00 -0700
+Subject: [python-committers] Winding down 3.4
+In-Reply-To: <CA+3bQGH0AbaWGyCNRHZ3E_TOS_mXGxWi0+SmT6-irZEAuaTqUg@mail.gmail.com>
+References: <55df745c-bf49-9849-0e64-b54b797ca0f1@hastings.org>
+ <CA+3bQGH0AbaWGyCNRHZ3E_TOS_mXGxWi0+SmT6-irZEAuaTqUg@mail.gmail.com>
+Message-ID: <c0fd7257-e2d3-c133-5f94-7b99e06cedce@hastings.org>
+
+
+If they're really all wontfix, maybe we should mark them as wontfix, 
+thus giving 3.4 a sendoff worthy of its heroic stature.
+
+Godspeed, and may a flight of angels sing thee to thy rest,
+
+
+//arry/
+
+On 08/20/2018 05:52 AM, Victor Stinner wrote:
+> > "shutil copy* unsafe on POSIX - they preserve setuid/setgit bits"
+> > https://bugs.python.org/issue17180
+>
+> There is no fix. A fix may break the backward compatibility. Is it 
+> really worth it for the last 3.4 release?
+>
+> > "XML vulnerabilities in Python"
+> > https://bugs.python.org/issue17239
+>
+> Bug inactive since 2015. I don't expect that anyone will step in next 
+> weeks with a wonderful solution to all XML issues. I suggest to ignore 
+> this one as well, this issue is as old as XML support in Python and I 
+> am not aware of any victim of these issues.
+>
+> Obviously, it would be "nice" to see a fix for these issues but it 
+> seems like core devs are more interested to work on other topics and 
+> other security issues.
+>
+>
+> > "fflush called on pointer to potentially closed file" (Windows only)
+> > https://bugs.python.org/issue19050
+>
+> It seems like two core devs are opposed to fix this issue.
+>
+> --
+>
+> There are open security issues on the HTTP server and urllib. I am 
+> more concerned by these issues, but it's hard to fix them, there is a 
+> risk of introducing regressions.
+>
+> Victor 
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20180820/8f19e58a/attachment.html>
+

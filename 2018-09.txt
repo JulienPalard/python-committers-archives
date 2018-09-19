@@ -1,0 +1,2190 @@
+From andrew.svetlov at gmail.com  Mon Sep 10 15:52:46 2018
+From: andrew.svetlov at gmail.com (Andrew Svetlov)
+Date: Mon, 10 Sep 2018 12:52:46 -0700
+Subject: [python-committers] MSDN subscription renewal
+Message-ID: <CAL3CFcXA8TL-e9q2cfdAS3V5Cei1GfU=i3SKDGSV8aH+wCknUw@mail.gmail.com>
+
+Hi.
+
+I've found that my MSDN subscription has expired.
+I don't use Window for daily tasks but sometimes need it for fixing
+Windows-specific bugs.
+
+Could you renew it or issue a new one?
+-- 
+Thanks,
+Andrew Svetlov
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20180910/04ace409/attachment.html>
+
+From nad at python.org  Mon Sep 10 18:17:00 2018
+From: nad at python.org (Ned Deily)
+Date: Mon, 10 Sep 2018 15:17:00 -0700
+Subject: [python-committers] 3.7.1 and 3.6.7 Releases Coming Soon
+Message-ID: <3ABAB3B5-6346-49F2-98F7-185303166016@python.org>
+
+I have updated the schedules for the next maintenance releases of Python 3.7.x and 3.6.x.  My original plan had been to get 3.7.1, the first 3.7 maintenance release, out by the end of July.  It was solely my fault that that did not happen so I hope you'll accept my apologies; I will try to not let it happen again.  I have now scheduled a 3.7.1 release candidate and rescheduled the 3.6.7 release candidate for 2018-09-18, about a week from today, and 3.7.1 final and 3.6.7 final for 2018-09-28.  That allows us to take advantage of fixes generated at the Core Developers sprint taking place this week.
+
+Please review any open issues you are working on or are interested in and try to get them merged in to the 3.7 and/or 3.6 branches soon - by the beginning of next week at the latest.  As usual, if there are any issues you believe need to be addressed prior to these releases, please ensure there are open issues for them in the bug tracker (bugs.python.org) and that their priorities are set accordingly (e.g. "release blocker").
+
+Thanks for your support!
+--Ned
+
+--
+  Ned Deily
+  nad at python.org -- []
+
+
+From mariatta.wijaya at gmail.com  Tue Sep 11 00:49:56 2018
+From: mariatta.wijaya at gmail.com (Mariatta Wijaya)
+Date: Mon, 10 Sep 2018 21:49:56 -0700
+Subject: [python-committers] 3 weeks to Oct 1
+Message-ID: <CAGbohnZaiuOcD9fk0dWEEo3ds3j2f04YuYPuzTj-JeMo+MfuxA@mail.gmail.com>
+
+Friendly reminder that it is now 3 weeks until October 1, the deadline for
+coming up with Python Governance PEPs.
+
+Barry has started several Governance PEPs:
+
+- https://www.python.org/dev/peps/pep-8000/ Python Language Governance
+Proposal Overview
+- https://www.python.org/dev/peps/pep-8001 Python Governance Voting Process
+- https://www.python.org/dev/peps/pep-8002 Open source governance survey
+
+The following three PEPs are for placeholders. I believe the idea is to
+have people claim the PEP they're planning to write, and finish writing the
+PEP.
+
+- https://www.python.org/dev/peps/pep-8010 The BDFL Governance Model
+- https://www.python.org/dev/peps/pep-8011 The Council Governance Model
+- https://www.python.org/dev/peps/pep-8012 The Community Governance Model
+
+And don't forget about the lucky PEP number 13.
+https://www.python.org/dev/peps/pep-0013/
+
+Mariatta
+?
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20180910/9ade02f1/attachment.html>
+
+From mariatta.wijaya at gmail.com  Tue Sep 11 16:48:05 2018
+From: mariatta.wijaya at gmail.com (Mariatta Wijaya)
+Date: Tue, 11 Sep 2018 13:48:05 -0700
+Subject: [python-committers] Automerge bot deployed
+Message-ID: <CAGbohnbOLL9gFk4Y+uKAJxGaJE-BO-yP0At2dS5-p9cGK38o5A@mail.gmail.com>
+
+I've deployed the bot to automerge CPython pull request on the master
+branch.
+
+One benefit of this is you don't need to worry about replacing "#" into
+"GH-".
+
+To get the bot to automerge:
+- first edit the PR title and description, to be the commit message you
+want to use.
+- approve the PR (so it will have "awaiting merge" label)
+- apply the "? automerge" label.
+
+It will wait for ALL status checks to pass, and merge the PR, replacing `#`
+with `GH-`
+
+I've made a demo video on YouTube: https://youtu.be/p85YtKKLNno
+
+See also previous discussions in
+https://github.com/python/core-workflow/issues/29
+https://github.com/python/bedevere/issues/14
+
+The previous way of merging PR still works. If you prefer merging the PR
+yourself,  just don't apply the "? automerge" label.
+
+Mariatta
+?
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20180911/122e150f/attachment.html>
+
+From guido at python.org  Tue Sep 11 16:56:35 2018
+From: guido at python.org (Guido van Rossum)
+Date: Tue, 11 Sep 2018 13:56:35 -0700
+Subject: [python-committers] Automerge bot deployed
+In-Reply-To: <CAGbohnbOLL9gFk4Y+uKAJxGaJE-BO-yP0At2dS5-p9cGK38o5A@mail.gmail.com>
+References: <CAGbohnbOLL9gFk4Y+uKAJxGaJE-BO-yP0At2dS5-p9cGK38o5A@mail.gmail.com>
+Message-ID: <CAP7+vJ+nATOMYjKLnaygGqPEcp-Sck7yugMAwsQ+NzauPJb-_g@mail.gmail.com>
+
+W00t! ????????
+
+On Tue, Sep 11, 2018 at 1:48 PM Mariatta Wijaya <mariatta.wijaya at gmail.com>
+wrote:
+
+> I've deployed the bot to automerge CPython pull request on the master
+> branch.
+>
+> One benefit of this is you don't need to worry about replacing "#" into
+> "GH-".
+>
+> To get the bot to automerge:
+> - first edit the PR title and description, to be the commit message you
+> want to use.
+> - approve the PR (so it will have "awaiting merge" label)
+> - apply the "? automerge" label.
+>
+> It will wait for ALL status checks to pass, and merge the PR, replacing
+> `#` with `GH-`
+>
+> I've made a demo video on YouTube: https://youtu.be/p85YtKKLNno
+>
+> See also previous discussions in
+> https://github.com/python/core-workflow/issues/29
+> https://github.com/python/bedevere/issues/14
+>
+> The previous way of merging PR still works. If you prefer merging the PR
+> yourself,  just don't apply the "? automerge" label.
+>
+> Mariatta
+> ?
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+-- 
+--Guido (mobile)
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20180911/228772d4/attachment.html>
+
+From mariatta.wijaya at gmail.com  Wed Sep 12 12:52:33 2018
+From: mariatta.wijaya at gmail.com (Mariatta Wijaya)
+Date: Wed, 12 Sep 2018 09:52:33 -0700
+Subject: [python-committers] Automerge bot deployed
+In-Reply-To: <CAGbohnbOLL9gFk4Y+uKAJxGaJE-BO-yP0At2dS5-p9cGK38o5A@mail.gmail.com>
+References: <CAGbohnbOLL9gFk4Y+uKAJxGaJE-BO-yP0At2dS5-p9cGK38o5A@mail.gmail.com>
+Message-ID: <CAGbohnYFCp8v60s4_EGvGOHnyeaosWKm_ghm+F6biD5_Gj8v5A@mail.gmail.com>
+
+Update to the automerge bot:
+
+It will not merge unless there is "CLA signed" label, and no "DO-NOT-MERGE"
+label.
+
+Again, please edit the PR title and description before adding the `?
+automerge` label.
+The PR title and description will be used as the squashed commit message.
+
+Mariatta?
+?
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20180912/bde29e7c/attachment.html>
+
+From vstinner at redhat.com  Thu Sep 13 02:30:26 2018
+From: vstinner at redhat.com (Victor Stinner)
+Date: Thu, 13 Sep 2018 08:30:26 +0200
+Subject: [python-committers] Automerge bot deployed
+In-Reply-To: <CAGbohnYFCp8v60s4_EGvGOHnyeaosWKm_ghm+F6biD5_Gj8v5A@mail.gmail.com>
+References: <CAGbohnbOLL9gFk4Y+uKAJxGaJE-BO-yP0At2dS5-p9cGK38o5A@mail.gmail.com>
+ <CAGbohnYFCp8v60s4_EGvGOHnyeaosWKm_ghm+F6biD5_Gj8v5A@mail.gmail.com>
+Message-ID: <CA+3bQGF34FUA5ATaLe+J1LVr0U_YeWMHU9VPvtBby9ce77Q=HQ@mail.gmail.com>
+
+Today I created a PR with a description containing "type.__format__()". To
+display it properly, I chose to edit the description and write
+"type.\_\_format\_\_()". I guess that the bot will merge a description like
+that unchanged, right? So we should also be careful of description using
+Markdown syntax.
+
+Victor
+
+Le mer. 12 sept. 2018 ? 18:52, Mariatta Wijaya <mariatta.wijaya at gmail.com>
+a ?crit :
+
+> Update to the automerge bot:
+>
+> It will not merge unless there is "CLA signed" label, and no
+> "DO-NOT-MERGE" label.
+>
+> Again, please edit the PR title and description before adding the `?
+> automerge` label.
+> The PR title and description will be used as the squashed commit message.
+>
+> Mariatta?
+> ?
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20180913/eaf0df28/attachment.html>
+
+From encukou at gmail.com  Thu Sep 13 10:54:30 2018
+From: encukou at gmail.com (Petr Viktorin)
+Date: Thu, 13 Sep 2018 07:54:30 -0700
+Subject: [python-committers] Automerge bot deployed
+In-Reply-To: <CA+3bQGF34FUA5ATaLe+J1LVr0U_YeWMHU9VPvtBby9ce77Q=HQ@mail.gmail.com>
+References: <CAGbohnbOLL9gFk4Y+uKAJxGaJE-BO-yP0At2dS5-p9cGK38o5A@mail.gmail.com>
+ <CAGbohnYFCp8v60s4_EGvGOHnyeaosWKm_ghm+F6biD5_Gj8v5A@mail.gmail.com>
+ <CA+3bQGF34FUA5ATaLe+J1LVr0U_YeWMHU9VPvtBby9ce77Q=HQ@mail.gmail.com>
+Message-ID: <CA+=+wqADFk5dizDKVNztUc54nYsjOsHWH8nBUG6caBzQFpFZNA@mail.gmail.com>
+
+On Wed, Sep 12, 2018, 23:30 Victor Stinner <vstinner at redhat.com> wrote:
+
+> Today I created a PR with a description containing "type.__format__()". To
+> display it properly, I chose to edit the description and write
+> "type.\_\_format\_\_()". I guess that the bot will merge a description like
+> that unchanged, right? So we should also be careful of description using
+> Markdown syntax.
+>
+
+Use `type.__format__`, with backticks, for code. That looks OK in plain
+text.
+Or edit before merging :)
+
+
+> Victor
+>
+> Le mer. 12 sept. 2018 ? 18:52, Mariatta Wijaya <mariatta.wijaya at gmail.com>
+> a ?crit :
+>
+>> Update to the automerge bot:
+>>
+>> It will not merge unless there is "CLA signed" label, and no
+>> "DO-NOT-MERGE" label.
+>>
+>> Again, please edit the PR title and description before adding the `?
+>> automerge` label.
+>> The PR title and description will be used as the squashed commit message.
+>>
+>> Mariatta?
+>> ?
+>> _______________________________________________
+>> python-committers mailing list
+>> python-committers at python.org
+>> https://mail.python.org/mailman/listinfo/python-committers
+>> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20180913/16f88b90/attachment.html>
+
+From brett at python.org  Thu Sep 13 12:17:49 2018
+From: brett at python.org (Brett Cannon)
+Date: Thu, 13 Sep 2018 09:17:49 -0700
+Subject: [python-committers] I have blocked someone from the Python org
+Message-ID: <CAP1=2W7Efvd1=V1vnSvuPNwTx_cedjTi6NmfdJ7f-FpSR5V7YA@mail.gmail.com>
+
+Someone left
+https://github.com/python/cpython/pull/9195#issuecomment-420646466 which
+was clearly written to upset Victor and insult him. I warned the person
+that such behaviour is not okay and future insults would have
+ramifications (I was actually asked to ban this person to begin with but I
+gave them the benefit of the doubt considering how heated the topic
+involved has become). They then decided to seek me out on Twitter berate me
+there for my warning:
+https://twitter.com/dolkensp/status/1039949212832722944 . For that I have
+followed through with my warning and banned them from the org.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20180913/8371fbe4/attachment.html>
+
+From mariatta.wijaya at gmail.com  Thu Sep 13 12:19:46 2018
+From: mariatta.wijaya at gmail.com (Mariatta Wijaya)
+Date: Thu, 13 Sep 2018 09:19:46 -0700
+Subject: [python-committers] I have blocked someone from the Python org
+In-Reply-To: <CAP1=2W7Efvd1=V1vnSvuPNwTx_cedjTi6NmfdJ7f-FpSR5V7YA@mail.gmail.com>
+References: <CAP1=2W7Efvd1=V1vnSvuPNwTx_cedjTi6NmfdJ7f-FpSR5V7YA@mail.gmail.com>
+Message-ID: <CAGbohnbhJj0eHAW6-2NvHqAxg6C2WRsFDaK7QEM1vXbXkS5Y9w@mail.gmail.com>
+
+Thanks for handling it, Brett.
+
+That kind of behavior is not something we need to allow or tolerate in this
+community.
+I'm fine with banning.
+
+Mariatta
+
+?
+
+On Thu, Sep 13, 2018 at 9:18 AM Brett Cannon <brett at python.org> wrote:
+
+> Someone left
+> https://github.com/python/cpython/pull/9195#issuecomment-420646466 which
+> was clearly written to upset Victor and insult him. I warned the person
+> that such behaviour is not okay and future insults would have
+> ramifications (I was actually asked to ban this person to begin with but I
+> gave them the benefit of the doubt considering how heated the topic
+> involved has become). They then decided to seek me out on Twitter berate me
+> there for my warning:
+> https://twitter.com/dolkensp/status/1039949212832722944 . For that I have
+> followed through with my warning and banned them from the org.
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20180913/5bb4417e/attachment.html>
+
+From antoine at python.org  Thu Sep 13 12:23:03 2018
+From: antoine at python.org (Antoine Pitrou)
+Date: Thu, 13 Sep 2018 18:23:03 +0200
+Subject: [python-committers] I have blocked someone from the Python org
+In-Reply-To: <CAGbohnbhJj0eHAW6-2NvHqAxg6C2WRsFDaK7QEM1vXbXkS5Y9w@mail.gmail.com>
+References: <CAP1=2W7Efvd1=V1vnSvuPNwTx_cedjTi6NmfdJ7f-FpSR5V7YA@mail.gmail.com>
+ <CAGbohnbhJj0eHAW6-2NvHqAxg6C2WRsFDaK7QEM1vXbXkS5Y9w@mail.gmail.com>
+Message-ID: <345b1b82-ce9c-d9a6-6741-4bdc11ff864b@python.org>
+
+
+Regardless of whether that behaviour should be tolerated or not, there
+should be a procedure for this and not a single person banning other
+people at will, especially if it follows their own involvement on the
+topic at hand.
+
+Regards
+
+Antoine.
+
+
+Le 13/09/2018 ? 18:19, Mariatta Wijaya a ?crit?:
+> Thanks for handling it, Brett.
+> 
+> That kind of behavior is not something we need to allow or tolerate in
+> this community.
+> I'm fine with banning.
+> 
+> Mariatta
+> 
+> ?
+> 
+> On Thu, Sep 13, 2018 at 9:18 AM Brett Cannon <brett at python.org
+> <mailto:brett at python.org>> wrote:
+> 
+>     Someone left
+>     https://github.com/python/cpython/pull/9195#issuecomment-420646466
+>     which was clearly written to upset Victor and insult him. I warned
+>     the person that such behaviour is not okay and future insults would
+>     have? ramifications (I was actually asked to ban this person to
+>     begin with but I gave them the benefit of the doubt considering how
+>     heated the topic involved has become). They then decided to seek me
+>     out on Twitter berate me there for my warning:
+>     https://twitter.com/dolkensp/status/1039949212832722944 . For that I
+>     have followed through with my warning and banned them from the org.
+>     _______________________________________________
+>     python-committers mailing list
+>     python-committers at python.org <mailto:python-committers at python.org>
+>     https://mail.python.org/mailman/listinfo/python-committers
+>     Code of Conduct: https://www.python.org/psf/codeofconduct/
+> 
+> 
+> 
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+> 
+
+From kushaldas at gmail.com  Thu Sep 13 12:24:16 2018
+From: kushaldas at gmail.com (Kushal Das)
+Date: Thu, 13 Sep 2018 21:54:16 +0530
+Subject: [python-committers] I have blocked someone from the Python org
+In-Reply-To: <CAP1=2W7Efvd1=V1vnSvuPNwTx_cedjTi6NmfdJ7f-FpSR5V7YA@mail.gmail.com>
+References: <CAP1=2W7Efvd1=V1vnSvuPNwTx_cedjTi6NmfdJ7f-FpSR5V7YA@mail.gmail.com>
+Message-ID: <CAAzeMbxmzHhewRB4EfCewVPU7W214wm224tfUcJA0H0MJ2jsVA@mail.gmail.com>
+
+On Thu, Sep 13, 2018 at 9:48 PM Brett Cannon <brett at python.org> wrote:
+>
+> Someone left https://github.com/python/cpython/pull/9195#issuecomment-420646466 which was clearly written to upset Victor and insult him. I warned the person that such behaviour is not okay and future insults would have  ramifications (I was actually asked to ban this person to begin with but I gave them the benefit of the doubt considering how heated the topic involved has become). They then decided to seek me out on Twitter berate me there for my warning: https://twitter.com/dolkensp/status/1039949212832722944 . For that I have followed through with my warning and banned them from the org.
+
+Thank you for doing this.
+
+Kushal
+-- 
+Staff, Freedom of the Press Foundation
+CPython Core Developer
+Director, Python Software Foundation
+https://kushaldas.in
+
+From brett at python.org  Thu Sep 13 12:35:46 2018
+From: brett at python.org (Brett Cannon)
+Date: Thu, 13 Sep 2018 09:35:46 -0700
+Subject: [python-committers] I have blocked someone from the Python org
+In-Reply-To: <345b1b82-ce9c-d9a6-6741-4bdc11ff864b@python.org>
+References: <CAP1=2W7Efvd1=V1vnSvuPNwTx_cedjTi6NmfdJ7f-FpSR5V7YA@mail.gmail.com>
+ <CAGbohnbhJj0eHAW6-2NvHqAxg6C2WRsFDaK7QEM1vXbXkS5Y9w@mail.gmail.com>
+ <345b1b82-ce9c-d9a6-6741-4bdc11ff864b@python.org>
+Message-ID: <CAP1=2W5-BhtpWKmeAiSHHUCtT1yYreH13KRghZh4qnsbdbkPcA@mail.gmail.com>
+
+On Thu, 13 Sep 2018 at 09:23 Antoine Pitrou <antoine at python.org> wrote:
+
+>
+> Regardless of whether that behaviour should be tolerated or not, there
+> should be a procedure for this and not a single person banning other
+> people at will, especially if it follows their own involvement on the
+> topic at hand.
+>
+
+There should be, but there currently isn't one and with no governance model
+we unfortunately won't have one for at least a little while. I'm hoping
+that getting clarification on this sort of thing will happen under whatever
+governance model we end up choosing.
+
+The last time we tried to establish a procedure I remember the one thing we
+could agree on was that this list be made aware of any actions taken, hence
+my email. If people disagree with the ban or want to time-box it then that
+discussion can happen.
+
+I will also mention that I asked other core developers here at the dev
+sprints to make sure this action was not being too reactionary due to how I
+was involved and the consensus was to proceed with the ban and the email as
+planned (there was only some disagreement on for how long and they said
+they would follow up here). I will also say that other core devs actually
+wanted a ban to start based on the GitHub comment left and I argued the
+person deserved a chance based on how heated the topic involved has become.
+
+-Brett
+
+
+
+>
+> Regards
+>
+> Antoine.
+>
+>
+> Le 13/09/2018 ? 18:19, Mariatta Wijaya a ?crit :
+> > Thanks for handling it, Brett.
+> >
+> > That kind of behavior is not something we need to allow or tolerate in
+> > this community.
+> > I'm fine with banning.
+> >
+> > Mariatta
+> >
+> > ?
+> >
+> > On Thu, Sep 13, 2018 at 9:18 AM Brett Cannon <brett at python.org
+> > <mailto:brett at python.org>> wrote:
+> >
+> >     Someone left
+> >     https://github.com/python/cpython/pull/9195#issuecomment-420646466
+> >     which was clearly written to upset Victor and insult him. I warned
+> >     the person that such behaviour is not okay and future insults would
+> >     have  ramifications (I was actually asked to ban this person to
+> >     begin with but I gave them the benefit of the doubt considering how
+> >     heated the topic involved has become). They then decided to seek me
+> >     out on Twitter berate me there for my warning:
+> >     https://twitter.com/dolkensp/status/1039949212832722944 . For that I
+> >     have followed through with my warning and banned them from the org.
+> >     _______________________________________________
+> >     python-committers mailing list
+> >     python-committers at python.org <mailto:python-committers at python.org>
+> >     https://mail.python.org/mailman/listinfo/python-committers
+> >     Code of Conduct: https://www.python.org/psf/codeofconduct/
+> >
+> >
+> >
+> > _______________________________________________
+> > python-committers mailing list
+> > python-committers at python.org
+> > https://mail.python.org/mailman/listinfo/python-committers
+> > Code of Conduct: https://www.python.org/psf/codeofconduct/
+> >
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20180913/4d2fd5e6/attachment-0001.html>
+
+From antoine at python.org  Thu Sep 13 12:38:05 2018
+From: antoine at python.org (Antoine Pitrou)
+Date: Thu, 13 Sep 2018 18:38:05 +0200
+Subject: [python-committers] I have blocked someone from the Python org
+In-Reply-To: <CAP1=2W5-BhtpWKmeAiSHHUCtT1yYreH13KRghZh4qnsbdbkPcA@mail.gmail.com>
+References: <CAP1=2W7Efvd1=V1vnSvuPNwTx_cedjTi6NmfdJ7f-FpSR5V7YA@mail.gmail.com>
+ <CAGbohnbhJj0eHAW6-2NvHqAxg6C2WRsFDaK7QEM1vXbXkS5Y9w@mail.gmail.com>
+ <345b1b82-ce9c-d9a6-6741-4bdc11ff864b@python.org>
+ <CAP1=2W5-BhtpWKmeAiSHHUCtT1yYreH13KRghZh4qnsbdbkPcA@mail.gmail.com>
+Message-ID: <608a82c0-a5d7-5039-4523-3e417fdcdd48@python.org>
+
+
+Thanks for clarifying.  I agree we should probably time-box the banning
+(by how long isn't very important, and would depend whether they are
+otherwise an active contributor or not).
+
+Regards
+
+Antoine.
+
+
+Le 13/09/2018 ? 18:35, Brett Cannon a ?crit?:
+> 
+> 
+> On Thu, 13 Sep 2018 at 09:23 Antoine Pitrou <antoine at python.org
+> <mailto:antoine at python.org>> wrote:
+> 
+> 
+>     Regardless of whether that behaviour should be tolerated or not, there
+>     should be a procedure for this and not a single person banning other
+>     people at will, especially if it follows their own involvement on the
+>     topic at hand.
+> 
+> 
+> There should be, but there currently isn't one and with no governance
+> model we unfortunately won't have one for at least a little while. I'm
+> hoping that getting clarification on this sort of thing will happen
+> under whatever governance model we end up choosing.
+> 
+> The last time we tried to establish a procedure I remember the one thing
+> we could agree on was that this list be made aware of any actions taken,
+> hence my email. If people disagree with the ban or want to time-box it
+> then that discussion can happen.
+> 
+> I will also mention that I asked other core developers here at the dev
+> sprints to make sure this action was not being too reactionary due to
+> how I was involved and the consensus was to proceed with the ban and the
+> email as planned (there was only some disagreement on for how long and
+> they said they would follow up here). I will also say that other core
+> devs actually wanted a ban to start based on the GitHub comment left and
+> I argued the person deserved a chance based on how heated the topic
+> involved has become.
+> 
+> -Brett
+> 
+> ?
+> 
+> 
+>     Regards
+> 
+>     Antoine.
+> 
+> 
+>     Le 13/09/2018 ? 18:19, Mariatta Wijaya a ?crit?:
+>     > Thanks for handling it, Brett.
+>     >
+>     > That kind of behavior is not something we need to allow or tolerate in
+>     > this community.
+>     > I'm fine with banning.
+>     >
+>     > Mariatta
+>     >
+>     > ?
+>     >
+>     > On Thu, Sep 13, 2018 at 9:18 AM Brett Cannon <brett at python.org
+>     <mailto:brett at python.org>
+>     > <mailto:brett at python.org <mailto:brett at python.org>>> wrote:
+>     >
+>     >? ? ?Someone left
+>     >? ? ?https://github.com/python/cpython/pull/9195#issuecomment-420646466
+>     >? ? ?which was clearly written to upset Victor and insult him. I warned
+>     >? ? ?the person that such behaviour is not okay and future insults
+>     would
+>     >? ? ?have? ramifications (I was actually asked to ban this person to
+>     >? ? ?begin with but I gave them the benefit of the doubt
+>     considering how
+>     >? ? ?heated the topic involved has become). They then decided to
+>     seek me
+>     >? ? ?out on Twitter berate me there for my warning:
+>     >? ? ?https://twitter.com/dolkensp/status/1039949212832722944 . For
+>     that I
+>     >? ? ?have followed through with my warning and banned them from the
+>     org.
+>     >? ? ?_______________________________________________
+>     >? ? ?python-committers mailing list
+>     >? ? ?python-committers at python.org
+>     <mailto:python-committers at python.org>
+>     <mailto:python-committers at python.org
+>     <mailto:python-committers at python.org>>
+>     >? ? ?https://mail.python.org/mailman/listinfo/python-committers
+>     >? ? ?Code of Conduct: https://www.python.org/psf/codeofconduct/
+>     >
+>     >
+>     >
+>     > _______________________________________________
+>     > python-committers mailing list
+>     > python-committers at python.org <mailto:python-committers at python.org>
+>     > https://mail.python.org/mailman/listinfo/python-committers
+>     > Code of Conduct: https://www.python.org/psf/codeofconduct/
+>     >
+>     _______________________________________________
+>     python-committers mailing list
+>     python-committers at python.org <mailto:python-committers at python.org>
+>     https://mail.python.org/mailman/listinfo/python-committers
+>     Code of Conduct: https://www.python.org/psf/codeofconduct/
+> 
+
+From brett at python.org  Thu Sep 13 12:55:14 2018
+From: brett at python.org (Brett Cannon)
+Date: Thu, 13 Sep 2018 09:55:14 -0700
+Subject: [python-committers] I have blocked someone from the Python org
+In-Reply-To: <608a82c0-a5d7-5039-4523-3e417fdcdd48@python.org>
+References: <CAP1=2W7Efvd1=V1vnSvuPNwTx_cedjTi6NmfdJ7f-FpSR5V7YA@mail.gmail.com>
+ <CAGbohnbhJj0eHAW6-2NvHqAxg6C2WRsFDaK7QEM1vXbXkS5Y9w@mail.gmail.com>
+ <345b1b82-ce9c-d9a6-6741-4bdc11ff864b@python.org>
+ <CAP1=2W5-BhtpWKmeAiSHHUCtT1yYreH13KRghZh4qnsbdbkPcA@mail.gmail.com>
+ <608a82c0-a5d7-5039-4523-3e417fdcdd48@python.org>
+Message-ID: <CAP1=2W4pfOwTB8ocqyEfyL9ZxvyNxXVvw=H6shmfBacEJRt=zQ@mail.gmail.com>
+
+They are not active in our community, although I don't know if we want to
+start treating people different simply because they are in our community
+(treating them differently because we know something is out of character is
+different).
+
+Because I'm in no position mentally to keep an eye on this (I'm rather
+shaken by the fact someone decided to track me down on Twitter to go after
+me, but I'm trying to keep context of the actual severity of it), I have
+switched it to an automated 30 day ban (the maximum available for a
+time-restricted ban). If people feel that's the wrong decision and it
+should  switch to year-long or permanent then we can discuss that.
+
+On Thu, 13 Sep 2018 at 09:38 Antoine Pitrou <antoine at python.org> wrote:
+
+>
+> Thanks for clarifying.  I agree we should probably time-box the banning
+> (by how long isn't very important, and would depend whether they are
+> otherwise an active contributor or not).
+>
+> Regards
+>
+> Antoine.
+>
+>
+> Le 13/09/2018 ? 18:35, Brett Cannon a ?crit :
+> >
+> >
+> > On Thu, 13 Sep 2018 at 09:23 Antoine Pitrou <antoine at python.org
+> > <mailto:antoine at python.org>> wrote:
+> >
+> >
+> >     Regardless of whether that behaviour should be tolerated or not,
+> there
+> >     should be a procedure for this and not a single person banning other
+> >     people at will, especially if it follows their own involvement on the
+> >     topic at hand.
+> >
+> >
+> > There should be, but there currently isn't one and with no governance
+> > model we unfortunately won't have one for at least a little while. I'm
+> > hoping that getting clarification on this sort of thing will happen
+> > under whatever governance model we end up choosing.
+> >
+> > The last time we tried to establish a procedure I remember the one thing
+> > we could agree on was that this list be made aware of any actions taken,
+> > hence my email. If people disagree with the ban or want to time-box it
+> > then that discussion can happen.
+> >
+> > I will also mention that I asked other core developers here at the dev
+> > sprints to make sure this action was not being too reactionary due to
+> > how I was involved and the consensus was to proceed with the ban and the
+> > email as planned (there was only some disagreement on for how long and
+> > they said they would follow up here). I will also say that other core
+> > devs actually wanted a ban to start based on the GitHub comment left and
+> > I argued the person deserved a chance based on how heated the topic
+> > involved has become.
+> >
+> > -Brett
+> >
+> >
+> >
+> >
+> >     Regards
+> >
+> >     Antoine.
+> >
+> >
+> >     Le 13/09/2018 ? 18:19, Mariatta Wijaya a ?crit :
+> >     > Thanks for handling it, Brett.
+> >     >
+> >     > That kind of behavior is not something we need to allow or
+> tolerate in
+> >     > this community.
+> >     > I'm fine with banning.
+> >     >
+> >     > Mariatta
+> >     >
+> >     > ?
+> >     >
+> >     > On Thu, Sep 13, 2018 at 9:18 AM Brett Cannon <brett at python.org
+> >     <mailto:brett at python.org>
+> >     > <mailto:brett at python.org <mailto:brett at python.org>>> wrote:
+> >     >
+> >     >     Someone left
+> >     >
+> https://github.com/python/cpython/pull/9195#issuecomment-420646466
+> >     >     which was clearly written to upset Victor and insult him. I
+> warned
+> >     >     the person that such behaviour is not okay and future insults
+> >     would
+> >     >     have  ramifications (I was actually asked to ban this person to
+> >     >     begin with but I gave them the benefit of the doubt
+> >     considering how
+> >     >     heated the topic involved has become). They then decided to
+> >     seek me
+> >     >     out on Twitter berate me there for my warning:
+> >     >     https://twitter.com/dolkensp/status/1039949212832722944 . For
+> >     that I
+> >     >     have followed through with my warning and banned them from the
+> >     org.
+> >     >     _______________________________________________
+> >     >     python-committers mailing list
+> >     >     python-committers at python.org
+> >     <mailto:python-committers at python.org>
+> >     <mailto:python-committers at python.org
+> >     <mailto:python-committers at python.org>>
+> >     >     https://mail.python.org/mailman/listinfo/python-committers
+> >     >     Code of Conduct: https://www.python.org/psf/codeofconduct/
+> >     >
+> >     >
+> >     >
+> >     > _______________________________________________
+> >     > python-committers mailing list
+> >     > python-committers at python.org <mailto:python-committers at python.org>
+> >     > https://mail.python.org/mailman/listinfo/python-committers
+> >     > Code of Conduct: https://www.python.org/psf/codeofconduct/
+> >     >
+> >     _______________________________________________
+> >     python-committers mailing list
+> >     python-committers at python.org <mailto:python-committers at python.org>
+> >     https://mail.python.org/mailman/listinfo/python-committers
+> >     Code of Conduct: https://www.python.org/psf/codeofconduct/
+> >
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20180913/c06e8260/attachment-0001.html>
+
+From ethan at stoneleaf.us  Thu Sep 13 12:59:29 2018
+From: ethan at stoneleaf.us (Ethan Furman)
+Date: Thu, 13 Sep 2018 09:59:29 -0700
+Subject: [python-committers] I have blocked someone from the Python org
+In-Reply-To: <CAP1=2W7Efvd1=V1vnSvuPNwTx_cedjTi6NmfdJ7f-FpSR5V7YA@mail.gmail.com>
+References: <CAP1=2W7Efvd1=V1vnSvuPNwTx_cedjTi6NmfdJ7f-FpSR5V7YA@mail.gmail.com>
+Message-ID: <3934a016-c6f2-f153-a60d-2685f3924a86@stoneleaf.us>
+
+Thanks, Brett.
+
+--
+~Ethan~
+
+From christian at python.org  Thu Sep 13 13:01:12 2018
+From: christian at python.org (Christian Heimes)
+Date: Thu, 13 Sep 2018 10:01:12 -0700
+Subject: [python-committers] I have blocked someone from the Python org
+In-Reply-To: <CAP1=2W7Efvd1=V1vnSvuPNwTx_cedjTi6NmfdJ7f-FpSR5V7YA@mail.gmail.com>
+References: <CAP1=2W7Efvd1=V1vnSvuPNwTx_cedjTi6NmfdJ7f-FpSR5V7YA@mail.gmail.com>
+Message-ID: <4b526ed0-d0ec-69c8-0f75-6b278f78373e@python.org>
+
++1
+
+Thanks, Brett!
+
+From vstinner at redhat.com  Thu Sep 13 14:16:35 2018
+From: vstinner at redhat.com (Victor Stinner)
+Date: Thu, 13 Sep 2018 20:16:35 +0200
+Subject: [python-committers] Automerge bot deployed
+In-Reply-To: <CA+=+wqADFk5dizDKVNztUc54nYsjOsHWH8nBUG6caBzQFpFZNA@mail.gmail.com>
+References: <CAGbohnbOLL9gFk4Y+uKAJxGaJE-BO-yP0At2dS5-p9cGK38o5A@mail.gmail.com>
+ <CAGbohnYFCp8v60s4_EGvGOHnyeaosWKm_ghm+F6biD5_Gj8v5A@mail.gmail.com>
+ <CA+3bQGF34FUA5ATaLe+J1LVr0U_YeWMHU9VPvtBby9ce77Q=HQ@mail.gmail.com>
+ <CA+=+wqADFk5dizDKVNztUc54nYsjOsHWH8nBUG6caBzQFpFZNA@mail.gmail.com>
+Message-ID: <CA+3bQGGauN3gv8OAr6s2TbEeoAbOgrAWkDjKVa9=sBaqVo-=ZQ@mail.gmail.com>
+
+Ah yes, it works and I agree that it's OK in plain text. But we have
+careful if a contributor uses "\_" or something like that in a description.
+Maybe always edit to see the "source" of the description?
+
+Victor
+
+Le jeu. 13 sept. 2018 ? 16:54, Petr Viktorin <encukou at gmail.com> a ?crit :
+
+>
+>
+> On Wed, Sep 12, 2018, 23:30 Victor Stinner <vstinner at redhat.com> wrote:
+>
+>> Today I created a PR with a description containing "type.__format__()".
+>> To display it properly, I chose to edit the description and write
+>> "type.\_\_format\_\_()". I guess that the bot will merge a description like
+>> that unchanged, right? So we should also be careful of description using
+>> Markdown syntax.
+>>
+>
+> Use `type.__format__`, with backticks, for code. That looks OK in plain
+> text.
+> Or edit before merging :)
+>
+>
+>> Victor
+>>
+>> Le mer. 12 sept. 2018 ? 18:52, Mariatta Wijaya <mariatta.wijaya at gmail.com>
+>> a ?crit :
+>>
+>>> Update to the automerge bot:
+>>>
+>>> It will not merge unless there is "CLA signed" label, and no
+>>> "DO-NOT-MERGE" label.
+>>>
+>>> Again, please edit the PR title and description before adding the `?
+>>> automerge` label.
+>>> The PR title and description will be used as the squashed commit message.
+>>>
+>>> Mariatta?
+>>> ?
+>>> _______________________________________________
+>>> python-committers mailing list
+>>> python-committers at python.org
+>>> https://mail.python.org/mailman/listinfo/python-committers
+>>> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>>>
+>> _______________________________________________
+>> python-committers mailing list
+>> python-committers at python.org
+>> https://mail.python.org/mailman/listinfo/python-committers
+>> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>>
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20180913/cb6238f2/attachment.html>
+
+From donald at stufft.io  Thu Sep 13 14:18:14 2018
+From: donald at stufft.io (Donald Stufft)
+Date: Thu, 13 Sep 2018 14:18:14 -0400
+Subject: [python-committers] Automerge bot deployed
+In-Reply-To: <CA+3bQGGauN3gv8OAr6s2TbEeoAbOgrAWkDjKVa9=sBaqVo-=ZQ@mail.gmail.com>
+References: <CAGbohnbOLL9gFk4Y+uKAJxGaJE-BO-yP0At2dS5-p9cGK38o5A@mail.gmail.com>
+ <CAGbohnYFCp8v60s4_EGvGOHnyeaosWKm_ghm+F6biD5_Gj8v5A@mail.gmail.com>
+ <CA+3bQGF34FUA5ATaLe+J1LVr0U_YeWMHU9VPvtBby9ce77Q=HQ@mail.gmail.com>
+ <CA+=+wqADFk5dizDKVNztUc54nYsjOsHWH8nBUG6caBzQFpFZNA@mail.gmail.com>
+ <CA+3bQGGauN3gv8OAr6s2TbEeoAbOgrAWkDjKVa9=sBaqVo-=ZQ@mail.gmail.com>
+Message-ID: <EE385717-CF92-45D3-99F7-31C7C44F4949@stufft.io>
+
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20180913/3d5c4acd/attachment-0001.html>
+
+From raymond.hettinger at gmail.com  Fri Sep 14 15:28:45 2018
+From: raymond.hettinger at gmail.com (Raymond Hettinger)
+Date: Fri, 14 Sep 2018 12:28:45 -0700
+Subject: [python-committers] New core developers: Lisa Roach and Emily
+ Morehouse-Valcarcel
+Message-ID: <B2638431-3792-4418-BE5E-86BE548BA489@gmail.com>
+
+At the developer sprints this week, we collectively decided to grant core committer status to Emily and Lisa.
+
+Please join me in welcoming them to the team.
+
+
+Raymond
+
+
+-------------------------------
+
+Emily is the Director of Engineering at Cuttlesoft. She has previously attended two Language Summits and three core development sprints at PyCon. Since July, Emily has worked with Guido's guidance to implement PEP 572, Assignment Expressions.  She has also worked with Eric Snow to dive into CPython's runtime as well as subinterpreters.  This year at PyCon she gave a talk on Python's AST.  Here is her speaker bio https://us.pycon.org/2018/speaker/profile/283/ and a link to her talk video: https://www.youtube.com/watch?v=XhWvz4dK4ng
+
+Lisa has a background in network engineering and supported the Cisco sale engineer team to develop high quality Python product demonstrations.  Later she moved to the Facebook security team.  This is her third core developer sprint.  She and Guido are co-authors of PEP 526, Syntax for Variable Annotations. Last year, she worked with Eric Smith on PEP 557, Data Classes. Here is her speaker bio https://us.pycon.org/2018/speaker/profile/824/  and a link to her Pycon talks: https://www.youtube.com/watch?v=hKxbO4rRlpg and https://www.youtube.com/watch?v=ww1UsGZV8fQ
+
+From guido at python.org  Fri Sep 14 15:36:12 2018
+From: guido at python.org (Guido van Rossum)
+Date: Fri, 14 Sep 2018 12:36:12 -0700
+Subject: [python-committers] New core developers: Lisa Roach and Emily
+ Morehouse-Valcarcel
+In-Reply-To: <B2638431-3792-4418-BE5E-86BE548BA489@gmail.com>
+References: <B2638431-3792-4418-BE5E-86BE548BA489@gmail.com>
+Message-ID: <CAP7+vJJfHoNNTLHo6X7eY5CO9rVtzXVbXQPpnS=eU7xhn+PnWw@mail.gmail.com>
+
+Congrats Emily and Lisa!  ? ? ? ? ? ?
+
+On Fri, Sep 14, 2018 at 12:28 PM Raymond Hettinger <
+raymond.hettinger at gmail.com> wrote:
+
+> At the developer sprints this week, we collectively decided to grant core
+> committer status to Emily and Lisa.
+>
+> Please join me in welcoming them to the team.
+>
+>
+> Raymond
+>
+>
+> -------------------------------
+>
+> Emily is the Director of Engineering at Cuttlesoft. She has previously
+> attended two Language Summits and three core development sprints at PyCon.
+> Since July, Emily has worked with Guido's guidance to implement PEP 572,
+> Assignment Expressions.  She has also worked with Eric Snow to dive into
+> CPython's runtime as well as subinterpreters.  This year at PyCon she gave
+> a talk on Python's AST.  Here is her speaker bio
+> https://us.pycon.org/2018/speaker/profile/283/ and a link to her talk
+> video: https://www.youtube.com/watch?v=XhWvz4dK4ng
+>
+> Lisa has a background in network engineering and supported the Cisco sale
+> engineer team to develop high quality Python product demonstrations.  Later
+> she moved to the Facebook security team.  This is her third core developer
+> sprint.  She and Guido are co-authors of PEP 526, Syntax for Variable
+> Annotations. Last year, she worked with Eric Smith on PEP 557, Data
+> Classes. Here is her speaker bio
+> https://us.pycon.org/2018/speaker/profile/824/  and a link to her Pycon
+> talks: https://www.youtube.com/watch?v=hKxbO4rRlpg and
+> https://www.youtube.com/watch?v=ww1UsGZV8fQ
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+
+
+-- 
+--Guido van Rossum (python.org/~guido)
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20180914/d50b8418/attachment.html>
+
+From ericsnowcurrently at gmail.com  Fri Sep 14 15:38:14 2018
+From: ericsnowcurrently at gmail.com (Eric Snow)
+Date: Fri, 14 Sep 2018 12:38:14 -0700
+Subject: [python-committers] New core developers: Lisa Roach and Emily
+ Morehouse-Valcarcel
+In-Reply-To: <B2638431-3792-4418-BE5E-86BE548BA489@gmail.com>
+References: <B2638431-3792-4418-BE5E-86BE548BA489@gmail.com>
+Message-ID: <CALFfu7AbpuHx419BNYn6jp0L3Q3Dyu5V9gOzj=SbKWtXoOuT1Q@mail.gmail.com>
+
+Welcome, Emily and Lisa!
+
+My interactions with Lisa have been limited to several conversations,
+albeit positive ones.  I've been working closely with Emily since
+PyCon and have come to respect her intelligence, thoughtfulness, and
+insight.  Furthermore I'm glad that we have another member of the core
+team with a deep understanding of the compiler and runtime. :)
+
+Anyway, congratulations to both for the well-deserved recognition.
+I'll looking forward to further collaboration.
+
+-eric
+
+On Fri, Sep 14, 2018 at 12:28 PM Raymond Hettinger
+<raymond.hettinger at gmail.com> wrote:
+>
+> At the developer sprints this week, we collectively decided to grant core committer status to Emily and Lisa.
+>
+> Please join me in welcoming them to the team.
+>
+>
+> Raymond
+>
+>
+> -------------------------------
+>
+> Emily is the Director of Engineering at Cuttlesoft. She has previously attended two Language Summits and three core development sprints at PyCon. Since July, Emily has worked with Guido's guidance to implement PEP 572, Assignment Expressions.  She has also worked with Eric Snow to dive into CPython's runtime as well as subinterpreters.  This year at PyCon she gave a talk on Python's AST.  Here is her speaker bio https://us.pycon.org/2018/speaker/profile/283/ and a link to her talk video: https://www.youtube.com/watch?v=XhWvz4dK4ng
+>
+> Lisa has a background in network engineering and supported the Cisco sale engineer team to develop high quality Python product demonstrations.  Later she moved to the Facebook security team.  This is her third core developer sprint.  She and Guido are co-authors of PEP 526, Syntax for Variable Annotations. Last year, she worked with Eric Smith on PEP 557, Data Classes. Here is her speaker bio https://us.pycon.org/2018/speaker/profile/824/  and a link to her Pycon talks: https://www.youtube.com/watch?v=hKxbO4rRlpg and https://www.youtube.com/watch?v=ww1UsGZV8fQ
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+
+From willingc at gmail.com  Fri Sep 14 15:53:51 2018
+From: willingc at gmail.com (Carol Willing)
+Date: Fri, 14 Sep 2018 12:53:51 -0700
+Subject: [python-committers] New core developers: Lisa Roach and Emily
+ Morehouse-Valcarcel
+In-Reply-To: <CALFfu7AbpuHx419BNYn6jp0L3Q3Dyu5V9gOzj=SbKWtXoOuT1Q@mail.gmail.com>
+References: <B2638431-3792-4418-BE5E-86BE548BA489@gmail.com>
+ <CALFfu7AbpuHx419BNYn6jp0L3Q3Dyu5V9gOzj=SbKWtXoOuT1Q@mail.gmail.com>
+Message-ID: <CAM3VvhyUoQg4TepR608pE1TTAW_tqtYKOiLbyDiJm80NwHwtww@mail.gmail.com>
+
+Welcome!!!! Well deserved :-)
+
+On Fri, Sep 14, 2018, 12:38 PM Eric Snow <ericsnowcurrently at gmail.com>
+wrote:
+
+> Welcome, Emily and Lisa!
+>
+> My interactions with Lisa have been limited to several conversations,
+> albeit positive ones.  I've been working closely with Emily since
+> PyCon and have come to respect her intelligence, thoughtfulness, and
+> insight.  Furthermore I'm glad that we have another member of the core
+> team with a deep understanding of the compiler and runtime. :)
+>
+> Anyway, congratulations to both for the well-deserved recognition.
+> I'll looking forward to further collaboration.
+>
+> -eric
+>
+> On Fri, Sep 14, 2018 at 12:28 PM Raymond Hettinger
+> <raymond.hettinger at gmail.com> wrote:
+> >
+> > At the developer sprints this week, we collectively decided to grant
+> core committer status to Emily and Lisa.
+> >
+> > Please join me in welcoming them to the team.
+> >
+> >
+> > Raymond
+> >
+> >
+> > -------------------------------
+> >
+> > Emily is the Director of Engineering at Cuttlesoft. She has previously
+> attended two Language Summits and three core development sprints at PyCon.
+> Since July, Emily has worked with Guido's guidance to implement PEP 572,
+> Assignment Expressions.  She has also worked with Eric Snow to dive into
+> CPython's runtime as well as subinterpreters.  This year at PyCon she gave
+> a talk on Python's AST.  Here is her speaker bio
+> https://us.pycon.org/2018/speaker/profile/283/ and a link to her talk
+> video: https://www.youtube.com/watch?v=XhWvz4dK4ng
+> >
+> > Lisa has a background in network engineering and supported the Cisco
+> sale engineer team to develop high quality Python product demonstrations.
+> Later she moved to the Facebook security team.  This is her third core
+> developer sprint.  She and Guido are co-authors of PEP 526, Syntax for
+> Variable Annotations. Last year, she worked with Eric Smith on PEP 557,
+> Data Classes. Here is her speaker bio
+> https://us.pycon.org/2018/speaker/profile/824/  and a link to her Pycon
+> talks: https://www.youtube.com/watch?v=hKxbO4rRlpg and
+> https://www.youtube.com/watch?v=ww1UsGZV8fQ
+> > _______________________________________________
+> > python-committers mailing list
+> > python-committers at python.org
+> > https://mail.python.org/mailman/listinfo/python-committers
+> > Code of Conduct: https://www.python.org/psf/codeofconduct/
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20180914/b4eb449a/attachment-0001.html>
+
+From zachary.ware+pydev at gmail.com  Fri Sep 14 16:12:43 2018
+From: zachary.ware+pydev at gmail.com (Zachary Ware)
+Date: Fri, 14 Sep 2018 13:12:43 -0700
+Subject: [python-committers] New core developers: Lisa Roach and Emily
+ Morehouse-Valcarcel
+In-Reply-To: <B2638431-3792-4418-BE5E-86BE548BA489@gmail.com>
+References: <B2638431-3792-4418-BE5E-86BE548BA489@gmail.com>
+Message-ID: <CAKJDb-O+0pjOP+rXcy_4paysONSU6SF7+1XQsbwSuuEB0emWeg@mail.gmail.com>
+
+On Fri, Sep 14, 2018 at 12:28 PM Raymond Hettinger
+<raymond.hettinger at gmail.com> wrote:
+> At the developer sprints this week, we collectively decided to grant core committer status to Emily and Lisa.
+
+Congratulations and welcome, Emily and Lisa!
+
+-- 
+Zach
+
+From zachary.ware+pydev at gmail.com  Fri Sep 14 17:02:19 2018
+From: zachary.ware+pydev at gmail.com (Zachary Ware)
+Date: Fri, 14 Sep 2018 14:02:19 -0700
+Subject: [python-committers] Recent buildbot.python.org changes
+Message-ID: <CAKJDb-N05iN7RnALQZSkHQx3WwD9VuXMNKY2nZq4Qt_7gUThQA@mail.gmail.com>
+
+Hi all,
+
+Most of my effort this week has gone into improving the state of
+buildbot.python.org, which has largely gone into improving Buildbot
+itself.  Here are the relevant highlights:
+
+- Anyone can now log into buildbot.python.org via GitHub by clicking
+the 'Anonymous' dropdown in the upper right corner, then 'Login with
+GitHub'.  The first time, GitHub will ask you for approval;
+subsequently you'll just be logged right in.
+
+- Stopping builds and triggering rebuilds is now restricted to members
+of the `python-core` team and the "owner" of a build.  I've not had
+opportunity to test whether the author of a commit actually qualifies
+as the "owner" or if only the committer does, but if anyone runs into
+trouble with it please open an issue on the buildmaster-config repo.
+
+- Disabling/enabling schedulers is now restricted to members of the
+`python-release-managers` team.  We had an issue some months ago where
+someone had apparently disabled the scheduler for one of our branches,
+resulting in no builds on that branch for several days before we
+noticed.  That shouldn't happen again!
+
+- Buildbot now reports results from our stable builders on each tested
+commit.  For now, we're still only running tests post-merge, so you
+won't see new status checks on PRs, but you can find results on
+https://github.com/python/cpython/commits/
+
+Let me know if any of these changes negatively impact you, or if you
+have suggestions for further improvement.
+
+Regards,
+-- 
+Zach
+
+From njs at pobox.com  Fri Sep 14 17:16:41 2018
+From: njs at pobox.com (Nathaniel Smith)
+Date: Fri, 14 Sep 2018 14:16:41 -0700
+Subject: [python-committers] New core developers: Lisa Roach and Emily
+ Morehouse-Valcarcel
+In-Reply-To: <B2638431-3792-4418-BE5E-86BE548BA489@gmail.com>
+References: <B2638431-3792-4418-BE5E-86BE548BA489@gmail.com>
+Message-ID: <CAPJVwBkqjPA_kmp0DwbSZ_h203nbxwTgRzwN7KHdLiQR2WAfxw@mail.gmail.com>
+
+Congratulations!
+
+On Fri, Sep 14, 2018, 12:29 Raymond Hettinger <raymond.hettinger at gmail.com>
+wrote:
+
+> At the developer sprints this week, we collectively decided to grant core
+> committer status to Emily and Lisa.
+>
+> Please join me in welcoming them to the team.
+>
+>
+> Raymond
+>
+>
+> -------------------------------
+>
+> Emily is the Director of Engineering at Cuttlesoft. She has previously
+> attended two Language Summits and three core development sprints at PyCon.
+> Since July, Emily has worked with Guido's guidance to implement PEP 572,
+> Assignment Expressions.  She has also worked with Eric Snow to dive into
+> CPython's runtime as well as subinterpreters.  This year at PyCon she gave
+> a talk on Python's AST.  Here is her speaker bio
+> https://us.pycon.org/2018/speaker/profile/283/ and a link to her talk
+> video: https://www.youtube.com/watch?v=XhWvz4dK4ng
+>
+> Lisa has a background in network engineering and supported the Cisco sale
+> engineer team to develop high quality Python product demonstrations.  Later
+> she moved to the Facebook security team.  This is her third core developer
+> sprint.  She and Guido are co-authors of PEP 526, Syntax for Variable
+> Annotations. Last year, she worked with Eric Smith on PEP 557, Data
+> Classes. Here is her speaker bio
+> https://us.pycon.org/2018/speaker/profile/824/  and a link to her Pycon
+> talks: https://www.youtube.com/watch?v=hKxbO4rRlpg and
+> https://www.youtube.com/watch?v=ww1UsGZV8fQ
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20180914/3eb27a9b/attachment.html>
+
+From christian at python.org  Fri Sep 14 17:25:48 2018
+From: christian at python.org (Christian Heimes)
+Date: Fri, 14 Sep 2018 14:25:48 -0700
+Subject: [python-committers] New core developers: Lisa Roach and Emily
+ Morehouse-Valcarcel
+In-Reply-To: <B2638431-3792-4418-BE5E-86BE548BA489@gmail.com>
+References: <B2638431-3792-4418-BE5E-86BE548BA489@gmail.com>
+Message-ID: <6c6e64ee-ec2a-57df-1ccc-9c99dc75a1ac@python.org>
+
+On 14/09/2018 12.28, Raymond Hettinger wrote:
+> At the developer sprints this week, we collectively decided to grant core committer status to Emily and Lisa.
+> 
+> Please join me in welcoming them to the team.
+
+Welcome on board!
+
+
+From p.f.moore at gmail.com  Fri Sep 14 17:29:45 2018
+From: p.f.moore at gmail.com (Paul Moore)
+Date: Fri, 14 Sep 2018 22:29:45 +0100
+Subject: [python-committers] New core developers: Lisa Roach and Emily
+ Morehouse-Valcarcel
+In-Reply-To: <B2638431-3792-4418-BE5E-86BE548BA489@gmail.com>
+References: <B2638431-3792-4418-BE5E-86BE548BA489@gmail.com>
+Message-ID: <CACac1F_zb3FtB7bYqpRh-q10MPZuRxo6LGGLO5Y_5YMgbL+rag@mail.gmail.com>
+
+On Fri, 14 Sep 2018 at 20:29, Raymond Hettinger
+<raymond.hettinger at gmail.com> wrote:
+>
+> At the developer sprints this week, we collectively decided to grant core committer status to Emily and Lisa.
+>
+> Please join me in welcoming them to the team.
+
+Congratulations and welcome, Emily and Lisa!
+Paul
+
+From ethan at stoneleaf.us  Fri Sep 14 17:41:49 2018
+From: ethan at stoneleaf.us (Ethan Furman)
+Date: Fri, 14 Sep 2018 14:41:49 -0700
+Subject: [python-committers] New core developers: Lisa Roach and Emily
+ Morehouse-Valcarcel
+In-Reply-To: <B2638431-3792-4418-BE5E-86BE548BA489@gmail.com>
+References: <B2638431-3792-4418-BE5E-86BE548BA489@gmail.com>
+Message-ID: <0eed4e79-4977-5962-8573-25d54141960a@stoneleaf.us>
+
+On 09/14/2018 12:28 PM, Raymond Hettinger wrote:
+
+> At the developer sprints this week, we collectively decided to grant core committer status to Emily and Lisa.
+> 
+> Please join me in welcoming them to the team.
+
+Woohoo!!!  I thought you two were already core-devs -- I'm happy to see 
+it is now so!
+
+--
+~Ethan~
+
+From vstinner at redhat.com  Fri Sep 14 18:05:15 2018
+From: vstinner at redhat.com (Victor Stinner)
+Date: Sat, 15 Sep 2018 00:05:15 +0200
+Subject: [python-committers] Recent buildbot.python.org changes
+In-Reply-To: <CAKJDb-N05iN7RnALQZSkHQx3WwD9VuXMNKY2nZq4Qt_7gUThQA@mail.gmail.com>
+References: <CAKJDb-N05iN7RnALQZSkHQx3WwD9VuXMNKY2nZq4Qt_7gUThQA@mail.gmail.com>
+Message-ID: <CA+3bQGGk7d5wHYs0hzEpu4eV=1K0+=SnBkBta0paD7FKpfSSTQ@mail.gmail.com>
+
+Le ven. 14 sept. 2018 ? 23:02, Zachary Ware
+<zachary.ware+pydev at gmail.com> a ?crit :
+> - Stopping builds and triggering rebuilds is now restricted to members
+> of the `python-core` team (...)
+
+Cool, security!
+
+> - Buildbot now reports results from our stable builders on each tested
+> commit.  For now, we're still only running tests post-merge, so you
+> won't see new status checks on PRs, but you can find results on
+> https://github.com/python/cpython/commits/
+
+That's also cool, thanks Zach!
+
+Victor
+
+From pablogsal at gmail.com  Fri Sep 14 18:06:07 2018
+From: pablogsal at gmail.com (Pablo Galindo Salgado)
+Date: Fri, 14 Sep 2018 15:06:07 -0700
+Subject: [python-committers] New core developers: Lisa Roach and Emily
+ Morehouse-Valcarcel
+In-Reply-To: <B2638431-3792-4418-BE5E-86BE548BA489@gmail.com>
+References: <B2638431-3792-4418-BE5E-86BE548BA489@gmail.com>
+Message-ID: <CAFjbc8GbrG+DDvy_GCtp5qje+pdkdi5CXAxLmCMZy8ZXOV4_3A@mail.gmail.com>
+
+Congratulations! Very well deserved :-)
+
+On Fri, 14 Sep 2018 at 12:28, Raymond Hettinger <raymond.hettinger at gmail.com>
+wrote:
+
+> At the developer sprints this week, we collectively decided to grant core
+> committer status to Emily and Lisa.
+>
+> Please join me in welcoming them to the team.
+>
+>
+> Raymond
+>
+>
+> -------------------------------
+>
+> Emily is the Director of Engineering at Cuttlesoft. She has previously
+> attended two Language Summits and three core development sprints at PyCon.
+> Since July, Emily has worked with Guido's guidance to implement PEP 572,
+> Assignment Expressions.  She has also worked with Eric Snow to dive into
+> CPython's runtime as well as subinterpreters.  This year at PyCon she gave
+> a talk on Python's AST.  Here is her speaker bio
+> https://us.pycon.org/2018/speaker/profile/283/ and a link to her talk
+> video: https://www.youtube.com/watch?v=XhWvz4dK4ng
+>
+> Lisa has a background in network engineering and supported the Cisco sale
+> engineer team to develop high quality Python product demonstrations.  Later
+> she moved to the Facebook security team.  This is her third core developer
+> sprint.  She and Guido are co-authors of PEP 526, Syntax for Variable
+> Annotations. Last year, she worked with Eric Smith on PEP 557, Data
+> Classes. Here is her speaker bio
+> https://us.pycon.org/2018/speaker/profile/824/  and a link to her Pycon
+> talks: https://www.youtube.com/watch?v=hKxbO4rRlpg and
+> https://www.youtube.com/watch?v=ww1UsGZV8fQ
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20180914/ba4c6c4c/attachment.html>
+
+From benjamin at python.org  Fri Sep 14 19:10:33 2018
+From: benjamin at python.org (Benjamin Peterson)
+Date: Fri, 14 Sep 2018 16:10:33 -0700
+Subject: [python-committers] Recent buildbot.python.org changes
+In-Reply-To: <CAKJDb-N05iN7RnALQZSkHQx3WwD9VuXMNKY2nZq4Qt_7gUThQA@mail.gmail.com>
+References: <CAKJDb-N05iN7RnALQZSkHQx3WwD9VuXMNKY2nZq4Qt_7gUThQA@mail.gmail.com>
+Message-ID: <1536966633.3632660.1508696128.04FD5EB7@webmail.messagingengine.com>
+
+
+
+On Fri, Sep 14, 2018, at 14:02, Zachary Ware wrote:
+> Hi all,
+> 
+> Most of my effort this week has gone into improving the state of
+> buildbot.python.org, which has largely gone into improving Buildbot
+> itself.  Here are the relevant highlights:
+> 
+> - Anyone can now log into buildbot.python.org via GitHub by clicking
+> the 'Anonymous' dropdown in the upper right corner, then 'Login with
+> GitHub'.  The first time, GitHub will ask you for approval;
+> subsequently you'll just be logged right in.
+> 
+> - Stopping builds and triggering rebuilds is now restricted to members
+> of the `python-core` team and the "owner" of a build.  I've not had
+> opportunity to test whether the author of a commit actually qualifies
+> as the "owner" or if only the committer does, but if anyone runs into
+> trouble with it please open an issue on the buildmaster-config repo.
+> 
+> - Disabling/enabling schedulers is now restricted to members of the
+> `python-release-managers` team.  We had an issue some months ago where
+> someone had apparently disabled the scheduler for one of our branches,
+> resulting in no builds on that branch for several days before we
+> noticed.  That shouldn't happen again!
+> 
+> - Buildbot now reports results from our stable builders on each tested
+> commit.  For now, we're still only running tests post-merge, so you
+> won't see new status checks on PRs, but you can find results on
+> https://github.com/python/cpython/commits/
+> 
+> Let me know if any of these changes negatively impact you, or if you
+> have suggestions for further improvement.
+
+Thanks for all your work.
+
+From ethan at stoneleaf.us  Fri Sep 14 20:11:29 2018
+From: ethan at stoneleaf.us (Ethan Furman)
+Date: Fri, 14 Sep 2018 17:11:29 -0700
+Subject: [python-committers] Recent buildbot.python.org changes
+In-Reply-To: <CAKJDb-N05iN7RnALQZSkHQx3WwD9VuXMNKY2nZq4Qt_7gUThQA@mail.gmail.com>
+References: <CAKJDb-N05iN7RnALQZSkHQx3WwD9VuXMNKY2nZq4Qt_7gUThQA@mail.gmail.com>
+Message-ID: <6e4f3a64-f6ab-23d3-dc60-b7ad1f047d3e@stoneleaf.us>
+
+On 09/14/2018 02:02 PM, Zachary Ware wrote:
+
+> Most of my effort this week has gone into improving the state of
+> buildbot.python.org, which has largely gone into improving Buildbot
+> itself.
+
+Excellent!  Better tools are always welcome.  Thank you!
+
+--
+~Ethan~
+
+From antoine at python.org  Sat Sep 15 11:47:29 2018
+From: antoine at python.org (Antoine Pitrou)
+Date: Sat, 15 Sep 2018 17:47:29 +0200
+Subject: [python-committers] New core developers: Lisa Roach and Emily
+ Morehouse-Valcarcel
+In-Reply-To: <B2638431-3792-4418-BE5E-86BE548BA489@gmail.com>
+References: <B2638431-3792-4418-BE5E-86BE548BA489@gmail.com>
+Message-ID: <e6938a87-b4f4-5891-c82c-8df014b1c99b@python.org>
+
+
+Emily and Lisa: welcome to the core team!
+
+(style note: I almost missed the presentations after the long line of
+dashes)
+
+Best regards
+
+Antoine.
+
+
+Le 14/09/2018 ? 21:28, Raymond Hettinger a ?crit?:
+> At the developer sprints this week, we collectively decided to grant core committer status to Emily and Lisa.
+> 
+> Please join me in welcoming them to the team.
+> 
+> 
+> Raymond
+> 
+> 
+> -------------------------------
+> 
+> Emily is the Director of Engineering at Cuttlesoft. She has previously attended two Language Summits and three core development sprints at PyCon. Since July, Emily has worked with Guido's guidance to implement PEP 572, Assignment Expressions.  She has also worked with Eric Snow to dive into CPython's runtime as well as subinterpreters.  This year at PyCon she gave a talk on Python's AST.  Here is her speaker bio https://us.pycon.org/2018/speaker/profile/283/ and a link to her talk video: https://www.youtube.com/watch?v=XhWvz4dK4ng
+> 
+> Lisa has a background in network engineering and supported the Cisco sale engineer team to develop high quality Python product demonstrations.  Later she moved to the Facebook security team.  This is her third core developer sprint.  She and Guido are co-authors of PEP 526, Syntax for Variable Annotations. Last year, she worked with Eric Smith on PEP 557, Data Classes. Here is her speaker bio https://us.pycon.org/2018/speaker/profile/824/  and a link to her Pycon talks: https://www.youtube.com/watch?v=hKxbO4rRlpg and https://www.youtube.com/watch?v=ww1UsGZV8fQ
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+> 
+
+From larry at hastings.org  Sat Sep 15 13:47:38 2018
+From: larry at hastings.org (Larry Hastings)
+Date: Sat, 15 Sep 2018 10:47:38 -0700
+Subject: [python-committers] New core developers: Lisa Roach and Emily
+ Morehouse-Valcarcel
+In-Reply-To: <B2638431-3792-4418-BE5E-86BE548BA489@gmail.com>
+References: <B2638431-3792-4418-BE5E-86BE548BA489@gmail.com>
+Message-ID: <fa0bb8da-4ea7-70e3-ea9f-db170faceb56@hastings.org>
+
+
+
+On 09/14/2018 12:28 PM, Raymond Hettinger wrote:
+> At the developer sprints this week, we collectively decided to grant core committer status to Emily and Lisa.
+>
+> Please join me in welcoming them to the team.
+
+Congratulations Emily and Lisa!? I look forward to many years of arguing 
+working with you on our favorite language.
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20180915/a7b24dd1/attachment.html>
+
+From steve.dower at python.org  Sat Sep 15 23:20:17 2018
+From: steve.dower at python.org (Steve Dower)
+Date: Sat, 15 Sep 2018 20:20:17 -0700
+Subject: [python-committers] Governance Discussion #1 Notes
+Message-ID: <7e871cbd-4a9f-cf3a-6f2b-4b4957044385@python.org>
+
+Hi all
+
+At the sprints this last week, probably unsurprisingly, we had some
+discussions relating to the future of Python's governance. Since not
+everyone could be involved, I'm going to be posting the notes from these
+meetings (taken by an independent note-taken, and reviewed/redacted by
+the participants before being made public).
+
+I want to be very clear that no final decisions were made at these
+meetings, but they were very helpful in helping those of us working on
+concrete proposals. You should start seeing PEPs 80xx filling out with
+content over the next few weeks. *Those* are the reference documents -
+these notes are simply a record of what came out.
+
+If you want to reply to and discuss particular points from these,
+*please* reply to the list, change the subject line, and clearly quote
+only the relevant part. There is a lot of content here and nothing to be
+gained by repeating it endlessly. (Also, if you want to thank me for
+copy-pasting into an email, it really is unnecessary but please do it
+off-list. We've already passed on our thanks to the note-taker as well.)
+
+
+For this first meeting, roughly 30 of us sat/stood in a circle and
+briefly answered two questions:
+
+* what are you most concerned about right now?
+* in one word, what do you like most about Python?
+
+These notes are an anonymised, paraphrased, reorganised summary of the
+responses. Responses that deserved an immediate follow up have (as far
+as I'm aware) received it already. So take this as a bit more insight
+into community sentiment than could otherwise be obtained over email,
+but as nothing more significant than that.
+
+Cheers,
+Steve
+
+---
+
+Python's Benevolent-Dictator-For-Life (BDFL) Guido has stepped down,
+which raises the question of how Python's core development team should
+proceed when making decisions about changes to Python. The attendees of
+the sprint had a meeting to sit down and all concisely express their
+biggest concerns. I took notes as people were speaking; hopefully I
+captured the gist of what they were saying if not their exact words.
+
+I'll start with a quick summary and the plan for immediate next steps,
+and then give individual points loosely grouped by broad area of concern.
+
+Executive summary:
+
+The biggest areas of concern are:
+* Choosing how to choose a new governance model
+* The principles that will guide the future of python
+* Effective, respectful communication and related social factors
+ * related: Code of conduct issues, which already have a PSF working
+group looking into them.
+
+We went around the room and asked people to give a one or two word
+summary of what they like about Python.
+* community
+* people
+* elegance
+* consistency
+* ease for non-experts
+* good taste
+* accessibility
+* opportunity
+* productivity
+* trust
+* zen
+* fun
+* openness
+* thoughtfulness
+* Monty :-)
+
+Next steps:
+* Digest what we've discussed overnight
+* Meet in the morning and organize by areas of particular concern
+* Discuss further
+* Report back
+
+Specific concerns raised by individuals follow. These have been
+anonymized and rearranged, and are individual contributions and do not
+reflect any official position, or even necessarily a majority position
+of the core development team.
+
+Introductory thoughts:
+* Complexity is real
+* Any number of plans could work
+* What behaviours help communities be effective?
+* Which produce roadblocks and challenges?
+* What do we value about Python?
+
+Choosing how to choose:
+
+* There will be various proposals for governance models. How do we pick
+one? Can we get to consensus on that?
+* There's a PEP out to discuss how this process works in other languages.
+* Vote on a committee that makes governance recommendations
+* Give a small group of people a mandate to study and make recommendations
+* Can we determine what are roles that need to be filled?
+* Do not get bogged down in the meta-question of how to choose how to
+choose.
+* Any important change requires a working group of experts in the
+specific area affected by the change. How to choose members of this group?
+* Can we define the scope of problems that we need to bring to a higher
+authority?
+* Having working groups with autonomy is great, but there will be things
+where all the threads come together. Changes to the C API, changes to
+the core syntax.
+* We have always appealed to Guido's sensibilities, and that's where the
+power vacuum is now. Think about something like the Debian technical
+committee, where they make decisions that affect everyone in that community.
+* Some people will be unhappy with whatever decision is made, but we
+want people to agree that there is a clear authority and a process that
+is respected and legitimate.
+* Our existing model has BDFL delegates for specific issues. How should
+power be delegated to make specific decisions about features? Who can
+say "this will not happen"?
+* It's pretty nice to have a dictatorship when you have a good dictator.
+A democracy does not guarantee that the best choice will be made, or
+even that the will of the majority is carried out.
+* The language is now sufficiently complex that it may be difficult to
+have any individual that understands the whole thing enough to make
+decisions unilaterally.
+* Without a way to make the decision it is all talk; how do we have a
+consensus?
+* We should accept that we're not going to get to unanimity
+* What is the externally visible legitimacy of any decision process? If
+52% say yes and the other 48% say no, is the decision legitimate?
+* The state we're in now is scary but many other projects have been
+here, like numpy. We need to shift from our respect for Guido to a
+shared sense of what's the right process, even if we don't agree on
+every detail. A 51% vote is not a good thing.
+* We are experts on programming languages, not on governance and
+decision making. Maybe bring in an expert on decision making models if
+this meta problem is going to get really thorny.
+* There are models of decision making that have been studied by experts
+and their characteristics are known. These models are all pretty good;
+pick a decision-making model and discuss it.
+* Think about what has worked well in the past and has not worked well.
+We've had a successful process delegating issues before. Maybe we don't
+need to worry too much about the fine details of delegation. We could
+fall into the trap of making this process too complicated, too
+overspecified and too legalistic.
+* The core development community is not as diverse as the broader Python
+community. Attitudes of the people making these governance decisions may
+not be aligned with those of the communities they're intending to serve.
+How can we address this?
+* People are too afraid of changes; we don't need a PEP or a formal
+process or a decision from Guido for everything. Some changes can just
+be made by people we trust to make good decisions.
+* Continue to rely on experts when making decisions about their areas of
+expertise.
+* There are disruption risks of changing too quickly but there are
+existential risks in changing too slowly.
+* The model so far is that the patriarch lets the kids run around but
+keeps them from running over the cliff.
+* Making one person or a small group an oracle for what is good is
+unfair and unrealistic, particularly if they have to not only understand
+and make decisions about every aspect of the language but also police
+bad process outcomes.
+* Consider models of projects that work; get people involved who are
+experts on project management and process. We need a Counsellor Troi for
+this project. Get a professional coach involved, who is already involved
+in successfully governed Python projects, for example the Jupyter
+project and the Django project.
+* If someone does not aspire to be leadership but still has something to
+offer, are they shut out of the decision-making process? If important
+things come up, people with depth of experience need to be heard and
+feel that they are heard.
+* No one really wants decision by committee and what that entails.
+* Historically we see that when there is a change in governance model
+and power structure, there will be a challenge. Hopefully there will not
+be a villain that brings us together.
+* Whatever we do, hopefully it will not require more effort by the
+volunteers of the core team; we like to work on technical issues rather
+than navigating political organizations and heavyweight processes.
+* Our work is founded on trust; take that into account and keep it from
+falling apart
+* Every core developer should have an idea of what they want to see from
+Python in the next five years. That will motivate choice of governance
+model.
+* Keep moving forward and get a governance decision made. We don't want
+to make a panic decision, but we don't want to sit and wait either.
+Figure out what we want and execute on it.
+* This is a human factors problem; burnout exists everywhere in an
+organization. Understand the roles that we are trying to refactor.
+* Things will not be the same, some changes will go smoothly, and some
+will not, and then they'll say that in the old days, things were great.
+* Define what roles need to be filled; that affects everything.
+* We should choose how we're going to choose before we leave, while
+being considerate of people who are not here.
+* Be clear that any new model of governance is specifically for core
+devs, not for the Python community as a whole
+
+What's important?
+
+* Python is a popular language; anything we change has a large impact
+and we need to take that seriously. Can we agree on how impactful
+decisions can be, and make sure that a governance process takes impact
+seriously?
+* Explicit is better than implicit; Guido is a mountain of implicit
+knowledge, and there is no one close to that.
+* We need a set of slogans or principles that summarize our design
+values; the Zen of Python is poetic and aspirational, but we should
+decide more specifically what Python should be or we will end up with C++
+* What are the goals of Python as a language? Do we value stability, or
+evolving to achieve feature parity with other languages? Do we want to
+evolve fast or slow? Do we value performance or compatibility? It's easy
+to say "both", but design is about making compromises.
+
+The relationship between the PSF board and the core dev community
+
+* The role of a board member is to fulfill the mission of the
+organization in accordance with its guiding principles.
+* What are those guiding principles? Consistency, stability? What else?
+* What specific communities of users and developers are served?
+* Where does the PSF and its board of directors fit in to this decision?
+* Core developers don't see the PSF very often, and non-core-dev board
+members don't see much of what the developers are doing.
+* Does the board want to be involved in this process?
+* We should make sure that the board and the core devs are on the same
+track and share common goals
+* There is a clear difference between how the board sees the core
+developers and what the core developers do. New board members often ask
+how much influence they have on how core developers do their work. Very
+little.
+* The PSF owns the trademark and therefore what is done with the codebase.
+* Core developers are expected to participate in language development
+and writing code, not, say, raising money. The foundation manages that.
+
+Communicating decisions
+
+* How will this decision be communicated to the world?
+* People don't like to read long governance documents.
+* Get this sorted out well before the next pycon. The decision should be
+formally announced there, but it should be well known and accepted
+throughout the community long before that.
+
+Email is terrible, except when it isn't
+
+* The email list mechanism is both boring and annoying. Can we find
+another tool?
+* Python dev mailing list has 20K subscribers which is a scarily large
+number given the level of discussion.
+* The mailing list used to function better:
+ * The participants were not necessarily nicer; some were mean, but the
+problem solving was effective.
+ * How did those people interact together?
+ * Get old timers out of retirement to participate and model effective
+problem solving.
+ * What communication techniques can be used for problem solving that
+have intellectual depth while ensuring that everyone is heard?
+* It's easy to criticize the email lists but remember that these lists
+do in general work pretty well.
+
+Process suggestions and concerns
+
+* When someone exits a role, consider an exit interview. How do we not
+repeat mistakes of the past? (Not to put Guido on the spot.)
+* We took Guido for granted, and now need codification of those processes.
+* The PEP process is the biggest part of how we design python and it
+needs to be redesigned. We need a tighter PEP process with stages and
+rules.
+* The PEP process is more difficult than it needs to be.
+
+Conduct, and its code
+
+* The forum process dismisses and belittles people. That's not OK on the
+face of it, but worse, the people who are bullied are allies,
+contributors and advocates for this language.
+* The code of conduct feels like it is ostensibly there to protect
+people from abuse, but in fact can be used as a weapon against people
+who want to contribute
+* Python dev doesn't feel like a safe forum. We can't continue to let
+that happen. Women with deep knowledge and industry experience have real
+serious reasons to avoid this forum.
+* We need to change our interactions before a change of governance has a
+chance to work
+* There are "hot" topics that people are overly "active" in their
+participation; the code of conduct should be applied there. But let's
+remember that in general our communication mechanisms work well most of
+the time. We're capable of making good decisions.
+* If you see something that doesn't seem right on a list, mail a
+moderator; moderators don't see everything.
+* Maybe apologize once in a while. We have a responsibility to each
+other and to owning our mistakes.
+* Being a core developer is as much about establishing trust with each
+other as it does with technical ability. Work on establishing trust.
+* The metric of a successful technical decision is not its technical
+merit; it's whether everyone feels like they were heard. If it's a hard
+technical decision then you need a diverse set of opinions to get
+confidence that you've arrived at a good decision. And making people
+feel heard keeps them around and wanting to participate.
+* The code of conduct is supposed to make people feel more included but
+can make people feel excluded.
+* There are experts on this; get them involved. They're sensitive to
+being humane through this process. Pycon brought in consultants for this.
+* There is a conduct working group taking a holistic view, the board has
+approved getting help on this.
+ * How does this affect core devs? We need buy-in.
+ * The process is not far involved yet; just got budget.
+* Code of conduct enforcement should be prompt, kind and firm; don't get
+into a state where everyone is screaming at each other.
+
+From steve.dower at python.org  Sat Sep 15 23:22:12 2018
+From: steve.dower at python.org (Steve Dower)
+Date: Sat, 15 Sep 2018 20:22:12 -0700
+Subject: [python-committers] Governance Discussion #2 Notes
+Message-ID: <0f755e9b-a910-4082-e29d-8d160bfcc860@python.org>
+
+Hi all
+
+At the sprints this last week, probably unsurprisingly, we had some
+discussions relating to the future of Python's governance. Since not
+everyone could be involved, I'm going to be posting the notes from these
+meetings (taken by an independent note-taken, and reviewed/redacted by
+the participants before being made public).
+
+I want to be very clear that no final decisions were made at these
+meetings, but they were very helpful in helping those of us working on
+concrete proposals. You should start seeing PEPs 80xx filling out with
+content over the next few weeks. *Those* are the reference documents -
+these notes are simply a record of what came out of discussions.
+
+If you want to reply to and discuss particular points from these,
+*please* reply to the list, change the subject line, and clearly quote
+only the relevant part. There is a lot of content here and nothing to be
+gained by repeating it endlessly. (Also, if you want to thank me for
+copy-pasting into an email, it really is unnecessary but please do it
+off-list. We've already passed on our thanks to the note-taker as well.)
+
+
+For this second meeting, we reduced the audience to those particularly
+interested in the governance models. We had four represented there,
+which will be written up as PEPs 8010, 8011, 8012 and 8013 over the next
+few weeks. I have inserted links to the current drafts of these in the
+notes, though at this stage they are mostly still placeholders.
+
+Again, the proposals that we will vote on will be accurately described
+in the PEPs. the notes here are basically inaccurate summaries of the
+discussion, but we are sharing the notes to help everyone get a sense of
+what values we are thinking about when designing proposals, and the
+aspects of Python development that we like and the ones we want to change.
+
+This is not the thread to start arguing about details - if anything in
+this email makes you upset or nervous, please assume that the email is
+at fault and wait for the actual proposals.
+
+Cheers,
+Steve
+
+---
+
+The previous meeting showed that there were three main areas of concern:
+* What do we want the culture of the team to be?
+ * How do we want to interact with each other and with the larger Python
+community?
+ * How can we build a system that encourages those interactions?
+ * Example: if we don't use a mailing list, what do we use?
+* What's the five year plan of python?
+* How do we decide on a governance model?
+
+These are deeply interrelated questions; notes that follow attempt to
+summarize various contributor's points:
+* The answers to the first two questions can be determined by the new
+governance, whatever that is.
+* We must quickly get away from the perception that Python is leaderless.
+* We need specific structures, with specific people.
+* Both those structures and the people must be selected by a process
+that is perceived to be fair and open, without all our energy being
+consumed by debate about minutia.
+* It will be difficult to decide anything else until there is a clear
+leadership structure.
+* If we have multiple people who want a focus on async, or on
+performance, or on typing, we need some way to resolve what should be
+the focus for the next five years.
+* These all influence each other. "Where do we want Python to go?" is
+very germane to "what should the leadership model be?"
+* We can end up in a rathole. Can we identify constituencies that we
+want to serve? Education, science, kids, whatever. The structure is less
+important than choosing a structure and working towards goals that serve
+constituencies within that structure.
+* Governance is also heavily tied to communication: how do we make
+mundane decisions, how do we resolve controversies? This is all about
+communication. Other languages have specified details of their
+communication models in their governance arrangement: we put our notes
+here, we communicate with this channel, and so on
+* There may be different decision-making and communication models for
+different areas.
+* If you have a BDFL, do they take on everything Guido took on? Or are
+they the titular spokesperson who interfaces with the public, and
+delegates other decisions to committees?
+* Having no governance model is worse than having a suboptimal model.
+* The US Constitution was written knowing that the first order of
+business would be the Bill of Rights.
+ * What is our list of things that we know we need to deal with as soon
+as we have a governance model?
+ * Deciding how to commit to a governance model has highest priority.
+* Our goal should be to achieve general consensus on what looks like a
+fair voting model before we vote.
+* Wherever we end up at the end, we want the leadership to be perceived
+as legitimate and backed by the community.
+* The greater good is more important than any particular desired detail.
+* The governance model has to be backed by goodwill.
+* Should we first determine where Python is going, in order to ensure
+that the governance model supports it?
+* "I disagree with the details but I support the process" should be the goal
+* Python's governance model has been an active, top-down decision maker;
+most open source projects have a much more hands-off steering council.
+Split Guido's current roles across both formal, hands-off top-down
+model, and an organic, bottom-up community based model.
+* Do we know who wants to take a leadership role?
+ * Are there people who want to actively be involved as a BDFL, a
+triumvirate, a council, and so on?
+ * If we only have one volunteer for BDFL, this is a waste of time.
+ * Triumvirates form as a mechanism for resolving conflict amongst leaders.
+* What if no one wants to step into a leadership role?
+ * More people will be involved in lesser roles.
+ * We can probably find five people who want to be involved in a council.
+ * But perhaps nothing will happen with a leadership group of that size.
+* What about looking at it the other way: who will go along with
+whatever structure gets put in place?
+ * Those people are contributors, not leaders, and they don't have to be
+involved in the discussion.
+* Three main proposals:
+(1) BDFL with advisory council and working groups model.
+(2) No BDFL, steering committee of say three people.
+(3) pure democracy, community driven, only working groups.
+* Can we aim for initial draft PEPs October 1st?
+* Each of these can be parameterized
+* If no one is interested enough to even write a proposal, we can reject it.
+* A rejection of a specific proposal is not an endorsement of its opposite.
+* Roles granted in perpetuity? Or a cycle?
+ * This question should go into a session
+ * These are parameters to the proposals
+
+--------------------------------------------------
+
+Follow up two:
+Champion your ideas
+But remember this is not a competition; this is about doing what's best
+for Python
+Quick summary of earlier voting discussion:
+restricted to core developers who currently have commit bit (or who have
+commit bit by end of this week)
+ask people who are not affected by the decision to abstain
+private repo to post votes
+* votes will be made public after; this is not an anonymous vote
+ * voting for individual positions later will likely be anonymous
+ * this system encourages dialog
+ * many people are fine with any of the proposed options but they have
+opinions about what is best
+ * a public process helps avoid backroom complaining
+ * it seems acceptable to have public vote on governance issues
+ * quorum is whoever shows up to vote
+ * 50% + 1. Supermajority is only 14 people more, so seems unnecessary
+ * there are only 93 people in the set of possible voters
+*When creating proposals that involve a BDFL, or other role, do not name
+a person or group of people. Name a mechanism for choosing that person
+or group of people.
+*Put in as many specifics as necessary to make your proposal attractive
+*The constitution of the united states says how to update itself; do the
+same in a governance proposal.
+
+Proposal One: No BDFL, all democracy all the time
+PEP 8012 - https://www.python.org/dev/peps/pep-8012/
+* Inspired by Rust and Django
+* Working groups are self-selected from people interested in focus areas
+* Non-experts in an area trust that experts will do well in an area
+* Regular decision making process is mostly "go ahead and do it"
+* Controversial decisions require a process with documented phases: make
+a PEP, find a champion, get comments, set a deadline, decide on whether
+it is accepted, rejected or postponed
+* How does veto work? Put it to a vote.
+* The "voice of Python" is expressed not by a person, but by the design
+documents produced
+* If you don't want assignment expressions, vote for my proposal
+
+Proposal Two: external auditors
+PEP 8013 - https://www.python.org/dev/peps/pep-8013/
+* Working groups should continue to go forward ? the people who are
+working on a specific PEP, and not necessarily core developers.
+* Normal decision process should continue
+* Controversial decisions should be taken to an elected group of three
+people who are NOT core developers who are arbiters of process concerns.
+Call them the auditors.
+* Appointed for how long? A year? Years? A release? This is a parameter.
+* No term limit; you can be re-elected
+* Not a developer; an escalation mechanism for when developers cannot
+reach consensus
+* Every time you take a controversial decision to the auditors, you have
+to explain the problem in detail well enough to convince them that
+you've done due diligence about design, user impact, and so on.
+* Auditors can veto controversial decisions until there is enough
+diligence done
+* Auditors can require that a decision goes to a vote if it is still
+controversial
+* Auditors can require that more people weigh in
+* Auditors cannot mess things up by proposing new bad stuff; they can
+only slow down (hopefully bad) decisions
+* We have a list of names of notable people who would be great at this;
+whether they'd be willing is another question
+* Microsoft would offer employees for this role, but maybe core
+developers are opposed to corporate influence
+
+Proposal Three: Trivumvirate of core developers
+PEP 8011 - https://www.python.org/dev/peps/pep-8011/
+* a similar scheme to Proposal Two, but where the triumvirate must be
+core developers
+* We are too used to the BDFL model and may be worried to change it
+* Should be a diverse group of three people who can work together.
+* These people must be trusted; if that trust breaks down then we have a
+crisis ? but of course we can always change the governance model if this
+doesn't work
+* Elected for longer than a year; semi permanent
+* Role similar to previous BDFL, but with multiple people coming to
+consensus.
+
+Proposal Four: Find another BDFL
+PEP 8010 - https://www.python.org/dev/peps/pep-8010/
+* Elect a BDFL
+* Continue with working groups
+* Create a council as an advisory group to the BDFL, help find
+delegates, and so on
+* The BDFL has a broad view of the python ecosystem, and weigh in on
+large scale changes, say to the grammar, or changes that have broad
+impact, like deciding between performance and compatibility.
+* Must be seen as "the voice of Python"
+* The BDFL champions the overall vision of the evolution of the
+language, with the support of the community
+* "For life" is a misnomer. There should be a recall process or vote of
+no confidence.
+* Release manager has an important advisory role
+
+Thoughts:
+* These proposals are consistent in that most of the work is done in
+informal groups, there is some sort of leadership council who ensures
+that processes are followed.
+* The working group and PEP process is pretty much the same in all these
+proposals
+* The fundamental differences are in who has authority: (1) no
+authority, self-policing, (2) authority over process vested in
+non-developers, (3) authority vested in a group of developers and (4)
+one BDFL
+* We can always make a decision, try it, and if it doesn't have good
+outcomes, have this conversation again in two years
+* Consider the role of release manager in all of these; they have a lot
+of power in that they can file a release-blocking bug against stuff they
+don't like
+* Are there issues with how we induct/vote in new core developers?
+* Individual working groups are autonomous and have authority to decide
+who is core to their working group
+* How do we solve controversial issues? Take it to a vote, take it to
+auditors, take it to the BDFL.
+* Do we have examples of community-based open-source projects that are
+run using proposal 2? No. But we have lots of examples of that model in
+business-run projects, non-profit-run projects, and so on.
+* There are examples of members of technical committees secretly
+proposing features and then approving them, sock puppeting, and so on.
+We would want to avoid that. Similarly a BDFL will need to appoint a
+delegate if they are also proposing PEPs, and so on.
+* Need a graceful way for a leader to step down when their life requires
+them to do so. Burnout is real and insidious.
+* Be aware of conflicts of interest, double dealing. Financial self
+dealing is probably not a problem for us.
+* How do we ensure consistency in decision making?
+ * Excessive churn in leadership works against this.
+ * Having a set of core principles will help.
+ * Election campaigning for leadership roles is a mechanism for people
+to choose direction.
+* Would be helpful if every PEP had a core developer to sponsor it.
+Particularly if final approval moves to python core devs.
+
+
+From levkivskyi at gmail.com  Sun Sep 16 10:20:33 2018
+From: levkivskyi at gmail.com (Ivan Levkivskyi)
+Date: Sun, 16 Sep 2018 15:20:33 +0100
+Subject: [python-committers] New core developers: Lisa Roach and Emily
+ Morehouse-Valcarcel
+In-Reply-To: <B2638431-3792-4418-BE5E-86BE548BA489@gmail.com>
+References: <B2638431-3792-4418-BE5E-86BE548BA489@gmail.com>
+Message-ID: <CAOMjWk=9wkn5U8D3xe_LLPNWUuU5+az7YmM0BMGiAwkhVMRiYA@mail.gmail.com>
+
+Welcome, Lisa and Emily!
+
+--
+Ivan
+
+
+
+On Fri, 14 Sep 2018 at 20:29, Raymond Hettinger <raymond.hettinger at gmail.com>
+wrote:
+
+> At the developer sprints this week, we collectively decided to grant core
+> committer status to Emily and Lisa.
+>
+> Please join me in welcoming them to the team.
+>
+>
+> Raymond
+>
+>
+> -------------------------------
+>
+> Emily is the Director of Engineering at Cuttlesoft. She has previously
+> attended two Language Summits and three core development sprints at PyCon.
+> Since July, Emily has worked with Guido's guidance to implement PEP 572,
+> Assignment Expressions.  She has also worked with Eric Snow to dive into
+> CPython's runtime as well as subinterpreters.  This year at PyCon she gave
+> a talk on Python's AST.  Here is her speaker bio
+> https://us.pycon.org/2018/speaker/profile/283/ and a link to her talk
+> video: https://www.youtube.com/watch?v=XhWvz4dK4ng
+>
+> Lisa has a background in network engineering and supported the Cisco sale
+> engineer team to develop high quality Python product demonstrations.  Later
+> she moved to the Facebook security team.  This is her third core developer
+> sprint.  She and Guido are co-authors of PEP 526, Syntax for Variable
+> Annotations. Last year, she worked with Eric Smith on PEP 557, Data
+> Classes. Here is her speaker bio
+> https://us.pycon.org/2018/speaker/profile/824/  and a link to her Pycon
+> talks: https://www.youtube.com/watch?v=hKxbO4rRlpg and
+> https://www.youtube.com/watch?v=ww1UsGZV8fQ
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20180916/fde0319b/attachment.html>
+
+From andrew.svetlov at gmail.com  Sun Sep 16 03:10:59 2018
+From: andrew.svetlov at gmail.com (Andrew Svetlov)
+Date: Sun, 16 Sep 2018 09:10:59 +0200
+Subject: [python-committers] New core developers: Lisa Roach and Emily
+ Morehouse-Valcarcel
+In-Reply-To: <fa0bb8da-4ea7-70e3-ea9f-db170faceb56@hastings.org>
+References: <B2638431-3792-4418-BE5E-86BE548BA489@gmail.com>
+ <fa0bb8da-4ea7-70e3-ea9f-db170faceb56@hastings.org>
+Message-ID: <CAL3CFcUGUP90OTgUAdq2mfzsdn=D-LkQVD+aspAQjdG67jrhoQ@mail.gmail.com>
+
+Welcome!
+
+On Sat, Sep 15, 2018, 19:47 Larry Hastings <larry at hastings.org> wrote:
+
+>
+>
+> On 09/14/2018 12:28 PM, Raymond Hettinger wrote:
+>
+> At the developer sprints this week, we collectively decided to grant core committer status to Emily and Lisa.
+>
+> Please join me in welcoming them to the team.
+>
+>
+> Congratulations Emily and Lisa!  I look forward to many years of arguing
+> working with you on our favorite language.
+>
+>
+> */arry*
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+-- 
+Thanks,
+Andrew Svetlov
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20180916/6e08f031/attachment.html>
+
+From julien at palard.fr  Sun Sep 16 17:47:39 2018
+From: julien at palard.fr (Julien Palard)
+Date: Sun, 16 Sep 2018 21:47:39 +0000
+Subject: [python-committers] New core developers: Lisa Roach and Emily
+ Morehouse-Valcarcel
+In-Reply-To: <B2638431-3792-4418-BE5E-86BE548BA489@gmail.com>
+References: <B2638431-3792-4418-BE5E-86BE548BA489@gmail.com>
+Message-ID: <F4WPLQR70HfYKsSvvyY3BIZUdcrc-3RxNxnV3D3vg2T-lHoCd6i7XwbsHFx8xkP47gnMihWRBy0HP6VcTRMitGpg9q8cFNB80HXitJUWUsA=@palard.fr>
+
+> At the developer sprints this week, we collectively decided to grant core committer status to Emily and Lisa.
+
+Congratulations and Welcome!!
+
+--?
+Julien Palard
+https://mdk.fr
+
+
+From emilyemorehouse at gmail.com  Mon Sep 17 11:57:50 2018
+From: emilyemorehouse at gmail.com (Emily E Morehouse)
+Date: Mon, 17 Sep 2018 09:57:50 -0600
+Subject: [python-committers] New core developers: Lisa Roach and Emily
+ Morehouse-Valcarcel
+In-Reply-To: <F4WPLQR70HfYKsSvvyY3BIZUdcrc-3RxNxnV3D3vg2T-lHoCd6i7XwbsHFx8xkP47gnMihWRBy0HP6VcTRMitGpg9q8cFNB80HXitJUWUsA=@palard.fr>
+References: <B2638431-3792-4418-BE5E-86BE548BA489@gmail.com>
+ <F4WPLQR70HfYKsSvvyY3BIZUdcrc-3RxNxnV3D3vg2T-lHoCd6i7XwbsHFx8xkP47gnMihWRBy0HP6VcTRMitGpg9q8cFNB80HXitJUWUsA=@palard.fr>
+Message-ID: <CAKqLVmKZ-awJkmUQ+7=nf8QBGpqHBnNDSn9-a4dN_qaw2CZEhQ@mail.gmail.com>
+
+Thank you all for the congratulations, and an even bigger thank you for
+your trust. I'm beyond happy to be here!
+
+On Sun, Sep 16, 2018 at 3:48 PM Julien Palard via python-committers <
+python-committers at python.org> wrote:
+
+> > At the developer sprints this week, we collectively decided to grant
+> core committer status to Emily and Lisa.
+>
+> Congratulations and Welcome!!
+>
+> --
+> Julien Palard
+> https://mdk.fr
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20180917/9f3d14ce/attachment.html>
+

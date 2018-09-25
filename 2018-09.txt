@@ -2188,3 +2188,2422 @@ python-committers at python.org> wrote:
 An HTML attachment was scrubbed...
 URL: <http://mail.python.org/pipermail/python-committers/attachments/20180917/9f3d14ce/attachment.html>
 
+From nad at python.org  Wed Sep 19 17:12:47 2018
+From: nad at python.org (Ned Deily)
+Date: Wed, 19 Sep 2018 17:12:47 -0400
+Subject: [python-committers] 3.7.1 and 3.6.7 Releases Coming Soon
+In-Reply-To: <3ABAB3B5-6346-49F2-98F7-185303166016@python.org>
+References: <3ABAB3B5-6346-49F2-98F7-185303166016@python.org>
+Message-ID: <EB8E04F7-72C8-4846-9CCA-118E70DFD9AF@python.org>
+
+Update: not surprisingly, there have been a number of issues that have popped up during and since the sprint that we would like to ensure are addressed in 3.7.1 and 3.6.7.  In order to do so, I've been holding off on starting the releases. I think we are now getting close to having the important ones resolved so I'm going to plan on cutting off code for 3.7.1rc1 and 3.6.7rc1 by the end of 2018-09-20 (23:59 AoE).  That's roughly 38 hours from now.
+
+Thanks for all of your help in improving Python for everyone!
+
+--Ned
+
+On Sep 10, 2018, at 18:17, Ned Deily <nad at python.org> wrote:
+> I have now scheduled a 3.7.1 release candidate and rescheduled the 3.6.7 release candidate for 2018-09-18, about a week from today, and 3.7.1 final and 3.6.7 final for 2018-09-28.  That allows us to take advantage of fixes generated at the Core Developers sprint taking place this week.
+> 
+> Please review any open issues you are working on or are interested in and try to get them merged in to the 3.7 and/or 3.6 branches soon - by the beginning of next week at the latest.  As usual, if there are any issues you believe need to be addressed prior to these releases, please ensure there are open issues for them in the bug tracker (bugs.python.org) and that their priorities are set accordingly (e.g. "release blocker").
+
+--
+  Ned Deily
+  nad at python.org -- []
+
+
+From ncoghlan at gmail.com  Thu Sep 20 08:54:00 2018
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Thu, 20 Sep 2018 22:54:00 +1000
+Subject: [python-committers] Recent buildbot.python.org changes
+In-Reply-To: <CAKJDb-N05iN7RnALQZSkHQx3WwD9VuXMNKY2nZq4Qt_7gUThQA@mail.gmail.com>
+References: <CAKJDb-N05iN7RnALQZSkHQx3WwD9VuXMNKY2nZq4Qt_7gUThQA@mail.gmail.com>
+Message-ID: <CADiSq7cgB0jmoGXbL_TwkFqH-859D1MDut9AZmZC-QgKLojOEw@mail.gmail.com>
+
+On Sat, 15 Sep 2018 at 07:02, Zachary Ware <zachary.ware+pydev at gmail.com> wrote:
+>
+> Hi all,
+>
+> Most of my effort this week has gone into improving the state of
+> buildbot.python.org, which has largely gone into improving Buildbot
+> itself.
+
+[snip]
+
+Very nice!
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+
+From ncoghlan at gmail.com  Thu Sep 20 09:09:23 2018
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Thu, 20 Sep 2018 23:09:23 +1000
+Subject: [python-committers] New core developers: Lisa Roach and Emily
+ Morehouse-Valcarcel
+In-Reply-To: <B2638431-3792-4418-BE5E-86BE548BA489@gmail.com>
+References: <B2638431-3792-4418-BE5E-86BE548BA489@gmail.com>
+Message-ID: <CADiSq7doXvK6J+n_VZC=bUL8-VRyZU5DS5opYWMniM+yNMz=dA@mail.gmail.com>
+
+On Sat, 15 Sep 2018 at 05:28, Raymond Hettinger
+<raymond.hettinger at gmail.com> wrote:
+>
+> At the developer sprints this week, we collectively decided to grant core committer status to Emily and Lisa.
+
+Congratulations, and welcome!
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+
+From steve.dower at python.org  Thu Sep 20 11:34:52 2018
+From: steve.dower at python.org (Steve Dower)
+Date: Thu, 20 Sep 2018 08:34:52 -0700
+Subject: [python-committers] Azure Pipelines Linux failures on PRs
+Message-ID: <b11158f9-68b2-55f0-6540-e4f0194a3908@python.org>
+
+Hi all
+
+Just a heads-up that the Azure Pipelines build failures for Linux 
+machines are a known issue that should be fixed by the end of the week.
+
+It seems the service has become so popular since last week's 
+announcements that many more builds are being run on machines that have 
+been freshly imaged, and so they are racing with a background 'apt 
+update' command. This causes an explicit 'apt update' to (correctly) 
+fail to acquire its lock. I believe it's also related to the move from 
+running builds within Docker containers to actual VMs, which happened 
+around the same time.
+
+Until it's fixed, feel free to ignore the Azure Pipelines status for 
+Linux builds. Apologies for the inconvenience with backports not 
+auto-merging.
+
+Cheers,
+Steve
+
+From taleinat at gmail.com  Thu Sep 20 12:56:15 2018
+From: taleinat at gmail.com (Tal Einat)
+Date: Thu, 20 Sep 2018 19:56:15 +0300
+Subject: [python-committers] New core developers: Lisa Roach and Emily
+ Morehouse-Valcarcel
+In-Reply-To: <B2638431-3792-4418-BE5E-86BE548BA489@gmail.com>
+References: <B2638431-3792-4418-BE5E-86BE548BA489@gmail.com>
+Message-ID: <CALWZvp6_=JE-PY=dfkegNW+V7qPACNDWmpunWSF0wQvQRuJQUg@mail.gmail.com>
+
+Raymond Hettinger wrote:
+>
+> At the developer sprints this week, we collectively decided to grant core committer status to Emily and Lisa.
+
+Welcome aboard! Glad to have you with us :)
+
+From taleinat at gmail.com  Thu Sep 20 12:59:10 2018
+From: taleinat at gmail.com (Tal Einat)
+Date: Thu, 20 Sep 2018 19:59:10 +0300
+Subject: [python-committers] Recent buildbot.python.org changes
+In-Reply-To: <CAKJDb-N05iN7RnALQZSkHQx3WwD9VuXMNKY2nZq4Qt_7gUThQA@mail.gmail.com>
+References: <CAKJDb-N05iN7RnALQZSkHQx3WwD9VuXMNKY2nZq4Qt_7gUThQA@mail.gmail.com>
+Message-ID: <CALWZvp5pBf57OcQr6Td3LHFE5pt6ZOSZJyEQaCkFyebC4HgU6g@mail.gmail.com>
+
+Zachary Ware wrote:
+>
+> Most of my effort this week has gone into improving the state of
+> buildbot.python.org, which has largely gone into improving Buildbot
+> itself.  Here are the relevant highlights:
+>
+> [snip]
+
+Those are important improvements! I'm really happy buildbot appears to
+be receiving more attention recently.
+
+- Tal Einat
+
+From antoine at python.org  Thu Sep 20 16:25:21 2018
+From: antoine at python.org (Antoine Pitrou)
+Date: Thu, 20 Sep 2018 22:25:21 +0200
+Subject: [python-committers] Fw: CoC violation (was: Retire or reword the
+ "Beautiful is better than ugly" Zen clause)
+Message-ID: <8d30ef1f-b9d5-fa97-4480-953afd819a65@python.org>
+
+
+Hi,
+
+I'm choosing to forward this to python-committers because I don't think
+python-ideas is a reasonable place to discuss CoC decisions.
+
+I think the action taken by Brett (apparently decided with Titus and a
+mysterious "conduct working group") is not the right one:
+
+- a definitive ban is an extremely strong decision that should only be
+taken if nothing else works.  May I remind that Anatoly was able to post
+prolifically and unconstructively for several years, being warned
+several times, before being finally banned?  Comparatively, this one ban
+seems expeditive.
+
+- the reasons given, to me, don't make sense at all.  The word "n-----"
+is not a forbidden word if you want to describe, precisely, linguistics
+and the relativity of meanings (instead of actually *qualifying* someone
+or a groupe of people), which is what the OP claimed to do.  The other
+reasons look like a similar kind of over-reaction.  Even if something
+there looks inappropriate to you, it's still enough of a grey area that
+a ban is absolutely the wrong answer.
+
+I deduce that it's ok to say "slave" in a discussion instead of using an
+expression such as "the s-word".  Why one term is allowed and the other,
+not, may be clear to Americans (or, perhaps, a large fraction thereof),
+but hey, it's not clear to other people around the world.  Banning a
+(apparently) Dutch person because he doesn't understand American
+standards of offense is not only unfair, but it makes our community
+*not* inclusive of other cultures.
+
+As a French person myself, I could not, even if I wanted to, turn myself
+into an authentic American: what is obvious to you is not obvious to me
+and it would be extremely brutal and humiliating to ban me for having
+the wrong nationality and the wrong culture.  I will ask: please
+consider the work and effort that it *already* takes for other people to
+adapt to standards of discussion that are, obviously, those of a
+particular culture.  Otherwise you're raising barriers even more, not
+lowering them.
+
+
+At the end of it, it looks like we have a real moderation problem.
+python-ideas threads frequently veer out into unconstructive
+back-and-forths (and, well, that's not *only* the ethically-sensitive
+threads).  The CoC is being applied erratically, sometimes
+precipitately, by apparently overworked and emotionally exhausted
+moderators, with bad consequences on the quality of the decisions.
+
+Moderators should not become emotionally exhausted (which means we need
+a more adequate discussion system *and* a more collegial, spread out,
+team of moderators); and, if they become so, I would humbly suggest it's
+a better idea - even if not always easy to follow - to step back and
+take some rest than make decisions in such a state.  We also need real
+guidelines to the moderators as to which decision on the scale of
+possible decisions to apply, depending on severity of the offense /
+violation and on the "offendor"'s past behaviour.
+
+In the end, I hope we can set ourselves better moderation standards.  As
+for me, I find the current situation very worrying, including for my
+ability to contribute constructively to Python.  If I have to fear
+banning for every word that I say and that might be deemed inappropriate
+in the moderators' culture, I might just as well leave instead of
+feeling stressed and anguished everytime I post something.  I would not
+want to live this in paid work: why would I endure it as a volunteer,
+while my main gratification should be the pleasure taken in contributing?
+
+Regards
+
+Antoine.
+
+
+
+----- Message Transf?r? -----
+
+Date : Thu, 20 Sep 2018 11:56:05 -0700
+De : Brett Cannon <brett-+ZN9ApsXKcEdnm+yROfE0A at public.gmane.org>
+? : Jacco van Dorp <j.van.dorp-i74+SDIRvn1mR6Xm/wNWPw at public.gmane.org>
+Cc : python-ideas <python-ideas-+ZN9ApsXKcEdnm+yROfE0A at public.gmane.org>
+Groupe de discussion : gmane.comp.python.ideas
+Sujet : CoC violation (was: Retire or reword the "Beautiful is better
+than ugly" Zen clause)
+
+
+The below email was reported to the PSF board for code of conduct
+violations and then passed on to the conduct working group to decide on
+an appropriate response.
+
+Based on the WG's recommendation and after discussing it with Titus, the
+decision has been made to ban Jacco from python-ideas. Trivializing
+assault, using the n-word, and making inappropriate comments about
+someone's mental stability are all uncalled for and entirely
+unnecessary to carry on a reasonable discourse of conversation that
+remains welcoming to others.
+
+From alex.gaynor at gmail.com  Thu Sep 20 16:33:50 2018
+From: alex.gaynor at gmail.com (Alex Gaynor)
+Date: Thu, 20 Sep 2018 16:33:50 -0400
+Subject: [python-committers] Fw: CoC violation (was: Retire or reword
+ the "Beautiful is better than ugly" Zen clause)
+In-Reply-To: <8d30ef1f-b9d5-fa97-4480-953afd819a65@python.org>
+References: <8d30ef1f-b9d5-fa97-4480-953afd819a65@python.org>
+Message-ID: <CAFRnB2WeUGVF3hGLEcp-7Z904LTqYJ8AFsDkfxnfV=OnFLs_Uw@mail.gmail.com>
+
+Is there a copy of the original email? (I'm not a regular python-ideas
+reader)
+
+Based on Brett's description though, the content sounds very far over the
+line, and I wouldn't want to interfere with the WG's decision.
+
+Alex
+
+On Thu, Sep 20, 2018 at 4:25 PM Antoine Pitrou <antoine at python.org> wrote:
+
+>
+> Hi,
+>
+> I'm choosing to forward this to python-committers because I don't think
+> python-ideas is a reasonable place to discuss CoC decisions.
+>
+> I think the action taken by Brett (apparently decided with Titus and a
+> mysterious "conduct working group") is not the right one:
+>
+> - a definitive ban is an extremely strong decision that should only be
+> taken if nothing else works.  May I remind that Anatoly was able to post
+> prolifically and unconstructively for several years, being warned
+> several times, before being finally banned?  Comparatively, this one ban
+> seems expeditive.
+>
+> - the reasons given, to me, don't make sense at all.  The word "n-----"
+> is not a forbidden word if you want to describe, precisely, linguistics
+> and the relativity of meanings (instead of actually *qualifying* someone
+> or a groupe of people), which is what the OP claimed to do.  The other
+> reasons look like a similar kind of over-reaction.  Even if something
+> there looks inappropriate to you, it's still enough of a grey area that
+> a ban is absolutely the wrong answer.
+>
+> I deduce that it's ok to say "slave" in a discussion instead of using an
+> expression such as "the s-word".  Why one term is allowed and the other,
+> not, may be clear to Americans (or, perhaps, a large fraction thereof),
+> but hey, it's not clear to other people around the world.  Banning a
+> (apparently) Dutch person because he doesn't understand American
+> standards of offense is not only unfair, but it makes our community
+> *not* inclusive of other cultures.
+>
+> As a French person myself, I could not, even if I wanted to, turn myself
+> into an authentic American: what is obvious to you is not obvious to me
+> and it would be extremely brutal and humiliating to ban me for having
+> the wrong nationality and the wrong culture.  I will ask: please
+> consider the work and effort that it *already* takes for other people to
+> adapt to standards of discussion that are, obviously, those of a
+> particular culture.  Otherwise you're raising barriers even more, not
+> lowering them.
+>
+>
+> At the end of it, it looks like we have a real moderation problem.
+> python-ideas threads frequently veer out into unconstructive
+> back-and-forths (and, well, that's not *only* the ethically-sensitive
+> threads).  The CoC is being applied erratically, sometimes
+> precipitately, by apparently overworked and emotionally exhausted
+> moderators, with bad consequences on the quality of the decisions.
+>
+> Moderators should not become emotionally exhausted (which means we need
+> a more adequate discussion system *and* a more collegial, spread out,
+> team of moderators); and, if they become so, I would humbly suggest it's
+> a better idea - even if not always easy to follow - to step back and
+> take some rest than make decisions in such a state.  We also need real
+> guidelines to the moderators as to which decision on the scale of
+> possible decisions to apply, depending on severity of the offense /
+> violation and on the "offendor"'s past behaviour.
+>
+> In the end, I hope we can set ourselves better moderation standards.  As
+> for me, I find the current situation very worrying, including for my
+> ability to contribute constructively to Python.  If I have to fear
+> banning for every word that I say and that might be deemed inappropriate
+> in the moderators' culture, I might just as well leave instead of
+> feeling stressed and anguished everytime I post something.  I would not
+> want to live this in paid work: why would I endure it as a volunteer,
+> while my main gratification should be the pleasure taken in contributing?
+>
+> Regards
+>
+> Antoine.
+>
+>
+>
+> ----- Message Transf?r? -----
+>
+> Date : Thu, 20 Sep 2018 11:56:05 -0700
+> De : Brett Cannon <brett-+ZN9ApsXKcEdnm+yROfE0A at public.gmane.org>
+> ? : Jacco van Dorp <j.van.dorp-i74+SDIRvn1mR6Xm/wNWPw at public.gmane.org>
+> Cc : python-ideas <python-ideas-+ZN9ApsXKcEdnm+yROfE0A at public.gmane.org>
+> Groupe de discussion : gmane.comp.python.ideas
+> Sujet : CoC violation (was: Retire or reword the "Beautiful is better
+> than ugly" Zen clause)
+>
+>
+> The below email was reported to the PSF board for code of conduct
+> violations and then passed on to the conduct working group to decide on
+> an appropriate response.
+>
+> Based on the WG's recommendation and after discussing it with Titus, the
+> decision has been made to ban Jacco from python-ideas. Trivializing
+> assault, using the n-word, and making inappropriate comments about
+> someone's mental stability are all uncalled for and entirely
+> unnecessary to carry on a reasonable discourse of conversation that
+> remains welcoming to others.
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+
+
+-- 
+All that is necessary for evil to succeed is for good people to do nothing.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20180920/237c403b/attachment-0001.html>
+
+From antoine at python.org  Thu Sep 20 16:37:45 2018
+From: antoine at python.org (Antoine Pitrou)
+Date: Thu, 20 Sep 2018 22:37:45 +0200
+Subject: [python-committers] Fw: CoC violation (was: Retire or reword
+ the "Beautiful is better than ugly" Zen clause)
+In-Reply-To: <CAFRnB2WeUGVF3hGLEcp-7Z904LTqYJ8AFsDkfxnfV=OnFLs_Uw@mail.gmail.com>
+References: <8d30ef1f-b9d5-fa97-4480-953afd819a65@python.org>
+ <CAFRnB2WeUGVF3hGLEcp-7Z904LTqYJ8AFsDkfxnfV=OnFLs_Uw@mail.gmail.com>
+Message-ID: <d18e850e-cd87-95d7-e29f-676c815af4e1@python.org>
+
+
+Apparently it's this one:
+https://mail.python.org/pipermail/python-ideas/2018-September/053482.html
+
+By the way, regardless of this single case, I would like people to think
+of the broader issue we're having.  It's more than a single contentious
+decision.
+
+Regards
+
+Antoine.
+
+
+Le 20/09/2018 ? 22:33, Alex Gaynor a ?crit?:
+> Is there a copy of the original email? (I'm not a regular python-ideas
+> reader)
+> 
+> Based on Brett's description though, the content sounds very far over
+> the line, and I wouldn't want to interfere with the WG's decision.
+> 
+> Alex
+> 
+> On Thu, Sep 20, 2018 at 4:25 PM Antoine Pitrou <antoine at python.org
+> <mailto:antoine at python.org>> wrote:
+> 
+> 
+>     Hi,
+> 
+>     I'm choosing to forward this to python-committers because I don't think
+>     python-ideas is a reasonable place to discuss CoC decisions.
+> 
+>     I think the action taken by Brett (apparently decided with Titus and a
+>     mysterious "conduct working group") is not the right one:
+> 
+>     - a definitive ban is an extremely strong decision that should only be
+>     taken if nothing else works.? May I remind that Anatoly was able to post
+>     prolifically and unconstructively for several years, being warned
+>     several times, before being finally banned?? Comparatively, this one ban
+>     seems expeditive.
+> 
+>     - the reasons given, to me, don't make sense at all.? The word "n-----"
+>     is not a forbidden word if you want to describe, precisely, linguistics
+>     and the relativity of meanings (instead of actually *qualifying* someone
+>     or a groupe of people), which is what the OP claimed to do.? The other
+>     reasons look like a similar kind of over-reaction.? Even if something
+>     there looks inappropriate to you, it's still enough of a grey area that
+>     a ban is absolutely the wrong answer.
+> 
+>     I deduce that it's ok to say "slave" in a discussion instead of using an
+>     expression such as "the s-word".? Why one term is allowed and the other,
+>     not, may be clear to Americans (or, perhaps, a large fraction thereof),
+>     but hey, it's not clear to other people around the world.? Banning a
+>     (apparently) Dutch person because he doesn't understand American
+>     standards of offense is not only unfair, but it makes our community
+>     *not* inclusive of other cultures.
+> 
+>     As a French person myself, I could not, even if I wanted to, turn myself
+>     into an authentic American: what is obvious to you is not obvious to me
+>     and it would be extremely brutal and humiliating to ban me for having
+>     the wrong nationality and the wrong culture.? I will ask: please
+>     consider the work and effort that it *already* takes for other people to
+>     adapt to standards of discussion that are, obviously, those of a
+>     particular culture.? Otherwise you're raising barriers even more, not
+>     lowering them.
+> 
+> 
+>     At the end of it, it looks like we have a real moderation problem.
+>     python-ideas threads frequently veer out into unconstructive
+>     back-and-forths (and, well, that's not *only* the ethically-sensitive
+>     threads).? The CoC is being applied erratically, sometimes
+>     precipitately, by apparently overworked and emotionally exhausted
+>     moderators, with bad consequences on the quality of the decisions.
+> 
+>     Moderators should not become emotionally exhausted (which means we need
+>     a more adequate discussion system *and* a more collegial, spread out,
+>     team of moderators); and, if they become so, I would humbly suggest it's
+>     a better idea - even if not always easy to follow - to step back and
+>     take some rest than make decisions in such a state.? We also need real
+>     guidelines to the moderators as to which decision on the scale of
+>     possible decisions to apply, depending on severity of the offense /
+>     violation and on the "offendor"'s past behaviour.
+> 
+>     In the end, I hope we can set ourselves better moderation standards.? As
+>     for me, I find the current situation very worrying, including for my
+>     ability to contribute constructively to Python.? If I have to fear
+>     banning for every word that I say and that might be deemed inappropriate
+>     in the moderators' culture, I might just as well leave instead of
+>     feeling stressed and anguished everytime I post something.? I would not
+>     want to live this in paid work: why would I endure it as a volunteer,
+>     while my main gratification should be the pleasure taken in
+>     contributing?
+> 
+>     Regards
+> 
+>     Antoine.
+> 
+> 
+> 
+>     ----- Message Transf?r? -----
+> 
+>     Date : Thu, 20 Sep 2018 11:56:05 -0700
+>     De : Brett Cannon <brett-+ZN9ApsXKcEdnm+yROfE0A at public.gmane.org
+>     <mailto:brett-%2BZN9ApsXKcEdnm%2ByROfE0A at public.gmane.org>>
+>     ? : Jacco van Dorp
+>     <j.van.dorp-i74+SDIRvn1mR6Xm/wNWPw at public.gmane.org
+>     <mailto:wNWPw at public.gmane.org>>
+>     Cc : python-ideas
+>     <python-ideas-+ZN9ApsXKcEdnm+yROfE0A at public.gmane.org
+>     <mailto:python-ideas-%2BZN9ApsXKcEdnm%2ByROfE0A at public.gmane.org>>
+>     Groupe de discussion : gmane.comp.python.ideas
+>     Sujet : CoC violation (was: Retire or reword the "Beautiful is better
+>     than ugly" Zen clause)
+> 
+> 
+>     The below email was reported to the PSF board for code of conduct
+>     violations and then passed on to the conduct working group to decide on
+>     an appropriate response.
+> 
+>     Based on the WG's recommendation and after discussing it with Titus, the
+>     decision has been made to ban Jacco from python-ideas. Trivializing
+>     assault, using the n-word, and making inappropriate comments about
+>     someone's mental stability are all uncalled for and entirely
+>     unnecessary to carry on a reasonable discourse of conversation that
+>     remains welcoming to others.
+>     _______________________________________________
+>     python-committers mailing list
+>     python-committers at python.org <mailto:python-committers at python.org>
+>     https://mail.python.org/mailman/listinfo/python-committers
+>     Code of Conduct: https://www.python.org/psf/codeofconduct/
+> 
+> 
+> 
+> -- 
+> All that is necessary for evil to succeed is for good people to do nothing.
+
+From donald at stufft.io  Thu Sep 20 16:57:19 2018
+From: donald at stufft.io (Donald Stufft)
+Date: Thu, 20 Sep 2018 16:57:19 -0400
+Subject: [python-committers] Fw: CoC violation (was: Retire or reword
+ the "Beautiful is better than ugly" Zen clause)
+In-Reply-To: <8d30ef1f-b9d5-fa97-4480-953afd819a65@python.org>
+References: <8d30ef1f-b9d5-fa97-4480-953afd819a65@python.org>
+Message-ID: <6277721B-70CD-44B2-B42C-5A61C8C3073C@stufft.io>
+
+
+
+> On Sep 20, 2018, at 4:25 PM, Antoine Pitrou <antoine at python.org> wrote:
+> 
+> I think the action taken by Brett (apparently decided with Titus and a
+> mysterious "conduct working group") is not the right one:
+
+
+Just FTR, the conduct working group is the PSFs CoC Working Group, which I believe had an open call for membership at some point. I think it?s still getting setup so it hasn?t been added to the list of WGs yet or anything, but it was approved awhile back: https://www.python.org/psf/records/board/minutes/2017-08-22/#code-of-conduct-work-group <https://www.python.org/psf/records/board/minutes/2017-08-22/#code-of-conduct-work-group>
+
+At least, I?m pretty sure that?s what Brett means.
+
+With regards to the action, it seems reasonable to me, particularly since it was not a one-off done by one person, but was an action taken after discussion amongst the moderators and the CoC WG.
+
+I do agree that our tools are bad, and we need to come up with new ones. With limited moderation tooling we have limited ability to head off unproductive discussions before they delve too far into the bad end of the world.
+
+I think if there is concern about this, the best forum is probably discussion with the CoC WG, and probably not python-committers.
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20180920/374530e2/attachment.html>
+
+From yselivanov.ml at gmail.com  Thu Sep 20 16:57:41 2018
+From: yselivanov.ml at gmail.com (Yury Selivanov)
+Date: Thu, 20 Sep 2018 16:57:41 -0400
+Subject: [python-committers] Fw: CoC violation (was: Retire or reword
+ the "Beautiful is better than ugly" Zen clause)
+In-Reply-To: <d18e850e-cd87-95d7-e29f-676c815af4e1@python.org>
+References: <8d30ef1f-b9d5-fa97-4480-953afd819a65@python.org>
+ <CAFRnB2WeUGVF3hGLEcp-7Z904LTqYJ8AFsDkfxnfV=OnFLs_Uw@mail.gmail.com>
+ <d18e850e-cd87-95d7-e29f-676c815af4e1@python.org>
+Message-ID: <CA+St6D352bApaVZq0gZHzK=L_=5qj44V_KYk0UOO6Thp5=GvKQ@mail.gmail.com>
+
+On Thu, Sep 20, 2018 at 4:37 PM Antoine Pitrou <antoine at python.org> wrote:
+>
+>
+> Apparently it's this one:
+> https://mail.python.org/pipermail/python-ideas/2018-September/053482.html
+
+After reading the original email I, personally, am in support of the
+WG & Brett's decision.
+
+I also think that we need a neutral third-party to enforce CoC; it's
+unfortunate that Brett is the one who has to be dragged though this.
+
+>
+> By the way, regardless of this single case, I would like people to think
+> of the broader issue we're having.  It's more than a single contentious
+> decision.
+
+This is why we want to try Discourse for the upcoming governance
+discussions.  We'll see if its tools to organize and moderate
+discussions (and some would agree better UX) make a difference.
+
+Yury
+
+Yury
+
+From brett at python.org  Thu Sep 20 17:17:48 2018
+From: brett at python.org (Brett Cannon)
+Date: Thu, 20 Sep 2018 14:17:48 -0700
+Subject: [python-committers] Fw: CoC violation (was: Retire or reword
+ the "Beautiful is better than ugly" Zen clause)
+In-Reply-To: <6277721B-70CD-44B2-B42C-5A61C8C3073C@stufft.io>
+References: <8d30ef1f-b9d5-fa97-4480-953afd819a65@python.org>
+ <6277721B-70CD-44B2-B42C-5A61C8C3073C@stufft.io>
+Message-ID: <CAP1=2W4C7xA9XPwN2Nu+EHwUkOvqekfiRO86mqEq=m7bPPQ0uw@mail.gmail.com>
+
+On Thu, 20 Sep 2018 at 13:57 Donald Stufft <donald at stufft.io> wrote:
+
+>
+>
+> On Sep 20, 2018, at 4:25 PM, Antoine Pitrou <antoine at python.org> wrote:
+>
+> I think the action taken by Brett (apparently decided with Titus and a
+> mysterious "conduct working group") is not the right one:
+>
+>
+>
+> Just FTR, the conduct working group is the PSFs CoC Working Group, which I
+> believe had an open call for membership at some point. I think it?s still
+> getting setup so it hasn?t been added to the list of WGs yet or anything,
+> but it was approved awhile back:
+> https://www.python.org/psf/records/board/minutes/2017-08-22/#code-of-conduct-work-group
+>
+> At least, I?m pretty sure that?s what Brett means.
+>
+
+Yep, that's exactly who I meant. Didn't realize the group had not been
+added to the WG list online yet.
+
+
+> With regards to the action, it seems reasonable to me, particularly since
+> it was not a one-off done by one person, but was an action taken after
+> discussion amongst the moderators and the CoC WG.
+>
+
+I will also say I didn't voice an opinion or participate in the discussion
+on the conduct WG when deciding how to handle it (beyond outlining our
+levels of escalation when handling these situations).
+
+So to Yury's point of neutrality in another email, I stayed out of the
+decision and basically just coordinated the handling of it.
+
+
+>
+> I do agree that our tools are bad, and we need to come up with new ones.
+> With limited moderation tooling we have limited ability to head off
+> unproductive discussions before they delve too far into the bad end of the
+> world.
+>
+
+My hope is we will end up with something that allows us to centralize
+managing things like CoC issues so there is a consistent neutral party to
+manage all of this. It's something I'm actively talking to the conduct WG
+about in hopes that they can support that somehow and help make it happen.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20180920/0c29dbbc/attachment-0001.html>
+
+From ethan at stoneleaf.us  Thu Sep 20 18:35:41 2018
+From: ethan at stoneleaf.us (Ethan Furman)
+Date: Thu, 20 Sep 2018 15:35:41 -0700
+Subject: [python-committers] Fw: CoC violation (was: Retire or reword
+ the "Beautiful is better than ugly" Zen clause)
+In-Reply-To: <CAP1=2W4C7xA9XPwN2Nu+EHwUkOvqekfiRO86mqEq=m7bPPQ0uw@mail.gmail.com>
+References: <8d30ef1f-b9d5-fa97-4480-953afd819a65@python.org>
+ <6277721B-70CD-44B2-B42C-5A61C8C3073C@stufft.io>
+ <CAP1=2W4C7xA9XPwN2Nu+EHwUkOvqekfiRO86mqEq=m7bPPQ0uw@mail.gmail.com>
+Message-ID: <5BA420BD.8030802@stoneleaf.us>
+
+On 09/20/2018 02:17 PM, Brett Cannon wrote:
+
+> I will also say I didn't voice an opinion or participate in the discussion on the conduct WG when deciding how to handle
+> it (beyond outlining our levels of escalation when handling these situations).
+
+One thing missing from the ban notification is the length of time?  If this is the first offense it should only be two 
+months, right?
+
+And I have to argue against his use of the n-word* as being part of the reason -- he wasn't calling anybody that, he was 
+using the word as an example of a taboo in one culture that is not in others.  Using that as part of the reason to ban 
+him helps me understand the sentiment voiced at the sprints of the feeling that the CoC is a weapon waiting to shoot us 
+down.
+
+I fully appreciate the frustration of trying to moderate these lists with our limited tools, but we still need to be 
+careful of the reasons we use for moderation actions.
+
+Does the CoC WG have an email address?  I'm happy to forward my concerns to them about their decision.
+
+--
+~Ethan~
+
+
+* Before this I wouldn't have spelled out the n-word anyway, but now I'm afraid to.
+
+From antoine at python.org  Thu Sep 20 18:39:18 2018
+From: antoine at python.org (Antoine Pitrou)
+Date: Fri, 21 Sep 2018 00:39:18 +0200
+Subject: [python-committers] sprints summary?
+In-Reply-To: <5BA420BD.8030802@stoneleaf.us>
+References: <8d30ef1f-b9d5-fa97-4480-953afd819a65@python.org>
+ <6277721B-70CD-44B2-B42C-5A61C8C3073C@stufft.io>
+ <CAP1=2W4C7xA9XPwN2Nu+EHwUkOvqekfiRO86mqEq=m7bPPQ0uw@mail.gmail.com>
+ <5BA420BD.8030802@stoneleaf.us>
+Message-ID: <e5c98240-e732-eb29-f2d9-ea3c17b99f23@python.org>
+
+
+Le 21/09/2018 ? 00:35, Ethan Furman a ?crit?:
+> 
+> And I have to argue against his use of the n-word* as being part of the reason -- he wasn't calling anybody that, he was 
+> using the word as an example of a taboo in one culture that is not in others.  Using that as part of the reason to ban 
+> him helps me understand the sentiment voiced at the sprints of the feeling that the CoC is a weapon waiting to shoot us 
+> down.
+
+Is there a summary of the sprints somewhere or is it planned to post one
+somewhere?  It would be more to read a bit more about the discussions
+that took place.
+
+Regards
+
+Antoine.
+
+From antoine at python.org  Thu Sep 20 18:43:18 2018
+From: antoine at python.org (Antoine Pitrou)
+Date: Fri, 21 Sep 2018 00:43:18 +0200
+Subject: [python-committers] ban duration
+In-Reply-To: <5BA420BD.8030802@stoneleaf.us>
+References: <8d30ef1f-b9d5-fa97-4480-953afd819a65@python.org>
+ <6277721B-70CD-44B2-B42C-5A61C8C3073C@stufft.io>
+ <CAP1=2W4C7xA9XPwN2Nu+EHwUkOvqekfiRO86mqEq=m7bPPQ0uw@mail.gmail.com>
+ <5BA420BD.8030802@stoneleaf.us>
+Message-ID: <d186c9bb-485b-7f52-8ac2-5271cad3b577@python.org>
+
+
+Le 21/09/2018 ? 00:35, Ethan Furman a ?crit?:
+> On 09/20/2018 02:17 PM, Brett Cannon wrote:
+> 
+>> I will also say I didn't voice an opinion or participate in the discussion on the conduct WG when deciding how to handle
+>> it (beyond outlining our levels of escalation when handling these situations).
+> 
+> One thing missing from the ban notification is the length of time?  If this is the first offense it should only be two 
+> months, right?
+
+Note: in the few online discussion forums that I have seen, the ban
+duration for a first offense would be more on the order of a couple
+days, perhaps a week.  Two months is, arguably, very long already.
+
+Just my 2 cents, though.  There *should* be a ban duration in any case.
+
+Regards
+
+Antoine.
+
+From steve.dower at python.org  Thu Sep 20 18:47:36 2018
+From: steve.dower at python.org (Steve Dower)
+Date: Thu, 20 Sep 2018 15:47:36 -0700
+Subject: [python-committers] sprints summary?
+In-Reply-To: <e5c98240-e732-eb29-f2d9-ea3c17b99f23@python.org>
+References: <8d30ef1f-b9d5-fa97-4480-953afd819a65@python.org>
+ <6277721B-70CD-44B2-B42C-5A61C8C3073C@stufft.io>
+ <CAP1=2W4C7xA9XPwN2Nu+EHwUkOvqekfiRO86mqEq=m7bPPQ0uw@mail.gmail.com>
+ <5BA420BD.8030802@stoneleaf.us>
+ <e5c98240-e732-eb29-f2d9-ea3c17b99f23@python.org>
+Message-ID: <6b531e5b-ddd8-80f7-ebb4-fa0f0b14123a@python.org>
+
+On 20Sep2018 1539, Antoine Pitrou wrote:
+> Is there a summary of the sprints somewhere or is it planned to post one
+> somewhere?  It would be more to read a bit more about the discussions
+> that took place.
+
+Currently debating the contents of the high-level blog post among those 
+who were there. Once that's settled, it'll go to the PSF to be posted on 
+their site. But it's going to be very high level (and is currently 
+becoming more high level), so you won't find it very informative I would 
+expect.
+
+Mariatta has posted a good summary of her involvement at 
+https://mariatta.ca/core-sprint-2018-part-1.html (with more parts to 
+come), and I believe one or two other people are also planning to write 
+posts.
+
+The most summary we have of the discussions are in the notes I posted 
+earlier to -committers. Official results of the discussions will go into 
+the PEPs, hopefully this week so that there's some time to review before 
+they are locked down for us to choose between.
+
+Cheers,
+Steve
+
+From chris.jerdonek at gmail.com  Thu Sep 20 19:25:27 2018
+From: chris.jerdonek at gmail.com (Chris Jerdonek)
+Date: Thu, 20 Sep 2018 16:25:27 -0700
+Subject: [python-committers] Fw: CoC violation (was: Retire or reword
+ the "Beautiful is better than ugly" Zen clause)
+In-Reply-To: <5BA420BD.8030802@stoneleaf.us>
+References: <8d30ef1f-b9d5-fa97-4480-953afd819a65@python.org>
+ <6277721B-70CD-44B2-B42C-5A61C8C3073C@stufft.io>
+ <CAP1=2W4C7xA9XPwN2Nu+EHwUkOvqekfiRO86mqEq=m7bPPQ0uw@mail.gmail.com>
+ <5BA420BD.8030802@stoneleaf.us>
+Message-ID: <CAOTb1wc+6+Wph2fj2SYo7zw0cZnTJ=ZyhyNgS_5EhZoX11TWMA@mail.gmail.com>
+
+FWIW, as an American I don't think it's appropriate to spell out the
+n-word in a mailing list, even if it's not being directed at anybody
+or even just being used as an example. There's no need, and it can
+only cause discomfort or worse.
+
+--Chris
+
+
+On Thu, Sep 20, 2018 at 3:35 PM, Ethan Furman <ethan at stoneleaf.us> wrote:
+> On 09/20/2018 02:17 PM, Brett Cannon wrote:
+>
+>> I will also say I didn't voice an opinion or participate in the discussion
+>> on the conduct WG when deciding how to handle
+>> it (beyond outlining our levels of escalation when handling these
+>> situations).
+>
+>
+> One thing missing from the ban notification is the length of time?  If this
+> is the first offense it should only be two months, right?
+>
+> And I have to argue against his use of the n-word* as being part of the
+> reason -- he wasn't calling anybody that, he was using the word as an
+> example of a taboo in one culture that is not in others.  Using that as part
+> of the reason to ban him helps me understand the sentiment voiced at the
+> sprints of the feeling that the CoC is a weapon waiting to shoot us down.
+>
+> I fully appreciate the frustration of trying to moderate these lists with
+> our limited tools, but we still need to be careful of the reasons we use for
+> moderation actions.
+>
+> Does the CoC WG have an email address?  I'm happy to forward my concerns to
+> them about their decision.
+>
+> --
+> ~Ethan~
+>
+>
+> * Before this I wouldn't have spelled out the n-word anyway, but now I'm
+> afraid to.
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+
+From njs at pobox.com  Thu Sep 20 20:06:37 2018
+From: njs at pobox.com (Nathaniel Smith)
+Date: Thu, 20 Sep 2018 17:06:37 -0700
+Subject: [python-committers] Fw: CoC violation (was: Retire or reword
+ the "Beautiful is better than ugly" Zen clause)
+In-Reply-To: <5BA420BD.8030802@stoneleaf.us>
+References: <8d30ef1f-b9d5-fa97-4480-953afd819a65@python.org>
+ <6277721B-70CD-44B2-B42C-5A61C8C3073C@stufft.io>
+ <CAP1=2W4C7xA9XPwN2Nu+EHwUkOvqekfiRO86mqEq=m7bPPQ0uw@mail.gmail.com>
+ <5BA420BD.8030802@stoneleaf.us>
+Message-ID: <CAPJVwBk6mcrj8VCtN+HbgB_N7ZoKHGOwDQjQ0NeWMabgX_OhKQ@mail.gmail.com>
+
+On Thu, Sep 20, 2018 at 3:35 PM, Ethan Furman <ethan at stoneleaf.us> wrote:
+> And I have to argue against his use of the n-word* as being part of the
+> reason -- he wasn't calling anybody that, he was using the word as an
+> example of a taboo in one culture that is not in others.  Using that as part
+> of the reason to ban him helps me understand the sentiment voiced at the
+> sprints of the feeling that the CoC is a weapon waiting to shoot us down.
+
+But using that word, even with quote marks around it, *is* a serious
+taboo in American culture. And partly this is because "white person
+who finds convoluted excuse to use the n-word" is such a cliche that
+the affected folks have given up with arguing about it and just don't
+want to hear it anywhere, in or out of quotes, with or without an
+excuse attached. There's no reservoir of good-faith left to fall back
+on.
+
+Now sure, that taboo is an American thing, and I wouldn't support
+automatically banning someone who used it in genuine ignorance, was
+repentant when they realized what they'd done, etc. Context absolutely
+matters. But in context here it's clear that Jacco knew perfectly well
+that he was violating a taboo, and I can't read his usage as anything
+but an intentional provocation. Especially when combined with all the
+other things in his email.
+
+-n
+
+-- 
+Nathaniel J. Smith -- https://vorpus.org
+
+From ethan at stoneleaf.us  Thu Sep 20 20:25:20 2018
+From: ethan at stoneleaf.us (Ethan Furman)
+Date: Thu, 20 Sep 2018 17:25:20 -0700
+Subject: [python-committers] Fw: CoC violation (was: Retire or reword
+ the "Beautiful is better than ugly" Zen clause)
+In-Reply-To: <CAPJVwBk6mcrj8VCtN+HbgB_N7ZoKHGOwDQjQ0NeWMabgX_OhKQ@mail.gmail.com>
+References: <8d30ef1f-b9d5-fa97-4480-953afd819a65@python.org>
+ <6277721B-70CD-44B2-B42C-5A61C8C3073C@stufft.io>
+ <CAP1=2W4C7xA9XPwN2Nu+EHwUkOvqekfiRO86mqEq=m7bPPQ0uw@mail.gmail.com>
+ <5BA420BD.8030802@stoneleaf.us>
+ <CAPJVwBk6mcrj8VCtN+HbgB_N7ZoKHGOwDQjQ0NeWMabgX_OhKQ@mail.gmail.com>
+Message-ID: <5BA43A70.4050308@stoneleaf.us>
+
+On 09/20/2018 05:06 PM, Nathaniel Smith wrote:
+> On Thu, Sep 20, 2018 at 3:35 PM, Ethan Furman wrote:
+
+>> And I have to argue against his use of the n-word* as being part of the
+>> reason -- he wasn't calling anybody that, he was using the word as an
+>> example of a taboo in one culture that is not in others.  Using that as part
+>> of the reason to ban him helps me understand the sentiment voiced at the
+>> sprints of the feeling that the CoC is a weapon waiting to shoot us down.
+>
+> But using that word, even with quote marks around it, *is* a serious
+> taboo in American culture. And partly this is because "white person
+> who finds convoluted excuse to use the n-word" is such a cliche that
+> the affected folks have given up with arguing about it and just don't
+> want to hear it anywhere, in or out of quotes, with or without an
+> excuse attached. There's no reservoir of good-faith left to fall back
+> on.
+>
+> Now sure, that taboo is an American thing, and I wouldn't support
+> automatically banning someone who used it in genuine ignorance, was
+> repentant when they realized what they'd done, etc. Context absolutely
+> matters. But in context here it's clear that Jacco knew perfectly well
+> that he was violating a taboo, and I can't read his usage as anything
+> but an intentional provocation. Especially when combined with all the
+> other things in his email.
+
+You make good points.  -Ideas is not, after all, a sociology course, and he did already know that.
+
+I withdraw my objection.
+
+--
+~Ethan~
+
+
+From brett at python.org  Thu Sep 20 20:47:44 2018
+From: brett at python.org (Brett Cannon)
+Date: Thu, 20 Sep 2018 17:47:44 -0700
+Subject: [python-committers] Fw: CoC violation (was: Retire or reword
+ the "Beautiful is better than ugly" Zen clause)
+In-Reply-To: <5BA420BD.8030802@stoneleaf.us>
+References: <8d30ef1f-b9d5-fa97-4480-953afd819a65@python.org>
+ <6277721B-70CD-44B2-B42C-5A61C8C3073C@stufft.io>
+ <CAP1=2W4C7xA9XPwN2Nu+EHwUkOvqekfiRO86mqEq=m7bPPQ0uw@mail.gmail.com>
+ <5BA420BD.8030802@stoneleaf.us>
+Message-ID: <CAP1=2W5NPDs5dQQgCLB4onf04P+0nN4HynjAq4mhxeOk2eXX9Q@mail.gmail.com>
+
+On Thu, 20 Sep 2018 at 15:35 Ethan Furman <ethan at stoneleaf.us> wrote:
+
+> On 09/20/2018 02:17 PM, Brett Cannon wrote:
+>
+> > I will also say I didn't voice an opinion or participate in the
+> discussion on the conduct WG when deciding how to handle
+> > it (beyond outlining our levels of escalation when handling these
+> situations).
+>
+> One thing missing from the ban notification is the length of time?  If
+> this is the first offense it should only be two
+> months, right?
+>
+
+The request was for a permanent ban based on the severity and calculated
+infraction that it was. (And we have always been clear on the list that we
+reserved the right to skip steps based on severity, so this is not a change
+in policy.)
+
+
+>
+> And I have to argue against his use of the n-word* as being part of the
+> reason -- he wasn't calling anybody that, he was
+> using the word as an example of a taboo in one culture that is not in
+> others.  Using that as part of the reason to ban
+> him helps me understand the sentiment voiced at the sprints of the feeling
+> that the CoC is a weapon waiting to shoot us
+> down.
+>
+> I fully appreciate the frustration of trying to moderate these lists with
+> our limited tools, but we still need to be
+> careful of the reasons we use for moderation actions.
+>
+
+Which is why I'm hoping we can eventually get a clear enforcement guide
+written for all the mailing lists and then have a specific group of people
+manage all of these incident reports and deciding how to handle them for
+consistency. Otherwise we have our current situation where every list admin
+has to figure this out for themselves and do the best they can on their own.
+
+And it's all stuff I'm bringing up in the WG, but I also have to stop
+drowning in conduct issues before I can put in the emotional energy to even
+have that conversation.
+
+I already lost sleep last night over having to institute this ban knowing
+there was a strong chance of a backlash based on how things have been going
+as of late. And I now dread reading my personal email, half-expecting there
+to be yet another issue I have to go deal with. At the current rate I'm
+going I will have to do my month-long volunteer detox in October which I
+really don't want to do as that's probably when we are going to discuss
+governance proposals and I want to participate in those discussions, but I
+also would rather bow out of those than burn out entirely.
+
+And I quickly want to say thanks to everyone who has checked in with me to
+ask how I'm doing and offering to somehow help (which my answer to the
+latter is "get the Discourse test instance up"). And thanks to Mariatta,
+Zach, and anyone else who have been leading on GitHub and bugs.python.org
+where people are still acting out.
+
+
+> Does the CoC WG have an email address?  I'm happy to forward my concerns
+> to them about their decision.
+>
+
+conduct-wg at python.org.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20180920/6dbd885a/attachment.html>
+
+From ethan at stoneleaf.us  Thu Sep 20 21:11:38 2018
+From: ethan at stoneleaf.us (Ethan Furman)
+Date: Thu, 20 Sep 2018 18:11:38 -0700
+Subject: [python-committers] Fw: CoC violation (was: Retire or reword
+ the "Beautiful is better than ugly" Zen clause)
+In-Reply-To: <CAP1=2W5NPDs5dQQgCLB4onf04P+0nN4HynjAq4mhxeOk2eXX9Q@mail.gmail.com>
+References: <8d30ef1f-b9d5-fa97-4480-953afd819a65@python.org>
+ <6277721B-70CD-44B2-B42C-5A61C8C3073C@stufft.io>
+ <CAP1=2W4C7xA9XPwN2Nu+EHwUkOvqekfiRO86mqEq=m7bPPQ0uw@mail.gmail.com>
+ <5BA420BD.8030802@stoneleaf.us>
+ <CAP1=2W5NPDs5dQQgCLB4onf04P+0nN4HynjAq4mhxeOk2eXX9Q@mail.gmail.com>
+Message-ID: <5BA4454A.8010206@stoneleaf.us>
+
+On 09/20/2018 05:47 PM, Brett Cannon wrote:
+
+> Which is why I'm hoping we can eventually get a clear enforcement guide written for all the mailing lists and then have
+> a specific group of people manage all of these incident reports and deciding how to handle them for consistency.
+> Otherwise we have our current situation where every list admin has to figure this out for themselves and do the best
+> they can on their own.
+
+> conduct-wg at python.org.
+
+I'll start running issues from -list by them to get advice/counsel.  No reason we can't opt-in to consistency.  :)
+
+--
+~Ethan~
+
+From christian at python.org  Fri Sep 21 05:37:25 2018
+From: christian at python.org (Christian Heimes)
+Date: Fri, 21 Sep 2018 11:37:25 +0200
+Subject: [python-committers] 3.7.1 and 3.6.7 Releases Coming Soon
+In-Reply-To: <EB8E04F7-72C8-4846-9CCA-118E70DFD9AF@python.org>
+References: <3ABAB3B5-6346-49F2-98F7-185303166016@python.org>
+ <EB8E04F7-72C8-4846-9CCA-118E70DFD9AF@python.org>
+Message-ID: <b1623583-bc48-b7e4-a522-a23996027f19@python.org>
+
+On 19/09/2018 23.12, Ned Deily wrote:
+> Update: not surprisingly, there have been a number of issues that have popped up during and since the sprint that we would like to ensure are addressed in 3.7.1 and 3.6.7.  In order to do so, I've been holding off on starting the releases. I think we are now getting close to having the important ones resolved so I'm going to plan on cutting off code for 3.7.1rc1 and 3.6.7rc1 by the end of 2018-09-20 (23:59 AoE).  That's roughly 38 hours from now.
+> 
+> Thanks for all of your help in improving Python for everyone!
+
+Hi Ned,
+
+I'm really sorry, but would it be possible to delay the RCs until Sunday
+or Monday AoE?
+
+Some of the XML security fixes, OpenSSL 1.1.1 fixes (TLS 1.3
+post-handshake authentication), and SSL module regression haven't landed
+yet. I'm confident that I can land most to all fixes during the weekend.
+
+Related PRs are:
+
+* https://github.com/python/cpython/pull/9468
+* https://github.com/python/cpython/pull/9460
+* https://github.com/python/cpython/pull/9217
+* https://github.com/python/cpython/pull/9265
+
+I'm also still collaborating with Sebastian Pipping (libexpat
+maintainer) on the DoS mitigations (CVE-2013-0340). My initial patch had
+some flaws. I might be able to get expat release 2.3.0 in time, too.
+
+https://github.com/libexpat/libexpat/pull/220
+
+Christian
+
+
+From antoine at python.org  Fri Sep 21 06:46:32 2018
+From: antoine at python.org (Antoine Pitrou)
+Date: Fri, 21 Sep 2018 12:46:32 +0200
+Subject: [python-committers] Fw: CoC violation (was: Retire or reword
+ the "Beautiful is better than ugly" Zen clause)
+In-Reply-To: <CAPJVwBk6mcrj8VCtN+HbgB_N7ZoKHGOwDQjQ0NeWMabgX_OhKQ@mail.gmail.com>
+References: <8d30ef1f-b9d5-fa97-4480-953afd819a65@python.org>
+ <6277721B-70CD-44B2-B42C-5A61C8C3073C@stufft.io>
+ <CAP1=2W4C7xA9XPwN2Nu+EHwUkOvqekfiRO86mqEq=m7bPPQ0uw@mail.gmail.com>
+ <5BA420BD.8030802@stoneleaf.us>
+ <CAPJVwBk6mcrj8VCtN+HbgB_N7ZoKHGOwDQjQ0NeWMabgX_OhKQ@mail.gmail.com>
+Message-ID: <5961a1a0-3882-591c-d766-5e27723390c8@python.org>
+
+
+Le 21/09/2018 ? 02:06, Nathaniel Smith a ?crit?:
+> Now sure, that taboo is an American thing, and I wouldn't support
+> automatically banning someone who used it in genuine ignorance, was
+> repentant when they realized what they'd done, etc.
+
+So why are American taboos specifically forbidden, and not other taboos?
+ Is there anything special about Americans that deserves this?  Does it
+mean that Python is a community for Americans foremost, and others are
+just second-class participants?  The more this is going on, the more it
+is the impression I get, and things have become distinctly *worse* recently.
+
+Regards
+
+Antoine.
+
+From christian at python.org  Fri Sep 21 06:55:24 2018
+From: christian at python.org (Christian Heimes)
+Date: Fri, 21 Sep 2018 12:55:24 +0200
+Subject: [python-committers] Fw: CoC violation (was: Retire or reword
+ the "Beautiful is better than ugly" Zen clause)
+In-Reply-To: <5961a1a0-3882-591c-d766-5e27723390c8@python.org>
+References: <8d30ef1f-b9d5-fa97-4480-953afd819a65@python.org>
+ <6277721B-70CD-44B2-B42C-5A61C8C3073C@stufft.io>
+ <CAP1=2W4C7xA9XPwN2Nu+EHwUkOvqekfiRO86mqEq=m7bPPQ0uw@mail.gmail.com>
+ <5BA420BD.8030802@stoneleaf.us>
+ <CAPJVwBk6mcrj8VCtN+HbgB_N7ZoKHGOwDQjQ0NeWMabgX_OhKQ@mail.gmail.com>
+ <5961a1a0-3882-591c-d766-5e27723390c8@python.org>
+Message-ID: <64a6edec-7907-5e5d-9cdd-723ae21ec16a@python.org>
+
+On 21/09/2018 12.46, Antoine Pitrou wrote:
+> 
+> Le 21/09/2018 ? 02:06, Nathaniel Smith a ?crit?:
+>> Now sure, that taboo is an American thing, and I wouldn't support
+>> automatically banning someone who used it in genuine ignorance, was
+>> repentant when they realized what they'd done, etc.
+> 
+> So why are American taboos specifically forbidden, and not other taboos?
+>  Is there anything special about Americans that deserves this?  Does it
+> mean that Python is a community for Americans foremost, and others are
+> just second-class participants?  The more this is going on, the more it
+> is the impression I get, and things have become distinctly *worse* recently.
+
+I don't understand why you are drawing the reverse conclusion here. Can
+you give me one concrete example, in which a French, German, or any
+other non-US American taboo was violated and not counteracted with swift
+reaction?
+
+From donald at stufft.io  Fri Sep 21 07:01:12 2018
+From: donald at stufft.io (Donald Stufft)
+Date: Fri, 21 Sep 2018 07:01:12 -0400
+Subject: [python-committers] Fw: CoC violation (was: Retire or reword
+ the "Beautiful is better than ugly" Zen clause)
+In-Reply-To: <64a6edec-7907-5e5d-9cdd-723ae21ec16a@python.org>
+References: <8d30ef1f-b9d5-fa97-4480-953afd819a65@python.org>
+ <6277721B-70CD-44B2-B42C-5A61C8C3073C@stufft.io>
+ <CAP1=2W4C7xA9XPwN2Nu+EHwUkOvqekfiRO86mqEq=m7bPPQ0uw@mail.gmail.com>
+ <5BA420BD.8030802@stoneleaf.us>
+ <CAPJVwBk6mcrj8VCtN+HbgB_N7ZoKHGOwDQjQ0NeWMabgX_OhKQ@mail.gmail.com>
+ <5961a1a0-3882-591c-d766-5e27723390c8@python.org>
+ <64a6edec-7907-5e5d-9cdd-723ae21ec16a@python.org>
+Message-ID: <C416B495-7980-4E7B-99C5-DBA896B00F6B@stufft.io>
+
+
+
+> On Sep 21, 2018, at 6:55 AM, Christian Heimes <christian at python.org> wrote:
+> 
+> I don't understand why you are drawing the reverse conclusion here. Can
+> you give me one concrete example, in which a French, German, or any
+> other non-US American taboo was violated and not counteracted with swift
+> reaction?
+
+Right, I would assume that if someone knowingly posted a similar post, but using say a French taboo, the same would have happened. The key thing is that the author obviously *knew* it was a taboo, it wasn?t an accident. If someone accidentally posted something like that, then I presume the outcome would be something more like a warning and telling them not to do it again? for any culture?s taboo.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20180921/37b93451/attachment.html>
+
+From christian at python.org  Fri Sep 21 07:06:17 2018
+From: christian at python.org (Christian Heimes)
+Date: Fri, 21 Sep 2018 13:06:17 +0200
+Subject: [python-committers] Fw: CoC violation (was: Retire or reword
+ the "Beautiful is better than ugly" Zen clause)
+In-Reply-To: <8d30ef1f-b9d5-fa97-4480-953afd819a65@python.org>
+References: <8d30ef1f-b9d5-fa97-4480-953afd819a65@python.org>
+Message-ID: <d47d28f5-8d10-4aea-9cda-d661e34bb923@python.org>
+
+On 20/09/2018 22.25, Antoine Pitrou wrote:
+> 
+> Hi,
+> 
+> I'm choosing to forward this to python-committers because I don't think
+> python-ideas is a reasonable place to discuss CoC decisions.
+> 
+> I think the action taken by Brett (apparently decided with Titus and a
+> mysterious "conduct working group") is not the right one:
+> 
+> - a definitive ban is an extremely strong decision that should only be
+> taken if nothing else works.  May I remind that Anatoly was able to post
+> prolifically and unconstructively for several years, being warned
+> several times, before being finally banned?  Comparatively, this one ban
+> seems expeditive.
+
+In my opinion it's both wrong and unfair to compare the ban with
+Anatoly's ban. For one we didn't have a process and general consent for
+bans. It took us a while to agree on the procedure. Also Anatoly wasn't
+flat out hostile and insulting. He was mentally draining and exhausting
+on a more subtle level.
+
+I'm all in favor to ban people from python-dev or python-ideas for
+deliberate misuse and insults. Participation on these mailing lists is a
+privilege, not a right. We grant the privilege to everybody, but also
+reserve the right to remove the privilege.
+
+Brett, Titus, I support your decision.
+
+Christian
+
+From antoine at python.org  Fri Sep 21 07:07:42 2018
+From: antoine at python.org (Antoine Pitrou)
+Date: Fri, 21 Sep 2018 13:07:42 +0200
+Subject: [python-committers] Fw: CoC violation (was: Retire or reword
+ the "Beautiful is better than ugly" Zen clause)
+In-Reply-To: <64a6edec-7907-5e5d-9cdd-723ae21ec16a@python.org>
+References: <8d30ef1f-b9d5-fa97-4480-953afd819a65@python.org>
+ <6277721B-70CD-44B2-B42C-5A61C8C3073C@stufft.io>
+ <CAP1=2W4C7xA9XPwN2Nu+EHwUkOvqekfiRO86mqEq=m7bPPQ0uw@mail.gmail.com>
+ <5BA420BD.8030802@stoneleaf.us>
+ <CAPJVwBk6mcrj8VCtN+HbgB_N7ZoKHGOwDQjQ0NeWMabgX_OhKQ@mail.gmail.com>
+ <5961a1a0-3882-591c-d766-5e27723390c8@python.org>
+ <64a6edec-7907-5e5d-9cdd-723ae21ec16a@python.org>
+Message-ID: <87ecdf0b-552a-1ceb-90e4-7caeb06d58d5@python.org>
+
+
+Le 21/09/2018 ? 12:55, Christian Heimes a ?crit?:
+> On 21/09/2018 12.46, Antoine Pitrou wrote:
+>>
+>> Le 21/09/2018 ? 02:06, Nathaniel Smith a ?crit?:
+>>> Now sure, that taboo is an American thing, and I wouldn't support
+>>> automatically banning someone who used it in genuine ignorance, was
+>>> repentant when they realized what they'd done, etc.
+>>
+>> So why are American taboos specifically forbidden, and not other taboos?
+>>  Is there anything special about Americans that deserves this?  Does it
+>> mean that Python is a community for Americans foremost, and others are
+>> just second-class participants?  The more this is going on, the more it
+>> is the impression I get, and things have become distinctly *worse* recently.
+> 
+> I don't understand why you are drawing the reverse conclusion here. Can
+> you give me one concrete example, in which a French, German, or any
+> other non-US American taboo was violated and not counteracted with swift
+> reaction?
+
+I don't know of specifically French linguistic taboos, so I'm unable to
+answer this.  French culture generally doesn't ban words wholesale, even
+when used in quotes.  The very idea that you can't *quote* something
+despicable is foreign here.
+
+But, were it to exist, I have a hard time imagining it would face
+immediate permanent banning on python-XXX.  And I would be against such
+immediate permanent banning, because that's inappropriately strong and
+definitive.
+
+Regards
+
+Antoine.
+
+From antoine at python.org  Fri Sep 21 07:37:47 2018
+From: antoine at python.org (Antoine Pitrou)
+Date: Fri, 21 Sep 2018 13:37:47 +0200
+Subject: [python-committers] Fw: CoC violation (was: Retire or reword
+ the "Beautiful is better than ugly" Zen clause)
+In-Reply-To: <d47d28f5-8d10-4aea-9cda-d661e34bb923@python.org>
+References: <8d30ef1f-b9d5-fa97-4480-953afd819a65@python.org>
+ <d47d28f5-8d10-4aea-9cda-d661e34bb923@python.org>
+Message-ID: <b2a51d09-0cae-f302-fc80-3395e09aaff7@python.org>
+
+
+Le 21/09/2018 ? 13:06, Christian Heimes a ?crit?:
+> 
+> In my opinion it's both wrong and unfair to compare the ban with
+> Anatoly's ban. For one we didn't have a process and general consent for
+> bans.
+
+AFAIK we still don't.  I don't know where such a procedure is written
+out, and I don't remember my opinion being asked or considered on the
+matter.  I certainly don't remember consenting to immediate permanent
+bans as a response to use of culture-specific taboos (rather than actual
+insults or racist discourse).
+
+As it is, the current "process" is vague and privately decided.  That's
+not an acceptable standard on a mature project.
+
+>
+ It took us a while to agree on the procedure. Also Anatoly wasn't
+> flat out hostile and insulting. He was mentally draining and exhausting
+> on a more subtle level.
+
+Yeah... no, not so subtle.  You're painting things in a rosy colour
+here.  He had been a problem for months or years.  It was obvious
+something had to be done.  But apparently the "key people" were
+reluctant to take a decision, even though there was frequent outrage at
+Anatoly's contributions.  Now we're facing the inverse problem: the "key
+people" feel like they have to take overhanded decisions extremely
+quickly, as if it was going to make the atmosphere more peaceful (which,
+by construction, it won't).
+
+> Participation on these mailing lists is a
+> privilege, not a right. We grant the privilege to everybody, but also
+> reserve the right to remove the privilege.
+
+"Privilege" is a weird way to describe volunteer labour.
+
+Regards
+
+Antoine.
+
+From willingc at gmail.com  Fri Sep 21 07:38:21 2018
+From: willingc at gmail.com (Carol Willing)
+Date: Fri, 21 Sep 2018 07:38:21 -0400
+Subject: [python-committers] CoC violation (was: Retire or reword the
+ "Beautiful is better than ugly" Zen clause)
+In-Reply-To: <87ecdf0b-552a-1ceb-90e4-7caeb06d58d5@python.org>
+References: <8d30ef1f-b9d5-fa97-4480-953afd819a65@python.org>
+ <6277721B-70CD-44B2-B42C-5A61C8C3073C@stufft.io>
+ <CAP1=2W4C7xA9XPwN2Nu+EHwUkOvqekfiRO86mqEq=m7bPPQ0uw@mail.gmail.com>
+ <5BA420BD.8030802@stoneleaf.us>
+ <CAPJVwBk6mcrj8VCtN+HbgB_N7ZoKHGOwDQjQ0NeWMabgX_OhKQ@mail.gmail.com>
+ <5961a1a0-3882-591c-d766-5e27723390c8@python.org>
+ <64a6edec-7907-5e5d-9cdd-723ae21ec16a@python.org>
+ <87ecdf0b-552a-1ceb-90e4-7caeb06d58d5@python.org>
+Message-ID: <697CBF45-4F3B-4340-825F-94A1A89D82F8@me.com>
+
+
+
+> On Sep 21, 2018, at 7:07 AM, Antoine Pitrou <antoine at python.org> wrote:
+> 
+> 
+> Le 21/09/2018 ? 12:55, Christian Heimes a ?crit :
+>> On 21/09/2018 12.46, Antoine Pitrou wrote:
+>>> 
+>>> Le 21/09/2018 ? 02:06, Nathaniel Smith a ?crit :
+>>>> Now sure, that taboo is an American thing, and I wouldn't support
+>>>> automatically banning someone who used it in genuine ignorance, was
+>>>> repentant when they realized what they'd done, etc.
+>>> 
+>>> So why are American taboos specifically forbidden, and not other taboos?
+>>> Is there anything special about Americans that deserves this?  Does it
+>>> mean that Python is a community for Americans foremost, and others are
+>>> just second-class participants?  The more this is going on, the more it
+>>> is the impression I get, and things have become distinctly *worse* recently.
+>> 
+>> I don't understand why you are drawing the reverse conclusion here. Can
+>> you give me one concrete example, in which a French, German, or any
+>> other non-US American taboo was violated and not counteracted with swift
+>> reaction?
+> 
+> I don't know of specifically French linguistic taboos, so I'm unable to
+> answer this.  French culture generally doesn't ban words wholesale, even
+> when used in quotes.  The very idea that you can't *quote* something
+> despicable is foreign here.
+> 
+> But, were it to exist, I have a hard time imagining it would face
+> immediate permanent banning on python-XXX.  And I would be against such
+> immediate permanent banning, because that's inappropriately strong and
+> definitive.
+> 
+
+Much of the discussion here has focused on the use of a few words.
+
+IMHO, discussing violence, assault, and implying that its okay to accept and trivialize this violence do not belong in posts about the Python language.
+
+From the original post:
+
+Being triggered by a word this simple is not exactly a
+sign of mental stability. I know a girl who's been raped more than she can
+count - but the word doesn't trigger her like this(only makes her want to
+beat up rapists). If people can do that, then surely a playground insult
+wont reduce you to tears, right ?
+
+
+
+
+
+
+> Regards
+> 
+> Antoine.
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+
+
+From p.f.moore at gmail.com  Fri Sep 21 07:39:19 2018
+From: p.f.moore at gmail.com (Paul Moore)
+Date: Fri, 21 Sep 2018 12:39:19 +0100
+Subject: [python-committers] Fw: CoC violation (was: Retire or reword
+ the "Beautiful is better than ugly" Zen clause)
+In-Reply-To: <d18e850e-cd87-95d7-e29f-676c815af4e1@python.org>
+References: <8d30ef1f-b9d5-fa97-4480-953afd819a65@python.org>
+ <CAFRnB2WeUGVF3hGLEcp-7Z904LTqYJ8AFsDkfxnfV=OnFLs_Uw@mail.gmail.com>
+ <d18e850e-cd87-95d7-e29f-676c815af4e1@python.org>
+Message-ID: <CACac1F8hTmhA-BGMoiVbqjwCvTSWSGtD7Zr2m9cGOTqjM_mqWg@mail.gmail.com>
+
+On Thu, 20 Sep 2018 at 21:37, Antoine Pitrou <antoine at python.org> wrote:
+>
+>
+> Apparently it's this one:
+> https://mail.python.org/pipermail/python-ideas/2018-September/053482.html
+>
+> By the way, regardless of this single case, I would like people to think
+> of the broader issue we're having.  It's more than a single contentious
+> decision.
+
+Before I say anything else, I want to point out that (a) I'm not
+objecting to the ban, or the process that took place to impose it, and
+(b) I'm extremely appreciative of the work our moderators put into
+trying to police things in an increasingly difficult environment. So
+please take anything I say in that context - as perspective from
+someone who is concerned about the direction that certain of our
+groups are taking, but understands that it's not an easy problem to
+solve.
+
+But in the interest of looking at the broader issue (which I agree
+with Antoine is something we should be concerned about)...
+
+I understand that the taboo in question is a strong one in American
+culture, and as such violating that is inconsiderate and insensitive.
+Doing so deliberately is both unacceptable, and a cheap form of debate
+(if giving offense is the only way you have to make your point, maybe
+your point's not good enough?) But it is still very much one culture's
+position, and American sensibilities often seem to be very clear and
+present in a lot of the debates we see that "get out of hand" in one
+way or another. I'm British (and my age may also be relevant - I grew
+up in the 1960s and 70s), and from my perspective, it feels like a lot
+of people are over-sensitive, and very quick to perceive offense - to
+the extent that entirely natural (to many British people) and accepted
+tones, like sarcasm and irony, are almost impossible to express
+without having to completely obscure meaning by adding clarifications
+and explanations.
+
+I'll also comment on the point made here, can anyone point to a
+non-American taboo that has been violated and hasn't been dealt with
+the same way? Not really, but in my case that's because I don't think
+the British *have* strong taboos like that (and Antoine indicates that
+the same is true of the French). The only thing I can think of is
+religious taboos, such as Muslim concerns about taking the name of the
+Prophet in vain, but I don't think I've ever seen that sort of
+violation (and I would expect that to be dealt with just as swiftly).
+Personally, as a Catholic, arguing religious taboos on a list about a
+language based on Monty Python feels ironic anyway - but for the
+record, please don't ban references to the Spanish Inquisition or the
+Holy Grail on my account :-)
+
+Openness needs to be a two way street, in my view. Certainly people
+from cultures that have a more "robust" (shall we say) natural form of
+expression need to be aware that other cultures and people may not be
+able to deal with that - but conversely, people from cultures with a
+strong sense of certain words and expressions being unacceptable need
+to be open to the fact that others don't have that sense, and expect
+thicker skins in debate. That's not how I see the Python community
+going at the moment - rather we're moving towards a "lowest common
+denominator" approach, where *everyone* needs to skirt around all
+possible forms of offense, and the person claiming to be offended is
+in effect always in the right. That, to me, is taking the easy option,
+and I think that the Python community should aspire to do something
+better than that, even if it's hard.
+
+The internet in general is a hugely beneficial technology, allowing us
+to interact with people in radically different cultures and situations
+than we were ever able to in the past. That's a massive step forward
+for humanity as a whole in understanding each other - and we shouldn't
+undermine it by putting up barriers to communication in the form of
+preventing people from making (and learning from) dumb social
+mistakes.
+
+As things stand, everyone is living in fear of giving offense. As an
+example, some time ago, I was participating in a discussion where some
+participant made a comment that I thought was a bit out of line with
+the list's policy,. It didn't bother me, personally, at all (as I say,
+I'm British :-)) but rather than let it lie, I felt that I should
+mention this, rather than leave it to someone else. However, what
+ended up happening was that I got a lot of criticism for "taking
+offense unnecessarily". (I don't have a link, and I don't want to
+provide one - it's an example, not something I feel the need to
+analyze further). So rather than *helping*, I ended up being the bad
+guy simply from trying to channel other people's views and getting it
+wrong. And I ended up with a strong sense that everyone viewed me as
+the sort of over-sensitive complainer that I try very, very hard not
+to be.
+
+When I write mails for the lists, it's an exhausting process. The
+technical content is easy, but policing my own tone against an
+increasingly complex and restrictive set of standards that I don't
+personally subscribe to, nor do I really understand, is becoming a
+burden that puts me off contributing. That is *not* to say that I have
+any problem with the CoC - I certainly wouldn't consider myself to be
+anything other than "Open, Considerate and Respectful" - but I
+constantly feel that I have to word my contributions in a way that's
+unnatural to me, simply because I have to take the view that people
+reading my words have no sense of who I am, and cannot get any such
+sense because if I were to "loosen up", there's too much of a risk
+that someone would take offense. (As an example, people who know me in
+real life would be used to me referring to things as "stupid" and
+"idiotic" and wouldn't worry or take offense - because I call *myself*
+"stupid" and "idiotic" far more often than I use the terms about
+anything else - but how would I ever get to the point where I could do
+that in a list conversation? So I have to find alternative words which
+convey the same sense that I get when I say "stupid" - and that
+basically means a 5 or 6 word phrase with a couple of footnotes saying
+"no, I don't mean you personally" or similar. Which destroys the
+readability of my comment. Much like my having to over-expand this
+parenthetical note has done ;-))
+
+We have to take care. There are no visual or body language cues when
+writing emails. I'm not arguing that people should be given license to
+say whatever they want. But nor should people be made to live in fear
+of making a genuine mistake.
+
+Paul
+
+From p.f.moore at gmail.com  Fri Sep 21 08:01:15 2018
+From: p.f.moore at gmail.com (Paul Moore)
+Date: Fri, 21 Sep 2018 13:01:15 +0100
+Subject: [python-committers] CoC violation (was: Retire or reword the
+ "Beautiful is better than ugly" Zen clause)
+In-Reply-To: <697CBF45-4F3B-4340-825F-94A1A89D82F8@me.com>
+References: <8d30ef1f-b9d5-fa97-4480-953afd819a65@python.org>
+ <6277721B-70CD-44B2-B42C-5A61C8C3073C@stufft.io>
+ <CAP1=2W4C7xA9XPwN2Nu+EHwUkOvqekfiRO86mqEq=m7bPPQ0uw@mail.gmail.com>
+ <5BA420BD.8030802@stoneleaf.us>
+ <CAPJVwBk6mcrj8VCtN+HbgB_N7ZoKHGOwDQjQ0NeWMabgX_OhKQ@mail.gmail.com>
+ <5961a1a0-3882-591c-d766-5e27723390c8@python.org>
+ <64a6edec-7907-5e5d-9cdd-723ae21ec16a@python.org>
+ <87ecdf0b-552a-1ceb-90e4-7caeb06d58d5@python.org>
+ <697CBF45-4F3B-4340-825F-94A1A89D82F8@me.com>
+Message-ID: <CACac1F9O+AaBuyjNUmkerQnfnBRieCnJ0bZy8cGfb1r6B8QPOA@mail.gmail.com>
+
+On Fri, 21 Sep 2018 at 12:38, Carol Willing <willingc at gmail.com> wrote:
+
+> Much of the discussion here has focused on the use of a few words.
+>
+> IMHO, discussing violence, assault, and implying that its okay to accept and trivialize this violence do not belong in posts about the Python language.
+>
+> From the original post:
+>
+> Being triggered by a word this simple is not exactly a
+> sign of mental stability. I know a girl who's been raped more than she can
+> count - but the word doesn't trigger her like this(only makes her want to
+> beat up rapists). If people can do that, then surely a playground insult
+> wont reduce you to tears, right ?
+
+I agree - *but* there's a whole lot more I wish I could say, about
+context, and looking at how the conversation reached that point.
+
+But I won't, because frankly I'm scared to do so. I don't trust myself
+to explain my feelings without doing so in a way that people find
+offensive, and suffering a backlash that I didn't intend to trigger,
+and which won't help the discussion.
+
+I'm not sure that "I'm too scared to participate in this discussion"
+is where we want to be, though...
+Paul
+
+From willingc at gmail.com  Fri Sep 21 08:26:36 2018
+From: willingc at gmail.com (Carol Willing)
+Date: Fri, 21 Sep 2018 08:26:36 -0400
+Subject: [python-committers] CoC violation (was: Retire or reword the
+ "Beautiful is better than ugly" Zen clause)
+In-Reply-To: <CACac1F9O+AaBuyjNUmkerQnfnBRieCnJ0bZy8cGfb1r6B8QPOA@mail.gmail.com>
+References: <8d30ef1f-b9d5-fa97-4480-953afd819a65@python.org>
+ <6277721B-70CD-44B2-B42C-5A61C8C3073C@stufft.io>
+ <CAP1=2W4C7xA9XPwN2Nu+EHwUkOvqekfiRO86mqEq=m7bPPQ0uw@mail.gmail.com>
+ <5BA420BD.8030802@stoneleaf.us>
+ <CAPJVwBk6mcrj8VCtN+HbgB_N7ZoKHGOwDQjQ0NeWMabgX_OhKQ@mail.gmail.com>
+ <5961a1a0-3882-591c-d766-5e27723390c8@python.org>
+ <64a6edec-7907-5e5d-9cdd-723ae21ec16a@python.org>
+ <87ecdf0b-552a-1ceb-90e4-7caeb06d58d5@python.org>
+ <697CBF45-4F3B-4340-825F-94A1A89D82F8@me.com>
+ <CACac1F9O+AaBuyjNUmkerQnfnBRieCnJ0bZy8cGfb1r6B8QPOA@mail.gmail.com>
+Message-ID: <CAM3Vvhx7f1spwJRz87=9eQ6xChGoZeeyn2w558Y5c=U=j5XQ-g@mail.gmail.com>
+
+Hi Paul,
+
+Thanks for sharing your thoughts.
+
+Fear of speaking or fear of reading - both are not ideal. The balance of
+respectful discourse likely falls somewhere between the two.
+
+Context is important. I wonder though if the author's intent was
+constructive comment...
+
+On Fri, Sep 21, 2018, 8:01 AM Paul Moore <p.f.moore at gmail.com> wrote:
+
+> On Fri, 21 Sep 2018 at 12:38, Carol Willing <willingc at gmail.com> wrote:
+>
+> > Much of the discussion here has focused on the use of a few words.
+> >
+> > IMHO, discussing violence, assault, and implying that its okay to accept
+> and trivialize this violence do not belong in posts about the Python
+> language.
+> >
+> > From the original post:
+> >
+> > Being triggered by a word this simple is not exactly a
+> > sign of mental stability. I know a girl who's been raped more than she
+> can
+> > count - but the word doesn't trigger her like this(only makes her want to
+> > beat up rapists). If people can do that, then surely a playground insult
+> > wont reduce you to tears, right ?
+>
+> I agree - *but* there's a whole lot more I wish I could say, about
+> context, and looking at how the conversation reached that point.
+>
+> But I won't, because frankly I'm scared to do so. I don't trust myself
+> to explain my feelings without doing so in a way that people find
+> offensive, and suffering a backlash that I didn't intend to trigger,
+> and which won't help the discussion.
+>
+> I'm not sure that "I'm too scared to participate in this discussion"
+> is where we want to be, though...
+> Paul
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20180921/78b74a01/attachment.html>
+
+From donald at stufft.io  Fri Sep 21 08:30:40 2018
+From: donald at stufft.io (Donald Stufft)
+Date: Fri, 21 Sep 2018 08:30:40 -0400
+Subject: [python-committers] CoC violation (was: Retire or reword the
+ "Beautiful is better than ugly" Zen clause)
+In-Reply-To: <CACac1F9O+AaBuyjNUmkerQnfnBRieCnJ0bZy8cGfb1r6B8QPOA@mail.gmail.com>
+References: <8d30ef1f-b9d5-fa97-4480-953afd819a65@python.org>
+ <6277721B-70CD-44B2-B42C-5A61C8C3073C@stufft.io>
+ <CAP1=2W4C7xA9XPwN2Nu+EHwUkOvqekfiRO86mqEq=m7bPPQ0uw@mail.gmail.com>
+ <5BA420BD.8030802@stoneleaf.us>
+ <CAPJVwBk6mcrj8VCtN+HbgB_N7ZoKHGOwDQjQ0NeWMabgX_OhKQ@mail.gmail.com>
+ <5961a1a0-3882-591c-d766-5e27723390c8@python.org>
+ <64a6edec-7907-5e5d-9cdd-723ae21ec16a@python.org>
+ <87ecdf0b-552a-1ceb-90e4-7caeb06d58d5@python.org>
+ <697CBF45-4F3B-4340-825F-94A1A89D82F8@me.com>
+ <CACac1F9O+AaBuyjNUmkerQnfnBRieCnJ0bZy8cGfb1r6B8QPOA@mail.gmail.com>
+Message-ID: <DEDF061F-8BAB-48CB-A986-E8D03B1FC327@stufft.io>
+
+
+
+> On Sep 21, 2018, at 8:01 AM, Paul Moore <p.f.moore at gmail.com> wrote:
+> 
+> On Fri, 21 Sep 2018 at 12:38, Carol Willing <willingc at gmail.com> wrote:
+> 
+>> Much of the discussion here has focused on the use of a few words.
+>> 
+>> IMHO, discussing violence, assault, and implying that its okay to accept and trivialize this violence do not belong in posts about the Python language.
+>> 
+>> From the original post:
+>> 
+>> Being triggered by a word this simple is not exactly a
+>> sign of mental stability. I know a girl who's been raped more than she can
+>> count - but the word doesn't trigger her like this(only makes her want to
+>> beat up rapists). If people can do that, then surely a playground insult
+>> wont reduce you to tears, right ?
+> 
+> I agree - *but* there's a whole lot more I wish I could say, about
+> context, and looking at how the conversation reached that point.
+> 
+> But I won't, because frankly I'm scared to do so. I don't trust myself
+> to explain my feelings without doing so in a way that people find
+> offensive, and suffering a backlash that I didn't intend to trigger,
+> and which won't help the discussion.
+> 
+> I'm not sure that "I'm too scared to participate in this discussion"
+> is where we want to be, though?
+
+I think that this is being framed somewhat poorly. The idea that the problem is that someone might be ?offended? is I think the wrong take away. People can choose all manner of things to be offended by and just because someone might take offense to a statement, doesn?t mean that the statement is inherently something that cannot be uttered here. For instance, someone might take offense if you say that you think it?s easier to write clean code in Python than Brainfuck (or perhaps that pip is the best or worst package installer ;) ), but that doesn?t mean that you can?t express that opinion.
+
+What I think the real problem is, things that attack people, particularly for some inherent thing they are or something that has happened to them outside of their control or the like. 
+
+Sometimes that can come across as ?well someone might take offense to the use of this word?, and it?s important I think to remember why that word has that particular connotation. If you spent a lifetime having someone shout ?Python!? and then a bucket of cold water dumped on you, you would likely start to get a bit afraid anytime you heard someone say ?Python?, when you?d look for that next bucket.
+
+That?s a really silly example, but there are groups of people who *to this day* are attacked in one form of another simply for who they are, and there are a lot of things associated with those attacks, be it words, or images, or what have you, and the mere use of those words, images, or whatever can make those groups of people feel like the space they?re in is one that is likely to attack them too. That?s not just about the specific word used in the original post, but also things like making joke of assault and similar as well. It?s particularly troublesome in a society that doesn?t entirely believe that those things are wrong.
+
+So part of being and open and welcoming community, is knowing and understanding that words, images, etc like that can make people feel like we?re either a group that will directly engage in those attacks that have been associated with them in the past, or at least won?t come to their aid if someone does initiate those kinds of attack.
+
+This is a bit different than say the use of Master/slave. Those words might make some people feel uncomfortable for sure, but they don?t have the same connotations. Because they make people feel uncomfortable, it?s generally a good idea to avoid using them (particularly when there are better, more descriptive terms available) but that you?re not going to be cast out into the wilderness if you happened to use them.
+
+Overall, I think people are generally reasonable, and if you say something ?bad?, but you weren?t aware or didn?t mean it that way, people generally accept an apology and then will move on [1]. They might be a bit less unsure of you after that, but if you don?t continue to repeat it, then most people will forget about it and look at it as an isolated incidence. Obviously if you keep doing it, and apologizing each time, at some point people are going to just assume the apology isn?t in earnest.
+
+
+[1] I know this, because I?ve done it. I grew up in let?s say, a very rural setting, and I had expressions that were disparaging to groups of people, that I didn?t really intend to be, it was just something I had always said because it was a common idiom where I grew up. I got called out on it, apologized, and everyone went on their way.
+
+
+
+
+From p.f.moore at gmail.com  Fri Sep 21 08:45:14 2018
+From: p.f.moore at gmail.com (Paul Moore)
+Date: Fri, 21 Sep 2018 13:45:14 +0100
+Subject: [python-committers] CoC violation (was: Retire or reword the
+ "Beautiful is better than ugly" Zen clause)
+In-Reply-To: <CAM3Vvhx7f1spwJRz87=9eQ6xChGoZeeyn2w558Y5c=U=j5XQ-g@mail.gmail.com>
+References: <8d30ef1f-b9d5-fa97-4480-953afd819a65@python.org>
+ <6277721B-70CD-44B2-B42C-5A61C8C3073C@stufft.io>
+ <CAP1=2W4C7xA9XPwN2Nu+EHwUkOvqekfiRO86mqEq=m7bPPQ0uw@mail.gmail.com>
+ <5BA420BD.8030802@stoneleaf.us>
+ <CAPJVwBk6mcrj8VCtN+HbgB_N7ZoKHGOwDQjQ0NeWMabgX_OhKQ@mail.gmail.com>
+ <5961a1a0-3882-591c-d766-5e27723390c8@python.org>
+ <64a6edec-7907-5e5d-9cdd-723ae21ec16a@python.org>
+ <87ecdf0b-552a-1ceb-90e4-7caeb06d58d5@python.org>
+ <697CBF45-4F3B-4340-825F-94A1A89D82F8@me.com>
+ <CACac1F9O+AaBuyjNUmkerQnfnBRieCnJ0bZy8cGfb1r6B8QPOA@mail.gmail.com>
+ <CAM3Vvhx7f1spwJRz87=9eQ6xChGoZeeyn2w558Y5c=U=j5XQ-g@mail.gmail.com>
+Message-ID: <CACac1F-WBN61RPNtXzOJiYkxi4=Y_GK+J+uMZZG93Dc325NyHA@mail.gmail.com>
+
+On Fri, 21 Sep 2018 at 13:26, Carol Willing <willingc at gmail.com> wrote:
+> Context is important. I wonder though if the author's intent was constructive comment...
+
+I'm sure it wasn't. But in context, it was a statement made in a
+thread that had long previously become nothing more than
+non-constructive invective. Calling one person out (even though his
+comments were significantly more extreme than others') strikes me as
+looking for a culprit, rather than addressing the situation.
+
+It's not likely to be a practical option on a mailing list, but in
+primary school (which the whole conversation felt like) a likely
+response would have been to put *everyone* involved in a time-out for
+a period of cooling off, to think about how their behaviour was
+unacceptable. Think for example of a group of kids taunting each other
+until one of them snaps and hits someone.
+
+Paul
+
+From alexander.belopolsky at gmail.com  Fri Sep 21 08:52:17 2018
+From: alexander.belopolsky at gmail.com (Alexander Belopolsky)
+Date: Fri, 21 Sep 2018 08:52:17 -0400
+Subject: [python-committers] Fw: CoC violation (was: Retire or reword
+ the "Beautiful is better than ugly" Zen clause)
+In-Reply-To: <87ecdf0b-552a-1ceb-90e4-7caeb06d58d5@python.org>
+References: <8d30ef1f-b9d5-fa97-4480-953afd819a65@python.org>
+ <6277721B-70CD-44B2-B42C-5A61C8C3073C@stufft.io>
+ <CAP1=2W4C7xA9XPwN2Nu+EHwUkOvqekfiRO86mqEq=m7bPPQ0uw@mail.gmail.com>
+ <5BA420BD.8030802@stoneleaf.us>
+ <CAPJVwBk6mcrj8VCtN+HbgB_N7ZoKHGOwDQjQ0NeWMabgX_OhKQ@mail.gmail.com>
+ <5961a1a0-3882-591c-d766-5e27723390c8@python.org>
+ <64a6edec-7907-5e5d-9cdd-723ae21ec16a@python.org>
+ <87ecdf0b-552a-1ceb-90e4-7caeb06d58d5@python.org>
+Message-ID: <CAP7h-xaSV_WVjtM3j6FZr-HkzvaO1YvU8_CMRkqDuchOdhFQ=Q@mail.gmail.com>
+
+On Fri, Sep 21, 2018 at 7:07 AM Antoine Pitrou <antoine at python.org> wrote:
+
+>
+> I don't know of specifically French linguistic taboos, so I'm unable to
+> answer this.  French culture generally doesn't ban words wholesale, even
+> when used in quotes.  The very idea that you can't *quote* something
+> despicable is foreign here.
+>
+
+Russian has a handful of taboo word and a long tradition of censoring them,
+but most of such words have no English equivalent, so you won't see them in
+this forum.
+
+BTW, the "n-word" exists in Russian and is not a taboo, so like Antoine I
+have to trust the moderators on the graveness of the offense of spelling it
+out.  Still, this whole discussion reminds me an old Russian joke: "A
+lesson in a kindergarten: ... and now, children, let's recite the words
+that you should never use."
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20180921/f976d794/attachment-0001.html>
+
+From p.f.moore at gmail.com  Fri Sep 21 08:59:52 2018
+From: p.f.moore at gmail.com (Paul Moore)
+Date: Fri, 21 Sep 2018 13:59:52 +0100
+Subject: [python-committers] CoC violation (was: Retire or reword the
+ "Beautiful is better than ugly" Zen clause)
+In-Reply-To: <DEDF061F-8BAB-48CB-A986-E8D03B1FC327@stufft.io>
+References: <8d30ef1f-b9d5-fa97-4480-953afd819a65@python.org>
+ <6277721B-70CD-44B2-B42C-5A61C8C3073C@stufft.io>
+ <CAP1=2W4C7xA9XPwN2Nu+EHwUkOvqekfiRO86mqEq=m7bPPQ0uw@mail.gmail.com>
+ <5BA420BD.8030802@stoneleaf.us>
+ <CAPJVwBk6mcrj8VCtN+HbgB_N7ZoKHGOwDQjQ0NeWMabgX_OhKQ@mail.gmail.com>
+ <5961a1a0-3882-591c-d766-5e27723390c8@python.org>
+ <64a6edec-7907-5e5d-9cdd-723ae21ec16a@python.org>
+ <87ecdf0b-552a-1ceb-90e4-7caeb06d58d5@python.org>
+ <697CBF45-4F3B-4340-825F-94A1A89D82F8@me.com>
+ <CACac1F9O+AaBuyjNUmkerQnfnBRieCnJ0bZy8cGfb1r6B8QPOA@mail.gmail.com>
+ <DEDF061F-8BAB-48CB-A986-E8D03B1FC327@stufft.io>
+Message-ID: <CACac1F8ahsF01tMSz28v15=X5SmWvS-A56+JkH9gEcw5HiuXWg@mail.gmail.com>
+
+On Fri, 21 Sep 2018 at 13:30, Donald Stufft <donald at stufft.io> wrote:
+> So part of being and open and welcoming community, is knowing and understanding that words, images, etc like that can make people feel like we?re either a group that will directly engage in those attacks that have been associated with them in the past, or at least won?t come to their aid if someone does initiate those kinds of attack.
+
+I'm going to take this one comment and respond to it out of context.
+But generally, I agree with everything you said.
+
+My biggest concern is that we're starting to build a community where
+people feel exposed to attack for "CoC violation" accusations over
+simple misunderstandings, or careless wordings. Or, for that matter,
+using terminology that they weren't aware was unacceptable. Not "being
+called out (by the offended party), apologising and moving on", but
+going straight to policy complaints by people (maybe even people not
+directly upset) assuming offense could be claimed. That's clearly
+nothing like the sort of problems people with real reason for
+sensitivity have to live under, but nevertheless it's not a
+comfortable place for people to learn how to interact.
+
+Balance, forgiveness, and a mature level of empathy are what's
+*really* needed ("among the things that are needed...":-)). Not
+policies. Policies should be weapons of last resort.
+
+Paul
+
+From nad at python.org  Fri Sep 21 09:08:52 2018
+From: nad at python.org (Ned Deily)
+Date: Fri, 21 Sep 2018 09:08:52 -0400
+Subject: [python-committers] 3.7.1 and 3.6.7 Releases Coming Soon
+In-Reply-To: <b1623583-bc48-b7e4-a522-a23996027f19@python.org>
+References: <3ABAB3B5-6346-49F2-98F7-185303166016@python.org>
+ <EB8E04F7-72C8-4846-9CCA-118E70DFD9AF@python.org>
+ <b1623583-bc48-b7e4-a522-a23996027f19@python.org>
+Message-ID: <8629D385-F3BF-417C-A12E-4FC3FA4F4F12@python.org>
+
+On Sep 21, 2018, at 05:37, Christian Heimes <christian at python.org> wrote:
+> On 19/09/2018 23.12, Ned Deily wrote:
+>> Update: not surprisingly, there have been a number of issues that have popped up during and since the sprint that we would like to ensure are addressed in 3.7.1 and 3.6.7.  In order to do so, I've been holding off on starting the releases. I think we are now getting close to having the important ones resolved so I'm going to plan on cutting off code for 3.7.1rc1 and 3.6.7rc1 by the end of 2018-09-20 (23:59 AoE).  That's roughly 38 hours from now.
+> I'm really sorry, but would it be possible to delay the RCs until Sunday
+> or Monday AoE?
+> 
+> Some of the XML security fixes, OpenSSL 1.1.1 fixes (TLS 1.3
+> post-handshake authentication), and SSL module regression haven't landed
+> yet. I'm confident that I can land most to all fixes during the weekend.
+> 
+> Related PRs are:
+> 
+> * https://github.com/python/cpython/pull/9468
+> * https://github.com/python/cpython/pull/9460
+> * https://github.com/python/cpython/pull/9217
+> * https://github.com/python/cpython/pull/9265
+> 
+> I'm also still collaborating with Sebastian Pipping (libexpat
+> maintainer) on the DoS mitigations (CVE-2013-0340). My initial patch had
+> some flaws. I might be able to get expat release 2.3.0 in time, too.
+> 
+> https://github.com/libexpat/libexpat/pull/220
+
+I agree that it would be good to get the security-related and OpenSSL-related fixes in sooner than later and there has been a lot going on recently.  Since you have asked so nicely, I have rescheduled the cutoffs for 3.7.1rc1 and 3.6.7rc1 to be by the end of 2018-09-24 (23:59 AoE) and the final releases now on 2018-10-04.
+
+Everyone else: here are a few more days to get important things in to these releases.
+
+--
+  Ned Deily
+  nad at python.org -- []
+
+
+From donald at stufft.io  Fri Sep 21 09:37:58 2018
+From: donald at stufft.io (Donald Stufft)
+Date: Fri, 21 Sep 2018 09:37:58 -0400
+Subject: [python-committers] CoC violation (was: Retire or reword the
+ "Beautiful is better than ugly" Zen clause)
+In-Reply-To: <CACac1F8ahsF01tMSz28v15=X5SmWvS-A56+JkH9gEcw5HiuXWg@mail.gmail.com>
+References: <8d30ef1f-b9d5-fa97-4480-953afd819a65@python.org>
+ <6277721B-70CD-44B2-B42C-5A61C8C3073C@stufft.io>
+ <CAP1=2W4C7xA9XPwN2Nu+EHwUkOvqekfiRO86mqEq=m7bPPQ0uw@mail.gmail.com>
+ <5BA420BD.8030802@stoneleaf.us>
+ <CAPJVwBk6mcrj8VCtN+HbgB_N7ZoKHGOwDQjQ0NeWMabgX_OhKQ@mail.gmail.com>
+ <5961a1a0-3882-591c-d766-5e27723390c8@python.org>
+ <64a6edec-7907-5e5d-9cdd-723ae21ec16a@python.org>
+ <87ecdf0b-552a-1ceb-90e4-7caeb06d58d5@python.org>
+ <697CBF45-4F3B-4340-825F-94A1A89D82F8@me.com>
+ <CACac1F9O+AaBuyjNUmkerQnfnBRieCnJ0bZy8cGfb1r6B8QPOA@mail.gmail.com>
+ <DEDF061F-8BAB-48CB-A986-E8D03B1FC327@stufft.io>
+ <CACac1F8ahsF01tMSz28v15=X5SmWvS-A56+JkH9gEcw5HiuXWg@mail.gmail.com>
+Message-ID: <686AC3FC-2EBF-4A3D-B814-C6EEADEAE12D@stufft.io>
+
+
+
+> On Sep 21, 2018, at 8:59 AM, Paul Moore <p.f.moore at gmail.com> wrote:
+> 
+> On Fri, 21 Sep 2018 at 13:30, Donald Stufft <donald at stufft.io> wrote:
+>> So part of being and open and welcoming community, is knowing and understanding that words, images, etc like that can make people feel like we?re either a group that will directly engage in those attacks that have been associated with them in the past, or at least won?t come to their aid if someone does initiate those kinds of attack.
+> 
+> I'm going to take this one comment and respond to it out of context.
+> But generally, I agree with everything you said.
+> 
+> My biggest concern is that we're starting to build a community where
+> people feel exposed to attack for "CoC violation" accusations over
+> simple misunderstandings, or careless wordings. Or, for that matter,
+> using terminology that they weren't aware was unacceptable. Not "being
+> called out (by the offended party), apologising and moving on", but
+> going straight to policy complaints by people (maybe even people not
+> directly upset) assuming offense could be claimed. That's clearly
+> nothing like the sort of problems people with real reason for
+> sensitivity have to live under, but nevertheless it's not a
+> comfortable place for people to learn how to interact.
+> 
+> Balance, forgiveness, and a mature level of empathy are what's
+> *really* needed ("among the things that are needed...":-)). Not
+> policies. Policies should be weapons of last resort.
+> 
+> Paul
+
+So I don?t think that being called out by the aggrieved party is the right response generally for these sorts of things. I mean, ultimately it depends on the specific instance, but often times having the person who is feeling attacked call out the other person, what?s going to happen is that person is going to feel compelled to respond back in kind and ?defend? themselves. Having a neutral third party there to mediate and calm the situation down is immensely helpful.
+
+I mean, if you personally did something that made me feel uncomfortable, I?d probably personally handle it, because we have a  rapport already, but if someone else did there?s a chance I wouldn?t (either because there might be history there where a specific instance finally spilled over, or because I?m angry/hurt/whatever and I don?t trust myself to respond).
+
+This also falls into the feeling exposed to attack bit. Generally what the CoC does should be private, though it?s tough to balance that out with being transparent too. For instance, we don?t really want to turn CoC enforcement into it?s own sort of shame. If you were to report me, ideally the way it would play out is some member of the moderation team / CoC team / whatever would privately contact me, and tell me to knock it off or whatever. Generally other people shouldn?t know (unless one of the two sides of the issues chooses to divulge it) that it happened (although it?s good to publish anonymized reports too). There should not be some sort of record that the dastardly Paul said something bad once and had to get reprimanded.
+
+Where it gets harder is when more drastic measures are to be taken. If someone gets banned for a day in a sort of timeout, should that be public? Probably not since we want them to come back and ideally be positive contributors from that point out, and feeling like they?ve been put up on display is probably not conducive towards that, and being gone for a day is not likely to be something where other people notice the absence and start to question it. What about a week? A month? Permanent?
+
+Personally I think that publicizing that a particular person had some action taken against them is probably the wrong path to take in all severity levels, and that the CoC team should probably publish some sort of anonymized reports. These reports basically serve to show people who are worried about feeling safe/welcome in the community, that if they have a problem they?re likely to be heard and helped, without putting particular people ?on blast?.
+
+Unfortunately our tooling and process isn?t really ?here? yet, for instance in the specific case we?re talking about, if that person was jsut silently banned than it can feel a bit kafkaesque and since the record of his statement is permanent and can?t be hidden or something, people looking in from the outside don?t know that it wasn?t acceptable since they don?t see any action to have taken place. The ideal situation is probably that the original post ends up edited, marked,  or hidden in some fashion (but doesn?t just disappear) to say that it was inappropriate in some way (think what GitHub does here with hidden posts) but that doesn?t otherwise create some sort of notification. 
+
+I however, think policies are great! Particularly in a diverse community where the cultural norms may vary widely amongst all of the participants. It helps document what the community expects from people, tells you what the process to take is for remediation of a bad situation, and for the people taking those steps, provides a framework to determine what the best possible outcome is.
+
+Or to put another way, the choice isn?t between not having a policy, and having a policy, the choice is between having an implicit policy where what is allowed and what isn?t is left up to the whims of whoever happens to be around at the moment, where enforcement is likely to be very uneven based on who the offender is etc, versus an explicit policy that spells out the expectations for everyone (and explicit is better than implicit after all ;)).
+
+The PSF CoC falls short in this area, since it?s mostly a vague, aspirational document that leaves a lot to be implicit versus one that is more specific.
+
+
+
+From guido at python.org  Fri Sep 21 10:35:09 2018
+From: guido at python.org (Guido van Rossum)
+Date: Fri, 21 Sep 2018 07:35:09 -0700
+Subject: [python-committers] =?utf-8?q?Fwd=3A_=5BPython-ideas=5D_JS?=
+	=?utf-8?q?=E2=80=99_governance_model_is_worth_inspecting?=
+In-Reply-To: <F91C26FA-0C86-4D7A-9650-55A126862229@gmail.com>
+References: <F91C26FA-0C86-4D7A-9650-55A126862229@gmail.com>
+Message-ID: <CAP7+vJLmU75LKywUCWwjb4JTtvtEPHFaGUz7Wjkc2w88bq-boQ@mail.gmail.com>
+
+Perhaps worth including in PEP 8002, the overview of other governance
+models? (Though the process described here seems to be JS's equivalent of
+our PEP process -- it doesn't say anything about how TC39 gets formed or
+how non-technical decisions are handled.)
+
+---------- Forwarded message ---------
+From: James Lu <jamtlu at gmail.com>
+Date: Fri, Sep 21, 2018 at 4:25 AM
+Subject: [Python-ideas] JS? governance model is worth inspecting
+To: <python-ideas at python.org>
+
+
+JS? decisions are made by a body known as TC39, a fairly/very small group
+of JS implementers.
+
+First, JS has an easy and widely supported way to modify the language for
+yourself: Babel. Babel transpires your JS to older JS, which is then run.
+
+You can publish your language modification on the JS package manager, npm.
+
+When a feature is being considered for inclusion in mainline JS, the
+proposal must first gain a champion (represented by ?)that is a member of
+TC-39. The guidelines say that the proposal?s features should already have
+found use in the community. Then it moves through three stages, and the
+champion must think the proposal is ready for the next stage before it can
+move on. I?m hazy on what the criterion for each of the three stages is.
+The fourth stage is approved.
+
+I believe the global TC39 committee meets regularly in person, and at those
+meetings, proposals can advance stages- these meetings are frequent enough
+for the process to be fast and slow enough that people can have the time to
+try out a feature before it becomes main line JS. Meeting notes are made
+public.
+
+The language and its future features are discussed on ESDiscuss.org, which
+is surprisingly filled with quality and respectful discussion, largely from
+experts in the JavaScript language.
+
+I?m fairly hazy on the details, this is just the summary off the top of my
+head.
+
+?
+I?m not saying this should be Python?s governance model, just to keep JS?
+in mind.
+
+
+_______________________________________________
+Python-ideas mailing list
+Python-ideas at python.org
+https://mail.python.org/mailman/listinfo/python-ideas
+Code of Conduct: http://python.org/psf/codeofconduct/
+
+
+-- 
+--Guido van Rossum (python.org/~guido)
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20180921/5b054453/attachment-0001.html>
+
+From antoine at python.org  Fri Sep 21 10:38:09 2018
+From: antoine at python.org (Antoine Pitrou)
+Date: Fri, 21 Sep 2018 16:38:09 +0200
+Subject: [python-committers] =?utf-8?q?Fwd=3A_=5BPython-ideas=5D_JS?=
+ =?utf-8?q?=E2=80=99_governance_model_is_worth_inspecting?=
+In-Reply-To: <CAP7+vJLmU75LKywUCWwjb4JTtvtEPHFaGUz7Wjkc2w88bq-boQ@mail.gmail.com>
+References: <F91C26FA-0C86-4D7A-9650-55A126862229@gmail.com>
+ <CAP7+vJLmU75LKywUCWwjb4JTtvtEPHFaGUz7Wjkc2w88bq-boQ@mail.gmail.com>
+Message-ID: <da38a79a-3f36-67bc-7ad7-609b61fc794e@python.org>
+
+
+Le 21/09/2018 ? 16:35, Guido van Rossum a ?crit?:
+> Perhaps worth including in PEP 8002, the overview of other governance
+> models? (Though the process described here seems to be JS's equivalent
+> of our PEP process -- it doesn't say anything about how TC39 gets formed
+> or how non-technical decisions are handled.)
+
+Right, I think further research (and/or a contact with the right persons
+to answer our questions) may be necessary before including it in the survey.
+
+I don't have much time myself, unfortunately (I didn't even get a chance
+to entirely read the other contributions to the PEP :-/).
+
+Regards
+
+Antoine.
+
+
+> 
+> ---------- Forwarded message ---------
+> From: *James Lu* <jamtlu at gmail.com <mailto:jamtlu at gmail.com>>
+> Date: Fri, Sep 21, 2018 at 4:25 AM
+> Subject: [Python-ideas] JS? governance model is worth inspecting
+> To: <python-ideas at python.org <mailto:python-ideas at python.org>>
+> 
+> 
+> JS? decisions are made by a body known as TC39, a fairly/very small
+> group of JS implementers.
+> 
+> First, JS has an easy and widely supported way to modify the language
+> for yourself: Babel. Babel transpires your JS to older JS, which is then
+> run.
+> 
+> You can publish your language modification on the JS package manager, npm.
+> 
+> When a feature is being considered for inclusion in mainline JS, the
+> proposal must first gain a champion (represented by ?)that is a member
+> of TC-39. The guidelines say that the proposal?s features should already
+> have found use in the community. Then it moves through three stages, and
+> the champion must think the proposal is ready for the next stage before
+> it can move on. I?m hazy on what the criterion for each of the three
+> stages is. The fourth stage is approved.
+> 
+> I believe the global TC39 committee meets regularly in person, and at
+> those meetings, proposals can advance stages- these meetings are
+> frequent enough for the process to be fast and slow enough that people
+> can have the time to try out a feature before it becomes main line JS.
+> Meeting notes are made public.
+> 
+> The language and its future features are discussed on ESDiscuss.org,
+> which is surprisingly filled with quality and respectful discussion,
+> largely from experts in the JavaScript language.
+> 
+> I?m fairly hazy on the details, this is just the summary off the top of
+> my head.
+> 
+> ?
+> I?m not saying this should be Python?s governance model, just to keep
+> JS? in mind.
+> 
+> 
+> _______________________________________________
+> Python-ideas mailing list
+> Python-ideas at python.org <mailto:Python-ideas at python.org>
+> https://mail.python.org/mailman/listinfo/python-ideas
+> Code of Conduct: http://python.org/psf/codeofconduct/
+> 
+> 
+> -- 
+> --Guido van Rossum (python.org/~guido <http://python.org/%7Eguido>)
+> 
+> 
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+> 
+
+From antoine at python.org  Fri Sep 21 10:51:19 2018
+From: antoine at python.org (Antoine Pitrou)
+Date: Fri, 21 Sep 2018 16:51:19 +0200
+Subject: [python-committers] CoC violation (was: Retire or reword the
+ "Beautiful is better than ugly" Zen clause)
+In-Reply-To: <CACac1F-WBN61RPNtXzOJiYkxi4=Y_GK+J+uMZZG93Dc325NyHA@mail.gmail.com>
+References: <8d30ef1f-b9d5-fa97-4480-953afd819a65@python.org>
+ <6277721B-70CD-44B2-B42C-5A61C8C3073C@stufft.io>
+ <CAP1=2W4C7xA9XPwN2Nu+EHwUkOvqekfiRO86mqEq=m7bPPQ0uw@mail.gmail.com>
+ <5BA420BD.8030802@stoneleaf.us>
+ <CAPJVwBk6mcrj8VCtN+HbgB_N7ZoKHGOwDQjQ0NeWMabgX_OhKQ@mail.gmail.com>
+ <5961a1a0-3882-591c-d766-5e27723390c8@python.org>
+ <64a6edec-7907-5e5d-9cdd-723ae21ec16a@python.org>
+ <87ecdf0b-552a-1ceb-90e4-7caeb06d58d5@python.org>
+ <697CBF45-4F3B-4340-825F-94A1A89D82F8@me.com>
+ <CACac1F9O+AaBuyjNUmkerQnfnBRieCnJ0bZy8cGfb1r6B8QPOA@mail.gmail.com>
+ <CAM3Vvhx7f1spwJRz87=9eQ6xChGoZeeyn2w558Y5c=U=j5XQ-g@mail.gmail.com>
+ <CACac1F-WBN61RPNtXzOJiYkxi4=Y_GK+J+uMZZG93Dc325NyHA@mail.gmail.com>
+Message-ID: <26858404-1da8-3fd6-73de-463c7bc41675@python.org>
+
+
+Le 21/09/2018 ? 14:45, Paul Moore a ?crit?:
+> 
+> It's not likely to be a practical option on a mailing list, but in
+> primary school (which the whole conversation felt like) a likely
+> response would have been to put *everyone* involved in a time-out for
+> a period of cooling off, to think about how their behaviour was
+> unacceptable. Think for example of a group of kids taunting each other
+> until one of them snaps and hits someone.
+
+With a forum system, the thread would just have been locked.
+
+However, you may not physically lock a mailing-list thread, but you can
+post a moderator's announcement asking everyone to stop posting to that
+thread, and warning that failing to comply would get the offender e.g. a
+7-day ban (regardless of the contents of their post).
+
+Regards
+
+Antoine.
+
+From willingc at gmail.com  Fri Sep 21 11:12:06 2018
+From: willingc at gmail.com (Carol Willing)
+Date: Fri, 21 Sep 2018 11:12:06 -0400
+Subject: [python-committers] CoC violation (was: Retire or reword the
+ "Beautiful is better than ugly" Zen clause)
+In-Reply-To: <26858404-1da8-3fd6-73de-463c7bc41675@python.org>
+References: <8d30ef1f-b9d5-fa97-4480-953afd819a65@python.org>
+ <6277721B-70CD-44B2-B42C-5A61C8C3073C@stufft.io>
+ <CAP1=2W4C7xA9XPwN2Nu+EHwUkOvqekfiRO86mqEq=m7bPPQ0uw@mail.gmail.com>
+ <5BA420BD.8030802@stoneleaf.us>
+ <CAPJVwBk6mcrj8VCtN+HbgB_N7ZoKHGOwDQjQ0NeWMabgX_OhKQ@mail.gmail.com>
+ <5961a1a0-3882-591c-d766-5e27723390c8@python.org>
+ <64a6edec-7907-5e5d-9cdd-723ae21ec16a@python.org>
+ <87ecdf0b-552a-1ceb-90e4-7caeb06d58d5@python.org>
+ <697CBF45-4F3B-4340-825F-94A1A89D82F8@me.com>
+ <CACac1F9O+AaBuyjNUmkerQnfnBRieCnJ0bZy8cGfb1r6B8QPOA@mail.gmail.com>
+ <CAM3Vvhx7f1spwJRz87=9eQ6xChGoZeeyn2w558Y5c=U=j5XQ-g@mail.gmail.com>
+ <CACac1F-WBN61RPNtXzOJiYkxi4=Y_GK+J+uMZZG93Dc325NyHA@mail.gmail.com>
+ <26858404-1da8-3fd6-73de-463c7bc41675@python.org>
+Message-ID: <DD76B69C-D13F-4CB0-82C4-3F4C17A29B1E@me.com>
+
+
+
+> On Sep 21, 2018, at 10:51 AM, Antoine Pitrou <antoine at python.org> wrote:
+> 
+> 
+> Le 21/09/2018 ? 14:45, Paul Moore a ?crit :
+>> 
+>> It's not likely to be a practical option on a mailing list, but in
+>> primary school (which the whole conversation felt like) a likely
+>> response would have been to put *everyone* involved in a time-out for
+>> a period of cooling off, to think about how their behaviour was
+>> unacceptable. Think for example of a group of kids taunting each other
+>> until one of them snaps and hits someone.
+> 
+> With a forum system, the thread would just have been locked.
+> 
+> However, you may not physically lock a mailing-list thread, but you can
+> post a moderator's announcement asking everyone to stop posting to that
+> thread, and warning that failing to comply would get the offender e.g. a
+> 7-day ban (regardless of the contents of their post).
+> 
+
+This seems like a very reasonable stop gap until we have better moderation tools. 
+
+> Regards
+> 
+> Antoine.
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+
+
+From tjreedy at udel.edu  Fri Sep 21 15:17:18 2018
+From: tjreedy at udel.edu (Terry Reedy)
+Date: Fri, 21 Sep 2018 15:17:18 -0400
+Subject: [python-committers] Fw: CoC violation (was: Retire or reword
+ the "Beautiful is better than ugly" Zen clause)
+In-Reply-To: <64a6edec-7907-5e5d-9cdd-723ae21ec16a@python.org>
+References: <8d30ef1f-b9d5-fa97-4480-953afd819a65@python.org>
+ <6277721B-70CD-44B2-B42C-5A61C8C3073C@stufft.io>
+ <CAP1=2W4C7xA9XPwN2Nu+EHwUkOvqekfiRO86mqEq=m7bPPQ0uw@mail.gmail.com>
+ <5BA420BD.8030802@stoneleaf.us>
+ <CAPJVwBk6mcrj8VCtN+HbgB_N7ZoKHGOwDQjQ0NeWMabgX_OhKQ@mail.gmail.com>
+ <5961a1a0-3882-591c-d766-5e27723390c8@python.org>
+ <64a6edec-7907-5e5d-9cdd-723ae21ec16a@python.org>
+Message-ID: <0d3755df-44ed-140e-3b59-056beb0ee0f1@udel.edu>
+
+On 9/21/2018 6:55 AM, Christian Heimes wrote:
+
+> I don't understand why you are drawing the reverse conclusion here. Can
+> you give me one concrete example, in which a French, German, or any
+> other non-US American taboo was violated and not counteracted with swift
+> reaction?
+
+Are you talking about someone posting a non-American 'taboo' word in the 
+native language or an English translation thereof?
+
+From ethan at stoneleaf.us  Fri Sep 21 17:34:13 2018
+From: ethan at stoneleaf.us (Ethan Furman)
+Date: Fri, 21 Sep 2018 14:34:13 -0700
+Subject: [python-committers] CoC violation (was: Retire or reword the
+ "Beautiful is better than ugly" Zen clause)
+In-Reply-To: <26858404-1da8-3fd6-73de-463c7bc41675@python.org>
+References: <8d30ef1f-b9d5-fa97-4480-953afd819a65@python.org>
+ <6277721B-70CD-44B2-B42C-5A61C8C3073C@stufft.io>
+ <CAP1=2W4C7xA9XPwN2Nu+EHwUkOvqekfiRO86mqEq=m7bPPQ0uw@mail.gmail.com>
+ <5BA420BD.8030802@stoneleaf.us>
+ <CAPJVwBk6mcrj8VCtN+HbgB_N7ZoKHGOwDQjQ0NeWMabgX_OhKQ@mail.gmail.com>
+ <5961a1a0-3882-591c-d766-5e27723390c8@python.org>
+ <64a6edec-7907-5e5d-9cdd-723ae21ec16a@python.org>
+ <87ecdf0b-552a-1ceb-90e4-7caeb06d58d5@python.org>
+ <697CBF45-4F3B-4340-825F-94A1A89D82F8@me.com>
+ <CACac1F9O+AaBuyjNUmkerQnfnBRieCnJ0bZy8cGfb1r6B8QPOA@mail.gmail.com>
+ <CAM3Vvhx7f1spwJRz87=9eQ6xChGoZeeyn2w558Y5c=U=j5XQ-g@mail.gmail.com>
+ <CACac1F-WBN61RPNtXzOJiYkxi4=Y_GK+J+uMZZG93Dc325NyHA@mail.gmail.com>
+ <26858404-1da8-3fd6-73de-463c7bc41675@python.org>
+Message-ID: <2e92b645-cc53-96d8-e187-998c3060f929@stoneleaf.us>
+
+On 09/21/2018 07:51 AM, Antoine Pitrou wrote:
+> Le 21/09/2018 ? 14:45, Paul Moore a ?crit?:
+
+>> It's not likely to be a practical option on a mailing list, but in
+>> primary school (which the whole conversation felt like) a likely
+>> response would have been to put *everyone* involved in a time-out for
+>> a period of cooling off, to think about how their behaviour was
+>> unacceptable. Think for example of a group of kids taunting each other
+>> until one of them snaps and hits someone.
+> 
+> With a forum system, the thread would just have been locked.
+
+It is certainly not as convenient, but with the current system we can 
+set a spam filter on subject lines and stop threads that way.  It is 
+still a pretty rough tool (whole thread, not sub-thread) and a bit 
+awkward to use, but doable.
+
+Of course, we still have the problem of speed -- some threads blow up in 
+a matter of hours.
+
+--
+~Ethan~
+
+From zachary.ware+pydev at gmail.com  Sun Sep 23 15:41:02 2018
+From: zachary.ware+pydev at gmail.com (Zachary Ware)
+Date: Sun, 23 Sep 2018 14:41:02 -0500
+Subject: [python-committers] bpo triage privileges for Karthikeyan
+ Singaravelan
+Message-ID: <CAKJDb-M0QoZejR_87A2qW0ZxjvTnxvO7O9g6eRp4mC-oKycj6Q@mail.gmail.com>
+
+On the recommendation of Ammar Askar and with Serhiy's endorsement on
+Zulip [0], I've given Karthikeyan Singaravelan (CC'd) triage
+privileges on bugs.python.org.
+
+Karthikeyan, please use your new-found powers for good, and don't
+hesitate to ask for guidance if you need it.  Keep up the good work,
+and thank you!
+
+[0] https://python.zulipchat.com/#narrow/stream/116501-workflow/subject/bug.20tracker.20triage.20permissions
+-- 
+Zach
+
+From willingc at gmail.com  Sun Sep 23 16:00:57 2018
+From: willingc at gmail.com (Carol Willing)
+Date: Sun, 23 Sep 2018 16:00:57 -0400
+Subject: [python-committers] bpo triage privileges for Karthikeyan
+ Singaravelan
+In-Reply-To: <CAKJDb-M0QoZejR_87A2qW0ZxjvTnxvO7O9g6eRp4mC-oKycj6Q@mail.gmail.com>
+References: <CAKJDb-M0QoZejR_87A2qW0ZxjvTnxvO7O9g6eRp4mC-oKycj6Q@mail.gmail.com>
+Message-ID: <29812879-89D0-428A-9697-8F3E65E33F94@me.com>
+
+Congratulations Karthikeyan. Thanks for the good work.
+
+Carol
+
+> On Sep 23, 2018, at 3:41 PM, Zachary Ware <zachary.ware+pydev at gmail.com> wrote:
+> 
+> On the recommendation of Ammar Askar and with Serhiy's endorsement on
+> Zulip [0], I've given Karthikeyan Singaravelan (CC'd) triage
+> privileges on bugs.python.org.
+> 
+> Karthikeyan, please use your new-found powers for good, and don't
+> hesitate to ask for guidance if you need it.  Keep up the good work,
+> and thank you!
+> 
+> [0] https://python.zulipchat.com/#narrow/stream/116501-workflow/subject/bug.20tracker.20triage.20permissions
+> -- 
+> Zach
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+
+
+From mariatta.wijaya at gmail.com  Mon Sep 24 14:32:18 2018
+From: mariatta.wijaya at gmail.com (Mariatta Wijaya)
+Date: Mon, 24 Sep 2018 11:32:18 -0700
+Subject: [python-committers] 1 week to Oct 1
+Message-ID: <CAGbohnY0mG8EOsTKHnKfKBNx2Znfprsi=Dr7Pe1tX5rj7gxBLw@mail.gmail.com>
+
+It is now 7 days until October 1, the deadline for coming up with Python
+Governance PEPs.
+
+Some still relevant links:
+
+- https://www.python.org/dev/peps/pep-8000/ Python Language Governance
+Proposal Overview
+- https://www.python.org/dev/peps/pep-8001 Python Governance Voting Process
+- https://www.python.org/dev/peps/pep-8002 Open source governance survey
+
+These are current ideas and proposals, some are placeholders still.
+
+- https://www.python.org/dev/peps/pep-8010 The BDFL Governance Model
+- https://www.python.org/dev/peps/pep-8011 The Council Governance Model
+(I'm claiming this PEP)
+- https://www.python.org/dev/peps/pep-8012 The Community Governance Model
+- https://www.python.org/dev/peps/pep-8013/ The External Council Governance
+Model
+- https://www.python.org/dev/peps/pep-8014/ The Commons Governance Model
+
+I have some questions:
+
+1. Is everyone still ok with the Oct 1 as deadline for coming up with
+governance PEPs?
+
+2. How do we discuss these PEPs?
+
+3. At the sprint, there's a small workgroup formed for coming up with the
+procedure to vote. How is that coming? Could someone please write up a
+brief summary? (perhaps as a separate email thread) I think it would be
+great to have this written up soon, before Oct 1.
+
+Thanks.
+
+
+Mariatta
+?
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20180924/6da85726/attachment.html>
+
+From brett at python.org  Mon Sep 24 17:46:56 2018
+From: brett at python.org (Brett Cannon)
+Date: Mon, 24 Sep 2018 14:46:56 -0700
+Subject: [python-committers] 1 week to Oct 1
+In-Reply-To: <CAGbohnY0mG8EOsTKHnKfKBNx2Znfprsi=Dr7Pe1tX5rj7gxBLw@mail.gmail.com>
+References: <CAGbohnY0mG8EOsTKHnKfKBNx2Znfprsi=Dr7Pe1tX5rj7gxBLw@mail.gmail.com>
+Message-ID: <CAP1=2W5tGkh=rJVbLD3MqgqPUBai7eJf69RtMz2v0z4uzdUF-g@mail.gmail.com>
+
+On Mon, 24 Sep 2018 at 11:32, Mariatta Wijaya <mariatta.wijaya at gmail.com>
+wrote:
+
+> It is now 7 days until October 1, the deadline for coming up with Python
+> Governance PEPs.
+>
+> Some still relevant links:
+>
+> - https://www.python.org/dev/peps/pep-8000/ Python Language Governance
+> Proposal Overview
+> - https://www.python.org/dev/peps/pep-8001 Python Governance Voting
+> Process
+> - https://www.python.org/dev/peps/pep-8002 Open source governance survey
+>
+> These are current ideas and proposals, some are placeholders still.
+>
+> - https://www.python.org/dev/peps/pep-8010 The BDFL Governance Model
+> - https://www.python.org/dev/peps/pep-8011 The Council Governance Model
+> (I'm claiming this PEP)
+> - https://www.python.org/dev/peps/pep-8012 The Community Governance Model
+> - https://www.python.org/dev/peps/pep-8013/ The External Council
+> Governance Model
+> - https://www.python.org/dev/peps/pep-8014/ The Commons Governance Model
+>
+> I have some questions:
+>
+> 1. Is everyone still ok with the Oct 1 as deadline for coming up with
+> governance PEPs?
+>
+> 2. How do we discuss these PEPs?
+>
+
+I assume people will start threads about their PEPs to discuss them here
+(I'm also personally fine with discussing on Zulip, but I don't know how
+others feels about that). The one thing I would say is I would propose all
+discussion threads have a subject line that clearly denotes which PEP is
+being discussed to help keep it straight (e.g. "[PEP 8011] ..."). That way
+it's easy to keep the threads straight.
+
+
+>
+> 3. At the sprint, there's a small workgroup formed for coming up with the
+> procedure to vote. How is that coming? Could someone please write up a
+> brief summary? (perhaps as a separate email thread) I think it would be
+> great to have this written up soon, before Oct 1.
+>
+
+Raymond agreed to write up the approach we all agreed upon in our little
+breakout group as a draft PEP so they can be presented here to make sure
+people overall are happy with the ideas we reached consensus on. I'm not
+sure what his ETA is on that, but we were tentatively aiming for the last
+half of November for a vote so there isn't a hard deadline to have it
+posted and agreed to necessarily within the week (although obviously we
+would want to make sure people have plenty of notice of when the voting
+will occur so people aren't taken by surprise).
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20180924/2e705262/attachment.html>
+
+From antoine at python.org  Tue Sep 25 02:58:19 2018
+From: antoine at python.org (Antoine Pitrou)
+Date: Tue, 25 Sep 2018 08:58:19 +0200
+Subject: [python-committers] 1 week to Oct 1
+In-Reply-To: <CAGbohnY0mG8EOsTKHnKfKBNx2Znfprsi=Dr7Pe1tX5rj7gxBLw@mail.gmail.com>
+References: <CAGbohnY0mG8EOsTKHnKfKBNx2Znfprsi=Dr7Pe1tX5rj7gxBLw@mail.gmail.com>
+Message-ID: <0a2cf631-04f1-e877-fda4-b4f481c5bb71@python.org>
+
+
+Le 24/09/2018 ? 20:32, Mariatta Wijaya a ?crit?:
+> It is now 7 days until October 1, the deadline for coming up with Python
+> Governance PEPs.
+> 
+> Some still relevant links:
+> 
+> -?https://www.python.org/dev/peps/pep-8000/?Python Language Governance
+> Proposal Overview
+> -?https://www.python.org/dev/peps/pep-8001?Python Governance Voting Process
+> -?https://www.python.org/dev/peps/pep-8002?Open source governance survey
+> 
+> These are current ideas and proposals, some are placeholders still.
+> 
+> -?https://www.python.org/dev/peps/pep-8010?The BDFL Governance Model
+> -?https://www.python.org/dev/peps/pep-8011?The Council Governance Model
+> (I'm claiming this PEP)
+> -?https://www.python.org/dev/peps/pep-8012?The Community Governance Model
+> -?https://www.python.org/dev/peps/pep-8013/ The External Council
+> Governance Model
+> -?https://www.python.org/dev/peps/pep-8014/ The Commons Governance Model
+> 
+> I have some questions:
+> 
+> 1. Is everyone still ok with the Oct 1 as deadline for coming up with
+> governance PEPs?
+
+As I predicted, Oct 1 seems to be coming up too early.
+
+Regards
+
+Antoine.
+

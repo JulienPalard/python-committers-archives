@@ -6966,3 +6966,109 @@ Size: 833 bytes
 Desc: Message signed with OpenPGP
 URL: <http://mail.python.org/pipermail/python-committers/attachments/20180926/a95beaf0/attachment.sig>
 
+From nad at python.org  Wed Sep 26 22:21:30 2018
+From: nad at python.org (Ned Deily)
+Date: Wed, 26 Sep 2018 22:21:30 -0400
+Subject: [python-committers] [RELEASE] Python 3.7.1rc1 and 3.6.7rc1 now
+ available for testing
+Message-ID: <5C0A8514-FE4D-46DB-A4A3-8EC5F36D8F9B@python.org>
+
+Python 3.7.1rc1 and 3.6.7rc1 are now available. 3.7.1rc1 is the release
+preview of the first maintenance release of Python 3.7, the latest feature
+release of Python. 3.6.7rc1 is the release preview of the next maintenance
+release of Python 3.6, the previous feature release of Python. Assuming no
+critical problems are found prior to 2018-10-06, no code changes are
+planned between these release candidates and the final releases. These
+release candidates are intended to give you the opportunity to test the
+new security and bug fixes in 3.7.1 and 3.6.7. We strongly encourage you
+to test your projects and report issues found to bugs.python.org as soon
+as possible.
+
+Please keep in mind that these are preview releases and, thus, their use
+is not recommended for production environments.
+
+You can find these releases and more information here:
+    https://www.python.org/downloads/release/python-371rc1/
+    https://www.python.org/downloads/release/python-367rc1/
+
+--
+  Ned Deily
+  nad at python.org -- []
+
+
+From brett at python.org  Thu Sep 27 14:19:18 2018
+From: brett at python.org (Brett Cannon)
+Date: Thu, 27 Sep 2018 11:19:18 -0700
+Subject: [python-committers] Python 4.0 or Python 3.10?
+In-Reply-To: <CA+St6D2Ue5b5mP_LsXJ=Rq2BVQTOzMkN=EtydG0xRzERbawihA@mail.gmail.com>
+References: <CA+St6D0ZfAb+Bk1bd1+Bp12C7_ZZisYWXNnkYEHm5txhHN_Ueg@mail.gmail.com>
+ <5c7187ef-b93b-86c4-34b9-b04444d41a30@python.org>
+ <9A786CFD-E1A5-4CCB-BA01-0768BB265336@python.org>
+ <944999a0-8ca4-c315-3889-32d6946541a0@gmail.com>
+ <CA+3bQGG0ZJGOJRHCbsehABhKASD+xrQvz_68g_1r+RuBaJEuZA@mail.gmail.com>
+ <CAP1=2W4UN0gQfgkbeD-W6W6g=cf1uXghg36eEyU=xJVsk6y_Bg@mail.gmail.com>
+ <CA+St6D3qgk2jhVrBfwLCw+GrJ9aSt+8aD_rrOe7FKbQ9iE0oGg@mail.gmail.com>
+ <CACac1F8U8nYn4-Z3XvsJ_CWE9Ji6ht5d9jKG2HOVZQs-V5jAkA@mail.gmail.com>
+ <CA+St6D2Ue5b5mP_LsXJ=Rq2BVQTOzMkN=EtydG0xRzERbawihA@mail.gmail.com>
+Message-ID: <CAP1=2W5skpOtrY8hR7KTLNLBQme+O6_+UrPuZOYN2p_VbVTH_g@mail.gmail.com>
+
+Since there isn't a way to do this in any fashion I never really thought
+about it. I think most people either set the shebang to the version of
+Python they want it to work with, have pip install the entry point which
+will also set the entry point, or assume that e.g. python3 is new enough to
+work.
+
+But even setting a minimum is potentially troublesome if there's an
+incompatibility, e.g. you used 'async' as a variable name and suddenly you
+installed Python 3.7. :) So I don't know if the desire/utility of having a
+minimum is worth the added complexity.
+
+On Wed, 26 Sep 2018 at 10:54, Yury Selivanov <yselivanov.ml at gmail.com>
+wrote:
+
+> On Wed, Sep 26, 2018 at 1:25 PM Paul Moore <p.f.moore at gmail.com> wrote:
+> [..]
+> > but I don't know how
+> > useful it would be in practice - can you give some examples of use
+> > cases?)
+>
+> It's hard to give a real life example as "py" doesn't support this,
+> but I can imagine the following scenario: if I have a script that uses
+> some new 3.6 feature I could probably run it from other scripts with
+> 'py --min=3.6 myscript.py'.  That way I wouldn't need to write more
+> code or use other tools to check if the target system has a Python
+> 3.6+ interpreter.
+>
+> Yury
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20180927/78c0c735/attachment.html>
+
+From yselivanov.ml at gmail.com  Thu Sep 27 14:36:20 2018
+From: yselivanov.ml at gmail.com (Yury Selivanov)
+Date: Thu, 27 Sep 2018 14:36:20 -0400
+Subject: [python-committers] Python 4.0 or Python 3.10?
+In-Reply-To: <CAP1=2W5skpOtrY8hR7KTLNLBQme+O6_+UrPuZOYN2p_VbVTH_g@mail.gmail.com>
+References: <CA+St6D0ZfAb+Bk1bd1+Bp12C7_ZZisYWXNnkYEHm5txhHN_Ueg@mail.gmail.com>
+ <5c7187ef-b93b-86c4-34b9-b04444d41a30@python.org>
+ <9A786CFD-E1A5-4CCB-BA01-0768BB265336@python.org>
+ <944999a0-8ca4-c315-3889-32d6946541a0@gmail.com>
+ <CA+3bQGG0ZJGOJRHCbsehABhKASD+xrQvz_68g_1r+RuBaJEuZA@mail.gmail.com>
+ <CAP1=2W4UN0gQfgkbeD-W6W6g=cf1uXghg36eEyU=xJVsk6y_Bg@mail.gmail.com>
+ <CA+St6D3qgk2jhVrBfwLCw+GrJ9aSt+8aD_rrOe7FKbQ9iE0oGg@mail.gmail.com>
+ <CACac1F8U8nYn4-Z3XvsJ_CWE9Ji6ht5d9jKG2HOVZQs-V5jAkA@mail.gmail.com>
+ <CA+St6D2Ue5b5mP_LsXJ=Rq2BVQTOzMkN=EtydG0xRzERbawihA@mail.gmail.com>
+ <CAP1=2W5skpOtrY8hR7KTLNLBQme+O6_+UrPuZOYN2p_VbVTH_g@mail.gmail.com>
+Message-ID: <CA+St6D3nBVU3wPkm15UGA+KFQ4HrcpVVBobqJXL=MRWbjG8VGA@mail.gmail.com>
+
+On Thu, Sep 27, 2018 at 2:19 PM Brett Cannon <brett at python.org> wrote:
+>
+> Since there isn't a way to do this in any fashion I never really thought about it. I think most people either set the shebang to the version of Python they want it to work with, have pip install the entry point which will also set the entry point, or assume that e.g. python3 is new enough to work.
+>
+> But even setting a minimum is potentially troublesome if there's an incompatibility, e.g. you used 'async' as a variable name and suddenly you installed Python 3.7. :) So I don't know if the desire/utility of having a minimum is worth the added complexity.
+
+I agree.
+
+Yury
+

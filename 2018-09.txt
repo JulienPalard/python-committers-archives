@@ -7072,3 +7072,637 @@ I agree.
 
 Yury
 
+From ncoghlan at gmail.com  Fri Sep 28 09:49:23 2018
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Fri, 28 Sep 2018 23:49:23 +1000
+Subject: [python-committers] [PEP 8013] The External Council Governance
+ Model
+In-Reply-To: <7f28da9c-a0f4-074d-9c49-38a0e64387e9@python.org>
+References: <7f28da9c-a0f4-074d-9c49-38a0e64387e9@python.org>
+Message-ID: <CADiSq7eSaXL+S9YqGFPOZROEyqR1nYbY0NZ7VCuKiqwwN2L8MA@mail.gmail.com>
+
+On Wed, 26 Sep 2018 at 01:25, Steve Dower <steve.dower at python.org> wrote:
+>
+> Here is the text of PEP 8013 for discussion and improvement (in
+> isolation from the other proposals, of course -- we're not ready for the
+> shoot-out yet.)
+>
+> I'm keen to see the model be considered, but I don't feel the need to
+> tightly control the specific content in the PEP, so feel free to send
+> your own PRs if you have definitive improvements.
+
+Thanks for the write-up Steve. If we did go down the "independent
+advisory council" route, I'd actually prefer to see it used to
+strengthen the BDFL-Delegate system rather than weaken it: the role of
+the advisory council would only be to step in when there was a dispute
+amongst the core developers as to whether or not there was a suitable
+volunteer available to serve as BDFL-Delegate, or if there was a
+proposal where nobody was volunteering to be the final decision maker,
+but the council thought the prospective gains on offer were
+sufficiently large to make it worthwhile to attempt to change that
+state of affairs.
+
+The other aspects would pretty much remain the same as you suggest -
+the advisory council would mainly be there to help BDFL-Delegates out
+when it came time to end discussion of a proposal and make their
+decision (whether for or against) stick.
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+
+From ncoghlan at gmail.com  Fri Sep 28 10:05:38 2018
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Sat, 29 Sep 2018 00:05:38 +1000
+Subject: [python-committers] Python 4.0 or Python 3.10?
+In-Reply-To: <CAD+XWwqoGnmf1pEXAQnZph6ZWLr0jLjxD5FboFAENq8nfHLMsA@mail.gmail.com>
+References: <CA+St6D0ZfAb+Bk1bd1+Bp12C7_ZZisYWXNnkYEHm5txhHN_Ueg@mail.gmail.com>
+ <5c7187ef-b93b-86c4-34b9-b04444d41a30@python.org>
+ <9A786CFD-E1A5-4CCB-BA01-0768BB265336@python.org>
+ <944999a0-8ca4-c315-3889-32d6946541a0@gmail.com>
+ <CAD+XWwqoGnmf1pEXAQnZph6ZWLr0jLjxD5FboFAENq8nfHLMsA@mail.gmail.com>
+Message-ID: <CADiSq7cHza+NMp5xeKeoRuB8ab+2M7LY84k_H+VpfLShrGy+8Q@mail.gmail.com>
+
+On Wed, 26 Sep 2018 at 07:09, Brian Curtin <brian at python.org> wrote:
+> On Tue, Sep 25, 2018 at 2:38 PM Serhiy Storchaka <storchaka at gmail.com> wrote:
+>> And changing the major version number itself is significant breaking
+>> change. From the name of the executable (python3 vs python4) hardcoded
+>> in Python and shell scripts to a number of third-party scripts that
+>> contain in the best case:
+>>
+>>      PY3 = sys.version_info[0] == 3
+>>      if not PY3:
+>>          ... # implies Python 2
+>>
+>> and in the worst case:
+>>
+>>      PY3 = sys.version[0] == '3'
+>>
+>> Changing the minor version number from a single-digit to a two-digits
+>> will break some software too, but I think that this breakage is smaller.
+>
+> FWIW, we had a similar bump in 2015 (?) when 2.7.10 was about to come out. Moving up to two digits might break some assumptions, though users misusing things isn't really our problem. Someone out there is parsing `sys.version[:5]` or `platform.python_version()` instead of the alternatives that are better suited to getting specific parts of the version.
+
+At the 2017 core dev sprint, Ezio Mellotti and I also discussed the
+possibility of adding a string subclass that emits warnings when used
+in ordered comparisons, and switching to that for the result of
+sys.version. It wouldn't catch all cases of inappropriate comparisons
+against sys.version, but it would catch a lot of them.
+
+Either way, +1 from me for running with a 3.10 release after 3.9, such
+that we're well and truly clear of the Python 2 end of life when
+Python 4.0 comes around, and we'll have time to either introduce the
+py launcher, or else reintroduce the default "python" symlink, before
+the major version number gets bumped again.
+
+Cheers,
+Nick.
+
+P.S. Note that I say this even though we use the "X.Y" version in a
+lot more places than just sys.version (think filesystem paths, PyPI
+artifact names and tags, etc). While those do have ways of coping with
+3 digit version strings (either already including an "X.Y" separator,
+or stating that "X_Y" should be used when "XY" would be ambiguous), we
+can expect actually making such a release to find latent defects in
+assorted different pieces of software. However, unlike the 3.x
+compatibility breaks, adapting software to cope with a 3.10.0 release
+isn't going to break support for older releases.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+
+From ncoghlan at gmail.com  Fri Sep 28 10:12:29 2018
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Sat, 29 Sep 2018 00:12:29 +1000
+Subject: [python-committers] Python 4.0 or Python 3.10?
+In-Reply-To: <6920a0d7-7ef6-5fdc-02a8-d12e0a171368@gmail.com>
+References: <CA+St6D0ZfAb+Bk1bd1+Bp12C7_ZZisYWXNnkYEHm5txhHN_Ueg@mail.gmail.com>
+ <6920a0d7-7ef6-5fdc-02a8-d12e0a171368@gmail.com>
+Message-ID: <CADiSq7daKi-T-R3V7bf6A-vfpjxSQLv2TeON8uu=d23yQ9jgnw@mail.gmail.com>
+
+On Wed, 26 Sep 2018 at 20:27, Petr Viktorin <encukou at gmail.com> wrote:
+> I'd much, much rather explain that `sys.version[2]` is not correct, and
+> solve the "python310" < "python39" problem.
+
+One of the perks of the way PEP 425 deals with this [1] is that ASCII
+underscores sort higher than ASCII digits, so:
+
+    >>> "py31" < "py39" < "py310" < "py311"
+    False
+    >>> "py31" < "py39" < "py3_10" < "py3_11"
+    True
+
+(I'm not sure if that's true for all collation orders, but if we find
+one where it isn't, then we'd just specify a collation order to use
+for Python version comparisons)
+
+Cheers,
+Nick.
+
+[1] https://www.python.org/dev/peps/pep-0425/#python-tag
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+
+From lukasz at langa.pl  Fri Sep 28 17:45:54 2018
+From: lukasz at langa.pl (=?utf-8?Q?=C5=81ukasz_Langa?=)
+Date: Fri, 28 Sep 2018 22:45:54 +0100
+Subject: [python-committers] python-committers is dead,
+ long live discuss.python.org
+Message-ID: <AA39C2F5-531A-46AA-8C65-59E188D4002E@langa.pl>
+
+Hello committers,
+since this got pretty long, here's the tl;dr:
+
+- we're at the point where it is hard to make mailing lists work for us;
+- we're switching to Discourse; it's better in many ways;
+- go to https://discuss.python.org/ <https://discuss.python.org/> and create your account there;
+- please do not post to python-committers for the remainder of the year to give Discourse a real shot.
+
+And now the long version.
+
+What's the issue?
+During the core sprint in Redmond we discussed how we discuss. The overwhelming feel is that we have reached the limits of what is possible with mailing lists. We identified e-mail as a contributor to some of the problems we're dealing with now. To fix more and whine less, I talked with everybody in Redmond about a possible replacement for the trusty mailing list. We identified one: Discourse.
+
+What is it?
+Discourse is forum software started in 2013 by Jeff Atwood, Robin Ward, and Sam Saffron. It's used by many large scale open source projects and companies, including Github Atom, Twitter Developers, Rust, Kotlin, Elixir, Docker, Codeacademy, Patreon, EVE Online, and Imgur. It's open source (Ruby, GPL2), it supports plugins and has an API.
+
+Why is it better than e-mail?
+It's both a Web app and a terrific mobile application. It supports regular flat conversational threads and collapsible replies. There is community moderation where users can flag inappropriate messages to notify moderators, moderators and authors can lock topics, move discussions between categories, archive things that are no longer applicable, and so on.
+
+You can edit posts, quote posts, link between posts, add rich media, code snippets with syntax highlighting, there's Markdown support. You can still use it via e-mail similarly to how GitHub notifications work. See: https://meta.discourse.org/t/set-up-reply-via-email-support/14003 <https://meta.discourse.org/t/set-up-reply-via-email-support/14003>
+
+There is a user trust system where proven community members get more power in time, for example to fix typos and move topics to a better category.
+
+There's much more: dynamic notifications, topic summaries, emojis, spam blocking, single sing-on, two-factor authentication, social login support, and so on. Read: https://meta.discourse.org/t/discourse-vs-email-mailing-lists/54298 <https://meta.discourse.org/t/discourse-vs-email-mailing-lists/54298>.
+
+What about Zulip?
+Zulip is chat software which some of us find useful but its UI is proving to be challenging for many of us, the mobile application leaves a lot to be desired, and it did not end up moving discussions out of the mailing lists. I see Zulip as replacement for IRC whereas Discourse is replacement for mailing lists (or both; we'll see!).
+
+Where do I sign up?
+Create an account at https://discuss.python.org/ <https://discuss.python.org/>. You'll recognize the set up as essentially mirroring the main mailing lists:
+- Committers
+- Users
+- Ideas
+There's also Discourse-specific sections:
+- Discourse Feedback (post here if things don't work like you'd like)
+- Discourse Staff (hidden category for moderators and admins of the instance, boring discussion)
+- Inquisition (hidden category for users with trust level 3+)
+
+As you can see, I combined python-committers and python-dev into just "Committers". If we find in the future that this is too limiting, we can always open up another category. For now though I'd like to avoid the fate of python-dev where there's 20k+ subscribers and we don't know who is who.
+
+CALL TO ACTION
+We'd like to heavily test this new forum. As such, I would like to ask you to NOT USE python-committers for the remainder of the year and direct all conversation to Discourse.
+
+The goal to replace the mailing lists with Discourse met unanimous support at the core sprint. As long as we don't identify any deal breakers in October, I will send an e-mail like this to python-dev on November 1st, and to python-list and python-ideas on December 1st. If everything goes smoothly, those four mailing lists will be archived by end of this year. Other mailing lists are welcome to port over to Discourse too.
+
+Acknowledgements
+Pablo and Ernest worked on setting up this instance for us (thank you both! ?). The question whether Discourse or the Python Software Foundation are going to pay for this infrastructure is still open but, as Elon Musk likes to say, funding is secured. Yury and I are helping in configuring the instance.
+
+Future work
+We'll be enabling GitHub and social logins soon, ideally with adding identified committers to the committers group by default. We are looking into this right now. In the mean time, please request membership, an existing member will add you. We'd like to migrate old discussion off of the mailing lists to our Discourse instance so that search is immediately useful. We'll look into that after the governance crisis is resolved.
+
+- ?
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20180928/bec358b2/attachment.html>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 833 bytes
+Desc: Message signed with OpenPGP
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20180928/bec358b2/attachment.sig>
+
+From vstinner at redhat.com  Fri Sep 28 18:03:37 2018
+From: vstinner at redhat.com (Victor Stinner)
+Date: Sat, 29 Sep 2018 00:03:37 +0200
+Subject: [python-committers] python-committers is dead,
+ long live discuss.python.org
+In-Reply-To: <AA39C2F5-531A-46AA-8C65-59E188D4002E@langa.pl>
+References: <AA39C2F5-531A-46AA-8C65-59E188D4002E@langa.pl>
+Message-ID: <CA+3bQGGYT0C7Ci4rtpJbPk_vq8xk=S_-Gx62V43rJcft4nn2fQ@mail.gmail.com>
+
+Le ven. 28 sept. 2018 ? 23:46, ?ukasz Langa <lukasz at langa.pl> a ?crit :
+> - go to https://discuss.python.org/ and create your account there;
+
+It seems like anyone can subscribe. Is the Committer group reserved to
+core developers? If yes, how do you know which accounts are linked to
+core developers?
+
+Oh, I just saw that Berker sent a message:
+"Membership Request for @committers"
+https://discuss.python.org/t/membership-request-for-committers/27/2
+
+I don't see this message in any category. Is it a private message?
+
+Victor
+
+From storchaka at gmail.com  Fri Sep 28 18:04:05 2018
+From: storchaka at gmail.com (Serhiy Storchaka)
+Date: Sat, 29 Sep 2018 01:04:05 +0300
+Subject: [python-committers] python-committers is dead,
+ long live discuss.python.org
+In-Reply-To: <AA39C2F5-531A-46AA-8C65-59E188D4002E@langa.pl>
+References: <AA39C2F5-531A-46AA-8C65-59E188D4002E@langa.pl>
+Message-ID: <72307253-96e7-7486-398d-5a702377a4fb@gmail.com>
+
+29.09.18 00:45, ?ukasz Langa ????:
+> Hello committers,
+> since this got pretty long, here's the tl;dr:
+>
+> - we're at the point where it is hard to make mailing lists work for us;
+> - we're switching to Discourse; it's better in many ways;
+> - go to https://discuss.python.org/?and create your account there;
+> - please do not post to python-committers for the remainder of the 
+> year to give Discourse a real shot.
+
+Does it support NNTP?
+
+
+From lukasz at langa.pl  Fri Sep 28 18:18:01 2018
+From: lukasz at langa.pl (=?utf-8?Q?=C5=81ukasz_Langa?=)
+Date: Fri, 28 Sep 2018 23:18:01 +0100
+Subject: [python-committers] python-committers is dead,
+ long live discuss.python.org
+In-Reply-To: <CA+3bQGGYT0C7Ci4rtpJbPk_vq8xk=S_-Gx62V43rJcft4nn2fQ@mail.gmail.com>
+References: <AA39C2F5-531A-46AA-8C65-59E188D4002E@langa.pl>
+ <CA+3bQGGYT0C7Ci4rtpJbPk_vq8xk=S_-Gx62V43rJcft4nn2fQ@mail.gmail.com>
+Message-ID: <101F61D2-0C22-4339-BEFB-EA1FD82427C2@langa.pl>
+
+
+> On 28 Sep 2018, at 23:03, Victor Stinner <vstinner at redhat.com> wrote:
+> 
+> Le ven. 28 sept. 2018 ? 23:46, ?ukasz Langa <lukasz at langa.pl> a ?crit :
+>> - go to https://discuss.python.org/ and create your account there;
+> 
+> It seems like anyone can subscribe.
+
+Yes.
+
+
+> Is the Committer group reserved to core developers?
+
+Yes, so far we just approve by hand until we get the GitHub automation going.
+
+
+> If yes, how do you know which accounts are linked to
+> core developers?
+
+I'm confirming by looking at the e-mail with which an account was registered.
+
+
+> Oh, I just saw that Berker sent a message:
+> "Membership Request for @committers"
+> https://discuss.python.org/t/membership-request-for-committers/27/2
+> 
+> I don't see this message in any category. Is it a private message?
+
+Yes.
+
+
+Now, further questions go to https://discuss.python.org/c/site-feedback <https://discuss.python.org/c/site-feedback>! :>
+
+- ?
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20180928/5f59211a/attachment-0001.html>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 833 bytes
+Desc: Message signed with OpenPGP
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20180928/5f59211a/attachment-0001.sig>
+
+From berker.peksag at gmail.com  Fri Sep 28 18:19:16 2018
+From: berker.peksag at gmail.com (=?UTF-8?Q?Berker_Peksa=C4=9F?=)
+Date: Sat, 29 Sep 2018 01:19:16 +0300
+Subject: [python-committers] python-committers is dead,
+ long live discuss.python.org
+In-Reply-To: <CA+3bQGGYT0C7Ci4rtpJbPk_vq8xk=S_-Gx62V43rJcft4nn2fQ@mail.gmail.com>
+References: <AA39C2F5-531A-46AA-8C65-59E188D4002E@langa.pl>
+ <CA+3bQGGYT0C7Ci4rtpJbPk_vq8xk=S_-Gx62V43rJcft4nn2fQ@mail.gmail.com>
+Message-ID: <CAF4280+cn7yzjXZmx9Dj6DquMRKDZSC+syvNoE7P9Tc6Pd92Cw@mail.gmail.com>
+
+On Sat, Sep 29, 2018 at 1:03 AM Victor Stinner <vstinner at redhat.com> wrote:
+> Oh, I just saw that Berker sent a message:
+> "Membership Request for @committers"
+> https://discuss.python.org/t/membership-request-for-committers/27/2
+>
+> I don't see this message in any category. Is it a private message?
+
+If I understood it correctly, all members of @committers also marked
+as owners, so you will get notifications for membership requests,
+flagged posts etc.
+
+--Berker
+
+From chris.jerdonek at gmail.com  Fri Sep 28 18:55:31 2018
+From: chris.jerdonek at gmail.com (Chris Jerdonek)
+Date: Fri, 28 Sep 2018 15:55:31 -0700
+Subject: [python-committers] python-committers is dead,
+ long live discuss.python.org
+In-Reply-To: <AA39C2F5-531A-46AA-8C65-59E188D4002E@langa.pl>
+References: <AA39C2F5-531A-46AA-8C65-59E188D4002E@langa.pl>
+Message-ID: <CAOTb1wdAEseB7ms57N6GCTs4mXXh==cJHr7XK6+h+2AZc5LVkQ@mail.gmail.com>
+
+On Fri, Sep 28, 2018 at 2:45 PM, ?ukasz Langa <lukasz at langa.pl> wrote:
+
+> There is a user trust system where proven community members get more power
+> in time, for example to fix typos and move topics to a better category.
+>
+
+Will committers start out as "proven," or will we need to "re-prove"
+ourselves to gain additional privileges? How is the trust evaluation
+bootstrapped in Python's case, and who can confer additional trust (e.g.
+can it be non-committers, etc)?
+
+
+*CALL TO ACTION*
+> We'd like to heavily test this new forum. As such, I would like to ask you
+> to *NOT USE* python-committers for the remainder of the year and direct
+> all conversation to Discourse.
+>
+
+I hope this thread about transitioning is exempt from this call to action!
+:)
+
+--Chris
+
+
+On Fri, Sep 28, 2018 at 2:45 PM, ?ukasz Langa <lukasz at langa.pl> wrote:
+
+> Hello committers,
+> since this got pretty long, here's the tl;dr:
+>
+> - we're at the point where it is hard to make mailing lists work for us;
+> - we're switching to Discourse; it's better in many ways;
+> - go to https://discuss.python.org/ and create your account there;
+> - please do not post to python-committers for the remainder of the year to
+> give Discourse a real shot.
+>
+> And now the long version.
+>
+> *What's the issue?*
+> During the core sprint in Redmond we discussed how we discuss. The
+> overwhelming feel is that we have reached the limits of what is possible
+> with mailing lists. We identified e-mail as a contributor to some of the
+> problems we're dealing with now. To fix more and whine less, I talked with
+> everybody in Redmond about a possible replacement for the trusty mailing
+> list. We identified one: Discourse.
+>
+> *What is it?*
+> Discourse is forum software started in 2013 by Jeff Atwood, Robin Ward,
+> and Sam Saffron. It's used by many large scale open source projects and
+> companies, including Github Atom, Twitter Developers, Rust, Kotlin, Elixir,
+> Docker, Codeacademy, Patreon, EVE Online, and Imgur. It's open source
+> (Ruby, GPL2), it supports plugins and has an API.
+>
+> *Why is it better than e-mail?*
+> It's both a Web app and a terrific mobile application. It supports regular
+> flat conversational threads and collapsible replies. There is community
+> moderation where users can flag inappropriate messages to notify
+> moderators, moderators and authors can lock topics, move discussions
+> between categories, archive things that are no longer applicable, and so on.
+>
+> You can edit posts, quote posts, link between posts, add rich media, code
+> snippets with syntax highlighting, there's Markdown support. You can still
+> use it via e-mail similarly to how GitHub notifications work. See:
+> https://meta.discourse.org/t/set-up-reply-via-email-support/14003
+>
+> There is a user trust system where proven community members get more power
+> in time, for example to fix typos and move topics to a better category.
+>
+> There's much more: dynamic notifications, topic summaries, emojis, spam
+> blocking, single sing-on, two-factor authentication, social login support,
+> and so on. Read: https://meta.discourse.org/t/discourse-vs-email-
+> mailing-lists/54298.
+>
+> *What about Zulip?*
+> Zulip is chat software which some of us find useful but its UI is proving
+> to be challenging for many of us, the mobile application leaves a lot to be
+> desired, and it did not end up moving discussions out of the mailing lists.
+> I see Zulip as replacement for IRC whereas Discourse is replacement for
+> mailing lists (or both; we'll see!).
+>
+> *Where do I sign up?*
+> Create an account at https://discuss.python.org/. You'll recognize the
+> set up as essentially mirroring the main mailing lists:
+> - Committers
+> - Users
+> - Ideas
+> There's also Discourse-specific sections:
+> - Discourse Feedback (post here if things don't work like you'd like)
+> - Discourse Staff (hidden category for moderators and admins of the
+> instance, boring discussion)
+> - Inquisition (hidden category for users with trust level 3+)
+>
+> As you can see, I combined python-committers and python-dev into just
+> "Committers". If we find in the future that this is too limiting, we can
+> always open up another category. For now though I'd like to avoid the fate
+> of python-dev where there's 20k+ subscribers and we don't know who is who.
+>
+> *CALL TO ACTION*
+> We'd like to heavily test this new forum. As such, I would like to ask you
+> to *NOT USE* python-committers for the remainder of the year and direct
+> all conversation to Discourse.
+>
+> The goal to replace the mailing lists with Discourse met unanimous support
+> at the core sprint. As long as we don't identify any deal breakers in
+> October, I will send an e-mail like this to python-dev on November 1st, and
+> to python-list and python-ideas on December 1st. If everything goes
+> smoothly, those four mailing lists will be archived by end of this year.
+> Other mailing lists are welcome to port over to Discourse too.
+>
+> *Acknowledgements*
+> Pablo and Ernest worked on setting up this instance for us (thank you
+> both! ?). The question whether Discourse or the Python Software
+> Foundation are going to pay for this infrastructure is still open but, as
+> Elon Musk likes to say, funding is secured. Yury and I are helping in
+> configuring the instance.
+>
+> *Future work*
+> We'll be enabling GitHub and social logins soon, ideally with adding
+> identified committers to the committers group by default. We are looking
+> into this right now. In the mean time, please request membership, an
+> existing member will add you. We'd like to migrate old discussion off of
+> the mailing lists to our Discourse instance so that search is immediately
+> useful. We'll look into that after the governance crisis is resolved.
+>
+> - ?
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20180928/eb033207/attachment.html>
+
+From lukasz at langa.pl  Fri Sep 28 19:47:06 2018
+From: lukasz at langa.pl (=?utf-8?Q?=C5=81ukasz_Langa?=)
+Date: Sat, 29 Sep 2018 00:47:06 +0100
+Subject: [python-committers] python-committers is dead,
+ long live discuss.python.org
+In-Reply-To: <CAOTb1wdAEseB7ms57N6GCTs4mXXh==cJHr7XK6+h+2AZc5LVkQ@mail.gmail.com>
+References: <AA39C2F5-531A-46AA-8C65-59E188D4002E@langa.pl>
+ <CAOTb1wdAEseB7ms57N6GCTs4mXXh==cJHr7XK6+h+2AZc5LVkQ@mail.gmail.com>
+Message-ID: <5A2CA85B-277B-40DD-9EA5-09F5480200B6@langa.pl>
+
+
+> On 28 Sep 2018, at 23:55, Chris Jerdonek <chris.jerdonek at gmail.com> wrote:
+> 
+> On Fri, Sep 28, 2018 at 2:45 PM, ?ukasz Langa <lukasz at langa.pl <mailto:lukasz at langa.pl>> wrote:
+> There is a user trust system where proven community members get more power in time, for example to fix typos and move topics to a better category.
+> 
+> Will committers start out as "proven," or will we need to "re-prove" ourselves to gain additional privileges? How is the trust evaluation bootstrapped in Python's case, and who can confer additional trust (e.g. can it be non-committers, etc)?
+
+Regular users start at trust level 0. Committers are at trust level 3. There is only one more level and this is for moderators and admins of the instance. This models what we had on the mailing lists, what we have on GitHub, and so on. I hope it makes sense.
+
+
+> I hope this thread about transitioning is exempt from this call to action! :)
+
+This e-mail is specifically re-posted on Discourse so you can discuss it there, too :-)
+
+- ?
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20180929/c4752663/attachment-0001.html>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 833 bytes
+Desc: Message signed with OpenPGP
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20180929/c4752663/attachment-0001.sig>
+
+From lukasz at langa.pl  Fri Sep 28 20:45:52 2018
+From: lukasz at langa.pl (=?utf-8?Q?=C5=81ukasz_Langa?=)
+Date: Sat, 29 Sep 2018 01:45:52 +0100
+Subject: [python-committers] python-committers is dead,
+ long live discuss.python.org
+In-Reply-To: <72307253-96e7-7486-398d-5a702377a4fb@gmail.com>
+References: <AA39C2F5-531A-46AA-8C65-59E188D4002E@langa.pl>
+ <72307253-96e7-7486-398d-5a702377a4fb@gmail.com>
+Message-ID: <3F11F17A-F04A-49D3-9821-4E94169EB068@langa.pl>
+
+
+> On 28 Sep 2018, at 23:04, Serhiy Storchaka <storchaka at gmail.com> wrote:
+> 
+> Does it support NNTP?
+
+Do you use NNTP? Like with IRC, you won't find the next generation of core developers on it. And no, there is no support for it in Discourse.
+
+We could probably figure something out with Gmane if there's interest.
+
+- ?
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 833 bytes
+Desc: Message signed with OpenPGP
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20180929/902e73c5/attachment.sig>
+
+From barry at python.org  Fri Sep 28 21:19:37 2018
+From: barry at python.org (Barry Warsaw)
+Date: Fri, 28 Sep 2018 18:19:37 -0700
+Subject: [python-committers] python-committers is dead,
+ long live discuss.python.org
+In-Reply-To: <3F11F17A-F04A-49D3-9821-4E94169EB068@langa.pl>
+References: <AA39C2F5-531A-46AA-8C65-59E188D4002E@langa.pl>
+ <72307253-96e7-7486-398d-5a702377a4fb@gmail.com>
+ <3F11F17A-F04A-49D3-9821-4E94169EB068@langa.pl>
+Message-ID: <37728F30-53CA-430A-BEA5-EF81CC76F811@python.org>
+
+On Sep 28, 2018, at 17:45, ?ukasz Langa <lukasz at langa.pl> wrote:
+
+> Do you use NNTP? Like with IRC, you won't find the next generation of core developers on it. And no, there is no support for it in Discourse.
+> 
+> We could probably figure something out with Gmane if there's interest.
+
+Yes, I use NNTP to read many of the Python mailing lists.  Gmane, even in its current state, is fantastic.
+
+I?m all for supporting the next generation of developers, but not necessarily at the expense of *decades* of established workflow for current developers.  Moving to Discourse breaks this and proliferates browser tab syndrome.  It?s an experiment worth conducting, but I do think it?s a bit cavalier to shut down python-committers without further discussion.
+
+Cheers,
+-Barry
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 833 bytes
+Desc: Message signed with OpenPGP
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20180928/49f093bc/attachment.sig>
+
+From barry at python.org  Fri Sep 28 21:21:13 2018
+From: barry at python.org (Barry Warsaw)
+Date: Fri, 28 Sep 2018 18:21:13 -0700
+Subject: [python-committers] python-committers is dead,
+ long live discuss.python.org
+In-Reply-To: <CA+3bQGGYT0C7Ci4rtpJbPk_vq8xk=S_-Gx62V43rJcft4nn2fQ@mail.gmail.com>
+References: <AA39C2F5-531A-46AA-8C65-59E188D4002E@langa.pl>
+ <CA+3bQGGYT0C7Ci4rtpJbPk_vq8xk=S_-Gx62V43rJcft4nn2fQ@mail.gmail.com>
+Message-ID: <EA1A358D-6932-42D7-8BEF-7D10AC1AE79C@python.org>
+
+On Sep 28, 2018, at 15:03, Victor Stinner <vstinner at redhat.com> wrote:
+
+> It seems like anyone can subscribe. Is the Committer group reserved to
+> core developers? If yes, how do you know which accounts are linked to
+> core developers?
+
+You must be approved to join python-committers, but its archive is public for anyone to read.  Does Discourse provide the same level of access for core developers and non-core developers?
+
+-Barry
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 833 bytes
+Desc: Message signed with OpenPGP
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20180928/436ff592/attachment.sig>
+
+From lukasz at langa.pl  Fri Sep 28 21:32:08 2018
+From: lukasz at langa.pl (=?utf-8?Q?=C5=81ukasz_Langa?=)
+Date: Sat, 29 Sep 2018 02:32:08 +0100
+Subject: [python-committers] python-committers is dead,
+ long live discuss.python.org
+In-Reply-To: <EA1A358D-6932-42D7-8BEF-7D10AC1AE79C@python.org>
+References: <AA39C2F5-531A-46AA-8C65-59E188D4002E@langa.pl>
+ <CA+3bQGGYT0C7Ci4rtpJbPk_vq8xk=S_-Gx62V43rJcft4nn2fQ@mail.gmail.com>
+ <EA1A358D-6932-42D7-8BEF-7D10AC1AE79C@python.org>
+Message-ID: <2B62351F-B1BB-42B6-A130-C7A12764C21D@langa.pl>
+
+As you already witnessed, yes it does.
+
+-- 
+Best regards,
+?ukasz Langa
+
+> On Sep 29, 2018, at 02:21, Barry Warsaw <barry at python.org> wrote:
+> 
+>> On Sep 28, 2018, at 15:03, Victor Stinner <vstinner at redhat.com> wrote:
+>> 
+>> It seems like anyone can subscribe. Is the Committer group reserved to
+>> core developers? If yes, how do you know which accounts are linked to
+>> core developers?
+> 
+> You must be approved to join python-committers, but its archive is public for anyone to read.  Does Discourse provide the same level of access for core developers and non-core developers?
+> 
+> -Barry
+> 
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+
+

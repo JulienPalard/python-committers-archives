@@ -1805,3 +1805,203 @@ ie: exactly the same way I behave with mailing lists.
 An HTML attachment was scrubbed...
 URL: <http://mail.python.org/pipermail/python-committers/attachments/20181010/970752da/attachment.html>
 
+From vstinner at redhat.com  Thu Oct 11 04:10:10 2018
+From: vstinner at redhat.com (Victor Stinner)
+Date: Thu, 11 Oct 2018 10:10:10 +0200
+Subject: [python-committers] 1 week to Oct 1
+In-Reply-To: <CAGbohnantvAwLJAUPmgy70WG-mSw5Kc-wjMZOdD5_eq6hZmxTw@mail.gmail.com>
+References: <CAGbohnY0mG8EOsTKHnKfKBNx2Znfprsi=Dr7Pe1tX5rj7gxBLw@mail.gmail.com>
+ <0a2cf631-04f1-e877-fda4-b4f481c5bb71@python.org>
+ <7EE20D66-C7AC-4051-8F5B-4588CA2D182D@me.com>
+ <9da87c2c-ac2e-8997-f705-1b50074d5136@egenix.com>
+ <CAGbohnantvAwLJAUPmgy70WG-mSw5Kc-wjMZOdD5_eq6hZmxTw@mail.gmail.com>
+Message-ID: <CA+3bQGER4y_WDmdamDX=mEAPYRgtg4wy7Hb3ugtE+YVGbJ8=VQ@mail.gmail.com>
+
+Le jeu. 27 sept. 2018 ? 01:28, Mariatta Wijaya <mariatta at python.org> a ?crit :
+> Really sorry folks, but I also would like to request an extension, by one week to Oct 8.
+
+The PEP 8000 lists 5 governance PEPs:
+
+"""
+PEPs in the 8010s describe the actual proposals for Python governance.  It is
+expected that these PEPs will cover the broad scope of governance, and that
+differences in details (such as the size of a governing council) will be
+covered in the same PEP, rather than in potentially vote-splitting individual
+PEPs.
+
+* PEP 8010 - The BDFL Governance Model
+
+  This is a placeholder PEP for the continuation of the `Benevolent Dictator
+  For Life <https://en.wikipedia.org/wiki/Benevolent_dictator_for_life>`_
+  model.  The name is an homage to Guido's title and does not necessarily
+  imply that the next BDFL will be required to serve without time limit.  Also
+  within scope is whether an advisory council aids or supports the BDFL.  This
+  PEP does *not* name either the next BDFL, nor members of such an advisory
+  council.  For that, see PEP 13.
+
+* PEP 8011 - Python Governance Model Lead by Trio of Pythonistas
+
+  This PEP describes a new model of Python governance lead by a Trio
+of Pythonistas
+  (TOP).  It describes the role and responsibilities of the Trio.
+  This PEP does *not* name members of the Trio.  For that, see PEP 13.
+
+* PEP 8012 - The Community Governance Model
+
+  This is a placeholder PEP for a new model of Python governance based on
+  consensus and voting, without the role of a centralized singular leader or a
+  governing council.  It describes how, when, and why votes are conducted for
+  decisions affecting the Python language.  It also describes the criteria for
+  voting eligibility.
+
+* PEP 8013 - The External Governance Model
+
+  This PEP describes a new model of Python governance based on an external
+  council who are responsible for ensuring good process.  Elected by the core
+  development team, this council may reject proposals that are not
+  sufficiently detailed, do not consider all affected users, or are not
+  appropriate for the upcoming release.  This PEP does *not* name members of
+  such a council.  For that, see PEP 13.
+
+* PEP 8014 - The Commons Governance Model
+
+  This PEP describes a new model of Python governance based on a council of
+  elders who are responsible for ensuring a PEP is supported by a sufficient
+  majority of the Python community before being accepted. Unlike some of the
+  other governance PEPs it explicitly does *not* specify who has voting
+  rights and what a majority vote consists of. In stead this is determined
+  by the council of elders on a case by case basis.
+
+* PEP 8015 - Organization of the Python community
+
+  This PEP formalizes the current organization of the Python community
+  and proposes 3 main changes: formalize the existing concept of
+  "Python teams"; give more autonomy to Python teams; replace the BDFL
+  (Guido van Rossum) with a new "Python board" of 3 members which has
+  limited roles, mostly decide how a PEP is approved (or rejected).
+"""
+
+The PEP 8000 still says "Additional governance models may be added
+before the final selection.": are we still expecting new governance
+PEPs? Or should we remove this sentence?
+
+In clear, does anyone want to write a new governance PEP?
+
+Victor
+
+From vstinner at redhat.com  Thu Oct 11 04:11:16 2018
+From: vstinner at redhat.com (Victor Stinner)
+Date: Thu, 11 Oct 2018 10:11:16 +0200
+Subject: [python-committers] 1 week to Oct 1
+In-Reply-To: <CA+3bQGER4y_WDmdamDX=mEAPYRgtg4wy7Hb3ugtE+YVGbJ8=VQ@mail.gmail.com>
+References: <CAGbohnY0mG8EOsTKHnKfKBNx2Znfprsi=Dr7Pe1tX5rj7gxBLw@mail.gmail.com>
+ <0a2cf631-04f1-e877-fda4-b4f481c5bb71@python.org>
+ <7EE20D66-C7AC-4051-8F5B-4588CA2D182D@me.com>
+ <9da87c2c-ac2e-8997-f705-1b50074d5136@egenix.com>
+ <CAGbohnantvAwLJAUPmgy70WG-mSw5Kc-wjMZOdD5_eq6hZmxTw@mail.gmail.com>
+ <CA+3bQGER4y_WDmdamDX=mEAPYRgtg4wy7Hb3ugtE+YVGbJ8=VQ@mail.gmail.com>
+Message-ID: <CA+3bQGH1MEPFPKXYdV7tCkxTOLr5B815-9Arq3xZL65K7RZsLQ@mail.gmail.com>
+
+> The PEP 8000 lists 5 governance PEPs:
+
+Oops, there are even 6 governance PEPs :-)
+
+Victor
+
+From antoine at python.org  Thu Oct 11 04:30:01 2018
+From: antoine at python.org (Antoine Pitrou)
+Date: Thu, 11 Oct 2018 10:30:01 +0200
+Subject: [python-committers] discuss.python.org participation
+In-Reply-To: <CACLn2+2twSsUkuDVZBDZh=2w0nZ7rxjhGw_XxzMEsFiBJgftpw@mail.gmail.com>
+References: <CACLn2+2twSsUkuDVZBDZh=2w0nZ7rxjhGw_XxzMEsFiBJgftpw@mail.gmail.com>
+Message-ID: <bd479678-3a01-4587-2544-768b4aabfc77@python.org>
+
+
+What concerns me is that there are several long-time and/or prominent
+developers who are not even registered (*) on discuss.python.org.  For
+example Benjamin Peterson, Larry Hastings, Raymond Hettinger, Stefan
+Krah, Terry Reedy.
+
+I would be worried if a decision is taken without them.
+
+(*) https://discuss.python.org/u
+
+Regards
+
+Antoine.
+
+
+
+Le 10/10/2018 ? 05:20, Jack Diederich a ?crit?:
+> I'm worried about the new format combined with governance discussions.
+> As best I can tell 51 CPython committers have signed up for an account
+> [I think that is a big number, btw] but only 17 have posted anything;
+> That 17 is about 5 more people than put their name on a governance PEP.
+> And maybe 5 people have half the total posts. This does not feel like a
+> discussion at all.
+> 
+> I don't think it was deliberate, but it looks like the new format is
+> actively discouraging everyone but those most deeply invested with the
+> most free time from participating.?
+> 
+> -Jack
+> 
+> 
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+> 
+
+From vstinner at redhat.com  Thu Oct 11 04:40:10 2018
+From: vstinner at redhat.com (Victor Stinner)
+Date: Thu, 11 Oct 2018 10:40:10 +0200
+Subject: [python-committers] discuss.python.org participation
+In-Reply-To: <bd479678-3a01-4587-2544-768b4aabfc77@python.org>
+References: <CACLn2+2twSsUkuDVZBDZh=2w0nZ7rxjhGw_XxzMEsFiBJgftpw@mail.gmail.com>
+ <bd479678-3a01-4587-2544-768b4aabfc77@python.org>
+Message-ID: <CA+3bQGH4X4vQXvPML+tn8R+oHtMtrQn+jNTFfrZ0eJwwFc5q5A@mail.gmail.com>
+
+Le jeu. 11 oct. 2018 ? 10:30, Antoine Pitrou <antoine at python.org> a ?crit :
+> What concerns me is that there are several long-time and/or prominent
+> developers who are not even registered (*) on discuss.python.org.  For
+> example Benjamin Peterson, Larry Hastings, Raymond Hettinger, Stefan
+> Krah, Terry Reedy.
+>
+> I would be worried if a decision is taken without them.
+>
+> (*) https://discuss.python.org/u
+
+Well, the PEP 8001 which explains how we will take a decision is still empty :-)
+https://www.python.org/dev/peps/pep-8001/
+
+Victor
+
+From tjreedy at udel.edu  Thu Oct 11 18:38:03 2018
+From: tjreedy at udel.edu (Terry Reedy)
+Date: Thu, 11 Oct 2018 18:38:03 -0400
+Subject: [python-committers] discuss.python.org participation
+In-Reply-To: <bd479678-3a01-4587-2544-768b4aabfc77@python.org>
+References: <CACLn2+2twSsUkuDVZBDZh=2w0nZ7rxjhGw_XxzMEsFiBJgftpw@mail.gmail.com>
+ <bd479678-3a01-4587-2544-768b4aabfc77@python.org>
+Message-ID: <73bc6ae1-466c-7e32-2ee0-db417627fc9f@udel.edu>
+
+On 10/11/2018 4:30 AM, Antoine Pitrou wrote:
+> 
+> What concerns me is that there are several long-time and/or prominent
+> developers who are not even registered (*) on discuss.python.org.  For
+> example Benjamin Peterson, Larry Hastings, Raymond Hettinger, Stefan
+> Krah, Terry Reedy.
+
+This provoked me to sign up and spend a few hours reading and 
+practicing.  It seems to mix features from github issues and 
+StackOverflow questions.  One main difference from the latter is using 
+categories instead of tags.
+
+If I wanted an IDLE category, should I post to Discourse Feedback? 
+Could I be made the moderator, with full powers at least for that category?
+
+tjr
+
+

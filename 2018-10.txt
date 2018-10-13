@@ -2005,3 +2005,274 @@ Could I be made the moderator, with full powers at least for that category?
 tjr
 
 
+From lukasz at langa.pl  Fri Oct 12 05:56:10 2018
+From: lukasz at langa.pl (=?utf-8?Q?=C5=81ukasz_Langa?=)
+Date: Fri, 12 Oct 2018 11:56:10 +0200
+Subject: [python-committers] discuss.python.org participation
+In-Reply-To: <73bc6ae1-466c-7e32-2ee0-db417627fc9f@udel.edu>
+References: <CACLn2+2twSsUkuDVZBDZh=2w0nZ7rxjhGw_XxzMEsFiBJgftpw@mail.gmail.com>
+ <bd479678-3a01-4587-2544-768b4aabfc77@python.org>
+ <73bc6ae1-466c-7e32-2ee0-db417627fc9f@udel.edu>
+Message-ID: <1DB6B4C9-C091-472D-B149-E38624818C15@langa.pl>
+
+
+> On 12 Oct 2018, at 00:38, Terry Reedy <tjreedy at udel.edu> wrote:
+> 
+> On 10/11/2018 4:30 AM, Antoine Pitrou wrote:
+>> What concerns me is that there are several long-time and/or prominent
+>> developers who are not even registered (*) on discuss.python.org.  For
+>> example Benjamin Peterson, Larry Hastings, Raymond Hettinger, Stefan
+>> Krah, Terry Reedy.
+> 
+> This provoked me to sign up and spend a few hours reading and practicing.  It seems to mix features from github issues and StackOverflow questions.  One main difference from the latter is using categories instead of tags.
+> 
+> If I wanted an IDLE category, should I post to Discourse Feedback?
+
+Hi, Terry! Glad to see you. We are trying not to have too many top-level categories because it increases friction for first-comers. When you mentioned tags, I remembered that we can actually have those on Discourse, too. Maybe IDLE-specific topics could be tagged with "IDLE"? To show you how this works, I created a "governance" tag.
+
+You can filter the main page by tags using a dropdown next to "all categories". If you don't see it, your browser probably cached the main page, hit Refresh. By filtering on the main page, you're getting all topics on discuss.python.org <http://discuss.python.org/> which are tagged with "governance":
+
+https://discuss.python.org/tags/governance <https://discuss.python.org/tags/governance>
+
+You can also filter a specific category. These are topics tagged with "governance" in "Committers":
+
+https://discuss.python.org/tags/c/committers/governance <https://discuss.python.org/tags/c/committers/governance>
+
+
+I think tags are attractive because you could have IDLE, AsyncIO, Typing, and so on. Sometimes they overlap so you could have a few tags on a single topic. And depending whether it's a Committers, Users, or an Ideas discussion, the topic would belong to the right category. What do you think, Terry?
+
+
+> Could I be made the moderator, with full powers at least for that category?
+
+Discourse does not currently allow per-category moderation yet. This is planned but not implemented yet:
+
+https://meta.discourse.org/t/category-specific-moderators-phase-1-rfc/21900/64 <https://meta.discourse.org/t/category-specific-moderators-phase-1-rfc/21900/64>
+
+As for global moderation, our current hosted Discourse plan (that we are getting from Discourse.org <http://discourse.org/> for free) allows up to five staff members (admins + moderators). We'd probably want a few more so I'll talk with Ernest to maybe bump this a bit.
+
+- ?
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20181012/e21e140f/attachment.html>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 833 bytes
+Desc: Message signed with OpenPGP
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20181012/e21e140f/attachment.sig>
+
+From brett at python.org  Fri Oct 12 14:48:59 2018
+From: brett at python.org (Brett Cannon)
+Date: Fri, 12 Oct 2018 11:48:59 -0700
+Subject: [python-committers] discuss.python.org participation
+In-Reply-To: <CACLn2+2twSsUkuDVZBDZh=2w0nZ7rxjhGw_XxzMEsFiBJgftpw@mail.gmail.com>
+References: <CACLn2+2twSsUkuDVZBDZh=2w0nZ7rxjhGw_XxzMEsFiBJgftpw@mail.gmail.com>
+Message-ID: <CAP1=2W6c3W3ziABq-XOeo2jHyPTEJVJuYNePuPNcwJf24KqWQQ@mail.gmail.com>
+
+One data point in all of this is Victor's PEP 8015. Here on the mailing
+list I seem to be the first and only person to reply since the PEP was
+posted on Monday. But over on Discourse there have been 3 people who have
+replied and there's already been some back-and-forth.
+
+So with a sample size of one, it looks like Discourse isn't discouraging
+anyone, otherwise I would have assumed people who don't want to start with
+Discourse would have simply started a discussion here on the mailing list
+about Victor's PEP.
+
+On Tue, 9 Oct 2018 at 20:24, Jack Diederich <jackdied at gmail.com> wrote:
+
+> I'm worried about the new format combined with governance discussions. As
+> best I can tell 51 CPython committers have signed up for an account [I
+> think that is a big number, btw] but only 17 have posted anything; That 17
+> is about 5 more people than put their name on a governance PEP. And maybe 5
+> people have half the total posts. This does not feel like a discussion at
+> all.
+>
+> I don't think it was deliberate, but it looks like the new format is
+> actively discouraging everyone but those most deeply invested with the most
+> free time from participating.
+>
+> -Jack
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20181012/b1cd0027/attachment.html>
+
+From brett at python.org  Fri Oct 12 14:55:32 2018
+From: brett at python.org (Brett Cannon)
+Date: Fri, 12 Oct 2018 11:55:32 -0700
+Subject: [python-committers] discuss.python.org participation
+In-Reply-To: <bd479678-3a01-4587-2544-768b4aabfc77@python.org>
+References: <CACLn2+2twSsUkuDVZBDZh=2w0nZ7rxjhGw_XxzMEsFiBJgftpw@mail.gmail.com>
+ <bd479678-3a01-4587-2544-768b4aabfc77@python.org>
+Message-ID: <CAP1=2W4a8h+RYCJfu2bb-Pt664479Oo=ZhqiYxft7gfetdAYmA@mail.gmail.com>
+
+On Thu, 11 Oct 2018 at 01:30, Antoine Pitrou <antoine at python.org> wrote:
+
+>
+> What concerns me is that there are several long-time and/or prominent
+> developers who are not even registered (*) on discuss.python.org.  For
+> example Benjamin Peterson, Larry Hastings, Raymond Hettinger, Stefan
+> Krah, Terry Reedy.
+>
+
+I believe Larry is currently busy so he might simply have not taken the
+time (and will be occupied into I believe November).
+
+I will also note that Benjamin, Larry, and Raymond can be a bit quiet at
+times and so they may not have signed up yet because they have not had
+anything to say to compel them to create accounts (Stefan has already
+stated he doesn't like this idea so I'm assuming that might be why he has
+not signed up yet).
+
+-Brett
+
+
+>
+> I would be worried if a decision is taken without them.
+>
+> (*) https://discuss.python.org/u
+>
+> Regards
+>
+> Antoine.
+>
+>
+>
+> Le 10/10/2018 ? 05:20, Jack Diederich a ?crit :
+> > I'm worried about the new format combined with governance discussions.
+> > As best I can tell 51 CPython committers have signed up for an account
+> > [I think that is a big number, btw] but only 17 have posted anything;
+> > That 17 is about 5 more people than put their name on a governance PEP.
+> > And maybe 5 people have half the total posts. This does not feel like a
+> > discussion at all.
+> >
+> > I don't think it was deliberate, but it looks like the new format is
+> > actively discouraging everyone but those most deeply invested with the
+> > most free time from participating.
+> >
+> > -Jack
+> >
+> >
+> > _______________________________________________
+> > python-committers mailing list
+> > python-committers at python.org
+> > https://mail.python.org/mailman/listinfo/python-committers
+> > Code of Conduct: https://www.python.org/psf/codeofconduct/
+> >
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20181012/5f113a1c/attachment.html>
+
+From stefan at bytereef.org  Fri Oct 12 15:35:54 2018
+From: stefan at bytereef.org (Stefan Krah)
+Date: Fri, 12 Oct 2018 21:35:54 +0200
+Subject: [python-committers] discuss.python.org participation
+In-Reply-To: <CAP1=2W4a8h+RYCJfu2bb-Pt664479Oo=ZhqiYxft7gfetdAYmA@mail.gmail.com>
+References: <CACLn2+2twSsUkuDVZBDZh=2w0nZ7rxjhGw_XxzMEsFiBJgftpw@mail.gmail.com>
+ <bd479678-3a01-4587-2544-768b4aabfc77@python.org>
+ <CAP1=2W4a8h+RYCJfu2bb-Pt664479Oo=ZhqiYxft7gfetdAYmA@mail.gmail.com>
+Message-ID: <20181012193554.GA12845@bytereef.org>
+
+On Fri, Oct 12, 2018 at 11:55:32AM -0700, Brett Cannon wrote:
+> I will also note that Benjamin, Larry, and Raymond can be a bit quiet at
+> times and so they may not have signed up yet because they have not had
+> anything to say to compel them to create accounts (Stefan has already
+> stated he doesn't like this idea so I'm assuming that might be why he has
+> not signed up yet).
+
+FTR, I have signed up, but Jack's original point still stands.  Very few
+people apart from PEP stakeholders are participating, so merely signing up
+should not be considered an endorsement of Discourse.  Even participating
+shouldn't, because folks might choose their battles, especially in a
+pre-election situation.
+
+
+In order to get an overview if I'm the only one:  I've searched for people's
+opinions on Discourse, and its reputation is far from spotless even among
+people who explicitly *want* a web forum.
+
+
+
+Stefan Krah
+
+
+
+
+
+From doug at doughellmann.com  Fri Oct 12 16:03:15 2018
+From: doug at doughellmann.com (Doug Hellmann)
+Date: Fri, 12 Oct 2018 16:03:15 -0400
+Subject: [python-committers] discuss.python.org participation
+In-Reply-To: <CAP1=2W6c3W3ziABq-XOeo2jHyPTEJVJuYNePuPNcwJf24KqWQQ@mail.gmail.com>
+References: <CACLn2+2twSsUkuDVZBDZh=2w0nZ7rxjhGw_XxzMEsFiBJgftpw@mail.gmail.com>
+ <CAP1=2W6c3W3ziABq-XOeo2jHyPTEJVJuYNePuPNcwJf24KqWQQ@mail.gmail.com>
+Message-ID: <m2zhvjlypo.fsf@doughellmann.com>
+
+Brett Cannon <brett at python.org> writes:
+
+> One data point in all of this is Victor's PEP 8015. Here on the mailing
+> list I seem to be the first and only person to reply since the PEP was
+> posted on Monday. But over on Discourse there have been 3 people who have
+> replied and there's already been some back-and-forth.
+>
+> So with a sample size of one, it looks like Discourse isn't discouraging
+> anyone, otherwise I would have assumed people who don't want to start with
+> Discourse would have simply started a discussion here on the mailing list
+> about Victor's PEP.
+
+I don't think it is safe to interpret the current level of engagement
+there as a definitive endorsement of the tool.
+
+I believed this discussion was *supposed* to be happening over there and
+*not* on the mailing list (the initial messages about it were worded
+very strongly). If others who want to have a say in the future
+governance of the project had the same impression, then I would expect
+them to sign up and use Discourse regardless of their opinion of the
+tool.
+
+I don't dislike Discourse, but I would have rather used the mailing list
+for the governance discussion and used some other, less critical, topic
+as a trigger for experimenting with a new tool. If the trouble with the
+mailing lists is moderation, then some other list that requires more
+moderation work would have been a good candidate.
+
+>
+> On Tue, 9 Oct 2018 at 20:24, Jack Diederich <jackdied at gmail.com> wrote:
+>
+>> I'm worried about the new format combined with governance discussions. As
+>> best I can tell 51 CPython committers have signed up for an account [I
+>> think that is a big number, btw] but only 17 have posted anything; That 17
+>> is about 5 more people than put their name on a governance PEP. And maybe 5
+>> people have half the total posts. This does not feel like a discussion at
+>> all.
+>>
+>> I don't think it was deliberate, but it looks like the new format is
+>> actively discouraging everyone but those most deeply invested with the most
+>> free time from participating.
+>>
+>> -Jack
+>> _______________________________________________
+>> python-committers mailing list
+>> python-committers at python.org
+>> https://mail.python.org/mailman/listinfo/python-committers
+>> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+

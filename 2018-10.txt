@@ -2827,3 +2827,310 @@ You can find these releases and more information here:
   nad at python.org -- []
 
 
+From vstinner at redhat.com  Mon Oct 15 04:30:30 2018
+From: vstinner at redhat.com (Victor Stinner)
+Date: Mon, 15 Oct 2018 10:30:30 +0200
+Subject: [python-committers] PEP 8015: Organization of the Python
+ community
+In-Reply-To: <CAP1=2W5p23vbg+sMT2FcunNiVNnwdUVZ07G--JwmdYJAWtJ3+g@mail.gmail.com>
+References: <CA+3bQGGqD-6MH9GO-eymB5hmqcGU+cgPiBVgpMUXme+3EdVZng@mail.gmail.com>
+ <CAP1=2W5p23vbg+sMT2FcunNiVNnwdUVZ07G--JwmdYJAWtJ3+g@mail.gmail.com>
+Message-ID: <CA+3bQGEGauphK6eF7CCdQ1Vurh=QJ9EjiWjAB0qHQNXfezb8fg@mail.gmail.com>
+
+Le ven. 12 oct. 2018 ? 20:33, Brett Cannon <brett at python.org> a ?crit :
+>> Python became too big to work as an unique team anymore, people
+>> naturally have grouped themself as teams to work more closely on
+>> specific topics, sometimes called "Special Interest Group" (SIG).
+>>
+>> Team members are Python contributors and Python core developers. The
+>> team is responsible to select who can join the team and how.
+>
+> How is this bootstrapped? Do I get to declare myself the "import team" and then I get to choose who joins after that?
+
+I don't want to formalize the Python community too much. I don't think
+that it's needed to have a process to create a group. It seems like in
+the past, some people started to talk about a topic a litlte bit
+off-topic for a list, then someone proposed to create a SIG. A mailing
+list have been created. That's it. Sometimes, the list dies after a
+few messages. Sometimes, the list becomes very popular.
+
+Contributors are free to organize and group themselves, but the need
+the board to make concrete changes in Python: merge changes, accept
+PEPs, etc.
+
+
+>> Board members must be Python core developers.  It is important that the
+>> members of the board reflect the diversity of Python' users and
+>> contributors. A small step to ensure that is to enforce that two members
+>> cannot work for the same company (or subsidiaries of the same company).
+>> In addition, to encourage more people to get involved, a core developer
+>> can only be a board member twice (up to 6 years total).
+>
+> Is the two-term limit forever, or just consecutively?
+
+I propose forever. In your life, you can be a board member for 6
+years. It's designed to rotate frequently. So it's very different of
+the previous organization using a single BDFL for life :-)
+
+
+>> To boot
+>> Special Case: Board Members And PEPs
+>> ------------------------------------
+>>
+>> A board member cannot be a PEP delegate.
+>>
+>> A board member can offer a PEP, but cannot decide how their own PEP is
+>> approved.
+>
+> So do the two other board members then make the decision? Or is there some third person who will step in to make up the loss of a vote (e.g. the release manager if they happen to not already be a board member)?
+
+Yes, the two other members have to decide how a PEP is decided. These
+two people are free to ask the opinion or support of anyone help :-)
+Again, I don't think that it's neeed to formalize too much here.
+
+
+>> The organization of this workgroup is defined by the
+>> `ConductWG Charter <https://wiki.python.org/psf/ConductWG/Charter>`_.
+>
+> Is this here to mean the expectation that the conduct WG will manage CoC issues for the core development team?
+
+I don't want to put this responsibility on the board. So yes,
+conflicts between core developers will be handled by the conduct WG.
+By the way, technically, I think that it's fine if a board member is
+also part of the conduct WG. But they would have to behave and
+communicate differently when having the "board hat" or the "conduct WG
+hat".
+
+But I'm open to other propositions how to handle such conflict :-)
+
+Victor
+
+From antoine at python.org  Mon Oct 15 05:35:25 2018
+From: antoine at python.org (Antoine Pitrou)
+Date: Mon, 15 Oct 2018 11:35:25 +0200
+Subject: [python-committers] PEP 8015: Organization of the Python
+ community
+In-Reply-To: <CA+3bQGEGauphK6eF7CCdQ1Vurh=QJ9EjiWjAB0qHQNXfezb8fg@mail.gmail.com>
+References: <CA+3bQGGqD-6MH9GO-eymB5hmqcGU+cgPiBVgpMUXme+3EdVZng@mail.gmail.com>
+ <CAP1=2W5p23vbg+sMT2FcunNiVNnwdUVZ07G--JwmdYJAWtJ3+g@mail.gmail.com>
+ <CA+3bQGEGauphK6eF7CCdQ1Vurh=QJ9EjiWjAB0qHQNXfezb8fg@mail.gmail.com>
+Message-ID: <f5adf63c-1c76-65a1-a6da-4836ef56a7c5@python.org>
+
+
+Le 15/10/2018 ? 10:30, Victor Stinner a ?crit?:
+> 
+>>> The organization of this workgroup is defined by the
+>>> `ConductWG Charter <https://wiki.python.org/psf/ConductWG/Charter>`_.
+>>
+>> Is this here to mean the expectation that the conduct WG will manage CoC issues for the core development team?
+> 
+> I don't want to put this responsibility on the board. So yes,
+> conflicts between core developers will be handled by the conduct WG.
+
+How does that work?  The conduct WG doesn't even seem to have published
+procedures.  Also we cannot expect them to follow the history of
+interpersonal interactions in Python core development.
+
+> But I'm open to other propositions how to handle such conflict :-)
+
+If something is required, I would suggest some kind of ethical committee
+that would be comprised of core developers.  I would also suggest their
+mission to focus on appeasement rather than punishment.
+
+Regards
+
+Antoine.
+
+From vstinner at redhat.com  Mon Oct 15 06:00:31 2018
+From: vstinner at redhat.com (Victor Stinner)
+Date: Mon, 15 Oct 2018 12:00:31 +0200
+Subject: [python-committers] PEP 8015: Organization of the Python
+ community
+In-Reply-To: <f5adf63c-1c76-65a1-a6da-4836ef56a7c5@python.org>
+References: <CA+3bQGGqD-6MH9GO-eymB5hmqcGU+cgPiBVgpMUXme+3EdVZng@mail.gmail.com>
+ <CAP1=2W5p23vbg+sMT2FcunNiVNnwdUVZ07G--JwmdYJAWtJ3+g@mail.gmail.com>
+ <CA+3bQGEGauphK6eF7CCdQ1Vurh=QJ9EjiWjAB0qHQNXfezb8fg@mail.gmail.com>
+ <f5adf63c-1c76-65a1-a6da-4836ef56a7c5@python.org>
+Message-ID: <CA+3bQGHC3uOmoNtfcN7NWS2HXZC1vqypofOciO1ugKa79Lzhsw@mail.gmail.com>
+
+Le lun. 15 oct. 2018 ? 11:35, Antoine Pitrou <antoine at python.org> a ?crit :
+> > I don't want to put this responsibility on the board. So yes,
+> > conflicts between core developers will be handled by the conduct WG.
+>
+> How does that work?  The conduct WG doesn't even seem to have published
+> procedures.  Also we cannot expect them to follow the history of
+> interpersonal interactions in Python core development.
+
+https://wiki.python.org/psf/ConductWG/Charter contains many information.
+
+
+> > But I'm open to other propositions how to handle such conflict :-)
+>
+> If something is required, I would suggest some kind of ethical committee
+> that would be comprised of core developers.  I would also suggest their
+> mission to focus on appeasement rather than punishment.
+
+"punishment" Oh, you seem to have a very bad opinion about the conduct
+WG :-( Why do you have a so bad opinion? I don't think that the goal
+of the conduct WG is to punish.
+
+I don't know if they already published transparency reports, but I'm
+quite sure that removing messages or ban someone is the least common
+option and only taken for the worst incidents. I'm quite sure that
+many issues are handled in private with people involved in the
+incident and that no punishment action has been taken.
+
+... That's just guesses, I don't know much about this conduct group
+:-) It seems to be one of your concern, the lack of transparency?
+
+I'm not sure how creating a *new* group would be way better: more fair
+and more transparent?
+
+
+I like the idea of having a group which is external to the core
+developer group, since I expect them to be more "fair". For example,
+if an "important"/"popular" core dev misbehaves, it may be more
+difficult for other core developers to take any action. If the group
+handling CoC incidents is external, I expect them to handle incidents
+the same way for everyone.
+
+For example, when Guido was the BDFL, if you imagine that BDFL
+misbehaved, who would stand up against Guido? Maybe this example is
+too hypothetical. Better examples can be found in the Linux community,
+their BDFL Linus Torvalds is known to have strong words on the mailing
+list:
+https://www.newyorker.com/science/elements/after-years-of-abusive-e-mails-the-creator-of-linux-steps-aside
+
+I'm not interested here to discuss if Linus behaviour was appropriate
+or not. I'm just asking about the process: who is supposed to discuss
+with Linus about his behaviour? Replace "Linus" with any other
+famous/popular Linux developer. And why no action has been taken to
+reduce the toxicity of the Linux mailing list when Sage Sharp wrote a
+blog post explaining clearly that the Linux community has issues?
+https://sage.thesharps.us/2015/10/05/closing-a-door/
+
+I'm using the example of Linux because multiple events are well
+documented, the situation is getting better, and in the past, there
+were many blocker issues to handle "Code of Conflict" incidents.
+Moreover, it's easier to criticize a community different than ours
+community :-) Our community is perfect, right? :-)
+
+Victor
+
+From lukasz at langa.pl  Mon Oct 15 07:21:08 2018
+From: lukasz at langa.pl (=?utf-8?Q?=C5=81ukasz_Langa?=)
+Date: Mon, 15 Oct 2018 12:21:08 +0100
+Subject: [python-committers] Note: I published the first draft of PEP 8001
+Message-ID: <B928BE1C-37DD-4318-93F4-79B923016767@langa.pl>
+
+See: https://discuss.python.org/t/pep-8001-python-governance-voting-process/233 <https://discuss.python.org/t/pep-8001-python-governance-voting-process/233>
+
+Cheers,
+?
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20181015/c6d287bc/attachment.html>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 833 bytes
+Desc: Message signed with OpenPGP
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20181015/c6d287bc/attachment.sig>
+
+From antoine at python.org  Mon Oct 15 08:02:08 2018
+From: antoine at python.org (Antoine Pitrou)
+Date: Mon, 15 Oct 2018 14:02:08 +0200
+Subject: [python-committers] PEP 8015: Organization of the Python
+ community
+In-Reply-To: <CA+3bQGHC3uOmoNtfcN7NWS2HXZC1vqypofOciO1ugKa79Lzhsw@mail.gmail.com>
+References: <CA+3bQGGqD-6MH9GO-eymB5hmqcGU+cgPiBVgpMUXme+3EdVZng@mail.gmail.com>
+ <CAP1=2W5p23vbg+sMT2FcunNiVNnwdUVZ07G--JwmdYJAWtJ3+g@mail.gmail.com>
+ <CA+3bQGEGauphK6eF7CCdQ1Vurh=QJ9EjiWjAB0qHQNXfezb8fg@mail.gmail.com>
+ <f5adf63c-1c76-65a1-a6da-4836ef56a7c5@python.org>
+ <CA+3bQGHC3uOmoNtfcN7NWS2HXZC1vqypofOciO1ugKa79Lzhsw@mail.gmail.com>
+Message-ID: <ff063a8d-f29c-e76d-8a0f-4b17eba54aeb@python.org>
+
+
+Le 15/10/2018 ? 12:00, Victor Stinner a ?crit?:
+> Le lun. 15 oct. 2018 ? 11:35, Antoine Pitrou <antoine at python.org> a ?crit :
+>>> I don't want to put this responsibility on the board. So yes,
+>>> conflicts between core developers will be handled by the conduct WG.
+>>
+>> How does that work?  The conduct WG doesn't even seem to have published
+>> procedures.  Also we cannot expect them to follow the history of
+>> interpersonal interactions in Python core development.
+> 
+> https://wiki.python.org/psf/ConductWG/Charter contains many information.
+
+That information doesn't seem to include resolving conflicts.  It
+advises on policies, creates a set of standard documents, and develops
+training materials.
+
+My understanding is that the WG is not meant to handle conflicts by
+itself.  Rather, it gives guidance to other bodies on how to handle
+conflicts.  So we would have to have our own body for handling
+conflicts, such as an ethical committee.
+
+> ... That's just guesses, I don't know much about this conduct group
+> :-) It seems to be one of your concern, the lack of transparency?
+
+That, and the fact they're outside the loop of core development, and
+don't know anything about the usual social / power dynamics here.  They
+also don't have the time to devote that a professional magistrate would
+have.
+
+> Replace "Linus" with any other
+> famous/popular Linux developer. And why no action has been taken to
+> reduce the toxicity of the Linux mailing list when Sage Sharp wrote a
+> blog post explaining clearly that the Linux community has issues?
+
+But do you think an external WG would have had the authority to deal
+with the problem?  People did criticize Linus' behaviour, even amongst
+kernel developers.  But there wasn't any solution exercisable from the
+outside.  You couldn't just displace Linus and put someone else in
+power, because that wouldn't have been accepted by the broader community.
+
+Only a recognized body formed by the community itself could be
+legitimate enough to take action.  Which suggests to me that the CoC WG
+can be a source of advice and suggestions, not take decisions by itself.
+
+Regards
+
+Antoine.
+
+From benjamin at python.org  Tue Oct 16 00:22:16 2018
+From: benjamin at python.org (Benjamin Peterson)
+Date: Mon, 15 Oct 2018 21:22:16 -0700
+Subject: [python-committers] discuss.python.org participation
+In-Reply-To: <CAP1=2W4a8h+RYCJfu2bb-Pt664479Oo=ZhqiYxft7gfetdAYmA@mail.gmail.com>
+References: <CACLn2+2twSsUkuDVZBDZh=2w0nZ7rxjhGw_XxzMEsFiBJgftpw@mail.gmail.com>
+ <bd479678-3a01-4587-2544-768b4aabfc77@python.org>
+ <CAP1=2W4a8h+RYCJfu2bb-Pt664479Oo=ZhqiYxft7gfetdAYmA@mail.gmail.com>
+Message-ID: <1539663736.726250.1543362224.2E013A2C@webmail.messagingengine.com>
+
+
+
+On Fri, Oct 12, 2018, at 11:55, Brett Cannon wrote:
+> On Thu, 11 Oct 2018 at 01:30, Antoine Pitrou <antoine at python.org> wrote:
+> 
+> >
+> > What concerns me is that there are several long-time and/or prominent
+> > developers who are not even registered (*) on discuss.python.org.  For
+> > example Benjamin Peterson, Larry Hastings, Raymond Hettinger, Stefan
+> > Krah, Terry Reedy.
+> >
+> 
+> I believe Larry is currently busy so he might simply have not taken the
+> time (and will be occupied into I believe November).
+> 
+> I will also note that Benjamin, Larry, and Raymond can be a bit quiet at
+> times and so they may not have signed up yet because they have not had
+> anything to say to compel them to create accounts (Stefan has already
+> stated he doesn't like this idea so I'm assuming that might be why he has
+> not signed up yet).
+
+Brett is exactly right about me. I'm following along on Discourse and this mailing list when I have the time. I plan to read the governance PEPs and vote when the time comes. But, I don't have anything useful to say.
+
+At the sprint, I verbally supported ?ukasz's plans to try out Discourse. Discourse isn't perfect and may feel uncomfortable, but we're also losing potential contributors because they find mailing lists uncomfortable.
+

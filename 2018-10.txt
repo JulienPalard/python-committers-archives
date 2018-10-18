@@ -3210,3 +3210,963 @@ features, but I won't be using them because I won't be using Discourse.
 --
 ~Ethan~
 
+From lukasz at langa.pl  Wed Oct 17 09:30:33 2018
+From: lukasz at langa.pl (=?utf-8?Q?=C5=81ukasz_Langa?=)
+Date: Wed, 17 Oct 2018 14:30:33 +0100
+Subject: [python-committers] discuss.python.org participation
+In-Reply-To: <dabe639e-9388-db51-d03c-0b0d94e6b9fb@stoneleaf.us>
+References: <CACLn2+2twSsUkuDVZBDZh=2w0nZ7rxjhGw_XxzMEsFiBJgftpw@mail.gmail.com>
+ <bd479678-3a01-4587-2544-768b4aabfc77@python.org>
+ <CAP1=2W4a8h+RYCJfu2bb-Pt664479Oo=ZhqiYxft7gfetdAYmA@mail.gmail.com>
+ <1539663736.726250.1543362224.2E013A2C@webmail.messagingengine.com>
+ <dabe639e-9388-db51-d03c-0b0d94e6b9fb@stoneleaf.us>
+Message-ID: <4034166C-2876-4900-8428-EF3DC4AC4B1B@langa.pl>
+
+
+> On Oct 17, 2018, at 02:56, Ethan Furman <ethan at stoneleaf.us> wrote:
+> 
+> I find the presentation of threaded conversations in linear format to be confusing, figuring out what I have and have not read to be difficult, and the overall frustration to not be worth it.
+
+Are there any linear-formatted communication methods that you find more comfortable? Or is the entire idea not workable for you?
+
+Paul Moore also raised the issue you're mentioning around "figuring out what I have and have not read". Discourse is supposed to help with this with a timeline view and a "Back" button. So far the "Back" button behavior is to say the least surprising to us, if not just buggy. Some discussion here:
+https://discuss.python.org/t/is-this-really-better-than-a-mailing-list/57/19?u=ambv <https://discuss.python.org/t/is-this-really-better-than-a-mailing-list/57/19?u=ambv>
+
+I agree we need to address this for Discourse to be a proper upgrade over mailing lists.
+
+- ?
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20181017/82c17b9a/attachment.html>
+
+From vstinner at redhat.com  Wed Oct 17 09:48:17 2018
+From: vstinner at redhat.com (Victor Stinner)
+Date: Wed, 17 Oct 2018 15:48:17 +0200
+Subject: [python-committers] discuss.python.org participation
+In-Reply-To: <dabe639e-9388-db51-d03c-0b0d94e6b9fb@stoneleaf.us>
+References: <CACLn2+2twSsUkuDVZBDZh=2w0nZ7rxjhGw_XxzMEsFiBJgftpw@mail.gmail.com>
+ <bd479678-3a01-4587-2544-768b4aabfc77@python.org>
+ <CAP1=2W4a8h+RYCJfu2bb-Pt664479Oo=ZhqiYxft7gfetdAYmA@mail.gmail.com>
+ <1539663736.726250.1543362224.2E013A2C@webmail.messagingengine.com>
+ <dabe639e-9388-db51-d03c-0b0d94e6b9fb@stoneleaf.us>
+Message-ID: <CA+3bQGGVUN7nfKbcmzQBgML-WPHYE-iQYD7HV3iyHQEZDiwD-Q@mail.gmail.com>
+
+Le mer. 17 oct. 2018 ? 03:56, Ethan Furman <ethan at stoneleaf.us> a ?crit :
+> I also supported the trial of Discourse.
+>
+> However, now that I have tried it, it will be a no from me.  I find the
+> presentation of threaded conversations in linear format to be confusing,
+> figuring out what I have and have not read to be difficult, and the
+> overall frustration to not be worth it.  It definitely has some nice
+> features, but I won't be using them because I won't be using Discourse.
+
+I don't think that we should see mailing lists and Discourse as
+exclusive. There is maybe a middle ground, like keep some mailing
+lists, but slowly migrate some specific mailing lists to Discourse?
+
+IMHO Discourse is more appropriate for python-ideas than for
+python-committers. python-committers is more for short discussions
+with few people. On python-ideas, there are more long discussions with
+many people who throw many new ideas in the middle of a thread.
+
+We can also imagine to have Discourse and mailing lists who coexist,
+even if I know that Lukasz dislikes this idea :-)
+
+Jonathan Corbet just wrote an article on LWN about Fedora and Python
+migrating to Discourse :-)
+"A farewell to email"
+https://lwn.net/SubscriberLink/768483/1b32a21a6e30e1b7/
+
+Victor
+
+From stefan at bytereef.org  Wed Oct 17 09:55:44 2018
+From: stefan at bytereef.org (Stefan Krah)
+Date: Wed, 17 Oct 2018 15:55:44 +0200
+Subject: [python-committers] discuss.python.org participation
+In-Reply-To: <4034166C-2876-4900-8428-EF3DC4AC4B1B@langa.pl>
+References: <CACLn2+2twSsUkuDVZBDZh=2w0nZ7rxjhGw_XxzMEsFiBJgftpw@mail.gmail.com>
+ <bd479678-3a01-4587-2544-768b4aabfc77@python.org>
+ <CAP1=2W4a8h+RYCJfu2bb-Pt664479Oo=ZhqiYxft7gfetdAYmA@mail.gmail.com>
+ <1539663736.726250.1543362224.2E013A2C@webmail.messagingengine.com>
+ <dabe639e-9388-db51-d03c-0b0d94e6b9fb@stoneleaf.us>
+ <4034166C-2876-4900-8428-EF3DC4AC4B1B@langa.pl>
+Message-ID: <20181017135544.GA6092@bytereef.org>
+
+On Wed, Oct 17, 2018 at 02:30:33PM +0100, ?ukasz Langa wrote:
+> > I find the presentation of threaded conversations in linear format to be confusing, figuring out what I have and have not read to be difficult, and the overall frustration to not be worth it.
+> 
+> Are there any linear-formatted communication methods that you find more comfortable?
+
+For discussing a single PEP honestly I'd find even Mediawiki - not any Wiki, exactly
+the one used at Wikipedia! - more suitable.
+
+There'd need to be a tacit understanding that only the PEP author is allowed to edit.
+
+
+Discourse gets more tolerable if one disables Javascript in uBlockOrigin and
+adds a filter for loading pictures.
+
+But I can't login without Javascript, so it's not a great solution.
+
+
+
+Stefan Krah
+
+
+
+From vstinner at redhat.com  Wed Oct 17 10:03:59 2018
+From: vstinner at redhat.com (Victor Stinner)
+Date: Wed, 17 Oct 2018 16:03:59 +0200
+Subject: [python-committers] Moderation of the Python community
+Message-ID: <CA+3bQGG93Mzf8ATxwkdSr_JSFfCJrRzvUB6Kir9FJSzCpbqFgA@mail.gmail.com>
+
+Hi,
+
+I see more and more discussions about the moderation of the Python community.
+
+There is a PSF "conduct" Working Group:
+https://wiki.python.org/psf/ConductWG/Charter
+
+I noticed the following questions:
+
+* Lack of transparency on how moderation is decided
+* Lack of transparency on the number of received Code of Conduct
+incidents: maybe start to produce "Code of Conduct transparency
+report"? (If such reports already exist, I'm sorry, I wasn't aware
+:-))
+* Should the PSF conduct-WG handle conflicts between core developers?
+
+Would it be possible to write down rules to formalize the moderation?
+For example:
+
+* First try to contact the author of an incident and warn them? Only
+take an action immediately for exceptional cases like obvious spam?
+* Maybe define numbers for ban: 1 week, then 3 months, then 6 months,
+then 1 year? I would prefer to never ban someone forever. People can
+change.
+* Scope: does the moderationg apply to *any* public space? Or only to
+a restricted list like: mailing lists and bug tracker? What about
+Twitter and conferences?
+* Should the incidents which occur in the private space be handled as
+well? Bullying can occur in the private space.
+* How to handle conflict between core developers? Not directly related
+to the code of conduct.
+
+I'm not interested for work on such rules. I'm not sure neither if
+it's the role of the Python core developers to propose something.
+Maybe the PSF conduct WG should propose something, or even decide
+directly?
+
+Handling conflicts between core developers is the most difficult
+question. I don't think that it's the role of the conduct working
+group to handle that. Moreover, the Code of Conduct should be seen as
+a way to evict a core developer out of Python. The Code of Conduct is
+supposed to protect members of the Python community against people who
+misbehave. But I'm unable to describe the limit between "misbehave"
+and "conflict" between two developers.
+
+My main concern is that the PSF conduct WG should not be seen as a
+threat to core developers.
+
+Victor
+
+Note: I decided to write on python-committers mailing rather than
+Discourse, since all previous discussions related to moderation
+occurred on this list.
+
+From mail at timgolden.me.uk  Wed Oct 17 10:06:32 2018
+From: mail at timgolden.me.uk (Tim Golden)
+Date: Wed, 17 Oct 2018 15:06:32 +0100
+Subject: [python-committers] Moderation of the Python community
+In-Reply-To: <CA+3bQGG93Mzf8ATxwkdSr_JSFfCJrRzvUB6Kir9FJSzCpbqFgA@mail.gmail.com>
+References: <CA+3bQGG93Mzf8ATxwkdSr_JSFfCJrRzvUB6Kir9FJSzCpbqFgA@mail.gmail.com>
+Message-ID: <cb890ec1-97e8-0498-7183-59c426987768@timgolden.me.uk>
+
+On 17/10/2018 15:03, Victor Stinner wrote:
+> Moreover, the Code of Conduct should be seen as
+> a way to evict a core developer out of Python. 
+
+I'm assuming you missed a "not" in that last sentence?
+
+TJG
+
+From vstinner at redhat.com  Wed Oct 17 10:20:01 2018
+From: vstinner at redhat.com (Victor Stinner)
+Date: Wed, 17 Oct 2018 16:20:01 +0200
+Subject: [python-committers] Moderation of the Python community
+In-Reply-To: <cb890ec1-97e8-0498-7183-59c426987768@timgolden.me.uk>
+References: <CA+3bQGG93Mzf8ATxwkdSr_JSFfCJrRzvUB6Kir9FJSzCpbqFgA@mail.gmail.com>
+ <cb890ec1-97e8-0498-7183-59c426987768@timgolden.me.uk>
+Message-ID: <CA+3bQGHLm8MDYOqCaQBFE1+UhDeP5UOk2y88ZA1+Gn2=tbbwOQ@mail.gmail.com>
+
+Le mer. 17 oct. 2018 ? 16:06, Tim Golden <mail at timgolden.me.uk> a ?crit :
+> On 17/10/2018 15:03, Victor Stinner wrote:
+> > Moreover, the Code of Conduct should be seen as
+> > a way to evict a core developer out of Python.
+>
+> I'm assuming you missed a "not" in that last sentence?
+
+(Oops, I should read my emails before sending them.)
+
+Correct, the code of conduct should *NOT* be seen as a way to evict a
+core developer out of Python.
+
+Victor
+
+From brian at python.org  Wed Oct 17 11:34:10 2018
+From: brian at python.org (Brian Curtin)
+Date: Wed, 17 Oct 2018 09:34:10 -0600
+Subject: [python-committers] Moderation of the Python community
+In-Reply-To: <CA+3bQGG93Mzf8ATxwkdSr_JSFfCJrRzvUB6Kir9FJSzCpbqFgA@mail.gmail.com>
+References: <CA+3bQGG93Mzf8ATxwkdSr_JSFfCJrRzvUB6Kir9FJSzCpbqFgA@mail.gmail.com>
+Message-ID: <CAD+XWwrxOhKY3kyZumaVFgTL9yNzAsakCwMeZtV4vXgyg1ZPfg@mail.gmail.com>
+
+On Wed, Oct 17, 2018 at 8:04 AM Victor Stinner <vstinner at redhat.com> wrote:
+
+> Hi,
+>
+> I see more and more discussions about the moderation of the Python
+> community.
+>
+> There is a PSF "conduct" Working Group:
+> https://wiki.python.org/psf/ConductWG/Charter
+>
+> I noticed the following questions:
+>
+> * Lack of transparency on how moderation is decided
+> * Lack of transparency on the number of received Code of Conduct
+> incidents: maybe start to produce "Code of Conduct transparency
+> report"? (If such reports already exist, I'm sorry, I wasn't aware
+> :-))
+> * Should the PSF conduct-WG handle conflicts between core developers?
+>
+> Would it be possible to write down rules to formalize the moderation?
+>
+
+Yes. For any medium applying a code of conduct there should be some
+guidelines applicable to said medium for how things are handled.
+
+To get this out of the way early, as the author of the current CoC, it
+intentionally doesn't prescribe any specific moderation because it depends
+on how and where it's applied given the people and tools available.
+Moderating Discourse might be different than moderating a mailing list
+which is different than a bug tracker.
+
+
+> For example:
+>
+> * First try to contact the author of an incident and warn them? Only
+> take an action immediately for exceptional cases like obvious spam?
+> * Maybe define numbers for ban: 1 week, then 3 months, then 6 months,
+> then 1 year? I would prefer to never ban someone forever. People can
+> change.
+> * Scope: does the moderationg apply to *any* public space? Or only to
+> a restricted list like: mailing lists and bug tracker? What about
+> Twitter and conferences?
+>
+
+For conferences, there are specific codes of conduct and applicable event
+handling guides that go with them, and I would just leave that area alone
+from this angle. I don't know that we should start meddling with
+conferences; leave that up to organizers who are dedicated to that and in
+several cases have actual training on this topic.
+
+Twitter can't even moderate itself, but I don't think that makes it anyone
+here's job.
+
+I would scope moderation to any spaces provided by or for this group, so
+tracker, mailing lists, GitHub, Discourse, and I think that's it? I don't
+really know if IRC and Zulip are still in play.
+
+* Should the incidents which occur in the private space be handled as
+> well? Bullying can occur in the private space.
+>
+
+We can't police everything, but I think handling private issues within the
+space of PSF resources (or whatever the governing body of what we're
+talking about is) is to be expected. For example, if I harass you via a
+private message on Discourse, that is a situation to be handled here. It
+doesn't need to go to everyone's inbox for it to be a problem we need to
+handle.
+
+I don't know that you can moderate other private things?private in the
+meaning of "PSF provided or not"?though. If I send you an inappropriate
+email just between you and I, that's between us and our email providers. I
+think it might be overstepping this group's bounds for you to say I can't
+use the bug tracker for a month due to something I did entirely outside of
+the scope of said group. It feels similar to some corporate policies, where
+if I'm inappropriate to you when I see you at the grocery store, that's not
+really the company's problem, but if I'm like that at our team dinner then
+it is a problem.
+
+There probably does exist some threshold where out-of-scope behavior
+crosses to where someone isn't welcome, but I don't know that it's
+generally quantifiable. That's probably something for a council or triad or
+working group to discuss on a case-by-case basis as it's above and beyond a
+reasonable range of behaviors that this group can have their eye on.
+
+* How to handle conflict between core developers? Not directly related
+> to the code of conduct.
+>
+
+If it's not CoC related conflict, do you mean conflict related to code, as
+in technical conflict over implementation details? I think we naturally
+have a few mediators in this case depending on the level of where it
+occurs. Release managers, delegates for PEPs, code area experts, and then I
+think there are a few who act in such a way due to longevity with the
+project.
+
+If we're looking for people to be specifically identified as mediators, we
+have a bunch of good ones around here.
+
+I'm not interested for work on such rules. I'm not sure neither if
+> it's the role of the Python core developers to propose something.
+> Maybe the PSF conduct WG should propose something, or even decide
+> directly?
+>
+
+Is anyone from this group on said working group? If not, I don't think they
+should be wholesale deciding guidelines for a group they're not a part of.
+They would seem to be a group of people we should work with as they've
+presumably come up with other guidelines and could be a useful set of
+people to help shape things.
+
+
+> Handling conflicts between core developers is the most difficult
+> question. I don't think that it's the role of the conduct working
+> group to handle that. Moreover, the Code of Conduct should be seen as
+> a way to evict a core developer out of Python. The Code of Conduct is
+> supposed to protect members of the Python community against people who
+> misbehave. But I'm unable to describe the limit between "misbehave"
+> and "conflict" between two developers.
+>
+
+It is unfortunate that conflict?which can be a healthy thing for a team?is
+potentially reaching past this toward misbehavior. A lot of developers,
+especially those of us involved in open source, come into this type of work
+with strong opinions. When they're too strongly held, we can go beyond
+productive conflict and end with one or more of us finding ways of avoiding
+that topic (work on other areas), avoiding further conflict at all (only
+work on easier bugs), and possibly onto misbehavior, none of which are
+healthy for the team.
+
+I think this type of issue is better solved internally to our team, perhaps
+via some form of mediator(s) I mentioned earlier, rather than involving a
+wholly external group. Time is of course a finite resource in open source,
+and people work is often/usually harder than code work, but I think we do
+have some people around who care about the success of the project to spend
+time mediating these kinds of conflicts so that we keep everyone involved
+and solve whatever problem at hand in a satisfactory manner.
+
+My main concern is that the PSF conduct WG should not be seen as a
+> threat to core developers.
+>
+
+I don't think it should be used that way, but I also know nothing about it
+and have heard nothing from it.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20181017/d9ca49ed/attachment.html>
+
+From willingc at gmail.com  Wed Oct 17 11:45:19 2018
+From: willingc at gmail.com (Carol Willing)
+Date: Wed, 17 Oct 2018 08:45:19 -0700
+Subject: [python-committers] Moderation of the Python community
+In-Reply-To: <CAD+XWwrxOhKY3kyZumaVFgTL9yNzAsakCwMeZtV4vXgyg1ZPfg@mail.gmail.com>
+References: <CA+3bQGG93Mzf8ATxwkdSr_JSFfCJrRzvUB6Kir9FJSzCpbqFgA@mail.gmail.com>
+ <CAD+XWwrxOhKY3kyZumaVFgTL9yNzAsakCwMeZtV4vXgyg1ZPfg@mail.gmail.com>
+Message-ID: <C75DBC34-5148-4751-A97B-E81F1BD286ED@gmail.com>
+
+Brian, thanks for a very well written response, and Victor, thanks for asking for clarification.
+
+I think Brian has covered my thoughts very thoroughly. As an FYI, Brett, Thomas Wouters, and I are on the Code of Conduct workgroup so the core devs are represented.
+
+
+> On Oct 17, 2018, at 8:34 AM, Brian Curtin <brian at python.org> wrote:
+> 
+> On Wed, Oct 17, 2018 at 8:04 AM Victor Stinner <vstinner at redhat.com> wrote:
+> Hi,
+> 
+> I see more and more discussions about the moderation of the Python community.
+> 
+> There is a PSF "conduct" Working Group:
+> https://wiki.python.org/psf/ConductWG/Charter
+> 
+> I noticed the following questions:
+> 
+> * Lack of transparency on how moderation is decided
+> * Lack of transparency on the number of received Code of Conduct
+> incidents: maybe start to produce "Code of Conduct transparency
+> report"? (If such reports already exist, I'm sorry, I wasn't aware
+> :-))
+> * Should the PSF conduct-WG handle conflicts between core developers?
+> 
+> Would it be possible to write down rules to formalize the moderation?
+> 
+> Yes. For any medium applying a code of conduct there should be some guidelines applicable to said medium for how things are handled.
+> 
+> To get this out of the way early, as the author of the current CoC, it intentionally doesn't prescribe any specific moderation because it depends on how and where it's applied given the people and tools available. Moderating Discourse might be different than moderating a mailing list which is different than a bug tracker.
+>  
+> For example:
+> 
+> * First try to contact the author of an incident and warn them? Only
+> take an action immediately for exceptional cases like obvious spam?
+> * Maybe define numbers for ban: 1 week, then 3 months, then 6 months,
+> then 1 year? I would prefer to never ban someone forever. People can
+> change.
+> * Scope: does the moderationg apply to *any* public space? Or only to
+> a restricted list like: mailing lists and bug tracker? What about
+> Twitter and conferences?
+> 
+> For conferences, there are specific codes of conduct and applicable event handling guides that go with them, and I would just leave that area alone from this angle. I don't know that we should start meddling with conferences; leave that up to organizers who are dedicated to that and in several cases have actual training on this topic.
+> 
+> Twitter can't even moderate itself, but I don't think that makes it anyone here's job.
+> 
+> I would scope moderation to any spaces provided by or for this group, so tracker, mailing lists, GitHub, Discourse, and I think that's it? I don't really know if IRC and Zulip are still in play.
+> 
+> * Should the incidents which occur in the private space be handled as
+> well? Bullying can occur in the private space.
+> 
+> We can't police everything, but I think handling private issues within the space of PSF resources (or whatever the governing body of what we're talking about is) is to be expected. For example, if I harass you via a private message on Discourse, that is a situation to be handled here. It doesn't need to go to everyone's inbox for it to be a problem we need to handle.
+> 
+> I don't know that you can moderate other private things?private in the meaning of "PSF provided or not"?though. If I send you an inappropriate email just between you and I, that's between us and our email providers. I think it might be overstepping this group's bounds for you to say I can't use the bug tracker for a month due to something I did entirely outside of the scope of said group. It feels similar to some corporate policies, where if I'm inappropriate to you when I see you at the grocery store, that's not really the company's problem, but if I'm like that at our team dinner then it is a problem.
+> 
+> There probably does exist some threshold where out-of-scope behavior crosses to where someone isn't welcome, but I don't know that it's generally quantifiable. That's probably something for a council or triad or working group to discuss on a case-by-case basis as it's above and beyond a reasonable range of behaviors that this group can have their eye on.
+> 
+> * How to handle conflict between core developers? Not directly related
+> to the code of conduct.
+> 
+> If it's not CoC related conflict, do you mean conflict related to code, as in technical conflict over implementation details? I think we naturally have a few mediators in this case depending on the level of where it occurs. Release managers, delegates for PEPs, code area experts, and then I think there are a few who act in such a way due to longevity with the project.
+> 
+> If we're looking for people to be specifically identified as mediators, we have a bunch of good ones around here.
+> 
+> I'm not interested for work on such rules. I'm not sure neither if
+> it's the role of the Python core developers to propose something.
+> Maybe the PSF conduct WG should propose something, or even decide
+> directly?
+> 
+> Is anyone from this group on said working group? If not, I don't think they should be wholesale deciding guidelines for a group they're not a part of. They would seem to be a group of people we should work with as they've presumably come up with other guidelines and could be a useful set of people to help shape things.
+>  
+> Handling conflicts between core developers is the most difficult
+> question. I don't think that it's the role of the conduct working
+> group to handle that. Moreover, the Code of Conduct should be seen as
+> a way to evict a core developer out of Python. The Code of Conduct is
+> supposed to protect members of the Python community against people who
+> misbehave. But I'm unable to describe the limit between "misbehave"
+> and "conflict" between two developers.
+> 
+> It is unfortunate that conflict?which can be a healthy thing for a team?is potentially reaching past this toward misbehavior. A lot of developers, especially those of us involved in open source, come into this type of work with strong opinions. When they're too strongly held, we can go beyond productive conflict and end with one or more of us finding ways of avoiding that topic (work on other areas), avoiding further conflict at all (only work on easier bugs), and possibly onto misbehavior, none of which are healthy for the team.
+> 
+> I think this type of issue is better solved internally to our team, perhaps via some form of mediator(s) I mentioned earlier, rather than involving a wholly external group. Time is of course a finite resource in open source, and people work is often/usually harder than code work, but I think we do have some people around who care about the success of the project to spend time mediating these kinds of conflicts so that we keep everyone involved and solve whatever problem at hand in a satisfactory manner.
+> 
+> My main concern is that the PSF conduct WG should not be seen as a
+> threat to core developers.
+> 
+> I don't think it should be used that way, but I also know nothing about it and have heard nothing from it. 
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+
+
+From donald at stufft.io  Wed Oct 17 14:40:51 2018
+From: donald at stufft.io (Donald Stufft)
+Date: Wed, 17 Oct 2018 14:40:51 -0400
+Subject: [python-committers] Moderation of the Python community
+In-Reply-To: <CA+3bQGG93Mzf8ATxwkdSr_JSFfCJrRzvUB6Kir9FJSzCpbqFgA@mail.gmail.com>
+References: <CA+3bQGG93Mzf8ATxwkdSr_JSFfCJrRzvUB6Kir9FJSzCpbqFgA@mail.gmail.com>
+Message-ID: <6E7650E4-0EAA-453D-A61D-48196F2A9B3D@stufft.io>
+
+
+
+> On Oct 17, 2018, at 10:03 AM, Victor Stinner <vstinner at redhat.com> wrote:
+> 
+> Handling conflicts between core developers is the most difficult
+> question. I don't think that it's the role of the conduct working
+> group to handle that. Moreover, the Code of Conduct should be seen as
+> a way to evict a core developer out of Python. The Code of Conduct is
+> supposed to protect members of the Python community against people who
+> misbehave. But I'm unable to describe the limit between "misbehave"
+> and "conflict" between two developers.
+
+
+I don?t think core developers are special here, the CoC and the enforcement mechanisms for it should apply to all interactions within our space equally, whether those people are core developers or not.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20181017/f975aebc/attachment.html>
+
+From donald at stufft.io  Wed Oct 17 15:08:56 2018
+From: donald at stufft.io (Donald Stufft)
+Date: Wed, 17 Oct 2018 15:08:56 -0400
+Subject: [python-committers] Moderation of the Python community
+In-Reply-To: <CAD+XWwrxOhKY3kyZumaVFgTL9yNzAsakCwMeZtV4vXgyg1ZPfg@mail.gmail.com>
+References: <CA+3bQGG93Mzf8ATxwkdSr_JSFfCJrRzvUB6Kir9FJSzCpbqFgA@mail.gmail.com>
+ <CAD+XWwrxOhKY3kyZumaVFgTL9yNzAsakCwMeZtV4vXgyg1ZPfg@mail.gmail.com>
+Message-ID: <35737263-3B90-440A-B410-AB80B109B6DA@stufft.io>
+
+
+
+> On Oct 17, 2018, at 11:34 AM, Brian Curtin <brian at python.org> wrote:
+> 
+> I think this type of issue is better solved internally to our team, perhaps via some form of mediator(s) I mentioned earlier, rather than involving a wholly external group. Time is of course a finite resource in open source, and people work is often/usually harder than code work, but I think we do have some people around who care about the success of the project to spend time mediating these kinds of conflicts so that we keep everyone involved and solve whatever problem at hand in a satisfactory manner.
+> 
+
+Honestly, I think an independent group managing these issues is the right way to handle them. I?m loathe to bring it up because the situation was a long time ago, and has been resolved, but I?ve personally had to engage the CoC process in regards to another core developers behavior. At the time the way that was handled was contacting the PSF board, if the process was instead to contact python-committers or something I likely would?t have done it at all. I think it is important that if someone feels they?re having a problem in a particular space, that they feel they have an impartial and independent group of people to raise those concerns with.
+
+With regards to whether the CoC can evict a core developer of Python.. I think it absolutely needs to be able to do that. Otherwise it?s basically stating that it?s fine for someone to harass someone else? as long as the person doing the harassing is a core developer. If anything, core developers should be held to a higher, not a lower standard. Obviously excommunication is not step 1 on any CoC, and such a thing would only be used after a history of repeated, on going unacceptable behavior, but if the CoC doesn?t have any teeth, than it?s not worth the metaphorical paper it?s written on.
+
+So, when it comes to the conduct we expect from people, core developers should not be treated specially in either expectations nor process.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20181017/a407645e/attachment.html>
+
+From brian at python.org  Wed Oct 17 15:44:20 2018
+From: brian at python.org (Brian Curtin)
+Date: Wed, 17 Oct 2018 13:44:20 -0600
+Subject: [python-committers] Moderation of the Python community
+In-Reply-To: <35737263-3B90-440A-B410-AB80B109B6DA@stufft.io>
+References: <CA+3bQGG93Mzf8ATxwkdSr_JSFfCJrRzvUB6Kir9FJSzCpbqFgA@mail.gmail.com>
+ <CAD+XWwrxOhKY3kyZumaVFgTL9yNzAsakCwMeZtV4vXgyg1ZPfg@mail.gmail.com>
+ <35737263-3B90-440A-B410-AB80B109B6DA@stufft.io>
+Message-ID: <CAD+XWwpxj162L1TpguZraMrxGycNJ7RP_QKR+zZV0-1BFwfVZg@mail.gmail.com>
+
+On Wed, Oct 17, 2018 at 1:09 PM Donald Stufft <donald at stufft.io> wrote:
+
+>
+>
+> On Oct 17, 2018, at 11:34 AM, Brian Curtin <brian at python.org> wrote:
+>
+> I think this type of issue is better solved internally to our team,
+> perhaps via some form of mediator(s) I mentioned earlier, rather than
+> involving a wholly external group. Time is of course a finite resource in
+> open source, and people work is often/usually harder than code work, but I
+> think we do have some people around who care about the success of the
+> project to spend time mediating these kinds of conflicts so that we keep
+> everyone involved and solve whatever problem at hand in a satisfactory
+> manner.
+>
+>
+> Honestly, I think an independent group managing these issues is the right
+> way to handle them. I?m loathe to bring it up because the situation was a
+> long time ago, and has been resolved, but I?ve personally had to engage the
+> CoC process in regards to another core developers behavior. At the time the
+> way that was handled was contacting the PSF board, if the process was
+> instead to contact python-committers or something I likely would?t have
+> done it at all. I think it is important that if someone feels they?re
+> having a problem in a particular space, that they feel they have an
+> impartial and independent group of people to raise those concerns with.
+>
+
+Especially given who I've now found out is on that working group, I'm fine
+with them managing issues of behavior, but we should be able to
+(responsible for, even) handle standard team dynamics amongst ourselves.
+Maybe I was/am missing something, but I got the sense that Victor was
+describing something like technical discussions that get heated because two
+sides are passionate about their stance?a common and generally reasonable
+thing to occur?and that was where some people might find the distinction
+between conflict and misbehavior blurred. To me that's still a thing we
+should at least start to work on amongst ourselves, as opposed to something
+like the issues of offensive word choice or name calling. With the former
+we have some things to work on smoothing out towards a common goal, and the
+latter we just want none of.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20181017/7ffbfef0/attachment-0001.html>
+
+From antoine at python.org  Wed Oct 17 16:19:44 2018
+From: antoine at python.org (Antoine Pitrou)
+Date: Wed, 17 Oct 2018 22:19:44 +0200
+Subject: [python-committers] Moderation of the Python community
+In-Reply-To: <CAD+XWwpxj162L1TpguZraMrxGycNJ7RP_QKR+zZV0-1BFwfVZg@mail.gmail.com>
+References: <CA+3bQGG93Mzf8ATxwkdSr_JSFfCJrRzvUB6Kir9FJSzCpbqFgA@mail.gmail.com>
+ <CAD+XWwrxOhKY3kyZumaVFgTL9yNzAsakCwMeZtV4vXgyg1ZPfg@mail.gmail.com>
+ <35737263-3B90-440A-B410-AB80B109B6DA@stufft.io>
+ <CAD+XWwpxj162L1TpguZraMrxGycNJ7RP_QKR+zZV0-1BFwfVZg@mail.gmail.com>
+Message-ID: <9a9c9e56-5935-da03-6efd-437b0215de48@python.org>
+
+
+Le 17/10/2018 ? 21:44, Brian Curtin a ?crit?:
+> 
+> Especially given who I've now found out is on that working group, I'm
+> fine with them managing issues of behavior, but we should be able to
+> (responsible for, even) handle standard team dynamics amongst ourselves.
+> Maybe I was/am missing something, but I got the sense that Victor was
+> describing something like technical discussions that get heated because
+> two sides are passionate about their stance?a common and generally
+> reasonable thing to occur?and that was where some people might find the
+> distinction between conflict and misbehavior blurred. To me that's still
+> a thing we should at least start to work on amongst ourselves, as
+> opposed to something like the issues of offensive word choice or name
+> calling. With the former we have some things to work on smoothing out
+> towards a common goal, and the latter we just want none of.
+
+That's how I understand Victor's message too.  Conflicts between core
+developers that may occur because of different visions and frequent
+friction on topic both developers are passionate about (and perhaps
+conflicts of authority on a given topic).
+
+Regards
+
+Antoine.
+
+From vstinner at redhat.com  Wed Oct 17 18:03:03 2018
+From: vstinner at redhat.com (Victor Stinner)
+Date: Thu, 18 Oct 2018 00:03:03 +0200
+Subject: [python-committers] Moderation of the Python community
+In-Reply-To: <35737263-3B90-440A-B410-AB80B109B6DA@stufft.io>
+References: <CA+3bQGG93Mzf8ATxwkdSr_JSFfCJrRzvUB6Kir9FJSzCpbqFgA@mail.gmail.com>
+ <CAD+XWwrxOhKY3kyZumaVFgTL9yNzAsakCwMeZtV4vXgyg1ZPfg@mail.gmail.com>
+ <35737263-3B90-440A-B410-AB80B109B6DA@stufft.io>
+Message-ID: <CA+3bQGGLi=qwGRTqJC-3MjVTYzQ_0YtU+g05XnhBOdVuPnf9Zg@mail.gmail.com>
+
+Le mer. 17 oct. 2018 ? 21:09, Donald Stufft <donald at stufft.io> a ?crit :
+> Honestly, I think an independent group managing these issues is the right way to handle them. I?m loathe to bring it up because the situation was a long time ago, and has been resolved, but I?ve personally had to engage the CoC process in regards to another core developers behavior. At the time the way that was handled was contacting the PSF board, if the process was instead to contact python-committers or something I likely would?t have done it at all. I think it is important that if someone feels they?re having a problem in a particular space, that they feel they have an impartial and independent group of people to raise those concerns with.
+>
+> With regards to whether the CoC can evict a core developer of Python.. I think it absolutely needs to be able to do that. Otherwise it?s basically stating that it?s fine for someone to harass someone else? as long as the person doing the harassing is a core developer. If anything, core developers should be held to a higher, not a lower standard. Obviously excommunication is not step 1 on any CoC, and such a thing would only be used after a history of repeated, on going unacceptable behavior, but if the CoC doesn?t have any teeth, than it?s not worth the metaphorical paper it?s written on.
+>
+> So, when it comes to the conduct we expect from people, core developers should not be treated specially in either expectations nor process.
+
+Ok, now in the case of my PEP 8015: do you think that the "Python Core
+Board" should be involved in the process to evict a core developer of
+Python?
+
+   https://www.python.org/dev/peps/pep-8015/#python-core-board
+
+For example, can we imagine that a core developer would only be
+evicted if the PSF conduct WG *and* the Python Core Board would agree
+to evict the core dev? Such situation should be very exceptional, and
+it may be unpopular if the conduct WG and the Python Core Board
+disagree :-(
+
+If the Python Core Board can block an eviction (have "a veto" on the
+final vote), the risk is that friends of the Board are "protected" by
+their friendship. And it also opens the question of an evicting a
+member of the Python Core Board in case of extremely severe Code of
+Conduct violation... But this question can be asked as well for
+members of the PSF conduct WG :-)
+
+I don't know the answers to my question. But maybe it would be safer
+for everyone that the *worst* case (evict a core dev) would be defined
+somewhere, as in a PEP.
+
+Victor
+
+From vstinner at redhat.com  Wed Oct 17 18:05:11 2018
+From: vstinner at redhat.com (Victor Stinner)
+Date: Thu, 18 Oct 2018 00:05:11 +0200
+Subject: [python-committers] Moderation of the Python community
+In-Reply-To: <CA+3bQGGLi=qwGRTqJC-3MjVTYzQ_0YtU+g05XnhBOdVuPnf9Zg@mail.gmail.com>
+References: <CA+3bQGG93Mzf8ATxwkdSr_JSFfCJrRzvUB6Kir9FJSzCpbqFgA@mail.gmail.com>
+ <CAD+XWwrxOhKY3kyZumaVFgTL9yNzAsakCwMeZtV4vXgyg1ZPfg@mail.gmail.com>
+ <35737263-3B90-440A-B410-AB80B109B6DA@stufft.io>
+ <CA+3bQGGLi=qwGRTqJC-3MjVTYzQ_0YtU+g05XnhBOdVuPnf9Zg@mail.gmail.com>
+Message-ID: <CA+3bQGFwTErm+_fo5JuVfGaOEUdEf75n1ausA6dhEyHb0u-Q1A@mail.gmail.com>
+
+Oh, by the way, should we have two different choices: remove the
+commit bit from a core dev (downgrade a core dev as a regular
+contributor) and ban a core dev?
+
+Victor
+Le jeu. 18 oct. 2018 ? 00:03, Victor Stinner <vstinner at redhat.com> a ?crit :
+>
+> Le mer. 17 oct. 2018 ? 21:09, Donald Stufft <donald at stufft.io> a ?crit :
+> > Honestly, I think an independent group managing these issues is the right way to handle them. I?m loathe to bring it up because the situation was a long time ago, and has been resolved, but I?ve personally had to engage the CoC process in regards to another core developers behavior. At the time the way that was handled was contacting the PSF board, if the process was instead to contact python-committers or something I likely would?t have done it at all. I think it is important that if someone feels they?re having a problem in a particular space, that they feel they have an impartial and independent group of people to raise those concerns with.
+> >
+> > With regards to whether the CoC can evict a core developer of Python.. I think it absolutely needs to be able to do that. Otherwise it?s basically stating that it?s fine for someone to harass someone else? as long as the person doing the harassing is a core developer. If anything, core developers should be held to a higher, not a lower standard. Obviously excommunication is not step 1 on any CoC, and such a thing would only be used after a history of repeated, on going unacceptable behavior, but if the CoC doesn?t have any teeth, than it?s not worth the metaphorical paper it?s written on.
+> >
+> > So, when it comes to the conduct we expect from people, core developers should not be treated specially in either expectations nor process.
+>
+> Ok, now in the case of my PEP 8015: do you think that the "Python Core
+> Board" should be involved in the process to evict a core developer of
+> Python?
+>
+>    https://www.python.org/dev/peps/pep-8015/#python-core-board
+>
+> For example, can we imagine that a core developer would only be
+> evicted if the PSF conduct WG *and* the Python Core Board would agree
+> to evict the core dev? Such situation should be very exceptional, and
+> it may be unpopular if the conduct WG and the Python Core Board
+> disagree :-(
+>
+> If the Python Core Board can block an eviction (have "a veto" on the
+> final vote), the risk is that friends of the Board are "protected" by
+> their friendship. And it also opens the question of an evicting a
+> member of the Python Core Board in case of extremely severe Code of
+> Conduct violation... But this question can be asked as well for
+> members of the PSF conduct WG :-)
+>
+> I don't know the answers to my question. But maybe it would be safer
+> for everyone that the *worst* case (evict a core dev) would be defined
+> somewhere, as in a PEP.
+>
+> Victor
+
+From alex.gaynor at gmail.com  Wed Oct 17 18:06:33 2018
+From: alex.gaynor at gmail.com (Alex Gaynor)
+Date: Wed, 17 Oct 2018 18:06:33 -0400
+Subject: [python-committers] Moderation of the Python community
+In-Reply-To: <CA+3bQGGLi=qwGRTqJC-3MjVTYzQ_0YtU+g05XnhBOdVuPnf9Zg@mail.gmail.com>
+References: <CA+3bQGG93Mzf8ATxwkdSr_JSFfCJrRzvUB6Kir9FJSzCpbqFgA@mail.gmail.com>
+ <CAD+XWwrxOhKY3kyZumaVFgTL9yNzAsakCwMeZtV4vXgyg1ZPfg@mail.gmail.com>
+ <35737263-3B90-440A-B410-AB80B109B6DA@stufft.io>
+ <CA+3bQGGLi=qwGRTqJC-3MjVTYzQ_0YtU+g05XnhBOdVuPnf9Zg@mail.gmail.com>
+Message-ID: <CAFRnB2WcExOdhW+9rWX4F_=BOufGLX_+1BCiuNd55XCjEhe=JQ@mail.gmail.com>
+
+I think you're dramatically overestimating a) the possibility that someone
+would attempt to use the CoC process frivolously, b) the possibility that
+the CoC WG would act on such a complaint without good cause.
+
+FWIW I was involved in removing a core developer from another community for
+CoC violations. It was fucking exhausting, and I think basically everyone
+involved was burned by the process. I cannot imagine anyone trying to
+maliciously or frivolously use such a process.
+
+Alex
+
+On Wed, Oct 17, 2018 at 6:03 PM Victor Stinner <vstinner at redhat.com> wrote:
+
+> Le mer. 17 oct. 2018 ? 21:09, Donald Stufft <donald at stufft.io> a ?crit :
+> > Honestly, I think an independent group managing these issues is the
+> right way to handle them. I?m loathe to bring it up because the situation
+> was a long time ago, and has been resolved, but I?ve personally had to
+> engage the CoC process in regards to another core developers behavior. At
+> the time the way that was handled was contacting the PSF board, if the
+> process was instead to contact python-committers or something I likely
+> would?t have done it at all. I think it is important that if someone feels
+> they?re having a problem in a particular space, that they feel they have an
+> impartial and independent group of people to raise those concerns with.
+> >
+> > With regards to whether the CoC can evict a core developer of Python.. I
+> think it absolutely needs to be able to do that. Otherwise it?s basically
+> stating that it?s fine for someone to harass someone else? as long as the
+> person doing the harassing is a core developer. If anything, core
+> developers should be held to a higher, not a lower standard. Obviously
+> excommunication is not step 1 on any CoC, and such a thing would only be
+> used after a history of repeated, on going unacceptable behavior, but if
+> the CoC doesn?t have any teeth, than it?s not worth the metaphorical paper
+> it?s written on.
+> >
+> > So, when it comes to the conduct we expect from people, core developers
+> should not be treated specially in either expectations nor process.
+>
+> Ok, now in the case of my PEP 8015: do you think that the "Python Core
+> Board" should be involved in the process to evict a core developer of
+> Python?
+>
+>    https://www.python.org/dev/peps/pep-8015/#python-core-board
+>
+> For example, can we imagine that a core developer would only be
+> evicted if the PSF conduct WG *and* the Python Core Board would agree
+> to evict the core dev? Such situation should be very exceptional, and
+> it may be unpopular if the conduct WG and the Python Core Board
+> disagree :-(
+>
+> If the Python Core Board can block an eviction (have "a veto" on the
+> final vote), the risk is that friends of the Board are "protected" by
+> their friendship. And it also opens the question of an evicting a
+> member of the Python Core Board in case of extremely severe Code of
+> Conduct violation... But this question can be asked as well for
+> members of the PSF conduct WG :-)
+>
+> I don't know the answers to my question. But maybe it would be safer
+> for everyone that the *worst* case (evict a core dev) would be defined
+> somewhere, as in a PEP.
+>
+> Victor
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+
+
+-- 
+All that is necessary for evil to succeed is for good people to do nothing.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20181017/816a864c/attachment-0001.html>
+
+From ethan at stoneleaf.us  Wed Oct 17 18:16:14 2018
+From: ethan at stoneleaf.us (Ethan Furman)
+Date: Wed, 17 Oct 2018 15:16:14 -0700
+Subject: [python-committers] Moderation of the Python community
+In-Reply-To: <CA+3bQGFwTErm+_fo5JuVfGaOEUdEf75n1ausA6dhEyHb0u-Q1A@mail.gmail.com>
+References: <CA+3bQGG93Mzf8ATxwkdSr_JSFfCJrRzvUB6Kir9FJSzCpbqFgA@mail.gmail.com>
+ <CAD+XWwrxOhKY3kyZumaVFgTL9yNzAsakCwMeZtV4vXgyg1ZPfg@mail.gmail.com>
+ <35737263-3B90-440A-B410-AB80B109B6DA@stufft.io>
+ <CA+3bQGGLi=qwGRTqJC-3MjVTYzQ_0YtU+g05XnhBOdVuPnf9Zg@mail.gmail.com>
+ <CA+3bQGFwTErm+_fo5JuVfGaOEUdEf75n1ausA6dhEyHb0u-Q1A@mail.gmail.com>
+Message-ID: <8a96dd3d-8482-6320-03d5-fffa3e77a5a8@stoneleaf.us>
+
+On 10/17/2018 03:05 PM, Victor Stinner wrote:
+
+> Oh, by the way, should we have two different choices: remove the
+> commit bit from a core dev (downgrade a core dev as a regular
+> contributor) and ban a core dev?
+
+No.  If it comes to this, then the dev needs to be banned.  I would not 
+expect this to happen except maybe once in what's left of my lifetime.
+
+--
+~Ethan~
+
+From lukasz at langa.pl  Wed Oct 17 18:39:50 2018
+From: lukasz at langa.pl (=?utf-8?Q?=C5=81ukasz_Langa?=)
+Date: Wed, 17 Oct 2018 23:39:50 +0100
+Subject: [python-committers] Moderation of the Python community
+In-Reply-To: <CAD+XWwpxj162L1TpguZraMrxGycNJ7RP_QKR+zZV0-1BFwfVZg@mail.gmail.com>
+References: <CA+3bQGG93Mzf8ATxwkdSr_JSFfCJrRzvUB6Kir9FJSzCpbqFgA@mail.gmail.com>
+ <CAD+XWwrxOhKY3kyZumaVFgTL9yNzAsakCwMeZtV4vXgyg1ZPfg@mail.gmail.com>
+ <35737263-3B90-440A-B410-AB80B109B6DA@stufft.io>
+ <CAD+XWwpxj162L1TpguZraMrxGycNJ7RP_QKR+zZV0-1BFwfVZg@mail.gmail.com>
+Message-ID: <9AD4F58C-71C6-4476-9D06-EA7D9E5704D8@langa.pl>
+
+
+> On 17 Oct 2018, at 20:44, Brian Curtin <brian at python.org> wrote:
+> 
+> To me that's still a thing we should at least start to work on amongst ourselves, as opposed to something like the issues of offensive word choice or name calling. With the former we have some things to work on smoothing out towards a common goal, and the latter we just want none of.
+
+We should all strive to be professional. The CoC is there to give everyone the ability to work toward, as you say, a common goal. While I would like to believe that we judge ideas on technical merit, since we are invested in this project, all too often we see conversations get heated. Things spill over from the technical ideas to ad hominems.
+
+I hope that we can improve discussions and moderation. If we do, then the CoC becomes infrequently used. Yet, it is important to have as a reminder and a signal to pause when things get overly heated or personal.
+
+- ?
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20181017/0dd13221/attachment.html>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 833 bytes
+Desc: Message signed with OpenPGP
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20181017/0dd13221/attachment.sig>
+
+From vstinner at redhat.com  Wed Oct 17 19:23:13 2018
+From: vstinner at redhat.com (Victor Stinner)
+Date: Thu, 18 Oct 2018 01:23:13 +0200
+Subject: [python-committers] Moderation of the Python community
+In-Reply-To: <8a96dd3d-8482-6320-03d5-fffa3e77a5a8@stoneleaf.us>
+References: <CA+3bQGG93Mzf8ATxwkdSr_JSFfCJrRzvUB6Kir9FJSzCpbqFgA@mail.gmail.com>
+ <CAD+XWwrxOhKY3kyZumaVFgTL9yNzAsakCwMeZtV4vXgyg1ZPfg@mail.gmail.com>
+ <35737263-3B90-440A-B410-AB80B109B6DA@stufft.io>
+ <CA+3bQGGLi=qwGRTqJC-3MjVTYzQ_0YtU+g05XnhBOdVuPnf9Zg@mail.gmail.com>
+ <CA+3bQGFwTErm+_fo5JuVfGaOEUdEf75n1ausA6dhEyHb0u-Q1A@mail.gmail.com>
+ <8a96dd3d-8482-6320-03d5-fffa3e77a5a8@stoneleaf.us>
+Message-ID: <CA+3bQGGA1+pXCm74H39ysuGNjdaZtqZuF=_SHvuZMvKNs9mbpg@mail.gmail.com>
+
+Le jeu. 18 oct. 2018 ? 00:16, Ethan Furman <ethan at stoneleaf.us> a ?crit :
+>
+> On 10/17/2018 03:05 PM, Victor Stinner wrote:
+>
+> > Oh, by the way, should we have two different choices: remove the
+> > commit bit from a core dev (downgrade a core dev as a regular
+> > contributor) and ban a core dev?
+>
+> No.  If it comes to this, then the dev needs to be banned.  I would not
+> expect this to happen except maybe once in what's left of my lifetime.
+
+Ok. In that case, I would suggest to ban the core dev *and* drop their
+commit bit. I'm not sure that we want to keep a banned user as part of
+core developers. Extract of my PEP:
+
+"Core developers are also expected to be exemplary when it comes to
+the Code of Conduct."
+
+Let's say that a core dev is banned for, let's say 6 months. What
+happens next? Can we reconsider later to open a vote to "promote"
+again the developer if they proved that they changed their behaviour?
+
+Again, I'm really dislike the idea of banning someone for their own
+life. IMHO that would be either unfair and counter-productive. It's
+really difficult to find core developers, so we should remain open if
+people change their behaviour.
+
+Moreover, banning someone for life puts more pressure on the people
+who decide on the ban. It's way easier to decide to only ban someone
+for 1 week rather than banning someone for their own life.
+
+I proposed to start with a ban of 1 week if discussion and warnings
+didn't work. I suggest to drop the commit bit at the first ban (of 1
+week). Again, to be consistent with "be exemplary when it comes to the
+Code of Conduct".
+
+Context: I would like to formalize everything in my PEP :-)
+https://www.python.org/dev/peps/pep-8015/
+
+Note: I'm really not comfortable to talk about banning someone. But it
+seems like we all are on the same page, such case is really
+exceptional and will only be the very last resort if all other
+attempts failed.
+
+Victor
+
+From vstinner at redhat.com  Wed Oct 17 19:48:05 2018
+From: vstinner at redhat.com (Victor Stinner)
+Date: Thu, 18 Oct 2018 01:48:05 +0200
+Subject: [python-committers] Moderation of the Python community
+In-Reply-To: <CA+3bQGGA1+pXCm74H39ysuGNjdaZtqZuF=_SHvuZMvKNs9mbpg@mail.gmail.com>
+References: <CA+3bQGG93Mzf8ATxwkdSr_JSFfCJrRzvUB6Kir9FJSzCpbqFgA@mail.gmail.com>
+ <CAD+XWwrxOhKY3kyZumaVFgTL9yNzAsakCwMeZtV4vXgyg1ZPfg@mail.gmail.com>
+ <35737263-3B90-440A-B410-AB80B109B6DA@stufft.io>
+ <CA+3bQGGLi=qwGRTqJC-3MjVTYzQ_0YtU+g05XnhBOdVuPnf9Zg@mail.gmail.com>
+ <CA+3bQGFwTErm+_fo5JuVfGaOEUdEf75n1ausA6dhEyHb0u-Q1A@mail.gmail.com>
+ <8a96dd3d-8482-6320-03d5-fffa3e77a5a8@stoneleaf.us>
+ <CA+3bQGGA1+pXCm74H39ysuGNjdaZtqZuF=_SHvuZMvKNs9mbpg@mail.gmail.com>
+Message-ID: <CA+3bQGHaCfymHTzoEvU_mQNm+=MOeWkyjwRLJnCXgnOYHrHWFQ@mail.gmail.com>
+
+Ok, I proposed an update to my PEP to explain the process to ban a
+core developer:
+https://github.com/python/peps/pull/810/files
+
+Victor
+Le jeu. 18 oct. 2018 ? 01:23, Victor Stinner <vstinner at redhat.com> a ?crit :
+>
+> Le jeu. 18 oct. 2018 ? 00:16, Ethan Furman <ethan at stoneleaf.us> a ?crit :
+> >
+> > On 10/17/2018 03:05 PM, Victor Stinner wrote:
+> >
+> > > Oh, by the way, should we have two different choices: remove the
+> > > commit bit from a core dev (downgrade a core dev as a regular
+> > > contributor) and ban a core dev?
+> >
+> > No.  If it comes to this, then the dev needs to be banned.  I would not
+> > expect this to happen except maybe once in what's left of my lifetime.
+>
+> Ok. In that case, I would suggest to ban the core dev *and* drop their
+> commit bit. I'm not sure that we want to keep a banned user as part of
+> core developers. Extract of my PEP:
+>
+> "Core developers are also expected to be exemplary when it comes to
+> the Code of Conduct."
+>
+> Let's say that a core dev is banned for, let's say 6 months. What
+> happens next? Can we reconsider later to open a vote to "promote"
+> again the developer if they proved that they changed their behaviour?
+>
+> Again, I'm really dislike the idea of banning someone for their own
+> life. IMHO that would be either unfair and counter-productive. It's
+> really difficult to find core developers, so we should remain open if
+> people change their behaviour.
+>
+> Moreover, banning someone for life puts more pressure on the people
+> who decide on the ban. It's way easier to decide to only ban someone
+> for 1 week rather than banning someone for their own life.
+>
+> I proposed to start with a ban of 1 week if discussion and warnings
+> didn't work. I suggest to drop the commit bit at the first ban (of 1
+> week). Again, to be consistent with "be exemplary when it comes to the
+> Code of Conduct".
+>
+> Context: I would like to formalize everything in my PEP :-)
+> https://www.python.org/dev/peps/pep-8015/
+>
+> Note: I'm really not comfortable to talk about banning someone. But it
+> seems like we all are on the same page, such case is really
+> exceptional and will only be the very last resort if all other
+> attempts failed.
+>
+> Victor
+

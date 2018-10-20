@@ -4200,3 +4200,260 @@ Regards
 
 Antoine.
 
+From brett at python.org  Fri Oct 19 14:27:59 2018
+From: brett at python.org (Brett Cannon)
+Date: Fri, 19 Oct 2018 11:27:59 -0700
+Subject: [python-committers] Moderation of the Python community
+In-Reply-To: <C75DBC34-5148-4751-A97B-E81F1BD286ED@gmail.com>
+References: <CA+3bQGG93Mzf8ATxwkdSr_JSFfCJrRzvUB6Kir9FJSzCpbqFgA@mail.gmail.com>
+ <CAD+XWwrxOhKY3kyZumaVFgTL9yNzAsakCwMeZtV4vXgyg1ZPfg@mail.gmail.com>
+ <C75DBC34-5148-4751-A97B-E81F1BD286ED@gmail.com>
+Message-ID: <CAP1=2W4eXvcJXuEfCcGmzW_LcRsK9_SD-LjTQU0kOyJwGY=+nQ@mail.gmail.com>
+
+And just to follow up because I don't think this made it out to
+python-committers, the questions Victor brought up are all part of what the
+conduct WG is thinking about while we start ramping up on things. Once the
+WG has gotten things to a point that we think it's ready to provide e.g.
+enforcement guidelines, reporting, etc. then we will come back here to the
+team and bring this up again (hopefully in the next couple of months, but
+usual "we're all volunteers" caveat applies ;) .
+
+On Wed, 17 Oct 2018 at 08:45, Carol Willing <willingc at gmail.com> wrote:
+
+> Brian, thanks for a very well written response, and Victor, thanks for
+> asking for clarification.
+>
+> I think Brian has covered my thoughts very thoroughly. As an FYI, Brett,
+> Thomas Wouters, and I are on the Code of Conduct workgroup so the core devs
+> are represented.
+>
+>
+> > On Oct 17, 2018, at 8:34 AM, Brian Curtin <brian at python.org> wrote:
+> >
+> > On Wed, Oct 17, 2018 at 8:04 AM Victor Stinner <vstinner at redhat.com>
+> wrote:
+> > Hi,
+> >
+> > I see more and more discussions about the moderation of the Python
+> community.
+> >
+> > There is a PSF "conduct" Working Group:
+> > https://wiki.python.org/psf/ConductWG/Charter
+> >
+> > I noticed the following questions:
+> >
+> > * Lack of transparency on how moderation is decided
+> > * Lack of transparency on the number of received Code of Conduct
+> > incidents: maybe start to produce "Code of Conduct transparency
+> > report"? (If such reports already exist, I'm sorry, I wasn't aware
+> > :-))
+> > * Should the PSF conduct-WG handle conflicts between core developers?
+> >
+> > Would it be possible to write down rules to formalize the moderation?
+> >
+> > Yes. For any medium applying a code of conduct there should be some
+> guidelines applicable to said medium for how things are handled.
+> >
+> > To get this out of the way early, as the author of the current CoC, it
+> intentionally doesn't prescribe any specific moderation because it depends
+> on how and where it's applied given the people and tools available.
+> Moderating Discourse might be different than moderating a mailing list
+> which is different than a bug tracker.
+> >
+> > For example:
+> >
+> > * First try to contact the author of an incident and warn them? Only
+> > take an action immediately for exceptional cases like obvious spam?
+> > * Maybe define numbers for ban: 1 week, then 3 months, then 6 months,
+> > then 1 year? I would prefer to never ban someone forever. People can
+> > change.
+> > * Scope: does the moderationg apply to *any* public space? Or only to
+> > a restricted list like: mailing lists and bug tracker? What about
+> > Twitter and conferences?
+> >
+> > For conferences, there are specific codes of conduct and applicable
+> event handling guides that go with them, and I would just leave that area
+> alone from this angle. I don't know that we should start meddling with
+> conferences; leave that up to organizers who are dedicated to that and in
+> several cases have actual training on this topic.
+> >
+> > Twitter can't even moderate itself, but I don't think that makes it
+> anyone here's job.
+> >
+> > I would scope moderation to any spaces provided by or for this group, so
+> tracker, mailing lists, GitHub, Discourse, and I think that's it? I don't
+> really know if IRC and Zulip are still in play.
+> >
+> > * Should the incidents which occur in the private space be handled as
+> > well? Bullying can occur in the private space.
+> >
+> > We can't police everything, but I think handling private issues within
+> the space of PSF resources (or whatever the governing body of what we're
+> talking about is) is to be expected. For example, if I harass you via a
+> private message on Discourse, that is a situation to be handled here. It
+> doesn't need to go to everyone's inbox for it to be a problem we need to
+> handle.
+> >
+> > I don't know that you can moderate other private things?private in the
+> meaning of "PSF provided or not"?though. If I send you an inappropriate
+> email just between you and I, that's between us and our email providers. I
+> think it might be overstepping this group's bounds for you to say I can't
+> use the bug tracker for a month due to something I did entirely outside of
+> the scope of said group. It feels similar to some corporate policies, where
+> if I'm inappropriate to you when I see you at the grocery store, that's not
+> really the company's problem, but if I'm like that at our team dinner then
+> it is a problem.
+> >
+> > There probably does exist some threshold where out-of-scope behavior
+> crosses to where someone isn't welcome, but I don't know that it's
+> generally quantifiable. That's probably something for a council or triad or
+> working group to discuss on a case-by-case basis as it's above and beyond a
+> reasonable range of behaviors that this group can have their eye on.
+> >
+> > * How to handle conflict between core developers? Not directly related
+> > to the code of conduct.
+> >
+> > If it's not CoC related conflict, do you mean conflict related to code,
+> as in technical conflict over implementation details? I think we naturally
+> have a few mediators in this case depending on the level of where it
+> occurs. Release managers, delegates for PEPs, code area experts, and then I
+> think there are a few who act in such a way due to longevity with the
+> project.
+> >
+> > If we're looking for people to be specifically identified as mediators,
+> we have a bunch of good ones around here.
+> >
+> > I'm not interested for work on such rules. I'm not sure neither if
+> > it's the role of the Python core developers to propose something.
+> > Maybe the PSF conduct WG should propose something, or even decide
+> > directly?
+> >
+> > Is anyone from this group on said working group? If not, I don't think
+> they should be wholesale deciding guidelines for a group they're not a part
+> of. They would seem to be a group of people we should work with as they've
+> presumably come up with other guidelines and could be a useful set of
+> people to help shape things.
+> >
+> > Handling conflicts between core developers is the most difficult
+> > question. I don't think that it's the role of the conduct working
+> > group to handle that. Moreover, the Code of Conduct should be seen as
+> > a way to evict a core developer out of Python. The Code of Conduct is
+> > supposed to protect members of the Python community against people who
+> > misbehave. But I'm unable to describe the limit between "misbehave"
+> > and "conflict" between two developers.
+> >
+> > It is unfortunate that conflict?which can be a healthy thing for a
+> team?is potentially reaching past this toward misbehavior. A lot of
+> developers, especially those of us involved in open source, come into this
+> type of work with strong opinions. When they're too strongly held, we can
+> go beyond productive conflict and end with one or more of us finding ways
+> of avoiding that topic (work on other areas), avoiding further conflict at
+> all (only work on easier bugs), and possibly onto misbehavior, none of
+> which are healthy for the team.
+> >
+> > I think this type of issue is better solved internally to our team,
+> perhaps via some form of mediator(s) I mentioned earlier, rather than
+> involving a wholly external group. Time is of course a finite resource in
+> open source, and people work is often/usually harder than code work, but I
+> think we do have some people around who care about the success of the
+> project to spend time mediating these kinds of conflicts so that we keep
+> everyone involved and solve whatever problem at hand in a satisfactory
+> manner.
+> >
+> > My main concern is that the PSF conduct WG should not be seen as a
+> > threat to core developers.
+> >
+> > I don't think it should be used that way, but I also know nothing about
+> it and have heard nothing from it.
+> > _______________________________________________
+> > python-committers mailing list
+> > python-committers at python.org
+> > https://mail.python.org/mailman/listinfo/python-committers
+> > Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20181019/ee61a338/attachment.html>
+
+From brett at python.org  Fri Oct 19 15:04:59 2018
+From: brett at python.org (Brett Cannon)
+Date: Fri, 19 Oct 2018 12:04:59 -0700
+Subject: [python-committers] GitHub logins now supported on
+ discuss.python.org
+Message-ID: <CAP1=2W6edEjTQ_qs_4dvr5_iABRsZ690CS17-Zk0EsNcEDetxg@mail.gmail.com>
+
+In case anyone was waiting for that before trying out our Discourse
+instance.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20181019/e33260e9/attachment.html>
+
+From larry at hastings.org  Fri Oct 19 19:58:03 2018
+From: larry at hastings.org (Larry Hastings)
+Date: Fri, 19 Oct 2018 16:58:03 -0700
+Subject: [python-committers] discuss.python.org participation
+In-Reply-To: <CAP1=2W4a8h+RYCJfu2bb-Pt664479Oo=ZhqiYxft7gfetdAYmA@mail.gmail.com>
+References: <CACLn2+2twSsUkuDVZBDZh=2w0nZ7rxjhGw_XxzMEsFiBJgftpw@mail.gmail.com>
+ <bd479678-3a01-4587-2544-768b4aabfc77@python.org>
+ <CAP1=2W4a8h+RYCJfu2bb-Pt664479Oo=ZhqiYxft7gfetdAYmA@mail.gmail.com>
+Message-ID: <a4757fa1-068b-f208-f3bd-6547fd5f4328@hastings.org>
+
+
+
+On 10/12/2018 11:55 AM, Brett Cannon wrote:
+> On Thu, 11 Oct 2018 at 01:30, Antoine Pitrou <antoine at python.org 
+> <mailto:antoine at python.org>> wrote:
+>
+>
+>     What concerns me is that there are several long-time and/or prominent
+>     developers who are not even registered (*) on discuss.python.org
+>     <http://discuss.python.org>.? For
+>     example Benjamin Peterson, Larry Hastings, Raymond Hettinger, Stefan
+>     Krah, Terry Reedy.
+>
+>
+> I believe Larry is currently busy so he might simply have not taken 
+> the time (and will be occupied into I believe November).
+
+You kids!? Yeah, I was just on a two-week trip to London, and I had a 
+vacation right before that too.? Right now I'm dealing with the 
+aftermath of so much vacation.? And next week I'm doing the PyWeek 
+programming challenge:
+
+    https://pyweek.org/26/
+
+I'll also admit I've been dragging my feet about setting up 
+yet-another-online-account for 
+yet-another-form-of-online-communication.? (But this time!? It'll solve 
+all our problems!? Finally, our conversational deliverance is at hand!)
+
+
+//arry/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20181019/76bc5263/attachment-0001.html>
+
+From vstinner at redhat.com  Fri Oct 19 20:09:50 2018
+From: vstinner at redhat.com (Victor Stinner)
+Date: Sat, 20 Oct 2018 02:09:50 +0200
+Subject: [python-committers] discuss.python.org participation
+In-Reply-To: <a4757fa1-068b-f208-f3bd-6547fd5f4328@hastings.org>
+References: <CACLn2+2twSsUkuDVZBDZh=2w0nZ7rxjhGw_XxzMEsFiBJgftpw@mail.gmail.com>
+ <bd479678-3a01-4587-2544-768b4aabfc77@python.org>
+ <CAP1=2W4a8h+RYCJfu2bb-Pt664479Oo=ZhqiYxft7gfetdAYmA@mail.gmail.com>
+ <a4757fa1-068b-f208-f3bd-6547fd5f4328@hastings.org>
+Message-ID: <CA+3bQGFX2+iKaoauw-NicTJ7SrUtnS_KZKBA8ZvNE57SxmO_cA@mail.gmail.com>
+
+Le sam. 20 oct. 2018 ? 01:58, Larry Hastings <larry at hastings.org> a ?crit :
+> I'll also admit I've been dragging my feet about setting up yet-another-online-account for yet-another-form-of-online-communication.  (But this time!  It'll solve all our problems!  Finally, our conversational deliverance is at hand!)
+
+discuss.python.org now supports log in using GitHub since today :-)
+
+Victor
+

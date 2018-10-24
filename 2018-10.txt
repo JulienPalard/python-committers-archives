@@ -4509,3 +4509,676 @@ https://discuss.python.org/t/pep-8001-python-governance-voting-process/233/46 <h
 An HTML attachment was scrubbed...
 URL: <http://mail.python.org/pipermail/python-committers/attachments/20181022/106c2516/attachment.html>
 
+From ncoghlan at gmail.com  Tue Oct 23 07:06:51 2018
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Tue, 23 Oct 2018 21:06:51 +1000
+Subject: [python-committers] Vote on governance will happen between Nov
+ 16 - Nov 30
+In-Reply-To: <DE5CBF18-D13C-4532-90A3-A594C33F699E@langa.pl>
+References: <DE5CBF18-D13C-4532-90A3-A594C33F699E@langa.pl>
+Message-ID: <CADiSq7eo66ckMmMAbqLPmrcxufx2P3P97uMkhgJhbheudK-Tug@mail.gmail.com>
+
+On Tue, 23 Oct 2018 at 06:38, ?ukasz Langa <lukasz at langa.pl> wrote:
+>
+> The voting procedure is described in PEP 8001. I flipped it from "Draft" to "Active" without further changes a few minutes ago. That's in the interest of giving everybody enough lead time as well as resolving the situation "well before PyCon 2019" as per Guido's and Carol's requests.
+>
+> Please read all the governance PEPs, ask for clarifications, voice all your concerns now. Ideally we will make all of the required changes to the PEPs early and not last minute before the vote.
+>
+> There were some suggestions on Discourse for changes to the selected model, the biggest being Stefan's suggestion to encrypt the votes and Donald's suggestion to use STAR instead of IRV for counting votes. We ended up not going with those suggestions. See Brett's comment here as to why:
+> https://discuss.python.org/t/pep-8001-python-governance-voting-process/233/46
+
+My main concern was about the potential for vote-splitting with
+multiple "council" type proposals on the ballot, and IRV is enough to
+address that (having been an Australian voter for ~22 years, I'm also
+very familiar with it, and given the specific set of proposals we're
+voting on, I don't think the case where STAR would give a different
+answer is likely to come up - the various draft PEPs have too much in
+common with either each other or the status quo for it to be likely
+that a significant proportion of the folks voting will find any of
+them completely unacceptable)
+
+Cheers,
+Nick.
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+
+From antoine at python.org  Tue Oct 23 07:45:54 2018
+From: antoine at python.org (Antoine Pitrou)
+Date: Tue, 23 Oct 2018 13:45:54 +0200
+Subject: [python-committers] Vote on governance will happen between Nov
+ 16 - Nov 30
+In-Reply-To: <CADiSq7eo66ckMmMAbqLPmrcxufx2P3P97uMkhgJhbheudK-Tug@mail.gmail.com>
+References: <DE5CBF18-D13C-4532-90A3-A594C33F699E@langa.pl>
+ <CADiSq7eo66ckMmMAbqLPmrcxufx2P3P97uMkhgJhbheudK-Tug@mail.gmail.com>
+Message-ID: <1e9a3036-3e44-48c5-17c4-cf6dadcee142@python.org>
+
+
+Le 23/10/2018 ? 13:06, Nick Coghlan a ?crit?:
+> On Tue, 23 Oct 2018 at 06:38, ?ukasz Langa <lukasz at langa.pl> wrote:
+>>
+>> The voting procedure is described in PEP 8001. I flipped it from "Draft" to "Active" without further changes a few minutes ago. That's in the interest of giving everybody enough lead time as well as resolving the situation "well before PyCon 2019" as per Guido's and Carol's requests.
+>>
+>> Please read all the governance PEPs, ask for clarifications, voice all your concerns now. Ideally we will make all of the required changes to the PEPs early and not last minute before the vote.
+>>
+>> There were some suggestions on Discourse for changes to the selected model, the biggest being Stefan's suggestion to encrypt the votes and Donald's suggestion to use STAR instead of IRV for counting votes. We ended up not going with those suggestions. See Brett's comment here as to why:
+>> https://discuss.python.org/t/pep-8001-python-governance-voting-process/233/46
+> 
+> My main concern was about the potential for vote-splitting with
+> multiple "council" type proposals on the ballot, and IRV is enough to
+> address that (having been an Australian voter for ~22 years, I'm also
+> very familiar with it, and given the specific set of proposals we're
+> voting on, I don't think the case where STAR would give a different
+> answer is likely to come up - the various draft PEPs have too much in
+> common with either each other or the status quo for it to be likely
+> that a significant proportion of the folks voting will find any of
+> them completely unacceptable)
+
+I had the same concern and I'm glad the voting mechanism addresses it.
+
+Regards
+
+Antoine.
+
+From donald at stufft.io  Tue Oct 23 07:55:19 2018
+From: donald at stufft.io (Donald Stufft)
+Date: Tue, 23 Oct 2018 07:55:19 -0400
+Subject: [python-committers] Vote on governance will happen between Nov
+ 16 - Nov 30
+In-Reply-To: <CADiSq7eo66ckMmMAbqLPmrcxufx2P3P97uMkhgJhbheudK-Tug@mail.gmail.com>
+References: <DE5CBF18-D13C-4532-90A3-A594C33F699E@langa.pl>
+ <CADiSq7eo66ckMmMAbqLPmrcxufx2P3P97uMkhgJhbheudK-Tug@mail.gmail.com>
+Message-ID: <01938BCE-6A28-48F1-B3B4-40B3FA1E8859@stufft.io>
+
+
+
+> On Oct 23, 2018, at 7:06 AM, Nick Coghlan <ncoghlan at gmail.com> wrote:
+> 
+> On Tue, 23 Oct 2018 at 06:38, ?ukasz Langa <lukasz at langa.pl> wrote:
+>> 
+>> The voting procedure is described in PEP 8001. I flipped it from "Draft" to "Active" without further changes a few minutes ago. That's in the interest of giving everybody enough lead time as well as resolving the situation "well before PyCon 2019" as per Guido's and Carol's requests.
+>> 
+>> Please read all the governance PEPs, ask for clarifications, voice all your concerns now. Ideally we will make all of the required changes to the PEPs early and not last minute before the vote.
+>> 
+>> There were some suggestions on Discourse for changes to the selected model, the biggest being Stefan's suggestion to encrypt the votes and Donald's suggestion to use STAR instead of IRV for counting votes. We ended up not going with those suggestions. See Brett's comment here as to why:
+>> https://discuss.python.org/t/pep-8001-python-governance-voting-process/233/46
+> 
+> My main concern was about the potential for vote-splitting with
+> multiple "council" type proposals on the ballot, and IRV is enough to
+> address that (having been an Australian voter for ~22 years, I'm also
+> very familiar with it, and given the specific set of proposals we're
+> voting on, I don't think the case where STAR would give a different
+> answer is likely to come up - the various draft PEPs have too much in
+> common with either each other or the status quo for it to be likely
+> that a significant proportion of the folks voting will find any of
+> them completely unacceptable)
+> 
+
+
+We?re using IRV and I accept that, but I just want to point out that IRV still has a form vote splitting (in electoral parlance, vote splitting is the ?favorite betrayal criterion? - https://www.youtube.com/watch?v=JtKAScORevQ <https://www.youtube.com/watch?v=JtKAScORevQ>. IRV only protects against vote splitting when you have a very weak or a very strong candidate ranked first.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20181023/6019ba5e/attachment.html>
+
+From antoine at python.org  Tue Oct 23 07:56:39 2018
+From: antoine at python.org (Antoine Pitrou)
+Date: Tue, 23 Oct 2018 13:56:39 +0200
+Subject: [python-committers] Vote on governance will happen between Nov
+ 16 - Nov 30
+In-Reply-To: <01938BCE-6A28-48F1-B3B4-40B3FA1E8859@stufft.io>
+References: <DE5CBF18-D13C-4532-90A3-A594C33F699E@langa.pl>
+ <CADiSq7eo66ckMmMAbqLPmrcxufx2P3P97uMkhgJhbheudK-Tug@mail.gmail.com>
+ <01938BCE-6A28-48F1-B3B4-40B3FA1E8859@stufft.io>
+Message-ID: <5341f17c-a9d1-1597-ce56-a463a1d57968@python.org>
+
+
+Le 23/10/2018 ? 13:55, Donald Stufft a ?crit?:
+> 
+> We?re using IRV and I accept that, but I just want to point out that IRV
+> still has a form vote splitting (in electoral parlance, vote splitting
+> is the ?favorite betrayal criterion?
+> -?https://www.youtube.com/watch?v=JtKAScORevQ. IRV only protects against
+> vote splitting when you have a very weak or a very strong candidate
+> ranked first.
+
+Do you have a non-video link to an explanation?
+
+If some form of tactical voting is possible, as a voter I'd like to know
+about it.
+
+Regards
+
+Antoine.
+
+From donald at stufft.io  Tue Oct 23 09:07:43 2018
+From: donald at stufft.io (Donald Stufft)
+Date: Tue, 23 Oct 2018 09:07:43 -0400
+Subject: [python-committers] Vote on governance will happen between Nov
+ 16 - Nov 30
+In-Reply-To: <5341f17c-a9d1-1597-ce56-a463a1d57968@python.org>
+References: <DE5CBF18-D13C-4532-90A3-A594C33F699E@langa.pl>
+ <CADiSq7eo66ckMmMAbqLPmrcxufx2P3P97uMkhgJhbheudK-Tug@mail.gmail.com>
+ <01938BCE-6A28-48F1-B3B4-40B3FA1E8859@stufft.io>
+ <5341f17c-a9d1-1597-ce56-a463a1d57968@python.org>
+Message-ID: <49F23CDD-E8A0-4549-BDA1-A3B31E9848DB@stufft.io>
+
+
+> On Oct 23, 2018, at 7:56 AM, Antoine Pitrou <antoine at python.org> wrote:
+> 
+> 
+> Le 23/10/2018 ? 13:55, Donald Stufft a ?crit :
+>> 
+>> We?re using IRV and I accept that, but I just want to point out that IRV
+>> still has a form vote splitting (in electoral parlance, vote splitting
+>> is the ?favorite betrayal criterion?
+>> - https://www.youtube.com/watch?v=JtKAScORevQ. IRV only protects against
+>> vote splitting when you have a very weak or a very strong candidate
+>> ranked first.
+> 
+> Do you have a non-video link to an explanation?
+> 
+> If some form of tactical voting is possible, as a voter I'd like to know
+> about it.
+> 
+
+
+To be clear, *all* voting systems have some form of tactical voting as part of them, so this isn?t unique to IRV. I was mostly just pointing out that IRV isn?t a panacea, you can still get a vote splitting like effect. Interestingly, IRV also has the property that sometimes the simple act of voting your true preference *at all* can cause your true preference to lose, and sometimes you would have been better off not voting at all.
+
+I?m struggling to find a resource besides that doesn?t also include shilling for another voting system or isn?t a lengthy paper but https://rangevoting.org/IRVpartic.html <https://rangevoting.org/IRVpartic.html> gives an example and https://rangevoting.org/TarrIrv.html <https://rangevoting.org/TarrIrv.html> is a more complex example.
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20181023/a03a524c/attachment.html>
+
+From tim.peters at gmail.com  Tue Oct 23 12:05:58 2018
+From: tim.peters at gmail.com (Tim Peters)
+Date: Tue, 23 Oct 2018 11:05:58 -0500
+Subject: [python-committers] Vote on governance will happen between Nov
+ 16 - Nov 30
+In-Reply-To: <49F23CDD-E8A0-4549-BDA1-A3B31E9848DB@stufft.io>
+References: <DE5CBF18-D13C-4532-90A3-A594C33F699E@langa.pl>
+ <CADiSq7eo66ckMmMAbqLPmrcxufx2P3P97uMkhgJhbheudK-Tug@mail.gmail.com>
+ <01938BCE-6A28-48F1-B3B4-40B3FA1E8859@stufft.io>
+ <5341f17c-a9d1-1597-ce56-a463a1d57968@python.org>
+ <49F23CDD-E8A0-4549-BDA1-A3B31E9848DB@stufft.io>
+Message-ID: <CAExdVNnSN70xSW4b5hpYi9gZDYM016h1D+qVxdCA2AL1CW7tzA@mail.gmail.com>
+
+[Donald Stufft <donald at stufft.io>]
+
+> ...
+> I?m struggling to find a resource besides that doesn?t also include
+> shilling for another voting system or isn?t a lengthy paper but
+> https://rangevoting.org/IRVpartic.html gives an example and
+> https://rangevoting.org/TarrIrv.html is a more complex example.
+>
+
+The rangevoting site has a great deal of info about all sorts of voting
+systems.  Over a decade ago, Ka-Ping Yee (who used to be very active in
+Python development) ran some _visual_ voting simulations on 5 popular
+systems, which scared him (& me) away from IRV forever:
+
+    http://zesty.ca/voting/sim/
+
+"""
+The following images visually demonstrate how Plurality penalizes centrist
+candidates and Borda favours them; how Approval and Condorcet yield nearly
+identical results; and how the Hare method yields extremely strange
+behaviour. Alarmingly, the Hare method (also known as "IRV") is gaining
+momentum as the most popular type of election-method reform in the United
+States (in Berkeley, Oakland, and just last November in San Francisco, for
+example).
+"""
+
+That said, in the absence of political factions maneuvering to increase
+their own power over time, with money and marketing clout to persuade
+voters to play along, I'm not much concerned about the system used for a
+one-shot vote.  Even if we all strive to be as "strategic" and/or
+"tactical" as possible, we'll all be pushing in different directions.
+
+One massive (to my eyes) advantage of range voting is that it never pays to
+give your true favorite less than your top score, or your true
+least-favorite more than your bottom score.  (Note:  the "approval voting"
+used for PSF elections is essentially range voting limited to two possible
+scores - and it should be very easy in that context to see that it can't
+pay to approve a candidate you don't approve of, or vice versa.)
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20181023/5854bff9/attachment.html>
+
+From aleax at google.com  Tue Oct 23 12:51:00 2018
+From: aleax at google.com (Alex Martelli)
+Date: Tue, 23 Oct 2018 09:51:00 -0700
+Subject: [python-committers] Vote on governance will happen between Nov
+ 16 - Nov 30
+In-Reply-To: <CAExdVNnSN70xSW4b5hpYi9gZDYM016h1D+qVxdCA2AL1CW7tzA@mail.gmail.com>
+References: <DE5CBF18-D13C-4532-90A3-A594C33F699E@langa.pl>
+ <CADiSq7eo66ckMmMAbqLPmrcxufx2P3P97uMkhgJhbheudK-Tug@mail.gmail.com>
+ <01938BCE-6A28-48F1-B3B4-40B3FA1E8859@stufft.io>
+ <5341f17c-a9d1-1597-ce56-a463a1d57968@python.org>
+ <49F23CDD-E8A0-4549-BDA1-A3B31E9848DB@stufft.io>
+ <CAExdVNnSN70xSW4b5hpYi9gZDYM016h1D+qVxdCA2AL1CW7tzA@mail.gmail.com>
+Message-ID: <CAE46Be_iE1ZdGCSfpE1qp1TvwyjCYyt=zYot5z6PfeEA7Ny2qg@mail.gmail.com>
+
+While I suspect most participants are aware of this, just in care some
+don't I thought I'd just point out that it's futile to look for a "perfect"
+voting system -- Kenneth Arrow proved that long ago, see
+https://en.wikipedia.org/wiki/Arrow%27s_impossibility_theorem
+
+Alex
+
+On Tue, Oct 23, 2018 at 9:08 AM Tim Peters <tim.peters at gmail.com> wrote:
+
+>
+> [Donald Stufft <donald at stufft.io>]
+>
+>> ...
+>> I?m struggling to find a resource besides that doesn?t also include
+>> shilling for another voting system or isn?t a lengthy paper but
+>> https://rangevoting.org/IRVpartic.html gives an example and
+>> https://rangevoting.org/TarrIrv.html is a more complex example.
+>>
+>
+> The rangevoting site has a great deal of info about all sorts of voting
+> systems.  Over a decade ago, Ka-Ping Yee (who used to be very active in
+> Python development) ran some _visual_ voting simulations on 5 popular
+> systems, which scared him (& me) away from IRV forever:
+>
+>     http://zesty.ca/voting/sim/
+>
+> """
+> The following images visually demonstrate how Plurality penalizes centrist
+> candidates and Borda favours them; how Approval and Condorcet yield nearly
+> identical results; and how the Hare method yields extremely strange
+> behaviour. Alarmingly, the Hare method (also known as "IRV") is gaining
+> momentum as the most popular type of election-method reform in the United
+> States (in Berkeley, Oakland, and just last November in San Francisco, for
+> example).
+> """
+>
+> That said, in the absence of political factions maneuvering to increase
+> their own power over time, with money and marketing clout to persuade
+> voters to play along, I'm not much concerned about the system used for a
+> one-shot vote.  Even if we all strive to be as "strategic" and/or
+> "tactical" as possible, we'll all be pushing in different directions.
+>
+> One massive (to my eyes) advantage of range voting is that it never pays
+> to give your true favorite less than your top score, or your true
+> least-favorite more than your bottom score.  (Note:  the "approval voting"
+> used for PSF elections is essentially range voting limited to two possible
+> scores - and it should be very easy in that context to see that it can't
+> pay to approve a candidate you don't approve of, or vice versa.)
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20181023/ba7be66e/attachment.html>
+
+From steve at pearwood.info  Tue Oct 23 13:13:29 2018
+From: steve at pearwood.info (Steven D'Aprano)
+Date: Wed, 24 Oct 2018 04:13:29 +1100
+Subject: [python-committers] Vote on governance will happen between Nov
+ 16 - Nov 30
+In-Reply-To: <CAExdVNnSN70xSW4b5hpYi9gZDYM016h1D+qVxdCA2AL1CW7tzA@mail.gmail.com>
+References: <DE5CBF18-D13C-4532-90A3-A594C33F699E@langa.pl>
+ <CADiSq7eo66ckMmMAbqLPmrcxufx2P3P97uMkhgJhbheudK-Tug@mail.gmail.com>
+ <01938BCE-6A28-48F1-B3B4-40B3FA1E8859@stufft.io>
+ <5341f17c-a9d1-1597-ce56-a463a1d57968@python.org>
+ <49F23CDD-E8A0-4549-BDA1-A3B31E9848DB@stufft.io>
+ <CAExdVNnSN70xSW4b5hpYi9gZDYM016h1D+qVxdCA2AL1CW7tzA@mail.gmail.com>
+Message-ID: <20181023171329.GG3817@ando.pearwood.info>
+
+On Tue, Oct 23, 2018 at 11:05:58AM -0500, Tim Peters wrote:
+
+> The rangevoting site has a great deal of info about all sorts of voting
+> systems.  Over a decade ago, Ka-Ping Yee (who used to be very active in
+> Python development) ran some _visual_ voting simulations on 5 popular
+> systems, which scared him (& me) away from IRV forever:
+> 
+
+>     http://zesty.ca/voting/sim/
+> 
+> """
+> The following images visually demonstrate how Plurality penalizes centrist
+> candidates and Borda favours them; how Approval and Condorcet yield nearly
+> identical results; and how the Hare method yields extremely strange
+> behaviour. Alarmingly, the Hare method (also known as "IRV") is gaining
+> momentum as the most popular type of election-method reform in the United
+> States (in Berkeley, Oakland, and just last November in San Francisco, for
+> example).
+> """
+
+Why am I not surprised that here in Australia, we use IRV for our House 
+of Representatives and most state governments?
+
+
+
+-- 
+Steve
+
+From tim.peters at gmail.com  Tue Oct 23 13:14:45 2018
+From: tim.peters at gmail.com (Tim Peters)
+Date: Tue, 23 Oct 2018 12:14:45 -0500
+Subject: [python-committers] Vote on governance will happen between Nov
+ 16 - Nov 30
+In-Reply-To: <CAE46Be_iE1ZdGCSfpE1qp1TvwyjCYyt=zYot5z6PfeEA7Ny2qg@mail.gmail.com>
+References: <DE5CBF18-D13C-4532-90A3-A594C33F699E@langa.pl>
+ <CADiSq7eo66ckMmMAbqLPmrcxufx2P3P97uMkhgJhbheudK-Tug@mail.gmail.com>
+ <01938BCE-6A28-48F1-B3B4-40B3FA1E8859@stufft.io>
+ <5341f17c-a9d1-1597-ce56-a463a1d57968@python.org>
+ <49F23CDD-E8A0-4549-BDA1-A3B31E9848DB@stufft.io>
+ <CAExdVNnSN70xSW4b5hpYi9gZDYM016h1D+qVxdCA2AL1CW7tzA@mail.gmail.com>
+ <CAE46Be_iE1ZdGCSfpE1qp1TvwyjCYyt=zYot5z6PfeEA7Ny2qg@mail.gmail.com>
+Message-ID: <CAExdVNn9HE=doN4m1hB89WvSVghnNQCnmRSqXnkuqpx95mVUxg@mail.gmail.com>
+
+[Alex Martelli <aleax at google.com>]
+
+> While I suspect most participants are aware of this, just in care some
+> don't I thought I'd just point out that it's futile to look for a "perfect"
+> voting system -- Kenneth Arrow proved that long ago, see
+> https://en.wikipedia.org/wiki/Arrow%27s_impossibility_theorem
+>
+
+Yup!  Ping's page acknowledges that explicitly:
+
+    http://zesty.ca/voting/sim/
+
+and goes on to explain why he doesn't care ;-)
+
+"""
+
+...so one can always invent situations where a particular method violates
+one of these criteria. Thus, presenting individual cases of strange
+behaviour proves little.
+
+A more substantive way to argue for or against a particular election method
+would be to compare how frequently failures occur, under what conditions
+they occur, and how severe they are.
+"""
+
+Which his visual simulations go on to do.  Even a brief glance strikingly
+shows that IRV frequently delivers outcomes that can only be called
+"bizarre", not just that it's possible to contrive cases where one of
+Arrow's criteria isn't met.  For example,
+
+"""
+For four candidates in a perfect square (red, yellow, green, and blue at
+(0.3, 0.3), (0.7, 0.3), (0.3, 0.7), and (0.7, 0.7) respectively),
+Plurality, Approval, Borda, and Condorcet yield the obvious expected
+outcomes here. But even in this simplest of cases, Hare behaves
+unreasonably.
+"""
+
+So there's a real difference between perfection being unreachable and
+behaving incomprehensibly in symmetric simple-as-possible cases no other
+method has any problems with.  As scenarios become more complex, IRV just
+gets weirder.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20181023/974a6b5b/attachment-0001.html>
+
+From donald at stufft.io  Tue Oct 23 13:17:35 2018
+From: donald at stufft.io (Donald Stufft)
+Date: Tue, 23 Oct 2018 13:17:35 -0400
+Subject: [python-committers] Vote on governance will happen between Nov
+ 16 - Nov 30
+In-Reply-To: <CAExdVNn9HE=doN4m1hB89WvSVghnNQCnmRSqXnkuqpx95mVUxg@mail.gmail.com>
+References: <DE5CBF18-D13C-4532-90A3-A594C33F699E@langa.pl>
+ <CADiSq7eo66ckMmMAbqLPmrcxufx2P3P97uMkhgJhbheudK-Tug@mail.gmail.com>
+ <01938BCE-6A28-48F1-B3B4-40B3FA1E8859@stufft.io>
+ <5341f17c-a9d1-1597-ce56-a463a1d57968@python.org>
+ <49F23CDD-E8A0-4549-BDA1-A3B31E9848DB@stufft.io>
+ <CAExdVNnSN70xSW4b5hpYi9gZDYM016h1D+qVxdCA2AL1CW7tzA@mail.gmail.com>
+ <CAE46Be_iE1ZdGCSfpE1qp1TvwyjCYyt=zYot5z6PfeEA7Ny2qg@mail.gmail.com>
+ <CAExdVNn9HE=doN4m1hB89WvSVghnNQCnmRSqXnkuqpx95mVUxg@mail.gmail.com>
+Message-ID: <92EA4610-E330-4670-9E33-DC6A782300F2@stufft.io>
+
+
+
+> On Oct 23, 2018, at 1:14 PM, Tim Peters <tim.peters at gmail.com> wrote:
+> 
+> [Alex Martelli <aleax at google.com <mailto:aleax at google.com>>]
+> While I suspect most participants are aware of this, just in care some don't I thought I'd just point out that it's futile to look for a "perfect" voting system -- Kenneth Arrow proved that long ago, see https://en.wikipedia.org/wiki/Arrow%27s_impossibility_theorem <https://en.wikipedia.org/wiki/Arrow%27s_impossibility_theorem> 
+> 
+> Yup!  Ping's page acknowledges that explicitly:
+
+
+Important to note that Arrow?s theorem applies only to ranked or ordinal systems, cardinal/rated systems are not covered by it (though the larger point of no perfect system still holds true).
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20181023/adc960b3/attachment.html>
+
+From tim.peters at gmail.com  Tue Oct 23 13:24:32 2018
+From: tim.peters at gmail.com (Tim Peters)
+Date: Tue, 23 Oct 2018 12:24:32 -0500
+Subject: [python-committers] Vote on governance will happen between Nov
+ 16 - Nov 30
+In-Reply-To: <20181023171329.GG3817@ando.pearwood.info>
+References: <DE5CBF18-D13C-4532-90A3-A594C33F699E@langa.pl>
+ <CADiSq7eo66ckMmMAbqLPmrcxufx2P3P97uMkhgJhbheudK-Tug@mail.gmail.com>
+ <01938BCE-6A28-48F1-B3B4-40B3FA1E8859@stufft.io>
+ <5341f17c-a9d1-1597-ce56-a463a1d57968@python.org>
+ <49F23CDD-E8A0-4549-BDA1-A3B31E9848DB@stufft.io>
+ <CAExdVNnSN70xSW4b5hpYi9gZDYM016h1D+qVxdCA2AL1CW7tzA@mail.gmail.com>
+ <20181023171329.GG3817@ando.pearwood.info>
+Message-ID: <CAExdVNmmGJTh6yY+r7iVRQkchEDPON=a7b_QVxDZdgqptK0MDA@mail.gmail.com>
+
+[Tim, quoting Ping]> The following images visually demonstrate how
+Plurality penalizes centrist
+
+> > candidates and Borda favours them; how Approval and Condorcet yield
+> nearly
+> > identical results; and how the Hare method yields extremely strange
+> > behaviour. ...
+
+
+
+[Steven D'Aprano][
+
+> Why am I not surprised that here in Australia, we use IRV for our House
+> of Representatives and most state governments?
+>
+> This is getting off-topic, so I'll stop with this:  the push for iRV in
+the United States is mostly by 3rd parties who are essentially wholly
+locked out of any chance of winning under our plurality "winner takes all"
+voting systems.
+
+But, while Ping's page doesn't address this, there are good arguments on
+the rangevoting site for why IRV is just as likely to ensure 2-party
+dominance.  Which historical evidence appears to support. Indeed, on an
+Australian government web page I can't find right now, it explicitly said
+that your version of IRV favored 2-party dominance too.
+
+But that's not really relevant here until we form pro-Inquisition and
+anti-Inquisition parties (which, over time, will come to support the
+opposites of their names say) :-)
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20181023/edb53b4b/attachment.html>
+
+From antoine at python.org  Tue Oct 23 13:46:09 2018
+From: antoine at python.org (Antoine Pitrou)
+Date: Tue, 23 Oct 2018 19:46:09 +0200
+Subject: [python-committers] Vote on governance will happen between Nov
+ 16 - Nov 30
+In-Reply-To: <CAExdVNnSN70xSW4b5hpYi9gZDYM016h1D+qVxdCA2AL1CW7tzA@mail.gmail.com>
+References: <DE5CBF18-D13C-4532-90A3-A594C33F699E@langa.pl>
+ <CADiSq7eo66ckMmMAbqLPmrcxufx2P3P97uMkhgJhbheudK-Tug@mail.gmail.com>
+ <01938BCE-6A28-48F1-B3B4-40B3FA1E8859@stufft.io>
+ <5341f17c-a9d1-1597-ce56-a463a1d57968@python.org>
+ <49F23CDD-E8A0-4549-BDA1-A3B31E9848DB@stufft.io>
+ <CAExdVNnSN70xSW4b5hpYi9gZDYM016h1D+qVxdCA2AL1CW7tzA@mail.gmail.com>
+Message-ID: <df7185db-2da6-2f6d-37d3-78c76d91d072@python.org>
+
+
+Le 23/10/2018 ? 18:05, Tim Peters a ?crit?:
+> 
+> [Donald Stufft <donald at stufft.io <mailto:donald at stufft.io>>]
+> 
+>     ...
+>     I?m struggling to find a resource besides that doesn?t also include
+>     shilling for another voting system or isn?t a lengthy paper
+>     but?https://rangevoting.org/IRVpartic.html?gives an example
+>     and?https://rangevoting.org/TarrIrv.html?is a more complex example.
+> 
+> 
+> The rangevoting site has a great deal of info about all sorts of voting
+> systems.? Over a decade ago, Ka-Ping Yee (who used to be very active in
+> Python development) ran some _visual_ voting simulations on 5 popular
+> systems, which scared him (& me) away from IRV forever:
+> 
+> ? ? http://zesty.ca/voting/sim/
+
+Thanks!  This is a great resource.  I agree that IRV looks scary, while
+Approval or Condorcet look reasonable IMHO.
+
+Regards
+
+Antoine.
+
+From chris.jerdonek at gmail.com  Tue Oct 23 19:04:14 2018
+From: chris.jerdonek at gmail.com (Chris Jerdonek)
+Date: Tue, 23 Oct 2018 16:04:14 -0700
+Subject: [python-committers] Vote on governance will happen between Nov
+ 16 - Nov 30
+In-Reply-To: <df7185db-2da6-2f6d-37d3-78c76d91d072@python.org>
+References: <DE5CBF18-D13C-4532-90A3-A594C33F699E@langa.pl>
+ <CADiSq7eo66ckMmMAbqLPmrcxufx2P3P97uMkhgJhbheudK-Tug@mail.gmail.com>
+ <01938BCE-6A28-48F1-B3B4-40B3FA1E8859@stufft.io>
+ <5341f17c-a9d1-1597-ce56-a463a1d57968@python.org>
+ <49F23CDD-E8A0-4549-BDA1-A3B31E9848DB@stufft.io>
+ <CAExdVNnSN70xSW4b5hpYi9gZDYM016h1D+qVxdCA2AL1CW7tzA@mail.gmail.com>
+ <df7185db-2da6-2f6d-37d3-78c76d91d072@python.org>
+Message-ID: <CAOTb1wdd8=79mkkLegob-UXm8xPvBFxT5gCc+OACaF=N5KPYWw@mail.gmail.com>
+
+On Tue, Oct 23, 2018 at 10:46 AM Antoine Pitrou <antoine at python.org> wrote:
+> Le 23/10/2018 ? 18:05, Tim Peters a ?crit :
+> > The rangevoting site has a great deal of info about all sorts of voting
+> > systems.  Over a decade ago, Ka-Ping Yee (who used to be very active in
+> > Python development) ran some _visual_ voting simulations on 5 popular
+> > systems, which scared him (& me) away from IRV forever:
+> >
+> >     http://zesty.ca/voting/sim/
+>
+> Thanks!  This is a great resource.  I agree that IRV looks scary, while
+> Approval or Condorcet look reasonable IMHO.
+
+A major problem with approval voting IMO (and range and score) is that
+it constrains how voters can express themselves:
+
+If you really like one candidate but your second choice is so-so but
+better than the third, do you "approve" of your second choice? If you
+do, you'll be helping to defeat the candidate you really like. So as a
+voter your hands are artificially tied.
+
+Regarding Tim's point about IRV and third parties, what third parties
+in the US *really* want is proportional representation. PR is much
+harder to make progress towards here, but still possible.
+
+One reason third parties support IRV is that it can be a huge
+challenge even to be "qualified" (i.e. recognized) as an official
+party in many states. Some states require parties to get a certain
+threshold of voter support at a statewide election (e.g. have a
+candidate win at least 5%). Plurality makes this much harder because
+of the spoiler effect / wasted vote dynamics. With IRV, the idea is
+that parties will be able to see their true support.
+
+Another reason some advocates favor IRV is that it's a special case
+(the n=1 case) of single transferable voting (STV). This is a form of
+PR that many advocates feel would be a lot easier to take hold in the
+US than, say, the party list systems more common in Europe and
+elsewhere. Indeed, over twenty cities in the US once used STV in the
+earlier parts of the 20th century. (But it was eventually repealed in
+all but one city, in part because of its success in electing minority
+candidates.)
+
+--Chris
+
+From tim.peters at gmail.com  Tue Oct 23 20:37:43 2018
+From: tim.peters at gmail.com (Tim Peters)
+Date: Tue, 23 Oct 2018 19:37:43 -0500
+Subject: [python-committers] Vote on governance will happen between Nov
+ 16 - Nov 30
+In-Reply-To: <CAOTb1wdd8=79mkkLegob-UXm8xPvBFxT5gCc+OACaF=N5KPYWw@mail.gmail.com>
+References: <DE5CBF18-D13C-4532-90A3-A594C33F699E@langa.pl>
+ <CADiSq7eo66ckMmMAbqLPmrcxufx2P3P97uMkhgJhbheudK-Tug@mail.gmail.com>
+ <01938BCE-6A28-48F1-B3B4-40B3FA1E8859@stufft.io>
+ <5341f17c-a9d1-1597-ce56-a463a1d57968@python.org>
+ <49F23CDD-E8A0-4549-BDA1-A3B31E9848DB@stufft.io>
+ <CAExdVNnSN70xSW4b5hpYi9gZDYM016h1D+qVxdCA2AL1CW7tzA@mail.gmail.com>
+ <df7185db-2da6-2f6d-37d3-78c76d91d072@python.org>
+ <CAOTb1wdd8=79mkkLegob-UXm8xPvBFxT5gCc+OACaF=N5KPYWw@mail.gmail.com>
+Message-ID: <CAExdVN=GPF+bhbtO2TknUh0Sd1k9eyC2Uhb2gBmZ8R6n8BRn-w@mail.gmail.com>
+
+[Chris Jerdonek <chris.jerdonek at gmail.com>[
+
+> A major problem with approval voting IMO (and range and score) is that
+> it constrains how voters can express themselves:
+>
+
+Well, that's an objection I never heard before - and expect I'll never hear
+again ;-)
+
+To the contrary, range/score voting are the _most_ expressive, allowing to
+you make both gross and fine distinctions, and even to say "no opinion at
+all about this one".  The only thing you can't do is express non-linear
+preferences (whether flat-out intransitive, such as "I like A better than
+B, and B better than C, but C better than A", or seemingly inconsistent,
+such as "I like A 2x better than B, and B 4x better than C, but A only 3x
+better than C").
+
+In range/score voting, you give each a score according to your true
+preferences as the granularity of the universe of possible scores allows.
+For example, if scores are limited to be in range(100), give your most
+favorite score 99, and if you favor them 3x more than your second-favorite,
+give the latter score 33.  If you can't stand your second-favorite at all,
+give them score 0.  If you like both your top choices the same, give them
+both score 99.  If you only _know_ about your top candidate, and really
+don't know anything about the other two, don't give the latter two scores
+at all.  Then you're effectively saying "I did all the research I had time
+for, and will leave it to others who did research the other two to rate
+them".
+
+This seems to me supremely relevant for the task at hand:  a substantial
+number of detailed proposals that, in fact, won't _all_ be carefully
+studied by the people asked to vote on them.  Merely ranking them from 1 to
+6 (whatever) _forces_ people to fabricate opinions about proposals they may
+not have even read, forbids them from saying, e.g., "I like #2 and #5
+equally", forbids them from saying "#1 is ten times more attractive to me
+than #3", forbids them from saying "I have the tiniest of preferences for
+#5 over #4", forbids them from saying "I didn't even read #6, and so have
+no opinion about it", and so on.
+
+In approval voting, the universe of scores effectively shrinks to {0, 1}.
+It's not _as_ expressive by far.  There you're limited to saying one of "I
+can live with this" (score 1) or "I can't live with this" (score 0).  The
+winner is whichever one the most people can live with.  Or, if people can't
+refrain from playing dishonest tactical games , whichever one the most
+people _claimed_ they could live with.  What more can you ask for?  If
+people lie about their true preferences, it's hardly a voting system's
+fault if it delivers a result consistent with the lies it's told.
+
+
+> If you really like one candidate but your second choice is so-so but
+> better than the third, do you "approve" of your second choice? If you
+> do, you'll be helping to defeat the candidate you really like. So as a
+> voter your hands are artificially tied.
+>
+
+If you're stuck with the relatively inexpressive approval (0 or 1) voting,
+as above:  you can live with your second-favorite or not.  Vote
+accordingly.  If you vote "I can live with them" and they win, what's your
+_actual_ complaint?  You _said_ you could live with them.  If that's an
+outcome you can't live with, you should have voted 0 for them instead.  If
+you want to specify _degrees_ of approval, then you want range/score (with
+a larger universe of possible scores) voting instead.
+
+> [skipping stuff about elections-in-general]
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20181023/cc49d957/attachment.html>
+

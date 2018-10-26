@@ -5182,3 +5182,102 @@ a larger universe of possible scores) voting instead.
 An HTML attachment was scrubbed...
 URL: <http://mail.python.org/pipermail/python-committers/attachments/20181023/cc49d957/attachment.html>
 
+From brett at python.org  Thu Oct 25 14:15:55 2018
+From: brett at python.org (Brett Cannon)
+Date: Thu, 25 Oct 2018 11:15:55 -0700
+Subject: [python-committers] Vote on governance will happen between Nov
+ 16 - Nov 30
+In-Reply-To: <CAExdVN=GPF+bhbtO2TknUh0Sd1k9eyC2Uhb2gBmZ8R6n8BRn-w@mail.gmail.com>
+References: <DE5CBF18-D13C-4532-90A3-A594C33F699E@langa.pl>
+ <CADiSq7eo66ckMmMAbqLPmrcxufx2P3P97uMkhgJhbheudK-Tug@mail.gmail.com>
+ <01938BCE-6A28-48F1-B3B4-40B3FA1E8859@stufft.io>
+ <5341f17c-a9d1-1597-ce56-a463a1d57968@python.org>
+ <49F23CDD-E8A0-4549-BDA1-A3B31E9848DB@stufft.io>
+ <CAExdVNnSN70xSW4b5hpYi9gZDYM016h1D+qVxdCA2AL1CW7tzA@mail.gmail.com>
+ <df7185db-2da6-2f6d-37d3-78c76d91d072@python.org>
+ <CAOTb1wdd8=79mkkLegob-UXm8xPvBFxT5gCc+OACaF=N5KPYWw@mail.gmail.com>
+ <CAExdVN=GPF+bhbtO2TknUh0Sd1k9eyC2Uhb2gBmZ8R6n8BRn-w@mail.gmail.com>
+Message-ID: <CAP1=2W5WzS4E2urmCJdZXNcRYX81qjcV3AfQ49BidLhXC8ir-A@mail.gmail.com>
+
+FYI I posted a suggestion on how to resolve the "should we change from
+IRV?" question at
+https://discuss.python.org/t/pep-8001-python-governance-voting-process/233/56
+<https://discuss.python.org/t/pep-8001-python-governance-voting-process/233/56?u=brettcannon>
+
+On Tue, 23 Oct 2018 at 17:38, Tim Peters <tim.peters at gmail.com> wrote:
+
+> [Chris Jerdonek <chris.jerdonek at gmail.com>[
+>
+>> A major problem with approval voting IMO (and range and score) is that
+>> it constrains how voters can express themselves:
+>>
+>
+> Well, that's an objection I never heard before - and expect I'll never
+> hear again ;-)
+>
+> To the contrary, range/score voting are the _most_ expressive, allowing to
+> you make both gross and fine distinctions, and even to say "no opinion at
+> all about this one".  The only thing you can't do is express non-linear
+> preferences (whether flat-out intransitive, such as "I like A better than
+> B, and B better than C, but C better than A", or seemingly inconsistent,
+> such as "I like A 2x better than B, and B 4x better than C, but A only 3x
+> better than C").
+>
+> In range/score voting, you give each a score according to your true
+> preferences as the granularity of the universe of possible scores allows.
+> For example, if scores are limited to be in range(100), give your most
+> favorite score 99, and if you favor them 3x more than your second-favorite,
+> give the latter score 33.  If you can't stand your second-favorite at all,
+> give them score 0.  If you like both your top choices the same, give them
+> both score 99.  If you only _know_ about your top candidate, and really
+> don't know anything about the other two, don't give the latter two scores
+> at all.  Then you're effectively saying "I did all the research I had time
+> for, and will leave it to others who did research the other two to rate
+> them".
+>
+> This seems to me supremely relevant for the task at hand:  a substantial
+> number of detailed proposals that, in fact, won't _all_ be carefully
+> studied by the people asked to vote on them.  Merely ranking them from 1 to
+> 6 (whatever) _forces_ people to fabricate opinions about proposals they may
+> not have even read, forbids them from saying, e.g., "I like #2 and #5
+> equally", forbids them from saying "#1 is ten times more attractive to me
+> than #3", forbids them from saying "I have the tiniest of preferences for
+> #5 over #4", forbids them from saying "I didn't even read #6, and so have
+> no opinion about it", and so on.
+>
+> In approval voting, the universe of scores effectively shrinks to {0, 1}.
+> It's not _as_ expressive by far.  There you're limited to saying one of "I
+> can live with this" (score 1) or "I can't live with this" (score 0).  The
+> winner is whichever one the most people can live with.  Or, if people can't
+> refrain from playing dishonest tactical games , whichever one the most
+> people _claimed_ they could live with.  What more can you ask for?  If
+> people lie about their true preferences, it's hardly a voting system's
+> fault if it delivers a result consistent with the lies it's told.
+>
+>
+>> If you really like one candidate but your second choice is so-so but
+>> better than the third, do you "approve" of your second choice? If you
+>> do, you'll be helping to defeat the candidate you really like. So as a
+>> voter your hands are artificially tied.
+>>
+>
+> If you're stuck with the relatively inexpressive approval (0 or 1) voting,
+> as above:  you can live with your second-favorite or not.  Vote
+> accordingly.  If you vote "I can live with them" and they win, what's your
+> _actual_ complaint?  You _said_ you could live with them.  If that's an
+> outcome you can't live with, you should have voted 0 for them instead.  If
+> you want to specify _degrees_ of approval, then you want range/score (with
+> a larger universe of possible scores) voting instead.
+>
+> > [skipping stuff about elections-in-general]
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20181025/edc4ccd4/attachment.html>
+

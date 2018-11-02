@@ -1,0 +1,142 @@
+From vstinner at redhat.com  Thu Nov  1 12:44:10 2018
+From: vstinner at redhat.com (Victor Stinner)
+Date: Thu, 1 Nov 2018 17:44:10 +0100
+Subject: [python-committers] PEP 8015: Organization of the Python
+ community
+In-Reply-To: <CA+3bQGGqD-6MH9GO-eymB5hmqcGU+cgPiBVgpMUXme+3EdVZng@mail.gmail.com>
+References: <CA+3bQGGqD-6MH9GO-eymB5hmqcGU+cgPiBVgpMUXme+3EdVZng@mail.gmail.com>
+Message-ID: <CA+3bQGEw-auFMSVChDnQWYCP1PxRm+hi=PEjReW+9JdhwuMwXg@mail.gmail.com>
+
+Hi,
+
+To take in account all discussions around my PEP 8015, I updated it:
+it?s now the version 4. I added a Version History at the bottom of the
+PEP to help reviewers. In short: votes are now announced in advance
+(0, 1 or 3 weeks depending on the vote) and only open for 1 week
+instead of 1 month, the ?Python (Core) Board? has been renamed to
+?Python Steering Committee? to clarify its role.
+
+https://www.python.org/dev/peps/pep-8015/
+
+Discussion on Discourse:
+https://discuss.python.org/t/pep-8015-organization-of-the-python-community/193
+
+Version History
+===============
+
+History of this PEP:
+
+* Version 4:
+
+  * Adjust votes: open for 1 week instead of 1 month, and announced
+    in advance.
+  * Rename the "Python Core Board" to the "Python Steering Committee";
+  * Clarify that this committee doesn't approve PEPs and that committee
+    members cannot cumulate more than 2 mandates;
+  * Add the "Type Hints" team to the annex.
+
+* Version 3: Add "Special Case: Ban a core developer" and "How to update
+  this PEP" sections.
+* Version 2: Rename the "Python board" to the "Python Core Board",
+  to avoid confusion with the PSF Board.
+* Version 1: First version posted to python-committers and
+  discuss.python.org.
+
+Victor
+
+From vstinner at redhat.com  Thu Nov  1 13:10:12 2018
+From: vstinner at redhat.com (Victor Stinner)
+Date: Thu, 1 Nov 2018 18:10:12 +0100
+Subject: [python-committers] PEP 8015: Organization of the Python
+ community
+In-Reply-To: <CAP1=2W5p23vbg+sMT2FcunNiVNnwdUVZ07G--JwmdYJAWtJ3+g@mail.gmail.com>
+References: <CA+3bQGGqD-6MH9GO-eymB5hmqcGU+cgPiBVgpMUXme+3EdVZng@mail.gmail.com>
+ <CAP1=2W5p23vbg+sMT2FcunNiVNnwdUVZ07G--JwmdYJAWtJ3+g@mail.gmail.com>
+Message-ID: <CA+3bQGGimb2YtE4jKUeXu2ejGfwHWtVKggyc--nK1Puus8Km0w@mail.gmail.com>
+
+Hi Brett,
+
+I just updated my PEP to take in account your comments.
+
+Le ven. 12 oct. 2018 ? 20:33, Brett Cannon <brett at python.org> a ?crit :
+>> Team members are Python contributors and Python core developers. The
+>> team is responsible to select who can join the team and how.
+>
+> How is this bootstrapped? Do I get to declare myself the "import team" and then I get to choose who joins after that?
+
+I added the first paragraph and added "self-organized" in the second:
+
+"""
+When enough developers are interested by a specific topic, they can
+create a new team. Usually, the main action is to ask the Python
+postmaster to create a new "SIG" mailing list, but the team can choose
+to use a different communication channel.
+
+Team members are Python contributors and Python core developers. The
+team is self-organized and is responsible to select who can join the
+team and how.
+"""
+
+https://www.python.org/dev/peps/pep-8015/#python-teams
+
+>> Board members must be Python core developers.  It is important that the
+>> members of the board reflect the diversity of Python' users and
+>> contributors. A small step to ensure that is to enforce that two members
+>> cannot work for the same company (or subsidiaries of the same company).
+>> In addition, to encourage more people to get involved, a core developer
+>> can only be a board member twice (up to 6 years total).
+>
+> Is the two-term limit forever, or just consecutively?
+
+I clarified the limit of 2 mandates:
+
+"""
+In addition, to encourage more people to get involved, a core developer
+can only be a committee member twice in their whole life (up to 6 years
+total), it can be two mandates in a row.
+"""
+
+https://www.python.org/dev/peps/pep-8015/#election-of-python-steering-committee-members
+
+Does it look better to you? If not, would you mind to propose something?
+
+Victor
+
+From vstinner at redhat.com  Thu Nov  1 13:15:07 2018
+From: vstinner at redhat.com (Victor Stinner)
+Date: Thu, 1 Nov 2018 18:15:07 +0100
+Subject: [python-committers] PEP 8015: Organization of the Python
+ community
+In-Reply-To: <CAP1=2W5p23vbg+sMT2FcunNiVNnwdUVZ07G--JwmdYJAWtJ3+g@mail.gmail.com>
+References: <CA+3bQGGqD-6MH9GO-eymB5hmqcGU+cgPiBVgpMUXme+3EdVZng@mail.gmail.com>
+ <CAP1=2W5p23vbg+sMT2FcunNiVNnwdUVZ07G--JwmdYJAWtJ3+g@mail.gmail.com>
+Message-ID: <CA+3bQGEx6NzfSdTBdX9Fb82Wm1_iUzzveEk-Y2_ss7f84u=ryw@mail.gmail.com>
+
+Brett:
+> Is this here to mean the expectation that the conduct WG will manage CoC issues for the core development team?
+
+Core developers and Steering Committee members are at the same level
+than any other Python contributor when they misbehave. I expect the
+"autonomous" conduct workgroup to handle CoC issues from all Python
+contributors.
+
+I added a "Special Case: Ban a core developer" section which has a
+direct relationship between the Code of Conduct and the core developer
+status. Extract:
+
+"As any other member of the Python community, the PSF Code of Conduct
+Workgroup can ban a core developer for a limited amount of time. In
+this case, the core developer immediately loses their core developer
+status."
+
+https://www.python.org/dev/peps/pep-8015/#special-case-ban-a-core-developer
+
+It is also a consequence of this notice:
+
+"Core developers are also expected to be exemplary when it comes to
+the Code of Conduct."
+
+https://www.python.org/dev/peps/pep-8015/#python-core-developers
+
+Victor
+

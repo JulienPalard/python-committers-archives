@@ -140,3 +140,1421 @@ https://www.python.org/dev/peps/pep-8015/#python-core-developers
 
 Victor
 
+From taleinat at gmail.com  Fri Nov  2 09:19:04 2018
+From: taleinat at gmail.com (Tal Einat)
+Date: Fri, 2 Nov 2018 15:19:04 +0200
+Subject: [python-committers] Suggestion: A PSF grant for running a "Core Dev
+ Mentorship Program"
+Message-ID: <CALWZvp7DzgUCJDjTMWfYQsT+AR10LeyFgg8eRcqNqoO-vM5zPQ@mail.gmail.com>
+
+ *tl;dr:* I?d like to apply for a PSF grant to mentor several developers
+towards becoming active contributors and hopefully core-devs.
+
+1. What do you think? Any +1/-1 would be very helpful.
+2. I'm looking for info on how successful mentoring has been in getting
+more contributors. Any such info or references would be a great help!
+
+-------------------------------------------------------------------------------
+
+Recently there has been a recent "wave" of requests for mentoring on this
+list. This was triggered by Victor Stinner?s post "Looking for people from
+underrepresented groups to mentor"
+<https://mail.python.org/mm3/archives/list/core-mentorship at python.org/message/Z33DZF7C4YXUD2SMHVHUZDN25I3FCNGP/>,
+who later wrote that he received 20-30 requests for mentoring
+<https://mail.python.org/mm3/archives/list/core-mentorship at python.org/message/W3IEAEQQBXTC663SFES52XLIMPKBAWJB/>
+(!).
+
+My understanding is that many of us would like to have more active
+contributors and core developers. Additionally, many would like these to be
+a more diverse group. Guido and Victor have lately taken up mentoring
+several developers with the explicit intent of achieving these goals.
+
+I would also like to work towards these goals. I have recently invested
+more time on the core-mentorship mailing list and Zulip stream, as well as
+doing my best to mentor two promising developers. However, my free time is
+becoming increasingly limited again, and I am learning that effectively
+mentoring a developer requires being able to spend a good amount of time
+nearly daily on such mentoring.
+
+My life circumstances are such that I would be able to commit to a
+medium-term part-time paid project. Therefore, I?ve come up with an idea
+for a concerted effort to mentor a group of developers for a significant
+length of time, which I?ve called a ?Core Dev Mentorship Program?.
+
+My current suggestion is to remotely mentor five developers for 10 weeks,
+selecting the participants to be as diverse a group as possible among
+appropriate applicants. I wrote a proposal and submitted it to the PSF.
+They rightly asked that I first bring this before the core devs, so here I
+am.
+
+I can think of reasons to oppose such a project, with the foremost being
+that most (all?) such mentorship has thus far been done on a volunteer
+basis, and we wouldn?t want to negatively impact future volunteer
+mentorship efforts. In my eyes this project would be a complementary
+effort, and I propose it only because it appears that we are currently
+unable to mentor as many as we would like, nor as many as would like to be
+mentored.
+
+I am purposefully not including the details of my proposal, as I would like
+to first focus on whether the idea is supported in general.
+
+Any and all comments, suggestions and criticism are most welcome.
+
+-------------------------------------------------------------------------------
+
+
+Note: I also posted this in the "commiters" category on
+<https://discuss.python.org/t/suggestion-a-psf-grant-for-running-a-core-dev-mentorship-program/289>
+discuss.python.org; see additional discussion there.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20181102/cb0d2352/attachment.html>
+
+From antoine at python.org  Fri Nov  2 09:37:51 2018
+From: antoine at python.org (Antoine Pitrou)
+Date: Fri, 2 Nov 2018 14:37:51 +0100
+Subject: [python-committers] Suggestion: A PSF grant for running a "Core
+ Dev Mentorship Program"
+In-Reply-To: <CALWZvp7DzgUCJDjTMWfYQsT+AR10LeyFgg8eRcqNqoO-vM5zPQ@mail.gmail.com>
+References: <CALWZvp7DzgUCJDjTMWfYQsT+AR10LeyFgg8eRcqNqoO-vM5zPQ@mail.gmail.com>
+Message-ID: <fd130590-9570-819e-5c73-8c726fad24e6@python.org>
+
+
+Le 02/11/2018 ? 14:19, Tal Einat a ?crit?:
+> 
+> I would also like to work towards these goals. I have recently invested
+> more time on the core-mentorship mailing list and Zulip stream, as well
+> as doing my best to mentor two promising developers. However, my free
+> time is becoming increasingly limited again, and I am learning that
+> effectively mentoring a developer requires being able to spend a good
+> amount of time nearly daily on such mentoring.
+
+I'd *really* like to know why that is the case.  Most existing core
+developers didn't need "a good amount of time" to be spent "nearly
+daily" on their mentoring to get them up to speed.  Instead they
+progressed slowly on the contribution curve, with due feedback from
+senior core developers, but without requiring extended attention.
+
+Contributing to a large mature project like CPython requires dedication
+and significant prior experience.  If someone needs a large amount of
+hand-holding then that's a bad sign IMO.  There are much simpler and
+more approachable projects out there if they'd like to learn
+contributing to open source software.
+
+I'd also like to know what the current outcomes of the "Core Mentorship"
+program are.  How many core developers or seasoned contributors did we
+get from it?  The core-mentorship mailing-list has been existing since
+2011, so we should have ample experience by now.
+
+Regards
+
+Antoine.
+
+From antoine at python.org  Fri Nov  2 09:55:46 2018
+From: antoine at python.org (Antoine Pitrou)
+Date: Fri, 2 Nov 2018 14:55:46 +0100
+Subject: [python-committers] Suggestion: A PSF grant for running a "Core
+ Dev Mentorship Program"
+In-Reply-To: <fd130590-9570-819e-5c73-8c726fad24e6@python.org>
+References: <CALWZvp7DzgUCJDjTMWfYQsT+AR10LeyFgg8eRcqNqoO-vM5zPQ@mail.gmail.com>
+ <fd130590-9570-819e-5c73-8c726fad24e6@python.org>
+Message-ID: <88552487-9498-fa52-3ff5-cdb9fdc85355@python.org>
+
+
+As a side note, I'm not against the general principle of funding some
+mentorship or other contribution-related activity.  I'm just unsure that
+this would be money well spent.
+
+Regards
+
+Antoine.
+
+
+Le 02/11/2018 ? 14:37, Antoine Pitrou a ?crit?:
+> 
+> Le 02/11/2018 ? 14:19, Tal Einat a ?crit?:
+>>
+>> I would also like to work towards these goals. I have recently invested
+>> more time on the core-mentorship mailing list and Zulip stream, as well
+>> as doing my best to mentor two promising developers. However, my free
+>> time is becoming increasingly limited again, and I am learning that
+>> effectively mentoring a developer requires being able to spend a good
+>> amount of time nearly daily on such mentoring.
+> 
+> I'd *really* like to know why that is the case.  Most existing core
+> developers didn't need "a good amount of time" to be spent "nearly
+> daily" on their mentoring to get them up to speed.  Instead they
+> progressed slowly on the contribution curve, with due feedback from
+> senior core developers, but without requiring extended attention.
+> 
+> Contributing to a large mature project like CPython requires dedication
+> and significant prior experience.  If someone needs a large amount of
+> hand-holding then that's a bad sign IMO.  There are much simpler and
+> more approachable projects out there if they'd like to learn
+> contributing to open source software.
+> 
+> I'd also like to know what the current outcomes of the "Core Mentorship"
+> program are.  How many core developers or seasoned contributors did we
+> get from it?  The core-mentorship mailing-list has been existing since
+> 2011, so we should have ample experience by now.
+> 
+> Regards
+> 
+> Antoine.
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+> 
+
+From taleinat at gmail.com  Fri Nov  2 10:02:43 2018
+From: taleinat at gmail.com (Tal Einat)
+Date: Fri, 2 Nov 2018 16:02:43 +0200
+Subject: [python-committers] Suggestion: A PSF grant for running a "Core
+ Dev Mentorship Program"
+In-Reply-To: <fd130590-9570-819e-5c73-8c726fad24e6@python.org>
+References: <CALWZvp7DzgUCJDjTMWfYQsT+AR10LeyFgg8eRcqNqoO-vM5zPQ@mail.gmail.com>
+ <fd130590-9570-819e-5c73-8c726fad24e6@python.org>
+Message-ID: <CALWZvp6FvCRcAeSc7uWW2qifOhKBJT1r0u_Q_VMxEgT87oYvsg@mail.gmail.com>
+
+Hi Antoine,
+
+
+
+On Fri, Nov 2, 2018 at 3:38 PM Antoine Pitrou <antoine at python.org> wrote:
+
+>
+> Le 02/11/2018 ? 14:19, Tal Einat a ?crit :
+> >
+> > I would also like to work towards these goals. I have recently invested
+> > more time on the core-mentorship mailing list and Zulip stream, as well
+> > as doing my best to mentor two promising developers. However, my free
+> > time is becoming increasingly limited again, and I am learning that
+> > effectively mentoring a developer requires being able to spend a good
+> > amount of time nearly daily on such mentoring.
+>
+> I'd *really* like to know why that is the case.
+
+
+I've recently been mentoring two experienced developers: Gus Goulart and
+Jonathan Gossage. Initially, when their momentum was highest, every day at
+least one of them had non-trivial questions to ask and/or PRs ready for
+review. I attempted to be highly responsive to allow them to progress
+unhindered, and found myself spending at least 30 minutes on this nearly
+every day. I now spend less time on this simply because their momentum is
+reduced, partially because at one point I was not able to keep up with
+their progress.
+
+
+> Most existing core
+> developers didn't need "a good amount of time" to be spent "nearly
+> daily" on their mentoring to get them up to speed.  Instead they
+> progressed slowly on the contribution curve, with due feedback from
+> senior core developers, but without requiring extended attention.
+>
+
+True, but this process is not suitable for many, and it does not seem to
+currently be yielding as many regular contributors and core developers as
+we'd like.
+
+My personal experience is that it took me over a decade between beginning
+to contribute to Python to becoming an active core dev. I believe that that
+could have taken just a few months if I had had a mentor.
+
+
+> Contributing to a large mature project like CPython requires dedication
+> and significant prior experience.  If someone needs a large amount of
+> hand-holding then that's a bad sign IMO.  There are much simpler and
+> more approachable projects out there if they'd like to learn
+> contributing to open source software.
+>
+
+There appear to be many experienced developers interested in becoming
+contributors (and possibly core devs down the road). The two I'm now
+mentoring are such; they don't require "hand-holding" in the sense of more
+junior developers. No other core dev seemed to be available for mentoring
+them when they first asked for mentoring.
+
+
+> I'd also like to know what the current outcomes of the "Core Mentorship"
+> program are.  How many core developers or seasoned contributors did we
+> get from it?  The core-mentorship mailing-list has been existing since
+> 2011, so we should have ample experience by now.
+>
+
+I'm looking for this info too!
+
+- Tal Einat
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20181102/f2400f7a/attachment.html>
+
+From vstinner at redhat.com  Fri Nov  2 12:30:36 2018
+From: vstinner at redhat.com (Victor Stinner)
+Date: Fri, 2 Nov 2018 17:30:36 +0100
+Subject: [python-committers] Suggestion: A PSF grant for running a "Core
+ Dev Mentorship Program"
+In-Reply-To: <fd130590-9570-819e-5c73-8c726fad24e6@python.org>
+References: <CALWZvp7DzgUCJDjTMWfYQsT+AR10LeyFgg8eRcqNqoO-vM5zPQ@mail.gmail.com>
+ <fd130590-9570-819e-5c73-8c726fad24e6@python.org>
+Message-ID: <CA+3bQGG8856ZhtFd4b4CfJ6mJbmUC-8vWTCGf7_HzpGEXekqqg@mail.gmail.com>
+
+Le 02/11/2018 ? 14:19, Tal Einat a ?crit :
+> > I am learning that
+> > effectively mentoring a developer requires being able to spend a good
+> > amount of time nearly daily on such mentoring.
+
+It really depends on the availability and skills of the mentoree. I
+have mentorees who are very busy and sometimes don't ask anything for
+2 weeks. Others are making good progress and ask me for help multiple
+times per week. I wouldn't say daily, since neither mentorees nor me
+are available everyday.
+
+I also know that I should try to answer as soon as possible to my
+mentorees, since they are usually blocked and unable to find the
+solution by themselves.
+
+Le ven. 2 nov. 2018 ? 14:38, Antoine Pitrou <antoine at python.org> a ?crit :
+> I'd *really* like to know why that is the case.  Most existing core
+> developers didn't need "a good amount of time" to be spent "nearly
+> daily" on their mentoring to get them up to speed.  Instead they
+> progressed slowly on the contribution curve, with due feedback from
+> senior core developers, but without requiring extended attention.
+
+Such profiles are the least common, and we already promoted all of them :-)
+
+The trend on mentoring means that we need more core developers and
+that we have to help to prevent people moving to a more responsive
+project.
+
+IMO saying that mentoring is not needed indirectly means that we have
+enough available core developers to handle the 6000 open issues, the
+900 pull requests, maintain the continuous integration (Travis CI,
+AppVeyor, VSTS, buildbots), fix regressions, etc.
+
+> Contributing to a large mature project like CPython requires dedication
+> and significant prior experience.  If someone needs a large amount of
+> hand-holding then that's a bad sign IMO.
+
+We have documentations like the devguide, but to me it's now obvious
+that it's not enough. I don't see it as a bad sign. Python is a very
+mature project which has very high quality standard and a very strong
+constraint of backward compatibility. Python is different from other
+projects. IMHO breaking the backward compatibility in Django seems to
+be easiler than in Python.
+
+> There are much simpler and
+> more approachable projects out there if they'd like to learn
+> contributing to open source software.
+
+Exactly. This is why we fail to convert volunteer contributors to core
+developers. They fly away because pull requests are not reviewed,
+whereas other projects are faster than us to review PRs, give better
+feedback and has less strict on quality/backward compat.
+
+Victor
+
+From vstinner at redhat.com  Fri Nov  2 12:33:45 2018
+From: vstinner at redhat.com (Victor Stinner)
+Date: Fri, 2 Nov 2018 17:33:45 +0100
+Subject: [python-committers] Suggestion: A PSF grant for running a "Core
+ Dev Mentorship Program"
+In-Reply-To: <88552487-9498-fa52-3ff5-cdb9fdc85355@python.org>
+References: <CALWZvp7DzgUCJDjTMWfYQsT+AR10LeyFgg8eRcqNqoO-vM5zPQ@mail.gmail.com>
+ <fd130590-9570-819e-5c73-8c726fad24e6@python.org>
+ <88552487-9498-fa52-3ff5-cdb9fdc85355@python.org>
+Message-ID: <CA+3bQGHoGEUiyxiJ9uah7VoCDxWaB295dy7-zYbvzbt+4t_Ssw@mail.gmail.com>
+
+Le ven. 2 nov. 2018 ? 14:55, Antoine Pitrou <antoine at python.org> a ?crit :
+> As a side note, I'm not against the general principle of funding some
+> mentorship or other contribution-related activity.  I'm just unsure that
+> this would be money well spent.
+
+This is a good question. We already a lot of core developers, but
+almost none is paid to contribute.
+
+Mentoring is an investment in the long term. Is it better to pay
+someone to review and merge PRs?
+
+Reviewing PRs is also a way to help and train contributors. It's not
+very different from mentoring, depending on your definition of
+mentoring :-)
+
+Victor
+
+From brett at python.org  Fri Nov  2 18:20:43 2018
+From: brett at python.org (Brett Cannon)
+Date: Fri, 2 Nov 2018 15:20:43 -0700
+Subject: [python-committers] If you care about the voting method, please
+ vote ; -)
+In-Reply-To: <CAExdVNnyCK6RzKxjquxiwiSwqc7ZsP1MdhAgPvULiFwsddnQvg@mail.gmail.com>
+References: <CAExdVNnyCK6RzKxjquxiwiSwqc7ZsP1MdhAgPvULiFwsddnQvg@mail.gmail.com>
+Message-ID: <CAP1=2W4Dh-fpb5Ptpx=OhER02Ma+bmmkF8RaQL=pOui=c91-3A@mail.gmail.com>
+
+FYI I just updated PEP 8001 with the result of the poll which very clearly
+favoured the Condorcet method for winner selection.
+
+On Tue, 30 Oct 2018 at 12:52, Tim Peters <tim.peters at gmail.com> wrote:
+
+> There's a poll about the voting method to use to decide on the winning
+> governance PEP.  We'd like to see more people weigh in:
+>
+>     https://discuss.python.org/t/python-governance-electoral-system/290/26
+>
+> PEP 8001 specifies that IRV will be used.  There's pushback against
+> that.  Since a poll is a form of approval voting, there's also
+> pushback against using a poll to vote on the voting method.  But we
+> really don't have the time to pursue infinite regress to its end ;-)
+>
+> I'm not in charge of anything, so take this for what it's worth:  pick
+> the option(s) that are closest to what you can live with, but add a
+> comment to the poll if there's some aspect of what you vote for that
+> you really can't abide (e.g., at least one person said they would vote
+> for Approval, _except_ that they object to getting the PSF Board
+> involved in case there's a tie).  The high-order bit of this poll is
+> about the basic approaches people can live with, not details of how
+> problem cases are handled.
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20181102/93f478cc/attachment.html>
+
+From steve at pearwood.info  Fri Nov  2 18:49:25 2018
+From: steve at pearwood.info (Steven D'Aprano)
+Date: Sat, 3 Nov 2018 09:49:25 +1100
+Subject: [python-committers] If you care about the voting method, please
+ vote ; -)
+In-Reply-To: <CAP1=2W4Dh-fpb5Ptpx=OhER02Ma+bmmkF8RaQL=pOui=c91-3A@mail.gmail.com>
+References: <CAExdVNnyCK6RzKxjquxiwiSwqc7ZsP1MdhAgPvULiFwsddnQvg@mail.gmail.com>
+ <CAP1=2W4Dh-fpb5Ptpx=OhER02Ma+bmmkF8RaQL=pOui=c91-3A@mail.gmail.com>
+Message-ID: <20181102224925.GM3817@ando.pearwood.info>
+
+On Fri, Nov 02, 2018 at 03:20:43PM -0700, Brett Cannon wrote:
+
+> FYI I just updated PEP 8001 with the result of the poll which very clearly
+> favoured the Condorcet method for winner selection.
+
+That was quick. It would have been nice if there had been some sort of 
+obvious announcement of the time frame available for voting before 
+voting closed :-( Did I miss it?
+
+How many people voted? Out of what (approximate) pool of potential 
+voters?
+
+
+
+-- 
+Steve
+
+From vstinner at redhat.com  Fri Nov  2 18:57:02 2018
+From: vstinner at redhat.com (Victor Stinner)
+Date: Fri, 2 Nov 2018 23:57:02 +0100
+Subject: [python-committers] If you care about the voting method, please
+ vote ; -)
+In-Reply-To: <20181102224925.GM3817@ando.pearwood.info>
+References: <CAExdVNnyCK6RzKxjquxiwiSwqc7ZsP1MdhAgPvULiFwsddnQvg@mail.gmail.com>
+ <CAP1=2W4Dh-fpb5Ptpx=OhER02Ma+bmmkF8RaQL=pOui=c91-3A@mail.gmail.com>
+ <20181102224925.GM3817@ando.pearwood.info>
+Message-ID: <CA+3bQGFSTUUDadXMzD0a1784Pr3Z_5M7hT3XfUK6OY9cO4JK9Q@mail.gmail.com>
+
+Le ven. 2 nov. 2018 ? 23:49, Steven D'Aprano <steve at pearwood.info> a ?crit :
+> How many people voted? Out of what (approximate) pool of potential
+> voters?
+
+25 voters on 65 core developers who have an account on discuss.python.org.
+
+25 can be seen at:
+https://discuss.python.org/t/python-governance-electoral-system/290/26
+
+65 comes from:
+https://discuss.python.org/groups/committers
+
+Note: I didn't vote (not interested to vote on the voting method).
+
+Victor
+
+From steve at pearwood.info  Fri Nov  2 19:07:33 2018
+From: steve at pearwood.info (Steven D'Aprano)
+Date: Sat, 3 Nov 2018 10:07:33 +1100
+Subject: [python-committers] If you care about the voting method, please
+ vote ; -)
+In-Reply-To: <CA+3bQGFSTUUDadXMzD0a1784Pr3Z_5M7hT3XfUK6OY9cO4JK9Q@mail.gmail.com>
+References: <CAExdVNnyCK6RzKxjquxiwiSwqc7ZsP1MdhAgPvULiFwsddnQvg@mail.gmail.com>
+ <CAP1=2W4Dh-fpb5Ptpx=OhER02Ma+bmmkF8RaQL=pOui=c91-3A@mail.gmail.com>
+ <20181102224925.GM3817@ando.pearwood.info>
+ <CA+3bQGFSTUUDadXMzD0a1784Pr3Z_5M7hT3XfUK6OY9cO4JK9Q@mail.gmail.com>
+Message-ID: <20181102230732.GO3817@ando.pearwood.info>
+
+On Fri, Nov 02, 2018 at 11:57:02PM +0100, Victor Stinner wrote:
+> Le ven. 2 nov. 2018 ? 23:49, Steven D'Aprano <steve at pearwood.info> a ?crit :
+> > How many people voted? Out of what (approximate) pool of potential
+> > voters?
+> 
+> 25 voters on 65 core developers who have an account on discuss.python.org.
+
+Thanks!
+
+
+-- 
+Steve
+
+From chris.jerdonek at gmail.com  Fri Nov  2 19:30:57 2018
+From: chris.jerdonek at gmail.com (Chris Jerdonek)
+Date: Fri, 2 Nov 2018 16:30:57 -0700
+Subject: [python-committers] If you care about the voting method, please
+ vote ; -)
+In-Reply-To: <CAP1=2W4Dh-fpb5Ptpx=OhER02Ma+bmmkF8RaQL=pOui=c91-3A@mail.gmail.com>
+References: <CAExdVNnyCK6RzKxjquxiwiSwqc7ZsP1MdhAgPvULiFwsddnQvg@mail.gmail.com>
+ <CAP1=2W4Dh-fpb5Ptpx=OhER02Ma+bmmkF8RaQL=pOui=c91-3A@mail.gmail.com>
+Message-ID: <CAOTb1wf+OPLGisajEp2eLKXBbbLADOHvO_t-DNYYuZaQZt-rQg@mail.gmail.com>
+
+It would have been nice to know beforehand if the results of the poll
+were going to change the PEP. I didn't participate because I didn't
+feel like the poll had a fair process like the PEP's themselves.
+
+--Chris
+
+On Fri, Nov 2, 2018 at 3:21 PM Brett Cannon <brett at python.org> wrote:
+>
+> FYI I just updated PEP 8001 with the result of the poll which very clearly favoured the Condorcet method for winner selection.
+>
+> On Tue, 30 Oct 2018 at 12:52, Tim Peters <tim.peters at gmail.com> wrote:
+>>
+>> There's a poll about the voting method to use to decide on the winning
+>> governance PEP.  We'd like to see more people weigh in:
+>>
+>>     https://discuss.python.org/t/python-governance-electoral-system/290/26
+>>
+>> PEP 8001 specifies that IRV will be used.  There's pushback against
+>> that.  Since a poll is a form of approval voting, there's also
+>> pushback against using a poll to vote on the voting method.  But we
+>> really don't have the time to pursue infinite regress to its end ;-)
+>>
+>> I'm not in charge of anything, so take this for what it's worth:  pick
+>> the option(s) that are closest to what you can live with, but add a
+>> comment to the poll if there's some aspect of what you vote for that
+>> you really can't abide (e.g., at least one person said they would vote
+>> for Approval, _except_ that they object to getting the PSF Board
+>> involved in case there's a tie).  The high-order bit of this poll is
+>> about the basic approaches people can live with, not details of how
+>> problem cases are handled.
+>> _______________________________________________
+>> python-committers mailing list
+>> python-committers at python.org
+>> https://mail.python.org/mailman/listinfo/python-committers
+>> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+
+From tim.peters at gmail.com  Fri Nov  2 20:09:35 2018
+From: tim.peters at gmail.com (Tim Peters)
+Date: Fri, 2 Nov 2018 19:09:35 -0500
+Subject: [python-committers] If you care about the voting method, please
+ vote ; -)
+In-Reply-To: <CAOTb1wf+OPLGisajEp2eLKXBbbLADOHvO_t-DNYYuZaQZt-rQg@mail.gmail.com>
+References: <CAExdVNnyCK6RzKxjquxiwiSwqc7ZsP1MdhAgPvULiFwsddnQvg@mail.gmail.com>
+ <CAP1=2W4Dh-fpb5Ptpx=OhER02Ma+bmmkF8RaQL=pOui=c91-3A@mail.gmail.com>
+ <CAOTb1wf+OPLGisajEp2eLKXBbbLADOHvO_t-DNYYuZaQZt-rQg@mail.gmail.com>
+Message-ID: <CAExdVNm9uuTkKQFn5Th-QE38=ZoiMY3WpBjxggRvDw_ieFFDhQ@mail.gmail.com>
+
+[Chris Jerdonek <chris.jerdonek at gmail.com>]
+> It would have been nice to know beforehand if the results of the poll
+> were going to change the PEP.
+
+Don't look at me ;-)  Like I said, "I'm not in charge of anything",
+and I had no input in changing PEP 8001 beyond contributing to the
+message thread, same as everyone else.  I viewed the poll as being
+informational, to get a sense of how people felt about the issues.
+Apparently someone actually in charge of the PEP thought consensus was
+"clear enough", presumably in part because of the poll results, but
+also presumably because of the quite extensive following discussion
+(of which the poll results can fairly be said to be representative).
+
+> I didn't participate because I didn't feel like the poll had a fair
+> process like the PEP's themselves.
+
+Which you've already said in the discuss.python.org thread.  So,
+mentally, when I viewed the poll, I added one vote to IRV for you.  I
+don't know whether Brett did too, but IRV was trailing too much for it
+to make a material difference.
+
+As above, I expect it was really the discussion that drove the
+decision, of which the poll results were but a summary.  But October
+is over, so Brett can speak for himself now ;-)
+
+From chris.jerdonek at gmail.com  Fri Nov  2 20:22:34 2018
+From: chris.jerdonek at gmail.com (Chris Jerdonek)
+Date: Fri, 2 Nov 2018 17:22:34 -0700
+Subject: [python-committers] If you care about the voting method, please
+ vote ; -)
+In-Reply-To: <CAExdVNm9uuTkKQFn5Th-QE38=ZoiMY3WpBjxggRvDw_ieFFDhQ@mail.gmail.com>
+References: <CAExdVNnyCK6RzKxjquxiwiSwqc7ZsP1MdhAgPvULiFwsddnQvg@mail.gmail.com>
+ <CAP1=2W4Dh-fpb5Ptpx=OhER02Ma+bmmkF8RaQL=pOui=c91-3A@mail.gmail.com>
+ <CAOTb1wf+OPLGisajEp2eLKXBbbLADOHvO_t-DNYYuZaQZt-rQg@mail.gmail.com>
+ <CAExdVNm9uuTkKQFn5Th-QE38=ZoiMY3WpBjxggRvDw_ieFFDhQ@mail.gmail.com>
+Message-ID: <CAOTb1wd=P4YU11as+g9WWaQ_YB6cBnJSSZ0FkfTW1ghSGDVAPw@mail.gmail.com>
+
+On Fri, Nov 2, 2018 at 5:09 PM Tim Peters <tim.peters at gmail.com> wrote:
+>
+> [Chris Jerdonek <chris.jerdonek at gmail.com>]
+> > It would have been nice to know beforehand if the results of the poll
+> > were going to change the PEP.
+>
+> Don't look at me ;-)  Like I said, "I'm not in charge of anything",
+> and I had no input in changing PEP 8001 beyond contributing to the
+> message thread, same as everyone else.
+
+My reply was to Brett and not to you. If I had known the poll was
+going to be binding, I could have made an effort to participate in the
+discussion and try to sway people. As it was, the discussion was
+started and dominated by people who were against IRV. They are the
+most motivated to change things, and they're also the ones most
+motivated to participate in the poll. I couldn't afford to participate
+in such a discussion otherwise, as I said in the discussion. There are
+already 98 messages -- many of which are lengthy -- not to mention
+messages in other threads. It would take a lot of time and emotional
+energy to engage in such a discussion.
+
+--Chris
+
+
+
+> I viewed the poll as being
+> informational, to get a sense of how people felt about the issues.
+> Apparently someone actually in charge of the PEP thought consensus was
+> "clear enough", presumably in part because of the poll results, but
+> also presumably because of the quite extensive following discussion
+> (of which the poll results can fairly be said to be representative).
+>
+> > I didn't participate because I didn't feel like the poll had a fair
+> > process like the PEP's themselves.
+>
+> Which you've already said in the discuss.python.org thread.  So,
+> mentally, when I viewed the poll, I added one vote to IRV for you.  I
+> don't know whether Brett did too, but IRV was trailing too much for it
+> to make a material difference.
+>
+> As above, I expect it was really the discussion that drove the
+> decision, of which the poll results were but a summary.  But October
+> is over, so Brett can speak for himself now ;-)
+
+From donald at stufft.io  Fri Nov  2 21:04:39 2018
+From: donald at stufft.io (Donald Stufft)
+Date: Fri, 2 Nov 2018 21:04:39 -0400
+Subject: [python-committers] If you care about the voting method, please
+ vote ; -)
+In-Reply-To: <CAOTb1wd=P4YU11as+g9WWaQ_YB6cBnJSSZ0FkfTW1ghSGDVAPw@mail.gmail.com>
+References: <CAExdVNnyCK6RzKxjquxiwiSwqc7ZsP1MdhAgPvULiFwsddnQvg@mail.gmail.com>
+ <CAP1=2W4Dh-fpb5Ptpx=OhER02Ma+bmmkF8RaQL=pOui=c91-3A@mail.gmail.com>
+ <CAOTb1wf+OPLGisajEp2eLKXBbbLADOHvO_t-DNYYuZaQZt-rQg@mail.gmail.com>
+ <CAExdVNm9uuTkKQFn5Th-QE38=ZoiMY3WpBjxggRvDw_ieFFDhQ@mail.gmail.com>
+ <CAOTb1wd=P4YU11as+g9WWaQ_YB6cBnJSSZ0FkfTW1ghSGDVAPw@mail.gmail.com>
+Message-ID: <38DC9B84-D80F-49A8-A069-FA636FD3B48D@stufft.io>
+
+
+
+> On Nov 2, 2018, at 8:22 PM, Chris Jerdonek <chris.jerdonek at gmail.com> wrote:
+> 
+> On Fri, Nov 2, 2018 at 5:09 PM Tim Peters <tim.peters at gmail.com> wrote:
+>> 
+>> [Chris Jerdonek <chris.jerdonek at gmail.com>]
+>>> It would have been nice to know beforehand if the results of the poll
+>>> were going to change the PEP.
+>> 
+>> Don't look at me ;-)  Like I said, "I'm not in charge of anything",
+>> and I had no input in changing PEP 8001 beyond contributing to the
+>> message thread, same as everyone else.
+> 
+> My reply was to Brett and not to you. If I had known the poll was
+> going to be binding, I could have made an effort to participate in the
+> discussion and try to sway people. As it was, the discussion was
+> started and dominated by people who were against IRV. They are the
+> most motivated to change things, and they're also the ones most
+> motivated to participate in the poll. I couldn't afford to participate
+> in such a discussion otherwise, as I said in the discussion. There are
+> already 98 messages -- many of which are lengthy -- not to mention
+> messages in other threads. It would take a lot of time and emotional
+> energy to engage in such a discussion.
+> 
+> --Chris
+> 
+
+
+I don?t believe the poll *was* binding, certainly I suspect that if the results of the poll had been say, tied instead of a blowout that even if Condorcet had barely won out, that the PEP would not have changed (other than to update that while there were other methods, discussion around them compared to IRV was inconclusive). Rather I think that the poll and the entire discussion was weighed, both of which provide different signals (discussion tends to overweight people who are more passionate, whereas the poll takes very little effort to participate in, but tends to overweight people who don?t really care).
+
+Honestly, I?m not sure what you thought the point of the discussion was if not to advocate that the PEP itself should change and thus a possible outcome of that was that the PEP would change. Why else would that discussion exist? I can sympathize with being unable to participate due to time constraints, but we also have to weigh in realities like we?re never going to be able to structure such a discussion such that 100% of people are able and willing to participate in it, the best you can do is try to structure it to give everyone as much chance as possible.
+
+The selection of a voting mechanism ended up going through these layers:
+
+1. In person discussion at an event in the West Coast USA.
+2. Online discussion largely in discourse, but slightly on python-committers as well.
+3. An online poll on discourse, with notification to python-committers.
+
+Of those, (1) selected IRV and while I was not there, I get the send that there wasn?t a strong preference for IRV in that meeting, rather it was better than plurality and something the attendees were familiar with. (2) seemed to me (and I may be biased) to heavily weight towards a ?Anything but Plurality or IRV? direction, and (3) ultimately confirmed that.
+
+While not everyone might not have gotten to have their voice heard, the discussion and the poll was accessible to any committer who could participate via online (which I suspect is most of them) with the barest amount of investment being to vote in the poll and otherwise ignore the discussion.
+
+I would also point out that while the poll itself was run via the Approval voting method [1], looking at the numbers it?s not hard to come to the conclusion that it?s hard to suggest that the *method* used by the poll gives us invalid results. For instance, if we had instead run the poll using IRV instead of Approval *and* we assume that every single person who approved of IRV would have ranked it first (and anyone who didn?t approve of IRV at all would have ranked it last)? then IRV still would have lost even if the poll was run via IRV. 
+
+Unfortunately, It?s hard to know exactly how the voting mechanism would have affected the other results because while IRV was ?disapproved? by a significant margin, the other ones were not.
+
+However, since the poll was run using Approval, it?s hard for someone advocating for the Approval method to say that the results are invalid due to the method used, since it was their desired method that chose a method other than Approval.
+
+I suspect folks who prefer Condorcet are not going to complain too much about the poll using Approval, since it fair and away preferred Condorcet (21 of the 25 voters were OK with Condorcet) although it?s *possible* that the 20 people who were Condorcet voters would not have ranked it first, but that it was everyone?s second choice. Though if their first choice was Approval, see above!
+
+Really, 3-2-1 is the only one that it feels to me like could really argue about the tally method of the poll. The poll wasn?t run with their preferred method (like anyone who preferred Approval), they didn?t win, their loss wasn?t so great that they would have, for sure, lost under their own method [2], and if everyone who approved of them had picked them as their first choice, that?s roughly half of the people taking the poll. Fortunately I can say as one of the people who approved of 3-2-1, it would *not* have been my first choice, which pushes it from 12 to 13, to 11 to 14 which makes it more unlikely that 3-2-1 would have won in any other method as well.
+
+Fortunately, the margins of the poll are such that the outcome is unlikely to have changed by having run the poll under a different method.
+
+[1] Largely because that?s what discourse polls supported, plus getting into a discussion about choosing the method we use to choose the method that we use to choose the method that we use to choose the method that we use to choose the PEP is an unsolvable, infinite problem.
+[2] We might be able to compute this by assuming approval = +1, disapproval = -1 and then running the simulation, but that?s more effort than I feel like putting in.
+
+
+From tim.peters at gmail.com  Fri Nov  2 21:18:05 2018
+From: tim.peters at gmail.com (Tim Peters)
+Date: Fri, 2 Nov 2018 20:18:05 -0500
+Subject: [python-committers] If you care about the voting method, please
+ vote ; -)
+In-Reply-To: <CAOTb1wd=P4YU11as+g9WWaQ_YB6cBnJSSZ0FkfTW1ghSGDVAPw@mail.gmail.com>
+References: <CAExdVNnyCK6RzKxjquxiwiSwqc7ZsP1MdhAgPvULiFwsddnQvg@mail.gmail.com>
+ <CAP1=2W4Dh-fpb5Ptpx=OhER02Ma+bmmkF8RaQL=pOui=c91-3A@mail.gmail.com>
+ <CAOTb1wf+OPLGisajEp2eLKXBbbLADOHvO_t-DNYYuZaQZt-rQg@mail.gmail.com>
+ <CAExdVNm9uuTkKQFn5Th-QE38=ZoiMY3WpBjxggRvDw_ieFFDhQ@mail.gmail.com>
+ <CAOTb1wd=P4YU11as+g9WWaQ_YB6cBnJSSZ0FkfTW1ghSGDVAPw@mail.gmail.com>
+Message-ID: <CAExdVNmFehxiQWpVuCBYVN2-9-=CTSnktgEEsaRqFSsY0pgJ-w@mail.gmail.com>
+
+[Chris Jerdonek <chris.jerdonek at gmail.com>]
+> My reply was to Brett and not to you.
+
+So it was!  I missed that - I just noticed that the vast bulk of the
+text I was replying to was a quote of my message here about the poll.
+I should have checked.
+
+
+> If I had known the poll was going to be binding,
+
+As before, I had - and have - no reason to believe the poll was
+binding.  It did, however, fairly reflect the sentiments expressed in
+the long thread of which it was a part - except for not recording your
+opinion, but because you didn't vote.
+
+
+> I could have made an effort to participate in the
+> discussion and try to sway people. As it was, the discussion was
+> started and dominated by people who were against IRV. They are the
+> most motivated to change things, and they're also the ones most
+> motivated to participate in the poll. I couldn't afford to participate
+> in such a discussion otherwise, as I said in the discussion. There are
+> already 98 messages -- many of which are lengthy -- not to mention
+> messages in other threads. It would take a lot of time and emotional
+> energy to engage in such a discussion.
+
+Decisions are often driven by people who do give the time and
+emotional energy to discussing the issues at length.  It's not like
+there was universal agreement in the thread - there was lots of give &
+take.  IRV "lost" because _nobody_ spoke for it.  About 40% of the
+core developers who have an account on discuss.python.org did vote in
+the poll, so it's not like it was just a tiny percentage of developers
+who made their opinion known.  And we know some didn't vote because
+they couldn't care less how the vote is run (e.g., Guido appears to be
+in that category).
+
+I'd be concerned it there were evidence that there _might_ be
+widespread support for the PEP as it was originally written - but I
+just don't see any.  Now that Brett announced the change, you're - so
+far - the only one objecting to the change.
+
+I'm not a fan of Condorcet methods myself (but because of their
+conceptual complexity - their results are fine), but even I'm not
+complaining ;-)
+
+From tim.peters at gmail.com  Fri Nov  2 21:34:25 2018
+From: tim.peters at gmail.com (Tim Peters)
+Date: Fri, 2 Nov 2018 20:34:25 -0500
+Subject: [python-committers] If you care about the voting method, please
+ vote ; -)
+In-Reply-To: <38DC9B84-D80F-49A8-A069-FA636FD3B48D@stufft.io>
+References: <CAExdVNnyCK6RzKxjquxiwiSwqc7ZsP1MdhAgPvULiFwsddnQvg@mail.gmail.com>
+ <CAP1=2W4Dh-fpb5Ptpx=OhER02Ma+bmmkF8RaQL=pOui=c91-3A@mail.gmail.com>
+ <CAOTb1wf+OPLGisajEp2eLKXBbbLADOHvO_t-DNYYuZaQZt-rQg@mail.gmail.com>
+ <CAExdVNm9uuTkKQFn5Th-QE38=ZoiMY3WpBjxggRvDw_ieFFDhQ@mail.gmail.com>
+ <CAOTb1wd=P4YU11as+g9WWaQ_YB6cBnJSSZ0FkfTW1ghSGDVAPw@mail.gmail.com>
+ <38DC9B84-D80F-49A8-A069-FA636FD3B48D@stufft.io>
+Message-ID: <CAExdVNmC8ett2xEooRvYQyyHSFG0MinotyraG=ZKSDsSpuS7QA@mail.gmail.com>
+
+[Donald Stufft <donald at stufft.io>]
+> ...
+> Really, 3-2-1 is the only one that it feels to me like could really argue about
+> the tally method of the poll.
+
+Since I suggested 3-2-1 to begin with, let me assure you that Approval
+for the poll was fine with me.  Heck, I didn't even once object that
+the pool creator thought so little of 3-2-1 that he didn't even name
+it correctly ;-)  (I _assume_ the "1-2-3" in the poll was intended to
+be "3-2-1").
+
+> ...
+> Fortunately I can say as one of the people who approved of 3-2-1, it would *not*
+> have been my first choice,
+
+Nor mine!  STAR would have been my first choice, but it didn't even
+appear in the poll (3-2-1 is just too new to trust yet).  As is, "pure
+Condorcet" was my first choice, which happened to be the winner, so I
+can hardly complain.
+
+From steve.dower at python.org  Fri Nov  2 22:26:24 2018
+From: steve.dower at python.org (Steve Dower)
+Date: Fri, 2 Nov 2018 19:26:24 -0700
+Subject: [python-committers] Suggestion: A PSF grant for running a "Core
+ Dev Mentorship Program"
+In-Reply-To: <CA+3bQGHoGEUiyxiJ9uah7VoCDxWaB295dy7-zYbvzbt+4t_Ssw@mail.gmail.com>
+References: <CALWZvp7DzgUCJDjTMWfYQsT+AR10LeyFgg8eRcqNqoO-vM5zPQ@mail.gmail.com>
+ <fd130590-9570-819e-5c73-8c726fad24e6@python.org>
+ <88552487-9498-fa52-3ff5-cdb9fdc85355@python.org>
+ <CA+3bQGHoGEUiyxiJ9uah7VoCDxWaB295dy7-zYbvzbt+4t_Ssw@mail.gmail.com>
+Message-ID: <f3cb5121-bb82-7d27-eeab-e8a411ae988f@python.org>
+
+On 02Nov2018 0933, Victor Stinner wrote:
+> Mentoring is an investment in the long term. Is it better to pay
+> someone to review and merge PRs?
+> 
+> Reviewing PRs is also a way to help and train contributors. It's not
+> very different from mentoring, depending on your definition of
+> mentoring :-)
+
+The problem here is that most of the reviews require either specialised 
+knowledge of the area being changed (essentially the ability to predict 
+the flow-on impact of any change), or a strong decision that the change 
+is good. This severely limits the people who can approve most PRs.
+
+Every time I start going through the list of PRs, I find that I'm 
+obviously not the right person to approve the change, or that I should 
+not be unilaterally approving the change (without discussing it on 
+python-dev). Which means that you can't pay me to review most PRs, 
+because I simply can't do it :) So who do we get to review them?
+
+Without a stated direction/vision for CPython, it's very hard for any 
+individual developer to make unilateral decisions on many PRs. And since 
+there are many major areas, each with their own "team" or "expert", we 
+really need those maintainers to be reviewing PRs in their areas, and 
+also feeling empowered and supported to make leadership-like decisions 
+for their areas.
+
+Mentoring is certainly the solution to the latter, provided the current 
+experts are mentoring new experts in their area, and landing a 
+governance model that helps us decide what sorts of other changes are 
+good for Python solves the former. Simply paying "someone" doesn't help.
+
+Cheers,
+Steve
+
+From vstinner at redhat.com  Fri Nov  2 22:37:02 2018
+From: vstinner at redhat.com (Victor Stinner)
+Date: Sat, 3 Nov 2018 03:37:02 +0100
+Subject: [python-committers] Timeline to vote for a governance PEP
+Message-ID: <CA+3bQGEMvzborjcJqda9hFHdazA1S1na3n__n9=30iN4=GgD+Q@mail.gmail.com>
+
+Hi,
+
+According to the PEP 8001: "The vote will happen in a 2-week-long
+window from November 16 2018 to November 30 (Anywhere-on-Earth)." It's
+now in less than two weeks.
+
+I see that the PEP 8001 is still being updated (voting method). Should
+we still expect new changes before the vote starts? Can we set a
+deadline, like November 15 (Anywhere-on-Earth)?
+
+Nathaniel Smith and Donald Stuff have a draft PEP 8016 which is still
+at the "ideas" stage:
+https://discuss.python.org/t/working-discussion-for-pep-8016-the-boringest-possible-steering-council-model/333/28
+
+What is the deadline to submit new governance PEP and to update
+governance PEPs? November 15 (Anywhere-on-Earth)?
+
+For the PEP 8001, who is going to organize the vote? It seems like
+there isn't much to do. The bare minimum is just to create the private
+repository. Or is it already created?
+
+Another task would be to send notices about the vote on all
+communication channels used by core developers? Announce 1 week before
+it starts, when it starts, and maybe also remainder 3 days and 1 day
+before it ends?
+
+Does someone plan to have holiday during the vote and will not be able to vote?
+
+Which tool can be used to compute the vote result? Parse the text
+files in the Git repository and implement the Condorcet method.
+
+Victor
+
+From tim.peters at gmail.com  Fri Nov  2 23:24:36 2018
+From: tim.peters at gmail.com (Tim Peters)
+Date: Fri, 2 Nov 2018 22:24:36 -0500
+Subject: [python-committers] Timeline to vote for a governance PEP
+In-Reply-To: <CA+3bQGEMvzborjcJqda9hFHdazA1S1na3n__n9=30iN4=GgD+Q@mail.gmail.com>
+References: <CA+3bQGEMvzborjcJqda9hFHdazA1S1na3n__n9=30iN4=GgD+Q@mail.gmail.com>
+Message-ID: <CAExdVNkhbLp_15GfeVXXYk8WdT8TUMob3u_+EZfbqnL_TwSomQ@mail.gmail.com>
+
+[Victor Stinner <vstinner at redhat.com>,
+ asking lots of good questions]
+> ...
+> I see that the PEP 8001 is still being updated (voting method). Should
+> we still expect new changes before the vote starts?
+
+I don't detect any groundswell of opposition anymore now that the
+voting method changed.
+
+Nevertheless, I probably won't vote - I object to public ballots on
+principle.  That's been raised by others, so I won't repeat the
+arguments, and I appear to be very much in a minority here.
+
+> Can we set a deadline, like November 15 (Anywhere-on-Earth)?
+
+Good idea!
+
+> ...
+> Which tool can be used to compute the vote result? Parse the text
+> files in the Git repository and implement the Condorcet method.
+
+"Pure Condorcet" is close to trivial to tally:  there is a Condorcet
+winner, or there isn't.  I wouldn't even bother to write code to
+figure it out.  For example, write a simple script to convert each
+ballot to a single line for the following web page, paste the ballots
+into the text box, and click the "Calculate all winners" button:
+
+    https://www.cse.wustl.edu/~legrand/rbvote/calc.html
+
+The result page will tell you whether or not a Condorcet winner
+exists.  As a bonus, it will also tell you who the winner would be
+under 15 different ranked-ballot scoring methods.  Which may be handy
+to know in the unlikely case there isn't a Condorcet winner.  For
+example, if "Schulze" and "Hare" (which was called "IRV" in the
+previous PEP iteration) both pick the same winner then, I bet most
+people would say "ah, good enough".
+
+From ericsnowcurrently at gmail.com  Fri Nov  2 23:40:11 2018
+From: ericsnowcurrently at gmail.com (Eric Snow)
+Date: Fri, 2 Nov 2018 21:40:11 -0600
+Subject: [python-committers] Timeline to vote for a governance PEP
+In-Reply-To: <CAExdVNkhbLp_15GfeVXXYk8WdT8TUMob3u_+EZfbqnL_TwSomQ@mail.gmail.com>
+References: <CA+3bQGEMvzborjcJqda9hFHdazA1S1na3n__n9=30iN4=GgD+Q@mail.gmail.com>
+ <CAExdVNkhbLp_15GfeVXXYk8WdT8TUMob3u_+EZfbqnL_TwSomQ@mail.gmail.com>
+Message-ID: <CALFfu7CoDggjj9S-4mDe7XRt=N68hVw0eFvwkNdKFU7E7zm4ng@mail.gmail.com>
+
+On Fri, Nov 2, 2018, 21:24 Tim Peters <tim.peters at gmail.com wrote:
+
+> Nevertheless, I probably won't vote - I object to public ballots on
+> principle.  That's been raised by others, so I won't repeat the
+> arguments, and I appear to be very much in a minority here.
+>
+
+Would it help if we only published who voted, and kept their votes
+private?  Publishing the actual votes probably doesn't make a big
+difference here, relative to the broader Python/tech community.
+
+-eric
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20181102/a51f0c99/attachment-0001.html>
+
+From vstinner at redhat.com  Fri Nov  2 23:40:46 2018
+From: vstinner at redhat.com (Victor Stinner)
+Date: Sat, 3 Nov 2018 04:40:46 +0100
+Subject: [python-committers] Timeline to vote for a governance PEP
+In-Reply-To: <CAExdVNkhbLp_15GfeVXXYk8WdT8TUMob3u_+EZfbqnL_TwSomQ@mail.gmail.com>
+References: <CA+3bQGEMvzborjcJqda9hFHdazA1S1na3n__n9=30iN4=GgD+Q@mail.gmail.com>
+ <CAExdVNkhbLp_15GfeVXXYk8WdT8TUMob3u_+EZfbqnL_TwSomQ@mail.gmail.com>
+Message-ID: <CA+3bQGEV9isidYsZiKOpMLpAcWYvC7M+T_tWp0Mv02ZXBODAAg@mail.gmail.com>
+
+> > I see that the PEP 8001 is still being updated (voting method). Should
+> > we still expect new changes before the vote starts?
+>
+> I don't detect any groundswell of opposition anymore now that the
+> voting method changed.
+
+I'm unhappy with the "[] Further discussion" choice. We have a
+governance crisis. Many people would like to see it resolved as soon
+as possible, I don't see the ability to vote for "[] Further
+discussion" as a way to resolve this crisis.
+
+There are 6 proposed governance PEPs (maybe 7? ;-)). I don't expect
+that everybody will agree on everything in a PEP, but everybody should
+be at least able to order them to vote, no? If no, well, maybe don't
+vote?
+
+
+Le sam. 3 nov. 2018 ? 04:24, Tim Peters <tim.peters at gmail.com> a ?crit :
+> Nevertheless, I probably won't vote - I object to public ballots on
+> principle.
+
+I'm not surprised that someone doesn't like one part of the PEP 8001.
+But well, we need to move on and take a decision...
+
+
+> "Pure Condorcet" is close to trivial to tally:  there is a Condorcet
+> winner, or there isn't.  I wouldn't even bother to write code to
+> figure it out.  For example, write a simple script to convert each
+> ballot to a single line for the following web page, paste the ballots
+> into the text box, and click the "Calculate all winners" button:
+>
+>     https://www.cse.wustl.edu/~legrand/rbvote/calc.html
+
+Yes, I'm asking for such script. I didn't say that it would be overcomplicated.
+
+The PEP 8001 is not trivial, it expects a specific format:
+
+**DO NOT LEAVE ANY BRACKETS BLANK!**
+**DO NOT REPEAT A RANKING/NUMBER!**
+
+Maybe it would help to have a script to validate my own vote? (Also
+ensure that all choices are present?)
+
+> The result page will tell you whether or not a Condorcet winner
+> exists.  As a bonus, it will also tell you who the winner would be
+> under 15 different ranked-ballot scoring methods.  Which may be handy
+> to know in the unlikely case there isn't a Condorcet winner.  For
+> example, if "Schulze" and "Hare" (which was called "IRV" in the
+> previous PEP iteration) both pick the same winner then, I bet most
+> people would say "ah, good enough".
+
+Hum, it seems like you are unhappy with the chosen voting method.
+Again, we have to move on and take a decision. We cannot discuss
+voting methods forever, and there is no perfect voting methods. Only
+tradeoffs. I looked at the length of the discussion, and I understood
+that everybody had the opportunity to express their opinion, and the
+discussion gone deeply in voting methods, as Carol, I was impressed by
+the level of the discussion :-)
+
+Victor
+
+From vstinner at redhat.com  Fri Nov  2 23:44:22 2018
+From: vstinner at redhat.com (Victor Stinner)
+Date: Sat, 3 Nov 2018 04:44:22 +0100
+Subject: [python-committers] Timeline to vote for a governance PEP
+In-Reply-To: <CALFfu7CoDggjj9S-4mDe7XRt=N68hVw0eFvwkNdKFU7E7zm4ng@mail.gmail.com>
+References: <CA+3bQGEMvzborjcJqda9hFHdazA1S1na3n__n9=30iN4=GgD+Q@mail.gmail.com>
+ <CAExdVNkhbLp_15GfeVXXYk8WdT8TUMob3u_+EZfbqnL_TwSomQ@mail.gmail.com>
+ <CALFfu7CoDggjj9S-4mDe7XRt=N68hVw0eFvwkNdKFU7E7zm4ng@mail.gmail.com>
+Message-ID: <CA+3bQGGNCUMCf5f-tDcqTei4Zv9xNgOiOS=yOz2SnNt6GHEkFg@mail.gmail.com>
+
+Le sam. 3 nov. 2018 ? 04:40, Eric Snow <ericsnowcurrently at gmail.com> a ?crit :
+> Would it help if we only published who voted, and kept their votes private?  Publishing the actual votes probably doesn't make a big difference here, relative to the broader Python/tech community.
+
+The PEP has a whole section explaining the rationale:
+https://www.python.org/dev/peps/pep-8001/#why-should-the-vote-be-public
+
+This PEP has 9 authors and has been discussed in length.
+
+Maybe we should stop to change the vote method? :-) (As I wrote, the
+last limit for me to changes the PEP 8001 is Nov. 15, the day before
+voting on governance PEPs starts.)
+
+Victor
+
+From ericsnowcurrently at gmail.com  Sat Nov  3 00:02:23 2018
+From: ericsnowcurrently at gmail.com (Eric Snow)
+Date: Fri, 2 Nov 2018 22:02:23 -0600
+Subject: [python-committers] Timeline to vote for a governance PEP
+In-Reply-To: <CA+3bQGGNCUMCf5f-tDcqTei4Zv9xNgOiOS=yOz2SnNt6GHEkFg@mail.gmail.com>
+References: <CA+3bQGEMvzborjcJqda9hFHdazA1S1na3n__n9=30iN4=GgD+Q@mail.gmail.com>
+ <CAExdVNkhbLp_15GfeVXXYk8WdT8TUMob3u_+EZfbqnL_TwSomQ@mail.gmail.com>
+ <CALFfu7CoDggjj9S-4mDe7XRt=N68hVw0eFvwkNdKFU7E7zm4ng@mail.gmail.com>
+ <CA+3bQGGNCUMCf5f-tDcqTei4Zv9xNgOiOS=yOz2SnNt6GHEkFg@mail.gmail.com>
+Message-ID: <CALFfu7D=QVGwuBPwws2YVvKyZdf6OOwtKVaJtpUdv7UfoQX+fg@mail.gmail.com>
+
+On Fri, Nov 2, 2018, 21:44 Victor Stinner <vstinner at redhat.com wrote:
+
+> Le sam. 3 nov. 2018 ? 04:40, Eric Snow <ericsnowcurrently at gmail.com> a
+> ?crit :
+> > Would it help if we only published who voted, and kept their votes
+> private?  Publishing the actual votes probably doesn't make a big
+> difference here, relative to the broader Python/tech community.
+>
+> The PEP has a whole section explaining the rationale:
+> https://www.python.org/dev/peps/pep-8001/#why-should-the-vote-be-public
+>
+> This PEP has 9 authors and has been discussed in length.
+>
+
+Right.  I'm one of the authors. :)  When we discussed this point it was for
+the sake of communicating validity to the community.  However, I'm not
+convinced that publishing more than the list of voters is needed for that.
+If that's something that would make Tim more comfortable with voting then I
+suggest we consider it.
+
+-eric
+
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20181102/31965fd1/attachment.html>
+
+From tim.peters at gmail.com  Sat Nov  3 00:06:57 2018
+From: tim.peters at gmail.com (Tim Peters)
+Date: Fri, 2 Nov 2018 23:06:57 -0500
+Subject: [python-committers] Timeline to vote for a governance PEP
+In-Reply-To: <CA+3bQGEV9isidYsZiKOpMLpAcWYvC7M+T_tWp0Mv02ZXBODAAg@mail.gmail.com>
+References: <CA+3bQGEMvzborjcJqda9hFHdazA1S1na3n__n9=30iN4=GgD+Q@mail.gmail.com>
+ <CAExdVNkhbLp_15GfeVXXYk8WdT8TUMob3u_+EZfbqnL_TwSomQ@mail.gmail.com>
+ <CA+3bQGEV9isidYsZiKOpMLpAcWYvC7M+T_tWp0Mv02ZXBODAAg@mail.gmail.com>
+Message-ID: <CAExdVNnJm52DDDgCaaEDEDo=poS04Xhh8X2mJPM6fra4a5RX2g@mail.gmail.com>
+
+[Victor Stinner <vstinner at redhat.com>]
+> I'm unhappy with the "[] Further discussion" choice. We have a
+> governance crisis. Many people would like to see it resolved as soon
+> as possible, I don't see the ability to vote for "[] Further
+> discussion" as a way to resolve this crisis.
+
+Nobody else does either.  This was added for political reasons:  it's
+_expected_ that virtually everyone will rank "Further discussion"
+last, so we can "prove" to the world that we really do want it to end
+ASAP.  "See?  We voted, and 'further discussion' came in dead last!"
+
+
+> There are 6 proposed governance PEPs (maybe 7? ;-)). I don't expect
+> that everybody will agree on everything in a PEP, but everybody should
+> be at least able to order them to vote, no? If no, well, maybe don't
+> vote?
+
+I'm missing context for this.  Has someone complained about that?  I
+_would_ ;-) , but why bother.  Having to strictly rank forces people
+to fabricate distinctions they may not actually believe.  A voting
+protocol that forces dishonesty isn't attractive.  Note that Condorcet
+methods don't generally require this; for example, Schulze is happy if
+you rate any number of choices "all the same to me".  If you in fact
+have no preference among (say) 3 of the PEPs, why must you be forced
+to say that you strictly most like just one of them - and strictly
+most dislike another?
+
+"The reason" appears to be that the more of that people do, the more
+likely there won't be a Condorcet winner.
+
+> ...
+> I'm not surprised that someone doesn't like one part of the PEP 8001.
+> But well, we need to move on and take a decision...
+
+Sure!
+
+>> "Pure Condorcet" is close to trivial to tally:  there is a Condorcet
+>> winner, or there isn't.  I wouldn't even bother to write code to
+>> figure it out.  For example, write a simple script to convert each
+>> ballot to a single line for the following web page, paste the ballots
+>> into the text box, and click the "Calculate all winners" button:
+>>
+>>     https://www.cse.wustl.edu/~legrand/rbvote/calc.html
+
+> Yes, I'm asking for such script. I didn't say that it would be overcomplicated.
+
+Well, that professor already wrote one.  Give me the task of tallying
+the ballots. and I'd do just what I said above :-)
+
+> The PEP 8001 is not trivial, it expects a specific format:
+>
+> **DO NOT LEAVE ANY BRACKETS BLANK!**
+> **DO NOT REPEAT A RANKING/NUMBER!**
+>
+> Maybe it would help to have a script to validate my own vote? (Also
+> ensure that all choices are present?)
+
+Someone will have to do that, but it's a different issue than I was
+answering above:  your original "Which tool can be used to compute the
+vote result?".
+
+> ...
+> Hum, it seems like you are unhappy with the chosen voting method.
+
+Not at all!  If we had used a ranked ballot in the poll, "Pure
+Condorcet" would have been my #1 choice.  For this election.
+
+> Again, we have to move on and take a decision.
+
+Yup.  In the poll, I voted "approve" for everything, but retracted my
+vote for IRV after it was pointed out that _other_ PEPs pointed back
+at 8001 to define the voting method _they_ used too.  I was willing to
+endure IRV for a PEP 8001 one-shot vote, but not for eternity.
+
+I could live with any of the other methods forever, but if we had a
+PEP on voting methods in general, _then_ I'd push for hybrid
+score-runoff methods, like STAR and 3-2-1.  They're much easier to
+understand, and do better in large-scale voting simulations, than the
+others.
+
+> We cannot discuss voting methods forever, and there is no perfect voting
+> methods. Only tradeoffs.
+
+Which I know ;-)  But some nevertheless do better than others under
+very widely varying assumptions.  That's why, e.g., absolutely nobody
+is in favor of plurality.  "But nothing is perfect" isn't actually a
+reason for accepting something that's awful in ordinary conditions ;-)
+
+The best of the Condorcet methods are in fact very good.
+
+> I looked at the length of the discussion, and I understood
+> that everybody had the opportunity to express their opinion, and the
+> discussion gone deeply in voting methods, as Carol, I was impressed by
+> the level of the discussion :-)
+
+From tim.peters at gmail.com  Sat Nov  3 00:20:02 2018
+From: tim.peters at gmail.com (Tim Peters)
+Date: Fri, 2 Nov 2018 23:20:02 -0500
+Subject: [python-committers] Timeline to vote for a governance PEP
+In-Reply-To: <CALFfu7CoDggjj9S-4mDe7XRt=N68hVw0eFvwkNdKFU7E7zm4ng@mail.gmail.com>
+References: <CA+3bQGEMvzborjcJqda9hFHdazA1S1na3n__n9=30iN4=GgD+Q@mail.gmail.com>
+ <CAExdVNkhbLp_15GfeVXXYk8WdT8TUMob3u_+EZfbqnL_TwSomQ@mail.gmail.com>
+ <CALFfu7CoDggjj9S-4mDe7XRt=N68hVw0eFvwkNdKFU7E7zm4ng@mail.gmail.com>
+Message-ID: <CAExdVN=SJfdn-K1hH8NV8_UdszmK6fB19VAdJ8DJTwDkhD2chA@mail.gmail.com>
+
+[Tim]
+>> Nevertheless, I probably won't vote - I object to public ballots on
+>> principle.  That's been raised by others, so I won't repeat the
+>> arguments, and I appear to be very much in a minority here.
+
+[Eric Snow <ericsnowcurrently at gmail.com>]
+> Would it help if we only published who voted, and kept their votes
+> private?  Publishing the actual votes probably doesn't make a
+> big difference here, relative to the broader Python/tech community.
+
+That would probably be enough to convince me to vote, but I don't want
+to hold things up either.  If I'm the only one, why bother?  It's not
+like my vote will change the result ;-)
+
+BTW, the years I was on the PSF Board, I always wanted everyone to
+know how we voted on everything.  But I was elected to that position,
+so was voting as a representative of those who elected me.
+
+But nobody has any more business knowing how I vote on a PEP than,
+say, how I vote for the local mayor.  That's between me and my
+conscience.  Your vote is between you and yours, and I want actively
+_not_ to be able to see how others voted.
+
+Although I'm all in favor of making the PEP ballots public, if
+stripped of personally identifying info.
+
+From donald at stufft.io  Sat Nov  3 00:38:59 2018
+From: donald at stufft.io (Donald Stufft)
+Date: Sat, 3 Nov 2018 00:38:59 -0400
+Subject: [python-committers] Timeline to vote for a governance PEP
+In-Reply-To: <CAExdVN=SJfdn-K1hH8NV8_UdszmK6fB19VAdJ8DJTwDkhD2chA@mail.gmail.com>
+References: <CA+3bQGEMvzborjcJqda9hFHdazA1S1na3n__n9=30iN4=GgD+Q@mail.gmail.com>
+ <CAExdVNkhbLp_15GfeVXXYk8WdT8TUMob3u_+EZfbqnL_TwSomQ@mail.gmail.com>
+ <CALFfu7CoDggjj9S-4mDe7XRt=N68hVw0eFvwkNdKFU7E7zm4ng@mail.gmail.com>
+ <CAExdVN=SJfdn-K1hH8NV8_UdszmK6fB19VAdJ8DJTwDkhD2chA@mail.gmail.com>
+Message-ID: <D4406751-8043-4B1E-AB5A-FEC0A88757D5@stufft.io>
+
+
+
+> On Nov 3, 2018, at 12:20 AM, Tim Peters <tim.peters at gmail.com> wrote:
+> 
+> [Tim]
+>>> Nevertheless, I probably won't vote - I object to public ballots on
+>>> principle.  That's been raised by others, so I won't repeat the
+>>> arguments, and I appear to be very much in a minority here.
+> 
+> [Eric Snow <ericsnowcurrently at gmail.com>]
+>> Would it help if we only published who voted, and kept their votes
+>> private?  Publishing the actual votes probably doesn't make a
+>> big difference here, relative to the broader Python/tech community.
+> 
+> That would probably be enough to convince me to vote, but I don't want
+> to hold things up either.  If I'm the only one, why bother?  It's not
+> like my vote will change the result ;-)
+> 
+> BTW, the years I was on the PSF Board, I always wanted everyone to
+> know how we voted on everything.  But I was elected to that position,
+> so was voting as a representative of those who elected me.
+> 
+> But nobody has any more business knowing how I vote on a PEP than,
+> say, how I vote for the local mayor.  That's between me and my
+> conscience.  Your vote is between you and yours, and I want actively
+> _not_ to be able to see how others voted.
+> 
+> Although I'm all in favor of making the PEP ballots public, if
+> stripped of personally identifying info.
+> _______________________________________________
+
+
+FWIW I tend to agree with Tim on public vs private ballots, although unlike him I don?t feel strongly enough to abstain from voting on this one particular vote.
+
+On a practical matter, keeping the ballots secret will rely on either having a trusted person to tally the election results or using some software that will do it for us. There is https://civs.cs.cornell.edu <https://civs.cs.cornell.edu/> which we could use that does offer private ballots and offers making the ballots (with or without a name attached to them) public. It doesn?t support ?pure? Condorcet but it should be easy enough to take the public but anonymous ballots and compute to determine if there was a condorcet winner or if one of the methods had to break a cycle, and if there wasn?t a condorcet winner, just re-run the election. Beyond that, I?m not sure what other options there are for anonymous ranked voting.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20181103/6d08407e/attachment.html>
+
+From donald at stufft.io  Sat Nov  3 00:41:18 2018
+From: donald at stufft.io (Donald Stufft)
+Date: Sat, 3 Nov 2018 00:41:18 -0400
+Subject: [python-committers] Timeline to vote for a governance PEP
+In-Reply-To: <D4406751-8043-4B1E-AB5A-FEC0A88757D5@stufft.io>
+References: <CA+3bQGEMvzborjcJqda9hFHdazA1S1na3n__n9=30iN4=GgD+Q@mail.gmail.com>
+ <CAExdVNkhbLp_15GfeVXXYk8WdT8TUMob3u_+EZfbqnL_TwSomQ@mail.gmail.com>
+ <CALFfu7CoDggjj9S-4mDe7XRt=N68hVw0eFvwkNdKFU7E7zm4ng@mail.gmail.com>
+ <CAExdVN=SJfdn-K1hH8NV8_UdszmK6fB19VAdJ8DJTwDkhD2chA@mail.gmail.com>
+ <D4406751-8043-4B1E-AB5A-FEC0A88757D5@stufft.io>
+Message-ID: <13D88E4F-32F2-429A-AE9F-320BA5827F3E@stufft.io>
+
+
+
+> On Nov 3, 2018, at 12:38 AM, Donald Stufft <donald at stufft.io> wrote:
+> 
+> 
+> 
+>> On Nov 3, 2018, at 12:20 AM, Tim Peters <tim.peters at gmail.com <mailto:tim.peters at gmail.com>> wrote:
+>> 
+>> [Tim]
+>>>> Nevertheless, I probably won't vote - I object to public ballots on
+>>>> principle.  That's been raised by others, so I won't repeat the
+>>>> arguments, and I appear to be very much in a minority here.
+>> 
+>> [Eric Snow <ericsnowcurrently at gmail.com <mailto:ericsnowcurrently at gmail.com>>]
+>>> Would it help if we only published who voted, and kept their votes
+>>> private?  Publishing the actual votes probably doesn't make a
+>>> big difference here, relative to the broader Python/tech community.
+>> 
+>> That would probably be enough to convince me to vote, but I don't want
+>> to hold things up either.  If I'm the only one, why bother?  It's not
+>> like my vote will change the result ;-)
+>> 
+>> BTW, the years I was on the PSF Board, I always wanted everyone to
+>> know how we voted on everything.  But I was elected to that position,
+>> so was voting as a representative of those who elected me.
+>> 
+>> But nobody has any more business knowing how I vote on a PEP than,
+>> say, how I vote for the local mayor.  That's between me and my
+>> conscience.  Your vote is between you and yours, and I want actively
+>> _not_ to be able to see how others voted.
+>> 
+>> Although I'm all in favor of making the PEP ballots public, if
+>> stripped of personally identifying info.
+>> _______________________________________________
+> 
+> 
+> FWIW I tend to agree with Tim on public vs private ballots, although unlike him I don?t feel strongly enough to abstain from voting on this one particular vote.
+> 
+> On a practical matter, keeping the ballots secret will rely on either having a trusted person to tally the election results or using some software that will do it for us. There is https://civs.cs.cornell.edu <https://civs.cs.cornell.edu/> which we could use that does offer private ballots and offers making the ballots (with or without a name attached to them) public. It doesn?t support ?pure? Condorcet but it should be easy enough to take the public but anonymous ballots and compute to determine if there was a condorcet winner or if one of the methods had to break a cycle, and if there wasn?t a condorcet winner, just re-run the election. Beyond that, I?m not sure what other options there are for anonymous ranked voting.
+
+Oh, unfortunately this also doesn?t allow publishing *Who* voted without attaching them to a ballot, it?s either public, attached to the ballot, or private (if you?re not publishing the names, the system doesn?t even keep them, it just generates unique voter IDs for each).
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20181103/90c70d00/attachment-0001.html>
+
+From njs at pobox.com  Sat Nov  3 00:45:25 2018
+From: njs at pobox.com (Nathaniel Smith)
+Date: Fri, 2 Nov 2018 21:45:25 -0700
+Subject: [python-committers] Timeline to vote for a governance PEP
+In-Reply-To: <CA+3bQGEV9isidYsZiKOpMLpAcWYvC7M+T_tWp0Mv02ZXBODAAg@mail.gmail.com>
+References: <CA+3bQGEMvzborjcJqda9hFHdazA1S1na3n__n9=30iN4=GgD+Q@mail.gmail.com>
+ <CAExdVNkhbLp_15GfeVXXYk8WdT8TUMob3u_+EZfbqnL_TwSomQ@mail.gmail.com>
+ <CA+3bQGEV9isidYsZiKOpMLpAcWYvC7M+T_tWp0Mv02ZXBODAAg@mail.gmail.com>
+Message-ID: <CAPJVwBn1txdb68V-AnCSWpW64fVsJbmb93KV83e4cBGq4z-2KA@mail.gmail.com>
+
+On Fri, Nov 2, 2018 at 8:40 PM, Victor Stinner <vstinner at redhat.com> wrote:
+> The PEP 8001 is not trivial, it expects a specific format:
+>
+> **DO NOT LEAVE ANY BRACKETS BLANK!**
+> **DO NOT REPEAT A RANKING/NUMBER!**
+>
+> Maybe it would help to have a script to validate my own vote? (Also
+> ensure that all choices are present?)
+
+I'm not sure what the motivation for those restrictions is. I guess
+with IRV there isn't an obvious way to handle a repeated number, but
+with Condorcet it's no problem. And both methods are fine with leaving
+some options blank (it's equivalent to ranking the blank options as
+tied for dead last).
+
+-n
+
+-- 
+Nathaniel J. Smith -- https://vorpus.org
+
+From tim.peters at gmail.com  Sat Nov  3 01:44:18 2018
+From: tim.peters at gmail.com (Tim Peters)
+Date: Sat, 3 Nov 2018 00:44:18 -0500
+Subject: [python-committers] Timeline to vote for a governance PEP
+In-Reply-To: <CAPJVwBn1txdb68V-AnCSWpW64fVsJbmb93KV83e4cBGq4z-2KA@mail.gmail.com>
+References: <CA+3bQGEMvzborjcJqda9hFHdazA1S1na3n__n9=30iN4=GgD+Q@mail.gmail.com>
+ <CAExdVNkhbLp_15GfeVXXYk8WdT8TUMob3u_+EZfbqnL_TwSomQ@mail.gmail.com>
+ <CA+3bQGEV9isidYsZiKOpMLpAcWYvC7M+T_tWp0Mv02ZXBODAAg@mail.gmail.com>
+ <CAPJVwBn1txdb68V-AnCSWpW64fVsJbmb93KV83e4cBGq4z-2KA@mail.gmail.com>
+Message-ID: <CAExdVNmD4E5e1kWaqb_p=OdHUGc1r4qvk5K_p7BytjkX5_2hsA@mail.gmail.com>
+
+[Victor Stinner <vstinner at redhat.com>]
+>> The PEP 8001 is not trivial, it expects a specific format:
+>>
+>> **DO NOT LEAVE ANY BRACKETS BLANK!**
+>> **DO NOT REPEAT A RANKING/NUMBER!**
+
+[Nathaniel Smith <njs at pobox.com>]
+> I'm not sure what the motivation for those restrictions is. I guess
+> with IRV there isn't an obvious way to handle a repeated number,
+
+FWIW, I've never seen any IRV variant that allowed duplicate rankings.
+And I don't see how it could:  at each round it's counting only the
+number of _first_ ranked candidates among those who remain, and if a
+voter had ties for their first place candidates that voter would be
+helping multiple candidates survive the round.  "Not fair."
+
+
+> but with Condorcet it's no problem. And both methods are fine
+> with leaving some options blank (it's equivalent to ranking the
+> blank options as tied for dead last).
+
+But leaving some candidates unrated is common in IRV schemes.  When
+the last of a given ballot's rated candidates is eliminated, that
+ballot is thrown out and the election continues as if it had never
+existed (in particular, it no longer counts for the "majority" needed
+to win the next round).
+
+PEP 8001 says:
+
+"""
+A vote which omits candidates in the ranking is invalid. This is
+because such votes are incompatible with the desired properties listed
+above, namely:
+
+Making voters consider alternatives, as well as
+Doing everything possible to reach a conclusion in a single election.
+"""
+
+The first point is dubious.  While it may be hard to prove, what will
+happen in reality is that some voters will simply make up rankings for
+PEPs they never even read.  This is so common in forced-ranking
+systems that it has a name:
+
+    https://en.wikipedia.org/wiki/Donkey_vote
+
+There may be some merit to the second point, and especially if
+donkey-voting is common:  the more people mindlessly give a rank equal
+to a candidate's distance from the top, the less likely cycles are to
+form (assuming all ballots list the PEPs in the same order - which
+they really shouldn't, but probably will ;-) ).
+
+In any case, without IRV there's scant reason to require that all
+ranks be distinct, and I think dropping that requirement would be a
+serious improvement, both for making it easier to construct a valid
+ballot, and especially to allow voters more possibility to express
+their true preferences (including "these two, three, ... are equally
+fine by me").
+
+What may be hard to get across then is that, e.g., the ballot rankings
+
+    1 1 1 6 6 6
+and
+    5 5 5 6 6 6
+
+have exactly the same effect:  "I like the first three better than the
+last three - maybe a little, maybe a lot, you just can't tell from
+what I'm allowed to express."
+

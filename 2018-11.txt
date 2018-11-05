@@ -3917,3 +3917,472 @@ about proving how nothing could possibly be manipulated.  In fact, we
 could almost certainly trust any one of the competing PEP's authors to
 tally the votes, destroy the ballots, and just tell us who won :--)
 
+From guido at python.org  Sun Nov  4 03:35:19 2018
+From: guido at python.org (Guido van Rossum)
+Date: Sun, 4 Nov 2018 01:35:19 -0700
+Subject: [python-committers] Timeline to vote for a governance PEP
+In-Reply-To: <CAExdVNmHq6QHYg1dBnV1KCxCF4157=DiyGr=ohsTaY+xWOX7bw@mail.gmail.com>
+References: <CA+3bQGEMvzborjcJqda9hFHdazA1S1na3n__n9=30iN4=GgD+Q@mail.gmail.com>
+ <CAExdVNkhbLp_15GfeVXXYk8WdT8TUMob3u_+EZfbqnL_TwSomQ@mail.gmail.com>
+ <C4355AF4-B4F3-4CE8-90CC-F094D8E6FE7F@python.org>
+ <5707F928-436E-4568-9570-3DCA7D20914E@stufft.io>
+ <CAExdVNk4TRb-KM9hVVQhVBCmJyLvdJf_RiqCM3e+O1_i_SC-+Q@mail.gmail.com>
+ <81890BC1-A4C6-414D-8FE6-830FE76DECAB@stufft.io>
+ <CAExdVNmHq6QHYg1dBnV1KCxCF4157=DiyGr=ohsTaY+xWOX7bw@mail.gmail.com>
+Message-ID: <CAP7+vJK+srW5jyU9w1c47ruGKU66vfG5=aJPEBFN9k-BW5maSQ@mail.gmail.com>
+
+Is it safe for people not interested in voting systems to ignore the rest
+of this thread? I hope that if there's an update on the voting period or
+specifics on how to vote (or what the choices are) these will be posted to
+a new thread. I want to mute this one.
+
+On Sun, Nov 4, 2018 at 12:24 AM Tim Peters <tim.peters at gmail.com> wrote:
+
+> [Tim]
+> >> ... when there _was_ a Condorcet winner, the results page said
+> >>
+> >>   (Condorcet winner: wins contests with all other choices)
+> >>
+> >> next to the winning candidate.  Given that the results page also gives
+> >> a color-coded matrix of pairwise preference counts, verifying this is
+> >> trivial by eyeball ... if and only if all the cells in the top row are
+> >> colored green ...
+>
+> [Donald]
+> > You?re right. I simulated an election without a Condorcet winner, but
+> > where the voting mechanisms would otherwise select a winner (just
+> > using the example from the Schulze Wikipedia page), it says
+> > "(Not defeated in any contest vs. another choice)?, instead.
+>
+> Errrrrrrr ... I wonder why?!  I had seen that in one of the public
+> polls, but in that case the winner's row was all green except for a
+> single yellow square. which meant the winner _tied_ with another in a
+> one-on-one contest.  So "not defeated" was correct.  But here:
+>
+> > An example can be found at:
+> >
+> https://civs.cs.cornell.edu/cgi-bin/results.pl?num_winners=1&id=E_4191dbfb94efecb6&algorithm=beatpath
+> .
+>
+> there's a red square in the winner's (top) row:  the winner (E)
+> _lost_, 24 to 21, to #3 (C).  It's just not true that E wasn't
+> defeated in any one-on-one contest.
+>
+> Oh well.  Best to ignore the words and look at the colors instead :-)
+>
+>
+> > Just for kicks I added enough ballots so that there would be a Condorcet
+> > winner, and I verified that the above is true, and an example can be
+> found at
+> >
+> https://civs.cs.cornell.edu/cgi-bin/results.pl?num_winners=1&id=E_31f80ce0986ce98c&algorithm=beatpath
+> .
+>
+> Yup - and top row all green.
+>
+>
+> > So that means if we go with it, we can let CIVS tally for us and we?ll
+> just
+> > look for a Condorcet winner instead of another kind of winner.
+>
+> Yes, it will tell us instantly (when the election ends) whether
+> there's a Condorcet winner, and regardless of which method's radio
+> button happens to be selected.
+>
+> > Of course since all of the anonymized ballots are public, people are
+> free to
+> > compute it themselves as well.
+>
+> And I bet someone will.  I'm too old ;-)
+>
+> >> ...
+> >> """
+> >> The election supervisor can determine whether a voter has voted only
+> >> with the permission of the voter and only after the election has
+> >> ended.
+> >> ?""
+>
+> > Maybe they mean that if you contact them they can look that information
+> > up? I?m looking and I don?t see any UI that lets me do that, so either
+> > it?s not implemented, it was removed, I?m missing it, or it requires
+> > contacting them.
+>
+> Can't help, beyond noting that the election supervisor sure doesn't
+> appear to have any mechanical way to prove a voter gives permission -
+> and since their side threw away voters' email addresses, they have no
+> way to contact voters to ask either.
+>
+> They do save crypto hashes of email addresses, so perhaps if you asked
+> them, they could give you a magic string you could in turn give to a
+> voter who in turn could send that string back to them from the same
+> email address they used to vote.  Or something ;-)
+>
+> > ...
+> > It can also optionally let people pick no opinion, though I?m not sure
+> of the utility
+> > of that. It basically means, as I understand it, that in any pairwise
+> contest that
+> > includes a option you had no opinion on, your ballot would just not be
+> included.
+>
+> In effect, I bet that's all there is to it.  If there are C
+> candidates, all these methods start by building a CxC matrix M such
+> that M[i, j] counts the number of ballots that ranked candidate i
+> higher than candidate j.
+>
+> If a full set of distinct rankings is required, then for every ballot,
+> exactly one of M[i, j] and M[j,i] will be incremented for every i != j
+> pair.
+>
+> If i != j are ranked the same on some ballot, then neither M[i, j] nor
+> M[j, i] will be incremented for that ballot.
+>
+> If i is missing on some ballot, then M[i, j] and M[j, i] will be left
+> alone for all j for that ballot.
+>
+> > The FAQ on this says:
+> >
+> >
+> > What does ?no opinion? mean? It means you are providing no information
+> about
+> > how this choice ranks with respect to the other choices. For example, if
+> you give
+> > one choice the rank 1, and give all other choices the rank ?no opinion?,
+> your
+> > ballot becomes useless because it doesn't express any preferences.
+> > Voters often pick ?no opinion? when what they mean is that they don't
+> like the choice
+>
+> In that case they should rank it near the bottom instead.
+>
+> > or that they don't have any information about it.
+>
+> Which is surely what it's _intended_ to be used for!  "No opinion", in
+> which case the ballot doesn't pretend the missing choice is either
+> better or worse than any other choice.  You're leaving its fate
+> entirely to people who _do_ have an opinion then.
+>
+> > In these situations, it is often better to give the choice a low rank
+> rather than
+> > to select ?no opinion?. A good reason for a voter to give a choice the
+> rank
+> > ?no opinion? is because the voter isn't supposed to express an opinion
+> > about that choice.
+>
+> Heh - who runs a vote where voters aren't "supposed" to express their
+> opinions?  Or is this site hosted in the DPRK? ;-)
+>
+>
+> > It sounds to me like no opinion is a bit of a footgun here, so I think
+> it makes
+> > sense not to allow it (probably the case of where you don?t have an
+> opinion,
+> > you?re better off just ranking it last like the FAQ suggests).
+>
+> I'd disallow it, but because it's likely to be misunderstood.  The
+> _usual_ treatment of missing rankings in a Condorcet scheme is that
+> they're shorthand for saying "least favored".  For example, in a
+> 17-person primary, you just rank your 3 favorites, and it's understood
+> that the other 14 are all tied for last place in your eyes.
+>
+> That's _very_ different from treating them as "no opinion".  In the
+> primary, you're recording 3 losses for each of the missing 14, and you
+> wholly _intend_ to give them those losses.
+>
+> > ...
+> > Yea. And my suggestion of Ernest is that well, an evil Ernest can
+> already fuck
+> > shit up for the Python community way beyond trying to change how we make
+> > decisions about PEPs and such (and he?s not a core dev, so he doesn?t
+> have
+> > a horse in this race). Although I don?t really care who runs it, I think
+> anyone
+> > here is going to be honest about it.
+> >
+> > I can say as a supervisor you also can?t see how people have voted at
+> all until
+> > after the voting ends. You can only see how many people voted. This
+> makes it
+> > harder to meaningfully influence the election because you won?t be able
+> to
+> > make targeted, strategic puppet votes without either doing it blindly or
+> flooding
+> > the votes to a degree that it would be obvious.
+>
+> No problem here with any of that.  Potential dishonesty in PythonLand
+> is far less a problem than that we fail to get anything done fretting
+> about proving how nothing could possibly be manipulated.  In fact, we
+> could almost certainly trust any one of the competing PEP's authors to
+> tally the votes, destroy the ballots, and just tell us who won :--)
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+
+
+-- 
+--Guido van Rossum (python.org/~guido)
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20181104/db27cecc/attachment-0001.html>
+
+From p.f.moore at gmail.com  Sun Nov  4 06:38:53 2018
+From: p.f.moore at gmail.com (Paul Moore)
+Date: Sun, 4 Nov 2018 11:38:53 +0000
+Subject: [python-committers] Timeline to vote for a governance PEP
+In-Reply-To: <20181104002115.GS3817@ando.pearwood.info>
+References: <CA+3bQGEMvzborjcJqda9hFHdazA1S1na3n__n9=30iN4=GgD+Q@mail.gmail.com>
+ <CACac1F8ZYnPLQO1Gtvn+W+b7znHJ7cYZYO3ha8pwa_LzkDx-sA@mail.gmail.com>
+ <20181104002115.GS3817@ando.pearwood.info>
+Message-ID: <CACac1F9NfXGxNjuL2a0zS+3iBh4wqC06SZYfLUe6_2b64=dW6w@mail.gmail.com>
+
+On Sun, 4 Nov 2018 at 00:21, Steven D'Aprano <steve at pearwood.info> wrote:
+> But let's be fair to those who have put in the effort to make this work
+> so far. "Disenfranchisement" is not even close to a fair criticism.
+
+Frankly, I'm tired of being picked up on specifics of the wording I
+used. I felt that "disenfranchised" described how I feel pretty well.
+If you're saying that my understanding of the word is inaccurate, then
+fine, I'm happy you know better than me. But I explained my problem in
+more detail as well as stating the summary version - I can't find
+context or discussions, I don't have the time to become an expert in
+all the details[1] but conversely I can't find out what those who
+*have* investigated the details think, etc etc.
+
+It's an important decision, and one I care about, but not one that
+will massively affect my daily routine, so I want to be involved, but
+I don't have the means to do so to a level that matches its direct
+impact on me.
+
+If "disenfranchised" isn't the right word for that, then fine, pick
+your own word and assume I used it. Or assume I just gave the longer
+explanation and didn't bother trying to offer a one word summary of
+how I feel.
+
+I've explained my concern, I'm not going to debate whether my
+vocabulary is sufficient to summarise my intent accurately any
+further.
+Paul
+
+[1]  My problem! But a common situation in any voting process - do you
+expect to understand all the details of international policy before
+voting in an election?
+
+From antoine at python.org  Sun Nov  4 06:43:30 2018
+From: antoine at python.org (Antoine Pitrou)
+Date: Sun, 4 Nov 2018 12:43:30 +0100
+Subject: [python-committers] Timeline to vote for a governance PEP
+In-Reply-To: <CACac1F9NfXGxNjuL2a0zS+3iBh4wqC06SZYfLUe6_2b64=dW6w@mail.gmail.com>
+References: <CA+3bQGEMvzborjcJqda9hFHdazA1S1na3n__n9=30iN4=GgD+Q@mail.gmail.com>
+ <CACac1F8ZYnPLQO1Gtvn+W+b7znHJ7cYZYO3ha8pwa_LzkDx-sA@mail.gmail.com>
+ <20181104002115.GS3817@ando.pearwood.info>
+ <CACac1F9NfXGxNjuL2a0zS+3iBh4wqC06SZYfLUe6_2b64=dW6w@mail.gmail.com>
+Message-ID: <76135f90-2cce-92d1-9ce9-1e2b1475bbd9@python.org>
+
+
+Le 04/11/2018 ? 12:38, Paul Moore a ?crit?:
+> On Sun, 4 Nov 2018 at 00:21, Steven D'Aprano <steve at pearwood.info> wrote:
+>> But let's be fair to those who have put in the effort to make this work
+>> so far. "Disenfranchisement" is not even close to a fair criticism.
+> 
+> Frankly, I'm tired of being picked up on specifics of the wording I
+> used. I felt that "disenfranchised" described how I feel pretty well.
+> If you're saying that my understanding of the word is inaccurate, then
+> fine, I'm happy you know better than me. But I explained my problem in
+> more detail as well as stating the summary version - I can't find
+> context or discussions, I don't have the time to become an expert in
+> all the details[1] but conversely I can't find out what those who
+> *have* investigated the details think, etc etc.
+
+I don't think anyone here is an expert on the details.  The discussion
+we're having is probably unusual for most or all people here.
+
+That people like me may spend more time reading the PEPs doesn't
+actually make them more competent on the broader topic of governance
+systems.  So feel free to judge the PEPs by yourself and don't be afraid
+of casting such judgement.  You're as competent as anyone else.  Ideally
+we would have started this discussion a lot of time in advance, and
+without any deadline looming over us, but the events decided otherwise.
+
+Regards
+
+Antoine.
+
+From steve.dower at python.org  Sun Nov  4 10:24:55 2018
+From: steve.dower at python.org (Steve Dower)
+Date: Sun, 4 Nov 2018 07:24:55 -0800
+Subject: [python-committers] Timeline to vote for a governance PEP
+In-Reply-To: <CACac1F9NfXGxNjuL2a0zS+3iBh4wqC06SZYfLUe6_2b64=dW6w@mail.gmail.com>
+References: <CA+3bQGEMvzborjcJqda9hFHdazA1S1na3n__n9=30iN4=GgD+Q@mail.gmail.com>
+ <CACac1F8ZYnPLQO1Gtvn+W+b7znHJ7cYZYO3ha8pwa_LzkDx-sA@mail.gmail.com>
+ <20181104002115.GS3817@ando.pearwood.info>
+ <CACac1F9NfXGxNjuL2a0zS+3iBh4wqC06SZYfLUe6_2b64=dW6w@mail.gmail.com>
+Message-ID: <f28be41d-167b-922d-1977-ff4ee20f1cc0@python.org>
+
+On 04Nov2018 0338, Paul Moore wrote:
+> I felt that "disenfranchised" described how I feel pretty well.
+> If you're saying that my understanding of the word is inaccurate, then
+> fine, I'm happy you know better than me. But I explained my problem in
+> more detail as well as stating the summary version - I can't find
+> context or discussions, I don't have the time to become an expert in
+> all the details[1] but conversely I can't find out what those who
+> *have* investigated the details think, etc etc.
+> 
+> It's an important decision, and one I care about, but not one that
+> will massively affect my daily routine, so I want to be involved, but
+> I don't have the means to do so to a level that matches its direct
+> impact on me.
+
+I don't know about anyone else, but I was planning to post my own 
+preferences publicly during the election, a kind of "if you trust my 
+judgement, feel free to vote like I did".
+
+Hopefully other people will do the same. I think most of us have worked 
+well enough with at least some other people in the group over the years 
+to have *someone* who we trust to decide on this for us. At the very 
+least, it gives people a starting point, even if they end up voting 
+differently themselves.
+
+For example, right now, I'm leaning towards 8013, 8010, 8016, 8011, 
+8012, 8015, 8014. But since some are still in flux (particularly 8016), 
+that could change. And my core rationale is basically how likely we are 
+to be able to fill the roles created by the model.
+
+Obviously I could be lying about my preferences, though I can't think of 
+any reason for me to want to do that or what I could gain out of it. The 
+gain I see by sharing them is to at least offer people a kind of proxy 
+vote. (I'm also sure I don't have the influence to make a huge 
+difference by doing this. While we'd all love it if he did, I'm pretty 
+sure Guido will not publish his preferences :) )
+
+Cheers,
+Steve
+
+From tim.peters at gmail.com  Sun Nov  4 11:46:52 2018
+From: tim.peters at gmail.com (Tim Peters)
+Date: Sun, 4 Nov 2018 10:46:52 -0600
+Subject: [python-committers] Timeline to vote for a governance PEP
+In-Reply-To: <CAP7+vJK+srW5jyU9w1c47ruGKU66vfG5=aJPEBFN9k-BW5maSQ@mail.gmail.com>
+References: <CA+3bQGEMvzborjcJqda9hFHdazA1S1na3n__n9=30iN4=GgD+Q@mail.gmail.com>
+ <CAExdVNkhbLp_15GfeVXXYk8WdT8TUMob3u_+EZfbqnL_TwSomQ@mail.gmail.com>
+ <C4355AF4-B4F3-4CE8-90CC-F094D8E6FE7F@python.org>
+ <5707F928-436E-4568-9570-3DCA7D20914E@stufft.io>
+ <CAExdVNk4TRb-KM9hVVQhVBCmJyLvdJf_RiqCM3e+O1_i_SC-+Q@mail.gmail.com>
+ <81890BC1-A4C6-414D-8FE6-830FE76DECAB@stufft.io>
+ <CAExdVNmHq6QHYg1dBnV1KCxCF4157=DiyGr=ohsTaY+xWOX7bw@mail.gmail.com>
+ <CAP7+vJK+srW5jyU9w1c47ruGKU66vfG5=aJPEBFN9k-BW5maSQ@mail.gmail.com>
+Message-ID: <CAExdVNmFdR_+QFcQnriW71ED84o5MPLJQk=xaRnaWbsQTZRwcA@mail.gmail.com>
+
+[Guido]
+> Is it safe for people not interested in voting systems to
+> ignore the rest of this thread?
+
+Have you used mailing lists before? ;-)  The topics in this particular
+thread have, e.g., ranged from voting systems (the specific message
+you're replying to), through whether and why Discourse does or doesn't
+suck, to concerns about how it's possible for someone with a life to
+make informed choices among the governance PEPs themselves.
+
+So far as the voting system alone goes, "probably safe".  Donald
+already moved that specific part to Discourse.  His announcement of
+that here crossed in the mail with the message you're replying to.  So
+scant point to muting this thread on _that_ count.  The three messages
+newer than yours in this thread didn't even mention the voting system.
+
+> I hope that if there's an update on the voting period or specifics on
+> how to vote (or what the choices are) these will be posted to a new
+> thread.
+
+See?  Another topic that's not about voting systems.  I hope so too,
+but can't answer because I'm not in charge of anything here (and
+neither is Donald).  But I _expect_  that if info people absolutely
+need to know changes, whoever makes that decision will announce it
+both here and on Discourse in visible ways.
+
+From p.f.moore at gmail.com  Sun Nov  4 13:53:03 2018
+From: p.f.moore at gmail.com (Paul Moore)
+Date: Sun, 4 Nov 2018 18:53:03 +0000
+Subject: [python-committers] Timeline to vote for a governance PEP
+In-Reply-To: <f28be41d-167b-922d-1977-ff4ee20f1cc0@python.org>
+References: <CA+3bQGEMvzborjcJqda9hFHdazA1S1na3n__n9=30iN4=GgD+Q@mail.gmail.com>
+ <CACac1F8ZYnPLQO1Gtvn+W+b7znHJ7cYZYO3ha8pwa_LzkDx-sA@mail.gmail.com>
+ <20181104002115.GS3817@ando.pearwood.info>
+ <CACac1F9NfXGxNjuL2a0zS+3iBh4wqC06SZYfLUe6_2b64=dW6w@mail.gmail.com>
+ <f28be41d-167b-922d-1977-ff4ee20f1cc0@python.org>
+Message-ID: <CACac1F_X9Wbg3Nfh-Xyv9WGRiyMqvF-YdNaDEXH3yi4vhmXvLA@mail.gmail.com>
+
+On Sun, 4 Nov 2018 at 15:25, Steve Dower <steve.dower at python.org> wrote:
+> For example, right now, I'm leaning towards 8013, 8010, 8016, 8011,
+> 8012, 8015, 8014. But since some are still in flux (particularly 8016),
+> that could change. And my core rationale is basically how likely we are
+> to be able to fill the roles created by the model.
+
+As one example of my confusion here,
+https://www.python.org/dev/peps/pep-8016/ is currently a 404. So where
+are you seeing something you can express a preference on? Presumably
+you're looking at the raw data in github?
+
+I have limited time, and I feel like we were promised a deadline after
+which we could review what was being proposed, and discuss the
+proposals in a public forum. After that, there would be a vote. But at
+this point in time, I'm confused about:
+
+1. When the proposals will be finalised and published.
+2. Where the discussion(s) will be taking place.
+
+PEP 8001 says that the vote will take place in the 2 weeks between 16
+Nov and 30 Nov. PEP 8000 states that the following proposals exist:
+
+PEP 8010 - The BDFL Governance Model
+PEP 8011 - Python Governance Model Lead by Trio of Pythonistas
+PEP 8012 - The Community Governance Model
+PEP 8013 - The External Governance Model
+PEP 8014 - The Commons Governance Model
+PEP 8015 - Organization of the Python community
+
+but claims that 8010 and 8012 are placeholders - looking at the PEPs
+themselves, this seems to be untrue.
+
+I'd like to spend some time reviewing the proposals and understanding
+the options we're being asked to vote on, but I do *not* want to waste
+time reviewing proposals that are still in flux. How do I know when I
+can do that? And where do I go to see what *other* people are saying
+about the relative merits of the proposals? The topics on Discourse
+seem to be limited to one proposal at a time - so I'm assuming they
+are thrashing out details (that I don't really care about - I don't
+have enough of a "high level" feel yet to want to get into that level
+of detail).
+
+I guess I am assuming here that a topic titled "PEP 8013: The External
+Council Governance Model" is just about PEP 8013, and doesn't include
+digressions and off-topic subthreads (such as "this is why I prefer
+PEP xxx over PEP 8013"). I suppose I'm basing that on the fact that
+the Discourse users are making a point that one of the advantages of
+Discourse is that threads don't ramble like mailing lists do. In
+reality, I'm suspicious - it seems to me that human nature is such
+that discussions *do* digress, and go off topic. But again it's about
+time - if Discourse is just as much a bunch of wide ranging
+discussions as the mailing list is, I don't have time to follow all of
+Discourse as well as all of the lists I follow, and I don't have the
+time to learn how to manage and prioritise on Discourse (or at least,
+whatever time I do have that I could use for that, I'd rather use to
+better understand the governance proposals, as those are more
+important!) In the end, I accept that "I don't have enough time to do
+a good job" is something I have to accept and decide whether I abstain
+from the vote, or skim and vote as best I can based on that. That's
+something I can't expect help in deciding - but a little more clarity
+on what's happening with the process would make it a lot easier for me
+to make that decision myself.
+
+Anyhow, this is probably a bit off-topic again. I don't know whether
+anyone thinks I'm offering anything new here - I feel like I'm
+explaining my concerns from another perspective, but maybe all that's
+coming across is me going on about the same things over and over. If
+so, I apologise. I'll do my best to assume that I've said my piece
+now, and if nothing gets better then I'm just going to have to deal
+with it, as my views have been heard and that's all I can expect.
+
+Paul
+

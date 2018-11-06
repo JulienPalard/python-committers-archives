@@ -4386,3 +4386,895 @@ with it, as my views have been heard and that's all I can expect.
 
 Paul
 
+From njs at pobox.com  Mon Nov  5 04:48:33 2018
+From: njs at pobox.com (Nathaniel Smith)
+Date: Mon, 5 Nov 2018 01:48:33 -0800
+Subject: [python-committers] Timeline to vote for a governance PEP
+In-Reply-To: <CACac1F_X9Wbg3Nfh-Xyv9WGRiyMqvF-YdNaDEXH3yi4vhmXvLA@mail.gmail.com>
+References: <CA+3bQGEMvzborjcJqda9hFHdazA1S1na3n__n9=30iN4=GgD+Q@mail.gmail.com>
+ <CACac1F8ZYnPLQO1Gtvn+W+b7znHJ7cYZYO3ha8pwa_LzkDx-sA@mail.gmail.com>
+ <20181104002115.GS3817@ando.pearwood.info>
+ <CACac1F9NfXGxNjuL2a0zS+3iBh4wqC06SZYfLUe6_2b64=dW6w@mail.gmail.com>
+ <f28be41d-167b-922d-1977-ff4ee20f1cc0@python.org>
+ <CACac1F_X9Wbg3Nfh-Xyv9WGRiyMqvF-YdNaDEXH3yi4vhmXvLA@mail.gmail.com>
+Message-ID: <CAPJVwBmR-kjE-HTu1VauxB-V1ZU57Ozau5bPxqDZHL2O7BFHnw@mail.gmail.com>
+
+On Sun, Nov 4, 2018 at 10:53 AM, Paul Moore <p.f.moore at gmail.com> wrote:
+> As one example of my confusion here,
+> https://www.python.org/dev/peps/pep-8016/ is currently a 404.
+
+Sorry about that ? there's a thread here with background:
+    https://discuss.python.org/t/working-discussion-for-pep-8016-the-boringest-possible-steering-council-model/333
+
+And the PR to add it is here:
+    https://github.com/python/peps/pull/827
+
+So it should be available on python.org soon.
+
+-n
+
+-- 
+Nathaniel J. Smith -- https://vorpus.org
+
+From brett at python.org  Mon Nov  5 13:42:26 2018
+From: brett at python.org (Brett Cannon)
+Date: Mon, 5 Nov 2018 10:42:26 -0800
+Subject: [python-committers] If you care about the voting method, please
+ vote ; -)
+In-Reply-To: <38DC9B84-D80F-49A8-A069-FA636FD3B48D@stufft.io>
+References: <CAExdVNnyCK6RzKxjquxiwiSwqc7ZsP1MdhAgPvULiFwsddnQvg@mail.gmail.com>
+ <CAP1=2W4Dh-fpb5Ptpx=OhER02Ma+bmmkF8RaQL=pOui=c91-3A@mail.gmail.com>
+ <CAOTb1wf+OPLGisajEp2eLKXBbbLADOHvO_t-DNYYuZaQZt-rQg@mail.gmail.com>
+ <CAExdVNm9uuTkKQFn5Th-QE38=ZoiMY3WpBjxggRvDw_ieFFDhQ@mail.gmail.com>
+ <CAOTb1wd=P4YU11as+g9WWaQ_YB6cBnJSSZ0FkfTW1ghSGDVAPw@mail.gmail.com>
+ <38DC9B84-D80F-49A8-A069-FA636FD3B48D@stufft.io>
+Message-ID: <CAP1=2W7NeTKGji2TYB=aQ=F-8WsU3zbaQ3Fo-ZBKnUCcHZMerA@mail.gmail.com>
+
+Everyone who has spoken up on my behalf is right: I personally never viewed
+the poll as binding. When I first suggested doing the poll my schedule
+outline included a day to discuss the results as never considered it
+something that was an objective thing to follow (I think we ended up with
+about two days in the end as no one else volunteered to update the PEP
+faster than me getting to it on Friday). Had it been close I would never
+have suggested changing the PEP to help keep this discussion to a minimum
+(which is why I personally pushed back any changes to the PEP to begin
+with).
+
+But as Donald points out below, the results were very clearly in
+Condorcet's favour no matter how you wanted to measure things, whether it
+was by the poll or "reading the room" based on how people seemed to be
+reacting to the IRV selection to begin with. Since finding a voting system
+that everyone is happy with appears impossible we had to choose something,
+and with a clear preference from those that participating in the process I
+decided to update the PEP -- with a prior announcement on that thread that
+I was going to in order to provide people time to object -- to represent
+what seemed like the closest thing we came to consensus to.
+
+On Fri, 2 Nov 2018 at 18:04, Donald Stufft <donald at stufft.io> wrote:
+
+>
+>
+> > On Nov 2, 2018, at 8:22 PM, Chris Jerdonek <chris.jerdonek at gmail.com>
+> wrote:
+> >
+> > On Fri, Nov 2, 2018 at 5:09 PM Tim Peters <tim.peters at gmail.com> wrote:
+> >>
+> >> [Chris Jerdonek <chris.jerdonek at gmail.com>]
+> >>> It would have been nice to know beforehand if the results of the poll
+> >>> were going to change the PEP.
+> >>
+> >> Don't look at me ;-)  Like I said, "I'm not in charge of anything",
+> >> and I had no input in changing PEP 8001 beyond contributing to the
+> >> message thread, same as everyone else.
+> >
+> > My reply was to Brett and not to you. If I had known the poll was
+> > going to be binding, I could have made an effort to participate in the
+> > discussion and try to sway people. As it was, the discussion was
+> > started and dominated by people who were against IRV. They are the
+> > most motivated to change things, and they're also the ones most
+> > motivated to participate in the poll. I couldn't afford to participate
+> > in such a discussion otherwise, as I said in the discussion. There are
+> > already 98 messages -- many of which are lengthy -- not to mention
+> > messages in other threads. It would take a lot of time and emotional
+> > energy to engage in such a discussion.
+> >
+> > --Chris
+> >
+>
+>
+> I don?t believe the poll *was* binding, certainly I suspect that if the
+> results of the poll had been say, tied instead of a blowout that even if
+> Condorcet had barely won out, that the PEP would not have changed (other
+> than to update that while there were other methods, discussion around them
+> compared to IRV was inconclusive). Rather I think that the poll and the
+> entire discussion was weighed, both of which provide different signals
+> (discussion tends to overweight people who are more passionate, whereas the
+> poll takes very little effort to participate in, but tends to overweight
+> people who don?t really care).
+>
+> Honestly, I?m not sure what you thought the point of the discussion was if
+> not to advocate that the PEP itself should change and thus a possible
+> outcome of that was that the PEP would change. Why else would that
+> discussion exist? I can sympathize with being unable to participate due to
+> time constraints, but we also have to weigh in realities like we?re never
+> going to be able to structure such a discussion such that 100% of people
+> are able and willing to participate in it, the best you can do is try to
+> structure it to give everyone as much chance as possible.
+>
+> The selection of a voting mechanism ended up going through these layers:
+>
+> 1. In person discussion at an event in the West Coast USA.
+> 2. Online discussion largely in discourse, but slightly on
+> python-committers as well.
+> 3. An online poll on discourse, with notification to python-committers.
+>
+> Of those, (1) selected IRV and while I was not there, I get the send that
+> there wasn?t a strong preference for IRV in that meeting, rather it was
+> better than plurality and something the attendees were familiar with. (2)
+> seemed to me (and I may be biased) to heavily weight towards a ?Anything
+> but Plurality or IRV? direction, and (3) ultimately confirmed that.
+>
+> While not everyone might not have gotten to have their voice heard, the
+> discussion and the poll was accessible to any committer who could
+> participate via online (which I suspect is most of them) with the barest
+> amount of investment being to vote in the poll and otherwise ignore the
+> discussion.
+>
+> I would also point out that while the poll itself was run via the Approval
+> voting method [1], looking at the numbers it?s not hard to come to the
+> conclusion that it?s hard to suggest that the *method* used by the poll
+> gives us invalid results. For instance, if we had instead run the poll
+> using IRV instead of Approval *and* we assume that every single person who
+> approved of IRV would have ranked it first (and anyone who didn?t approve
+> of IRV at all would have ranked it last)? then IRV still would have lost
+> even if the poll was run via IRV.
+>
+> Unfortunately, It?s hard to know exactly how the voting mechanism would
+> have affected the other results because while IRV was ?disapproved? by a
+> significant margin, the other ones were not.
+>
+> However, since the poll was run using Approval, it?s hard for someone
+> advocating for the Approval method to say that the results are invalid due
+> to the method used, since it was their desired method that chose a method
+> other than Approval.
+>
+> I suspect folks who prefer Condorcet are not going to complain too much
+> about the poll using Approval, since it fair and away preferred Condorcet
+> (21 of the 25 voters were OK with Condorcet) although it?s *possible* that
+> the 20 people who were Condorcet voters would not have ranked it first, but
+> that it was everyone?s second choice. Though if their first choice was
+> Approval, see above!
+>
+> Really, 3-2-1 is the only one that it feels to me like could really argue
+> about the tally method of the poll. The poll wasn?t run with their
+> preferred method (like anyone who preferred Approval), they didn?t win,
+> their loss wasn?t so great that they would have, for sure, lost under their
+> own method [2], and if everyone who approved of them had picked them as
+> their first choice, that?s roughly half of the people taking the poll.
+> Fortunately I can say as one of the people who approved of 3-2-1, it would
+> *not* have been my first choice, which pushes it from 12 to 13, to 11 to 14
+> which makes it more unlikely that 3-2-1 would have won in any other method
+> as well.
+>
+> Fortunately, the margins of the poll are such that the outcome is unlikely
+> to have changed by having run the poll under a different method.
+>
+> [1] Largely because that?s what discourse polls supported, plus getting
+> into a discussion about choosing the method we use to choose the method
+> that we use to choose the method that we use to choose the method that we
+> use to choose the PEP is an unsolvable, infinite problem.
+> [2] We might be able to compute this by assuming approval = +1,
+> disapproval = -1 and then running the simulation, but that?s more effort
+> than I feel like putting in.
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20181105/e9532b09/attachment.html>
+
+From brett at python.org  Mon Nov  5 14:10:49 2018
+From: brett at python.org (Brett Cannon)
+Date: Mon, 5 Nov 2018 11:10:49 -0800
+Subject: [python-committers] Timeline to vote for a governance PEP
+In-Reply-To: <CACac1F_X9Wbg3Nfh-Xyv9WGRiyMqvF-YdNaDEXH3yi4vhmXvLA@mail.gmail.com>
+References: <CA+3bQGEMvzborjcJqda9hFHdazA1S1na3n__n9=30iN4=GgD+Q@mail.gmail.com>
+ <CACac1F8ZYnPLQO1Gtvn+W+b7znHJ7cYZYO3ha8pwa_LzkDx-sA@mail.gmail.com>
+ <20181104002115.GS3817@ando.pearwood.info>
+ <CACac1F9NfXGxNjuL2a0zS+3iBh4wqC06SZYfLUe6_2b64=dW6w@mail.gmail.com>
+ <f28be41d-167b-922d-1977-ff4ee20f1cc0@python.org>
+ <CACac1F_X9Wbg3Nfh-Xyv9WGRiyMqvF-YdNaDEXH3yi4vhmXvLA@mail.gmail.com>
+Message-ID: <CAP1=2W7m5aWfSaxnDd15CS0t=c2fqcVfJ=3HhWxMZygQMMeKmg@mail.gmail.com>
+
+On Sun, 4 Nov 2018 at 10:53, Paul Moore <p.f.moore at gmail.com> wrote:
+
+> On Sun, 4 Nov 2018 at 15:25, Steve Dower <steve.dower at python.org> wrote:
+> > For example, right now, I'm leaning towards 8013, 8010, 8016, 8011,
+> > 8012, 8015, 8014. But since some are still in flux (particularly 8016),
+> > that could change. And my core rationale is basically how likely we are
+> > to be able to fill the roles created by the model.
+>
+> As one example of my confusion here,
+> https://www.python.org/dev/peps/pep-8016/ is currently a 404. So where
+> are you seeing something you can express a preference on? Presumably
+> you're looking at the raw data in github?
+>
+> I have limited time, and I feel like we were promised a deadline after
+> which we could review what was being proposed, and discuss the
+> proposals in a public forum. After that, there would be a vote. But at
+> this point in time, I'm confused about:
+>
+> 1. When the proposals will be finalised and published.
+>
+
+We were hoping by now already, but unfortunately the voting discussion has
+gone on longer than I think anyone planned for.
+
+
+> 2. Where the discussion(s) will be taking place.
+>
+
+Discourse and here.
+
+
+>
+> PEP 8001 says that the vote will take place in the 2 weeks between 16
+> Nov and 30 Nov. PEP 8000 states that the following proposals exist:
+>
+> PEP 8010 - The BDFL Governance Model
+> PEP 8011 - Python Governance Model Lead by Trio of Pythonistas
+> PEP 8012 - The Community Governance Model
+> PEP 8013 - The External Governance Model
+> PEP 8014 - The Commons Governance Model
+> PEP 8015 - Organization of the Python community
+>
+> but claims that 8010 and 8012 are placeholders - looking at the PEPs
+> themselves, this seems to be untrue.
+>
+
+It's outdated. I think Barry just hasn't thought of updating it yet since
+it's just an index into the 801X PEPs which you can view in the PEP index
+directly without any special background info (I know I personally forgot
+that PEP 8000 even listed the various PEPs).
+
+
+>
+> I'd like to spend some time reviewing the proposals and understanding
+> the options we're being asked to vote on, but I do *not* want to waste
+> time reviewing proposals that are still in flux. How do I know when I
+> can do that?
+
+
+I think the original point to this thread was to figure that out. My
+assumption is that if we don't change dates then all 801X PEPs will
+forcibly go into "final" status and not be updated short of spelling
+mistakes or clarifications that were simply overlooked -- i.e. no semantic
+changes -- on November 15.
+
+
+> And where do I go to see what *other* people are saying
+> about the relative merits of the proposals? The topics on Discourse
+> seem to be limited to one proposal at a time - so I'm assuming they
+> are thrashing out details (that I don't really care about - I don't
+> have enough of a "high level" feel yet to want to get into that level
+> of detail).
+>
+
+Correct. No grand discussion has occurred as all the discussion has been
+around getting the various PEPs to a final state that the proposers were
+happy with.
+
+
+>
+> I guess I am assuming here that a topic titled "PEP 8013: The External
+> Council Governance Model" is just about PEP 8013, and doesn't include
+> digressions and off-topic subthreads (such as "this is why I prefer
+> PEP xxx over PEP 8013"). I suppose I'm basing that on the fact that
+> the Discourse users are making a point that one of the advantages of
+> Discourse is that threads don't ramble like mailing lists do. In
+> reality, I'm suspicious - it seems to me that human nature is such
+> that discussions *do* digress, and go off topic. But again it's about
+> time - if Discourse is just as much a bunch of wide ranging
+> discussions as the mailing list is, I don't have time to follow all of
+> Discourse as well as all of the lists I follow, and I don't have the
+> time to learn how to manage and prioritise on Discourse (or at least,
+> whatever time I do have that I could use for that, I'd rather use to
+> better understand the governance proposals, as those are more
+> important!) In the end, I accept that "I don't have enough time to do
+> a good job" is something I have to accept and decide whether I abstain
+> from the vote, or skim and vote as best I can based on that. That's
+> something I can't expect help in deciding - but a little more clarity
+> on what's happening with the process would make it a lot easier for me
+> to make that decision myself.
+>
+
+So far people have been good about keeping Discourse on-topic. There is
+also the benefit of being able to forcibly split a thread when it starts to
+go off-topic (versus what happened here when the thread went off-topic and
+the only way to stop that is to start a new email thread and hope people
+pick up on the fact that it split off).
+
+
+>
+> Anyhow, this is probably a bit off-topic again.
+
+
+Yes, but that's a drawback to mailing lists in my opinion and it's hard to
+avoid. :)
+
+-Brett
+
+
+> I don't know whether
+> anyone thinks I'm offering anything new here - I feel like I'm
+> explaining my concerns from another perspective, but maybe all that's
+> coming across is me going on about the same things over and over. If
+> so, I apologise. I'll do my best to assume that I've said my piece
+> now, and if nothing gets better then I'm just going to have to deal
+> with it, as my views have been heard and that's all I can expect.
+>
+> Paul
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20181105/4ca57b44/attachment-0001.html>
+
+From barry at python.org  Mon Nov  5 14:17:49 2018
+From: barry at python.org (Barry Warsaw)
+Date: Mon, 5 Nov 2018 11:17:49 -0800
+Subject: [python-committers] Timeline to vote for a governance PEP
+In-Reply-To: <CAP1=2W7m5aWfSaxnDd15CS0t=c2fqcVfJ=3HhWxMZygQMMeKmg@mail.gmail.com>
+References: <CA+3bQGEMvzborjcJqda9hFHdazA1S1na3n__n9=30iN4=GgD+Q@mail.gmail.com>
+ <CACac1F8ZYnPLQO1Gtvn+W+b7znHJ7cYZYO3ha8pwa_LzkDx-sA@mail.gmail.com>
+ <20181104002115.GS3817@ando.pearwood.info>
+ <CACac1F9NfXGxNjuL2a0zS+3iBh4wqC06SZYfLUe6_2b64=dW6w@mail.gmail.com>
+ <f28be41d-167b-922d-1977-ff4ee20f1cc0@python.org>
+ <CACac1F_X9Wbg3Nfh-Xyv9WGRiyMqvF-YdNaDEXH3yi4vhmXvLA@mail.gmail.com>
+ <CAP1=2W7m5aWfSaxnDd15CS0t=c2fqcVfJ=3HhWxMZygQMMeKmg@mail.gmail.com>
+Message-ID: <29F74581-E1F1-449C-B3DA-403CFDB430B6@python.org>
+
+On Nov 5, 2018, at 11:10, Brett Cannon <brett at python.org> wrote:
+
+> It's outdated. I think Barry just hasn't thought of updating it yet since it's just an index into the 801X PEPs which you can view in the PEP index directly without any special background info (I know I personally forgot that PEP 8000 even listed the various PEPs).
+
+I just updated the PEP 8010 description in PEP 8000.
+
+-Barry
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 833 bytes
+Desc: Message signed with OpenPGP
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20181105/94945c40/attachment.sig>
+
+From p.f.moore at gmail.com  Mon Nov  5 14:22:38 2018
+From: p.f.moore at gmail.com (Paul Moore)
+Date: Mon, 5 Nov 2018 19:22:38 +0000
+Subject: [python-committers] Timeline to vote for a governance PEP
+In-Reply-To: <CAP1=2W7m5aWfSaxnDd15CS0t=c2fqcVfJ=3HhWxMZygQMMeKmg@mail.gmail.com>
+References: <CA+3bQGEMvzborjcJqda9hFHdazA1S1na3n__n9=30iN4=GgD+Q@mail.gmail.com>
+ <CACac1F8ZYnPLQO1Gtvn+W+b7znHJ7cYZYO3ha8pwa_LzkDx-sA@mail.gmail.com>
+ <20181104002115.GS3817@ando.pearwood.info>
+ <CACac1F9NfXGxNjuL2a0zS+3iBh4wqC06SZYfLUe6_2b64=dW6w@mail.gmail.com>
+ <f28be41d-167b-922d-1977-ff4ee20f1cc0@python.org>
+ <CACac1F_X9Wbg3Nfh-Xyv9WGRiyMqvF-YdNaDEXH3yi4vhmXvLA@mail.gmail.com>
+ <CAP1=2W7m5aWfSaxnDd15CS0t=c2fqcVfJ=3HhWxMZygQMMeKmg@mail.gmail.com>
+Message-ID: <CACac1F_gvQQxFf4_kL8v7xmhTL12DCBb3uzQWy=6rzoTw4Dcrg@mail.gmail.com>
+
+On Mon, 5 Nov 2018 at 19:11, Brett Cannon <brett at python.org> wrote:
+
+>> Anyhow, this is probably a bit off-topic again.
+>
+> Yes, but that's a drawback to mailing lists in my opinion and it's hard to avoid. :)
+
+I did consider what I would have done on Discourse, and came to the
+conclusion that I would have done exactly the same - I've no idea how
+Discourse would help with a "here's some things I thought of that I
+felt needed saying while reading this thread" post. Obviously I could
+move the reply to a new topic, but I could just as easily have changed
+the subject in the mailing list. So without meaning to ignore your
+smiley, I don't think it's really a fault with mailing lists, just
+with how people discuss things ;-)
+
+Paul
+
+From p.f.moore at gmail.com  Mon Nov  5 14:29:44 2018
+From: p.f.moore at gmail.com (Paul Moore)
+Date: Mon, 5 Nov 2018 19:29:44 +0000
+Subject: [python-committers] Timeline to vote for a governance PEP
+In-Reply-To: <CAP1=2W7m5aWfSaxnDd15CS0t=c2fqcVfJ=3HhWxMZygQMMeKmg@mail.gmail.com>
+References: <CA+3bQGEMvzborjcJqda9hFHdazA1S1na3n__n9=30iN4=GgD+Q@mail.gmail.com>
+ <CACac1F8ZYnPLQO1Gtvn+W+b7znHJ7cYZYO3ha8pwa_LzkDx-sA@mail.gmail.com>
+ <20181104002115.GS3817@ando.pearwood.info>
+ <CACac1F9NfXGxNjuL2a0zS+3iBh4wqC06SZYfLUe6_2b64=dW6w@mail.gmail.com>
+ <f28be41d-167b-922d-1977-ff4ee20f1cc0@python.org>
+ <CACac1F_X9Wbg3Nfh-Xyv9WGRiyMqvF-YdNaDEXH3yi4vhmXvLA@mail.gmail.com>
+ <CAP1=2W7m5aWfSaxnDd15CS0t=c2fqcVfJ=3HhWxMZygQMMeKmg@mail.gmail.com>
+Message-ID: <CACac1F-AWfhm-qXKS1ATXBOE-ZB8BVzoGxBwNe=oPCG0RrSthA@mail.gmail.com>
+
+On Mon, 5 Nov 2018 at 19:11, Brett Cannon <brett at python.org> wrote:
+>> I'd like to spend some time reviewing the proposals and understanding
+>> the options we're being asked to vote on, but I do *not* want to waste
+>> time reviewing proposals that are still in flux. How do I know when I
+>> can do that?
+>
+> I think the original point to this thread was to figure that out. My assumption is that if we don't change dates then all 801X PEPs will forcibly go into "final" status and not be updated short of spelling mistakes or clarifications that were simply overlooked -- i.e. no semantic changes -- on November 15.
+
+Hmm, so voting opens immediately after the PEPs are finalised? No
+discussion/debate period before that? Maybe I misunderstood, I'd
+assumed that this would be more similar to an election process, with a
+period of canvassing support and/or debating the strengths and
+weaknesses of the proposals, leading up to a vote.
+
+OK. I can't say I *like* that, but if that's what's happening then
+that probably explains some of my confusion.
+Paul
+
+From brett at python.org  Mon Nov  5 14:32:36 2018
+From: brett at python.org (Brett Cannon)
+Date: Mon, 5 Nov 2018 11:32:36 -0800
+Subject: [python-committers] Timeline to vote for a governance PEP
+In-Reply-To: <CACac1F_gvQQxFf4_kL8v7xmhTL12DCBb3uzQWy=6rzoTw4Dcrg@mail.gmail.com>
+References: <CA+3bQGEMvzborjcJqda9hFHdazA1S1na3n__n9=30iN4=GgD+Q@mail.gmail.com>
+ <CACac1F8ZYnPLQO1Gtvn+W+b7znHJ7cYZYO3ha8pwa_LzkDx-sA@mail.gmail.com>
+ <20181104002115.GS3817@ando.pearwood.info>
+ <CACac1F9NfXGxNjuL2a0zS+3iBh4wqC06SZYfLUe6_2b64=dW6w@mail.gmail.com>
+ <f28be41d-167b-922d-1977-ff4ee20f1cc0@python.org>
+ <CACac1F_X9Wbg3Nfh-Xyv9WGRiyMqvF-YdNaDEXH3yi4vhmXvLA@mail.gmail.com>
+ <CAP1=2W7m5aWfSaxnDd15CS0t=c2fqcVfJ=3HhWxMZygQMMeKmg@mail.gmail.com>
+ <CACac1F_gvQQxFf4_kL8v7xmhTL12DCBb3uzQWy=6rzoTw4Dcrg@mail.gmail.com>
+Message-ID: <CAP1=2W6fER0zaCwdXJ+6BeZW=VgC0rxRUtMGgj19rdxHAhEzoA@mail.gmail.com>
+
+On Mon, 5 Nov 2018 at 11:22, Paul Moore <p.f.moore at gmail.com> wrote:
+
+> On Mon, 5 Nov 2018 at 19:11, Brett Cannon <brett at python.org> wrote:
+>
+> >> Anyhow, this is probably a bit off-topic again.
+> >
+> > Yes, but that's a drawback to mailing lists in my opinion and it's hard
+> to avoid. :)
+>
+> I did consider what I would have done on Discourse, and came to the
+> conclusion that I would have done exactly the same - I've no idea how
+> Discourse would help with a "here's some things I thought of that I
+> felt needed saying while reading this thread" post. Obviously I could
+> move the reply to a new topic, but I could just as easily have changed
+> the subject in the mailing list. So without meaning to ignore your
+> smiley, I don't think it's really a fault with mailing lists, just
+> with how people discuss things ;-)
+>
+
+In Discourse an admin could have selected every post related to "Discourse
+versus Mailing Lists" and then created a new topic. Here, I can't do that,
+and people who choose to keep replying to this thread on this topic (like I
+am now :) will be accidentally, directly working against keeping the
+conversation on-topic. So my comment was more general to this overall
+thread than you specifically, Paul.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20181105/573d68fe/attachment.html>
+
+From donald at stufft.io  Mon Nov  5 14:34:12 2018
+From: donald at stufft.io (Donald Stufft)
+Date: Mon, 5 Nov 2018 14:34:12 -0500
+Subject: [python-committers] Timeline to vote for a governance PEP
+In-Reply-To: <CACac1F-AWfhm-qXKS1ATXBOE-ZB8BVzoGxBwNe=oPCG0RrSthA@mail.gmail.com>
+References: <CA+3bQGEMvzborjcJqda9hFHdazA1S1na3n__n9=30iN4=GgD+Q@mail.gmail.com>
+ <CACac1F8ZYnPLQO1Gtvn+W+b7znHJ7cYZYO3ha8pwa_LzkDx-sA@mail.gmail.com>
+ <20181104002115.GS3817@ando.pearwood.info>
+ <CACac1F9NfXGxNjuL2a0zS+3iBh4wqC06SZYfLUe6_2b64=dW6w@mail.gmail.com>
+ <f28be41d-167b-922d-1977-ff4ee20f1cc0@python.org>
+ <CACac1F_X9Wbg3Nfh-Xyv9WGRiyMqvF-YdNaDEXH3yi4vhmXvLA@mail.gmail.com>
+ <CAP1=2W7m5aWfSaxnDd15CS0t=c2fqcVfJ=3HhWxMZygQMMeKmg@mail.gmail.com>
+ <CACac1F-AWfhm-qXKS1ATXBOE-ZB8BVzoGxBwNe=oPCG0RrSthA@mail.gmail.com>
+Message-ID: <4B72078B-BD74-49CD-B82E-EB44C7B341D8@stufft.io>
+
+
+
+> On Nov 5, 2018, at 2:29 PM, Paul Moore <p.f.moore at gmail.com> wrote:
+> 
+> Hmm, so voting opens immediately after the PEPs are finalised? No
+> discussion/debate period before that? Maybe I misunderstood, I'd
+> assumed that this would be more similar to an election process, with a
+> period of canvassing support and/or debating the strengths and
+> weaknesses of the proposals, leading up to a vote.
+
+
+I don?t think there is anything stopping people from doing that right now (and honestly, right now seems like the *right* time to do that if it?s going to happen, so that the proposals can evolve based on any discussion that comes out of that). Waiting until the proposals are set in stone seems like a less useful implementation of that idea.
+
+I suspect the reason that people aren?t doing that, is just nobody has started that discussion for one reason or another.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20181105/2596c7f3/attachment-0001.html>
+
+From brett at python.org  Mon Nov  5 14:37:22 2018
+From: brett at python.org (Brett Cannon)
+Date: Mon, 5 Nov 2018 11:37:22 -0800
+Subject: [python-committers] Timeline to vote for a governance PEP
+In-Reply-To: <CACac1F-AWfhm-qXKS1ATXBOE-ZB8BVzoGxBwNe=oPCG0RrSthA@mail.gmail.com>
+References: <CA+3bQGEMvzborjcJqda9hFHdazA1S1na3n__n9=30iN4=GgD+Q@mail.gmail.com>
+ <CACac1F8ZYnPLQO1Gtvn+W+b7znHJ7cYZYO3ha8pwa_LzkDx-sA@mail.gmail.com>
+ <20181104002115.GS3817@ando.pearwood.info>
+ <CACac1F9NfXGxNjuL2a0zS+3iBh4wqC06SZYfLUe6_2b64=dW6w@mail.gmail.com>
+ <f28be41d-167b-922d-1977-ff4ee20f1cc0@python.org>
+ <CACac1F_X9Wbg3Nfh-Xyv9WGRiyMqvF-YdNaDEXH3yi4vhmXvLA@mail.gmail.com>
+ <CAP1=2W7m5aWfSaxnDd15CS0t=c2fqcVfJ=3HhWxMZygQMMeKmg@mail.gmail.com>
+ <CACac1F-AWfhm-qXKS1ATXBOE-ZB8BVzoGxBwNe=oPCG0RrSthA@mail.gmail.com>
+Message-ID: <CAP1=2W7M0Ez1e3=3VF+9C4fn6mC7+9RSQpsny=UxQ5Bt3b8Ufw@mail.gmail.com>
+
+On Mon, 5 Nov 2018 at 11:29, Paul Moore <p.f.moore at gmail.com> wrote:
+
+> On Mon, 5 Nov 2018 at 19:11, Brett Cannon <brett at python.org> wrote:
+> >> I'd like to spend some time reviewing the proposals and understanding
+> >> the options we're being asked to vote on, but I do *not* want to waste
+> >> time reviewing proposals that are still in flux. How do I know when I
+> >> can do that?
+> >
+> > I think the original point to this thread was to figure that out. My
+> assumption is that if we don't change dates then all 801X PEPs will
+> forcibly go into "final" status and not be updated short of spelling
+> mistakes or clarifications that were simply overlooked -- i.e. no semantic
+> changes -- on November 15.
+>
+> Hmm, so voting opens immediately after the PEPs are finalised? No
+> discussion/debate period before that?
+
+
+You get 2 weeks of that since the vote is open that long (as currently
+planned). I'm not sure if the UK has this, but think of it like voting by
+mail. People are still discussing stuff while you can mail in your vote, so
+if you aren't ready to cast your vote until the last day then you can wait
+while those of us who are ready Day 1 can vote early.
+
+
+> Maybe I misunderstood, I'd
+> assumed that this would be more similar to an election process, with a
+> period of canvassing support and/or debating the strengths and
+> weaknesses of the proposals, leading up to a vote.
+>
+
+But there's also no election _day_ like you might be used to, but instead
+an election _pair of weeks_. Do you really want to have threads like this
+for more than two weeks anyway? ;)
+
+
+>
+> OK. I can't say I *like* that, but if that's what's happening then
+> that probably explains some of my confusion.
+>
+
+Hopefully the above explanation assuages your worries, otherwise I don't
+understand your worries.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20181105/9314d86a/attachment.html>
+
+From tim.peters at gmail.com  Mon Nov  5 14:48:54 2018
+From: tim.peters at gmail.com (Tim Peters)
+Date: Mon, 5 Nov 2018 13:48:54 -0600
+Subject: [python-committers] Timeline to vote for a governance PEP
+In-Reply-To: <CACac1F_gvQQxFf4_kL8v7xmhTL12DCBb3uzQWy=6rzoTw4Dcrg@mail.gmail.com>
+References: <CA+3bQGEMvzborjcJqda9hFHdazA1S1na3n__n9=30iN4=GgD+Q@mail.gmail.com>
+ <CACac1F8ZYnPLQO1Gtvn+W+b7znHJ7cYZYO3ha8pwa_LzkDx-sA@mail.gmail.com>
+ <20181104002115.GS3817@ando.pearwood.info>
+ <CACac1F9NfXGxNjuL2a0zS+3iBh4wqC06SZYfLUe6_2b64=dW6w@mail.gmail.com>
+ <f28be41d-167b-922d-1977-ff4ee20f1cc0@python.org>
+ <CACac1F_X9Wbg3Nfh-Xyv9WGRiyMqvF-YdNaDEXH3yi4vhmXvLA@mail.gmail.com>
+ <CAP1=2W7m5aWfSaxnDd15CS0t=c2fqcVfJ=3HhWxMZygQMMeKmg@mail.gmail.com>
+ <CACac1F_gvQQxFf4_kL8v7xmhTL12DCBb3uzQWy=6rzoTw4Dcrg@mail.gmail.com>
+Message-ID: <CAExdVNkHhYVPE=2x8vuNf+bXnGF3Hj77hub+ZtZgr08GBmyakQ@mail.gmail.com>
+
+[Paul Moore <p.f.moore at gmail.com>]
+> I did consider what I would have done on Discourse, and came to the
+> conclusion that I would have done exactly the same - I've no idea how
+> Discourse would help with a "here's some things I thought of that I
+> felt needed saying while reading this thread" post.
+
+It wouldn't, and nobody would really care.  It's when a technically
+off-topic sub-thread _grows_ that it becomes "a problem".  Sometimes
+you just can't gauge interest in whether it will without making a
+start.  If people pile on, the very lack of a fully-threaded view in
+Discourse is what _drives_ people to split it off to a new "category"
+of its own   Which is a better outcome for everyone!  If you do care
+about the new category, it has its own space wholly dedicated to it.
+If you don't care, don't follow it, and you'll never even know that
+it's still going on.
+
+> Obviously I could move the reply to a new topic, but I could just as
+> easily have changed the subject in the mailing list.
+
+But people don't.  If this sub-thread keeps going on, someone
+eventually _will_ change the Subject line, and then you need "clever"
+software to show you that it's still the same sub-thread, and it keeps
+getting sent to everyone on the "python-committers" list whether they
+want it or not.
+
+> So without meaning to ignore your smiley, I don't think it's really a fault with
+> mailing lists, just with how people discuss things ;-)
+
+In the absence of trying it for yourself, you could, e.g., look for
+what the people who designed the system had in mind.  The lack of a
+fully threaded view in Discourse was 100% intentional, not due to,
+e.g., laziness, or lack of time or skill.
+
+Here's a start:
+
+    https://blog.codinghorror.com/web-discussions-flat-by-design/
+
+I'm not necessarily endorsing those views, but I did take the time to
+try to find out _why_ they did what they did.  It wasn't capricious.
+There are things I do and don't like about Discourse, but _which_
+things are still changing for me over time ;-)
+
+From p.f.moore at gmail.com  Mon Nov  5 16:28:41 2018
+From: p.f.moore at gmail.com (Paul Moore)
+Date: Mon, 5 Nov 2018 21:28:41 +0000
+Subject: [python-committers] Timeline to vote for a governance PEP
+In-Reply-To: <4B72078B-BD74-49CD-B82E-EB44C7B341D8@stufft.io>
+References: <CA+3bQGEMvzborjcJqda9hFHdazA1S1na3n__n9=30iN4=GgD+Q@mail.gmail.com>
+ <CACac1F8ZYnPLQO1Gtvn+W+b7znHJ7cYZYO3ha8pwa_LzkDx-sA@mail.gmail.com>
+ <20181104002115.GS3817@ando.pearwood.info>
+ <CACac1F9NfXGxNjuL2a0zS+3iBh4wqC06SZYfLUe6_2b64=dW6w@mail.gmail.com>
+ <f28be41d-167b-922d-1977-ff4ee20f1cc0@python.org>
+ <CACac1F_X9Wbg3Nfh-Xyv9WGRiyMqvF-YdNaDEXH3yi4vhmXvLA@mail.gmail.com>
+ <CAP1=2W7m5aWfSaxnDd15CS0t=c2fqcVfJ=3HhWxMZygQMMeKmg@mail.gmail.com>
+ <CACac1F-AWfhm-qXKS1ATXBOE-ZB8BVzoGxBwNe=oPCG0RrSthA@mail.gmail.com>
+ <4B72078B-BD74-49CD-B82E-EB44C7B341D8@stufft.io>
+Message-ID: <CACac1F8GhbgXFSU2_773hzMOhwScJ3ygJagzey+GRKc1PH5Eeg@mail.gmail.com>
+
+I'm going to quote multiple people here and respond to various
+comments at once. It's way harder doing so than it would have been in
+Discourse, so I'm sort of proving that for myself (but having said
+that, I was already aware of, and fine with, the idea that Discourse
+does stuff like this better - it's simply that I don't have the time
+right now to learn a new bit of software and adapt my workflow to its
+approach).
+
+On Mon, 5 Nov 2018 at 19:34, Donald Stufft <donald at stufft.io> wrote:
+> I don?t think there is anything stopping people from doing that right now (and honestly, right now seems like the *right* time to do that if it?s going to happen, so that the proposals can evolve based on any discussion that comes out of that). Waiting until the proposals are set in stone seems like a less useful implementation of that idea.
+
+Well, in my case I specifically don't want to end up commenting on
+things that have changed and my understanding is out of date. That's a
+common problem with PEP discussions, and one that I don't feel would
+be helpful here. But agreed, if you see it as "wait until things are
+set in stone", it sounds worse. Seeing it as "waiting until things are
+stable" sounds more reasonable (at least to me) while still meaning
+essentially the same ;-)
+
+> I suspect the reason that people aren?t doing that, is just nobody has started that discussion for one reason or another.
+
+I suspect that what those reasons are would be interesting. I wonder
+how high "because I didn't think the proposal was finished yet" would
+come? It's what's stopping me (although I tend to comment on threads
+started by others more than starting my own, so I'm not a good
+example),
+
+On Mon, 5 Nov 2018 at 19:37, Brett Cannon <brett at python.org> wrote:
+> Hopefully the above explanation assuages your worries, otherwise I don't understand your worries.
+
+To an extent, yes. My main worry is that there won't *be* the sort of
+discussion I'm hoping for. I like to have a sense of what the broad
+consensus is on a proposal before making my own final decision, and at
+the moment there's no discussion that I've seen that gives me that
+sort of sense. If that remains the case over the 2 week voting period,
+it'll be a little late by that point. And it's not obvious to me how I
+could *start* such a discussion - "so how are people going to vote?"
+isn't a particularly subtle opening. This tends to be "solved" (in
+some sense) in political debates by the various parties trying to
+persuade people to vote for them. That's not happening here, and I
+think I'm just finding that unnerving (because the whole process has a
+feel of a political debate to me).
+
+Anyhow, I guess it's just me expecting something from the process that
+it's not. And that's for me to deal with.
+
+On Mon, 5 Nov 2018 at 19:49, Tim Peters <tim.peters at gmail.com> wrote:
+> In the absence of trying it for yourself, you could, e.g., look for
+> what the people who designed the system had in mind.  The lack of a
+> fully threaded view in Discourse was 100% intentional, not due to,
+> e.g., laziness, or lack of time or skill.
+>
+> Here's a start:
+>
+>     https://blog.codinghorror.com/web-discussions-flat-by-design/
+>
+> I'm not necessarily endorsing those views, but I did take the time to
+> try to find out _why_ they did what they did.  It wasn't capricious.
+> There are things I do and don't like about Discourse, but _which_
+> things are still changing for me over time ;-)
+
+Thanks, Tim. That link is definitely something I'll read up on. My
+impression has always been that every part of Discourse's design was
+carefully thought through, but I hadn't seen any specifics before. As
+I say above, though, it's not that I don't intend to try Discourse
+(and indeed, I know there are many things I expect to like about it) -
+it's simply that I don't have time right now. I'm twitchy about that
+fact because I *want* to follow the discussions on the governance
+issues, but I haven't worked out an effective way to do so with the
+time I have available right now.
+
+(No need for replies to any of the above. I appreciate all of the
+comments and anything I'm still concerned about is something I'll have
+to work out for myself).
+
+Paul
+
+From vstinner at redhat.com  Mon Nov  5 17:08:42 2018
+From: vstinner at redhat.com (Victor Stinner)
+Date: Mon, 5 Nov 2018 23:08:42 +0100
+Subject: [python-committers] Timeline to vote for a governance PEP
+In-Reply-To: <a14181f2-3e7d-07de-780a-6cc7e3035527@python.org>
+References: <CA+3bQGEMvzborjcJqda9hFHdazA1S1na3n__n9=30iN4=GgD+Q@mail.gmail.com>
+ <CAExdVNkhbLp_15GfeVXXYk8WdT8TUMob3u_+EZfbqnL_TwSomQ@mail.gmail.com>
+ <CA+3bQGEV9isidYsZiKOpMLpAcWYvC7M+T_tWp0Mv02ZXBODAAg@mail.gmail.com>
+ <a14181f2-3e7d-07de-780a-6cc7e3035527@python.org>
+Message-ID: <CA+3bQGEAwPqnXM4raoZKE0cyO9mHEWV=rJsoPm28Ti+eKn4kzQ@mail.gmail.com>
+
+Le sam. 3 nov. 2018 ? 10:39, Antoine Pitrou <antoine at python.org> a ?crit :
+> > I'm unhappy with the "[] Further discussion" choice. We have a
+> > governance crisis. Many people would like to see it resolved as soon
+> > as possible, I don't see the ability to vote for "[] Further
+> > discussion" as a way to resolve this crisis.
+>
+> Why are you worried?  If many people would like to see the "crisis" (I
+> would call it a void) resolved early, then probably "Further discussion"
+> won't win.  So how is its presence a problem?
+
+PEPs cannot be approved since July. It seems like we will not be able
+to approve PEPs before January, even if a governance PEP is approved
+and a new council/committee/whatever is elected.
+
+There was a discussion abouge BDFL-delegate for Jeroen Demeyer's PEP
+580 which has been somehow blocked (sorry, I didn't follow closely the
+discussion, so I'm not sure of the outcome).
+
+I would prefer the situation to be unblocked as soon as possible to
+unblock Python 3.8. Otherwise, Python 3.8 will be the release of the
+governance crisis with no large new features.
+
+I know that at least two core developers have pending PEPs that they
+didn't publish because there is nobody to approve PEPs.
+
+Victor
+
+From donald at stufft.io  Mon Nov  5 17:17:14 2018
+From: donald at stufft.io (Donald Stufft)
+Date: Mon, 5 Nov 2018 17:17:14 -0500
+Subject: [python-committers] IMPORTANT: Missing Email Addresses for
+ Governance Election Voter Roll
+Message-ID: <A626D824-0C02-44EF-9A6C-B1873666FAEC@stufft.io>
+
+We need a list of core developers email addresses to send ballot emails to. Since PEP 8001 states that we?re using inclusion in the ``python-core`` team on GitHub as the list of ?registered voters?, I wrote up a quick script that compiled a list of GitHub usernames in that team *today* and any public email address on their GitHub profile if there is one.
+
+That is located at https://github.com/python/voters <https://github.com/python/voters> (specifically the 2018-11-16-governance-election.csv file), which is a private repository.
+
+Please everyone take a moment to find your GitHub username in that file (it?s in alphabetical order) and ensure that the email address there is a good email for you to send your ballot to. If it?s wrong or missing, update the CSV file (there is a .voters.csv file that will taken into effect for any future voter rolls we may generate from this script).
+
+If you?re not a member of the python-core team on Github and you want to participate in the vote, please ask to be added to that team, then add yourself to the 2018-11-16-governance-election.csv file.
+
+We particularly need the following people (GitHub usernames) to go fill in their email addresses, as we do not currently have an email address for them, and without an email address, we cannot send you a ballot.
+
+- [ ] @abalkin
+- [ ] @akuchling
+- [ ] @aleaxit
+- [ ] @amauryfa
+- [ ] @applio
+- [ ] @avassalotti
+- [ ] @brettcannon
+- [ ] @doerwalter
+- [ ] @doko42
+- [ ] @eliben
+- [ ] @ericsnowcurrently
+- [ ] @ericvsmith
+- [ ] @ezio-melotti
+- [ ] @facundobatista
+- [ ] @ilevkivskyi
+- [ ] @jcea
+- [ ] @jeremyhylton
+- [ ] @larryhastings
+- [ ] @lisroach
+- [ ] @malemburg
+- [ ] @Mariatta
+- [ ] @markshannon
+- [ ] @methane
+- [ ] @mhammond
+- [ ] @nascheme
+- [ ] @ncoghlan
+- [ ] @ned-deily
+- [ ] @pfmoore
+- [ ] @pitrou
+- [ ] @pjenvey
+- [ ] @rbtcollins
+- [ ] @rhettinger
+- [ ] @sandrotosi
+- [ ] @serhiy-storchaka
+- [ ] @sjoerdmullender
+- [ ] @skrah
+- [ ] @stevendaprano
+- [ ] @taleinat
+- [ ] @vadmium
+- [ ] @willingc
+
+This list of people is also available on Github at https://github.com/python/voters/issues/1 <https://github.com/python/voters/issues/1> (primarily so people would get a GitHub notification as well).
+
+Thanks!
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20181105/36a5be00/attachment.html>
+
+From antoine at python.org  Mon Nov  5 17:18:40 2018
+From: antoine at python.org (Antoine Pitrou)
+Date: Mon, 5 Nov 2018 23:18:40 +0100
+Subject: [python-committers] Timeline to vote for a governance PEP
+In-Reply-To: <CA+3bQGEAwPqnXM4raoZKE0cyO9mHEWV=rJsoPm28Ti+eKn4kzQ@mail.gmail.com>
+References: <CA+3bQGEMvzborjcJqda9hFHdazA1S1na3n__n9=30iN4=GgD+Q@mail.gmail.com>
+ <CAExdVNkhbLp_15GfeVXXYk8WdT8TUMob3u_+EZfbqnL_TwSomQ@mail.gmail.com>
+ <CA+3bQGEV9isidYsZiKOpMLpAcWYvC7M+T_tWp0Mv02ZXBODAAg@mail.gmail.com>
+ <a14181f2-3e7d-07de-780a-6cc7e3035527@python.org>
+ <CA+3bQGEAwPqnXM4raoZKE0cyO9mHEWV=rJsoPm28Ti+eKn4kzQ@mail.gmail.com>
+Message-ID: <111ef0f1-50da-0ba0-049f-ccbf5d8d2251@python.org>
+
+
+Le 05/11/2018 ? 23:08, Victor Stinner a ?crit?:
+> Le sam. 3 nov. 2018 ? 10:39, Antoine Pitrou <antoine at python.org> a ?crit :
+>>> I'm unhappy with the "[] Further discussion" choice. We have a
+>>> governance crisis. Many people would like to see it resolved as soon
+>>> as possible, I don't see the ability to vote for "[] Further
+>>> discussion" as a way to resolve this crisis.
+>>
+>> Why are you worried?  If many people would like to see the "crisis" (I
+>> would call it a void) resolved early, then probably "Further discussion"
+>> won't win.  So how is its presence a problem?
+> 
+> PEPs cannot be approved since July.
+
+Let me repeat the question: if "Further discussion" has no chance of
+winning, why are you bothered by its presence?
+
+Regards
+
+Antoine.
+
+From vstinner at redhat.com  Mon Nov  5 20:27:49 2018
+From: vstinner at redhat.com (Victor Stinner)
+Date: Tue, 6 Nov 2018 02:27:49 +0100
+Subject: [python-committers] Comparison of the 7 governance PEPs
+Message-ID: <CA+3bQGFbw9PX5bkYf68kxvDyfCOVk57q7Dk9L6ziDU3R-ZfmtA@mail.gmail.com>
+
+Hi Paul,
+
+Le sam. 3 nov. 2018 ? 11:55, Paul Moore <p.f.moore at gmail.com> a ?crit :
+> Currently, I feel like my only option is to abstain and hope - I don't
+> have the time (or knowledge) to review, understand and assess the
+> proposals well enough to make an informed vote, but I have no way of
+> assessing the "expert opinions" of those who do, to allow me to make a
+> broad judgement. Frankly, I feel pretty disenfranchised by the process
+> at the moment.
+
+I wrote a comparison and summary of the 7 governance PEPs for you :-)
+
+https://discuss.python.org/t/comparison-of-the-7-governance-peps/392
+
+WARNING: It is not always easy to extract the information and
+summarize it, so it?s likely that I made mistakes.
+
+Two weeks ago (October 24), Jake Edge wrote "Picking a governance
+model for Python" on LWN: https://lwn.net/Articles/769178/ I didn't
+publish the link earlier, since previously you required to have a LWN
+account to read it (I do!).
+
+Victor
+

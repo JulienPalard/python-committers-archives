@@ -5278,3 +5278,106 @@ account to read it (I do!).
 
 Victor
 
+From ncoghlan at gmail.com  Tue Nov  6 05:14:36 2018
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Tue, 6 Nov 2018 20:14:36 +1000
+Subject: [python-committers] IMPORTANT: Missing Email Addresses for
+ Governance Election Voter Roll
+In-Reply-To: <A626D824-0C02-44EF-9A6C-B1873666FAEC@stufft.io>
+References: <A626D824-0C02-44EF-9A6C-B1873666FAEC@stufft.io>
+Message-ID: <CADiSq7c_2-k4sVbyrsHbyMaq0bNWccaU0Fx_soidYeaH6xt9NA@mail.gmail.com>
+
+On Tue, 6 Nov 2018 at 08:17, Donald Stufft <donald at stufft.io> wrote:
+>
+> We need a list of core developers email addresses to send ballot emails to. Since PEP 8001 states that we?re using inclusion in the ``python-core`` team on GitHub as the list of ?registered voters?, I wrote up a quick script that compiled a list of GitHub usernames in that team *today* and any public email address on their GitHub profile if there is one.
+>
+> That is located at https://github.com/python/voters (specifically the 2018-11-16-governance-election.csv file), which is a private repository.
+>
+> Please everyone take a moment to find your GitHub username in that file (it?s in alphabetical order) and ensure that the email address there is a good email for you to send your ballot to. If it?s wrong or missing, update the CSV file (there is a .voters.csv file that will taken into effect for any future voter rolls we may generate from this script).
+>
+> If you?re not a member of the python-core team on Github and you want to participate in the vote, please ask to be added to that team, then add yourself to the 2018-11-16-governance-election.csv file.
+>
+> We particularly need the following people (GitHub usernames) to go fill in their email addresses, as we do not currently have an email address for them, and without an email address, we cannot send you a ballot.
+
+You should have email addresses for us, they're just in
+bugs.python.org (which is necessarily linked on GitHub usernames, as
+otherwise the CLA check wouldn't pass).
+
+Cheers,
+Nick.
+
+
+-- 
+Nick Coghlan   |   ncoghlan at gmail.com   |   Brisbane, Australia
+
+From donald at stufft.io  Tue Nov  6 07:24:31 2018
+From: donald at stufft.io (Donald Stufft)
+Date: Tue, 6 Nov 2018 07:24:31 -0500
+Subject: [python-committers] IMPORTANT: Missing Email Addresses for
+ Governance Election Voter Roll
+In-Reply-To: <CADiSq7c_2-k4sVbyrsHbyMaq0bNWccaU0Fx_soidYeaH6xt9NA@mail.gmail.com>
+References: <A626D824-0C02-44EF-9A6C-B1873666FAEC@stufft.io>
+ <CADiSq7c_2-k4sVbyrsHbyMaq0bNWccaU0Fx_soidYeaH6xt9NA@mail.gmail.com>
+Message-ID: <0740F7DF-8C0D-41A9-88F6-B3125C09DC30@stufft.io>
+
+
+
+> On Nov 6, 2018, at 5:14 AM, Nick Coghlan <ncoghlan at gmail.com> wrote:
+> 
+> On Tue, 6 Nov 2018 at 08:17, Donald Stufft <donald at stufft.io <mailto:donald at stufft.io>> wrote:
+>> 
+>> We need a list of core developers email addresses to send ballot emails to. Since PEP 8001 states that we?re using inclusion in the ``python-core`` team on GitHub as the list of ?registered voters?, I wrote up a quick script that compiled a list of GitHub usernames in that team *today* and any public email address on their GitHub profile if there is one.
+>> 
+>> That is located at https://github.com/python/voters (specifically the 2018-11-16-governance-election.csv file), which is a private repository.
+>> 
+>> Please everyone take a moment to find your GitHub username in that file (it?s in alphabetical order) and ensure that the email address there is a good email for you to send your ballot to. If it?s wrong or missing, update the CSV file (there is a .voters.csv file that will taken into effect for any future voter rolls we may generate from this script).
+>> 
+>> If you?re not a member of the python-core team on Github and you want to participate in the vote, please ask to be added to that team, then add yourself to the 2018-11-16-governance-election.csv file.
+>> 
+>> We particularly need the following people (GitHub usernames) to go fill in their email addresses, as we do not currently have an email address for them, and without an email address, we cannot send you a ballot.
+> 
+> You should have email addresses for us, they're just in
+> bugs.python.org <http://bugs.python.org/> (which is necessarily linked on GitHub usernames, as
+> otherwise the CLA check wouldn't pass).
+> 
+
+If roundup has an API, feel free to submit a PR to generate-voter-roll.py in that same repository to have it pull from bugs.p.o as well. I already knew GitHub?s API so it was easy to spend 15 minutes tossing something together that would work. Clicking on the ?tracker documentation? link doesn?t mention an API at all.
+
+If there?s no API, well there was 40 names, even if I spent 5 minutes each doing it manually, that?s still like 3+ hours of clicking through bugs.p.o trying to converge the two lists, and I don?t have 3+ hours to burn at the moment, so I figured it was easier to ask each of those 40 people to spend 5  minutes individually.
+
+Sorry if you don?t feel that?s sufficient. I?m short on time leading up to Re:invent and trying to do the best I can with what time I can steal from elsewhere.
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20181106/7063dc97/attachment-0001.html>
+
+From vstinner at redhat.com  Tue Nov  6 08:19:37 2018
+From: vstinner at redhat.com (Victor Stinner)
+Date: Tue, 6 Nov 2018 14:19:37 +0100
+Subject: [python-committers] IMPORTANT: Missing Email Addresses for
+ Governance Election Voter Roll
+In-Reply-To: <0740F7DF-8C0D-41A9-88F6-B3125C09DC30@stufft.io>
+References: <A626D824-0C02-44EF-9A6C-B1873666FAEC@stufft.io>
+ <CADiSq7c_2-k4sVbyrsHbyMaq0bNWccaU0Fx_soidYeaH6xt9NA@mail.gmail.com>
+ <0740F7DF-8C0D-41A9-88F6-B3125C09DC30@stufft.io>
+Message-ID: <CA+3bQGFXZsZRwnoWF6A=8R=8mj3-9W5obcuvhGs9jgfypJAfiA@mail.gmail.com>
+
+I'm not sure about Roundup. In the web UI, the email address is
+partially hidden for me. I'm not a Roundup Admin.
+
+Le mar. 6 nov. 2018 ? 13:24, Donald Stufft <donald at stufft.io> a ?crit :
+> If roundup has an API, feel free to submit a PR to generate-voter-roll.py in that same repository to have it pull from bugs.p.o as well. I already knew GitHub?s API so it was easy to spend 15 minutes tossing something together that would work. Clicking on the ?tracker documentation? link doesn?t mention an API at all.
+
+I wrote a few lines to access to XML-RPC API of Roundup to generate
+this list of vulnerabilities:
+https://github.com/vstinner/python-security/blob/ad333b301fbc5ef3a954ed7c67affc48241a7a8f/render_doc.py#L393-L411
+
+You probably want the server.display('user%s' % msg['author'],
+'username', 'realname') part. I didn't check if I can use it to access
+the email address.
+
+FYI the result is this website:
+http://python-security.readthedocs.io/vulnerabilities.html
+
+Victor
+

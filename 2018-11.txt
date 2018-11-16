@@ -5453,3 +5453,1339 @@ On Tue, Nov 6, 2018 at 5:19 AM Victor Stinner <vstinner at redhat.com> wrote:
 An HTML attachment was scrubbed...
 URL: <http://mail.python.org/pipermail/python-committers/attachments/20181114/941e557a/attachment.html>
 
+From vstinner at redhat.com  Thu Nov 15 06:59:25 2018
+From: vstinner at redhat.com (Victor Stinner)
+Date: Thu, 15 Nov 2018 12:59:25 +0100
+Subject: [python-committers] PEP 8015: Organization of the Python
+ community
+In-Reply-To: <CA+3bQGGqD-6MH9GO-eymB5hmqcGU+cgPiBVgpMUXme+3EdVZng@mail.gmail.com>
+References: <CA+3bQGGqD-6MH9GO-eymB5hmqcGU+cgPiBVgpMUXme+3EdVZng@mail.gmail.com>
+Message-ID: <CA+3bQGG5KcTO_zdYf7D2S_U0q0CL4GH5BqOy6LDXr2EHSxaakg@mail.gmail.com>
+
+Hi,
+
+Since October 8, we had many productive discussions on governance PEPs
+and I made multiple changes to my PEP 8015. See the "Version History"
+at the end. The latest (I hope the *last*) change is that the Steering
+Committee is now made of 5 people instead of 3, there are no term
+limits (instead of a limit of 2 mandates: 6 years in total), and a
+committee member can now be a PEP delegate. Full text below.
+
+HTML version:
+https://www.python.org/dev/peps/pep-8015/
+
+
+PEP: 8015
+Title: Organization of the Python community
+Author: Victor Stinner
+Status: Active
+Type: Informational
+Content-Type: text/x-rst
+Created: 2018-10-04
+
+Abstract
+========
+
+This PEP formalizes the current organization of the Python community and
+proposes 3 main changes:
+
+* Formalize the existing concept of "Python teams";
+* Give more autonomy to Python teams;
+* Replace the BDFL (Guido van Rossum) with a new "Python Steering
+  Committee" of 5 members which has limited roles: basically decide how
+  decisions are taken, but don't take decisions.
+
+PEPs are approved by a PEP delegate or by a vote (reserved to core
+developers, need ``>= 2/3`` majority).
+
+
+Rationale
+=========
+
+This PEP describes the organization of the whole Python development
+community, from Python users to the Python Steering Committee.
+Describing all groups and all roles in the same document helps to make
+the organization more consistent.
+
+The number of governance changes is minimized to get a smooth transition
+from the old BDFL organization to the new Steering Committee
+organization.
+
+One key design of the organization is to avoid decision bottlenecks.
+Discussions and decisions are distributed into Python teams where
+experts in each topic can be found. The expectation is smoother
+discussions on PEPs: fewer people with better knowledge of the topic.
+
+Previously, most decisions have been taken by the Benevolent
+Dictator For Life (BDFL), Guido van Rossum. The growing popularity of
+Python increased the pressure on a single person. The proposed
+organization distributes decisions and responsibilities to reduce the
+pressure and avoid wearing any individual down.
+
+To keep most of the decision power within the hands of the community,
+the Python Steering Committee has very limited roles. The idea is to
+reduce the risk
+that a group of people or companies "takes over" the Python project
+through just a couple individuals. The project must remain autonomous
+and open to everybody.
+
+The most sensitives PEPs are decided by democracy: a vote reserved to
+core developers, see the `PEP process`_ section below for the voting
+method.
+
+
+Common Guidelines
+=================
+
+* The Python community is open to everyone.
+* Members must respect the `Python Community Code of Conduct
+  <https://www.python.org/psf/codeofconduct/>`_ which ensures that
+  discussions remain constructive and that everybody feels welcomed.
+* Python is and will remain an autonomous project.
+* People with decisions power should reflect the diversity of its users
+  and contributors.
+
+
+Community Organization
+======================
+
+Right now, there are different group of people involved in the Python
+project. The more involved you are, the more decisions power you get. It
+is important that the people acceding to the deepest group are the most
+trusted ones.
+
+This PEP formalizes the following groups:
+
+* Python Users
+* Python Contributors
+* Python Teams Members
+* Python Core Developers
+* Python Steering Committee Members
+* PSF Code of Conduct Workgroup
+
+
+Python Users
+============
+
+This is the largest group: anyone who uses Python.
+
+
+Python Contributors
+===================
+
+Once a Python user sends an email to a Python mailing list, comments on
+the Python bug tracker, proposes or reviews a Python change, they become
+a Python contributor.
+
+
+Python Teams
+============
+
+Python became too big to work as an unique team anymore, people
+naturally have grouped themselves as teams to work more closely on
+specific topics, sometimes called "Special Interest Group" (SIG).
+
+When enough developers are interested by a specific topic, they can
+create a new team. Usually, the main action is to ask the Python
+postmaster to create a new "SIG" mailing list, but the team can choose
+to use a different communication channel.
+
+Team members are Python contributors and Python core developers. The
+team is self-organized and is responsible to select who can join the
+team and how.
+
+Team members can get the bug triage permission on the team bug tracker
+component. The more involved in a team you are, the more decisions power
+and responsibilities you get.
+
+A team might become allowed to decide on their own PEPs, but only the
+Python Steering Committee can allow that (and it has the power to revoke
+it as well). Such a case is exceptional, currently a single team has
+such permission: the Packaging Team.
+
+See `Annex: Examples of Python Teams`_.
+
+
+Python Core Developers
+======================
+
+One restricted definition of a core developer is the ability to merge a
+change (anywhere in the code) and have the bug triage permission
+(on all bug tracker components).
+
+Core developers are developers who are proven to have the required skills to
+decide if a change can be approved or must be rejected, but also (and
+this is more important) what changes should not be made. Python has a
+long history, big constraints on backward compatibility, high quality
+standards (ex: changes require new tests). For these reasons, becoming
+a core can take several months or longer.
+
+Becoming a core developer means more responsibilities. For example, if a
+developer merges a change, they become responsible for regressions and
+for the maintenance of that modified code.
+
+Core developers are expected to be exemplary when it comes to the Code
+of Conduct. They are encouraged to mentor contributors.
+
+Promote a contributor as core developer
+---------------------------------------
+
+Once an existing core developer considers that a contributor is ready to
+join the core group, to become a core developer, that core developer
+asks the contributor if they would like to become a core developer. If
+the contributor is interested in such new responsibilities, a vote is
+organized.
+
+The vote is reserved to core developers, is public, and is open for 1
+week.  Usually the core developer who proposes the promotion has to
+describe the work and skills of the candidate in the description of the
+vote. A contributor is only promoted if two thirds (``>= 2/3``) of
+votes approve ("+1") the promotion. Only "+1" and "-1" votes are
+accounted; other votes (ex: null, "-0", "+0.5") are ignored.
+
+If the candidate is promoted, usually they get a mentor for 1 month to
+help them to handle new responsibilities.
+
+If the candidate is not promoted, a new vote can be organized later,
+when the candidate gets the missing skills, for example 6 months later.
+
+
+Python Steering Committee
+=========================
+
+The Python Steering Committee is made of the most trusted core
+developers since it has the most decision power. The roles of this group
+are strictly limited to ensure that Python keeps its autonomy and
+remains open.
+
+The Python Steering Committee is composed of 5 members. They are elected
+for 3 years and 1/3 is replaced every year (first year: 1, second year:
+2, third year: 2). This way, a member will stay for one full Python
+release and the committee composition will be updated frequently. A
+committee member can be a candidate for the seat they are leaving.
+There are no term limits.
+
+Committee members must be Python core developers. It is important that
+the members of the committee reflect the diversity of Python' users and
+contributors. A small step to ensure that is to enforce that only 2
+members (strictly less than 50% of the 5 members) can work for the same
+employer (same company or subsidiaries of the same company).
+
+The size of 5 members has been chosen for the members diversity and to
+ensure that the committee can continue to work even if a member becomes
+unavailable for an unknown duration.
+
+Python Steering Committee Roles
+-------------------------------
+
+Python Steering Committee roles:
+
+* Decide how a PEP is approved (or rejected or deferred).
+* Grant or revoke permissions to a Python team. For example, allow
+  a team to give the bug triage permission (on the team component) to a
+  contributor.
+
+To decide how a PEP is approved (or rejected or deferred), there are two
+options:
+
+* The committee elects a PEP delegate (previously known as "BDFL-delegate"):
+  a core developer who will take the final decision for the specific
+  PEP. The committee select the PEP delegate who can be proposed by the
+  Python team where the PEP is discussed.
+* The committee can organize a vote on on the PEP, see `PEP process`_
+  for the vote organization. The committee decides when the vote is
+  organized. A vote is preferred for changes affecting all Python users,
+  like language changes.
+
+The committee keeps the "vision" and consistency of Python. It also makes
+sure that important features reach completion. Their ability to pick PEP
+delegates is meant to help them to achieve that goal.
+
+Election of Python Steering Committee Members
+---------------------------------------------
+
+The vote is organized by the Steering Committee. It is announced 3 weeks
+in advance: candidates have to apply during this period. The vote is
+reserved to core developers and is open for 1 week. To avoid
+self-censorship, the vote uses secret ballots: avoid the risk of
+hostility from someone who may get more power (if they get elected).
+
+The vote uses the `Schulze/Beatpath/CSSD variant
+<https://en.wikipedia.org/wiki/Schulze_method>`_ of the `Condorcet
+method <https://en.wikipedia.org/wiki/Condorcet_method>`_ using an
+online service like `Condorcet Internet Voting Service (CIVS)
+<https://civs.cs.cornell.edu/>`_. This voting method reduces the risk of
+tie. It also produces a ranking of all candidates, needed for the
+creation of the committee.
+
+In case of tie, a new vote is organized immediately between candidates
+involved in the tie using the same voting method and also during 1 week.
+If the second vote leads to a tie again, the current Steering Committee
+is responsible to select the elected member(s).
+
+If a committee member steps down, a new vote is organized to replace
+them.
+
+If the situation of a committee member changes in a way that no longer
+satisfies the committee constraint (ex: they move to the same company as
+two other committee members), they have to resign. If the employer of a
+member is acquired by the employer of two other members, the member with
+the mandate ending earlier has to resign once the acquisition completes.
+
+Election Creating the Python Steering Committee Members
+-------------------------------------------------------
+
+To bootstrap the process, 5 members are elected at the committee
+creation. The vote follows the same rules than regular committee votes,
+except that the election needs 5 members, and the vote is organized by
+the PSF Board.
+
+In a council election, if 3 of the top 5 vote-getters work for the
+same employer, then whichever of them ranked lowest is disqualified
+and the 6th-ranking candidate moves up into 5th place; this is
+repeated until a valid council is formed.
+
+In case of tie, a second vote is organized immediately between
+candidates involved in the tie and following candidates to fill the
+remaining seats. The vote follows the same rules as the regular
+committee vote. If the second vote still result in a tie, the PSF Board
+is responsible to elect members and decide their position in the vote
+result.
+
+The order in the vote result must be unique for elected members: #1 and
+#2 are elected for 3 years, #2 and #3 for 2 years, and #5 for 1 year.
+
+Example of vote result with a tie:
+
+* A
+* B
+* C
+* D
+* E, F
+* G
+* ...
+
+The first 4 candidates (A, B, C and D) are elected immediately. If E
+works for the same employer than two other elected member, F is also
+elected. Otherwise, a second vote is organized for the 5th seat between
+E and F.
+
+Special Case: Steering Committee Members And PEPs
+-------------------------------------------------
+
+A committee member can be a PEP delegate.
+
+A committee member can propose a PEP, but cannot be the PEP delegate of
+their own PEP.
+
+When the committee decides that a PEP must be voted, committee members
+can vote as they are also core developers, but they don't have more
+power than other core developer.
+
+
+PSF Code of Conduct Workgroup
+=============================
+
+Charter
+-------
+
+The workgroup's purpose is to foster a diverse and inclusive Python
+community by enforcing the PSF code of conduct, along with providing
+guidance and recommendations to the Python community on codes of
+conduct, that supports the PSF mission of ?ongoing development of
+Python-related technology and educational resources?.
+
+We work toward this common goal in three ways:
+
+* Review, revise, and advise on policies relating to the PSF code of
+  conducts and other communities that the PSF supports. This includes
+  any #python chat community & python.org email list under PSF
+  jurisdiction.
+* Create a standard set of codes of conduct and supporting documents for
+  multiple channels of interaction such as, but not limited to,
+  conferences, mailing lists, slack/IRC, code repositories, and more.
+* Develop training materials and other processes to support Python
+  community organizers in implementing and enforcing the code of
+  conduct.
+
+The organization of this workgroup is defined by the
+`ConductWG Charter <https://wiki.python.org/psf/ConductWG/Charter>`_.
+
+Special Case: Ban a core developer
+----------------------------------
+
+As any other member of the Python community, the PSF Code of Conduct
+Workgroup can ban a core developer for a limited amount of time. In this
+case, the core developer immediately loses their core developer status.
+Core developers are expected to be exemplary when it comes to the Code
+of Conduct.
+
+In general, a ban is only the last resort action when all other options
+have been exhausted.
+
+At the end of the ban, the developer is allowed to contribute again as a
+regular contributor.
+
+If the developer changes their behavior, another core developer can
+organize a new vote to propose the developer for promotion to core
+developer. The vote follows the same process than for any other Python
+contributor.
+
+
+PEP process
+===========
+
+There are 2 main roles on PEPs:
+
+* PEP Authors
+* PEP Delegate
+
+PEP Authors do their best to write high quality PEP.
+
+The PEP delegate is responsible to help the authors to enhance their PEP
+and is the one taking the final decision (accept, reject or defer the
+PEP). They can also help to guide the discussion.
+
+If no decision is taken, the authors can propose again the PEP later
+(ex: one year later), if possible with new data to motivate the change. A
+PEP Delegate can also choose to mark a PEP as "Deferred" to not reject
+the PEP and encourage to reopen the discussion later.
+
+PEPs specific to a Python team are discussed on the team mailing list.
+PEPs impacting all Python developers (like language changes) must be
+discussed on the python-dev mailing list.
+
+Vote on a PEP
+-------------
+
+When the Python Steering Committee decides that a PEP needs a wider
+approval, a vote is organized.
+
+The vote is reserved to core developers, is public, is announced 1 week
+in advance, and is open for 1 week. The PEP can still be updated during
+the 1 week notice, but must not be modified during the vote. Such vote
+happens on
+the mailing list where the PEP has been discussed. The committee decides
+when the vote is organized. The PEP must have been discussed for a
+reasonable amount of time before it is put to vote.
+
+A PEP is only approved if two thirds (``>= 2/3``) of votes approve
+("+1") the PEP.  Only "+1" and "-1" votes are accounted; other votes
+(ex: null, "-0", "+0.5") are ignored.
+
+A PEP can only be approved or rejected by a vote, not be deferred.
+
+
+Lack of Decision
+================
+
+If a discussion fails to reach a consensus, if the Python Steering
+Committee fail to choose a PEP delegate, or if a PEP delegate fails to
+take a decision, the obvious risk is that Python fails to evolve.
+
+That's fine. Sometimes, doing nothing is the wisest choice.
+
+
+Change this PEP
+===============
+
+The first version of this PEP has been written after Guido van Rossum
+decided to resign from his role of BDFL in July 2018. Before this PEP,
+the roles of Python community members have never been formalized. It is
+difficult to design a perfect organization at the first attempt. This
+PEP can be updated in the future to adjust the organization, specify how
+to handle corner cases and fix mistakes.
+
+Any change to this PEP must be validated by a vote. The vote is
+announced 3 weeks in advance, is reserved to core developers, happens in
+public on the python-committers mailing list, and is open for 1 week.
+The proposed PEP change can still be updated during the 3 weeks notice,
+but must not be modified during the vote.
+
+The change is only approved if four fifths (``>= 4/5``) of votes approve
+("+1") the change. Only "+1" and "-1" votes are accounted; other votes
+(ex: null, "-0", "+0.5") are ignored.
+
+
+Annex: Summary on votes
+=======================
+
+======================  =======  ======  =======
+=================================
+Vote                    Notice   Open    Ballot   Method
+======================  =======  ======  =======
+=================================
+Promote contributor     none     1 week  public   ``>= 2/3`` majority
+PEP                     1 week   1 week  public   ``>= 2/3`` majority
+Change this PEP         3 weeks  1 week  public   ``>= 4/5`` majority
+Steering Committee      3 weeks  1 week  private  Condorcet
+(Schulze/Beatpath/CSSD)
+======================  =======  ======  =======
+=================================
+
+All these votes are reserved to core developers.
+
+
+Annex: Examples of Python Teams
+===============================
+
+Below are examples of some Python teams (the list will not be kept up to
+date in this PEP).
+
+Packaging Team
+--------------
+
+The packaging team runs its own PEP category and can approve (or reject)
+their own PEPs.
+
+* Website: `packaging.python.org <https://packaging.python.org/>`_
+* Mailing list: `distutils-sig
+  <https://mail.python.org/mm3/mailman3/lists/distutils-sig.python.org/>`_
+* Bug tracker component: ``Distutils``
+* Example of members: Paul Moore, Nick Coghlan, Donald Stuff
+* Stdlib module: ``distutils``
+* Current PEP delegate: Paul Moore
+
+IDLE Team
+---------
+
+IDLE is a special case in the Python standard library: it's a whole
+application, not just a module. For this reason, it has been decided
+that the code will be the same in all Python stable branches (whereas
+the stdlib diverges in newer stable branches).
+
+* Bug tracker component: ``IDLE``
+* Example of members: Terry Reedy, Cheryl Sabella, Serhiy Storchaka
+* Stdlib module: ``idlelib``
+
+Mentorship Team
+---------------
+
+Becoming a core developer is long and slow process. Mentorship is an
+efficient way to train contributors as future core developers and build
+a trust relationship.
+
+* Websites:
+
+  * https://www.python.org/dev/core-mentorship/
+  * https://devguide.python.org/
+
+* Repository: https://github.com/python/devguide
+* Mailing list: `core-mentorship
+  <https://www.python.org/dev/core-mentorship/>`_ (private archives)
+* Example of members: Guido van Rossum, Carol Willing, Victor Stinner
+
+Note: The group is not responsible to promote core developers.
+
+Documentation Team
+------------------
+
+* Mailing list: `doc-sig
+  <https://mail.python.org/mailman/listinfo/doc-sig>`_
+* Bug tracker component: ``Documentation``
+* GitHub tag: ``type-doc``
+* Example of members: Julien Palard, INADA Naoki, Raymond Hettinger.
+
+The team also manages documentation translations.
+
+See also the Mentorship team which maintains the "Devguide".
+
+Security Team
+-------------
+
+* Website: https://www.python.org/news/security/
+* Mailing lists:
+
+  * ``security at python.org`` (to report vulnerabilities)
+  * `security-sig
+    <https://mail.python.org/mm3/mailman3/lists/security-sig.python.org/>`_
+    (public list)
+
+* Stdlib modules: ``hashlib``, ``secrets`` and ``ssl``
+* Example of members: Christian Heimes, Benjamin Peterson
+
+The ``security at python.org`` mailing list is invite-only: only members of
+the "Python Security Response Team" (PSRT) can read emails and reply;
+whereas security-sig is public.
+
+Note: This team rarely proposed PEPs.
+
+Performance Team
+----------------
+
+* Website: https://speed.python.org/
+* Mailing list: `speed
+  <https://mail.python.org/mm3/mailman3/lists/speed.python.org/>`_
+* Repositories:
+
+  * https://github.com/python/performance
+  * https://github.com/tobami/codespeed
+
+* Bug tracker type: ``Performance``
+* GitHub label: ``type-performance``
+* Stdlib module: ``cProfile``, ``profile``, ``pstats`` and ``timeit``
+* Example of members: Victor Stinner, INADA Naoki, Serhiy Storchaka
+
+Usually PEPs involving performance impact everybody and so are discussed
+on the python-dev mailing list, rather than the speed mailing list.
+
+Asynchronous Programming Team
+-----------------------------
+
+* Website: https://docs.python.org/dev/library/asyncio.html
+* Mailing list: `async-sig
+  <https://mail.python.org/mailman/listinfo/async-sig>`_
+* Bug tracker component: ``asyncio``
+* GitHub label: ``expert-asyncio``
+* Stdlib modules: ``asyncio`` and ``contextvars``
+* Example of members: Andrew Sveltov, Yury Selivanov
+
+PEP only modifying ``asyncio`` and ``contextvars`` can be discussed on
+the async-sig mailing list, whereas changes impacting the Python
+language must be discussed on python-dev.
+
+Type Hints Team
+---------------
+
+* Website: http://mypy-lang.org/
+* Repository: https://github.com/python/typing
+* GitHub label for mypy project: `topic-pep-484
+  <https://github.com/python/mypy/labels/topic-pep-484>`_
+* Stdlib modules: ``typing``
+* Example of members: Guido van Rossum, Ivan Levkivskyi,
+  Jukka Lehtosalo, ?ukasz Langa, Mark Shannon.
+
+Note: There is a backport for Python 3.6 and older, see
+`typing on PyPI <https://pypi.org/project/typing/>`_.
+
+
+Version History
+===============
+
+History of this PEP:
+
+* Version 7: Adjust the Steering Committee
+
+  * The Steering Committee is now made of 5 people instead of 3.
+  * There are no term limits (instead of a limit of 2 mandates:
+    6 years in total).
+  * A committee member can now be a PEP delegate.
+
+* Version 6: Adjust votes
+
+  * Specify the Condorcet method: use Schulze/Beatpath/CSSD variant to
+    elect Python Steering Committee members. Specify how to deal with
+    tie and the constraint on the employers.
+  * Vote on promoting a contributor and on PEPs now requires ``>= 2/3``
+    rather than ``50%+1``.
+  * Vote on changing this PEP now requires ``>= 4/5`` rather than
+    ``50%+1``.
+  * Explain how to deal with a company acquisition.
+
+* Version 5: Election of Python Steering Committee Members uses secret
+  ballots
+* Version 4:
+
+  * Adjust votes: open for 1 week instead of 1 month, and announced
+    in advance.
+  * Rename the "Python Core Board" to the "Python Steering Committee";
+  * Clarify that this committee doesn't approve PEPs and that committee
+    members cannot cumulate more than 2 mandates;
+  * Add the "Type Hints" team to the annex.
+
+* Version 3: Add "Special Case: Ban a core developer" and "How to update
+  this PEP" sections.
+* Version 2: Rename the "Python board" to the "Python Core Board",
+  to avoid confusion with the PSF Board.
+* Version 1: First version posted to python-committers and
+  discuss.python.org.
+
+
+Copyright
+=========
+
+This document has been placed in the public domain.
+
+From vstinner at redhat.com  Thu Nov 15 07:08:38 2018
+From: vstinner at redhat.com (Victor Stinner)
+Date: Thu, 15 Nov 2018 13:08:38 +0100
+Subject: [python-committers] Timeline to vote for a governance PEP
+In-Reply-To: <CA+3bQGEMvzborjcJqda9hFHdazA1S1na3n__n9=30iN4=GgD+Q@mail.gmail.com>
+References: <CA+3bQGEMvzborjcJqda9hFHdazA1S1na3n__n9=30iN4=GgD+Q@mail.gmail.com>
+Message-ID: <CA+3bQGGEknSvUM9+C+Tq=oKsvW-Jsvqqn-u1YmBRcf5+mQG3NA@mail.gmail.com>
+
+Le sam. 3 nov. 2018 ? 03:37, Victor Stinner <vstinner at redhat.com> a ?crit :
+> According to the PEP 8001: "The vote will happen in a 2-week-long
+> window from November 16 2018 to November 30 (Anywhere-on-Earth)." It's
+> now in less than two weeks.
+
+It seems like the vote is going to start tomorrow, but see discussions at:
+
+- https://discuss.python.org/t/does-the-nov-16-nov-30-voting-timeframe-still-work/434
+- https://discuss.python.org/t/pep-801x-authors-are-you-on-track-for-the-vote-between-nov-16-nov-30/432
+
+For the 3 core developers (on 95) who didn't fill their email address
+in the voters repository, please do so! (I sent you an email :-))
+
+=> https://github.com/python/voters/issues/1
+
+Note: This repository is private and will remain private, only
+accessible to core developers (to not leak your email addresses).
+
+
+> I see that the PEP 8001 is still being updated (voting method). Should
+> we still expect new changes before the vote starts? Can we set a
+> deadline, like November 15 (Anywhere-on-Earth)?
+> (...)
+> What is the deadline to submit new governance PEP and to update
+> governance PEPs? November 15 (Anywhere-on-Earth)?
+
+It seems like today is last day to update the 80xx PEPs (8 PEPs: 8001
+and 8010..8016). Hurry up if you want to push a last minute change :-)
+(Obvious, it's ok if your PEP doesn't need changes anymore ;-))
+
+--
+
+Again, I share the link to my comparison of the 7 governance PEPs:
+
+https://discuss.python.org/t/comparison-of-the-7-governance-peps/392
+
+Please update it (any core dev can modify the first message, it's a
+wiki!) if my comparison is inaccurate/out of date. Or add a comment if
+you are not sure.
+
+Obviously, only PEPs should be used to take your decision (vote). My
+comparison only exists to have a quick overview, but I expect that you
+all will ready all PEPs, right? :-D
+
+Victor
+
+From mal at egenix.com  Thu Nov 15 07:55:16 2018
+From: mal at egenix.com (M.-A. Lemburg)
+Date: Thu, 15 Nov 2018 13:55:16 +0100
+Subject: [python-committers] Timeline to vote for a governance PEP
+In-Reply-To: <CA+3bQGGEknSvUM9+C+Tq=oKsvW-Jsvqqn-u1YmBRcf5+mQG3NA@mail.gmail.com>
+References: <CA+3bQGEMvzborjcJqda9hFHdazA1S1na3n__n9=30iN4=GgD+Q@mail.gmail.com>
+ <CA+3bQGGEknSvUM9+C+Tq=oKsvW-Jsvqqn-u1YmBRcf5+mQG3NA@mail.gmail.com>
+Message-ID: <9004c364-5363-00d1-28ab-e9093a548bdb@egenix.com>
+
+I find it rather unusual that we are pushed to vote on PEPs
+which will just have been finished in writing tonight.
+
+Shouldn't people who were not involved in the individual creation
+processes at least get two weeks to review the final work
+to make up their mind before entering a voting period ?
+
+It seems like we're completely skipping the review phase of the
+regular PEP process and going straight from PEP writing to
+a vote:
+
+https://www.python.org/dev/peps/pep-0001/#id38
+
+which is odd given the importance of this decision and also
+odd compared to normal democratic procedures where laws are
+first crafted, then put through parliament for discussion and
+then decided upon after everyone has had a reasonable chance
+for review.
+
+For the people who have been heavily involved in the PEP creations
+this may seem unnecessary, but this is just small subset of the
+core developers.
+
+
+BTW: Thank you for writing up the comparison. I hope you have
+updated to the resp. final versions of the PEPs as well :-)
+
+
+On 15.11.2018 13:08, Victor Stinner wrote:
+> Le sam. 3 nov. 2018 ? 03:37, Victor Stinner <vstinner at redhat.com> a ?crit :
+>> According to the PEP 8001: "The vote will happen in a 2-week-long
+>> window from November 16 2018 to November 30 (Anywhere-on-Earth)." It's
+>> now in less than two weeks.
+> 
+> It seems like the vote is going to start tomorrow, but see discussions at:
+> 
+> - https://discuss.python.org/t/does-the-nov-16-nov-30-voting-timeframe-still-work/434
+> - https://discuss.python.org/t/pep-801x-authors-are-you-on-track-for-the-vote-between-nov-16-nov-30/432
+> 
+> For the 3 core developers (on 95) who didn't fill their email address
+> in the voters repository, please do so! (I sent you an email :-))
+> 
+> => https://github.com/python/voters/issues/1
+> 
+> Note: This repository is private and will remain private, only
+> accessible to core developers (to not leak your email addresses).
+> 
+> 
+>> I see that the PEP 8001 is still being updated (voting method). Should
+>> we still expect new changes before the vote starts? Can we set a
+>> deadline, like November 15 (Anywhere-on-Earth)?
+>> (...)
+>> What is the deadline to submit new governance PEP and to update
+>> governance PEPs? November 15 (Anywhere-on-Earth)?
+> 
+> It seems like today is last day to update the 80xx PEPs (8 PEPs: 8001
+> and 8010..8016). Hurry up if you want to push a last minute change :-)
+> (Obvious, it's ok if your PEP doesn't need changes anymore ;-))
+> 
+> --
+> 
+> Again, I share the link to my comparison of the 7 governance PEPs:
+> 
+> https://discuss.python.org/t/comparison-of-the-7-governance-peps/392
+> 
+> Please update it (any core dev can modify the first message, it's a
+> wiki!) if my comparison is inaccurate/out of date. Or add a comment if
+> you are not sure.
+> 
+> Obviously, only PEPs should be used to take your decision (vote). My
+> comparison only exists to have a quick overview, but I expect that you
+> all will ready all PEPs, right? :-D
+> 
+> Victor
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+> 
+
+-- 
+Marc-Andre Lemburg
+eGenix.com
+
+Professional Python Services directly from the Experts (#1, Nov 15 2018)
+>>> Python Projects, Coaching and Consulting ...  http://www.egenix.com/
+>>> Python Database Interfaces ...           http://products.egenix.com/
+>>> Plone/Zope Database Interfaces ...           http://zope.egenix.com/
+________________________________________________________________________
+
+::: We implement business ideas - efficiently in both time and costs :::
+
+   eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+    D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+           Registered at Amtsgericht Duesseldorf: HRB 46611
+               http://www.egenix.com/company/contact/
+                      http://www.malemburg.com/
+
+
+From p.f.moore at gmail.com  Thu Nov 15 08:09:19 2018
+From: p.f.moore at gmail.com (Paul Moore)
+Date: Thu, 15 Nov 2018 13:09:19 +0000
+Subject: [python-committers] Timeline to vote for a governance PEP
+In-Reply-To: <9004c364-5363-00d1-28ab-e9093a548bdb@egenix.com>
+References: <CA+3bQGEMvzborjcJqda9hFHdazA1S1na3n__n9=30iN4=GgD+Q@mail.gmail.com>
+ <CA+3bQGGEknSvUM9+C+Tq=oKsvW-Jsvqqn-u1YmBRcf5+mQG3NA@mail.gmail.com>
+ <9004c364-5363-00d1-28ab-e9093a548bdb@egenix.com>
+Message-ID: <CACac1F-2LxQgwZK3Q7mUf16Msax993PDXKWL8Xesb+rnghGRgQ@mail.gmail.com>
+
+On Thu, 15 Nov 2018 at 12:55, M.-A. Lemburg <mal at egenix.com> wrote:
+>
+> I find it rather unusual that we are pushed to vote on PEPs
+> which will just have been finished in writing tonight.
+>
+> Shouldn't people who were not involved in the individual creation
+> processes at least get two weeks to review the final work
+> to make up their mind before entering a voting period ?
+
+That's probably the thing that bothers me most, as well. That and the
+fact that once I've cast my vote, I can't change it - so I really have
+to defer voting until the last minute, in case someone comes up with a
+compelling argument for one proposal that I hadn't thought of.
+
+I made a deliberate choice *not* to get involved in the discussions
+while the proposals were being prepared, because I find it far too
+easy to get an impression of a proposal from an early draft and then
+misjudge the proposal by not updating my views once it's updated. I
+don't want to do that with this decision, as it's pretty important (!)
+and so I've held off reading any of the proposals until they are
+announced as final. And yet, it looks like once they are announced,
+there's a possibility that people will start voting and then excuse
+themselves from discussion (because once you've voted, there's no
+point discussing any further). I can read them, but may not have
+anyone to discuss them with once I've done so... That doesn't sound
+like an ideal way of reaching consensus.
+
+Having said all that, it's not like the decision making process will
+be changed at this point, so I think that we're going to have to
+accept it, flaws and all, as it stands.
+
+Paul
+
+From vstinner at redhat.com  Thu Nov 15 09:56:29 2018
+From: vstinner at redhat.com (Victor Stinner)
+Date: Thu, 15 Nov 2018 15:56:29 +0100
+Subject: [python-committers] Timeline to vote for a governance PEP
+In-Reply-To: <9004c364-5363-00d1-28ab-e9093a548bdb@egenix.com>
+References: <CA+3bQGEMvzborjcJqda9hFHdazA1S1na3n__n9=30iN4=GgD+Q@mail.gmail.com>
+ <CA+3bQGGEknSvUM9+C+Tq=oKsvW-Jsvqqn-u1YmBRcf5+mQG3NA@mail.gmail.com>
+ <9004c364-5363-00d1-28ab-e9093a548bdb@egenix.com>
+Message-ID: <CA+3bQGG+2E6tg-QhHF6SSv2zv_nExd8CBC+swQ77myNzOd7aqg@mail.gmail.com>
+
+Le jeu. 15 nov. 2018 ? 13:55, M.-A. Lemburg <mal at egenix.com> a ?crit :
+> I find it rather unusual that we are pushed to vote on PEPs
+> which will just have been finished in writing tonight.
+
+Well, denying to modify PEPs during the PEP is the only reliable
+solution to prevent PEP authors to modify their PEP :-)
+
+IMHO latest changes (that I saw) in the governance PEPs are "minor",
+they don't change fundamentally the governance model.
+
+
+> Shouldn't people who were not involved in the individual creation
+> processes at least get two weeks to review the final work
+> to make up their mind before entering a voting period ?
+
+Two weeks is the duration of the vote. It isn't enough to review PEPs?
+Most PEPs have been written one month ago, if not longer.
+
+
+> For the people who have been heavily involved in the PEP creations
+> this may seem unnecessary, but this is just small subset of the
+> core developers.
+
+I guess that many people will not start reading the governance PEPs
+until they really have to :-) I'm not sure that postpone the vote
+would help.
+
+
+> BTW: Thank you for writing up the comparison. I hope you have
+> updated to the resp. final versions of the PEPs as well :-)
+
+You're welcome. Yes, I already updated everything :-) Hopefully, other
+PEP authors are also keeping this comparison up to date!
+
+Victor
+
+From njs at pobox.com  Thu Nov 15 13:00:26 2018
+From: njs at pobox.com (Nathaniel Smith)
+Date: Thu, 15 Nov 2018 10:00:26 -0800
+Subject: [python-committers] Straw poll: Which governance proposals do you
+ like best?
+Message-ID: <CAPJVwBmmwNWpJn4JukOL=vB52gUaTdpkqY3kfgDDGw3CpjJcAA@mail.gmail.com>
+
+There's been a lot of clarification and critique for individual
+governance proposals, but not a lot of discussion of how they compare
+to each other or what different core devs think is important. And I
+know that for complicated issues like this, I often don't understand
+the trade-offs until I talk them over with other people, so I'm pretty
+nervous about voting without having that discussion!
+
+I started a poll on the discourse to get a sense of what people are
+thinking, and talk it through. Please join us!
+
+https://discuss.python.org/t/straw-poll-which-governance-proposals-do-you-like-best/436
+
+-n
+
+-- 
+Nathaniel J. Smith -- https://vorpus.org
+
+From mariatta at python.org  Thu Nov 15 13:11:26 2018
+From: mariatta at python.org (Mariatta Wijaya)
+Date: Thu, 15 Nov 2018 10:11:26 -0800
+Subject: [python-committers] Timeline to vote for a governance PEP
+In-Reply-To: <9004c364-5363-00d1-28ab-e9093a548bdb@egenix.com>
+References: <CA+3bQGEMvzborjcJqda9hFHdazA1S1na3n__n9=30iN4=GgD+Q@mail.gmail.com>
+ <CA+3bQGGEknSvUM9+C+Tq=oKsvW-Jsvqqn-u1YmBRcf5+mQG3NA@mail.gmail.com>
+ <9004c364-5363-00d1-28ab-e9093a548bdb@egenix.com>
+Message-ID: <CAGbohnaQ34PUqv_UrPFBCAZWapKV+0Cc5dMuLxdynNZmt-oLOA@mail.gmail.com>
+
+>
+> Shouldn't people who were not involved in the individual creation
+> processes at least get two weeks to review the final work
+> to make up their mind before entering a voting period ?
+> It seems like we're completely skipping the review phase of the
+> regular PEP process and going straight from PEP writing to
+> a vote:
+
+
+
+The period of Oct 8 (date when PEPs were due) up until Nov 15 (before
+voting start) was meant as the "review" period, and this was stated in my
+original email about timeline:
+https://mail.python.org/pipermail/python-committers/2018-August/005960.html
+
+I did propose that there was a period where no more changes to PEP should
+be made.
+
+Copy pasting text from that email
+
+*Oct 1 - Nov 15: Review period.*
+> All core developers will review the PEPs, and ask any questions to the PEP
+> author. This timeline allows for enough time for all core devs to carefully
+> review each PEPs, and for authors to respond.
+>
+
+
+> *Review phase 1: Oct 1- Nov 1:* Allow changes and tweaks to the proposed
+> PEPs.
+> I figured people will have questions and will need to clarify the PEPs
+> during this period. But if we want the PEP to be final by Oct 1, that's
+> fine by me. maybe allow typo fixes still.
+>
+
+
+> *Review phase 2: Nov 1 00:00:00 UTC*: No more changes to the above PEPs.
+> No more tweaks to these PEPs. PRs to these PEPs should be rejected.
+> This is the final chance to carefully review all governance PEPs, and
+> formulate your decisions.
+>
+
+
+> *Nov 15 00:00:00 UTC: Voting for new governance model starts, and will go
+> for 2 weeks*
+> Send reminders for folks to vote.
+
+
+But I guess some people think that whole fixed timeline thing was bad idea,
+so I didn't go and enforce all of this (also I took a break from life and
+reduced responsibilities).
+
+?
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20181115/096ad116/attachment.html>
+
+From barry at python.org  Thu Nov 15 13:39:04 2018
+From: barry at python.org (Barry Warsaw)
+Date: Thu, 15 Nov 2018 10:39:04 -0800
+Subject: [python-committers] Timeline to vote for a governance PEP
+In-Reply-To: <CAGbohnaQ34PUqv_UrPFBCAZWapKV+0Cc5dMuLxdynNZmt-oLOA@mail.gmail.com>
+References: <CA+3bQGEMvzborjcJqda9hFHdazA1S1na3n__n9=30iN4=GgD+Q@mail.gmail.com>
+ <CA+3bQGGEknSvUM9+C+Tq=oKsvW-Jsvqqn-u1YmBRcf5+mQG3NA@mail.gmail.com>
+ <9004c364-5363-00d1-28ab-e9093a548bdb@egenix.com>
+ <CAGbohnaQ34PUqv_UrPFBCAZWapKV+0Cc5dMuLxdynNZmt-oLOA@mail.gmail.com>
+Message-ID: <1A88501D-2203-4290-8225-3A59EDA8F0FF@python.org>
+
+Based on my suggestion on Discourse, I propose that the period between tomorrow and November 30th be an official PEP review period, with voting postponed to December 1 - 16 AOE 2018.
+
+https://github.com/python/peps/pull/841
+
+I am personally going to start reviewing these PEPs after the flood of trypophan is unleashed into my bloodstream following the USA Thanksgiving meal.
+
+-Barry
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 833 bytes
+Desc: Message signed with OpenPGP
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20181115/7bc31ca5/attachment.sig>
+
+From brett at python.org  Thu Nov 15 13:55:22 2018
+From: brett at python.org (Brett Cannon)
+Date: Thu, 15 Nov 2018 10:55:22 -0800
+Subject: [python-committers] Timeline to vote for a governance PEP
+In-Reply-To: <CACac1F-2LxQgwZK3Q7mUf16Msax993PDXKWL8Xesb+rnghGRgQ@mail.gmail.com>
+References: <CA+3bQGEMvzborjcJqda9hFHdazA1S1na3n__n9=30iN4=GgD+Q@mail.gmail.com>
+ <CA+3bQGGEknSvUM9+C+Tq=oKsvW-Jsvqqn-u1YmBRcf5+mQG3NA@mail.gmail.com>
+ <9004c364-5363-00d1-28ab-e9093a548bdb@egenix.com>
+ <CACac1F-2LxQgwZK3Q7mUf16Msax993PDXKWL8Xesb+rnghGRgQ@mail.gmail.com>
+Message-ID: <CAP1=2W5eDJWeAy5kaZiYC8BwhMJ0Ae4ySG3GYrcA6yEH8m9uSg@mail.gmail.com>
+
+On Thu, 15 Nov 2018 at 05:09, Paul Moore <p.f.moore at gmail.com> wrote:
+
+> On Thu, 15 Nov 2018 at 12:55, M.-A. Lemburg <mal at egenix.com> wrote:
+> >
+> > I find it rather unusual that we are pushed to vote on PEPs
+> > which will just have been finished in writing tonight.
+> >
+> > Shouldn't people who were not involved in the individual creation
+> > processes at least get two weeks to review the final work
+> > to make up their mind before entering a voting period ?
+>
+> That's probably the thing that bothers me most, as well. That and the
+> fact that once I've cast my vote, I can't change it - so I really have
+> to defer voting until the last minute, in case someone comes up with a
+> compelling argument for one proposal that I hadn't thought of.
+>
+
+OK, so it seems you're unhappy that you only have a day to vote since you
+can't change your vote ...
+
+
+>
+> I made a deliberate choice *not* to get involved in the discussions
+> while the proposals were being prepared, because I find it far too
+> easy to get an impression of a proposal from an early draft and then
+> misjudge the proposal by not updating my views once it's updated. I
+> don't want to do that with this decision, as it's pretty important (!)
+> and so I've held off reading any of the proposals until they are
+> announced as final. And yet, it looks like once they are announced,
+> there's a possibility that people will start voting and then excuse
+> themselves from discussion (because once you've voted, there's no
+> point discussing any further). I can read them, but may not have
+> anyone to discuss them with once I've done so... That doesn't sound
+> like an ideal way of reaching consensus.
+>
+
+... but then you don't like that people can vote over two weeks because you
+don't want discussions to occur while people can vote to force them to
+participate in discussions? I might be missing something, but these two
+issues seem contradictory, especially since we can't exactly force people
+to not talk about this while voting is open. :)
+
+[I'm going to reply to MAL here as well which is a bit awkward, but it
+would have been smoother on Discourse ;) ]
+
+>
+> It seems like we're completely skipping the review phase of the
+> regular PEP process and going straight from PEP writing to
+> a vote:
+>
+> https://www.python.org/dev/peps/pep-0001/#id38
+>
+> which is odd given the importance of this decision and also
+> odd compared to normal democratic procedures where laws are
+> first crafted, then put through parliament for discussion and
+> then decided upon after everyone has had a reasonable chance
+> for review.
+>
+
+I don't know if it's really fair to say the review phase is being skipped.
+It's not like anyone *must* vote tomorrow and so there really isn't any
+time to think things over. You still have the rest of the month to review
+the PEPs and place your vote. It's no different than someone following a
+PEP closely, forming their opinion along the way, and then when the final
+version lands replying with an opinion immediately even if the PEP delegate
+isn't making a final decision for another two weeks.
+
+
+> Having said all that, it's not like the decision making process will
+> be changed at this point, so I think that we're going to have to
+> accept it, flaws and all, as it stands.
+>
+
+It's totally flawed because we all can't agree on anything. :) For example,
+remember that the voting was going to allow people to change their vote
+initially in the first version of PEP 8001, but more people wanted the vote
+to be private than have the ability to change their vote, so the compromise
+was swapped for preferring privacy.
+
+And as for the two week voting time, that was discussed and generally
+agreed to way back when the initial timelines were discussed in August and
+I believe again in September (both here and at the dev sprints). And people
+specifically wanted more than a week to be able to vote, so it was
+deliberate to have the voting open for as long as it is (actually if I
+remember correctly a proposal for voting time was to be from when PEPs
+finalized until the end of November, which would have put it at about six
+weeks).
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20181115/ca0453f1/attachment-0001.html>
+
+From mal at egenix.com  Thu Nov 15 16:15:16 2018
+From: mal at egenix.com (M.-A. Lemburg)
+Date: Thu, 15 Nov 2018 22:15:16 +0100
+Subject: [python-committers] Timeline to vote for a governance PEP
+In-Reply-To: <CAP1=2W5eDJWeAy5kaZiYC8BwhMJ0Ae4ySG3GYrcA6yEH8m9uSg@mail.gmail.com>
+References: <CA+3bQGEMvzborjcJqda9hFHdazA1S1na3n__n9=30iN4=GgD+Q@mail.gmail.com>
+ <CA+3bQGGEknSvUM9+C+Tq=oKsvW-Jsvqqn-u1YmBRcf5+mQG3NA@mail.gmail.com>
+ <9004c364-5363-00d1-28ab-e9093a548bdb@egenix.com>
+ <CACac1F-2LxQgwZK3Q7mUf16Msax993PDXKWL8Xesb+rnghGRgQ@mail.gmail.com>
+ <CAP1=2W5eDJWeAy5kaZiYC8BwhMJ0Ae4ySG3GYrcA6yEH8m9uSg@mail.gmail.com>
+Message-ID: <829b20e5-71d3-b83a-81e3-ed2b243859b6@egenix.com>
+
+On 15.11.2018 19:55, Brett Cannon wrote:
+> 
+>     It seems like we're completely skipping the review phase of the
+>     regular PEP process and going straight from PEP writing to
+>     a vote:
+> 
+>     https://www.python.org/dev/peps/pep-0001/#id38
+> 
+>     which is odd given the importance of this decision and also
+>     odd compared to normal democratic procedures where laws are
+>     first crafted, then put through parliament for discussion and
+>     then decided upon after everyone has had a reasonable chance
+>     for review. 
+> 
+> ?
+> I don't know if it's really fair to say the review phase is being
+> skipped. It's not like anyone *must* vote tomorrow and so there really
+> isn't any time to think things over. You still have the rest of the
+> month to review the PEPs and place your vote. It's no different than
+> someone following a PEP closely, forming their opinion along the way,
+> and then when the final version lands replying with an opinion
+> immediately even if the PEP delegate isn't making a final decision for
+> another two weeks.
+
+Perhaps I wasn't clear. With "review" I meant debating the PEPs
+among everyone, not just the few people interested in working
+on them in the crafting stages.
+
+You normally start debating a proposal when the proposal itself
+is fleshed out to the point where the people behind the proposal
+feel comfortable with presenting it.
+
+The two weeks voting period is not two weeks because people need
+time for debate; it's two weeks to enable people to participate
+in the vote and deliberately longer to make sure they
+have a reasonable chance to vote - even when they are on vacation,
+a business trip or have other appointments during those two weeks
+which keep them from going to a vote.
+
+-- 
+Marc-Andre Lemburg
+eGenix.com
+
+Professional Python Services directly from the Experts (#1, Nov 15 2018)
+>>> Python Projects, Coaching and Consulting ...  http://www.egenix.com/
+>>> Python Database Interfaces ...           http://products.egenix.com/
+>>> Plone/Zope Database Interfaces ...           http://zope.egenix.com/
+________________________________________________________________________
+
+::: We implement business ideas - efficiently in both time and costs :::
+
+   eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+    D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+           Registered at Amtsgericht Duesseldorf: HRB 46611
+               http://www.egenix.com/company/contact/
+                      http://www.malemburg.com/
+
+
+From mal at egenix.com  Thu Nov 15 17:38:14 2018
+From: mal at egenix.com (M.-A. Lemburg)
+Date: Thu, 15 Nov 2018 23:38:14 +0100
+Subject: [python-committers] Timeline to vote for a governance PEP
+In-Reply-To: <1A88501D-2203-4290-8225-3A59EDA8F0FF@python.org>
+References: <CA+3bQGEMvzborjcJqda9hFHdazA1S1na3n__n9=30iN4=GgD+Q@mail.gmail.com>
+ <CA+3bQGGEknSvUM9+C+Tq=oKsvW-Jsvqqn-u1YmBRcf5+mQG3NA@mail.gmail.com>
+ <9004c364-5363-00d1-28ab-e9093a548bdb@egenix.com>
+ <CAGbohnaQ34PUqv_UrPFBCAZWapKV+0Cc5dMuLxdynNZmt-oLOA@mail.gmail.com>
+ <1A88501D-2203-4290-8225-3A59EDA8F0FF@python.org>
+Message-ID: <1393644c-35ff-bf7a-deb3-0be395d728e0@egenix.com>
+
+On 15.11.2018 19:39, Barry Warsaw wrote:
+> Based on my suggestion on Discourse, I propose that the period between tomorrow and November 30th be an official PEP review period, with voting postponed to December 1 - 16 AOE 2018.
+> 
+> https://github.com/python/peps/pull/841
+> 
+> I am personally going to start reviewing these PEPs after the flood of trypophan is unleashed into my bloodstream following the USA Thanksgiving meal.
+
++1
+
+-- 
+Marc-Andre Lemburg
+eGenix.com
+
+Professional Python Services directly from the Experts (#1, Nov 15 2018)
+>>> Python Projects, Coaching and Consulting ...  http://www.egenix.com/
+>>> Python Database Interfaces ...           http://products.egenix.com/
+>>> Plone/Zope Database Interfaces ...           http://zope.egenix.com/
+________________________________________________________________________
+
+::: We implement business ideas - efficiently in both time and costs :::
+
+   eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+    D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+           Registered at Amtsgericht Duesseldorf: HRB 46611
+               http://www.egenix.com/company/contact/
+                      http://www.malemburg.com/
+
+
+From p.f.moore at gmail.com  Thu Nov 15 17:50:40 2018
+From: p.f.moore at gmail.com (Paul Moore)
+Date: Thu, 15 Nov 2018 22:50:40 +0000
+Subject: [python-committers] Timeline to vote for a governance PEP
+In-Reply-To: <CAP1=2W5eDJWeAy5kaZiYC8BwhMJ0Ae4ySG3GYrcA6yEH8m9uSg@mail.gmail.com>
+References: <CA+3bQGEMvzborjcJqda9hFHdazA1S1na3n__n9=30iN4=GgD+Q@mail.gmail.com>
+ <CA+3bQGGEknSvUM9+C+Tq=oKsvW-Jsvqqn-u1YmBRcf5+mQG3NA@mail.gmail.com>
+ <9004c364-5363-00d1-28ab-e9093a548bdb@egenix.com>
+ <CACac1F-2LxQgwZK3Q7mUf16Msax993PDXKWL8Xesb+rnghGRgQ@mail.gmail.com>
+ <CAP1=2W5eDJWeAy5kaZiYC8BwhMJ0Ae4ySG3GYrcA6yEH8m9uSg@mail.gmail.com>
+Message-ID: <CACac1F-bk60scMGvJuqp6u-u7G37+_zogFFoDnF=tkvC8qnvFQ@mail.gmail.com>
+
+On Thu, 15 Nov 2018 at 18:55, Brett Cannon <brett at python.org> wrote:
+> OK, so it seems you're unhappy that you only have a day to vote since you can't change your vote ...
+[...]
+> ... but then you don't like that people can vote over two weeks because you don't want discussions to occur while people can vote to force them to participate in discussions? I might be missing something, but these two issues seem contradictory, especially since we can't exactly force people to not talk about this while voting is open. :)
+
+No, I'm uncomfortable with the discussion period overlapping the
+voting period, because the fact that you can't change your vote means
+that once someone votes, there's no incentive to continue discussing.
+But I accept that it's how it's going to be, I'm not arguing for any
+change here at this late stage.
+
+Paul
+
+From lukasz at langa.pl  Thu Nov 15 18:47:00 2018
+From: lukasz at langa.pl (=?utf-8?Q?=C5=81ukasz_Langa?=)
+Date: Fri, 16 Nov 2018 00:47:00 +0100
+Subject: [python-committers] GOVERNANCE VOTE SCHEDULE UPDATE: Dec 1 - Dec 16
+ 2018
+Message-ID: <A5BC9213-9634-4A08-BB6E-6FC65E7523A7@langa.pl>
+
+Thank you to everybody who voiced concern that the originally planned voting schedule of Nov 16 - Nov 30 was rushed. In the interest of ensuring everybody feels included, as well as to allow time for PEP 801x review and clarifications, Barry Warsaw and the other PEP 801x authors [1]_ decided to move the vote by two weeks. Barry opened a PR [2]_ which I just merged.
+
+Summary of changes:
+- starting tomorrow until December 1st we are entering an official PEP 801x review period. Substantive changes to those PEPs are discouraged, clarifications as the result of the discussion are encouraged.
+- the actual vote will happen on CIVS between December 1st and December 16th.
+
+All details are in PEP 8001 which has been now Accepted and will be marked Final sometime later this week after the dust settles. Please read it carefully.
+
+We are sorry for the late change and any inconvenience this might have caused you. Our foremost concern is to ensure the vote is going to be considered fair, inclusive and legitimate. We hope adjusting the timing helps with that.
+
+One last thing. During the discussion phase, please try to keep discussions on Discourse where they were held until this point. Moderators will be available in this period to help with readability.
+
+- ?
+
+
+
+.. [1]  Well, we couldn't reach Steve who is in Scotland and Jack. We are sorry we couldn't wait for your opinions but the pressure of time didn't allow us to do so.
+.. [2]  https://github.com/python/peps/pull/841/
+
+From vstinner at redhat.com  Thu Nov 15 18:47:00 2018
+From: vstinner at redhat.com (Victor Stinner)
+Date: Fri, 16 Nov 2018 00:47:00 +0100
+Subject: [python-committers] Timeline to vote for a governance PEP
+In-Reply-To: <CACac1F-bk60scMGvJuqp6u-u7G37+_zogFFoDnF=tkvC8qnvFQ@mail.gmail.com>
+References: <CA+3bQGEMvzborjcJqda9hFHdazA1S1na3n__n9=30iN4=GgD+Q@mail.gmail.com>
+ <CA+3bQGGEknSvUM9+C+Tq=oKsvW-Jsvqqn-u1YmBRcf5+mQG3NA@mail.gmail.com>
+ <9004c364-5363-00d1-28ab-e9093a548bdb@egenix.com>
+ <CACac1F-2LxQgwZK3Q7mUf16Msax993PDXKWL8Xesb+rnghGRgQ@mail.gmail.com>
+ <CAP1=2W5eDJWeAy5kaZiYC8BwhMJ0Ae4ySG3GYrcA6yEH8m9uSg@mail.gmail.com>
+ <CACac1F-bk60scMGvJuqp6u-u7G37+_zogFFoDnF=tkvC8qnvFQ@mail.gmail.com>
+Message-ID: <CA+3bQGESqMH+fu9eOOtS2v-PKh9DZh=v0m1dfULx+fmuo=d1RQ@mail.gmail.com>
+
+Le jeu. 15 nov. 2018 ? 23:51, Paul Moore <p.f.moore at gmail.com> a ?crit :
+> No, I'm uncomfortable with the discussion period overlapping the
+> voting period, because the fact that you can't change your vote means
+> that once someone votes, there's no incentive to continue discussing.
+> But I accept that it's how it's going to be, I'm not arguing for any
+> change here at this late stage.
+
+That's why I reduced the vote duration from 1 month to 1 week, but
+also announce the vote in advance for discussion, in my PEP 8015:
+https://www.python.org/dev/peps/pep-8015/#annex-summary-on-votes
+
+PEP vote announced 1 week in advance, change the governance PEP vote
+and Steering Committee members vote announced 3 weeks in advance.
+
+Victor
+
+From tjreedy at udel.edu  Thu Nov 15 19:59:17 2018
+From: tjreedy at udel.edu (Terry Reedy)
+Date: Thu, 15 Nov 2018 19:59:17 -0500
+Subject: [python-committers] GOVERNANCE VOTE SCHEDULE UPDATE: Dec 1 -
+ Dec 16 2018
+In-Reply-To: <A5BC9213-9634-4A08-BB6E-6FC65E7523A7@langa.pl>
+References: <A5BC9213-9634-4A08-BB6E-6FC65E7523A7@langa.pl>
+Message-ID: <ff7b9b9a-e95b-e6f3-551a-1a75d6f69eb7@udel.edu>
+
+On 11/15/2018 6:47 PM, ?ukasz Langa wrote:
+> Thank you to everybody who voiced concern that the originally planned voting schedule of Nov 16 - Nov 30 was rushed. In the interest of ensuring everybody feels included, as well as to allow time for PEP 801x review and clarifications, Barry Warsaw and the other PEP 801x authors [1]_ decided to move the vote by two weeks. Barry opened a PR [2]_ which I just merged.
+
+ >All details are in PEP 8001 which has been now Accepted and will be 
+marked Final sometime later this week after the dust settles. Please 
+read it carefully.
+
+Thank you for making (facilitating) a decision that lets us move forward.
+
+Terry
+
+
+

@@ -6877,3 +6877,708 @@ On Sun, Nov 18, 2018, 3:17 AM Antoine Pitrou <antoine at python.org wrote:
 An HTML attachment was scrubbed...
 URL: <http://mail.python.org/pipermail/python-committers/attachments/20181118/3aaa21e0/attachment.html>
 
+From njs at pobox.com  Mon Nov 19 06:24:15 2018
+From: njs at pobox.com (Nathaniel Smith)
+Date: Mon, 19 Nov 2018 03:24:15 -0800
+Subject: [python-committers] A plea to stop last-minute changes to
+ governance PEPs
+In-Reply-To: <1bf3756a-b3ca-dc35-a8c4-a0b3e666d529@python.org>
+References: <1bf3756a-b3ca-dc35-a8c4-a0b3e666d529@python.org>
+Message-ID: <CAPJVwBkE-NWRPJqbFLV04za5KY4XNoud93XjSn+3bEvq_pAUkw@mail.gmail.com>
+
+On Sun, Nov 18, 2018 at 3:17 AM Antoine Pitrou <antoine at python.org> wrote:
+> A couple days ago Nathaniel pushed significant changes to his governance
+> PEP (PEP 8016).  This means some governance PEPs are apparently still
+> *not* finalized.  This raises a problem: when can we consider that we
+> are reading the final version of a proposal (barring wording fixes or
+> improvements), not some work in progress draft?
+
+There were several PEPs that received significant changes in the week
+before Nov 16 when the "review period" started (at least 8001, 8014,
+8015, 8016), but AFAICT none of the PEPs have had any changes since
+then.
+
+> Not everyone keeps an eye daily on PEP changes and discussions.  It
+> would be nice to be able to make one's mind at an idle pace.  But that
+> requires that PEP authors don't make last-minute changes in an attempt
+> to gather more support.
+
+Thanks for raising this. It's an important issue and one where I've
+been struggling too.
+
+I'll put my conclusion first. My suggestion:
+
+- We do allow changes to the PEPs until the actual voting starts, but
+not afterwards
+- We leave it up to the PEP authors' judgement what changes they want to make
+- The PEP authors will work together to maintain a single shared
+changelog summarizing every change that's made to the PEPs after Nov.
+16, no matter how trivial, and including links to the relevant commits
+so you can easily see the actual text
+- We'll include a link to this changelog prominently in the voting
+instructions etc.
+
+This is easy to implement, avoids messy subjective judgements about
+which changes are "too big", allows the PEPs to be tweaked and
+clarified through the review period, and would mean that so long as
+you read the PEPs at least once during the review period and then
+check the changelog before voting, you're guaranteed that you won't
+miss anything.
+
+Here's my reasoning:
+
+You're absolutely right, it's crucial that everyone know what they're
+voting on; that's basic to having a valid vote. (And I almost got
+bitten by this too ? PEP 8014 changed a lot on Nov. 9, and it was only
+by random chance that I noticed it a week later!) But... right now
+people are still reading the proposals for the first time and
+requesting changes. And if someone's suggestion would be an actual
+improvement, and we turn it down because it's too late ? that's
+disenfranchising in a different way, and also, like, deliberately
+choosing to make our governance worse than necessary, which is
+sub-optimal. Obviously once the vote starts we *can't* change the
+PEPs, because that would retroactively change the meaning of votes
+that were already cast. But until then, freezing and not freezing both
+make me really uncomfortable. It would be good if we could find a
+third way.
+
+To make this concrete, here are some examples of things people have
+brought up re: PEP 8016 since Nov. 16, where I'm not sure what we
+should do:
+
+- Xiang Zhang noticed [1] that PEP 8016 uses a piece of nonstandard
+terminology: "strict majority" where it means "simple majority". Oops.
+I feel like fixing this is probably a good idea, and as
+uncontroversial as any change could be? But OTOH if we don't have a
+changelog then even trivial changes like this might make you and
+others uncomfortable (they make me uncomfortable!), because without
+seeing the change we have no way to judge for ourselves how trivial it
+actually is.
+
+- Xiang Zhang and Victor Stinner are arguing [1, 2] for changing PEP
+8016 to effectively require a slightly higher threshold for the
+steering council to block a new core developer for misconduct
+(4-out-of-5 instead of 3-out-of-5, see [3] for the details). This is a
+small tweak in a corner of the proposal we hope will never come up in
+practice, and it definitely wouldn't change the proposal's overall
+character, but it is a change. It would produce some procedural
+simplifications, and apparently make at least two core devs more
+comfortable. Is that something we should do?
+
+- Steve Dower has suggested [4] tweaking when in the release cycle the
+steering council election is held. This discussion isn't resolved yet,
+maybe we'll conclude it's a bad idea anyway, but OTOH maybe it would
+be an improvement? And again it's a super-tiny change.
+
+It's possible PEP 8016 is particularly prone to this because a design
+goal was to be small and explicit enough to encourage
+<del>nitpicking</del>detailed review, but I'm not just suggesting this
+because "my" PEP has special needs. Other potential changes I'm aware
+of:
+
+- Steve Dower is considering withdrawing PEP 8014 entirely [4], which
+if it happens would be a major substantive change to PEP 8014 that
+voters would want to know about!
+
+- In the course of a discussion that Paul Moore started about
+processes for promoting core devs, I realized [5] that there's (what
+feels to me like) a substantial ambiguity in PEPs 8010 and 8011 about
+how much power the Technical Leader or Trio would actually have ?
+specifically I'd been assuming one thing, but realized that the texts
+actually don't say either way. I hope Barry and Mariatta will clarify
+what they intended before the vote starts. No matter which way they
+clarify things, it may feel like a substantive change to some people,
+depending on how they read it originally.
+
+In this last case, I *guess* as the co-author of a competing PEP I
+could be like "haha, PEP 8001 says it's too late for substantive
+changes so your PEP loses", and then they could be like "no these
+changes aren't substantive because we're just clarifying what we meant
+all along", and then I could be like "well as a voter it feels
+substantive to *me*"... but this sounds like a miserable way to live.
+I'd really rather Barry and Mariatta have the chance to clarify their
+PEPs before the vote, so that we all know what our options are and
+that those options are the best they can be, and that we skip any
+pointless  arguments about it.
+
+The changelog approach is simple, unambiguous, easily enforceable,
+allows the PEPs to be clarified, avoids intrinsically subjective
+arguments about what counts as "substantive", and makes it easy for
+Antoine to know exactly what he's voting on instead of having to trust
+that everyone else's definition of "minor tweak" matches his own.
+
+-n
+
+[1] https://discuss.python.org/t/pep-8016-the-steering-council-model/394/36
+[2] https://discuss.python.org/t/pep-8016-the-steering-council-model/394/37
+[3] https://discuss.python.org/t/pep-8016-the-steering-council-model/394/35
+[4] https://discuss.python.org/t/working-discussion-for-pep-8016-the-boringest-possible-steering-council-model/333/51
+[5] https://discuss.python.org/t/straw-poll-which-governance-proposals-do-you-like-best/436/25
+
+-- 
+Nathaniel J. Smith -- https://vorpus.org
+
+From vstinner at redhat.com  Mon Nov 19 06:37:09 2018
+From: vstinner at redhat.com (Victor Stinner)
+Date: Mon, 19 Nov 2018 12:37:09 +0100
+Subject: [python-committers] A plea to stop last-minute changes to
+ governance PEPs
+In-Reply-To: <CAPJVwBkE-NWRPJqbFLV04za5KY4XNoud93XjSn+3bEvq_pAUkw@mail.gmail.com>
+References: <1bf3756a-b3ca-dc35-a8c4-a0b3e666d529@python.org>
+ <CAPJVwBkE-NWRPJqbFLV04za5KY4XNoud93XjSn+3bEvq_pAUkw@mail.gmail.com>
+Message-ID: <CA+3bQGEUUwshZ0cTr88XWVwEkCthT5LsDWkS-MNO0FOSDL+x8A@mail.gmail.com>
+
+I maintain a Version History in my PEP 8015:
+https://www.python.org/dev/peps/pep-8015/#version-history
+
+Victor
+Le lun. 19 nov. 2018 ? 12:24, Nathaniel Smith <njs at pobox.com> a ?crit :
+>
+> On Sun, Nov 18, 2018 at 3:17 AM Antoine Pitrou <antoine at python.org> wrote:
+> > A couple days ago Nathaniel pushed significant changes to his governance
+> > PEP (PEP 8016).  This means some governance PEPs are apparently still
+> > *not* finalized.  This raises a problem: when can we consider that we
+> > are reading the final version of a proposal (barring wording fixes or
+> > improvements), not some work in progress draft?
+>
+> There were several PEPs that received significant changes in the week
+> before Nov 16 when the "review period" started (at least 8001, 8014,
+> 8015, 8016), but AFAICT none of the PEPs have had any changes since
+> then.
+>
+> > Not everyone keeps an eye daily on PEP changes and discussions.  It
+> > would be nice to be able to make one's mind at an idle pace.  But that
+> > requires that PEP authors don't make last-minute changes in an attempt
+> > to gather more support.
+>
+> Thanks for raising this. It's an important issue and one where I've
+> been struggling too.
+>
+> I'll put my conclusion first. My suggestion:
+>
+> - We do allow changes to the PEPs until the actual voting starts, but
+> not afterwards
+> - We leave it up to the PEP authors' judgement what changes they want to make
+> - The PEP authors will work together to maintain a single shared
+> changelog summarizing every change that's made to the PEPs after Nov.
+> 16, no matter how trivial, and including links to the relevant commits
+> so you can easily see the actual text
+> - We'll include a link to this changelog prominently in the voting
+> instructions etc.
+>
+> This is easy to implement, avoids messy subjective judgements about
+> which changes are "too big", allows the PEPs to be tweaked and
+> clarified through the review period, and would mean that so long as
+> you read the PEPs at least once during the review period and then
+> check the changelog before voting, you're guaranteed that you won't
+> miss anything.
+>
+> Here's my reasoning:
+>
+> You're absolutely right, it's crucial that everyone know what they're
+> voting on; that's basic to having a valid vote. (And I almost got
+> bitten by this too ? PEP 8014 changed a lot on Nov. 9, and it was only
+> by random chance that I noticed it a week later!) But... right now
+> people are still reading the proposals for the first time and
+> requesting changes. And if someone's suggestion would be an actual
+> improvement, and we turn it down because it's too late ? that's
+> disenfranchising in a different way, and also, like, deliberately
+> choosing to make our governance worse than necessary, which is
+> sub-optimal. Obviously once the vote starts we *can't* change the
+> PEPs, because that would retroactively change the meaning of votes
+> that were already cast. But until then, freezing and not freezing both
+> make me really uncomfortable. It would be good if we could find a
+> third way.
+>
+> To make this concrete, here are some examples of things people have
+> brought up re: PEP 8016 since Nov. 16, where I'm not sure what we
+> should do:
+>
+> - Xiang Zhang noticed [1] that PEP 8016 uses a piece of nonstandard
+> terminology: "strict majority" where it means "simple majority". Oops.
+> I feel like fixing this is probably a good idea, and as
+> uncontroversial as any change could be? But OTOH if we don't have a
+> changelog then even trivial changes like this might make you and
+> others uncomfortable (they make me uncomfortable!), because without
+> seeing the change we have no way to judge for ourselves how trivial it
+> actually is.
+>
+> - Xiang Zhang and Victor Stinner are arguing [1, 2] for changing PEP
+> 8016 to effectively require a slightly higher threshold for the
+> steering council to block a new core developer for misconduct
+> (4-out-of-5 instead of 3-out-of-5, see [3] for the details). This is a
+> small tweak in a corner of the proposal we hope will never come up in
+> practice, and it definitely wouldn't change the proposal's overall
+> character, but it is a change. It would produce some procedural
+> simplifications, and apparently make at least two core devs more
+> comfortable. Is that something we should do?
+>
+> - Steve Dower has suggested [4] tweaking when in the release cycle the
+> steering council election is held. This discussion isn't resolved yet,
+> maybe we'll conclude it's a bad idea anyway, but OTOH maybe it would
+> be an improvement? And again it's a super-tiny change.
+>
+> It's possible PEP 8016 is particularly prone to this because a design
+> goal was to be small and explicit enough to encourage
+> <del>nitpicking</del>detailed review, but I'm not just suggesting this
+> because "my" PEP has special needs. Other potential changes I'm aware
+> of:
+>
+> - Steve Dower is considering withdrawing PEP 8014 entirely [4], which
+> if it happens would be a major substantive change to PEP 8014 that
+> voters would want to know about!
+>
+> - In the course of a discussion that Paul Moore started about
+> processes for promoting core devs, I realized [5] that there's (what
+> feels to me like) a substantial ambiguity in PEPs 8010 and 8011 about
+> how much power the Technical Leader or Trio would actually have ?
+> specifically I'd been assuming one thing, but realized that the texts
+> actually don't say either way. I hope Barry and Mariatta will clarify
+> what they intended before the vote starts. No matter which way they
+> clarify things, it may feel like a substantive change to some people,
+> depending on how they read it originally.
+>
+> In this last case, I *guess* as the co-author of a competing PEP I
+> could be like "haha, PEP 8001 says it's too late for substantive
+> changes so your PEP loses", and then they could be like "no these
+> changes aren't substantive because we're just clarifying what we meant
+> all along", and then I could be like "well as a voter it feels
+> substantive to *me*"... but this sounds like a miserable way to live.
+> I'd really rather Barry and Mariatta have the chance to clarify their
+> PEPs before the vote, so that we all know what our options are and
+> that those options are the best they can be, and that we skip any
+> pointless  arguments about it.
+>
+> The changelog approach is simple, unambiguous, easily enforceable,
+> allows the PEPs to be clarified, avoids intrinsically subjective
+> arguments about what counts as "substantive", and makes it easy for
+> Antoine to know exactly what he's voting on instead of having to trust
+> that everyone else's definition of "minor tweak" matches his own.
+>
+> -n
+>
+> [1] https://discuss.python.org/t/pep-8016-the-steering-council-model/394/36
+> [2] https://discuss.python.org/t/pep-8016-the-steering-council-model/394/37
+> [3] https://discuss.python.org/t/pep-8016-the-steering-council-model/394/35
+> [4] https://discuss.python.org/t/working-discussion-for-pep-8016-the-boringest-possible-steering-council-model/333/51
+> [5] https://discuss.python.org/t/straw-poll-which-governance-proposals-do-you-like-best/436/25
+>
+> --
+> Nathaniel J. Smith -- https://vorpus.org
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+
+From p.f.moore at gmail.com  Mon Nov 19 08:30:38 2018
+From: p.f.moore at gmail.com (Paul Moore)
+Date: Mon, 19 Nov 2018 13:30:38 +0000
+Subject: [python-committers] A plea to stop last-minute changes to
+ governance PEPs
+In-Reply-To: <CAPJVwBkE-NWRPJqbFLV04za5KY4XNoud93XjSn+3bEvq_pAUkw@mail.gmail.com>
+References: <1bf3756a-b3ca-dc35-a8c4-a0b3e666d529@python.org>
+ <CAPJVwBkE-NWRPJqbFLV04za5KY4XNoud93XjSn+3bEvq_pAUkw@mail.gmail.com>
+Message-ID: <CACac1F_MinSmhH76kCYaonkKZJfCsSqQVWRpFk+m_YWMv8CC0A@mail.gmail.com>
+
+On Mon, 19 Nov 2018 at 11:24, Nathaniel Smith <njs at pobox.com> wrote:
+> Thanks for raising this. It's an important issue and one where I've
+> been struggling too.
+>
+> I'll put my conclusion first. My suggestion:
+>
+> - We do allow changes to the PEPs until the actual voting starts, but
+> not afterwards
+> - We leave it up to the PEP authors' judgement what changes they want to make
+> - The PEP authors will work together to maintain a single shared
+> changelog summarizing every change that's made to the PEPs after Nov.
+> 16, no matter how trivial, and including links to the relevant commits
+> so you can easily see the actual text
+> - We'll include a link to this changelog prominently in the voting
+> instructions etc.
+>
+> This is easy to implement, avoids messy subjective judgements about
+> which changes are "too big", allows the PEPs to be tweaked and
+> clarified through the review period, and would mean that so long as
+> you read the PEPs at least once during the review period and then
+> check the changelog before voting, you're guaranteed that you won't
+> miss anything.
+
+I agree, this is a really difficult question to get right.
+
+My feeling, however, is that the PEPs that are having the most trouble
+with this are the ones that are trying to pin down too much detail.
+Sure (to pick a random example), it's ultimately going to be important
+that a council have a clear idea of how they reach agreement on
+banning a core developer, should that situation come up. But is it
+really going to be so critical to establish that detail *right now*
+that someone would change their vote **to a completely different
+governance model** if the number of votes was set at 3 or 4? And is
+the proposal explicitly denying us the chance to change that number
+based on experience going forward?[1]
+
+I realise this is precisely the point you made about subjective
+judgements, but I think it needs to be taken in context. I have a
+maximum of 7 proposals to choose from (6 if Steve withdraws his). I'm
+interested in the overall "shape" of the proposal (leader or group who
+decides vs community voting for example) and the "tone" (is it
+concerned with pinning down lots of details, does it assume we'll
+trust each other to work in good faith, is it bureaucratic, is it
+well-established or novel, etc). The sorts of changes you're talking
+about in the examples you give mostly leave me with a feeling of "this
+proposal is prone to getting bogged down in details, it's
+overspecified", and that's what will affect my vote rather than the
+actual detail being debated[2].
+
+> It's possible PEP 8016 is particularly prone to this because a design
+> goal was to be small and explicit enough to encourage
+> <del>nitpicking</del>detailed review, but I'm not just suggesting this
+> because "my" PEP has special needs.
+
+I'd characterise this more as "PEPs that try to specify too much
+detail are prone to this because they encourage 'detailed review'"...
+;-)
+
+> - Steve Dower is considering withdrawing PEP 8014 entirely [4], which
+> if it happens would be a major substantive change to PEP 8014 that
+> voters would want to know about!
+
+Knowing about it - definitely. But more importantly, I'd like to know
+*why*! If Steve no longer considers his proposal worth voting for,
+what is his logic, and what does he consider a reasonable alternative
+for people who *did* want to vote for it? Personally, I'm not that
+worried as that wasn't one of my preferred proposals, but I do think
+that if you have created a proposal, you have a certain level of
+responsibility to the people who liked it to give them information on
+what you view as the "migration path" from what they voted for to
+where you are now (and "not being able to vote for it" is a pretty
+extreme case of that!)
+
+> - In the course of a discussion that Paul Moore started about
+> processes for promoting core devs, I realized [5] that there's (what
+> feels to me like) a substantial ambiguity in PEPs 8010 and 8011 about
+> how much power the Technical Leader or Trio would actually have ?
+> specifically I'd been assuming one thing, but realized that the texts
+> actually don't say either way. I hope Barry and Mariatta will clarify
+> what they intended before the vote starts. No matter which way they
+> clarify things, it may feel like a substantive change to some people,
+> depending on how they read it originally.
+
+And yet, I hope they don't, as a key point for me about their
+proposals is that they *don't* try to specify everything up front, but
+rather they allow for the leader/council to make judgements as time
+goes on. If you feel that as a result their proposals are
+underspecified, by all means vote for something else.
+
+> In this last case, I *guess* as the co-author of a competing PEP I
+> could be like "haha, PEP 8001 says it's too late for substantive
+> changes so your PEP loses", and then they could be like "no these
+> changes aren't substantive because we're just clarifying what we meant
+> all along", and then I could be like "well as a voter it feels
+> substantive to *me*"... but this sounds like a miserable way to live.
+
+So is forming an opinion by viewing the proposals, and then hoping
+that no-one publishes a rewrite that means you have to rethink your
+position at the last minute. It doesn't really help that you have a
+way of being notified about major changes, the point is that we don't
+want them to *happen*. (Yes, "major" is subjective once again, I
+know.)
+
+> I'd really rather Barry and Mariatta have the chance to clarify their
+> PEPs before the vote, so that we all know what our options are and
+> that those options are the best they can be, and that we skip any
+> pointless  arguments about it.
+
+Assuming that we'll deal with things when they happen is also an
+option, IMO. I'd prefer it if we didn't reach a point where no
+proposal offered that option. And frankly, changing from a relatively
+underspecified position of "give some people authority, and let them
+make the decisions" approach to one more like "elect a
+group/individual to implement the set of rules we state here" is
+*definitely* a substantive change, so one I'd oppose allowing now that
+the review period has started.
+
+> The changelog approach is simple, unambiguous, easily enforceable,
+> allows the PEPs to be clarified, avoids intrinsically subjective
+> arguments about what counts as "substantive", and makes it easy for
+> Antoine to know exactly what he's voting on instead of having to trust
+> that everyone else's definition of "minor tweak" matches his own.
+
+... but means that in theory, *anything* could change right up to the
+start of the voting period, which makes the introduction of an
+explicit review period pointless - we could just as easily have
+started the voting period on the 16th in that case.
+
+[1] It's possible that it *is* that important for some proposals. That
+says to me that those proposals don't have enough built in flexibility
+to react to unexpected situations (e.g., they have no mechanism for
+deciding on a decision making system for an unanticipated event).
+[2] And yes, that does mean that I'm currently inclined towards
+particular governance models based more on how they are presented,
+rather than on how they are structured. I'm not going to apologise for
+that, or even accept that it's wrong. Any system can work if it's
+implemented in a sufficiently flexible and sympathetic manner,
+conversely any system can fail if it gets bogged down in bureaucracy
+and over dependence on rule-book solutions.
+
+Paul
+
+PS I wrote this without going back over the PEPs, apologies if I've
+misremembered or misrepresented anyone's proposal as a result of that.
+PPS It's quite possible that my comments here aren't 100% consistent
+with what I've previously written. I'm still forming my opinions and
+they are changing over time - as well as not being super-precise in
+the first place (I'm judging a lot of this on "gut instinct" that I
+can't always put into words). So apologies for that as well.
+
+From steve.dower at python.org  Mon Nov 19 11:32:11 2018
+From: steve.dower at python.org (Steve Dower)
+Date: Mon, 19 Nov 2018 08:32:11 -0800
+Subject: [python-committers] A plea to stop last-minute changes to
+ governance PEPs
+In-Reply-To: <CACac1F_MinSmhH76kCYaonkKZJfCsSqQVWRpFk+m_YWMv8CC0A@mail.gmail.com>
+References: <1bf3756a-b3ca-dc35-a8c4-a0b3e666d529@python.org>
+ <CAPJVwBkE-NWRPJqbFLV04za5KY4XNoud93XjSn+3bEvq_pAUkw@mail.gmail.com>
+ <CACac1F_MinSmhH76kCYaonkKZJfCsSqQVWRpFk+m_YWMv8CC0A@mail.gmail.com>
+Message-ID: <024e84c6-2f3f-3efb-57e8-544a31a65e3f@python.org>
+
+On 19Nov2018 0530, Paul Moore wrote:
+> On Mon, 19 Nov 2018 at 11:24, Nathaniel Smith <njs at pobox.com> wrote:
+>> - Steve Dower is considering withdrawing PEP 8013 entirely [4], which
+>> if it happens would be a major substantive change to PEP 8013 that
+>> voters would want to know about!
+> 
+> Knowing about it - definitely. But more importantly, I'd like to know
+> *why*! If Steve no longer considers his proposal worth voting for,
+> what is his logic, and what does he consider a reasonable alternative
+> for people who *did* want to vote for it? Personally, I'm not that
+> worried as that wasn't one of my preferred proposals, but I do think
+> that if you have created a proposal, you have a certain level of
+> responsibility to the people who liked it to give them information on
+> what you view as the "migration path" from what they voted for to
+> where you are now (and "not being able to vote for it" is a pretty
+> extreme case of that!)
+
+[I corrected the quote to read PEP 8013]
+
+FWIW, I'm thinking about withdrawing it because PEP 8016 captures my 
+highest priorities (specifically, core developers don't have a monopoly 
+on decision-making skills, and don't apply unnecessary constraints on 
+whoever leads in this PEP). The rest of my proposal is just enough 
+detail to be functional, but I'm not really wedded to it, so if there's 
+an alternative that mirrors the core values then I'll tell people to go 
+vote for that instead of mine.
+
+Right now there's one blocking concern I have with 8016 [1], but once 
+that's fixed I'll happily just tell people that if they were planning to 
+vote for PEP 8013, they should have been putting 8016 second anyway, and 
+now they can just put it first :)
+
+Cheers,
+Steve
+
+1. 
+https://discuss.python.org/t/working-discussion-for-pep-8016-the-boringest-possible-steering-council-model/333/51?u=steve.dower
+
+From p.f.moore at gmail.com  Mon Nov 19 11:38:36 2018
+From: p.f.moore at gmail.com (Paul Moore)
+Date: Mon, 19 Nov 2018 16:38:36 +0000
+Subject: [python-committers] A plea to stop last-minute changes to
+ governance PEPs
+In-Reply-To: <024e84c6-2f3f-3efb-57e8-544a31a65e3f@python.org>
+References: <1bf3756a-b3ca-dc35-a8c4-a0b3e666d529@python.org>
+ <CAPJVwBkE-NWRPJqbFLV04za5KY4XNoud93XjSn+3bEvq_pAUkw@mail.gmail.com>
+ <CACac1F_MinSmhH76kCYaonkKZJfCsSqQVWRpFk+m_YWMv8CC0A@mail.gmail.com>
+ <024e84c6-2f3f-3efb-57e8-544a31a65e3f@python.org>
+Message-ID: <CACac1F81ACJ1Sb3ufov8fRC1-sT5k6c2KQaEEEkjT_SpycNiZQ@mail.gmail.com>
+
+On Mon, 19 Nov 2018 at 16:32, Steve Dower <steve.dower at python.org> wrote:
+> FWIW, I'm thinking about withdrawing it because PEP 8016 captures my
+> highest priorities (specifically, core developers don't have a monopoly
+> on decision-making skills, and don't apply unnecessary constraints on
+> whoever leads in this PEP). The rest of my proposal is just enough
+> detail to be functional, but I'm not really wedded to it, so if there's
+> an alternative that mirrors the core values then I'll tell people to go
+> vote for that instead of mine.
+
+Interesting. I considered the distinguishing feature of your proposal
+to be that it explicitly *excludes* core devs from the council (to the
+extent that you call out that feature as what distinguishes it from
+8011). I wasn't keen on that, so I never really got much beyond that
+aspect of your proposal to be honest - so it's weird to me that you
+don't think it's particularly significant.
+
+But thanks for the clarification.
+Paul
+
+From steve.dower at python.org  Mon Nov 19 11:54:27 2018
+From: steve.dower at python.org (Steve Dower)
+Date: Mon, 19 Nov 2018 08:54:27 -0800
+Subject: [python-committers] A plea to stop last-minute changes to
+ governance PEPs
+In-Reply-To: <CACac1F81ACJ1Sb3ufov8fRC1-sT5k6c2KQaEEEkjT_SpycNiZQ@mail.gmail.com>
+References: <1bf3756a-b3ca-dc35-a8c4-a0b3e666d529@python.org>
+ <CAPJVwBkE-NWRPJqbFLV04za5KY4XNoud93XjSn+3bEvq_pAUkw@mail.gmail.com>
+ <CACac1F_MinSmhH76kCYaonkKZJfCsSqQVWRpFk+m_YWMv8CC0A@mail.gmail.com>
+ <024e84c6-2f3f-3efb-57e8-544a31a65e3f@python.org>
+ <CACac1F81ACJ1Sb3ufov8fRC1-sT5k6c2KQaEEEkjT_SpycNiZQ@mail.gmail.com>
+Message-ID: <3b75cf99-21d3-1010-37ba-e942d40a48cc@python.org>
+
+On 19Nov2018 0838, Paul Moore wrote:
+> On Mon, 19 Nov 2018 at 16:32, Steve Dower <steve.dower at python.org> wrote:
+>> FWIW, I'm thinking about withdrawing it because PEP 8016 captures my
+>> highest priorities (specifically, core developers don't have a monopoly
+>> on decision-making skills, and don't apply unnecessary constraints on
+>> whoever leads in this PEP). The rest of my proposal is just enough
+>> detail to be functional, but I'm not really wedded to it, so if there's
+>> an alternative that mirrors the core values then I'll tell people to go
+>> vote for that instead of mine.
+> 
+> Interesting. I considered the distinguishing feature of your proposal
+> to be that it explicitly *excludes* core devs from the council (to the
+> extent that you call out that feature as what distinguishes it from
+> 8011). I wasn't keen on that, so I never really got much beyond that
+> aspect of your proposal to be honest - so it's weird to me that you
+> don't think it's particularly significant.
+> 
+> But thanks for the clarification.
+> Paul
+> 
+
+That was mainly just the easiest way to deal with conflicts of interest, 
+but it was always a point that I'd bargain away if people were really 
+upset about it :)
+
+I'm sure we'll find sensible ways to deal with people who want to get 
+elected just to pass their own PEPs.
+
+Cheers,
+Steve
+
+
+From steve at pearwood.info  Mon Nov 19 17:56:38 2018
+From: steve at pearwood.info (Steven D'Aprano)
+Date: Tue, 20 Nov 2018 09:56:38 +1100
+Subject: [python-committers] How do you find Discourse so far?
+In-Reply-To: <2FEFEDB9-55BE-4190-8523-7EDB79F846D9@langa.pl>
+References: <2FEFEDB9-55BE-4190-8523-7EDB79F846D9@langa.pl>
+Message-ID: <20181119225638.GC11582@ando.pearwood.info>
+
+On Tue, Nov 13, 2018 at 06:00:01PM +0100, ?ukasz Langa wrote:
+> Here's a poll:
+> https://discuss.python.org/t/how-do-you-find-discourse-so-far/429
+
+In the poll, you say:
+
+"I think we?ve had enough exposure now for you to have an informed 
+opinion on the tool."
+
+How many core devs have signed up with an account to use it, out of how 
+many active and potentially active core devs? I see 35 people have 
+voted. Is that a lot?
+
+I can't vote on this, because there is no option for "I haven't tried it 
+yet, I've been too busy to start following yet another discussion 
+forum and learning a new tool." I suspect I'm not the only one.
+
+(Having a life away from the computer is not all its cracked up to be... 
+*wink*)
+
+I'm sure I could log in and post something just to say I've 
+tried it, but that wouldn't be giving it a fair trial.
+
+Just a data point for your consideration.
+
+
+-- 
+Steve
+
+From njs at pobox.com  Tue Nov 20 02:46:43 2018
+From: njs at pobox.com (Nathaniel Smith)
+Date: Mon, 19 Nov 2018 23:46:43 -0800
+Subject: [python-committers] A plea to stop last-minute changes to
+ governance PEPs
+In-Reply-To: <CACac1F_MinSmhH76kCYaonkKZJfCsSqQVWRpFk+m_YWMv8CC0A@mail.gmail.com>
+References: <1bf3756a-b3ca-dc35-a8c4-a0b3e666d529@python.org>
+ <CAPJVwBkE-NWRPJqbFLV04za5KY4XNoud93XjSn+3bEvq_pAUkw@mail.gmail.com>
+ <CACac1F_MinSmhH76kCYaonkKZJfCsSqQVWRpFk+m_YWMv8CC0A@mail.gmail.com>
+Message-ID: <CAPJVwBnx6m3wEHAnHJwMrfnZ+taVQFMDOrUDO88KP89yjo7wog@mail.gmail.com>
+
+On Mon, Nov 19, 2018 at 5:30 AM Paul Moore <p.f.moore at gmail.com> wrote:
+> My feeling, however, is that the PEPs that are having the most trouble
+> with this are the ones that are trying to pin down too much detail.
+> Sure (to pick a random example), it's ultimately going to be important
+> that a council have a clear idea of how they reach agreement on
+> banning a core developer, should that situation come up. But is it
+> really going to be so critical to establish that detail *right now*
+> that someone would change their vote **to a completely different
+> governance model** if the number of votes was set at 3 or 4? And is
+> the proposal explicitly denying us the chance to change that number
+> based on experience going forward?[1]
+
+PEP 8016 does try to specify all the details needed to get us out of
+our current state of ambiguity, so that if we adopt it then we're
+ready to go immediately and never have to go back to our current
+ill-defined process. That forces it to specify various details, but
+beyond that it tries to specify as little as possible (so lots of
+details are delegated to the future governance system, rather than
+being resolved right now), and for the things that it does specify, it
+also specifies how we can change them:
+https://www.python.org/dev/peps/pep-8016/#changing-this-document . So
+we can totally change things going forward.
+
+If the PEP left blank spaces to be filled in later, then when would we
+fill them in, and how? Are you imagining we'd have a second round of
+voting to fill in the details, or what are you thinking?
+
+> I realise this is precisely the point you made about subjectivea way to change those details ? see
+> judgements, but I think it needs to be taken in context. I have a
+> maximum of 7 proposals to choose from (6 if Steve withdraws his). I'm
+> interested in the overall "shape" of the proposal (leader or group who
+> decides vs community voting for example) and the "tone" (is it
+> concerned with pinning down lots of details, does it assume we'll
+> trust each other to work in good faith, is it bureaucratic, is it
+> well-established or novel, etc). The sorts of changes you're talking
+> about in the examples you give mostly leave me with a feeling of "this
+> proposal is prone to getting bogged down in details, it's
+> overspecified", and that's what will affect my vote rather than the
+> actual detail being debated[2].
+
+Well, that's up to you I guess :-). None of the bureaucratic details
+in PEP 8016 have anything to do with day-to-day development, and for
+uncontroversial decisions, governance doesn't matter at all. The only
+time a governance PEP matters is when we hit an ambiguous situation
+where people are disagreeing. IMO that means the governance probably
+shouldn't leave the details ambiguous and assume people will agree on
+how to handle them :-).
+
+But that's kind of neither here nor there... even if you disagree with
+me about that, I hope we can still agree on one thing:
+
+> > - In the course of a discussion that Paul Moore started about
+> > processes for promoting core devs, I realized [5] that there's (what
+> > feels to me like) a substantial ambiguity in PEPs 8010 and 8011 about
+> > how much power the Technical Leader or Trio would actually have ?
+> > specifically I'd been assuming one thing, but realized that the texts
+> > actually don't say either way. I hope Barry and Mariatta will clarify
+> > what they intended before the vote starts. No matter which way they
+> > clarify things, it may feel like a substantive change to some people,
+> > depending on how they read it originally.
+>
+> And yet, I hope they don't, as a key point for me about their
+> proposals is that they *don't* try to specify everything up front, but
+> rather they allow for the leader/council to make judgements as time
+> goes on. If you feel that as a result their proposals are
+> underspecified, by all means vote for something else.
+
+If you're right that Barry's intent for PEP 8010 is to make it a kind
+of "template" for a future governance PEP, with details intentionally
+left underspecified to be filled in later by some yet-to-be-determined
+process, then it would still be helpful for him to specify *that*.
+That would give us both the information we need to vote :-).
+
+-n
+
+-- 
+Nathaniel J. Smith -- https://vorpus.org
+

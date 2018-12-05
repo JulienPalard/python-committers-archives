@@ -373,3 +373,28 @@ On Sun, 2 Dec 2018 at 10:24, Guido van Rossum <guido at python.org> wrote:
 An HTML attachment was scrubbed...
 URL: <http://mail.python.org/pipermail/python-committers/attachments/20181202/01ae46eb/attachment-0001.html>
 
+From nad at python.org  Tue Dec  4 03:42:28 2018
+From: nad at python.org (Ned Deily)
+Date: Tue, 4 Dec 2018 03:42:28 -0500
+Subject: [python-committers] 3.7.2rc1 and 3.6.8rc1 cutoffs ahead,
+ last 3.6.x bugfix release!
+Message-ID: <95B9F244-38A8-4E47-8E9D-6DAD289C84A2@python.org>
+
+https://discuss.python.org/t/3-7-2rc1-and-3-6-8rc1-cutoffs-ahead-last-3-6-x-bugfix-release/510
+
+
+We're reaching the end of the year and it's time for another pair of Python 3 maintenance releases, 3.7.2 and 3.6.8, before we ring out 2018.  Since there are still some open release blocker issues and I haven't been bugging you about them, I've moved the code cutoff for the release candidates to this coming Friday, 12-07, by the end of the day (AOE).  That gives us all another 4 days to review open issues and PRs.  Please give highest attention to any release blockers you have been shepherding or reviewing.  Thanks!
+
+A reminder: as previously announced, 3.6.8 is planned to be the last bugfix release of the 3.6 series.  Python 3.6.0 was released on 2016-12-23, so by the time 3.6.8 is released, 3.6.x will have been in bugfix mode almost exactly 2 years.  When a new feature release is made and enters "bugfix" mode, our policy has long been to continue to maintain the previous bugfix branch for at least one more release and then move that branch to "security fix only" mode.  3.7.0 (and 3.6.6) was released nearly six months ago and, with the release of 3.6.8, there will have been two additional 3.6.x bugfix releases since then.  So, barring any showstopper issues that might arise, the upcoming 3.6.8rc1 is your last chance to make bugfix changes for 3.6.x.  Following the successful release of 3.6.8, only security fixes will be accepted for the 3.6 branch and future 3.6.x releases will be source-only and scheduled as needed; no further binary installers will be produced for 3.6.  Refer to the Dev Guide sections and release PEPs linked below for more information.
+
+
+https://devguide.python.org/devcycle/
+https://devguide.python.org/#branchstatus
+https://www.python.org/dev/peps/pep-0494/
+https://www.python.org/dev/peps/pep-0537/
+
+--
+  Ned Deily
+  nad at python.org -- []
+
+

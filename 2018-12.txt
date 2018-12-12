@@ -453,3 +453,51 @@ https://discuss.python.org/t/blurb-it-is-now-available/528
 An HTML attachment was scrubbed...
 URL: <http://mail.python.org/pipermail/python-committers/attachments/20181210/b5dde7f0/attachment.html>
 
+From nad at python.org  Tue Dec 11 15:07:48 2018
+From: nad at python.org (Ned Deily)
+Date: Tue, 11 Dec 2018 15:07:48 -0500
+Subject: [python-committers] [Python-Dev] 3.7.2rc1 and 3.6.8rc1 cutoffs
+ ahead, last 3.6.x bugfix release!
+In-Reply-To: <58C8B7D8-80EF-46D3-BCBE-4ACC95382D0A@python.org>
+References: <95B9F244-38A8-4E47-8E9D-6DAD289C84A2@python.org>
+ <58C8B7D8-80EF-46D3-BCBE-4ACC95382D0A@python.org>
+Message-ID: <BF1B33A9-4CC7-40FE-810E-5C52509993A1@python.org>
+
+https://discuss.python.org/t/3-7-2rc1-and-3-6-8rc1-cutoffs-ahead-last-3-6-x-bugfix-release/510/3?u=nad
+
+
+OK, thanks to a lot of hard work by many of you, I think we are ready to
+start the manufacturing of **3.7.2rc1** and **3.6.8rc1**.
+
+For the **3.7 branch**, as usual feel free to continue to merge the
+usual changes appropriate for a `bugfix` branch; unless otherwise marked
+and agreed on as a **release blocker** for 3.7.2 final, any new 3.7
+merges will be released in 3.7.3.
+
+For the **3.6 branch**, as announced 3.6.8 is planned to be **the last
+bugfix release** for the 3.6 series; future 3.6.x releases will be as
+needed and contain **only security fixes** and source only. Of course,
+if any release blocker regressions show up after 3.6.8rc1, we will
+consider merging fixes for them. This means that, **as of now, the 3.6
+branch is no longer open to normal bugfixes**, only security fixes and
+release blocker regressions fixes and only with the approval of the
+release manager. Therefore, as we have done with previous branches
+moving to security-fix mode, merges to the 3.6 branch on the `cpython`
+GitHub repo are now restricted to the release managers. If you feel a
+change to 3.6 is needed either because it is a **release blocker
+regression** in 3.6.8 or because it is a **security issue**, please
+ensure there is a bpo issue describing the problem, mark it as **release
+blocker** priority, and submit the necessary PR. At some point, on or
+after the 3.6.8 release, we will be going through the open 3.6 PRs, open
+PRs with the `needs backport to 3.6` label, and bpo issues marked for
+3.6 and updating or closing them as needed. **Please do not mark new PRs
+with the** `needs backport to 3.6` **label** unless you feel the
+proposed change meets one of the criteria above.
+
+Thanks for your help!
+
+--
+  Ned Deily
+  nad at python.org -- []
+
+

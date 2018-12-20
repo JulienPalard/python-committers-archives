@@ -1321,3 +1321,428 @@ Andrew Svetlov
 An HTML attachment was scrubbed...
 URL: <http://mail.python.org/pipermail/python-committers/attachments/20181217/10557436/attachment.html>
 
+From vstinner at redhat.com  Wed Dec 19 09:01:08 2018
+From: vstinner at redhat.com (Victor Stinner)
+Date: Wed, 19 Dec 2018 15:01:08 +0100
+Subject: [python-committers] [Python-Dev] 3.7.2rc1 and 3.6.8rc1 cutoffs
+ ahead, last 3.6.x bugfix release!
+In-Reply-To: <1109428671.99278808.1545215281839.JavaMail.zimbra@redhat.com>
+References: <95B9F244-38A8-4E47-8E9D-6DAD289C84A2@python.org>
+ <033423e6-5918-24e1-c5a5-daf829a3e1ef@gmail.com>
+ <1109428671.99278808.1545215281839.JavaMail.zimbra@redhat.com>
+Message-ID: <CA+3bQGFRTqttLCRU-5TfKRWpoTpBGXhe3i8oGu4DoVdtPo6aPA@mail.gmail.com>
+
+Hi,
+
+I am working in the Red Hat "Python-maint" team which is maintaining
+Python 3.6 as the main Python interpreter in RHEL 8, which will likely
+be supported for at least 10 years. And we have been supporting Python
+2.7 in RHEL 7. So obviously, being able to benefit of the upstream
+effort and infra to have a Python 3.6 Long Time Support (LTS) would
+help us :-)
+
+The question is more who else would benefit from that and is it worth
+it? I don't want Python upstream to pay the price of the maintenance
+burden of RHEL 8 lifecycle. For example, supporting a version means to
+have a working CI (Travis CI, AppVeyor, VSTS, buildbots). I would
+suggest to only support a very few platforms for the LTS. I propose to
+restrict to Linux. It doesn't mean to break other platforms on
+purpose, just to restrict CI to the bare minimum. If Microsoft is
+interested, we can also support Windows as well.
+
+RHEL 7 is based on Python 2.7.5 which has been released in 2013 (5
+years ago) and there are 150 patches on top of it: it means that
+around 30 patches are added per year. I would suggest to have a very
+strict policy on which changes are backported into 3.6: only the most
+critical bugfixes, but all security fixes obviously.
+
+If we extend Python 3.6 lifetime, do we need a new release manager
+when the initial lifetime (usually 5 years) ends? Benjamin Peterson
+accepted to be the Python 2.7 release manager for 10 years (instead of
+5 years initially). We could ask Ned Deily about Python 3.6 LTS :-) We
+would need a group of people reviewing individual 3.6 pull requests to
+decide to pick them or not. I would volunteer to review these PRs and
+merge them.
+
+The idea isn't new, Nick Coghlan proposed a "ELPython" last year:
+
+   https://github.com/elpython/elpython-meta
+
+The Linux kernel also have multiple LTS kernel which are supported
+longer than usual releases: they are now supported for 6 years. See
+"Longterm" at:
+
+   https://www.kernel.org/category/releases.html
+
+Victor
+--
+Night gathers, and now my watch begins. It shall not end until my death.
+
+From storchaka at gmail.com  Wed Dec 19 09:43:42 2018
+From: storchaka at gmail.com (Serhiy Storchaka)
+Date: Wed, 19 Dec 2018 16:43:42 +0200
+Subject: [python-committers] [Python-Dev] 3.7.2rc1 and 3.6.8rc1 cutoffs
+ ahead, last 3.6.x bugfix release!
+In-Reply-To: <CA+3bQGFRTqttLCRU-5TfKRWpoTpBGXhe3i8oGu4DoVdtPo6aPA@mail.gmail.com>
+References: <95B9F244-38A8-4E47-8E9D-6DAD289C84A2@python.org>
+ <033423e6-5918-24e1-c5a5-daf829a3e1ef@gmail.com>
+ <1109428671.99278808.1545215281839.JavaMail.zimbra@redhat.com>
+ <CA+3bQGFRTqttLCRU-5TfKRWpoTpBGXhe3i8oGu4DoVdtPo6aPA@mail.gmail.com>
+Message-ID: <pvdlas$8hi$1@blaine.gmane.org>
+
+19.12.18 16:01, Victor Stinner ????:
+> RHEL 7 is based on Python 2.7.5 which has been released in 2013 (5
+> years ago) and there are 150 patches on top of it: it means that
+> around 30 patches are added per year.
+
+Unlikely the patch rate was constant. I suppose that more patches were 
+created at earlier years. Additional time for fixing bugs in mainstream 
+can decrease the number of necessary patches after the end of the 
+official support.
+
+> I would suggest to have a very
+> strict policy on which changes are backported into 3.6: only the most
+> critical bugfixes, but all security fixes obviously.
+
+I think it is better to allow backporting all changes which will be 
+backported to 3.7 (but not require this). At this stage we should not 
+make risky changes in 3.7.
+
+> If we extend Python 3.6 lifetime, do we need a new release manager
+> when the initial lifetime (usually 5 years) ends?
+
+It would be hard to maintain 3.6 after EOL for 3.7. So I suggest to just 
+the same EOL for 3.6 and 3.7 (i.e. add 1.5 years for 3.6 lifetime). 
+Fortunately Ned is the release manager of both 3.6 and 3.7.
+
+
+From brett at python.org  Wed Dec 19 12:43:35 2018
+From: brett at python.org (Brett Cannon)
+Date: Wed, 19 Dec 2018 09:43:35 -0800
+Subject: [python-committers] [Python-Dev] 3.7.2rc1 and 3.6.8rc1 cutoffs
+ ahead, last 3.6.x bugfix release!
+In-Reply-To: <CA+3bQGFRTqttLCRU-5TfKRWpoTpBGXhe3i8oGu4DoVdtPo6aPA@mail.gmail.com>
+References: <95B9F244-38A8-4E47-8E9D-6DAD289C84A2@python.org>
+ <033423e6-5918-24e1-c5a5-daf829a3e1ef@gmail.com>
+ <1109428671.99278808.1545215281839.JavaMail.zimbra@redhat.com>
+ <CA+3bQGFRTqttLCRU-5TfKRWpoTpBGXhe3i8oGu4DoVdtPo6aPA@mail.gmail.com>
+Message-ID: <CAP1=2W73+-KUwQG9-LFTz3Xu+mnQsyOd0=sUyyKRJ-yATcQaew@mail.gmail.com>
+
+[Dropping python-dev so we don't end up swamping the python-committers
+admins -- i.e. me :) -- with posts held for moderation]
+
+On Wed, 19 Dec 2018 at 06:01, Victor Stinner <vstinner at redhat.com> wrote:
+
+> Hi,
+>
+> I am working in the Red Hat "Python-maint" team which is maintaining
+> Python 3.6 as the main Python interpreter in RHEL 8, which will likely
+> be supported for at least 10 years. And we have been supporting Python
+> 2.7 in RHEL 7. So obviously, being able to benefit of the upstream
+> effort and infra to have a Python 3.6 Long Time Support (LTS) would
+> help us :-)
+>
+> The question is more who else would benefit from that and is it worth
+> it? I don't want Python upstream to pay the price of the maintenance
+> burden of RHEL 8 lifecycle.
+
+
+And for me that extends to Ubuntu LTS releases as well.
+
+
+> For example, supporting a version means to
+> have a working CI (Travis CI, AppVeyor, VSTS, buildbots). I would
+> suggest to only support a very few platforms for the LTS. I propose to
+> restrict to Linux. It doesn't mean to break other platforms on
+> purpose, just to restrict CI to the bare minimum. If Microsoft is
+> interested, we can also support Windows as well.
+>
+
+But that doesn't help someone like me who isn't working on Linux, so it's
+still work to support just Linux compared to Windows or macOS. Plus
+supporting just Linux in CI and such is still not free either.
+
+
+>
+> RHEL 7 is based on Python 2.7.5 which has been released in 2013 (5
+> years ago) and there are 150 patches on top of it: it means that
+> around 30 patches are added per year. I would suggest to have a very
+> strict policy on which changes are backported into 3.6: only the most
+> critical bugfixes, but all security fixes obviously.
+>
+> If we extend Python 3.6 lifetime, do we need a new release manager
+> when the initial lifetime (usually 5 years) ends? Benjamin Peterson
+> accepted to be the Python 2.7 release manager for 10 years (instead of
+> 5 years initially). We could ask Ned Deily about Python 3.6 LTS :-) We
+> would need a group of people reviewing individual 3.6 pull requests to
+> decide to pick them or not. I would volunteer to review these PRs and
+> merge them.
+>
+> The idea isn't new, Nick Coghlan proposed a "ELPython" last year:
+>
+>    https://github.com/elpython/elpython-meta
+
+
+Was that when
+
+
+>
+>
+> The Linux kernel also have multiple LTS kernel which are supported
+> longer than usual releases: they are now supported for 6 years. See
+> "Longterm" at:
+>
+>    https://www.kernel.org/category/releases.html
+
+
+The LKM has plenty of paid, full-time employees to keep those LTS kernels
+running upstream while we have nothing close to that. Even if we said "no
+one is expected to manage 3.6 changes" to let paid core devs keep 3.6
+going, that still adds overhead to other core devs who have no interest in
+keeping 3.6 alive for Canonical or RH's benefit (yes, the community gets
+benefits as well, but I would argue the pay-off isn't high enough for
+volunteers to be involved). Now if downstream vendors wanted to get
+together to pool their resources to make 3.6 a LTS-like release in a
+separate repo then I would be fine with that.
+
+I also think this puts Ned in a tough position to say "no" to the request
+if people start saying "I would love more free support!" ;) .
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20181219/1900d414/attachment.html>
+
+From greg at krypto.org  Wed Dec 19 13:24:09 2018
+From: greg at krypto.org (Gregory P. Smith)
+Date: Wed, 19 Dec 2018 10:24:09 -0800
+Subject: [python-committers] [Python-Dev] 3.7.2rc1 and 3.6.8rc1 cutoffs
+ ahead, last 3.6.x bugfix release!
+In-Reply-To: <CAP1=2W73+-KUwQG9-LFTz3Xu+mnQsyOd0=sUyyKRJ-yATcQaew@mail.gmail.com>
+References: <95B9F244-38A8-4E47-8E9D-6DAD289C84A2@python.org>
+ <033423e6-5918-24e1-c5a5-daf829a3e1ef@gmail.com>
+ <1109428671.99278808.1545215281839.JavaMail.zimbra@redhat.com>
+ <CA+3bQGFRTqttLCRU-5TfKRWpoTpBGXhe3i8oGu4DoVdtPo6aPA@mail.gmail.com>
+ <CAP1=2W73+-KUwQG9-LFTz3Xu+mnQsyOd0=sUyyKRJ-yATcQaew@mail.gmail.com>
+Message-ID: <CAGE7PNJLs_NcZrwXXqDkK+YYyGkEuUHkjVHZ+OFi5+_na3jYwg@mail.gmail.com>
+
+Ned - and any release manager in this situation in the future - has a
+default valid answer to this request: No.
+
+If we're ever going to do an "EL" or "LTS" Python, that should be decided
+and agreed upon *long before the end of its existing planned maintenance
+cycle* instead of right as it is ending.  Ideally before the first x.y.0
+with agreement of the release manager.  Though it'd likely be fine to have
+that conversation about 3.7 as it is still young, the RM gets final say
+into if or how that would work.
+
+I know that I won't be bothering with 3.6 backport/review work myself
+anymore outside of special circumstances.
+
+-gps
+
+
+On Wed, Dec 19, 2018 at 9:46 AM Brett Cannon <brett at python.org> wrote:
+
+> [Dropping python-dev so we don't end up swamping the python-committers
+> admins -- i.e. me :) -- with posts held for moderation]
+>
+> On Wed, 19 Dec 2018 at 06:01, Victor Stinner <vstinner at redhat.com> wrote:
+>
+>> Hi,
+>>
+>> I am working in the Red Hat "Python-maint" team which is maintaining
+>> Python 3.6 as the main Python interpreter in RHEL 8, which will likely
+>> be supported for at least 10 years. And we have been supporting Python
+>> 2.7 in RHEL 7. So obviously, being able to benefit of the upstream
+>> effort and infra to have a Python 3.6 Long Time Support (LTS) would
+>> help us :-)
+>>
+>> The question is more who else would benefit from that and is it worth
+>> it? I don't want Python upstream to pay the price of the maintenance
+>> burden of RHEL 8 lifecycle.
+>
+>
+> And for me that extends to Ubuntu LTS releases as well.
+>
+>
+>> For example, supporting a version means to
+>> have a working CI (Travis CI, AppVeyor, VSTS, buildbots). I would
+>> suggest to only support a very few platforms for the LTS. I propose to
+>> restrict to Linux. It doesn't mean to break other platforms on
+>> purpose, just to restrict CI to the bare minimum. If Microsoft is
+>> interested, we can also support Windows as well.
+>>
+>
+> But that doesn't help someone like me who isn't working on Linux, so it's
+> still work to support just Linux compared to Windows or macOS. Plus
+> supporting just Linux in CI and such is still not free either.
+>
+>
+>>
+>> RHEL 7 is based on Python 2.7.5 which has been released in 2013 (5
+>> years ago) and there are 150 patches on top of it: it means that
+>> around 30 patches are added per year. I would suggest to have a very
+>> strict policy on which changes are backported into 3.6: only the most
+>> critical bugfixes, but all security fixes obviously.
+>>
+>> If we extend Python 3.6 lifetime, do we need a new release manager
+>> when the initial lifetime (usually 5 years) ends? Benjamin Peterson
+>> accepted to be the Python 2.7 release manager for 10 years (instead of
+>> 5 years initially). We could ask Ned Deily about Python 3.6 LTS :-) We
+>> would need a group of people reviewing individual 3.6 pull requests to
+>> decide to pick them or not. I would volunteer to review these PRs and
+>> merge them.
+>>
+>> The idea isn't new, Nick Coghlan proposed a "ELPython" last year:
+>>
+>>    https://github.com/elpython/elpython-meta
+>
+>
+> Was that when
+>
+>
+>>
+>>
+>> The Linux kernel also have multiple LTS kernel which are supported
+>> longer than usual releases: they are now supported for 6 years. See
+>> "Longterm" at:
+>>
+>>    https://www.kernel.org/category/releases.html
+>
+>
+> The LKM has plenty of paid, full-time employees to keep those LTS kernels
+> running upstream while we have nothing close to that. Even if we said "no
+> one is expected to manage 3.6 changes" to let paid core devs keep 3.6
+> going, that still adds overhead to other core devs who have no interest in
+> keeping 3.6 alive for Canonical or RH's benefit (yes, the community gets
+> benefits as well, but I would argue the pay-off isn't high enough for
+> volunteers to be involved). Now if downstream vendors wanted to get
+> together to pool their resources to make 3.6 a LTS-like release in a
+> separate repo then I would be fine with that.
+>
+> I also think this puts Ned in a tough position to say "no" to the request
+> if people start saying "I would love more free support!" ;) .
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20181219/1d9300e3/attachment-0001.html>
+
+From nad at python.org  Wed Dec 19 14:38:45 2018
+From: nad at python.org (Ned Deily)
+Date: Wed, 19 Dec 2018 14:38:45 -0500
+Subject: [python-committers] Extending 3.6 [was: 3.7.2rc1 and 3.6.8rc1
+ cutoffs ahead, last 3.6.x bugfix release!]
+In-Reply-To: <CAGE7PNJLs_NcZrwXXqDkK+YYyGkEuUHkjVHZ+OFi5+_na3jYwg@mail.gmail.com>
+References: <95B9F244-38A8-4E47-8E9D-6DAD289C84A2@python.org>
+ <033423e6-5918-24e1-c5a5-daf829a3e1ef@gmail.com>
+ <1109428671.99278808.1545215281839.JavaMail.zimbra@redhat.com>
+ <CA+3bQGFRTqttLCRU-5TfKRWpoTpBGXhe3i8oGu4DoVdtPo6aPA@mail.gmail.com>
+ <CAP1=2W73+-KUwQG9-LFTz3Xu+mnQsyOd0=sUyyKRJ-yATcQaew@mail.gmail.com>
+ <CAGE7PNJLs_NcZrwXXqDkK+YYyGkEuUHkjVHZ+OFi5+_na3jYwg@mail.gmail.com>
+Message-ID: <E4529CD5-74DE-4462-A17A-952BAF1C85EA@python.org>
+
+On Dec 19, 2018, at 04:14, Serhiy Storchaka <storchaka at gmail.com> wrote:
+> Can we revise our policy and prolong the bug fixing mode for 3.6? 3.6 is
+> the default Python in Ubuntu 18.04 LTS and RHEL 8. And due to several
+> important syntax features it can be a minimal required version for long
+> time.
+
+We could but we are not going to now for multiple reasons.
+
+> I merged several PRs before releasing 3.6.8rc1, but there are still less
+> trivial bugfix PRs which need more time for reviewing, and there are bugs
+> for which no PR is created yet. There is also a number of documentation
+> PRs. I propose to allow backporting bugfixes to 3.6 if they do not need
+> excessive work, but stop to fix 3.6 only bugs. After migrating to GitHab,
+> backporting became less painful, most of backports to 3.6 can be done
+> automatically from master or from 3.7.
+
+There are always going to be bugs that remain unfixed when a release
+branch moves from bugfix mode to security-fix only mode. That has been
+true for all previous Python branches.
+
+So what, if anything, is different about 3.6?
+
+I see two possibly significant differences:
+
+- 3.6 is clearly the most widely adopted Python 3 release to date and is
+likely to be in the field longer than previous 3.x releases.
+
+- As Serhiy notes, it is now easier for core developers to port changes to
+other branches.
+
+What hasn't changed in 3.6?
+
+- We have had many discussions about Python 3 release cycles in a number
+of different venues, e.g. in the mailing lists, at PyCon Language Summits,
+at Core Developer Sprints, etc. People have made many different arguments
+for how long a release cycle should be and how long we should maintain a
+release branch. In the end, we made a plan that started 3.5 years ago, one
+that we have been following and one that we have set expectations for us
+and for our downstream users, big and small.
+
+- While the act of backporting a fix is obviously an important part of
+producing a maintenance release, it is not the only part. As Victor noted,
+there is the CI infrastructure that needs to be monitored and maintained,
+primarily our CI platforms and buildbots. And Victor knows better than
+almost anyone that those things require constant attention, even if the
+number of supported platforms and level of activity were somehow reduced.
+This activity is exhausting and has led to more than one case of core
+developer (near-)burnout. Besides that, there are less visible but very
+important activities that are part of our release process: monitoring of
+release activity, manufacturing releases, encouraging and monitoring
+downstream testing by third-party developers, distributors, and users, etc.
+
+So, extending the bugfix support window of a release affects and is asking
+for significant commitments from core developers, release teams,
+infrastructure support, third-party users and distributors. It is not
+something to be taken lightly - especially when most of the people
+involved in these activities are volunteers and largely unpaid.
+
+On Dec 19, 2018, at 13:24, Gregory P. Smith <greg at krypto.org> wrote:
+> Ned - and any release manager in this situation in the future - has a
+> default valid answer to this request: No.
+> 
+> If we're ever going to do an "EL" or "LTS" Python, that should be decided
+> and agreed upon *long before the end of its existing planned maintenance
+> cycle* instead of right as it is ending. Ideally before the first x.y.0
+> with agreement of the release manager. Though it'd likely be fine to have
+> that conversation about 3.7 as it is still young, the RM gets final say
+> into if or how that would work.
+> 
+> I know that I won't be bothering with 3.6 backport/review work myself
+> anymore outside of special circumstances.
+
+I think Greg says it better than I could - thanks!
+
+We have had several years to discuss this. There have been a number of
+proposals but none have resulted in a reviewed, approved PEP. Literally
+one day before the final bugfix release is not the time to make such a big
+change in our plans. It certainly is legitimate and necessary to consider
+such changes in the future when we have our new governance process in
+place and, at that time, we can consider revising our plans for 3.7 which
+is still relatively early in its bugfix phase. And, if there were concrete
+proposals with funding sources for co-ordinating extended support for 3.6,
+we should consider them. I think a reasonable target is to have a final
+discussion and decision made by the next Language Summit upcoming in May;
+there is plenty of work to be done before then, i.e. start new or revise
+exiting PEPs.
+
+But in the absence of any of that at the moment, it would be a disservice
+to all to consider making such major changes and commitments now. And it's
+not something that I as release manager or any of us individually as core
+developers can or should do.
+
+--Ned
+
+P.S. Thanks for bringing this up, Serihy, and thanks for everyone's
+thoughtful responses.
+
+-- Ned Deily
+   nad at python.org -- []
+
+

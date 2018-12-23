@@ -1762,3 +1762,119 @@ https://discuss.python.org/t/vote-on-possible-steering-council-election-timeline
 An HTML attachment was scrubbed...
 URL: <http://mail.python.org/pipermail/python-committers/attachments/20181221/cc11c7e2/attachment.html>
 
+From ncoghlan at gmail.com  Sat Dec 22 20:08:27 2018
+From: ncoghlan at gmail.com (Nick Coghlan)
+Date: Sun, 23 Dec 2018 11:08:27 +1000
+Subject: [python-committers] [Python-Dev] 3.7.2rc1 and 3.6.8rc1 cutoffs
+ ahead, last 3.6.x bugfix release!
+In-Reply-To: <CAP1=2W73+-KUwQG9-LFTz3Xu+mnQsyOd0=sUyyKRJ-yATcQaew@mail.gmail.com>
+References: <95B9F244-38A8-4E47-8E9D-6DAD289C84A2@python.org>
+ <033423e6-5918-24e1-c5a5-daf829a3e1ef@gmail.com>
+ <1109428671.99278808.1545215281839.JavaMail.zimbra@redhat.com>
+ <CA+3bQGFRTqttLCRU-5TfKRWpoTpBGXhe3i8oGu4DoVdtPo6aPA@mail.gmail.com>
+ <CAP1=2W73+-KUwQG9-LFTz3Xu+mnQsyOd0=sUyyKRJ-yATcQaew@mail.gmail.com>
+Message-ID: <CADiSq7dPDKY8BevMynJrcj59hn54OMuS+YmJSTzmnXib5Mmszg@mail.gmail.com>
+
+On Thu., 20 Dec. 2018, 3:46 am Brett Cannon <brett at python.org wrote:
+
+>
+> On Wed, 19 Dec 2018 at 06:01, Victor Stinner <vstinner at redhat.com> wrote:
+>
+>>
+>>
+>
+>> For example, supporting a version means to
+>> have a working CI (Travis CI, AppVeyor, VSTS, buildbots). I would
+>> suggest to only support a very few platforms for the LTS. I propose to
+>> restrict to Linux. It doesn't mean to break other platforms on
+>> purpose, just to restrict CI to the bare minimum. If Microsoft is
+>> interested, we can also support Windows as well.
+>>
+>
+> But that doesn't help someone like me who isn't working on Linux, so it's
+> still work to support just Linux compared to Windows or macOS. Plus
+> supporting just Linux in CI and such is still not free either.
+>
+>
+>>
+>> RHEL 7 is based on Python 2.7.5 which has been released in 2013 (5
+>> years ago) and there are 150 patches on top of it: it means that
+>> around 30 patches are added per year. I would suggest to have a very
+>> strict policy on which changes are backported into 3.6: only the most
+>> critical bugfixes, but all security fixes obviously.
+>>
+>> If we extend Python 3.6 lifetime, do we need a new release manager
+>> when the initial lifetime (usually 5 years) ends? Benjamin Peterson
+>> accepted to be the Python 2.7 release manager for 10 years (instead of
+>> 5 years initially). We could ask Ned Deily about Python 3.6 LTS :-) We
+>> would need a group of people reviewing individual 3.6 pull requests to
+>> decide to pick them or not. I would volunteer to review these PRs and
+>> merge them.
+>>
+>> The idea isn't new, Nick Coghlan proposed a "ELPython" last year:
+>>
+>>    https://github.com/elpython/elpython-meta
+>
+>
+> Was that when
+>
+
+If the unfinished question there is "... when Nick was still working for
+Red Hat?", then yeah, it was.
+
+I knew RHEL 8 was coming with Py3.6 as the system Python, and wanted a way
+to avoid the anchoring effects that Alex Gaynor and I talked about a few
+years back in
+https://alexgaynor.net/2015/mar/30/red-hat-open-source-community/ and
+https://www.curiousefficiency.org/posts/2015/04/stop-supporting-python26.html
+
+I still think ELPython is a good idea, as it should solve a bunch of the
+problems that Alex raised on the community side, while also helping
+commercial distributors (including Red Hat) provide the explicitly in
+demand commercial service of compatible *feature* backports to LTS releases
+(go look at the system Python 2.6 install in RHEL 6, for example - it
+includes a number of 2.7 features, such as collections.OrderedDict).
+
+Red Hat's provided that service for years for their Linux kernels, and it's
+one of the capabilities that their customers most value.
+
+The community benefit of allowing such backports to take place in a
+cross-vendor collaborative project is that it would allow popular backwards
+compatible features to be adopted by library authors more quickly, as
+they'd have the option of switching to relying on the EL variant of a
+release for a feature they wanted, rather than having to drop that release
+stream entirely.
+
+However, I also deliberately designed the proposal to make it clear it was
+only going to happen as a *paid* activity, with a bright line for
+contributions where the only reason for a volunteer to take their change
+across that line would be because they wanted the new behaviour in the EL
+version themselves.
+
+Thus the notion of a separate GitHub org, source-only releases, different
+runtime identification metadata, etc.
+
+Actually pursuing that project would still need a PEP to spell out the
+relationship between CPython and the ELPython derivative, though.
+
+Pursuing the project would also need credible commitments from
+redistributors to actually adopt the variant - the technical design in the
+README is explicitly constructed so it would work as a drop-in replacement
+for the RHEL 8 system Python, but at the time I left RH, Petr Viktorin and
+I didn't have agreement from management yet that that was a path the
+company wanted to go down (and it was only recently, when the RHEL 8 public
+beta dropped, that we gained the ability to discuss the commercial
+motivation for the idea with the upstream community).
+
+Cheers,
+Nick.
+
+
+
+>
+>>
+>>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20181223/17818de0/attachment.html>
+

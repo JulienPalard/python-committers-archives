@@ -60,3 +60,161 @@ If there's a nomination you've been sitting on, It must be submitted before 08:0
 An HTML attachment was scrubbed...
 URL: <http://mail.python.org/pipermail/python-committers/attachments/20190120/9660a777/attachment.html>
 
+From ernest at python.org  Mon Jan 21 04:10:08 2019
+From: ernest at python.org (Ernest W. Durbin III)
+Date: Mon, 21 Jan 2019 04:10:08 -0500
+Subject: [python-committers] 2019 Steering Council Nominations Closure
+In-Reply-To: <etPan.5c449c75.18f045f6.47dc@python.org>
+References: <etPan.5c449c75.18f045f6.47dc@python.org>
+Message-ID: <etPan.5c458c70.e595827.47dc@python.org>
+
+Nominations are final and the ballot has been frozen in Helios based on the status of PEP 8100 at https://github.com/python/peps/blob/3d675543af3db6bf07d26f37f77599d10b60e5dd/pep-8100.rst#candidates.
+
+Voting will open at 12:00 UTC 2019-01-21 (In about 3 hours).
+
+Voters will receive an email based on the contents of the voter roll at https://github.com/python/voters/blob/master/2019-01-21-2019-python-steering-council-election.csv when the election opens.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20190121/4c77588f/attachment.html>
+
+From ernest at python.org  Mon Jan 21 08:09:46 2019
+From: ernest at python.org (Ernest W. Durbin III)
+Date: Mon, 21 Jan 2019 08:09:46 -0500
+Subject: [python-committers] 2019 Steering Council Election Voting
+Message-ID: <etPan.5c45c49a.7ab18dda.47dc@python.org>
+
+Ballots have been distributed per PEP 8100 and voting is open.
+
+This election is scheduled to end at Feb. 4, 2019, noon (UTC).
+
+If you expected to receive a ballot but did not, please contact me at ernest at python.org.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20190121/39d03249/attachment.html>
+
+From antoine at python.org  Mon Jan 21 14:44:32 2019
+From: antoine at python.org (Antoine Pitrou)
+Date: Mon, 21 Jan 2019 20:44:32 +0100
+Subject: [python-committers] =?utf-8?q?=22bedevere/news_=E2=80=94_News_en?=
+ =?utf-8?q?try_file_name_incorrectly_formatted=22?=
+Message-ID: <672011ae-6180-d0a2-1ada-9bdae6b9ec14@python.org>
+
+
+Hello,
+
+The NEWS file check failed in a weird way here:
+https://github.com/python/cpython/pull/11531
+
+Could someone take a look and find out the reason for failure?
+
+Thanks
+
+Antoine.
+
+From nad at python.org  Mon Jan 21 15:05:33 2019
+From: nad at python.org (Ned Deily)
+Date: Mon, 21 Jan 2019 15:05:33 -0500
+Subject: [python-committers] 
+ =?utf-8?q?=22bedevere/news_=E2=80=94_News_en?=
+ =?utf-8?q?try_file_name_incorrectly_formatted=22?=
+In-Reply-To: <672011ae-6180-d0a2-1ada-9bdae6b9ec14@python.org>
+References: <672011ae-6180-d0a2-1ada-9bdae6b9ec14@python.org>
+Message-ID: <78B6C929-4503-46D4-992C-851E6C00EC6F@python.org>
+
+On Jan 21, 2019, at 14:44, Antoine Pitrou <antoine at python.org> wrote:
+> The NEWS file check failed in a weird way here:
+> https://github.com/python/cpython/pull/11531
+> 
+> Could someone take a look and find out the reason for failure?
+
+I'm mystified.  The blurb news file in the PR looks fine and produces a valid changelog with a local docs build.  I don't see anything odd on the GitHub end of things.  Perhaps Mariatta can take a look at the Bevedere end?
+
+--
+  Ned Deily
+  nad at python.org -- []
+
+
+From antoine at python.org  Mon Jan 21 15:07:03 2019
+From: antoine at python.org (Antoine Pitrou)
+Date: Mon, 21 Jan 2019 21:07:03 +0100
+Subject: [python-committers] 
+ =?utf-8?q?=22bedevere/news_=E2=80=94_News_en?=
+ =?utf-8?q?try_file_name_incorrectly_formatted=22?=
+In-Reply-To: <78B6C929-4503-46D4-992C-851E6C00EC6F@python.org>
+References: <672011ae-6180-d0a2-1ada-9bdae6b9ec14@python.org>
+ <78B6C929-4503-46D4-992C-851E6C00EC6F@python.org>
+Message-ID: <f5aff0b3-1b5d-688b-c604-413aa92f4f29@python.org>
+
+
+A potential explanation: the original PR title was formatted as
+"bpo-XXXXXX : ..." (note the space before the colon).  I fixed it to
+"bpo-XXXXX: ..." but the bot didn't run again.  Perhaps that's related?
+
+
+
+Le 21/01/2019 ? 21:05, Ned Deily a ?crit?:
+> On Jan 21, 2019, at 14:44, Antoine Pitrou <antoine at python.org> wrote:
+>> The NEWS file check failed in a weird way here:
+>> https://github.com/python/cpython/pull/11531
+>>
+>> Could someone take a look and find out the reason for failure?
+> 
+> I'm mystified.  The blurb news file in the PR looks fine and produces a valid changelog with a local docs build.  I don't see anything odd on the GitHub end of things.  Perhaps Mariatta can take a look at the Bevedere end?
+> 
+> --
+>   Ned Deily
+>   nad at python.org -- []
+> 
+
+From nad at python.org  Mon Jan 21 15:11:50 2019
+From: nad at python.org (Ned Deily)
+Date: Mon, 21 Jan 2019 15:11:50 -0500
+Subject: [python-committers] 
+ =?utf-8?q?=22bedevere/news_=E2=80=94_News_en?=
+ =?utf-8?q?try_file_name_incorrectly_formatted=22?=
+In-Reply-To: <f5aff0b3-1b5d-688b-c604-413aa92f4f29@python.org>
+References: <672011ae-6180-d0a2-1ada-9bdae6b9ec14@python.org>
+ <78B6C929-4503-46D4-992C-851E6C00EC6F@python.org>
+ <f5aff0b3-1b5d-688b-c604-413aa92f4f29@python.org>
+Message-ID: <79BEAF39-ED9D-474F-B15B-EB5BAE4BBD6A@python.org>
+
+On Jan 21, 2019, at 15:07, Antoine Pitrou <antoine at python.org> wrote:
+> A potential explanation: the original PR title was formatted as
+> "bpo-XXXXXX : ..." (note the space before the colon).  I fixed it to
+> "bpo-XXXXX: ..." but the bot didn't run again.  Perhaps that's related?
+
+Possibly, if you modified the news entry while the other CI checks were still running?  I guess you could force the whole CI process to run again by closing and re-opening the PR.  Or a release manager could override it with an appropriate bribe.
+
+--
+  Ned Deily
+  nad at python.org -- []
+
+
+From antoine at python.org  Mon Jan 21 15:13:27 2019
+From: antoine at python.org (Antoine Pitrou)
+Date: Mon, 21 Jan 2019 21:13:27 +0100
+Subject: [python-committers] 
+ =?utf-8?q?=22bedevere/news_=E2=80=94_News_en?=
+ =?utf-8?q?try_file_name_incorrectly_formatted=22?=
+In-Reply-To: <79BEAF39-ED9D-474F-B15B-EB5BAE4BBD6A@python.org>
+References: <672011ae-6180-d0a2-1ada-9bdae6b9ec14@python.org>
+ <78B6C929-4503-46D4-992C-851E6C00EC6F@python.org>
+ <f5aff0b3-1b5d-688b-c604-413aa92f4f29@python.org>
+ <79BEAF39-ED9D-474F-B15B-EB5BAE4BBD6A@python.org>
+Message-ID: <dc20d6b2-d9d9-32ae-e166-c1f5f2f3cefe@python.org>
+
+
+Le 21/01/2019 ? 21:11, Ned Deily a ?crit?:
+> On Jan 21, 2019, at 15:07, Antoine Pitrou <antoine at python.org> wrote:
+>> A potential explanation: the original PR title was formatted as
+>> "bpo-XXXXXX : ..." (note the space before the colon).  I fixed it to
+>> "bpo-XXXXX: ..." but the bot didn't run again.  Perhaps that's related?
+> 
+> Possibly, if you modified the news entry while the other CI checks were still running?  I guess you could force the whole CI process to run again by closing and re-opening the PR.  Or a release manager could override it with an appropriate bribe.
+
+Right, I forced the CI checks and things seem fine now.
+
+Thank you!
+
+Antoine.
+

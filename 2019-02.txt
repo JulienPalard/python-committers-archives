@@ -897,3 +897,323 @@ Raymond
 
 
 
+From vstinner at redhat.com  Mon Feb 11 12:07:56 2019
+From: vstinner at redhat.com (Victor Stinner)
+Date: Mon, 11 Feb 2019 18:07:56 +0100
+Subject: [python-committers] "Vote to promote Cheryl Sabella as a core
+ developer" on discuss.python.org
+Message-ID: <CA+3bQGGkvmvhp94wnkQTtuD0MqXE8ogwCd90FC6M_o_=v=oMEg@mail.gmail.com>
+
+Hi,
+
+The PEP 13 doesn't specify when the vote to promote a contributor as a
+core developer should happen nor how the vote is organized, so I chose
+to organize the vote at:
+
+https://discuss.python.org/t/vote-to-promote-cheryl-sabella-as-a-core-developer/862
+
+Victor
+-- 
+Night gathers, and now my watch begins. It shall not end until my death.
+
+From vstinner at redhat.com  Mon Feb 11 12:48:16 2019
+From: vstinner at redhat.com (Victor Stinner)
+Date: Mon, 11 Feb 2019 18:48:16 +0100
+Subject: [python-committers] Can we choose between mailing list and
+ discuss.python.org?
+Message-ID: <CA+3bQGFsRGK9tV65JVEezHyNuSaVFsAe6mPQBApdr_VQMYesUg@mail.gmail.com>
+
+Hi,
+
+tl; dr How can we decide if we should stop using mailing list or if we
+should stop using discuss.python.org?
+
+
+https://discuss.python.org/ is getting more and more categories:
+packaging, users, ideas, committers, core workflow, etc. Slowly, more
+and more existing mailing lists get their category on
+discuss.python.org.
+
+Problem: Nobody decided if a topic should always be started on
+discuss.python.org or the "related" mailing list. I just started "Vote
+to promote Cheryl Sabella as a core developer" thread on the
+Committers category of discuss.python.org. I'm not sure that everybody
+"migrated" to discuss.python.org, so sometimes I like to send an email
+"hey, by the way, have a look at this thread on discuss.python.org:
+(...)" to ensure that everybody will see my message. For a vote to
+promote a contributor it's important that everybody is aware that a
+vote is open (but everyone is free to decide to vote or to abstain).
+
+There is also a high risk of having a topic discussed twice on mailing
+list and discuss.python.org. I will happen on controversal changes
+(PEPs), trust me :-)
+
+More generally, I dislike having too many communication channels for
+the same thing :-( (I'm not talking about Zulip/IRC vs mail/Discourse,
+Zulip/IRC is a different way to discuss, and ways are useful/needed.)
+
+"PEP 8100 -- January 2019 steering council election" says "Of the 96
+eligible voters, 69 cast ballots." The Python core developers group of
+GitHub has currently 96 members:
+
+   https://github.com/orgs/python/teams/python-core/members
+
+But I only count 72 members on discuss.python.org:
+
+   https://discuss.python.org/groups/committers
+
+I count 27 core devs who didn't vote for PEP 8100 and 24 who are not
+on discuss.python.org yet.
+
+
+I see the following options:
+
+(A) Close the mailing list: make it read-only, but keep archives. Ask
+all mailing of the mailing list to move to discuss.python.org.
+
+(B) Close discuss.python.org. Ok, it was nice, but it's time to move
+back to mailing list. discuss.python.org becomes read-only.
+
+(C) Do nothing: keep mailing list and discuss.python.org
+
+We can make the same choice for all "categories" / "mailing lists", or
+we can have a different choice (ML vs Discourse) per category /
+mailing list.
+
+Please, don't start a long serie of "+1" or "-1". My question here is:
+how can we take a decision? Should we ask the fresh Steering Committee
+to take a definitive decision?
+
+Please don't start a thread about the advantages and disavantages of
+mailing lists and Discourse. It has been discussed multiple times.
+There is a dedicated section on discuss.python.org!
+
+   https://discuss.python.org/c/site-feedback
+
+IMHO we had enough time to "experiment" Discourse. The 10 governance
+PEPs have been mostly discussed there: PEP 8000, 8001, 8010, 8011,
+8012, 8013, 8014, 8015, 8016, 8100. We saw many threads with more than
+50 messages. Search for threads about voting methods for example :-)
+We had enough time to see advantages and drawbacks of Discourse. We
+started to see "real" moderation (handle trolls / CoC incidents). I
+also saw the nice Discourse feature "start a new thread": move some
+messages into a new topic.
+
+Right now, I mostly care about python-committers mailing list vs
+Committers category on discuss.python.org. But we will quickly have a
+similar question for python-dev mailing list vs <whatever on
+discuss.python.org> (I asked to create a new category, it's not
+created yet).
+
+It's not easy for me to not give my opinion on the topic :-) But
+again, my only question here is: how can we take a decision? Who will
+take the decision?
+
+Victor
+-- 
+Night gathers, and now my watch begins. It shall not end until my death.
+
+From willingc at gmail.com  Mon Feb 11 12:58:46 2019
+From: willingc at gmail.com (Carol Willing)
+Date: Mon, 11 Feb 2019 12:58:46 -0500
+Subject: [python-committers] Can we choose between mailing list and
+ discuss.python.org?
+In-Reply-To: <CA+3bQGFsRGK9tV65JVEezHyNuSaVFsAe6mPQBApdr_VQMYesUg@mail.gmail.com>
+References: <CA+3bQGFsRGK9tV65JVEezHyNuSaVFsAe6mPQBApdr_VQMYesUg@mail.gmail.com>
+Message-ID: <033B09BE-0F2D-4809-8D43-E0EB8C9874EB@gmail.com>
+
+
+
+> On Feb 11, 2019, at 12:48 PM, Victor Stinner <vstinner at redhat.com> wrote:
+> 
+> Should we ask the fresh Steering Committee
+> to take a definitive decision?
+
+I think that it makes sense for the Steering Committee to discuss and determine next step or resolution.
+
+Thanks for raising the question Victor.
+
+PS Copying the steering council in case someone has a different view.
+
+
+From vstinner at redhat.com  Mon Feb 11 13:25:52 2019
+From: vstinner at redhat.com (Victor Stinner)
+Date: Mon, 11 Feb 2019 19:25:52 +0100
+Subject: [python-committers] Can we choose between mailing list and
+ discuss.python.org?
+In-Reply-To: <033B09BE-0F2D-4809-8D43-E0EB8C9874EB@gmail.com>
+References: <CA+3bQGFsRGK9tV65JVEezHyNuSaVFsAe6mPQBApdr_VQMYesUg@mail.gmail.com>
+ <033B09BE-0F2D-4809-8D43-E0EB8C9874EB@gmail.com>
+Message-ID: <CA+3bQGEJnVveBK8MthyJ+Xj=JBr2dq0c4HmSrySDPeqJSbjJAA@mail.gmail.com>
+
+Le lun. 11 f?vr. 2019 ? 18:58, Carol Willing <willingc at gmail.com> a ?crit :
+> PS Copying the steering council in case someone has a different view.
+
+So you chose a mailing list and not Discourse? Interesting ;-)
+
+More seriously, what is steering-council at python.org? A mailing list
+with 5 subscribers: the members of the steering committee?
+
+Victor
+-- 
+Night gathers, and now my watch begins. It shall not end until my death.
+
+From willingc at gmail.com  Mon Feb 11 13:54:23 2019
+From: willingc at gmail.com (Carol Willing)
+Date: Mon, 11 Feb 2019 13:54:23 -0500
+Subject: [python-committers] Can we choose between mailing list and
+ discuss.python.org?
+In-Reply-To: <CA+3bQGEJnVveBK8MthyJ+Xj=JBr2dq0c4HmSrySDPeqJSbjJAA@mail.gmail.com>
+References: <CA+3bQGFsRGK9tV65JVEezHyNuSaVFsAe6mPQBApdr_VQMYesUg@mail.gmail.com>
+ <033B09BE-0F2D-4809-8D43-E0EB8C9874EB@gmail.com>
+ <CA+3bQGEJnVveBK8MthyJ+Xj=JBr2dq0c4HmSrySDPeqJSbjJAA@mail.gmail.com>
+Message-ID: <CAM3VvhzOqdJbx3+QvTn1-2eFRmDT9BwHah61HwmTQBDHx4mOvQ@mail.gmail.com>
+
+Yes. steering-council at python.org is the steering council members.
+
+On Mon, Feb 11, 2019, 1:26 PM Victor Stinner <vstinner at redhat.com wrote:
+
+> Le lun. 11 f?vr. 2019 ? 18:58, Carol Willing <willingc at gmail.com> a ?crit
+> :
+> > PS Copying the steering council in case someone has a different view.
+>
+> So you chose a mailing list and not Discourse? Interesting ;-)
+>
+> More seriously, what is steering-council at python.org? A mailing list
+> with 5 subscribers: the members of the steering committee?
+>
+> Victor
+> --
+> Night gathers, and now my watch begins. It shall not end until my death.
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20190211/a23679f8/attachment.html>
+
+From barry at python.org  Mon Feb 11 14:00:48 2019
+From: barry at python.org (Barry Warsaw)
+Date: Mon, 11 Feb 2019 11:00:48 -0800
+Subject: [python-committers] Can we choose between mailing list and
+ discuss.python.org?
+In-Reply-To: <CA+3bQGFsRGK9tV65JVEezHyNuSaVFsAe6mPQBApdr_VQMYesUg@mail.gmail.com>
+References: <CA+3bQGFsRGK9tV65JVEezHyNuSaVFsAe6mPQBApdr_VQMYesUg@mail.gmail.com>
+Message-ID: <4F8F749B-DB89-42C8-95CE-E2BBE3283866@python.org>
+
+On Feb 11, 2019, at 09:48, Victor Stinner <vstinner at redhat.com> wrote:
+> 
+> tl; dr How can we decide if we should stop using mailing list or if we
+> should stop using discuss.python.org?
+
+Point of order: I think we need a PEP for this decision.  Such a PEP would organize and consolidate the arguments both pro and con of the three choices.  It should also cover whether the current Discourse experiment translates to larger mailing lists like python-dev, -ideas, and -list (for which I personally have uncertainty about).
+
+Once that PEP is written, the SC is the proper forum for deciding the next steps, IMHO.
+
+-Barry
+
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 833 bytes
+Desc: Message signed with OpenPGP
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20190211/da18ce4b/attachment-0001.sig>
+
+From tjreedy at udel.edu  Mon Feb 11 14:54:34 2019
+From: tjreedy at udel.edu (Terry Reedy)
+Date: Mon, 11 Feb 2019 14:54:34 -0500
+Subject: [python-committers] Can we choose between mailing list and
+ discuss.python.org?
+In-Reply-To: <CA+3bQGFsRGK9tV65JVEezHyNuSaVFsAe6mPQBApdr_VQMYesUg@mail.gmail.com>
+References: <CA+3bQGFsRGK9tV65JVEezHyNuSaVFsAe6mPQBApdr_VQMYesUg@mail.gmail.com>
+Message-ID: <d533531b-ea73-9d61-61c1-18dae6b2f3be@udel.edu>
+
+On 2/11/2019 12:48 PM, Victor Stinner wrote:
+> Hi,
+> 
+> tl; dr How can we decide if we should stop using mailing list or if we
+> should stop using discuss.python.org?
+
+If 'mailing list' == 'all lists', neither.  It should be a list-by-list 
+decision.
+
+If 'mailing list == 'python-committers', neither, at least at present. 
+I think discussing and voting on a proposed committer works better on 
+discuss -- note least because you could edit.  But because you *pushed* 
+a notice of the discuss committer vote topic on this list, there have 
+been 15 votes in 5 hours, which I think is good.  Otherwise, we would 
+depend on people happening to drop by and notice the vote.
+
+If 'mailing list' == 'idle-dev', neither for a different reason, unless 
+discuss has changed.  When I asked, 3-4 months ago, whether I could be 
+an admin for an 'IDLE' category, the answer was no.  'There can only be 
+overall admins and a very limited number of those.'
+
+> Problem: Nobody decided if a topic should always be started on
+> discuss.python.org or the "related" mailing list. I just started "Vote
+> to promote Cheryl Sabella as a core developer" thread on the
+> Committers category of discuss.python.org. I'm not sure that everybody
+> "migrated" to discuss.python.org, so sometimes I like to send an email
+> "hey, by the way, have a look at this thread on discuss.python.org:
+> (...)" to ensure that everybody will see my message. For a vote to
+> promote a contributor it's important that everybody is aware that a
+> vote is open (but everyone is free to decide to vote or to abstain).
+
+Right, and it worked.
+
+> There is also a high risk of having a topic discussed twice on mailing
+> list and discuss.python.org. I will happen on controversal changes
+> (PEPs), trust me :-)
+
+I am not convinced.  The steering council discussion pretty much stayed 
+on discuss.  And I like the fact that when I was ready to vote, I could 
+read 100-200 posts on 20+ topics in 2 different categores, without 
+having to clutter my inbox with 100-200 unsorted emails or having to 
+manually create multiple temporary boxes to sort them into.
+
+So far, all replies to 'Vote to promote ...' were made on discuss, not 
+here, by clicking the link you gave.
+
+From brett at python.org  Mon Feb 11 16:17:55 2019
+From: brett at python.org (Brett Cannon)
+Date: Mon, 11 Feb 2019 13:17:55 -0800
+Subject: [python-committers] Can we choose between mailing list and
+ discuss.python.org?
+In-Reply-To: <CA+3bQGEJnVveBK8MthyJ+Xj=JBr2dq0c4HmSrySDPeqJSbjJAA@mail.gmail.com>
+References: <CA+3bQGFsRGK9tV65JVEezHyNuSaVFsAe6mPQBApdr_VQMYesUg@mail.gmail.com>
+ <033B09BE-0F2D-4809-8D43-E0EB8C9874EB@gmail.com>
+ <CA+3bQGEJnVveBK8MthyJ+Xj=JBr2dq0c4HmSrySDPeqJSbjJAA@mail.gmail.com>
+Message-ID: <CAP1=2W6bEGK=UFBa7o8U3K=DQdSK8p97D1ufH-zZ1U6++67_EQ@mail.gmail.com>
+
+On Mon, Feb 11, 2019 at 10:26 AM Victor Stinner <vstinner at redhat.com> wrote:
+
+> Le lun. 11 f?vr. 2019 ? 18:58, Carol Willing <willingc at gmail.com> a ?crit
+> :
+> > PS Copying the steering council in case someone has a different view.
+>
+> So you chose a mailing list and not Discourse? Interesting ;-)
+>
+
+Don't read into that too much. With discuss.python.org not settled yet it
+made a mailing list non-controversial for setting up on day 1.
+
+-Brett
+
+
+>
+> More seriously, what is steering-council at python.org? A mailing list
+> with 5 subscribers: the members of the steering committee?
+>
+> Victor
+> --
+> Night gathers, and now my watch begins. It shall not end until my death.
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20190211/fa0b28b3/attachment.html>
+

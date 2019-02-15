@@ -2685,3 +2685,397 @@ discussion into a new topic, thing not possible in a mailing list.
 
 Victor
 
+From vstinner at redhat.com  Thu Feb 14 11:27:51 2019
+From: vstinner at redhat.com (Victor Stinner)
+Date: Thu, 14 Feb 2019 17:27:51 +0100
+Subject: [python-committers] Paul Ganssle got the bug triage permission
+Message-ID: <CA+3bQGGXNrFnEmQqp7yS-=+yezwj5g8hQEd4VOYREABYvAz79Q@mail.gmail.com>
+
+Hi,
+
+Paul Ganssle just asked me to close a bug which he fixed. Instead, I
+just gave him the bug triage permission :-)
+
+Paul is the author of dateutil:
+https://github.com/dateutil/dateutil
+
+He is fixing more and more datetime issues for longer than 1 year,
+including some tricky and very old issues:
+https://github.com/python/cpython/commits?author=pganssle
+
+For example, he implemented .fromisoformat() which was a long awaited feature:
+https://docs.python.org/dev/library/datetime.html#datetime.date.fromisoformat
+
+Recently, he got the approval to change how datetime subclasses are
+handled, feature very useful for third-party libraries written on top
+of datetime:
+https://github.com/python/cpython/commit/89427cd0feae25bbc8693abdccfa6a8c81a2689c
+
+I'm happy to see him helping Alexander Belopopsky (current datetime
+maintainer), on maintaining datime, who is more busy these days. By
+the way, they met each other ;-)
+
+I sent Paul instructions how to triage bug and links into the devguide.
+I asked him to ask me before closing a bug.
+
+Congrats Paul ;-)
+
+Victor
+-- 
+Night gathers, and now my watch begins. It shall not end until my death.
+
+From vstinner at redhat.com  Thu Feb 14 11:45:07 2019
+From: vstinner at redhat.com (Victor Stinner)
+Date: Thu, 14 Feb 2019 17:45:07 +0100
+Subject: [python-committers] Paul Ganssle got the bug triage permission
+In-Reply-To: <CA+3bQGGXNrFnEmQqp7yS-=+yezwj5g8hQEd4VOYREABYvAz79Q@mail.gmail.com>
+References: <CA+3bQGGXNrFnEmQqp7yS-=+yezwj5g8hQEd4VOYREABYvAz79Q@mail.gmail.com>
+Message-ID: <CA+3bQGH1k5axmeoq8NOJq25mU2c8V89sy0zZunjyf9ukU=ha-A@mail.gmail.com>
+
+Le jeu. 14 f?vr. 2019 ? 17:27, Victor Stinner <vstinner at redhat.com> a ?crit :
+> Paul is the author of dateutil:
+> https://github.com/dateutil/dateutil
+
+Correction: Gustavo Niemeyer is the dateutil original author, Paul is
+the current maintainer.
+
+Victor
+
+From willingc at gmail.com  Thu Feb 14 12:02:47 2019
+From: willingc at gmail.com (Carol Willing)
+Date: Thu, 14 Feb 2019 09:02:47 -0800
+Subject: [python-committers] Paul Ganssle got the bug triage permission
+In-Reply-To: <CA+3bQGGXNrFnEmQqp7yS-=+yezwj5g8hQEd4VOYREABYvAz79Q@mail.gmail.com>
+References: <CA+3bQGGXNrFnEmQqp7yS-=+yezwj5g8hQEd4VOYREABYvAz79Q@mail.gmail.com>
+Message-ID: <E66D4D29-DAD7-44E5-AF82-694526764EDA@gmail.com>
+
+Welcome Paul :D
+
+Looking forward to working with you more.
+
+> On Feb 14, 2019, at 8:27 AM, Victor Stinner <vstinner at redhat.com> wrote:
+> 
+> Hi,
+> 
+> Paul Ganssle just asked me to close a bug which he fixed. Instead, I
+> just gave him the bug triage permission :-)
+> 
+> Paul is the author of dateutil:
+> https://github.com/dateutil/dateutil
+> 
+> He is fixing more and more datetime issues for longer than 1 year,
+> including some tricky and very old issues:
+> https://github.com/python/cpython/commits?author=pganssle
+> 
+> For example, he implemented .fromisoformat() which was a long awaited feature:
+> https://docs.python.org/dev/library/datetime.html#datetime.date.fromisoformat
+> 
+> Recently, he got the approval to change how datetime subclasses are
+> handled, feature very useful for third-party libraries written on top
+> of datetime:
+> https://github.com/python/cpython/commit/89427cd0feae25bbc8693abdccfa6a8c81a2689c
+> 
+> I'm happy to see him helping Alexander Belopopsky (current datetime
+> maintainer), on maintaining datime, who is more busy these days. By
+> the way, they met each other ;-)
+> 
+> I sent Paul instructions how to triage bug and links into the devguide.
+> I asked him to ask me before closing a bug.
+> 
+> Congrats Paul ;-)
+> 
+> Victor
+> -- 
+> Night gathers, and now my watch begins. It shall not end until my death.
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+
+
+From p.f.moore at gmail.com  Thu Feb 14 12:11:15 2019
+From: p.f.moore at gmail.com (Paul Moore)
+Date: Thu, 14 Feb 2019 17:11:15 +0000
+Subject: [python-committers] Paul Ganssle got the bug triage permission
+In-Reply-To: <E66D4D29-DAD7-44E5-AF82-694526764EDA@gmail.com>
+References: <CA+3bQGGXNrFnEmQqp7yS-=+yezwj5g8hQEd4VOYREABYvAz79Q@mail.gmail.com>
+ <E66D4D29-DAD7-44E5-AF82-694526764EDA@gmail.com>
+Message-ID: <CACac1F_AzU8FPcYaVt4D4w39QJAsWXxH21MYu4eDjANDZWCX7A@mail.gmail.com>
+
+Congratulations, Paul, and welcome. Glad to have your help!
+Paul
+
+On Thu, 14 Feb 2019 at 17:04, Carol Willing <willingc at gmail.com> wrote:
+>
+> Welcome Paul :D
+>
+> Looking forward to working with you more.
+>
+> > On Feb 14, 2019, at 8:27 AM, Victor Stinner <vstinner at redhat.com> wrote:
+> >
+> > Hi,
+> >
+> > Paul Ganssle just asked me to close a bug which he fixed. Instead, I
+> > just gave him the bug triage permission :-)
+> >
+> > Paul is the author of dateutil:
+> > https://github.com/dateutil/dateutil
+> >
+> > He is fixing more and more datetime issues for longer than 1 year,
+> > including some tricky and very old issues:
+> > https://github.com/python/cpython/commits?author=pganssle
+> >
+> > For example, he implemented .fromisoformat() which was a long awaited feature:
+> > https://docs.python.org/dev/library/datetime.html#datetime.date.fromisoformat
+> >
+> > Recently, he got the approval to change how datetime subclasses are
+> > handled, feature very useful for third-party libraries written on top
+> > of datetime:
+> > https://github.com/python/cpython/commit/89427cd0feae25bbc8693abdccfa6a8c81a2689c
+> >
+> > I'm happy to see him helping Alexander Belopopsky (current datetime
+> > maintainer), on maintaining datime, who is more busy these days. By
+> > the way, they met each other ;-)
+> >
+> > I sent Paul instructions how to triage bug and links into the devguide.
+> > I asked him to ask me before closing a bug.
+> >
+> > Congrats Paul ;-)
+> >
+> > Victor
+> > --
+> > Night gathers, and now my watch begins. It shall not end until my death.
+> > _______________________________________________
+> > python-committers mailing list
+> > python-committers at python.org
+> > https://mail.python.org/mailman/listinfo/python-committers
+> > Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+
+From brett at python.org  Thu Feb 14 12:38:29 2019
+From: brett at python.org (Brett Cannon)
+Date: Thu, 14 Feb 2019 09:38:29 -0800
+Subject: [python-committers] Can we choose between mailing list and
+ discuss.python.org?
+In-Reply-To: <CACac1F-viEjuhu6WD9x-s61oaHFBs7TkEJ0k=oLCRfD-3QKO7w@mail.gmail.com>
+References: <CA+3bQGFsRGK9tV65JVEezHyNuSaVFsAe6mPQBApdr_VQMYesUg@mail.gmail.com>
+ <4F8F749B-DB89-42C8-95CE-E2BBE3283866@python.org>
+ <fd3eebd8-9364-516b-45c6-0e576318d7cf@python.org>
+ <CACac1F8mRSX_VP3ZDnBdrgoiCkK30u7SKy=2Vci2Q3Et-2o=cQ@mail.gmail.com>
+ <CAP1=2W7rpXEDAW-U5+qLCgZ15rMv5kbXhSk9Yfgc2yVWZ38q3w@mail.gmail.com>
+ <04a14491-51ae-724d-1eb4-708876089d7e@python.org>
+ <CACac1F-viEjuhu6WD9x-s61oaHFBs7TkEJ0k=oLCRfD-3QKO7w@mail.gmail.com>
+Message-ID: <CAP1=2W5wqdA_CxZTzr4xu3ZjMbVH2HV4sKSJKr_4qBCiT6SYSA@mail.gmail.com>
+
+On Wed, Feb 13, 2019 at 12:17 PM Paul Moore <p.f.moore at gmail.com> wrote:
+
+> On Wed, 13 Feb 2019 at 19:56, Steve Dower <steve.dower at python.org> wrote:
+> >
+> > On 13Feb2019 1112, Brett Cannon wrote:
+> > >
+> > >
+> > > On Wed, Feb 13, 2019 at 2:55 AM Paul Moore <p.f.moore at gmail.com
+> > > <mailto:p.f.moore at gmail.com>> wrote:
+> > >
+> > >     On Tue, 12 Feb 2019 at 22:00, Antoine Pitrou <antoine at python.org
+> > >     <mailto:antoine at python.org>> wrote:
+> > >      > Here is a 161-message Discourse thread (at the time of this
+> writing):
+> > >      > https://discuss.python.org/t/pep-517-backend-bootstrapping/789
+> > >
+> > >     As someone directly involved in that discussion, with a strong
+> need to
+> > >     understand all of the points being made, that's a great example of
+> > >     both the benefits and the flaws of the discourse model.
+> > >
+> > >
+> > > Can I ask if that entire thread is on topic, or is there a reasonable
+> > > point in that discussion where side conversations could have been
+> broken
+> > > off into a separate topic(s)? When email threads tend to reach that
+> > > length there have been side discussions that could have become their
+> own
+> > > topic if someone thought to change the subject and Discourse allows for
+> > > having an admin break posts off at any point and I'm curious if it
+> would
+> > > have been helpful and people simply didn't think about it (I know I
+> > > don't always think of it immediately yet).
+> >
+> > My feeling (as I followed the entire discussion from the start) is that
+> > the side discussions all tied back, rather than diverging permanently.
+> > So at best it would be "you 2-3 go and discuss this part separately and
+> > come back when you agree", which as we know is often followed up by "you
+> > other 2-3 re-discuss everything they already discussed since you weren't
+> > part of the side discussion".
+>
+> Precisely this. I don't know *how* I would have split off a separate
+> sub-thread in Discourse if needed (it's easy enough in email by
+> changing the subject, I presume it's not much harder in Discourse?)
+>
+
+Nope, it's not hard. The process is:
+
+   1. An admin notices/is asked to split a topic that has diverged
+   2. The admin clicks the wrench icon and chooses to Select Posts
+   3. You select posts either manually, post + all following, or post + all
+   replies
+   4. You then have the option to create a new topic for the selected
+   posts, specifying category, title, labels, etc.
+
+The pro to this compared to subject changing in an ML is it's retroactive.
+The con is an admin needs to to it, but you can always @ mention 'admins'
+-- maybe 'staff' group has the same abilities? -- to bring a thread to
+their attention that needs splitting.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20190214/cc9cd77c/attachment.html>
+
+From njs at pobox.com  Thu Feb 14 17:20:44 2019
+From: njs at pobox.com (Nathaniel Smith)
+Date: Thu, 14 Feb 2019 14:20:44 -0800
+Subject: [python-committers] Can we choose between mailing list and
+ discuss.python.org?
+In-Reply-To: <CAP1=2W5wqdA_CxZTzr4xu3ZjMbVH2HV4sKSJKr_4qBCiT6SYSA@mail.gmail.com>
+References: <CA+3bQGFsRGK9tV65JVEezHyNuSaVFsAe6mPQBApdr_VQMYesUg@mail.gmail.com>
+ <4F8F749B-DB89-42C8-95CE-E2BBE3283866@python.org>
+ <fd3eebd8-9364-516b-45c6-0e576318d7cf@python.org>
+ <CACac1F8mRSX_VP3ZDnBdrgoiCkK30u7SKy=2Vci2Q3Et-2o=cQ@mail.gmail.com>
+ <CAP1=2W7rpXEDAW-U5+qLCgZ15rMv5kbXhSk9Yfgc2yVWZ38q3w@mail.gmail.com>
+ <04a14491-51ae-724d-1eb4-708876089d7e@python.org>
+ <CACac1F-viEjuhu6WD9x-s61oaHFBs7TkEJ0k=oLCRfD-3QKO7w@mail.gmail.com>
+ <CAP1=2W5wqdA_CxZTzr4xu3ZjMbVH2HV4sKSJKr_4qBCiT6SYSA@mail.gmail.com>
+Message-ID: <CAPJVwB==seKhjq372GKa_5_BW+LnAKU+LQEO7NnVtf=gU5C2Xg@mail.gmail.com>
+
+On Thu, Feb 14, 2019, 09:39 Brett Cannon <brett at python.org wrote:
+
+>
+>
+> On Wed, Feb 13, 2019 at 12:17 PM Paul Moore <p.f.moore at gmail.com> wrote:
+>
+>> On Wed, 13 Feb 2019 at 19:56, Steve Dower <steve.dower at python.org> wrote:
+>> >
+>> > On 13Feb2019 1112, Brett Cannon wrote:
+>> > >
+>> > >
+>> > > On Wed, Feb 13, 2019 at 2:55 AM Paul Moore <p.f.moore at gmail.com
+>> > > <mailto:p.f.moore at gmail.com>> wrote:
+>> > >
+>> > >     On Tue, 12 Feb 2019 at 22:00, Antoine Pitrou <antoine at python.org
+>> > >     <mailto:antoine at python.org>> wrote:
+>> > >      > Here is a 161-message Discourse thread (at the time of this
+>> writing):
+>> > >      > https://discuss.python.org/t/pep-517-backend-bootstrapping/789
+>> > >
+>> > >     As someone directly involved in that discussion, with a strong
+>> need to
+>> > >     understand all of the points being made, that's a great example of
+>> > >     both the benefits and the flaws of the discourse model.
+>> > >
+>> > >
+>> > > Can I ask if that entire thread is on topic, or is there a reasonable
+>> > > point in that discussion where side conversations could have been
+>> broken
+>> > > off into a separate topic(s)? When email threads tend to reach that
+>> > > length there have been side discussions that could have become their
+>> own
+>> > > topic if someone thought to change the subject and Discourse allows
+>> for
+>> > > having an admin break posts off at any point and I'm curious if it
+>> would
+>> > > have been helpful and people simply didn't think about it (I know I
+>> > > don't always think of it immediately yet).
+>> >
+>> > My feeling (as I followed the entire discussion from the start) is that
+>> > the side discussions all tied back, rather than diverging permanently.
+>> > So at best it would be "you 2-3 go and discuss this part separately and
+>> > come back when you agree", which as we know is often followed up by "you
+>> > other 2-3 re-discuss everything they already discussed since you weren't
+>> > part of the side discussion".
+>>
+>> Precisely this. I don't know *how* I would have split off a separate
+>> sub-thread in Discourse if needed (it's easy enough in email by
+>> changing the subject, I presume it's not much harder in Discourse?)
+>>
+>
+> Nope, it's not hard. The process is:
+>
+>    1. An admin notices/is asked to split a topic that has diverged
+>    2. The admin clicks the wrench icon and chooses to Select Posts
+>    3. You select posts either manually, post + all following, or post +
+>    all replies
+>    4. You then have the option to create a new topic for the selected
+>    posts, specifying category, title, labels, etc.
+>
+> The pro to this compared to subject changing in an ML is it's retroactive.
+> The con is an admin needs to to it, but you can always @ mention 'admins'
+> -- maybe 'staff' group has the same abilities? -- to bring a thread to
+> their attention that needs splitting.
+>
+
+Apparently you don't actually need an admin to do this ? any user with
+"trust level 4" can do it:
+https://blog.discourse.org/2018/06/understanding-discourse-trust-levels/
+
+That includes admins and moderators, but we can also promote as many people
+as we want to that level, and they don't have to sign up for moderator work
+or count against our staff account cap.
+
+-n
+
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20190214/7fa53e20/attachment-0001.html>
+
+From larry at hastings.org  Thu Feb 14 21:29:32 2019
+From: larry at hastings.org (Larry Hastings)
+Date: Thu, 14 Feb 2019 18:29:32 -0800
+Subject: [python-committers] Proposed dates for Python 3.4.10 and Python
+ 3.5.7
+Message-ID: <ad821da8-a8f3-0ff8-6366-b24c0209d3c3@hastings.org>
+
+
+Howdy howdy!? It's time to make the next bugfix release of 3.5--and the 
+/final/ release /ever/ of Python 3.4. Here's the schedule I propose:
+
+    3.4.10rc1 and 3.5.7rc1 - Saturday March 2 2019
+    3.4.10 final and 3.5.7 final - Saturday March 16 2019
+
+
+What's going in these releases?? Not much.? I have two outstanding PRs 
+against 3.5:
+
+    bpo-33127 GH-10994: Compatibility patch for LibreSSL 2.7.0
+    bpo-34623 GH-9933: XML_SetHashSalt in _elementtree
+
+and one PR against 3.4:
+
+    bpo-34623 GH-9953: Use XML_SetHashSalt in _elementtree
+
+I expect to merge all three of those, I just need to get around to it.? 
+There's one more recent security fix (bpo-35746, GH-11569) that? I want 
+in these releases that still needs backporting.
+
+
+And that's the entire list.? bpo-34623 is the only current release 
+blocker for either 3.4 or 3.5--I'm not aware of anything else in the 
+pipeline.? If you have anything you think needs to go into the next 3.5, 
+or the final 3.4, and it's /not/ listed above, please either file a 
+GitHub PR, file a release-blocker bug on bpo, or email me directly.
+
+
+Good night sweet Python 3.4, and flights of angels sing thee to thy rest!
+
+
+//arry/
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20190214/329387b4/attachment.html>
+

@@ -3487,3 +3487,216 @@ On Thu, Feb 21, 2019 at 9:46 AM Serhiy Storchaka <storchaka at gmail.com> wrote:
 Thanks,
 Andrew Svetlov
 
+From vstinner at redhat.com  Thu Feb 21 05:35:39 2019
+From: vstinner at redhat.com (Victor Stinner)
+Date: Thu, 21 Feb 2019 11:35:39 +0100
+Subject: [python-committers] New core developers
+In-Reply-To: <32f203b6-0ae3-24b2-a989-000cd929867c@gmail.com>
+References: <32f203b6-0ae3-24b2-a989-000cd929867c@gmail.com>
+Message-ID: <CA+3bQGEk+v1cT65X2QKsko7s3hHw_zfxpWEHayQznADLXbiO1Q@mail.gmail.com>
+
+Le jeu. 21 f?vr. 2019 ? 08:46, Serhiy Storchaka <storchaka at gmail.com> a ?crit :
+> Alexey Izbyshev is not so active as the above two monsters, but his code
+> and comments on the bug tracker look qualified.
+>
+> https://github.com/python/cpython/pulls?utf8=%E2%9C%93&q=is%3Apr+author%3Aizbyshev
+
+I'm in touch with him. That's why I gave him the bug triage permission:
+https://mail.python.org/pipermail/python-committers/2019-February/006511.html
+
+We are working together on subprocess, vfork() and
+os.posix_spawn/os.posix_spawnp.
+
+My process is first to contact a contributor, offer to mentor them,
+give them the bug triage permission, follow their work.
+
+It's still unclear to me to decide how a candidate is ready or not. My
+rule is to make sure that a candidate knows how to:
+
+* accept review and rework their solution
+* find the best solution for an issue
+* know the Python coding style (Python: PEP 8, C: PEP 7)
+* remember to write tests
+* write a NEWS entry
+* update "What's New in Python 3.x?" document
+* understand backward compatibility rules
+
+Checking all these items require to work closely with a contributor.
+It's not easy to check everything from a single PR for example.
+
+My criteria are mostly about "coding skills", other core devs may have
+coding skills.
+
+Coding skills are not the only required skills IMHO. For me, what
+matters the most is if the contributor accepts criticism, like accept
+to attempt a different approach, understand that they didn't fix the
+root issue. I'm not sure how to explain that. I estimate the ability
+of a candidate to work as a team. I'm not interested by "rock stars"
+or "ninja devs" who are unable to work as a team.
+
+I also try to remind basic principles of the Python Code of Conduct
+like being respectful.
+
+Right now, I didn't check all checkboxes in my head for Alexey
+Izbyshev, but I also would like to promote him, at least in the long
+term.
+
+--
+
+I also noticed Zackery Spytz and Andre Delfino contributions. If
+someone wants to start the process to train them as core dev, I
+propose to:
+
+* mentor them
+* give them the bug triage permission
+* follow more closely their work
+
+I'm already mentoring 4 persons. I prefer to not mentor too many
+people in parallel.
+
+--
+
+I dislike talking about potential candidates in public. Usually, I
+prefer to talk in private. I don't want to put pressure on a
+candidate. For example, it's not because I mentor someone, that I will
+force the mentoree to become a core dev. Anyone is free to do what
+they want :-) Becoming a core dev is a slow process which requires a
+lot of free time, especially at the beginning. Everybody is busy.
+
+I decided to reply because I like the 3 names that you gave ;-)
+
+Victor
+
+From vstinner at redhat.com  Thu Feb 21 05:38:36 2019
+From: vstinner at redhat.com (Victor Stinner)
+Date: Thu, 21 Feb 2019 11:38:36 +0100
+Subject: [python-committers] Date for the Language Summit?
+Message-ID: <CA+3bQGFWWZP4LOxzqdTGYBfcXOdYZzTqK4ZA7t4_m16gy2fEHQ@mail.gmail.com>
+
+Hi,
+
+What will be the date of the Language Summit? I had to organize myself
+very soon to get cheap flight and hotel, so I already booked
+everything for Pycon US :-)
+
+Who will be allowed to attend? Will we have enough seats for all
+CPython core devs?
+
+Mariatta, Lukasz: do you plan to invite people from other popular
+Python projects or other Python implementations?
+
+Victor
+-- 
+Night gathers, and now my watch begins. It shall not end until my death.
+
+From doko at ubuntu.com  Thu Feb 21 05:44:40 2019
+From: doko at ubuntu.com (Matthias Klose)
+Date: Thu, 21 Feb 2019 11:44:40 +0100
+Subject: [python-committers] Date for the Language Summit?
+In-Reply-To: <CA+3bQGFWWZP4LOxzqdTGYBfcXOdYZzTqK4ZA7t4_m16gy2fEHQ@mail.gmail.com>
+References: <CA+3bQGFWWZP4LOxzqdTGYBfcXOdYZzTqK4ZA7t4_m16gy2fEHQ@mail.gmail.com>
+Message-ID: <d161232d-152c-6095-aa48-bccaf264e18f@ubuntu.com>
+
+On 21.02.19 11:38, Victor Stinner wrote:
+> Hi,
+> 
+> What will be the date of the Language Summit? I had to organize myself
+> very soon to get cheap flight and hotel, so I already booked
+> everything for Pycon US :-)
+
++1
+
+> Who will be allowed to attend? Will we have enough seats for all
+> CPython core devs?
+> 
+> Mariatta, Lukasz: do you plan to invite people from other popular
+> Python projects or other Python implementations?
+
+I would like to see some presence of setuptools/pip maintainers. I think that
+was missed at last PyCon by Conda developers, and distro packagers from RedHat
+and Debian/Ubuntu.
+
+Matthias
+
+From mariatta at python.org  Thu Feb 21 08:23:10 2019
+From: mariatta at python.org (Mariatta)
+Date: Thu, 21 Feb 2019 05:23:10 -0800
+Subject: [python-committers] Date for the Language Summit?
+In-Reply-To: <CAGbohnZgeDHDZcZYNUM-kWpMoWCp=KLGMCP_Qc8C9DcUTkvDpg@mail.gmail.com>
+References: <CA+3bQGFWWZP4LOxzqdTGYBfcXOdYZzTqK4ZA7t4_m16gy2fEHQ@mail.gmail.com>
+ <d161232d-152c-6095-aa48-bccaf264e18f@ubuntu.com>
+ <CAGbohnZgeDHDZcZYNUM-kWpMoWCp=KLGMCP_Qc8C9DcUTkvDpg@mail.gmail.com>
+Message-ID: <CAGbohnZ+yKJvu7Uv3maSCXqt8H1Zzr0Nwperw09AA1azXc=RCw@mail.gmail.com>
+
+Date is listed here. More info will be added here too.
+https://us.pycon.org/2019/events/language-summit/
+Process will be slightly different this year. Sorry, I'm busy with
+PyCascades this week. Next time I'll have more time to devote to this.
+
+On Thu, Feb 21, 2019, 5:21 AM Mariatta <mariatta.wijaya at gmail.com> wrote:
+
+> Date is listed here. More info will be added here too.
+> https://us.pycon.org/2019/events/language-summit/
+> Process will be slightly different this year. Sorry, I'm busy with
+> PyCascades this week. Next time I'll have more time to devote to this.
+>
+> On Thu, Feb 21, 2019, 2:45 AM Matthias Klose <doko at ubuntu.com> wrote:
+>
+>> On 21.02.19 11:38, Victor Stinner wrote:
+>> > Hi,
+>> >
+>> > What will be the date of the Language Summit? I had to organize myself
+>> > very soon to get cheap flight and hotel, so I already booked
+>> > everything for Pycon US :-)
+>>
+>> +1
+>>
+>> > Who will be allowed to attend? Will we have enough seats for all
+>> > CPython core devs?
+>> >
+>> > Mariatta, Lukasz: do you plan to invite people from other popular
+>> > Python projects or other Python implementations?
+>>
+>> I would like to see some presence of setuptools/pip maintainers. I think
+>> that
+>> was missed at last PyCon by Conda developers, and distro packagers from
+>> RedHat
+>> and Debian/Ubuntu.
+>>
+>> Matthias
+>> _______________________________________________
+>> python-committers mailing list
+>> python-committers at python.org
+>> https://mail.python.org/mailman/listinfo/python-committers
+>> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>>
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20190221/a3f75450/attachment.html>
+
+From vstinner at redhat.com  Thu Feb 21 09:12:36 2019
+From: vstinner at redhat.com (Victor Stinner)
+Date: Thu, 21 Feb 2019 15:12:36 +0100
+Subject: [python-committers] Date for the Language Summit?
+In-Reply-To: <CAGbohnZ+yKJvu7Uv3maSCXqt8H1Zzr0Nwperw09AA1azXc=RCw@mail.gmail.com>
+References: <CA+3bQGFWWZP4LOxzqdTGYBfcXOdYZzTqK4ZA7t4_m16gy2fEHQ@mail.gmail.com>
+ <d161232d-152c-6095-aa48-bccaf264e18f@ubuntu.com>
+ <CAGbohnZgeDHDZcZYNUM-kWpMoWCp=KLGMCP_Qc8C9DcUTkvDpg@mail.gmail.com>
+ <CAGbohnZ+yKJvu7Uv3maSCXqt8H1Zzr0Nwperw09AA1azXc=RCw@mail.gmail.com>
+Message-ID: <CA+3bQGGuy58DAAV_HoSR1xZnoNeLTAReYcXp2XT3SoRLG6m=9w@mail.gmail.com>
+
+Le jeu. 21 f?vr. 2019 ? 14:23, Mariatta <mariatta at python.org> a ?crit :
+> Date is listed here. More info will be added here too.
+> https://us.pycon.org/2019/events/language-summit/
+
+"When: Wednesday, May 1, 2019, 10am?4pm"
+
+Ok, thanks :-) I should be able to attend (if I'm invited ;-)), except
+if Air France decide to organize a new strike (at they did last year
+just before the Language Summit) ;-)
+
+Victor
+-- 
+Night gathers, and now my watch begins. It shall not end until my death.
+

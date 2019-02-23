@@ -3700,3 +3700,53 @@ Victor
 -- 
 Night gathers, and now my watch begins. It shall not end until my death.
 
+From vstinner at redhat.com  Fri Feb 22 08:30:02 2019
+From: vstinner at redhat.com (Victor Stinner)
+Date: Fri, 22 Feb 2019 14:30:02 +0100
+Subject: [python-committers] =?utf-8?q?Andr=C3=A9s_Delfino_got_the_bug_tr?=
+ =?utf-8?q?iage_permission?=
+Message-ID: <CA+3bQGEfcLrAWGMC=GoYoxm=LQJaSnKnZy986M89z8C1riyGZg@mail.gmail.com>
+
+Hi,
+
+As Serhiy Storchaka noticed, Andr?s Delfino is very active in Python
+since April 2018. He got
+not less than 79 commits merged into mater:
+https://github.com/python/cpython/pulls?utf8=%E2%9C%93&q=is%3Apr+author%3Aandresdelfino
+
+$ git log --author=adelfino at gmail.com|grep ^commit -c
+79
+
+Andr?s Delfino enhanced a lot the documentation, but also stdlib modules:
+---
+commit b2043bbe6034b53f5ad337887f4741b74b70b00d
+Author: Andr?s Delfino <adelfino at gmail.com>
+Date:   Sat May 5 13:07:32 2018 -0300
+
+    bpo-33422: Fix quotation marks getting deleted when looking up
+byte/string literals on pydoc. (GH-6701)
+
+commit c3b7a6dfb9c7e69093c9fe78ab587e14743e5152
+Author: Andr?s Delfino <adelfino at gmail.com>
+Date:   Mon Apr 30 13:30:53 2018 -0300
+
+    bpo-33352: Skip test_regrtest test if rt.bat does not exist (GH-6654)
+
+commit a6dc531063efe3a8d47ff4639729060c72a3688c
+Author: Andr?s Delfino <adelfino at gmail.com>
+Date:   Fri Oct 26 11:56:57 2018 -0300
+
+    bpo-34789: make xml.sax.make_parser accept iterables of all types (GH-9576)
+---
+
+I decided to give him the bug triage permission.
+
+I sent Andr?s instructions how to triage bug and links into the
+devguide. I asked him to ask me before closing a bug.
+
+Congrats Andr?s ;-)
+
+Victor
+-- 
+Night gathers, and now my watch begins. It shall not end until my death.
+

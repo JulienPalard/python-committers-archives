@@ -1,0 +1,104 @@
+From willingc at gmail.com  Fri Mar  1 16:39:02 2019
+From: willingc at gmail.com (Carol Willing)
+Date: Fri, 1 Mar 2019 13:39:02 -0800
+Subject: [python-committers] OpenMandriva and Fedora abandoned Discourse
+ for development discussions
+In-Reply-To: <CA+3bQGFGkEM9hqUai++RJAD-CW6kUoTKQAJYzHjNn89aXJy49Q@mail.gmail.com>
+References: <CA+3bQGFGkEM9hqUai++RJAD-CW6kUoTKQAJYzHjNn89aXJy49Q@mail.gmail.com>
+Message-ID: <5C2095B2-49B4-46E6-9C62-0568E3F26843@getmailspring.com>
+
+One thing to keep in mind which is not a vote for/against mailing lists or Discourse is that older projects, like Linux, have historically communicated extensively with textual information. As JavaScript and other third party projects, which rely more heavily on visualizations and UI, have grown, there is a now a greater need to be able to communicate visual information.
+
+While these Linux distros may have gone back to email, it would be interesting to dig deeper into why and whether visual communication is important in these projects.
+My instinct is that Python will likely use more than one type of communication medium once the communication PEP(s) are written.
+Please keep passing along the interesting data points too. Thanks.
+On Feb 28 2019, at 7:29 am, Victor Stinner <vstinner at redhat.com> wrote:
+> Maybe we need a new #python-dev-notif (or even #python-dev-bots?)
+> channel for automated notifications and bots, and keep #python-dev for
+> humans?
+>
+> Victor
+> Le mer. 27 f?vr. 2019 ? 22:21, Matthias Klose <doko at ubuntu.com> a ?crit :
+> >
+> > On 27.02.19 22:11, Brett Cannon wrote:
+> > > On Tue, Feb 26, 2019 at 3:40 PM Victor Stinner <vstinner at redhat.com> wrote:
+> > >
+> > > > Hi,
+> > > > Follow-up of the previous "Can we choose between mailing list and
+> > > > discuss.python.org?" thread.
+> > > >
+> > > > Python isn't the first project who "experimented" Discourse to replace
+> > > > mailing lists. It seems like Fedora and OpenMandriva are coming back
+> > > > to mailing lists, at least for "development discussions":
+> > > >
+> > > >
+> > > > https://lists.fedoraproject.org/archives/list/council-discuss at lists.fedoraproject.org/message/XQLY3MRJLC4CFMIRSYU5LRQSOPFF532X/
+> > > It sounds like their overall team is much larger than ours based on the
+> > > tone of that email (is that true?). We have also talked about having both
+> > > Discourse and python-committers for announcements which would partially
+> > > alleviate some of their concerns.
+> > >
+> > > I also think it's telling that their decision to do this was done on IRC
+> > > which is not a primary communication platform for all of us and suggests
+> > > that it's possible the desires/needs/expectations of those participating
+> > > are different.
+> >
+> >
+> > well, #python-dev is another topic. It now gets spammed by many bots, and human
+> > chats are lost in the noise. That used to be better.
+> >
+> > Matthias
+>
+>
+> --
+> Night gathers, and now my watch begins. It shall not end until my death.
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20190301/075e527b/attachment.html>
+
+From larry at hastings.org  Sat Mar  2 01:05:16 2019
+From: larry at hastings.org (Larry Hastings)
+Date: Fri, 1 Mar 2019 22:05:16 -0800
+Subject: [python-committers] Last-minute request: please backport bpo-33329
+ fix to 3.4 and 3.5
+Message-ID: <eca9d6f2-14a3-0a17-2730-8d74cbb8fa84@hastings.org>
+
+
+This bug in bpo-33329:
+
+    https://bugs.python.org/issue33329
+
+was fixed for 3.6+, but it also affects 3.4 and 3.5.? The bug is that 
+with newer versions of glibc--which I'm pretty sure has shipped on all 
+major Linux distros by now--the test suite may send signals that are 
+invalid somehow.? As a result the test suite... blocks forever?? I 
+think?? Anyway the observed resulting behavior is that there are three 
+regression tests in each branch that seemingly never complete.? I 
+started the 3.4 regression test suite /nine hours ago/ and it still 
+claims to be running--and the 3.5 test suite isn't far behind.? 
+Technically, no, it's not a security bug.? But I simply can't ship 3.4 
+and 3.5 in this sorry state.
+
+Obviously it'd be best if the folks involved with the original PRs 
+(Antoine?) took over.? I'm sending this to a wider audience just because 
+I'd hoped to tag the next RCs for 3.4 and 3.5 this weekend, and the 
+original participants in this fix may not be available, and I'm hoping I 
+won't have to slip the schedule.
+
+
+Thanks for your time,
+
+
+//arry/
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20190301/7c584aca/attachment.html>
+

@@ -102,3 +102,85 @@ Thanks for your time,
 An HTML attachment was scrubbed...
 URL: <http://mail.python.org/pipermail/python-committers/attachments/20190301/7c584aca/attachment.html>
 
+From antoine at python.org  Sat Mar  2 09:55:16 2019
+From: antoine at python.org (Antoine Pitrou)
+Date: Sat, 2 Mar 2019 15:55:16 +0100
+Subject: [python-committers] Last-minute request: please backport
+ bpo-33329 fix to 3.4 and 3.5
+In-Reply-To: <eca9d6f2-14a3-0a17-2730-8d74cbb8fa84@hastings.org>
+References: <eca9d6f2-14a3-0a17-2730-8d74cbb8fa84@hastings.org>
+Message-ID: <3002e29f-308d-3901-887b-fc7ae6c954fc@python.org>
+
+
+Hi Larry,
+
+Le 02/03/2019 ? 07:05, Larry Hastings a ?crit?:
+> 
+> This bug in bpo-33329:
+> 
+>     https://bugs.python.org/issue33329
+> 
+> was fixed for 3.6+, but it also affects 3.4 and 3.5.? The bug is that
+> with newer versions of glibc--which I'm pretty sure has shipped on all
+> major Linux distros by now--the test suite may send signals that are
+> invalid somehow.? As a result the test suite... blocks forever?? I
+> think?? Anyway the observed resulting behavior is that there are three
+> regression tests in each branch that seemingly never complete.? I
+> started the 3.4 regression test suite /nine hours ago/ and it still
+> claims to be running--and the 3.5 test suite isn't far behind.?
+> Technically, no, it's not a security bug.? But I simply can't ship 3.4
+> and 3.5 in this sorry state.
+> 
+> Obviously it'd be best if the folks involved with the original PRs
+> (Antoine?) took over.
+
+Well, I don't know how to backport a PR to 3.4 or 3.5.  I can only say
+that backporting sounds fine to me (also: I don't really have the time
+right now, and I'll be away the next two weeks).
+
+Regards
+
+Antoine.
+
+From tjreedy at udel.edu  Sat Mar  2 14:03:01 2019
+From: tjreedy at udel.edu (Terry Reedy)
+Date: Sat, 2 Mar 2019 14:03:01 -0500
+Subject: [python-committers] Last-minute request: please backport
+ bpo-33329 fix to 3.4 and 3.5
+In-Reply-To: <3002e29f-308d-3901-887b-fc7ae6c954fc@python.org>
+References: <eca9d6f2-14a3-0a17-2730-8d74cbb8fa84@hastings.org>
+ <3002e29f-308d-3901-887b-fc7ae6c954fc@python.org>
+Message-ID: <c7d83273-5281-d2f4-097b-2e6389132bac@udel.edu>
+
+On 3/2/2019 9:55 AM, Antoine Pitrou wrote:
+
+> Le 02/03/2019 ? 07:05, Larry Hastings a ?crit?:
+>>
+>> This bug in bpo-33329:
+>>
+>>      https://bugs.python.org/issue33329
+>>
+>> was fixed for 3.6+, but it also affects 3.4 and 3.5.? The bug is that
+>> with newer versions of glibc--which I'm pretty sure has shipped on all
+>> major Linux distros by now--the test suite may send signals that are
+>> invalid somehow.? As a result the test suite... blocks forever?? I
+>> think?? Anyway the observed resulting behavior is that there are three
+>> regression tests in each branch that seemingly never complete.? I
+>> started the 3.4 regression test suite /nine hours ago/ and it still
+>> claims to be running--and the 3.5 test suite isn't far behind.
+>> Technically, no, it's not a security bug.? But I simply can't ship 3.4
+>> and 3.5 in this sorry state.
+>>
+>> Obviously it'd be best if the folks involved with the original PRs
+>> (Antoine?) took over.
+> 
+> Well, I don't know how to backport a PR to 3.4 or 3.5.
+
+The patch changes < 10 lines in iterable_to_sigset in 
+Modules/signalmodule.c.  The relevant parts of the function in 3.4, 3.5, 
+and pre-patch 3.6 appear to be the same, though with different line 
+numbers.  I have not used git cherrypick or python cherrypicker for 
+months, but would expect them to do the merge.
+
+
+

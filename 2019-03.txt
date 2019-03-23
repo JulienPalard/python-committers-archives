@@ -580,3 +580,1297 @@ https://www.youtube.com/watch?v=YlGqN3AKOsA
 An HTML attachment was scrubbed...
 URL: <http://mail.python.org/pipermail/python-committers/attachments/20190318/64974083/attachment.html>
 
+From vstinner at redhat.com  Fri Mar 22 11:34:38 2019
+From: vstinner at redhat.com (Victor Stinner)
+Date: Fri, 22 Mar 2019 16:34:38 +0100
+Subject: [python-committers] =?utf-8?q?Vote_to_promote_St=C3=A9phane_Wirt?=
+ =?utf-8?q?el_as_a_core_dev?=
+Message-ID: <CA+3bQGHbo5QhH+ZLj_ywHY8EL=b6M+tbxMN3utCWvykWGi8zVg@mail.gmail.com>
+
+Hi,
+
+Julien Palard and me (Victor) propose to promote St?phane Wirtel as
+core developer. We open a vote until March 31 (~one week). "[A
+promotion] is granted by receiving at least two-thirds positive votes
+in a core team vote and no veto by the steering council."
+https://www.python.org/dev/peps/pep-0013/#the-core-team
+
+Some of you already met him at Pycon US or EuroPython.
+
+St?phane is contributing to Python since 2014. He fixed bugs in
+various parts of the code, but also implemented some nice
+features:
+
+* -d option of "python3 -m http.server -d DIRECTORY"
+   to serve a specific directory using Python builtin HTTP Server
+* --fast and --best options on gzip CLI: "python3 -m gzip [options] file"
+
+(Julien told me that he frequently uses "python3 -m http.server -d
+DIRECTORY" to read the Python documentation :-))
+
+In my experience, St?phane *likes* getting review and is fine to make
+any change on his code. It's not an issue to work with him, it's more
+the opposite :-) For example, it doesn't get mad if one of his PR is
+rejected ;-) (I'm saying that because *I* sometimes get mad about
+that, sorry for being emotional :-))
+
+He got 57 commits merged into the master branch of Python: authored 46
+commits + co-authored 1 commit + 10 commits before Git ("Patch written
+by St?phane Wirtel").
+
+He organized a Python conference at FOSDEM 5 times in a row (between
+80 and 800 persons per year) and got a PSF Community Service Awards in
+June 2016 for that: "St?phane Wirtel for his work organizing a Python
+User Group in Belgium, for his continued work creating marketing
+material for the PSF, for his continued outreach efforts with
+spreading the PSF's mission."
+https://www.python.org/community/awards/psf-awards/#june-2016
+
+He is also helping to organize EuroPython, by working on the website
+or being a volunteer on-site.
+
+He gave a lot of Python talks all around the world at many Pycon
+(France, EuroPython, Canda, Italy, Ireland, UK, San Sebasti?n,
+Slovakia, Ukraine) and at FOSDEM (Belgium). For example, he gave talks
+about Python internals (bytecode, parser), and on Python development
+workflow and Pull Requests.
+
+He is always volunteer to help the Python project, not only the code.
+For example, he is a committer on the developer guide (devguide).
+
+He is helping other contributors get their bugs fixed or to get their
+changes merged. He participated to not less than 218 PR: ping the
+right core dev who can review/help, test manually to validate and
+provide good feedback, propose enhancements, etc. Sometimes, he just
+says "Thank you for your contribution" which is IMHO a good practice
+for a healthy community :-) (we don't do that often enough!)
+
+St?phane is involved in Python for 5 years. To be honest, he should
+have been promoted earlier, but I (Victor) wasn't sure to promote him
+myself because I know him too well, and so I wasn't objective about
+his work. But well, now it's time, and Julien is supporting his
+promotion as well ;-)
+
+Links:
+
+* https://wirtel.be/
+* https://twitter.com/matrixise
+
+Julien and Victor
+
+From vstinner at redhat.com  Fri Mar 22 11:40:09 2019
+From: vstinner at redhat.com (Victor Stinner)
+Date: Fri, 22 Mar 2019 16:40:09 +0100
+Subject: [python-committers] 
+ =?utf-8?q?Vote_to_promote_St=C3=A9phane_Wirt?=
+ =?utf-8?q?el_as_a_core_dev?=
+In-Reply-To: <CA+3bQGHbo5QhH+ZLj_ywHY8EL=b6M+tbxMN3utCWvykWGi8zVg@mail.gmail.com>
+References: <CA+3bQGHbo5QhH+ZLj_ywHY8EL=b6M+tbxMN3utCWvykWGi8zVg@mail.gmail.com>
+Message-ID: <CA+3bQGHWbk-X9wsyR97j3y9XcnxD-etgbRbPLV_U3hWK3O1gPw@mail.gmail.com>
+
+Oh. I forgot to mention that I offer to mentor St?phane once he would
+become a core dev for 1 month for help him to deal with his new
+responsibilities. I would require him to ask me before merging any PR
+during the mentoring.
+
+Victor
+
+Le ven. 22 mars 2019 ? 16:34, Victor Stinner <vstinner at redhat.com> a ?crit :
+>
+> Hi,
+>
+> Julien Palard and me (Victor) propose to promote St?phane Wirtel as
+> core developer. We open a vote until March 31 (~one week). "[A
+> promotion] is granted by receiving at least two-thirds positive votes
+> in a core team vote and no veto by the steering council."
+> https://www.python.org/dev/peps/pep-0013/#the-core-team
+>
+> Some of you already met him at Pycon US or EuroPython.
+>
+> St?phane is contributing to Python since 2014. He fixed bugs in
+> various parts of the code, but also implemented some nice
+> features:
+>
+> * -d option of "python3 -m http.server -d DIRECTORY"
+>    to serve a specific directory using Python builtin HTTP Server
+> * --fast and --best options on gzip CLI: "python3 -m gzip [options] file"
+>
+> (Julien told me that he frequently uses "python3 -m http.server -d
+> DIRECTORY" to read the Python documentation :-))
+>
+> In my experience, St?phane *likes* getting review and is fine to make
+> any change on his code. It's not an issue to work with him, it's more
+> the opposite :-) For example, it doesn't get mad if one of his PR is
+> rejected ;-) (I'm saying that because *I* sometimes get mad about
+> that, sorry for being emotional :-))
+>
+> He got 57 commits merged into the master branch of Python: authored 46
+> commits + co-authored 1 commit + 10 commits before Git ("Patch written
+> by St?phane Wirtel").
+>
+> He organized a Python conference at FOSDEM 5 times in a row (between
+> 80 and 800 persons per year) and got a PSF Community Service Awards in
+> June 2016 for that: "St?phane Wirtel for his work organizing a Python
+> User Group in Belgium, for his continued work creating marketing
+> material for the PSF, for his continued outreach efforts with
+> spreading the PSF's mission."
+> https://www.python.org/community/awards/psf-awards/#june-2016
+>
+> He is also helping to organize EuroPython, by working on the website
+> or being a volunteer on-site.
+>
+> He gave a lot of Python talks all around the world at many Pycon
+> (France, EuroPython, Canda, Italy, Ireland, UK, San Sebasti?n,
+> Slovakia, Ukraine) and at FOSDEM (Belgium). For example, he gave talks
+> about Python internals (bytecode, parser), and on Python development
+> workflow and Pull Requests.
+>
+> He is always volunteer to help the Python project, not only the code.
+> For example, he is a committer on the developer guide (devguide).
+>
+> He is helping other contributors get their bugs fixed or to get their
+> changes merged. He participated to not less than 218 PR: ping the
+> right core dev who can review/help, test manually to validate and
+> provide good feedback, propose enhancements, etc. Sometimes, he just
+> says "Thank you for your contribution" which is IMHO a good practice
+> for a healthy community :-) (we don't do that often enough!)
+>
+> St?phane is involved in Python for 5 years. To be honest, he should
+> have been promoted earlier, but I (Victor) wasn't sure to promote him
+> myself because I know him too well, and so I wasn't objective about
+> his work. But well, now it's time, and Julien is supporting his
+> promotion as well ;-)
+>
+> Links:
+>
+> * https://wirtel.be/
+> * https://twitter.com/matrixise
+>
+> Julien and Victor
+
+
+
+-- 
+Night gathers, and now my watch begins. It shall not end until my death.
+
+From julien at palard.fr  Fri Mar 22 11:56:41 2019
+From: julien at palard.fr (Julien Palard)
+Date: Fri, 22 Mar 2019 15:56:41 +0000
+Subject: [python-committers] 
+ =?utf-8?q?Vote_to_promote_St=C3=A9phane_Wirt?=
+ =?utf-8?q?el_as_a_core_dev?=
+In-Reply-To: <CA+3bQGHbo5QhH+ZLj_ywHY8EL=b6M+tbxMN3utCWvykWGi8zVg@mail.gmail.com>
+References: <CA+3bQGHbo5QhH+ZLj_ywHY8EL=b6M+tbxMN3utCWvykWGi8zVg@mail.gmail.com>
+Message-ID: <kPdPSrJY5V9WTVWHGHXw1ODodQZPne5l7ASzr9RCyc--OaWKY80fVwGXj6qrebHHrzCZFPBQi3HJZyycn_uT4aWaLh1IKhLA-HqfW1E3FN0=@palard.fr>
+
+> Julien Palard and me (Victor) propose to promote St?phane Wirtel as
+> core developer.
+
+It's probably obvious, but still: +1!
+
+I've met St?phane multiple times at Python related events, worked with him on various occasions, and everytime it's a pleasure!
+
+--?
+Julien Palard
+https://mdk.fr
+
+
+From mal at egenix.com  Fri Mar 22 12:33:06 2019
+From: mal at egenix.com (M.-A. Lemburg)
+Date: Fri, 22 Mar 2019 17:33:06 +0100
+Subject: [python-committers] 
+ =?utf-8?q?Vote_to_promote_St=C3=A9phane_Wirt?=
+ =?utf-8?q?el_as_a_core_dev?=
+In-Reply-To: <CA+3bQGHWbk-X9wsyR97j3y9XcnxD-etgbRbPLV_U3hWK3O1gPw@mail.gmail.com>
+References: <CA+3bQGHbo5QhH+ZLj_ywHY8EL=b6M+tbxMN3utCWvykWGi8zVg@mail.gmail.com>
+ <CA+3bQGHWbk-X9wsyR97j3y9XcnxD-etgbRbPLV_U3hWK3O1gPw@mail.gmail.com>
+Message-ID: <7ab65fcc-929d-4f6d-f7cd-8533604964b1@egenix.com>
+
++1 (not exactly sure how the vote would work, so at this point just
+an indication of support)
+
+On 22.03.2019 16:40, Victor Stinner wrote:
+> Oh. I forgot to mention that I offer to mentor St?phane once he would
+> become a core dev for 1 month for help him to deal with his new
+> responsibilities. I would require him to ask me before merging any PR
+> during the mentoring.
+> 
+> Victor
+> 
+> Le ven. 22 mars 2019 ? 16:34, Victor Stinner <vstinner at redhat.com> a ?crit :
+>>
+>> Hi,
+>>
+>> Julien Palard and me (Victor) propose to promote St?phane Wirtel as
+>> core developer. We open a vote until March 31 (~one week). "[A
+>> promotion] is granted by receiving at least two-thirds positive votes
+>> in a core team vote and no veto by the steering council."
+>> https://www.python.org/dev/peps/pep-0013/#the-core-team
+>>
+>> Some of you already met him at Pycon US or EuroPython.
+>>
+>> St?phane is contributing to Python since 2014. He fixed bugs in
+>> various parts of the code, but also implemented some nice
+>> features:
+>>
+>> * -d option of "python3 -m http.server -d DIRECTORY"
+>>    to serve a specific directory using Python builtin HTTP Server
+>> * --fast and --best options on gzip CLI: "python3 -m gzip [options] file"
+>>
+>> (Julien told me that he frequently uses "python3 -m http.server -d
+>> DIRECTORY" to read the Python documentation :-))
+>>
+>> In my experience, St?phane *likes* getting review and is fine to make
+>> any change on his code. It's not an issue to work with him, it's more
+>> the opposite :-) For example, it doesn't get mad if one of his PR is
+>> rejected ;-) (I'm saying that because *I* sometimes get mad about
+>> that, sorry for being emotional :-))
+>>
+>> He got 57 commits merged into the master branch of Python: authored 46
+>> commits + co-authored 1 commit + 10 commits before Git ("Patch written
+>> by St?phane Wirtel").
+>>
+>> He organized a Python conference at FOSDEM 5 times in a row (between
+>> 80 and 800 persons per year) and got a PSF Community Service Awards in
+>> June 2016 for that: "St?phane Wirtel for his work organizing a Python
+>> User Group in Belgium, for his continued work creating marketing
+>> material for the PSF, for his continued outreach efforts with
+>> spreading the PSF's mission."
+>> https://www.python.org/community/awards/psf-awards/#june-2016
+>>
+>> He is also helping to organize EuroPython, by working on the website
+>> or being a volunteer on-site.
+>>
+>> He gave a lot of Python talks all around the world at many Pycon
+>> (France, EuroPython, Canda, Italy, Ireland, UK, San Sebasti?n,
+>> Slovakia, Ukraine) and at FOSDEM (Belgium). For example, he gave talks
+>> about Python internals (bytecode, parser), and on Python development
+>> workflow and Pull Requests.
+>>
+>> He is always volunteer to help the Python project, not only the code.
+>> For example, he is a committer on the developer guide (devguide).
+>>
+>> He is helping other contributors get their bugs fixed or to get their
+>> changes merged. He participated to not less than 218 PR: ping the
+>> right core dev who can review/help, test manually to validate and
+>> provide good feedback, propose enhancements, etc. Sometimes, he just
+>> says "Thank you for your contribution" which is IMHO a good practice
+>> for a healthy community :-) (we don't do that often enough!)
+>>
+>> St?phane is involved in Python for 5 years. To be honest, he should
+>> have been promoted earlier, but I (Victor) wasn't sure to promote him
+>> myself because I know him too well, and so I wasn't objective about
+>> his work. But well, now it's time, and Julien is supporting his
+>> promotion as well ;-)
+>>
+>> Links:
+>>
+>> * https://wirtel.be/
+>> * https://twitter.com/matrixise
+>>
+>> Julien and Victor
+> 
+> 
+> 
+
+-- 
+Marc-Andre Lemburg
+eGenix.com
+
+Professional Python Services directly from the Experts (#1, Mar 22 2019)
+>>> Python Projects, Coaching and Consulting ...  http://www.egenix.com/
+>>> Python Database Interfaces ...           http://products.egenix.com/
+>>> Plone/Zope Database Interfaces ...           http://zope.egenix.com/
+________________________________________________________________________
+
+::: We implement business ideas - efficiently in both time and costs :::
+
+   eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+    D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+           Registered at Amtsgericht Duesseldorf: HRB 46611
+               http://www.egenix.com/company/contact/
+                      http://www.malemburg.com/
+
+
+From steve.dower at python.org  Fri Mar 22 12:38:47 2019
+From: steve.dower at python.org (Steve Dower)
+Date: Fri, 22 Mar 2019 09:38:47 -0700
+Subject: [python-committers] 
+ =?utf-8?q?Vote_to_promote_St=C3=A9phane_Wirt?=
+ =?utf-8?q?el_as_a_core_dev?=
+In-Reply-To: <CA+3bQGHbo5QhH+ZLj_ywHY8EL=b6M+tbxMN3utCWvykWGi8zVg@mail.gmail.com>
+References: <CA+3bQGHbo5QhH+ZLj_ywHY8EL=b6M+tbxMN3utCWvykWGi8zVg@mail.gmail.com>
+Message-ID: <59da6f97-026c-a218-2f68-bbcc0aecc669@python.org>
+
+On 22Mar2019 0834, Victor Stinner wrote:
+> Some of you already met him at Pycon US or EuroPython.
+
+I certainly have, a number of times. He's always seemed very willing to 
+discuss ideas and his point of view on design issues, and it will be 
+nice to finish some of those discussions by letting him complete his own 
+work.
+
++1 from me.
+
+Cheers,
+Steve
+
+From brett at python.org  Fri Mar 22 13:01:24 2019
+From: brett at python.org (Brett Cannon)
+Date: Fri, 22 Mar 2019 10:01:24 -0700
+Subject: [python-committers] 
+	=?utf-8?q?Vote_to_promote_St=C3=A9phane_Wirt?=
+	=?utf-8?q?el_as_a_core_dev?=
+In-Reply-To: <7ab65fcc-929d-4f6d-f7cd-8533604964b1@egenix.com>
+References: <CA+3bQGHbo5QhH+ZLj_ywHY8EL=b6M+tbxMN3utCWvykWGi8zVg@mail.gmail.com>
+ <CA+3bQGHWbk-X9wsyR97j3y9XcnxD-etgbRbPLV_U3hWK3O1gPw@mail.gmail.com>
+ <7ab65fcc-929d-4f6d-f7cd-8533604964b1@egenix.com>
+Message-ID: <CAP1=2W6yWVXv7m6eQFv39iRYmuMCxdsUstRrCJtSyipD-NtRuw@mail.gmail.com>
+
+On Fri, Mar 22, 2019 at 9:33 AM M.-A. Lemburg <mal at egenix.com> wrote:
+
+> +1 (not exactly sure how the vote would work, so at this point just
+> an indication of support)
+>
+
+I've started a discussion with the council to see how we may want to handle
+it.
+
+-Brett
+
+
+>
+> On 22.03.2019 16:40, Victor Stinner wrote:
+> > Oh. I forgot to mention that I offer to mentor St?phane once he would
+> > become a core dev for 1 month for help him to deal with his new
+> > responsibilities. I would require him to ask me before merging any PR
+> > during the mentoring.
+> >
+> > Victor
+> >
+> > Le ven. 22 mars 2019 ? 16:34, Victor Stinner <vstinner at redhat.com> a
+> ?crit :
+> >>
+> >> Hi,
+> >>
+> >> Julien Palard and me (Victor) propose to promote St?phane Wirtel as
+> >> core developer. We open a vote until March 31 (~one week). "[A
+> >> promotion] is granted by receiving at least two-thirds positive votes
+> >> in a core team vote and no veto by the steering council."
+> >> https://www.python.org/dev/peps/pep-0013/#the-core-team
+> >>
+> >> Some of you already met him at Pycon US or EuroPython.
+> >>
+> >> St?phane is contributing to Python since 2014. He fixed bugs in
+> >> various parts of the code, but also implemented some nice
+> >> features:
+> >>
+> >> * -d option of "python3 -m http.server -d DIRECTORY"
+> >>    to serve a specific directory using Python builtin HTTP Server
+> >> * --fast and --best options on gzip CLI: "python3 -m gzip [options]
+> file"
+> >>
+> >> (Julien told me that he frequently uses "python3 -m http.server -d
+> >> DIRECTORY" to read the Python documentation :-))
+> >>
+> >> In my experience, St?phane *likes* getting review and is fine to make
+> >> any change on his code. It's not an issue to work with him, it's more
+> >> the opposite :-) For example, it doesn't get mad if one of his PR is
+> >> rejected ;-) (I'm saying that because *I* sometimes get mad about
+> >> that, sorry for being emotional :-))
+> >>
+> >> He got 57 commits merged into the master branch of Python: authored 46
+> >> commits + co-authored 1 commit + 10 commits before Git ("Patch written
+> >> by St?phane Wirtel").
+> >>
+> >> He organized a Python conference at FOSDEM 5 times in a row (between
+> >> 80 and 800 persons per year) and got a PSF Community Service Awards in
+> >> June 2016 for that: "St?phane Wirtel for his work organizing a Python
+> >> User Group in Belgium, for his continued work creating marketing
+> >> material for the PSF, for his continued outreach efforts with
+> >> spreading the PSF's mission."
+> >> https://www.python.org/community/awards/psf-awards/#june-2016
+> >>
+> >> He is also helping to organize EuroPython, by working on the website
+> >> or being a volunteer on-site.
+> >>
+> >> He gave a lot of Python talks all around the world at many Pycon
+> >> (France, EuroPython, Canda, Italy, Ireland, UK, San Sebasti?n,
+> >> Slovakia, Ukraine) and at FOSDEM (Belgium). For example, he gave talks
+> >> about Python internals (bytecode, parser), and on Python development
+> >> workflow and Pull Requests.
+> >>
+> >> He is always volunteer to help the Python project, not only the code.
+> >> For example, he is a committer on the developer guide (devguide).
+> >>
+> >> He is helping other contributors get their bugs fixed or to get their
+> >> changes merged. He participated to not less than 218 PR: ping the
+> >> right core dev who can review/help, test manually to validate and
+> >> provide good feedback, propose enhancements, etc. Sometimes, he just
+> >> says "Thank you for your contribution" which is IMHO a good practice
+> >> for a healthy community :-) (we don't do that often enough!)
+> >>
+> >> St?phane is involved in Python for 5 years. To be honest, he should
+> >> have been promoted earlier, but I (Victor) wasn't sure to promote him
+> >> myself because I know him too well, and so I wasn't objective about
+> >> his work. But well, now it's time, and Julien is supporting his
+> >> promotion as well ;-)
+> >>
+> >> Links:
+> >>
+> >> * https://wirtel.be/
+> >> * https://twitter.com/matrixise
+> >>
+> >> Julien and Victor
+> >
+> >
+> >
+>
+> --
+> Marc-Andre Lemburg
+> eGenix.com
+>
+> Professional Python Services directly from the Experts (#1, Mar 22 2019)
+> >>> Python Projects, Coaching and Consulting ...  http://www.egenix.com/
+> >>> Python Database Interfaces ...           http://products.egenix.com/
+> >>> Plone/Zope Database Interfaces ...           http://zope.egenix.com/
+> ________________________________________________________________________
+>
+> ::: We implement business ideas - efficiently in both time and costs :::
+>
+>    eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+>     D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+>            Registered at Amtsgericht Duesseldorf: HRB 46611
+>                http://www.egenix.com/company/contact/
+>                       http://www.malemburg.com/
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20190322/c2406a59/attachment-0001.html>
+
+From brett at python.org  Fri Mar 22 14:45:05 2019
+From: brett at python.org (Brett Cannon)
+Date: Fri, 22 Mar 2019 11:45:05 -0700
+Subject: [python-committers] 
+	=?utf-8?q?Vote_to_promote_St=C3=A9phane_Wirt?=
+	=?utf-8?q?el_as_a_core_dev?=
+In-Reply-To: <CAP1=2W6yWVXv7m6eQFv39iRYmuMCxdsUstRrCJtSyipD-NtRuw@mail.gmail.com>
+References: <CA+3bQGHbo5QhH+ZLj_ywHY8EL=b6M+tbxMN3utCWvykWGi8zVg@mail.gmail.com>
+ <CA+3bQGHWbk-X9wsyR97j3y9XcnxD-etgbRbPLV_U3hWK3O1gPw@mail.gmail.com>
+ <7ab65fcc-929d-4f6d-f7cd-8533604964b1@egenix.com>
+ <CAP1=2W6yWVXv7m6eQFv39iRYmuMCxdsUstRrCJtSyipD-NtRuw@mail.gmail.com>
+Message-ID: <CAP1=2W6wEh_yuvc-f8bGgXt+L3mZkTC-XTCOaeP729tk9N+W0A@mail.gmail.com>
+
+We discussed this and we think an anonymous vote on discuss.python.org is
+probably best for this sort of thing.
+
+Victor, did you want to do the poll or would you prefer I set it up?
+
+On Fri, Mar 22, 2019 at 10:01 AM Brett Cannon <brett at python.org> wrote:
+
+>
+>
+> On Fri, Mar 22, 2019 at 9:33 AM M.-A. Lemburg <mal at egenix.com> wrote:
+>
+>> +1 (not exactly sure how the vote would work, so at this point just
+>> an indication of support)
+>>
+>
+> I've started a discussion with the council to see how we may want to
+> handle it.
+>
+> -Brett
+>
+>
+>>
+>> On 22.03.2019 16:40, Victor Stinner wrote:
+>> > Oh. I forgot to mention that I offer to mentor St?phane once he would
+>> > become a core dev for 1 month for help him to deal with his new
+>> > responsibilities. I would require him to ask me before merging any PR
+>> > during the mentoring.
+>> >
+>> > Victor
+>> >
+>> > Le ven. 22 mars 2019 ? 16:34, Victor Stinner <vstinner at redhat.com> a
+>> ?crit :
+>> >>
+>> >> Hi,
+>> >>
+>> >> Julien Palard and me (Victor) propose to promote St?phane Wirtel as
+>> >> core developer. We open a vote until March 31 (~one week). "[A
+>> >> promotion] is granted by receiving at least two-thirds positive votes
+>> >> in a core team vote and no veto by the steering council."
+>> >> https://www.python.org/dev/peps/pep-0013/#the-core-team
+>> >>
+>> >> Some of you already met him at Pycon US or EuroPython.
+>> >>
+>> >> St?phane is contributing to Python since 2014. He fixed bugs in
+>> >> various parts of the code, but also implemented some nice
+>> >> features:
+>> >>
+>> >> * -d option of "python3 -m http.server -d DIRECTORY"
+>> >>    to serve a specific directory using Python builtin HTTP Server
+>> >> * --fast and --best options on gzip CLI: "python3 -m gzip [options]
+>> file"
+>> >>
+>> >> (Julien told me that he frequently uses "python3 -m http.server -d
+>> >> DIRECTORY" to read the Python documentation :-))
+>> >>
+>> >> In my experience, St?phane *likes* getting review and is fine to make
+>> >> any change on his code. It's not an issue to work with him, it's more
+>> >> the opposite :-) For example, it doesn't get mad if one of his PR is
+>> >> rejected ;-) (I'm saying that because *I* sometimes get mad about
+>> >> that, sorry for being emotional :-))
+>> >>
+>> >> He got 57 commits merged into the master branch of Python: authored 46
+>> >> commits + co-authored 1 commit + 10 commits before Git ("Patch written
+>> >> by St?phane Wirtel").
+>> >>
+>> >> He organized a Python conference at FOSDEM 5 times in a row (between
+>> >> 80 and 800 persons per year) and got a PSF Community Service Awards in
+>> >> June 2016 for that: "St?phane Wirtel for his work organizing a Python
+>> >> User Group in Belgium, for his continued work creating marketing
+>> >> material for the PSF, for his continued outreach efforts with
+>> >> spreading the PSF's mission."
+>> >> https://www.python.org/community/awards/psf-awards/#june-2016
+>> >>
+>> >> He is also helping to organize EuroPython, by working on the website
+>> >> or being a volunteer on-site.
+>> >>
+>> >> He gave a lot of Python talks all around the world at many Pycon
+>> >> (France, EuroPython, Canda, Italy, Ireland, UK, San Sebasti?n,
+>> >> Slovakia, Ukraine) and at FOSDEM (Belgium). For example, he gave talks
+>> >> about Python internals (bytecode, parser), and on Python development
+>> >> workflow and Pull Requests.
+>> >>
+>> >> He is always volunteer to help the Python project, not only the code.
+>> >> For example, he is a committer on the developer guide (devguide).
+>> >>
+>> >> He is helping other contributors get their bugs fixed or to get their
+>> >> changes merged. He participated to not less than 218 PR: ping the
+>> >> right core dev who can review/help, test manually to validate and
+>> >> provide good feedback, propose enhancements, etc. Sometimes, he just
+>> >> says "Thank you for your contribution" which is IMHO a good practice
+>> >> for a healthy community :-) (we don't do that often enough!)
+>> >>
+>> >> St?phane is involved in Python for 5 years. To be honest, he should
+>> >> have been promoted earlier, but I (Victor) wasn't sure to promote him
+>> >> myself because I know him too well, and so I wasn't objective about
+>> >> his work. But well, now it's time, and Julien is supporting his
+>> >> promotion as well ;-)
+>> >>
+>> >> Links:
+>> >>
+>> >> * https://wirtel.be/
+>> >> * https://twitter.com/matrixise
+>> >>
+>> >> Julien and Victor
+>> >
+>> >
+>> >
+>>
+>> --
+>> Marc-Andre Lemburg
+>> eGenix.com
+>>
+>> Professional Python Services directly from the Experts (#1, Mar 22 2019)
+>> >>> Python Projects, Coaching and Consulting ...  http://www.egenix.com/
+>> >>> Python Database Interfaces ...           http://products.egenix.com/
+>> >>> Plone/Zope Database Interfaces ...           http://zope.egenix.com/
+>> ________________________________________________________________________
+>>
+>> ::: We implement business ideas - efficiently in both time and costs :::
+>>
+>>    eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+>>     D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+>>            Registered at Amtsgericht Duesseldorf: HRB 46611
+>>                http://www.egenix.com/company/contact/
+>>                       http://www.malemburg.com/
+>>
+>> _______________________________________________
+>> python-committers mailing list
+>> python-committers at python.org
+>> https://mail.python.org/mailman/listinfo/python-committers
+>> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>>
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20190322/b9e93d3a/attachment.html>
+
+From guido at python.org  Fri Mar 22 15:13:20 2019
+From: guido at python.org (Guido van Rossum)
+Date: Fri, 22 Mar 2019 12:13:20 -0700
+Subject: [python-committers] 
+	=?utf-8?q?Vote_to_promote_St=C3=A9phane_Wirt?=
+	=?utf-8?q?el_as_a_core_dev?=
+In-Reply-To: <CAP1=2W6wEh_yuvc-f8bGgXt+L3mZkTC-XTCOaeP729tk9N+W0A@mail.gmail.com>
+References: <CA+3bQGHbo5QhH+ZLj_ywHY8EL=b6M+tbxMN3utCWvykWGi8zVg@mail.gmail.com>
+ <CA+3bQGHWbk-X9wsyR97j3y9XcnxD-etgbRbPLV_U3hWK3O1gPw@mail.gmail.com>
+ <7ab65fcc-929d-4f6d-f7cd-8533604964b1@egenix.com>
+ <CAP1=2W6yWVXv7m6eQFv39iRYmuMCxdsUstRrCJtSyipD-NtRuw@mail.gmail.com>
+ <CAP1=2W6wEh_yuvc-f8bGgXt+L3mZkTC-XTCOaeP729tk9N+W0A@mail.gmail.com>
+Message-ID: <CAP7+vJ+FE+GXbd1rJFt457xfC-_J-VQ9tYe2PNCnQKC0z9VymA@mail.gmail.com>
+
+Note that it would have to be in the Committers topic.
+
+On Fri, Mar 22, 2019 at 11:45 AM Brett Cannon <brett at python.org> wrote:
+
+> We discussed this and we think an anonymous vote on discuss.python.org is
+> probably best for this sort of thing.
+>
+> Victor, did you want to do the poll or would you prefer I set it up?
+>
+> On Fri, Mar 22, 2019 at 10:01 AM Brett Cannon <brett at python.org> wrote:
+>
+>>
+>>
+>> On Fri, Mar 22, 2019 at 9:33 AM M.-A. Lemburg <mal at egenix.com> wrote:
+>>
+>>> +1 (not exactly sure how the vote would work, so at this point just
+>>> an indication of support)
+>>>
+>>
+>> I've started a discussion with the council to see how we may want to
+>> handle it.
+>>
+>> -Brett
+>>
+>>
+>>>
+>>> On 22.03.2019 16:40, Victor Stinner wrote:
+>>> > Oh. I forgot to mention that I offer to mentor St?phane once he would
+>>> > become a core dev for 1 month for help him to deal with his new
+>>> > responsibilities. I would require him to ask me before merging any PR
+>>> > during the mentoring.
+>>> >
+>>> > Victor
+>>> >
+>>> > Le ven. 22 mars 2019 ? 16:34, Victor Stinner <vstinner at redhat.com> a
+>>> ?crit :
+>>> >>
+>>> >> Hi,
+>>> >>
+>>> >> Julien Palard and me (Victor) propose to promote St?phane Wirtel as
+>>> >> core developer. We open a vote until March 31 (~one week). "[A
+>>> >> promotion] is granted by receiving at least two-thirds positive votes
+>>> >> in a core team vote and no veto by the steering council."
+>>> >> https://www.python.org/dev/peps/pep-0013/#the-core-team
+>>> >>
+>>> >> Some of you already met him at Pycon US or EuroPython.
+>>> >>
+>>> >> St?phane is contributing to Python since 2014. He fixed bugs in
+>>> >> various parts of the code, but also implemented some nice
+>>> >> features:
+>>> >>
+>>> >> * -d option of "python3 -m http.server -d DIRECTORY"
+>>> >>    to serve a specific directory using Python builtin HTTP Server
+>>> >> * --fast and --best options on gzip CLI: "python3 -m gzip [options]
+>>> file"
+>>> >>
+>>> >> (Julien told me that he frequently uses "python3 -m http.server -d
+>>> >> DIRECTORY" to read the Python documentation :-))
+>>> >>
+>>> >> In my experience, St?phane *likes* getting review and is fine to make
+>>> >> any change on his code. It's not an issue to work with him, it's more
+>>> >> the opposite :-) For example, it doesn't get mad if one of his PR is
+>>> >> rejected ;-) (I'm saying that because *I* sometimes get mad about
+>>> >> that, sorry for being emotional :-))
+>>> >>
+>>> >> He got 57 commits merged into the master branch of Python: authored 46
+>>> >> commits + co-authored 1 commit + 10 commits before Git ("Patch written
+>>> >> by St?phane Wirtel").
+>>> >>
+>>> >> He organized a Python conference at FOSDEM 5 times in a row (between
+>>> >> 80 and 800 persons per year) and got a PSF Community Service Awards in
+>>> >> June 2016 for that: "St?phane Wirtel for his work organizing a Python
+>>> >> User Group in Belgium, for his continued work creating marketing
+>>> >> material for the PSF, for his continued outreach efforts with
+>>> >> spreading the PSF's mission."
+>>> >> https://www.python.org/community/awards/psf-awards/#june-2016
+>>> >>
+>>> >> He is also helping to organize EuroPython, by working on the website
+>>> >> or being a volunteer on-site.
+>>> >>
+>>> >> He gave a lot of Python talks all around the world at many Pycon
+>>> >> (France, EuroPython, Canda, Italy, Ireland, UK, San Sebasti?n,
+>>> >> Slovakia, Ukraine) and at FOSDEM (Belgium). For example, he gave talks
+>>> >> about Python internals (bytecode, parser), and on Python development
+>>> >> workflow and Pull Requests.
+>>> >>
+>>> >> He is always volunteer to help the Python project, not only the code.
+>>> >> For example, he is a committer on the developer guide (devguide).
+>>> >>
+>>> >> He is helping other contributors get their bugs fixed or to get their
+>>> >> changes merged. He participated to not less than 218 PR: ping the
+>>> >> right core dev who can review/help, test manually to validate and
+>>> >> provide good feedback, propose enhancements, etc. Sometimes, he just
+>>> >> says "Thank you for your contribution" which is IMHO a good practice
+>>> >> for a healthy community :-) (we don't do that often enough!)
+>>> >>
+>>> >> St?phane is involved in Python for 5 years. To be honest, he should
+>>> >> have been promoted earlier, but I (Victor) wasn't sure to promote him
+>>> >> myself because I know him too well, and so I wasn't objective about
+>>> >> his work. But well, now it's time, and Julien is supporting his
+>>> >> promotion as well ;-)
+>>> >>
+>>> >> Links:
+>>> >>
+>>> >> * https://wirtel.be/
+>>> >> * https://twitter.com/matrixise
+>>> >>
+>>> >> Julien and Victor
+>>> >
+>>> >
+>>> >
+>>>
+>>> --
+>>> Marc-Andre Lemburg
+>>> eGenix.com
+>>>
+>>> Professional Python Services directly from the Experts (#1, Mar 22 2019)
+>>> >>> Python Projects, Coaching and Consulting ...  http://www.egenix.com/
+>>> >>> Python Database Interfaces ...           http://products.egenix.com/
+>>> >>> Plone/Zope Database Interfaces ...           http://zope.egenix.com/
+>>> ________________________________________________________________________
+>>>
+>>> ::: We implement business ideas - efficiently in both time and costs :::
+>>>
+>>>    eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+>>> <https://maps.google.com/?q=Pastor-Loeh-Str.48+%0D%0A%C2%A0+%C2%A0+D-40764+Langenfeld,+Germany&entry=gmail&source=g>
+>>>     D-40764 Langenfeld, Germany
+>>> <https://maps.google.com/?q=Pastor-Loeh-Str.48+%0D%0A%C2%A0+%C2%A0+D-40764+Langenfeld,+Germany&entry=gmail&source=g>.
+>>> CEO Dipl.-Math. Marc-Andre Lemburg
+>>>            Registered at Amtsgericht Duesseldorf: HRB 46611
+>>>                http://www.egenix.com/company/contact/
+>>>                       http://www.malemburg.com/
+>>>
+>>> _______________________________________________
+>>> python-committers mailing list
+>>> python-committers at python.org
+>>> https://mail.python.org/mailman/listinfo/python-committers
+>>> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>>>
+>> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+-- 
+--Guido (mobile)
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20190322/3a15fca1/attachment-0001.html>
+
+From vstinner at redhat.com  Fri Mar 22 16:56:35 2019
+From: vstinner at redhat.com (Victor Stinner)
+Date: Fri, 22 Mar 2019 21:56:35 +0100
+Subject: [python-committers] 
+	=?utf-8?q?Vote_to_promote_St=C3=A9phane_Wirt?=
+	=?utf-8?q?el_as_a_core_dev?=
+In-Reply-To: <CAP1=2W6wEh_yuvc-f8bGgXt+L3mZkTC-XTCOaeP729tk9N+W0A@mail.gmail.com>
+References: <CA+3bQGHbo5QhH+ZLj_ywHY8EL=b6M+tbxMN3utCWvykWGi8zVg@mail.gmail.com>
+ <CA+3bQGHWbk-X9wsyR97j3y9XcnxD-etgbRbPLV_U3hWK3O1gPw@mail.gmail.com>
+ <7ab65fcc-929d-4f6d-f7cd-8533604964b1@egenix.com>
+ <CAP1=2W6yWVXv7m6eQFv39iRYmuMCxdsUstRrCJtSyipD-NtRuw@mail.gmail.com>
+ <CAP1=2W6wEh_yuvc-f8bGgXt+L3mZkTC-XTCOaeP729tk9N+W0A@mail.gmail.com>
+Message-ID: <CA+3bQGGdWgbvaU8SpuzSA+_k-f+sK21H4q70tA2NL+KPV1bf2Q@mail.gmail.com>
+
+Le ven. 22 mars 2019 ? 19:45, Brett Cannon <brett at python.org> a ?crit :
+> We discussed this and we think an anonymous vote on discuss.python.org is probably best for this sort of thing.
+>
+> Victor, did you want to do the poll or would you prefer I set it up?
+
+Sure, done:
+https://discuss.python.org/t/vote-to-promote-stephane-wirtel-as-a-core-dev/1044
+
+Julien, Steve, Marc: Please vote again there.
+
+I would suggest everybody to add a short message to "explain" their vote.
+
+For the poll, I chose:
+
+* Type: Single Choice
+* Results: Always visible (the 2 other choices are: "When closed" and "On vote")
+* Choice 1: Promote St?phane Wirtel
+* Choice 2: Don't promote St?phane Wirtel
+* [ ] Show who voted (unchecked = anonymous)
+* [ ] Automatically close poll (unchecked = I will close manually the
+poll early April 1st)
+
+I got:
+---
+[poll type=regular results=always]
+* Promote St?phane Wirtel
+* Don't promote St?phane Wirtel
+[/poll]
+---
+
+I can modify the poll if needed.
+
+Maybe Choices could be labelled differently, but I had no better idea, sorry :-)
+
+Victor
+
+From vstinner at redhat.com  Fri Mar 22 17:14:22 2019
+From: vstinner at redhat.com (Victor Stinner)
+Date: Fri, 22 Mar 2019 22:14:22 +0100
+Subject: [python-committers] 
+	=?utf-8?q?Vote_to_promote_St=C3=A9phane_Wirt?=
+	=?utf-8?q?el_as_a_core_dev?=
+In-Reply-To: <CA+3bQGGdWgbvaU8SpuzSA+_k-f+sK21H4q70tA2NL+KPV1bf2Q@mail.gmail.com>
+References: <CA+3bQGHbo5QhH+ZLj_ywHY8EL=b6M+tbxMN3utCWvykWGi8zVg@mail.gmail.com>
+ <CA+3bQGHWbk-X9wsyR97j3y9XcnxD-etgbRbPLV_U3hWK3O1gPw@mail.gmail.com>
+ <7ab65fcc-929d-4f6d-f7cd-8533604964b1@egenix.com>
+ <CAP1=2W6yWVXv7m6eQFv39iRYmuMCxdsUstRrCJtSyipD-NtRuw@mail.gmail.com>
+ <CAP1=2W6wEh_yuvc-f8bGgXt+L3mZkTC-XTCOaeP729tk9N+W0A@mail.gmail.com>
+ <CA+3bQGGdWgbvaU8SpuzSA+_k-f+sK21H4q70tA2NL+KPV1bf2Q@mail.gmail.com>
+Message-ID: <CA+3bQGH3FHVkQ3Gf2kgB++eDLydHdLtZopRn1uz-Fxrt0Md6nQ@mail.gmail.com>
+
+Le ven. 22 mars 2019 ? 21:56, Victor Stinner <vstinner at redhat.com> a ?crit :
+> For the poll, I chose:
+>
+> * Type: Single Choice
+> * Results: Always visible (the 2 other choices are: "When closed" and "On vote")
+> * Choice 1: Promote St?phane Wirtel
+> * Choice 2: Don't promote St?phane Wirtel
+> * [ ] Show who voted (unchecked = anonymous)
+> * [ ] Automatically close poll (unchecked = I will close manually the
+> poll early April 1st)
+
+FYI technically, it's possible to change your vote while the vote is
+still open. I tested to see if it's possible: yes it is :-)
+
+Do voters have to justify their vote? Or is each voter free to justify
+or not their vote? (add a message)
+
+Victor
+
+From brett at python.org  Fri Mar 22 17:42:04 2019
+From: brett at python.org (Brett Cannon)
+Date: Fri, 22 Mar 2019 14:42:04 -0700
+Subject: [python-committers] 
+	=?utf-8?q?Vote_to_promote_St=C3=A9phane_Wirt?=
+	=?utf-8?q?el_as_a_core_dev?=
+In-Reply-To: <CA+3bQGH3FHVkQ3Gf2kgB++eDLydHdLtZopRn1uz-Fxrt0Md6nQ@mail.gmail.com>
+References: <CA+3bQGHbo5QhH+ZLj_ywHY8EL=b6M+tbxMN3utCWvykWGi8zVg@mail.gmail.com>
+ <CA+3bQGHWbk-X9wsyR97j3y9XcnxD-etgbRbPLV_U3hWK3O1gPw@mail.gmail.com>
+ <7ab65fcc-929d-4f6d-f7cd-8533604964b1@egenix.com>
+ <CAP1=2W6yWVXv7m6eQFv39iRYmuMCxdsUstRrCJtSyipD-NtRuw@mail.gmail.com>
+ <CAP1=2W6wEh_yuvc-f8bGgXt+L3mZkTC-XTCOaeP729tk9N+W0A@mail.gmail.com>
+ <CA+3bQGGdWgbvaU8SpuzSA+_k-f+sK21H4q70tA2NL+KPV1bf2Q@mail.gmail.com>
+ <CA+3bQGH3FHVkQ3Gf2kgB++eDLydHdLtZopRn1uz-Fxrt0Md6nQ@mail.gmail.com>
+Message-ID: <CAP1=2W4wVtVAuHFRMSUTLBEKceDSxc6JjamKzr-ne-Ng3fx4qQ@mail.gmail.com>
+
+On Fri, Mar 22, 2019 at 2:14 PM Victor Stinner <vstinner at redhat.com> wrote:
+
+> Le ven. 22 mars 2019 ? 21:56, Victor Stinner <vstinner at redhat.com> a
+> ?crit :
+> > For the poll, I chose:
+> >
+> > * Type: Single Choice
+> > * Results: Always visible (the 2 other choices are: "When closed" and
+> "On vote")
+> > * Choice 1: Promote St?phane Wirtel
+> > * Choice 2: Don't promote St?phane Wirtel
+> > * [ ] Show who voted (unchecked = anonymous)
+> > * [ ] Automatically close poll (unchecked = I will close manually the
+> > poll early April 1st)
+>
+> FYI technically, it's possible to change your vote while the vote is
+> still open. I tested to see if it's possible: yes it is :-)
+>
+> Do voters have to justify their vote? Or is each voter free to justify
+> or not their vote? (add a message)
+>
+
+I don't think people have to justify their vote. We don't ask that of
+anyone else in any other votes that we hold.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20190322/5c5b18f8/attachment.html>
+
+From tjreedy at udel.edu  Fri Mar 22 18:07:32 2019
+From: tjreedy at udel.edu (Terry Reedy)
+Date: Fri, 22 Mar 2019 18:07:32 -0400
+Subject: [python-committers] 
+ =?utf-8?q?Vote_to_promote_St=C3=A9phane_Wirt?=
+ =?utf-8?q?el_as_a_core_dev?=
+In-Reply-To: <CA+3bQGHbo5QhH+ZLj_ywHY8EL=b6M+tbxMN3utCWvykWGi8zVg@mail.gmail.com>
+References: <CA+3bQGHbo5QhH+ZLj_ywHY8EL=b6M+tbxMN3utCWvykWGi8zVg@mail.gmail.com>
+Message-ID: <5f02f698-4c5c-3180-ea7f-fa784a843748@udel.edu>
+
+On 3/22/2019 11:34 AM, Victor Stinner wrote:
+
+> Julien Palard and me (Victor) propose to promote St?phane Wirtel as
+> core developer.
+
++1
+Thank you for the nice review of his work, so I know him better.
+
+> He got 57 commits merged into the master branch of Python: authored 46
+> commits + co-authored 1 commit + 10 commits before Git ("Patch written
+> by St?phane Wirtel").
+
+I think we should start looking at someone at about 20 PRs merged.
+By allowing contributors to potentially prepare a merge-ready PR, the 
+current workflow makes it easier than the previous one did to see how 
+ready a person is.  (For those not familiar with the old process, single 
+news files meant that the committer had to prepare the final patch at 
+the last minute, and modify many backports.)
+
+
+From tjreedy at udel.edu  Fri Mar 22 18:21:24 2019
+From: tjreedy at udel.edu (Terry Reedy)
+Date: Fri, 22 Mar 2019 18:21:24 -0400
+Subject: [python-committers] 
+ =?utf-8?q?Vote_to_promote_St=C3=A9phane_Wirt?=
+ =?utf-8?q?el_as_a_core_dev?=
+In-Reply-To: <CA+3bQGGdWgbvaU8SpuzSA+_k-f+sK21H4q70tA2NL+KPV1bf2Q@mail.gmail.com>
+References: <CA+3bQGHbo5QhH+ZLj_ywHY8EL=b6M+tbxMN3utCWvykWGi8zVg@mail.gmail.com>
+ <CA+3bQGHWbk-X9wsyR97j3y9XcnxD-etgbRbPLV_U3hWK3O1gPw@mail.gmail.com>
+ <7ab65fcc-929d-4f6d-f7cd-8533604964b1@egenix.com>
+ <CAP1=2W6yWVXv7m6eQFv39iRYmuMCxdsUstRrCJtSyipD-NtRuw@mail.gmail.com>
+ <CAP1=2W6wEh_yuvc-f8bGgXt+L3mZkTC-XTCOaeP729tk9N+W0A@mail.gmail.com>
+ <CA+3bQGGdWgbvaU8SpuzSA+_k-f+sK21H4q70tA2NL+KPV1bf2Q@mail.gmail.com>
+Message-ID: <9fdcbde7-2154-8c3d-9836-97336bdc5523@udel.edu>
+
+On 3/22/2019 4:56 PM, Victor Stinner wrote:
+> Le ven. 22 mars 2019 ? 19:45, Brett Cannon <brett at python.org> a ?crit :
+>> We discussed this and we think an anonymous vote on discuss.python.org is probably best for this sort of thing.
+
+I agree.  Auto vote counting, with possibility of changing one's vote 
+from discussion, which gets preserved on one page.
+
+>> Victor, did you want to do the poll or would you prefer I set it up?
+> 
+> Sure, done:
+> https://discuss.python.org/t/vote-to-promote-stephane-wirtel-as-a-core-dev/1044
+
+Do votes automatically get posted here, or does creator have to remember 
+to do so?
+
+
+From vstinner at redhat.com  Fri Mar 22 19:06:59 2019
+From: vstinner at redhat.com (Victor Stinner)
+Date: Sat, 23 Mar 2019 00:06:59 +0100
+Subject: [python-committers] 
+	=?utf-8?q?Vote_to_promote_St=C3=A9phane_Wirt?=
+	=?utf-8?q?el_as_a_core_dev?=
+In-Reply-To: <9fdcbde7-2154-8c3d-9836-97336bdc5523@udel.edu>
+References: <CA+3bQGHbo5QhH+ZLj_ywHY8EL=b6M+tbxMN3utCWvykWGi8zVg@mail.gmail.com>
+ <CA+3bQGHWbk-X9wsyR97j3y9XcnxD-etgbRbPLV_U3hWK3O1gPw@mail.gmail.com>
+ <7ab65fcc-929d-4f6d-f7cd-8533604964b1@egenix.com>
+ <CAP1=2W6yWVXv7m6eQFv39iRYmuMCxdsUstRrCJtSyipD-NtRuw@mail.gmail.com>
+ <CAP1=2W6wEh_yuvc-f8bGgXt+L3mZkTC-XTCOaeP729tk9N+W0A@mail.gmail.com>
+ <CA+3bQGGdWgbvaU8SpuzSA+_k-f+sK21H4q70tA2NL+KPV1bf2Q@mail.gmail.com>
+ <9fdcbde7-2154-8c3d-9836-97336bdc5523@udel.edu>
+Message-ID: <CA+3bQGFDYtE_bpcEvBmb8_z5jXoQQGNuXXjnkQgNd4wy6mfEtg@mail.gmail.com>
+
+Le ven. 22 mars 2019 ? 23:21, Terry Reedy <tjreedy at udel.edu> a ?crit :
+> > Sure, done:
+> > https://discuss.python.org/t/vote-to-promote-stephane-wirtel-as-a-core-dev/1044
+>
+> Do votes automatically get posted here, or does creator have to remember
+> to do so?
+
+Now, please only use the poll on discuss.python.org to vote. This
+thread is now deprecated... or pending deprecated, I'm now confused
+;-)
+
+I cannot add votes made on the mailing list to the discuss.python.org
+poll. For the few who already voted in this thread, you have to vote
+again in the poll.
+
+Victor
+-- 
+Night gathers, and now my watch begins. It shall not end until my death.
+
+From antoine at python.org  Fri Mar 22 19:10:37 2019
+From: antoine at python.org (Antoine Pitrou)
+Date: Sat, 23 Mar 2019 00:10:37 +0100
+Subject: [python-committers] 
+ =?utf-8?q?Vote_to_promote_St=C3=A9phane_Wirt?=
+ =?utf-8?q?el_as_a_core_dev?=
+In-Reply-To: <CAP1=2W4wVtVAuHFRMSUTLBEKceDSxc6JjamKzr-ne-Ng3fx4qQ@mail.gmail.com>
+References: <CA+3bQGHbo5QhH+ZLj_ywHY8EL=b6M+tbxMN3utCWvykWGi8zVg@mail.gmail.com>
+ <CA+3bQGHWbk-X9wsyR97j3y9XcnxD-etgbRbPLV_U3hWK3O1gPw@mail.gmail.com>
+ <7ab65fcc-929d-4f6d-f7cd-8533604964b1@egenix.com>
+ <CAP1=2W6yWVXv7m6eQFv39iRYmuMCxdsUstRrCJtSyipD-NtRuw@mail.gmail.com>
+ <CAP1=2W6wEh_yuvc-f8bGgXt+L3mZkTC-XTCOaeP729tk9N+W0A@mail.gmail.com>
+ <CA+3bQGGdWgbvaU8SpuzSA+_k-f+sK21H4q70tA2NL+KPV1bf2Q@mail.gmail.com>
+ <CA+3bQGH3FHVkQ3Gf2kgB++eDLydHdLtZopRn1uz-Fxrt0Md6nQ@mail.gmail.com>
+ <CAP1=2W4wVtVAuHFRMSUTLBEKceDSxc6JjamKzr-ne-Ng3fx4qQ@mail.gmail.com>
+Message-ID: <bbed8a4c-5863-ab02-9b72-360d27af829f@python.org>
+
+
+Le 22/03/2019 ? 22:42, Brett Cannon a ?crit?:
+> 
+> On Fri, Mar 22, 2019 at 2:14 PM Victor Stinner <vstinner at redhat.com
+> <mailto:vstinner at redhat.com>> wrote:
+> 
+>     Le ven. 22 mars 2019 ? 21:56, Victor Stinner <vstinner at redhat.com
+>     <mailto:vstinner at redhat.com>> a ?crit :
+>     > For the poll, I chose:
+>     >
+>     > * Type: Single Choice
+>     > * Results: Always visible (the 2 other choices are: "When closed"
+>     and "On vote")
+>     > * Choice 1: Promote St?phane Wirtel
+>     > * Choice 2: Don't promote St?phane Wirtel
+>     > * [ ] Show who voted (unchecked = anonymous)
+>     > * [ ] Automatically close poll (unchecked = I will close manually the
+>     > poll early April 1st)
+> 
+>     FYI technically, it's possible to change your vote while the vote is
+>     still open. I tested to see if it's possible: yes it is :-)
+> 
+>     Do voters have to justify their vote? Or is each voter free to justify
+>     or not their vote? (add a message)
+> 
+> I don't think people have to justify their vote. We don't ask that of
+> anyone else in any other votes that we hold.
+
+I agree they don't have to, but it would nevertheless be helpful if they
+did.
+
+Especially if their vote is negative, since that would help guide
+St?phane and his supporters towards a more successful outcome on their
+next attempt.
+
+(there are three negative votes right now, but we don't know the reasons)
+
+As for myself, I don't plan to vote, since I haven't interacted enough
+with St?phane to have an opinion.
+
+Regards
+
+Antoine.
+
+From vstinner at redhat.com  Fri Mar 22 19:17:00 2019
+From: vstinner at redhat.com (Victor Stinner)
+Date: Sat, 23 Mar 2019 00:17:00 +0100
+Subject: [python-committers] 
+	=?utf-8?q?Vote_to_promote_St=C3=A9phane_Wirt?=
+	=?utf-8?q?el_as_a_core_dev?=
+In-Reply-To: <CAP1=2W4wVtVAuHFRMSUTLBEKceDSxc6JjamKzr-ne-Ng3fx4qQ@mail.gmail.com>
+References: <CA+3bQGHbo5QhH+ZLj_ywHY8EL=b6M+tbxMN3utCWvykWGi8zVg@mail.gmail.com>
+ <CA+3bQGHWbk-X9wsyR97j3y9XcnxD-etgbRbPLV_U3hWK3O1gPw@mail.gmail.com>
+ <7ab65fcc-929d-4f6d-f7cd-8533604964b1@egenix.com>
+ <CAP1=2W6yWVXv7m6eQFv39iRYmuMCxdsUstRrCJtSyipD-NtRuw@mail.gmail.com>
+ <CAP1=2W6wEh_yuvc-f8bGgXt+L3mZkTC-XTCOaeP729tk9N+W0A@mail.gmail.com>
+ <CA+3bQGGdWgbvaU8SpuzSA+_k-f+sK21H4q70tA2NL+KPV1bf2Q@mail.gmail.com>
+ <CA+3bQGH3FHVkQ3Gf2kgB++eDLydHdLtZopRn1uz-Fxrt0Md6nQ@mail.gmail.com>
+ <CAP1=2W4wVtVAuHFRMSUTLBEKceDSxc6JjamKzr-ne-Ng3fx4qQ@mail.gmail.com>
+Message-ID: <CA+3bQGEOspqCPM9F7+raXwNcnRehHZXnjNUfhMJmtBUBOQoO1g@mail.gmail.com>
+
+Le ven. 22 mars 2019 ? 22:42, Brett Cannon <brett at python.org> a ?crit :
+> I don't think people have to justify their vote. We don't ask that of anyone else in any other votes that we hold.
+
+Ok, I'm fine with that.
+
+I wanted to ask explicitly, since votes on python-committers mailing
+required to post a change. It's a change compared to old way to vote.
+
+--
+
+By the way, is the Steering Committee ok with the proposed duration
+for the vote (we proposed 1 week)? I'm asking because the duration was
+never really discussed... In the past, sometimes Guido closed
+immediately a vote by saying "ok, we got enough +1, <candidate> is
+promoted", the duration of the vote wasn't announced in advance.
+
+I like to announce a deadline so people can take their time before
+voting, if they want, to see the trend. The ones who missed the
+deadline cannot complain since it has been announced from the start
+;-)
+
+Maybe it's better to let the Steering Committee close the vote.
+Honestly, I'm not sure of what is the best :-D
+
+Victor
+-- 
+Night gathers, and now my watch begins. It shall not end until my death.
+
+From antoine at python.org  Fri Mar 22 19:18:46 2019
+From: antoine at python.org (Antoine Pitrou)
+Date: Sat, 23 Mar 2019 00:18:46 +0100
+Subject: [python-committers] 
+ =?utf-8?q?Vote_to_promote_St=C3=A9phane_Wirt?=
+ =?utf-8?q?el_as_a_core_dev?=
+In-Reply-To: <CA+3bQGEOspqCPM9F7+raXwNcnRehHZXnjNUfhMJmtBUBOQoO1g@mail.gmail.com>
+References: <CA+3bQGHbo5QhH+ZLj_ywHY8EL=b6M+tbxMN3utCWvykWGi8zVg@mail.gmail.com>
+ <CA+3bQGHWbk-X9wsyR97j3y9XcnxD-etgbRbPLV_U3hWK3O1gPw@mail.gmail.com>
+ <7ab65fcc-929d-4f6d-f7cd-8533604964b1@egenix.com>
+ <CAP1=2W6yWVXv7m6eQFv39iRYmuMCxdsUstRrCJtSyipD-NtRuw@mail.gmail.com>
+ <CAP1=2W6wEh_yuvc-f8bGgXt+L3mZkTC-XTCOaeP729tk9N+W0A@mail.gmail.com>
+ <CA+3bQGGdWgbvaU8SpuzSA+_k-f+sK21H4q70tA2NL+KPV1bf2Q@mail.gmail.com>
+ <CA+3bQGH3FHVkQ3Gf2kgB++eDLydHdLtZopRn1uz-Fxrt0Md6nQ@mail.gmail.com>
+ <CAP1=2W4wVtVAuHFRMSUTLBEKceDSxc6JjamKzr-ne-Ng3fx4qQ@mail.gmail.com>
+ <CA+3bQGEOspqCPM9F7+raXwNcnRehHZXnjNUfhMJmtBUBOQoO1g@mail.gmail.com>
+Message-ID: <0c8227ae-02e4-67ea-2773-da2387d3f4d9@python.org>
+
+
+Le 23/03/2019 ? 00:17, Victor Stinner a ?crit?:
+> Le ven. 22 mars 2019 ? 22:42, Brett Cannon <brett at python.org> a ?crit :
+>> I don't think people have to justify their vote. We don't ask that of anyone else in any other votes that we hold.
+> 
+> Ok, I'm fine with that.
+> 
+> I wanted to ask explicitly, since votes on python-committers mailing
+> required to post a change. It's a change compared to old way to vote.
+> 
+> --
+> 
+> By the way, is the Steering Committee ok with the proposed duration
+> for the vote (we proposed 1 week)? I'm asking because the duration was
+> never really discussed... In the past, sometimes Guido closed
+> immediately a vote by saying "ok, we got enough +1, <candidate> is
+> promoted", the duration of the vote wasn't announced in advance.
+> 
+> I like to announce a deadline so people can take their time before
+> voting, if they want, to see the trend. The ones who missed the
+> deadline cannot complain since it has been announced from the start
+> ;-)
+
+Votes should certainly have a predefined deadline IMO.
+
+Regards
+
+Antoine.
+
+From vstinner at redhat.com  Fri Mar 22 19:23:49 2019
+From: vstinner at redhat.com (Victor Stinner)
+Date: Sat, 23 Mar 2019 00:23:49 +0100
+Subject: [python-committers] 
+	=?utf-8?q?Vote_to_promote_St=C3=A9phane_Wirt?=
+	=?utf-8?q?el_as_a_core_dev?=
+In-Reply-To: <CA+3bQGGdWgbvaU8SpuzSA+_k-f+sK21H4q70tA2NL+KPV1bf2Q@mail.gmail.com>
+References: <CA+3bQGHbo5QhH+ZLj_ywHY8EL=b6M+tbxMN3utCWvykWGi8zVg@mail.gmail.com>
+ <CA+3bQGHWbk-X9wsyR97j3y9XcnxD-etgbRbPLV_U3hWK3O1gPw@mail.gmail.com>
+ <7ab65fcc-929d-4f6d-f7cd-8533604964b1@egenix.com>
+ <CAP1=2W6yWVXv7m6eQFv39iRYmuMCxdsUstRrCJtSyipD-NtRuw@mail.gmail.com>
+ <CAP1=2W6wEh_yuvc-f8bGgXt+L3mZkTC-XTCOaeP729tk9N+W0A@mail.gmail.com>
+ <CA+3bQGGdWgbvaU8SpuzSA+_k-f+sK21H4q70tA2NL+KPV1bf2Q@mail.gmail.com>
+Message-ID: <CA+3bQGH6xgAAYxigAE5Gjh59x_z7VhWid1KG1NcXrFBpwidW_A@mail.gmail.com>
+
+Le ven. 22 mars 2019 ? 21:56, Victor Stinner <vstinner at redhat.com> a ?crit :
+> For the poll, I chose:
+>
+> * Type: Single Choice
+> * Results: Always visible (the 2 other choices are: "When closed" and "On vote")
+> * Choice 1: Promote St?phane Wirtel
+> * Choice 2: Don't promote St?phane Wirtel
+> * [ ] Show who voted (unchecked = anonymous)
+> * [ ] Automatically close poll (unchecked = I will close manually the
+> poll early April 1st)
+
+Sorry, I'm not used to Discourse and another question came to my mind...
+
+Does someone know if voters will remain anonymous when the vote ends?
+If it's not the case, voters should be warning before they vote.
+
+Victor
+
+From vstinner at redhat.com  Fri Mar 22 19:50:36 2019
+From: vstinner at redhat.com (Victor Stinner)
+Date: Sat, 23 Mar 2019 00:50:36 +0100
+Subject: [python-committers] 
+	=?utf-8?q?Vote_to_promote_St=C3=A9phane_Wirt?=
+	=?utf-8?q?el_as_a_core_dev?=
+In-Reply-To: <CA+3bQGH6xgAAYxigAE5Gjh59x_z7VhWid1KG1NcXrFBpwidW_A@mail.gmail.com>
+References: <CA+3bQGHbo5QhH+ZLj_ywHY8EL=b6M+tbxMN3utCWvykWGi8zVg@mail.gmail.com>
+ <CA+3bQGHWbk-X9wsyR97j3y9XcnxD-etgbRbPLV_U3hWK3O1gPw@mail.gmail.com>
+ <7ab65fcc-929d-4f6d-f7cd-8533604964b1@egenix.com>
+ <CAP1=2W6yWVXv7m6eQFv39iRYmuMCxdsUstRrCJtSyipD-NtRuw@mail.gmail.com>
+ <CAP1=2W6wEh_yuvc-f8bGgXt+L3mZkTC-XTCOaeP729tk9N+W0A@mail.gmail.com>
+ <CA+3bQGGdWgbvaU8SpuzSA+_k-f+sK21H4q70tA2NL+KPV1bf2Q@mail.gmail.com>
+ <CA+3bQGH6xgAAYxigAE5Gjh59x_z7VhWid1KG1NcXrFBpwidW_A@mail.gmail.com>
+Message-ID: <CA+3bQGFdAM35D4++=b77kp+ymvjGja_u_tUsO3J+7G2cUM8a6g@mail.gmail.com>
+
+Le sam. 23 mars 2019 ? 00:23, Victor Stinner <vstinner at redhat.com> a ?crit :
+> Sorry, I'm not used to Discourse and another question came to my mind...
+>
+> Does someone know if voters will remain anonymous when the vote ends?
+> If it's not the case, voters should be warning before they vote.
+
+Sub-question: do Discourse admins see who voted what? It seems like
+they don't. I prefer to be fully transparent from the start :-)
+
+Victor
+-- 
+Night gathers, and now my watch begins. It shall not end until my death.
+
+From pablogsal at gmail.com  Fri Mar 22 23:07:08 2019
+From: pablogsal at gmail.com (Pablo Galindo Salgado)
+Date: Sat, 23 Mar 2019 03:07:08 +0000
+Subject: [python-committers] 
+	=?utf-8?q?Vote_to_promote_St=C3=A9phane_Wirt?=
+	=?utf-8?q?el_as_a_core_dev?=
+In-Reply-To: <CA+3bQGH6xgAAYxigAE5Gjh59x_z7VhWid1KG1NcXrFBpwidW_A@mail.gmail.com>
+References: <CA+3bQGHbo5QhH+ZLj_ywHY8EL=b6M+tbxMN3utCWvykWGi8zVg@mail.gmail.com>
+ <CA+3bQGHWbk-X9wsyR97j3y9XcnxD-etgbRbPLV_U3hWK3O1gPw@mail.gmail.com>
+ <7ab65fcc-929d-4f6d-f7cd-8533604964b1@egenix.com>
+ <CAP1=2W6yWVXv7m6eQFv39iRYmuMCxdsUstRrCJtSyipD-NtRuw@mail.gmail.com>
+ <CAP1=2W6wEh_yuvc-f8bGgXt+L3mZkTC-XTCOaeP729tk9N+W0A@mail.gmail.com>
+ <CA+3bQGGdWgbvaU8SpuzSA+_k-f+sK21H4q70tA2NL+KPV1bf2Q@mail.gmail.com>
+ <CA+3bQGH6xgAAYxigAE5Gjh59x_z7VhWid1KG1NcXrFBpwidW_A@mail.gmail.com>
+Message-ID: <CAFjbc8FF=iC2Uwmhk0x6yHR7neGRL=rJgxNunHkfVd1-Nbnw8g@mail.gmail.com>
+
+>Does someone know if voters will remain anonymous when the vote ends?
+> If it's not the case, voters should be warning before they vote.
+
+Voters remain anonymous when the vote ends. You can check it in this
+anonymous
+closed poll that we made previously:
+
+https://discuss.python.org/t/can-we-rename-committer-to-core-developer/41/6?u=pablogsal
+
+>Sub-question: do Discourse admins see who voted what? It seems like
+> they don't. I prefer to be fully transparent from the start :-)
+
+Admins do not have any special privilege regarding polls. Anonymous polls
+remain
+anonymous for everyone. Polls also cannot be changed after creation, even
+by admins
+(so the options in the poll and the parameters that were used to create the
+poll are immutable).
+
+On Fri, 22 Mar 2019 at 23:24, Victor Stinner <vstinner at redhat.com> wrote:
+
+> Le ven. 22 mars 2019 ? 21:56, Victor Stinner <vstinner at redhat.com> a
+> ?crit :
+> > For the poll, I chose:
+> >
+> > * Type: Single Choice
+> > * Results: Always visible (the 2 other choices are: "When closed" and
+> "On vote")
+> > * Choice 1: Promote St?phane Wirtel
+> > * Choice 2: Don't promote St?phane Wirtel
+> > * [ ] Show who voted (unchecked = anonymous)
+> > * [ ] Automatically close poll (unchecked = I will close manually the
+> > poll early April 1st)
+>
+> Sorry, I'm not used to Discourse and another question came to my mind...
+>
+> Does someone know if voters will remain anonymous when the vote ends?
+> If it's not the case, voters should be warning before they vote.
+>
+> Victor
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20190323/71e7c50a/attachment.html>
+

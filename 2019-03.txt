@@ -2384,3 +2384,525 @@ explaining their reasoning, I have no idea what to make of it.
 An HTML attachment was scrubbed...
 URL: <http://mail.python.org/pipermail/python-committers/attachments/20190324/bdddabcf/attachment-0001.html>
 
+From vstinner at redhat.com  Mon Mar 25 04:09:48 2019
+From: vstinner at redhat.com (Victor Stinner)
+Date: Mon, 25 Mar 2019 09:09:48 +0100
+Subject: [python-committers] 
+	=?utf-8?q?Vote_to_promote_St=C3=A9phane_Wirt?=
+	=?utf-8?q?el_as_a_core_dev?=
+In-Reply-To: <CAExdVNkdcY7J2TtEMkGPcZH1JCSXgBgngb0VO43+ZNsA-OGxkA@mail.gmail.com>
+References: <CA+3bQGHbo5QhH+ZLj_ywHY8EL=b6M+tbxMN3utCWvykWGi8zVg@mail.gmail.com>
+ <CA+3bQGHWbk-X9wsyR97j3y9XcnxD-etgbRbPLV_U3hWK3O1gPw@mail.gmail.com>
+ <7ab65fcc-929d-4f6d-f7cd-8533604964b1@egenix.com>
+ <CAP1=2W6yWVXv7m6eQFv39iRYmuMCxdsUstRrCJtSyipD-NtRuw@mail.gmail.com>
+ <CAP1=2W6wEh_yuvc-f8bGgXt+L3mZkTC-XTCOaeP729tk9N+W0A@mail.gmail.com>
+ <CAFYqXL_MRcv0mq1pVFe6aXmuW_+ZwrW_q=COui2189XCR4RDmQ@mail.gmail.com>
+ <CA+3bQGF9+wwa5PxoPP3ENYmw16Qzotqeep7rFbsPTFmo58xD+Q@mail.gmail.com>
+ <CAExdVNkdcY7J2TtEMkGPcZH1JCSXgBgngb0VO43+ZNsA-OGxkA@mail.gmail.com>
+Message-ID: <CA+3bQGHjz2NwC6LyKW4DqT0eMgCps15eyYEb6zOmUZVXK338Lg@mail.gmail.com>
+
+Le lun. 25 mars 2019 ? 04:58, Tim Peters <tim.peters at gmail.com> a ?crit :
+> I voted +1.  I haven't had significant interaction with St?phane but certainly recognized the name and had a favorable impression.  But of my own knowledge, I have no strong opinion either way.  So my +1 was driven primarily by the strong endorsement you gave.
+
+Honestly, such short comment is useful to me if I would be undecided.
+I could decide to not follow your vote for example, since you don't
+know enough St?phane nor his work :-)
+
+Having 90% voters who have "no strong opinion either way" or 90% of
+voters who have a strong opinion (in either way, +1 or -1) would be
+very different.
+
+
+> Was that worth writing up?  Not to me ;-)  It's probably unrealistic to imagine than _anyone_ in the future will be well known to a majority of then-current core devs.  I only want to hear from those who _do_ have a strong opinion based on significant experience.
+
+Just about the raw numbers, I'm happy to see that the vote got 18
+votes in 3 days! I expected less. And I'm never comfortable to see a
+candidate promotion accepted or rejected when there are too few votes.
+Voting for promotion works :-) It seems like 1 week (including next
+weekend) will be enough to get enough votes.
+
+
+> So I'm disappointed that I've seen nothing from those who voted -1.   In the absence of an explicit message, I can assume a +1 voter is happy enough with what the original proposer said.  But in the absence of any -1 voter explaining their reasoning, I have no idea what to make of it.
+
+In the past, I guess that multiple voters abstained them rather than
+voting -1, only because they didn't feel comfortable for whatever
+reason to have to justify a -1 in public. I also see 2 "-1" votes on
+Stefan Behnel's promotion, and none is justified:
+https://discuss.python.org/t/vote-to-promote-stefan-behnel-as-a-core-developer/1054
+
+It's really hard to vote -1 in "front of" a candidate and in public if
+there is significant "risk" that the candidate will be promoted and so
+will become your peer soon. "Hello new core dev, you don't deserve
+your promotion" would not be a warm welcome :-(
+
+I'm surprised because previously the number of "-1" votes was lower.
+One obvious explanation is that previously votes were not anonymous. I
+guess that it takes time to be used to the new voting method. I guess
+that with an anonymous vote, it's just that the result is "more
+realistic" to the real opinion and so is more "fair". It's a good
+thing that voters feel free to vote, no?
+
+Victor
+-- 
+Night gathers, and now my watch begins. It shall not end until my death.
+
+From mal at egenix.com  Mon Mar 25 05:17:25 2019
+From: mal at egenix.com (M.-A. Lemburg)
+Date: Mon, 25 Mar 2019 10:17:25 +0100
+Subject: [python-committers] Votes on new core dev candidates
+In-Reply-To: <CA+3bQGHjz2NwC6LyKW4DqT0eMgCps15eyYEb6zOmUZVXK338Lg@mail.gmail.com>
+References: <CA+3bQGHbo5QhH+ZLj_ywHY8EL=b6M+tbxMN3utCWvykWGi8zVg@mail.gmail.com>
+ <CA+3bQGHWbk-X9wsyR97j3y9XcnxD-etgbRbPLV_U3hWK3O1gPw@mail.gmail.com>
+ <7ab65fcc-929d-4f6d-f7cd-8533604964b1@egenix.com>
+ <CAP1=2W6yWVXv7m6eQFv39iRYmuMCxdsUstRrCJtSyipD-NtRuw@mail.gmail.com>
+ <CAP1=2W6wEh_yuvc-f8bGgXt+L3mZkTC-XTCOaeP729tk9N+W0A@mail.gmail.com>
+ <CAFYqXL_MRcv0mq1pVFe6aXmuW_+ZwrW_q=COui2189XCR4RDmQ@mail.gmail.com>
+ <CA+3bQGF9+wwa5PxoPP3ENYmw16Qzotqeep7rFbsPTFmo58xD+Q@mail.gmail.com>
+ <CAExdVNkdcY7J2TtEMkGPcZH1JCSXgBgngb0VO43+ZNsA-OGxkA@mail.gmail.com>
+ <CA+3bQGHjz2NwC6LyKW4DqT0eMgCps15eyYEb6zOmUZVXK338Lg@mail.gmail.com>
+Message-ID: <e9b3eb1b-0a1b-4a0d-0af7-ab18c1916ca0@egenix.com>
+
+I must say, I'm a bit surprised by the discussion around the voting
+process and the candidates.
+
+First, we've been complaining about lack of core devs for a long
+time. Now we have two great candidates with proven track record of
+contributing to Python and people complain again. As a small group,
+we need to attract more capable people and such push back
+is not a very productive way of doing so.
+
+Second, as in any vote, no one should feel pushed to comment or
+even argue for his or her opinion on a candidate. People nominating
+a candidate are the ones who need to write this up, but not the
+other group members. A vote to accept someone to a group is a
+personal opinion and should be respected as such.
+
+If people feel they need more guidance, they should ask the ones
+who nominated the candidates - in public or in private. Because the
+candidates themselves cannot comment (at least not on this list;
+don't know about discourse), such discussions have to be
+moderated by the nominating parties with care.
+
+-- 
+Marc-Andre Lemburg
+eGenix.com
+
+Professional Python Services directly from the Experts (#1, Mar 25 2019)
+>>> Python Projects, Coaching and Consulting ...  http://www.egenix.com/
+>>> Python Database Interfaces ...           http://products.egenix.com/
+>>> Plone/Zope Database Interfaces ...           http://zope.egenix.com/
+________________________________________________________________________
+
+::: We implement business ideas - efficiently in both time and costs :::
+
+   eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+    D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+           Registered at Amtsgericht Duesseldorf: HRB 46611
+               http://www.egenix.com/company/contact/
+                      http://www.malemburg.com/
+
+
+From storchaka at gmail.com  Mon Mar 25 08:48:54 2019
+From: storchaka at gmail.com (Serhiy Storchaka)
+Date: Mon, 25 Mar 2019 14:48:54 +0200
+Subject: [python-committers] Promote Stefan Behnel as a core developer
+In-Reply-To: <b8a9cd2b-c080-de2d-288e-7ce967f2e45d@python.org>
+References: <d86e67d5-5661-40b0-701a-4a756534493a@gmail.com>
+ <b8a9cd2b-c080-de2d-288e-7ce967f2e45d@python.org>
+Message-ID: <4fc4242b-eb2a-7b06-bc9a-cce2b087017d@gmail.com>
+
+24.03.19 18:40, Antoine Pitrou ????:
+> I don't know.  If he's not very active in writing or reviewing PRs, then
+> perhaps he doesn't _need_ core developer rights.
+
+I understand you. He does not _need_ core developer rights just for 
+this. But I have a grounded hope that Stefan can be the next maintainer 
+of the xml.etree package (and maybe other XML modules). And I think it 
+would be good to have a person who is a core developer of both CPython 
+and Cython. We need more tight collaboration with Cython.
+
+
+From storchaka at gmail.com  Mon Mar 25 08:56:50 2019
+From: storchaka at gmail.com (Serhiy Storchaka)
+Date: Mon, 25 Mar 2019 14:56:50 +0200
+Subject: [python-committers] Promote Stefan Behnel as a core developer
+In-Reply-To: <e0b84251-e639-2748-4ea7-5b50ef31b83a@udel.edu>
+References: <d86e67d5-5661-40b0-701a-4a756534493a@gmail.com>
+ <e0b84251-e639-2748-4ea7-5b50ef31b83a@udel.edu>
+Message-ID: <1a0110f9-43c9-4988-2b5a-066b63fe40c7@gmail.com>
+
+24.03.19 20:27, Terry Reedy ????:
+> Have you asked Stefan if he would like the privilege, accept it, and 
+> would at least occasionally use it?
+
+Actually it is Stefan who asked me to promote him. So he is definitely 
+would like.
+
+
+
+From storchaka at gmail.com  Mon Mar 25 09:02:37 2019
+From: storchaka at gmail.com (Serhiy Storchaka)
+Date: Mon, 25 Mar 2019 15:02:37 +0200
+Subject: [python-committers] Promote Stefan Behnel as a core developer
+In-Reply-To: <CA+3bQGHPKaQHjG3TARevTeaHptwnnc0mriay_1aavpOy7mZ3Jw@mail.gmail.com>
+References: <d86e67d5-5661-40b0-701a-4a756534493a@gmail.com>
+ <CA+3bQGHPKaQHjG3TARevTeaHptwnnc0mriay_1aavpOy7mZ3Jw@mail.gmail.com>
+Message-ID: <6dfa159d-0c8e-0b2d-df6d-31a7aeb211e1@gmail.com>
+
+24.03.19 23:23, Victor Stinner ????:
+> Cython became a major project in the Python community (see the PSF
+> award). I noticed that sometimes Cython is slow to be updated to
+> support new Python changes (like the new way to store exceptions in
+> PyThreadState of Python 3.7).
+
+It is not slow. But it took a time to update Cython version in 
+dependencies of other projects.
+
+
+
+From steve.dower at python.org  Mon Mar 25 11:20:43 2019
+From: steve.dower at python.org (Steve Dower)
+Date: Mon, 25 Mar 2019 08:20:43 -0700
+Subject: [python-committers] Votes on new core dev candidates
+In-Reply-To: <e9b3eb1b-0a1b-4a0d-0af7-ab18c1916ca0@egenix.com>
+References: <CA+3bQGHbo5QhH+ZLj_ywHY8EL=b6M+tbxMN3utCWvykWGi8zVg@mail.gmail.com>
+ <CA+3bQGHWbk-X9wsyR97j3y9XcnxD-etgbRbPLV_U3hWK3O1gPw@mail.gmail.com>
+ <7ab65fcc-929d-4f6d-f7cd-8533604964b1@egenix.com>
+ <CAP1=2W6yWVXv7m6eQFv39iRYmuMCxdsUstRrCJtSyipD-NtRuw@mail.gmail.com>
+ <CAP1=2W6wEh_yuvc-f8bGgXt+L3mZkTC-XTCOaeP729tk9N+W0A@mail.gmail.com>
+ <CAFYqXL_MRcv0mq1pVFe6aXmuW_+ZwrW_q=COui2189XCR4RDmQ@mail.gmail.com>
+ <CA+3bQGF9+wwa5PxoPP3ENYmw16Qzotqeep7rFbsPTFmo58xD+Q@mail.gmail.com>
+ <CAExdVNkdcY7J2TtEMkGPcZH1JCSXgBgngb0VO43+ZNsA-OGxkA@mail.gmail.com>
+ <CA+3bQGHjz2NwC6LyKW4DqT0eMgCps15eyYEb6zOmUZVXK338Lg@mail.gmail.com>
+ <e9b3eb1b-0a1b-4a0d-0af7-ab18c1916ca0@egenix.com>
+Message-ID: <b4f0580c-eea5-c459-fb27-f6b14cf306a3@python.org>
+
+On 25Mar2019 0217, M.-A. Lemburg wrote:
+> I must say, I'm a bit surprised by the discussion around the voting
+> process and the candidates.
+> 
+> First, we've been complaining about lack of core devs for a long
+> time. Now we have two great candidates with proven track record of
+> contributing to Python and people complain again. As a small group,
+> we need to attract more capable people and such push back
+> is not a very productive way of doing so.
+
+To be clear, my pushback (on Discourse, since I can only send email from 
+an actual laptop these days but can participate over there from my 
+phone) has been against vague nominations, not the individuals themselves.
+
+I'm *very* concerned about the perception of commit rights being 
+"awarded" rather than being a added responsibility specific to CPython. 
+Nominees should be willing to take on extra responsibility, and 
+nominators should be making clear that the nominee is at least somewhat 
+proven to be ready for it. Nominations for being a good contributor to 
+other projects makes no sense, and nominations without a specific role 
+or focus area are also vague enough that I don't see it leading to 
+longer standing commitment.
+
+I don't necessarily want to formalize a specific set of rules or things 
+that people have to do in order to become a core developer. But I do 
+want to avoid creating a culture of "this person is nice and built a 
+nice library let's give them commit rights". The PSF already recognizes 
+people for these contributions, which is the right way to do it.
+
+If the core committers (via the SC) also want to offer a vote of thanks 
+to a community member, then sure, we can do that. But keep it separate 
+from "we trust you to modify the language/runtime/core tools without 
+oversight".
+
+> If people feel they need more guidance, they should ask the ones
+> who nominated the candidates - in public or in private. Because the
+> candidates themselves cannot comment (at least not on this list;
+> don't know about discourse), such discussions have to be
+> moderated by the nominating parties with care.
+
+Isn't this what's been happening? It certainly has been on Discourse. 
+FWIW, it'd be great if there was a way to add someone to a single thread 
+so they _could_ post there - Stefan in particular has had to email a few 
+of us off-list to respond to our queries (though in doing so has proven 
+his commitment, at least as far as I'm concerned, so overall it probably 
+worked out better :) ).
+
+Cheers,
+STeve
+
+From mal at egenix.com  Mon Mar 25 18:03:08 2019
+From: mal at egenix.com (M.-A. Lemburg)
+Date: Mon, 25 Mar 2019 23:03:08 +0100
+Subject: [python-committers] Votes on new core dev candidates
+In-Reply-To: <b4f0580c-eea5-c459-fb27-f6b14cf306a3@python.org>
+References: <CA+3bQGHbo5QhH+ZLj_ywHY8EL=b6M+tbxMN3utCWvykWGi8zVg@mail.gmail.com>
+ <CA+3bQGHWbk-X9wsyR97j3y9XcnxD-etgbRbPLV_U3hWK3O1gPw@mail.gmail.com>
+ <7ab65fcc-929d-4f6d-f7cd-8533604964b1@egenix.com>
+ <CAP1=2W6yWVXv7m6eQFv39iRYmuMCxdsUstRrCJtSyipD-NtRuw@mail.gmail.com>
+ <CAP1=2W6wEh_yuvc-f8bGgXt+L3mZkTC-XTCOaeP729tk9N+W0A@mail.gmail.com>
+ <CAFYqXL_MRcv0mq1pVFe6aXmuW_+ZwrW_q=COui2189XCR4RDmQ@mail.gmail.com>
+ <CA+3bQGF9+wwa5PxoPP3ENYmw16Qzotqeep7rFbsPTFmo58xD+Q@mail.gmail.com>
+ <CAExdVNkdcY7J2TtEMkGPcZH1JCSXgBgngb0VO43+ZNsA-OGxkA@mail.gmail.com>
+ <CA+3bQGHjz2NwC6LyKW4DqT0eMgCps15eyYEb6zOmUZVXK338Lg@mail.gmail.com>
+ <e9b3eb1b-0a1b-4a0d-0af7-ab18c1916ca0@egenix.com>
+ <b4f0580c-eea5-c459-fb27-f6b14cf306a3@python.org>
+Message-ID: <f4cec1b9-64f3-cd94-7c62-9e5bc1d6acc3@egenix.com>
+
+On 25.03.2019 16:20, Steve Dower wrote:
+> On 25Mar2019 0217, M.-A. Lemburg wrote:
+>> I must say, I'm a bit surprised by the discussion around the voting
+>> process and the candidates.
+>>
+>> First, we've been complaining about lack of core devs for a long
+>> time. Now we have two great candidates with proven track record of
+>> contributing to Python and people complain again. As a small group,
+>> we need to attract more capable people and such push back
+>> is not a very productive way of doing so.
+> 
+> To be clear, my pushback (on Discourse, since I can only send email from
+> an actual laptop these days but can participate over there from my
+> phone) has been against vague nominations, not the individuals themselves.
+> 
+> I'm *very* concerned about the perception of commit rights being
+> "awarded" rather than being a added responsibility specific to CPython.
+
+I'm not sure where you got that perception from. The two candidates
+both want to actively contribute to Python.
+
+It's possible that the nominations did not emphasize this enough, but
+that's an issue with the nomination text, not with the person being
+nominated.
+
+Yet, the public perception of the discussion is that the persons are
+not qualified enough and that's definitely not going to have a
+productive effect on getting more people helping.
+
+> Nominees should be willing to take on extra responsibility, and
+> nominators should be making clear that the nominee is at least somewhat
+> proven to be ready for it. Nominations for being a good contributor to
+> other projects makes no sense, and nominations without a specific role
+> or focus area are also vague enough that I don't see it leading to
+> longer standing commitment.
+> 
+> I don't necessarily want to formalize a specific set of rules or things
+> that people have to do in order to become a core developer. But I do
+> want to avoid creating a culture of "this person is nice and built a
+> nice library let's give them commit rights". The PSF already recognizes
+> people for these contributions, which is the right way to do it.
+> 
+> If the core committers (via the SC) also want to offer a vote of thanks
+> to a community member, then sure, we can do that. But keep it separate
+> from "we trust you to modify the language/runtime/core tools without
+> oversight".
+> 
+>> If people feel they need more guidance, they should ask the ones
+>> who nominated the candidates - in public or in private. Because the
+>> candidates themselves cannot comment (at least not on this list;
+>> don't know about discourse), such discussions have to be
+>> moderated by the nominating parties with care.
+> 
+> Isn't this what's been happening? It certainly has been on Discourse.
+
+Not really. I'm not talking about some moderator having to step
+in to take action. I'm talking about the nominators actively
+supporting the discussion by fixing mistakes in the nomination,
+proxying and adding more information (since the candidates cannot
+speak for themselves) and helping to clarify misconceptions.
+
+Asking people who have voted -1 or +1 to publicly tell the world why
+they did so is not helpful in this respect, since it just creates bias.
+What people, who are unsure how to vote, really need, is more
+information, not bias.
+
+> FWIW, it'd be great if there was a way to add someone to a single thread
+> so they _could_ post there - Stefan in particular has had to email a few
+> of us off-list to respond to our queries (though in doing so has proven
+> his commitment, at least as far as I'm concerned, so overall it probably
+> worked out better :) ).
+
+Indeed, it would be helpful to at least allow the candidate to
+post to discourse (technically, it wouldn't be hard to give them
+temporary access to this ML either). Having people discuss about
+yourself and not being able to participate puts the candidates into a
+very odd and vulnerable position, esp. when the discussion is public.
+
+-- 
+Marc-Andre Lemburg
+eGenix.com
+
+Professional Python Services directly from the Experts (#1, Mar 25 2019)
+>>> Python Projects, Coaching and Consulting ...  http://www.egenix.com/
+>>> Python Database Interfaces ...           http://products.egenix.com/
+>>> Plone/Zope Database Interfaces ...           http://zope.egenix.com/
+________________________________________________________________________
+
+::: We implement business ideas - efficiently in both time and costs :::
+
+   eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+    D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+           Registered at Amtsgericht Duesseldorf: HRB 46611
+               http://www.egenix.com/company/contact/
+                      http://www.malemburg.com/
+
+
+From g.rodola at gmail.com  Mon Mar 25 18:13:28 2019
+From: g.rodola at gmail.com (Giampaolo Rodola')
+Date: Mon, 25 Mar 2019 23:13:28 +0100
+Subject: [python-committers] Votes on new core dev candidates
+In-Reply-To: <b4f0580c-eea5-c459-fb27-f6b14cf306a3@python.org>
+References: <CA+3bQGHbo5QhH+ZLj_ywHY8EL=b6M+tbxMN3utCWvykWGi8zVg@mail.gmail.com>
+ <CA+3bQGHWbk-X9wsyR97j3y9XcnxD-etgbRbPLV_U3hWK3O1gPw@mail.gmail.com>
+ <7ab65fcc-929d-4f6d-f7cd-8533604964b1@egenix.com>
+ <CAP1=2W6yWVXv7m6eQFv39iRYmuMCxdsUstRrCJtSyipD-NtRuw@mail.gmail.com>
+ <CAP1=2W6wEh_yuvc-f8bGgXt+L3mZkTC-XTCOaeP729tk9N+W0A@mail.gmail.com>
+ <CAFYqXL_MRcv0mq1pVFe6aXmuW_+ZwrW_q=COui2189XCR4RDmQ@mail.gmail.com>
+ <CA+3bQGF9+wwa5PxoPP3ENYmw16Qzotqeep7rFbsPTFmo58xD+Q@mail.gmail.com>
+ <CAExdVNkdcY7J2TtEMkGPcZH1JCSXgBgngb0VO43+ZNsA-OGxkA@mail.gmail.com>
+ <CA+3bQGHjz2NwC6LyKW4DqT0eMgCps15eyYEb6zOmUZVXK338Lg@mail.gmail.com>
+ <e9b3eb1b-0a1b-4a0d-0af7-ab18c1916ca0@egenix.com>
+ <b4f0580c-eea5-c459-fb27-f6b14cf306a3@python.org>
+Message-ID: <CAFYqXL_NpAh2PLtN+vKKYrCDTZ0m=orVqEBiA4vLcBSzoviZUg@mail.gmail.com>
+
+On Mon, Mar 25, 2019 at 4:20 PM Steve Dower <steve.dower at python.org> wrote:
+>
+> On 25Mar2019 0217, M.-A. Lemburg wrote:
+> > I must say, I'm a bit surprised by the discussion around the voting
+> > process and the candidates.
+> >
+> > First, we've been complaining about lack of core devs for a long
+> > time. Now we have two great candidates with proven track record of
+> > contributing to Python and people complain again. As a small group,
+> > we need to attract more capable people and such push back
+> > is not a very productive way of doing so.
+>
+> To be clear, my pushback (on Discourse, since I can only send email from
+> an actual laptop these days but can participate over there from my
+> phone) has been against vague nominations, not the individuals themselves.
+>
+> I'm *very* concerned about the perception of commit rights being
+> "awarded" rather than being a added responsibility specific to CPython.
+> Nominees should be willing to take on extra responsibility, and
+> nominators should be making clear that the nominee is at least somewhat
+> proven to be ready for it. Nominations for being a good contributor to
+> other projects makes no sense, and nominations without a specific role
+> or focus area are also vague enough that I don't see it leading to
+> longer standing commitment.
+
+Agreed. The fact that what we do here is voluntary work implies that
+the primary factor at play is supposed to be passion more than
+recognition. That's why giving the commit bit as an incentive to
+attract more workforce is not gonna fly IMO. Not that seeking for
+recognition is bad per se, but there's already a tool for that and
+which applies to anyone: authoring the contribution (either in
+Misc/NEWS or whatsnew). If somebody is passionate to invest his/her
+time long enough and with enough competence the step to becoming a
+core-dev should be somewhat obvious and happen naturally.
+
+(this is in no way related to the current nominations per se - it's a
+general take/note)
+
+--
+Giampaolo - http://grodola.blogspot.com
+
+From steve.dower at python.org  Mon Mar 25 18:58:12 2019
+From: steve.dower at python.org (Steve Dower)
+Date: Mon, 25 Mar 2019 15:58:12 -0700
+Subject: [python-committers] Votes on new core dev candidates
+In-Reply-To: <f4cec1b9-64f3-cd94-7c62-9e5bc1d6acc3@egenix.com>
+References: <CA+3bQGHbo5QhH+ZLj_ywHY8EL=b6M+tbxMN3utCWvykWGi8zVg@mail.gmail.com>
+ <CA+3bQGHWbk-X9wsyR97j3y9XcnxD-etgbRbPLV_U3hWK3O1gPw@mail.gmail.com>
+ <7ab65fcc-929d-4f6d-f7cd-8533604964b1@egenix.com>
+ <CAP1=2W6yWVXv7m6eQFv39iRYmuMCxdsUstRrCJtSyipD-NtRuw@mail.gmail.com>
+ <CAP1=2W6wEh_yuvc-f8bGgXt+L3mZkTC-XTCOaeP729tk9N+W0A@mail.gmail.com>
+ <CAFYqXL_MRcv0mq1pVFe6aXmuW_+ZwrW_q=COui2189XCR4RDmQ@mail.gmail.com>
+ <CA+3bQGF9+wwa5PxoPP3ENYmw16Qzotqeep7rFbsPTFmo58xD+Q@mail.gmail.com>
+ <CAExdVNkdcY7J2TtEMkGPcZH1JCSXgBgngb0VO43+ZNsA-OGxkA@mail.gmail.com>
+ <CA+3bQGHjz2NwC6LyKW4DqT0eMgCps15eyYEb6zOmUZVXK338Lg@mail.gmail.com>
+ <e9b3eb1b-0a1b-4a0d-0af7-ab18c1916ca0@egenix.com>
+ <b4f0580c-eea5-c459-fb27-f6b14cf306a3@python.org>
+ <f4cec1b9-64f3-cd94-7c62-9e5bc1d6acc3@egenix.com>
+Message-ID: <8813e08c-8c6c-d0e2-1bd0-d9d38384ef2f@python.org>
+
+On 25Mar2019 1503, M.-A. Lemburg wrote:
+> On 25.03.2019 16:20, Steve Dower wrote:
+>> To be clear, my pushback (on Discourse, since I can only send email from
+>> an actual laptop these days but can participate over there from my
+>> phone) has been against vague nominations, not the individuals themselves.
+>>
+>> I'm *very* concerned about the perception of commit rights being
+>> "awarded" rather than being a added responsibility specific to CPython.
+> 
+> I'm not sure where you got that perception from. The two candidates
+> both want to actively contribute to Python.
+> 
+> It's possible that the nominations did not emphasize this enough, but
+> that's an issue with the nomination text, not with the person being
+> nominated.
+
+That's literally what I said.
+
+> Yet, the public perception of the discussion is that the persons are
+> not qualified enough and that's definitely not going to have a
+> productive effect on getting more people helping.
+
+I don't know where you got *this* from. I haven't seen any criticism of 
+the candidates themselves - just questions that ought to have been 
+answered very easily in the nomination (and were answered almost 
+immediately upon request).
+
+>> Isn't this what's been happening? It certainly has been on Discourse.
+> 
+> Not really. I'm not talking about some moderator having to step
+> in to take action. I'm talking about the nominators actively
+> supporting the discussion by fixing mistakes in the nomination,
+> proxying and adding more information (since the candidates cannot
+> speak for themselves) and helping to clarify misconceptions.
+
+Um, that's exactly what happened? I don't understand why you're saying 
+it didn't (unless someone's edited the history over there between me 
+reading it and you reading it).
+
+> Asking people who have voted -1 or +1 to publicly tell the world why
+> they did so is not helpful in this respect, since it just creates bias.
+> What people, who are unsure how to vote, really need, is more
+> information, not bias.
+
+This is illogical. Knowing how and why certain people voted is useful 
+information when you know that person (and it's also why we generally 
+use options like -1, -0, +0, +1, and sometimes +/-100 ;) ). Without this 
+added information, the *only* thing we have is bias, and I don't think 
+we have a big enough group to average out individual bias in such 
+important decisions as this.
+
+Cheers,
+Steve
+
+From raymond.hettinger at gmail.com  Tue Mar 26 00:20:46 2019
+From: raymond.hettinger at gmail.com (Raymond Hettinger)
+Date: Mon, 25 Mar 2019 21:20:46 -0700
+Subject: [python-committers] 
+ =?utf-8?q?Vote_to_promote_St=C3=A9phane_Wirt?=
+ =?utf-8?q?el_as_a_core_dev?=
+In-Reply-To: <CA+3bQGHbo5QhH+ZLj_ywHY8EL=b6M+tbxMN3utCWvykWGi8zVg@mail.gmail.com>
+References: <CA+3bQGHbo5QhH+ZLj_ywHY8EL=b6M+tbxMN3utCWvykWGi8zVg@mail.gmail.com>
+Message-ID: <2130BBC8-DDAE-4584-9ED6-859AB9056DD0@gmail.com>
+
+
+> On Mar 22, 2019, at 8:34 AM, Victor Stinner <vstinner at redhat.com> wrote:
+> 
+> Julien Palard and me (Victor) propose to promote St?phane Wirtel as
+> core developer. We open a vote until March 31 (~one week). "[A
+> promotion] is granted by receiving at least two-thirds positive votes
+> in a core team vote and no veto by the steering council."
+> https://www.python.org/dev/peps/pep-0013/#the-core-team
+
+For some reason, I can't vote on discourse. The message is "you can vote because you can't post in this topic."  So please add this post to the tally.
+
+On the plus side, I've enjoyed working with St?phane Wirtel and think he is a great person and Python enthusiast. That said, I think we should wait.  The contributions thus far have been very light weight. Also, I've not seen active, critical decision making on the bug tracker that would demonstrate an understanding of what to approve and what not to approve.
+
+Nominating someone too early puts us all in an awkward position. It's no fun to vote with a -1.  If the nomination has been allowed to mature, this could be a more positive experience for everyone.  We shouldn't have just one person spewing out nominations and doing it prematurely (imo). We had that situation happen in the PSF and it quickly degraded as people started nominating their friends some of whom had only light associations with Python. In the end, that situation necessitated a reorg to where the new standard was zero.  We already have a number of core-devs who are core devs in name only, having never made a commit or actively participated in developing the core.
+
+Socially, there are two other concerns. One concern is unevenness -- the bar was very high for some people and very low for others. It really seems to matter who nominated you and who your friends are.  The other concern is formation of cliques of friends who approve each other's proposals, but falling into groupthink because of light experience and low diversity of ideas.
+
+
+Raymond
+
+
+

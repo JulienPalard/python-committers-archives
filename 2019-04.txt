@@ -1,0 +1,434 @@
+From storchaka at gmail.com  Thu Apr  4 06:50:20 2019
+From: storchaka at gmail.com (Serhiy Storchaka)
+Date: Thu, 4 Apr 2019 13:50:20 +0300
+Subject: [python-committers] Promote Stefan Behnel as a core developer
+In-Reply-To: <85f88845-39a2-7956-6e6b-6eaa7911ee55@gmail.com>
+References: <d86e67d5-5661-40b0-701a-4a756534493a@gmail.com>
+ <85f88845-39a2-7956-6e6b-6eaa7911ee55@gmail.com>
+Message-ID: <e413c488-e5ba-bb69-79ec-48cf52130a4f@gmail.com>
+
+24.03.19 18:19, Serhiy Storchaka ????:
+> Opened an anonymous vote on 
+> https://discuss.python.org/t/vote-to-promote-stefan-behnel-as-a-core-developer/1054 
+> . But if you have concerns or objections, it is better to express them 
+> publicly or in private to me.
+
+
+The results of the voting:
+
+* 30 votes for promote.
+
+* 3 votes for not promote.
+
+
+So the majority of core developers supports promoting. But votes against 
+should not be ignored.
+
+
+The main concern is that with such low rate we do not need to grant him 
+the permission rights to merge. The answer is that we need a maintainer 
+for the xml.etree package, and Stefan is already an expert of it. It 
+need the core developer status to be an official maintainer.
+
+
+Maybe this answer convinced those who voted against. If you have other 
+concerns, please tell me privately or in public, so that we will know 
+what should be changed to make Stefan satisfying the requirements of a 
+code developer.
+
+
+In any case the vote just gives some information for the Steering 
+Council. Itsresult does not oblige to certain decisions.
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20190404/e032a32d/attachment.html>
+
+From brett at python.org  Fri Apr  5 15:33:00 2019
+From: brett at python.org (Brett Cannon)
+Date: Fri, 5 Apr 2019 12:33:00 -0700
+Subject: [python-committers] Promote Stefan Behnel as a core developer
+In-Reply-To: <e413c488-e5ba-bb69-79ec-48cf52130a4f@gmail.com>
+References: <d86e67d5-5661-40b0-701a-4a756534493a@gmail.com>
+ <85f88845-39a2-7956-6e6b-6eaa7911ee55@gmail.com>
+ <e413c488-e5ba-bb69-79ec-48cf52130a4f@gmail.com>
+Message-ID: <CAP1=2W7-XFE7Si7ZQz-nfqDXBj-Rgg0C4rJ1AYn2_wSwV9xY=g@mail.gmail.com>
+
+Just a quick update: 3 of us on the council were travelling this week so we
+have not privately voted/decided about either candidate yet. My hope is we
+will have an answer for both candidate no later than early next week.
+
+On Thu, Apr 4, 2019 at 2:50 AM Serhiy Storchaka <storchaka at gmail.com> wrote:
+
+> 24.03.19 18:19, Serhiy Storchaka ????:
+>
+> Opened an anonymous vote on
+> https://discuss.python.org/t/vote-to-promote-stefan-behnel-as-a-core-developer/1054
+> . But if you have concerns or objections, it is better to express them
+> publicly or in private to me.
+>
+>
+> The results of the voting:
+>
+> * 30 votes for promote.
+>
+> * 3 votes for not promote.
+>
+>
+> So the majority of core developers supports promoting. But votes against
+> should not be ignored.
+>
+>
+> The main concern is that with such low rate we do not need to grant him
+> the permission rights to merge. The answer is that we need a maintainer for
+> the xml.etree package, and Stefan is already an expert of it. It need the
+> core developer status to be an official maintainer.
+>
+>
+> Maybe this answer convinced those who voted against. If you have other
+> concerns, please tell me privately or in public, so that we will know what
+> should be changed to make Stefan satisfying the requirements of a code
+> developer.
+>
+>
+> In any case the vote just gives some information for the Steering Council.
+> Its result does not oblige to certain decisions.
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20190405/e9f90749/attachment.html>
+
+From antoine at python.org  Fri Apr  5 15:40:02 2019
+From: antoine at python.org (Antoine Pitrou)
+Date: Fri, 5 Apr 2019 21:40:02 +0200
+Subject: [python-committers] Promote Stefan Behnel as a core developer
+In-Reply-To: <CAP1=2W7-XFE7Si7ZQz-nfqDXBj-Rgg0C4rJ1AYn2_wSwV9xY=g@mail.gmail.com>
+References: <d86e67d5-5661-40b0-701a-4a756534493a@gmail.com>
+ <85f88845-39a2-7956-6e6b-6eaa7911ee55@gmail.com>
+ <e413c488-e5ba-bb69-79ec-48cf52130a4f@gmail.com>
+ <CAP1=2W7-XFE7Si7ZQz-nfqDXBj-Rgg0C4rJ1AYn2_wSwV9xY=g@mail.gmail.com>
+Message-ID: <18a97f62-7023-3923-129d-2d01ad91b206@python.org>
+
+
+PEP 13 says:
+"""
+[Core team membership] is granted by receiving at least two-thirds
+positive votes in a core team vote and no veto by the steering council.
+"""
+
+Since both St?phane and Stefan reached the 2/3 positive votes threshold,
+the only question is whether the SC decides to veto their membership
+(for I suppose should be an extremely important reason).  Otherwise,
+they should be welcome as core developers.
+
+Regards
+
+Antoine.
+
+
+Le 05/04/2019 ? 21:33, Brett Cannon a ?crit?:
+> Just a quick update: 3 of us on the council were travelling this week so
+> we have not privately voted/decided about either candidate yet. My hope
+> is we will have an answer for both candidate no later than early next week.
+> 
+> On Thu, Apr 4, 2019 at 2:50 AM Serhiy Storchaka <storchaka at gmail.com
+> <mailto:storchaka at gmail.com>> wrote:
+> 
+>     24.03.19 18:19, Serhiy Storchaka ????:
+>>     Opened an anonymous vote on
+>>     https://discuss.python.org/t/vote-to-promote-stefan-behnel-as-a-core-developer/1054
+>>     . But if you have concerns or objections, it is better to express
+>>     them publicly or in private to me.
+> 
+> 
+>     The results of the voting:
+> 
+>     * 30 votes for promote.
+> 
+>     * 3 votes for not promote.
+> 
+> 
+>     So the majority of core developers supports promoting. But votes
+>     against should not be ignored.
+> 
+> 
+>     The main concern is that with such low rate we do not need to grant
+>     him the permission rights to merge. The answer is that we need a
+>     maintainer for the xml.etree package, and Stefan is already an
+>     expert of it. It need the core developer status to be an official
+>     maintainer.
+> 
+> 
+>     Maybe this answer convinced those who voted against. If you have
+>     other concerns, please tell me privately or in public, so that we
+>     will know what should be changed to make Stefan satisfying the
+>     requirements of a code developer.
+> 
+> 
+>     In any case the vote just gives some information for the Steering
+>     Council. Itsresult does not oblige to certain decisions.
+> 
+>     _______________________________________________
+>     python-committers mailing list
+>     python-committers at python.org <mailto:python-committers at python.org>
+>     https://mail.python.org/mailman/listinfo/python-committers
+>     Code of Conduct: https://www.python.org/psf/codeofconduct/
+> 
+> 
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+> 
+
+From brett at python.org  Fri Apr  5 15:44:18 2019
+From: brett at python.org (Brett Cannon)
+Date: Fri, 5 Apr 2019 12:44:18 -0700
+Subject: [python-committers] Promote Stefan Behnel as a core developer
+In-Reply-To: <18a97f62-7023-3923-129d-2d01ad91b206@python.org>
+References: <d86e67d5-5661-40b0-701a-4a756534493a@gmail.com>
+ <85f88845-39a2-7956-6e6b-6eaa7911ee55@gmail.com>
+ <e413c488-e5ba-bb69-79ec-48cf52130a4f@gmail.com>
+ <CAP1=2W7-XFE7Si7ZQz-nfqDXBj-Rgg0C4rJ1AYn2_wSwV9xY=g@mail.gmail.com>
+ <18a97f62-7023-3923-129d-2d01ad91b206@python.org>
+Message-ID: <CAP1=2W7deg4jUxGXPLVsVAZ_Vy-Bj5z-y5YA=690RGyBwu0tJQ@mail.gmail.com>
+
+On Fri, Apr 5, 2019 at 12:40 PM Antoine Pitrou <antoine at python.org> wrote:
+
+>
+> PEP 13 says:
+> """
+> [Core team membership] is granted by receiving at least two-thirds
+> positive votes in a core team vote and no veto by the steering council.
+> """
+>
+> Since both St?phane and Stefan reached the 2/3 positive votes threshold,
+> the only question is whether the SC decides to veto their membership
+> (for I suppose should be an extremely important reason).  Otherwise,
+> they should be welcome as core developers.
+>
+
+Correct, so we as the SC need to decide among ourselves if we are going to
+veto so I'm not quite following what point this reply is trying to make.
+
+-Brett
+
+
+>
+> Regards
+>
+> Antoine.
+>
+>
+> Le 05/04/2019 ? 21:33, Brett Cannon a ?crit :
+> > Just a quick update: 3 of us on the council were travelling this week so
+> > we have not privately voted/decided about either candidate yet. My hope
+> > is we will have an answer for both candidate no later than early next
+> week.
+> >
+> > On Thu, Apr 4, 2019 at 2:50 AM Serhiy Storchaka <storchaka at gmail.com
+> > <mailto:storchaka at gmail.com>> wrote:
+> >
+> >     24.03.19 18:19, Serhiy Storchaka ????:
+> >>     Opened an anonymous vote on
+> >>
+> https://discuss.python.org/t/vote-to-promote-stefan-behnel-as-a-core-developer/1054
+> >>     . But if you have concerns or objections, it is better to express
+> >>     them publicly or in private to me.
+> >
+> >
+> >     The results of the voting:
+> >
+> >     * 30 votes for promote.
+> >
+> >     * 3 votes for not promote.
+> >
+> >
+> >     So the majority of core developers supports promoting. But votes
+> >     against should not be ignored.
+> >
+> >
+> >     The main concern is that with such low rate we do not need to grant
+> >     him the permission rights to merge. The answer is that we need a
+> >     maintainer for the xml.etree package, and Stefan is already an
+> >     expert of it. It need the core developer status to be an official
+> >     maintainer.
+> >
+> >
+> >     Maybe this answer convinced those who voted against. If you have
+> >     other concerns, please tell me privately or in public, so that we
+> >     will know what should be changed to make Stefan satisfying the
+> >     requirements of a code developer.
+> >
+> >
+> >     In any case the vote just gives some information for the Steering
+> >     Council. Itsresult does not oblige to certain decisions.
+> >
+> >     _______________________________________________
+> >     python-committers mailing list
+> >     python-committers at python.org <mailto:python-committers at python.org>
+> >     https://mail.python.org/mailman/listinfo/python-committers
+> >     Code of Conduct: https://www.python.org/psf/codeofconduct/
+> >
+> >
+> > _______________________________________________
+> > python-committers mailing list
+> > python-committers at python.org
+> > https://mail.python.org/mailman/listinfo/python-committers
+> > Code of Conduct: https://www.python.org/psf/codeofconduct/
+> >
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20190405/9fe0c60b/attachment-0001.html>
+
+From antoine at python.org  Fri Apr  5 15:53:44 2019
+From: antoine at python.org (Antoine Pitrou)
+Date: Fri, 5 Apr 2019 21:53:44 +0200
+Subject: [python-committers] Promote Stefan Behnel as a core developer
+In-Reply-To: <CAP1=2W7deg4jUxGXPLVsVAZ_Vy-Bj5z-y5YA=690RGyBwu0tJQ@mail.gmail.com>
+References: <d86e67d5-5661-40b0-701a-4a756534493a@gmail.com>
+ <85f88845-39a2-7956-6e6b-6eaa7911ee55@gmail.com>
+ <e413c488-e5ba-bb69-79ec-48cf52130a4f@gmail.com>
+ <CAP1=2W7-XFE7Si7ZQz-nfqDXBj-Rgg0C4rJ1AYn2_wSwV9xY=g@mail.gmail.com>
+ <18a97f62-7023-3923-129d-2d01ad91b206@python.org>
+ <CAP1=2W7deg4jUxGXPLVsVAZ_Vy-Bj5z-y5YA=690RGyBwu0tJQ@mail.gmail.com>
+Message-ID: <7fc8488a-72a7-44f2-680b-3c1a4cc4efd1@python.org>
+
+
+Le 05/04/2019 ? 21:44, Brett Cannon a ?crit?:
+> 
+> On Fri, Apr 5, 2019 at 12:40 PM Antoine Pitrou <antoine at python.org
+> <mailto:antoine at python.org>> wrote:
+> 
+>     PEP 13 says:
+>     """
+>     [Core team membership] is granted by receiving at least two-thirds
+>     positive votes in a core team vote and no veto by the steering council.
+>     """
+> 
+>     Since both St?phane and Stefan reached the 2/3 positive votes threshold,
+>     the only question is whether the SC decides to veto their membership
+>     (for I suppose should be an extremely important reason).? Otherwise,
+>     they should be welcome as core developers.
+> 
+> 
+> Correct, so we as the SC need to decide among ourselves if we are going
+> to veto so I'm not quite following what point this reply is trying to make.
+
+It was not very clear in your message where you talked about "voting"
+about either candidate.
+
+Regards
+
+Antoine.
+
+From brett at python.org  Fri Apr  5 16:14:25 2019
+From: brett at python.org (Brett Cannon)
+Date: Fri, 5 Apr 2019 13:14:25 -0700
+Subject: [python-committers] Promote Stefan Behnel as a core developer
+In-Reply-To: <7fc8488a-72a7-44f2-680b-3c1a4cc4efd1@python.org>
+References: <d86e67d5-5661-40b0-701a-4a756534493a@gmail.com>
+ <85f88845-39a2-7956-6e6b-6eaa7911ee55@gmail.com>
+ <e413c488-e5ba-bb69-79ec-48cf52130a4f@gmail.com>
+ <CAP1=2W7-XFE7Si7ZQz-nfqDXBj-Rgg0C4rJ1AYn2_wSwV9xY=g@mail.gmail.com>
+ <18a97f62-7023-3923-129d-2d01ad91b206@python.org>
+ <CAP1=2W7deg4jUxGXPLVsVAZ_Vy-Bj5z-y5YA=690RGyBwu0tJQ@mail.gmail.com>
+ <7fc8488a-72a7-44f2-680b-3c1a4cc4efd1@python.org>
+Message-ID: <CAP1=2W4abw2VPCDLSYBF+sq4UdXcW+_4=7g7hB7P-rm2pEAzvw@mail.gmail.com>
+
+On Fri, Apr 5, 2019 at 12:53 PM Antoine Pitrou <antoine at python.org> wrote:
+
+>
+> Le 05/04/2019 ? 21:44, Brett Cannon a ?crit :
+> >
+> > On Fri, Apr 5, 2019 at 12:40 PM Antoine Pitrou <antoine at python.org
+> > <mailto:antoine at python.org>> wrote:
+> >
+> >     PEP 13 says:
+> >     """
+> >     [Core team membership] is granted by receiving at least two-thirds
+> >     positive votes in a core team vote and no veto by the steering
+> council.
+> >     """
+> >
+> >     Since both St?phane and Stefan reached the 2/3 positive votes
+> threshold,
+> >     the only question is whether the SC decides to veto their membership
+> >     (for I suppose should be an extremely important reason).  Otherwise,
+> >     they should be welcome as core developers.
+> >
+> >
+> > Correct, so we as the SC need to decide among ourselves if we are going
+> > to veto so I'm not quite following what point this reply is trying to
+> make.
+>
+> It was not very clear in your message where you talked about "voting"
+> about either candidate.
+>
+
+For new core devs we basically ask each of the five of us whether anyone
+has a reason to object and if they do then we have a discussion and decide
+as a group whether that reason warrants a veto. So we "vote" as to whether
+anyone has a reason to veto.
+
+I don't think you meant it to come off this way, but that email felt like a
+lecture because you didn't ask for clarification and instead just stated
+back at me what the process is as if you didn't believe me or any one of
+the five of us knew what PEP 13 said on how to handle proposed new core
+devs (which we have already handled once with Cheryl; this happens to be
+the first time we need to handle two candidates simultaneously). If people
+want to ask questions or desire some clarification from the council then
+please feel free to ask, but I do ask that we be given the benefit of the
+doubt that at least one of the five of us knows what we are doing. ;)
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20190405/60a22606/attachment.html>
+
+From antoine at python.org  Fri Apr  5 16:16:02 2019
+From: antoine at python.org (Antoine Pitrou)
+Date: Fri, 5 Apr 2019 22:16:02 +0200
+Subject: [python-committers] Promote Stefan Behnel as a core developer
+In-Reply-To: <CAP1=2W4abw2VPCDLSYBF+sq4UdXcW+_4=7g7hB7P-rm2pEAzvw@mail.gmail.com>
+References: <d86e67d5-5661-40b0-701a-4a756534493a@gmail.com>
+ <85f88845-39a2-7956-6e6b-6eaa7911ee55@gmail.com>
+ <e413c488-e5ba-bb69-79ec-48cf52130a4f@gmail.com>
+ <CAP1=2W7-XFE7Si7ZQz-nfqDXBj-Rgg0C4rJ1AYn2_wSwV9xY=g@mail.gmail.com>
+ <18a97f62-7023-3923-129d-2d01ad91b206@python.org>
+ <CAP1=2W7deg4jUxGXPLVsVAZ_Vy-Bj5z-y5YA=690RGyBwu0tJQ@mail.gmail.com>
+ <7fc8488a-72a7-44f2-680b-3c1a4cc4efd1@python.org>
+ <CAP1=2W4abw2VPCDLSYBF+sq4UdXcW+_4=7g7hB7P-rm2pEAzvw@mail.gmail.com>
+Message-ID: <ada37e5c-48e7-a9e5-e27b-7c984f841506@python.org>
+
+
+Le 05/04/2019 ? 22:14, Brett Cannon a ?crit?:
+> 
+> I don't think you meant it to come off this way, but that email felt
+> like a lecture because you didn't ask for clarification and instead just
+> stated back at me what the process is as if you didn't believe me or any
+> one of the five of us knew what PEP 13 said on how to handle proposed
+> new core devs (which we have already handled once with Cheryl; this
+> happens to be the first time we need to handle two candidates
+> simultaneously). If people want to ask questions or desire some
+> clarification from the council then please feel free to ask, but I do
+> ask that we be given the benefit of the doubt that at least one of the
+> five of us knows what we are doing. ;)
+
+Ah, sorry.  No, I was just misunderstanding your original message.
+
+Regards
+
+Antoine.
+
+

@@ -1259,3 +1259,411 @@ And as a reminder, changes to PEP 13 require a 2/3 approval by voters.
 An HTML attachment was scrubbed...
 URL: <http://mail.python.org/pipermail/python-committers/attachments/20190417/66680b62/attachment.html>
 
+From guido at python.org  Fri Apr 26 10:48:49 2019
+From: guido at python.org (Guido van Rossum)
+Date: Fri, 26 Apr 2019 07:48:49 -0700
+Subject: [python-committers] Steering Council Update for April 2019
+Message-ID: <CAP7+vJKkjy9MKzDnvpEEv-qLrWFjzvShc0G1WLJC6rXY41PW7w@mail.gmail.com>
+
+I've posted an update from the Steering Council to our repo:
+
+https://github.com/python/steering-council/blob/master/updates/2019-04-26_steering-council-update.md
+
+I will also link to this on python-dev and on Discourse (discuss.python.org
+).
+
+For completeness, below is the full text.
+
+# Steering Council Update
+
+Date: 2019-04-26
+
+Steering Council updates will be posted irregularly and as needed.
+We strive to post at least once every month.  We provide these updates
+to foster open and transparent communication about Steering Council
+activity.
+
+## Message from the Steering Council
+
+Sorry we've been silent for a while!  We've all been swamped with
+work, but we've been meeting regularly.  Below are some of the
+outcomes of our conversations.  Many of you will be happy to hear that
+we've cleared the backlog of PEPs by assigning BDFL-Delegates to
+almost all outstanding PEPs.  We're also appearing at PyCon US.
+
+---
+
+## Mandate
+
+This section organizes Steering Council (SC) activity and projects
+using the mandates listed in PEP 13.
+
+### Language
+
+> Maintain the quality and stability of the Python language and CPython
+interpreter
+
+- We've begun to explore the options for improving the interpreter in
+  the future, but apart from the PEP work detailed below we've not come to
+any
+  conclusions yet.  In the coming months we hope to come up with
+  guidelines and a process for evolving the interpreter, to be
+  developed in close participation with the core developers and
+  representatives of various user bases.
+
+### Contributors
+
+> Make contributing as accessible, inclusive, and sustainable as possible
+
+- **Communications channels:** We have an array of communication
+  options, depending on the context.
+
+  - To reach core committers specifically, we will use
+    python-committers at python.org.
+
+  - To reach the entire Python developer community, we will use
+    python-dev at python.org.
+
+  - For specific requests to the SC, please use
+    the public GitHub tracker at
+https://github.com/python/steering-council/issues.
+
+  - To reach just the SC, you can email us at
+    steering-council at python.org.
+
+  - We will also occasionally use Discourse, at
+    https://discuss.python.org (for example, Discourse is useful for
+    polls and votes).
+
+- **Issue tracker:** We've discussed PEP 581, "Using GitHub Issues for
+  CPython" by Mariatta Wijaya.  We're in favor of this move, and feel
+  that the transition should be professionally planned and executed.
+  In collaboration with the PSF we're exploring ideas on how to do
+  that (using the successful roll-out of the new Warehouse
+  infrastructure for PyPI as a model).
+
+
+### PEPs
+
+> Establish appropriate decision-making processes for PEPs
+
+- To request a PEP review, please file an issue on the
+  [SC issue tracker](https://github.com/python/steering-council/issues).
+
+- We've appointed BDFL-Delegates (BDs) to a number of PEPs, after
+  ensuring that the proposed BD and the PEP author(s) agree on the
+  appointment:
+
+  - PEP 558 "Defined semantics for locals()", Nick Coghlan.
+    *Appointed Nathaniel J. Smith as BD.*
+
+  - PEP 497, "A standard mechanism for backward compatibility", Ed
+Schofield.
+    *Appointed Brett Cannon as BD on behalf of the SC.*
+
+  - PEP 387 "Backwards Compatibility Policy", Benjamin Peterson.
+    *Appointed Brett Cannon as BD on behalf of the SC.*
+
+  - PEP 554, "Multiple Interpreters in the Stdlib", Eric Snow.
+    *Appointed Antoine Pitrou as BD.* (BD and author have indicated
+    that this PEP will be postponed until Python 3.9.)
+
+  - PEP 586, PEP 589, PEP 591 (various typing PEPs by members of the
+    mypy team and others, topics Literal, TypedDict, and Final).
+    *Appointed Guido van Rossum as BD.*  (PEP 544, Protocols, also
+    belongs in this list; Guido made himself BD last year.)
+
+  - PEP 578, "Python Runtime Audit Hooks", Steve Dower.
+    *Appointed Christian Heimes as BD.*
+
+  - PEPs 576, 579, 580, 590 (competing PEPs on C function call
+    optimizations by Mark Shannon and Jeroen Demeyer; note that PEP
+    576 is withdrawn in favor of PEP 590).
+    *Appointed Petr Viktorin as BD.*
+
+  - PEP 533, "Deterministic cleanup for iterators", Nathaniel J. Smith.
+    *Appointed Yury Selivanov as BD.*
+
+  - PEP 570, "Python Positional-Only Parameters", by Larry Hastings,
+    Pablo Galindo and others.
+    *Appointed Guido van Rossum as BD.*  (And he approved it!)
+
+  - PEP 574, "Pickle protocol 5 with out-of-band data", Antoine Pitrou.
+    *Appointed Nick Coghlan as BD.*
+
+  - PEP 573, "Module State Access from C Extension Methods", Petr
+    Viktorin and others.
+    *Postponed to Python 3.9.  Appointed Stefan Behnel as BD.*
+
+- And we've updated the status of some other PEPs:
+
+  - PEP 557 "Data Classes", Eric V Smith.  *Marked Final.*
+
+  - PEP 467 "Minor API improvements for binary sequences", Nick
+    Coghlan, Ethan Furman.  *Deferred.*
+
+### Interaction with PSF
+
+> Formalize and maintain the relationship between the core team and the PSF
+
+- The PSF Code of Conduct Workgroup is working on a revision of the CoC.
+Brett and Carol
+  serve on the Workgroup.
+
+- We've agreed to a panel discussion at PyCon US in Cleveland, Sunday
+  morning May 5th between 9:20am and 10:00am.
+
+### Governance
+
+> Seek consensus among contributors and the core team before acting in a
+formal capacity,
+> Act as a "court of final appeal" for decisions where all other methods
+have failed.
+
+- Established a weekly SC meeting cadence (Tuesdays 3-4pm US West Coast
+time).
+
+- We proposed two updates to PEP 13, setting the voting period for new
+  core devs to one week and for PEP 13 changes to two weeks.
+  The vote is still ongoing on Discourse:
+
+https://discuss.python.org/t/vote-on-pep-13-change-to-specify-voting-time-frames/1510
+
+---
+
+## Reference
+
+This reference section summarizes the Steering Council's mandate and powers.
+
+### Mandate (PEP 13)
+
+The steering council shall work to:
+
+- Maintain the quality and stability of the Python language and
+  CPython interpreter,
+- Make contributing as accessible, inclusive, and sustainable as
+  possible,
+- Formalize and maintain the relationship between the core team and
+  the PSF,
+- Establish appropriate decision-making processes for PEPs,
+- Seek consensus among contributors and the core team before acting in
+  a formal capacity,
+- Act as a "court of final appeal" for decisions where all other
+  methods have failed.
+
+### Powers (PEP 13)
+
+The council has broad authority to make decisions about the project.
+For example, they can:
+
+- Accept or reject PEPs
+- Enforce or update the project's code of conduct
+- Work with the PSF to manage any project assets
+- Delegate parts of their authority to other subcommittees or
+  processes
+
+-- 
+--Guido van Rossum (python.org/~guido)
+*Pronouns: he/him/his **(why is my pronoun here?)*
+<http://feministing.com/2015/02/03/how-using-they-as-a-singular-pronoun-can-change-the-world/>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20190426/8b06c4ce/attachment.html>
+
+From berker.peksag at gmail.com  Fri Apr 26 12:12:26 2019
+From: berker.peksag at gmail.com (=?UTF-8?Q?Berker_Peksa=C4=9F?=)
+Date: Fri, 26 Apr 2019 19:12:26 +0300
+Subject: [python-committers] Steering Council Update for April 2019
+In-Reply-To: <CAP7+vJKkjy9MKzDnvpEEv-qLrWFjzvShc0G1WLJC6rXY41PW7w@mail.gmail.com>
+References: <CAP7+vJKkjy9MKzDnvpEEv-qLrWFjzvShc0G1WLJC6rXY41PW7w@mail.gmail.com>
+Message-ID: <CAF4280JRewaJV25+CwOozAN4nbEcW2r+sYimajzs4jWRSO-5BA@mail.gmail.com>
+
+On Fri, Apr 26, 2019 at 5:55 PM Guido van Rossum <guido at python.org> wrote:
+> - **Issue tracker:** We've discussed PEP 581, "Using GitHub Issues for
+>   CPython" by Mariatta Wijaya.  We're in favor of this move, and feel
+>   that the transition should be professionally planned and executed.
+>   In collaboration with the PSF we're exploring ideas on how to do
+>   that (using the successful roll-out of the new Warehouse
+>   infrastructure for PyPI as a model).
+
+I don't think there was a consensus on switching to GitHub Issues last
+time it was discussed. The most recent discussion about PEP 581 only
+has 12 messages. I think the council is making a premature decision
+here.
+
+I'm strongly against using GitHub Issues. I will change my mind once I
+see a sign that GitHub is actually listening to our feedback. We can't
+even get them to make the use of #NNNN and GH-NNNN in the commit title
+configurable (https://github.com/maintainers/early-access-feedback/issues/77)
+and have the ability to automatically strip intermediate commit
+messages from the commit message body
+(https://github.com/maintainers/early-access-feedback/issues/153) The
+only time I got a response from them was this:
+https://github.com/python/miss-islington/issues/16#issuecomment-396095622
+
+I volunteered to maintain our Roundup instance a while ago and already
+fixed some bugs: https://hg.python.org/tracker/python-dev/ I've also
+submit patches to improve UX and fix issues. I'd list list them here
+but I can't reach out to http://psf.upfronthosting.co.za/roundup/ at
+the moment. I hope the problem with the hosting is temporary because I
+have several non-trivial patches there.
+
+--Berker
+
+From barry at python.org  Fri Apr 26 14:49:56 2019
+From: barry at python.org (Barry Warsaw)
+Date: Fri, 26 Apr 2019 11:49:56 -0700
+Subject: [python-committers] Steering Council Update for April 2019
+In-Reply-To: <CAF4280JRewaJV25+CwOozAN4nbEcW2r+sYimajzs4jWRSO-5BA@mail.gmail.com>
+References: <CAP7+vJKkjy9MKzDnvpEEv-qLrWFjzvShc0G1WLJC6rXY41PW7w@mail.gmail.com>
+ <CAF4280JRewaJV25+CwOozAN4nbEcW2r+sYimajzs4jWRSO-5BA@mail.gmail.com>
+Message-ID: <60F90935-FF93-479E-A655-E8DC912517A6@python.org>
+
+On Apr 26, 2019, at 09:12, Berker Peksa? <berker.peksag at gmail.com> wrote:
+
+> I don't think there was a consensus on switching to GitHub Issues last
+> time it was discussed. The most recent discussion about PEP 581 only
+> has 12 messages. I think the council is making a premature decision
+> here.
+
+Technically speaking, the PEP is still in Draft state.  I have a PR up for splitting the migration into two separate PEPs, one for the rationale and a second one for the migration plan:
+
+https://github.com/python/peps/pull/1013
+
+> I'm strongly against using GitHub Issues. I will change my mind once I
+> see a sign that GitHub is actually listening to our feedback. We can't
+> even get them to make the use of #NNNN and GH-NNNN in the commit title
+> configurable (https://github.com/maintainers/early-access-feedback/issues/77)
+> and have the ability to automatically strip intermediate commit
+> messages from the commit message body
+> (https://github.com/maintainers/early-access-feedback/issues/153) The
+> only time I got a response from them was this:
+> https://github.com/python/miss-islington/issues/16#issuecomment-396095622
+
+It would be very helpful if you could add these comments to the PR.
+
+> I volunteered to maintain our Roundup instance a while ago and already
+> fixed some bugs: https://hg.python.org/tracker/python-dev/ I've also
+> submit patches to improve UX and fix issues. I'd list list them here
+> but I can't reach out to http://psf.upfronthosting.co.za/roundup/ at
+> the moment. I hope the problem with the hosting is temporary because I
+> have several non-trivial patches there.
+
+And as a fan of Roundup and its critical importance to the Python development process, I want to personally thank you for all your ?and everyone who has contributed to it over the years? hard work in maintaining it.
+
+Cheers,
+-Barry
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 833 bytes
+Desc: Message signed with OpenPGP
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20190426/48698889/attachment.sig>
+
+From berker.peksag at gmail.com  Fri Apr 26 16:44:56 2019
+From: berker.peksag at gmail.com (=?UTF-8?Q?Berker_Peksa=C4=9F?=)
+Date: Fri, 26 Apr 2019 23:44:56 +0300
+Subject: [python-committers] Steering Council Update for April 2019
+In-Reply-To: <CAP1=2W69gWkTHO7ZRHoJ=JR1odAxB6NnHCC692T1_Duj0DBDgA@mail.gmail.com>
+References: <CAP7+vJKkjy9MKzDnvpEEv-qLrWFjzvShc0G1WLJC6rXY41PW7w@mail.gmail.com>
+ <CAF4280JRewaJV25+CwOozAN4nbEcW2r+sYimajzs4jWRSO-5BA@mail.gmail.com>
+ <CAP1=2W69gWkTHO7ZRHoJ=JR1odAxB6NnHCC692T1_Duj0DBDgA@mail.gmail.com>
+Message-ID: <CAF4280+eYoG2+bSa5nnuYYnvxq9JecS9ktc1ea7JFfmyHoPuVA@mail.gmail.com>
+
+On Fri, Apr 26, 2019 at 11:37 PM Brett Cannon <brett at python.org> wrote:
+> Because that repo is private I will say that the last comment on that issue was exactly a month ago from someone at GitHub saying that they are looking into this feature request.
+
+Thank you, I forgot those links are private. I'll also note that the
+issue was opened almost 1,5 years ago.
+
+Based on their recent track record, I'm pretty sure they are going to
+come up with a solution that's totally unsuitable to our workflow :)
+
+--Berker
+
+From brett at python.org  Fri Apr 26 16:37:15 2019
+From: brett at python.org (Brett Cannon)
+Date: Fri, 26 Apr 2019 13:37:15 -0700
+Subject: [python-committers] Steering Council Update for April 2019
+In-Reply-To: <CAF4280JRewaJV25+CwOozAN4nbEcW2r+sYimajzs4jWRSO-5BA@mail.gmail.com>
+References: <CAP7+vJKkjy9MKzDnvpEEv-qLrWFjzvShc0G1WLJC6rXY41PW7w@mail.gmail.com>
+ <CAF4280JRewaJV25+CwOozAN4nbEcW2r+sYimajzs4jWRSO-5BA@mail.gmail.com>
+Message-ID: <CAP1=2W69gWkTHO7ZRHoJ=JR1odAxB6NnHCC692T1_Duj0DBDgA@mail.gmail.com>
+
+On Fri, Apr 26, 2019 at 10:26 AM Berker Peksa? <berker.peksag at gmail.com>
+wrote:
+
+> On Fri, Apr 26, 2019 at 5:55 PM Guido van Rossum <guido at python.org> wrote:
+> > - **Issue tracker:** We've discussed PEP 581, "Using GitHub Issues for
+> >   CPython" by Mariatta Wijaya.  We're in favor of this move, and feel
+> >   that the transition should be professionally planned and executed.
+> >   In collaboration with the PSF we're exploring ideas on how to do
+> >   that (using the successful roll-out of the new Warehouse
+> >   infrastructure for PyPI as a model).
+>
+> I don't think there was a consensus on switching to GitHub Issues last
+> time it was discussed. The most recent discussion about PEP 581 only
+> has 12 messages. I think the council is making a premature decision
+> here.
+>
+> I'm strongly against using GitHub Issues. I will change my mind once I
+> see a sign that GitHub is actually listening to our feedback. We can't
+> even get them to make the use of #NNNN and GH-NNNN in the commit title
+> configurable (
+> https://github.com/maintainers/early-access-feedback/issues/77)
+>
+
+Because that repo is private I will say that the last comment on that issue
+was exactly a month ago from someone at GitHub saying that they are looking
+into this feature request.
+
+-Brett
+
+
+> and have the ability to automatically strip intermediate commit
+> messages from the commit message body
+> (https://github.com/maintainers/early-access-feedback/issues/153) The
+> only time I got a response from them was this:
+> https://github.com/python/miss-islington/issues/16#issuecomment-396095622
+>
+> I volunteered to maintain our Roundup instance a while ago and already
+> fixed some bugs: https://hg.python.org/tracker/python-dev/ I've also
+> submit patches to improve UX and fix issues. I'd list list them here
+> but I can't reach out to http://psf.upfronthosting.co.za/roundup/ at
+> the moment. I hope the problem with the hosting is temporary because I
+> have several non-trivial patches there.
+>
+> --Berker
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20190426/134f35ea/attachment-0001.html>
+
+From berker.peksag at gmail.com  Fri Apr 26 16:48:46 2019
+From: berker.peksag at gmail.com (=?UTF-8?Q?Berker_Peksa=C4=9F?=)
+Date: Fri, 26 Apr 2019 23:48:46 +0300
+Subject: [python-committers] Steering Council Update for April 2019
+In-Reply-To: <60F90935-FF93-479E-A655-E8DC912517A6@python.org>
+References: <CAP7+vJKkjy9MKzDnvpEEv-qLrWFjzvShc0G1WLJC6rXY41PW7w@mail.gmail.com>
+ <CAF4280JRewaJV25+CwOozAN4nbEcW2r+sYimajzs4jWRSO-5BA@mail.gmail.com>
+ <60F90935-FF93-479E-A655-E8DC912517A6@python.org>
+Message-ID: <CAF4280K0oVGnO8ZT5H6BW602fMwrXA5-nz0N9xFj3OqCnMLLuw@mail.gmail.com>
+
+On Fri, Apr 26, 2019 at 9:50 PM Barry Warsaw <barry at python.org> wrote:
+> It would be very helpful if you could add these comments to the PR.
+
+Sure, I just left a comment there.
+
+> And as a fan of Roundup and its critical importance to the Python development process, I want to personally thank you for all your ?and everyone who has contributed to it over the years? hard work in maintaining it.
+
+Thank you! :)
+
+--Berker
+

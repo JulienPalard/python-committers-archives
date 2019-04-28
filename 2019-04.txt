@@ -1667,3 +1667,125 @@ Thank you! :)
 
 --Berker
 
+From ezio.melotti at gmail.com  Fri Apr 26 23:46:19 2019
+From: ezio.melotti at gmail.com (Ezio Melotti)
+Date: Sat, 27 Apr 2019 05:46:19 +0200
+Subject: [python-committers] Steering Council Update for April 2019
+In-Reply-To: <CAF4280JRewaJV25+CwOozAN4nbEcW2r+sYimajzs4jWRSO-5BA@mail.gmail.com>
+References: <CAP7+vJKkjy9MKzDnvpEEv-qLrWFjzvShc0G1WLJC6rXY41PW7w@mail.gmail.com>
+ <CAF4280JRewaJV25+CwOozAN4nbEcW2r+sYimajzs4jWRSO-5BA@mail.gmail.com>
+Message-ID: <CACBhJdHvt9hOJrfq5oXp=zN8Q5PL57NUK-Smq5hh+t21LA0GkQ@mail.gmail.com>
+
+On Fri, Apr 26, 2019 at 7:18 PM Berker Peksa? <berker.peksag at gmail.com> wrote:
+>
+> On Fri, Apr 26, 2019 at 5:55 PM Guido van Rossum <guido at python.org> wrote:
+> > - **Issue tracker:** We've discussed PEP 581, "Using GitHub Issues for
+> >   CPython" by Mariatta Wijaya.  We're in favor of this move, and feel
+> >   that the transition should be professionally planned and executed.
+> >   In collaboration with the PSF we're exploring ideas on how to do
+> >   that (using the successful roll-out of the new Warehouse
+> >   infrastructure for PyPI as a model).
+>
+> I don't think there was a consensus on switching to GitHub Issues last
+> time it was discussed. The most recent discussion about PEP 581 only
+> has 12 messages. I think the council is making a premature decision
+> here.
+>
+
+Recently Ernest migrated the tracker on a new machine, and he has been
+working on setting up a new test tracker.
+On the Roundup side, they have been working on porting Roundup to
+Python 3 and integrating the REST API we developed a few years ago
+with a GSoC student.
+I also submitted another GSoC proposal for this year with the goal of
+updating Roundup on b.p.o and writing tools that take advantage of the
+REST API (http://python-gsoc.org/psf_ideas.html).
+I was planning to write to python-committers and ask what features do
+we want to develop first, but I was already coordinating between
+Ernest, the Roundup folks, and GSoC admin/students so I was waiting to
+make sure things were viable before involving python-committers.  On
+May 9 we will know for sure if we got a student, but things are
+currently looking good.
+
+I'm also aware of PEP 581 and the fact that we might eventually decide
+to abandon Roundup, however this work will still benefit Roundup and
+its users regardless of what we end up doing -- that's why I went
+ahead and submitted the proposal without discussing it with
+python-committers first.
+
+> I'm strongly against using GitHub Issues. I will change my mind once I
+> see a sign that GitHub is actually listening to our feedback. We can't
+> even get them to make the use of #NNNN and GH-NNNN in the commit title
+> configurable (https://github.com/maintainers/early-access-feedback/issues/77)
+> and have the ability to automatically strip intermediate commit
+> messages from the commit message body
+> (https://github.com/maintainers/early-access-feedback/issues/153) The
+> only time I got a response from them was this:
+> https://github.com/python/miss-islington/issues/16#issuecomment-396095622
+>
+> I volunteered to maintain our Roundup instance a while ago and already
+> fixed some bugs: https://hg.python.org/tracker/python-dev/ I've also
+> submit patches to improve UX and fix issues. I'd list list them here
+> but I can't reach out to http://psf.upfronthosting.co.za/roundup/ at
+> the moment. I hope the problem with the hosting is temporary because I
+> have several non-trivial patches there.
+>
+
+The meta tracker at upfronthosting is gone for good, but nothing is
+lost, we have backups and can retrieve the patches if we need them.
+
+Best Regards,
+Ezio Melotti
+
+> --Berker
+
+From vstinner at redhat.com  Sat Apr 27 09:55:27 2019
+From: vstinner at redhat.com (Victor Stinner)
+Date: Sat, 27 Apr 2019 15:55:27 +0200
+Subject: [python-committers] Steering Council Update for April 2019
+In-Reply-To: <CACBhJdHvt9hOJrfq5oXp=zN8Q5PL57NUK-Smq5hh+t21LA0GkQ@mail.gmail.com>
+References: <CAP7+vJKkjy9MKzDnvpEEv-qLrWFjzvShc0G1WLJC6rXY41PW7w@mail.gmail.com>
+ <CAF4280JRewaJV25+CwOozAN4nbEcW2r+sYimajzs4jWRSO-5BA@mail.gmail.com>
+ <CACBhJdHvt9hOJrfq5oXp=zN8Q5PL57NUK-Smq5hh+t21LA0GkQ@mail.gmail.com>
+Message-ID: <CA+3bQGFuHu0O-wZ_bV4gYxFQUSLYOF2O-_4erdwc9tpxd0bnXw@mail.gmail.com>
+
+Would it be possible to discuss these PEPs on python-dev? Or is it a
+deliberate choice to not let non core dev to be involved in the discussion?
+
+Victor
+
+-- 
+Night gathers, and now my watch begins. It shall not end until my death.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20190427/eabeff9e/attachment.html>
+
+From guido at python.org  Sat Apr 27 16:45:01 2019
+From: guido at python.org (Guido van Rossum)
+Date: Sat, 27 Apr 2019 13:45:01 -0700
+Subject: [python-committers] Steering Council Update for April 2019
+In-Reply-To: <CA+3bQGFuHu0O-wZ_bV4gYxFQUSLYOF2O-_4erdwc9tpxd0bnXw@mail.gmail.com>
+References: <CAP7+vJKkjy9MKzDnvpEEv-qLrWFjzvShc0G1WLJC6rXY41PW7w@mail.gmail.com>
+ <CAF4280JRewaJV25+CwOozAN4nbEcW2r+sYimajzs4jWRSO-5BA@mail.gmail.com>
+ <CACBhJdHvt9hOJrfq5oXp=zN8Q5PL57NUK-Smq5hh+t21LA0GkQ@mail.gmail.com>
+ <CA+3bQGFuHu0O-wZ_bV4gYxFQUSLYOF2O-_4erdwc9tpxd0bnXw@mail.gmail.com>
+Message-ID: <CAP7+vJKOXOrvr9L=nf9czHFTAF8VAtJNbotJjoXjJLQ0F7anGA@mail.gmail.com>
+
+On Sat, Apr 27, 2019 at 11:10 AM Victor Stinner <vstinner at redhat.com> wrote:
+
+> Would it be possible to discuss these PEPs on python-dev? Or is it a
+> deliberate choice to not let non core dev to be involved in the discussion?
+>
+
+It was not a deliberate choice by the Steering Council. I remind you that
+this is always going to remain controversial. I have one request: please
+don't start a vote or poll.
+
+-- 
+--Guido van Rossum (python.org/~guido)
+*Pronouns: he/him/his **(why is my pronoun here?)*
+<http://feministing.com/2015/02/03/how-using-they-as-a-singular-pronoun-can-change-the-world/>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20190427/aad85cb3/attachment.html>
+

@@ -189,3 +189,1474 @@ Size: 833 bytes
 Desc: Message signed with OpenPGP
 URL: <http://mail.python.org/pipermail/python-committers/attachments/20190507/048f5414/attachment.sig>
 
+From antoine at python.org  Wed May  8 11:32:13 2019
+From: antoine at python.org (Antoine Pitrou)
+Date: Wed, 8 May 2019 17:32:13 +0200
+Subject: [python-committers] Merge with spurious CI failures?
+Message-ID: <97679bdc-a199-bc1e-2951-7c30fba47803@python.org>
+
+
+Hello,
+
+There are spurious CI failures (SSL certificate issue in test_httplib).
+Therefore the "Squash and merge" button is greyed out.
+
+How should I merge? Using the command-line instructions from Github?
+
+Regards
+
+Antoine.
+
+From larry at hastings.org  Wed May  8 11:36:45 2019
+From: larry at hastings.org (Larry Hastings)
+Date: Wed, 8 May 2019 11:36:45 -0400
+Subject: [python-committers] Farewell, Python 3.4
+Message-ID: <f8034796-9f54-c779-7697-83a86e583a13@hastings.org>
+
+
+It's with a note of sadness that I announce the final retirement of 
+Python 3.4.? The final release was back in March, but I didn't get 
+around to actually closing and deleting the 3.4 branch until this morning.
+
+Python 3.4 introduced many features we all enjoy in modern Python--the 
+asyncio, ensurepip, and enum packages, just to name three.? It's a 
+release I hope we all remember fondly.
+
+My eternal thanks to all the members of the release team that worked on 
+Python 3.4:
+
+    Georg Brandl
+
+    Julien Palard
+
+    Martin von L?wis
+
+    Ned Deily
+
+    Steve Dower
+
+    Terry Reedy
+
+    and all the engineers of the Python infrastructure team.
+
+Special thanks to Benjamin Peterson and Ned Deily, who frequently 
+scurried around behind the scenes cleaning up the messes I cluelessly 
+left in my wake.
+
+Having closed 3.4, I am now retired as Python 3.4 Release Manager.? I 
+regret to inform all of you that you're still stuck with me as Python 
+3.5 Release Manager until sometime next year.
+
+
+My very best wishes,
+
+
+//arry/
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20190508/cc7e10bc/attachment.html>
+
+From alex.gaynor at gmail.com  Wed May  8 11:37:02 2019
+From: alex.gaynor at gmail.com (Alex Gaynor)
+Date: Wed, 8 May 2019 11:37:02 -0400
+Subject: [python-committers] Merge with spurious CI failures?
+In-Reply-To: <97679bdc-a199-bc1e-2951-7c30fba47803@python.org>
+References: <97679bdc-a199-bc1e-2951-7c30fba47803@python.org>
+Message-ID: <CAFRnB2Waaa=6Mo768JokH7Stn0=H1WWNkgcH08sf=cHD2djd3A@mail.gmail.com>
+
+Are these intermittent failures, or is there bustage on master right now?
+
+My usual habit on other projects (I'm not very active on CPython these
+days) is to restart the build on travis so that is a nice green checkmark.
+
+Alex
+
+On Wed, May 8, 2019 at 11:32 AM Antoine Pitrou <antoine at python.org> wrote:
+
+>
+> Hello,
+>
+> There are spurious CI failures (SSL certificate issue in test_httplib).
+> Therefore the "Squash and merge" button is greyed out.
+>
+> How should I merge? Using the command-line instructions from Github?
+>
+> Regards
+>
+> Antoine.
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+
+
+-- 
+All that is necessary for evil to succeed is for good people to do nothing.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20190508/8965b209/attachment.html>
+
+From antoine at python.org  Wed May  8 11:44:02 2019
+From: antoine at python.org (Antoine Pitrou)
+Date: Wed, 8 May 2019 17:44:02 +0200
+Subject: [python-committers] Merge with spurious CI failures?
+In-Reply-To: <CAFRnB2Waaa=6Mo768JokH7Stn0=H1WWNkgcH08sf=cHD2djd3A@mail.gmail.com>
+References: <97679bdc-a199-bc1e-2951-7c30fba47803@python.org>
+ <CAFRnB2Waaa=6Mo768JokH7Stn0=H1WWNkgcH08sf=cHD2djd3A@mail.gmail.com>
+Message-ID: <7244393f-b1db-014c-78f3-ba7dbd00637b@python.org>
+
+
+They're deterministic.  Apparently the test which connects to
+"self-signed.pythontest.net" always fails now with a "self-signed
+certificate" error...
+
+Le 08/05/2019 ? 17:37, Alex Gaynor a ?crit?:
+> Are these intermittent failures, or is there bustage on master right now?
+> 
+> My usual habit on other projects (I'm not very active on CPython these
+> days) is to restart the build on travis so that is a nice green checkmark.
+> 
+> Alex
+> 
+> On Wed, May 8, 2019 at 11:32 AM Antoine Pitrou <antoine at python.org
+> <mailto:antoine at python.org>> wrote:
+> 
+> 
+>     Hello,
+> 
+>     There are spurious CI failures (SSL certificate issue in test_httplib).
+>     Therefore the "Squash and merge" button is greyed out.
+> 
+>     How should I merge? Using the command-line instructions from Github?
+> 
+>     Regards
+> 
+>     Antoine.
+>     _______________________________________________
+>     python-committers mailing list
+>     python-committers at python.org <mailto:python-committers at python.org>
+>     https://mail.python.org/mailman/listinfo/python-committers
+>     Code of Conduct: https://www.python.org/psf/codeofconduct/
+> 
+> 
+> 
+> -- 
+> All that is necessary for evil to succeed is for good people to do nothing.
+
+From alex.gaynor at gmail.com  Wed May  8 11:45:46 2019
+From: alex.gaynor at gmail.com (Alex Gaynor)
+Date: Wed, 8 May 2019 11:45:46 -0400
+Subject: [python-committers] Merge with spurious CI failures?
+In-Reply-To: <7244393f-b1db-014c-78f3-ba7dbd00637b@python.org>
+References: <97679bdc-a199-bc1e-2951-7c30fba47803@python.org>
+ <CAFRnB2Waaa=6Mo768JokH7Stn0=H1WWNkgcH08sf=cHD2djd3A@mail.gmail.com>
+ <7244393f-b1db-014c-78f3-ba7dbd00637b@python.org>
+Message-ID: <CAFRnB2XZYKJjsnZoM5icyrRds-1dsski0B2FSsGcdRdgBBz9JQ@mail.gmail.com>
+
+I don't know if CPython has a specific policy about this -- other projects
+I work on generally have a "we need to get master's tests passing again
+before anything can merge" policy.
+
+Alex
+
+On Wed, May 8, 2019 at 11:44 AM Antoine Pitrou <antoine at python.org> wrote:
+
+>
+> They're deterministic.  Apparently the test which connects to
+> "self-signed.pythontest.net" always fails now with a "self-signed
+> certificate" error...
+>
+> Le 08/05/2019 ? 17:37, Alex Gaynor a ?crit :
+> > Are these intermittent failures, or is there bustage on master right now?
+> >
+> > My usual habit on other projects (I'm not very active on CPython these
+> > days) is to restart the build on travis so that is a nice green
+> checkmark.
+> >
+> > Alex
+> >
+> > On Wed, May 8, 2019 at 11:32 AM Antoine Pitrou <antoine at python.org
+> > <mailto:antoine at python.org>> wrote:
+> >
+> >
+> >     Hello,
+> >
+> >     There are spurious CI failures (SSL certificate issue in
+> test_httplib).
+> >     Therefore the "Squash and merge" button is greyed out.
+> >
+> >     How should I merge? Using the command-line instructions from Github?
+> >
+> >     Regards
+> >
+> >     Antoine.
+> >     _______________________________________________
+> >     python-committers mailing list
+> >     python-committers at python.org <mailto:python-committers at python.org>
+> >     https://mail.python.org/mailman/listinfo/python-committers
+> >     Code of Conduct: https://www.python.org/psf/codeofconduct/
+> >
+> >
+> >
+> > --
+> > All that is necessary for evil to succeed is for good people to do
+> nothing.
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+
+
+-- 
+All that is necessary for evil to succeed is for good people to do nothing.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20190508/40cfab99/attachment.html>
+
+From mal at egenix.com  Wed May  8 11:46:05 2019
+From: mal at egenix.com (M.-A. Lemburg)
+Date: Wed, 8 May 2019 17:46:05 +0200
+Subject: [python-committers] [Python-Dev] Farewell, Python 3.4
+In-Reply-To: <f8034796-9f54-c779-7697-83a86e583a13@hastings.org>
+References: <f8034796-9f54-c779-7697-83a86e583a13@hastings.org>
+Message-ID: <efb89d1b-47a2-8ca2-49b8-241be2231453@egenix.com>
+
+Thank you for having been 3.4 release manager, Larry !
+
+On 08.05.2019 17:36, Larry Hastings wrote:
+> 
+> It's with a note of sadness that I announce the final retirement of
+> Python 3.4.? The final release was back in March, but I didn't get
+> around to actually closing and deleting the 3.4 branch until this morning.
+> 
+> Python 3.4 introduced many features we all enjoy in modern Python--the
+> asyncio, ensurepip, and enum packages, just to name three.? It's a
+> release I hope we all remember fondly.
+> 
+> My eternal thanks to all the members of the release team that worked on
+> Python 3.4:
+> 
+>     Georg Brandl
+> 
+>     Julien Palard
+> 
+>     Martin von L?wis
+> 
+>     Ned Deily
+> 
+>     Steve Dower
+> 
+>     Terry Reedy
+> 
+>     and all the engineers of the Python infrastructure team.
+> 
+> Special thanks to Benjamin Peterson and Ned Deily, who frequently
+> scurried around behind the scenes cleaning up the messes I cluelessly
+> left in my wake.
+> 
+> Having closed 3.4, I am now retired as Python 3.4 Release Manager.? I
+> regret to inform all of you that you're still stuck with me as Python
+> 3.5 Release Manager until sometime next year.
+> 
+> 
+> My very best wishes,
+> 
+> 
+> //arry/
+> 
+> 
+> 
+> _______________________________________________
+> Python-Dev mailing list
+> Python-Dev at python.org
+> https://mail.python.org/mailman/listinfo/python-dev
+> Unsubscribe: https://mail.python.org/mailman/options/python-dev/mal%40egenix.com
+> 
+
+-- 
+Marc-Andre Lemburg
+eGenix.com
+
+Professional Python Services directly from the Experts (#1, May 08 2019)
+>>> Python Projects, Coaching and Consulting ...  http://www.egenix.com/
+>>> Python Database Interfaces ...           http://products.egenix.com/
+>>> Plone/Zope Database Interfaces ...           http://zope.egenix.com/
+________________________________________________________________________
+
+::: We implement business ideas - efficiently in both time and costs :::
+
+   eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+    D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+           Registered at Amtsgericht Duesseldorf: HRB 46611
+               http://www.egenix.com/company/contact/
+                      http://www.malemburg.com/
+
+
+From mariatta at python.org  Wed May  8 11:49:47 2019
+From: mariatta at python.org (Mariatta)
+Date: Wed, 8 May 2019 08:49:47 -0700
+Subject: [python-committers] Merge with spurious CI failures?
+In-Reply-To: <97679bdc-a199-bc1e-2951-7c30fba47803@python.org>
+References: <97679bdc-a199-bc1e-2951-7c30fba47803@python.org>
+Message-ID: <CAGbohnaYQof_RmAMAM3O9uUfxaWxQVeKS3==BKwot_ZcRcCfbA@mail.gmail.com>
+
+If you can't merge from GitHub UI then you won't be able to do it from
+GitHub command line (it respects the same branch protection policy)
+
+I don't think we should merge if tests are still failing. Perhaps the test
+should be adjusted to handle this spurious errors? Can it be marked as
+"allowed failure" or something like that?
+
+
+On Wed, May 8, 2019, 8:32 AM Antoine Pitrou <antoine at python.org> wrote:
+
+>
+> Hello,
+>
+> There are spurious CI failures (SSL certificate issue in test_httplib).
+> Therefore the "Squash and merge" button is greyed out.
+>
+> How should I merge? Using the command-line instructions from Github?
+>
+> Regards
+>
+> Antoine.
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20190508/cf6195b4/attachment.html>
+
+From eric at trueblade.com  Wed May  8 11:51:13 2019
+From: eric at trueblade.com (Eric V. Smith)
+Date: Wed, 8 May 2019 11:51:13 -0400
+Subject: [python-committers] Merge with spurious CI failures?
+In-Reply-To: <CAGbohnaYQof_RmAMAM3O9uUfxaWxQVeKS3==BKwot_ZcRcCfbA@mail.gmail.com>
+References: <97679bdc-a199-bc1e-2951-7c30fba47803@python.org>
+ <CAGbohnaYQof_RmAMAM3O9uUfxaWxQVeKS3==BKwot_ZcRcCfbA@mail.gmail.com>
+Message-ID: <495F990B-14E6-49FC-9C6A-1B72CD3F8684@trueblade.com>
+
+Surely there must be some way around it. After all, how would you merge a PR to fix this test?
+
+--
+Eric V. Smith
+True Blade Systems, Inc
+(301) 859-4544
+
+> On May 8, 2019, at 11:49 AM, Mariatta <mariatta at python.org> wrote:
+> 
+> If you can't merge from GitHub UI then you won't be able to do it from GitHub command line (it respects the same branch protection policy)
+> 
+> I don't think we should merge if tests are still failing. Perhaps the test should be adjusted to handle this spurious errors? Can it be marked as "allowed failure" or something like that?
+> 
+> 
+>> On Wed, May 8, 2019, 8:32 AM Antoine Pitrou <antoine at python.org> wrote:
+>> 
+>> Hello,
+>> 
+>> There are spurious CI failures (SSL certificate issue in test_httplib).
+>> Therefore the "Squash and merge" button is greyed out.
+>> 
+>> How should I merge? Using the command-line instructions from Github?
+>> 
+>> Regards
+>> 
+>> Antoine.
+>> _______________________________________________
+>> python-committers mailing list
+>> python-committers at python.org
+>> https://mail.python.org/mailman/listinfo/python-committers
+>> Code of Conduct: https://www.python.org/psf/codeofconduct/
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20190508/dfd47daf/attachment-0001.html>
+
+From alex.gaynor at gmail.com  Wed May  8 11:52:00 2019
+From: alex.gaynor at gmail.com (Alex Gaynor)
+Date: Wed, 8 May 2019 11:52:00 -0400
+Subject: [python-committers] Merge with spurious CI failures?
+In-Reply-To: <495F990B-14E6-49FC-9C6A-1B72CD3F8684@trueblade.com>
+References: <97679bdc-a199-bc1e-2951-7c30fba47803@python.org>
+ <CAGbohnaYQof_RmAMAM3O9uUfxaWxQVeKS3==BKwot_ZcRcCfbA@mail.gmail.com>
+ <495F990B-14E6-49FC-9C6A-1B72CD3F8684@trueblade.com>
+Message-ID: <CAFRnB2WoRPKOXC4iNryQY5Qeogu0KbcvQmCj=2tvAfkGPotpnA@mail.gmail.com>
+
+Tests for that PR would presumably be green :-)
+
+Alex
+
+On Wed, May 8, 2019 at 11:51 AM Eric V. Smith <eric at trueblade.com> wrote:
+
+> Surely there must be some way around it. After all, how would you merge a
+> PR to fix this test?
+>
+> --
+> Eric V. Smith
+> True Blade Systems, Inc
+> (301) 859-4544
+>
+> On May 8, 2019, at 11:49 AM, Mariatta <mariatta at python.org> wrote:
+>
+> If you can't merge from GitHub UI then you won't be able to do it from
+> GitHub command line (it respects the same branch protection policy)
+>
+> I don't think we should merge if tests are still failing. Perhaps the test
+> should be adjusted to handle this spurious errors? Can it be marked as
+> "allowed failure" or something like that?
+>
+>
+> On Wed, May 8, 2019, 8:32 AM Antoine Pitrou <antoine at python.org> wrote:
+>
+>>
+>> Hello,
+>>
+>> There are spurious CI failures (SSL certificate issue in test_httplib).
+>> Therefore the "Squash and merge" button is greyed out.
+>>
+>> How should I merge? Using the command-line instructions from Github?
+>>
+>> Regards
+>>
+>> Antoine.
+>> _______________________________________________
+>> python-committers mailing list
+>> python-committers at python.org
+>> https://mail.python.org/mailman/listinfo/python-committers
+>> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+
+
+-- 
+All that is necessary for evil to succeed is for good people to do nothing.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20190508/989bccc7/attachment.html>
+
+From eric at trueblade.com  Wed May  8 11:54:06 2019
+From: eric at trueblade.com (Eric V. Smith)
+Date: Wed, 8 May 2019 11:54:06 -0400
+Subject: [python-committers] Merge with spurious CI failures?
+In-Reply-To: <CAFRnB2WoRPKOXC4iNryQY5Qeogu0KbcvQmCj=2tvAfkGPotpnA@mail.gmail.com>
+References: <97679bdc-a199-bc1e-2951-7c30fba47803@python.org>
+ <CAGbohnaYQof_RmAMAM3O9uUfxaWxQVeKS3==BKwot_ZcRcCfbA@mail.gmail.com>
+ <495F990B-14E6-49FC-9C6A-1B72CD3F8684@trueblade.com>
+ <CAFRnB2WoRPKOXC4iNryQY5Qeogu0KbcvQmCj=2tvAfkGPotpnA@mail.gmail.com>
+Message-ID: <12B09861-7FC2-4412-81E8-73BC7191F25A@trueblade.com>
+
+D?oh! Good point!
+
+Eric
+
+> On May 8, 2019, at 11:52 AM, Alex Gaynor <alex.gaynor at gmail.com> wrote:
+> 
+> Tests for that PR would presumably be green :-)
+> 
+> Alex
+> 
+>> On Wed, May 8, 2019 at 11:51 AM Eric V. Smith <eric at trueblade.com> wrote:
+>> Surely there must be some way around it. After all, how would you merge a PR to fix this test?
+>> 
+>> --
+>> Eric V. Smith
+>> True Blade Systems, Inc
+>> (301) 859-4544
+>> 
+>>> On May 8, 2019, at 11:49 AM, Mariatta <mariatta at python.org> wrote:
+>>> 
+>>> If you can't merge from GitHub UI then you won't be able to do it from GitHub command line (it respects the same branch protection policy)
+>>> 
+>>> I don't think we should merge if tests are still failing. Perhaps the test should be adjusted to handle this spurious errors? Can it be marked as "allowed failure" or something like that?
+>>> 
+>>> 
+>>>> On Wed, May 8, 2019, 8:32 AM Antoine Pitrou <antoine at python.org> wrote:
+>>>> 
+>>>> Hello,
+>>>> 
+>>>> There are spurious CI failures (SSL certificate issue in test_httplib).
+>>>> Therefore the "Squash and merge" button is greyed out.
+>>>> 
+>>>> How should I merge? Using the command-line instructions from Github?
+>>>> 
+>>>> Regards
+>>>> 
+>>>> Antoine.
+>>>> _______________________________________________
+>>>> python-committers mailing list
+>>>> python-committers at python.org
+>>>> https://mail.python.org/mailman/listinfo/python-committers
+>>>> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>>> _______________________________________________
+>>> python-committers mailing list
+>>> python-committers at python.org
+>>> https://mail.python.org/mailman/listinfo/python-committers
+>>> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>> _______________________________________________
+>> python-committers mailing list
+>> python-committers at python.org
+>> https://mail.python.org/mailman/listinfo/python-committers
+>> Code of Conduct: https://www.python.org/psf/codeofconduct/
+> 
+> 
+> -- 
+> All that is necessary for evil to succeed is for good people to do nothing.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20190508/500f2981/attachment.html>
+
+From antoine at python.org  Wed May  8 11:58:37 2019
+From: antoine at python.org (Antoine Pitrou)
+Date: Wed, 8 May 2019 17:58:37 +0200
+Subject: [python-committers] Merge with spurious CI failures?
+In-Reply-To: <CAGbohnaYQof_RmAMAM3O9uUfxaWxQVeKS3==BKwot_ZcRcCfbA@mail.gmail.com>
+References: <97679bdc-a199-bc1e-2951-7c30fba47803@python.org>
+ <CAGbohnaYQof_RmAMAM3O9uUfxaWxQVeKS3==BKwot_ZcRcCfbA@mail.gmail.com>
+Message-ID: <9283dcda-b847-2eda-a79a-c6ffa02d03d9@python.org>
+
+
+Ok, apparently the SSL cert on self-signed.pythontest.net was changed
+but it wasn't updated in our source tree, hence the failure.
+
+Regards
+
+Antoine.
+
+
+Le 08/05/2019 ? 17:49, Mariatta a ?crit?:
+> If you can't merge from GitHub UI then you won't be able to do it from
+> GitHub command line (it respects the same branch protection policy)
+> 
+> I don't think we should merge if tests are still failing. Perhaps the
+> test should be adjusted to handle this spurious errors? Can it be marked
+> as "allowed failure" or something like that?
+> 
+> 
+> On Wed, May 8, 2019, 8:32 AM Antoine Pitrou <antoine at python.org
+> <mailto:antoine at python.org>> wrote:
+> 
+> 
+>     Hello,
+> 
+>     There are spurious CI failures (SSL certificate issue in test_httplib).
+>     Therefore the "Squash and merge" button is greyed out.
+> 
+>     How should I merge? Using the command-line instructions from Github?
+> 
+>     Regards
+> 
+>     Antoine.
+>     _______________________________________________
+>     python-committers mailing list
+>     python-committers at python.org <mailto:python-committers at python.org>
+>     https://mail.python.org/mailman/listinfo/python-committers
+>     Code of Conduct: https://www.python.org/psf/codeofconduct/
+> 
+
+From alex.gaynor at gmail.com  Wed May  8 12:00:22 2019
+From: alex.gaynor at gmail.com (Alex Gaynor)
+Date: Wed, 8 May 2019 12:00:22 -0400
+Subject: [python-committers] Merge with spurious CI failures?
+In-Reply-To: <9283dcda-b847-2eda-a79a-c6ffa02d03d9@python.org>
+References: <97679bdc-a199-bc1e-2951-7c30fba47803@python.org>
+ <CAGbohnaYQof_RmAMAM3O9uUfxaWxQVeKS3==BKwot_ZcRcCfbA@mail.gmail.com>
+ <9283dcda-b847-2eda-a79a-c6ffa02d03d9@python.org>
+Message-ID: <CAFRnB2W-bvXDx530NrNqMnUs08x_8pQaXbwkrDx9tLMy2i2Xiw@mail.gmail.com>
+
+https://github.com/python/cpython/pull/13192
+
+Thanks gps!
+
+Alex
+
+On Wed, May 8, 2019 at 11:58 AM Antoine Pitrou <antoine at python.org> wrote:
+
+>
+> Ok, apparently the SSL cert on self-signed.pythontest.net was changed
+> but it wasn't updated in our source tree, hence the failure.
+>
+> Regards
+>
+> Antoine.
+>
+>
+> Le 08/05/2019 ? 17:49, Mariatta a ?crit :
+> > If you can't merge from GitHub UI then you won't be able to do it from
+> > GitHub command line (it respects the same branch protection policy)
+> >
+> > I don't think we should merge if tests are still failing. Perhaps the
+> > test should be adjusted to handle this spurious errors? Can it be marked
+> > as "allowed failure" or something like that?
+> >
+> >
+> > On Wed, May 8, 2019, 8:32 AM Antoine Pitrou <antoine at python.org
+> > <mailto:antoine at python.org>> wrote:
+> >
+> >
+> >     Hello,
+> >
+> >     There are spurious CI failures (SSL certificate issue in
+> test_httplib).
+> >     Therefore the "Squash and merge" button is greyed out.
+> >
+> >     How should I merge? Using the command-line instructions from Github?
+> >
+> >     Regards
+> >
+> >     Antoine.
+> >     _______________________________________________
+> >     python-committers mailing list
+> >     python-committers at python.org <mailto:python-committers at python.org>
+> >     https://mail.python.org/mailman/listinfo/python-committers
+> >     Code of Conduct: https://www.python.org/psf/codeofconduct/
+> >
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+
+
+-- 
+All that is necessary for evil to succeed is for good people to do nothing.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20190508/668c7ae7/attachment.html>
+
+From antoine at python.org  Wed May  8 12:00:51 2019
+From: antoine at python.org (Antoine Pitrou)
+Date: Wed, 8 May 2019 18:00:51 +0200
+Subject: [python-committers] Merge with spurious CI failures?
+In-Reply-To: <9283dcda-b847-2eda-a79a-c6ffa02d03d9@python.org>
+References: <97679bdc-a199-bc1e-2951-7c30fba47803@python.org>
+ <CAGbohnaYQof_RmAMAM3O9uUfxaWxQVeKS3==BKwot_ZcRcCfbA@mail.gmail.com>
+ <9283dcda-b847-2eda-a79a-c6ffa02d03d9@python.org>
+Message-ID: <446fdea8-bc33-c698-e840-7f6831b60378@python.org>
+
+
+Ah, there's already a PR at
+https://github.com/python/cpython/pull/13192, thanks to Gregory.
+
+Regards
+
+Antoine.
+
+
+Le 08/05/2019 ? 17:58, Antoine Pitrou a ?crit?:
+> 
+> Ok, apparently the SSL cert on self-signed.pythontest.net was changed
+> but it wasn't updated in our source tree, hence the failure.
+> 
+> Regards
+> 
+> Antoine.
+> 
+> 
+> Le 08/05/2019 ? 17:49, Mariatta a ?crit?:
+>> If you can't merge from GitHub UI then you won't be able to do it from
+>> GitHub command line (it respects the same branch protection policy)
+>>
+>> I don't think we should merge if tests are still failing. Perhaps the
+>> test should be adjusted to handle this spurious errors? Can it be marked
+>> as "allowed failure" or something like that?
+>>
+>>
+>> On Wed, May 8, 2019, 8:32 AM Antoine Pitrou <antoine at python.org
+>> <mailto:antoine at python.org>> wrote:
+>>
+>>
+>>     Hello,
+>>
+>>     There are spurious CI failures (SSL certificate issue in test_httplib).
+>>     Therefore the "Squash and merge" button is greyed out.
+>>
+>>     How should I merge? Using the command-line instructions from Github?
+>>
+>>     Regards
+>>
+>>     Antoine.
+>>     _______________________________________________
+>>     python-committers mailing list
+>>     python-committers at python.org <mailto:python-committers at python.org>
+>>     https://mail.python.org/mailman/listinfo/python-committers
+>>     Code of Conduct: https://www.python.org/psf/codeofconduct/
+>>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+> 
+
+From greg at krypto.org  Wed May  8 12:04:54 2019
+From: greg at krypto.org (Gregory P. Smith)
+Date: Wed, 8 May 2019 11:04:54 -0500
+Subject: [python-committers] Merge with spurious CI failures?
+In-Reply-To: <9283dcda-b847-2eda-a79a-c6ffa02d03d9@python.org>
+References: <97679bdc-a199-bc1e-2951-7c30fba47803@python.org>
+ <CAGbohnaYQof_RmAMAM3O9uUfxaWxQVeKS3==BKwot_ZcRcCfbA@mail.gmail.com>
+ <9283dcda-b847-2eda-a79a-c6ffa02d03d9@python.org>
+Message-ID: <CAGE7PNKOyBVJYj3mpBK6eFpWDqeAeS03vnVwEwwMi55gTFnncw@mail.gmail.com>
+
+Our pythontestdotnet repo is different than the cpython repo and the
+certificate gets pushed to the server after being committed by hand so it's
+a synchronization problem,.
+
+https://github.com/python/cpython/pull/13192 should clear it up.  It's
+awaiting the slow CI queuing gods.  It is marked automerge, so if a core
+dev could go do a github review and Approve it, it'll go in immediately
+after Travis and AppVeyor come back green.
+
+-gps
+
+On Wed, May 8, 2019 at 10:58 AM Antoine Pitrou <antoine at python.org> wrote:
+
+>
+> Ok, apparently the SSL cert on self-signed.pythontest.net was changed
+> but it wasn't updated in our source tree, hence the failure.
+>
+> Regards
+>
+> Antoine.
+>
+>
+> Le 08/05/2019 ? 17:49, Mariatta a ?crit :
+> > If you can't merge from GitHub UI then you won't be able to do it from
+> > GitHub command line (it respects the same branch protection policy)
+> >
+> > I don't think we should merge if tests are still failing. Perhaps the
+> > test should be adjusted to handle this spurious errors? Can it be marked
+> > as "allowed failure" or something like that?
+> >
+> >
+> > On Wed, May 8, 2019, 8:32 AM Antoine Pitrou <antoine at python.org
+> > <mailto:antoine at python.org>> wrote:
+> >
+> >
+> >     Hello,
+> >
+> >     There are spurious CI failures (SSL certificate issue in
+> test_httplib).
+> >     Therefore the "Squash and merge" button is greyed out.
+> >
+> >     How should I merge? Using the command-line instructions from Github?
+> >
+> >     Regards
+> >
+> >     Antoine.
+> >     _______________________________________________
+> >     python-committers mailing list
+> >     python-committers at python.org <mailto:python-committers at python.org>
+> >     https://mail.python.org/mailman/listinfo/python-committers
+> >     Code of Conduct: https://www.python.org/psf/codeofconduct/
+> >
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20190508/1c192866/attachment-0001.html>
+
+From greg at krypto.org  Wed May  8 12:15:05 2019
+From: greg at krypto.org (Gregory P. Smith)
+Date: Wed, 8 May 2019 11:15:05 -0500
+Subject: [python-committers] Merge with spurious CI failures?
+In-Reply-To: <446fdea8-bc33-c698-e840-7f6831b60378@python.org>
+References: <97679bdc-a199-bc1e-2951-7c30fba47803@python.org>
+ <CAGbohnaYQof_RmAMAM3O9uUfxaWxQVeKS3==BKwot_ZcRcCfbA@mail.gmail.com>
+ <9283dcda-b847-2eda-a79a-c6ffa02d03d9@python.org>
+ <446fdea8-bc33-c698-e840-7f6831b60378@python.org>
+Message-ID: <CAGE7PNJoD9USPnQMucLo8pQApVBQQ9jVZfDSEP5Rdsds_3UMbg@mail.gmail.com>
+
+If this cert change is impacting CI checks for everyone's PRs, I suspect
+all PRs will need to merge this change into their branch before they can
+pass CI.
+
+Having CI depend on external network resources does not seem like a good
+idea.
+
+-gps
+
+On Wed, May 8, 2019 at 11:04 AM Antoine Pitrou <antoine at python.org> wrote:
+
+>
+> Ah, there's already a PR at
+> https://github.com/python/cpython/pull/13192, thanks to Gregory.
+>
+> Regards
+>
+> Antoine.
+>
+>
+> Le 08/05/2019 ? 17:58, Antoine Pitrou a ?crit :
+> >
+> > Ok, apparently the SSL cert on self-signed.pythontest.net was changed
+> > but it wasn't updated in our source tree, hence the failure.
+> >
+> > Regards
+> >
+> > Antoine.
+> >
+> >
+> > Le 08/05/2019 ? 17:49, Mariatta a ?crit :
+> >> If you can't merge from GitHub UI then you won't be able to do it from
+> >> GitHub command line (it respects the same branch protection policy)
+> >>
+> >> I don't think we should merge if tests are still failing. Perhaps the
+> >> test should be adjusted to handle this spurious errors? Can it be marked
+> >> as "allowed failure" or something like that?
+> >>
+> >>
+> >> On Wed, May 8, 2019, 8:32 AM Antoine Pitrou <antoine at python.org
+> >> <mailto:antoine at python.org>> wrote:
+> >>
+> >>
+> >>     Hello,
+> >>
+> >>     There are spurious CI failures (SSL certificate issue in
+> test_httplib).
+> >>     Therefore the "Squash and merge" button is greyed out.
+> >>
+> >>     How should I merge? Using the command-line instructions from Github?
+> >>
+> >>     Regards
+> >>
+> >>     Antoine.
+> >>     _______________________________________________
+> >>     python-committers mailing list
+> >>     python-committers at python.org <mailto:python-committers at python.org>
+> >>     https://mail.python.org/mailman/listinfo/python-committers
+> >>     Code of Conduct: https://www.python.org/psf/codeofconduct/
+> >>
+> > _______________________________________________
+> > python-committers mailing list
+> > python-committers at python.org
+> > https://mail.python.org/mailman/listinfo/python-committers
+> > Code of Conduct: https://www.python.org/psf/codeofconduct/
+> >
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20190508/5e93b8de/attachment.html>
+
+From greg at krypto.org  Wed May  8 12:44:00 2019
+From: greg at krypto.org (Gregory P. Smith)
+Date: Wed, 8 May 2019 11:44:00 -0500
+Subject: [python-committers] miss-islington backport pipeline is stalled?
+Message-ID: <CAGE7PNK8T=BCZa7iEDx+eDrEh8w+_4hgD6U96RqjRkP7BaAcsg@mail.gmail.com>
+
+Yesterday it failed to produce a backport or tell me that it couldn't
+(after the "i'm now working on ..." message was left on the master PR).  I
+waited a couple hours just in case and ran cherry_picker myself instead.
+Same thing today apparently on
+https://github.com/python/cpython/pull/13192 assuming
+the usual backport latency is no more than a minute or two.
+
+-gps
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20190508/f39bd053/attachment.html>
+
+From mariatta at python.org  Wed May  8 13:02:37 2019
+From: mariatta at python.org (Mariatta)
+Date: Wed, 8 May 2019 10:02:37 -0700
+Subject: [python-committers] miss-islington backport pipeline is stalled?
+In-Reply-To: <CAGE7PNK8T=BCZa7iEDx+eDrEh8w+_4hgD6U96RqjRkP7BaAcsg@mail.gmail.com>
+References: <CAGE7PNK8T=BCZa7iEDx+eDrEh8w+_4hgD6U96RqjRkP7BaAcsg@mail.gmail.com>
+Message-ID: <CAGbohnZRxXqdLU1Cn7RrTNym1Z5-K1xt+XKPDcC-auzDR2J2_g@mail.gmail.com>
+
+There was an error from Redis. I think this is the first time I've seen it,
+so I don't have any resolution on how to fix it right now.  ?
+I will look into handling the error and have miss-islington leave a comment
+in the PR when there is such error.
+
+log:
+
+at=info method=POST path="/" host=miss-islington.herokuapp.com
+request_id=8de611a2-6112-4039-a425-97850ac989b0 fwd="140.82.115.15"
+dyno=web.1 connect=1ms service=1005ms status=200 bytes=168
+protocol=https
+May 08 09:35:15 miss-islington app/web.1: Traceback (most recent call last):
+May 08 09:35:15 miss-islington app/web.1:   File
+"/app/.heroku/python/lib/python3.6/site-packages/redis/connection.py",
+line 600, in send_packed_command
+May 08 09:35:15 miss-islington app/web.1:     self._sock.sendall(item)
+May 08 09:35:15 miss-islington app/web.1: TimeoutError: [Errno 110]
+Connection timed out
+May 08 09:35:15 miss-islington app/web.1: During handling of the above
+exception, another exception occurred:
+May 08 09:35:15 miss-islington app/web.1: Traceback (most recent call last):
+May 08 09:35:15 miss-islington app/web.1:   File
+"/app/.heroku/python/lib/python3.6/site-packages/kombu/connection.py",
+line 431, in _reraise_as_library_errors
+May 08 09:35:15 miss-islington app/web.1:     yield
+May 08 09:35:15 miss-islington app/web.1:   File
+"/app/.heroku/python/lib/python3.6/site-packages/celery/app/base.py",
+line 744, in send_task
+May 08 09:35:15 miss-islington app/web.1:
+self.backend.on_task_call(P, task_id)
+May 08 09:35:15 miss-islington app/web.1:   File
+"/app/.heroku/python/lib/python3.6/site-packages/celery/backends/redis.py",
+line 265, in on_task_call
+May 08 09:35:15 miss-islington app/web.1:
+self.result_consumer.consume_from(task_id)
+May 08 09:35:15 miss-islington app/web.1:   File
+"/app/.heroku/python/lib/python3.6/site-packages/celery/backends/redis.py",
+line 126, in consume_from
+May 08 09:35:15 miss-islington app/web.1:     self._consume_from(task_id)
+May 08 09:35:15 miss-islington app/web.1:   File
+"/app/.heroku/python/lib/python3.6/site-packages/celery/backends/redis.py",
+line 132, in _consume_from
+May 08 09:35:15 miss-islington app/web.1:     self._pubsub.subscribe(key)
+May 08 09:35:15 miss-islington app/web.1:   File
+"/app/.heroku/python/lib/python3.6/site-packages/redis/client.py",
+line 3096, in subscribe
+May 08 09:35:15 miss-islington app/web.1:     ret_val =
+self.execute_command('SUBSCRIBE', *iterkeys(new_channels))
+May 08 09:35:15 miss-islington app/web.1:   File
+"/app/.heroku/python/lib/python3.6/site-packages/redis/client.py",
+line 3009, in execute_command
+May 08 09:35:15 miss-islington app/web.1:
+self._execute(connection, connection.send_command, *args)
+May 08 09:35:15 miss-islington app/web.1:   File
+"/app/.heroku/python/lib/python3.6/site-packages/redis/client.py",
+line 3013, in _execute
+May 08 09:35:15 miss-islington app/web.1:     return command(*args)
+May 08 09:35:15 miss-islington app/web.1:   File
+"/app/.heroku/python/lib/python3.6/site-packages/redis/connection.py",
+line 620, in send_command
+May 08 09:35:15 miss-islington app/web.1:
+self.send_packed_command(self.pack_command(*args))
+May 08 09:35:15 miss-islington app/web.1:   File
+"/app/.heroku/python/lib/python3.6/site-packages/redis/connection.py",
+line 613, in send_packed_command
+May 08 09:35:15 miss-islington app/web.1:     (errno, errmsg))
+May 08 09:35:15 miss-islington app/web.1:
+redis.exceptions.ConnectionError: Error 110 while writing to socket.
+Connection timed out.
+
+
+
+?
+
+On Wed, May 8, 2019 at 9:44 AM Gregory P. Smith <greg at krypto.org> wrote:
+
+> Yesterday it failed to produce a backport or tell me that it couldn't
+> (after the "i'm now working on ..." message was left on the master PR).  I
+> waited a couple hours just in case and ran cherry_picker myself instead.
+> Same thing today apparently on
+> https://github.com/python/cpython/pull/13192 assuming the usual backport
+> latency is no more than a minute or two.
+>
+> -gps
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20190508/136eadbe/attachment-0001.html>
+
+From alex.gaynor at gmail.com  Wed May  8 13:04:01 2019
+From: alex.gaynor at gmail.com (Alex Gaynor)
+Date: Wed, 8 May 2019 13:04:01 -0400
+Subject: [python-committers] miss-islington backport pipeline is stalled?
+In-Reply-To: <CAGbohnZRxXqdLU1Cn7RrTNym1Z5-K1xt+XKPDcC-auzDR2J2_g@mail.gmail.com>
+References: <CAGE7PNK8T=BCZa7iEDx+eDrEh8w+_4hgD6U96RqjRkP7BaAcsg@mail.gmail.com>
+ <CAGbohnZRxXqdLU1Cn7RrTNym1Z5-K1xt+XKPDcC-auzDR2J2_g@mail.gmail.com>
+Message-ID: <CAFRnB2X-m7T2_Dy2ZaaByvb0TKekOD+ZKLjYUJkQ==YvfKpaJg@mail.gmail.com>
+
+Would it make sense to work with the PSF infra staff so that
+miss-isslington is hooked up to the PSF Sentry account so folks can get
+email notifications and similar on unhandled exceptions?
+
+Alex
+
+On Wed, May 8, 2019 at 1:02 PM Mariatta <mariatta at python.org> wrote:
+
+> There was an error from Redis. I think this is the first time I've seen
+> it, so I don't have any resolution on how to fix it right now.  ?
+> I will look into handling the error and have miss-islington leave a
+> comment in the PR when there is such error.
+>
+> log:
+>
+> at=info method=POST path="/" host=miss-islington.herokuapp.com request_id=8de611a2-6112-4039-a425-97850ac989b0 fwd="140.82.115.15" dyno=web.1 connect=1ms service=1005ms status=200 bytes=168 protocol=https
+> May 08 09:35:15 miss-islington app/web.1: Traceback (most recent call last):
+> May 08 09:35:15 miss-islington app/web.1:   File "/app/.heroku/python/lib/python3.6/site-packages/redis/connection.py", line 600, in send_packed_command
+> May 08 09:35:15 miss-islington app/web.1:     self._sock.sendall(item)
+> May 08 09:35:15 miss-islington app/web.1: TimeoutError: [Errno 110] Connection timed out
+> May 08 09:35:15 miss-islington app/web.1: During handling of the above exception, another exception occurred:
+> May 08 09:35:15 miss-islington app/web.1: Traceback (most recent call last):
+> May 08 09:35:15 miss-islington app/web.1:   File "/app/.heroku/python/lib/python3.6/site-packages/kombu/connection.py", line 431, in _reraise_as_library_errors
+> May 08 09:35:15 miss-islington app/web.1:     yield
+> May 08 09:35:15 miss-islington app/web.1:   File "/app/.heroku/python/lib/python3.6/site-packages/celery/app/base.py", line 744, in send_task
+> May 08 09:35:15 miss-islington app/web.1:     self.backend.on_task_call(P, task_id)
+> May 08 09:35:15 miss-islington app/web.1:   File "/app/.heroku/python/lib/python3.6/site-packages/celery/backends/redis.py", line 265, in on_task_call
+> May 08 09:35:15 miss-islington app/web.1:     self.result_consumer.consume_from(task_id)
+> May 08 09:35:15 miss-islington app/web.1:   File "/app/.heroku/python/lib/python3.6/site-packages/celery/backends/redis.py", line 126, in consume_from
+> May 08 09:35:15 miss-islington app/web.1:     self._consume_from(task_id)
+> May 08 09:35:15 miss-islington app/web.1:   File "/app/.heroku/python/lib/python3.6/site-packages/celery/backends/redis.py", line 132, in _consume_from
+> May 08 09:35:15 miss-islington app/web.1:     self._pubsub.subscribe(key)
+> May 08 09:35:15 miss-islington app/web.1:   File "/app/.heroku/python/lib/python3.6/site-packages/redis/client.py", line 3096, in subscribe
+> May 08 09:35:15 miss-islington app/web.1:     ret_val = self.execute_command('SUBSCRIBE', *iterkeys(new_channels))
+> May 08 09:35:15 miss-islington app/web.1:   File "/app/.heroku/python/lib/python3.6/site-packages/redis/client.py", line 3009, in execute_command
+> May 08 09:35:15 miss-islington app/web.1:     self._execute(connection, connection.send_command, *args)
+> May 08 09:35:15 miss-islington app/web.1:   File "/app/.heroku/python/lib/python3.6/site-packages/redis/client.py", line 3013, in _execute
+> May 08 09:35:15 miss-islington app/web.1:     return command(*args)
+> May 08 09:35:15 miss-islington app/web.1:   File "/app/.heroku/python/lib/python3.6/site-packages/redis/connection.py", line 620, in send_command
+> May 08 09:35:15 miss-islington app/web.1:     self.send_packed_command(self.pack_command(*args))
+> May 08 09:35:15 miss-islington app/web.1:   File "/app/.heroku/python/lib/python3.6/site-packages/redis/connection.py", line 613, in send_packed_command
+> May 08 09:35:15 miss-islington app/web.1:     (errno, errmsg))
+> May 08 09:35:15 miss-islington app/web.1: redis.exceptions.ConnectionError: Error 110 while writing to socket. Connection timed out.
+>
+>
+>
+> ?
+>
+> On Wed, May 8, 2019 at 9:44 AM Gregory P. Smith <greg at krypto.org> wrote:
+>
+>> Yesterday it failed to produce a backport or tell me that it couldn't
+>> (after the "i'm now working on ..." message was left on the master PR).  I
+>> waited a couple hours just in case and ran cherry_picker myself instead.
+>> Same thing today apparently on
+>> https://github.com/python/cpython/pull/13192 assuming the usual backport
+>> latency is no more than a minute or two.
+>>
+>> -gps
+>> _______________________________________________
+>> python-committers mailing list
+>> python-committers at python.org
+>> https://mail.python.org/mailman/listinfo/python-committers
+>> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+
+
+-- 
+All that is necessary for evil to succeed is for good people to do nothing.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20190508/d0eb7b61/attachment.html>
+
+From greg at krypto.org  Wed May  8 13:06:53 2019
+From: greg at krypto.org (Gregory P. Smith)
+Date: Wed, 8 May 2019 12:06:53 -0500
+Subject: [python-committers] Merge with spurious CI failures?
+In-Reply-To: <CAGE7PNJoD9USPnQMucLo8pQApVBQQ9jVZfDSEP5Rdsds_3UMbg@mail.gmail.com>
+References: <97679bdc-a199-bc1e-2951-7c30fba47803@python.org>
+ <CAGbohnaYQof_RmAMAM3O9uUfxaWxQVeKS3==BKwot_ZcRcCfbA@mail.gmail.com>
+ <9283dcda-b847-2eda-a79a-c6ffa02d03d9@python.org>
+ <446fdea8-bc33-c698-e840-7f6831b60378@python.org>
+ <CAGE7PNJoD9USPnQMucLo8pQApVBQQ9jVZfDSEP5Rdsds_3UMbg@mail.gmail.com>
+Message-ID: <CAGE7PNL7GQK4GHZUyFWP5JmX9rGUOjqgA65i1G5=M5bTkmoa-w@mail.gmail.com>
+
+fwiw a future way to avoid this mess is in
+https://bugs.python.org/issue36855: have the tests support multiple
+certificates so we can stage the new ones into our repo before updating the
+server.
+
+-gps
+
+On Wed, May 8, 2019 at 11:15 AM Gregory P. Smith <greg at krypto.org> wrote:
+
+> If this cert change is impacting CI checks for everyone's PRs, I suspect
+> all PRs will need to merge this change into their branch before they can
+> pass CI.
+>
+> Having CI depend on external network resources does not seem like a good
+> idea.
+>
+> -gps
+>
+> On Wed, May 8, 2019 at 11:04 AM Antoine Pitrou <antoine at python.org> wrote:
+>
+>>
+>> Ah, there's already a PR at
+>> https://github.com/python/cpython/pull/13192, thanks to Gregory.
+>>
+>> Regards
+>>
+>> Antoine.
+>>
+>>
+>> Le 08/05/2019 ? 17:58, Antoine Pitrou a ?crit :
+>> >
+>> > Ok, apparently the SSL cert on self-signed.pythontest.net was changed
+>> > but it wasn't updated in our source tree, hence the failure.
+>> >
+>> > Regards
+>> >
+>> > Antoine.
+>> >
+>> >
+>> > Le 08/05/2019 ? 17:49, Mariatta a ?crit :
+>> >> If you can't merge from GitHub UI then you won't be able to do it from
+>> >> GitHub command line (it respects the same branch protection policy)
+>> >>
+>> >> I don't think we should merge if tests are still failing. Perhaps the
+>> >> test should be adjusted to handle this spurious errors? Can it be
+>> marked
+>> >> as "allowed failure" or something like that?
+>> >>
+>> >>
+>> >> On Wed, May 8, 2019, 8:32 AM Antoine Pitrou <antoine at python.org
+>> >> <mailto:antoine at python.org>> wrote:
+>> >>
+>> >>
+>> >>     Hello,
+>> >>
+>> >>     There are spurious CI failures (SSL certificate issue in
+>> test_httplib).
+>> >>     Therefore the "Squash and merge" button is greyed out.
+>> >>
+>> >>     How should I merge? Using the command-line instructions from
+>> Github?
+>> >>
+>> >>     Regards
+>> >>
+>> >>     Antoine.
+>> >>     _______________________________________________
+>> >>     python-committers mailing list
+>> >>     python-committers at python.org <mailto:python-committers at python.org>
+>> >>     https://mail.python.org/mailman/listinfo/python-committers
+>> >>     Code of Conduct: https://www.python.org/psf/codeofconduct/
+>> >>
+>> > _______________________________________________
+>> > python-committers mailing list
+>> > python-committers at python.org
+>> > https://mail.python.org/mailman/listinfo/python-committers
+>> > Code of Conduct: https://www.python.org/psf/codeofconduct/
+>> >
+>> _______________________________________________
+>> python-committers mailing list
+>> python-committers at python.org
+>> https://mail.python.org/mailman/listinfo/python-committers
+>> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>>
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20190508/4e0e8e36/attachment-0001.html>
+
+From mariatta at python.org  Wed May  8 13:09:38 2019
+From: mariatta at python.org (Mariatta)
+Date: Wed, 8 May 2019 10:09:38 -0700
+Subject: [python-committers] miss-islington backport pipeline is stalled?
+In-Reply-To: <CAFRnB2X-m7T2_Dy2ZaaByvb0TKekOD+ZKLjYUJkQ==YvfKpaJg@mail.gmail.com>
+References: <CAGE7PNK8T=BCZa7iEDx+eDrEh8w+_4hgD6U96RqjRkP7BaAcsg@mail.gmail.com>
+ <CAGbohnZRxXqdLU1Cn7RrTNym1Z5-K1xt+XKPDcC-auzDR2J2_g@mail.gmail.com>
+ <CAFRnB2X-m7T2_Dy2ZaaByvb0TKekOD+ZKLjYUJkQ==YvfKpaJg@mail.gmail.com>
+Message-ID: <CAGbohnY6DSqocYvdiesa0wAqj2JtJr8YObC_JGBpXjrc1rwcGg@mail.gmail.com>
+
+We don't have sentry (I will ask Ernest about it), but such errors are
+already sent to Zulip (
+https://python.zulipchat.com/#narrow/stream/142203-workflow.2Fbot-api.20rate.20limit/topic/alerts/near/165174773)
+and core-workflow
+https://github.com/python/core-workflow/issues/257#issuecomment-490541831
+But posting back to the PR itself will still be useful.
+?
+
+On Wed, May 8, 2019 at 10:04 AM Alex Gaynor <alex.gaynor at gmail.com> wrote:
+
+> Would it make sense to work with the PSF infra staff so that
+> miss-isslington is hooked up to the PSF Sentry account so folks can get
+> email notifications and similar on unhandled exceptions?
+>
+> Alex
+>
+> On Wed, May 8, 2019 at 1:02 PM Mariatta <mariatta at python.org> wrote:
+>
+>> There was an error from Redis. I think this is the first time I've seen
+>> it, so I don't have any resolution on how to fix it right now.  ?
+>> I will look into handling the error and have miss-islington leave a
+>> comment in the PR when there is such error.
+>>
+>> log:
+>>
+>> at=info method=POST path="/" host=miss-islington.herokuapp.com request_id=8de611a2-6112-4039-a425-97850ac989b0 fwd="140.82.115.15" dyno=web.1 connect=1ms service=1005ms status=200 bytes=168 protocol=https
+>> May 08 09:35:15 miss-islington app/web.1: Traceback (most recent call last):
+>> May 08 09:35:15 miss-islington app/web.1:   File "/app/.heroku/python/lib/python3.6/site-packages/redis/connection.py", line 600, in send_packed_command
+>> May 08 09:35:15 miss-islington app/web.1:     self._sock.sendall(item)
+>> May 08 09:35:15 miss-islington app/web.1: TimeoutError: [Errno 110] Connection timed out
+>> May 08 09:35:15 miss-islington app/web.1: During handling of the above exception, another exception occurred:
+>> May 08 09:35:15 miss-islington app/web.1: Traceback (most recent call last):
+>> May 08 09:35:15 miss-islington app/web.1:   File "/app/.heroku/python/lib/python3.6/site-packages/kombu/connection.py", line 431, in _reraise_as_library_errors
+>> May 08 09:35:15 miss-islington app/web.1:     yield
+>> May 08 09:35:15 miss-islington app/web.1:   File "/app/.heroku/python/lib/python3.6/site-packages/celery/app/base.py", line 744, in send_task
+>> May 08 09:35:15 miss-islington app/web.1:     self.backend.on_task_call(P, task_id)
+>> May 08 09:35:15 miss-islington app/web.1:   File "/app/.heroku/python/lib/python3.6/site-packages/celery/backends/redis.py", line 265, in on_task_call
+>> May 08 09:35:15 miss-islington app/web.1:     self.result_consumer.consume_from(task_id)
+>> May 08 09:35:15 miss-islington app/web.1:   File "/app/.heroku/python/lib/python3.6/site-packages/celery/backends/redis.py", line 126, in consume_from
+>> May 08 09:35:15 miss-islington app/web.1:     self._consume_from(task_id)
+>> May 08 09:35:15 miss-islington app/web.1:   File "/app/.heroku/python/lib/python3.6/site-packages/celery/backends/redis.py", line 132, in _consume_from
+>> May 08 09:35:15 miss-islington app/web.1:     self._pubsub.subscribe(key)
+>> May 08 09:35:15 miss-islington app/web.1:   File "/app/.heroku/python/lib/python3.6/site-packages/redis/client.py", line 3096, in subscribe
+>> May 08 09:35:15 miss-islington app/web.1:     ret_val = self.execute_command('SUBSCRIBE', *iterkeys(new_channels))
+>> May 08 09:35:15 miss-islington app/web.1:   File "/app/.heroku/python/lib/python3.6/site-packages/redis/client.py", line 3009, in execute_command
+>> May 08 09:35:15 miss-islington app/web.1:     self._execute(connection, connection.send_command, *args)
+>> May 08 09:35:15 miss-islington app/web.1:   File "/app/.heroku/python/lib/python3.6/site-packages/redis/client.py", line 3013, in _execute
+>> May 08 09:35:15 miss-islington app/web.1:     return command(*args)
+>> May 08 09:35:15 miss-islington app/web.1:   File "/app/.heroku/python/lib/python3.6/site-packages/redis/connection.py", line 620, in send_command
+>> May 08 09:35:15 miss-islington app/web.1:     self.send_packed_command(self.pack_command(*args))
+>> May 08 09:35:15 miss-islington app/web.1:   File "/app/.heroku/python/lib/python3.6/site-packages/redis/connection.py", line 613, in send_packed_command
+>> May 08 09:35:15 miss-islington app/web.1:     (errno, errmsg))
+>> May 08 09:35:15 miss-islington app/web.1: redis.exceptions.ConnectionError: Error 110 while writing to socket. Connection timed out.
+>>
+>>
+>>
+>> ?
+>>
+>> On Wed, May 8, 2019 at 9:44 AM Gregory P. Smith <greg at krypto.org> wrote:
+>>
+>>> Yesterday it failed to produce a backport or tell me that it couldn't
+>>> (after the "i'm now working on ..." message was left on the master PR).  I
+>>> waited a couple hours just in case and ran cherry_picker myself instead.
+>>> Same thing today apparently on
+>>> https://github.com/python/cpython/pull/13192 assuming the usual
+>>> backport latency is no more than a minute or two.
+>>>
+>>> -gps
+>>> _______________________________________________
+>>> python-committers mailing list
+>>> python-committers at python.org
+>>> https://mail.python.org/mailman/listinfo/python-committers
+>>> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>>>
+>> _______________________________________________
+>> python-committers mailing list
+>> python-committers at python.org
+>> https://mail.python.org/mailman/listinfo/python-committers
+>> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>>
+>
+>
+> --
+> All that is necessary for evil to succeed is for good people to do nothing.
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20190508/f39b3f89/attachment.html>
+
+From brett at python.org  Wed May  8 13:10:05 2019
+From: brett at python.org (Brett Cannon)
+Date: Wed, 8 May 2019 13:10:05 -0400
+Subject: [python-committers] miss-islington backport pipeline is stalled?
+In-Reply-To: <CAFRnB2X-m7T2_Dy2ZaaByvb0TKekOD+ZKLjYUJkQ==YvfKpaJg@mail.gmail.com>
+References: <CAGE7PNK8T=BCZa7iEDx+eDrEh8w+_4hgD6U96RqjRkP7BaAcsg@mail.gmail.com>
+ <CAGbohnZRxXqdLU1Cn7RrTNym1Z5-K1xt+XKPDcC-auzDR2J2_g@mail.gmail.com>
+ <CAFRnB2X-m7T2_Dy2ZaaByvb0TKekOD+ZKLjYUJkQ==YvfKpaJg@mail.gmail.com>
+Message-ID: <CAP1=2W7FPq6MmbFbGbHp8OG+6j256_a_Z4sMdY0ToLhfLgHH-A@mail.gmail.com>
+
+On Wed, May 8, 2019 at 1:04 PM Alex Gaynor <alex.gaynor at gmail.com> wrote:
+
+> Would it make sense to work with the PSF infra staff so that
+> miss-isslington is hooked up to the PSF Sentry account so folks can get
+> email notifications and similar on unhandled exceptions?
+>
+
+Yes it would. :)
+
+-Brett
+
+
+>
+> Alex
+>
+> On Wed, May 8, 2019 at 1:02 PM Mariatta <mariatta at python.org> wrote:
+>
+>> There was an error from Redis. I think this is the first time I've seen
+>> it, so I don't have any resolution on how to fix it right now.  ?
+>> I will look into handling the error and have miss-islington leave a
+>> comment in the PR when there is such error.
+>>
+>> log:
+>>
+>> at=info method=POST path="/" host=miss-islington.herokuapp.com request_id=8de611a2-6112-4039-a425-97850ac989b0 fwd="140.82.115.15" dyno=web.1 connect=1ms service=1005ms status=200 bytes=168 protocol=https
+>> May 08 09:35:15 miss-islington app/web.1: Traceback (most recent call last):
+>> May 08 09:35:15 miss-islington app/web.1:   File "/app/.heroku/python/lib/python3.6/site-packages/redis/connection.py", line 600, in send_packed_command
+>> May 08 09:35:15 miss-islington app/web.1:     self._sock.sendall(item)
+>> May 08 09:35:15 miss-islington app/web.1: TimeoutError: [Errno 110] Connection timed out
+>> May 08 09:35:15 miss-islington app/web.1: During handling of the above exception, another exception occurred:
+>> May 08 09:35:15 miss-islington app/web.1: Traceback (most recent call last):
+>> May 08 09:35:15 miss-islington app/web.1:   File "/app/.heroku/python/lib/python3.6/site-packages/kombu/connection.py", line 431, in _reraise_as_library_errors
+>> May 08 09:35:15 miss-islington app/web.1:     yield
+>> May 08 09:35:15 miss-islington app/web.1:   File "/app/.heroku/python/lib/python3.6/site-packages/celery/app/base.py", line 744, in send_task
+>> May 08 09:35:15 miss-islington app/web.1:     self.backend.on_task_call(P, task_id)
+>> May 08 09:35:15 miss-islington app/web.1:   File "/app/.heroku/python/lib/python3.6/site-packages/celery/backends/redis.py", line 265, in on_task_call
+>> May 08 09:35:15 miss-islington app/web.1:     self.result_consumer.consume_from(task_id)
+>> May 08 09:35:15 miss-islington app/web.1:   File "/app/.heroku/python/lib/python3.6/site-packages/celery/backends/redis.py", line 126, in consume_from
+>> May 08 09:35:15 miss-islington app/web.1:     self._consume_from(task_id)
+>> May 08 09:35:15 miss-islington app/web.1:   File "/app/.heroku/python/lib/python3.6/site-packages/celery/backends/redis.py", line 132, in _consume_from
+>> May 08 09:35:15 miss-islington app/web.1:     self._pubsub.subscribe(key)
+>> May 08 09:35:15 miss-islington app/web.1:   File "/app/.heroku/python/lib/python3.6/site-packages/redis/client.py", line 3096, in subscribe
+>> May 08 09:35:15 miss-islington app/web.1:     ret_val = self.execute_command('SUBSCRIBE', *iterkeys(new_channels))
+>> May 08 09:35:15 miss-islington app/web.1:   File "/app/.heroku/python/lib/python3.6/site-packages/redis/client.py", line 3009, in execute_command
+>> May 08 09:35:15 miss-islington app/web.1:     self._execute(connection, connection.send_command, *args)
+>> May 08 09:35:15 miss-islington app/web.1:   File "/app/.heroku/python/lib/python3.6/site-packages/redis/client.py", line 3013, in _execute
+>> May 08 09:35:15 miss-islington app/web.1:     return command(*args)
+>> May 08 09:35:15 miss-islington app/web.1:   File "/app/.heroku/python/lib/python3.6/site-packages/redis/connection.py", line 620, in send_command
+>> May 08 09:35:15 miss-islington app/web.1:     self.send_packed_command(self.pack_command(*args))
+>> May 08 09:35:15 miss-islington app/web.1:   File "/app/.heroku/python/lib/python3.6/site-packages/redis/connection.py", line 613, in send_packed_command
+>> May 08 09:35:15 miss-islington app/web.1:     (errno, errmsg))
+>> May 08 09:35:15 miss-islington app/web.1: redis.exceptions.ConnectionError: Error 110 while writing to socket. Connection timed out.
+>>
+>>
+>>
+>> ?
+>>
+>> On Wed, May 8, 2019 at 9:44 AM Gregory P. Smith <greg at krypto.org> wrote:
+>>
+>>> Yesterday it failed to produce a backport or tell me that it couldn't
+>>> (after the "i'm now working on ..." message was left on the master PR).  I
+>>> waited a couple hours just in case and ran cherry_picker myself instead.
+>>> Same thing today apparently on
+>>> https://github.com/python/cpython/pull/13192 assuming the usual
+>>> backport latency is no more than a minute or two.
+>>>
+>>> -gps
+>>> _______________________________________________
+>>> python-committers mailing list
+>>> python-committers at python.org
+>>> https://mail.python.org/mailman/listinfo/python-committers
+>>> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>>>
+>> _______________________________________________
+>> python-committers mailing list
+>> python-committers at python.org
+>> https://mail.python.org/mailman/listinfo/python-committers
+>> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>>
+>
+>
+> --
+> All that is necessary for evil to succeed is for good people to do nothing.
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20190508/a46b491e/attachment-0001.html>
+
+From tjreedy at udel.edu  Wed May  8 14:56:40 2019
+From: tjreedy at udel.edu (Terry Reedy)
+Date: Wed, 8 May 2019 14:56:40 -0400
+Subject: [python-committers] [Python-Dev] Farewell, Python 3.4
+In-Reply-To: <efb89d1b-47a2-8ca2-49b8-241be2231453@egenix.com>
+References: <f8034796-9f54-c779-7697-83a86e583a13@hastings.org>
+ <efb89d1b-47a2-8ca2-49b8-241be2231453@egenix.com>
+Message-ID: <12e725f4-ee6f-1a9a-e02b-c8d527fe29ea@udel.edu>
+
+On 5/8/2019 11:46 AM, M.-A. Lemburg wrote:
+> Thank you for having been 3.4 release manager, Larry !
+
+I especially appreciate being able to have proper signatures for builtin 
+functions.
+
+
+From benjamin at python.org  Wed May  8 22:23:17 2019
+From: benjamin at python.org (Benjamin Peterson)
+Date: Wed, 08 May 2019 22:23:17 -0400
+Subject: [python-committers] [Python-Dev] Farewell, Python 3.4
+In-Reply-To: <f8034796-9f54-c779-7697-83a86e583a13@hastings.org>
+References: <f8034796-9f54-c779-7697-83a86e583a13@hastings.org>
+Message-ID: <7bca5961-b8cd-42d8-8a00-1384e31de010@www.fastmail.com>
+
+Thank you for your service!
+
+On Wed, May 8, 2019, at 08:37, Larry Hastings wrote:
+> 
+> 
+> It's with a note of sadness that I announce the final retirement of 
+> Python 3.4. The final release was back in March, but I didn't get 
+> around to actually closing and deleting the 3.4 branch until this 
+> morning.
+> 
+> Python 3.4 introduced many features we all enjoy in modern Python--the 
+> asyncio, ensurepip, and enum packages, just to name three. It's a 
+> release I hope we all remember fondly.
+> 
+> My eternal thanks to all the members of the release team that worked on 
+> Python 3.4:
+> 
+> > Georg Brandl
+> 
+> > Julien Palard
+> 
+> > Martin von L?wis
+> 
+> > Ned Deily
+> 
+> > Steve Dower
+> 
+> > Terry Reedy
+> 
+> > and all the engineers of the Python infrastructure team.
+> 
+> Special thanks to Benjamin Peterson and Ned Deily, who frequently 
+> scurried around behind the scenes cleaning up the messes I cluelessly 
+> left in my wake.
+> 
+> Having closed 3.4, I am now retired as Python 3.4 Release Manager. I 
+> regret to inform all of you that you're still stuck with me as Python 
+> 3.5 Release Manager until sometime next year.
+> 
+> 
+> 
+> My very best wishes,
+> 
+> 
+> 
+> */arry*
+> 
+> _______________________________________________
+> Python-Dev mailing list
+> Python-Dev at python.org
+> https://mail.python.org/mailman/listinfo/python-dev
+> Unsubscribe: 
+> https://mail.python.org/mailman/options/python-dev/benjamin%40python.org
+>
+

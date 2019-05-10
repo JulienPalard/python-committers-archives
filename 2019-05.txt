@@ -1660,3 +1660,230 @@ On Wed, May 8, 2019, at 08:37, Larry Hastings wrote:
 > https://mail.python.org/mailman/options/python-dev/benjamin%40python.org
 >
 
+From antoine at python.org  Thu May  9 04:11:09 2019
+From: antoine at python.org (Antoine Pitrou)
+Date: Thu, 9 May 2019 10:11:09 +0200
+Subject: [python-committers] [Python-Dev] Farewell, Python 3.4
+In-Reply-To: <7bca5961-b8cd-42d8-8a00-1384e31de010@www.fastmail.com>
+References: <f8034796-9f54-c779-7697-83a86e583a13@hastings.org>
+ <7bca5961-b8cd-42d8-8a00-1384e31de010@www.fastmail.com>
+Message-ID: <bec018ee-3d5d-aaa5-e34c-19d1409276e5@python.org>
+
+
+Thank you for being a generally reasonable being.
+
+Regards
+
+Antoine.
+
+
+Le 09/05/2019 ? 04:23, Benjamin Peterson a ?crit?:
+> Thank you for your service!
+> 
+> On Wed, May 8, 2019, at 08:37, Larry Hastings wrote:
+>>
+>>
+>> It's with a note of sadness that I announce the final retirement of 
+>> Python 3.4. The final release was back in March, but I didn't get 
+>> around to actually closing and deleting the 3.4 branch until this 
+>> morning.
+>>
+>> Python 3.4 introduced many features we all enjoy in modern Python--the 
+>> asyncio, ensurepip, and enum packages, just to name three. It's a 
+>> release I hope we all remember fondly.
+>>
+>> My eternal thanks to all the members of the release team that worked on 
+>> Python 3.4:
+>>
+>>> Georg Brandl
+>>
+>>> Julien Palard
+>>
+>>> Martin von L?wis
+>>
+>>> Ned Deily
+>>
+>>> Steve Dower
+>>
+>>> Terry Reedy
+>>
+>>> and all the engineers of the Python infrastructure team.
+>>
+>> Special thanks to Benjamin Peterson and Ned Deily, who frequently 
+>> scurried around behind the scenes cleaning up the messes I cluelessly 
+>> left in my wake.
+>>
+>> Having closed 3.4, I am now retired as Python 3.4 Release Manager. I 
+>> regret to inform all of you that you're still stuck with me as Python 
+>> 3.5 Release Manager until sometime next year.
+>>
+>>
+>>
+>> My very best wishes,
+>>
+>>
+>>
+>> */arry*
+>>
+>> _______________________________________________
+>> Python-Dev mailing list
+>> Python-Dev at python.org
+>> https://mail.python.org/mailman/listinfo/python-dev
+>> Unsubscribe: 
+>> https://mail.python.org/mailman/options/python-dev/benjamin%40python.org
+>>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+> 
+
+From mariatta at python.org  Thu May  9 12:03:51 2019
+From: mariatta at python.org (Mariatta)
+Date: Thu, 9 May 2019 09:03:51 -0700
+Subject: [python-committers] miss-islington backport pipeline is stalled?
+In-Reply-To: <CAGbohnZRxXqdLU1Cn7RrTNym1Z5-K1xt+XKPDcC-auzDR2J2_g@mail.gmail.com>
+References: <CAGE7PNK8T=BCZa7iEDx+eDrEh8w+_4hgD6U96RqjRkP7BaAcsg@mail.gmail.com>
+ <CAGbohnZRxXqdLU1Cn7RrTNym1Z5-K1xt+XKPDcC-auzDR2J2_g@mail.gmail.com>
+Message-ID: <CAGbohnY0cuqfr3TXme2o13H_z-O6GqseBrLToEpaM9anFqtsjg@mail.gmail.com>
+
+I'm seeing more of this today, just heads up in case you see miss-islington
+not working.
+
+Seems like this is a known issue with celery + kombu ?
+https://github.com/celery/kombu/issues/1019
+?
+
+On Wed, May 8, 2019 at 10:02 AM Mariatta <mariatta at python.org> wrote:
+
+> There was an error from Redis. I think this is the first time I've seen
+> it, so I don't have any resolution on how to fix it right now.  ?
+> I will look into handling the error and have miss-islington leave a
+> comment in the PR when there is such error.
+>
+> log:
+>
+> at=info method=POST path="/" host=miss-islington.herokuapp.com request_id=8de611a2-6112-4039-a425-97850ac989b0 fwd="140.82.115.15" dyno=web.1 connect=1ms service=1005ms status=200 bytes=168 protocol=https
+> May 08 09:35:15 miss-islington app/web.1: Traceback (most recent call last):
+> May 08 09:35:15 miss-islington app/web.1:   File "/app/.heroku/python/lib/python3.6/site-packages/redis/connection.py", line 600, in send_packed_command
+> May 08 09:35:15 miss-islington app/web.1:     self._sock.sendall(item)
+> May 08 09:35:15 miss-islington app/web.1: TimeoutError: [Errno 110] Connection timed out
+> May 08 09:35:15 miss-islington app/web.1: During handling of the above exception, another exception occurred:
+> May 08 09:35:15 miss-islington app/web.1: Traceback (most recent call last):
+> May 08 09:35:15 miss-islington app/web.1:   File "/app/.heroku/python/lib/python3.6/site-packages/kombu/connection.py", line 431, in _reraise_as_library_errors
+> May 08 09:35:15 miss-islington app/web.1:     yield
+> May 08 09:35:15 miss-islington app/web.1:   File "/app/.heroku/python/lib/python3.6/site-packages/celery/app/base.py", line 744, in send_task
+> May 08 09:35:15 miss-islington app/web.1:     self.backend.on_task_call(P, task_id)
+> May 08 09:35:15 miss-islington app/web.1:   File "/app/.heroku/python/lib/python3.6/site-packages/celery/backends/redis.py", line 265, in on_task_call
+> May 08 09:35:15 miss-islington app/web.1:     self.result_consumer.consume_from(task_id)
+> May 08 09:35:15 miss-islington app/web.1:   File "/app/.heroku/python/lib/python3.6/site-packages/celery/backends/redis.py", line 126, in consume_from
+> May 08 09:35:15 miss-islington app/web.1:     self._consume_from(task_id)
+> May 08 09:35:15 miss-islington app/web.1:   File "/app/.heroku/python/lib/python3.6/site-packages/celery/backends/redis.py", line 132, in _consume_from
+> May 08 09:35:15 miss-islington app/web.1:     self._pubsub.subscribe(key)
+> May 08 09:35:15 miss-islington app/web.1:   File "/app/.heroku/python/lib/python3.6/site-packages/redis/client.py", line 3096, in subscribe
+> May 08 09:35:15 miss-islington app/web.1:     ret_val = self.execute_command('SUBSCRIBE', *iterkeys(new_channels))
+> May 08 09:35:15 miss-islington app/web.1:   File "/app/.heroku/python/lib/python3.6/site-packages/redis/client.py", line 3009, in execute_command
+> May 08 09:35:15 miss-islington app/web.1:     self._execute(connection, connection.send_command, *args)
+> May 08 09:35:15 miss-islington app/web.1:   File "/app/.heroku/python/lib/python3.6/site-packages/redis/client.py", line 3013, in _execute
+> May 08 09:35:15 miss-islington app/web.1:     return command(*args)
+> May 08 09:35:15 miss-islington app/web.1:   File "/app/.heroku/python/lib/python3.6/site-packages/redis/connection.py", line 620, in send_command
+> May 08 09:35:15 miss-islington app/web.1:     self.send_packed_command(self.pack_command(*args))
+> May 08 09:35:15 miss-islington app/web.1:   File "/app/.heroku/python/lib/python3.6/site-packages/redis/connection.py", line 613, in send_packed_command
+> May 08 09:35:15 miss-islington app/web.1:     (errno, errmsg))
+> May 08 09:35:15 miss-islington app/web.1: redis.exceptions.ConnectionError: Error 110 while writing to socket. Connection timed out.
+>
+>
+>
+> ?
+>
+> On Wed, May 8, 2019 at 9:44 AM Gregory P. Smith <greg at krypto.org> wrote:
+>
+>> Yesterday it failed to produce a backport or tell me that it couldn't
+>> (after the "i'm now working on ..." message was left on the master PR).  I
+>> waited a couple hours just in case and ran cherry_picker myself instead.
+>> Same thing today apparently on
+>> https://github.com/python/cpython/pull/13192 assuming the usual backport
+>> latency is no more than a minute or two.
+>>
+>> -gps
+>> _______________________________________________
+>> python-committers mailing list
+>> python-committers at python.org
+>> https://mail.python.org/mailman/listinfo/python-committers
+>> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>>
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20190509/c7fa7e85/attachment.html>
+
+From barry at python.org  Thu May  9 13:59:03 2019
+From: barry at python.org (Barry Warsaw)
+Date: Thu, 9 May 2019 13:59:03 -0400
+Subject: [python-committers] Promote Mark Sapiro and Abhilash Raj as core
+ developers
+Message-ID: <D1DAFB0C-95E1-4BC2-9760-CE5DC3C24EE0@python.org>
+
+If you like the way mail.python.org and Mailman (both 2 and 3) Just Work, and are about as reliable as any service can be, we have our wonderful postmasters to thank.  Mark has been a postmaster for years and is currently maintaining GNU Mailman, both as a project and as a service on mpo.  Abhilash maintains the GNU Mailman 3 branch, has been project leader since I retired in that role back in 2017, and also maintains the Mailman 3 instance on mail.python.org.
+
+More than that, because of their roles as Mailman developers, they have a deep knowledge of email in general, and in the email package in particular.  As I rarely dabble in the email package these days, and RDM --who did a fantastic job of implementing the new APIs and features in email for Python 3? has also scaled back his involvement, it means that the email package doesn?t get much attention these days.  Both Mark and Abhilash have an interest in helping to maintain the email package moving forward, and both are eminently qualified to do so.
+
+I have worked with both of them for many many years, and I have the utmost respect for their technical and social skills, their understanding of Python processes, and their love of the Python language and community.  I've sprinted with them at many Pycons, until I scaled back my involvement with Mailman.  Both are here sprinting at Pycon 2019.
+
+Therefore, with their permission, I propose extending core developer rights to both Mark and Abhilash.
+
+As per PEP 13, I plan on opening a vote on Discourse next week (once I kind of recover from Pycon) for each developer.
+
+Cheers,
+-Barry
+
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 833 bytes
+Desc: Message signed with OpenPGP
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20190509/fd7e6298/attachment-0001.sig>
+
+From andrew.svetlov at gmail.com  Thu May  9 15:14:06 2019
+From: andrew.svetlov at gmail.com (Andrew Svetlov)
+Date: Thu, 9 May 2019 15:14:06 -0400
+Subject: [python-committers] Promote Mark Sapiro and Abhilash Raj as
+ core developers
+In-Reply-To: <D1DAFB0C-95E1-4BC2-9760-CE5DC3C24EE0@python.org>
+References: <D1DAFB0C-95E1-4BC2-9760-CE5DC3C24EE0@python.org>
+Message-ID: <CAL3CFcWvOW9oi-LD8WRRBL-yKyxcePci6KhyM61L9BTk4Z7dAw@mail.gmail.com>
+
+A link to a list of CPython commits (Pull Requests) for both these
+guys would be greatly appreciated.
+
+On Thu, May 9, 2019 at 1:59 PM Barry Warsaw <barry at python.org> wrote:
+>
+> If you like the way mail.python.org and Mailman (both 2 and 3) Just Work, and are about as reliable as any service can be, we have our wonderful postmasters to thank.  Mark has been a postmaster for years and is currently maintaining GNU Mailman, both as a project and as a service on mpo.  Abhilash maintains the GNU Mailman 3 branch, has been project leader since I retired in that role back in 2017, and also maintains the Mailman 3 instance on mail.python.org.
+>
+> More than that, because of their roles as Mailman developers, they have a deep knowledge of email in general, and in the email package in particular.  As I rarely dabble in the email package these days, and RDM --who did a fantastic job of implementing the new APIs and features in email for Python 3? has also scaled back his involvement, it means that the email package doesn?t get much attention these days.  Both Mark and Abhilash have an interest in helping to maintain the email package moving forward, and both are eminently qualified to do so.
+>
+> I have worked with both of them for many many years, and I have the utmost respect for their technical and social skills, their understanding of Python processes, and their love of the Python language and community.  I've sprinted with them at many Pycons, until I scaled back my involvement with Mailman.  Both are here sprinting at Pycon 2019.
+>
+> Therefore, with their permission, I propose extending core developer rights to both Mark and Abhilash.
+>
+> As per PEP 13, I plan on opening a vote on Discourse next week (once I kind of recover from Pycon) for each developer.
+>
+> Cheers,
+> -Barry
+>
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+
+
+
+-- 
+Thanks,
+Andrew Svetlov
+

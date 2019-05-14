@@ -1934,3 +1934,367 @@ Le 09/05/2019 ? 21:14, Andrew Svetlov a ?crit?:
 > 
 > 
 
+From vstinner at redhat.com  Mon May 13 04:14:07 2019
+From: vstinner at redhat.com (Victor Stinner)
+Date: Mon, 13 May 2019 10:14:07 +0200
+Subject: [python-committers] Promote Mark Sapiro and Abhilash Raj as
+ core developers
+In-Reply-To: <CAL3CFcWvOW9oi-LD8WRRBL-yKyxcePci6KhyM61L9BTk4Z7dAw@mail.gmail.com>
+References: <D1DAFB0C-95E1-4BC2-9760-CE5DC3C24EE0@python.org>
+ <CAL3CFcWvOW9oi-LD8WRRBL-yKyxcePci6KhyM61L9BTk4Z7dAw@mail.gmail.com>
+Message-ID: <CA+3bQGEAtg-MzUpzYZhqG=VF-oovP2TT3xgmUyTtGa7zSocokg@mail.gmail.com>
+
+Hi,
+
+To be honest, my first reaction is the same than Andrew and Antoine: I
+don't know these 2 contributors. I didn't see them around the bug
+tracker, reviews, nor in commits.
+
+The definition of what is a core developer is still a work-in-progress
+:-) The PEP 13 tries to define it:
+
+   https://www.python.org/dev/peps/pep-0013/#the-core-team
+
+I'm no longer sure myself that I can define them. I prefer to repeat
+what others say :-) Basically, a core developers is someone who
+produces commits :-) That's one definition. Another one is someone who
+a very good background to produce very good reviews and mentor
+contributors. In which case can we put Mark Sapiro and Abhilash Raj?
+
+
+Le jeu. 9 mai 2019 ? 21:14, Andrew Svetlov <andrew.svetlov at gmail.com> a ?crit :
+> > If you like the way mail.python.org and Mailman (both 2 and 3) Just Work, and are about as reliable as any service can be, we have our wonderful postmasters to thank.  Mark has been a postmaster for years and is currently maintaining GNU Mailman, both as a project and as a service on mpo.  Abhilash maintains the GNU Mailman 3 branch, has been project leader since I retired in that role back in 2017, and also maintains the Mailman 3 instance on mail.python.org.
+
+Having a sustainable Mailman project is great. But how does that
+relate to Python itself? Are you talking about the email module? Do
+Mark Sapiro and Abhilash Raj plan to maintain the email module?
+
+I found "Mark Sapiro" mentioned in 4 commits (3 in 2013, 1 in 2006).
+
+Abhilash Raj authored 1 commit in 2015 and 1 in 2014: both in the email module.
+
+Sorry, I didn't dig into the bug tracker / GitHub to check if they are
+active there.
+
+
+> > More than that, because of their roles as Mailman developers, they have a deep knowledge of email in general, and in the email package in particular.  As I rarely dabble in the email package these days, and RDM --who did a fantastic job of implementing the new APIs and features in email for Python 3? has also scaled back his involvement, it means that the email package doesn?t get much attention these days.  Both Mark and Abhilash have an interest in helping to maintain the email package moving forward, and both are eminently qualified to do so.
+
+I would prefer to first see them more involved upstream, before
+starting to discuss promoting them. They are other contributors who
+are way more active than them.
+
+In the meanwhile, they don't have to be core devs to help to maintain
+the email module, no?
+
+I'm not sure about giving the core dev status as a recognizition for
+their work on a different project. It sounds unfair to contributors
+who are working on Python but are not core dev. There are other ways
+to recognize valuable persons in the Python community, like the PSF
+Community Awards and PSF Fellows.
+
+Victor
+-- 
+Night gathers, and now my watch begins. It shall not end until my death.
+
+From antoine at python.org  Mon May 13 05:38:33 2019
+From: antoine at python.org (Antoine Pitrou)
+Date: Mon, 13 May 2019 11:38:33 +0200
+Subject: [python-committers] Promote Mark Sapiro and Abhilash Raj as
+ core developers
+In-Reply-To: <CA+3bQGEAtg-MzUpzYZhqG=VF-oovP2TT3xgmUyTtGa7zSocokg@mail.gmail.com>
+References: <D1DAFB0C-95E1-4BC2-9760-CE5DC3C24EE0@python.org>
+ <CAL3CFcWvOW9oi-LD8WRRBL-yKyxcePci6KhyM61L9BTk4Z7dAw@mail.gmail.com>
+ <CA+3bQGEAtg-MzUpzYZhqG=VF-oovP2TT3xgmUyTtGa7zSocokg@mail.gmail.com>
+Message-ID: <904bc5c7-851f-37a8-1048-c1c7775ed3c0@python.org>
+
+
+Le 13/05/2019 ? 10:14, Victor Stinner a ?crit?:
+> 
+> I would prefer to first see them more involved upstream, before
+> starting to discuss promoting them. They are other contributors who
+> are way more active than them.
+> 
+> In the meanwhile, they don't have to be core devs to help to maintain
+> the email module, no?
+> 
+> I'm not sure about giving the core dev status as a recognizition for
+> their work on a different project. It sounds unfair to contributors
+> who are working on Python but are not core dev. There are other ways
+> to recognize valuable persons in the Python community, like the PSF
+> Community Awards and PSF Fellows.
+
+I'll also point out that giving core dev status to people who are active
+on different projects but not CPython didn't lead to any significant
+results in the past (I'm thinking about e.g. the Twisted core devs).
+
+This is not a criticism about particular people, simply a reflection on
+our own practice.  We should recognize that we don't attract active
+contributors by giving them status upfront.
+
+Regards
+
+Antoine.
+
+From barry at python.org  Mon May 13 19:11:06 2019
+From: barry at python.org (Barry Warsaw)
+Date: Mon, 13 May 2019 16:11:06 -0700
+Subject: [python-committers] Promote Mark Sapiro and Abhilash Raj as
+ core developers
+In-Reply-To: <CA+3bQGEAtg-MzUpzYZhqG=VF-oovP2TT3xgmUyTtGa7zSocokg@mail.gmail.com>
+References: <D1DAFB0C-95E1-4BC2-9760-CE5DC3C24EE0@python.org>
+ <CAL3CFcWvOW9oi-LD8WRRBL-yKyxcePci6KhyM61L9BTk4Z7dAw@mail.gmail.com>
+ <CA+3bQGEAtg-MzUpzYZhqG=VF-oovP2TT3xgmUyTtGa7zSocokg@mail.gmail.com>
+Message-ID: <CABC2248-9BC8-4785-BD32-735D837A13B6@python.org>
+
+On May 13, 2019, at 01:14, Victor Stinner <vstinner at redhat.com> wrote:
+
+> I'm no longer sure myself that I can define them. I prefer to repeat
+> what others say :-) Basically, a core developers is someone who
+> produces commits :-) That's one definition.
+
+But, IMHO not a correct one.  The full quote from PEP 13:
+
+??snip snip??
+Python core team members demonstrate:
+
+? a good grasp of the philosophy of the Python Project
+? a solid track record of being constructive and helpful
+? significant contributions to the project's goals, in any form
+? willingness to dedicate some time to improving Python
+
+As the project matures, contributions go beyond code. Here's an incomplete list of areas where contributions may be considered for joining the core team, in no particular order:
+
+? Working on community management and outreach
+? Providing support on the mailing lists and on IRC
+? Triaging tickets
+? Writing patches (code, docs, or tests)
+? Reviewing patches (code, docs, or tests)
+? Participating in design decisions
+? Providing expertise in a particular domain (security, i18n, etc.)
+? Managing the continuous integration infrastructure
+? Managing the servers (website, tracker, documentation, etc.)
+? Maintaining related projects (alternative interpreters, core infrastructure like packaging, etc.)
+? Creating visual designs
+
+Core team membership acknowledges sustained and valuable efforts that align well with the philosophy and the goals of the Python project.
+??snip snip??
+
+I?m quite convinced that both Mark and Abhilash meet these requirements.  And they are almost by definition the experts in the email package.  You can certainly see the nature of their work in the Mailman repos, and I would be willing to mentor them through the first few commits to the CPython repo, though I think it will be mostly perfunctory.
+
+> Having a sustainable Mailman project is great. But how does that
+> relate to Python itself? Are you talking about the email module? Do
+> Mark Sapiro and Abhilash Raj plan to maintain the email module?
+
+Yes, that is the intent.
+
+> In the meanwhile, they don't have to be core devs to help to maintain
+> the email module, no?
+
+Do we have any core developers who want to maintain it?  Not me :) and apparently not RDM.
+
+-Barry
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 833 bytes
+Desc: Message signed with OpenPGP
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20190513/0f1e8b23/attachment.sig>
+
+From greg at krypto.org  Mon May 13 19:19:50 2019
+From: greg at krypto.org (Gregory P. Smith)
+Date: Mon, 13 May 2019 16:19:50 -0700
+Subject: [python-committers] Promote Mark Sapiro and Abhilash Raj as
+ core developers
+In-Reply-To: <CABC2248-9BC8-4785-BD32-735D837A13B6@python.org>
+References: <D1DAFB0C-95E1-4BC2-9760-CE5DC3C24EE0@python.org>
+ <CAL3CFcWvOW9oi-LD8WRRBL-yKyxcePci6KhyM61L9BTk4Z7dAw@mail.gmail.com>
+ <CA+3bQGEAtg-MzUpzYZhqG=VF-oovP2TT3xgmUyTtGa7zSocokg@mail.gmail.com>
+ <CABC2248-9BC8-4785-BD32-735D837A13B6@python.org>
+Message-ID: <CAGE7PNKXJD-vWsAvgSihSBG3gEW5_7cKkXUeAfo=iR5iYzYm+A@mail.gmail.com>
+
+On Mon, May 13, 2019 at 4:11 PM Barry Warsaw <barry at python.org> wrote:
+
+> On May 13, 2019, at 01:14, Victor Stinner <vstinner at redhat.com> wrote:
+>
+> > I'm no longer sure myself that I can define them. I prefer to repeat
+> > what others say :-) Basically, a core developers is someone who
+> > produces commits :-) That's one definition.
+>
+> But, IMHO not a correct one.  The full quote from PEP 13:
+>
+> ??snip snip??
+> Python core team members demonstrate:
+>
+> ? a good grasp of the philosophy of the Python Project
+> ? a solid track record of being constructive and helpful
+> ? significant contributions to the project's goals, in any form
+> ? willingness to dedicate some time to improving Python
+>
+> As the project matures, contributions go beyond code. Here's an incomplete
+> list of areas where contributions may be considered for joining the core
+> team, in no particular order:
+>
+> ? Working on community management and outreach
+> ? Providing support on the mailing lists and on IRC
+> ? Triaging tickets
+> ? Writing patches (code, docs, or tests)
+> ? Reviewing patches (code, docs, or tests)
+> ? Participating in design decisions
+> ? Providing expertise in a particular domain (security, i18n, etc.)
+> ? Managing the continuous integration infrastructure
+> ? Managing the servers (website, tracker, documentation, etc.)
+> ? Maintaining related projects (alternative interpreters, core
+> infrastructure like packaging, etc.)
+> ? Creating visual designs
+>
+> Core team membership acknowledges sustained and valuable efforts that
+> align well with the philosophy and the goals of the Python project.
+> ??snip snip??
+>
+> I?m quite convinced that both Mark and Abhilash meet these requirements.
+> And they are almost by definition the experts in the email package.  You
+> can certainly see the nature of their work in the Mailman repos, and I
+> would be willing to mentor them through the first few commits to the
+> CPython repo, though I think it will be mostly perfunctory.
+>
+> > Having a sustainable Mailman project is great. But how does that
+> > relate to Python itself? Are you talking about the email module? Do
+> > Mark Sapiro and Abhilash Raj plan to maintain the email module?
+>
+> Yes, that is the intent.
+>
+> > In the meanwhile, they don't have to be core devs to help to maintain
+> > the email module, no?
+>
+> Do we have any core developers who want to maintain it?  Not me :) and
+> apparently not RDM.
+>
+
+I think these two make sense as email module maintainers from a
+demonstrated domain expertise point of view.
+
+But you'll probably have an easier time convincing others who want to see
+some PRs first if you just go ahead and have them do some work on the email
+module in the form of PRs to start with.  ie: Don't let being dubbed core
+developers or not yet block you from starting to mentor them on initial
+email module maintenance.
+
+-gps
+
+
+> -Barry
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20190513/3d69b294/attachment.html>
+
+From tjreedy at udel.edu  Mon May 13 21:58:06 2019
+From: tjreedy at udel.edu (Terry Reedy)
+Date: Mon, 13 May 2019 21:58:06 -0400
+Subject: [python-committers] Promote Mark Sapiro and Abhilash Raj as
+ core developers
+In-Reply-To: <CABC2248-9BC8-4785-BD32-735D837A13B6@python.org>
+References: <D1DAFB0C-95E1-4BC2-9760-CE5DC3C24EE0@python.org>
+ <CAL3CFcWvOW9oi-LD8WRRBL-yKyxcePci6KhyM61L9BTk4Z7dAw@mail.gmail.com>
+ <CA+3bQGEAtg-MzUpzYZhqG=VF-oovP2TT3xgmUyTtGa7zSocokg@mail.gmail.com>
+ <CABC2248-9BC8-4785-BD32-735D837A13B6@python.org>
+Message-ID: <c28071a3-4c90-1088-f384-4604016e5b87@udel.edu>
+
+On 5/13/2019 7:11 PM, Barry Warsaw wrote:
+> On May 13, 2019, at 01:14, Victor Stinner <vstinner at redhat.com> wrote:
+> 
+>> I'm no longer sure myself that I can define them. I prefer to repeat
+>> what others say :-) Basically, a core developers is someone who
+>> produces commits :-) That's one definition.
+> 
+> But, IMHO not a correct one.
+
+I think 'half complete' rather than 'not correct' is more accurate. 
+There are two main effects of being granted 'core developer' status.
+
+1. One may edit and merge PRs by onself or others into a python 
+repository and in particular python/cypthon . This, expanded, is 
+Victor's 'produce commits'.
+
+2. One may participate in coredev-only discussions and votes.
+
+These are the activities that differentiate of a 'core developer' and it 
+is not wrong to say that a core developer is one who may do these.
+
+>  The full quote from PEP 13:
+> ??snip snip??
+> Python core team members demonstrate:
+> 
+> ? a good grasp of the philosophy of the Python Project
+> ? a solid track record of being constructive and helpful
+> ? significant contributions to the project's goals, in any form
+> ? willingness to dedicate some time to improving Python
+
+This are qualities and history that once should have to become a core 
+developer.  For producing commits, one should, in particular, understand 
+the difference, as used here, between 'bug fix' and 'enhancement' and 
+support the policy of not adding enhancements to x.y after x.y.0 (after 
+.b1, actually).  (The devguide says something about this, but I don't 
+know if it is clear enough.)
+
+> As the project matures, contributions go beyond code. Here's an incomplete list of areas where contributions may be considered for joining the core team, in no particular order:
+
+'may', not 'should' or 'must'.  Different existing coredevs may 
+legitimately give these different weights.
+
+> ? Working on community management and outreach
+...
+> ? Creating visual designs
+
+Neither of these two speak to being qualified to produce commits.  Many 
+of those I snipped do.
+
+> Core team membership acknowledges sustained and valuable efforts that align well with the philosophy and the goals of the Python project.
+> ??snip snip??
+
+This sentence could be misinterpreted as saying that codedev status is 
+an award for past contributions rather than an enabling greater future 
+contributions.
+
+Summarizing the general considerations, I have two questions for any 
+candidate.
+
+1. Do you want to become a core developer and do you intend to use the 
+commit privilege?  If not, the question is not worth our time.
+
+2. Do you understand our definition of 'bug fix' versus 'enhancement' 
+and how and why the difference is important.  If not,
+---
+
+> I?m quite convinced that both Mark and Abhilash meet these requirements.  And they are almost by definition the experts in the email package.  You can certainly see the nature of their work in the Mailman repos, and I would be willing to mentor them through the first few commits to the CPython repo, though I think it will be mostly perfunctory.
+> 
+>> Having a sustainable Mailman project is great. But how does that
+>> relate to Python itself? Are you talking about the email module? Do
+>> Mark Sapiro and Abhilash Raj plan to maintain the email module?
+> 
+> Yes, that is the intent.
+> 
+>> In the meanwhile, they don't have to be core devs to help to maintain
+>> the email module, no?
+> 
+> Do we have any core developers who want to maintain it?  Not me :) and apparently not RDM.
+
+I searched the tracker for open issues with the email component marked. 
+I was somewhat surprised to see 151, which is about the number for IDLE 
+a few years ago.  We definitely need an active core developer working on 
+email and team of two who can work together and check each other's work 
+would be good.  (If and when we do, I can give suggestions, if asked, on 
+managing such an intimidating pile.)
+
+--
+Terry
+
+

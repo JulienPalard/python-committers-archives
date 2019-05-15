@@ -2298,3 +2298,332 @@ managing such an intimidating pile.)
 Terry
 
 
+From antoine at python.org  Tue May 14 03:46:30 2019
+From: antoine at python.org (Antoine Pitrou)
+Date: Tue, 14 May 2019 09:46:30 +0200
+Subject: [python-committers] Promote Mark Sapiro and Abhilash Raj as
+ core developers
+In-Reply-To: <CAGE7PNKXJD-vWsAvgSihSBG3gEW5_7cKkXUeAfo=iR5iYzYm+A@mail.gmail.com>
+References: <D1DAFB0C-95E1-4BC2-9760-CE5DC3C24EE0@python.org>
+ <CAL3CFcWvOW9oi-LD8WRRBL-yKyxcePci6KhyM61L9BTk4Z7dAw@mail.gmail.com>
+ <CA+3bQGEAtg-MzUpzYZhqG=VF-oovP2TT3xgmUyTtGa7zSocokg@mail.gmail.com>
+ <CABC2248-9BC8-4785-BD32-735D837A13B6@python.org>
+ <CAGE7PNKXJD-vWsAvgSihSBG3gEW5_7cKkXUeAfo=iR5iYzYm+A@mail.gmail.com>
+Message-ID: <fe5a0916-2a58-919c-adad-7b7952f97490@python.org>
+
+
+Le 14/05/2019 ? 01:19, Gregory P. Smith a ?crit?:
+> 
+> I think these two make sense as email module maintainers from a
+> demonstrated domain expertise point of view.
+> 
+> But you'll probably have an easier time convincing others who want to
+> see some PRs first if you just go ahead and have them do some work on
+> the email module in the form of PRs to start with.? ie: Don't let being
+> dubbed core developers or not yet block you from starting to mentor them
+> on initial email module maintenance.
+
+Right, that sounds like the best course of action.  Barry, if you trust
+Mark's and Abhilash's competence, it should probably be easy for you to
+merge their first PRs (and guide them along the way).
+
+Regards
+
+Antoine.
+
+From mal at egenix.com  Tue May 14 04:00:32 2019
+From: mal at egenix.com (M.-A. Lemburg)
+Date: Tue, 14 May 2019 10:00:32 +0200
+Subject: [python-committers] Promote Mark Sapiro and Abhilash Raj as
+ core developers
+In-Reply-To: <fe5a0916-2a58-919c-adad-7b7952f97490@python.org>
+References: <D1DAFB0C-95E1-4BC2-9760-CE5DC3C24EE0@python.org>
+ <CAL3CFcWvOW9oi-LD8WRRBL-yKyxcePci6KhyM61L9BTk4Z7dAw@mail.gmail.com>
+ <CA+3bQGEAtg-MzUpzYZhqG=VF-oovP2TT3xgmUyTtGa7zSocokg@mail.gmail.com>
+ <CABC2248-9BC8-4785-BD32-735D837A13B6@python.org>
+ <CAGE7PNKXJD-vWsAvgSihSBG3gEW5_7cKkXUeAfo=iR5iYzYm+A@mail.gmail.com>
+ <fe5a0916-2a58-919c-adad-7b7952f97490@python.org>
+Message-ID: <fdcf7327-7ca7-c4b3-7c54-10ddb0ff5224@egenix.com>
+
+I think Mark and Abhilash would be the perfect choice to (help) maintain
+the email package.
+
+They have done a great job on making sure Mailman
+works for us and know from real world experience what the issues
+are you face nowadays with email (such as having to deal with the
+wonderful technology called DMARC...).
+
+On 14.05.2019 09:46, Antoine Pitrou wrote:
+> 
+> Le 14/05/2019 ? 01:19, Gregory P. Smith a ?crit?:
+>>
+>> I think these two make sense as email module maintainers from a
+>> demonstrated domain expertise point of view.
+>>
+>> But you'll probably have an easier time convincing others who want to
+>> see some PRs first if you just go ahead and have them do some work on
+>> the email module in the form of PRs to start with.? ie: Don't let being
+>> dubbed core developers or not yet block you from starting to mentor them
+>> on initial email module maintenance.
+> 
+> Right, that sounds like the best course of action.  Barry, if you trust
+> Mark's and Abhilash's competence, it should probably be easy for you to
+> merge their first PRs (and guide them along the way).
+
+-- 
+Marc-Andre Lemburg
+eGenix.com
+
+Professional Python Services directly from the Experts (#1, May 14 2019)
+>>> Python Projects, Coaching and Consulting ...  http://www.egenix.com/
+>>> Python Database Interfaces ...           http://products.egenix.com/
+>>> Plone/Zope Database Interfaces ...           http://zope.egenix.com/
+________________________________________________________________________
+
+::: We implement business ideas - efficiently in both time and costs :::
+
+   eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+    D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+           Registered at Amtsgericht Duesseldorf: HRB 46611
+               http://www.egenix.com/company/contact/
+                      http://www.malemburg.com/
+
+
+From andrew.svetlov at gmail.com  Tue May 14 06:19:56 2019
+From: andrew.svetlov at gmail.com (Andrew Svetlov)
+Date: Tue, 14 May 2019 13:19:56 +0300
+Subject: [python-committers] Promote Mark Sapiro and Abhilash Raj as
+ core developers
+In-Reply-To: <fdcf7327-7ca7-c4b3-7c54-10ddb0ff5224@egenix.com>
+References: <D1DAFB0C-95E1-4BC2-9760-CE5DC3C24EE0@python.org>
+ <CAL3CFcWvOW9oi-LD8WRRBL-yKyxcePci6KhyM61L9BTk4Z7dAw@mail.gmail.com>
+ <CA+3bQGEAtg-MzUpzYZhqG=VF-oovP2TT3xgmUyTtGa7zSocokg@mail.gmail.com>
+ <CABC2248-9BC8-4785-BD32-735D837A13B6@python.org>
+ <CAGE7PNKXJD-vWsAvgSihSBG3gEW5_7cKkXUeAfo=iR5iYzYm+A@mail.gmail.com>
+ <fe5a0916-2a58-919c-adad-7b7952f97490@python.org>
+ <fdcf7327-7ca7-c4b3-7c54-10ddb0ff5224@egenix.com>
+Message-ID: <CAL3CFcUTF2+yK0VUCC78+3f2idHR+13eSY2RJmJPwf79VQbgtA@mail.gmail.com>
+
+Working on email package under Barry mentorship looks like a good idea
+and a first step to promoting Mark and Abhilash.
+Also, we can give them bug triaging privilegy to help with managing
+existing 150+ email related bug reports right now, it doesn't hurt.
+
+After some mentorship period, we can consider promoting them to Core Devs again.
+Mentorship is always a very important and required part for our
+workflow, regardless of tech expertise.
+We always are striving to get PR review (except very trivial changes maybe).
+Personally, the ability to press the green "merge" button doesn't
+change too much in my work (but requires more responsibility, sure).
+
+On Tue, May 14, 2019 at 11:00 AM M.-A. Lemburg <mal at egenix.com> wrote:
+>
+> I think Mark and Abhilash would be the perfect choice to (help) maintain
+> the email package.
+>
+> They have done a great job on making sure Mailman
+> works for us and know from real world experience what the issues
+> are you face nowadays with email (such as having to deal with the
+> wonderful technology called DMARC...).
+>
+> On 14.05.2019 09:46, Antoine Pitrou wrote:
+> >
+> > Le 14/05/2019 ? 01:19, Gregory P. Smith a ?crit :
+> >>
+> >> I think these two make sense as email module maintainers from a
+> >> demonstrated domain expertise point of view.
+> >>
+> >> But you'll probably have an easier time convincing others who want to
+> >> see some PRs first if you just go ahead and have them do some work on
+> >> the email module in the form of PRs to start with.  ie: Don't let being
+> >> dubbed core developers or not yet block you from starting to mentor them
+> >> on initial email module maintenance.
+> >
+> > Right, that sounds like the best course of action.  Barry, if you trust
+> > Mark's and Abhilash's competence, it should probably be easy for you to
+> > merge their first PRs (and guide them along the way).
+>
+> --
+> Marc-Andre Lemburg
+> eGenix.com
+>
+> Professional Python Services directly from the Experts (#1, May 14 2019)
+> >>> Python Projects, Coaching and Consulting ...  http://www.egenix.com/
+> >>> Python Database Interfaces ...           http://products.egenix.com/
+> >>> Plone/Zope Database Interfaces ...           http://zope.egenix.com/
+> ________________________________________________________________________
+>
+> ::: We implement business ideas - efficiently in both time and costs :::
+>
+>    eGenix.com Software, Skills and Services GmbH  Pastor-Loeh-Str.48
+>     D-40764 Langenfeld, Germany. CEO Dipl.-Math. Marc-Andre Lemburg
+>            Registered at Amtsgericht Duesseldorf: HRB 46611
+>                http://www.egenix.com/company/contact/
+>                       http://www.malemburg.com/
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+
+
+
+-- 
+Thanks,
+Andrew Svetlov
+
+From barry at python.org  Tue May 14 12:38:20 2019
+From: barry at python.org (Barry Warsaw)
+Date: Tue, 14 May 2019 09:38:20 -0700
+Subject: [python-committers] Promote Mark Sapiro and Abhilash Raj as
+ core developers
+In-Reply-To: <fe5a0916-2a58-919c-adad-7b7952f97490@python.org>
+References: <D1DAFB0C-95E1-4BC2-9760-CE5DC3C24EE0@python.org>
+ <CAL3CFcWvOW9oi-LD8WRRBL-yKyxcePci6KhyM61L9BTk4Z7dAw@mail.gmail.com>
+ <CA+3bQGEAtg-MzUpzYZhqG=VF-oovP2TT3xgmUyTtGa7zSocokg@mail.gmail.com>
+ <CABC2248-9BC8-4785-BD32-735D837A13B6@python.org>
+ <CAGE7PNKXJD-vWsAvgSihSBG3gEW5_7cKkXUeAfo=iR5iYzYm+A@mail.gmail.com>
+ <fe5a0916-2a58-919c-adad-7b7952f97490@python.org>
+Message-ID: <21A02036-F32F-4456-BD8F-C4E940232DCA@python.org>
+
+On May 14, 2019, at 00:46, Antoine Pitrou <antoine at python.org> wrote:
+
+> Barry, if you trust
+> Mark's and Abhilash's competence, it should probably be easy for you to
+> merge their first PRs (and guide them along the way).
+
+I do, and that works for me.   Can we give them triage rights on bpo now?
+
+-Barry
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 833 bytes
+Desc: Message signed with OpenPGP
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20190514/b9a17e66/attachment.sig>
+
+From vstinner at redhat.com  Tue May 14 15:56:44 2019
+From: vstinner at redhat.com (Victor Stinner)
+Date: Tue, 14 May 2019 21:56:44 +0200
+Subject: [python-committers] Promote Mark Sapiro and Abhilash Raj as
+ core developers
+In-Reply-To: <21A02036-F32F-4456-BD8F-C4E940232DCA@python.org>
+References: <D1DAFB0C-95E1-4BC2-9760-CE5DC3C24EE0@python.org>
+ <CAL3CFcWvOW9oi-LD8WRRBL-yKyxcePci6KhyM61L9BTk4Z7dAw@mail.gmail.com>
+ <CA+3bQGEAtg-MzUpzYZhqG=VF-oovP2TT3xgmUyTtGa7zSocokg@mail.gmail.com>
+ <CABC2248-9BC8-4785-BD32-735D837A13B6@python.org>
+ <CAGE7PNKXJD-vWsAvgSihSBG3gEW5_7cKkXUeAfo=iR5iYzYm+A@mail.gmail.com>
+ <fe5a0916-2a58-919c-adad-7b7952f97490@python.org>
+ <21A02036-F32F-4456-BD8F-C4E940232DCA@python.org>
+Message-ID: <CA+3bQGHZ_e1mWHgPjHjLRvr2wOginpy=NW-cSh7tw47ER9JbjQ@mail.gmail.com>
+
+Hi Barry,
+
+I gave the bug triage permission to:
+
+Mark Sapiro: https://bugs.python.org/user2507
+Abhilash Raj: https://bugs.python.org/user18684
+
+I use the links to profile, so you can double check that I picked the
+right person :-) For example, Raj has a second account (latest update:
+2014, whereas the other one was updated in 2017).
+https://bugs.python.org/user19558
+
+I sent an email to Mark and Raj with some explanations how to triage bugs.
+
+Victor
+
+
+Le mar. 14 mai 2019 ? 18:38, Barry Warsaw <barry at python.org> a ?crit :
+>
+> On May 14, 2019, at 00:46, Antoine Pitrou <antoine at python.org> wrote:
+>
+> > Barry, if you trust
+> > Mark's and Abhilash's competence, it should probably be easy for you to
+> > merge their first PRs (and guide them along the way).
+>
+> I do, and that works for me.   Can we give them triage rights on bpo now?
+>
+> -Barry
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+
+
+
+--
+Night gathers, and now my watch begins. It shall not end until my death.
+
+From barry at python.org  Tue May 14 21:11:14 2019
+From: barry at python.org (Barry Warsaw)
+Date: Tue, 14 May 2019 18:11:14 -0700
+Subject: [python-committers] PEP 581 (Using GitHub issues for CPython) is
+ accepted
+Message-ID: <7407D51F-AC46-4423-AF4A-63940F80D629@python.org>
+
+As the BDFL-Delegate for PEP 581, and with the unanimous backing of the rest of the Steering Council, I hereby Accept this PEP.
+
+We would like to thank Mariatta for championing PEP 581, and to all the contributors to the discussion, both pro and con.  We appreciate your candor and respect for your fellow developers.  The SC believes that this migration is in the best interest of the Python community, and we look forward to the elaboration of the detailed migration plan (PEP 588).
+
+We also extend our heartfelt thanks Berker, Ezio, and everyone who has helped develop and maintain Roundup and bugs.python.org over the years.  bpo has been a critical component for Python development for a very long time, and we all greatly appreciate the time, effort, and devotion you have put into this resource.
+
+https://www.python.org/dev/peps/pep-0581/
+
+Onward we go!  The migration will be a large effort, with much planning, development, and testing, and we welcome volunteers who wish to help make it a reality.  I look forward to your contributions on PEP 588 and the actual work of migrating issues to GitHub.
+
+Cheers,
+-Barry (BDFL-Delegate, and on behalf of the Python Steering Council)
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 833 bytes
+Desc: Message signed with OpenPGP
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20190514/fa2a45d6/attachment.sig>
+
+From vstinner at redhat.com  Tue May 14 21:42:17 2019
+From: vstinner at redhat.com (Victor Stinner)
+Date: Wed, 15 May 2019 03:42:17 +0200
+Subject: [python-committers] [Python-Dev] PEP 581 (Using GitHub issues
+ for CPython) is accepted
+In-Reply-To: <7407D51F-AC46-4423-AF4A-63940F80D629@python.org>
+References: <7407D51F-AC46-4423-AF4A-63940F80D629@python.org>
+Message-ID: <CA+3bQGFnoWoGVg8pmB8K=bT9u6MCsQsFjY-yir0YSbo+hR7G2g@mail.gmail.com>
+
+Congrats Mariatta :-)
+
+Victor
+
+Le mer. 15 mai 2019 ? 03:14, Barry Warsaw <barry at python.org> a ?crit :
+>
+> As the BDFL-Delegate for PEP 581, and with the unanimous backing of the rest of the Steering Council, I hereby Accept this PEP.
+>
+> We would like to thank Mariatta for championing PEP 581, and to all the contributors to the discussion, both pro and con.  We appreciate your candor and respect for your fellow developers.  The SC believes that this migration is in the best interest of the Python community, and we look forward to the elaboration of the detailed migration plan (PEP 588).
+>
+> We also extend our heartfelt thanks Berker, Ezio, and everyone who has helped develop and maintain Roundup and bugs.python.org over the years.  bpo has been a critical component for Python development for a very long time, and we all greatly appreciate the time, effort, and devotion you have put into this resource.
+>
+> https://www.python.org/dev/peps/pep-0581/
+>
+> Onward we go!  The migration will be a large effort, with much planning, development, and testing, and we welcome volunteers who wish to help make it a reality.  I look forward to your contributions on PEP 588 and the actual work of migrating issues to GitHub.
+>
+> Cheers,
+> -Barry (BDFL-Delegate, and on behalf of the Python Steering Council)
+>
+> _______________________________________________
+> Python-Dev mailing list
+> Python-Dev at python.org
+> https://mail.python.org/mailman/listinfo/python-dev
+> Unsubscribe: https://mail.python.org/mailman/options/python-dev/vstinner%40redhat.com
+
+
+
+-- 
+Night gathers, and now my watch begins. It shall not end until my death.
+

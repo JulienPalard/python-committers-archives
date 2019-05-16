@@ -2627,3 +2627,433 @@ Le mer. 15 mai 2019 ? 03:14, Barry Warsaw <barry at python.org> a ?crit :
 -- 
 Night gathers, and now my watch begins. It shall not end until my death.
 
+From p.f.moore at gmail.com  Wed May 15 05:40:07 2019
+From: p.f.moore at gmail.com (Paul Moore)
+Date: Wed, 15 May 2019 10:40:07 +0100
+Subject: [python-committers] [Python-Dev] PEP 581 (Using GitHub issues
+ for CPython) is accepted
+In-Reply-To: <20190515104830.5b307230@fsol>
+References: <7407D51F-AC46-4423-AF4A-63940F80D629@python.org>
+ <20190515104830.5b307230@fsol>
+Message-ID: <CACac1F9h-uvqUNcjFMh2FCPD4+=mbPb5Eo7=a5aZnhJF0KZFNg@mail.gmail.com>
+
+On Wed, 15 May 2019 at 09:51, Antoine Pitrou <solipsis at pitrou.net> wrote:
+>
+> On Tue, 14 May 2019 18:11:14 -0700
+> Barry Warsaw <barry at python.org> wrote:
+>
+> > As the BDFL-Delegate for PEP 581, and with the unanimous backing of the rest of the Steering Council, I hereby Accept this PEP.
+>
+> For future reference, is it possible to post the Steering Council's
+> reflection and rationale on the PEP?
+
+Also, is there an archive of the discussions anywhere? The PEP says
+discussions happened on Zulip, but I don't follow that and I don't
+know where I can find an archived copy of the discussions.
+
+It's not as if I'm going to object to the PEP (I'd have participated
+in the discussions if I had a strong opinion) but I am curious.
+
+Paul
+
+From vstinner at redhat.com  Wed May 15 10:56:05 2019
+From: vstinner at redhat.com (Victor Stinner)
+Date: Wed, 15 May 2019 16:56:05 +0200
+Subject: [python-committers] [Python-Dev] PEP 581 (Using GitHub issues
+ for CPython) is accepted
+In-Reply-To: <CACac1F9h-uvqUNcjFMh2FCPD4+=mbPb5Eo7=a5aZnhJF0KZFNg@mail.gmail.com>
+References: <7407D51F-AC46-4423-AF4A-63940F80D629@python.org>
+ <20190515104830.5b307230@fsol>
+ <CACac1F9h-uvqUNcjFMh2FCPD4+=mbPb5Eo7=a5aZnhJF0KZFNg@mail.gmail.com>
+Message-ID: <CA+3bQGFh3y6YNz9sWnbFcmFBgsXeaoO92_hFsGr_d=Y4Ee34XA@mail.gmail.com>
+
+Hi Paul,
+Le mer. 15 mai 2019 ? 11:40, Paul Moore <p.f.moore at gmail.com> a ?crit :
+> Also, is there an archive of the discussions anywhere? The PEP says
+> discussions happened on Zulip, but I don't follow that and I don't
+> know where I can find an archived copy of the discussions.
+
+Well, the PEP has been discussed a lot at many places since May 2018.
+
+The PEP 581 has been (first?) discussed at the Language Summit which
+was part of Pycon US 2018 (May 2018).
+
+Discussion on the PR:
+
+https://github.com/python/peps/pull/681/
+
+Multiple threads on Discourse:
+
+https://discuss.python.org/t/move-pep-581-discussion/873
+https://discuss.python.org/t/pep-581-using-github-issues/535
+https://discuss.python.org/t/what-are-next-steps-for-pep-581/864
+https://discuss.python.org/t/pep-process-after-pep-8016/558/4
+
+Thread on python-dev:
+
+https://mail.python.org/pipermail/python-dev/2019-March/156626.html
+
+Threads on python-committers:
+
+https://mail.python.org/pipermail/python-committers/2018-May/005428.html
+https://mail.python.org/pipermail/python-committers/2018-June/005506.html
+https://mail.python.org/pipermail/python-committers/2018-July/005657.html
+
+Discussion on Zulip Chat:
+
+https://python.zulipchat.com/#narrow/stream/130206-pep581
+
+The Steering Council discussed it internally as well:
+
+https://github.com/python/steering-council/blob/master/updates/2019-04-26_steering-council-update.md
+
+The PEP 581 and 588 have been discussed at the Language Summit which
+was part of Pycon US 2019 (2 weeks ago).
+
+Victor
+--
+Night gathers, and now my watch begins. It shall not end until my death.
+
+From p.f.moore at gmail.com  Wed May 15 11:18:15 2019
+From: p.f.moore at gmail.com (Paul Moore)
+Date: Wed, 15 May 2019 16:18:15 +0100
+Subject: [python-committers] [Python-Dev] PEP 581 (Using GitHub issues
+ for CPython) is accepted
+In-Reply-To: <CA+3bQGFh3y6YNz9sWnbFcmFBgsXeaoO92_hFsGr_d=Y4Ee34XA@mail.gmail.com>
+References: <7407D51F-AC46-4423-AF4A-63940F80D629@python.org>
+ <20190515104830.5b307230@fsol>
+ <CACac1F9h-uvqUNcjFMh2FCPD4+=mbPb5Eo7=a5aZnhJF0KZFNg@mail.gmail.com>
+ <CA+3bQGFh3y6YNz9sWnbFcmFBgsXeaoO92_hFsGr_d=Y4Ee34XA@mail.gmail.com>
+Message-ID: <CACac1F_9cb2ykL4s-5G+GPvkhu+-EFhR_4C1VKY=A0O=o7+jUg@mail.gmail.com>
+
+On Wed, 15 May 2019 at 15:56, Victor Stinner <vstinner at redhat.com> wrote:
+>
+> Hi Paul,
+> Le mer. 15 mai 2019 ? 11:40, Paul Moore <p.f.moore at gmail.com> a ?crit :
+> > Also, is there an archive of the discussions anywhere? The PEP says
+> > discussions happened on Zulip, but I don't follow that and I don't
+> > know where I can find an archived copy of the discussions.
+>
+> Well, the PEP has been discussed a lot at many places since May 2018.
+
+Thanks for all of these. I appreciate the time you took locating them
+for me. But I do have to say that I still can't really follow any
+useful "thread of discussion" - it all seems very fragmented, and it's
+difficult to see the progress towards consensus. Maybe that's just
+because I'm too used to mailing lists :-)
+
+> The PEP 581 has been (first?) discussed at the Language Summit which
+> was part of Pycon US 2018 (May 2018).
+
+Was that written up, or is it all just from people's memories by now?
+
+> https://github.com/python/peps/pull/681/
+
+Ah - I don't really follow this sort of PR discussion, as the github
+emails don't tend to have sufficient context on what's being said, so
+I (mostly) gave up a long time ago. Also, I tend to assume that
+discussions on PRs are mostly about details of wording, and
+substantive changes will be dealt with in a wider forum. I wonder if I
+should be following PRs on the PEPs repository more closely...?
+
+> Multiple threads on Discourse:
+>
+> https://discuss.python.org/t/move-pep-581-discussion/873
+> https://discuss.python.org/t/pep-581-using-github-issues/535
+> https://discuss.python.org/t/what-are-next-steps-for-pep-581/864
+> https://discuss.python.org/t/pep-process-after-pep-8016/558/4
+>
+> Thread on python-dev:
+>
+> https://mail.python.org/pipermail/python-dev/2019-March/156626.html
+>
+> Threads on python-committers:
+>
+> https://mail.python.org/pipermail/python-committers/2018-May/005428.html
+> https://mail.python.org/pipermail/python-committers/2018-June/005506.html
+> https://mail.python.org/pipermail/python-committers/2018-July/005657.html
+
+I saw these, but didn't get much of a sense of progress towards
+agreement. Again, maybe just because they were lots of fragmented
+threads and locations.
+
+> Discussion on Zulip Chat:
+>
+> https://python.zulipchat.com/#narrow/stream/130206-pep581
+
+I can't see this without logging in :-(
+
+> The Steering Council discussed it internally as well:
+>
+> https://github.com/python/steering-council/blob/master/updates/2019-04-26_steering-council-update.md
+
+I did see that, I was more wondering what led to that decision
+(whether it was a general consensus from the core devs that it was a
+good move, or mainly the SC's own view that prevailed).
+
+> The PEP 581 and 588 have been discussed at the Language Summit which
+> was part of Pycon US 2019 (2 weeks ago).
+
+Again, has there been any write up of that (yet)?
+
+As I say, I don't object to the decision, I'm more just trying to
+better understand the process of being involved under the new regime
+of the SC, combined with multiple fragmented forums for discussion. It
+feels a lot harder these days to keep track of all the
+discussions/decisions going on. But maybe that's a good thing - only
+people with a genuine interest get involved, and I can spend less of
+my time reading mailing lists! :-)
+
+Paul
+
+From brett at python.org  Wed May 15 11:57:31 2019
+From: brett at python.org (Brett Cannon)
+Date: Wed, 15 May 2019 08:57:31 -0700
+Subject: [python-committers] [Python-Dev] PEP 581 (Using GitHub issues
+ for CPython) is accepted
+In-Reply-To: <CACac1F_9cb2ykL4s-5G+GPvkhu+-EFhR_4C1VKY=A0O=o7+jUg@mail.gmail.com>
+References: <7407D51F-AC46-4423-AF4A-63940F80D629@python.org>
+ <20190515104830.5b307230@fsol>
+ <CACac1F9h-uvqUNcjFMh2FCPD4+=mbPb5Eo7=a5aZnhJF0KZFNg@mail.gmail.com>
+ <CA+3bQGFh3y6YNz9sWnbFcmFBgsXeaoO92_hFsGr_d=Y4Ee34XA@mail.gmail.com>
+ <CACac1F_9cb2ykL4s-5G+GPvkhu+-EFhR_4C1VKY=A0O=o7+jUg@mail.gmail.com>
+Message-ID: <CAP1=2W6L9hKdQsn8GY_1zgib0nOzr4soF3fQVE_c-dXsR2EytQ@mail.gmail.com>
+
+On Wed, May 15, 2019 at 8:18 AM Paul Moore <p.f.moore at gmail.com> wrote:
+
+> On Wed, 15 May 2019 at 15:56, Victor Stinner <vstinner at redhat.com> wrote:
+> >
+> > Hi Paul,
+> > Le mer. 15 mai 2019 ? 11:40, Paul Moore <p.f.moore at gmail.com> a ?crit :
+> > > Also, is there an archive of the discussions anywhere? The PEP says
+> > > discussions happened on Zulip, but I don't follow that and I don't
+> > > know where I can find an archived copy of the discussions.
+> >
+> > Well, the PEP has been discussed a lot at many places since May 2018.
+>
+> Thanks for all of these. I appreciate the time you took locating them
+> for me. But I do have to say that I still can't really follow any
+> useful "thread of discussion" - it all seems very fragmented, and it's
+> difficult to see the progress towards consensus. Maybe that's just
+> because I'm too used to mailing lists :-)
+>
+> > The PEP 581 has been (first?) discussed at the Language Summit which
+> > was part of Pycon US 2018 (May 2018).
+>
+> Was that written up, or is it all just from people's memories by now?
+>
+
+There's at least https://lwn.net/Articles/754779/. Don't remember if other
+people wrote up their own summary.
+
+[SNIP]
+
+> The PEP 581 and 588 have been discussed at the Language Summit which
+> > was part of Pycon US 2019 (2 weeks ago).
+>
+> Again, has there been any write up of that (yet)?
+>
+
+Not yet, but A. Jesse Jiryu Davis attended so the PSF could blog about it.
+
+
+
+>
+> As I say, I don't object to the decision, I'm more just trying to
+> better understand the process of being involved under the new regime
+> of the SC,
+
+
+I think everyone is. :)
+
+In the case of this PEP the various members of the SC have been keeping up
+with the PEP and its discussions over the year that the PEP has been
+around, we discussed the pros and cons that people brought up, thought
+through what will be required for us to do the migration if the PEP was
+accepted, and in the end decided it was worth the effort.
+
+
+> combined with multiple fragmented forums for discussion.
+
+
+A PEP is being worked on to try and propose a way to straighten this all
+out, but travel, life, etc. has been keeping that one from being finished.
+I've added discussing the status of it to our next meeting's agenda.
+
+
+> It
+> feels a lot harder these days to keep track of all the
+> discussions/decisions going on. But maybe that's a good thing - only
+> people with a genuine interest get involved, and I can spend less of
+> my time reading mailing lists! :-)
+>
+
+Obviously YMMV, but I actually find it easier. :)
+
+-Brett
+
+
+>
+> Paul
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20190515/dc649e21/attachment-0001.html>
+
+From ezio.melotti at gmail.com  Wed May 15 13:44:03 2019
+From: ezio.melotti at gmail.com (Ezio Melotti)
+Date: Wed, 15 May 2019 19:44:03 +0200
+Subject: [python-committers] [Python-Dev] PEP 581 (Using GitHub issues
+ for CPython) is accepted
+In-Reply-To: <CACac1F_9cb2ykL4s-5G+GPvkhu+-EFhR_4C1VKY=A0O=o7+jUg@mail.gmail.com>
+References: <7407D51F-AC46-4423-AF4A-63940F80D629@python.org>
+ <20190515104830.5b307230@fsol>
+ <CACac1F9h-uvqUNcjFMh2FCPD4+=mbPb5Eo7=a5aZnhJF0KZFNg@mail.gmail.com>
+ <CA+3bQGFh3y6YNz9sWnbFcmFBgsXeaoO92_hFsGr_d=Y4Ee34XA@mail.gmail.com>
+ <CACac1F_9cb2ykL4s-5G+GPvkhu+-EFhR_4C1VKY=A0O=o7+jUg@mail.gmail.com>
+Message-ID: <CACBhJdG0Ocv+QwFLk4AJGt-uWUAazrCfQK2B+UF6sUgZNAXKAA@mail.gmail.com>
+
+Hello,
+
+On Wed, May 15, 2019 at 5:18 PM Paul Moore <p.f.moore at gmail.com> wrote:
+>
+> On Wed, 15 May 2019 at 15:56, Victor Stinner <vstinner at redhat.com> wrote:
+> >
+> > Hi Paul,
+> > Le mer. 15 mai 2019 ? 11:40, Paul Moore <p.f.moore at gmail.com> a ?crit :
+> > > Also, is there an archive of the discussions anywhere? The PEP says
+> > > discussions happened on Zulip, but I don't follow that and I don't
+> > > know where I can find an archived copy of the discussions.
+> >
+> > Well, the PEP has been discussed a lot at many places since May 2018.
+>
+> Thanks for all of these. I appreciate the time you took locating them
+> for me. But I do have to say that I still can't really follow any
+> useful "thread of discussion" - it all seems very fragmented, and it's
+> difficult to see the progress towards consensus. Maybe that's just
+> because I'm too used to mailing lists :-)
+>
+
+I share the same concerns:
+1) the discussion was fragmented between
+zulip/discuss/github/python-dev/python-committers/sprints/pycons and
+very difficult to follow, even for interested people (Victor already
+posted several links but missed a few others);
+2) the progress toward consensus was not clear and the approval came
+somewhat unexpectedly (it was mentioned a couple of weeks ago on
+https://mail.python.org/pipermail/python-committers/2019-April/006705.html
+and AFAICT no further discussion took place in public forums since
+then);
+
+In addition:
+1) the PEP contains several factual errors.  I pointed this out during
+the core-sprints last year and more recently Berker pointed out some
+on GitHub: https://github.com/python/peps/pull/1013 ;
+2) the "discussions-to" header of the PEP points to the zulip stream.
+The stream has not been active for 6 months (it got a few new messages
+today, the previous activity was in Dec 2018);
+3) most of the discussions linked by Victor happened last year.
+Unless I missed some, the only discussions happened this year are the
+two on Discuss from February (with 3 messages each from a total of 5
+authors), and the python-dev thread from March (with 12 messages from
+7 authors).  One of the two Discuss threads was a inquiry about the
+process (https://discuss.python.org/t/move-pep-581-discussion/873);
+4) Berker is/was writing a competing PEP, in order to address the
+problems of PEP 581 more effectively since his comments on GitHub
+haven't been addressed;
+5) next week a student is supposed to start working for the PSF on
+b.p.o and Roundup as part of Google Summer of Code
+(http://python-gsoc.org/psf_ideas.html);
+6) PEP 8016 says "The council should look for ways to use these powers
+as little as possible. Instead of voting, it's better to seek
+consensus. Instead of ruling on individual PEPs, it's better to define
+a standard process for PEP decision making.";
+
+To summarize, I feel the approval of this PEP is premature and that
+consensus was reached in a way that wasn't very transparent, without
+considering some of the concerns.
+(This might also be a symptom of a wider problem caused by the
+fragmentation of the discussions between the old MLs, discuss, zulip,
+IRC, GitHub PRs and issues, and IRL meetings, but this is a separate
+topic.)
+
+Best Regards,
+Ezio Melotti
+
+
+
+
+> > The PEP 581 has been (first?) discussed at the Language Summit which
+> > was part of Pycon US 2018 (May 2018).
+>
+> Was that written up, or is it all just from people's memories by now?
+>
+> > https://github.com/python/peps/pull/681/
+>
+> Ah - I don't really follow this sort of PR discussion, as the github
+> emails don't tend to have sufficient context on what's being said, so
+> I (mostly) gave up a long time ago. Also, I tend to assume that
+> discussions on PRs are mostly about details of wording, and
+> substantive changes will be dealt with in a wider forum. I wonder if I
+> should be following PRs on the PEPs repository more closely...?
+>
+> > Multiple threads on Discourse:
+> >
+> > https://discuss.python.org/t/move-pep-581-discussion/873
+> > https://discuss.python.org/t/pep-581-using-github-issues/535
+> > https://discuss.python.org/t/what-are-next-steps-for-pep-581/864
+> > https://discuss.python.org/t/pep-process-after-pep-8016/558/4
+> >
+> > Thread on python-dev:
+> >
+> > https://mail.python.org/pipermail/python-dev/2019-March/156626.html
+> >
+> > Threads on python-committers:
+> >
+> > https://mail.python.org/pipermail/python-committers/2018-May/005428.html
+> > https://mail.python.org/pipermail/python-committers/2018-June/005506.html
+> > https://mail.python.org/pipermail/python-committers/2018-July/005657.html
+>
+> I saw these, but didn't get much of a sense of progress towards
+> agreement. Again, maybe just because they were lots of fragmented
+> threads and locations.
+>
+> > Discussion on Zulip Chat:
+> >
+> > https://python.zulipchat.com/#narrow/stream/130206-pep581
+>
+> I can't see this without logging in :-(
+>
+> > The Steering Council discussed it internally as well:
+> >
+> > https://github.com/python/steering-council/blob/master/updates/2019-04-26_steering-council-update.md
+>
+> I did see that, I was more wondering what led to that decision
+> (whether it was a general consensus from the core devs that it was a
+> good move, or mainly the SC's own view that prevailed).
+>
+> > The PEP 581 and 588 have been discussed at the Language Summit which
+> > was part of Pycon US 2019 (2 weeks ago).
+>
+> Again, has there been any write up of that (yet)?
+>
+> As I say, I don't object to the decision, I'm more just trying to
+> better understand the process of being involved under the new regime
+> of the SC, combined with multiple fragmented forums for discussion. It
+> feels a lot harder these days to keep track of all the
+> discussions/decisions going on. But maybe that's a good thing - only
+> people with a genuine interest get involved, and I can spend less of
+> my time reading mailing lists! :-)
+>
+> Paul
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+

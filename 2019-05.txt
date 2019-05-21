@@ -3186,3 +3186,146 @@ new tools outside of CPython development.
 [1] bug reports, patches, ideas suggested by users, technical and/or
 PEP discussions, status of buildbots
 
+From angwerzx at 126.com  Mon May 20 23:34:36 2019
+From: angwerzx at 126.com (Xiang Zhang)
+Date: Tue, 21 May 2019 11:34:36 +0800 (GMT+08:00)
+Subject: [python-committers] [Python-Dev] PEP 581 (Using GitHub issues
+ for CPython) is accepted
+In-Reply-To: <CAPOVWOQ+KJ5G+QPQBVdCRRB7WmN33A5dPR0ztxhP6k=Dg=Pbdg@mail.gmail.com>
+References: <7407D51F-AC46-4423-AF4A-63940F80D629@python.org>
+ <20190515104830.5b307230@fsol>
+ <CACac1F9h-uvqUNcjFMh2FCPD4+=mbPb5Eo7=a5aZnhJF0KZFNg@mail.gmail.com>
+ <CA+3bQGFh3y6YNz9sWnbFcmFBgsXeaoO92_hFsGr_d=Y4Ee34XA@mail.gmail.com>
+ <CACac1F_9cb2ykL4s-5G+GPvkhu+-EFhR_4C1VKY=A0O=o7+jUg@mail.gmail.com>
+ <CACBhJdG0Ocv+QwFLk4AJGt-uWUAazrCfQK2B+UF6sUgZNAXKAA@mail.gmail.com>
+ <CAPOVWOQ+KJ5G+QPQBVdCRRB7WmN33A5dPR0ztxhP6k=Dg=Pbdg@mail.gmail.com>
+Message-ID: <9372962.5cd6.16ad8748617.Coremail.angwerzx@126.com>
+
+Also, Github has just changed its export control. As an international team, does it affect us and PEP581? Maybe better consult the lawyer first?
+
+http://help.github.com/en/articles/github-and-export-controls
+
+
+
+| |
+Xiang Zhang
+|
+|
+??angwerzx at 126.com
+|
+
+??? ?????? ??
+
+On 05/18/2019 17:12, Senthil Kumaran wrote:
+
+
+On Wed, May 15, 2019 at 6:44 PM Ezio Melotti <ezio.melotti at gmail.com> wrote:
+
+
+I share the same concerns: 1) the PEP contains several factual errors.  I pointed this out during
+the core-sprints last year and more recently Berker pointed out some
+on GitHub: https://github.com/python/peps/pull/1013 ;
+4) Berker is/was writing a competing PEP, in order to address the
+problems of PEP 581 more effectively since his comments on GitHub
+haven't been addressed;
+
+
+
+This concerns me a bit. The PEP/announcement acknowledges the work Ezio and Berker. However, it does not express if the PEP had addressed their review comments or had the current maintainers on-board with the proposal. I was of the assumption that if the current maintainers (/domain experts) were on-board, then it will be easier for the rest of us to adopt the new changes.
+
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20190521/d2a98dbd/attachment.html>
+
+From njs at pobox.com  Tue May 21 00:28:34 2019
+From: njs at pobox.com (Nathaniel Smith)
+Date: Mon, 20 May 2019 21:28:34 -0700
+Subject: [python-committers] [Python-Dev] PEP 581 (Using GitHub issues
+ for CPython) is accepted
+In-Reply-To: <9372962.5cd6.16ad8748617.Coremail.angwerzx@126.com>
+References: <7407D51F-AC46-4423-AF4A-63940F80D629@python.org>
+ <20190515104830.5b307230@fsol>
+ <CACac1F9h-uvqUNcjFMh2FCPD4+=mbPb5Eo7=a5aZnhJF0KZFNg@mail.gmail.com>
+ <CA+3bQGFh3y6YNz9sWnbFcmFBgsXeaoO92_hFsGr_d=Y4Ee34XA@mail.gmail.com>
+ <CACac1F_9cb2ykL4s-5G+GPvkhu+-EFhR_4C1VKY=A0O=o7+jUg@mail.gmail.com>
+ <CACBhJdG0Ocv+QwFLk4AJGt-uWUAazrCfQK2B+UF6sUgZNAXKAA@mail.gmail.com>
+ <CAPOVWOQ+KJ5G+QPQBVdCRRB7WmN33A5dPR0ztxhP6k=Dg=Pbdg@mail.gmail.com>
+ <9372962.5cd6.16ad8748617.Coremail.angwerzx@126.com>
+Message-ID: <CAPJVwBnWxaNjn+3f5B6Q2aHc-i9T5FGoyXVr_eECqNe3uoNEog@mail.gmail.com>
+
+On Mon, May 20, 2019 at 9:05 PM Xiang Zhang <angwerzx at 126.com> wrote:
+>
+> Also, Github has just changed its export control. As an international team, does it affect us and PEP581? Maybe better consult the lawyer first?
+>
+> http://help.github.com/en/articles/github-and-export-controls
+
+>From a quick non-expert read, that document seems to say that
+github.com is subject to the same export control laws as every other
+US company, but they don't do much to enforce them. ("Users are
+responsible", "Github.com has not been audited", etc.) Can you give
+any more details? You said something changed ? what was it? Is there a
+reason to think that github is different in this respect from any
+other platform we might use, including self-hosting? (For better or
+worse, the PSF is also a US corporation subject to US law...)
+
+-n
+
+-- 
+Nathaniel J. Smith -- https://vorpus.org
+
+From angwerzx at 126.com  Tue May 21 00:59:19 2019
+From: angwerzx at 126.com (Xiang Zhang)
+Date: Tue, 21 May 2019 12:59:19 +0800 (GMT+08:00)
+Subject: [python-committers] [Python-Dev] PEP 581 (Using GitHub issues
+ for CPython) is accepted
+In-Reply-To: <CAPJVwBnWxaNjn+3f5B6Q2aHc-i9T5FGoyXVr_eECqNe3uoNEog@mail.gmail.com>
+References: <7407D51F-AC46-4423-AF4A-63940F80D629@python.org>
+ <20190515104830.5b307230@fsol>
+ <CACac1F9h-uvqUNcjFMh2FCPD4+=mbPb5Eo7=a5aZnhJF0KZFNg@mail.gmail.com>
+ <CA+3bQGFh3y6YNz9sWnbFcmFBgsXeaoO92_hFsGr_d=Y4Ee34XA@mail.gmail.com>
+ <CACac1F_9cb2ykL4s-5G+GPvkhu+-EFhR_4C1VKY=A0O=o7+jUg@mail.gmail.com>
+ <CACBhJdG0Ocv+QwFLk4AJGt-uWUAazrCfQK2B+UF6sUgZNAXKAA@mail.gmail.com>
+ <CAPOVWOQ+KJ5G+QPQBVdCRRB7WmN33A5dPR0ztxhP6k=Dg=Pbdg@mail.gmail.com>
+ <9372962.5cd6.16ad8748617.Coremail.angwerzx@126.com>
+ <CAPJVwBnWxaNjn+3f5B6Q2aHc-i9T5FGoyXVr_eECqNe3uoNEog@mail.gmail.com>
+Message-ID: <26382459.6089.16ad8c21501.Coremail.angwerzx@126.com>
+
+Ahh sorry, not just updated but seems for some time, though not long, seems starting from May. Today due to some reason this news populates my social media. I don't understand what's the affects of this but definitely disappointed
+because this brings some risks to Python users. And this seems something not we can change.
+
+
+| |
+Xiang Zhang
+|
+|
+??angwerzx at 126.com
+|
+
+??? ?????? ??
+
+On 05/21/2019 12:28, Nathaniel Smith wrote:
+On Mon, May 20, 2019 at 9:05 PM Xiang Zhang <angwerzx at 126.com> wrote:
+>
+> Also, Github has just changed its export control. As an international team, does it affect us and PEP581? Maybe better consult the lawyer first?
+>
+> http://help.github.com/en/articles/github-and-export-controls
+
+From a quick non-expert read, that document seems to say that
+github.com is subject to the same export control laws as every other
+US company, but they don't do much to enforce them. ("Users are
+responsible", "Github.com has not been audited", etc.) Can you give
+any more details? You said something changed ? what was it? Is there a
+reason to think that github is different in this respect from any
+other platform we might use, including self-hosting? (For better or
+worse, the PSF is also a US corporation subject to US law...)
+
+-n
+
+--
+Nathaniel J. Smith -- https://vorpus.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20190521/6613ef3c/attachment-0001.html>
+

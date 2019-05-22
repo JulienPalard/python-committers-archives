@@ -3329,3 +3329,241 @@ Nathaniel J. Smith -- https://vorpus.org
 An HTML attachment was scrubbed...
 URL: <http://mail.python.org/pipermail/python-committers/attachments/20190521/6613ef3c/attachment-0001.html>
 
+From antoine at python.org  Tue May 21 14:10:34 2019
+From: antoine at python.org (Antoine Pitrou)
+Date: Tue, 21 May 2019 20:10:34 +0200
+Subject: [python-committers] Azure build operations
+Message-ID: <bd505a47-28e6-d6ba-4e86-ce0c65a51558@python.org>
+
+
+Hello,
+
+How can I restart a failed build on Azure?
+https://dev.azure.com/Python/cpython/_build/results?buildId=43161&view=logs&j=18d1a34d-6940-5fc1-f55b-405e2fba32b1
+
+Regards
+
+Antoine.
+
+From p.f.moore at gmail.com  Tue May 21 14:28:37 2019
+From: p.f.moore at gmail.com (Paul Moore)
+Date: Tue, 21 May 2019 19:28:37 +0100
+Subject: [python-committers] Azure build operations
+In-Reply-To: <bd505a47-28e6-d6ba-4e86-ce0c65a51558@python.org>
+References: <bd505a47-28e6-d6ba-4e86-ce0c65a51558@python.org>
+Message-ID: <CACac1F-y=9gpxEjDtLTsLjoh=nzrGS2eFd8wRTGB+CLoz0PvFQ@mail.gmail.com>
+
+On Tue, 21 May 2019 at 19:10, Antoine Pitrou <antoine at python.org> wrote:
+>
+> Hello,
+>
+> How can I restart a failed build on Azure?
+> https://dev.azure.com/Python/cpython/_build/results?buildId=43161&view=logs&j=18d1a34d-6940-5fc1-f55b-405e2fba32b1
+
+You can close and reopen the PR, but that restarts every build. I
+think there should be a way to restart an individual build, but it
+requires certain rights. I just checked, and I don't have the right to
+do so, and I'm afraid I don't know who gives out those rights (or even
+if it's something that we do give out to individual core devs).
+
+Paul
+
+From antoine at python.org  Tue May 21 14:30:53 2019
+From: antoine at python.org (Antoine Pitrou)
+Date: Tue, 21 May 2019 20:30:53 +0200
+Subject: [python-committers] Azure build operations
+In-Reply-To: <CACac1F-y=9gpxEjDtLTsLjoh=nzrGS2eFd8wRTGB+CLoz0PvFQ@mail.gmail.com>
+References: <bd505a47-28e6-d6ba-4e86-ce0c65a51558@python.org>
+ <CACac1F-y=9gpxEjDtLTsLjoh=nzrGS2eFd8wRTGB+CLoz0PvFQ@mail.gmail.com>
+Message-ID: <8c3cc6d3-b128-b746-df55-fc166502fe38@python.org>
+
+
+
+Le 21/05/2019 ? 20:28, Paul Moore a ?crit?:
+> On Tue, 21 May 2019 at 19:10, Antoine Pitrou <antoine at python.org> wrote:
+>>
+>> Hello,
+>>
+>> How can I restart a failed build on Azure?
+>> https://dev.azure.com/Python/cpython/_build/results?buildId=43161&view=logs&j=18d1a34d-6940-5fc1-f55b-405e2fba32b1
+> 
+> You can close and reopen the PR, but that restarts every build.
+
+I tried to do that... but stupid Miss Islington deleted the branch :-/
+
+From alex.gaynor at gmail.com  Tue May 21 14:32:45 2019
+From: alex.gaynor at gmail.com (Alex Gaynor)
+Date: Tue, 21 May 2019 14:32:45 -0400
+Subject: [python-committers] Azure build operations
+In-Reply-To: <bd505a47-28e6-d6ba-4e86-ce0c65a51558@python.org>
+References: <bd505a47-28e6-d6ba-4e86-ce0c65a51558@python.org>
+Message-ID: <CAFRnB2X7VYXJW7gQfGqQ5voiiE6vqQeGZcJqpiS3YcyXZ5Yk3A@mail.gmail.com>
+
+There's a link that does that on _github_. (On mobile, sorry for terseness).
+
+Alex
+
+On Tue, May 21, 2019, 2:10 PM Antoine Pitrou <antoine at python.org> wrote:
+
+>
+> Hello,
+>
+> How can I restart a failed build on Azure?
+>
+> https://dev.azure.com/Python/cpython/_build/results?buildId=43161&view=logs&j=18d1a34d-6940-5fc1-f55b-405e2fba32b1
+>
+> Regards
+>
+> Antoine.
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20190521/50b21c1f/attachment.html>
+
+From steve.dower at python.org  Tue May 21 14:37:11 2019
+From: steve.dower at python.org (Steve Dower)
+Date: Tue, 21 May 2019 11:37:11 -0700
+Subject: [python-committers] Azure build operations
+In-Reply-To: <bd505a47-28e6-d6ba-4e86-ce0c65a51558@python.org>
+References: <bd505a47-28e6-d6ba-4e86-ce0c65a51558@python.org>
+Message-ID: <4112c3a7-2771-9f28-53f2-9ef48865ee79@python.org>
+
+Close/reopen is still the easiest way, unfortunately. I've been bugging 
+the team to improve this, but other priorities have been higher.
+
+And I see this is a backport, which means as soon as you close it 
+miss-islington will delete the branch and there's no way to restart it.
+
+If we integrated Pipelines through the GitHub app then it would have a 
+"re-run check" button. I haven't done that yet as I don't have 
+permissions to update our GitHub org and haven't forced someone who does 
+to sit down and do it with me :)
+
+For those of us who can log in (GitHub auth integration is also delayed, 
+so it's manual user management right now) there should be a "Rebuild" 
+button in the new UI, but that's missing on your build for some reason. 
+I'll ping some people to find out.
+
+Cheers,
+STeve
+
+On 21May2019 1110, Antoine Pitrou wrote:
+> 
+> Hello,
+> 
+> How can I restart a failed build on Azure?
+> https://dev.azure.com/Python/cpython/_build/results?buildId=43161&view=logs&j=18d1a34d-6940-5fc1-f55b-405e2fba32b1
+> 
+> Regards
+> 
+> Antoine.
+
+
+From mariatta at python.org  Tue May 21 15:34:32 2019
+From: mariatta at python.org (Mariatta)
+Date: Tue, 21 May 2019 21:34:32 +0200
+Subject: [python-committers] Azure build operations
+In-Reply-To: <4112c3a7-2771-9f28-53f2-9ef48865ee79@python.org>
+References: <bd505a47-28e6-d6ba-4e86-ce0c65a51558@python.org>
+ <4112c3a7-2771-9f28-53f2-9ef48865ee79@python.org>
+Message-ID: <CAGbohnYOyCTvGjDmt7rc97cY3KW-aT_CFhjrTt3zsXBPNKG-Qw@mail.gmail.com>
+
+Maybe worth implementing a `retest` command so our bots can retrigger the
+tests without closing PR.
+Jenkins has this command.
+?
+
+On Tue, May 21, 2019 at 8:40 PM Steve Dower <steve.dower at python.org> wrote:
+
+> Close/reopen is still the easiest way, unfortunately. I've been bugging
+> the team to improve this, but other priorities have been higher.
+>
+> And I see this is a backport, which means as soon as you close it
+> miss-islington will delete the branch and there's no way to restart it.
+>
+> If we integrated Pipelines through the GitHub app then it would have a
+> "re-run check" button. I haven't done that yet as I don't have
+> permissions to update our GitHub org and haven't forced someone who does
+> to sit down and do it with me :)
+>
+> For those of us who can log in (GitHub auth integration is also delayed,
+> so it's manual user management right now) there should be a "Rebuild"
+> button in the new UI, but that's missing on your build for some reason.
+> I'll ping some people to find out.
+>
+> Cheers,
+> STeve
+>
+> On 21May2019 1110, Antoine Pitrou wrote:
+> >
+> > Hello,
+> >
+> > How can I restart a failed build on Azure?
+> >
+> https://dev.azure.com/Python/cpython/_build/results?buildId=43161&view=logs&j=18d1a34d-6940-5fc1-f55b-405e2fba32b1
+> >
+> > Regards
+> >
+> > Antoine.
+>
+> _______________________________________________
+> python-committers mailing list
+> python-committers at python.org
+> https://mail.python.org/mailman/listinfo/python-committers
+> Code of Conduct: https://www.python.org/psf/codeofconduct/
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20190521/8f2f4ae2/attachment-0001.html>
+
+From cheryl.sabella at gmail.com  Tue May 21 16:04:01 2019
+From: cheryl.sabella at gmail.com (Cheryl Sabella)
+Date: Tue, 21 May 2019 16:04:01 -0400
+Subject: [python-committers] Azure build operations
+In-Reply-To: <8c3cc6d3-b128-b746-df55-fc166502fe38@python.org>
+References: <bd505a47-28e6-d6ba-4e86-ce0c65a51558@python.org>
+ <CACac1F-y=9gpxEjDtLTsLjoh=nzrGS2eFd8wRTGB+CLoz0PvFQ@mail.gmail.com>
+ <8c3cc6d3-b128-b746-df55-fc166502fe38@python.org>
+Message-ID: <CABcGAgB1oS85B_3VH0ORQbc0Bro6=eFztnombc_YAdmJDxVU2Q@mail.gmail.com>
+
+When miss-islington has deleted the branch, I've gone just closed that PR
+and then added the 'backport' label to the original PR.  She starts all
+over.  :-
+
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20190521/2dab215b/attachment.html>
+
+From steve.dower at python.org  Tue May 21 16:32:25 2019
+From: steve.dower at python.org (Steve Dower)
+Date: Tue, 21 May 2019 13:32:25 -0700
+Subject: [python-committers] Azure build operations
+In-Reply-To: <CAGbohnYOyCTvGjDmt7rc97cY3KW-aT_CFhjrTt3zsXBPNKG-Qw@mail.gmail.com>
+References: <bd505a47-28e6-d6ba-4e86-ce0c65a51558@python.org>
+ <4112c3a7-2771-9f28-53f2-9ef48865ee79@python.org>
+ <CAGbohnYOyCTvGjDmt7rc97cY3KW-aT_CFhjrTt3zsXBPNKG-Qw@mail.gmail.com>
+Message-ID: <94e51f71-576d-d739-0cde-d6cfe42ad838@python.org>
+
+On 21May2019 1234, Mariatta wrote:
+> Maybe worth implementing a `retest` command so our bots can retrigger 
+> the tests without closing PR.
+> Jenkins has this command.
+
+Or at the very least, a command so the bot can close/reopen the PR 
+itself without deleting the branch.
+
+I honestly don't think we'll ever truly get to 100% reliability across 
+all CI systems, or every check getting to the point where they're fully 
+integrated with GitHub and have their own "rerun" button, so I suspect 
+we'll be closing and reopening PRs for a while to come.
+
+Cheers,
+Steve
+
+

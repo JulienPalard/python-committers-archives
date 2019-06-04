@@ -1,0 +1,93 @@
+From lukasz at langa.pl  Mon Jun  3 13:56:05 2019
+From: lukasz at langa.pl (=?utf-8?Q?=C5=81ukasz_Langa?=)
+Date: Mon, 3 Jun 2019 19:56:05 +0200
+Subject: [python-committers] Python 3.8.0b1 not there yet
+Message-ID: <E36763E4-94B4-417B-A03D-6716D80881F6@langa.pl>
+
+tl;dr - We're on it but Beta 1 is special and the buildbots need more
+cowbell^H^H more green.
+
+---
+
+Today Victor's been very active helping getting the stable buildbots green. Two
+main issues that were blocking Beta 1 were: a coredump in new functionality for
+subinterpreters (BPO-33608) and asyncio tests being flaky by altering the
+environment (BPO-37137).
+
+The former was solved by reverting the offending change. Victor did merge a few
+changes to help with the latter but it's sadly still red on the stable
+buildbots.
+
+While it's "just" an altered environment, I'd feel really bad about releasing
+the first beta with three stable buildbots in the red. Thankfully, Andrew
+Svetlov is looking at the problem as you're reading this.
+
+Another thing about Beta 1 is that it's the moment where the branch is cut,
+which also triggers quite a few required configuration changes in CI, Github,
+Buildbot, Roundup, and so on. Ned has been helping me understand the full scope
+of this today.
+
+**Please avoid pushing last minute changes while we are trying to get the
+stable buildbots all green for release. Thanks for your understanding!**
+
+- ?
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 833 bytes
+Desc: Message signed with OpenPGP
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20190603/4a10e0d1/attachment.sig>
+
+From pablogsal at gmail.com  Mon Jun  3 14:05:37 2019
+From: pablogsal at gmail.com (Pablo Galindo Salgado)
+Date: Mon, 3 Jun 2019 19:05:37 +0100
+Subject: [python-committers] RSVP: CPython core dev sprint
+Message-ID: <CAFjbc8Hj5dpGy3gSZS1VDhiLo_whcc=_SkY0yS_sX+cwTeHjfg@mail.gmail.com>
+
+Hi everyone,
+
+I am helping to co-organize together with the PSF the CPython core
+developer sprint that will take place in London from the 9th to the 13th of
+September.
+
+If you want to attend the core developer sprint, please, self nominate
+yourself by filling this form:
+
+https://docs.google.com/forms/d/e/1FAIpQLSfYJ81qDnclStfzcYfltZViooJLiBCXex4R730baUw9JeRf_Q/viewform?usp=sf_link
+
+You need to fill the form even if you don't need PSF support for the travel
+and accommodation so we can successfully prepare for adequate meeting space
+and catering. After we have received all responses, Ewa will reach out to
+you individually with additional information for booking rooms and getting
+travel reimbursed if you requested it.
+
+Please, fill the form before June 14th.
+
+Here you can find some information regarding the venue:
+
+https://www.bloomberg.com/company/london/
+
+3 Queen Victoria St
+
+London
+
+EC4N 4TQ
+
+Google Maps: https://goo.gl/maps/sPLba2VqptT2
+
+The support for traveling and the accommodation will be provided by the PSF
+and the money raised by Pylondinium (https://pylondinium.org/).
+
+If you have any questions, requirements or suggestions or you need any
+support, please, contact me (pablogsal at gmail.com) or Ewa (ewa at python.org).
+
+Thank you very much and I hope to see you in London!
+
+
+Pablo Galindo Salgado
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.python.org/pipermail/python-committers/attachments/20190603/100cd48c/attachment.html>
+
